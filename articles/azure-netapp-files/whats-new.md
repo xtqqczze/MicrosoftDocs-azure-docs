@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/20/2024
+ms.date: 01/27/2025
 ms.author: anfdocs
 ---
 
@@ -14,12 +14,12 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Backup support for large volumes](large-volumes-requirements-considerations.md#back-up-large-volumes) is now generally available (GA)
+* [Backup support for large volumes](large-volumes-requirements-considerations.md) is now generally available (GA)
 
-    Azure NetApp Files backup now supports large volumes by moving point-in-time snapshot copy data to low-cost Azure storage to address long-term retention, data protection, and compliance needs. Azure NetApp Files backup employs an efficient data mover to backup data at high speeds for both initial and incremental subsequent backups. 
+    [Azure NetApp Files backup](backup-requirements-considerations.md) now supports large volumes by moving point-in-time snapshot copy data to low-cost Azure storage to address long-term retention, data protection, and compliance needs. Azure NetApp Files backup employs an efficient data mover to backup data at high speeds for both initial and incremental subsequent backups. 
 
 
-* [Backup support for large volumes](large-volumes-requirements-considerations.md#back-up-large-volumes) (preview)
+* [Backup support for large volumes](large-volumes-requirements-considerations.md) (preview)
 
     Azure NetApp Files backup now supports large volumes by moving point-in-time snapshot copy data to low-cost Azure storage to address long-term retention, data protection, and compliance needs. Azure NetApp Files backup employs an efficient data mover to backup data at high speeds for both initial and incremental subsequent backups. 
 
