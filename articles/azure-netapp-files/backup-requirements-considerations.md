@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/13/2024
+ms.date: 01/27/2025
 ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 
@@ -45,6 +45,8 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 * If you delete a volume, the backups remain. If you no longer need the backups, you should [manually delete the backups](backup-delete.md).
 
 * If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription doesn't delete the backups.
+
+* To use Azure NetApp Files with large volumes, you must be [registered to use large volumes](large-volumes-requirements-considerations.md).
 
 ## Next steps
 

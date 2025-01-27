@@ -123,27 +123,6 @@ Check the status of the feature registration:
     
 You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
 
-## <a name="back-up-large-volumes"></a>Back up large volumes (preview)
-
-[Azure NetApp Files backup](backup-introduction.md) for large volumes is currently in preview. You must register for the preview before you can create a backup of a large volume. Feature registration may take up to 60 minutes to complete.
-
-1. Register the feature
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupLargeVolumes
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupLargeVolumes
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
-
 ## Next steps
 
 * [Understand large volumes](large-volumes.md)
