@@ -799,4 +799,3 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 ## Next steps
 * [What is Azure NetApp Files](azure-netapp-files-introduction.md)
 * [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-                                                                                              
