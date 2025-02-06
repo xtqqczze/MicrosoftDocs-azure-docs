@@ -46,7 +46,7 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription doesn't delete the backups.
 
-* To use Azure NetApp Files with large volumes, you must be [registered to use large volumes](large-volumes-requirements-considerations.md).
+* To use Azure NetApp Files backup with large volumes, you must be [registered to use large volumes](large-volumes-requirements-considerations.md).  
 
 ## Next steps
 
