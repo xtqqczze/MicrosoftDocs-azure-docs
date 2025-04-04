@@ -115,6 +115,10 @@
       href: regional-capacity-quota.md
     - name: Understand default and individual user and group quotas
       href: default-individual-user-group-quotas-introduction.md
+  - name: Object REST API 
+    items: 
+    - name: Understand Object REST API 
+      href: object-rest-api-introduction.md
   - name: Performance
     items:
     - name: Best practices and considerations
@@ -333,6 +337,12 @@
       items:
       - name: Create a dual-protocol volume 
         href: create-volumes-dual-protocol.md
+    - name: Manage object REST API access
+      items:
+      - name: Configure object REST API access
+        href: object-rest-api-access-configure.md
+      - name: Connect to Azure Databricks 
+        href: object-rest-api-databricks.md
     - name: Manage volume access and encryption 
       items:
       - name: Configure export policy for NFS or dual protocol
