@@ -17,7 +17,7 @@ Azure NetApp Files supports connecting to Azure Databricks via an Azure NetApp F
 
 Ensure you have the following: 
 
-- An active [Azure Databricks workspace](/databricks/workspace/)
+- An active [Azure Databricks workspace](/azure/databricks/workspace/workspace-browser)
 - An [Azure NetApp Files object REST API-enabled volume](object-rest-api-access-configure.md)
 - SSL certificate for the compute endpoints
 - Necessary permissions to access Azure Databricks and the Azure NetApp Files volume
@@ -33,7 +33,7 @@ This process requires using both the Azure NetApp Files portal and your Databric
 
 ### Create the `init` script 
 
-1. Write a bash script to load the SSL certificate. Save the script with a .sh extension. For example:
+1. Write a bash script to load the SSL certificate. Save the script with an .sh extension. For example:
 
 ````bash
 #!/bin/bash 

@@ -92,3 +92,4 @@ Deleting a bucket is a permanent operation. You can't recover the bucket once it
 * [Create an Amazon S3 compatible shortcut](/fabric/onelake/create-s3-compatible-shortcut)
 * [Understand REST API object](object-rest-api-introduction.md)
 * [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api)
+* [Connect Azure Databricks to an Azure NetApp Files volume](object-rest-api-databricks.md)

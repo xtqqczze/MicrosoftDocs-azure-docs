@@ -24,4 +24,4 @@ Azure NetApp Files supports the Object REST API, an S3-comptabile REST API. The 
 
 ## Next steps 
 
-* [Configure object REST API access](configure-object-rest-api-access.md)
+* [Configure object REST API access](object-rest-api-access-configure.md)
