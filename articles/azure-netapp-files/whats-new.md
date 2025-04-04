@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 03/25/2025
+ms.date: 04/01/2025
 ms.author: anfdocs
 ---
 
@@ -18,6 +18,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     The [Object REST API (an S3-compatible REST API)](object-rest-api-introduction.md) on Azure NetApp Files bridges the gap between traditional file-based storage and modern cloud services, enabling you to use your existing data in new ways. By providing integration via Microsoft Fabric with Azure AI services, native S3 read access from modern applications, and other Azure services, you can unlock new use cases, reduce costs, and accelerate innovation. The object REST API feature is currently only supported on NFS volumes and is read-only. This feature is currently in preview. 
 
+## April 2025
+
+* [File access logs](manage-file-access-logs.md) (preview)
+
+    File Access Logs provides detailed logging of file access activities, including user identity, operation type, and timestamps, enhancing security, reliability, and operational insights. It supports SMB, NFSv4.1, and dual-protocol volumes, offering valuable features for monitoring unauthorized access, tracing activity for compliance, resolving incidents, and optimizing data usage patterns. By embedding this capability, you can strengthen your organization's security posture, maintain system reliability, and achieve operational excellence in alignment with the Well-Architected Framework security best practices. Azure NetApp Files file access logs play a critical role in safeguarding sensitive data, detecting anomalies while enabling operational excellence.
+  
 ## March 2025
 
 * [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) (preview)
@@ -656,7 +662,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     The following features are now GA. You no longer need to register the features before using them.
     * [Dynamic change of service level](dynamic-change-volume-service-level.md)
     * [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users)
-
 
 ## March 2022
 
