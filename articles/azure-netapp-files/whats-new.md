@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Object REST API](object-rest-api-access-configure.md) (Preview)
+
+    The [Object REST API (an S3-compatible REST API)](object-rest-api-introduction.md) on Azure NetApp Files bridges the gap between traditional file-based storage and modern cloud services, enabling you to use your existing data in new ways. By providing integration via Microsoft Fabric with Azure AI services, native S3 read access from modern applications, and other Azure services, you can unlock new use cases, reduce costs, and accelerate innovation. The object REST API feature is currently only supported on NFS volumes and is read-only. This feature is currently in preview. 
+
 ## March 2025
 
 * [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) (preview)

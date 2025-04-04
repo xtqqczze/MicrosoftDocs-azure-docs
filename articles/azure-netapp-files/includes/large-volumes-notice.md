@@ -9,6 +9,7 @@ ms.custom: include file
 # azure-netapp-files-create-volumes-smb
 # create-volumes-dual-protocol
 # azure-netapp-files-create-volumes
+# object-rest-api-access-configure.md
 ---
 
 Regular volumes quotas are between 50 GiB and 100 TiB. Large volume quotas range from 50 TiB to 1 PiB in size. If you intend for the volume quota to fall in the large volume range, select **Yes**. Volume quotas are entered in GiB.
