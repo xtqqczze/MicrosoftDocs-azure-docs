@@ -9,7 +9,7 @@ ms.date: 03/15/2025
 ms.author: greglin
 ---
 
-# FIPS 140 in Application Gateway (Preview)
+# FIPS 140-2 in Application Gateway (Preview)
 
 Application Gateway V2 SKUs can run in a FIPS (Federal Information Processing Standard) 140-2 approved mode of operation, which is commonly referred to as "FIPS mode". With FIPS 140-2, Application Gateway supports cryptographic modules and data encryption with Level 2 validation. The FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled.
 
@@ -36,7 +36,7 @@ Once enabled, the gateway will exclusively support TLS policies and cipher suite
 
 ## Supported TLS policies
 
-Application Gateway offers two mechanisms for controlling TLS policy. You can use either a Predefined policy or a Custom policy. For complete details, visit [TLS policy overview](application-gateway-ssl-policy-overview.md). A FIPS-enabled Application Gateway resource only suppports the following policies.
+Application Gateway offers two mechanisms for controlling TLS policy. You can use either a Predefined policy or a Custom policy. For complete details, visit [TLS policy overview](application-gateway-ssl-policy-overview.md). A FIPS-enabled Application Gateway resource only supports the following policies.
 
 ### Predefined
 * AppGwSslPolicy20220101
