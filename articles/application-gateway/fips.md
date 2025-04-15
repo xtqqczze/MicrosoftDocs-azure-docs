@@ -60,4 +60,6 @@ Application Gateway offers two mechanisms for controlling TLS policy. You can us
 
 Due to the restricted compatibility of TLS policies, enabling FIPS automatically selects AppGwSslPolicy20220101 for both "SSL Policy" and "SSL Profile". It can be modified to use other FIPS-compliant TLS policies later. To support legacy clients with other non-compliant cipher suites, it is possible to disable the FIPS mode, although this is not recommended for resources within the scope of FedRAMP infrastructure.
 
+## Next steps
 
+If you want to configure a TLS policy, you can do so via the Portal or use these [PowerShell commands](application-gateway-configure-ssl-policy-powershell.md).
