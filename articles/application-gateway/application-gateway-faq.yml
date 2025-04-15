@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: azure-application-gateway
   ms.topic: faq
-  ms.date: 07/15/2024
+  ms.date: 04/15/2025
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
@@ -283,9 +283,9 @@ sections:
 
       - question: Does Application Gateway support FIPS?
         answer: |
-          Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via PowerShell, Azure Resource Manager template, or REST API after the subscription has been enrolled to enable configuration of `FIPSmode`.
-
-          **Note:** As part of the FedRAMP compliance, US Government mandates that systems operate in a [FIPS-approved mode](/azure/compliance/offerings/offering-fips-140-2) after August 2024. 
+          Application Gateway SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via Portal (for V2), PowerShell, Azure Resource Manager template, or REST API.
+          **Steps to enable FIPS Mode in V2 SKU**:
+          The details of the FIPS mode in V2 SKU are available in [enable FIPS mode for Azure Application Gateway V2 SKU](fips.md).          
           
           **Steps to enable FIPS Mode in V1 SKU**:
           
