@@ -1,17 +1,17 @@
 ---
-title: Self-host the API Management developer portal
+title: Self-Host the API Management Developer Portal
 titleSuffix: Azure API Management
 description: Learn how to self-host the developer portal for Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 03/29/2024
+ms.date: 04/15/2025
 ms.service: azure-api-management
 ms.topic: how-to
 ---
 
 # Self-host the API Management developer portal
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 This tutorial describes how to self-host the [API Management developer portal](api-management-howto-developer-portal.md). Self-hosting is one of several options to [extend the functionality](developer-portal-extend-custom-functionality.md) of the developer portal. For example, you can self-host multiple portals for your API Management instance, with different features. When you self-host a portal, you become its maintainer and you're responsible for its upgrades. 
 
@@ -66,7 +66,7 @@ To set up your local environment, you'll have to clone the repository, switch to
     ```
 
 > [!TIP]
-> Always use the [latest portal release](https://github.com/Azure/api-management-developer-portal/releases) and keep your forked portal up-to-date. The Software Engineers use the `master` branch of this repository for daily development purposes. It has unstable versions of the software.
+> Always use the [latest portal release](https://github.com/Azure/api-management-developer-portal/releases) and keep your forked portal up-to-date. The API Management development team uses the `master` branch of this repository for daily development purposes. It has unstable versions of the software.
 
 ## Step 2: Configure JSON files, static website, and CORS settings
 
@@ -78,40 +78,30 @@ Go to the `src` folder and open the `config.design.json` file.
 
 ```json
 {
-  "environment": "development",
-  "managementApiUrl": "https://<service-name>.management.azure-api.net",
-  "managementApiAccessToken": "SharedAccessSignature ...",
-  "backendUrl": "https://<service-name>.developer.azure-api.net",
-  "useHipCaptcha": false,
-  "integration": {
-      "googleFonts": {
-          "apiKey": "..."
-      }
-  }
+    "environment": "development",
+    "useHipCaptcha": false,
+    "integration": {
+        "googleFonts": {
+            "apiKey": "<Google API Key>"
+        }
+    },
+    "armEndpoint": "management.azure.com",
+    "subscriptionId":"<service subscription>",
+    "resourceGroupName":"<service resource group>",
+    "serviceName":"<service name>",
+    "clientId": "<Optional. The Client ID of the Microsoft Entra application that users will sign into>",
+    "tenantId": "<Optional. The Microsoft Entra tenant (directory) ID>"
 }
 ```
 
 Configure the file:
 
-1. In the `managementApiUrl` value, replace `<service-name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead (for example, `https://management.contoso.com`).
+1. In `subscriptionId`, `resourceGroupName`, and `serviceName`, enter values for the subscription, resource group, and service name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead for the value of `serviceName` (for example, `https://portal.contoso.com`). For example:
 
     ```json
     {
     ...
-    "managementApiUrl": "https://contoso-api.management.azure-api.net"
-    ...
-    ``` 
-
-1. [Manually create a SAS token](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication#ManuallyCreateToken) to enable the direct REST API access to your API Management instance.
-
-1. Copy the generated token and paste it as the `managementApiAccessToken` value.
-
-1. In the `backendUrl` value, replace `<service-name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead (for example, `https://portal.contoso.com`).
-
-    ```json
-    {
-    ...
-    "backendUrl": "https://contoso-api.developer.azure-api.net"
+    "serviceName": "https://contoso-api.developer.azure-api.net"
     ...
     ```
 
@@ -127,6 +117,8 @@ Configure the file:
     1. Select **Edit API key** to open the key editor.
     1. In the editor, under **API restrictions**, select **Restrict key**. In the dropdown, select **Web Fonts Developer API**. 
     1. Select **Save**.
+  
+1. Optionally, set `clientId` and `tenantId` to the Client ID and tenant ID of the Microsoft Entra app that users will sign into. This is only needed if you want to use Microsoft Entra authentication in your developer portal. For more information about configuring the Microsoft Entra app, see [Manually enable Microsoft Entra application and identity provider](api-management-howto-aad.md#manually-enable-microsoft-entra-application-and-identity-provider).
 
 ### config.publish.json file
 
@@ -134,16 +126,20 @@ Go to the `src` folder and open the `config.publish.json` file.
     
 ```json
 {
-  "environment": "publishing",
-  "managementApiUrl": "https://<service-name>.management.azure-api.net",
-  "managementApiAccessToken": "SharedAccessSignature...",
-  "useHipCaptcha": false
+    "environment": "publishing",
+    "armEndpoint": "management.azure.com",
+    "subscriptionId":"<service subscription>",
+    "resourceGroupName":"<service resource group>",
+    "serviceName":"<service name>",
+    "clientId": "<Optional. The Client ID of the Microsoft Entra application that users will sign into>",
+    "tenantId": "<Optional. The Microsoft Entra tenant (directory) ID>",
+    "useHipCaptcha": false
 }
 ```
 
 Configure the file:
 
-1. Copy and paste the `managementApiUrl` and `managementApiAccessToken` values from the previous configuration file.
+1. Copy and paste the `subscriptionId`, `resourceGroupName`, and `serviceName`values from the previous configuration file. If configured, also copy the `clientId` and `tenantId` values.
 
 1. If you'd like to enable CAPTCHA in your developer portal, set `"useHipCaptcha": true`. Make sure to [configure CORS settings for developer portal backend](#configure-cors-settings-for-developer-portal-backend).
 
@@ -153,15 +149,18 @@ Go to the `src` folder and open the `config.runtime.json` file.
 
 ```json
 {
-  "environment": "runtime",
-  "managementApiUrl": "https://<service-name>.management.azure-api.net",
-  "backendUrl": "https://<service-name>.developer.azure-api.net"
+    "environment": "runtime",
+    "backendUrl": "https://<service-name>.developer.azure-api.net",
+    "featureFlags": {
+        "clientTelemetry": true
+    },
+
+    "directDataApi": false,
+    "dataApiUrl": "https://<service name>.data.azure-api.net"
 }
 ```
 
 Configure the file:
-
-1. Copy and paste the `managementApiUrl` value from the previous configuration file.
 
 1. In the `backendUrl` value, replace `<service-name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead (for example. `https://portal.contoso.com`).
 
@@ -171,6 +170,19 @@ Configure the file:
     "backendUrl": "https://contoso-api.developer.azure-api.net"
     ...
     ```
+
+1. In `featureFlags`, if you want to collect user session data from the developer portal, set `"clientTelemetry": true`.
+
+1. In the `dataApiUrl` value, replace `<service name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead (for example, `https://portal.contoso.com`).
+
+    ```json
+    {
+    ...
+    "dataApiUrl": "https://contoso-api.data.azure-api.net"
+    ...
+    ```
+1. If you want to use the direct data API from the developer portal, set `"directDataApi": true`. 
+<!-- What is/how to use data API? -->
 
 ### Configure the static website
 
@@ -253,7 +265,7 @@ npm run publish
 
 ## Step 6: Upload static files to a blob
 
-Use Azure CLI to upload the locally generated static files to a blob, and make sure your visitors can get to them:
+Use the Azure CLI to upload the locally generated static files to a blob, and make sure your visitors can get to them:
 
 1. Open Windows Command Prompt, PowerShell, or other command shell.
 
@@ -438,11 +450,7 @@ Over time, your business requirements may change. You can end up in a situation 
 
 You can transition from the managed version to a self-hosted version within the same API Management service instance. The process preserves the modifications that you've carried out in the managed version of the portal. Make sure you back up the portal's content beforehand. You can find the backup script in the `scripts` folder of the API Management developer portal [GitHub repo](https://github.com/Azure/api-management-developer-portal).
 
-The conversion process is almost identical to setting up a generic self-hosted portal, as shown in previous steps in this article. There is one exception in the configuration step. The storage account in the `config.design.json` file needs to be the same as the storage account of the managed version of the portal. See [Tutorial: Use a Linux VM system-assigned identity to access Azure Storage via a SAS credential](../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-sas.md#get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls) for instructions on how to retrieve the SAS URL.
-
-> [!TIP]
-> We recommend using a separate storage account in the `config.publish.json` file. This approach gives you more control and simplifies the management of the hosting service of your portal.
-
+The conversion process is generally the same as setting up a generic self-hosted portal, as shown in previous steps in this article.
 
 ## Related content
 
