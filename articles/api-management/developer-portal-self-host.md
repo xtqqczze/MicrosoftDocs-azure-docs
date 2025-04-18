@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to self-host the developer portal for Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 04/15/2025
+ms.date: 04/18/2025
 ms.service: azure-api-management
 ms.topic: how-to
 ---
@@ -118,7 +118,7 @@ Configure the file:
     1. In the editor, under **API restrictions**, select **Restrict key**. In the dropdown, select **Web Fonts Developer API**. 
     1. Select **Save**.
   
-1. Optionally, set `clientId` and `tenantId` to the client ID and tenant ID of the Microsoft Entra app that users will sign into. This is only needed if you want to use Microsoft Entra authentication in your developer portal. For more information about configuring the Microsoft Entra app, see [Manually enable Microsoft Entra application and identity provider](api-management-howto-aad.md#manually-enable-microsoft-entra-application-and-identity-provider).
+1. Optionally, set `clientId` and `tenantId` to the client ID and tenant ID of the Microsoft Entra app that users will sign into. This is needed if you want to enable Microsoft Entra user sign-in to your developer portal. For more information about configuring the Microsoft Entra app, see [Manually enable Microsoft Entra application and identity provider](api-management-howto-aad.md#manually-enable-microsoft-entra-application-and-identity-provider).
 
     Make sure also to [configure CORS settings for developer portal backend](#configure-cors-settings-for-developer-portal-backend).
 
@@ -162,29 +162,34 @@ Go to the `src` folder and open the `config.runtime.json` file.
 }
 ```
 
-Configure the file:
+1. Configure either `backendUrl` or settings for for the direct data API. If your API Management instance is in one of the v2 service tiers, you must use the direct data API. If your API Management instance is in one of the classic service tiers, you can configure either `backendUrl` or settings for the direct data API.  
 
-1. In the `backendUrl` value, replace `<service-name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md) for your developer portal, use it instead (for example. `https://portal.contoso.com`).
+    > [!IMPORTANT]
+    > Remove the `backendUrl` setting if you set `directDataApi` to true. And conversely, remove direct data API settings if you configure the `backendUrl`.
 
-    ```json
-    {
-    ...
-    "backendUrl": "https://contoso-api.developer.azure-api.net"
-    ...
-    ```
+    * To set the `backendUrl` value, replace `<service-name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md) for your developer portal, use it instead (for example. `https://portal.contoso.com`).
 
-1. In `featureFlags`, if you want to collect user session data from the developer portal, set `"clientTelemetry": true`.
+        ```json
+        {
+        ...
+        "backendUrl": "https://contoso-api.developer.azure-api.net"
+        ...
+        }
+        ```
 
-1. In the `dataApiUrl` value, replace `<service name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead (for example, `https://portal.contoso.com`).
+    * To use the direct data API, set `directDataApi` to true. In the `dataApiUrl` value, replace `<service name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead (for example, `https://portal.contoso.com`).
+    
+        ```json
+        {
+        ...
+        "directDataApi": true,
+        "dataApiUrl": "https://contoso-api.data.azure-api.net"
+        ...
+        }
+        ```
 
-    ```json
-    {
-    ...
-    "dataApiUrl": "https://contoso-api.data.azure-api.net"
-    ...
-    ```
-1. If you want to use the direct data API from the developer portal, set `"directDataApi": true`. 
-<!-- What is/how to use data API? -->
+1. Optionally, in `featureFlags`, if you want to collect user session data from the developer portal, set `"clientTelemetry": true`.
+
 
 ### Configure the static website
 
@@ -224,6 +229,7 @@ Configure the cross-origin resource sharing (CORS) settings for the storage acco
 
 Configure CORS settings for the developer portal backend to allow requests originating through your self-hosted developer portal. The self-hosted developer portal relies on the developer portal's backend endpoint (set in `backendUrl` in the portal configuration files) to enable several features, including: 
 
+* Microsoft Entra authentication
 * CAPTCHA verification
 * [OAuth 2.0 authorization](api-management-howto-oauth2.md) in the test console
 * [Delegation](api-management-howto-setup-delegation.md) of user authentication and product subscription 
@@ -264,7 +270,7 @@ See [Tutorial: Access and customize the developer portal](api-management-howto-d
 The portal data originates in the form of strong-typed objects. The following command translates them into static files and places the output in the `./dist/website` directory:
 
 ```console
-npm run publish
+npm run publish-arm
 ```
 
 ## Step 6: Upload static files to a blob
