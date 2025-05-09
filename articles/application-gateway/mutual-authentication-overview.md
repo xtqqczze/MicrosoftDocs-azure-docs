@@ -20,7 +20,20 @@ Mutual authentication, or client authentication, allows for the Application Gate
 
 Application Gateway supports certificate-based mutual authentication where you can upload a trusted client CA certificate(s) to the Application Gateway, and the gateway will use that certificate to authenticate the client sending a request to the gateway. With the rise in IoT use cases and increased security requirements across industries, mutual authentication provides a way for you to manage and control which clients can talk to your Application Gateway. 
 
-To configure mutual authentication, a trusted client CA certificate is required to be uploaded as part of the client authentication portion of an SSL profile. The SSL profile will then need to be associated to a listener in order to complete configuration of mutual authentication. There must always be a root CA certificate in the client certificate that you upload. You can upload a certificate chain as well, but the chain must include a root CA certificate in addition to as many intermediate CA certificates as you'd like. The maximum size of each uploaded file must be 25 KB or less.
+Application Gateway provides following two options to validate client certificates:
+
+
+## Mutual TLS Passthrough Mode 
+In mutual TLS passthrough mode, Application Gateway requests a client certificate during the TLS handshake but does not terminate the connection if the certificate is missing or invalid. The connection to the backend proceeds regardless of the certificate's presence or validity. If a certificate is provided, Application Gateway can forward it to the backend if required by the application. The backend service is responsible for validating the client certificate. Refer to  [server variables](./rewrite-http-headers-url.md#mutual-authentication-server-variables) if you want to configure certificate forwarding. There is no need to upload any CA certificate when it is on Passthrough mode.
+
+
+## Mutual TLS Strict Mode
+In mutual TLS strict mode, Application Gateway enforces client certificate authentication during the TLS handshake by requiring a valid client certificate. To enable this, a trusted client CA certificate containing a root CA and optionally intermediate CAs must be uploaded as part of the SSL profile. This SSL profile is then associated with a listener to enforce mutual authentication. 
+
+
+## Details of configuring Mutual TLS Strict Mode 
+
+To configure mutual authentication Strict Mode, a trusted client CA certificate is required to be uploaded as part of the client authentication portion of an SSL profile. The SSL profile will then need to be associated to a listener in order to complete configuration of mutual authentication. There must always be a root CA certificate in the client certificate that you upload. You can upload a certificate chain as well, but the chain must include a root CA certificate in addition to as many intermediate CA certificates as you'd like. The maximum size of each uploaded file must be 25 KB or less.
 
 For example, if your client certificate contains a root CA certificate, multiple intermediate CA certificates, and a leaf certificate, make sure that the root CA certificate and all the intermediate CA certificates are uploaded onto Application Gateway in one file. For more information on how to extract a trusted client CA certificate, see [how to extract trusted client CA certificates](./mutual-authentication-certificate-management.md).
 
@@ -35,7 +48,7 @@ Each SSL profile can support up to 100 trusted client CA certificate chains.  A 
 > * Mutual authentication is only available on Standard_v2 and WAF_v2 SKUs.
 > * Configuration of Mutual authentication for [TLS protocol listeners (preview)](tcp-tls-proxy-overview.md) is currently available through REST API, PowerShell, and CLI. Azure Portal support is coming soon.
 
-### Certificates supported for mutual authentication
+### Certificates supported for mutual TLS Strict mode authentication
 
 Application Gateway supports certificates issued from both public and privately established certificate authorities.
 
@@ -45,7 +58,7 @@ Application Gateway supports certificates issued from both public and privately 
 > [!NOTE]
 > When issuing client certificates from well established certificate authorities, consider working with the certificate authority to see if an intermediate certificate can be issued for your organization to prevent inadvertent cross-organizational client certificate authentication.
 
-## Additional client authentication validation
+## Additional client authentication validation for mutual TLS Strict mode
 
 ### Verify client certificate DN
 
