@@ -10,8 +10,8 @@ ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---
 
-# Configure mutual authentication with Application Gateway through PowerShell
-This article describes how to use the PowerShell to configure mutual authentication on your Application Gateway. Mutual authentication means Application Gateway authenticates the client sending the request using the client certificate you upload onto the Application Gateway. 
+# Configure mutual authentication strict mode with Application Gateway through PowerShell
+This article describes how to use the PowerShell to configure mutual authenticationstrict mode on your Application Gateway. Mutual authentication means Application Gateway authenticates the client sending the request using the client certificate you upload onto the Application Gateway. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
