@@ -55,10 +55,10 @@ To configure an existing Application Gateway with mutual authentication strict m
     > [!div class="mx-imgBorder"]
     > ![Add client authentication to SSL profile](./media/mutual-authentication-portal/mutual-authentication-portal.png)
 
-## Associate the SSL profile with a listener
+**Associate the SSL profile with a listener (Strict)**
 
 Now that we've created an SSL profile with mutual authentication configured, we need to associate the SSL profile to the listener to complete the set up of mutual authentication. 
-
+ 
 1. Navigate to your existing Application Gateway. If you just completed the steps above, you don't need to do anything here. 
 
 2. Select **Listeners** from the left-side menu. 
@@ -104,9 +104,9 @@ To configure an existing Application Gateway with mutual authentication passthro
 
 8. Select **Add** to save.
     > [!div class="mx-imgBorder"]
-    > ![Add client authentication to SSL profile](./media/mutual-authentication-portal/mutual-authentication-portal.pngTBD)
+    > ![Add client authentication to SSL profile](./media/mutual-authentication-portal/mutual-authentication-portal.png)
 
-## Associate the SSL profile with a listener
+**Associate the SSL profile with a listener (Passthrough)**
 
 Now that we've created an SSL profile with mutual authentication configured, we need to associate the SSL profile to the listener to complete the set up of mutual authentication. 
 
