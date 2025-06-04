@@ -1,5 +1,6 @@
 ---
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 title: Configure mutual authentication on Azure Application Gateway through PowerShell
 description: Learn how to configure an Application Gateway to have mutual authentication through PowerShell
 services: application-gateway
@@ -135,6 +136,8 @@ When no longer needed, remove the resource group, application gateway, and all r
 Remove-AzResourceGroup -Name $rgname
 ```
 =======
+=======
+>>>>>>> Stashed changes
 title: Configure mutual authentication passthrough on Azure Application Gateway through arm
 description: Learn how to configure an Application Gateway to have mutual authentication through arm
 services: application-gateway
@@ -213,12 +216,16 @@ Now that we've created an SSL profile with mutual authentication configured, we 
 
     > [!div class="mx-imgBorder"]
     > ![Associate SSL profile to new listener](./media/mutual-authentication-portal/mutual-authentication-listener-portal.png)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 ## Renew expired client CA certificates
 
 In the case that your client CA certificate has expired, you can update the certificate on your gateway through the following steps: 
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 1. Sign in to Azure
     ```azurepowershell
@@ -242,6 +249,8 @@ In the case that your client CA certificate has expired, you can update the cert
     Set-AzApplicationGateway -ApplicationGateway $gateway
     ```
 =======
+=======
+>>>>>>> Stashed changes
 1. Navigate to your Application Gateway and go to the **SSL settings** tab in the left-hand menu. 
  
 1. Select the existing SSL profile(s) with the expired client certificate. 
@@ -251,6 +260,9 @@ In the case that your client CA certificate has expired, you can update the cert
 1. Select the trash can icon next to the expired certificate. This will remove the association of that certificate from the SSL profile. 
 
 1. Repeat steps 2-4 above with any other SSL profile that was using the same expired client certificate. You will be able to choose the new certificate you uploaded in step 3 from the dropdown menu in other SSL profiles.
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 ## Next steps
