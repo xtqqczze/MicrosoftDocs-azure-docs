@@ -4,7 +4,7 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/04/2025
+ms.date: 06/16/2025
 ms.author: kendownie
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
@@ -76,22 +76,20 @@ Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open. Conn
 
 ## Using an Azure file share with Windows
 
-To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or [access it via its UNC path](#access-an-azure-file-share-via-its-unc-path). 
+To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or [access it via its UNC path](#access-an-azure-file-share-via-its-unc-path). Shared access signature (SAS) tokens aren't currently supported for mounting Azure file shares.
 
-This article uses the storage account key to mount the file share, which is only appropriate for admin access. Mounting the share with the Active Directory or Microsoft Entra identity of the user is preferred. See [identity-based authentication overview](storage-files-active-directory-overview.md).
+> [!IMPORTANT]
+> Before mounting an Azure file share, we recommend configuring identity-based authentication for Azure Files. Identity-based authentication allows you to use your Active Directory or Microsoft Entra identity to access the file share, rather than using a storage account key. This method is more secure and provides better access control. For more information, see [identity-based authentication overview](storage-files-active-directory-overview.md).
+
 
 A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. You can find your storage account key in the [Azure portal](https://portal.azure.com/) by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
-
-Shared access signature (SAS) tokens aren't currently supported for mounting Azure file shares.
 
 > [!NOTE]
 > A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure virtual machine (VM). One important consideration for successfully migrating an LOB application to use an Azure file share is that many applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
 ### Mount the Azure file share
 
-The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host using the storage account key.
-
-To get this script:
+To mount an Azure file share using the Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to the storage account that contains the file share you'd like to mount.
@@ -105,7 +103,35 @@ To get this script:
     :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Screenshot of the connect icon for your file share.":::
 
 1. Select the drive letter to mount the share to.
-1. Copy the provided script.
+
+1. Under **Authentication method**, select *Active Directory or Microsoft Entra*. If you see a message that identity-based authentication isn't configured for your storage account, then configure it based on one of the methods described in [identity-based authentication overview](storage-files-active-directory-overview.md), and try mounting the share again.
+
+1. Select **show script** and copy the provided script.
+
+1. Paste the script into a shell on the host you'd like to mount the file share to, and run it.
+
+You have now mounted your Azure file share.
+
+### Mount the Azure file share using the storage account key (not recommended)
+
+The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host using the storage account key. However, we recommend using identity-based authentication instead of the storage account key for security reasons. If you still want to use the storage account key, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Navigate to the storage account that contains the file share you'd like to mount.
+1. Select **File shares**.
+1. Select the file share you'd like to mount.
+
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="Screenshot of file shares blade, file share is highlighted." lightbox="media/storage-how-to-use-files-windows/select-file-shares.png":::
+
+1. Select **Connect**.
+
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Screenshot of the connect icon for your file share.":::
+
+1. Select the drive letter to mount the share to.
+
+1. Under **Authentication method**, select *Storage account key*.
+
+1. Select **show script** and copy the provided script.
 
     :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-script.png" alt-text="Screenshot of connect blade, copy button on script is highlighted.":::
 
@@ -114,9 +140,6 @@ To get this script:
 You have now mounted your Azure file share.
 
 ### Mount the Azure file share with File Explorer
-
-> [!NOTE]
-> The following instructions are shown on Windows 10 and might differ slightly on other releases.
 
 1. Open File Explorer by opening it from the Start Menu, or by pressing the Win+E shortcut.
 
