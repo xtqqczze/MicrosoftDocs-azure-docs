@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 04/17/2025
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
+# Customer intent: As an Azure administrator, I want to manage virtual network flow logs so that I can log, analyze, and optimize IP traffic in my virtual network.
 ---
 
 # Create, change, enable, disable, or delete virtual network flow logs
@@ -115,7 +116,7 @@ Create a flow log for your virtual network, subnet, or network interface. This f
 
 1. In **Network Watcher | Flow logs**, select **+ Create** or **Create flow log** blue button.
 
-    :::image type="content" source="./media/vnet-flow-logs-manage/flow-logs.png" alt-text="Screenshot of Network Watcher flow logs in the Azure portal." lightbox="./media/vnet-flow-logs-manage/flow-logs.png":::
+    :::image type="content" source="./media/flow-logs.png" alt-text="Screenshot of Network Watcher flow logs in the Azure portal." lightbox="./media/flow-logs.png":::
 
 1. On the **Basics** tab of **Create a flow log**, enter or select the following values:
 

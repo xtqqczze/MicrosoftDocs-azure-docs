@@ -7,6 +7,8 @@ ms.date: 09/09/2024
 ms.topic: overview
 ms.custom: references_regions, devx-track-python, devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Azure Automation runbook types
@@ -364,5 +366,5 @@ You can create and edit graphical and graphical PowerShell Workflow runbooks usi
 
 * To learn about PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](./learn/powershell-runbook-managed-identity.md).
 * To learn about PowerShell Workflow runbooks, see [Tutorial: Create a PowerShell Workflow runbook](learn/automation-tutorial-runbook-textual.md).
-* To learn about graphical runbooks, see [Tutorial: Create a graphical runbook](./learn/powershell-runbook-managed-identity.md).
+* To learn about graphical runbooks, see [Tutorial: Create a graphical runbook](automation-graphical-authoring-intro.md).
 * To learn about Python runbooks, see [Tutorial: Create a Python runbook](./learn/automation-tutorial-runbook-textual-python-3.md).
