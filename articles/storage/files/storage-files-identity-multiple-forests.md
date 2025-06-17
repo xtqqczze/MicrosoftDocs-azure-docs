@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 06/17/2025
 ms.author: kendownie
 ---
 
@@ -113,15 +113,11 @@ Repeat steps 4-8 for **Forest2** domain **onpremad2.com** (storage account **onp
 
 In a multi-forest environment, use the icacls command-line utility to configure directory and file-level permissions for users in both forests. See [Configure Windows ACLs with icacls](storage-files-identity-configure-file-level-permissions.md#configure-windows-acls-with-icacls). 
 
-If icacls fails with an *Access is denied* error, follow these steps to configure directory and file-level permissions by mounting the share with the storage account key.
+If icacls fails with an *Access is denied* error, follow these steps to configure directory and file-level permissions.
 
 1. Delete the existing share mount: `net use * /delete /y`
 
-1. Re-mount the share using the storage account key:
-   
-   ```
-   net use <driveletter> \\storageaccount.file.core.windows.net\sharename /user:AZURE\<storageaccountname> <storageaccountkey>
-   ```
+1. Re-mount the share using either the Windows permission model for SMB admin (recommended) or the storage account key (not recommended). See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
    
 1. Set icacls permissions for user in **Forest2** on storage account joined to **Forest1** from client in **Forest1**.
 

@@ -4,10 +4,9 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/16/2024
+ms.date: 06/16/2025
 ms.author: kendownie
 ms.custom: engagement-fy23
-recommendations: false
 ---
 
 # Configure directory and file-level permissions for Azure file shares
