@@ -60,11 +60,11 @@ For more information on these advanced permissions, see [the command-line refere
 
 ## How it works
 
-There are two approaches you can take to configuring and editing Windows ACLs:
+Before you configure Windows ACLs, you must first mount the file share. There are two approaches you can take to configuring and editing Windows ACLs:
 
-- **Use the Windows permission model for SMB admin (recommended)**: Create a custom Azure RBAC role with the required permissions to edit ACLs, and assign that role to users who will be configuring ACLs. This approach is recommended for production environments because it doesn't require you to use your storage account key to configure ACLs.
+- **Use the Windows permission model for SMB admin (recommended)**: Create a custom Azure RBAC role with the required permissions to edit ACLs, and assign that role to users who will be configuring ACLs. Then mount the file share using [identity-based authentication](storage-files-active-directory-overview.md) and configure ACLs. This approach is recommended for production environments because it doesn't require you to use your storage account key to mount the file share.
 
-- **Use the storage account key (not recommended)**: Use your storage account key to mount the file share and configure ACLs. This approach isn't recommended for production environments because it requires you to use your storage account key, which is a sensitive credential. Use this option only if you're not able to create a custom Azure RBAC role and use identity-based authentication.
+- **Use the storage account key (not recommended)**: Use your storage account key to mount the file share and then configure ACLs. This approach isn't recommended for production environments because it requires you to use your storage account key, which is a sensitive credential. Use this option only if you're not able to create a custom Azure RBAC role and use identity-based authentication.
 
 ### Use the Windows permission model for SMB admin
 
@@ -82,7 +82,7 @@ After you create the custom role, assign it to users who will be configuring ACL
 
 You should now be able to configure and edit Windows ACLs without using your storage account key. To do this, mount the file share using [identity-based authentication](storage-files-active-directory-overview.md), and then [configure Windows ACLs](#configure-windows-acls).
 
-### Mount the file share using your storage account key
+### Mount the file share using your storage account key (not recommended)
 
 > [!WARNING]
 > Using the storage account key isn't recommended for production environments. If possible, use the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin) instead.
@@ -97,12 +97,12 @@ There are two methods you can use to configure and edit Windows ACLs using your 
   1. Assign those users the **Storage File Data SMB Share Elevated Contributor** Azure RBAC role.
   1. In the future, anytime you want to update ACLs, you can use one of those authorized users to log in from a machine that has unimpeded network connectivity to the domain controller and edit ACLs.
 
-Before you configure Windows ACLs, you must first mount the file share by using your storage account key. To do this, log in to a domain-joined device (as a Microsoft Entra user if your AD source is Microsoft Entra Domain Services), open a Windows command prompt, and run the following command. Remember to replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
+Log in to a domain-joined device (as a Microsoft Entra user if your AD source is Microsoft Entra Domain Services), open a Windows command prompt, and run the following command. Remember to replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 
 It's important that you use the `net use` Windows command to mount the share at this stage and not PowerShell. If you use PowerShell to mount the share, then the share won't be visible to Windows File Explorer or cmd.exe, and you'll have difficulty configuring Windows ACLs.
 
 > [!NOTE]
-> You might see the **Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share level and the file/directory level), this is restricted. Only users who have the **Storage File Data SMB Share Elevated Contributor** role (or create a custom role with the required permissions) and create a new file or directory can assign permissions on those new files or directories without using the storage account key.
+> You might see the **Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share level and the file/directory level), this is restricted. Only users who have the **Storage File Data SMB Share Elevated Contributor** role (or create a custom role with the required permissions) and create a new file or directory can assign permissions on those new files or directories without using the Windows permission model for SMB admin or storage account key.
 
 ```
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:localhost\<YourStorageAccountName> <YourStorageAccountKey>
