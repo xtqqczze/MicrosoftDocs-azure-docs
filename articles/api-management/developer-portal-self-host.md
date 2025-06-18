@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to self-host the developer portal for Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 04/18/2025
+ms.date: 06/17/2025
 ms.service: azure-api-management
 ms.topic: how-to
 ---
@@ -162,7 +162,7 @@ Go to the `src` folder and open the `config.runtime.json` file.
 }
 ```
 
-1. Configure either `backendUrl` or settings for for the direct data API. If your API Management instance is in one of the v2 service tiers, you must use the direct data API. If your API Management instance is in one of the classic service tiers, you can configure either `backendUrl` or settings for the direct data API.  
+1. Configure either `backendUrl` or settings for the direct data API. If your API Management instance is in one of the v2 service tiers, you must use the direct data API. If your API Management instance is in one of the classic service tiers, you can configure either `backendUrl` or settings for the direct data API.  
 
     > [!IMPORTANT]
     > Remove the `backendUrl` setting if you set `directDataApi` to true. And conversely, remove direct data API settings if you configure the `backendUrl`.
