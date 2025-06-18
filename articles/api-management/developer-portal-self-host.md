@@ -30,6 +30,8 @@ If you have already uploaded or modified media files in the managed portal, see 
 
 To set up a local development environment, you need to have:
 
+<!-- In v2 tiers, necessary to Enable dev portal? -->
+
 - An API Management service instance. If you don't have one, see [Quickstart - Create an Azure API Management instance](get-started-create-service-instance.md).
 - An Azure blob storage account, which you use to enable the [static websites feature](../storage/blobs/storage-blob-static-website.md). See [Create a storage account](../storage/common/storage-account-create.md).
 - Git on your machine. Install it by following [this Git tutorial](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
@@ -227,6 +229,8 @@ Configure the cross-origin resource sharing (CORS) settings for the storage acco
 
 ### Configure CORS settings for developer portal backend
 
+<!-- Necessary for both backendUrl and directDataApi settings? -->
+
 Configure CORS settings for the developer portal backend to allow requests originating through your self-hosted developer portal. The self-hosted developer portal relies on the developer portal's backend endpoint (set in `backendUrl` in the portal configuration files) to enable several features, including: 
 
 * Microsoft Entra authentication
@@ -241,6 +245,8 @@ To add CORS settings:
     * The custom domain (if configured) where the self-hosted portal is hosted, such as `https://portal.contoso.com` 
     * `localhost` for local development (if applicable), such as `http://localhost:8080` or `https://localhost:8080` 
 1. Select **Save**.
+
+<!-- I tried this local origin: http://localhost:55991 -->
 
 ## Step 3: Run the portal
 
