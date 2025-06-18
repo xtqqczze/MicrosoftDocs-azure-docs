@@ -74,20 +74,19 @@ Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) 
 
 Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open. Connections will fail if port 445 is blocked. You can check if your firewall or ISP is blocking port 445 by using the `Test-NetConnection` PowerShell cmdlet. For more information, see [Port 445 is blocked](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json#cause-1-port-445-is-blocked).
 
-## Using an Azure file share with Windows
+## Use an Azure file share with Windows
 
 To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or [access it via its UNC path](#access-an-azure-file-share-via-its-unc-path). Shared access signature (SAS) tokens aren't currently supported for mounting Azure file shares.
 
 > [!IMPORTANT]
-> Before mounting an Azure file share, we recommend configuring identity-based authentication for Azure Files. Identity-based authentication allows you to use your Active Directory or Microsoft Entra identity to access the file share, rather than using a storage account key. This method is more secure and provides better access control. For more information, see [identity-based authentication overview](storage-files-active-directory-overview.md).
-
+> Before mounting an Azure file share, we recommend configuring [identity-based authentication](storage-files-active-directory-overview.md). This allows you to use your Active Directory or Microsoft Entra identity to access the file share rather than using a storage account key, improving security and access control. If you run into issues, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#unable-to-mount-azure-file-shares-with-ad-credentials).
 
 A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. You can find your storage account key in the [Azure portal](https://portal.azure.com/) by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 
 > [!NOTE]
 > A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure virtual machine (VM). One important consideration for successfully migrating an LOB application to use an Azure file share is that many applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
-### Mount the Azure file share
+### Mount an Azure file share
 
 To mount an Azure file share using the Azure portal, follow these steps:
 
@@ -114,13 +113,45 @@ To mount an Azure file share using the Azure portal, follow these steps:
 
 You have now mounted your Azure file share.
 
-### Mount the Azure file share using the storage account key (not recommended)
+### Mount an Azure file share using the Windows command line
+
+You can also use the `net use` command from a Windows prompt to mount the file share.
+
+#### Mount the file share from a domain-joined VM
+
+To mount the file share from a domain-joined VM, run the following command from a Windows command prompt. Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values.
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
+```
+
+#### Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain
+
+If your AD source is on-premises AD DS, then non-domain-joined VMs or VMs joined to a different AD domain than the storage account can access Azure file shares if they have unimpeded network connectivity to the AD domain controllers and provide explicit credentials. The user accessing the file share must have an identity and credentials in the AD domain that the storage account is joined to.
+
+If your AD source is Microsoft Entra Domain Services, the client must have unimpeded network connectivity to the domain controllers for Microsoft Entra Domain Services, which requires setting up a site-to-site or point-to-site VPN. The user accessing the file share must have an identity (a Microsoft Entra identity synced from Microsoft Entra ID to Microsoft Entra Domain Services) in the Microsoft Entra Domain Services managed domain.
+
+To mount a file share from a non-domain-joined VM, use the notation **username@domainFQDN**, where **domainFQDN** is the fully qualified domain name, to allow the client to contact the domain controller to request and receive Kerberos tickets. You can get the value of **domainFQDN** by running `(Get-ADDomain).Dnsroot` in Active Directory PowerShell.
+
+For example:
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<username@domainFQDN>
+```
+
+If your AD source is Microsoft Entra Domain services, you can also provide credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Microsoft Entra Domain Services domain and **username** is the identity's user name in Microsoft Entra Domain Services:
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<DOMAINNAME\username>
+```
+
+### Mount an Azure file share using the storage account key (not recommended)
 
 The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host using the storage account key. However, we recommend using identity-based authentication instead of the storage account key for security reasons. If you must use the storage account key, follow the [mount instructions](#mount-the-azure-file-share), but under **Authentication method**, select *Storage account key*.
 
 A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. You can find your storage account key in the [Azure portal](https://portal.azure.com/) by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 
-### Mount the Azure file share with File Explorer
+### Mount an Azure file share with File Explorer
 
 1. Open File Explorer by opening it from the Start Menu, or by pressing the Win+E shortcut.
 
