@@ -170,7 +170,7 @@ To mount an Azure file share as a local network drive on Windows, see [Mount SMB
 
 #### Linux clients (NFS or SMB)
 
-To mount an Azure file share on Linux, see [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md) or [Mount SMB Azure file shares on Linux](storage-how-to-use-files-linux).
+To mount an Azure file share on Linux, see [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md) or [Mount SMB Azure file shares on Linux](storage-how-to-use-files-linux.md).
 
 ---
 
