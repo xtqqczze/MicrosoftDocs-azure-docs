@@ -68,7 +68,7 @@ Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) 
 > [!NOTE]
 > We recommend taking the most recent KB for your version of Windows.
 
-## Mounting prerequisites
+## Prerequisites
 
 Before you can mount an Azure file share, make sure you complete the following prerequisites:
 
