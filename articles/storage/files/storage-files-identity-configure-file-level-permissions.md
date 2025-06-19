@@ -4,18 +4,16 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 06/19/2025
 ms.author: kendownie
 ms.custom: engagement-fy23
 ---
 
 # Configure directory and file-level permissions for Azure file shares
 
-Before you begin this article, make sure you've read [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md) to ensure that your share-level permissions are in place with Azure role-based access control (RBAC).
+Before you begin this article, make sure you've [assigned share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md) with Azure role-based access control (RBAC).
 
-After you assign share-level permissions, you can configure Windows access control lists (ACLs), also known as NTFS permissions, at the root, directory, or file level. While share-level permissions act as a high-level gatekeeper that determines whether a user can access the share, Windows ACLs operate at a more granular level to control what operations the user can do at the directory or file level.
-
-Both share-level and file/directory-level permissions are enforced when a user attempts to access a file/directory. If there's a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file level, but only read at a share level, then they can only read that file. The same would be true if it was reversed: if a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
+After you assign share-level permissions, you can configure Windows access control lists (ACLs), also known as NTFS permissions, at the root, directory, or file level. 
 
 > [!IMPORTANT]
 > To configure Windows ACLs, you'll need a client machine running Windows that has unimpeded network connectivity to the domain controller. If you're authenticating with Azure Files using Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos for hybrid identities, this means you'll need unimpeded network connectivity to the on-premises AD. If you're using Microsoft Entra Domain Services, then the client machine must have unimpeded network connectivity to the domain controllers for the domain that's managed by Microsoft Entra Domain Services, which are located in Azure.
@@ -33,6 +31,25 @@ Both share-level and file/directory-level permissions are enforced when a user a
 | Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
+## How Azure RBAC and Windows ACLs work together
+
+While share-level permissions (RBAC) act as a high-level gatekeeper that determines whether a user can access the share, Windows ACLs (NTFS permissions) operate at a more granular level to control what operations the user can do at the directory or file level.
+
+Both share-level and file/directory-level permissions are enforced when a user attempts to access a file/directory. If there's a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file level, but only read at a share level, then they can only read that file. The same would be true if it was reversed: if a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
+
+The following table shows how the combination of share-level permissions and Windows ACLs (NTFS permissions) work together to determine access to a file or directory in Azure Files.
+
+
+   |                | **No RBAC role** | **RBAC - SMB Share Reader** | **RBAC - SMB Share Contributor** | **RBAC - SMB Share Elevated Contributor** |
+   |----------------|-------------|-------------------------|------------------------------|---------------------------------------|
+   | **NTFS - None**         | Access Denied | Access Denied              | Access Denied                 | Access Denied                        |
+   | **NTFS - Read**         | Access Denied | Read                       | Read                          | Read                                 |
+   | **NTFS - Run & Execute**| Access Denied | Read                       | Read                          | Read                                 |
+   | **NTFS - List Folder**  | Access Denied | Read                       | Read                          | Read                                 |
+   | **NTFS - Write**        | Access Denied | Read                       | Read, Run, Write              | Read, Write, Apply permissions to your own folder/files |
+   | **NTFS - Modify**       | Access Denied | Read                       | Read, Write, Run, Delete      | Read, Write, Run, Delete, Apply permissions to your own folder/files |
+   | **NTFS - Full**         | Access Denied | Read                       | Read, Write, Run, Delete      | Read, Write, Run, Delete, Apply permissions to anyone's folders/files |
 
 ## Supported Windows ACLs
 
@@ -56,9 +73,9 @@ The following permissions are included on the root directory of a file share:
 - `NT AUTHORITY\SYSTEM:(F)`
 - `CREATOR OWNER:(OI)(CI)(IO)(F)`
 
-For more information on these advanced permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).
+For more information on these permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).
 
-## How it works
+## Mount the file share with admin-level access
 
 Before you configure Windows ACLs, you must first mount the file share with admin-level access. There are two approaches you can take:
 
