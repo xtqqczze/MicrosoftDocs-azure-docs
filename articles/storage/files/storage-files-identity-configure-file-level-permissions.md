@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 06/20/2025
 ms.author: kendownie
 ms.custom: engagement-fy23
 ---
@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 Before you begin this article, make sure you've [assigned share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md) with Azure role-based access control (RBAC).
 
-After you assign share-level permissions, you can configure Windows access control lists (ACLs), also known as NTFS permissions, at the root, directory, or file level. 
+After you assign share-level permissions, you can configure Windows access control lists (ACLs), also known as NTFS permissions, at the root, directory, or file level.
 
 > [!IMPORTANT]
 > To configure Windows ACLs, you'll need a client machine running Windows that has unimpeded network connectivity to the domain controller. If you're authenticating with Azure Files using Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos for hybrid identities, this means you'll need unimpeded network connectivity to the on-premises AD. If you're using Microsoft Entra Domain Services, then the client machine must have unimpeded network connectivity to the domain controllers for the domain that's managed by Microsoft Entra Domain Services, which are located in Azure.
@@ -38,8 +38,7 @@ While share-level permissions (RBAC) act as a high-level gatekeeper that determi
 
 Both share-level and file/directory-level permissions are enforced when a user attempts to access a file/directory. If there's a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file level, but only read at a share level, then they can only read that file. The same would be true if it was reversed: if a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
-The following table shows how the combination of share-level permissions and Windows ACLs (NTFS permissions) work together to determine access to a file or directory in Azure Files.
-
+The following table shows how the combination of share-level permissions and Windows ACLs work together to determine access to a file or directory in Azure Files.
 
    |                | **No RBAC role** | **RBAC - SMB Share Reader** | **RBAC - SMB Share Contributor** | **RBAC - SMB Share Elevated Contributor** |
    |----------------|-------------|-------------------------|------------------------------|---------------------------------------|
@@ -50,6 +49,9 @@ The following table shows how the combination of share-level permissions and Win
    | **NTFS - Write**        | Access Denied | Read                       | Read, Run, Write              | Read, Write, Apply permissions to your own folder/files |
    | **NTFS - Modify**       | Access Denied | Read                       | Read, Write, Run, Delete      | Read, Write, Run, Delete, Apply permissions to your own folder/files |
    | **NTFS - Full**         | Access Denied | Read                       | Read, Write, Run, Delete      | Read, Write, Run, Delete, Apply permissions to anyone's folders/files |
+
+> [!NOTE]
+> Taking ownership of folders or files for ACL configuration requires an additional custom RBAC permission. With the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin), you can grant this by assigning a custom role that includes the takeOwnership permission.
 
 ## Supported Windows ACLs
 
@@ -111,9 +113,9 @@ net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
 ### Mount the file share using your storage account key (not recommended)
 
 > [!WARNING]
-> Using the storage account key isn't recommended for production environments. If possible, use the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin) instead. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
+> Using the storage account key isn't recommended for production environments. If possible, use the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin) instead. 
 
-Log in to a domain-joined device (as a Microsoft Entra user if your AD source is Microsoft Entra Domain Services), open a Windows command prompt, and mount the file share by running the following command. Remember to replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter.
+Log in to a domain-joined device (as a Microsoft Entra user if your AD source is Microsoft Entra Domain Services), open a Windows command prompt, and mount the file share by running the following command. Remember to replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 
 It's important that you use the `net use` command to mount the share at this stage and not PowerShell. If you use PowerShell to mount the share, then the share won't be visible to Windows File Explorer or cmd.exe, and you'll have difficulty configuring Windows ACLs.
 
@@ -160,4 +162,4 @@ Follow these steps to configure ACLs using Windows File Explorer.
 
 ## Next step
 
-Now that you've configured directory and file-level permissions, you can [mount the file share](storage-files-identity-mount-file-share.md).
+Now that you've configured directory and file-level permissions, you can [mount the file share](storage-how-to-use-files-windows.md).

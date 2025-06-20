@@ -4,7 +4,7 @@ description: How to configure a point-to-site (P2S) VPN on Windows for use with 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 06/20/2025
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -506,82 +506,9 @@ Remove-Item -Path $vpnTemp -Recurse
 
 ## Mount Azure file share
 
-Now that you've set up your point-to-site VPN, you can use it to mount the Azure file share to an on-premises machine.
+Now that you've set up your point-to-site VPN, you can use it to mount the Azure file share to an on-premises machine. See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
 
-# [Portal](#tab/azure-portal)
-
-To mount the file share using your storage account key, open a Windows command prompt and run the following command. Replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**.
-
-```
-net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:localhost\<YourStorageAccountName> <YourStorageAccountKey>
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-The following PowerShell script will mount the share, list the root directory of the share to prove the share is actually mounted, and then unmount the share.
-
-> [!NOTE]
-> It isn't possible to mount the share persistently over PowerShell remoting. To mount persistently, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
-
-```azurepowershell
-$myShareToMount = '<file-share>'
-
-$storageAccountKeyParams = @{
-    ResourceGroupName = $resourceGroupName
-    Name              = $storageAccountName
-}
-$storageAccountKeys = Get-AzStorageAccountKey @storageAccountKeyParams
-
-$convertToSecureStringParams = @{
-    String = $storageAccountKeys[0].Value
-    AsPlainText = $true
-    Force = $true
-}
-$storageAccountKey = ConvertTo-SecureString @convertToSecureStringParams
-
-$getAzNetworkInterfaceParams = @{
-    ResourceId = $privateEndpoint.NetworkInterfaces[0].Id
-}
-$nic = Get-AzNetworkInterface @getAzNetworkInterfaceParams
-
-$storageAccountPrivateIP = $nic.IpConfigurations[0].PrivateIpAddress
-
-$invokeCmdParams = @{
-    Session = $sessions
-    ArgumentList = @(
-        $storageAccountName,
-        $storageAccountKey,
-        $storageAccountPrivateIP,
-        $myShareToMount
-    )
-}
-Invoke-Command @invokeCmdParams -ScriptBlock {
-    $storageAccountName      = $args[0]
-    $storageAccountKey       = $args[1]
-    $storageAccountPrivateIP = $args[2]
-    $myShareToMount          = $args[3]
-
-    $credential = [System.Management.Automation.PSCredential]::new(
-        "AZURE\$storageAccountName", 
-        $storageAccountKey
-    )
-
-    $psDriveParams = @{
-        Name       = 'Z'
-        PSProvider = 'FileSystem'
-        Root       = "\\$storageAccountPrivateIP\$myShareToMount"
-        Credential = $credential
-        Persist    = $true
-    }
-    New-PSDrive @psDriveParams | Out-Null
-
-    Get-ChildItem -Path Z:\
-    Remove-PSDrive -Name Z
-}
-```
----
-
-## Rotate VPN Root Certificate
+## Rotate VPN root certificate
 
 If a root certificate needs to be rotated due to expiration or new requirements, you can add a new root certificate to the existing virtual network gateway without redeploying the virtual network gateway. After adding the root certificate using the following script, you'll need to re-create the [VPN client certificate](#create-client-certificate).  
 
