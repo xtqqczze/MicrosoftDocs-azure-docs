@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/20/2025
+ms.date: 06/23/2025
 ms.author: kendownie
 ms.custom: engagement-fy23
 ---
@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 Before you begin this article, make sure you've [assigned share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md) with Azure role-based access control (RBAC).
 
-After you assign share-level permissions, you can configure Windows access control lists (ACLs), also known as NTFS permissions, at the root, directory, or file level.
+After you assign share-level permissions, you can configure Windows access control lists (ACLs), also known as NTFS permissions. These permissions control access at the root, directory, or file level.
 
 > [!IMPORTANT]
 > To configure Windows ACLs, you'll need a client machine running Windows that has unimpeded network connectivity to the domain controller. If you're authenticating with Azure Files using Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos for hybrid identities, this means you'll need unimpeded network connectivity to the on-premises AD. If you're using Microsoft Entra Domain Services, then the client machine must have unimpeded network connectivity to the domain controllers for the domain that's managed by Microsoft Entra Domain Services, which are located in Azure.
