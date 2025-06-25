@@ -4,10 +4,10 @@ description: How to configure a point-to-site (P2S) VPN on Windows for use with 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/20/2025
+ms.date: 06/25/2025
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
-# Customer intent: "As an IT administrator, I want to configure a point-to-site VPN on Windows for Azure file shares, so that I can securely access and mount file shares from on-premises without compromising network security."
+# Customer intent: "As an IT administrator, I want to configure a point-to-site VPN on Windows for Azure file shares, so that I can securely access and mount file shares from on-premises without opening up port 445."
 ---
 
 # Configure a point-to-site (P2S) VPN on Windows for use with Azure Files
