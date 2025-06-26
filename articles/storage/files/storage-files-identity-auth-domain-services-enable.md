@@ -62,14 +62,10 @@ Before you enable Microsoft Entra Domain Services over SMB for Azure file shares
     > [!NOTE]
     > Non-domain-joined VMs can access Azure file shares using Microsoft Entra Domain Services authentication only if the VM has unimpeded network connectivity to the domain controllers for Microsoft Entra Domain Services. Usually this requires either site-to-site or point-to-site VPN.
 
-1.  **Select or create an Azure file share.**
+1.  **Select or create an SMB Azure file share.**
 
-    Select a new or existing file share that's associated with the same subscription as your Microsoft Entra tenant. For information about creating a new file share, see [Create a file share in Azure Files](storage-how-to-create-file-share.md).
+    Select a new or existing SMB Azure file share that's associated with the same subscription as your Microsoft Entra tenant. See [Create an SMB Azure file share](storage-how-to-create-file-share.md).
     For optimal performance, we recommend that your file share be in the same region as the VM from which you plan to access the share.
-
-1.  **Verify Azure Files connectivity by mounting Azure file shares using your storage account key.**
-
-    To verify that your VM and file share are properly configured, try mounting the file share using your storage account key. For more information, see [Mount an Azure file share and access the share in Windows](storage-how-to-use-files-windows.md).
 
 ## Regional availability
 
