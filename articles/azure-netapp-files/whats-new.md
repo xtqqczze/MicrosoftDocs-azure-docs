@@ -17,6 +17,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Advanced ransomware protection](ransomware-configure.md) (preview)
+
+    Azure NetApp Files supports ransomware protection on volumes. 
+
 ## June 2025
 
 * The ability to [transition an existing volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)
