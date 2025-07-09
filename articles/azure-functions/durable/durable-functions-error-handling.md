@@ -22,7 +22,7 @@ In Durable Functions, unhandled exceptions thrown within activity functions or s
 For example, consider the following orchestrator function that performs a fund transfer between two accounts:
 
 # [C# (InProc)](#tab/csharp-inproc)
-In Durable Functions C# in-process, unhandled exceptions are thrown as (FunctionFailedException)[/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception]. 
+In Durable Functions C# in-process, unhandled exceptions are thrown as (FunctionFailedException)[/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception].
 
 The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the `InnerException` property.
 
@@ -68,7 +68,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 # [C# (Isolated)](#tab/csharp-isolated)
 In Durable Functions C# Isolated, unhandled exceptions are surfaced as (TaskFailedException)[https://learn.microsoft.com/en-us/dotnet/api/microsoft.durabletask.taskfailedexception?view=durabletask-dotnet-1.x].
 
-The exception message typically identifies which activity function or sub-orchestrations caused the failure. To access more detailed error information, inspect the (FailureDetails)[https://learn.microsoft.com/en-us/dotnet/api/microsoft.durabletask.taskfailuredetails?view=durabletask-dotnet-1.x] property.
+The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the (FailureDetails)[https://learn.microsoft.com/en-us/dotnet/api/microsoft.durabletask.taskfailuredetails?view=durabletask-dotnet-1.x] property.
 
 ```csharp
 [FunctionName("TransferFunds")]
