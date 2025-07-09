@@ -17,7 +17,7 @@ Durable Function orchestrations are implemented in code and can use the programm
 
 ## Errors in activity functions and sub-orchestrations
 
-In Durable Functions using C#, unhandled exceptions thrown within activity functions or sub-orchestrations are marshaled back to the orchestrator function using standardized exception types.
+In Durable Functions, unhandled exceptions thrown within activity functions or sub-orchestrations are marshaled back to the orchestrator function using standardized exception types.
 
 For example, consider the following orchestrator function that performs a fund transfer between two accounts:
 
@@ -324,7 +324,6 @@ Entity functions aren't currently not supported in PowerShell.
 Entity functions aren't currently not supported in Java.
 
 ---
-
 
 ## Automatic retry on failure
 
