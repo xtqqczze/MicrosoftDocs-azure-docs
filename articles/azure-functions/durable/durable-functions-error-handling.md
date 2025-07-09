@@ -299,7 +299,11 @@ public static async Task<List<string>> MyOrchestrator(
     return new List<string>();
 }
 ```
-# [JavaScript](#tab/javascript)
+# [JavaScript (PM3)](#tab/javascript-v3)
+
+Entity functions aren't currently not supported in JavaScript.
+
+# [JavaScript (PM4)](#tab/javascript-v4)
 
 Entity functions aren't currently not supported in JavaScript.
 
