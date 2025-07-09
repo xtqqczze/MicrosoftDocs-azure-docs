@@ -15,13 +15,16 @@ Durable Function orchestrations are implemented in code and can use the programm
 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
-## Errors in activity functions
+## Errors in activity functions and sub-orchestrations
 
-Any exception that is thrown in an activity function is marshaled back to the orchestrator function and thrown as a `FunctionFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
+In Durable Functions using C#, unhandled exceptions thrown within activity functions or sub-orchestrations are marshaled back to the orchestrator function using standardized exception types.
 
-For example, consider the following orchestrator function that transfers funds from one account to another:
+For example, consider the following orchestrator function that performs a fund transfer between two accounts:
 
 # [C# (InProc)](#tab/csharp-inproc)
+In Durable Functions using C# in-process, unhandled exceptions are thrown as (FunctionFailedException)[/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception]. 
+
+The exception message typically identifies which activity function or sub-orchestration caused the failure. To access more detailed error information, inspect the `InnerException` property.
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -45,7 +48,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
                 Amount = transferDetails.Amount
             });
     }
-    catch (Exception)
+    catch (FunctionFailedException)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
@@ -63,6 +66,9 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [C# (Isolated)](#tab/csharp-isolated)
+In Durable Functions using C# Isolated, unhandled exceptions are surfaced as (TaskFailedException)[https://learn.microsoft.com/en-us/dotnet/api/microsoft.durabletask.taskfailedexception?view=durabletask-dotnet-1.x].
+
+The exception message typically identifies which activity function or sub-orchestration caused the failure. To access more detailed error information, inspect the (FailureDetails)[https://learn.microsoft.com/en-us/dotnet/api/microsoft.durabletask.taskfailuredetails?view=durabletask-dotnet-1.x] property.
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -85,7 +91,7 @@ public static async Task Run(
                 Amount = transferDetails.Amount
             });
     }
-    catch (Exception)
+    catch (TaskFailedException)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
@@ -234,6 +240,91 @@ public void transferFunds(
 ---
 
 If the first **CreditAccount** function call fails, the orchestrator function compensates by crediting the funds back to the source account.
+
+## Errors in entity functions
+Exception handling behavior for entity functions differs based on the Durable Functions hosting model:
+
+# [C# (InProc)](#tab/csharp-inproc)
+When using C# in-process, original exception types thrown by entity functions are directly returned to the orchestrator.
+
+```csharp
+[FunctionName("Function1")]
+public static async Task<string> RunOrchestrator(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    try
+    {
+        var entityId = new EntityId(nameof(Counter), "myCounter");
+        await context.CallEntityAsync(entityId, "Add", 1);
+    }
+    catch (Exception ex)
+    {
+        // The exception type will be InvalidOperationException with the message "this is an entity exception".
+    }
+    return string.Empty;
+}
+
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
+{
+    switch (ctx.OperationName.ToLowerInvariant())
+    {
+        case "add":
+            throw new InvalidOperationException("this is an entity exception");
+        case "get":
+            ctx.Return(ctx.GetState<int>());
+            break;
+    }
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+When using C# Isolated, exceptions are surfaced to the orchestrator as an `EntityOperationFailedException`. To access the original exception details, inspect its `FailureDetails` property.
+
+```csharp
+[Function(nameof(MyOrchestrator))]
+public static async Task<List<string>> MyOrchestrator(
+   [Microsoft.Azure.Functions.Worker.OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var entityId = new Microsoft.DurableTask.Entities.EntityInstanceId(nameof(Counter), "myCounter");
+    try
+    {
+        await context.Entities.CallEntityAsync(entityId, "Add", 1);
+    }
+    catch (EntityOperationFailedException ex)
+    {
+        // Add your error handling
+    }
+
+    return new List<string>();
+}
+```
+# [JavaScript](#tab/javascript)
+
+Entity functions aren't currently not supported in JavaScript.
+
+# [Python](#tab/python)
+
+```python
+@myApp.orchestration_trigger(context_name="context")
+def run_orchestrator(context):
+    try:
+        entityId = df.EntityId("Counter", "myCounter")
+        yield context.call_entity(entityId, "get")
+        return "finished"
+    except Exception as e:
+        # Add your error handling
+```
+# [PowerShell](#tab/powershell)
+
+Entity functions aren't currently not supported in PowerShell.
+
+# [Java](#tab/java)
+
+Entity functions aren't currently not supported in Java.
+
+---
+
 
 ## Automatic retry on failure
 
