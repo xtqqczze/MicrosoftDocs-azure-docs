@@ -22,9 +22,9 @@ In Durable Functions, unhandled exceptions thrown within activity functions or s
 For example, consider the following orchestrator function that performs a fund transfer between two accounts:
 
 # [C# (InProc)](#tab/csharp-inproc)
-When using C# in-process, unhandled exceptions are thrown as (FunctionFailedException)[/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception]. 
+In Durable Functions C# in-process, unhandled exceptions are thrown as (FunctionFailedException)[/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception]. 
 
-The exception message typically identifies which activity function or sub-orchestration caused the failure. To access more detailed error information, inspect the `InnerException` property.
+The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the `InnerException` property.
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -66,9 +66,9 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [C# (Isolated)](#tab/csharp-isolated)
-When using C# Isolated, unhandled exceptions are surfaced as (TaskFailedException)[https://learn.microsoft.com/en-us/dotnet/api/microsoft.durabletask.taskfailedexception?view=durabletask-dotnet-1.x].
+In Durable Functions C# Isolated, unhandled exceptions are surfaced as (TaskFailedException)[https://learn.microsoft.com/en-us/dotnet/api/microsoft.durabletask.taskfailedexception?view=durabletask-dotnet-1.x].
 
-The exception message typically identifies which activity function or sub-orchestration caused the failure. To access more detailed error information, inspect the (FailureDetails)[https://learn.microsoft.com/en-us/dotnet/api/microsoft.durabletask.taskfailuredetails?view=durabletask-dotnet-1.x] property.
+The exception message typically identifies which activity function or sub-orchestrations caused the failure. To access more detailed error information, inspect the (FailureDetails)[https://learn.microsoft.com/en-us/dotnet/api/microsoft.durabletask.taskfailuredetails?view=durabletask-dotnet-1.x] property.
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -191,7 +191,7 @@ main = df.Orchestrator.create(orchestrator_function)
 ```
 # [PowerShell](#tab/powershell)
 
-By default, cmdlets in PowerShell do not raise exceptions that can be caught using try/catch blocks. You have two options for changing this behavior:
+By default, cmdlets in PowerShell don't raise exceptions that can be caught using try/catch blocks. You have two options for changing this behavior:
 
 1. Use the `-ErrorAction Stop` flag when invoking cmdlets, such as `Invoke-DurableActivity`.
 2. Set the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) preference variable to `"Stop"` in the orchestrator function before invoking cmdlets.
@@ -245,7 +245,7 @@ If the first **CreditAccount** function call fails, the orchestrator function co
 Exception handling behavior for entity functions differs based on the Durable Functions hosting model:
 
 # [C# (InProc)](#tab/csharp-inproc)
-When using C# in-process, original exception types thrown by entity functions are directly returned to the orchestrator.
+In Durable Functions using C# in-process, original exception types thrown by entity functions are directly returned to the orchestrator.
 
 ```csharp
 [FunctionName("Function1")]
@@ -279,7 +279,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 ```
 
 # [C# (Isolated)](#tab/csharp-isolated)
-When using C# Isolated, exceptions are surfaced to the orchestrator as an `EntityOperationFailedException`. To access the original exception details, inspect its `FailureDetails` property.
+In Durable Functions C# Isolated, exceptions are surfaced to the orchestrator as an `EntityOperationFailedException`. To access the original exception details, inspect its `FailureDetails` property.
 
 ```csharp
 [Function(nameof(MyOrchestrator))]
@@ -455,7 +455,7 @@ The activity function call in the previous example takes a parameter for configu
 
 ## Custom retry handlers
 
-When using the .NET or Java, you also have the option to implement retry handlers in code. This is useful when declarative retry policies are not expressive enough. For languages that don't support custom retry handlers, you still have the option of implementing retry policies using loops, exception handling, and timers for injecting delays between retries.
+When using the .NET or Java, you also have the option to implement retry handlers in code. This is useful when declarative retry policies aren't expressive enough. For languages that don't support custom retry handlers, you still have the option of implementing retry policies using loops, exception handling, and timers for injecting delays between retries.
 
 # [C# (InProc)](#tab/csharp-inproc)
 
@@ -726,7 +726,7 @@ public boolean timerOrchestrator(
 ---
 
 > [!NOTE]
-> This mechanism does not actually terminate in-progress activity function execution. Rather, it simply allows the orchestrator function to ignore the result and move on. For more information, see the [Timers](durable-functions-timers.md#usage-for-timeout) documentation.
+> This mechanism doesn't actually terminate in-progress activity function execution. Rather, it simply allows the orchestrator function to ignore the result and move on. For more information, see the [Timers](durable-functions-timers.md#usage-for-timeout) documentation.
 
 ## Unhandled exceptions
 
