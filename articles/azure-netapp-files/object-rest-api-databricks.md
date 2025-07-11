@@ -47,10 +47,13 @@ update-ca-certificates
 ### Configure the cluster 
 
 1. Navigate to your Azure Databricks workspace and open the cluster configuration settings. 
-1. In the **Advanced Options** section, add the path to the init script under **Init Scripts.** For example: `dbfs:/path/to/your/script.sh`
+1. In the **Advanced Options** section, add the path to the init script under **Init Scripts**. For example: `dbfs:/path/to/your/script.sh`
+<!-- add the /etc/hosts/ files to the `init` script -->
 1. Restart the cluster to apply the changes and load the SSL certificate. 
 
 ###  Connect to Azure NetApp Files bucket 
+
+Review the [recommendations to access S3 buckets with URIs and AWS keys](/azure/databricks/connect/storage/amazon-s3#access-s3-buckets-with-uris-and-aws-keys)
 
 1. In your Databricks notebook, configure the Spark session to connect to the Azure NetApp Files bucket. For example: 
 ```
