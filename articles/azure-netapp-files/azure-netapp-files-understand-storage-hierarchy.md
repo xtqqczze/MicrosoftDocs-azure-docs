@@ -84,6 +84,10 @@ Azure NetApp Files allows you to create [large volumes](large-volumes.md) up to 
 
 For more information, see [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md).
 
+### Breakthrough mode 
+
+[!INCLUDE [Large volume breakthrough mode](includes/large-volume-breakthrough.md)]
+
 ## Next steps
 
 - [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)

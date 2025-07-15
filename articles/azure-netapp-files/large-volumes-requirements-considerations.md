@@ -14,6 +14,12 @@ ms.author: anfdocs
 
 This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
 
+## <a name="breakthrough-mode"> Breakthrough mode (preview)
+
+[!INCLUDE [Large volume breakthrough mode](includes/large-volume-breakthrough.md)]
+
+You must [request the feature](#register-for-breakthrough-mode) before using it for the first time. 
+
 ## Requirements and considerations
 
 The following requirements and considerations apply to large volumes. For performance considerations of *regular volumes*, see [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md).
