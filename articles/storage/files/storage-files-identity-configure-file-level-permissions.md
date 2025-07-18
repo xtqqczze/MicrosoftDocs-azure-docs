@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/24/2025
+ms.date: 07/18/2025
 ms.author: kendownie
 ms.custom: engagement-fy23
 # Customer intent: "As a system administrator, I want to configure directory and file-level permissions for Azure file shares using Windows ACLs, so that I can ensure granular access control and enhance security for users accessing shared files."
@@ -82,7 +82,7 @@ For more information on these permissions, see [the command-line reference for i
 
 Before you configure Windows ACLs, you must first mount the file share with admin-level access. There are two approaches you can take:
 
-- **Use the Windows permission model for SMB admin (recommended)**: Create a custom Azure RBAC role with the required permissions to edit ACLs, and assign that role to user or users who will be configuring ACLs. Then mount the file share using [identity-based authentication](storage-files-active-directory-overview.md) and configure ACLs. This approach is recommended for production environments because it doesn't require you to use your storage account key to mount the file share.
+- **Use the Windows permission model for SMB admin (limited preview)**: Create a custom Azure RBAC role with the required permissions to edit ACLs, and assign that role to user or users who will be configuring ACLs. Then mount the file share using [identity-based authentication](storage-files-active-directory-overview.md) and configure ACLs. This approach is recommended for production environments because it doesn't require you to use your storage account key to mount the file share.
 
 - **Use the storage account key (not recommended)**: Use your storage account key to mount the file share and then configure ACLs. This approach isn't recommended for production environments because it requires you to use your storage account key, which is a sensitive credential. Use this option only if you're not able to create a custom Azure RBAC role and use identity-based authentication.
 
@@ -90,23 +90,27 @@ Before you configure Windows ACLs, you must first mount the file share with admi
 
 We recommend using the Windows permission model for SMB admin instead of using the storage account key. This new feature lets you assign a custom SMB admin role to users who will be configuring ACLs, allowing the user to take ownership of a particular file or directory for the purpose of configuring ACLs.
 
-To use the Windows permission model for SMB admin, [create a custom RBAC role](/azure/role-based-access-control/custom-roles) with the following data actions:
+To use the Windows permission model for SMB admin, follow these steps:
+
+1. Create a [custom Azure RBAC role](/azure/role-based-access-control/custom-roles) for admin-level access.
+
+   Make sure the role includes the following data actions:
 
    - `Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action`
    - `Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action`
    - `Microsoft.Storage/storageAccounts/fileServices/takeOwnership/action`
 
-After you create the custom role, assign it to the user or users who will be configuring ACLs. For instructions on how to assign a role, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+1. Assign the role to users. After you create the custom role, assign it to the user or users who will be configuring ACLs. For instructions on how to assign a role, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-As long as [identity-based authentication](storage-files-active-directory-overview.md) is configured for your storage account, you should now be able to mount the share and configure and edit Windows ACLs without using your storage account key.
+1. Have users mount the file share using their domain identity. As long as [identity-based authentication](storage-files-active-directory-overview.md) is configured for your storage account, you should now be able to mount the share and configure and edit Windows ACLs without using your storage account key.
 
-Log in to a domain-joined device (as a Microsoft Entra user if your AD source is Microsoft Entra Domain Services), open a Windows command prompt, and mount the file share by running the following command. Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values. If Z: is already in use, replace it with an available drive letter. 
+   Log in to a domain-joined device (as a Microsoft Entra user if your AD source is Microsoft Entra Domain Services), open a Windows command prompt, and mount the file share by running the following command. Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values. If Z: is already in use, replace it with an available drive letter.
 
-It's important that you use the `net use` command to mount the share at this stage and not PowerShell. If you use PowerShell to mount the share, then the share won't be visible to Windows File Explorer or cmd.exe, and you'll have difficulty configuring Windows ACLs.
+   It's important that you use the `net use` command to mount the share at this stage and not PowerShell. If you use PowerShell to mount the share, then the share won't be visible to Windows File Explorer or cmd.exe, and you'll have difficulty configuring Windows ACLs.
 
-```
-net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
-```
+   ```
+   net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
+   ```
 
 > [!NOTE]
 > You might see the **Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share level and the file/directory level), this is restricted. Only users who have the **Storage File Data SMB Share Elevated Contributor** role (or create a custom role with the required permissions) and create a new file or directory can assign permissions on those new files or directories without using the storage account key.

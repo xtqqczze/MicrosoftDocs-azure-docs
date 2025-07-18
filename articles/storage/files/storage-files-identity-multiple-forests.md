@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/17/2025
+ms.date: 07/18/2025
 ms.author: kendownie
 # Customer intent: As an IT administrator managing multiple Active Directory forests, I want to configure Azure file shares with identity-based authentication, so that users from different forests can access shared resources seamlessly after mergers or acquisitions.
 ---
@@ -118,8 +118,8 @@ If icacls fails with an *Access is denied* error, follow these steps to configur
 
 1. Delete the existing share mount: `net use * /delete /y`
 
-1. Re-mount the share using either the Windows permission model for SMB admin (recommended) or the storage account key (not recommended). See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
-   
+1. Re-mount the share using either the [Windows permission model for SMB admin](storage-files-identity-configure-file-level-permissions.md#use-the-windows-permission-model-for-smb-admin) (limited preview) or the storage account key (not recommended). See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
+
 1. Set icacls permissions for user in **Forest2** on storage account joined to **Forest1** from client in **Forest1**.
 
 > [!NOTE]

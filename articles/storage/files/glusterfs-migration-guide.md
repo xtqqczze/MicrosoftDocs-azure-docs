@@ -4,7 +4,7 @@ description: Red Hat Gluster Storage (based on GlusterFS) has reached the end of
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 07/18/2025
 ms.author: kendownie
 # Customer intent: As an IT administrator managing legacy storage, I want to migrate GlusterFS volumes to a supported cloud file service, so that my organization can ensure ongoing support, security updates, and optimized performance.
 ---
@@ -165,7 +165,7 @@ Before migrating the data, you must first mount the Azure file share.
 
 #### Windows clients (SMB)
 
-To mount an Azure file share as a local network drive on Windows, see [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md). Be sure to mount the share using either the Windows permission model for SMB admin (recommended) or the storage account key (not recommended).
+To mount an Azure file share as a local network drive on Windows, see [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md). Be sure to mount the share using either the [Windows permission model for SMB admin](storage-files-identity-configure-file-level-permissions.md#use-the-windows-permission-model-for-smb-admin) (limited preview) or the storage account key (not recommended).
 
 # [Linux](#tab/linux)
 
