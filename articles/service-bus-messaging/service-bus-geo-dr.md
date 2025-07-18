@@ -16,7 +16,7 @@ The Geo-Disaster Recovery feature ensures that the entire configuration of a nam
 
 ## Important points to consider
 
-- The feature enables instant continuity of operations with the same configuration, but **doesn't replicate the messages held in queues or topic subscriptions or dead-letter queues**. To preserve queue semantics, such a replication requires not only the replication of message data, but of every state change in the broker, which is offered in the [Geo-Replication feature (Public Preview)](service-bus-geo-replication.md).
+- The feature enables instant continuity of operations with the same configuration, but **doesn't replicate the messages held in queues or topic subscriptions or dead-letter queues**. To preserve queue semantics, such a replication requires not only the replication of message data, but of every state change in the broker, which is offered in the [Geo-Replication feature](service-bus-geo-replication.md).
 - Microsoft Entra role-based access control (RBAC) assignments to Service Bus entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
 - The following configurations aren't replicated. 
     - Virtual network configurations
