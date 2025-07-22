@@ -34,7 +34,38 @@ When enabled, your Application Gateway resource sends a Proxy protocol header to
 
 > [!TIPS]
 > * Client IP preservation works with both IPv4 and IPv6 client addresses.
-> * Application Gateway does not parse Proxy protocol headers on listeners. When another proxy is positioned in front of the application gateway resource, the incoming proxy header is forwarded to the backend servers as part of the data stream. Application Gateway neither drops nor modifies the incoming proxy protocol header, so the backend servers may receive multiple proxy protocol headers in these situations. 
+> * Application Gateway does not parse Proxy protocol headers on listeners. When another proxy is positioned in front of the application gateway resource, the incoming proxy header is forwarded to the backend servers as part of the data stream. Application Gateway neither drops nor modifies the incoming proxy protocol header, so the backend servers may receive multiple proxy protocol headers in these situations.
+
+## Configurations 
+
+The following configurations are supported for Proxy protocol headers in Application Gateway. 
+
+**Backend Settings** – You can enable Client IP Preservation in the backend setting with TLS or TCP protocol. This sends the proxy protocol header to the backends during the live traffic originating from the clients. 
+
+**Health probes** – The probes of the application gateway also support Proxy protocol header. When enabled in the Backend Settings, the default health probes send this header to the backend servers. With custom probes, you can choose to enable this setting specifically and for a different port, if necessary.
+
+## Format of Proxy Protocol header 
+
+The Proxy protocol header V1 in Application Gateway is a single line of user-readable text structured in the following format:
+
+**Live traffic**
+
+`PROXY TCP4  <client-ip> <backend-server-ip> <client-port> <backend-server-port> \r\n `
+
+* Protocol version: A string showing the protocol version.
+* IPv4 or IPv6 protocol: TCP over IPv4 or TCP over IPv6. Accordingly, its value can be TCP4, TCP6, or UNKNOWN when metadata is not available.
+* Source IP: The original client IP’s address.
+* Destination IP: This is the IP address of the
+* Source port: The original client’s port number.
+* Destination port: The listener port number on which the connection was received.
+* \r\n indicating end of line 
+
+**Probe traffic**
+
+`PROXY UNKNOWN\r\n `
+When the client ip is unknown, as in the case of application gateway probes, the backends see the proxy protocol header as unknown. 
+
+
 
 ## Next steps
 
