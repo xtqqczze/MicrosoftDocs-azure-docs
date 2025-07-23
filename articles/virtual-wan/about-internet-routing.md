@@ -32,7 +32,7 @@ The following table summarizes the two different modes that define how Virtual W
 
 When Virtual WAN is configured to route traffic directly to the Internet, Virtual WAN applies a static default 0.0.0.0/0 route on the security solution. 
 
-:::image type="content" source="./media/about-internet-routing/direct-access.png" alt-text="Screenshot that shows direct access." lightbox="/media/about-internet-routing/direct-access.png":::
+:::image type="content" source="./media/about-internet-routing/direct-access.png" alt-text="Screenshot that shows direct access." lightbox="./media/about-internet-routing/direct-access.png":::
 
 This static default route has **higher priority** than any default route learnt from on-premises, from an NVA or configured as a static route on a spoke Virtual Network. However, more specific prefixes advertised from on-premises (0.0.0.0/1 and 128.0.0.0/1) are considered higher priority for Internet traffic due to longest-prefix match.
 
@@ -44,7 +44,7 @@ If you have private routing policies configured on your Virtual WAN hub, you can
 
 When Virtual WAN is configured in forced tunnel mode, the highest priority default route selected by the Virtual WAN hub based on [hub routing preference](about-virtual-hub-routing-preference.md) is used by the security solution to forward internet traffic. 
 
-:::image type="content" source="./media/about-internet-routing/forced-tunnel.png" alt-text="Screenshot that shows forced tunnel." lightbox="/media/about-internet-routing/forced-tunnel.png":::
+:::image type="content" source="./media/about-internet-routing/force-tunnel.png" alt-text="Screenshot that shows forced tunnel." lightbox="./media/about-internet-routing/force-tunnel.png":::
 
 However, there's an implicit route that allows the security solution to forward traffic directly to the internet. This implicit route is treated with the lowest priority.
 
@@ -68,7 +68,7 @@ The default route **can't be configured** in the following way:
 
 ### Effective Routes
 
-For deployments configured with forced tunnel, effective routes on the next hop security solution will contain the  **0.0.0.0/0** route with the next hop as the selected default route learnt from on-premises or configured as a static route on a Virtual Network connection. 
+For deployments configured with forced tunnel, effective routes on the next hop security solution will contain the  **0.0.0.0/0** route with the next hop as the selected default route learnt from on-premises or configured as a static route on a Virtual Network connection.
 
 ## Configurations
 The following sections describe the necessary configurations to route internet traffic in direct access or forced tunnel mode.
@@ -115,7 +115,7 @@ The following recommendations are generic baseline recommendations. Contact your
 The following section describe configuration considerations needed to ensure security solutions **in the Virtual WAN hub**  can forward internet-bound packets to on-premises or an NVA that is advertising the 0.0.0.0/0 route to Virtual WAN.
 
 **Azure Firewall**:
-* Configure [Source-NAT (SNAT)](../firewall/snat-private-range.md-private-range). 
+* Configure [Source-NAT (SNAT)](../firewall/snat-private-range.md). 
     * **Preserve original source IP of Internet traffic**: turn SNAT  **off** for all traffic configurations. 
     * **SNAT to Firewall instance private IP**: turn SNAT **on** for non-private traffic ranges. 
 
