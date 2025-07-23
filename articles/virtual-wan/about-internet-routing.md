@@ -17,20 +17,20 @@ The following document describes different routing patterns you can use with Vir
 
 Virtual WAN routing intent allows you to send Private and Internet traffic to security solutions deployed in the Virtual WAN hub.
 
-The following table summarizes the two different modes that define how Virtual WAN inspects routes internet-bound traffic:
+The following table summarizes the two different modes that define how Virtual WAN inspects and routes internet-bound traffic:
 
 |Mode| Internet traffic |
 |--|--|
 |Direct Access|Forwarded **directly** to the Internet after inspection. |
-|Forced Tunnel|Forwarded via **0.0.0.0/0 route learnt** from on-premises, from a NVA or a Virtual WAN static route after inspection. If no 0.0.0.0/0 route exists, forward directly to Internet after inspection. |
+|Forced Tunnel|Forwarded via **0.0.0.0/0 route learnt** from on-premises, from a Network Virtual Appliance (NVA) or a Virtual WAN static route after inspection. If no 0.0.0.0/0 route exists, forward directly to Internet after inspection. |
 
 ### Known Limitations
 
-* Destination-NAT (DNAT) for security solutions deployed in the Virtual WAN hub is **not supported** for Virtual WAN hubs that are configured with Forced Tunnel internet routing mode. This is because the incoming connection for DNAT traffic orginates from the Internet and forced tunnel mode forces return traffic via on-premises or a NVA. This results in asymmetric routing. 
+* Destination-NAT (DNAT) for security solutions deployed in the Virtual WAN hub is **not supported** for Virtual WAN hubs that are configured with Forced Tunnel internet routing mode. The incoming connection for DNAT traffic originates from the Internet and forced tunnel mode forces return traffic via on-premises or a NVA. This routing pattern results in asymmetric routing. 
 
 ### Direct Access
 
-When Virtual WAN is configured to route traffic directly to the Internet, Virtual WAN applies a static default 0.0.0.0/0 route on the security solution. This ensures traffic is directly forwarded to the Internet.
+When Virtual WAN is configured to route traffic directly to the Internet, Virtual WAN applies a static default 0.0.0.0/0 route on the security solution. 
 
 :::image type="content" source="./media/about-internet-routing/direct-access.png" alt-text="Screenshot that shows direct access." lightbox="/media/about-internet-routing/direct-access.png":::
 
@@ -42,13 +42,13 @@ If you have private routing policies configured on your Virtual WAN hub, you can
 
 ## Forced Tunnel
 
-When Virtual WAN is configured in forced tunnel mode, the highest priority default route learnt by the Virtual WAN hub based on the configured [hub routing preference](about-virtual-hub-routing-preference.md) is used by the security solution to forward internet traffic. 
+When Virtual WAN is configured in forced tunnel mode, the highest priority default route selected by the Virtual WAN hub based on [hub routing preference](about-virtual-hub-routing-preference.md) is used by the security solution to forward internet traffic. 
 
 :::image type="content" source="./media/about-internet-routing/forced-tunne;.png" alt-text="Screenshot that shows forced tunnel." lightbox="/media/about-internet-routing/forced-tunnel.png":::
 
-However, there is an implicit route that allows the security solution to forward traffic directly to the internet. This implicit route is treated with the lowest priority.
+However, there's an implicit route that allows the security solution to forward traffic directly to the internet. This implicit route is treated with the lowest priority.
 
-This means that if there are no default route(s) learnt dynamically from on-premises or configured as a static route on Virutal Network connections, Internet traffic is routed directly to the Internet.
+If there are no default routes learnt dynamically from on-premises or configured as a static route on Virtual Network connections, Internet traffic is routed directly to the Internet.
 
 ### Supported sources of the default route
 
@@ -58,12 +58,12 @@ This means that if there are no default route(s) learnt dynamically from on-prem
 The default route can be learnt from the following sources.
 
 * ExpressRoute
-* Site-to-site VPN (BGP or static)
+* Site-to-site VPN (dynamic or static)
 * NVA in the hub
 * NVA in the spoke
 * Static route on a Virtual Network connection (with propagate static route set to **ON**)
 
-The default route **can't be configured** in the following way(s):
+The default route **can't be configured** in the following way:
 * Static route in the defaultRouteTable with next hop Virtual Network connection 
 
 ### Effective Routes
@@ -71,14 +71,14 @@ The default route **can't be configured** in the following way(s):
 For deployments configured with forced tunnel, effective routes on the next hop security solution will contain the  **0.0.0.0/0** route with the next hop as the selected default route learnt from on-premises or configured as a static route on a Virtual Network connection. 
 
 ## Configurations
-The following sections describe the neccesary configurations to route internet traffic in direct access or forced tunnel mode.
+The following sections describe the necessary configurations to route internet traffic in direct access or forced tunnel mode.
 
 ## Virtual WAN routing configuration
 
 >[!NOTE]
-> Forced tunnel Internet traffic routing mode is avaialble **only** for Virtual WAN hubs utilizing routing intent with private routing policies. Hubs that do **not** use routing intent or use internet routing policies can only utilize direct access mode.
+> Forced tunnel Internet traffic routing mode is available **only** for Virtual WAN hubs utilizing routing intent with private routing policies. Hubs that do **not** use routing intent or use internet routing policies can only utilize direct access mode.
 
-The following table summarizes the configuration needed to route trafic using the two different  Internet traffic routing modes.
+The following table summarizes the configuration needed to route traffic using the two different  Internet traffic routing modes.
 
 |Mode| Private Routing Policy| Additional Prefixes| Internet Routing Policy |
 |--|--|--|--|
@@ -95,11 +95,11 @@ The following section describes the differences in security solution configurati
 
 ### Direct Access
 
-The following section describe configuration considerations needed to ensure security solutions **in the Virtual WAN hub** can forward packets to the Internet directly.
+The following section describes configuration considerations needed to ensure security solutions **in the Virtual WAN hub** can forward packets to the Internet directly.
 
 **Azure Firewall**:
 * Ensure [Source-NAT (SNAT)](../firewall/snat-private-range.md-private-range) is  **on** for all non-private network traffic configurations.
-* Ensure sufficient Public IP addresses are allocated to your Azure Firewall deployment to avoid SNAT port exhaustion.
+* Avoid SNAT port exhaustion by ensuring sufficient Public IP addresses are allocated to your Azure Firewall deployment.
 
 **SaaS solution or Integrated NVAs**:
 
@@ -126,7 +126,7 @@ The following recommendations are generic baseline recommendations. Contact your
 * Reference provider documentation to ensure:
     * Internal route table in NVA or SaaS solution has 0.0.0.0/0 properly configured to forward Internet traffic out of the internal interface.
     * Internal route table configuration ensures management traffic and VPN/SDWAN traffic are routed out the external Interace.
-    * Configure SNAT appropriately depending on whether or not the orignal source IP of traffic needs to be preserved.
+    * Configure SNAT appropriately depending on whether or not the original source IP of traffic needs to be preserved.
 
 
 
