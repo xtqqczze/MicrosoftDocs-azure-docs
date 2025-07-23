@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-bicep
   - build-2025
 ms.topic: how-to
-ms.date: 03/26/2025
+ms.date: 08/01/2025
 ms.author: wellee
 ---
 # How to configure Virtual WAN Hub routing intent and routing policies
