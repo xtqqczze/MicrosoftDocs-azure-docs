@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 07/22/2025
+ms.date: 07/23/2025
 ms.author: mbender
 ---
 
@@ -42,7 +42,17 @@ The following configurations are supported for Proxy protocol headers in Applica
 
 **Backend Settings** – You can enable Client IP Preservation in the backend setting with TLS or TCP protocol. This sends the proxy protocol header to the backends during the live traffic originating from the clients. 
 
-**Health probes** – The probes of the application gateway also support Proxy protocol header. When enabled in the Backend Settings, the default health probes send this header to the backend servers. With custom probes, you can choose to enable this setting specifically and for a different port, if necessary.
+**Health probes** – The probes of the application gateway also support Proxy protocol header. When proxy protocol setting is enabled in the Backend Settings, the default health probes send this header to the backend servers. With custom probes, you can configure this setting specifically for that probe. You may also use a different port for that probe, if necessary.
+
+---
+### [REST API](#tab/restapi)
+
+| Property Name | Parent property name | Value |
+| ---------- | ---------- | ---------- |
+| EnableClientIpPreservation | ApplicationGatewayBackendSettings | Boolean |
+| EnableProbeProxyProtocolHeader | ApplicationGatewayProbe | Boolean |
+
+
 
 ## Format of Proxy Protocol header 
 
