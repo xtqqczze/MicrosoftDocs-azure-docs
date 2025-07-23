@@ -44,7 +44,7 @@ If you have private routing policies configured on your Virtual WAN hub, you can
 
 When Virtual WAN is configured in forced tunnel mode, the highest priority default route selected by the Virtual WAN hub based on [hub routing preference](about-virtual-hub-routing-preference.md) is used by the security solution to forward internet traffic. 
 
-:::image type="content" source="./media/about-internet-routing/forced-tunne;.png" alt-text="Screenshot that shows forced tunnel." lightbox="/media/about-internet-routing/forced-tunnel.png":::
+:::image type="content" source="./media/about-internet-routing/forced-tunnel.png" alt-text="Screenshot that shows forced tunnel." lightbox="/media/about-internet-routing/forced-tunnel.png":::
 
 However, there's an implicit route that allows the security solution to forward traffic directly to the internet. This implicit route is treated with the lowest priority.
 
@@ -98,7 +98,7 @@ The following section describes the differences in security solution configurati
 The following section describes configuration considerations needed to ensure security solutions **in the Virtual WAN hub** can forward packets to the Internet directly.
 
 **Azure Firewall**:
-* Ensure [Source-NAT (SNAT)](../firewall/snat-private-range.md-private-range) is  **on** for all non-private network traffic configurations.
+* Ensure [Source-NAT (SNAT)](../firewall/snat-private-range.md) is  **on** for all non-private network traffic configurations.
 * Avoid SNAT port exhaustion by ensuring sufficient Public IP addresses are allocated to your Azure Firewall deployment.
 
 **SaaS solution or Integrated NVAs**:
