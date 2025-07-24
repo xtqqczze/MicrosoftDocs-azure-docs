@@ -42,7 +42,7 @@ Windows clients connecting to Azure Files via SMB should meet the following requ
 > [!IMPORTANT]
 > We strongly recommend using SMB 3.1.1 protocol for Azure Files access. SMB 3.0 and 2.0 should only be used for legacy clients, and you must plan an OS upgrade to mitigate unpatched security vulnerabilities.
 
-For a complete list of requirements and setup instructions, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md#prerequisites).
+For a complete list of requirements and setup instructions, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
 ### NFS requirements
 
