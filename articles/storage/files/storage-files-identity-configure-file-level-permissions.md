@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/21/2025
+ms.date: 07/24/2025
 ms.author: kendownie
 ms.custom: engagement-fy23
 # Customer intent: "As a system administrator, I want to configure directory and file-level permissions for Azure file shares using Windows ACLs, so that I can ensure granular access control and enhance security for users accessing shared files."
@@ -82,9 +82,9 @@ For more information on these permissions, see [the command-line reference for i
 
 Before you configure Windows ACLs, mount the file share with admin-level access. You can take two approaches:
 
-- **Use the Windows permission model for SMB admin (limited preview)**: Create a custom Azure RBAC role with the required permissions to edit ACLs, and assign that role to users who configure ACLs. Then mount the file share using [identity-based authentication](storage-files-active-directory-overview.md) and configure ACLs. This approach is recommended because it doesn't require your storage account key to mount the file share.
+- **Use the Windows permission model for SMB admin (limited preview)**: Create a custom Azure RBAC role with the required permissions to edit ACLs, and assign that role to users who configure ACLs. Then mount the file share using [identity-based authentication](storage-files-active-directory-overview.md) and configure ACLs. This approach is more secure because it doesn't require your storage account key to mount the file share.
 
-- **Use the storage account key (not recommended)**: Use your storage account key to mount the file share and then configure ACLs. This approach isn't recommended for production environments because it requires your storage account key, which is a sensitive credential. Use this option only if you can't create a custom Azure RBAC role and use identity-based authentication.
+- **Use the storage account key**: Use your storage account key to mount the file share and then configure ACLs. The storage account key is a sensitive credential. For security reasons, use this option only if you can't create a custom Azure RBAC role and use identity-based authentication.
 
 ### Use the Windows permission model for SMB admin
 
@@ -115,10 +115,10 @@ To use the Windows permission model for SMB admin, follow these steps:
 > [!NOTE]
 > You might see the **Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share level and the file/directory level), this ability is restricted. Only users who have the **Storage File Data SMB Share Elevated Contributor** role (or create a custom role with the required permissions) and create a new file or directory can assign permissions on those new files or directories without using the storage account key.
 
-### Mount the file share using your storage account key (not recommended)
+### Mount the file share using your storage account key
 
 > [!WARNING]
-> Using the storage account key isn't recommended for production environments. If possible, use the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin) instead. 
+> If possible, use the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin) (limited preview) to mount the share instead of using the storage account key.
 
 Sign in to a domain-joined device (as a Microsoft Entra user if your AD source is Microsoft Entra Domain Services), open a Windows command prompt, and mount the file share by running the following command. Replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 

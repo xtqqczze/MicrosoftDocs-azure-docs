@@ -1,10 +1,10 @@
 ---
-title: Mount Azure file share on Windows
+title: Mount Azure File Share on Windows
 description: Learn how to mount an SMB Azure file shares on Windows and Windows Server. Use Azure file shares with SMB 3.x on Windows installations running on-premises or on Azure VMs.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 07/24/2025
 ms.author: kendownie
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
@@ -69,19 +69,26 @@ Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) 
 > [!NOTE]
 > We recommend taking the most recent KB for your version of Windows.
 
-## Prerequisites
+## Ensure port 445 is open
 
-Before you can mount an Azure file share, make sure you complete the following prerequisites:
+The SMB protocol requires TCP port 445 to be open. Connections will fail if port 445 is blocked. You can check if your firewall or ISP is blocking port 445 by using the `Test-NetConnection` PowerShell cmdlet. For more information, see [Port 445 is blocked](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json#cause-1-port-445-is-blocked).
 
-- Make sure you [assign share-level permissions](storage-files-identity-assign-share-level-permissions.md) and [configure directory and file-level permissions](storage-files-identity-configure-file-level-permissions.md). Remember that share-level role assignment can take some time to take effect.
-- If you're mounting the file share from a client that has previously connected to the file share using your storage account key, make sure that you first unmount the share and remove the persistent credentials of the storage account key. For instructions on how to remove cached credentials and delete existing SMB connections before initializing a new connection with Active Directory Domain Services (AD DS) or Microsoft Entra credentials, follow the two-step process on the [FAQ page](./storage-files-faq.md#identity-based-authentication).
+If you want to mount your Azure file share over SMB from outside of Azure without opening up port 445, you can [use a point-to-site VPN](storage-files-configure-p2s-vpn-windows.md).
+
+In order to use an Azure file share via the public endpoint outside of the Azure region it's hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. Older versions of Windows that support only SMB 2.1 can't mount Azure file shares via the public endpoint.
+
+## Use identity-based authentication
+
+To improve security and access control, you can configure [identity-based authentication](storage-files-active-directory-overview.md) and domain-join your clients. This allows you to use your Active Directory or Microsoft Entra identity to access the file share rather than using a storage account key.
+
+Before you can mount an Azure file share using identity-based authentication, you must complete the following:
+
+- [Assign share-level permissions](storage-files-identity-assign-share-level-permissions.md) and [configure directory and file-level permissions](storage-files-identity-configure-file-level-permissions.md). Remember that share-level role assignment can take some time to take effect.
+- If you're mounting the file share from a client that has previously connected to the file share using your storage account key, make sure that you first unmount the share and remove the persistent credentials of the storage account key. For instructions on how to remove cached credentials and delete existing SMB connections before initializing a new connection with Active Directory Domain Services (AD DS) or Microsoft Entra credentials, follow the two-step process on the [FAQ](./storage-files-faq.md#identity-based-authentication).
 - If your AD source is AD DS or Microsoft Entra Kerberos, your client must have unimpeded network connectivity to your AD DS. If your machine or VM is outside of the network managed by your AD DS, you need to enable VPN to reach AD DS for authentication.
 - Sign in to the client using the credentials of the AD DS or Microsoft Entra identity that you granted permissions to.
-- Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open. Connections will fail if port 445 is blocked. You can check if your firewall or ISP is blocking port 445 by using the `Test-NetConnection` PowerShell cmdlet. For more information, see [Port 445 is blocked](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json#cause-1-port-445-is-blocked).
-- In order to use an Azure file share via the public endpoint outside of the Azure region it's hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. Older versions of Windows that support only SMB 2.1 can't mount Azure file shares via the public endpoint.
 
-> [!IMPORTANT]
-> Before mounting an Azure file share, we recommend configuring [identity-based authentication](storage-files-active-directory-overview.md) and domain-joining your clients. This allows you to use your Active Directory or Microsoft Entra identity to access the file share rather than using a storage account key, improving security and access control. If you run into issues, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#unable-to-mount-azure-file-shares-with-ad-credentials).
+If you run into issues, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#unable-to-mount-azure-file-shares-with-ad-credentials).
 
 ## Use an Azure file share with Windows
 
@@ -173,7 +180,7 @@ If your AD source is Microsoft Entra Domain services, you can also provide crede
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<DOMAINNAME\username>
 ```
 
-## Mount the Azure file share using the storage account key (not recommended)
+## Mount the Azure file share using the storage account key
 
 The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host using the storage account key. However, we recommend using identity-based authentication instead of the storage account key for security reasons. If you must use the storage account key, follow the [mount instructions](#mount-the-azure-file-share), but under **Authentication method**, select *Storage account key*.
 

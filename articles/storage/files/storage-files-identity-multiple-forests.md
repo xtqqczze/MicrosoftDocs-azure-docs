@@ -1,5 +1,5 @@
 ---
-title: Use Azure Files with multiple Active Directory (AD) forests
+title: Use Azure Files with Multiple Active Directory (AD) Forests
 description: Configure on-premises Active Directory Domain Services (AD DS) authentication for SMB Azure file shares with an AD DS environment using multiple forests.
 author: khdownie
 ms.service: azure-file-storage
@@ -118,7 +118,7 @@ If icacls fails with an *Access is denied* error, follow these steps to configur
 
 1. Delete the existing share mount: `net use * /delete /y`
 
-1. Re-mount the share using either the [Windows permission model for SMB admin](storage-files-identity-configure-file-level-permissions.md#use-the-windows-permission-model-for-smb-admin) (limited preview) or the storage account key (not recommended). See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
+1. Re-mount the share using either the [Windows permission model for SMB admin](storage-files-identity-configure-file-level-permissions.md#use-the-windows-permission-model-for-smb-admin) (limited preview) or the storage account key. See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
 
 1. Set icacls permissions for user in **Forest2** on storage account joined to **Forest1** from client in **Forest1**.
 
