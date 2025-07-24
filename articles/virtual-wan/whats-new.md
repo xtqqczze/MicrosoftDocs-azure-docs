@@ -91,7 +91,7 @@ The following features are currently in gated public preview. After working with
 |---|---|---|---|---|
 |Managed preview|Aruba EdgeConnect SD-WAN| Deployment of Aruba EdgeConnect SD-WAN NVA into the Virtual WAN hub| preview-vwan-aruba@microsoft.com| |
 
-## Known issues
+## <a name="knownissues"> Known issues
 
 |#|Issue|Description |Date first reported|Mitigation|
 |---|---|---|---|---|
