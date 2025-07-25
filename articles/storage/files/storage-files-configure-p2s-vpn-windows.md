@@ -4,7 +4,7 @@ description: How to configure a point-to-site (P2S) VPN on Windows for use with 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/24/2025
+ms.date: 07/25/2025
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As an IT administrator, I want to configure a point-to-site VPN on Windows for Azure file shares, so that I can securely access and mount file shares from on-premises without opening up port 445."
@@ -271,7 +271,7 @@ Each client computer that you connect to a virtual network with a point-to-site 
 
 ### Create client certificate using an enterprise solution
 
-If you're using an enterprise certificate solution, generate a client certificate with the common name value format *name@yourdomain.com*. Use this format instead of the *domain name\username* format. Make sure the client certificate is based on a user certificate template that has *Client Authentication* listed as the first item in the user list. Check the certificate by double-clicking it and viewing **Enhanced Key Usage** in the **Details** tab.
+If you're using an enterprise certificate solution, generate a client certificate with the common name value format *name@contoso.com*. Use this format instead of the *domain name\username* format. Make sure the client certificate is based on a user certificate template that has *Client Authentication* listed as the first item in the user list. Check the certificate by double-clicking it and viewing **Enhanced Key Usage** in the **Details** tab.
 
 ### Create client certificate from a self-signed root certificate
 
