@@ -17,19 +17,16 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-<<<<<<< HEAD
 * [Object REST API](object-rest-api-access-configure.md) (Preview)
 
     The [Object REST API (an S3-compatible REST API)](object-rest-api-introduction.md) on Azure NetApp Files bridges the gap between traditional file-based storage and modern cloud services, enabling you to use your existing data in new ways. By providing integration via Microsoft Fabric with Azure AI services, native S3 read access from modern applications, and other Azure services, you can unlock new use cases, reduce costs, and accelerate innovation. The object REST API feature is currently only supported on NFS volumes and is read-only. This feature is currently in preview. 
     
-=======
 ## June 2025
 
 * The ability to [transition an existing volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)
 
     You can transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you flexibility of encryption key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
 
->>>>>>> aeee4b56486f2adcfdcd04e5cb14bc6be03299df
 ## May 2025
 
 * [Volume encryption with customer-managed keys with managed Hardware Security Module (HSM)](configure-customer-managed-keys-hardware.md) is now generally available (GA)
