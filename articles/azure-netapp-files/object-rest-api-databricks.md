@@ -29,7 +29,7 @@ This process requires using both the Azure NetApp Files portal and your Databric
 ### Prepare the SSL certificate:
 
 1. Obtain the SSL certificate for your S3-compatible storage service's compute endpoints. 
-1. Save the SSL certificate in a secure location accessible by Azure Databricks. 
+1. Save the SSL certificate in a secure location accessible by Azure Databricks. For more information, see [How to import a custom CA certificate](https://kb.databricks.com/python/import-custom-ca-cert).
 
 ### Create the `init` script 
 
@@ -42,7 +42,7 @@ cp $CERT_PATH /etc/ssl/certs/
 update-ca-certificates 
 ````
 
-1. Use the Databricks CLI or the Databricks UI to upload the bash script to the Databricks File System (DBFS). 
+1. Use the Databricks CLI or the Databricks UI to upload the bash script to the Databricks File System (DBFS). For more information, see, [work with files on Azure Databricks](/databricks/files/#work-with-files-in-dbfs-mounts-and-dbfs-root).
 
 ### Configure the cluster 
 

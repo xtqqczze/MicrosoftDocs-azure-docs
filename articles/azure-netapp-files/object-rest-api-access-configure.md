@@ -15,6 +15,12 @@ Azure NetApp Files supports read access to S3 objects with the [object REST API]
 
 To connect to S3 objects, you must create a bucket that is tied to an Azure NetApp Files NFS volume. After configuring the bucket, access is read-only. 
 
+## Prerequisites 
+
+* You must have generate PEM-formatted SSL certificate. For instructions, see the [Azure Key Vault documentation for creating a certificate](/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal#import-a-certificate-to-your-key-vault). 
+
+    When creating the certificate, ensure the **Content Type** is set to PEM. In the **Subject** field, set the Common Name (CN) to the IP address or domain of your Azure NetApp Files object REST API-enabled volume.
+
 ## Register the feature 
 
 The object REST API access feature in Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time. Feature registration can take up to 60 minutes to complete.
@@ -50,12 +56,21 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         The UID used to read the bucket.
     * **GroupID (GID)**
         The GID used to read the bucket.
-    If you haven't provided a certificate, also provide the following information:
-    * **Fully qualified domain name**
-    * **Certificate source**
-        Upload the appropriate certificate. Only `.pem` files are supported. 
     * **Permissions**
         Buckets are currently read-only. You can't modify this field. 
+
+    :::image type="content" source="./media/object-rest-api-access-configure/create-bucket.png" alt-text="Screenshot of create a bucket menu." lightbox="./media/object-rest-api-access-configure/create-bucket.png":::
+
+
+1. If you haven't provided a certificate, also provide the following information:
+    * **Fully qualified domain name**
+        Enter the fully qualified domain name. 
+    * **Certificate source**
+        Upload the appropriate certificate. Only .pem files are supported. 
+
+
+    :::image type="content" source="./media/object-rest-api-access-configure/certificate-management.png" alt-text="Screenshot of certificate management options." lightbox="./media/object-rest-api-access-configure/certificate-management.png":::
+
 1. Select **Create**. 
     After creating the bucket, you must [generate the access key](#generate-the-access-key-for-a-bucket).
 
