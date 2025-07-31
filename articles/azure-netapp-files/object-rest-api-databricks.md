@@ -5,13 +5,15 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/04/2025
+ms.date: 07/31/2025
 ms.author: anfdocs
 ---
 
 # Connect Azure Databricks to an Azure NetApp Files volume using object REST API 
 
-Azure NetApp Files supports connecting to Azure Databricks via an Azure NetApp Files object REST API-enabled volume with `init` scripts to load the SSL certificate for compute endpoints. Using this setup ensures secure communication between Azure Databricks and your Azure NetApp Files Object REST API-enabled volume. 
+The [object REST API feature](object-rest-api-introduction.md) enables Azure Databricks and Azure Machine Learning to read and write data to Azure NetApp Files volumes, supporting end-to-end data science workflows from ingestion to model deployment.
+
+To connect to Azure Databricks, you run an `init` script to load the SSL certificate for compute endpoints. Using this setup ensures secure communication between Azure Databricks and your Azure NetApp Files object REST API-enabled volume. 
 
 ## Before you begin 
 
