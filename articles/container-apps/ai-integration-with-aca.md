@@ -8,7 +8,8 @@ ms.date: 07/31/2025
 ---
 
 # AI Integration with Azure Container Apps
-Azure Container Apps (ACA) is a fully managed, serverless container platform that simplifies the deployment and scaling of microservices and AI-powered applications. With native support for GPU workloads, seamless integration with Azure AI services, and flexible deployment options, ACA is an ideal platform for building intelligent, cloud-native solutions.
+
+Azure Container Apps is a fully managed, serverless container platform that simplifies the deployment and scaling of microservices and AI-powered applications. With native support for GPU workloads, seamless integration with Azure AI services, and flexible deployment options, is an ideal platform for building intelligent, cloud-native solutions.
 
 ## Running AI Workloads in Azure Container Apps
 
@@ -24,7 +25,7 @@ ACA supports GPU acceleration to meet a variety of AI workload needs:
 
 ## Dynamic Sessions for AI-Generated Code
 
-Dynamic Sessions provide a secure, isolated environment for executing AI-generated code—perfect for scenarios like sandboxed execution, code evaluation, or AI agents.
+Dynamic Sessions provide a secure, isolated environment for executing AI-generated codeâ€”perfect for scenarios like sandboxed execution, code evaluation, or AI agents.
 
 Supported session types include:
 - Code interpreters
