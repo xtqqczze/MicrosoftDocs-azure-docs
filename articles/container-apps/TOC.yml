@@ -195,8 +195,8 @@
       href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
 - name: AI integration
   items:
-    - name: Integrate AI with Azure Container Apps
-      href: ai-integration-with-aca.md
+    - name: AI integration
+      href: ai-integration.md
 - name: Observability
   items:
     - name: Overview
