@@ -47,5 +47,5 @@ The following are a few examples that demonstrate AI integration with Azure Cont
 | [mcp-container-ts](https://github.com/Azure-Samples/mcp-container-ts) | TypeScript-based MCP server template for ACA, ideal for building custom AI toolchains. |
 
 ### Learn More
-- Multiple-Agent Workflow Automation with ACA: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation
+- [Multiple-agent workflow automation](/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation)
 
