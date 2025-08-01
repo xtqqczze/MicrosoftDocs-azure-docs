@@ -14,7 +14,7 @@ Azure Container Apps is a fully managed, serverless container platform that simp
 
 ## GPU-Powered Inference
 
-ACA supports GPU acceleration to meet a variety of AI workload needs:
+Use GPU accelerated workload profiles to meet a variety of your AI workload needs, including:
 
 - **Serverless GPUs**: Ideal for bursty, cost-sensitive inference workloads.
 - **Dedicated GPUs**: Best for continuous, low-latency inference scenarios.
