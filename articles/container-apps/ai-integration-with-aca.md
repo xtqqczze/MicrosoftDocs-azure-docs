@@ -20,7 +20,7 @@ Use GPU accelerated workload profiles to meet a variety of your AI workload need
 - **Dedicated GPUs**: Best for continuous, low-latency inference scenarios.
 - **Scale to zero**: Automatically scale down idle GPU resources to minimize costs.
 
-## Dynamic Sessions for AI-Generated Code
+## Dynamic sessions for AI-generated code
 
 Dynamic Sessions provide a secure, isolated environment for executing AI-generated code—perfect for scenarios like sandboxed execution, code evaluation, or AI agents.
 
