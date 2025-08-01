@@ -11,9 +11,6 @@ ms.date: 07/31/2025
 
 Azure Container Apps is a fully managed, serverless container platform that simplifies the deployment and scaling of microservices and AI-powered applications. With native support for GPU workloads, seamless integration with Azure AI services, and flexible deployment options, is an ideal platform for building intelligent, cloud-native solutions.
 
-## Running AI Workloads in Azure Container Apps
-
-Azure Container Apps (ACA) offers a powerful set of features tailored for running AI applications efficiently and securely:
 
 ## GPU-Powered Inference
 
