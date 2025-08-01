@@ -35,7 +35,7 @@ Supported session types include:
 
 Azure Container Apps integrates with Azure AI Foundry, which enables you to deploy curated AI models directly into your containerized environments. This integration simplifies model deployment and management, making it easier to build intelligent applications on Container Apps.
 
-### Sample Projects
+### Sample projects
 
 The following are a few examples that demonstrate AI integration with Azure Container Apps. These samples showcase various AI capabilities, including OpenAI integration, multi-agent coordination, and retrieval-augmented generation (RAG) using Azure AI Search.
 
