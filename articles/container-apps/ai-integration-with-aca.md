@@ -18,7 +18,7 @@ Use GPU accelerated workload profiles to meet a variety of your AI workload need
 
 - **Serverless GPUs**: Ideal for bursty, cost-sensitive inference workloads.
 - **Dedicated GPUs**: Best for continuous, low-latency inference scenarios.
-- **Scale to Zero**: Automatically scale down GPU resources when idle to minimize costs.
+- **Scale to zero**: Automatically scale down idle GPU resources to minimize costs.
 
 ## Dynamic Sessions for AI-Generated Code
 
