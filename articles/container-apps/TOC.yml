@@ -196,7 +196,7 @@
 - name: AI integration
   items:
     - name: Integrate AI with Azure Container Apps
-      href: ai-integration-with-aca.md
+      href: ai-integration.md
 - name: Observability
   items:
     - name: Overview
