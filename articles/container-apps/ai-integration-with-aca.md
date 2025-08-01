@@ -1,6 +1,6 @@
 ---
 title: A Integration with Azure Container Apps
-description: Understand how to run AI workloads in Azure Container Apps, including GPU-powered inference, dynamic sessions, and deploying Azure AI Foundry models.
+description: Examples for running AI workloads in Azure Container Apps, including GPU-powered inference, dynamic sessions, and deploying Azure AI Foundry models.
 author: jefmarti
 ms.author: jefmarti
 ms.service: azure-container-apps
