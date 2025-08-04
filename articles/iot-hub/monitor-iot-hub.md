@@ -3,7 +3,7 @@ title: Monitor Azure IoT Hub
 description: Start here to learn how to monitor Azure IoT Hub by using Azure Monitor. Learn about the types of monitoring data you can collect and ways to analyze that data.
 ms.date: 06/27/2025
 ms.custom: horz-monitor, subject-monitoring
-ms.topic: conceptual
+ms.topic: concept-article
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
