@@ -111,13 +111,13 @@ To qualify for SLA coverage, customers must meet specific conditions, commonly r
 - **Blob Type Restrictions**: Page Blob and Append Blob API calls within the last 30 days make the account ineligible.
 - **Initial Sync**: SLA doesn't apply until the initial geo-replication or bootstrap is complete and LST is ≤ 15 minutes.
 
-### Object Replication Specifics
+### Object Replication Guardrails
 
 - SLA applies only to **new objects**.
 - SLA doesn't cover **bootstrap replication** (existing data).
 - SLA can be toggled on/off; billing and metrics apply only during active SLA periods.
 
-### GRS Priority Replication Specifics
+### GRS Priority Replication Guardrails
 
 - SLA begins once LST is ≤ 15 minutes.
 - SLA is voided during **unplanned failovers**, **LRS to GRS conversions**, or **cross-region migrations** unless re-enabled.
