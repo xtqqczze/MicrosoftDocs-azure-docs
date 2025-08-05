@@ -76,4 +76,4 @@ Customers who disable Geo Priority Replication continue to be billed for 30 days
 
 - [Azure Object and Geo-Redundant Storage Replication SLA overview](storage-redundancy-sla.md)
 - [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/)
-- [Geo Priority Replication management](storage-redundancy-sla-enable.md)\
+- [Geo Priority Replication management](storage-redundancy-sla-manage.md)
