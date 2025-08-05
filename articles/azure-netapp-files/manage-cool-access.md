@@ -34,6 +34,8 @@ There are several considerations to be aware of when using cool access.
 * Files moved to the cool tier remains there after you disable cool access on a volume. You must perform an I/O operation on _each_ file to return it to the warm tier. 
 * For the maximum number of volumes supported for cool access per subscription per region, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 * Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
+    * Cool access is also supported with dedicated capacity. You must be [registered to use dedicated capacity](large-volumes-requirements-considerations.md#register-for-dedicated-capacity-large-volumes) and to use [dedicated capacity with cool access](#dedicated). 
+    * Cool access with dedicated capacity is only available for newly created volumes. You must enable cool access and select dedicated capacity when creating the volume. 
 
 ### Considerations for cool access-enabled capacity pools 
 
@@ -66,7 +68,6 @@ There are several considerations to be aware of when using cool access.
 - **Data rehydration:** Data isn't rehydrated to the hot tier when the volume is deleted, ensuring the deletion process is efficient and mitigating unnecessary data movement. 
     - The only way to rehydrate data from the cool tier to the hot tier is for the client or application to read the data block. 
 
-
 ### Considerations for cross-region and cross-zone replication 
 
 * In a [cross-region](cross-region-replication-introduction.md) or [cross-zone](cross-zone-replication-introduction.md) replication configuration, you can enable cool access exclusively for destination volumes to enhance data protection and create cost savings without affecting latency in source volumes.
@@ -84,7 +85,7 @@ There are several considerations to be aware of when using cool access.
 
 You must register for cool access with the Premium or Ultra service levels before you can enable it at the capacity pool and volume levels. No registration is required for the Standard service level. 
 
-### Register the feature 
+### <a name="register-the-feature"></a> Register for cool access
 
 # [Ultra](#tab/ultra)
 
@@ -131,6 +132,25 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 No registration is required to use cool access at the Standard service level.
 
 ---
+
+### <a name="dedicated"></a> Register dedicated capacity for cool access (preview)
+
+Cool access with dedicated capacity is currently in preview. Before using cool access with dedicated capacity, you must be registered to use both [dedicated capacity](large-volumes-requirements-considerations.md#register-for-dedicated-capacity-large-volumes). You must also register to use dedicated capacity with cool access: 
+
+1.  Register the feature:
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDedicatedCapacityCoolAccess
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** can stay in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDedicatedCapacityCoolAccess
+    ```
 
 ### Configure the capacity pool for cool access
 

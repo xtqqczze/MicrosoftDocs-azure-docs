@@ -17,6 +17,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Cool access with dedicated capacity](manage-cool-access.md#register-dedicated-capacity-for-cool-access) (preview)
+
+    <!-- TBD -->
+    You must be registered for [dedicated capacity](large-volumes-requirements-considerations.md#register-for-dedicated-capacity-large-volumes) and then to use [cool access with dedicated capacity](manage-cool-access.md#register-dedicated-capacity-for-cool-access-preview). This feature is currently in preview. 
+
 ## June 2025
 
 * The ability to [transition an existing volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)

@@ -12,6 +12,10 @@ ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files large volumes
 
+Large volumes are Azure NetApp Files volumes with a size of 50 TiB to 1,024 TiB, though 2-PiB large volumes are available on request depending on regional dedicated capacity availability.
+
+Large volumes with dedicated capacity are also available in select circumstances, enabling you to create volumes between 2.4 and 7.2 PiB in size. 
+
 This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
 
 ## Requirements and considerations
@@ -72,6 +76,15 @@ The following requirements and considerations apply to large volumes. For perfor
 
 
 * Large volumes are supported with cool access. You must be [registered to use cool access](manage-cool-access.md#register-the-feature) before creating a cool access-enabled large volume. 
+
+### <a name="dedicated"></a> Requirements for dedicated capacity (preview)
+
+* Dedicated capacity capacity volumes are between 2.4 and 7.2 PiB. 
+* Dedicated capacity is not currently supported with the Flexible service level. Dedicated capacity capacity is supported with the Standard, Premium, and Ultra service levels. 
+* Dedicated capacity is only available for new volumes. 
+* Dedicated capacity large volumes are supported with cool access. This feature is currently in preview. You must register for both the [dedicated capacity preview](#register-for-dedicated-capacity-large-volumes) and to use [dedicated capacity with cool access](manage-cool-access.md#dedicated).
+  
+  If you're using the Ultra or Premium service level, you must also [register to use those service levels with cool access](manage-cool-access.md#register-the-feature).
 
 ## About 64-bit file IDs
 
@@ -142,6 +155,27 @@ Check the status of the feature registration:
   ```
     
 You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
+
+### Register for dedicated capacity large volumes
+
+Dedicated capacity is currently in preview. Before configuring large volumes with dedicated capacity, you must register the feature.
+
+1.  Register the feature:
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDedicatedCapacity 
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** can stay in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDedicatedCapacity 
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Next steps
 
