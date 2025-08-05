@@ -40,7 +40,19 @@ Here's a breakdown:
 
 - Standard GRS charges still apply - storage and read/write operations, for example.
 - Network usage charges might be incurred if ingress exceeds defined thresholds.
-- 
+
+To help visualize the pricing, here's a sample calculation:
+
+| Component                       | Cost   |
+|---------------------------------|--------|
+| Data Storage (GZRS)            | $8.28  |
+| Geo Priority Replication Fee    | $1.50  |
+| Write Operations (10,000)      | $0.10  |
+| Read Operations (10,000)       | $0.004 |
+| Geo-Replication Bandwidth       | $2.00  |
+| Total                           | $11.884|
+
+This example shows how the total cost is built from multiple components. The Geo Priority Replication fee is just one part of the overall bill, but its the key differentiator for SLA-backed replication.
 
 ## Credit policy
 
