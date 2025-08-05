@@ -12,18 +12,18 @@ ms.topic: conceptual
 
 # Azure Synapse Analytics connectivity settings
 
-This article explains connectivity settings in Azure Synapse Analytics and how to configure them where applicable.
+This article explains how to configure connectivity settings in Azure Synapse Analytics, including both dedicated SQL pools and serverless SQL pools where applicable.
 
 For connection strings to Azure Synapse Analytics pools, see [Connect to Synapse SQL](../sql/connect-overview.md).
 
-The capabilities and Azure portal appearance of configuring a dedicated SQL pool depend on whether it is in a logical SQL server or an Azure Synapse Analytics workspace.
+Connectivity settings and the Azure portal experience for dedicated SQL pools differ depending on whether the pool is deployed in a logical SQL server or in an Azure Synapse Analytics workspace. In contrast, serverless SQL pools are only available in Synapse workspaces and follow the same connectivity settings as dedicated SQL pools created in a workspace.
 
-### [Dedicated SQL pools in a workspace](#tab/workspace)
+### [Dedicated and Serverless SQL pools in a workspace](#tab/workspace)
 
 ## Public network access
 
 > [!NOTE]
-> These settings apply to dedicated SQL pools (formerly SQL DW) in an Azure Synapse analytics workspace. These instructions do not apply dedicated SQL pools (formerly SQL DW) associated with the logical SQL server.
+> These settings apply to dedicated SQL pools and serverless SQL pools created in an Azure Synapse workspace. These instructions do not apply to dedicated SQL pools associated with a logical SQL server (formerly SQL DW).
 
 You can use the public network access feature to allow incoming public network connectivity to your Azure Synapse workspace. 
 
@@ -261,9 +261,9 @@ You can also query [sys.fn_get_audit_file](/sql/relational-databases/system-func
 
 ## Connection policy
 
-The connection policy for Synapse SQL in Azure Synapse Analytics is set to **Default**. You cannot change the connection policy for dedicated SQL pools in Azure Synapse Analytics. 
+The connection policy for Synapse SQL in Azure Synapse Analytics is set to **Default**. You cannot change the connection policy for dedicated or serverless SQL pools in Azure Synapse Analytics. 
 
-Logins for dedicated SQL pools in Azure Synapse Analytics can land on **any of the individual Gateway IP addresses or Gateway IP address subnets in a region**. For consistent connectivity, allow network traffic to and from **all the individual Gateway IP addresses and Gateway IP address subnets** in a region. Refer to the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) for a list of your region's IP addresses to allow.
+Logins for SQL pools in Azure Synapse Analytics can land on **any of the individual Gateway IP addresses or Gateway IP address subnets in a region**. For consistent connectivity, allow network traffic to and from **all the individual Gateway IP addresses and Gateway IP address subnets** in a region. Refer to the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) for a list of your region's IP addresses to allow.
 
 - **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`.  The default policy is: 
    - `Redirect` for all client connections originating inside of Azure (for example, from an Azure Virtual Machine).
