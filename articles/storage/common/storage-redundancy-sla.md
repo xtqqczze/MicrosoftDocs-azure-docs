@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 04/15/2025
+ms.date: 08/05/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
@@ -171,14 +171,13 @@ To claim a refund for SLA violations:
 
 ## Pricing Overview
 
-| Feature         | SLA Guarantee                        | Price per GB         | Credit Tiers         |
+| Feature        | SLA Guarantee                        | Price per GB         | Credit Tiers         |
 |----------------|--------------------------------------|----------------------|----------------------|
 | AWS RTC        | 99.9% of objects                     | $0.015               | 10%, 25%, 100%       |
-| GCP Turbo      | 99.0% time, 99.9% volume             | $0.04 (NA/EU), $0.11 (Asia) | 10%, 25%, 50%       |
+| GCP Turbo      | 99.0% time, 99.9% volume             | $0.04 (NA/EU), $0.11 (Asia) | 10%, 25%, 50% |
 | Azure GRS      | LST ≤ 15 min 99.0%                   | $0.015               | 10%, 25%, 100%       |
 | Azure OR       | 99.9% of objects                     | $0.015               | 10%, 25%, 100%       |
 
----
 
 ## FAQs
 
