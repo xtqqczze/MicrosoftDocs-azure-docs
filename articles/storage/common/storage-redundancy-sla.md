@@ -16,89 +16,45 @@ ms.custom: references_regions, engagement
 
 <!--
 Initial: 98 (896/1)
+Current: 99 (975/1)
 -->
 
 # Azure Object and Geo-Redundant Storage Replication SLA overview
 
-Azure's Object Replication and Geo-Redundant Storage (GRS) Priority Replication features are designed to meet the stringent data durability and disaster recovery needs of enterprise customers. These features come with Service Level Agreements (SLAs) that guarantee replication performance under defined conditions. 
+Azure's Object Replication and Geo-Redundant Storage (GRS) Priority Replication features are designed to meet the stringent data durability and disaster recovery needs of enterprise customers. Priority replication allows a customer's transfer backlogs and new write operations to be replicated with priority. SLAs (Service Level Agreements) for these features guarantee replication performance under defined conditions.
 
 This article provides a detailed breakdown of the SLA terms, eligibility criteria, exceptions, and monitoring mechanisms to help customers understand and manage their replication commitments effectively.
 
 ## SLA terms and guarantees
 
-This section outlines the specific replication guarantees provided by Azure’s Object Replication and GRS Priority Replication features. It also describes the service credit tiers and billing scope associated with SLA violations.
+The SLA defines the specific conditions under which Azure's Object Replication and GRS Priority Replication features are guaranteed. It also describes the service credit tiers and billing scope associated with SLA violations.
 
 ### Object Replication SLA
 
-Microsoft guarantees that 99.9% of all Azure storage objects are replicated within **15 minutes** during a billing month. Failure to meet this performance guarantee results in service credits for SLA fees, replication data transfer, and Blob Storage requests for affected objects during a specific billing month.
+Microsoft guarantees that 99.9% of all Azure storage objects are replicated within **15 minutes** during a billing month. Failure to meet this performance guarantee results in service credits for SLA fees, replication data transfer, and Blob Storage requests for affected objects during a specific billing month. However, because object replication can be configured to replicate data across regions, the service credits only apply for objects replicated to destinations within the same continent. Your data continues to be replicated to the destination region with priority, but the SLA guarantee is voided.
+
+> [!IMPORTANT]
+> Although all Object Replication policies are eligible for priority replication, only users with source and destination storage accounts in the same continent are eligible for the SLA guarantee.
+
+The following list illustrates credit tiers that apply if this guarantee isn't met:
+
+| Percent of storage objects | Service Credit  |
+|----------------------------|-----------------|
+| 99.9% to 98.0%             | **10% credit**  |
+| 98.0% to 95.0%             | **25% credit**  |
+| Below 95.0%                | **100% credit** |
+
+### Geo-priority replication SLA
+
+Microsoft guarantees that the Last Sync Time (LST) is within 15 minutes across **99.0% of a billing month**. Failure to meet this performance guarantee results in Priority Replication and Geo Data Transfer fee credits for all write transactions during a specific billing month.
 
 The following list specifies the credit tiers that apply if this guarantee isn't met:
 
-:::row:::
-    :::column span="2":::
-        **Service Credit Tiers**
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        99.9% to 98.0%
-    :::column-end:::
-    :::column:::
-        **10% credit**
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        98.0% to 95.0%
-    :::column-end:::
-    :::column:::
-        **25% credit**
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        Below 95.0%
-    :::column-end:::
-    :::column:::
-        **100% credit**
-    :::column-end:::
-:::row-end:::
-
-### GRS Priority Replication SLA
-
-Microsoft guarantees that the Last Sync Time (LST) is within 15 minutes **99.0% of a billing month**. Failure to meet this performance guarantee results in Priority Replication and Geo Data Transfer fee credits for all write transactions during a specific billing month.
-
-The following list specifies the credit tiers that apply if this guarantee isn't met:
-
-:::row:::
-    :::column span="2":::
-        **Service Credit Tiers**
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        99.9% to 98.0%
-    :::column-end:::
-    :::column:::
-        **10% credit**
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        98.0% to 95.0%
-    :::column-end:::
-    :::column:::
-        **25% credit**
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        Below 95.0%
-    :::column-end:::
-    :::column:::
-        **100% credit**
-    :::column-end:::
-:::row-end:::
+| Percent of billing month | Service Credit  |
+|--------------------------|-----------------|
+| 99.9% to 98.0%           | **10% credit**  |
+| 98.0% to 95.0%           | **25% credit**  |
+| Below 95.0%              | **100% credit** |
 
 ## Eligibility
 
@@ -111,27 +67,28 @@ To qualify for SLA coverage, customers must meet specific conditions, commonly r
 - **Blob Type Restrictions**: Page Blob and Append Blob API calls within the last 30 days make the account ineligible.
 - **Initial Sync**: SLA doesn't apply until the initial geo-replication or bootstrap is complete and LST is ≤ 15 minutes.
 
-### Object Replication Guardrails
+### Object replication guardrails
 
 - SLA applies only to **new objects**.
 - SLA doesn't cover **bootstrap replication** (existing data).
-- SLA can be toggled on/off; billing and metrics apply only during active SLA periods.
 
-### GRS Priority Replication Guardrails
 
+### Geo-priority replication guardrails
+
+- 
 - SLA begins once LST is ≤ 15 minutes.
-- SLA is voided during **unplanned failovers**, **LRS to GRS conversions**, or **cross-region migrations** unless re-enabled.
+- Priority replication is disabled after an unplanned failover, and must be re-enabled manually. 
 
 
 ## Exclusions and voiding scenarios
 
-An SLA is voided under the following conditions:
+You're temporarily ineligible for customer service credits under the following conditions:
 
 - **Ingress or TPS spikes** beyond defined thresholds.
 - **Replication configuration errors** - for example, mismatched prefixes.
-- **Unplanned Failovers**: Automatically disables GRS Priority Replication.
+- **Unplanned Failovers**: Automatically disables Geo-priority replication.
 - **Bootstrap Phase**: SLA is pending until backlog is cleared.
-- **Feature Conflicts**: Certain operations, such as Page Blob uploads, can delay replication and void SLA temporarily.
+- **Feature Conflicts**: Certain operations, such as Page Blob uploads, can delay replication and temporarily void the SLA.
 
 ## Monitoring compliance
 
