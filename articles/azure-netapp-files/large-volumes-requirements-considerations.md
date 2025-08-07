@@ -12,13 +12,11 @@ ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files large volumes
 
-This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
+Azure NetApp Files support [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes), beginning at a size of 50 TiB and scaling up to 2 PiB. .
 
-## <a name="breakthrough-mode"> Breakthrough mode (preview)
+[!INCLUDE [Large volume breakthrough mode](includes/large-volume-dedicated-capacity.md)]
 
-[!INCLUDE [Large volume breakthrough mode](includes/large-volume-breakthrough.md)]
-
-You must [request the feature](#register-for-breakthrough-mode) before using it for the first time. 
+You must [request the feature](#register-for-dedicated-capacity) before using it for the first time. 
 
 ## Requirements and considerations
 
@@ -150,10 +148,10 @@ Check the status of the feature registration:
     
 You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
 
-### Register for breakthrough mode 
+### Register for dedicated capacity
 
-To use breakthrough mode with large volumes, you must first register for the feature with the [sign-up form]().
-<!-- link pending -->
+To use breakthrough mode with large volumes, you must first register for the feature.
+<!-- sign up form? -->
  
 Check the status of the feature registration: 
     
