@@ -31,7 +31,7 @@ The SLA defines the specific conditions under which Azure's Object Replication a
 
 ### Object Replication SLA
 
-Microsoft guarantees that 99.9% of all Azure storage objects are replicated within **15 minutes** during a billing month. Failure to meet this performance guarantee results in service credits for SLA fees, replication data transfer, and Blob Storage requests for affected objects during a specific billing month. However, because object replication can be configured to replicate data across regions, the service credits only apply for objects replicated to destinations within the same continent. Your data continues to be replicated to the destination region with priority, but the SLA guarantee is voided.
+Microsoft guarantees that 99.9% of all Azure storage objects are replicated within **15 minutes** during a billing month. Failure to meet this performance guarantee results in service credits for SLA fees, replication data transfer, and Blob Storage requests for affected objects during a specific billing month. However, because object replication can be configured to replicate data across regions, the service credits only apply for objects replicated to destinations within the same continent. Your data continues to be replicated to the destination region with priority, but the SLA guarantee is temporarily suspended.
 
 > [!IMPORTANT]
 > Although all Object Replication policies are eligible for priority replication, only users with source and destination storage accounts in the same continent are eligible for the SLA guarantee.
@@ -70,8 +70,7 @@ To qualify for SLA coverage, customers must meet specific conditions, commonly r
 ### Object replication guardrails
 
 - SLA applies only to **new objects**.
-- SLA doesn't cover **bootstrap replication** (existing data).
-
+- SLA doesn't cover **bootstrap replication** of existing data.
 
 ### Geo-priority replication guardrails
 
@@ -80,7 +79,7 @@ To qualify for SLA coverage, customers must meet specific conditions, commonly r
 - Priority replication is disabled after an unplanned failover, and must be re-enabled manually. 
 
 
-## Exclusions and voiding scenarios
+## Exclusions and ineligibility scenarios
 
 You're temporarily ineligible for customer service credits under the following conditions:
 
@@ -88,7 +87,7 @@ You're temporarily ineligible for customer service credits under the following c
 - **Replication configuration errors** - for example, mismatched prefixes.
 - **Unplanned Failovers**: Automatically disables Geo-priority replication.
 - **Bootstrap Phase**: SLA is pending until backlog is cleared.
-- **Feature Conflicts**: Certain operations, such as Page Blob uploads, can delay replication and temporarily void the SLA.
+- **Feature Conflicts**: Certain operations, such as Page Blob uploads, can delay replication and temporarily invalidate the SLA.
 
 ## Monitoring compliance
 
