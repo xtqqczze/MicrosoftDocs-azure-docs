@@ -23,7 +23,7 @@ You can use Azure NetApp Files' object REST API with an S3 Browser, taking advan
     Connect S3 Browser to Your Object REST API-Enabled Volume 
 1. After the installation completes successfully, configure your S3 Browser connection. Provide the bucket name, access key, and secret key as required. 
 
-## Access and manage files with the AWS CLI
+## Access files with the AWS CLI
 
 1. [Download and install the AWS CLI.](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 1. Check the version of your AWS CLI with the `aws --version` command.
