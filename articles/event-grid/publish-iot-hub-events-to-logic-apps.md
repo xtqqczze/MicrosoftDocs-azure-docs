@@ -4,7 +4,7 @@ description: This tutorial shows how to use the event routing service of Azure E
 author: SoniaLopezBravo
 ms.service: azure-iot-hub
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 08/08/2025
 ms.author: sonialopez
 ms.custom: devx-track-azurecli
 ---
@@ -19,7 +19,7 @@ This article walks through a sample configuration that uses IoT Hub and Event Gr
 
 ## Prerequisites
 
-* An email account from any email provider that is supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. This email account is used to send the event notifications.
+* An email account from any email provider supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. This email account is used to send the event notifications.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -45,7 +45,7 @@ You can quickly create a new IoT hub using the Azure Cloud Shell terminal in the
    az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1 
    ```
 
-1. Minimize the Cloud Shell terminal. You'll return to the shell later in the tutorial.
+1. Minimize the Cloud Shell terminal. You return to the shell later in the tutorial.
 
 ## Create a logic app
 
@@ -87,7 +87,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
    ![Use sample payload](./media/publish-iot-hub-events-to-logic-apps/sample-payload.png)
 
-1. Copy the `json` below and replace the placeholder values `<>` with your own.
+1. Copy the following `json` and replace the placeholder values `<>` with your own.
 
 1. Paste the *Device connected event schema* JSON into the text box, then select **Done**:
 
@@ -118,7 +118,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
    This event publishes when a device is connected to an IoT hub.
 
 > [!NOTE]
-> You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section. 
+> You might receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section. 
 
 ### Create an action
 
@@ -140,15 +140,15 @@ Actions are any steps that occur after the trigger starts the logic app workflow
 
    * **To**: Enter the email address to receive the notification emails. For this tutorial, use an email account that you can access for testing. 
 
-   * **Subject**: Fill in the text for the subject. When you click on the Subject text box, you can select dynamic content to include. For example, this tutorial uses `IoT Hub alert: {eventType}`. If you can't see **Dynamic content**, select the **Add dynamic content** hyperlink to toggle the **Dynamic content** view on or off.
+   * **Subject**: Fill in the text for the subject. When you select on the Subject text box, you can select dynamic content to include. For example, this tutorial uses `IoT Hub alert: {eventType}`. If you can't see **Dynamic content**, select the **Add dynamic content** hyperlink to toggle the **Dynamic content** view on or off.
 
    After selecting `eventType`, you'll see the email form output so far. Select the **Send and email (V2)** to edit the body of your email.
 
    :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/send-email.png" alt-text="Screenshot of the condensed body output form." lightbox="./media/publish-iot-hub-events-to-logic-apps/send-email.png":::
 
-   * **Body**: Write the text for your email. Select JSON properties from the selector tool to include dynamic content based on event data. If you can't see the Dynamic content, select the **Add dynamic content** hyperlink under the **Body** text box. If it doesn't show you the fields you want, click *more* in the Dynamic content screen to include the fields from the previous action.
+   * **Body**: Write the text for your email. Select JSON properties from the selector tool to include dynamic content based on event data. If you can't see the Dynamic content, select the **Add dynamic content** hyperlink under the **Body** text box. If it doesn't show you the fields you want, select *more* in the Dynamic content screen to include the fields from the previous action.
 
-   Your email template may look like this example:
+   Your email template might look like this example:
 
    :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/email-content.png" alt-text="Screenshot of how to create an event email in the template." lightbox="./media/publish-iot-hub-events-to-logic-apps/email-content.png":::
 
@@ -158,7 +158,7 @@ Actions are any steps that occur after the trigger starts the logic app workflow
 
 Before you leave the Logic Apps Designer, copy the URL that your logic app is listening to for a trigger. You use this URL to configure Event Grid. 
 
-1. Expand the **When a HTTP request is received** trigger configuration box by clicking on it. 
+1. Expand the **When a HTTP request is received** trigger configuration box by selecting it. 
 
 1. Copy the value of **HTTP POST URL** by selecting the copy button next to it. 
 
@@ -188,16 +188,16 @@ In this section, you configure your IoT Hub to publish events as they occur.
    2. In the **TOPIC DETAILS** section:
       1. Confirm that the **Topic type** is set to **IoT Hub**. 
       2. Confirm that the name of the IoT hub is set as the value for the **Source Resource** field. 
-      3. Enter a name for the **system topic** that will be created for you. To learn about system topics, see [Overview of system topics](system-topics.md).
+      3. Enter a name for the **system topic** to be created for you. To learn about system topics, see [Overview of system topics](system-topics.md).
    3. In the **EVENT TYPES** section:
       1. Select the **Filter to Event Types** drop-down.
-      1. Deselect  the **Device Created** and **Device Deleted** checkboxes, leaving only the **Device Connected** and **Device Disconnected** checkboxes selected.
+      1. Deselect the **Device Created** and **Device Deleted** checkboxes, leaving only the **Device Connected** and **Device Disconnected** checkboxes selected.
 
          ![select subscription event types](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
    
    4. In the **ENDPOINT DETAILS** section: 
        1. Select **Endpoint Type** as **Web Hook**.
-       2. Click **select an endpoint**, paste the URL that you copied from your logic app, and confirm selection.
+       2. Select **select an endpoint**, paste the URL that you copied from your logic app, and confirm selection.
 
          ![select endpoint url](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
@@ -219,7 +219,7 @@ Test your logic app by quickly simulating a device connection using the Azure CL
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName}
     ```
 
-   The processing could take a minute. You'll see a JSON printout in your console once it's created.
+   The processing could take a minute. You see a JSON printout in your console once processing is complete.
 
 1. Run the following command to simulate connecting your device to IoT Hub and sending telemetry:
 
@@ -227,9 +227,9 @@ Test your logic app by quickly simulating a device connection using the Azure CL
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. When the simulated device connects to IoT Hub, you'll receive an email notifying you of a "DeviceConnected" event.
+1. When the simulated device connects to IoT Hub, you receive an email notifying you of a "DeviceConnected" event.
 
-1. When the simulation completes, you'll receive an email notifying you of a "DeviceDisconnected" event. 
+1. When the simulation completes, you receive an email notifying you of a "DeviceDisconnected" event. 
 
    :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/alert-mail.png" alt-text="Screenshot of the email you should receive." lightbox="./media/publish-iot-hub-events-to-logic-apps/alert-mail.png":::
 

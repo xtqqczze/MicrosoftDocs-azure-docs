@@ -4,8 +4,8 @@
  services: iot-hub
  author: SoniaLopezBravo
  ms.service: azure-iot-hub
- ms.topic: conceptual
- ms.date: 11/24/2020
+ ms.topic: concept-article
+ ms.date: 08/07/2025
  ms.author: sonialopez
 ---
 
@@ -61,9 +61,9 @@ Once created, an IoT hub in preview mode always shows this banner, letting you k
 
 Do *not* use an IoT hub in preview mode for production. Preview mode is intended *only* to preview the select features listed at top of this page. Some other limitations to IoT Hub preview mode are
 
-- Some existing IoT Hub features such as IP filter, private link, managed identity, device streams, and failover may work unexpectedly or not at all.
+- Some existing IoT Hub features such as IP filter, private link, managed identity, device streams, and failover might work unexpectedly or not at all.
 - An IoT hub in preview mode can't be changed or upgraded to a normal IoT hub.
-- We can't guarantee the normal [IoT Hub SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) - do not use for production.
+- We can't guarantee the normal [IoT Hub SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) - don't use for production.
 
 > [!TIP]
 > Preview mode isn't required for [device streams](iot-hub-device-streams-overview.md) and [distributed tracing](iot-hub-distributed-tracing.md). To use these older preview features, follow their documentation as normal.
