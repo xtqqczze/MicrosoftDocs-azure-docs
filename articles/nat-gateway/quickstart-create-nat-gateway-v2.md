@@ -547,9 +547,9 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
 1. Select **Connect**.
 
-### IPv4 address
-
 1. In the bash prompt, enter the following command:
+
+### IPv4 address
 
     ```bash
     curl ifconfig.me
