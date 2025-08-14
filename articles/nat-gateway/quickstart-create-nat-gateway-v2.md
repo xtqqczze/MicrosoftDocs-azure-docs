@@ -549,13 +549,13 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
 1. In the bash prompt, enter the following command:
 
-### IPv4 address
+    ### IPv4 address
 
     ```bash
     curl ifconfig.me
     ```
 
-### IPv6 address
+    ### IPv6 address
 
     ```bash
     curl -6 ifconfig.me
