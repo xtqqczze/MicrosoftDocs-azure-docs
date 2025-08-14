@@ -41,15 +41,15 @@ In this quickstart, learn how to create a Standard V2 NAT gateway by using the A
 
 ---
 
+## Create a resource group
+
+Create a resource group to contain all resources for this quickstart.
+
 ### [Portal](#tab/portal)
 
 [!INCLUDE [virtual-network-create-with-nat-bastion.md](../../includes/virtual-network-create-with-nat-bastion.md)]
 
-[!INCLUDE [create-test-virtual-machine-linux.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine-linux.md)]
-
 ### [PowerShell](#tab/powershell)
-
-## Create a resource group
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
@@ -63,9 +63,27 @@ $rsg = @{
 New-AzResourceGroup @rsg
 ```
 
+### [CLI](#tab/cli)
+
+Create a resource group with [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+```azurecli-interactive
+az group create \
+    --name test-rg \
+    --location eastus2
+```
+
+---
+
 ## Create the NAT gateway
 
 In this section, create the NAT gateway and supporting resources.
+
+### [Portal](#tab/portal)
+
+Continue with the portal steps from the previous section. The NAT gateway creation is included in the portal include file.
+
+### [PowerShell](#tab/powershell)
 
 ### Create tag for V2 version IP address and prefix
 
@@ -86,7 +104,7 @@ Azure NAT Gateway supports multiple deployment options for IP addresses and redu
 - [Zone redundant IPv6 prefix](#zone-redundant-ipv6-prefix)
 - [Zone redundant virtual network level](#zone-redundant-virtual-network-level)
 
-### Zone redundant IPv4 address
+#### Zone redundant IPv4 address
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a zone redundant IPv4 public IP address for the NAT gateway.
 
@@ -121,7 +139,7 @@ $nat = @{
 $natGateway = New-AzNatGateway @nat
 ```
 
-### Zone redundant IPv6 address
+#### Zone redundant IPv6 address
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a zone redundant IPv6 public IP address for the NAT gateway.
 
@@ -157,7 +175,7 @@ $nat = @{
 $natGateway = New-AzNatGateway @nat
 ```
 
-### Zone redundant IPv4 prefix
+#### Zone redundant IPv4 prefix
 
 Use [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) to create a zone redundant IPv4 public IP prefix for the NAT gateway.
 
@@ -192,10 +210,11 @@ $nat = @{
 $natGateway = New-AzNatGateway @nat
 ```
 
-### Zone redundant IPv6 prefix
+#### Zone redundant IPv6 prefix
 
 Use [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) to create a zone redundant IPv6 public IP prefix for the NAT gateway.
 
+```azurepowershell
 ```azurepowershell
 ## Create public IP prefix for NAT gateway ##
 $ip = @{
@@ -227,7 +246,45 @@ $nat = @{
 $natGateway = New-AzNatGateway @nat
 ```
 
+### [CLI](#tab/cli)
+
+### Create public IP address
+
+To access the internet, you need one or more public IP addresses for the NAT gateway. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address resource.
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group test-rg \
+    --name public-ip-nat \
+    --sku Standard \
+    --allocation-method Static \
+    --location eastus2 \
+    --zone 1 2 3
+```
+
+### Create NAT gateway resource
+
+Create a NAT gateway resource using [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The NAT gateway uses the public IP address created in the previous step. The idle time out is set to 10 minutes.
+
+```azurecli-interactive
+az network nat gateway create \
+    --resource-group test-rg \
+    --name nat-gateway \
+    --public-ip-addresses public-ip-nat \
+    --idle-timeout 10
+```
+
+---
+
 ## Create virtual network and subnet configurations
+
+Create the virtual network and subnets needed for this quickstart.
+
+### [Portal](#tab/portal)
+
+Continue with the portal steps from the first section. The virtual network creation is included in the portal include file.
+
+### [PowerShell](#tab/powershell)
 
 Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create the subnet configurations. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network. You can skip this section if you created a NAT gateway at the virtual network level in the previous step.
 
@@ -258,7 +315,7 @@ $net = @{
 $vnet = New-AzVirtualNetwork @net
 ```
 
-### Zone redundant virtual network level
+#### Zone redundant virtual network level
 
 Standard V2 NAT Gateway has a feature that allows you to associate the NAT gateway resource with a virtual network instead of the subnet level. Each subnet contained within the virtual network can then use the NAT gateway for outbound internet connectivity.
 
@@ -308,7 +365,50 @@ $nat = @{
 $natGateway = New-AzNatGateway @nat
 ```
 
+### [CLI](#tab/cli)
+
+Create a virtual network named **vnet-1** with a subnet named **subnet-1** using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The IP address space for the virtual network is **10.0.0.0/16**. The subnet within the virtual network is **10.0.0.0/24**.
+
+```azurecli-interactive
+az network vnet create \
+    --resource-group test-rg \
+    --name vnet-1 \
+    --address-prefix 10.0.0.0/16 \
+    --subnet-name subnet-1 \
+    --subnet-prefixes 10.0.0.0/24
+```
+
+Create an Azure Bastion subnet named **AzureBastionSubnet** using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
+
+```azurecli-interactive
+az network vnet subnet create \
+    --name AzureBastionSubnet \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --address-prefix 10.0.1.0/26
+```
+
+Associate the NAT gateway to the subnet using [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+
+```azurecli-interactive
+az network vnet subnet update \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --name subnet-1 \
+    --nat-gateway nat-gateway
+```
+
+---
+
 ## Create Azure Bastion host
+
+Create an Azure Bastion host to securely connect to the virtual machine.
+
+### [Portal](#tab/portal)
+
+Continue with the portal steps from the first section. The Azure Bastion creation is included in the portal include file.
+
+### [PowerShell](#tab/powershell)
 
 Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the Azure Bastion host.
 
@@ -340,7 +440,43 @@ New-AzBastion @bastion
 
 The bastion host can take several minutes to deploy. Wait for the bastion host to deploy before moving on to the next section.
 
+### [CLI](#tab/cli)
+
+Create a public IP address for the Bastion host using [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create):
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group test-rg \
+    --name public-ip \
+    --sku Standard \
+    --location eastus2 \
+    --zone 1 2 3
+```
+
+Create the Azure Bastion host using [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create):
+
+```azurecli-interactive
+az network bastion create \
+    --name bastion \
+    --public-ip-address public-ip \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --location eastus2
+```
+
+The Bastion host can take several minutes to deploy. Wait for the Bastion host to deploy before moving on to the next section.
+
+---
+
 ## Create virtual machine
+
+Create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection.
+
+### [Portal](#tab/portal)
+
+[!INCLUDE [create-test-virtual-machine-linux.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine-linux.md)]
+
+### [PowerShell](#tab/powershell)
 
 In this section, you create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection. The following command creates SSH keys for authentication. The private key is needed later to login to the virtual machine through Azure Bastion.
 
@@ -394,113 +530,6 @@ Wait for the virtual machine creation to complete before moving on to the next s
 > Ensure that you download the SSH private key to the virtual machine. You will need the private key to log in to the virtual machine through Azure Bastion.
 
 ### [CLI](#tab/cli)
-
-## Create a resource group
-
-Create a resource group with [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
-
-```azurecli-interactive
-az group create \
-    --name test-rg \
-    --location eastus2
-```
-
-## Create the NAT gateway
-
-In this section, create the NAT gateway and supporting resources.
-
-### Create public IP address
-
-To access the internet, you need one or more public IP addresses for the NAT gateway. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address resource.
-
-```azurecli-interactive
-az network public-ip create \
-    --resource-group test-rg \
-    --name public-ip-nat \
-    --sku Standard \
-    --allocation-method Static \
-    --location eastus2 \
-    --zone 1 2 3
-```
-
-### Create NAT gateway resource
-
-Create a NAT gateway resource using [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The NAT gateway uses the public IP address created in the previous step. The idle time out is set to 10 minutes.
-
-```azurecli-interactive
-az network nat gateway create \
-    --resource-group test-rg \
-    --name nat-gateway \
-    --public-ip-addresses public-ip-nat \
-    --idle-timeout 10
-```
-
-### Create virtual network and subnet
-
-Create a virtual network named **vnet-1** with a subnet named **subnet-1** using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The IP address space for the virtual network is **10.0.0.0/16**. The subnet within the virtual network is **10.0.0.0/24**.
-
-```azurecli-interactive
-az network vnet create \
-    --resource-group test-rg \
-    --name vnet-1 \
-    --address-prefix 10.0.0.0/16 \
-    --subnet-name subnet-1 \
-    --subnet-prefixes 10.0.0.0/24
-```
-
-### Create Azure Bastion subnet
-
-Create an Azure Bastion subnet named **AzureBastionSubnet** using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
-
-```azurecli-interactive
-az network vnet subnet create \
-    --name AzureBastionSubnet \
-    --resource-group test-rg \
-    --vnet-name vnet-1 \
-    --address-prefix 10.0.1.0/26
-```
-
-### Associate NAT gateway to subnet
-
-Associate the NAT gateway to the subnet using [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
-
-```azurecli-interactive
-az network vnet subnet update \
-    --resource-group test-rg \
-    --vnet-name vnet-1 \
-    --name subnet-1 \
-    --nat-gateway nat-gateway
-```
-
-### Create public IP address for Bastion host
-
-Create a public IP address for the Bastion host using [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create):
-
-```azurecli-interactive
-az network public-ip create \
-    --resource-group test-rg \
-    --name public-ip \
-    --sku Standard \
-    --location eastus2 \
-    --zone 1 2 3
-```
-
-### Create Bastion host
-
-Create the Azure Bastion host using [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create):
-
-```azurecli-interactive
-az network bastion create \
-    --name bastion \
-    --public-ip-address public-ip \
-    --resource-group test-rg \
-    --vnet-name vnet-1 \
-    --location eastus2
-```
-
-The Bastion host can take several minutes to deploy. Wait for the Bastion host to deploy before moving on to the next section.
-
-## Create virtual machine
 
 Create a virtual machine named **vm-1** to test the NAT gateway and verify the public IP address of the outbound connection. Use [az vm create](/cli/azure/vm#az-vm-create):
 
