@@ -17,6 +17,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Cross-zone-region replication](cross-zone-region-replication-configure.md) is now generally available (GA)
+
+    [Cross-zone-region replication](replication.md#cross-zone-region-replication) is an extension to cross-region and cross-zone replication. With cross-zone-region replication, you can configure two protection volumes in any combination of cross-region and cross-zone replication for the same source volume. Replication is now also supported across subscriptions under the same tenant.
+
 ## August 2025
 
 * [Flexible service level](manage-cool-access.md#register-the-feature) now supports storage with cool access (Preview)
@@ -43,7 +47,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Cross-zone and cross-region replication for application volume group for Oracle is currently only supported in the REST API. This feature is in preview. 
 
-* [Cross-zone-region replication](cross-zone-region-replication-configure.md) (preview)
+* [Cross-zone-region replication](cross-zone-region-replication-configure.md) (Preview)
 
     [Cross-zone-region replication](replication.md#cross-zone-region-replication) is an extension to cross-region and cross-zone replication. With cross-zone-region replication, you can configure two protection volumes in any combination of cross-region and cross-zone replication for the same source volume. Replication is now also supported across subscriptions under the same tenant. This feature is in preview.
 
