@@ -29,6 +29,8 @@
     href: grpc.md
   - name: Scaling and zone resiliency
     href: scaling-zone-resiliency.md
+  - name: Service mesh integration
+    href: service-mesh-integration.md
   - name: Server-sent events
     href: server-sent-events.md
   - name: Session affinity
@@ -105,10 +107,12 @@
     href: troubleshooting-guide.md
 - name: Kubernetes Reference
   items:
-  - name: ALB Controller Helm Chart
+  - name: ALB Controller Helm chart
     href: alb-controller-helm-chart.md
   - name: API Specification
     href: api-specification-kubernetes.md
+  - name: Service mesh Helm chart
+    href: service-mesh-helm-chart.md
 - name: Reference
   items:
   - name: ALB Controller release notes
