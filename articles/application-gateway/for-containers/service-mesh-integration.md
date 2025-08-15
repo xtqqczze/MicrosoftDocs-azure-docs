@@ -55,7 +55,6 @@ You should see the following output:
 
 | NAME                                     | READY | STATUS  | RESTARTS | AGE  |
 | ---------------------------------------- | ----- | ------- | -------- | ---- |
-| alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
 | alb-controller-6648c5d5c-sdd9t           | 1/1   | Running | 0        | 4d6h |
 | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h |
 | alb-controller-istio-extension-69dc679455-94z7b | 2/2 | Running | 0   | 1h   |
@@ -331,7 +330,7 @@ Next, let's delete the PeerAuthentication resource to similate removal of mTLS.
 kubectl delete PeerAuthentication default -n isto-example-namespace
 ```
 
-When you run the curl command again, you should see a 503 resposne code, indicating failure of mTLS negotiation between Application Gateway for Containers and the test application (as the test application is no longer expecting mutual authentication).
+When you run the curl command again, you should see a 503 HTTP response code, indicating failure of mTLS negotiation between Application Gateway for Containers and the test application (as the test application is no longer expecting mutual authentication).
 
 ## Pricing
 
