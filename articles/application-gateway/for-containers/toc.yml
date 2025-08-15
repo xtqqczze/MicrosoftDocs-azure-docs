@@ -107,12 +107,12 @@
     href: troubleshooting-guide.md
 - name: Kubernetes Reference
   items:
-  - name: ALB Controller Helm chart
+  - name: ALB Controller Helm Chart
     href: alb-controller-helm-chart.md
+  - name: ALB Service Mesh Helm Chart
+    href: service-mesh-helm-chart.md
   - name: API Specification
     href: api-specification-kubernetes.md
-  - name: Service mesh Helm chart
-    href: service-mesh-helm-chart.md
 - name: Reference
   items:
   - name: ALB Controller release notes
