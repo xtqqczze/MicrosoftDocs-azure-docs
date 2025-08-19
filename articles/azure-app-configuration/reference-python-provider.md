@@ -27,7 +27,7 @@ Install the Azure App Configuration Provider package with pip:
 pip install azure-appconfiguration-provider
 ```
 
-To use Key Vault references, you'll also need to install the Azure Identity package:
+To use Microsoft Entra ID Azure Identity is also needed.
 
 ```bash
 pip install azure-identity
@@ -39,7 +39,7 @@ pip install azure-identity
 The `load` function in the `azure-appconfiguration-provider` package is used to load configuration from the Azure App Configuration. The `load` function allows you to either use Microsoft Entra ID (Recommended) or connection string to connect to the App Configuration store.
 
 > [!NOTE]
-> `azure-appconfiguration-provider` has both sync `from azure.appconfiguration.provider import load` and async `from azure.appconfiguration.provider.aio import load` versions. If using the async version the async credential needs to be used.
+> `azure-appconfiguration-provider` has both sync `from azure.appconfiguration.provider import load` and async `from azure.appconfiguration.provider.aio import load` versions. When using the async version the async credential needs to be used.
 
 ### [Microsoft Entra ID](#tab/entra-id)
 
@@ -71,11 +71,11 @@ print(config["message"]) # value of the key "message" from the App Configuration
 
 ---
 
-The `load` function returns an instance of `AzureAppConfigurationProvider` which is a dictionary-like object that contains all the configuration values loaded from the App Configuration store. By default, the provider loads all configuration values with no label from the store.
+The `load` function returns an instance of `AzureAppConfigurationProvider`, which is a dictionary-like object, contains all the configuration values loaded from the App Configuration store. By default, the provider loads all configuration values with no label from the store.
 
 ### JSON content type handling
 
-You can [create JSON key-values](./howto-leverage-json-content-type.md#create-json-key-values-in-app-configuration) in App Configuration. When loading key-values from Azure App Configuration, the configuration provider will automatically convert the key-values of valid JSON content type (e.g. application/json) into a deserialized to a Python object.
+You can [create JSON key-values](./howto-leverage-json-content-type.md#create-json-key-values-in-app-configuration) in App Configuration. When loading key-values from Azure App Configuration, the configuration provider automatically converts the key-values of valid JSON content type (for example application/json) into a deserialized Python object.
 
 ```json
 {
@@ -86,7 +86,7 @@ You can [create JSON key-values](./howto-leverage-json-content-type.md#create-js
 }
 ```
 
-The above key-value will be loaded as `{ size: 12, color: "red" }`.
+This json results in the key-value to be loaded as `{ size: 12, color: "red" }`.
 
 ```python
 appConfig = load(endpoint, credential)
@@ -96,7 +96,7 @@ color = appConfig["font"]["color"]
 
 ### Load specific key-values using selectors
 
-By default, the `load` method will load all configurations with no label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of `selects`, which is a list of `SettingSelector`s.
+By default, the `load` method loads all configurations with no label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of `selects`, which is a list of `SettingSelector`s.
 
 
 ```python
@@ -111,7 +111,7 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), selects=se
 ```
 
 > [!NOTE]
-> Key-values are loaded in the order in which the selectors are listed. If multiple selectors retrieve key-values with the same key, the value from the last one will override any previously loaded value.
+> Key-values are loaded in the order in which the selectors are listed. If multiple selectors retrieve key-values with the same key, the value from the last one overrides any previously loaded value.
 
 ### Trimming keys
 
@@ -128,9 +128,9 @@ print(config["message"])  # Access the key "message" instead of "/application/me
 
 ## Configuration refresh
 
-Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application. You can set the `refresh_on` to enable the refresh. `refresh_on` is a `List[WatchKey]` which specifies the key/label(s) to watch for changes. The loaded configuration will be updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter.
+Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application. You can set the `refresh_on` to enable the refresh. `refresh_on` is a `List[WatchKey]` which specifies the key/label(s) to watch for changes. The loaded configuration is updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter.
 
-The `on_refresh_success` callback will be called only if a change is detected and no error happens. The `on_refresh_error` callback will be called when a refresh fails.
+The `on_refresh_success` callback is called only if a change is detected and no error happens. The `on_refresh_error` callback is called when a refresh fails.
 
 ```python
 from azure.appconfiguration.provider import load, WatchKey
@@ -164,7 +164,7 @@ This design prevents unnecessary requests to App Configuration when your applica
 
 ## Feature flag
 
-You can [create feature flags](./manage-feature-flags.md#create-a-feature-flag) in Azure App Configuration. By default, the feature flags will not be loaded by configuration provider. You can enable loading and refreshing feature flags through the `feature_flags_enabled` parameter.
+You can [create feature flags](./manage-feature-flags.md#create-a-feature-flag) in Azure App Configuration. By default, the feature flags won't be loaded by configuration provider. You can enable loading and refreshing feature flags through the `feature_flags_enabled` parameter.
 
 ```python
 config = load(endpoint=endpoint, credential=DefaultAzureCredential(), feature_flags_enabled=True)
@@ -192,7 +192,7 @@ print(alpha["enabled"])
 
 ### Feature management
 
-Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management library is designed to work in conjunction with the configuration provider library. The configuration provider will load all selected feature flags into the configuration under the `feature_flags` list of the `feature_management` section. The feature management library will consume and manage the loaded feature flags for your application.
+Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management library is designed to work in with with the configuration provider library. The configuration provider loads all selected feature flags into the configuration under the `feature_flags` list of the `feature_management` section. The feature management library will consume and manage the loaded feature flags for your application.
 
 The following example demonstrates how to integrate the `featuremanagement` library with the configuration provider to dynamically control API accessibility in an Express application based on the status of the `Beta` feature flag.
 
@@ -211,7 +211,7 @@ For more information about how to use the Python feature management library, go 
 
 ### Feature flag refresh
 
-To enable refresh for feature flags, you need to set `feature_flag_refresh_enabled=True`. This will allow the provider to refresh feature flags the same way it refreshes configurations. Unlike configurations, all loaded feature flags are monitored for changes and will cause a refresh. Refresh of configuration settings and feature flags are independent of each other. Both are triggered by the `refresh` method, but a feature flag changing will not cause a refresh of configurations and vice versa. Also, if refresh for configuration settings is not enabled, feature flags can still be enabled for refresh.
+To enable refresh for feature flags, you need to set `feature_flag_refresh_enabled=True`. This allows the provider to refresh feature flags the same way it refreshes configurations. Unlike configurations, all loaded feature flags are monitored for changes and will cause a refresh. Refresh of configuration settings and feature flags are independent of each other. Both are triggered by the `refresh` method, but a feature flag changing won't cause a refresh of configurations and vice versa. Also, if refresh for configuration settings isn't enabled, feature flags can still be enabled for refresh.
 
 ```python
 config = load(
@@ -233,7 +233,7 @@ The configuration provider library retrieves Key Vault references, just as it do
 
 ### With credentials
 
-You can set the argument `keyvault_credential` with a credential, and all key vault references will be resolved with it. The provider will attempt to connect to any key vault referenced with the credential provided.
+You can set the argument `keyvault_credential` with a credential, and all key vault references are resolved with it. The provider attempts to connect to any key vault referenced with the credential provided.
 
 ```python
 from azure.appconfiguration.provider import load, AzureAppConfigurationKeyVaultOptions
@@ -261,7 +261,7 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), keyvault_c
 ```
 
 > [!NOTE]
-> Any additional properties provided are passed into the creation of the `SecretClient`.
+> Any extra properties provided are passed into the creation of the `SecretClient`.
 
 ### Secret resolver
 
