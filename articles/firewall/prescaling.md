@@ -1,6 +1,6 @@
 ---
-title: Azure Firewall Prescaling (Preview)
-description: You can enable Prescaling (Preview) to proactively set a minimum and maximum number of firewall capacity units (instances) for predictable performance.
+title: Azure Firewall prescaling (Preview)
+description: You can enable prescaling (Preview) to proactively set a minimum and maximum number of firewall capacity units (instances) for predictable performance.
 author: sujamiya
 ms.service: azure-firewall
 services: firewall
@@ -10,7 +10,7 @@ ms.author: sujamiya
 # Customer intent: As a network security administrator, I want to enable Prescaling (Preview) on my Azure Firewall, so that I can proactively set a minimum and maximum number of firewall capacity units (instances) for predictable performance during high-traffic events.
 ---
 
-# Azure Firewall Prescaling (Preview)
+# Azure Firewall prescaling (Preview)
 
 > [!IMPORTANT]
 > Prescaling is in Preview and subject to change.
@@ -90,6 +90,6 @@ Keep the following considerations in mind when using Prescaling (Preview):
 - **Active scaling/maintenance events**: prescaling changes may fail if the firewall is mid-scale or upgrade. Retry after completion.
 
 ## Next steps
-- 	Monitor firewall health in [Logs and metrics](https://learn.microsoft.com/en-us/azure/firewall/monitor-firewall-reference)
-- 	Review [Azure Firewall Best Practices](https://learn.microsoft.com/en-us/azure/firewall/firewall-best-practices) to optimize deployments.
+- 	Monitor firewall health in [Logs and metrics](https://learn.microsoft.com/azure/firewall/monitor-firewall-reference)
+- 	Review [Azure Firewall Best Practices](https://learn.microsoft.com/azure/firewall/firewall-best-practices) to optimize deployments.
 
