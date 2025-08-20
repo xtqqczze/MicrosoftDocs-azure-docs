@@ -80,13 +80,11 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 
 ## Large volumes
 
-Azure NetApp Files allows you to create [large volumes](large-volumes.md) up to 1 PiB in size. Large volumes begin at a capacity of 50 TiB and scale up to 1 PiB (or [2 PiB as special requests](azure-netapp-files-resource-limits.md#request-limit-increase)). Regular Azure NetApp Files volumes are offered between 50 GiB and 102,400 GiB. 
+Azure NetApp Files allows you to create [large volumes](large-volumes.md) up to 1 PiB in size. Large volumes begin at a capacity of 50 TiB and scale up to 1 PiB (or [2 PiB as special requests](azure-netapp-files-resource-limits.md#request-limit-increase)). Regular Azure NetApp Files volumes are offered between 50 GiB and 102,400 GiB.
+
+Azure NetApp Files also supports breakthrough mode for large volumes, offering increased throughput for demanding workloads. 
 
 For more information, see [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md).
-
-### Breakthrough mode 
-
-[!INCLUDE [Large volume breakthrough mode](includes/large-volume-dedicated-capacity.md)]
 
 ## Next steps
 

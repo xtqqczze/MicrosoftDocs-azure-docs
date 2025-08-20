@@ -12,11 +12,9 @@ ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files large volumes
 
-Azure NetApp Files support [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes), beginning at a size of 50 TiB and scaling up to 2 PiB. .
+Azure NetApp Files support [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes), beginning at a size of 50 TiB and scaling up to 2 PiB.
 
-[!INCLUDE [Large volume breakthrough mode](includes/large-volume-dedicated-capacity.md)]
-
-You must [request the feature](#register-for-dedicated-capacity) before using it for the first time. 
+You must [request the feature](#register-for-breakthrough-mode) before using it for the first time. 
 
 ## Requirements and considerations
 
@@ -24,7 +22,6 @@ The following requirements and considerations apply to large volumes. For perfor
 
 * A regular volume can’t be converted to a large volume.
 * You must create a large volume at a size of 50 TiB or larger. The maximum size of a large volume is 1,024 TiB, though 2-PiB large volumes are available on request depending on regional dedicated capacity availability. To request 2-PiB large volumes, contact your account team. 
-* 
 * You can't resize a large volume to less than 50 TiB.
     * A large volume can't be resized to more than 30% of its lowest provisioned size. This limit is adjustable via [a support request](azure-netapp-files-resource-limits.md#resource-limits). When requesting the resize, specify the desired size in TiB. 
     * When reducing the size of a large volume, the size you can decrease to depends on the size of files written to the volume and the snapshots currently active on the volumes. 
@@ -75,8 +72,17 @@ The following requirements and considerations apply to large volumes. For perfor
 
     For the latest performance benchmark numbers conducted on Azure NetApp Files Large volumes, see [Azure NetApp Files large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)](solutions-benefits-azure-netapp-files-electronic-design-automation.md).
 
-
 * Large volumes are supported with cool access. You must be [registered to use cool access](manage-cool-access.md#register-the-feature) before creating a cool access-enabled large volume. 
+
+### Requirements and considerations for breakthrough mode (preview)
+
+Large volumes breakthrough mode are currently in preview and you must request the feature before using it for the first time. 
+
+* Breakthrough mode large volumes can scale up to 900,000 MiB/s. 
+<!-- check value -->
+* Breakthrough mode large volumes are supported at sizes between 2 TiB and 2 PiB. 
+* Breakthrough mode is supported on the Flexible, Standard, Premium, and Ultra service levels. 
+  Cool access isn't currently supported for breakthrough mode. 
 
 ## About 64-bit file IDs
 
@@ -148,16 +154,15 @@ Check the status of the feature registration:
     
 You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
 
-### Register for dedicated capacity
+### Register for breakthrough mode
 
 To use breakthrough mode with large volumes, you must first register for the feature.
-<!-- sign up form? -->
  
 Check the status of the feature registration: 
     
-  ```azurepowershell-interactive
-  Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBreakthroughMode 
-  ```
+```azurepowershell-interactive
+Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBreakthroughMode 
+```
 
 You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
 

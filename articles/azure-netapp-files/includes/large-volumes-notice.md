@@ -14,8 +14,6 @@ ms.custom: include file
 
 Regular volumes quotas are between 50 GiB and 100 TiB. Large volume quotas range from 50 TiB to 1 PiB in size. If you intend for the volume quota to fall in the large volume range, select **Yes**. Volume quotas are entered in GiB.
 
-<7.5 PiB>
-
 >[!IMPORTANT]
 > Before using large volumes, you must first [register the feature](../large-volumes-requirements-considerations.md#register-the-feature) and request [an increase in regional capacity quota](../azure-netapp-files-resource-limits.md#request-limit-increase).
 >
@@ -23,6 +21,6 @@ Regular volumes quotas are between 50 GiB and 100 TiB. Large volume quotas range
 
 * **Breakthrough mode**
 
-    If you're using breakthrough to increase performance, select the box.
+    If you're using breakthrough mode to increase throughput, select the box.
 
     You must first be registered to use breakthrough mode. For registration and other considerations, see [breakthrough mode](../large-volumes-requirements-considerations.md#register-for-dedicated-capacity).
