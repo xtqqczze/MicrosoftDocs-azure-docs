@@ -24,8 +24,6 @@ Ensure you have the following:
 - SSL certificate for the compute endpoints
 - Necessary permissions to access Azure Databricks and the Azure NetApp Files volume
 
-
-
 ### Create the `init` script 
 
 1. Write a bash script to load the SSL certificate. Save the script with an .sh extension. For example:
@@ -45,23 +43,25 @@ update-ca-certificates
 1. In the **Advanced Options** section, add the path to the init script under **Init Scripts**. For example: `dbfs:/path/to/your/script.sh`
 <!-- add the /etc/hosts/ files to the `init` script -->
 1. Restart the cluster to apply the changes and load the SSL certificate. 
+1. Validate in the logs if the certificate is placed correctly. 
+1. Create a notebook and try connecting to the bucket and remember to select the VM which had the init script while booting up.
 
 ###  Connect to Azure NetApp Files bucket 
 
 Review the [recommendations to access S3 buckets with URIs and AWS keys](/azure/databricks/connect/storage/amazon-s3#access-s3-buckets-with-uris-and-aws-keys)
 
 1. In your Databricks notebook, configure the Spark session to connect to the Azure NetApp Files bucket. For example: 
-```
-spark.conf.set("fs.s3a.endpoint", "https://your-s3-endpoint") 
-spark.conf.set("fs.s3a.access.key", "your-access-key") 
-spark.conf.set("fs.s3a.secret.key", "your-secret-key") 
-spark.conf.set("fs.s3a.connection.ssl.enabled", "true") 
-```
+    ```
+    spark.conf.set("fs.s3a.endpoint", "https://your-s3-endpoint") 
+    spark.conf.set("fs.s3a.access.key", "your-access-key") 
+    spark.conf.set("fs.s3a.secret.key", "your-secret-key") 
+    spark.conf.set("fs.s3a.connection.ssl.enabled", "true") 
+    ```
 1.  Verify the connection by performing a simple read operation. For example: 
-```
-df = spark.read.csv("s3a://your-bucket/path/to/data.csv") 
-df.show() 
-```
+    ```
+    df = spark.read.csv("s3a://your-bucket/path/to/data.csv") 
+    df.show() 
+    ```
 
 ## Next steps 
 

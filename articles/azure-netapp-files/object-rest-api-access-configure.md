@@ -75,39 +75,44 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Generate the access key for a bucket
 
-Create a certificate ensure that the certificate subject CN= is the Domain name if available, or the ANF Object REST API-enabled volume IP created in the first step. 
- 
-First method: 
-By creating the certifiacte locally and executing this bash script. 
+You can generate the access key in the Azure portal or locally with a Bash script. 
 
-```bash
-#!/bin/sh
-# Define certificate details 
-CERT_DAYS=365 
-RSA_STR_LEN=2048 
-CERT_DIR="./certs" 
-KEY_DIR="./certs/private" 
-DOMAIN="mylocalsite.local" 
- 
-# Create directories if they don't exist 
-mkdir -p $CERT_DIR 
-mkdir -p $KEY_DIR 
- 
-# Generate private key 
-openssl genrsa -out $KEY_DIR/server-key.pem $RSA_STR_LEN 
- 
-# Generate Certificate Signing Request (CSR) 
-openssl req -new -key $KEY_DIR/server-key.pem -out $CERT_DIR/server-req.pem -subj "/C=US/ST=State/L=City/O=Organization/OU=Unit/CN=$DOMAIN" 
- 
-# Generate self-signed certificate 
-openssl x509 -req -days $CERT_DAYS -in $CERT_DIR/server-req.pem -signkey $KEY_DIR/server-key.pem -out $CERT_DIR/server-cert.pem 
- 
-echo "Self-signed certificate created at $CERT_DIR/server-cert.pem" 
-```
+### [Portal](#tab/portal)
 
-Provide the Volume ip or your domain name in the script DOMAIN= 
- 
-This script will create a folder as certs where you can get your pem file and private keys.
+[Import a certificate in Azure Key Vault](/key-vault/certificates/tutorial-import-certificate).
+
+### [Script](#tab/script)
+
+You can create a certificate locally. The commputer name `CN=` and domain `DOMAIN=` should be the domain name or the IP address of the object REST API-enabled volume. This script create a folder that includes the necessary .pem file and private keys. 
+
+1. Create and run the following the script. 
+    ```bash
+    #!/bin/sh
+    # Define certificate details 
+    CERT_DAYS=365 
+    RSA_STR_LEN=2048 
+    CERT_DIR="./certs" 
+    KEY_DIR="./certs/private" 
+    DOMAIN="mylocalsite.local" 
+    
+    # Create directories if they don't exist 
+    mkdir -p $CERT_DIR 
+    mkdir -p $KEY_DIR 
+    
+    # Generate private key 
+    openssl genrsa -out $KEY_DIR/server-key.pem $RSA_STR_LEN 
+    
+    # Generate Certificate Signing Request (CSR) 
+    openssl req -new -key $KEY_DIR/server-key.pem -out $CERT_DIR/server-req.pem -subj "/C=US/ST=State/L=City/O=Organization/OU=Unit/CN=$DOMAIN" 
+    
+    # Generate self-signed certificate 
+    openssl x509 -req -days $CERT_DAYS -in $CERT_DIR/server-req.pem -signkey $KEY_DIR/server-key.pem -out $CERT_DIR/server-cert.pem 
+    
+    echo "Self-signed certificate created at $CERT_DIR/server-cert.pem" 
+    ```
+1. Upload the certificate.
+<!-- steps -->
+---
 
 <!--
 1. In your NetApp account, navigate to **Buckets**. 
@@ -115,8 +120,6 @@ This script will create a folder as certs where you can get your pem file and pr
 1. In the **Access key lifespan** field, provide a numerical value for the number of days the key is valid. 
 1. When the key successfully generates, the portal presents your masked Access key and Secret access key. Display and securely save the information. 
 -->
-
-[Import a certificate in Azure Key Vault](/key-vault/certificates/tutorial-import-certificate).
 
 ## Edit a bucket
 
