@@ -15,22 +15,22 @@ ms.custom:
 
 As mentioned in [Supported Data Types](./supported-data-types.md), Microsoft Planetary Computer Pro supports ingestion, cloud optimization, and visualization of data cube files in NetCDF, HDF5, and GRIB2 formats. Though complex and historically cumbersome on local storage, these assets are optimized for cloud environments with Planetary Computer Pro, further empowering them as efficient tools to structure and store multidimensional data like satellite imagery and climate models.
 
-## Handling data cubes in Planetary Computer Pro
+## Ingestion of data cubes
 
-Data cube files can be ingested into Planetary Computer Pro in the same way as other raster data types. As with other date formats, assets and associated Spatio Temporal Asset Catalog (STAC) Items must first be stored in Azure Blob Storage. Unlike other two-dimensional raster assets, however, additional processing will occur upon ingestion of certain data cube formats (NetCDF and HDF5).
+Data cube files can be ingested into Planetary Computer Pro in the same way as other raster data types. As with other date formats, assets and associated Spatio Temporal Asset Catalog (STAC) Items must first be stored in Azure Blob Storage. Unlike other two-dimensional raster assets, however, additional cloud optimization steps will occur upon ingestion of certain data cube formats (NetCDF and HDF5).
 
 > [!NOTE]
-> GRIB2 data will be ingested in the same way as other two-dimensional raster data (with no additional enrichment), as they are essentially a collection of 2D rasters with an associated index file that references the data efficiently in cloud environments.
+> GRIB2 data will be ingested in the same way as other two-dimensional raster data (with no additional cloud optimization steps), as they are essentially a collection of 2D rasters with an associated index file that references the data efficiently in cloud environments.
 
-## Enabling data cube enrichment of STAC assets
+## Cloud optimization of data cubes
 
-When a STAC Item containing NetCDF or HDF5 assets is ingested, those assets can be enriched with data cube functionality. When data cube functionality is enabled, a Kerchunk manifest is generated and stored in blob storage alongside the asset, enabling more efficient data access.
+When a STAC Item containing NetCDF or HDF5 assets is ingested, the assets are cloud optimized, not by transforming the data itself, but rather by generation of reference files that enable more efficient data access.
 
-### Data cube enrichment and Kerchunk manifests  
+### Cloud optimization via Kerchunk manifests  
 
-For STAC assets in **NetCDF** or **HDF5** formats, Planetary Computer can apply **Data cube enrichment** during ingestion. This process generates a **Kerchunk manifest**, which is stored in blob storage alongside the asset. The Kerchunk manifest enables efficient access to chunked dataset formats.
+Unlike 2D raster data that is transformed into cloud optimized geotiffs, data cube assets are optimized by generation of chunk reference files, or Kerchunk manifests. Kerchunk is an open-source Python library that creates these chunk manifests, or JSON files that describe the structure of the data cube and its chunks using Zarr-style chunk keys that map to the byte ranges in the original file where those chunks reside. Once generated, the Kerchunk files are stored in blob storage alongside the assets, and the STAC items are enriched to include references to these manifests, optimizing data access for cloud environments.
 
-### Enabling data cube enrichment  
+### STAC item enrichment  
 
 Data cube enrichment is **enabled** for applicable assets in the STAC item JSON. For each asset, enrichment is triggered if both of the following conditions are met:  
 
