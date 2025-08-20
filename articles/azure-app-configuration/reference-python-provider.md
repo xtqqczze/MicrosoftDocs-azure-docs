@@ -17,7 +17,7 @@ ms.date: 08/18/2025
 
 [![Python package](https://img.shields.io/pypi/v/azure-appconfiguration-provider.svg)](https://pypi.org/project/azure-appconfiguration-provider/)
 
-Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The Python configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional [functionality](./configuration-provider-overview.md#feature-development-status) above the Azure SDK for Python.
+Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The Python configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds more [functionality](./configuration-provider-overview.md#feature-development-status) above the Azure SDK for Python.
 
 ## Install the package
 
@@ -39,7 +39,7 @@ pip install azure-identity
 The `load` function in the `azure-appconfiguration-provider` package is used to load configuration from the Azure App Configuration. The `load` function allows you to either use Microsoft Entra ID (Recommended) or connection string to connect to the App Configuration store.
 
 > [!NOTE]
-> `azure-appconfiguration-provider` has both sync `from azure.appconfiguration.provider import load` and async `from azure.appconfiguration.provider.aio import load` versions. When using the async version the async credential needs to be used.
+> `azure-appconfiguration-provider` has both sync `from azure.appconfiguration.provider import load` and async `from azure.appconfiguration.provider.aio import load` versions. When using the async version, the async credential needs to be used.
 
 ### [Microsoft Entra ID](#tab/entra-id)
 
@@ -128,7 +128,7 @@ print(config["message"])  # Access the key "message" instead of "/application/me
 
 ## Configuration refresh
 
-Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application. You can set the `refresh_on` to enable the refresh. `refresh_on` is a `List[WatchKey]` which specifies the key/label(s) to watch for changes. The loaded configuration is updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter.
+Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application. You can set the `refresh_on` to enable the refresh. `refresh_on` is a `List[WatchKey]`, which specifies the one or more key/labels to watch for changes. The loaded configuration is updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter.
 
 The `on_refresh_success` callback is called only if a change is detected and no error happens. The `on_refresh_error` callback is called when a refresh fails.
 
@@ -154,17 +154,17 @@ config = load(
 )
 ```
 
-Setting up `refresh_on` alone won't automatically refresh the configuration. You need to call the `refresh` method on `AzureAppConfigurationProvider` instance returned by the `load` method to trigger a refresh. 
+Setting up `refresh_on` alone doesn't automatically refresh the configuration. You need to call the `refresh` method on `AzureAppConfigurationProvider` instance returned by the `load` method to trigger a refresh. 
 
 ```python
 config.refresh()
 ```
 
-This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task. If the refresh fails, an error is thrown, unless a `on_refresh_error` is provided.
+This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This process is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task. If the refresh fails, an error is thrown, unless a `on_refresh_error` is provided.
 
 ## Feature flag
 
-You can [create feature flags](./manage-feature-flags.md#create-a-feature-flag) in Azure App Configuration. By default, the feature flags won't be loaded by configuration provider. You can enable loading and refreshing feature flags through the `feature_flags_enabled` parameter.
+You can [create feature flags](./manage-feature-flags.md#create-a-feature-flag) in Azure App Configuration. By default, the configuration provider doesn't load feature flags. You can enable loading and refreshing feature flags through the `feature_flags_enabled` parameter.
 
 ```python
 config = load(endpoint=endpoint, credential=DefaultAzureCredential(), feature_flags_enabled=True)
@@ -192,7 +192,7 @@ print(alpha["enabled"])
 
 ### Feature management
 
-Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management library is designed to work in with with the configuration provider library. The configuration provider loads all selected feature flags into the configuration under the `feature_flags` list of the `feature_management` section. The feature management library will consume and manage the loaded feature flags for your application.
+Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management library is designed to work in with with the configuration provider library. The configuration provider loads all selected feature flags into the configuration under the `feature_flags` list of the `feature_management` section. The feature management library consumes and manages the loaded feature flags for your application.
 
 The following example demonstrates how to integrate the `featuremanagement` library with the configuration provider to dynamically control API accessibility in an Express application based on the status of the `Beta` feature flag.
 
@@ -211,7 +211,7 @@ For more information about how to use the Python feature management library, go 
 
 ### Feature flag refresh
 
-To enable refresh for feature flags, you need to set `feature_flag_refresh_enabled=True`. This allows the provider to refresh feature flags the same way it refreshes configurations. Unlike configurations, all loaded feature flags are monitored for changes and will cause a refresh. Refresh of configuration settings and feature flags are independent of each other. Both are triggered by the `refresh` method, but a feature flag changing won't cause a refresh of configurations and vice versa. Also, if refresh for configuration settings isn't enabled, feature flags can still be enabled for refresh.
+To enable refresh for feature flags, you need to set `feature_flag_refresh_enabled=True`. This parameter allows the provider to refresh feature flags the same way it refreshes configurations. Unlike configurations, all loaded feature flags are monitored for changes and cause a refresh. Refresh of configuration settings and feature flags are independent of each other. Both configuration settings and feature flags are updated by the `refresh` method, but a feature flag changing doesn't cause a refresh of configurations and vice versa. Also, if refresh for configuration settings isn't enabled, feature flags can still be enabled for refresh.
 
 ```python
 config = load(
@@ -229,7 +229,7 @@ config.refresh()
 
 Azure App Configuration supports referencing secrets stored in Azure Key Vault. In App Configuration, you can create keys that map to secrets stored in Key Vault. The secrets are securely stored in Key Vault, but can be accessed like any other configuration once loaded.
 
-The configuration provider library retrieves Key Vault references, just as it does for any other keys stored in App Configuration. Because the client recognizes the keys as Key Vault references, they have a unique content-type, and the client will connect to Key Vault to retrieve their values for your application. You need to configure a way to connect to the Key Vault, either by providing a credential or by providing clients.
+The configuration provider library retrieves Key Vault references, just as it does for any other keys stored in App Configuration. Because the client recognizes the keys as Key Vault references, they have a unique content-type, and the client connects to Key Vault to retrieve their values for your application. You need to configure a way to connect to the Key Vault, either by providing a credential or by providing clients.
 
 ### With credentials
 
@@ -279,7 +279,7 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), secret_res
 
 ## Geo-replication
 
-The Azure App Configuration Provider library will automatically discover the provided configuration store's replicas and use the replicas if any issue arises. For more information, see [Geo-Replication](./howto-geo-replication.md).
+The Azure App Configuration Provider library automatically discovers the provided configuration store's replicas and uses the replicas if any issue arises. For more information, see [Geo-Replication](./howto-geo-replication.md).
 
 Replica discovery is enabled by default. If you want to disable it, you can set `replica_discovery_enabled` to `False`.
 
@@ -301,7 +301,7 @@ To learn how to use the Python configuration provider, continue to the following
 > [!div class="nextstepaction"]
 > [Use dynamic configuration in Python](./enable-dynamic-configuration-python.md)
 
-Check out our Django and Flask examples to see how to use the provider in a web application.
+To see how to use the provider in a web application, check out our Django and Flask examples.
 
 > [!div class="nextstepaction"]
 > [Django example](https://github.com/Azure/AppConfiguration/tree/main/examples/Python/python-django-webapp-sample)
