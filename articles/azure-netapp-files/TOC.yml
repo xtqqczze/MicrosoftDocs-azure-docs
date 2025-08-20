@@ -339,6 +339,8 @@
         href: object-rest-api-databricks.md
       - name: Connect to OneLake
         href: object-rest-api-onelake.md
+      - name: Connect to an S3 browser
+        href: object-rest-api-browser.md
     - name: Manage volume access and encryption 
       items:
       - name: Configure export policy for NFS or dual protocol

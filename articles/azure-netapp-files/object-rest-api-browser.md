@@ -1,6 +1,6 @@
 ---
 title: Connect an S3 browser to an Azure NetApp Files object REST API-enabled volume 
-description: Learn how to connect Azure Databricks to an Azure NetApp Files volume using object REST API 
+description: Learn how to connect an S3 browser to access REST API-enabled volumes in Azure NetApp Files. 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files

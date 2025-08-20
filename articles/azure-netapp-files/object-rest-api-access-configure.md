@@ -36,7 +36,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Prerequisites 
 
-* You must have generated a PEM-formatted SSL certificate. For instructions, see the [Azure Key Vault documentation for creating a certificate](/key-vault/certificates/tutorial-import-certificate). 
+* You must have generated a PEM-formatted SSL certificate. For instructions, see the [Azure Key Vault documentation for creating a certificate](/azure/key-vault/certificates/tutorial-import-certificate). 
 
     When creating the certificate, ensure the **Content Type** is set to PEM. In the **Subject** field, set the Common Name (CN) to the IP address or domain of your Azure NetApp Files object REST API-enabled volume.
 
@@ -79,7 +79,7 @@ You can generate the access key in the Azure portal or locally with a Bash scrip
 
 ### [Portal](#tab/portal)
 
-[Import a certificate in Azure Key Vault](/key-vault/certificates/tutorial-import-certificate).
+[Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate).
 
 ### [Script](#tab/script)
 

@@ -27,7 +27,7 @@ When creating the OneLake shortcut, sensitive information is protected through M
 ## Connect to OneLake
 
 1. Create a workspace in [OneLake](/fabric/onelake/create-lakehouse-onelake).
-1. In OneLake, right-click the workspace then select **New shortcut**. Load data in the lakehouse by creating a [new S3-compatible shortcut](/onelake/create-on-premises-shortcut). The endpoint must be a URL with the volume's IP address, for example, `http://10.0.1.0:9000`.
+1. In OneLake, right-click the workspace then select **New shortcut**. Load data in the lakehouse by creating a [new S3-compatible shortcut](/fabric/onelake/create-on-premises-shortcut). The endpoint must be a URL with the volume's IP address, for example, `http://10.0.1.0:9000`.
 1. Creating the shortcut populates the data gateway. After you provide the access key and secret key, the Azure NetApp Files data appears in your OneLake workspace. 
 
 ## Connect to Azure AI Search 
@@ -35,7 +35,7 @@ When creating the OneLake shortcut, sensitive information is protected through M
 >[!NOTE]
 >You must have configured OneLake access before you can connect to Azure AI Search. 
 
-1. In the Azure portal, access the Azure AI Search service. If this is your first time accessing the service, see [Create an Azure AI Search service](/search/search-create-service-portal).
+1. In the Azure portal, access the Azure AI Search service. If this is your first time accessing the service, see [Create an Azure AI Search service](/azure/search/search-create-service-portal).
 1. In the search management section, navigate to 'Data Sources'. 
 1. Select **Add Data Source**. 
 1. In the data source dropdown, select **Fabric OneLake files**.
@@ -51,4 +51,4 @@ When creating the OneLake shortcut, sensitive information is protected through M
 * [Configure object REST API access in Azure NetApp Files](object-rest-api-access-configure.md)
 * [OneLake shortcuts](/fabric/onelake//onelake-shortcuts)
 * [What is an on-premises data gateway?](/data-integration/gateway/service-gateway-onprem)
-* [What is Azure AI Search?](/search/search-what-is-azure-search)
+* [What is Azure AI Search?](/azure/search/search-what-is-azure-search)
