@@ -24,14 +24,7 @@ Ensure you have the following:
 - SSL certificate for the compute endpoints
 - Necessary permissions to access Azure Databricks and the Azure NetApp Files volume
 
-## Steps 
 
-This process requires using both the Azure NetApp Files portal and your Databricks workspace. 
-
-### Prepare the SSL certificate:
-
-1. Obtain the SSL certificate for your S3-compatible storage service's compute endpoints. 
-1. Save the SSL certificate in a secure location accessible by Azure Databricks. For more information, see [How to import a custom CA certificate](https://kb.databricks.com/python/import-custom-ca-cert).
 
 ### Create the `init` script 
 
