@@ -41,7 +41,7 @@ update-ca-certificates
 
 ### Configure the cluster 
 
-1. Navigate to your Azure Databricks workspace and open the cluster configuration settings. 
+1. Navigate to your Azure Databricks workspace. Open the cluster configuration settings. 
 1. In the **Advanced Options** section, add the path to the init script under **Init Scripts**. For example: `dbfs:/path/to/your/script.sh`
 <!-- add the /etc/hosts/ files to the `init` script -->
 1. Restart the cluster to apply the changes and load the SSL certificate. 
