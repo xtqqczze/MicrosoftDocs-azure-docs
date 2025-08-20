@@ -35,7 +35,7 @@ cp $CERT_PATH /etc/ssl/certs/
 update-ca-certificates 
 ````
 
-1. Use the Databricks CLI or the Databricks UI to upload the bash script to the Databricks File System (DBFS). For more information, see, [work with files on Azure Databricks](/databricks/files/#work-with-files-in-dbfs-mounts-and-dbfs-root).
+1. Use the Databricks CLI or the Databricks UI to upload the bash script to the Databricks File System (DBFS). For more information, see, [work with files on Azure Databricks](/databricks/files/).
 
 ### Configure the cluster 
 
@@ -44,7 +44,8 @@ update-ca-certificates
 <!-- add the /etc/hosts/ files to the `init` script -->
 1. Restart the cluster to apply the changes and load the SSL certificate. 
 1. Validate in the logs if the certificate is placed correctly. 
-1. Create a notebook and try connecting to the bucket and remember to select the VM which had the init script while booting up.
+1. Create a notebook and attempt to connect to the bucket. Select the VM which had the init script while booting up.
+<!-- need details -->
 
 ###  Connect to Azure NetApp Files bucket 
 

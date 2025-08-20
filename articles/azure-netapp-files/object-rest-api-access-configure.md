@@ -15,12 +15,6 @@ Azure NetApp Files supports read access to S3 objects with the [object REST API]
 
 To connect to S3 objects, you must create a bucket that is tied to an Azure NetApp Files NFS volume. After configuring the bucket, access is read-only. 
 
-## Prerequisites 
-
-* You must have generate PEM-formatted SSL certificate. For instructions, see the [Azure Key Vault documentation for creating a certificate](/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal#import-a-certificate-to-your-key-vault). 
-
-    When creating the certificate, ensure the **Content Type** is set to PEM. In the **Subject** field, set the Common Name (CN) to the IP address or domain of your Azure NetApp Files object REST API-enabled volume.
-
 ## Register the feature 
 
 The object REST API access feature in Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time. Feature registration can take up to 60 minutes to complete.
@@ -39,6 +33,12 @@ The object REST API access feature in Azure NetApp Files is currently in preview
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEnableObjectRESTAPI
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+## Prerequisites 
+
+* You must have generated a PEM-formatted SSL certificate. For instructions, see the [Azure Key Vault documentation for creating a certificate](/key-vault/certificates/tutorial-import-certificate). 
+
+    When creating the certificate, ensure the **Content Type** is set to PEM. In the **Subject** field, set the Common Name (CN) to the IP address or domain of your Azure NetApp Files object REST API-enabled volume.
 
 ## Enable object REST API access
 
@@ -66,7 +66,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * **Fully qualified domain name**
         Enter the fully qualified domain name. 
     * **Certificate source**
-        Upload the appropriate certificate. Only .pem files are supported. 
+        Upload the appropriate certificate. Only PEM files are supported. 
 
     :::image type="content" source="./media/object-rest-api-access-configure/certificate-management.png" alt-text="Screenshot of certificate management options." lightbox="./media/object-rest-api-access-configure/certificate-management.png":::
 
@@ -83,7 +83,7 @@ You can generate the access key in the Azure portal or locally with a Bash scrip
 
 ### [Script](#tab/script)
 
-You can create a certificate locally. The commputer name `CN=` and domain `DOMAIN=` should be the domain name or the IP address of the object REST API-enabled volume. This script create a folder that includes the necessary .pem file and private keys. 
+You can create a certificate locally. The commputer name `CN=` and domain `DOMAIN=` should be the domain name or the IP address of the object REST API-enabled volume. This script create a folder that includes the necessary PEM file and private keys. 
 
 1. Create and run the following the script. 
     ```bash

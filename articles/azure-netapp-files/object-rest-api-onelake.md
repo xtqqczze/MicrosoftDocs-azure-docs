@@ -26,7 +26,7 @@ When creating the OneLake shortcut, sensitive information is protected through M
 
 ## Connect to OneLake
 
-1. Create a workspace in [OneLake](/fabric/onelake/create-lakehouse-onelake#create-a-lakehouse).
+1. Create a workspace in [OneLake](/fabric/onelake/create-lakehouse-onelake).
 1. In OneLake, right-click the workspace then select **New shortcut**. Load data in the lakehouse by creating a [new S3-compatible shortcut](/onelake/create-on-premises-shortcut). The endpoint must be a URL with the volume's IP address, for example, `http://10.0.1.0:9000`.
 1. Creating the shortcut populates the data gateway. After you provide the access key and secret key, the Azure NetApp Files data appears in your OneLake workspace. 
 
