@@ -35,7 +35,7 @@ cp $CERT_PATH /etc/ssl/certs/
 update-ca-certificates 
 ````
 
-1. Use the Databricks CLI or the Databricks UI to upload the bash script to the Databricks File System (DBFS). For more information, see, [work with files on Azure Databricks](/databricks/files/).
+1. Use the Databricks CLI or the Databricks UI to upload the bash script to the Databricks File System (DBFS). For more information, see, [work with files on Azure Databricks](/azure/databricks/files/).
 
 ### Configure the cluster 
 
