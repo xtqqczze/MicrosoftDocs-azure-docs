@@ -433,31 +433,30 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
-In .NET you can also use [ValueTuple](/dotnet/csharp/tuples) objects. The following sample is using new features of [ValueTuple](/dotnet/csharp/tuples) added with [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
-
 ```csharp
+
+public record CourseInfo(string Major, int UniversityYear);
+
 [Function("GetCourseRecommendations")]
 public static async Task<object> RunOrchestrator(
     [OrchestrationTrigger] TaskOrchestrationContext context, int universityYear)
 {
-    string major = "ComputerScience";
-
+    CourseInfo courseInfo = new("ComputerScience", universityYear);
     object courseRecommendations = await context.CallActivityAsync<object>(
-        "CourseRecommendations",
-        (major, universityYear));
+        "CourseRecommendations", courseInfo);
     return courseRecommendations;
 }
 
-[FunctionName("CourseRecommendations")]
-public static async Task<object> Mapper(
-    [ActivityTrigger] (string Major, int UniversityYear) studentInfo, FunctionContext executionContext)
+[Function("CourseRecommendations")]
+public static async Task<CourseInfo> Mapper(
+    [ActivityTrigger] CourseInfo studentInfo, FunctionContext executionContext)
 {
-    // retrieve and return course recommendations by major and university year
+    // Retrieve and return course recommendations by major and university year.
     return new
     {
         major = studentInfo.Major,
         universityYear = studentInfo.UniversityYear,
-        recommendedCourses = new []
+        recommendedCourses = new[]
         {
             "Introduction to .NET Programming",
             "Introduction to Linux",
