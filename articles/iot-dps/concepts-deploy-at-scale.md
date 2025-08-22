@@ -6,7 +6,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 01/26/2024
+ms.date: 08/07/2025
 ms.subservice: azure-iot-hub-dps
 ---
 
@@ -20,7 +20,7 @@ First-time provisioning is the process of onboarding a device for the first time
 
 ### Use a staggered provisioning schedule
 
-For deployment of devices in the scale of millions, registering all the devices at once may result in the DPS instance being overwhelmed due to throttling (HTTP response code `429, Too Many Requests`) and a failure to register your devices. To prevent such throttling, use a staggered registration schedule for the devices. Configure your device registration batch sizes in accordance with DPS [quotas and limits](about-iot-dps.md#quotas-and-limits). For instance, if the registration rate is 200 devices per minute, the batch size for onboarding would be 200 devices per batch.
+For deployment of devices in the scale of millions, registering all the devices at once might result in the DPS instance being overwhelmed due to throttling (HTTP response code `429, Too Many Requests`) and a failure to register your devices. To prevent such throttling, use a staggered registration schedule for the devices. Configure your device registration batch sizes in accordance with DPS [quotas and limits](about-iot-dps.md#quotas-and-limits). For instance, if the registration rate is 200 devices per minute, the batch size for onboarding would be 200 devices per batch.
 
 ### Retry operations
 
@@ -36,7 +36,7 @@ max_random_jitter_msec = max_retry_delay_msec
 
 With this logic, devices delay reconnecting for a random amount of time, between `min_retry_delay_msec` and `max_retry_delay_msec`. The maximum retry delay is calculated with the following variables:
 
-* `<load>` is a configurable factor with values > 0, which indicates that the load will perform at an average of load time multiplied by the number of connections per second
+* `<load>` is a configurable factor with values > 0, which indicates that the load performs at an average of load time multiplied by the number of connections per second
 * `<T>` is the absolute minimum time to cold boot the devices (calculated as `T = N / cps` where `N` is the total number of devices and `cps` is the service limit for number of connections per second).
 
 For more information on the timing of retry operations, see [Retry timing](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/docs/iot/mqtt_state_machine.md#retry-timing).
@@ -60,7 +60,7 @@ Devices that have the ability to store their connection string after initial pro
 
 * The IoT Hub to connect upon device reboot is different from the previously connected IoT Hub.
 
-  The connection string stored in memory is inaccurate. Attempting to connect to the same endpoint won't be successful and so the retry mechanism for the IoT Hub connection is triggered. Once the threshold for the IoT Hub connection failure is reached, the retry mechanism automatically triggers a fresh start to the provisioning process.
+  The connection string stored in memory is inaccurate. Attempting to connect to the same endpoint fails and so the retry mechanism for the IoT Hub connection is triggered. Once the threshold for the IoT Hub connection failure is reached, the retry mechanism automatically triggers a fresh start to the provisioning process.
 
 ### Devices that can't store a connection string
 
@@ -173,7 +173,7 @@ if (provisioningDetails != null)
 
 Any single IoT hub is limited to 1 million devices plus modules. If you plan to have more than a million devices, cap the number of devices to 1 million per hub and add hubs as needed when increasing the scale of your deployment. For more information, see [IoT Hub quotas](../iot-hub/iot-hub-devguide-quotas-throttling.md). If you have plans for more than a million devices and you need to support them in a specific region (such as in an EU region for data residency requirements), you can [contact us](../iot/iot-support-help.md) to ensure that the region you're deploying to has the capacity to support your current and future scale.
 
-When connecting to IoT Hub via DPS, devices should use the following logic in response to error codes when connecting:
+When devices connect to IoT Hub via DPS, they should use the following logic in response to error codes when connecting:
 
 * When receiving any of the 500-series of server error responses, retry the connection using either cached credentials or the results of a Device Registration Status Lookup API call.
 * When receiving `401, Unauthorized` or `403, Forbidden` or `404, Not Found`, perform a full re-registration by calling the [DPS registration API](/rest/api/iot-dps/device/runtime-registration/register-device).
@@ -191,10 +191,10 @@ Other IoT Hub scenarios when using DPS:
 
 ## Monitor devices
 
-An important part of the overall deployment is monitoring the solution end-to-end to make sure that the system is performing appropriately. There are several ways to monitor the health of a service for large-scale deployment of IoT devices. The following patterns have proven effective in monitoring the service:
+An important part of the overall deployment is monitoring the solution end-to-end to make sure that the system is performing appropriately. There are several ways to monitor the health of a service for large-scale deployment of IoT devices. The following patterns prove effective in monitoring the service:
 
 * Create an application to query each enrollment group on a DPS instance, get the total devices registered to that group, and then aggregate the numbers from across various enrollment groups. This number provides an exact count of the devices that are currently registered via DPS and can be used to monitor the state of the service.
-* Monitor device registrations over a specific period. For instance, monitor registration rates for a DPS instance over the prior five days. Note that this approach only provides an approximate figure and is also capped to a time period.
+* Monitor device registrations over a specific period. For instance, monitor registration rates for a DPS instance over the prior five days. This approach only provides an approximate figure and is also capped to a time period.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Describes concepts specific to using X.509 certificate attestation with Device Provisioning Service (DPS) and IoT Hub
 author: SoniaLopezBravo
 ms.author: sonialopez
-ms.date: 04/30/2024
+ms.date: 08/07/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: azure-iot-hub-dps
@@ -34,19 +34,19 @@ To learn more, see [Conceptual understanding of X.509 CA certificates in the IoT
 
 ### Root certificate
 
-A *root certificate* is a self-signed X.509 certificate that represents a certificate authority (CA). It is the terminus, or trust anchor, of the certificate chain. Root certificates can be self-issued by an organization or purchased from a root certificate authority. The root certificate can also be called a *root CA certificate*.
+A *root certificate* is a self-signed X.509 certificate that represents a certificate authority (CA). It's the terminus, or trust anchor, of the certificate chain. Root certificates can be self-issued by an organization or purchased from a root certificate authority. The root certificate can also be called a *root CA certificate*.
 
 ### Intermediate certificate
 
-An *intermediate certificate* is an X.509 certificate that has been signed by the root certificate (or by another intermediate certificate with the root certificate in its chain) and can also sign new certificates. The last intermediate certificate in a chain signs the leaf certificate. An intermediate certificate can also be called an *intermediate CA certificate*.
+An *intermediate certificate* is an X.509 certificate signed by the root certificate (or by another intermediate certificate with the root certificate in its chain) and can also sign new certificates. The last intermediate certificate in a chain signs the leaf certificate. An intermediate certificate can also be called an *intermediate CA certificate*.
 
 Intermediate certificates are used in various ways. For example, intermediate certificates can be used to group devices by product lines, customers purchasing devices, company divisions, or factories. 
 
-Imagine that Contoso is a large corporation with its own Public Key Infrastructure (PKI) using the root certificate named `ContosoRootCert`. Each subsidiary of Contoso has their own intermediate certificate that is signed by `ContosoRootCert`. Each subsidiary uses their intermediate certificate to sign their leaf certificates for each device. In this scenario, Contoso can use a single DPS instance where `ContosoRootCert` is a [verified certificate](./how-to-verify-certificates.md). They can have an enrollment group for each subsidiary. This way each individual subsidiary doesn't have to worry about verifying certificates.
+Imagine that Contoso is a large corporation with its own Public Key Infrastructure (PKI) using the root certificate named `ContosoRootCert`. Each subsidiary of Contoso has their own intermediate certificate signed by `ContosoRootCert`. Each subsidiary uses their intermediate certificate to sign their leaf certificates for each device. In this scenario, Contoso can use a single DPS instance where `ContosoRootCert` is a [verified certificate](./how-to-verify-certificates.md). They can have an enrollment group for each subsidiary. This way each individual subsidiary doesn't have to worry about verifying certificates.
 
 ### End-entity "leaf" certificate
 
-A *leaf certificate*, or *end-entity certificate*, identifies a certificate holder. It has the root certificate in its certificate chain and zero or more intermediate certificates. A leaf certificate is not used to sign any other certificates. It uniquely identifies a device to the provisioning service and is sometimes referred to as a *device certificate*. During authentication, a device uses the private key associated with its certificate to respond to a proof of possession challenge from the service.
+A *leaf certificate*, or *end-entity certificate*, identifies a certificate holder. It has the root certificate in its certificate chain and zero or more intermediate certificates. A leaf certificate isn't used to sign any other certificates. It uniquely identifies a device to the provisioning service and is sometimes referred to as a *device certificate*. During authentication, a device uses the private key associated with its certificate to respond to a proof of possession challenge from the service.
 
 ## Prepare certificates
 
@@ -91,7 +91,7 @@ If you use ECC methods to generate X.509 certificates for device attestation, we
 
 Leaf certificates used with [individual enrollment](./concepts-service.md#individual-enrollment) entries must have the subject common name (CN) set to the registration ID. The registration ID identifies the device registration with DPS and must be unique to the DPS instance (ID scope) where the device registers.
 
-For [enrollment groups](./concepts-service.md#enrollment-group), the subject common name (CN) sets the device ID that is registered with IoT Hub. The device ID will be shown in the **Registration Records** for the authenticated device in the enrollment group. For individual enrollments, the device ID can be set in the enrollment entry. If it's not set in the enrollment entry, then the subject common name (CN) is used.
+For [enrollment groups](./concepts-service.md#enrollment-group), the subject common name (CN) sets the device ID that is registered with IoT Hub. The device ID is shown in the **Registration Records** for the authenticated device in the enrollment group. For individual enrollments, the device ID can be set in the enrollment entry. If it's not set in the enrollment entry, then the subject common name (CN) is used.
 
 To learn more, see [Authenticate devices signed with X.509 CA certificates](../iot-hub/iot-hub-x509ca-overview.md#authenticate-devices-signed-with-x509-ca-certificates).
 
@@ -99,7 +99,7 @@ To learn more, see [Authenticate devices signed with X.509 CA certificates](../i
 
 When a device is attempting registration through DPS using an enrollment group, the device must send the certificate chain from the leaf certificate to a [verified certificate](how-to-verify-certificates.md). Otherwise, authentication fails.
 
-For example, if only the root certificate is verified and an intermediate certificate is uploaded to the enrollment group, the device should present the certificate chain from leaf certificate all the way to the verified root certificate. This certificate chain would include any intermediate certificates in-between. Authentication fails if DPS cannot traverse the certificate chain to a verified certificate.
+For example, if only the root certificate is verified and an intermediate certificate is uploaded to the enrollment group, the device should present the certificate chain from leaf certificate all the way to the verified root certificate. This certificate chain would include any intermediate certificates in-between. Authentication fails if DPS can't traverse the certificate chain to a verified certificate.
 
 For example, consider a corporation that uses the following device chain for a device.
 
