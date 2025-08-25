@@ -37,11 +37,11 @@ To set up a local development environment, you need to have:
 - Git on your machine. Install it by following [this Git tutorial](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 - Node.js (LTS version, `v10.15.0` or later) and npm on your machine. See [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 - Azure CLI. Follow [the Azure CLI installation steps](/cli/azure/install-azure-cli).
-- (Optional) A Microsoft Entra app registration to configure user sign-in to the developer portal. For steps to configure the Microsoft Entra app, see steps in [Manually enable Microsoft Entra application and identity provider](api-management-howto-aad.md#manually-enable-microsoft-entra-application-and-identity-provider).
+- (Optional) A Microsoft Entra app registration to configure user sign-in to the developer portal. To configure the Microsoft Entra app, see steps in [Manually enable Microsoft Entra application and identity provider](api-management-howto-aad.md#manually-enable-microsoft-entra-application-and-identity-provider).
 
 ## Step 1: Set up local environment
 
-To set up your local environment, clone the repository, switch to the latest release of the developer portal, and install npm packages.
+To set up your local environment, first clone the repository, switch to the latest release of the developer portal, and install npm packages.
 
 1. Clone the [api-management-developer-portal](https://github.com/Azure/api-management-developer-portal.git) repo from GitHub:
 
@@ -142,7 +142,7 @@ Go to the `src` folder and open the `config.publish.json` file.
 
 Configure the file:
 
-1. Copy and paste the `subscriptionId`, `resourceGroupName`, and `serviceName`values from the previous configuration file. If configured, also copy the `clientId` and `tenantId` values.
+1. Copy and paste the `subscriptionId`, `resourceGroupName`, and `serviceName`values from the previous configuration file. 
 
 1. Optionally, set `clientId` and `tenantId` to the client ID and tenant ID of the Microsoft Entra app that you configured for users to sign into. 
 
