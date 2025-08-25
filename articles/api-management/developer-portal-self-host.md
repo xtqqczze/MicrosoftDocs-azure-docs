@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to self-host the developer portal for Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 06/17/2025
+ms.date: 08/25/2025
 ms.service: azure-api-management
 ms.topic: how-to
 ---
@@ -37,10 +37,11 @@ To set up a local development environment, you need to have:
 - Git on your machine. Install it by following [this Git tutorial](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 - Node.js (LTS version, `v10.15.0` or later) and npm on your machine. See [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 - Azure CLI. Follow [the Azure CLI installation steps](/cli/azure/install-azure-cli).
+- (Optional) A Microsoft Entra app registration to configure user sign-in to the developer portal. For steps to configure the Microsoft Entra app, see steps in [Manually enable Microsoft Entra application and identity provider](api-management-howto-aad.md#manually-enable-microsoft-entra-application-and-identity-provider).
 
 ## Step 1: Set up local environment
 
-To set up your local environment, you'll have to clone the repository, switch to the latest release of the developer portal, and install npm packages.
+To set up your local environment, clone the repository, switch to the latest release of the developer portal, and install npm packages.
 
 1. Clone the [api-management-developer-portal](https://github.com/Azure/api-management-developer-portal.git) repo from GitHub:
 
@@ -103,7 +104,7 @@ Configure the file:
     ```json
     {
     ...
-    "serviceName": "https://contoso-api.developer.azure-api.net"
+    "serviceName": "https://contoso-api.azure-api.net"
     ...
     ```
 
@@ -120,9 +121,7 @@ Configure the file:
     1. In the editor, under **API restrictions**, select **Restrict key**. In the dropdown, select **Web Fonts Developer API**. 
     1. Select **Save**.
   
-1. Optionally, set `clientId` and `tenantId` to the client ID and tenant ID of the Microsoft Entra app that users will sign into. This is needed if you want to enable Microsoft Entra user sign-in to your developer portal. For more information about configuring the Microsoft Entra app, see [Manually enable Microsoft Entra application and identity provider](api-management-howto-aad.md#manually-enable-microsoft-entra-application-and-identity-provider).
-
-    Make sure also to [configure CORS settings for developer portal backend](#configure-cors-settings-for-developer-portal-backend).
+1. Optionally, set `clientId` and `tenantId` to the client ID and tenant ID of the Microsoft Entra app that you configured for users to sign into. 
 
 ### config.publish.json file
 
@@ -145,7 +144,7 @@ Configure the file:
 
 1. Copy and paste the `subscriptionId`, `resourceGroupName`, and `serviceName`values from the previous configuration file. If configured, also copy the `clientId` and `tenantId` values.
 
-1. If you'd like to enable CAPTCHA in your developer portal, set `"useHipCaptcha": true`. Make sure to [configure CORS settings for developer portal backend](#configure-cors-settings-for-developer-portal-backend).
+1. Optionally, set `clientId` and `tenantId` to the client ID and tenant ID of the Microsoft Entra app that you configured for users to sign into. 
 
 ### config.runtime.json file
 
@@ -164,7 +163,28 @@ Go to the `src` folder and open the `config.runtime.json` file.
 }
 ```
 
-1. Configure either `backendUrl` or settings for the direct data API. If your API Management instance is in one of the v2 service tiers, you must use the direct data API. If your API Management instance is in one of the classic service tiers, you can configure either `backendUrl` or settings for the direct data API.  
+Configuration of this file differs depending on whether your API Management instance is created in one of the v2 tiers or in one of the classic tiers.
+
+#### [v2 tiers](#tab/v2-tiers)
+
+1. Configure settings for the direct data API: 
+    * Set `directDataApi` to true. 
+    * In the `dataApiUrl` value, replace `<service name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead (for example, `https://portal.contoso.com`).
+    
+        ```json
+        {
+        ...
+        "directDataApi": true,
+        "dataApiUrl": "https://contoso-api.data.azure-api.net"
+        ...
+        }
+        ```
+
+1. Optionally, in `featureFlags`, if you want to collect user session data from the developer portal, set `"clientTelemetry": true`.
+
+#### [Classic tiers](#tab/classic)
+
+1. You can configure either `backendUrl` or settings for the direct data API.  
 
     > [!IMPORTANT]
     > Remove the `backendUrl` setting if you set `directDataApi` to true. And conversely, remove direct data API settings if you configure the `backendUrl`.
@@ -192,6 +212,7 @@ Go to the `src` folder and open the `config.runtime.json` file.
 
 1. Optionally, in `featureFlags`, if you want to collect user session data from the developer portal, set `"clientTelemetry": true`.
 
+---
 
 ### Configure the static website
 
@@ -246,7 +267,6 @@ To add CORS settings:
     * `localhost` for local development (if applicable), such as `http://localhost:8080` or `https://localhost:8080` 
 1. Select **Save**.
 
-<!-- I tried this local origin: http://localhost:55991 -->
 
 ## Step 3: Run the portal
 
@@ -255,7 +275,7 @@ Now you can build and run a local portal instance in the development mode. In de
 Run the following command:
 
 ```console
-npm start
+npm run start
 ```
 
 After a short time, the default browser automatically opens with your local developer portal instance. The default address is `http://localhost:8080`, but the port can change if `8080` is already occupied. Any changes to the codebase of the project triggers a rebuild and refresh your browser window.
@@ -287,12 +307,13 @@ Use the Azure CLI to upload the locally generated static files to a blob, and ma
 
 1. Run the following Azure CLI command.
    
-    Replace `<account-connection-string>` with the connection string of your storage account. You can get it from the **Security + networking** > **Access keys** section of your storage account.
+    Replace `<account-access-key>` with an access key your storage account. You can get it from the **Security + networking** > **Access keys** section of your storage account.
 
     ```azurecli
     az storage blob upload-batch --source dist/website \
+        --account-name <your-storage-account-name> \
         --destination '$web' \
-        --connection-string "<account-connection-string>"
+        --account-key "<account-access-key>"
     ```
 
 
@@ -460,13 +481,13 @@ Update the developer portal URL in any template that has a link in the footer:
 
 ## Move from managed to self-hosted developer portal
 
-Over time, your business requirements may change. You can end up in a situation where the managed version of the API Management developer portal no longer satisfies your needs. For example, a new requirement may force you to build a custom widget that integrates with a third-party data provider. Unlike the managed version, the self-hosted version of the portal offers you full flexibility and extensibility.
+Over time, your business requirements may change. You can end up in a situation where the managed version of the API Management developer portal no longer satisfies your needs. For example, a new requirement could force you to build a custom widget that integrates with a third-party data provider. Unlike the managed version, the self-hosted version of the portal offers you full flexibility and extensibility.
 
 ### Transition process
 
 You can transition from the managed version to a self-hosted version within the same API Management service instance. The process preserves the modifications that you've carried out in the managed version of the portal. Make sure you back up the portal's content beforehand. You can find the backup script in the `scripts` folder of the API Management developer portal [GitHub repo](https://github.com/Azure/api-management-developer-portal).
 
-The conversion process isc the same as setting up a generic self-hosted portal, as shown in previous steps in this article.
+The conversion process is the same as setting up a generic self-hosted portal, as shown in previous steps in this article.
 
 ## Related content
 
