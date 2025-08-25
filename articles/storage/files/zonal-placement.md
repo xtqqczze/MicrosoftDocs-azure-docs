@@ -13,7 +13,7 @@ ms.custom:
 
 # Use zonal placement for Azure file shares
 
-Zonal placement allows you to select the specific availability zone in which your Azure Files storage account resides. This feature is currently available only for premium storage accounts (SSD) using [locally-redundant storage (LRS)](files-redundancy.md#locally-redundant-storage) in [supported regions](#region-support).
+Zonal placement allows you to select the specific availability zone in which your Azure Files storage account resides. This feature is currently available only for premium storage accounts (SSD) using [locally redundant storage (LRS)](files-redundancy.md#locally-redundant-storage) in [supported regions](#region-support).
 
 ## Applies to
 
@@ -85,9 +85,9 @@ Follow these steps to create a new zonal storage account using the Azure portal.
 
 1. For **Premium account type**, select **File shares**.
 
-1. Under **Redundancy**, select **Locally-redundant storage (LRS)**.
+1. Under **Redundancy**, select **Locally redundant storage (LRS)**.
 
-1. If the selected region supports zonal placement, a **Zone options** dropdown will appear. This provides three choices:
+1. If the selected region supports zonal placement, a **Zone options** dropdown appears, offering three choices:
 
    - **None:** Creates a regional storage account.
    - **Self-selected zone:** Enables a secondary dropdown to select a specific availability zone (1, 2, or 3).
@@ -110,20 +110,20 @@ Follow these steps to pin an existing storage account to an Azure-selected zone.
 
 1. On the **Overview** tab, locate the **Availability** section. Select **Edit** next to the availability information.
 
-1. The **Move storage to availability zone** page will open. A dropdown next to the storage account name will appear with two options: 
+1. The **Move storage to availability zone** page opens. A dropdown next to the storage account name appears with two options:
 
    - A zone selected by Azure (for example, Zone 1, 2, or 3)
-   - None (to continue using the regional storage account configuration)
+   - None (to use the regional storage account configuration)
 
-   Select the zone selected by Azure.
+   Choose the zone selected by Azure.
 
 1. Consent to the prompt "I agree for Microsoft to create a system-managed identity," and then select **Apply**.
 
-The storage account will now be pinned to the selected zone. This will be reflected in the **Availability** section on the **Overview** tab. If desired, you can place your VMs in the same zone to reduce latency between VMs and storage.
+The storage account will now be pinned to the selected zone, as reflected in the **Availability** section on the **Overview** tab. If desired, you can place your virtual machines in the same zone to reduce latency between compute and storage.
 
 ## Unpin a storage account from a zone
 
-If desired, you can unpin a storage account from a zone, thereby converting the zonal storage account to a regional storage account. This is a prerequisite if you want to move the storage account from LRS to zone-redundant storage (ZRS), for example.
+If desired, you can unpin a storage account from a zone and convert the zonal storage account to a regional storage account. This is a prerequisite if you want to move the storage account from LRS to zone-redundant storage (ZRS), for example.
 
 Follow these steps to unpin a zonal storage account from a zone.
 
@@ -131,13 +131,13 @@ Follow these steps to unpin a zonal storage account from a zone.
 
 1. On the **Overview** tab, locate the **Availability** section. Select **Edit** next to the availability information.
 
-1. The **Move storage to availability zone** page will open. A dropdown next to the storage account name will appear with two options: 
+1. The **Move storage to availability zone** page opens. A dropdown next to the storage account name appears with two options: 
 
    - A zone selected by Azure (for example, Zone 1, 2, or 3)
-   - None (to continue using the regional storage account configuration)
+   - None (to use the regional storage account configuration)
 
    Select **None**.
 
 1. Consent to the prompt "I agree for Microsoft to create a system-managed identity," and then select **Apply**.
 
-The storage account will now be unpinned from the zone. This will be reflected in the **Availability** section on the **Overview** tab. If desired, you can now change the redundancy setting for the storage account from LRS to zone-redundant storage (ZRS).
+The storage account will now be unpinned from the zone, as reflected in the **Availability** section on the **Overview** tab. If desired, you can now change the redundancy setting for the storage account from LRS to zone-redundant storage (ZRS).
