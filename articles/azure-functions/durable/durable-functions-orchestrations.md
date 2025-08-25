@@ -310,7 +310,7 @@ public static async Task CheckSiteAvailable(
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
-To simplify this common pattern, orchestrator functions can use the `CallHttpAsync` method to invoke HTTP APIs directly. For C# (Isolated), this feature was introduced in Microsoft.Azure.Functions.Worker.Extensions.DurableTask v1.1.0.
+To simplify this common pattern, orchestrator functions can use the `CallHttpAsync` method to invoke HTTP APIs directly. The `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` package, v1.1.0, introduces this feature to C# (Isolated).
 
 ```csharp
 [Function("CheckSiteAvailable")]
@@ -319,13 +319,16 @@ public static async Task CheckSiteAvailable(
 {
     Uri url = context.GetInput<Uri>();
 
-    // Makes an HTTP GET request to the specified endpoint
-    DurableHttpResponse response =
-        await context.CallHttpAsync(HttpMethod.Get, url);
+    // Make an HTTP GET request to the specified endpoint.
+    DurableHttpResponse response = await context.CallHttpAsync(
+        method: HttpMethod.Get,
+        uri: url,
+        content: null,
+        retryOptions: null);
 
     if ((int)response.StatusCode == 400)
     {
-        // handling of error codes goes here
+        // Handle error codes.
     }
 }
 ```
