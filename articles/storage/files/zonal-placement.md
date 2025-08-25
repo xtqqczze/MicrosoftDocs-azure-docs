@@ -1,0 +1,143 @@
+---
+title: Zonal Placement for Azure Files
+description: Learn to use zonal placement for Azure storage accounts so you can choose the specific availability zone for your SSD file shares.
+author: khdownie
+ms.service: azure-file-storage
+ms.topic: how-to
+ms.date: 08/25/2025
+ms.author: kendownie
+ms.custom:
+  - references_regions
+# Customer intent: "As an IT admin, I want to use zonal placement for my storage account so I can select the specific Azure availability zone in which my SSD file shares will reside."
+---
+
+# Use zonal placement for Azure file shares
+
+Zonal placement allows you to select the specific availability zone in which your Azure Files storage account resides. This feature is currently available only for premium storage accounts (SSD) using [locally-redundant storage (LRS)](files-redundancy.md#locally-redundant-storage) in [supported regions](#region-support).
+
+## Applies to
+
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.FileShares | Provisioned v2 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+
+## Prerequisites
+
+This article assumes that you have an Azure subscription. If you don't have an Azure subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Region support
+
+Zonal placement is supported for premium storage accounts with LRS redundancy in the following Azure regions:
+
+- East US
+- Central US
+- South Central US
+- West US 3
+- Canada Central
+- Germany West Central
+- Japan West
+- South Africa North
+- Qatar Central
+- Italy North
+- Indonesia Central
+- Israel Central
+- Poland Central
+- New Zealand North
+- Mexico Central
+- Spain Central
+- Malaysia West
+- Chile Central
+
+## How zonal placement works
+
+When creating a new premium storage account, you can create either a **regional** or **zonal** storage account. A zonal storage account is placed in a specific availability zone within a supported Azure region, offering guaranteed data locality. Zonal placement can also potentially reduce latency and improve performance for your workload if you place your compute resources (virtual machines) in the same zone as your storage account.
+
+You can only specify a specific zone when creating a new storage account. Existing storage accounts can only be pinned to a zone selected by Azure. Once a storage account is pinned to a zone, it can only be moved back to a regional configuration. For example, if your storage account is pinned to zone 1, you can't move it to zone 2 or zone 3.
+
+## Create a new zonal storage account
+
+Follow these steps to create a new zonal storage account using the Azure portal.
+
+1. Sign in to the Azure portal.
+
+1. Navigate to **Storage accounts** and select **+ Create**.
+
+1. On the **Basics** tab, select the Azure subscription and resource group, or optionally create a new resource group.
+
+1. Enter a name for the storage account. The name must be unique across all existing storage account names in Azure. It must be 3 to 24 characters long, and can contain only lowercase letters and numbers.
+
+1. Select a region. Make sure it's on the [supported list](#region-support).
+
+1. Under **Primary service**, select **Azure Files**.
+
+1. Under **Performance**, select **Premium**.
+
+1. For **Premium account type**, select **File shares**.
+
+1. Under **Redundancy**, select **Locally-redundant storage (LRS)**.
+
+1. If the selected region supports zonal placement, a **Zone options** dropdown will appear. This provides three choices:
+
+   - **None:** Creates a regional storage account.
+   - **Self-selected zone:** Enables a secondary dropdown to select a specific availability zone (1, 2, or 3).
+   - **Azure-selected zone:** Azure automatically assigns a zone.
+
+   Choose the desired zone option and proceed with storage account configuration.
+
+1. When configuration is complete, select **Review + Create** and then select **Create**.
+
+## Pin an existing storage account to an Azure-selected zone
+
+You can also pin an existing premium storage account to an Azure-selected availability zone. Once pinned, Microsoft guarantees that the storage account won't be moved unless under extreme emergency conditions.
+
+> [!IMPORTANT]
+> Existing storage accounts can only be pinned to availability zones that are automatically selected by Azure. You can't choose a specific zone number.
+
+Follow these steps to pin an existing storage account to an Azure-selected zone.
+
+1. Sign in to the Azure portal and navigate to the premium storage account that you want to pin.
+
+1. On the **Overview** tab, locate the **Availability** section. Select **Edit** next to the availability information.
+
+1. The **Move storage to availability zone** page will open. A dropdown next to the storage account name will appear with two options: 
+
+   - A zone selected by Azure (for example, Zone 1, 2, or 3)
+   - None (to continue using the regional storage account configuration)
+
+   Select the zone selected by Azure.
+
+1. Consent to the prompt "I agree for Microsoft to create a system-managed identity," and then select **Apply**.
+
+The storage account will now be pinned to the selected zone. This will be reflected in the **Availability** section on the **Overview** tab. If desired, you can place your VMs in the same zone to reduce latency between VMs and storage.
+
+## Unpin a storage account from a zone
+
+If desired, you can unpin a storage account from a zone, thereby converting the zonal storage account to a regional storage account. This is a prerequisite if you want to move the storage account from LRS to zone-redundant storage (ZRS), for example.
+
+Follow these steps to unpin a zonal storage account from a zone.
+
+1. Sign in to the Azure portal and navigate to the zonal storage account that you want to unpin.
+
+1. On the **Overview** tab, locate the **Availability** section. Select **Edit** next to the availability information.
+
+1. The **Move storage to availability zone** page will open. A dropdown next to the storage account name will appear with two options: 
+
+   - A zone selected by Azure (for example, Zone 1, 2, or 3)
+   - None (to continue using the regional storage account configuration)
+
+   Select **None**.
+
+1. Consent to the prompt "I agree for Microsoft to create a system-managed identity," and then select **Apply**.
+
+The storage account will now be unpinned from the zone. This will be reflected in the **Availability** section on the **Overview** tab. If desired, you can now change the redundancy setting for the storage account from LRS to zone-redundant storage (ZRS).
