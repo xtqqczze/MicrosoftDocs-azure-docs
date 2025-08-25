@@ -111,10 +111,63 @@ The latency probe currently uses Microsoft's Ping Mesh technology, which is base
 
 [!INCLUDE [Microsoft.Network/azureFirewalls](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-azurefirewalls-logs-include.md)]
 
-Azure Firewall has two new diagnostic logs that can help monitor your firewall, but these logs currently do not show application rule details.
-- Top flows
-- Flow trace
+## Additional DNS Proxy Logs
+The Additional DNS Proxy logs provides deeper visibility into DNS activity, helping admins troubleshoot resolution issues and verify traffic behavior.
 
+Previously, DNS Proxy logging was limited to:
+
+- **AZFWDNSQuery** - the initial client query
+- **AZFWInternalFqdnResolutionFailure** - FQDN resolution failures
+
+With the new DNS Proxy logs, admins can trace the complete DNS resolution flow -- from the client query through the Azure Firewall as a DNS proxy, to the external DNS server, and back to the client.
+
+The logs capture the following stages:
+
+1. **Client query**: The initial DNS query sent by the client.
+2. **Forwarder query**: Azure Firewall forwarding the query to an external DNS server (if not cached).
+3. **Forwarder response**: The DNS server's response to Azure Firewall.
+4. **Client response**: The final resolved response from Azure Firewall back to the client.
+
+Below is a high-level visual representation of the DNS query flow:
+
+:::image type="content" source="media/dns-proxy/dns-query-flow.png" alt-text="DNS Query Flow":::
+
+These logs provide valuable insights, such as:
+- The DNS server queried
+- Resolved IP addresses
+- Whether the Azure Firewall cache was used
+
+**Enabling Additional DNS Proxy Logs**
+1. Enable DNS proxy:
+    1. Navigate to Azure Firewall DNS settings and Enable DNS Proxy.
+    2. Configure a custom DNS server or use the default Azure DNS.
+    3. Navigate to Virtual Network DNS settings and set the Firewall's private IP as the primary DNS server.
+2. Enable Additional DNS Proxy logs:
+    1. Navigate to Azure Firewall in the Azure portal.
+    2. Select **Diagnostic settings** under Monitoring.
+    3. Choose an existing diagnostic setting or create a new one.
+    4. Under **Log**, select **Additional DNS Proxy Logs**.
+    5. Choose your desired destination (Log Analytics, Event Hub, Storage Account).
+    6. Save the settings.
+3. Test the configuration:
+    1. Generate DNS queries from clients and verify the logs in the chosen destination.
+
+**Understanding the Logs**
+Each log entry corresponds to a specific stage in the DNS resolution process.
+
+Type | Description | Key Fields
+--- | --- | ---
+`Client Query` | The initial DNS query sent by the client. | `SourceIp`: The client's internal IP address making the DNS request, `QueryMessage`: The full DNS query payload, including the requested domain
+`Forwarder Query` | Azure Firewall forwarding the DNS query to an external DNS server (if not cached). | `ServerIp`: The IP address of the external DNS server that receives the query, `QueryMessage`: The forwarded DNS query payload, identical or based on the client request    
+`Forwarder Response` | The DNS server's response to Azure Firewall. | `ServerMessage`: The DNS response payload from the external server., `AnswerSection`: Contains resolved IP addresses, CNAMEs, and any DNSSEC validation results (if applicable).
+`Client Response` | The final resolved response from Azure Firewall back to the client. | `ResolvedIp`: The IP address (or addresses) resolved for the queried domain., `ResponseTime`: The total time taken to resolve the query, measured from the client’s request to the returned answer
+
+The above fields are only a subset of the available fields in each log entry.
+
+Key notes:
+- If the DNS cache is used, only **Client Query** and **Client Response** entries are generated.
+- Logs include standard metadata such as timestamps, source/destination IPs, protocols, and DNS message content.
+- To avoid excessive log volume in environments with many short-lived queries, enable additional DNS Proxy logs only when deeper DNS troubleshooting is required.
 
 
 ## Top flows
