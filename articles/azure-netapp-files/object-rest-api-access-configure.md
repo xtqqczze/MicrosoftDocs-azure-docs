@@ -87,19 +87,14 @@ echo "Self-signed certificate created at $CERT_DIR/server-cert.pem"
         The subdirectory path for object REST API access. For full volume access, leave this field blank or use `/` for the root directory.
     * **UserID (UID)**
         The UID used to read the bucket.
+        <!-- UID to match UI -->
     * **GroupID (GID)**
         The GID used to read the bucket.
+        <!-- GUID to match UI -->
     * **Permissions**
         Select Read or Read-Write. 
 
-
-From your NetApp volume, select Buckets.
-UserID -> User ID to match the UI
-GroupID -> Group ID to match the UI
-“Permissions Buckets are currently read-only. You can't modify this field.”
-
     :::image type="content" source="./media/object-rest-api-access-configure/create-bucket.png" alt-text="Screenshot of create a bucket menu." lightbox="./media/object-rest-api-access-configure/create-bucket.png":::
-
 
 1. If you haven't provided a certificate, also provide the following information:
     * **Fully qualified domain name**
@@ -110,9 +105,9 @@ GroupID -> Group ID to match the UI
     :::image type="content" source="./media/object-rest-api-access-configure/certificate-management.png" alt-text="Screenshot of certificate management options." lightbox="./media/object-rest-api-access-configure/certificate-management.png":::
 
 1. Select **Create**. 
-    After creating the bucket, you must [generate the access key](#generate-the-access-key-for-a-bucket).
 
 <!--
+ACCESS KEYS
 1. In your NetApp account, navigate to **Buckets**. 
 1. For the bucket you want to create an access key for, select **Generate keys**. 
 1. In the **Access key lifespan** field, provide a numerical value for the number of days the key is valid. 

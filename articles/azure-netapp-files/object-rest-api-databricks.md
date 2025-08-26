@@ -25,58 +25,58 @@ Ensure you have:
 
 ### Create the init script 
 
-The init script runs during cluster startup. For more information about init scripts, see [What are init scripts?](/azure/databricks/init-scripts/)
+The init script runs during cluster startup. For more information about init scripts, see [What are init scripts?](/azure/databricks/init-scripts)
 
 1. Write a bash script to load the SSL certificate. Save the script with an .sh extension. For example:
 
-````bash
-#!/bin/bash 
+    ````bash
+    #!/bin/bash 
 
-cat << 'EOF' > /usr/local/share/ca-certificates/myca.crt 
+    cat << 'EOF' > /usr/local/share/ca-certificates/myca.crt 
 
------BEGIN CERTIFICATE----- 
-  
+    -----BEGIN CERTIFICATE----- 
+    
 
------END CERTIFICATE----- 
+    -----END CERTIFICATE----- 
 
-EOF 
+    EOF 
 
-update-ca-certificates 
+    update-ca-certificates 
 
-PEM_FILE="/etc/ssl/certs/myca.pem" 
+    PEM_FILE="/etc/ssl/certs/myca.pem" 
 
-PASSWORD="changeit" 
+    PASSWORD="changeit" 
 
-JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::") 
+    JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::") 
 
-KEYSTORE="$JAVA_HOME/lib/security/cacerts" 
+    KEYSTORE="$JAVA_HOME/lib/security/cacerts" 
 
-CERTS=$(grep 'END CERTIFICATE' $PEM_FILE| wc -l) 
+    CERTS=$(grep 'END CERTIFICATE' $PEM_FILE| wc -l) 
 
-# To process multiple certificates with keytool, you need to extract each one from the PEM file and import it into the Java KeyStore. 
+    # To process multiple certificates with keytool, you need to extract each one from the PEM file and import it into the Java KeyStore. 
 
-for N in $(seq 0 $(($CERTS - 1))); do 
+    for N in $(seq 0 $(($CERTS - 1))); do 
 
-  ALIAS="$(basename $PEM_FILE)-$N" 
+    ALIAS="$(basename $PEM_FILE)-$N" 
 
-  echo "Adding to keystore with alias:$ALIAS" 
+    echo "Adding to keystore with alias:$ALIAS" 
 
-  cat $PEM_FILE | 
+    cat $PEM_FILE | 
 
-    awk "n==$N { print }; /END CERTIFICATE/ { n++ }" | 
+        awk "n==$N { print }; /END CERTIFICATE/ { n++ }" | 
 
-    keytool -noprompt -import -trustcacerts \ 
+        keytool -noprompt -import -trustcacerts \ 
 
-            -alias $ALIAS -keystore $KEYSTORE -storepass $PASSWORD 
+                -alias $ALIAS -keystore $KEYSTORE -storepass $PASSWORD 
 
-done 
+    done 
 
-echo "export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt" >> /databricks/spark/conf/spark-env.sh 
+    echo "export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt" >> /databricks/spark/conf/spark-env.sh 
 
-echo "export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt" >> /databricks/spark/conf/spark-env.sh 
+    echo "export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt" >> /databricks/spark/conf/spark-env.sh 
 
-#echo "volume IP URL of the bucket >> /etc/hosts 
-````
+    #echo "volume IP URL of the bucket >> /etc/hosts 
+    ````
 
 1. Use the Databricks CLI or the Databricks UI to upload the bash script to the Databricks File System (DBFS). For more information, see, [work with files on Azure Databricks](/azure/databricks/files/).
 
@@ -111,10 +111,7 @@ Review the [recommendations to access S3 buckets with URIs and AWS keys](/azure/
     df.show() 
     ```
 
-:::image type="content" source="./media/object-rest-api-databricks/read-operation-result.png" alt-text="Screenshot of successful read operation." lightbox="./media/object-rest-api-databricks/read-operation result.png":::
-
-
-<!-- last 2 images -- combine into 1 images // erase secret key & access key -->
+    :::image type="content" source="./media/object-rest-api-databricks/read-operation-result.png" alt-text="Screenshot of successful read operation." lightbox="./media/object-rest-api-databricks/read-operation-result.png":::
 
 ## More information
 
