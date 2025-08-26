@@ -120,7 +120,6 @@ After you create a bucket, you have the option to modify the user identifier (UI
 
 1. In your NetApp account, navigate to **Buckets**. 
 1. Select the three dots `...` at the end of the line next to the name of the bucket you want to modify then select **Edit**. 
-<!-- confirm access keys -->
 1. Enter the new User ID or Group User ID for the bucket. 
 1. Select **Save**. 
 
