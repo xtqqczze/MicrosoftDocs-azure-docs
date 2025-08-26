@@ -14,7 +14,7 @@ ms.author: anfdocs
 
 With Azure NetApp Files object REST API, you can use [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) to virtualize Azure NetApp Files into Microsoft Fabric's unified data lake. With this shortcut, Azure AI search can index and retrieve data directly from Azure NetApp Files for semantic search and vector-based retrieval with intelligent applications. 
 
-When creating the OneLake shortcut, sensitive information is protected through Microsoft Virtual Networks and Azure NetApp Files robust security protocols. A virtual data lake design approach simplifies data sharing across Azure's Data and AI services improving collaboration.  
+Sensitive information is protected through Microsoft Virtual Networks and Azure NetApp Files robust security protocols when you create the OneLake shortcut. A virtual data lake design approach simplifies data sharing across Azure's Data and AI services improving collaboration.  
 
 ## Before you begin 
 
@@ -22,7 +22,7 @@ When creating the OneLake shortcut, sensitive information is protected through M
 - You must install and configure an [on-premises data gateway](/data-integration/gateway/service-gateway-install#download-and-install-a-standard-gateway). Create [two gateways](/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster), with the second serving as a disaster recovery option. 
 
 >[!NOTE]
->When install the data gateway, ensure you're using an [up-to-date release](/data-integration/gateway/service-gateway-install). 
+>When you install the data gateway, ensure you're using an [up-to-date release](/data-integration/gateway/service-gateway-install). 
 
 ## Connect to OneLake
 
@@ -36,8 +36,7 @@ When creating the OneLake shortcut, sensitive information is protected through M
 >You must have configured OneLake access before you can connect to Azure AI Search. 
 
 1. In the Azure portal, access the Azure AI Search service. If this is your first time accessing the service, see [Create an Azure AI Search service](/azure/search/search-create-service-portal).
-1. In the search management section, navigate to 'Data Sources'. 
-1. Select **Add Data Source**. 
+1. In the search management section, navigate to **Data Sources**. Select **Add Data Source**. 
 1. In the data source dropdown, select **Fabric OneLake files**.
 1. Provide a name for the data source. 
 1. Enter the Lakehouse URL that was configured in the OneLake setup. 

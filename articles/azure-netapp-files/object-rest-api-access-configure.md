@@ -46,9 +46,9 @@ When creating the certificate, ensure the **Content Type** is set to PEM. In the
 
 ### [Script](#tab/script)
 
-This script create a certificate locally. Set the computer name `CN=` and domain `DOMAIN=` to the IP address or full qualified domain name (FQDN) of your object REST API-enabled endpoint. This script create a folder that includes the necessary PEM file and private keys. 
+This script creates a certificate locally. Set the computer name `CN=` and domain `DOMAIN=` to the IP address or full qualified domain name (FQDN) of your object REST API-enabled endpoint. This script creates a folder that includes the necessary PEM file and private keys. 
 
-1. Create and run the following the script. 
+1. Create and run the following script:
 
 ```bash
 #!/bin/sh
