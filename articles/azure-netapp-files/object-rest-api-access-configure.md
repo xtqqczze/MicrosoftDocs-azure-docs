@@ -32,6 +32,7 @@ The object REST API access feature in Azure NetApp Files is currently in preview
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEnableObjectRESTAPI
     ```
+
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Prerequisites 
@@ -75,15 +76,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Generate the access key for a bucket
 
-You can generate the access key in the Azure portal or locally with a Bash script. 
-
-### [Portal](#tab/portal)
-
-[Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate).
-
-### [Script](#tab/script)
-
-You can create a certificate locally. The commputer name `CN=` and domain `DOMAIN=` should be the domain name or the IP address of the object REST API-enabled volume. This script create a folder that includes the necessary PEM file and private keys. 
+You can create a certificate locally with this script. The computer name `CN=` and domain `DOMAIN=` should be the domain name or the IP address of the object REST API-enabled volume. This script create a folder that includes the necessary PEM file and private keys. 
 
 1. Create and run the following the script. 
     ```bash
@@ -110,7 +103,7 @@ You can create a certificate locally. The commputer name `CN=` and domain `DOMAI
     
     echo "Self-signed certificate created at $CERT_DIR/server-cert.pem" 
     ```
-1. Upload the certificate.
+1. [Import the certificate to Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate)
 <!-- steps -->
 ---
 

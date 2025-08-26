@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/31/2025
+ms.date: 08/25/2025
 ms.author: anfdocs
 ---
 
@@ -13,7 +13,7 @@ ms.author: anfdocs
 
 The [object REST API feature](object-rest-api-introduction.md) enables Azure Databricks and Azure Machine Learning to read and write data to Azure NetApp Files volumes, supporting end-to-end data science workflows from ingestion to model deployment.
 
-To connect to Azure Databricks, you run an `init` script to load the SSL certificate for compute endpoints. Using this setup ensures secure communication between Azure Databricks and your Azure NetApp Files object REST API-enabled volume. 
+To connect to Azure Databricks, you configure an `init` script to load the SSL certificate for compute endpoints. Using this setup ensures secure communication between Azure Databricks and your Azure NetApp Files object REST API-enabled volume. 
 
 ## Before you begin 
 
@@ -41,13 +41,17 @@ update-ca-certificates
 
 1. Navigate to your Azure Databricks workspace. Open the cluster configuration settings. 
 1. In the **Advanced Options** section, add the path to the init script under **Init Scripts**. For example: `dbfs:/path/to/your/script.sh`
-<!-- add the /etc/hosts/ files to the `init` script -->
+
+:::image type="content" source="./media/object-rest-api-databricks/create-new-compute.png" alt-text="Screenshot of Create new compute menu." lightbox="./media/object-rest-api-databricks/create-new-compute.png":::
+
+:::image type="content" source="./media/object-rest-api-databricks/select-workspace.png" alt-text="Screenshot of Select workspace menu." lightbox="./media/object-rest-api-databricks/select-workspace.png":::
+
 1. Restart the cluster to apply the changes and load the SSL certificate. 
 1. Validate in the logs if the certificate is placed correctly. 
 1. Create a notebook and attempt to connect to the bucket. Select the VM which had the init script while booting up.
 <!-- need details -->
 
-###  Connect to Azure NetApp Files bucket 
+###  Connect to an Azure NetApp Files bucket 
 
 Review the [recommendations to access S3 buckets with URIs and AWS keys](/azure/databricks/connect/storage/amazon-s3#access-s3-buckets-with-uris-and-aws-keys)
 
@@ -64,8 +68,8 @@ Review the [recommendations to access S3 buckets with URIs and AWS keys](/azure/
     df.show() 
     ```
 
-## Next steps 
+## More information
 
- 
-
+* [Configure object REST API](object-rest-api-access-configure.md)
+* [Understand object REST API](object-rest-api-introduction.md)
  
