@@ -96,7 +96,6 @@ $ipTag = New-AzPublicIpTag @tag
 
 ### Create tag for V2 version IP address and prefix
 
-
 ---
 
 Azure NAT Gateway supports multiple deployment options for IP addresses and redundancy configurations to meet your connectivity and availability requirements.
@@ -211,9 +210,67 @@ $natGateway = New-AzNatGateway @nat
 
 ---
 
+#### Zone redundant virtual network level
+
+Standard V2 NAT Gateway has a feature that allows you to associate the NAT gateway resource with a virtual network instead of the subnet level. Each subnet contained within the virtual network can then use the NAT gateway for outbound internet connectivity.
+
+Create a public IP address or prefix to your preference from the previous steps, then proceed to create the NAT gateway.
+
+### [Portal](#tab/portal)
+
+### [PowerShell](#tab/powershell)
+
+Use [New-AzVirtualNetworkSubnetConfig] to create the subnet configurations. Use [New-AzVirtualNetwork] to create the virtual network.
+
+```azurepowershell
+## Create subnet config ##
+$subnet = @{
+    Name = 'subnet-1'
+    AddressPrefix = '10.0.0.0/24'
+}
+$subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
+
+## Create Azure Bastion subnet ##
+$bastsubnet = @{
+    Name = 'AzureBastionSubnet' 
+    AddressPrefix = '10.0.1.0/26'
+}
+$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
+
+## Create the virtual network ##
+$net = @{
+    Name = 'vnet-1'
+    ResourceGroupName = 'test-rg'
+    Location = 'eastus'
+    AddressPrefix = '10.0.0.0/16'
+    Subnet = $subnetConfig,$bastsubnetConfig
+}
+$vnet = New-AzVirtualNetwork @net
+```
+
+Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
+
+```azurepowershell
+## Create NAT gateway resource ##
+$nat = @{
+    ResourceGroupName = 'test-rg'
+    Name = 'nat-gateway'
+    IdleTimeoutInMinutes = '4'
+    Sku = 'StandardV2'
+    Location = 'eastus'
+    SourceVirtualNetwork = $vnet
+    Zone = 1,2,3
+}
+$natGateway = New-AzNatGateway @nat
+```
+
+### [CLI](#tab/cli)
+
+---
+
 ## Create virtual network and subnet configurations
 
-Create the virtual network and subnets needed for this quickstart.
+Create the virtual network and subnets needed for this quickstart. You can skip this section if you created a network level NAT gateway from the previous step.
 
 ### [Portal](#tab/portal)
 
@@ -282,64 +339,6 @@ az network vnet subnet update \
     --name subnet-1 \
     --nat-gateway nat-gateway
 ```
-
----
-
-#### Zone redundant virtual network level
-
-Standard V2 NAT Gateway has a feature that allows you to associate the NAT gateway resource with a virtual network instead of the subnet level. Each subnet contained within the virtual network can then use the NAT gateway for outbound internet connectivity.
-
-Create a public IP address or prefix to your preference from the previous steps, then proceed to create the NAT gateway.
-
-### [Portal](#tab/portal)
-
-### [PowerShell](#tab/powershell)
-
-Use [New-AzVirtualNetworkSubnetConfig] to create the subnet configurations. Use [New-AzVirtualNetwork] to create the virtual network.
-
-```azurepowershell
-## Create subnet config ##
-$subnet = @{
-    Name = 'subnet-1'
-    AddressPrefix = '10.0.0.0/24'
-}
-$subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
-
-## Create Azure Bastion subnet ##
-$bastsubnet = @{
-    Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.0.1.0/26'
-}
-$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
-
-## Create the virtual network ##
-$net = @{
-    Name = 'vnet-1'
-    ResourceGroupName = 'test-rg'
-    Location = 'eastus'
-    AddressPrefix = '10.0.0.0/16'
-    Subnet = $subnetConfig,$bastsubnetConfig
-}
-$vnet = New-AzVirtualNetwork @net
-```
-
-Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
-
-```azurepowershell
-## Create NAT gateway resource ##
-$nat = @{
-    ResourceGroupName = 'test-rg'
-    Name = 'nat-gateway'
-    IdleTimeoutInMinutes = '4'
-    Sku = 'StandardV2'
-    Location = 'eastus'
-    SourceVirtualNetwork = $vnet
-    Zone = 1,2,3
-}
-$natGateway = New-AzNatGateway @nat
-```
-
-### [CLI](#tab/cli)
 
 ---
 
