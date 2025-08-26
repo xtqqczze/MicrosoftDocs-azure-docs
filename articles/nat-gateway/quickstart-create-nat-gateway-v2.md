@@ -1,5 +1,5 @@
 ---
-title: Create an Standard V2 Azure NAT Gateway
+title: Create a Standard V2 Azure NAT Gateway
 titlesuffix: Azure NAT Gateway
 description: This quickstart shows how to create a Standard V2 NAT gateway by using the Azure portal.
 author: asudbring
@@ -29,7 +29,7 @@ In this quickstart, learn how to create a Standard V2 NAT gateway by using the A
 
 - Azure Cloud Shell or Azure PowerShell.
 
-  The steps in this quickstart run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+  The steps in this quickstart run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
   You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
@@ -409,7 +409,7 @@ The bastion host can take several minutes to deploy. Wait for the bastion host t
 
 ## Create virtual machine
 
-In this section, you create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection. The following command creates SSH keys for authentication. The private key is needed later to login to the virtual machine through Azure Bastion. The username and password credential is required for the command. The password won't be used to login to the virtual machine.
+In this section, you create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection. The following command creates SSH keys for authentication. The private key is needed later to sign in to the virtual machine through Azure Bastion. The username and password credential is required for the command. The password isn't used to sign in to the virtual machine.
 
 ### [Portal](#tab/portal)
 
@@ -465,7 +465,7 @@ New-AzVM @vm -GenerateSshKey
 
 ### [CLI](#tab/cli)
 
-Use [az vm create](/cli/azure/vm#az-vm-create) to create a virtual machine named **vm-1** in the resource group **test-rg**. The virtual machine is created in the subnet **subnet-1** of the virtual network **vnet-1**. The command also creates SSH keys for authentication. The private key is needed later to login to the virtual machine through Azure Bastion. The username credential is required for the command. The password won't be used to login to the virtual machine.
+Use [az vm create](/cli/azure/vm#az-vm-create) to create a virtual machine named **vm-1** in the resource group **test-rg**. The virtual machine is created in the subnet **subnet-1** of the virtual network **vnet-1**. The command also creates SSH keys for authentication. The private key is needed later to sign in to the virtual machine through Azure Bastion. The username credential is required for the command. The password isn't used to sign in to the virtual machine.
 
 ```azurecli-interactive
 az vm create \
@@ -485,7 +485,7 @@ az vm create \
 Wait for the virtual machine creation to complete before moving on to the next section.
 
 > [!IMPORTANT]
-> Ensure that you download the SSH private key to the virtual machine. You will need the private key to log in to the virtual machine through Azure Bastion.
+> Ensure that you download the SSH private key to the virtual machine. You need the private key to sign in to the virtual machine through Azure Bastion.
 
 
 ## Test NAT gateway
