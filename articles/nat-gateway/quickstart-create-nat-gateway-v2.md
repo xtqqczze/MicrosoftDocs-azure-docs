@@ -409,7 +409,7 @@ The bastion host can take several minutes to deploy. Wait for the bastion host t
 
 ## Create virtual machine
 
-Create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection.
+In this section, you create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection. The following command creates SSH keys for authentication. The private key is needed later to login to the virtual machine through Azure Bastion. The username and password credential is required for the command. The password won't be used to login to the virtual machine.
 
 ### [Portal](#tab/portal)
 
@@ -417,7 +417,7 @@ Create a virtual machine to test the NAT gateway and verify the public IP addres
 
 ### [PowerShell](#tab/powershell)
 
-In this section, you create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection. The following command creates SSH keys for authentication. The private key is needed later to login to the virtual machine through Azure Bastion. The username and password credential is required for the command. The password won't be used to login to the virtual machine.
+Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to create a username and password for the virtual machine. Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) to create a network interface for the virtual machine. Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to create the virtual machine configuration. Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the virtual machine.
 
 ```azurepowershell-interactive
 ## Get credentials for virtual machine ##
@@ -465,7 +465,7 @@ New-AzVM @vm -GenerateSshKey
 
 ### [CLI](#tab/cli)
 
-Create a virtual machine named **vm-1** to test the NAT gateway and verify the public IP address of the outbound connection. Use [az vm create](/cli/azure/vm#az-vm-create):
+Use [az vm create](/cli/azure/vm#az-vm-create) to create a virtual machine named **vm-1** in the resource group **test-rg**. The virtual machine is created in the subnet **subnet-1** of the virtual network **vnet-1**. The command also creates SSH keys for authentication. The private key is needed later to login to the virtual machine through Azure Bastion. The username credential is required for the command. The password won't be used to login to the virtual machine.
 
 ```azurecli-interactive
 az vm create \
@@ -516,16 +516,8 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
 1. In the bash prompt, enter the following command:
 
-    ### IPv4 address
-
     ```bash
     curl ifconfig.me
-    ```
-
-    ### IPv6 address
-
-    ```bash
-    curl -6 ipv6.icanhazip.com
     ```
     
 1. Verify the IP address returned by the command matches the public IP address of the NAT gateway you noted earlier.
