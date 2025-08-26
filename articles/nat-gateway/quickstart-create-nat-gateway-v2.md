@@ -47,18 +47,18 @@ Create a resource group to contain all resources for this quickstart.
 
 ### [Portal](#tab/portal)
 
-[!INCLUDE [virtual-network-create-with-nat-bastion.md](../../includes/virtual-network-create-with-nat-bastion.md)]
+
 
 ### [PowerShell](#tab/powershell)
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named **test-rg** in the **eastus2** location:
+The following example creates a resource group named **test-rg** in the **eastus** location:
 
 ```azurepowershell-interactive
 $rsg = @{
     Name = 'test-rg'
-    Location = 'eastus2'
+    Location = 'eastus'
 }
 New-AzResourceGroup @rsg
 ```
@@ -70,7 +70,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 ```azurecli-interactive
 az group create \
     --name test-rg \
-    --location eastus2
+    --location eastus
 ```
 
 ---
@@ -81,7 +81,6 @@ In this section, create the NAT gateway and supporting resources.
 
 ### [Portal](#tab/portal)
 
-Continue with the portal steps from the previous section. The NAT gateway creation is included in the portal include file.
 
 ### [PowerShell](#tab/powershell)
 
@@ -96,15 +95,24 @@ $tag = @{
 $ipTag = New-AzPublicIpTag @tag
 ```
 
+### [CLI](#tab/cli)
+
+### Create tag for V2 version IP address and prefix
+
+
+---
+
 Azure NAT Gateway supports multiple deployment options for IP addresses and redundancy configurations to meet your connectivity and availability requirements.
 
 - [Zone redundant IPv4 address](#zone-redundant-ipv4-address)
-- [Zone redundant IPv6 address](#zone-redundant-ipv6-address)
 - [Zone redundant IPv4 prefix](#zone-redundant-ipv4-prefix)
-- [Zone redundant IPv6 prefix](#zone-redundant-ipv6-prefix)
 - [Zone redundant virtual network level](#zone-redundant-virtual-network-level)
 
 #### Zone redundant IPv4 address
+
+### [Portal](#tab/portal)
+
+### [PowerShell](#tab/powershell)
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a zone redundant IPv4 public IP address for the NAT gateway.
 
@@ -113,14 +121,14 @@ Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
 $ip = @{
     Name = 'public-ip-nat'
     ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
+    Location = 'eastus'
     Sku = 'StandardV2'
     AllocationMethod = 'Static'
     IpAddressVersion = 'IPv4'
     Zone = 1,2,3
     IpTag = $ipTag
 }
-$publicIP = New-AzPublicIpAddress @ip
+$publicIPIPv4 = New-AzPublicIpAddress @ip
 ```
 
 Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
@@ -132,115 +140,8 @@ $nat = @{
     Name = 'nat-gateway'
     IdleTimeoutInMinutes = '4'
     Sku = 'StandardV2'
-    Location = 'eastus2'
-    PublicIpAddress = $publicIP
-    Zone = 1,2,3
-}
-$natGateway = New-AzNatGateway @nat
-```
-
-#### Zone redundant IPv6 address
-
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a zone redundant IPv6 public IP address for the NAT gateway.
-
-```azurepowershell
-## Create public IP address for NAT gateway ##
-$ip = @{
-    Name = 'public-ip-nat'
-    ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
-    Sku = 'StandardV2'
-    AllocationMethod = 'Static'
-    IpAddressVersion = 'IPv6'
-    Zone = 1,2,3
-    IpTag = $ipTag
-}
-$publicIP = New-AzPublicIpAddress @ip
-```
-
-Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
-
-```azurepowershell
-
-## Create NAT gateway resource ##
-$nat = @{
-    ResourceGroupName = 'test-rg'
-    Name = 'nat-gateway'
-    IdleTimeoutInMinutes = '4'
-    Sku = 'StandardV2'
-    Location = 'eastus2'
-    PublicIpAddressV6 = $publicIP
-    Zone = 1,2,3
-}
-$natGateway = New-AzNatGateway @nat
-```
-
-#### Zone redundant IPv4 prefix
-
-Use [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) to create a zone redundant IPv4 public IP prefix for the NAT gateway.
-
-```azurepowershell
-## Create public IP prefix for NAT gateway ##
-$ip = @{
-    Name = 'public-ip-prefix-nat'
-    ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
-    Sku = 'StandardV2'
-    PrefixLength = `31`
-    IpAddressVersion = 'IPv4'
-    Zone = 1,2,3
-    IpTag = $ipTag
-}
-$publicIPprefix = New-AzPublicIpPrefix @ip
-```
-
-Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
-
-```azurepowershell
-## Create NAT gateway resource ##
-$nat = @{
-    ResourceGroupName = 'test-rg'
-    Name = 'nat-gateway'
-    IdleTimeoutInMinutes = '4'
-    Sku = 'StandardV2'
-    Location = 'eastus2'
-    PublicIpPrefix = $publicIPprefix
-    Zone = 1,2,3
-}
-$natGateway = New-AzNatGateway @nat
-```
-
-#### Zone redundant IPv6 prefix
-
-Use [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) to create a zone redundant IPv6 public IP prefix for the NAT gateway.
-
-```azurepowershell
-```azurepowershell
-## Create public IP prefix for NAT gateway ##
-$ip = @{
-    Name = 'public-ipv6-prefix-nat'
-    ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
-    Sku = 'StandardV2'
-    PrefixLength = `31`
-    IpAddressVersion = 'IPv6'
-    Zone = 1,2,3
-    IpTag = $ipTag
-}
-$publicIPV6prefix = New-AzPublicIpPrefix @ip
-```
-
-Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
-
-```azurepowershell
-## Create NAT gateway resource ##
-$nat = @{
-    ResourceGroupName = 'test-rg'
-    Name = 'nat-gateway'
-    IdleTimeoutInMinutes = '4'
-    Sku = 'StandardV2'
-    Location = 'eastus2'
-    PublicIpPrefixV6 = $publicIPV6prefix
+    Location = 'eastus'
+    PublicIpAddress = $publicIPIPv4
     Zone = 1,2,3
 }
 $natGateway = New-AzNatGateway @nat
@@ -258,7 +159,7 @@ az network public-ip create \
     --name public-ip-nat \
     --sku Standard \
     --allocation-method Static \
-    --location eastus2 \
+    --location eastus \
     --zone 1 2 3
 ```
 
@@ -276,6 +177,45 @@ az network nat gateway create \
 
 ---
 
+#### Zone redundant IPv4 prefix
+
+Use [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) to create a zone redundant IPv4 public IP prefix for the NAT gateway.
+
+```azurepowershell
+## Create public IP prefix for NAT gateway ##
+$ip = @{
+    Name = 'public-ip-prefix-nat'
+    ResourceGroupName = 'test-rg'
+    Location = 'eastus'
+    Sku = 'StandardV2'
+    PrefixLength = `31`
+    IpAddressVersion = 'IPv4'
+    Zone = 1,2,3
+    IpTag = $ipTag
+}
+$publicIPIPv4prefix = New-AzPublicIpPrefix @ip
+```
+
+Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
+
+```azurepowershell
+## Create NAT gateway resource ##
+$nat = @{
+    ResourceGroupName = 'test-rg'
+    Name = 'nat-gateway'
+    IdleTimeoutInMinutes = '4'
+    Sku = 'StandardV2'
+    Location = 'eastus'
+    PublicIpPrefix = $publicIPIPv4prefix
+    Zone = 1,2,3
+}
+$natGateway = New-AzNatGateway @nat
+```
+
+---
+
+
+
 ## Create virtual network and subnet configurations
 
 Create the virtual network and subnets needed for this quickstart.
@@ -286,7 +226,7 @@ Continue with the portal steps from the first section. The virtual network creat
 
 ### [PowerShell](#tab/powershell)
 
-Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create the subnet configurations. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network. You can skip this section if you created a NAT gateway at the virtual network level in the previous step.
+Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create the subnet configurations. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network.
 
 ```azurepowershell
 ## Create subnet config and associate NAT gateway to subnet ##
@@ -308,61 +248,11 @@ $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 $net = @{
     Name = 'vnet-1'
     ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
+    Location = 'eastus'
     AddressPrefix = '10.0.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @net
-```
-
-#### Zone redundant virtual network level
-
-Standard V2 NAT Gateway has a feature that allows you to associate the NAT gateway resource with a virtual network instead of the subnet level. Each subnet contained within the virtual network can then use the NAT gateway for outbound internet connectivity.
-
-Create a public IP address or prefix to your preference from the previous steps, then proceed to create the NAT gateway.
-
-Use [New-AzVirtualNetworkSubnetConfig] to create the subnet configurations. Use [New-AzVirtualNetwork] to create the virtual network.
-
-```azurepowershell
-## Create subnet config ##
-$subnet = @{
-    Name = 'subnet-1'
-    AddressPrefix = '10.0.0.0/24'
-}
-$subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
-
-## Create Azure Bastion subnet ##
-$bastsubnet = @{
-    Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.0.1.0/26'
-}
-$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
-
-## Create the virtual network ##
-$net = @{
-    Name = 'vnet-1'
-    ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
-    AddressPrefix = '10.0.0.0/16'
-    Subnet = $subnetConfig,$bastsubnetConfig
-}
-$vnet = New-AzVirtualNetwork @net
-```
-
-Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
-
-```azurepowershell
-## Create NAT gateway resource ##
-$nat = @{
-    ResourceGroupName = 'test-rg'
-    Name = 'nat-gateway'
-    IdleTimeoutInMinutes = '4'
-    Sku = 'StandardV2'
-    Location = 'eastus2'
-    SourceVirtualNetwork = $vnet
-    Zone = 1,2,3
-}
-$natGateway = New-AzNatGateway @nat
 ```
 
 ### [CLI](#tab/cli)
@@ -400,6 +290,65 @@ az network vnet subnet update \
 
 ---
 
+#### Zone redundant virtual network level
+
+Standard V2 NAT Gateway has a feature that allows you to associate the NAT gateway resource with a virtual network instead of the subnet level. Each subnet contained within the virtual network can then use the NAT gateway for outbound internet connectivity.
+
+Create a public IP address or prefix to your preference from the previous steps, then proceed to create the NAT gateway.
+
+### [Portal](#tab/portal)
+
+### [PowerShell](#tab/powershell)
+
+Use [New-AzVirtualNetworkSubnetConfig] to create the subnet configurations. Use [New-AzVirtualNetwork] to create the virtual network.
+
+```azurepowershell
+## Create subnet config ##
+$subnet = @{
+    Name = 'subnet-1'
+    AddressPrefix = '10.0.0.0/24'
+}
+$subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
+
+## Create Azure Bastion subnet ##
+$bastsubnet = @{
+    Name = 'AzureBastionSubnet' 
+    AddressPrefix = '10.0.1.0/26'
+}
+$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
+
+## Create the virtual network ##
+$net = @{
+    Name = 'vnet-1'
+    ResourceGroupName = 'test-rg'
+    Location = 'eastus'
+    AddressPrefix = '10.0.0.0/16'
+    Subnet = $subnetConfig,$bastsubnetConfig
+}
+$vnet = New-AzVirtualNetwork @net
+```
+
+Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
+
+```azurepowershell
+## Create NAT gateway resource ##
+$nat = @{
+    ResourceGroupName = 'test-rg'
+    Name = 'nat-gateway'
+    IdleTimeoutInMinutes = '4'
+    Sku = 'StandardV2'
+    Location = 'eastus'
+    SourceVirtualNetwork = $vnet
+    Zone = 1,2,3
+}
+$natGateway = New-AzNatGateway @nat
+```
+
+### [CLI](#tab/cli)
+
+---
+
+
 ## Create Azure Bastion host
 
 Create an Azure Bastion host to securely connect to the virtual machine.
@@ -413,17 +362,16 @@ Continue with the portal steps from the first section. The Azure Bastion creatio
 Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the Azure Bastion host.
 
 ```azurepowershell
-
 ## Create public IP address for bastion host ##
 $ip = @{
     Name = 'public-ip-bastion'
     ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
+    Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'Static'
     Zone = 1,2,3
 }
-$publicip = New-AzPublicIpAddress @ip
+$publicipbastion = New-AzPublicIpAddress @ip
 
 ## Create bastion host ##
 $bastion = @{
@@ -438,8 +386,6 @@ $bastion = @{
 New-AzBastion @bastion
 ```
 
-The bastion host can take several minutes to deploy. Wait for the bastion host to deploy before moving on to the next section.
-
 ### [CLI](#tab/cli)
 
 Create a public IP address for the Bastion host using [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create):
@@ -449,7 +395,7 @@ az network public-ip create \
     --resource-group test-rg \
     --name public-ip \
     --sku Standard \
-    --location eastus2 \
+    --location eastus \
     --zone 1 2 3
 ```
 
@@ -461,12 +407,13 @@ az network bastion create \
     --public-ip-address public-ip \
     --resource-group test-rg \
     --vnet-name vnet-1 \
-    --location eastus2
+    --location eastus
 ```
 
-The Bastion host can take several minutes to deploy. Wait for the Bastion host to deploy before moving on to the next section.
-
 ---
+
+The bastion host can take several minutes to deploy. Wait for the bastion host to deploy before moving on to the next section.
+
 
 ## Create virtual machine
 
@@ -478,7 +425,7 @@ Create a virtual machine to test the NAT gateway and verify the public IP addres
 
 ### [PowerShell](#tab/powershell)
 
-In this section, you create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection. The following command creates SSH keys for authentication. The private key is needed later to login to the virtual machine through Azure Bastion.
+In this section, you create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection. The following command creates SSH keys for authentication. The private key is needed later to login to the virtual machine through Azure Bastion. The username and password credential is required for the command. The password won't be used to login to the virtual machine.
 
 ```azurepowershell-interactive
 ## Get credentials for virtual machine ##
@@ -488,7 +435,7 @@ $cred = Get-Credential
 $nic = @{
     Name = "nic-1"
     ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
+    Location = 'eastus'
     Subnet = $vnet.Subnets[0]
 }
 $nicVM = New-AzNetworkInterface @nic
@@ -517,17 +464,12 @@ $vmConfig = New-AzVMConfig @vmsz `
 ## Create the virtual machine ##
 $vm = @{
     ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
+    Location = 'eastus'
     VM = $vmConfig
     SshKeyName = 'ssh-key'
 }
 New-AzVM @vm -GenerateSshKey
 ```
-
-Wait for the virtual machine creation to complete before moving on to the next section.
-
-> [!IMPORTANT]
-> Ensure that you download the SSH private key to the virtual machine. You will need the private key to log in to the virtual machine through Azure Bastion.
 
 ### [CLI](#tab/cli)
 
@@ -539,16 +481,20 @@ az vm create \
     --name vm-1 \
     --image Ubuntu2204 \
     --admin-username azureuser \
-    --authentication-type password \
+    --authentication-type ssh \
+    --generate-ssh-keys \
     --public-ip-address "" \
     --subnet subnet-1 \
     --vnet-name vnet-1
 ```
 
+---
+
 Wait for the virtual machine creation to complete before moving on to the next section.
 
+> [!IMPORTANT]
+> Ensure that you download the SSH private key to the virtual machine. You will need the private key to log in to the virtual machine through Azure Bastion.
 
----
 
 ## Test NAT gateway
 
@@ -587,7 +533,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
     ### IPv6 address
 
     ```bash
-    curl -6 ifconfig.me
+    curl -6 ipv6.icanhazip.com
     ```
     
 1. Verify the IP address returned by the command matches the public IP address of the NAT gateway you noted earlier.
