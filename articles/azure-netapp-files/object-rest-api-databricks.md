@@ -89,7 +89,7 @@ The init script runs during cluster startup. For more information about init scr
 
 1. Select **Create**. 
 1. [To apply the changes and load the SSL certificate, restart the cluster.](/azure/databricks/compute/clusters-manage#cluster-start)
-1. [In the logs, validate if the certificate is placed correctly.](/databricks/init-scripts/log) 
+1. [In the logs, validate if the certificate is placed correctly.](/azure/databricks/init-scripts/logs) 
 1. [Create a notebook and attempt to connect to the bucket.](/azure/databricks/notebooks/notebooks-manage#use-the-create-button) Select the VM which had the init script while booting up.
 
     :::image type="content" source="./media/object-rest-api-databricks/select-workspace.png" alt-text="Screenshot of Select workspace menu." lightbox="./media/object-rest-api-databricks/select-workspace.png":::
