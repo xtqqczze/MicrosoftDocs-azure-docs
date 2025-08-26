@@ -48,6 +48,7 @@ When creating the OneLake shortcut, sensitive information is protected through M
 
 ## More information 
 
+* [Understand object REST API](object-rest-api-introduction.md)
 * [Configure object REST API access in Azure NetApp Files](object-rest-api-access-configure.md)
 * [OneLake shortcuts](/fabric/onelake//onelake-shortcuts)
 * [What is an on-premises data gateway?](/data-integration/gateway/service-gateway-onprem)

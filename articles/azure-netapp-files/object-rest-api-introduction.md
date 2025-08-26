@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Understand Azure NetApp Files object REST API (preview)
 
-Azure NetApp Files supports the Object REST API, an S3-compatible REST API. The object REST API extends your file-based storage, enabling native S3 read access. You can integrate Azure NetApp Files with services including OneLake to accelerate innovation and create new use cases for your data. 
+Azure NetApp Files supports the Object REST API, an S3-compatible REST API. The object REST API extends your file-based storage, enabling native S3 read access. You can integrate Azure NetApp Files with services including Azure AI Search, Azure AI Foundry, Azure Databricks, OneLake and more.
 
 Object REST API allows you to present the same data set as a file hierarchy or as objects in a bucket. To do so, object REST API creates buckets that allow S3 clients to read and enumerate files in network attached storage (NAS) storage using S3 object requests. This mapping conforms to the NAS security configuration, observing file and directory access permissions.
 
@@ -18,7 +18,6 @@ This mapping is accomplished by presenting a specified NAS directory hierarchy a
 
 ## Requirements and considerations
 
-* Currently, you can only use NFS volumes with the object REST API feature. 
 * Object REST API buckets are associated with volumes. Deleting the volume associated with a bucket permanently deletes the bucket. This action can't be undone. 
 * Access is currently read-only. 
 * Buckets are supported with cool access-enabled volumes and with large volumes. 

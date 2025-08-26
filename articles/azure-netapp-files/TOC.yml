@@ -25,6 +25,8 @@
         href: network-attached-storage-protocols.md
       - name: Understand SMB support 
         href: sever-message-block-support.md
+      - name: Understand Object REST API 
+        href: object-rest-api-introduction.md
       - name: Understand NAS permissions 
         items:
         - name: Understand NAS share permissions 
@@ -115,10 +117,6 @@
       href: regional-capacity-quota.md
     - name: Understand default and individual user and group quotas
       href: default-individual-user-group-quotas-introduction.md
-  - name: Object REST API 
-    items: 
-    - name: Understand Object REST API 
-      href: object-rest-api-introduction.md
   - name: Performance
     items:
     - name: Best practices and considerations

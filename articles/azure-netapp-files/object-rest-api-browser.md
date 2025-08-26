@@ -35,3 +35,8 @@ You can use Azure NetApp Files' object REST API with an S3 Browser, taking advan
 1. Verify access to your bucket by listing the files in your bucket with the command `aws s3 ls <S3URI> --endpoint-url <volumeIPAddress>`. If access is configured correctly, the CLI displays a list of files in your bucket. 
     
     Refer to the [AWS CLI command reference](https://docs.aws.amazon.com/cli/latest/reference/s3/ls.html) for more information about this command. 
+
+## More information
+
+* [Configure object REST API](object-rest-api-access-configure.md)
+* [Understand object REST API](object-rest-api-introduction.md)

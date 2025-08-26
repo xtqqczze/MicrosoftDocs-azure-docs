@@ -5,15 +5,13 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/05/2025
+ms.date: 08/26/2025
 ms.author: anfdocs
 ---
 
 # Configure object REST API access in Azure NetApp Files (preview)
 
-Azure NetApp Files supports read access to S3 objects with the [object REST API](object-rest-api-introduction.md) feature. With the object REST API feature, you can connect to services including [OneLake](/fabric/onelake/onelake-overview).
-
-To connect to S3 objects, you must create a bucket that is tied to an Azure NetApp Files NFS volume. After configuring the bucket, access is read-only. 
+Azure NetApp Files supports read access to S3 objects with the [object REST API](object-rest-api-introduction.md) feature. With the object REST API feature, you can connect to services including Azure AI Search, Azure AI Foundry, Azure Databricks, OneLake, and others.
 
 ## Register the feature 
 
@@ -28,25 +26,59 @@ The object REST API access feature in Azure NetApp Files is currently in preview
 2. Check the status of the feature registration: 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEnableObjectRESTAPI
     ```
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-## Prerequisites 
+## Create the self-signed certificate
 
-* You must have generated a PEM-formatted SSL certificate. For instructions, see the [Azure Key Vault documentation for creating a certificate](/azure/key-vault/certificates/tutorial-import-certificate). 
+You must generate a PEM-formatted SSL certificate. For instructions. You can create the SSL certificate in the Azure portal or with a script.  
 
-    When creating the certificate, ensure the **Content Type** is set to PEM. In the **Subject** field, set the Common Name (CN) to the IP address or domain of your Azure NetApp Files object REST API-enabled volume.
+### [Portal](#tab/portal)
+
+See the [Azure Key Vault documentation for creating a certificate](/azure/key-vault/certificates/tutorial-import-certificate). 
+
+When creating the certificate, ensure the **Content Type** is set to PEM. In the **Subject** field, set the Common Name (CN) to the IP address or fully qualified domain name (FQDN) of your Azure NetApp Files object REST API-enabled endpoint.
+
+### [Script](#tab/script)
+
+This script create a certificate locally. Set the computer name `CN=` and domain `DOMAIN=` to the IP address or full qualified domain name (FQDN) of your object REST API-enabled endpoint. This script create a folder that includes the necessary PEM file and private keys. 
+
+1. Create and run the following the script. 
+
+```bash
+#!/bin/sh
+# Define certificate details 
+CERT_DAYS=365 
+RSA_STR_LEN=2048 
+CERT_DIR="./certs" 
+KEY_DIR="./certs/private" 
+DOMAIN="mylocalsite.local" 
+
+# Create directories if they don't exist 
+mkdir -p $CERT_DIR 
+mkdir -p $KEY_DIR 
+
+# Generate private key 
+openssl genrsa -out $KEY_DIR/server-key.pem $RSA_STR_LEN 
+
+# Generate Certificate Signing Request (CSR) 
+openssl req -new -key $KEY_DIR/server-key.pem -out $CERT_DIR/server-req.pem -subj "/C=US/ST=State/L=City/O=Organization/OU=Unit/CN=$DOMAIN" 
+
+# Generate self-signed certificate 
+openssl x509 -req -days $CERT_DAYS -in $CERT_DIR/server-req.pem -signkey $KEY_DIR/server-key.pem -out $CERT_DIR/server-cert.pem 
+
+echo "Self-signed certificate created at $CERT_DIR/server-cert.pem" 
+```
+--- 
 
 ## Enable object REST API access
 
->[!IMPORTANT]
->Object REST API access is currently only supported on **NFS** volumes. 
-
-1. From your NetApp account, select **Buckets**. 
+1. From your NetApp volume, select **Buckets**. 
 1. To create a bucket, select **+Create**. 
 1. Provide the following information for the bucket:
     * **Name**
@@ -58,7 +90,13 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * **GroupID (GID)**
         The GID used to read the bucket.
     * **Permissions**
-        Buckets are currently read-only. You can't modify this field. 
+        Select Read or Read-Write. 
+
+
+From your NetApp volume, select Buckets.
+UserID -> User ID to match the UI
+GroupID -> Group ID to match the UI
+“Permissions Buckets are currently read-only. You can't modify this field.”
 
     :::image type="content" source="./media/object-rest-api-access-configure/create-bucket.png" alt-text="Screenshot of create a bucket menu." lightbox="./media/object-rest-api-access-configure/create-bucket.png":::
 
@@ -73,39 +111,6 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 1. Select **Create**. 
     After creating the bucket, you must [generate the access key](#generate-the-access-key-for-a-bucket).
-
-## Generate the access key for a bucket
-
-You can create a certificate locally with this script. The computer name `CN=` and domain `DOMAIN=` should be the domain name or the IP address of the object REST API-enabled volume. This script create a folder that includes the necessary PEM file and private keys. 
-
-1. Create and run the following the script. 
-    ```bash
-    #!/bin/sh
-    # Define certificate details 
-    CERT_DAYS=365 
-    RSA_STR_LEN=2048 
-    CERT_DIR="./certs" 
-    KEY_DIR="./certs/private" 
-    DOMAIN="mylocalsite.local" 
-    
-    # Create directories if they don't exist 
-    mkdir -p $CERT_DIR 
-    mkdir -p $KEY_DIR 
-    
-    # Generate private key 
-    openssl genrsa -out $KEY_DIR/server-key.pem $RSA_STR_LEN 
-    
-    # Generate Certificate Signing Request (CSR) 
-    openssl req -new -key $KEY_DIR/server-key.pem -out $CERT_DIR/server-req.pem -subj "/C=US/ST=State/L=City/O=Organization/OU=Unit/CN=$DOMAIN" 
-    
-    # Generate self-signed certificate 
-    openssl x509 -req -days $CERT_DAYS -in $CERT_DIR/server-req.pem -signkey $KEY_DIR/server-key.pem -out $CERT_DIR/server-cert.pem 
-    
-    echo "Self-signed certificate created at $CERT_DIR/server-cert.pem" 
-    ```
-1. [Import the certificate to Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate)
-<!-- steps -->
----
 
 <!--
 1. In your NetApp account, navigate to **Buckets**. 
@@ -135,8 +140,7 @@ Deleting a bucket is a permanent operation. You can't recover the bucket once it
 
 ## Next steps 
 
-* [Install an on-premises data gateway](/data-integration/gateway/service-gateway-install)
-* [Create an Amazon S3 compatible shortcut](/fabric/onelake/create-s3-compatible-shortcut)
 * [Understand REST API object](object-rest-api-introduction.md)
-* [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api)
-* [Connect Azure Databricks to an Azure NetApp Files volume](object-rest-api-databricks.md)
+* [Connect to Azure Databricks](object-rest-api-databricks.md)
+* [Connect to an S3 browser](object-rest-api-browser.md)
+* [Connect to OneLake](object-rest-api-onelake.md)

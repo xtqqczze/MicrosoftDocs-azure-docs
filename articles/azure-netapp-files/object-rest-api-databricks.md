@@ -13,26 +13,69 @@ ms.author: anfdocs
 
 The [object REST API feature](object-rest-api-introduction.md) enables Azure Databricks and Azure Machine Learning to read and write data to Azure NetApp Files volumes, supporting end-to-end data science workflows from ingestion to model deployment.
 
-To connect to Azure Databricks, you configure an `init` script to load the SSL certificate for compute endpoints. Using this setup ensures secure communication between Azure Databricks and your Azure NetApp Files object REST API-enabled volume. 
+To connect to Azure Databricks, you configure an initialization (init) script to load the SSL certificate for compute endpoints. Using this setup ensures secure communication between Azure Databricks and your Azure NetApp Files object REST API-enabled volume. 
 
 ## Before you begin 
 
-Ensure you have the following: 
+Ensure you have: 
 
+- Configured an [Azure NetApp Files object REST API-enabled volume](object-rest-api-access-configure.md) with the SSL certificate
 - An active [Azure Databricks workspace](/azure/databricks/workspace/workspace-browser)
-- An [Azure NetApp Files object REST API-enabled volume](object-rest-api-access-configure.md)
-- SSL certificate for the compute endpoints
-- Necessary permissions to access Azure Databricks and the Azure NetApp Files volume
+- Necessary permissions to access Azure Databricks and the Azure NetApp Files compute endpoint
 
-### Create the `init` script 
+### Create the init script 
+
+The init script runs during cluster startup. For more information about init scripts, see [What are init scripts?](/azure/databricks/init-scripts/)
 
 1. Write a bash script to load the SSL certificate. Save the script with an .sh extension. For example:
 
 ````bash
 #!/bin/bash 
-CERT_PATH="/dbfs/path/to/your/certificate.crt" 
-cp $CERT_PATH /etc/ssl/certs/ 
+
+cat << 'EOF' > /usr/local/share/ca-certificates/myca.crt 
+
+-----BEGIN CERTIFICATE----- 
+  
+
+-----END CERTIFICATE----- 
+
+EOF 
+
 update-ca-certificates 
+
+PEM_FILE="/etc/ssl/certs/myca.pem" 
+
+PASSWORD="changeit" 
+
+JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::") 
+
+KEYSTORE="$JAVA_HOME/lib/security/cacerts" 
+
+CERTS=$(grep 'END CERTIFICATE' $PEM_FILE| wc -l) 
+
+# To process multiple certificates with keytool, you need to extract each one from the PEM file and import it into the Java KeyStore. 
+
+for N in $(seq 0 $(($CERTS - 1))); do 
+
+  ALIAS="$(basename $PEM_FILE)-$N" 
+
+  echo "Adding to keystore with alias:$ALIAS" 
+
+  cat $PEM_FILE | 
+
+    awk "n==$N { print }; /END CERTIFICATE/ { n++ }" | 
+
+    keytool -noprompt -import -trustcacerts \ 
+
+            -alias $ALIAS -keystore $KEYSTORE -storepass $PASSWORD 
+
+done 
+
+echo "export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt" >> /databricks/spark/conf/spark-env.sh 
+
+echo "export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt" >> /databricks/spark/conf/spark-env.sh 
+
+#echo "volume IP URL of the bucket >> /etc/hosts 
 ````
 
 1. Use the Databricks CLI or the Databricks UI to upload the bash script to the Databricks File System (DBFS). For more information, see, [work with files on Azure Databricks](/azure/databricks/files/).
@@ -42,14 +85,14 @@ update-ca-certificates
 1. Navigate to your Azure Databricks workspace. Open the cluster configuration settings. 
 1. In the **Advanced Options** section, add the path to the init script under **Init Scripts**. For example: `dbfs:/path/to/your/script.sh`
 
-:::image type="content" source="./media/object-rest-api-databricks/create-new-compute.png" alt-text="Screenshot of Create new compute menu." lightbox="./media/object-rest-api-databricks/create-new-compute.png":::
+    :::image type="content" source="./media/object-rest-api-databricks/create-new-compute.png" alt-text="Screenshot of Create new compute menu." lightbox="./media/object-rest-api-databricks/create-new-compute.png":::
 
-:::image type="content" source="./media/object-rest-api-databricks/select-workspace.png" alt-text="Screenshot of Select workspace menu." lightbox="./media/object-rest-api-databricks/select-workspace.png":::
+1. Select **Create**. 
+1. [To apply the changes and load the SSL certificate, restart the cluster.](/azure/databricks/compute/clusters-manage#cluster-start)
+1. [In the logs, validate if the certificate is placed correctly.](/databricks/init-scripts/log) 
+1. [Create a notebook and attempt to connect to the bucket.](/azure/databricks/notebooks/notebooks-manage#use-the-create-button) Select the VM which had the init script while booting up.
 
-1. Restart the cluster to apply the changes and load the SSL certificate. 
-1. Validate in the logs if the certificate is placed correctly. 
-1. Create a notebook and attempt to connect to the bucket. Select the VM which had the init script while booting up.
-<!-- need details -->
+    :::image type="content" source="./media/object-rest-api-databricks/select-workspace.png" alt-text="Screenshot of Select workspace menu." lightbox="./media/object-rest-api-databricks/select-workspace.png":::
 
 ###  Connect to an Azure NetApp Files bucket 
 
@@ -67,6 +110,11 @@ Review the [recommendations to access S3 buckets with URIs and AWS keys](/azure/
     df = spark.read.csv("s3a://your-bucket/path/to/data.csv") 
     df.show() 
     ```
+
+:::image type="content" source="./media/object-rest-api-databricks/read-operation-result.png" alt-text="Screenshot of successful read operation." lightbox="./media/object-rest-api-databricks/read-operation result.png":::
+
+
+<!-- last 2 images -- combine into 1 images // erase secret key & access key -->
 
 ## More information
 
