@@ -47,8 +47,6 @@ Create a resource group to contain all resources for this quickstart.
 
 ### [Portal](#tab/portal)
 
-
-
 ### [PowerShell](#tab/powershell)
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). An Azure resource group is a logical container into which Azure resources are deployed and managed.
@@ -80,7 +78,6 @@ az group create \
 In this section, create the NAT gateway and supporting resources.
 
 ### [Portal](#tab/portal)
-
 
 ### [PowerShell](#tab/powershell)
 
@@ -214,8 +211,6 @@ $natGateway = New-AzNatGateway @nat
 
 ---
 
-
-
 ## Create virtual network and subnet configurations
 
 Create the virtual network and subnets needed for this quickstart.
@@ -348,7 +343,6 @@ $natGateway = New-AzNatGateway @nat
 
 ---
 
-
 ## Create Azure Bastion host
 
 Create an Azure Bastion host to securely connect to the virtual machine.
@@ -413,7 +407,6 @@ az network bastion create \
 ---
 
 The bastion host can take several minutes to deploy. Wait for the bastion host to deploy before moving on to the next section.
-
 
 ## Create virtual machine
 
