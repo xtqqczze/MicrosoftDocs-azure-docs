@@ -59,7 +59,7 @@ Logic Apps provides the capability for you to generate user-friendly tokens that
   
   1. Under **Enter or paste a sample JSON payload** and provide a sample payload. Then choose **Done**.
 
-     :::image type="content" source="./media/logic-apps-content-type/request-trigger.png" alt-text="Screenshot shows the When a HTTP request is received action with a sample JSON payload.":::
+     :::image type="content" source="./media/logic-apps-content-type/request-trigger.png" alt-text="Screenshot shows the When a HTTP request is received action with a sample JSON payload." lightbox="./media/logic-apps-content-type/request-trigger.png":::
 
      The generated schema now appears in your trigger.
 
@@ -101,9 +101,11 @@ Logic Apps provides the capability for you to generate user-friendly tokens that
 
 - **Parse JSON action**
 
-  When you use this action in the Logic App Designer, you can parse JSON output and generate user-friendly tokens that represent the properties in your JSON content. You can then easily reference and use those properties throughout your logic app's workflow. Similar to the Request trigger, you can provide or generate a JSON schema that describes the JSON content you want to parse. That way, you can more easily consume data from Azure Service Bus, Azure Cosmos DB, and so on.
+  When you use this action in the Logic App Designer, you can parse JSON output and generate user-friendly tokens that represent the properties in your JSON content. You can then easily reference and use those properties throughout your logic app's workflow.
 
-  :::image type="content" source="./media/logic-apps-content-type/parse-json.png" alt-text="Screenshot shows a Parse JSON action with schema generated from a sample.":::
+  Similar to the Request trigger, you can provide or generate a JSON schema that describes the JSON content you want to parse. That way, you can more easily consume data from Azure Service Bus, Azure Cosmos DB, and so on.
+
+  :::image type="content" source="./media/logic-apps-content-type/parse-json.png" alt-text="Screenshot shows a Parse JSON action with schema generated from a sample." lightbox="./media/logic-apps-content-type/parse-json.png":::
 
 <a name="text-plain"></a>
 
