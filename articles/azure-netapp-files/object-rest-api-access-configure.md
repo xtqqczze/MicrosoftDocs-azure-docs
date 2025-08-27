@@ -82,27 +82,42 @@ echo "Self-signed certificate created at $CERT_DIR/server-cert.pem"
 1. To create a bucket, select **+Create**. 
 1. Provide the following information for the bucket:
     * **Name**
+
         Specify the name for your bucket. Refer to [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftnetapp) for naming conventions.
     * **Path**
+
         The subdirectory path for object REST API access. For full volume access, leave this field blank or use `/` for the root directory.
-    * **UserID (UID)**
+    * **User ID (UID)**
+
         The UID used to read the bucket.
-        <!-- UID to match UI -->
-    * **GroupID (GID)**
+
+    * **Group ID (GID)**
+
         The GID used to read the bucket.
-        <!-- GUID to match UI -->
+
     * **Permissions**
+
         Select Read or Read-Write. 
 
     :::image type="content" source="./media/object-rest-api-access-configure/create-bucket.png" alt-text="Screenshot of create a bucket menu." lightbox="./media/object-rest-api-access-configure/create-bucket.png":::
 
-1. If you haven't provided a certificate, also provide the following information:
+1. If you haven't provided a certificate, select the **Certificate source**: Azure Key Vault or Upload a certificate. 
+
+    For Azure Key Vault, select the vault URI from the dropdown menu. 
+
+    To upload a certificate, provide the following information:
+
     * **Fully qualified domain name**
+
         Enter the fully qualified domain name. 
+
     * **Certificate source**
+
         Upload the appropriate certificate. Only PEM files are supported. 
 
     :::image type="content" source="./media/object-rest-api-access-configure/certificate-management.png" alt-text="Screenshot of certificate management options." lightbox="./media/object-rest-api-access-configure/certificate-management.png":::
+
+    Select **Save**. 
 
 1. Select **Create**. 
 

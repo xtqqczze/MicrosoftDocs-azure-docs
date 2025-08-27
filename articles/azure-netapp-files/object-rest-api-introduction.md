@@ -19,7 +19,6 @@ This mapping is accomplished by presenting a specified NAS directory hierarchy a
 ## Requirements and considerations
 
 * Object REST API buckets are associated with volumes. Deleting the volume associated with a bucket permanently deletes the bucket. This action can't be undone. 
-* Access is currently read-only. 
 * Buckets are supported with cool access-enabled volumes and with large volumes. 
 * You can only create one bucket per volume. 
 <!-- user limit of 1?-->
