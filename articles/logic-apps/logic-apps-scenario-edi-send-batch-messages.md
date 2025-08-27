@@ -150,7 +150,7 @@ Now create one or more logic apps that send messages to the batch receiver logic
 
 1. Set the batch sender's body. The **Workflow Id** and **Trigger Name** are already populated.
 
-   :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png" alt-text="Screenshot shows the BatchX12Messages action where you set the batch parameters." lightbox="./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png" alt-text="Screenshot shows the BatchX12Messages action where you set the batch parameters.":::
+   :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png" alt-text="Screenshot shows the BatchX12Messages action where you set the batch parameters." lightbox="./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png":::
 
 1. Save your workflow.
 
