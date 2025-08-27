@@ -6,7 +6,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: troubleshooting
-ms.date: 06/28/2024
+ms.date: 08/11/2025
 ms.subservice: azure-iot-hub-dps
 ---
 
@@ -20,12 +20,12 @@ Use this table to understand and resolve common errors.
 
 | Error Code| Description | HTTP Status Code |
 |-------|------------|------------|
-| 400 | The body of the request is not valid; for example, it cannot be parsed, or the object cannot be validated.| 400 Bad format |
-| 401 | The authorization token cannot be validated; for example, it is expired or does not apply to the request's URI. This error code is also returned to devices as part of the TPM attestation flow. | 401 Unauthorized|
-| 404 | The Device Provisioning Service instance, or a resource (e.g. an enrollment) does not exist. | 404 Not Found|
+| 400 | The body of the request isn't valid; for example, it can't be parsed, or the object can't be validated.| 400 Bad format |
+| 401 | The authorization token can't be validated; for example, it expired or doesn't apply to the request's URI. This error code is also returned to devices as part of the TPM attestation flow. | 401 Unauthorized|
+| 404 | The Device Provisioning Service instance, or a resource (for example, an enrollment) doesn't exist. | 404 Not Found|
 | 405 | The client service knows the request method, but the target service doesn't recognize this method; for example, a rest operation is missing the enrollment or registration ID parameters | 405 Method Not Allowed |
-| 409 | The request could not be completed due to a conflict with the current state of the target Device Provisioning Service instance; for example, the customer has already created the data point and is attempting to recreate the same datapoint again. | 409 Conflict |
-| 412 | The ETag in the request does not match the ETag of the existing resource, as per RFC7232. | 412 Precondition failed |
+| 409 | The request couldn't be completed due to a conflict with the current state of the target Device Provisioning Service instance. For example, the customer created a data point and is attempting to recreate the same data point again. | 409 Conflict |
+| 412 | The ETag in the request doesn't match the ETag of the existing resource, as per RFC7232. | 412 Precondition failed |
 | 415 | The server refuses to accept the request because the payload format is in an unsupported format. For supported formats, see [IoT Hub Device Provisioning Service REST API](/rest/api/iot-dps/) | 415 Unsupported Media Type |
 | 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-device-provisioning-service-limits). | 429 Too many requests |
 | 500 | An internal error occurred. | 500 Internal Server Error|

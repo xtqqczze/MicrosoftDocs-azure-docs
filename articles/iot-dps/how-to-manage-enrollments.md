@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Hub Device Provisioning Service
 description: How to manage group and individual device enrollments for your Device Provisioning Service (DPS) in the Azure portal.
 author: SoniaLopezBravo
 ms.author: sonialopez
-ms.date: 04/30/2024
+ms.date: 08/11/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 services: iot-dps
@@ -14,7 +14,7 @@ ms.subservice: azure-iot-hub-dps
 
 # Manage device enrollments in the Azure portal
 
-A *device enrollment* creates a record of a single device or a group of devices that may at some point register with the Azure IoT Hub Device Provisioning Service (DPS). The enrollment record contains the initial configuration for the device(s) as part of that enrollment. Included in the configuration is either the IoT hub to which a device will be assigned, or an allocation policy that applies to a set of IoT hubs. This article shows you how to manage device enrollments for your provisioning service.
+A *device enrollment* creates a record of a single device or a group of devices that can at some point register with the Azure IoT Hub Device Provisioning Service (DPS). The enrollment record contains the initial configuration for the device as part of that enrollment. Included in the configuration is either the IoT hub to which a device is assigned, or an allocation policy that applies to a set of IoT hubs. This article shows you how to manage device enrollments for your provisioning service.
 
 The Device Provisioning Service supports two types of enrollments:
 
@@ -22,7 +22,7 @@ The Device Provisioning Service supports two types of enrollments:
 * [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
 > [!IMPORTANT]
-> If you have trouble accessing enrollments from the Azure portal, it may be because you have public network access disabled or IP filtering rules configured that block access for the Azure portal. To learn more, see [Disable public network access limitations](public-network-access.md#disable-public-network-access-limitations) and [IP filter rules limitations](iot-dps-ip-filtering.md#ip-filter-rules-limitations).
+> If you have trouble accessing enrollments from the Azure portal, it might be because you have public network access disabled or IP filtering rules configured that block access for the Azure portal. To learn more, see [Disable public network access limitations](public-network-access.md#disable-public-network-access-limitations) and [IP filter rules limitations](iot-dps-ip-filtering.md#ip-filter-rules-limitations).
 
 ## Prerequisites
 
@@ -52,13 +52,13 @@ To create a symmetric key enrollment group:
 
 ### [TPM](#tab/tpm)
 
-Enrollment groups do not support TPM attestation.
+Enrollment groups don't support TPM attestation.
 
 ---
 
 ## Create an individual enrollment
 
-An individual enrollment is an entry for a single device that may be assigned to an IoT hub. Devices using [X.509 certificates](concepts-x509-attestation.md), [symmetric key](concepts-symmetric-key-attestation.md), and [TPM attestation](concepts-tpm-attestation.md) are supported.
+An individual enrollment is an entry for a single device that can be assigned to an IoT hub. Devices using [X.509 certificates](concepts-x509-attestation.md), [symmetric key](concepts-symmetric-key-attestation.md), and [TPM attestation](concepts-tpm-attestation.md) are supported.
 
 
 ### [X.509 certificate](#tab/x509)
@@ -122,12 +122,12 @@ To remove an enrollment entry:
 
 1. When prompted to confirm, select **Yes**.
 
-1. Once the action is completed, you'll see that your entry has been removed from the list of device enrollments.
+1. Once the action is completed, you see that your entry is removed from the list of device enrollments.
 
 > [!NOTE]
-> Deleting an enrollment group doesn't delete the registration records for devices in the group. DPS uses the registration records to determine whether the maximum number of registrations has been reached for the DPS instance. Orphaned registration records still count against this quota. For the current maximum number of registrations supported for a DPS instance, see [Quotas and limits](about-iot-dps.md#quotas-and-limits).
+> Deleting an enrollment group doesn't delete the registration records for devices in the group. DPS uses the registration records to determine whether the maximum number of registrations is reached for the DPS instance. Orphaned registration records still count against this quota. For the current maximum number of registrations supported for a DPS instance, see [Quotas and limits](about-iot-dps.md#quotas-and-limits).
 >
->You may want to delete the registration records for the enrollment group before deleting the enrollment group itself. You can see and manage the registration records for an enrollment group manually on the **Registration Records** tab for the group in Azure portal. You can retrieve and manage the registration records programmatically using the [Device Registration State REST APIs](/rest/api/iot-dps/service/device-registration-state) or equivalent APIs in the [DPS service SDKs](libraries-sdks.md), or using the [az iot dps enrollment-group registration Azure CLI commands](/cli/azure/iot/dps/enrollment-group/registration).
+>You might want to delete the registration records for the enrollment group before deleting the enrollment group itself. You can see and manage the registration records for an enrollment group manually on the **Registration Records** tab for the group in Azure portal. You can retrieve and manage the registration records programmatically using the [Device Registration State REST APIs](/rest/api/iot-dps/service/device-registration-state) or equivalent APIs in the [DPS service SDKs](libraries-sdks.md), or using the [az iot dps enrollment-group registration Azure CLI commands](/cli/azure/iot/dps/enrollment-group/registration).
 
 ## Next steps
 
