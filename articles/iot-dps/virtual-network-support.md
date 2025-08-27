@@ -6,21 +6,21 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 03/21/2022
+ms.date: 08/12/2025
 ms.subservice: azure-iot-hub-dps
 ---
 
 # Azure IoT Hub Device Provisioning Service (DPS) support for virtual networks
 
-This article introduces the virtual network (VNET) connectivity pattern for IoT devices provisioning with IoT hubs using DPS. This pattern provides private connectivity between the devices, DPS, and the IoT hub inside a customer-owned Azure VNET.
+This article introduces the virtual network connectivity pattern for IoT devices provisioning with IoT hubs using DPS. This pattern provides private connectivity between the devices, DPS, and the IoT hub inside a customer-owned Azure virtual network.
 
-In most scenarios where DPS is configured with a VNET, your IoT Hub is also configured in the same VNET. For more specific information on VNET support and configuration for IoT Hubs, see, [IoT Hub virtual network support](../iot-hub/virtual-network-support.md).
+In most scenarios where DPS is configured with a virtual network, your IoT Hub is also configured in the same virtual network. For more specific information on virtual network support and configuration for IoT Hubs, see, [IoT Hub virtual network support](../iot-hub/virtual-network-support.md).
 
 ## Introduction
 
 By default, DPS hostnames map to a public endpoint with a publicly routable IP address over the Internet. This public endpoint is visible to all customers. IoT devices over wide-area networks and on-premises networks can try to access the public endpoint.
 
-For several reasons, customers may wish to restrict connectivity to Azure resources, like DPS. These reasons include:
+For several reasons, customers might wish to restrict connectivity to Azure resources, like DPS. These reasons include:
 
 * Prevent connection exposure over the public Internet. Exposure can be reduced by introducing more layers of security via network level isolation for your IoT hub and DPS resources
 
@@ -30,11 +30,11 @@ For several reasons, customers may wish to restrict connectivity to Azure resour
 
 * Following established Azure-wide connectivity patterns using [private endpoints](../private-link/private-endpoint-overview.md).
 
-Common approaches to restricting connectivity include [DPS IP filter rules](./iot-dps-ip-filtering.md) and Virtual networking (VNET) with [private endpoints](../private-link/private-endpoint-overview.md). The goal of this article is to describe the VNET approach for DPS using private endpoints.
+Common approaches to restricting connectivity include [DPS IP filter rules](./iot-dps-ip-filtering.md) and virtual networking with [private endpoints](../private-link/private-endpoint-overview.md). The goal of this article is to describe the virtual networking approach for DPS using private endpoints.
 
-Devices that operate in on-premises networks can use [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering to connect to a VNET in Azure and access DPS resources through private endpoints.
+Devices that operate in on-premises networks can use [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering to connect to a virtual network in Azure and access DPS resources through private endpoints.
 
-A private endpoint is a private IP address allocated inside a customer-owned VNET by which an Azure resource is accessible. By having a private endpoint for your DPS resource, you can allow devices operating inside your VNET to request provisioning by your DPS resource without allowing traffic to the public endpoint. Each DPS resource can support multiple private endpoints, each of which may be located in a VNET in a different region.
+A private endpoint is a private IP address allocated inside a customer-owned virtual network by which an Azure resource is accessible. By having a private endpoint for your DPS resource, you can allow devices operating inside your virtual network to request provisioning by your DPS resource without allowing traffic to the public endpoint. Each DPS resource can support multiple private endpoints, each of which might be located in a virtual network in a different region.
 
 ## Prerequisites
 
@@ -42,9 +42,9 @@ Before proceeding ensure that the following prerequisites are met:
 
 * Your DPS resource is already created and linked to your IoT hubs. For guidance on setting up a new DPS resource, see, [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md)
 
-* You provisioned an Azure VNET with a subnet in which the private endpoint is created. For more information, see, [create a virtual network using Azure CLI](../virtual-network/quick-create-cli.md).
+* You provisioned an Azure virtual network with a subnet in which the private endpoint is created. For more information, see, [create a virtual network using Azure CLI](../virtual-network/quick-create-cli.md).
 
-* For devices that operate inside of on-premises networks, set up [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering into your Azure VNET.
+* For devices that operate inside of on-premises networks, set up [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering into your Azure virtual network.
 
 ## Private endpoint limitations
 
@@ -54,20 +54,20 @@ Note the following current limitations for DPS when using private endpoints:
 
 * Private endpoints in DPS use Azure Private Link, which are only supported in public regions. For more information, see [Azure Private Link availability](../private-link/availability.md).
 
-* Currently, [custom allocation policies with Azure Functions](concepts-custom-allocation.md) for DPS doesn't work when the Azure function is locked down to a VNET and private endpoints.
+* Currently, [custom allocation policies with Azure Functions](concepts-custom-allocation.md) for DPS doesn't work when the Azure function is locked down to a virtual network and private endpoints.
 
-* Current DPS VNET support is for data ingress into DPS only. Data egress, which is the traffic from DPS to IoT Hub, uses an internal service-to-service mechanism rather than a dedicated VNET. Support for full VNET-based egress lockdown between DPS and IoT Hub isn't currently available.
+* Current DPS virtual network support is for data ingress into DPS only. Data egress, which is the traffic from DPS to IoT Hub, uses an internal service-to-service mechanism rather than a dedicated virtual network. Support for full virtual network-based egress lockdown between DPS and IoT Hub isn't currently available.
 
-* The lowest latency allocation policy is used to assign a device to the IoT hub with the lowest latency. This allocation policy is not reliable in a virtual network environment.
+* The lowest latency allocation policy is used to assign a device to the IoT hub with the lowest latency. This allocation policy isn't reliable in a virtual network environment.
 
-* Enabling one or more private endpoints typically involves [disabling public access](public-network-access.md) to your DPS instance. Once public access is disabled, you can no longer use the Azure portal to manage enrollments. Instead you can manage enrollments using the Azure CLI, PowerShell, or service APIs from machines inside one or more VNETs/private endpoints configured on the DPS instance.
+* Enabling one or more private endpoints typically involves [disabling public access](public-network-access.md) to your DPS instance. Once public access is disabled, you can no longer use the Azure portal to manage enrollments. Instead you can manage enrollments using the Azure CLI, PowerShell, or service APIs from machines inside one or more virtual networks/private endpoints configured on the DPS instance.
 
-* When using private endpoints, we recommend deploying DPS in one of the regions that support [Availability Zones](iot-dps-ha-dr.md). Otherwise, DPS instances with private endpoints enabled may see reduced availability in the event of outages.
+* When using private endpoints, we recommend deploying DPS in one of the regions that support [Availability Zones](iot-dps-ha-dr.md). Otherwise, DPS instances with private endpoints enabled might see reduced availability during outages.
 
 >[!NOTE]
 >**Data residency consideration:**
 >
->DPS provides a **Global device endpoint** (`global.azure-devices-provisioning.net`). However, when you use the global endpoint, your data may be redirected outside of the region where the DPS instance was initially created. To ensure data residency within the initial DPS region, use private endpoints.
+>DPS provides a **Global device endpoint** (`global.azure-devices-provisioning.net`). However, when you use the global endpoint, your data might be redirected outside of the region where the DPS instance was initially created. To ensure data residency within the initial DPS region, use private endpoints.
 
 ## Set up a private endpoint
 
@@ -86,7 +86,7 @@ To set up a private endpoint, follow these steps:
     | **Subscription** | Choose the desired Azure subscription to contain the private endpoint.  |
     | **Resource group** | Choose or create a resource group to contain the private endpoint |
     | **Name**       | Enter a name for your private endpoint |
-    | **Region**     | The region chosen must be the same as the region that contains the VNET, but it doesn't have to be the same as the DPS resource. |
+    | **Region**     | The region chosen must be the same as the region that contains the virtual network, but it doesn't have to be the same as the DPS resource. |
 
     Select **Next : Resource** to configure the resource that the private endpoint points to.
 
@@ -104,7 +104,7 @@ To set up a private endpoint, follow these steps:
     > [!TIP]
     > Information on the **Connect to an Azure resource by resource ID or alias** setting is provided in the [Request a private endpoint](#request-a-private-endpoint) section in this article.
 
-    Select **Next : Configuration** to configure the VNET for the private endpoint.
+    Select **Next : Configuration** to configure the virtual network for the private endpoint.
 
 4. On the _Create a private endpoint Configuration_ page, choose your virtual network and subnet to create the private endpoint in.
 
@@ -128,7 +128,7 @@ For example, the provisioning device client sample ([pro_dev_client_sample](http
 
 :::code language="c" source="~/iot-samples-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c" range="138-144" highlight="3":::
 
-To use the sample with a private endpoint, the highlighted code above would be changed to use the service endpoint for your DPS resource. For example, if your service endpoint was `mydps.azure-devices-provisioning.net`, the code would look as follows.
+To use the sample with a private endpoint, the highlighted code in the previous example would be changed to use the service endpoint for your DPS resource. For example, if your service endpoint was `mydps.azure-devices-provisioning.net`, the code would look as follows.
 
 ```C
 static const char* global_prov_uri = "global.azure-devices-provisioning.net";
@@ -149,7 +149,7 @@ static const char* id_scope = "[ID Scope]";
 
 You can request a private endpoint to a DPS instance by resource ID. In order to make this request, you need the resource owner to supply you with the resource ID.
 
-1. The resource ID is provided on to the properties tab for DPS resource as shown below.
+1. The resource ID is provided on to the properties tab for DPS resource as shown in the following screenshot.
 
     ![Screenshot that shows the DPS Properties tab.](./media/virtual-network-support/dps-properties.png)
 
@@ -164,7 +164,7 @@ You can request a private endpoint to a DPS instance by resource ID. In order to
     | **Target sub-resource** | Enter **iotDps** |
     | **Request message** | Enter a request message for the DPS resource owner.<br>For example, <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
 
-    Select **Next : Configuration** to configure the VNET for the private endpoint.
+    Select **Next : Configuration** to configure the virtual network for the private endpoint.
 
 3. On the _Create a private endpoint Configuration_ page, choose the virtual network and subnet to create the private endpoint in.
 

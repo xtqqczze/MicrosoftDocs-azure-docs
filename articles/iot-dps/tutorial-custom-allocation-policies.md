@@ -3,7 +3,7 @@ title: Tutorial - Assign devices to multiple hubs using DPS
 description: This tutorial shows how to provision devices using a custom allocation policy in your Azure IoT Hub Device Provisioning Service (DPS) instance.
 author: SoniaLopezBravo
 ms.author: sonialopez
-ms.date: 03/21/2024
+ms.date: 08/12/2025
 ms.topic: tutorial
 ms.service: azure-iot-hub
 services: iot-dps
@@ -22,7 +22,7 @@ This tutorial demonstrates a custom allocation policy using an Azure Function wr
 
 Devices are simulated using a provisioning sample included in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
-In this tutorial, you'll do the following:
+In this tutorial, you perform the following actions:
 
 > [!div class="checklist"]
 > * Use the Azure CLI to create a DPS instance and to create and link two Contoso division IoT hubs (**Contoso Toasters Division** and **Contoso Heat Pumps Division**) to it.
@@ -73,7 +73,7 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
    ```
 
    > [!TIP]
-   > The commands used in this tutorial create resources in the West US location by default. We recommend that you create your resources in the region nearest you that supports Device Provisioning Service. You can view a list of available locations by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive.
+   > The commands used in this tutorial create resources in the West US location by default. We recommend that you create your resources in the region nearest you that supports Device Provisioning Service. You can view a list of available locations by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value isn't case sensitive.
 
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create an Azure resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
@@ -144,7 +144,7 @@ In this section, you create an Azure function that implements your custom alloca
    | **Region**         | Select a region close to you. |
 
    > [!NOTE]
-   > By default, Application Insights is enabled. Application Insights is not necessary for this tutorial, but it might help you understand and investigate any issues you encounter with the custom allocation. If you prefer, you can disable Application Insights by selecting the **Monitoring** tab and then selecting **No** for **Enable Application Insights**.
+   > By default, Application Insights is enabled. Application Insights isn't necessary for this tutorial, but it might help you understand and investigate any issues you encounter with the custom allocation. If you prefer, you can disable Application Insights by selecting the **Monitoring** tab and then selecting **No** for **Enable Application Insights**.
 
    :::image type="content" source="./media/tutorial-custom-allocation-policies/create-function-app.png" alt-text="Screenshot that shows the Create Function App form in the Azure portal.":::
 
@@ -163,11 +163,11 @@ In this section, you create an Azure function that implements your custom alloca
    :::image type="content" source="./media/tutorial-custom-allocation-policies/function-authorization-level.png" alt-text="Screenshot that shows setting the authorization level as anonymous.":::
 
    >[!TIP]
-   >If you keep the authorization level as **Function**, then you'll need to configure your DPS enrollments with the function API key. For more information, see [Azure Functions HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md).
+   >If you keep the authorization level as **Function**, then you need to configure your DPS enrollments with the function API key. For more information, see [Azure Functions HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
-1. When the **HttpTrigger1** function opens, select **Code + Test** on the left pane. This allows you to edit the code for the function. The **run.csx** code file should be opened for editing.
+1. When the **HttpTrigger1** function opens, select **Code + Test** on the left pane. This selection allows you to edit the code for the function. The **run.csx** code file should be opened for editing.
 
-1. Reference required NuGet packages. To create the initial device twin, the custom allocation function uses classes that are defined in two NuGet packages that must be loaded into the hosting environment. With Azure Functions, NuGet packages are referenced using a *function.proj* file. In this step, you save and upload a *function.proj* file for the required assemblies.  For more information, see [Using NuGet packages with Azure Functions](../azure-functions/functions-reference-csharp.md#using-nuget-packages).
+1. Reference required NuGet packages. To create the initial device twin, the custom allocation function uses classes that are defined in two NuGet packages that must be loaded into the hosting environment. With Azure Functions, NuGet packages are referenced using a *function.proj* file. In this step, you save and upload a *function.proj* file for the required assemblies. For more information, see [Using NuGet packages with Azure Functions](../azure-functions/functions-reference-csharp.md#using-nuget-packages).
 
     1. Copy the following lines into your favorite editor and save the file on your computer as *function.proj*.
 
@@ -185,7 +185,7 @@ In this section, you create an Azure function that implements your custom alloca
 
     1. Select the **Upload** button located above the code editor to upload your *function.proj* file. After uploading, select the file in the code editor using the drop-down box to verify the contents.
 
-    1. Select the *function.proj* file in the code editor and verify its contents. If the *function.proj* file is empty copy the lines above into the file and save it. (Sometimes the upload creates the file without uploading the contents.)
+    1. Select the *function.proj* file in the code editor and verify its contents. If the *function.proj* file is empty copy the previous lines into the file and save it. (Sometimes the upload creates the file without uploading the contents.)
 
 1. Make sure *run.csx* for **HttpTrigger1** is selected in the code editor. Replace the code for the **HttpTrigger1** function with the following code and select **Save**:
 
@@ -397,7 +397,7 @@ The simulated devices use the derived device keys with each registration ID to p
 
 ## Prepare an Azure IoT C SDK development environment
 
-In this section, you prepare the development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The SDK includes the sample code for the simulated device. This simulated device will attempt provisioning during the device's boot sequence.
+In this section, you prepare the development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The SDK includes the sample code for the simulated device. This simulated device attempts provisioning during the device's boot sequence.
 
 This section is oriented toward a Windows-based workstation. For a Linux example, see the set-up of the VMs in [Tutorial: Provision for geo latency](how-to-provision-multitenant.md).
 
@@ -424,7 +424,7 @@ This section is oriented toward a Windows-based workstation. For a Linux example
     cd cmake
     ```
 
-5. Run the following command, which builds a version of the SDK specific to your development client platform. A Visual Studio solution for the simulated device will be generated in the `cmake` directory. 
+5. Run the following command, which builds a version of the SDK specific to your development client platform. A Visual Studio solution for the simulated device is generated in the `cmake` directory. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -468,7 +468,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` as shown below:
+5. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` as shown in the following example:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -477,7 +477,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. In the `main()` function, find the call to `Prov_Device_Register_Device()`. Just before that call, add the following lines of code that use [`Prov_Device_Set_Provisioning_Payload()`](https://github.com/Azure/azure-iot-sdk-c/blob/main/provisioning_client/inc/azure_prov_client/prov_device_client.h#L52) to pass a custom JSON payload during provisioning. This can be used to provide more information to your custom allocation functions. This could also be used to pass the device type instead of examining the registration ID. For more information on sending and receiving custom data payloads with DPS, see [How to transfer payloads between devices and DPS](concepts-custom-allocation.md#use-device-payloads-in-custom-allocation).
+6. In the `main()` function, find the call to `Prov_Device_Register_Device()`. Just before that call, add the following lines of code that use [`Prov_Device_Set_Provisioning_Payload()`](https://github.com/Azure/azure-iot-sdk-c/blob/main/provisioning_client/inc/azure_prov_client/prov_device_client.h#L52) to pass a custom JSON payload during provisioning. This custom payload can be used to provide more information to your custom allocation functions. This payload could also be used to pass the device type instead of examining the registration ID. For more information on sending and receiving custom data payloads with DPS, see [How to transfer payloads between devices and DPS](concepts-custom-allocation.md#use-device-payloads-in-custom-allocation).
 
     ```c
     // An example custom payload
@@ -501,7 +501,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Uncomment the function call and replace the placeholder values (including the angle brackets) with the toaster registration ID and derived device key you generated previously. The key value **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** shown below is only given as an example.
+    Uncomment the function call and replace the placeholder values (including the angle brackets) with the toaster registration ID and derived device key you generated previously. The key value **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** shown in the following code is only given as an example.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -528,7 +528,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     Press enter key to exit:
     ```
 
-    The following output is example logging output from the custom allocation function code running for the toaster device. Notice a hub is successfully selected for a toaster device. Also notice the `payload` property that contains the custom JSON content you added to the code. This is available for your code to use within the `deviceRuntimeContext`.
+    The following output is example logging output from the custom allocation function code running for the toaster device. Notice a hub is successfully selected for a toaster device. Also notice the `payload` property that contains the custom JSON content you added to the code. This content is available for your code to use within the `deviceRuntimeContext`.
 
     This logging is available by clicking **Logs** under the function code in the portal:
 
@@ -544,7 +544,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
 ### Simulate the Contoso heat pump device
 
-1. To simulate the heat pump device, update the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** again with the heat pump registration ID and derived device key you generated earlier. The key value **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** shown below is also only given as an example.
+1. To simulate the heat pump device, update the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** again with the heat pump registration ID and derived device key you generated earlier. The key value **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** shown in the following code is also only given as an example.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -577,11 +577,11 @@ The following table shows expected scenarios and the results error codes you mig
 
 | Scenario | Registration result from Provisioning Service | Provisioning SDK Results |
 | -------- | --------------------------------------------- | ------------------------ |
-| The webhook returns 200 OK with ‘iotHubHostName’ set to a valid IoT hub host name | Result status: Assigned  | SDK returns PROV_DEVICE_RESULT_OK along with hub information |
-| The webhook returns 200 OK with ‘iotHubHostName’ present in the response, but set to an empty string or null | Result status: Failed<br><br> Error code: CustomAllocationIotHubNotSpecified (400208) | SDK returns PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| The webhook returns 200 OK with 'iotHubHostName' set to a valid IoT hub host name | Result status: Assigned  | SDK returns PROV_DEVICE_RESULT_OK along with hub information |
+| The webhook returns 200 OK with 'iotHubHostName' present in the response, but set to an empty string or null | Result status: Failed<br><br> Error code: CustomAllocationIotHubNotSpecified (400208) | SDK returns PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | The webhook returns 401 Unauthorized | Result status: Failed<br><br>Error code: CustomAllocationUnauthorizedAccess (400209) | SDK returns PROV_DEVICE_RESULT_UNAUTHORIZED |
 | An Individual Enrollment was created to disable the device | Result status: Disabled | SDK returns PROV_DEVICE_RESULT_DISABLED |
-| The webhook returns error code >= 429 | DPS’ orchestration will retry several times. The retry policy is currently:<br><br>&nbsp;&nbsp;- Retry count: 10<br>&nbsp;&nbsp;- Initial interval: 1 s<br>&nbsp;&nbsp;- Increment: 9 s | SDK will ignore error and submit another get status message in the specified time |
+| The webhook returns error code >= 429 | DPS' orchestration retries several times. The retry policy is currently:<br><br>&nbsp;&nbsp;- Retry count: 10<br>&nbsp;&nbsp;- Initial interval: 1 s<br>&nbsp;&nbsp;- Increment: 9 s | SDK ignores error and submits another get status message in the specified time |
 | The webhook returns any other status code | Result status: Failed<br><br>Error code: CustomAllocationFailed (400207) | SDK returns PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 ## Clean up resources
@@ -601,7 +601,7 @@ To delete the resource group by name:
 
 3. To the right of your resource group in the result list, select **...** then **Delete resource group**.
 
-4. You'll be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then select **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
+4. You're asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then select **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 

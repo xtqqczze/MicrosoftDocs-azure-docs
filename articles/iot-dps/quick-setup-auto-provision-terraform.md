@@ -3,7 +3,7 @@ title: Quickstart - Use Terraform to create a DPS instance
 description: Learn how to deploy an Azure IoT Device Provisioning Service (DPS) resource with Terraform in this quickstart.
 keywords: azure, devops, terraform, device provisioning service, DPS, IoT, IoT Hub DPS
 ms.topic: quickstart
-ms.date: 11/03/2022
+ms.date: 08/12/2025
 ms.custom: devx-track-terraform
 author: SoniaLopezBravo
 ms.author: sonialopez
@@ -14,7 +14,7 @@ ms.subservice: azure-iot-hub-dps
 
 # Quickstart: Use Terraform to create an Azure IoT Device Provisioning Service
 
-In this quickstart, you will learn how to deploy an Azure IoT Hub Device Provisioning Service (DPS) resource with a hashed allocation policy using Terraform.
+In this quickstart, you learn how to deploy an Azure IoT Hub Device Provisioning Service (DPS) resource with a hashed allocation policy using Terraform.
 
 This quickstart was tested with the following Terraform and Terraform provider versions:
 

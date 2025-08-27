@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure IoT Hub Device Provisioning Service (DPS) us
 description: Azure quickstart - Learn how to create an Azure IoT Hub Device Provisioning Service (DPS) using Azure Resource Manager template (ARM template).
 author: SoniaLopezBravo
 ms.author: sonialopez
-ms.date: 04/06/2023    
+ms.date: 08/12/2025
 ms.topic: quickstart
 ms.service: azure-iot-hub
 services: iot-dps
@@ -32,7 +32,7 @@ If your environment meets the prerequisites, and you're already familiar with us
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iothub-device-provisioning/).
 
 > [!NOTE]
-> Currently there is no ARM template support for creating enrollments with new DPS resources. This is a common and understood request that is being considered for implementation.
+> Currently there's no ARM template support for creating enrollments with new DPS resources. This is a common and understood request that is being considered for implementation.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devices/iothub-device-provisioning/azuredeploy.json":::
 
@@ -59,7 +59,7 @@ Two Azure resources are defined in the previous template:
     | :---- | :---------- |
     | **Subscription** | Select your Azure subscription. |
     | **Resource group** | Select **Create new**, and enter a unique name for the resource group, and then select **OK**. |
-    | **Region** | Select a region for your resources. For example, **East US**.  For resiliency and reliability, we recommend deploying to one of the regions that support [Availability Zones](iot-dps-ha-dr.md). |
+    | **Region** | Select a region for your resources. For example, **East US**. For resiliency and reliability, we recommend deploying to one of the regions that support [Availability Zones](iot-dps-ha-dr.md). |
     | **IoT Hub Name** | Enter a name for the IoT Hub that must be globally unique within the *.azure-devices.net* namespace. You need the hub name in the next section when you validate the deployment. |
     | **Provisioning Service Name** | Enter a name for the new Device Provisioning Service (DPS) resource. The name must be globally unique within the *.azure-devices-provisioning.net* namespace. You need the DPS name in the next section when you validate the deployment. |
 
