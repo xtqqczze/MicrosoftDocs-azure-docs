@@ -7,7 +7,7 @@ ms.service: azure-iot-hub
 ms.custom: devx-track-arm-template
 services: iot-dps
 ms.topic: how-to
-ms.date: 11/12/2021
+ms.date: 08/12/2025
 ms.subservice: azure-iot-hub-dps
 ---
 
@@ -17,11 +17,11 @@ Security is an important aspect of any IoT solution. Sometimes you need to expli
 
 ## When to use
 
-There are two specific use-cases where it is useful to block connections to a DPS endpoint from certain IP addresses:
+There are two specific use-cases where it's useful to block connections to a DPS endpoint from certain IP addresses:
 
-* Your DPS should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using your DPS with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) to create private connections between a DPS instance and your devices.
+* Your DPS should receive traffic only from a specified range of IP addresses and reject everything else. For example, you're using your DPS with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) to create private connections between a DPS instance and your devices.
 
-* You need to reject traffic from IP addresses that have been identified as suspicious by the DPS administrator.
+* You need to reject traffic from IP addresses that are identified as suspicious by the DPS administrator.
 
 ## IP filter rules limitations
 
@@ -29,13 +29,13 @@ Note the following limitations if IP filtering is enabled:
 
 * You might not be able to use the Azure portal to manage enrollments. If this occurs, you can add the IP address of one or more machines to the `ipFilterRules` and manage enrollments in the DPS instance from those machines with Azure CLI, PowerShell, or service APIs.
 
-  This scenario is most likely to happen when you want to use IP filtering to allow access only to selected IP addresses. In this case, you configure rules to enable certain addresses or address ranges and a default rule that blocks all other addresses (0.0.0.0/0). This default rule will block Azure portal from performing operations like managing enrollments on the DPS instance. For more information, see [IP filter rule evaluation](iot-dps-ip-filtering.md#ip-filter-rule-evaluation) later in this article.
+  This scenario is most likely to happen when you want to use IP filtering to allow access only to selected IP addresses. In this case, you configure rules to enable certain addresses or address ranges and a default rule that blocks all other addresses (0.0.0.0/0). This default rule blocks Azure portal from performing operations like managing enrollments on the DPS instance. For more information, see [IP filter rule evaluation](iot-dps-ip-filtering.md#ip-filter-rule-evaluation) later in this article.
 
 ## How filter rules are applied
 
 The IP filter rules are applied at the DPS instance level. Therefore the IP filter rules apply to all connections from devices and back-end apps using any supported protocol.
 
-Any connection attempt from an IP address that matches a rejecting IP rule in your DPS instance receives an unauthorized 401 status code and description. The response message does not mention the IP rule.
+Any connection attempt from an IP address that matches a rejecting IP rule in your DPS instance receives an unauthorized 401 status code and description. The response message doesn't mention the IP rule.
 
 > [!IMPORTANT]
 > Rejecting IP addresses can prevent other Azure Services from interacting with the DPS instance.
@@ -185,7 +185,7 @@ Update the IP filter rule attributes of the template based on your requirements.
 
 | Attribute                | Description |
 | ------------------------ | ----------- |
-| **FilterName**           | Provide a name for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted. |
+| **FilterName**           | Provide a name for the IP Filter rule. This value must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted. |
 | **Action**               | Accepted values are **Accept** or **Reject** as the action for the IP filter rule. |
 | **ipMask**               | Provide a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255. |
 

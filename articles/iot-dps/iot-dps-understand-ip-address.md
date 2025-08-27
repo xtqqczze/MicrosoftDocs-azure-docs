@@ -6,13 +6,13 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 02/22/2022
+ms.date: 08/11/2025
 ms.subservice: azure-iot-hub-dps
 ---
 
 # Device Provisioning Service IP addresses
 
-The IP address prefixes for the public endpoints of an IoT Hub Device Provisioning Service (DPS) are published periodically under the _AzureIoTHub_ [service tag](../virtual-network/service-tags-overview.md). You may use these IP address prefixes to control connectivity between an IoT DPS instance and devices or network assets to implement a variety of network isolation goals:
+The IP address prefixes for the public endpoints of an IoT Hub Device Provisioning Service (DPS) are published periodically under the _AzureIoTHub_ [service tag](../virtual-network/service-tags-overview.md). You can use these IP address prefixes to control connectivity between an IoT DPS instance and devices or network assets to implement various network isolation goals:
 
 | Goal | Approach |
 |------|----------|
@@ -23,11 +23,11 @@ The IP address prefixes for the public endpoints of an IoT Hub Device Provisioni
 
 * When adding ALLOW rules in your devices' firewall configuration, it's best to provide specific [ports used by applicable protocols](../iot-hub/iot-hub-devguide-protocols.md#port-numbers).
 
-* The IP address prefixes of IoT DPS instances are subject to change. These changes are published periodically via service tags before taking effect. It's therefore important that you develop processes to regularly retrieve and use the latest service tags. This process can be automated via the [service tags discovery API](../virtual-network/service-tags-overview.md#service-tags-on-premises). The Service tags discovery API is still in preview and in some cases may not produce the full list of tags and IP addresses. Until discovery API is generally available, consider using the [service tags in downloadable JSON format](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
+* The IP address prefixes of IoT DPS instances are subject to change. These changes are published periodically via service tags before taking effect. It's therefore important that you develop processes to regularly retrieve and use the latest service tags. This process can be automated via the [service tags discovery API](../virtual-network/service-tags-overview.md#service-tags-on-premises). The Service tags discovery API is still in preview and in some cases might not produce the full list of tags and IP addresses. Until discovery API is generally available, consider using the [service tags in downloadable JSON format](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
 
 * Use the *AzureIoTHub.[region name]* tag to identify IP prefixes used by DPS endpoints in a specific region. To account for datacenter disaster recovery, or [regional failover](iot-dps-ha-dr.md), ensure connectivity to IP prefixes of your DPS instance's geo-pair region is also enabled.
 
-* Setting up firewall rules for a DPS instance may block off connectivity needed to run Azure CLI and PowerShell commands against it. To avoid these connectivity issues, you can add ALLOW rules for your clients' IP address prefixes to re-enable CLI or PowerShell clients to communicate with your DPS instance.  
+* Setting up firewall rules for a DPS instance might block off connectivity needed to run Azure CLI and PowerShell commands against it. To avoid these connectivity issues, you can add ALLOW rules for your clients' IP address prefixes to re-enable CLI or PowerShell clients to communicate with your DPS instance.  
 
 
 ## Limitations and workarounds

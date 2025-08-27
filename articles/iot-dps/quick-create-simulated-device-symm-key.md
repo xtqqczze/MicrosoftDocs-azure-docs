@@ -3,7 +3,7 @@ title: Quickstart - Provision a simulated symmetric key device to Microsoft Azur
 description: Learn how to provision a device that authenticates with a symmetric key in the Azure IoT Hub Device Provisioning Service (DPS)
 author: SoniaLopezBravo
 ms.author: sonialopez
-ms.date: 04/06/2023
+ms.date: 08/12/2025
 ms.topic: quickstart
 ms.service: azure-iot-hub
 services: iot-dps
@@ -77,7 +77,7 @@ In this section, you prepare a development environment that's used to build the 
 1. Download the latest [CMake build system](https://cmake.org/download/).
 
     >[!IMPORTANT]
-    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
+    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
 
 2. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
@@ -109,7 +109,7 @@ In this section, you prepare a development environment that's used to build the 
     ```
 
     >[!TIP]
-    >If `cmake` does not find your C++ compiler, you may get build errors while running the previous command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
+    >If `cmake` doesn't find your C++ compiler, you might get build errors while running the previous command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
 8. When the build completes successfully, the last few output lines look similar to the following output:
 
@@ -244,7 +244,7 @@ To update and run the provisioning sample with your device information:
     ```
 
     >[!TIP]
-    >If the file was not generated in your cmake directory, make sure you used a recent version of the CMake build system.
+    >If the file wasn't generated in your cmake directory, make sure you used a recent version of the CMake build system.
 
 4. In Visual Studio's *Solution Explorer* window, go to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 

@@ -3,7 +3,7 @@ title: How to programmatically create an Azure Device Provisioning Service enrol
 description: This article shows you how to programmatically create an enrollment group to enroll a group of devices that use intermediate or root CA X.509 certificate attestation.
 author: SoniaLopezBravo
 ms.author: sonialopez
-ms.date: 07/22/2022
+ms.date: 08/12/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 services: iot-dps
@@ -55,7 +55,7 @@ This article shows you how to programmatically create an [enrollment group](conc
 
 ## Create test certificates
 
-Enrollment groups that use X.509 certificate attestation can be configured to use a root CA certificate or an intermediate certificate. The more usual case is to configure the enrollment group with an intermediate certificate. Using an intermediate certificate provides more flexibility as multiple intermediate certificates can be generated or revoked by the same root CA certificate.
+Enrollment groups that use X.509 certificate attestation can be configured to use a root CA certificate or an intermediate certificate. The more usual case is to configure the enrollment group with an intermediate certificate. Using an intermediate certificate provides more flexibility as the same root CA certificate can generate or revoke multiple intermediate certificates.
 
 For this article, you need either a root CA certificate file, an intermediate CA certificate file, or both in *.pem* or *.cer* format. One file contains the public portion of the root CA X.509 certificate and the other contains the public portion of the intermediate CA X.509 certificate.
 
@@ -328,7 +328,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
     > * Hard-coding the connection string for the provisioning service administrator is against security best practices. Instead, the connection string should be held in a secure manner, such as in a secure configuration file or in the registry.
     > * Be sure to upload only the public part of the signing certificate. Never upload .pfx (PKCS12) or .pem files containing private keys to the provisioning service.
 
-1. The sample allows you to set an IoT hub in the enrollment group to provision the device to. This must be an IoT hub that was previously linked to the provisioning service. For this article, we let DPS choose from the linked hubs according to the default allocation policy, evenly weighted distribution. Comment out the following statement in the file:
+1. The sample allows you to set an IoT hub in the enrollment group to provision the device to. This IoT hub must be one that was previously linked to the provisioning service. For this article, we let DPS choose from the linked hubs according to the default allocation policy, evenly weighted distribution. Comment out the following statement in the file:
 
     ```Java
     enrollmentGroup.setIotHubHostName(IOTHUB_HOST_NAME);                // Optional parameter.
