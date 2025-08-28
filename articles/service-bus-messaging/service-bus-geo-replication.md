@@ -7,7 +7,7 @@ ms.custom:
   - references_regions
 ---
 
-# Azure Service Bus Geo-Replication (Preview)
+# Azure Service Bus Geo-Replication
 
 The Service Bus Geo-Replication feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md), providing replication of both metadata (entities, configuration, properties) and data (message data and message property / state changes).
 
@@ -26,8 +26,6 @@ The Geo-Replication feature ensures that the metadata and data of a namespace ar
 This feature allows promoting any secondary region to primary, at any time. Promoting a secondary repoints the namespace to the selected secondary region, and switches the roles between the primary and secondary region. The promotion is nearly instantaneous once initiated. 
 
 > [!IMPORTANT]
-> - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
-> - This feature is currently available on new namespaces. If a namespace had this feature enabled before, it can be disabled (by removing the secondary regions), and re-enabled.
 > - This feature can't be used in combination with the [Azure Service Bus Geo-Disaster Recovery](service-bus-geo-dr.md) feature.
 > - The following features currently aren't supported. We're continuously working on bringing more features, and will update this list with the latest status.
 >     - Large message support.
@@ -106,7 +104,6 @@ To enable the Geo-Replication feature, you need to use primary and secondary reg
 The Geo-Replication feature enables customers to configure a secondary region towards which to replicate metadata and data. As such, customers can perform the following management tasks:
 - Configure Geo-Replication; Secondary regions can be configured on any new or existing namespace in a region with the Geo-Replication feature enabled.
 > [!NOTE]
-> Currently in the public preview only new namespaces are supported.
 - Configure the replication consistency; Synchronous and asynchronous replication is set when Geo-Replication is configured but can also be switched afterwards.
 - Trigger promotion; All promotions are customer initiated.
 - Remove a secondary; If at any time you want to remove a secondary region, you can do so after which the data in the secondary region is deleted.
@@ -118,7 +115,7 @@ The Geo-Replication feature enables customers to configure a secondary region to
 The following section is an overview to set up the Geo-Replication feature on a new namespace through the Azure portal.
 
 1. Create a new premium-tier namespace.
-1. Check the **Enable Geo-replication checkbox** under the *Geo-Replication (preview)* section.
+1. Check the **Enable Geo-replication checkbox** under the *Geo-Replication* section.
 1. Click on the **Add secondary region** button, and choose a region.
 1. Either check the **Synchronous replication** checkbox, or specify a value for the **Async Replication - Max Replication lag** value in seconds.
 :::image type="content" source="./media/service-bus-geo-replication/create-namespace-with-geo-replication.png" alt-text="Screenshot showing the Create Namespace experience with Geo-Replication enabled.":::
@@ -161,7 +158,7 @@ resource sb 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
 
 ## Management
 
-Once you create a namespace with the Geo-Replication feature enabled, you can manage the feature from the **Geo-Replication (preview)** blade. 
+Once you create a namespace with the Geo-Replication feature enabled, you can manage the feature from the **Geo-Replication** blade. 
 
 ### Switch replication mode
 
