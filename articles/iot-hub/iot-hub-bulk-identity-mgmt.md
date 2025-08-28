@@ -7,7 +7,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 01/25/2024
+ms.date: 08/13/2025
 ms.custom: devx-track-csharp, references_regions
 ---
 
@@ -67,7 +67,7 @@ To find the connection string for your IoT hub, in the Azure portal:
 
 1. Copy the connection string for that policy.
 
-The following C# code snippet, from the **WaitForJobAsync** method in the SDK sample, shows how to poll every five seconds to see if the job has finished executing:
+The following C# code snippet, from the **WaitForJobAsync** method in the SDK sample, shows how to poll every five seconds to see if the job is finished executing:
 
 ```csharp
 // Wait until job is finished
@@ -195,7 +195,7 @@ The **ImportDevicesAsync** method in the **RegistryManager** class enables you t
 Take care using the **ImportDevicesAsync** method because in addition to provisioning new devices in your identity registry, it can also update and delete existing devices.
 
 > [!WARNING]
-> An import operation cannot be undone. Always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your identity registry.
+> An import operation can't be undone. Always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your identity registry.
 
 The **ImportDevicesAsync** method takes two parameters:
 
@@ -213,7 +213,7 @@ The **ImportDevicesAsync** method takes two parameters:
    ```
 
 > [!NOTE]
-> The two parameters can point to the same blob container. The separate parameters simply enable more control over your data as the output container requires additional permissions.
+> The two parameters can point to the same blob container. The separate parameters simply enable more control over your data as the output container requires more permissions.
 
 The following C# code snippet shows how to initiate an import job:
 
@@ -253,7 +253,7 @@ For details about each of these import mode options, see [ImportMode](/dotnet/ap
 
 ## Troubleshoot import jobs
 
-Using an import job to create devices might fail with a quota issue when it's close to the device count limit of the IoT hub. This failure can happen even if the total device count is still lower than the quota limit. The **IotHubQuotaExceeded (403002)** error is returned with the following error message: "Total number of devices on IotHub exceeded the allocated quota.”
+Using an import job to create devices might fail with a quota issue when it's close to the device count limit of the IoT hub. This failure can happen even if the total device count is still lower than the quota limit. The **IotHubQuotaExceeded (403002)** error is returned with the following error message: "Total number of devices on IotHub exceeded the allocated quota."
 
 If you get this error, you can use the following query to return the total number of devices registered on your IoT hub:
 

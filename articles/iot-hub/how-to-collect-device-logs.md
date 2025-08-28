@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Hub
 description: To troubleshoot device issues, it's sometimes useful to collect low-level debug logs from the devices. This article shows how to use the device SDKs to generate debug logs.
 author: SoniaLopezBravo
 ms.author: sonialopez
-ms.date: 01/20/2023
+ms.date: 08/13/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
@@ -203,7 +203,7 @@ To learn more about capturing and viewing trace data from the Node.js SDK, see [
 
 :::zone pivot="programming-language-python"
 
-The Azure IoT SDK for Python uses the [logging](https://docs.python.org/3/library/logging.html) module to capture trace logs. You control the trace by using a logging configuration file. If you're using one of the samples in the SDK, you may need to modify the code to load a logging configuration from a file:
+The Azure IoT SDK for Python uses the [logging](https://docs.python.org/3/library/logging.html) module to capture trace logs. You control the trace by using a logging configuration file. If you're using one of the samples in the SDK, you might need to modify the code to load a logging configuration from a file:
 
 Replace the following line:
 

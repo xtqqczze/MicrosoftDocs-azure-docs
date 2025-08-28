@@ -7,7 +7,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: quickstart-arm
-ms.date: 01/04/2024
+ms.date: 08/13/2025
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -46,7 +46,7 @@ This section provides the steps to deploy the ARM template.
 
 ## Send device-to-cloud messages
 
-In this section, you register a device in your new IoT hub and then send messages from that device to IoT Hub. The route that the template configured in the IoT hub only sends messages to storage if they contain the message property `level=storage`. To test that this routing condition works as expected, we'll send some messages with that property and some without.
+In this section, you register a device in your new IoT hub and then send messages from that device to IoT Hub. The route that the template configured in the IoT hub only sends messages to storage if they contain the message property `level=storage`. To test that this routing condition works as expected, we send some messages with that property and some without.
 
 >[!TIP]
 >This quickstart uses the Azure CLI simulated device for convenience. For a code example of sending device-to-cloud messages with message properties for routing, see [HubRoutingSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/how%20to%20guides/HubRoutingSample) in the Azure IoT SDK for .NET.
@@ -81,7 +81,7 @@ In this section, you register a device in your new IoT hub and then send message
    The simulator sends 100 messages and then disconnects. You don't need to wait for all 100 for the purposes of this quickstart.
 
    >[!TIP]
-   >The Azure CLI won't print the messages as it sends them. If you want to watch the messages as the arrive at your hub, you can install the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md) and use it to monitor the built-in endpoint.
+   >The Azure CLI doesn't print the messages as it sends them. If you want to watch the messages as they arrive at your hub, you can install the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md) and use it to monitor the built-in endpoint.
 
 1. Send device-to-cloud messages to be routed to storage.
 
@@ -110,7 +110,7 @@ In this section, you register a device in your new IoT hub and then send message
    ![View the sent messages](./media/horizontal-arm-route-messages/08-messages.png)
 
    > [!NOTE]
-   > These messages are encoded in UTF-32 and base64. If you read the message back, you have to decode it from base64 and utf-32 in order to read it as ASCII. If you're interested, you can use the method ReadOneRowFromFile in the Routing Tutorial to read one for from one of these message files and decode it into ASCII. ReadOneRowFromFile is in the IoT C# SDK repository that you unzipped for this quickstart. Here is the path from the top of that folder: *./iothub/device/samples/getting started/RoutingTutorial/SimulatedDevice/Program.cs.* Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it will open and translate the first row in the file.
+   > These messages are encoded in UTF-32 and base64. If you read the message back, you have to decode it from base64 and utf-32 in order to read it as ASCII. If you're interested, you can use the method ReadOneRowFromFile in the Routing Tutorial to read one for from one of these message files and decode it into ASCII. ReadOneRowFromFile is in the IoT C# SDK repository that you unzipped for this quickstart. Here's the path from the top of that folder: *./iothub/device/samples/getting started/RoutingTutorial/SimulatedDevice/Program.cs.* Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it opens and translates the first row in the file.
 
 In this quickstart, you deployed an ARM template to create an IoT hub and a storage account, then run a program to send messages to the hub. The messages are routed based on their message properties and stored in the storage account where they can be viewed.
 

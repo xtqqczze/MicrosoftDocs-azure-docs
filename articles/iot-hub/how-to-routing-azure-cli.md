@@ -7,7 +7,7 @@ ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 services: iot-hub
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 08/13/2025
 ms.author: sonialopez
 ---
 
@@ -45,7 +45,7 @@ Decide which Azure service you want to use as an endpoint to receive routed devi
 
 1. Create an Event Hubs namespace and an event hub. For more information, see [Quickstart: Create an event hub by using the Azure CLI](../event-hubs/event-hubs-quickstart-cli.md).
 
-1. Create an authorization rule that will be used to give IoT Hub permission to send data to the event hub.
+1. Create an authorization rule that is used to give IoT Hub permission to send data to the event hub.
 
    > [!TIP]
    > The `name` parameter's value `RootManageSharedAccessKey` is the default name that allows **Manage, Send, Listen** claims (access). If you want to restrict the claims, give the `name` parameter your own unique name and include the `--rights` flag followed by one of the claims. For example, `--name my-name --rights Send`.
@@ -60,7 +60,7 @@ Decide which Azure service you want to use as an endpoint to receive routed devi
 
 1. Create a Service Bus namespace and queue. For more information, see [Use the Azure CLI to create a Service Bus namespace and a queue](../service-bus-messaging/service-bus-quickstart-cli.md).
 
-1. Create an authorization rule that will give IoT Hub permission to send data to the queue. For `name`, use a unique value for your authorization rule.
+1. Create an authorization rule that gives IoT Hub permission to send data to the queue. For `name`, use a unique value for your authorization rule.
 
    ```azurecli
    az servicebus queue authorization-rule create --resource-group my-resource-group --namespace-name my-namespace --queue-name my-queue --name my-auth-rule --rights Listen
@@ -86,7 +86,7 @@ Create a Cosmos DB account for SQL API and a Cosmos DB container. For more infor
 
 ## Create an endpoint
 
-All IoT Hub routes point to an endpoint, which will receive the routed device and event data. More than one route can point to the same endpoint. Currently, IoT Hub supports endpoints for Event hubs, Service Bus queues or topics, Storage, and Cosmos DB. An instance of the service that you use for your endpoint must exist in your Azure subscription before you create the endpoint.
+All IoT Hub routes point to an endpoint, which receives the routed device and event data. More than one route can point to the same endpoint. Currently, IoT Hub supports endpoints for Event hubs, Service Bus queues or topics, Storage, and Cosmos DB. An instance of the service that you use for your endpoint must exist in your Azure subscription before you create the endpoint.
 
 > [!NOTE]
 > This article uses the [az iot hub message-endpoint](/cli/azure/iot/hub/message-endpoint) command group, which was introduced in version 0.19.0 of the azure-iot extension for the Azure CLI. Previous versions of the azure-iot extension used the `az iot hub routing-endpoint` command group, which is no longer supported.
@@ -215,7 +215,7 @@ To create a Service Bus queue endpoint, use the authorization rule that you crea
    | *iothub_name* | The name of the IoT hub where this endpoint is being created. |
    | *endpoint_name*    | A unique name for the new endpoint. |
    | *storage_connection_string* | The connection string that you copied from the storage account command. |
-   | *container_name* | The name of the container in your storage account where the data will be sent. |
+   | *container_name* | The name of the container in your storage account where the data is sent. |
    | *storage_subscription* | Subscription ID of the Service Bus storage. This argument can be left out if the storage is in the same subscription as the IoT hub. |
    | *storage_group* | Resource group of the Service Bus storage. This argument can be left out if the topic is in the same resource group as the IoT hub. |
 
@@ -240,8 +240,8 @@ To create a Service Bus queue endpoint, use the authorization rule that you crea
    | *iothub_name* | The name of the IoT hub where this endpoint is being created. |
    | *endpoint_name*    | A unique name for the new endpoint. |
    | *cosmosdb_connection_string* | The connection string that you copied from the Cosmos DB account command. |
-   | *container_name* | The name of the container in your Cosmos DB account where the data will be sent. |
-   | *database_name* | The name of the database in your Cosmos DB account where the data will be sent. |
+   | *container_name* | The name of the container in your Cosmos DB account where the data is sent. |
+   | *database_name* | The name of the database in your Cosmos DB account where the data is sent. |
    | *cosmosdb_subscription* | Subscription ID of the Cosmos DB database account. This argument can be left out if the database is in the same subscription as the IoT hub. |
    | *cosmosdb_group* | Resource group of the Cosmos DB database account. This argument can be left out if the database is in the same resource group as the IoT hub. |
 
@@ -250,7 +250,7 @@ To create a Service Bus queue endpoint, use the authorization rule that you crea
    ```
 
    > [!NOTE]
-   > If you are using managed identities instead of connection string, use the [az cosmosdb sql role assignment create](/cli/azure/cosmosdb/sql/role/assignment#az-cosmosdb-sql-role-assignment-create) command to authenticate your identity to the Cosmos DB account.
+   > If you're using managed identities instead of connection string, use the [az cosmosdb sql role assignment create](/cli/azure/cosmosdb/sql/role/assignment#az-cosmosdb-sql-role-assignment-create) command to authenticate your identity to the Cosmos DB account.
    >
    >```azurecli
    >az cosmosdb sql role assignment create -a my-cosmosdb-account -g my-resource-group --scope '/' -n 'Cosmos DB Built-in Data Contributor' -p "IoT Hub System Assigned or User Assigned Identity"
@@ -287,7 +287,7 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
    | --------- | ----- |
    | *iothub_name* | The name of the IoT hub where this route is being created. |
    | *route_name* | A unique name for the new route. |
-   | *endpoint_name* | The name of the endpoint that the route will send data to. |
+   | *endpoint_name* | The name of the endpoint that the route sends data to. |
    | *data_source* | The source of the route. Accepted values are: `deviceconnectionstateevents`, `devicejoblifecycleevents`, `devicelifecycleevents`, `devicemessages`, `digitaltwinchangeevents`, `invalid`, or `twinchangeevents`. |
 
    ```azurecli
@@ -318,7 +318,7 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
 
 ## Update an IoT Hub route
 
-You can update some properties of a route after it's created. You can change the source, endpoint, condition, or enabled state of an existing route.
+You can update some properties of a route after its creation. You can change the source, endpoint, condition, or enabled state of an existing route.
 
 Use the [az iot hub message-route show](/cli/azure/iot/hub/message-route#az-iot-hub-message-route-show) command to view the details of a route.
 
@@ -336,7 +336,7 @@ Use the [az iot hub message-route update](/cli/azure/iot/hub/message-route#az-io
 
 Use the [az iot hub message-route delete](/cli/azure/iot/hub/message-route#az-iot-hub-message-route-delete) command to delete a route from your IoT hub.
 
-Deleting a route doesn't delete its endpoint because other routes may point to the same endpoint. If you want to delete an endpoint, you can do so separately from deleting a route.
+Deleting a route doesn't delete its endpoint because other routes might point to the same endpoint. If you want to delete an endpoint, you can do so separately from deleting a route.
 
 ```azurecli
 az iot hub message-route delete --hub-name {iothub_name} --route-name {route_name}

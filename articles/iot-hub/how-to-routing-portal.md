@@ -6,7 +6,7 @@ author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 08/13/2025
 ms.author: sonialopez
 ---
 
@@ -74,7 +74,7 @@ Routes send messages or event logs to an Azure service for storage or processing
    | **Database** | Use the drop-down menu to select an existing database in your Cosmos DB account. |
    | **Collection** | Use the drop-down menu to select an existing collection (or container). |
    | **Generate a synthetic partition key for messages** | Select **Enable** to support data storage for high-scale scenarios. Otherwise, select **Disable** For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partitioning-overview) and [Synthetic partition keys](/azure/cosmos-db/nosql/synthetic-partition-keys). |
-   | **Partition key name** | If you enable synthetic partition keys, provide a name for the partition key. The partition key property name is defined at the container level and can't be changed once it has been set. |
+   | **Partition key name** | If you enable synthetic partition keys, provide a name for the partition key. The partition key property name is defined at the container level and can't be changed once set. |
    | **Partition key template** | Provide a template that is used to configure the synthetic partition key value. The generated partition key value is automatically added to the partition key property for each new Cosmos DB record. |
 
    :::image type="content" source="media/how-to-routing-portal/add-cosmos-db-endpoint.png" alt-text="Screenshot that shows details of the Add a Cosmos DB endpoint form." lightbox="media/how-to-routing-portal/add-cosmos-db-endpoint.png":::

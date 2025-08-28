@@ -6,7 +6,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 08/13/2025
 ---
 
 # Configure IoT Hub file uploads using the Azure portal
@@ -33,17 +33,17 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
    :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-container-selection.png" alt-text="Screenshot showing how to view storage containers for file upload.":::
 
-1. After you've selected an Azure Storage account and blob container, configure the rest of the file upload properties.
+1. After you select an Azure Storage account and blob container, configure the rest of the file upload properties.
 
     * **Receive notifications for uploaded files**: Enable or disable file upload notifications via the toggle.
 
     * **SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub. Set to one hour by default but can be customized to other values using the slider.
 
-    * **File notification settings default TTL**: The time-to-live of a file upload notification before it's expired. Set to one day by default but can be customized to other values using the slider.
+    * **File notification settings default TTL**: The time-to-live of a file upload notification before it expires. Set to one day by default but can be customized to other values using the slider.
 
     * **File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default but can be customized to other values using the slider.
 
-    * **Authentication type**: By default, Azure IoT Hub uses key-based authentication to connect and authorize with Azure Storage. You can also configure user-assigned or system-assigned managed identities to authenticate Azure IoT Hub with Azure Storage. Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. To learn how to configure managed identities, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md). After you've configured one or more managed identities on your Azure Storage account and IoT hub, you can select one for authentication with Azure storage with the **System-assigned** or **User-assigned** buttons.
+    * **Authentication type**: By default, Azure IoT Hub uses key-based authentication to connect and authorize with Azure Storage. You can also configure user-assigned or system-assigned managed identities to authenticate Azure IoT Hub with Azure Storage. Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. To learn how to configure managed identities, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md). After you configure one or more managed identities on your Azure Storage account and IoT hub, you can select one for authentication with Azure storage with the **System-assigned** or **User-assigned** buttons.
 
         > [!NOTE]
         > The authentication type setting configures how your IoT hub authenticates with your Azure Storage account. Devices always authenticate with Azure Storage using the SAS URI that they get from the IoT hub. 
