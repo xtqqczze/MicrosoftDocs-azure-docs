@@ -6,13 +6,13 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 05/06/2019
+ms.date: 08/13/2025
 ms.custom: mqtt
 ---
 
 # Schedule jobs on multiple devices
 
-Azure IoT Hub enables a number of building blocks like [device twin properties and tags](iot-hub-devguide-device-twins.md) and [direct methods](iot-hub-devguide-direct-methods.md). Typically, back-end apps enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time. Jobs execute device twin updates and direct methods against a set of devices at a scheduled time. For example, an operator would use a back-end app that initiates and tracks a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
+Azure IoT Hub enables many building blocks like [device twin properties and tags](iot-hub-devguide-device-twins.md) and [direct methods](iot-hub-devguide-direct-methods.md). Typically, back-end apps enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time. Jobs execute device twin updates and direct methods against a set of devices at a scheduled time. For example, an operator would use a back-end app that initiates and tracks a job to reboot a set of devices in building 43 and floor 3 at a time that wouldn't be disruptive to the operations of the building.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -24,7 +24,7 @@ Consider using jobs when you need to schedule and track progress any of the foll
 
 ## Job lifecycle
 
-Jobs are initiated by the solution back end and maintained by IoT Hub. You can initiate a job through a service-facing URI (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2021-04-12`) and query for progress on an executing job through a service-facing URI (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2021-04-12`). To refresh the status of running jobs once a job is initiated, run a job query. There is no explicit purge of job history, but they have a TTL of 30 days. 
+Jobs are initiated by the solution back end and maintained by IoT Hub. You can initiate a job through a service-facing URI (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2021-04-12`) and query for progress on an executing job through a service-facing URI (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2021-04-12`). To refresh the status of running jobs once a job is initiated, run a job query. There's no explicit purge of job history, but they have a TTL of 30 days. 
 
 > [!NOTE]
 > When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
@@ -64,7 +64,7 @@ The query condition can also be on a single device ID or on a list of device IDs
 "queryCondition" = "deviceId IN ['MyDevice1']"
 ```
 
-[IoT Hub Query Language](iot-hub-devguide-query-language.md) covers IoT Hub query language in additional detail.
+[IoT Hub Query Language](iot-hub-devguide-query-language.md) covers IoT Hub query language in more detail.
 
 The following snippet shows the request and response for a job scheduled to call a direct method named testMethod on all devices on contoso-hub-1:
 
@@ -198,9 +198,9 @@ The following list shows the properties and corresponding descriptions, which ca
 | | **deviceJobStatistics.runningCount**: Number of devices that are currently running the job. |
 | | **deviceJobStatistics.pendingCount**: Number of devices that are pending to run the job. |
 
-### Additional reference material
+### Other reference material
 
-Other reference topics in the IoT Hub developer guide include:
+Other reference articles in the IoT Hub developer guide include:
 
 * [IoT Hub endpoints](iot-hub-devguide-endpoints.md) describes the various endpoints that each IoT hub exposes for run-time and management operations.
 

@@ -6,7 +6,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 08/13/2025
 ms.custom: ['Role: Cloud Development']
 ---
 

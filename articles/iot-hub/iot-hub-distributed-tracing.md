@@ -7,7 +7,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 02/29/2024
+ms.date: 08/13/2025
 ms.custom: [amqp, mqtt, fasttrack-edit, references_regions]
 ---
 

@@ -1,24 +1,24 @@
 ---
 title: Query Avro data by using Azure Data Lake Analytics
-description: Use message body properties to route device telemetry to Blob storage and query the Avro format data that's written to Blob storage.
+description: Use message body properties to route device telemetry to Blob storage and query the Avro format data written to Blob storage.
 author: SoniaLopezBravo
 
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 05/15/2019
+ms.date: 08/13/2025
 ---
 # Query Avro data by using Azure Data Lake Analytics
 
 This article discusses how to query Avro data to efficiently route messages from Azure IoT Hub to Azure services. [Message Routing](iot-hub-devguide-messages-d2c.md) allows you to filter data using rich queries based on message properties, message body, device twin tags, and device twin properties. To learn more about the querying capabilities in Message Routing, see the article about [message routing query syntax](iot-hub-devguide-routing-query-syntax.md).
 
-The challenge has been that when Azure IoT Hub routes messages to Azure Blob storage, by default IoT Hub writes the content in Avro format, which has both a message body property and a message property. The Avro format isn't used for any other endpoints. Although the Avro format is great for data and message preservation, it's a challenge to use it to query data. In comparison, JSON or CSV format is easier for querying data. IoT Hub now supports writing data to Blob storage in JSON and AVRO.
+The challenge is that when Azure IoT Hub routes messages to Azure Blob storage, by default IoT Hub writes the content in Avro format, which has both a message body property and a message property. The Avro format isn't used for any other endpoints. Although the Avro format is great for data and message preservation, it's a challenge to use it to query data. In comparison, JSON or CSV format is easier for querying data. IoT Hub now supports writing data to Blob storage in JSON and AVRO.
 
 For more information, see [Using Azure Storage as a routing endpoint](iot-hub-devguide-endpoints.md#azure-storage-as-a-routing-endpoint).
 
-To address non-relational big-data needs and formats and overcome this challenge, you can use many of the big-data patterns for both transforming and scaling data. One of the patterns, "pay per query", is Azure Data Lake Analytics, which is the focus of this article. Although you can easily execute the query in Hadoop or other solutions, Data Lake Analytics is often better suited for this "pay per query" approach.
+To address nonrelational big-data needs and formats and overcome this challenge, you can use many of the big-data patterns for both transforming and scaling data. One of the patterns, "pay per query," is Azure Data Lake Analytics, which is the focus of this article. Although you can easily execute the query in Hadoop or other solutions, Data Lake Analytics is often better suited for this "pay per query" approach.
 
-There is an "extractor" for Avro in U-SQL. For more information, see [U-SQL Avro example](https://github.com/Azure/usql/tree/master/Examples/AvroExamples).
+There's an "extractor" for Avro in U-SQL. For more information, see [U-SQL Avro example](https://github.com/Azure/usql/tree/master/Examples/AvroExamples).
 
 ## Query and export Avro data to a CSV file
 
