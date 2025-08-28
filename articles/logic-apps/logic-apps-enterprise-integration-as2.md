@@ -96,7 +96,7 @@ To use the AS2 (v2) connector, follow these steps:
 
    For example, the message payload is the **Body** content output from the Request trigger:
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-as2/as2-v2-encode-details-built-in-standard.png" alt-text="Screenshot shows the Standard workflow designer and AS2 Encode action with the message encoding properties.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-as2/as2-v2-encode-details.png" alt-text="Screenshot shows the Standard workflow designer and AS2 Encode action with the message encoding properties.":::
 
 ### AS2 connector
 
@@ -116,7 +116,7 @@ To use the AS2 (v2) connector, follow these steps:
 
    For example:
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-as2/create-encode-as2-connection-managed-standard.png" alt-text="Screenshot shows Encode to AS2 message connection information.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-as2/create-encode-as2-connection.png" alt-text="Screenshot shows Encode to AS2 message connection information.":::
 
 1. When you're done, select **Create new**.
 
@@ -128,7 +128,7 @@ To use the AS2 (v2) connector, follow these steps:
    | **AS2-To** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
    | **body** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **body** box and then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-as2/encode-as2-message-details-managed-standard.png" alt-text="Screenshot shows the Encode to AS2 message action with the message encoding properties.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-as2/encode-as2-message-details.png" alt-text="Screenshot shows the Encode to AS2 message action with the message encoding properties.":::
 
 <a name="decode"></a>
 
@@ -153,7 +153,7 @@ To use the AS2 (v2) connector, follow these steps:
 
    For example:
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-as2/as2-v2-decode-details-built-in-standard.png" alt-text="Screenshot shows the workflow designer and AS2 Decode action with the message decoding properties.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-as2/as2-v2-decode-details.png" alt-text="Screenshot shows the workflow designer and AS2 Decode action with the message decoding properties.":::
 
 #### AS2 connector
 
@@ -173,7 +173,7 @@ To use the AS2 connector, follow these steps:
 
    For example:
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-as2/create-decode-as2-connection-managed-standard.png" alt-text="Screenshot shows Decode AS2 message connection information.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-as2/create-decode-as2-connection.png" alt-text="Screenshot shows Decode AS2 message connection information.":::
 
 1. When you're done, select **Create new**.
 
@@ -186,7 +186,7 @@ To use the AS2 connector, follow these steps:
 
    For example:
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-as2/decode-as2-message-details-managed-standard.png" alt-text="Screenshot shows the Decode AS2 message action with the Body entered from the Request trigger.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-as2/decode-as2-message-details.png" alt-text="Screenshot shows the Decode AS2 message action with the Body entered from the Request trigger.":::
 
 ## Sample
 
