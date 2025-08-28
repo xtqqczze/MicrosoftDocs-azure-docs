@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 08/21/2025
+ms.date: 08/28/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -19,6 +19,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## August 2025
 
+* [Restore individual files using single-file restore from backup](restore-single-file-backup.md) is now generally available (GA)
+
+  With Azure NetApp Files single file restore from backup, you can restore individual files from Azure NetApp Files backup vault without needing to restore an entire volume. By restoring only the necessary files, you can save cost and time needed for restoring data. 
+    
 * [Short-term clones](create-short-term-clone.md) (Preview)
 
     Azure NetApp Files short-term clones enable space-efficient, instant read/write access to data by creating temporary thin clones from existing volume snapshots, eliminating the need for full data copies and enabling capacity savings. Ideal for software development, analytics, disaster recovery and testing, short-term clones support large datasets and allow quick refreshes from the latest snapshots. Short-term clones remain temporary and space-efficient for up to one month, consuming capacity only for incremental changes. This capability accelerates development and analytics workflows, improves quality and resilience, and reduces costs by avoiding full copy storage and minimizing operational overhead. This capability is available in preview in all Azure NetApp Files supported regions.
