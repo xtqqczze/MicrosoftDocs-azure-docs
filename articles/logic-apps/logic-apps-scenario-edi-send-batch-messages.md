@@ -52,7 +52,7 @@ The batch receiver continues collecting messages until your specified criteria i
 
 For this batch receiver, specify the batch mode, name, release criteria, X12 agreement, and other settings. 
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, create a logic app with the following name: **BatchX12Messages**
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, create a logic app with the following name: **BatchX12Messages**.
 
 1. [Link your logic app to your integration account](logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
