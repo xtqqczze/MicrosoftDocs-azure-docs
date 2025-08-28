@@ -20,7 +20,7 @@ Durable Functions is an extension of [Azure Functions](../functions-overview.md)
 * They're designed to be durable and reliable. Run progress is automatically saved as a checkpoint when the function calls an `await` or `yield` operator. Local state isn't lost when the process recycles or the virtual machine reboots.
 * They can be long running. The total lifespan of an *orchestration instance* can be seconds, days, or months, or the instance can be configured to never end.
 
-This article gives you an overview of orchestrator functions and how they can help you solve various app development challenges. For information about the types of functions available in a Durable Functions app, see [Durable Function types](durable-functions-types-features-overview.md).
+This article gives you an overview of orchestrator functions and how they can help you solve various app development challenges. For information about the types of functions available in a Durable Functions app, see [Durable Functions types and features](durable-functions-types-features-overview.md).
 
 ## Orchestration identity
 
@@ -187,7 +187,7 @@ Whenever an activity function is scheduled, the Durable Task Framework saves the
 
 Generally speaking, the Durable Task Framework does the following at each checkpoint:
 
-* Saves run history into durable storage.
+* Saves the run history into durable storage.
 * Enqueues messages for functions the orchestrator wants to invoke.
 * Enqueues messages for the orchestrator itself, such as durable timer messages.
 
@@ -222,8 +222,8 @@ The table columns contain the following values:
 * **PartitionKey**: The instance ID of the orchestration.
 * **EventType**: The type of the event. For detailed descriptions of all the history event types, see [Durable Task Framework History Events](https://github.com/Azure/durabletask/tree/main/src/DurableTask.Core/History#readme).
 * **Timestamp**: The Coordinated Universal Time timestamp of the history event.
-* **Name**: The name of the invoked function.
 * **Input**: The JSON-formatted input of the function.
+* **Name**: The name of the invoked function.
 * **Result**: The output of the function, specifically, its return value.
 
 > [!WARNING]
@@ -292,7 +292,7 @@ The critical section feature is also useful for coordinating changes to durable 
 
 ### Calls to HTTP endpoints (Durable Functions 2.x)
 
-Orchestrator functions aren't permitted to do I/O operations, as described in [orchestrator function code constraints](durable-functions-code-constraints.md). The typical workaround for this limitation is to wrap any code that needs to do I/O operations in an activity function. Orchestrations that interact with external systems frequently use activity functions to make HTTP calls and return the results to the orchestration.
+Orchestrator functions aren't permitted to do I/O operations, as described in [Orchestrator function code constraints](durable-functions-code-constraints.md). The typical workaround for this limitation is to wrap any code that needs to do I/O operations in an activity function. Orchestrations that interact with external systems frequently use activity functions to make HTTP calls and return the results to the orchestration.
 
 # [C# (InProc)](#tab/csharp-inproc)
 
