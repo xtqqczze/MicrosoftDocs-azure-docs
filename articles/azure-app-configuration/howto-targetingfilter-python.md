@@ -12,7 +12,7 @@ ms.date: 08/14/2025
 
 # Roll out features to targeted audiences in a Python application
 
-In this guide, you'll use the targeting filter to roll out a feature to targeted audiences for your Python application. For more information about the targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
+In this guide, you'll use a targeting filter to roll out a feature to targeted audiences for your Python application. For more information about this targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
 
 ## Prerequisites
 
