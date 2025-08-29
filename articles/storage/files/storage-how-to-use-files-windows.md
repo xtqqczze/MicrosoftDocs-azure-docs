@@ -4,10 +4,8 @@ description: Learn how to mount an SMB Azure file shares on Windows and Windows 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/24/2025
+ms.date: 08/29/2025
 ms.author: kendownie
-ms.custom: ai-video-demo
-ai-usage: ai-assisted
 # Customer intent: "As an IT professional managing cloud storage, I want to mount an Azure file share on Windows, so that I can easily access and manage files stored in the cloud as if they were on a local drive."
 ---
 
@@ -28,11 +26,6 @@ ai-usage: ai-assisted
 | Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-
-This video shows you how to mount an SMB Azure file share on Windows.
-> [!VIDEO c057ece1-3ba7-409b-8cee-5492a4ad4ee4]
-
-The steps in the video are also described in the following sections.
 
 Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) on SSD file shares only.
 
@@ -180,13 +173,13 @@ If your AD source is Microsoft Entra Domain services, you can also provide crede
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<DOMAINNAME\username>
 ```
 
-## Mount the Azure file share using the storage account key
+## Mount the Azure file share using the storage account key (not recommended)
 
 The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host using the storage account key. However, we recommend using identity-based authentication instead of the storage account key for security reasons. If you must use the storage account key, follow the [mount instructions](#mount-the-azure-file-share), but under **Authentication method**, select *Storage account key*.
 
 A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. You can find your storage account key in the [Azure portal](https://portal.azure.com/) by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 
-## Mount the Azure file share with File Explorer
+### Mount the Azure file share with File Explorer
 
 1. Open File Explorer by opening it from the Start Menu, or by pressing the Win+E shortcut.
 
@@ -211,7 +204,7 @@ A storage account key is an administrator key for a storage account, including a
 > [!NOTE]
 > Azure Files doesn't support SID to UPN translation for users and groups from a non-domain joined VM or a VM joined to a different domain via Windows File Explorer. If you want to view file/directory owners or view/modify NTFS permissions via Windows File Explorer, you can do so only from domain-joined VMs.
 
-## Access an Azure file share via its UNC path
+### Access an Azure file share via its UNC path
 
 You don't need to mount the Azure file share to a drive letter to use it. You can directly access your Azure file share using the [UNC path](/windows/win32/fileio/naming-a-file) by entering the following into File Explorer. Be sure to replace *storageaccountname* with your storage account name and *myfileshare* with your file share name:
 
