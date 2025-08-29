@@ -12,7 +12,9 @@ ms.date: 01/04/2024
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-When your logic app works with result sets so large that the [SQL connector](../connectors/connectors-create-api-sqlazure.md) doesn't return all the results at the same time, or if you want more control over the size and structure for your result sets, you can create a [stored procedure](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) that organizes the results the way that you want. The SQL connector provides many backend features that you can access by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) so that you can more easily automate business tasks that work with SQL database tables.
+To more easily automate business tasks that work with SQL database tables, use the SQL connector, which provides many backend features that you can access by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+
+Your logic app might work with result sets so large that the [SQL connector](../connectors/connectors-create-api-sqlazure.md) doesn't return all the results at the same time. In other cases, you might want more control over the size and structure for your result sets. You can create a [stored procedure](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) that organizes the results the way that you want. 
 
 For example, when getting or inserting multiple rows, your logic app can iterate through these rows by using an [**Until** loop](../logic-apps/logic-apps-control-flow-loops.md#until-loop) within these [limits](../logic-apps/logic-apps-limits-and-config.md). However, when your logic app has to work with thousands or millions of rows, you want to minimize the costs resulting from calls to the database. For more information, see [Handle bulk data using the SQL connector](../connectors/connectors-create-api-sqlazure.md#handle-bulk-data).
 
@@ -43,13 +45,13 @@ Rather than directly call the stored procedure, you can asynchronously run the p
 > and thus your stored procedure, multiple times. To avoid duplicating output, 
 > before you create any objects, review these [best practices and approaches](/azure/azure-sql/database/elastic-jobs-overview#idempotent-scripts).
 
-The next section describes how you can use the Azure Elastic Job Agent for Azure SQL Database. For SQL Server and Azure SQL Managed Instance, you can use the SQL Server Agent. Some management details will differ, but the fundamental steps remain the same as setting up a job agent for Azure SQL Database.
+The next section describes how you can use the Azure Elastic Job Agent for Azure SQL Database. For SQL Server and Azure SQL Managed Instance, you can use the SQL Server Agent. Some management details differ, but the fundamental steps remain the same as setting up a job agent for Azure SQL Database.
 
 <a name="azure-sql-database"></a>
 
 ## Job agent for Azure SQL Database
 
-To create a job that can run the stored procedure for [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), use the [Azure Elastic Job Agent](/azure/azure-sql/database/elastic-jobs-overview). Create your job agent in the Azure portal. This approach will add several stored procedures to the database that's used by the agent, also known as the *agent database*. You can then create a job that runs your stored procedure in the target database and captures the output when finished.
+To create a job that can run the stored procedure for [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), use the [Azure Elastic Job Agent](/azure/azure-sql/database/elastic-jobs-overview). Create your job agent in the Azure portal. This approach adds several stored procedures to the database that's used by the agent, also known as the *agent database*. You can then create a job that runs your stored procedure in the target database and captures the output when finished.
 
 Before you can create the job, you need to set up permissions, groups, and targets as described by the [full documentation for the Azure Elastic Job Agent](/azure/azure-sql/database/elastic-jobs-overview). You also need to create a supporting table in the target database as described in the following sections.
 
@@ -118,7 +120,7 @@ Here are the steps to add:
 
 1. Query the parameters from the state table and pass them to the stored procedure. This step also runs the procedure in the background. 
 
-   If your stored procedure doesn't need parameters, just directly call the stored procedure. Otherwise, to pass the `@timespan` parameter, use the `@callparams`, which you can also extend to pass additional parameters.
+   If your stored procedure doesn't need parameters, directly call the stored procedure. Otherwise, to pass the `@timespan` parameter, use the `@callparams`, which you can also extend to pass more parameters.
 
    ```sql
    EXEC jobs.sp_add_jobstep
