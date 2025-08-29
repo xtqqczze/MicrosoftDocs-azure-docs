@@ -114,7 +114,7 @@ To use Encode to X12 message operation in your workflow, follow these steps:
 
    For example:
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-x12/create-x12-encode-connection.png" alt-text="Screenshot shows a workflow with connection information for an action named Encode to X12 message by agreement name.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-x12/create-encode-connection.png" alt-text="Screenshot shows a workflow with connection information for an action named Encode to X12 message by agreement name." lightbox="./media/logic-apps-enterprise-integration-x12/create-encode-connection.png":::
    
 1. When you're done, select **Create new**.
 
@@ -128,7 +128,7 @@ To use Encode to X12 message operation in your workflow, follow these steps:
 
    For example, you can use the **Body** content output from the Request trigger as the XML message payload. Select in the box, then select the lightning icon to open the dynamic content list.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-x12/encode-x12-message-agreement.png" alt-text="Screenshot shows an action named Encode to X12 message by agreement name with parameters specified.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-x12/encode-message-agreement.png" alt-text="Screenshot shows an action named Encode to X12 message by agreement name with parameters specified." lightbox="./media/logic-apps-enterprise-integration-x12/encode-message-agreement.png":::
 
 <a name="decode"></a>
 
@@ -184,7 +184,7 @@ To use the **Decode X12 message** operation in your workflow, follow these steps
 
    For example:
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-x12/create-x12-decode-connection.png" alt-text="Screenshot shows a workflow with connection information for an action named Decode X12 message.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-x12/create-decode-connection.png" alt-text="Screenshot shows a workflow with connection information for an action named Decode X12 message." lightbox="./media/logic-apps-enterprise-integration-x12/create-decode-connection.png":::
 
 1. When you're done, select **Create**.
 
@@ -197,7 +197,7 @@ To use the **Decode X12 message** operation in your workflow, follow these steps
 
    For example, you can use the **Body** content output from the Request trigger as the XML message payload. First preprocess this content using an expression. Select in the box to open the expression editor.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-x12/decode-x12-message.png" alt-text="Screenshot shows an action named Decode X12 message with parameters specified.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-x12/decode-message.png" alt-text="Screenshot shows an action named Decode X12 message with parameters specified." lightbox="./media/logic-apps-enterprise-integration-x12/decode-message.png":::
 
 ## Related content
 
