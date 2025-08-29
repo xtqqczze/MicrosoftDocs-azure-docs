@@ -8,7 +8,7 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/29/2025
-#Customer intent: As a integration developer, I want to use Azure Logic Apps workflows to manage B2B workflows that use AS2 messages.
+#Customer intent: As an integration developer, I want to use Azure Logic Apps workflows to manage B2B workflows that use AS2 messages.
 ---
 
 # Exchange AS2 messages using workflows in Azure Logic Apps
