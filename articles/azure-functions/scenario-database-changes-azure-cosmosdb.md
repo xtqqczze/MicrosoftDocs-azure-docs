@@ -29,6 +29,7 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
+::: zone-end
 ::: zone pivot="programming-language-csharp"  
 + [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
 
@@ -132,29 +133,6 @@ This project is configured to use the `azd provision` command to create a functi
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette, search for and run the command `Azure Developer CLI (azd): Sign In with Azure Developer CLI`, and then sign in using your Azure account.
 
-1. While the Bicep template that creates Azure Cosmos DB resources can enable access for user accounts, this behavior is disabled by default. Because the local Functions host makes connections to Azure with your user account, you must enable this access for local verification. Run these commands from the Terminal to ensure that your current user account is granted access to remote Azure resources:
-
-    ### [Linux/macOS](#tab/linux) 
-
-    ```bash
-    userId=$(az ad signed-in-user show --query id -o tsv)
-    azd env set userIdentityPrincipalId $userId
-    azd env set allowUserIdentityPrincipal true
-    azd env get-values
-    ```
-    
-
-    ### [Windows](#tab/windows-cmd)
-
-    ```cmd
-	for /f %i in ('az ad signed-in-user show --query id -o tsv') do set userId=%i
-	azd env set userIdentityPrincipalId %userId%
-	azd env set allowUserIdentityPrincipal true
-    azd env get-values
-    ```
-
-    ---
-
 1. Press <kbd>F1</kbd> to open the command palette, search for and run the command `Azure Developer CLI (azd): Provision Azure resources (provision)` to create the required Azure resources:
 
 1. When prompted in the Terminal window, provide these required deployment parameters:
@@ -213,7 +191,7 @@ py -m venv .venv
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Run the function locally  
 
-Visual Studio Code integrates with [Azure Functions Core tools](../articles/azure-functions/functions-run-local.md) to let you run this project on your local development computer before you publish to your new function app in Azure.
+Visual Studio Code integrates with [Azure Functions Core tools](functions-run-local.md) to let you run this project on your local development computer before you publish to your new function app in Azure.
 
 1. Press <kbd>F1</kbd> and in the command palette search for and run the command `Azurite: Start`.  
 

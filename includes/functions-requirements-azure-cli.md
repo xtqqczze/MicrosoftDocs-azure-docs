@@ -21,5 +21,5 @@
 ::: zone pivot="programming-language-python" 
 + [Python 3.11](https://www.python.org/)
 
-+ [Azurite storage emulator](../articles/storage/common/storage-use-azurite.md?tabs=npm#install-azurite)
++ [Azurite storage emulator](../articles/storage/common/storage-use-azurite.md#install-azurite)
 ::: zone-end  
