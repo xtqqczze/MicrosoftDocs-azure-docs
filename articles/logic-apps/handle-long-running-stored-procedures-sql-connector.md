@@ -1,11 +1,12 @@
 ---
 title: Handle long-running stored procedures in the SQL connector
-description: Handle stored procedures that time out when using the SQL connector in Azure Logic Apps.
+description: Learn how to handle stored procedures that time out when using the SQL connector in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: camerost, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 09/03/2025
+#Customer intent: As an integration developer who uses stored procedures in SQL databases, I want to use the SQL connector in Azure Logic Apps to support large result sets.
 ---
 
 # Handle stored procedure timeouts in the SQL connector for Azure Logic Apps
@@ -16,15 +17,17 @@ To more easily automate business tasks that work with SQL database tables, use t
 
 Your logic app might work with result sets so large that the [SQL connector](../connectors/connectors-create-api-sqlazure.md) doesn't return all the results at the same time. In other cases, you might want more control over the size and structure for your result sets. You can create a [stored procedure](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) that organizes the results the way that you want. 
 
-For example, when getting or inserting multiple rows, your logic app can iterate through these rows by using an [**Until** loop](../logic-apps/logic-apps-control-flow-loops.md#until-loop) within these [limits](../logic-apps/logic-apps-limits-and-config.md). However, when your logic app has to work with thousands or millions of rows, you want to minimize the costs resulting from calls to the database. For more information, see [Handle bulk data using the SQL connector](../connectors/connectors-create-api-sqlazure.md#handle-bulk-data).
+For example, when it gets or inserts multiple rows, your logic app can iterate through these rows by using an [**Until** loop](../logic-apps/logic-apps-control-flow-loops.md#until-loop) within these [limits](../logic-apps/logic-apps-limits-and-config.md). When your logic app has to work with thousands or millions of rows, you want to minimize the costs resulting from calls to the database. For more information, see [Handle bulk data using the SQL connector](../connectors/connectors-create-api-sqlazure.md#handle-bulk-data).
 
 <a name="timeout-limit"></a>
 
 ## Timeout limit on stored procedure execution
 
-The SQL connector has a stored procedure timeout limit that's [less than 2-minutes](/connectors/sql/#known-issues-and-limitations). Some stored procedures might take longer than this limit to complete, causing a `504 Timeout` error. Sometimes these long-running processes are coded as stored procedures explicitly for this purpose. Due to the timeout limit, calling these procedures from Azure Logic Apps might create problems. Although the SQL connector doesn't natively support an asynchronous mode, you can work around this problem and simulate this mode by using a SQL completion trigger, native SQL pass-through query, a state table, and server-side jobs. For this task, you can use the [Azure Elastic Job Agent](/azure/azure-sql/database/elastic-jobs-overview) for [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview). For [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview), you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
+The SQL connector has a stored procedure timeout limit that's [less than 2-minutes](/connectors/sql/#known-issues-and-limitations). Some stored procedures might take longer than this limit to complete, which causes a `504 Timeout` error. Sometimes these long-running processes are coded as stored procedures explicitly for this purpose. Due to the timeout limit, calling these procedures from Azure Logic Apps might create problems.
 
-For example, suppose that you have the following long-running stored procedure, which takes longer than the timeout limit to finish running. If you run this stored procedure from a logic app by using the SQL connector, you get an `HTTP 504 Gateway Timeout` error as the result.
+The SQL connector doesn't natively support an asynchronous mode. To work around this limitation, simulate this mode by using a SQL completion trigger, native SQL pass-through query, a state table, and server-side jobs. For this task, you can use the [Azure Elastic Job Agent](/azure/azure-sql/database/elastic-jobs-overview) for [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview). For [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview), you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
+
+For example, suppose that you have the following long-running stored procedure. It takes longer than the timeout limit to finish running. If you run this stored procedure from a logic app by using the SQL connector, you get an `HTTP 504 Gateway Timeout` error.
 
 ```sql
 CREATE PROCEDURE [dbo].[WaitForIt]
@@ -39,13 +42,10 @@ END
 Rather than directly call the stored procedure, you can asynchronously run the procedure in the background by using a *job agent*. You can store the inputs and outputs in a state table that you can then interact with through your logic app. If you don't need the inputs and outputs, or if you're already writing the results to a table in the stored procedure, you can simplify this approach.
 
 > [!IMPORTANT]
-> Make sure that your stored procedure and all jobs are *idempotent*, 
-> which means that they can run multiple times without affecting the results. 
-> If the asynchronous processing fails or times out, the job agent might retry the step, 
-> and thus your stored procedure, multiple times. To avoid duplicating output, 
-> before you create any objects, review these [best practices and approaches](/azure/azure-sql/database/elastic-jobs-overview#idempotent-scripts).
+>
+> Make sure that your stored procedure and all jobs are *idempotent*, which means that they can run multiple times without affecting the results. If the asynchronous processing fails or times out, the job agent might retry the step, and thus your stored procedure, multiple times. To avoid duplicating output, before you create any objects, review these [best practices and approaches](/azure/azure-sql/database/elastic-jobs-overview#idempotent-scripts).
 
-The next section describes how you can use the Azure Elastic Job Agent for Azure SQL Database. For SQL Server and Azure SQL Managed Instance, you can use the SQL Server Agent. Some management details differ, but the fundamental steps remain the same as setting up a job agent for Azure SQL Database.
+The next section describes how you can use the Azure Elastic Job Agent for Azure SQL Database. For SQL Server and Azure SQL Managed Instance, you can use the SQL Server Agent. The fundamental steps remain the same as setting up a job agent for Azure SQL Database.
 
 <a name="azure-sql-database"></a>
 
@@ -80,7 +80,7 @@ CREATE TABLE [dbo].[LongRunningState](
 
 Here's how the resulting table looks in [SQL Server Management Studio (SMSS)](/sql/ssms/download-sql-server-management-studio-ssms):
 
-![Screenshot that shows created state table that stores inputs for stored procedure.](media/handle-long-running-stored-procedures-sql-connector/state-table-input-parameters.png)
+:::image type="content" source="media/handle-long-running-stored-procedures-sql-connector/state-table-input-parameters.png" alt-text="Screenshot shows created state table that stores inputs for stored procedure.":::
 
 To ensure good performance and make sure that the agent job can find the associated record, the table uses the job execution ID (`jobid`) as the primary key. If you want, you can also add individual columns for the input parameters. The previously described schema can more generally handle multiple parameters but is limited to the size calculated by `NVARCHAR(MAX)`.
 
@@ -97,13 +97,13 @@ EXEC jobs.sp_add_job
    @enabled = 1
 ```
 
-Now, add steps to the job that parameterize, run, and complete the stored procedure. By default, a job step times out after 12 hours. If your stored procedure needs more time, or if you want the procedure to time out earlier, you can change the `step_timeout_seconds` parameter to another value that's specified in seconds. By default, a step has 10 built-in retries with a backoff timeout between each retry, which you can use to your advantage.
+Add steps to the job that parameterize, run, and complete the stored procedure. By default, a job step times out after 12 hours. If your stored procedure needs more time, or if you want the procedure to time out earlier, you can change the `step_timeout_seconds` parameter to another value that's specified in seconds. By default, a step has 10 built-in retries with a backoff timeout between each retry, which you can use to your advantage.
 
 Here are the steps to add:
 
 1. Wait for the parameters to appear in the `LongRunningState` table.
 
-   This first step waits for the parameters to get added in `LongRunningState` table, which happens soon after the job starts. If the job execution ID (`jobid`) doesn't get added to the `LongRunningState` table, the step merely fails, and the default retry or backoff timeout does the waiting:
+   This first step waits for the parameters to get added in `LongRunningState` table, which happens soon after the job starts. If the job execution ID (`jobid`) doesn't get added to the `LongRunningState` table, the step merely fails. The default retry or backoff timeout does the waiting:
 
    ```sql
    EXEC jobs.sp_add_jobstep
@@ -159,19 +159,19 @@ Here are the steps to add:
 
 To start the job, use a passthrough native query with the [**Execute a SQL query** action](/connectors/sql/#execute-a-sql-query-(v2)) and immediately push the job's parameters into the state table. To provide input to the `jobid` attribute in the target table, Logic Apps adds a **For each** loop that iterates through the table output from the preceding action. For each job execution ID, run an **Insert row** action that uses the dynamic data output, `ResultSets JobExecutionId`, to add the parameters for the job to unpack and pass to the target stored procedure.
 
-![Screenshot that shows actions to use for starting the job and passing parameters to the stored procedure.](media/handle-long-running-stored-procedures-sql-connector/start-job-actions.png)
+:::image type="content" source="media/handle-long-running-stored-procedures-sql-connector/start-job-actions.png" alt-text="Screenshot shows the insert row action and the preceding actions in the workflow.":::
 
-When the job completes, the job updates the `LongRunningState` table so that you can easily trigger on the result by using the [**When an item is modified** trigger](/connectors/sql/#when-an-item-is-modified-(v2)). If you don't need the output, or if you already have a trigger that monitors an output table, you can skip this part.
+When the job completes, the job updates the `LongRunningState` table. You can trigger on the result by using the [**When an item is modified** trigger](/connectors/sql/#when-an-item-is-modified-(v2)). If you don't need the output, or if you already have a trigger that monitors an output table, you can skip this part.
 
-![Screenshot that shows the SQL trigger for when an item is modified.](media/handle-long-running-stored-procedures-sql-connector/trigger-on-results-after-job-completes.png)
+:::image type="content" source="media/handle-long-running-stored-procedures-sql-connector/trigger-on-results-after-job-completes.png" alt-text="Screenshot shows the SQL trigger for when an item is modified.":::
 
 <a name="sql-on-premises-or-managed-instance"></a>
 
 ## Job agent for SQL Server or Azure SQL Managed Instance
 
-For the same scenario, you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent) for [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview). Although some management details differ, the fundamental steps remain the same as the setting up a job agent for Azure SQL Database.
+For the same scenario, you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent) for [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) and [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview). Some management details differ. The fundamental steps remain the same as the setting up a job agent for Azure SQL Database.
 
-## Next steps
+## Next step
 
 [Connect to SQL Server, Azure SQL Database, or Azure SQL Managed Instance](../connectors/connectors-create-api-sqlazure.md)
 
