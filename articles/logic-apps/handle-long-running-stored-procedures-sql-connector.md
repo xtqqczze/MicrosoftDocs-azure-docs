@@ -11,7 +11,7 @@ ms.date: 09/03/2025
 
 # Handle stored procedure timeouts in the SQL connector for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
 To more easily automate business tasks that work with SQL database tables, use the SQL connector, which provides many backend features that you can access by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
