@@ -120,7 +120,7 @@ Rocky Linux | [See supported versions](#rocky-linux-server-supported-kernel-vers
 > [!NOTE]
 >- For each of the Windows versions, Azure Site Recovery only supports [Long-Term Servicing Channel (LTSC)](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc) builds. [Semi-Annual Channel](/windows-server/get-started/servicing-channels-comparison#semi-annual-channel) releases are currently unsupported at this time.
 >- Ensure that for Linux versions, Azure Site Recovery doesn't support customized OS images. Only the stock kernels that are part of the distribution minor version release/update are supported.
-
+>- Oracle Linux 6.10 is not supported as a Generation 2 virtual machine on Azure. Generation 2 VM support for Oracle Linux begins with version 7.0 and later.
 
 #### Supported kernel versions for Red Hat Enterprise Linux for Azure virtual machines 
 
