@@ -91,7 +91,7 @@ To block creating a connection altogether in a logic app workflow, follow these 
 
 1. On the **Policy definition** pane, provide the information for your policy definition, based on the properties described after the image:
 
-   :::image type="content" source="./media/block-connections-connectors/policy-definition-create-connections-1.png" alt-text="Screenshot shows the policy definition values for blocking Instagram.":::
+   :::image type="content" source="./media/block-connections-connectors/policy-definition-create-connection.png" alt-text="Screenshot shows the policy definition values for blocking Instagram.":::
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
@@ -147,7 +147,7 @@ To block creating a connection altogether in a logic app workflow, follow these 
 
    Here's the way that the **POLICY RULE** box appears:
 
-   :::image type="content" source="./media/block-connections-connectors/policy-definition-create-connections-2.png" alt-text="Screenshot shows the POLICY RULE box with a policy rule example.":::
+   :::image type="content" source="./media/block-connections-connectors/policy-definition-create-connection-rule.png" alt-text="Screenshot shows the POLICY RULE box with a policy rule example.":::
 
    For multiple connectors, you can add more conditions, for example:
 
@@ -213,7 +213,7 @@ You can still block the capability to associate the connection with a different 
 
 1. Under **Policy definition**, provide the information for your policy definition, based on the properties described after the image. It continues to use Instagram as the example.
 
-   :::image type="content" source="./media/block-connections-connectors/policy-definition-using-connections-1.png" alt-text="Screenshot shows policy definition values for saving Instagram connections.":::
+   :::image type="content" source="./media/block-connections-connectors/policy-definition-use-connection.png" alt-text="Screenshot shows policy definition values for saving Instagram connections.":::
 
    | Parameter | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -269,7 +269,7 @@ You can still block the capability to associate the connection with a different 
 
    Here's the way that the **POLICY RULE** box appears:
 
-   :::image type="content" source="./media/block-connections-connectors/policy-definition-using-connections-2.png" alt-text="Screenshot shows a policy definition rule.":::
+   :::image type="content" source="./media/block-connections-connectors/policy-definition-use-connection-rule.png" alt-text="Screenshot shows a policy definition rule.":::
 
 1. When you're done, select **Save**.
 
