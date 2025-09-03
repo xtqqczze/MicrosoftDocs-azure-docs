@@ -11,7 +11,7 @@ ms.author: anfdocs
 
 # Configure object REST API access in Azure NetApp Files (preview)
 
-Azure NetApp Files supports read access to S3 objects with the [object REST API](object-rest-api-introduction.md) feature. With the object REST API feature, you can connect to services including Azure AI Search, Azure AI Foundry, Azure Databricks, OneLake, and others.
+Azure NetApp Files supports access to S3 objects with the [object REST API](object-rest-api-introduction.md) feature. With the object REST API feature, you can connect to services including Azure AI Search, Azure AI Foundry, Azure Databricks, OneLake, and others.
 
 ## Register the feature 
 
@@ -46,9 +46,9 @@ When creating the certificate, ensure the **Content Type** is set to PEM. In the
 
 ### [Script](#tab/script)
 
-This script creates a certificate locally. Set the computer name `CN=` and domain `DOMAIN=` to the IP address or full qualified domain name (FQDN) of your object REST API-enabled endpoint. This script creates a folder that includes the necessary PEM file and private keys. 
+This script creates a certificate locally. Set the computer name `CN=` to the IP address or full qualified domain name (FQDN) of your object REST API-enabled endpoint. This script creates a folder that includes the necessary PEM file and private keys. 
 
-1. Create and run the following script:
+Create and run the following script:
 
 ```bash
 #!/bin/sh
@@ -57,7 +57,7 @@ CERT_DAYS=365
 RSA_STR_LEN=2048 
 CERT_DIR="./certs" 
 KEY_DIR="./certs/private" 
-DOMAIN="mylocalsite.local" 
+CN="mylocalsite.local" 
 
 # Create directories if they don't exist 
 mkdir -p $CERT_DIR 
@@ -67,16 +67,18 @@ mkdir -p $KEY_DIR
 openssl genrsa -out $KEY_DIR/server-key.pem $RSA_STR_LEN 
 
 # Generate Certificate Signing Request (CSR) 
-openssl req -new -key $KEY_DIR/server-key.pem -out $CERT_DIR/server-req.pem -subj "/C=US/ST=State/L=City/O=Organization/OU=Unit/CN=$DOMAIN" 
+openssl req -new -key $KEY_DIR/server-key.pem -out $CERT_DIR/server-req.pem -subj "/C=US/ST=State/L=City/O=Organization/OU=Unit/CN=$CN" 
 
 # Generate self-signed certificate 
 openssl x509 -req -days $CERT_DAYS -in $CERT_DIR/server-req.pem -signkey $KEY_DIR/server-key.pem -out $CERT_DIR/server-cert.pem 
 
-echo "Self-signed certificate created at $CERT_DIR/server-cert.pem" 
+echo "Self-signed certificate created at $CERT_DIR/server-cert.pem"
 ```
 --- 
 
 ## Enable object REST API access
+
+To enable object REST API, you must create a bucket. 
 
 1. From your NetApp volume, select **Buckets**. 
 1. To create a bucket, select **+Create**. 
@@ -101,9 +103,7 @@ echo "Self-signed certificate created at $CERT_DIR/server-cert.pem"
 
     :::image type="content" source="./media/object-rest-api-access-configure/create-bucket.png" alt-text="Screenshot of create a bucket menu." lightbox="./media/object-rest-api-access-configure/create-bucket.png":::
 
-1. If you haven't provided a certificate, select the **Certificate source**: Azure Key Vault or Upload a certificate. 
-
-    For Azure Key Vault, select the vault URI from the dropdown menu. 
+1. If you haven't provided a certificate, upload your PEM file. 
 
     To upload a certificate, provide the following information:
 
@@ -114,9 +114,9 @@ echo "Self-signed certificate created at $CERT_DIR/server-cert.pem"
     * **Certificate source**
 
         Upload the appropriate certificate. Only PEM files are supported. 
-
+<!-- replace image
     :::image type="content" source="./media/object-rest-api-access-configure/certificate-management.png" alt-text="Screenshot of certificate management options." lightbox="./media/object-rest-api-access-configure/certificate-management.png":::
-
+-->
     Select **Save**. 
 
 1. Select **Create**. 
@@ -131,11 +131,11 @@ ACCESS KEYS
 
 ## Edit a bucket
 
-After you create a bucket, you have the option to modify the user identifier (UID or GUID) of the bucket.
+After you create a bucket, you have the option to modify the user identifier (UID or GID) of the bucket.
 
 1. In your NetApp account, navigate to **Buckets**. 
 1. Select the three dots `...` at the end of the line next to the name of the bucket you want to modify then select **Edit**. 
-1. Enter the new User ID or Group User ID for the bucket. 
+1. Enter the new User ID or Group ID for the bucket. 
 1. Select **Save**. 
 
 ## Delete a bucket
@@ -149,7 +149,7 @@ Deleting a bucket is a permanent operation. You can't recover the bucket once it
 
 ## Next steps 
 
-* [Understand REST API object](object-rest-api-introduction.md)
+* [Understand object REST API](object-rest-api-introduction.md)
 * [Connect to Azure Databricks](object-rest-api-databricks.md)
 * [Connect to an S3 browser](object-rest-api-browser.md)
 * [Connect to OneLake](object-rest-api-onelake.md)

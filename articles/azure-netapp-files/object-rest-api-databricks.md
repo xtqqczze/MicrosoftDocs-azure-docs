@@ -11,7 +11,7 @@ ms.author: anfdocs
 
 # Connect Azure Databricks to an Azure NetApp Files object REST API-enabled volume 
 
-The [object REST API feature](object-rest-api-introduction.md) enables Azure Databricks and Azure Machine Learning to read and write data to Azure NetApp Files volumes, supporting end-to-end data science workflows from ingestion to model deployment.
+The [object REST API feature](object-rest-api-introduction.md) enables Azure Databricks to read and write data to Azure NetApp Files volumes, supporting end-to-end data science workflows from ingestion to model deployment.
 
 To connect to Azure Databricks, you configure an initialization (init) script to load the SSL certificate for compute endpoints. Using this setup ensures secure communication between Azure Databricks and your Azure NetApp Files object REST API-enabled volume. 
 
@@ -85,18 +85,15 @@ The init script runs during cluster startup. For more information about init scr
 1. Navigate to your Azure Databricks workspace. Open the cluster configuration settings. 
 1. In the **Advanced Options** section, add the path to the init script under **Init Scripts**. For example: `dbfs:/path/to/your/script.sh`
 
-    :::image type="content" source="./media/object-rest-api-databricks/create-new-compute.png" alt-text="Screenshot of Create new compute menu." lightbox="./media/object-rest-api-databricks/create-new-compute.png":::
+    :::image type="content" source="./media/object-rest-api-databricks/create-compute.png" alt-text="Screenshot of Create new compute menu." lightbox="./media/object-rest-api-databricks/create-compute.png":::
 
-1. Select **Create**. 
+1. Select **Confirm**. 
 1. [To apply the changes and load the SSL certificate, restart the cluster.](/azure/databricks/compute/clusters-manage#cluster-start)
 1. [In the logs, validate if the certificate is placed correctly.](/azure/databricks/init-scripts/logs) 
-1. [Create a notebook and attempt to connect to the bucket.](/azure/databricks/notebooks/notebooks-manage#use-the-create-button) Select the VM which had the init script while booting up.
-
-    :::image type="content" source="./media/object-rest-api-databricks/select-workspace.png" alt-text="Screenshot of Select workspace menu." lightbox="./media/object-rest-api-databricks/select-workspace.png":::
 
 ###  Connect to an Azure NetApp Files bucket 
 
-Review the [recommendations to access S3 buckets with URIs and AWS keys](/azure/databricks/connect/storage/amazon-s3#access-s3-buckets-with-uris-and-aws-keys)
+Databricks recommends using secret scopes for storing all credentials. For more information, see [Manage secret scopes](/azure/databricks/security/secrets/#manage-secret-scopes).
 
 1. In your Databricks notebook, configure the Spark session to connect to the Azure NetApp Files bucket. For example: 
     ```
