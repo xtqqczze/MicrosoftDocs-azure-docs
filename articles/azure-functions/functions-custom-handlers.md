@@ -397,10 +397,10 @@ By setting the `message` output equal to the order data that came in from the re
 
 ### HTTP-only function
 
-For HTTP-triggered functions with no additional bindings or outputs, you may want your handler to work directly with the HTTP request and response instead of the custom handler [request](#request-payload) and [response](#response-payload) payloads. This behavior can be configured in *host.json* using the `enableForwardingHttpRequest` setting.
+For HTTP-triggered functions with no additional bindings or outputs, you may want your handler to work directly with the HTTP request and response instead of the custom handler [request](#request-payload) and [response](#response-payload) payloads. This behavior can be configured in *host.json* using the `enableProxyingHttpRequest` setting, which supports response streaming.
 
 > [!IMPORTANT]
-> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications using custom handlers, Azure Functions is not a standard reverse proxy. Some features such as response streaming, HTTP/2, and WebSockets are not available. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](event-driven-scaling.md#cold-start).
+> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications using custom handlers, Azure Functions is not a standard reverse proxy. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](event-driven-scaling.md#cold-start).
 >
 > To address these circumstances, consider running your web apps on [Azure App Service](../app-service/overview.md).
 
@@ -435,7 +435,7 @@ In a folder named *hello*, the *function.json* file configures the HTTP-triggere
 
 The function is configured to accept both `GET` and `POST` requests and the result value is provided via an argument named `res`.
 
-At the root of the app, the *host.json* file is configured to run `handler.exe` and `enableForwardingHttpRequest` is set to `true`.
+At the root of the app, the *host.json* file is configured to run `handler.exe` and `enableProxyingHttpRequest` is set to `true`.
 
 ```json
 {
@@ -444,18 +444,12 @@ At the root of the app, the *host.json* file is configured to run `handler.exe` 
     "description": {
       "defaultExecutablePath": "handler.exe"
     },
-    "enableForwardingHttpRequest": true
+    "enableProxyingHttpRequest": true
   }
 }
 ```
 
-When `enableForwardingHttpRequest` is `true`, the behavior of HTTP-only functions differs from the default custom handlers behavior in these ways:
-
-* The HTTP request does not contain the custom handlers [request](#request-payload) payload. Instead, the Functions host invokes the handler with a copy of the original HTTP request.
-* The Functions host invokes the handler with the same path as the original request including any query string parameters.
-* The Functions host returns a copy of the handler's HTTP response as the response to the original request.
-
-The following is a POST request to the Functions host. The Functions host then sends a copy of the request to the custom handler at the same path.
+The following is a POST request to the Functions host. The Functions host then sends the request to the custom handler.
 
 ```http
 POST http://127.0.0.1:7071/api/hello HTTP/1.1
@@ -514,7 +508,7 @@ The route for the order function here is `/api/hello`, same as the original requ
 
 A custom handler can be deployed to every Azure Functions hosting option. If your handler requires operating system or platform dependencies (such as a language runtime), you may need to use a [custom container](./functions-how-to-custom-container.md).
 
-When creating a function app in Azure for custom handlers, we recommend you select .NET Core as the stack. 
+When creating a function app in Azure for custom handlers, we recommend you select .NET Core as the stack.
 
 To deploy a custom handler app using Azure Functions Core Tools, run the following command.
 
