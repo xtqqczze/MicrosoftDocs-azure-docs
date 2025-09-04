@@ -78,7 +78,7 @@ $resourceGroupName = "rg-pls-directconnect"
 $location = "westus"
 $vnetName = "pls-vnet"
 $subnetName = "pls-subnet"
-$plsName = "pls-directconnect "
+$plsName = "pls-directconnect"
 $destinationIP = "10.0.1.100"
 
 # Create resource group
@@ -286,6 +286,7 @@ output "resource_group_name" {
 
 After creating your Private Link Service Direct Connect, you can create a Private Endpoint to test the connectivity:
 
+
 # [PowerShell](#tab/powershell-pe)
 
 ```powershell
@@ -306,7 +307,7 @@ $peVnet = New-AzVirtualNetwork -Name $peVnetName -ResourceGroupName $peResourceG
 # Get subnet reference for Private Endpoint
 $peSubnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $peVnet -Name $peSubnetName
 
-# Create Private Endpoint (corrected approach)
+# Create Private Endpoint
 $privateEndpoint = New-AzPrivateEndpoint -Name $privateEndpointName -ResourceGroupName $peResourceGroupName -Location $location -Subnet $peSubnet -PrivateLinkServiceId $privateLinkServiceId
 
 Write-Output "Private Endpoint created: $($privateEndpoint.Name)"
