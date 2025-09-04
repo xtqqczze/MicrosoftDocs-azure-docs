@@ -24,7 +24,7 @@ In this quickstart, you create a new instance of Datadog.
 ## Create a Datadog resource
 
 > [!NOTE] 
-> The steps in this article are for creating a new Datadog organization.  See [link to an existing Datadog organization](link-to-existing-organization.md) if you have an existing Datadog organization you'd prefer to link your Azure subscription to.
+> The steps in this article are for creating a new Datadog organization.  See [Link to an existing Datadog organization](link-to-existing-organization.md) if you have an existing Datadog organization you'd prefer to link your Azure subscription to.
 
 ::: zone pivot="azure-cli"
 
