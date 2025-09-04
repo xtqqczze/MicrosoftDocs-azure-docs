@@ -47,6 +47,16 @@ Create a resource group to contain all resources for this quickstart.
 
 ### [Portal](#tab/portal)
 
+1. In the search box at the top of the portal enter **Resource group**. Select **Resource groups** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Create a resource group** page, enter a name for the resource group (for example, **test-rg**) and select a region (for example, **East US**).
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
 ### [PowerShell](#tab/powershell)
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). An Azure resource group is a logical container into which Azure resources are deployed and managed.
@@ -86,6 +96,12 @@ Azure NAT Gateway supports multiple deployment options for IP addresses and redu
 ### Zone redundant IPv4 address
 
 ### [Portal](#tab/portal)
+
+1. In the search box at the top of the portal enter **Public IP address**. Select **Public IP addresses** in the search results.
+
+1. Select **+ Create**.
+
+
 
 ### [PowerShell](#tab/powershell)
 
@@ -139,7 +155,7 @@ az network public-ip create \
 
 ### Create NAT gateway resource
 
-Create a NAT gateway resource using [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The NAT gateway uses the public IP address created in the previous steps. The idle time out is set to 10 minutes.
+Create a NAT gateway resource using [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The NAT gateway uses the public IP address created in the previous steps. The idle time-out is set to 10 minutes.
 
 ```azurecli-interactive
 az network nat gateway create \
@@ -227,7 +243,7 @@ Create a public IP address or prefix to your preference from the previous steps,
 
 ### [PowerShell](#tab/powershell)
 
-Use [New-AzVirtualNetworkSubnetConfig] to create the subnet configurations. Use [New-AzVirtualNetwork] to create the virtual network.
+Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create the subnet configurations. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network.
 
 ```azurepowershell
 ## Create subnet config ##
@@ -294,7 +310,7 @@ az network vnet subnet create \
     --address-prefix 10.0.1.0/26
 ```
 
-Create a NAT gateway resource using [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The NAT gateway uses the public IP address or public IP prefix created in the previous steps. The idle time out is set to 10 minutes.
+Create a NAT gateway resource using [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The NAT gateway uses the public IP address or public IP prefix created in the previous steps. The idle time-out is set to 10 minutes.
 
 #### Public IP
 
@@ -424,7 +440,7 @@ $ip = @{
     Name = 'public-ip-bastion'
     ResourceGroupName = 'test-rg'
     Location = 'eastus'
-    Sku = 'Basic'
+    Sku = 'Standard'
     AllocationMethod = 'Static'
     Zone = 1,2,3
 }
@@ -451,7 +467,7 @@ Create a public IP address for the Bastion host using [az network public-ip crea
 az network public-ip create \
     --resource-group test-rg \
     --name public-ip \
-    --sku Basic \
+    --sku Standard \
     --location eastus \
     --zone 1 2 3
 ```
@@ -464,7 +480,8 @@ az network bastion create \
     --public-ip-address public-ip \
     --resource-group test-rg \
     --vnet-name vnet-1 \
-    --location eastus
+    --location eastus \
+    --sku Developer
 ```
 
 ---
