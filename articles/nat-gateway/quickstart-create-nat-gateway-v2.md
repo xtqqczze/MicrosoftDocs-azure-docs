@@ -77,34 +77,13 @@ az group create \
 
 In this section, create the NAT gateway and supporting resources.
 
-### [Portal](#tab/portal)
-
-### [PowerShell](#tab/powershell)
-
-### Create tag for V2 version IP address and prefix
-
-```azurepowershell
-## Create a tag to identify the version of the IP address ##
-$tag = @{
-    IpTagType = 'StandardV2'
-    Tag = 'StandardV2'
-}
-$ipTag = New-AzPublicIpTag @tag
-```
-
-### [CLI](#tab/cli)
-
-### Create tag for V2 version IP address and prefix
-
----
-
 Azure NAT Gateway supports multiple deployment options for IP addresses and redundancy configurations to meet your connectivity and availability requirements.
 
 - [Zone redundant IPv4 address](#zone-redundant-ipv4-address)
 - [Zone redundant IPv4 prefix](#zone-redundant-ipv4-prefix)
 - [Zone redundant virtual network level](#zone-redundant-virtual-network-level)
 
-#### Zone redundant IPv4 address
+### Zone redundant IPv4 address
 
 ### [Portal](#tab/portal)
 
@@ -122,7 +101,6 @@ $ip = @{
     AllocationMethod = 'Static'
     IpAddressVersion = 'IPv4'
     Zone = 1,2,3
-    IpTag = $ipTag
 }
 $publicIPIPv4 = New-AzPublicIpAddress @ip
 ```
@@ -153,7 +131,7 @@ To access the internet, you need one or more public IP addresses for the NAT gat
 az network public-ip create \
     --resource-group test-rg \
     --name public-ip-nat \
-    --sku Standard \
+    --sku StandardV2 \
     --allocation-method Static \
     --location eastus \
     --zone 1 2 3
@@ -161,7 +139,7 @@ az network public-ip create \
 
 ### Create NAT gateway resource
 
-Create a NAT gateway resource using [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The NAT gateway uses the public IP address created in the previous step. The idle time out is set to 10 minutes.
+Create a NAT gateway resource using [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The NAT gateway uses the public IP address created in the previous steps. The idle time out is set to 10 minutes.
 
 ```azurecli-interactive
 az network nat gateway create \
@@ -169,11 +147,16 @@ az network nat gateway create \
     --name nat-gateway \
     --public-ip-addresses public-ip-nat \
     --idle-timeout 10
+    --zones 1 2 3
 ```
 
 ---
 
-#### Zone redundant IPv4 prefix
+### Zone redundant IPv4 prefix
+
+### [Portal](#tab/portal)
+
+### [PowerShell](#tab/powershell)
 
 Use [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) to create a zone redundant IPv4 public IP prefix for the NAT gateway.
 
@@ -187,7 +170,6 @@ $ip = @{
     PrefixLength = `31`
     IpAddressVersion = 'IPv4'
     Zone = 1,2,3
-    IpTag = $ipTag
 }
 $publicIPIPv4prefix = New-AzPublicIpPrefix @ip
 ```
@@ -206,6 +188,31 @@ $nat = @{
     Zone = 1,2,3
 }
 $natGateway = New-AzNatGateway @nat
+```
+
+### [CLI](#tab/cli)
+
+Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) to create a public IP prefix resource.
+
+```azurecli-interactive
+az network public-ip prefix create \
+    --resource-group test-rg \
+    --name public-ip-prefix-nat \
+    --location eastus \
+    --prefix-length 31 \
+    --sku StandardV2 \
+    --zone 1 2 3
+```
+
+Use [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create) to create the NAT gateway resource.
+
+```azurecli-interactive
+az network nat gateway create \
+    --resource-group test-rg \
+    --name nat-gateway \
+    --public-ip-prefixes public-ip-prefix-nat \
+    --idle-timeout 10
+    --zones 1 2 3
 ```
 
 ---
@@ -265,6 +272,63 @@ $natGateway = New-AzNatGateway @nat
 ```
 
 ### [CLI](#tab/cli)
+
+Create a virtual network named **vnet-1** with a subnet named **subnet-1** using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The IP address space for the virtual network is **10.0.0.0/16**. The subnet within the virtual network is **10.0.0.0/24**.
+
+```azurecli-interactive
+az network vnet create \
+    --resource-group test-rg \
+    --name vnet-1 \
+    --address-prefix 10.0.0.0/16 \
+    --subnet-name subnet-1 \
+    --subnet-prefixes 10.0.0.0/24
+```
+
+Create an Azure Bastion subnet named **AzureBastionSubnet** using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
+
+```azurecli-interactive
+az network vnet subnet create \
+    --name AzureBastionSubnet \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --address-prefix 10.0.1.0/26
+```
+
+Create a NAT gateway resource using [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The NAT gateway uses the public IP address or public IP prefix created in the previous steps. The idle time out is set to 10 minutes.
+
+#### Public IP
+
+```azurecli-interactive
+az network nat gateway create \
+    --resource-group test-rg \
+    --name nat-gateway \
+    --public-ip-addresses public-ip-nat \
+    --idle-timeout 10
+    --zones 1 2 3
+``` 
+
+#### Public IP Prefix
+
+```azurecli-interactive
+az network nat gateway create \
+    --resource-group test-rg \
+    --name nat-gateway \
+    --public-ip-prefixes public-ip-prefix-nat \
+    --idle-timeout 10
+    --zones 1 2 3
+```
+
+Associate the NAT gateway to the subnet using [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+
+```azurecli-interactive
+az network vnet subnet update \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --name subnet-1 \
+    --nat-gateway nat-gateway \
+    --source-vnet vnet-1 \
+    --zone 1 2 3
+```
 
 ---
 
@@ -360,7 +424,7 @@ $ip = @{
     Name = 'public-ip-bastion'
     ResourceGroupName = 'test-rg'
     Location = 'eastus'
-    Sku = 'Standard'
+    Sku = 'Basic'
     AllocationMethod = 'Static'
     Zone = 1,2,3
 }
@@ -387,7 +451,7 @@ Create a public IP address for the Bastion host using [az network public-ip crea
 az network public-ip create \
     --resource-group test-rg \
     --name public-ip \
-    --sku Standard \
+    --sku Basic \
     --location eastus \
     --zone 1 2 3
 ```
