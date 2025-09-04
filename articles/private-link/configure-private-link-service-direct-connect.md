@@ -7,48 +7,78 @@ ms.date: 07/08/2025
 ms.author: altheabata
 ms.reviewer: altheabata
 ---
-# Configure Private Link Service Direct Connect
+# Create a Private Link Service Direct Connect
 
-Customers can now connect any IP-based targets to Private Link Service
-without needing to use a standard load balancer.
+Customers can now connect any IP-based targets to Private Link Service without needing to use a standard load balancer.
+Azure Private Link Service allows service providers to make their applications available to their customers privately and securely. The current setup procedure requires service providers to configure their private link service and place their applications behind a standard internal load balancer. Private Link Service Direct Connect removes this limitation and allows customers to directly connect a private link service to any IP based target within your virtual network. This configuration is particularly useful for scenarios where you need to provide private connectivity to applications that require direct IP-based routing, such as database connections or custom applications.
 
-Azure Private Link Service allows service providers to make their
-applications available to their customers privately and securely. The
-current setup procedure requires service providers to configure their
-private link service and place their applications behind a standard
-internal load balancer. Private Link Service Direct Connect removes this
-limitation and allows customers to directly connect a private link
-service to any IP based target.
+In this article, you'll learn how to create a Private Link Service Direct Connect using Azure PowerShell, Azure CLI, and Terraform.
 
-Note: This feature is currently in public preview and available in
-select regions. We recommend reviewing all considerations before
-enabling it for your subscription
+> [!NOTE]
+> This feature is currently in public preview and available in select regions. We recommend reviewing all considerations before enabling it for your subscription
 
-### Prerequisites
+## Prerequisites
 
-- An active Azure account with a subscription. [Create an account for free](https://azure.microsoft.com/free/).
-
-- Feature flag Microsoft.Network/AllowPrivateLinkServiceUDR enabled in
-  current subscription, see [Enable Azure preview
-  features](https://learn.microsoft.com/azure/azure-resource-manager/management/preview-features).
-
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- Azure PowerShell installed locally or use Azure Cloud Shell. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
+- Azure CLI installed locally or use Azure Cloud Shell. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+- For Terraform: [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
+- Feature flag Microsoft.Network/AllowPrivateLinkServiceUDR enabled in current subscription, see [Enable Azure preview features](https://review.learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features).
 - A virtual network with a subnet
-
 - A routable IP address to set as the destination IP address
 
-### Enable Private Link Service Direct Connect
+## What is Private Link Service Direct Connect?
+
+Private Link Service Direct Connect allows you to:
+
+- **Route traffic directly** to a specific routable IP address within your virtual network
+- **Bypass load balancer requirements** for scenarios that need direct IP connectivity
+- **Support custom routing scenarios** where you need precise control over traffic destination
+- **Configure expanded scenarios** such as secure access to on-premises resources, third-party SaaS, and virtual appliances
+
+### Key requirements
+
+When creating a Private Link Service Direct Connect, you must:
+
+1. **Provide a minimum of 2 IP configurations** - For this feature, at least 2 IP configurations in multiples of 2 are required for high availability
+1. **Specify a static destination IP address** - The target IP must be reachable within your virtual network
+1. **Disable Private Link Service network policies** on the subnet
+1. **Ensure no IP forwarding conflicts** - The destination IP cannot be behind NAT or load balancer forwarding
+
+### Common use cases
+
+- Direct database connectivity for applications requiring static IP connections
+- Custom application scenarios that don't work with load balancer forwarding
+- Legacy applications that need direct IP-based routing
+- Scenarios requiring user-defined routing (UDR) with Private Link
+- On-premises connectivity
+
+## Limitations and considerations
+
+Be aware of these limitations when using Private Link Service Direct Connect:
+
+- **Minimum 2 IP configurations required** - A minimum of 2 IP addresses or in multiples of 2 are required to deploy a PLS Direct Connect.
+- **IP forwarding is enabled** - If there is a policy on the subscription that disables IP forwarding, the policy must be disabled to allow proper configuration.
+- **Static IP requirement** - The destination IP must be static and directly reachable, dynamically changing IPs are not supported
+- **Cross region limitation** - This feature currently requires that the source private endpoint and the private link service must both be in the same region, with this restriction to be removed when the feature is generally available
+- **No migration support** - Using this feature requires the deployment of a new Private Link Service and migration of existing private link services is not supported
+- **Subscription feature flag enablement is required** - Register the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR through this link: [Set up preview features in Azure subscription - Azure Resource Manager | Microsoft Learn](https://review.learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?branch=main&tabs=azure-portal)
+- **Available client support** - You will need to use PowerShell, CLI, or Terraform to deploy this new Private Link Service, Portal client support is pending.
+- **Regional availability** - This feature is currently available in limited regions (North Central US, East US 2, Central US, South Central US, West US, West US 2, West US 3, Asia Southeast, Australia East, Spain Central)
+
+## Create a Private Link Service Direct Connect
 
 # [PowerShell](#tab/powershell)
 
-Use the following script to create a Private Link Service with destination IP using Azure PowerShell:
+Use the following script to create a Private Link Service Direct Connect using Azure PowerShell:
 
 ```powershell
 # Define variables
-$resourceGroupName = "rg-pls-destinationip"
-$location = "East US"
+$resourceGroupName = "rg-pls-directconnect"
+$location = "westus"
 $vnetName = "pls-vnet"
 $subnetName = "pls-subnet"
-$plsName = "pls-with-destinationip"
+$plsName = "pls-directconnect "
 $destinationIP = "10.0.1.100"
 
 # Create resource group
@@ -61,7 +91,7 @@ $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupNa
 # Get subnet reference
 $subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName
 
-# Create IP configurations for Private Link Service (minimum 3 required for destination IP)
+# Create IP configurations for Private Link Service (minimum 2 required for destination IP)
 $ipConfig1 = @{
     Name = "ipconfig1"
     PrivateIpAllocationMethod = "Dynamic"
@@ -76,19 +106,12 @@ $ipConfig2 = @{
     Primary = $false
 }
 
-$ipConfig3 = @{
-    Name = "ipconfig3"
-    PrivateIpAllocationMethod = "Dynamic"
-    Subnet = $subnet
-    Primary = $false
-}
-
-# Create Private Link Service with destination IP
+# Create Private Link Service Direct Connect
 $pls = New-AzPrivateLinkService `
     -Name $plsName `
     -ResourceGroupName $resourceGroupName `
     -Location $location `
-    -IpConfiguration @($ipConfig1, $ipConfig2, $ipConfig3) `
+    -IpConfiguration @($ipConfig1, $ipConfig2) `
     -DestinationIPAddress $destinationIP
 
 Write-Output "Private Link Service created successfully!"
@@ -98,15 +121,15 @@ Write-Output "Destination IP Address: $destinationIP"
 
 # [Azure CLI](#tab/cli)
 
-Use the following script to create a Private Link Service with destination IP using Azure CLI:
+Use the following script to create a Private Link Service Direct Connect using Azure CLI:
 
 ```azurecli
 # Define variables
-resourceGroupName="rg-pls-destinationip"
-location="eastus"
+resourceGroupName="rg-pls-directconnect"
+location="westus"
 vnetName="pls-vnet"
 subnetName="pls-subnet"
-plsName="pls-with-destinationip"
+plsName="pls-directconnect "
 destinationIP="10.0.1.100"
 
 # Create resource group
@@ -127,15 +150,32 @@ az network vnet subnet update \
     --name $subnetName \
     --disable-private-link-service-network-policies true
 
-# Create Private Link Service with destination IP
+# Create Private Link Service Direct Connect
 az network private-link-service create \
     --resource-group $resourceGroupName \
     --name $plsName \
-    --vnet-name $vnetName \
-    --subnet $subnetName \
-    --lb-frontend-ip-configs ipconfig1 ipconfig2 ipconfig3 \
     --destination-ip-address $destinationIP \
-    --location $location
+    --location $location \
+    --ip-configurations '[
+      {
+        "name": "ipconfig1",
+        "primary": true,
+        "private-ip-allocation-method": "Static",
+        "private-ip-address": "10.0.1.10",
+        "subnet": {
+          "id": "/subscriptions/<subscription-id>/resourceGroups/'$resourceGroupName'/providers/Microsoft.Network/virtualNetworks/'$vnetName'/subnets/'$subnetName'"
+        }
+      },
+      {
+        "name": "ipconfig2", 
+        "primary": false,
+        "private-ip-allocation-method": "Static",
+        "private-ip-address": "10.0.1.11",
+        "subnet": {
+          "id": "/subscriptions/<subscription-id>/resourceGroups/'$resourceGroupName'/providers/Microsoft.Network/virtualNetworks/'$vnetName'/subnets/'$subnetName'"
+        }
+      }
+    ]'
 
 echo "Private Link Service created successfully!"
 echo "Destination IP Address: $destinationIP"
@@ -143,7 +183,7 @@ echo "Destination IP Address: $destinationIP"
 
 # [Terraform](#tab/terraform)
 
-Use the following Terraform configuration to create a Private Link Service with destination IP:
+Use the following Terraform configuration to create a Private Link Service Direct Connect:
 
 ```hcl
 # Configure the Azure Provider
@@ -151,7 +191,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~>3.0"
+      version = "~>4.0"
     }
     random = {
       source  = "hashicorp/random"
@@ -173,7 +213,7 @@ resource "random_pet" "rg_name" {
 # Create Resource Group
 resource "azurerm_resource_group" "rg" {
   name     = random_pet.rg_name.id
-  location = "East US"
+  location = "REGION"
 }
 
 # Create Virtual Network
@@ -191,11 +231,11 @@ resource "azurerm_subnet" "pls_subnet" {
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.1.0/24"]
 
-  # Required for Private Link Service with destination IP
+  # Required for Private Link Service Direct Connect
   private_link_service_network_policies_enabled = false
 }
 
-# Create Private Link Service with destination IP
+# Create Private Link Service Direct Connect
 resource "azurerm_private_link_service" "pls" {
   name                = "${random_pet.rg_name.id}-pls"
   location            = azurerm_resource_group.rg.location
@@ -204,7 +244,7 @@ resource "azurerm_private_link_service" "pls" {
   # Destination IP address for direct routing
   destination_ip_address = "10.0.1.100"
 
-  # Minimum 3 IP configurations required for destination IP
+  # Minimum 2 IP configurations required for destination IP
   nat_ip_configuration {
     name     = "ipconfig1"
     primary  = true
@@ -213,12 +253,6 @@ resource "azurerm_private_link_service" "pls" {
 
   nat_ip_configuration {
     name     = "ipconfig2"
-    primary  = false
-    subnet_id = azurerm_subnet.pls_subnet.id
-  }
-
-  nat_ip_configuration {
-    name     = "ipconfig3"
     primary  = false
     subnet_id = azurerm_subnet.pls_subnet.id
   }
@@ -248,65 +282,212 @@ output "resource_group_name" {
 
 ---
 
-### Validate Configuration
+## Create a Private Endpoint to test connectivity
 
-- Portal
+After creating your Private Link Service Direct Connect, you can create a Private Endpoint to test the connectivity:
 
-  - In the Resource JSON pane, select the latest API version
+# [PowerShell](#tab/powershell-pe)
 
-  - Validate that the “destinationIPAddress” is correct
+```powershell
+# Variables for Private Endpoint
+$peResourceGroupName = "rg-pe-test"
+$peVnetName = "pe-vnet"
+$peSubnetName = "pe-subnet"
+$privateEndpointName = "pe-to-pls"
+$privateLinkServiceId = "/subscriptions/your-subscription-id/resourceGroups/rg-pls-destinationip/providers/Microsoft.Network/privateLinkServices/pls-with-destinationip"
 
-- PowerShell
+# Create resource group for PE
+New-AzResourceGroup -Name $peResourceGroupName -Location $location
 
-  - Use Private Link Get Commands and verify that the destination IP
-    address is correct, and the IP Configuration has a provisioning
-    state of “Succeeded”
+# Create VNet for Private Endpoint (corrected parameter name)
+$peSubnet = New-AzVirtualNetworkSubnetConfig -Name $peSubnetName -AddressPrefix "10.1.1.0/24" -PrivateEndpointNetworkPoliciesFlag "Disabled"
+$peVnet = New-AzVirtualNetwork -Name $peVnetName -ResourceGroupName $peResourceGroupName -Location $location -AddressPrefix "10.1.0.0/16" -Subnet $peSubnet
 
-### Limitations
+# Get subnet reference for Private Endpoint
+$peSubnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $peVnet -Name $peSubnetName
 
-| Limit | Description |
-|-------|-------------|
-| Only Static IP is supported | Dynamically changing IPs as a destination target aren't supported with this feature |
-| Using this feature requires the deployment of a new Private Link Service | Migration of existing private link services is not supported |
-| This feature currently requires that the source private endpoint and the private link service must both be in the same region | This restriction will be removed when the feature is generally available |
-| Currently available in limited regions | West Central US<br>UK South<br>East Asia<br>East US |
+# Create Private Endpoint (corrected approach)
+$privateEndpoint = New-AzPrivateEndpoint -Name $privateEndpointName -ResourceGroupName $peResourceGroupName -Location $location -Subnet $peSubnet -PrivateLinkServiceId $privateLinkServiceId
 
-## PLS Direct Connect Integration
+Write-Output "Private Endpoint created: $($privateEndpoint.Name)"
+```
 
-Private Link Service Direct Connect allows you to privately and securely
-connect a private link service to any destination IP address. This
-article describes configuration scenarios.
+# [Azure CLI](#tab/cli-pe)
 
-### PLS Direct Connect scenarios
+```azurecli
+# Variables for Private Endpoint
+peResourceGroupName="rg-pe-test"
+peVnetName="pe-vnet" 
+peSubnetName="pe-subnet"
+privateEndpointName="pe-to-pls"
+privateLinkServiceId="/subscriptions/your-subscription-id/resourceGroups/rg-pls-destinationip/providers/Microsoft.Network/privateLinkServices/pls-with-destinationip"
 
-There are various ways to utilize this feature, such as:
+# Create resource group for PE
+az group create --name $peResourceGroupName --location $location
 
-1. External SaaS connectivity to on-premises
+# Create VNet for Private Endpoint
+az network vnet create \
+    --resource-group $peResourceGroupName \
+    --name $peVnetName \
+    --address-prefix 10.1.0.0/16 \
+    --subnet-name $peSubnetName \
+    --subnet-prefix 10.1.1.0/24
 
-1. Secure access to resources hosted by 3P providers
+# Disable Private Endpoint network policies
+az network vnet subnet update \
+    --resource-group $peResourceGroupName \
+    --vnet-name $peVnetName \
+    --name $peSubnetName \
+    --disable-private-endpoint-network-policies true
 
-1. VNet integration
+# Create Private Endpoint
+az network private-endpoint create \
+    --resource-group $peResourceGroupName \
+    --name $privateEndpointName \
+    --vnet-name $peVnetName \
+    --subnet $peSubnetName \
+    --private-connection-resource-id $privateLinkServiceId \
+    --connection-name "connection-to-pls"
 
-### External SaaS Connectivity to On-premises
+echo "Private Endpoint created: $privateEndpointName"
+```
 
-Application Gateway can be used to control access to 3P SaaS Provider
-connectivity to customer environment. Customer VNET is exposed to the
-provider using a Private Endpoint which is attached to Application
-Gateway. SaaS Provider then uses this to connect to Application Gateway,
-which will then allow SaaS provider to access on-premises resources such
-as SQL Database and other resources.
+# [Terraform](#tab/terraform-pe)
 
-:::image type="content" source="media/pls-direct-connect-microsoft-learn-documentation/image2.png" alt-text="Screenshot of a diagram showing external SaaS connectivity to on-premises resources through Application Gateway and Private Endpoint.":::
+```hcl
+# Create Private Endpoint to test PLS connectivity
+resource "azurerm_resource_group" "pe_rg" {
+  name     = "${random_pet.rg_name.id}-pe"
+  location = "westus"
+}
 
-### Secure Access to Resources Hosted by 3P Providers
+resource "azurerm_virtual_network" "pe_vnet" {
+  name                = "${random_pet.rg_name.id}-pe-vnet"
+  location            = azurerm_resource_group.pe_rg.location
+  resource_group_name = azurerm_resource_group.pe_rg.name
+  address_space       = ["10.1.0.0/16"]
+}
 
-Resources hosted by third party providers can be made accessible. In
-this an Application Gateway Proxy is used to secure access to Storage
-Accounts and SQL resources hosted by a 3rd party provider.
+resource "azurerm_subnet" "pe_subnet" {
+  name                 = "pe-subnet"
+  resource_group_name  = azurerm_resource_group.pe_rg.name
+  virtual_network_name = azurerm_virtual_network.pe_vnet.name
+  address_prefixes     = ["10.1.1.0/24"]
 
-:::image type="content" source="media/pls-direct-connect-microsoft-learn-documentation/image3.png" alt-text="Screenshot of a diagram showing secure access to third-party hosted resources through Application Gateway Proxy.":::
+  private_endpoint_network_policies_enabled = false
+}
 
-### VNet Integration
+resource "azurerm_private_endpoint" "pe" {
+  name                = "${random_pet.rg_name.id}-pe"
+  location            = azurerm_resource_group.pe_rg.location
+  resource_group_name = azurerm_resource_group.pe_rg.name
+  subnet_id           = azurerm_subnet.pe_subnet.id
 
-This feature allows for VNet Integrated workloads like APIM, SQLMI, App
-Service.
+  private_service_connection {
+    name                           = "connection-to-pls"
+    private_connection_resource_id = azurerm_private_link_service.pls.id
+    is_manual_connection           = false
+  }
+}
+
+output "private_endpoint_ip" {
+  description = "IP address of the Private Endpoint"
+  value       = azurerm_private_endpoint.pe.private_service_connection[0].private_ip_address
+}
+```
+
+---
+
+## Verify the configuration
+
+After creating both the Private Link Service and Private Endpoint, verify the configuration:
+
+### Check Private Link Service status
+
+# [PowerShell](#tab/verify-powershell)
+
+```powershell
+# Get Private Link Service details
+$pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $resourceGroupName
+
+Write-Output "Private Link Service: $($pls.Name)"
+Write-Output "Provisioning State: $($pls.ProvisioningState)"
+Write-Output "Destination IP: $($pls.DestinationIPAddress)"
+Write-Output "IP Configurations: $($pls.IpConfigurations.Count)"
+
+# Check Private Endpoint connections
+$connections = $pls.PrivateEndpointConnections
+foreach ($connection in $connections) {
+    Write-Output "PE Connection: $($connection.Name) - Status: $($connection.PrivateLinkServiceConnectionState.Status)"
+}
+```
+
+# [Azure CLI](#tab/verify-cli)
+
+```azurecli
+# Get Private Link Service details
+az network private-link-service show \
+    --name $plsName \
+    --resource-group $resourceGroupName \
+    --query "{name:name, provisioningState:provisioningState, destinationIpAddress:destinationIpAddress, ipConfigCount:length(ipConfigurations)}"
+
+# Check Private Endpoint connections
+az network private-link-service show \
+    --name $plsName \
+    --resource-group $resourceGroupName \
+    --query "privateEndpointConnections[].{name:name, status:privateLinkServiceConnectionState.status}"
+```
+
+---
+
+## Troubleshooting
+
+### Common issues and solutions
+
+**Issue**: "You must include a minimum of 2 IP configurations in multiples of 2"
+
+**Solution**: Ensure you configure at least 2 IP configurations when configuring PLS Direct Connect.
+
+**Issue**: "Cannot reach destination IP address"
+
+**Solution**: Verify that:
+
+- The destination IP is reachable within the virtual network
+- There's no IP forwarding or NAT between the PLS and destination IP
+- Network security groups allow the required traffic
+
+## Clean up resources
+
+When you're finished testing, clean up the resources to avoid ongoing charges:
+
+# [PowerShell](#tab/cleanup-powershell)
+
+```powershell
+# Remove resource groups (this deletes all resources within them)
+Remove-AzResourceGroup -Name $resourceGroupName -Force
+Remove-AzResourceGroup -Name $peResourceGroupName -Force
+```
+
+# [Azure CLI](#tab/cleanup-cli)
+
+```azurecli
+# Remove resource groups (this deletes all resources within them)
+az group delete --name $resourceGroupName --yes --no-wait
+az group delete --name $peResourceGroupName --yes --no-wait
+```
+
+# [Terraform](#tab/cleanup-terraform)
+
+```bash
+# Destroy all Terraform-managed resources
+terraform destroy -auto-approve
+```
+
+---
+
+## Next steps
+
+- [Azure Private Link overview](/azure/private-link/private-link-overview)
+- [Azure Private Link Service overview](/azure/private-link/private-link-service-overview)
+- [Create a private endpoint using Terraform](/azure/private-link/create-private-endpoint-terraform)
+- [Troubleshoot Azure Private Link connectivity problems](/azure/private-link/troubleshoot-private-link-connectivity)
