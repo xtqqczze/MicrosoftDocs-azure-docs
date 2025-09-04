@@ -187,6 +187,7 @@ Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtu
 $subnet = @{
     Name = 'subnet-1'
     AddressPrefix = '10.0.0.0/24'
+    DefaultOutboundAccess = 'False'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -244,6 +245,7 @@ $subnet = @{
     Name = 'subnet-1'
     AddressPrefix = '10.0.0.0/24'
     NatGateway = $natGateway
+    DefaultOutboundAccess = 'False'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
