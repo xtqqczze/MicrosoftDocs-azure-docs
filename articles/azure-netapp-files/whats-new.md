@@ -17,7 +17,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Large volumes breakthrough mode](large-volumes-requirements-considerations.md#register-for-dedicated-capacity) (preview)
+* [Large volumes breakthrough mode](large-volumes-requirements-considerations.md#register-for-breakthrough-mode) (preview)
 
     Azure NetApp Files supports enhanced performance with large volumes for high-performance workloads. 
     

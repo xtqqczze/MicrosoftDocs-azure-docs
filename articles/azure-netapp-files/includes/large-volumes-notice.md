@@ -23,4 +23,4 @@ Regular volumes quotas are between 50 GiB and 100 TiB. Large volume quotas range
 
     If you're using breakthrough mode to increase throughput, select the box.
 
-    You must first be registered to use breakthrough mode. For registration and other considerations, see [breakthrough mode](../large-volumes-requirements-considerations.md#register-for-dedicated-capacity).
+    You must first be registered to use breakthrough mode. For registration and other considerations, see [breakthrough mode](../large-volumes-requirements-considerations.md#register-for-breakthrough-mode).
