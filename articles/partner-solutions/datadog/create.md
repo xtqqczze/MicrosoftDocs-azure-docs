@@ -23,8 +23,6 @@ In this quickstart, you create a new instance of Datadog.
 
 ## Create a Datadog resource
 
-[!INCLUDE [create-resource](../includes/create-resource.md)]
-
 > [!NOTE] 
 > The steps in this article are for creating a new Datadog organization.  See [link to an existing Datadog organization](link-to-existing-organization.md) if you have an existing Datadog organization you'd prefer to link your Azure subscription to.
 
@@ -83,6 +81,8 @@ az datadog monitor show --ids "/subscriptions/{SubID}/resourceGroups/{myResource
 ::: zone-end
 
 ::: zone pivot="azure-portal"
+
+[!INCLUDE [create-resource](../includes/create-resource.md)]
 
 ### Basics tab
 
