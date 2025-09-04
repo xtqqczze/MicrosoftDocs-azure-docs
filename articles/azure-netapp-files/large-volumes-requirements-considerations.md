@@ -156,6 +156,8 @@ You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to re
 ### Register for breakthrough mode
 
 To use breakthrough mode with large volumes, you must first register for the feature.
+
+<!-- insert waitlist -->
  
 Check the status of the feature registration: 
     
