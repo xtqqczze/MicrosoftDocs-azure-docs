@@ -9,6 +9,8 @@ items:
         href: nat-availability-zones.md
       - name: NAT gateway resource
         href: nat-gateway-resource.md
+      - name: NAT Gateway SKUs
+        href: nat-sku.md
       - name: Version 1
         items:
           - name: Create and validate Azure NAT Gateway
