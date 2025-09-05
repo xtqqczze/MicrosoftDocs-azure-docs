@@ -7,13 +7,14 @@ ms.topic: article
 ms.service: azure-nat-gateway
 author: alittleton
 ms.author: alittleton
-
+ms.customs: references_regions
 ---
 
 # Azure NAT Gateway SKUs
+Azure Network Address Translation (NAT) Gateway has two stock-keeping units (SKUs). This article provides an overview of these different SKUs and their differences.
 
-## SKU Comparison
-Azure NAT Gateway has two stock-keeping units (SKUs) - Standard and StandardV2. To compare and understand the differences between Standard and StandardV2 SKU, see the following table.
+## SKU comparison
+Azure Network Address Translation (NAT) Gateway has two stock-keeping units (SKUs) - Standard and StandardV2. To compare and understand the differences between Standard and StandardV2 SKU, see the following table.
 
 | Category | Feature | StandardV2 | Standard |
 |----------|---------|------------|----------|
@@ -35,14 +36,14 @@ Azure NAT Gateway has two stock-keeping units (SKUs) - Standard and StandardV2. 
 | | Connections per IP per destination | 50,000 | 50,000 |
 | | Total connections | 2 million | 2 million | 
 
-## Pricing and Service Level Agreement
+## Pricing and Service Level Agreement (SLA)
 Standard and StandardV2 NAT Gateway are the same price. For more information, see NAT Gateway pricing. 
 
 For Azure NAT Gateway pricing, see [NAT Gateway pricing](https://azure.microsoft.com/pricing/details/azure-nat-gateway/).
 
 For information on the Service Level Agreement (SLA), see [SLA for Azure NAT Gateway](https://azure.microsoft.com/support/legal/sla/virtual-network-nat/v1_0/).
 
-## StandardV2 NAT Gateway Features
+## StandardV2 NAT Gateway features
 
 ### Zone-redundant 
 
@@ -54,7 +55,7 @@ For more information, see [Availability zones](./nat-availability-zones.md).
 
 StandardV2 NAT Gateway supports up to 100 Gbps of bandwidth and can process up to 10 million packets per second.  On a per connection basis, StandardV2 NAT Gateway supports 1 Gbps per connection and 100,000 packets per second (PPS) per connection.  
 
-### Virtual Network attachment 
+### Virtual network attachment 
 
 StandardV2 NAT Gateway supports subnet level attachment and also has the added capability of associating on a virtual network level. Use the source virtual network property to attach StandardV2 NAT Gateway to a virtual network. When attached at the virtual network level, all subnets within the virtual network use the NAT Gateway for outbound connectivity.
 
@@ -98,13 +99,13 @@ StandardV2 SKU NAT Gateway support for IPv6 public IPs is currently in **public 
 
 * Terraform and CLI doesn't yet support StandardV2 NAT Gateway and StandardV2 Public IP deployments. 
 
-## Known Issues 
+## Known issues 
 
 * StandardV2 NAT Gateway disrupts outbound connections made with Load balancer outbound rules for IPv6 traffic only. Before attaching StandardV2 NAT Gateway to a subnet, make sure there isn't IPv6 outbound traffic using Load balancer outbound rules. 
 
 * StandardV2 NAT Gateway associated with a source virtual network disrupts Azure Bastion connectivity. If you're using Azure Bastion to access your virtual machines, attach StandardV2 NAT Gateway directly to subnets instead. 
 
-## Standard NAT Gateway Features
+## Standard NAT Gateway features
 
 Standard SKU is a zonal resource. It's deployed into a specific availability zone and is resilient within that zone. 
 
