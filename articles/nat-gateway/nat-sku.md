@@ -4,7 +4,7 @@ title: NAT Gateway SKUs
 description: Overview of available NAT Gateway SKUs and their differences.
 ms.date: 09/05/2025
 ms.topic: article
-ms.service: virtual-network
+ms.service: azure-nat-gateway
 author: alittleton
 ms.author: alittleton
 
