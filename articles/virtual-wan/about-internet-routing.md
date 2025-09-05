@@ -22,21 +22,40 @@ The following table summarizes the two different modes that define how Virtual W
 |Mode| Internet traffic |
 |--|--|
 |Direct Access|Forwarded **directly** to the Internet after inspection. |
-|Forced Tunnel|Forwarded via **0.0.0.0/0 route learnt** from on-premises, from a Network Virtual Appliance (NVA) or a Virtual WAN static route after inspection. If no 0.0.0.0/0 route exists, forward directly to Internet after inspection. |
+|Forced Tunnel|Forwarded via **0.0.0.0/0 route learnt** from on-premises, from a Network Virtual Appliance (NVA) or a Virtual WAN static route after inspection. If no 0.0.0.0/0 route is learnt from on-premises, a NVA or a static route on a Virtual Network connection, forward directly to Internet after inspection. |
+
+## Availability
+
+The following table shows the availability status of securing Internet access with **direct access** by configuring Internet routing policy. 
+
+| Security solution |Status|
+|--|--|
+|Azure Firewall |Generally Available in Azure Public and Azure Government Clouds.|
+|Firewall NVA in the Virtual WAN hub| Generally Avaialble in Azure Public Cloud |
+| Software-as-a-service in the Virtual WAN Hub| Generally Available in Azure Public Cloud|
+
+The following table shows the availability status of securing Internet access with **forced tunneling** by configuring private routing policy.
+
+ Security solution |Status|
+|--|--|
+|Azure Firewall |Generally Available in Azure Public and Azure Government Clouds.|
+|Firewall NVA in the Virtual WAN hub| Public Preview in Azure Public Cloud |
+| Software-as-a-service in the Virtual WAN Hub| Public Preview in Azure Public Cloud|
 
 ### Known Limitations
 
 * **Forced Tunnel configuration**:
-    * Destination-NAT (DNAT) for security solutions deployed in the Virtual WAN hub is **not supported** for Virtual WAN hubs that are configured with Forced Tunnel internet routing mode. The incoming connection for DNAT traffic originates from the Internet and forced tunnel mode forces return traffic via on-premises or a NVA. This routing pattern results in asymmetric routing. 
+    * Forced tunnel requires a specific routing intent configuration. Non-routing intent deployments do **not** support forced tunnel internet access.
+    * Destination-NAT (DNAT) for security solutions deployed in the Virtual WAN hub is **not supported** for Virtual WAN hubs that are configured with Forced Tunnel internet routing mode. The incoming connection for DNAT traffic originates from the Internet. However, forced tunnel mode forces return traffic via on-premises or a NVA. This routing pattern results in asymmetric routing. 
     * Traffic from on-premises destined for the public IP address of an Azure storage account deployed in the same Azure region as the Virtual WAN hub bypasses security solution in the hub. For more details on this limitation and potential mitigations, see [VIrtual WAN known issues](whats-new.md#knownissues).
-    * On-premises **can't** advertise forced tunnel routes more specific that 0.0.0.0/0. Advertising more specifc rotues like 0.0.0.0/1 and 128.0.0.0/1 from on-premises may result in management traffic for Azure Firewall or NVAs integrated in the Virtual Hub getting routed asymmetrically to on-premises. 
-    * Virtual Network connection **bypass next hop setting** is ignored for deployments using static routes on Virtual Network connections with **propagate static route** enabled. Traffic destined for the Virtual Network connection will always be routed directly to the destination in the spoke Virtual Network, bypassing the next hop IP configured in the static route.  
+    * On-premises **can't** advertise forced tunnel routes more specific that 0.0.0.0/0. Advertising more specifc rotues like 0.0.0.0/1 and 128.0.0.0/1 from on-premises may blackhole in management traffic for Azure Firewall or NVAs integrated in the Virtual Hub.
+    * Virtual Network connection **bypass next hop setting** is ignored for deployments using static routes on Virtual Network connections with **propagate static route** enabled. Traffic destined for the Virtual Network connection will be inspected by the security appliance in the hub and  routed directly to the destination IP in the spoke Virtual Network, bypassing the next hop IP configured in the static route.  
 * **Direct Access**:
     * Traffic from on-premises destined for the public IP address of an Azure storage account deployed in the same Azure region as the Virtual WAN hub bypasses security solution in the hub. For more details on this limitation and potential mitigations, see [VIrtual WAN known issues](whats-new.md#knownissues).
 
 ### Direct Access
 
-When Virtual WAN is configured to route traffic directly to the Internet, Virtual WAN applies a static default 0.0.0.0/0 route on the security solution. 
+When Virtual WAN is configured to route traffic directly to the Internet, Virtual WAN applies a static default 0.0.0.0/0 route on the security solution with next hop Internet.
 
 :::image type="content" source="./media/about-internet-routing/direct-access.png" alt-text="Screenshot that shows direct access." lightbox="./media/about-internet-routing/direct-access.png":::
 
@@ -54,12 +73,12 @@ When Virtual WAN is configured in forced tunnel mode, the highest priority defau
 
 However, there's an implicit route that allows the security solution to forward traffic directly to the internet. This implicit route is treated with the lowest priority.
 
-If there are no default routes learnt dynamically from on-premises or configured as a static route on Virtual Network connections, Internet traffic is routed directly to the Internet.
+If there are no default routes learnt dynamically from on-premises or configured as a static route on Virtual Network connections, Internet traffic is routed directly to the Internet via the implicit route.
 
 ### Supported sources of the default route
 
 >[!NOTE]
->  The 0.0.0.0/0 does **not** propagate across Virtual Hubs. This means a local connection must be used for forced tunnel.
+>  The 0.0.0.0/0 does **not** propagate across Virtual Hubs. This means a local connection must be used for Virtual Hubs configured for Internet access via forced tunnel.
 
 The default route can be learnt from the following sources.
 
@@ -88,12 +107,13 @@ The following table summarizes the configuration needed to route traffic using t
 
 |Mode| Private Routing Policy| Additional Prefixes| Internet Routing Policy |
 |--|--|--|--|
-| Direct Access| Optional| None required | Yes|
-| Forced Tunnel| Yes| 0.0.0.0/0| No|
+| Direct Access| Optional| None required | Required|
+| Forced Tunnel| Required | 0.0.0.0/0| No |
 
-##  Connection-level configurations
+## Connection-level configurations
 
 For connections that need Internet access via Virtual WAN, ensure the **Enable internet security** or **propagate default route** is set to **true**. This configuration instructs Virtual WAN to advertise the default route to that connection.
+
 
 ## Security solution configurations
 
@@ -123,7 +143,7 @@ The following section describe configuration considerations needed to ensure sec
 **Azure Firewall**:
 * Configure [Source-NAT (SNAT)](../firewall/snat-private-range.md). 
     * **Preserve original source IP of Internet traffic**: turn SNAT  **off** for all traffic configurations. 
-    * **SNAT to Firewall instance private IP**: turn SNAT **on** for non-private traffic ranges. 
+    * **SNAT internet traffic to Firewall instance private IP**: turn SNAT **on** for non-private traffic ranges. 
 
 **SaaS solution or Integrated NVAs**:
 
