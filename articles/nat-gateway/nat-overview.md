@@ -113,7 +113,7 @@ To migrate outbound access to a NAT Gateway from default outbound access or Load
 
 * **Protocol support** - NAT Gateway supports TCP and User Datagram Protocol (UDP) protocols only. Internet Control Message Protocol (ICMP) isn't supported.
 
-* **Minimizes risk of SNAT port exhaustion** - NAT Gateway dynamically allocates SNAT ports to minimize the risk of SNAT port exhaustion. To learn more, see [SNAT port allocation](./nat-gateway-resource.md#snat-port-allocation).
+* **Minimizes risk of SNAT port exhaustion** - NAT Gateway dynamically allocates SNAT ports to minimize the risk of SNAT port exhaustion. To learn more, see [SNAT port allocation](/azure/nat-gateway/nat-gateway-snat#nat-gateway-dynamically-allocates-snat-ports).
 
 * **Service compatibility** - NAT Gateway provides outbound connectivity for multiple Azure services, including: 
 
