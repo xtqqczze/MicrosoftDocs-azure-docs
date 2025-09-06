@@ -56,6 +56,7 @@ To learn more on how to deploy StandardV2 NAT Gateway, see [Create a StandardV2 
     * Qatar Central
     * Sweden South
     * UAE Central
+    * West India
 
 ## Standard NAT Gateway
 
