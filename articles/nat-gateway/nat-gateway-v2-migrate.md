@@ -50,7 +50,8 @@ We recommend the following pre-migration steps to prepare for the migration.
     * Malaysia West  
     * Qatar Central  
     * Sweden South  
-    * UAE Central 
+    * UAE Central
+    * West India
 
 ## Guidance for manual migration 
 
