@@ -55,11 +55,39 @@ sections:
       - question: Does a NAT gateway support IP fragmentation?
         answer: |
           No, a NAT gateway doesn't support IP fragmentation for Transmission Control Protocol (TCP) or User Datagram Protocol (UDP).
-                  
+ 
+  - name: StandardV2 NAT Gateway
+    questions:
+      - question: What is StandardV2 NAT Gateway?
+        answer: |
+          StandardV2 NAT Gateway is a new SKU offering of the Azure NAT Gateway service. StandardV2 NAT Gateway offers zone-redundancy support, enhanced data processing limits, and increased scalability compared to the original Standard NAT Gateway. For more information, see [NAT Gateway SKUs](nat-sku.md).
+
+      - question: Can I upgrade my existing Standard NAT Gateway to StandardV2 NAT Gateway?
+        answer: |
+          No, you can't upgrade an existing Standard NAT Gateway to StandardV2 NAT Gateway. To migrate from Standard to StandardV2 NAT Gateway, create a new StandardV2 NAT Gateway resource and associate it with your subnet. See [Migrate to StandardV2 NAT Gateway](nat-gateway-v2-migrate.md) for step-by-step guidance.
+
+      - question: Are there any pricing differences between Standard and StandardV2 NAT Gateway?
+        answer: |
+          No, there are no pricing differences between Standard and StandardV2 NAT Gateway. See [Azure NAT Gateway pricing](https://azure.microsoft.com/pricing/details/azure-nat-gateway/) for more information.
+      - question: Can I use my existing Standard Public IPs with StandardV2 NAT Gateway?
+        answer: |
+          No, Standard Public IPs can't be used with StandardV2 NAT Gateway. To use StandardV2 NAT Gateway, you must use StandardV2 Public IPs. For more information, see [NAT Gateway SKUs](nat-sku.md).
+      
+      - question: How do I use the source virtual network property for StandardV2 NAT Gateway?
+        answer: |
+          The source virtual network property applies StandardV2 NAT Gateway to all existing and future subnets in a single virtual network. To use this property, set the source virtual network property to the resource ID of the virtual network when creating or updating a StandardV2 NAT Gateway.
+      
+      - question: Can I attach StandardV2 NAT Gateway to multiple virtual networks?
+        answer: |
+          No, a StandardV2 NAT Gateway can only be attached to a single virtual network at a time.
+      
+      - question: What metrics are available for StandardV2 NAT Gateway?
+        answer: |
+          The same metrics available for Standard NAT Gateway are also available for StandardV2 NAT Gateway. For more information, see [NAT gateway metrics](nat-metrics.md).
+
   - name: NAT gateway metrics
     questions: 
       - question: What is the difference between SNAT Connection Count and Total SNAT Connection Count metrics for a NAT gateway?
-
         answer: |
           The [SNAT Connection Count](nat-metrics.md#snat-connection-count) metric shows the number of new source network address translation (SNAT) connections made per second. The [Total SNAT Connection Count](nat-metrics.md#total-snat-connection-count) metric shows the total number of active connections on a NAT gateway resource. 
 
@@ -135,11 +163,11 @@ sections:
 
       - question: How can I use custom IP prefixes (BYOIP) with a NAT gateway?
         answer: |
-          You can use public IP prefixes and addresses derived from custom IP prefixes, also known as bring your own IP (BYOIP), with your NAT gateway. To learn more, see [Custom IP address prefix (BYOIP)](../virtual-network/ip-services/custom-ip-address-prefix.md). 
+          You can use public IP prefixes and addresses derived from custom IP prefixes, also known as bring your own IP (BYOIP), with Standard SKU NAT gateway. Custom IPs are not supported with StandardV2 NAT Gateway. To learn more, see [Custom IP address prefix (BYOIP)](../virtual-network/ip-services/custom-ip-address-prefix.md). 
       
       - question: Can an IPv6 public IP address be used with a NAT gateway?
         answer: |
-          No, a NAT gateway doesn't support IPv6 public IP addresses. You can, however, have a dual-stack configuration with a NAT gateway and a load balancer to provide IPv4 and IPv6 outbound connectivity. For more information, see [Configure dual stack outbound connectivity with a NAT gateway and a public load balancer](tutorial-dual-stack-outbound-nat-load-balancer.md). 
+          Standard SKU NAT gateway doesn't support IPv6 public IP addresses. StandardV2 NAT Gateway can be associated with up to 16 IPv6 public IP addresses or a /28 size prefix.
       
       - question: Can public IP addresses with the routing preference "internet" be used with a NAT gateway?
         answer: |
@@ -152,6 +180,7 @@ sections:
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
           Yes, you can change the public IP addresses associated with an existing NAT gateway. If you need to change the public IP address on your NAT gateway, see [Add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
+          StandardV2 SKU public IPs don't work with Standard NAT Gateway. StandardV2 SKU public IPs only work with StandardV2 NAT Gateway.
 
       - question: If multiple public IP addresses are assigned to a NAT gateway, which public IPs do my subnet resources use?
         answer: |
@@ -167,7 +196,7 @@ sections:
 
       - question: Can a NAT gateway be attached to multiple subnets? 
         answer: |
-          Yes, a NAT gateway can be associated with up to 800 subnets in a virtual network. It isn't required to be associated with all subnets within a virtual network.
+          Yes, Standard NAT gateway can be associated with up to 800 subnets in a virtual network. It isn't required to be associated with all subnets within a virtual network. StandardV2 NAT Gateway can be associated with up to 800 subnets when attached at the subnet level and up to 3,000 subnets when attached at the virtual network level.
       
       - question: Can a NAT gateway be attached to a gateway subnet? 
         answer: |
@@ -185,21 +214,17 @@ sections:
     questions:
       - question: How does a NAT gateway work with availability zones?   
         answer: |
-          A NAT gateway can be zonal or placed in "no zone." For more information, see [Azure NAT Gateway and availability zones](./nat-availability-zones.md). In addition:
+          Standard NAT gateway can be zonal or placed in "no zone." A no-zone NAT gateway is placed in a zone for you by Azure. A zonal NAT gateway is associated to a specific zone by the user when the NAT gateway is created. StandardV2 NAT Gateway is zone-redundant only. If a single zone goes down in a region, the StandardV2 NAT Gateway can survive and provide outbound connectivity from the remaining healthy zones.The zonal configuration of a NAT gateway can't be changed after deployment.
 
-          - A no-zone NAT gateway is placed in a zone for you by Azure.
-          - A zonal NAT gateway is associated to a specific zone by the user when the NAT gateway is created.
-          - The zonal configuration of a NAT gateway can't be changed after deployment.
-
-      - question: Can a zone-redundant public IP address be attached to a NAT gateway? 
+      - question: Can a zone-redundant public IP address be attached to Standard NAT gateway? 
         answer: |
-          Zone-redundant public IP addresses and prefixes can be attached to either a no-zone NAT gateway or a NAT gateway assigned to a specific availability zone. For more information, see [Azure NAT Gateway and availability zones](/azure/nat-gateway/nat-availability-zones). 
+          Zone-redundant Standard SKU public IP addresses and prefixes can be attached to either a no-zone or zonal Standard SKU NAT gateway. StandardV2 SKU public IPs are only zone-redundant and can only be used with StandardV2 NAT Gateway, which is also zone-redundant. For more information, see [Azure NAT Gateway and availability zones](/azure/nat-gateway/nat-availability-zones). 
 
   - name: Azure NAT Gateway and basic SKU resources
     questions: 
       - question: Are basic SKU resources (Basic load balancer and Basic public IP addresses) compatible with a NAT gateway?
         answer: |
-          No, a NAT gateway is compatible with standard SKU resources. To learn more, see [Azure NAT Gateway basics](./nat-overview.md#azure-nat-gateway-basics). 
+          No, Standard and StandardV2 NAT gateway isn't compatible with basic SKU resources. To learn more, see [Azure NAT Gateway basics](./nat-overview.md#azure-nat-gateway-basics). 
           Upgrade your basic load balancer and basic public IP address to standard to work with a NAT gateway. For more help:
           
           - To upgrade a basic load balancer to standard, see [Upgrade Azure public load balancer](../load-balancer/upgrade-basic-standard.md).
@@ -216,6 +241,10 @@ sections:
         answer: |
           You can set up an explicit method of outbound connectivity for your virtual machines to use before enabling the private subnet feature, such as NAT Gateway, to ensure they continue to have outbound connectivity to the internet.
       
+      - question: Do my virtual machines still get default outbound IPs even when I have a NAT gateway attached to a subnet?
+        answer: |
+          In some cases, a default outbound IP is still assigned to virtual machines in a nonprivate subnet, even when a NAT Gateway or a UDR directing traffic to an NVA/firewall is configured. This doesn’t mean that default outbound IPs are used for egress unless those explicit outbound connectivity methods are removed. To completely remove the default outbound IPs, the subnet must be made private, and the virtual machines must be stopped and deallocated. 
+
   - name: Connection timeouts and timers
     questions:
       - question: What is the idle timeout for a NAT gateway?
@@ -259,7 +288,7 @@ sections:
           
       - question: Is NAT gateway use supported with Azure SQL managed instance?
         answer: |
-          No, NAT gateway can't be used on a SQL Managed Instance subnet. If NAT gateway is configured, it will render the SQL Managed Instance unavailable. The SQL Managed Instance currently is limited to use the Basic Load Balancer instead.
+          No, NAT gateway can't be used on a SQL Managed Instance subnet. 
 
 additionalContent: |
 
