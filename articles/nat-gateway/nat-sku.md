@@ -93,7 +93,9 @@ StandardV2 SKU NAT Gateway support for IPv6 public IPs is currently in **public 
 
     * Sweden South  
 
-    * UAE Central  
+    * UAE Central
+      
+    * West India
 
 * StandardV2 NAT Gateway can’t be deployed as a managed NAT Gateway for Azure Kubernetes Service (AKS) workloads. It's only supported when configured as a user-assigned NAT Gateway. For more information, see [Create NAT Gateway for your AKS cluster](/azure/aks/nat-gateway).
 
