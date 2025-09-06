@@ -2,7 +2,7 @@
 title: Migrate from Standard to StandardV2 NAT Gateway - Guidance    
 description: Upgrade guidance for migrating Standard NAT Gateway to StandardV2 NAT Gateway.
 author: alittleton    
-ms.author: aimee-littleton
+ms.author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: concept-article 
 ms.customs: references_regions
