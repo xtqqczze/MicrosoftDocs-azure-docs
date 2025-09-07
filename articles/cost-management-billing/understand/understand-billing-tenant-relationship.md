@@ -7,8 +7,8 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/25/2025
-ms.author: jkinma
+ms.date: 09/07/2025
+ms.author: chbenne
 ---
 
 ## Billing and Tenant Relationship
