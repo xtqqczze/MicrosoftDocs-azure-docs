@@ -157,38 +157,7 @@ This project is configured to use the `azd provision` command to create a functi
     > Should any steps fail during provisioning, you can rerun the `azd provision` command again after resolving any issues.  
 
     After the command completes successfully, you can run your project code locally and trigger on the Azure Cosmos DB database in Azure. 
-::: zone-end  
-::: zone pivot="programming-language-python"  
-## Create and activate a virtual environment
 
-In the root folder, run these commands to create and activate a virtual environment named `.venv`:
-
-### [Linux/macOS](#tab/linux)
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-If Python didn't install the venv package on your Linux distribution, run the following command:
-
-```bash
-sudo apt-get install python3-venv
-```
-
-### [Windows](#tab/windows-cmd)
-
-Run these commands from the Windows command prompt:
-
-```shell
-py -m venv .venv
-.venv\scripts\activate
-```
-
----
-
-::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Run the function locally  
 
 Visual Studio Code integrates with [Azure Functions Core tools](functions-run-local.md) to let you run this project on your local development computer before you publish to your new function app in Azure.
@@ -214,11 +183,7 @@ Visual Studio Code integrates with [Azure Functions Core tools](functions-run-lo
     After you select **Save**, you see the execution of the function in the terminal and the local document is updated to include metadata added by the service.  
 
 1. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process.
-::: zone-end
-::: zone pivot="programming-language-python"
-6. Run `deactivate` to shut down the virtual environment.
-::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
+
 ## Review the code (optional)
 
 The function is triggered based on the change feed in an Azure Cosmos DB NoSQL database. These environment variables configure how the trigger monitors the change feed:
