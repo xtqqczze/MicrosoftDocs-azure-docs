@@ -11,7 +11,7 @@ ms.date: 09/18/2024
 
 # Microsoft Planetary Computer Pro service usage meters
 
-Microsoft Planetary Computer Pro offers a pay-as-you-go pricing model. You're charged for the resources you consume, providing flexibility and control over your spending. This article details the pricing for the different components of the service.
+Microsoft Planetary Computer Pro offers a pay-as-you-go usage model. You're charged for the resources you consume, providing flexibility and control over your spending. This article details the usage meters for the different components of the service.
 
 ## Accessing usage metrics through the Azure portal
 
