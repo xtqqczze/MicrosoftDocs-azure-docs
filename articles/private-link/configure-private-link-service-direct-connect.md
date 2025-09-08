@@ -57,13 +57,14 @@ When creating a Private Link Service Direct Connect, you must:
 
 Be aware of these limitations when using Private Link Service Direct Connect:
 
-- **Minimum 2 IP configurations required** - A minimum of 2 IP addresses or in multiples of 2 are required to deploy a PLS Direct Connect.
-- **IP forwarding is enabled** - If there is a policy on the subscription that disables IP forwarding, the policy must be disabled to allow proper configuration.
+- **Minimum 2 IP configurations required** - A minimum of 2 IP addresses or in multiples of 2 are required to deploy a PLS Direct Connect
+- **Maximum of 10 PLS per subscription** - There is a hardware limitation of 10 PLS per subscription
+- **IP forwarding is enabled** - If there is a policy on the subscription that disables IP forwarding, the policy must be disabled to allow proper configuration
 - **Static IP requirement** - The destination IP must be static and directly reachable, dynamically changing IPs are not supported
 - **Cross region limitation** - This feature currently requires that the source private endpoint and the private link service must both be in the same region, with this restriction to be removed when the feature is generally available
 - **No migration support** - Using this feature requires the deployment of a new Private Link Service and migration of existing private link services is not supported
 - **Subscription feature flag enablement is required** - Register the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR through this link: [Set up preview features in Azure subscription - Azure Resource Manager | Microsoft Learn](https://review.learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?branch=main&tabs=azure-portal)
-- **Available client support** - You will need to use PowerShell, CLI, or Terraform to deploy this new Private Link Service, Portal client support is pending.
+- **Available client support** - You will need to use PowerShell, CLI, or Terraform to deploy this new Private Link Service, Portal client support is pending
 - **Regional availability** - This feature is currently available in limited regions (North Central US, East US 2, Central US, South Central US, West US, West US 2, West US 3, Asia Southeast, Australia East, Spain Central)
 
 ## Create a Private Link Service Direct Connect
@@ -91,7 +92,7 @@ $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupNa
 # Get subnet reference
 $subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName
 
-# Create IP configurations for Private Link Service (minimum 2 required for destination IP)
+# Create IP configurations for Private Link Service (minimum 2 or in multiples of 2 required)
 $ipConfig1 = @{
     Name = "ipconfig1"
     PrivateIpAllocationMethod = "Dynamic"
@@ -286,7 +287,6 @@ output "resource_group_name" {
 
 After creating your Private Link Service Direct Connect, you can create a Private Endpoint to test the connectivity:
 
-
 # [PowerShell](#tab/powershell-pe)
 
 ```powershell
@@ -295,12 +295,12 @@ $peResourceGroupName = "rg-pe-test"
 $peVnetName = "pe-vnet"
 $peSubnetName = "pe-subnet"
 $privateEndpointName = "pe-to-pls"
-$privateLinkServiceId = "/subscriptions/your-subscription-id/resourceGroups/rg-pls-destinationip/providers/Microsoft.Network/privateLinkServices/pls-with-destinationip"
+$privateLinkServiceId = "/subscriptions/your-subscription-id/resourceGroups/rg-pls-destinationip/providers/Microsoft.Network/privateLinkServices/pls-directconnect"
 
 # Create resource group for PE
 New-AzResourceGroup -Name $peResourceGroupName -Location $location
 
-# Create VNet for Private Endpoint (corrected parameter name)
+# Create VNet for Private Endpoint
 $peSubnet = New-AzVirtualNetworkSubnetConfig -Name $peSubnetName -AddressPrefix "10.1.1.0/24" -PrivateEndpointNetworkPoliciesFlag "Disabled"
 $peVnet = New-AzVirtualNetwork -Name $peVnetName -ResourceGroupName $peResourceGroupName -Location $location -AddressPrefix "10.1.0.0/16" -Subnet $peSubnet
 
@@ -308,7 +308,12 @@ $peVnet = New-AzVirtualNetwork -Name $peVnetName -ResourceGroupName $peResourceG
 $peSubnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $peVnet -Name $peSubnetName
 
 # Create Private Endpoint
-$privateEndpoint = New-AzPrivateEndpoint -Name $privateEndpointName -ResourceGroupName $peResourceGroupName -Location $location -Subnet $peSubnet -PrivateLinkServiceId $privateLinkServiceId
+$privateLinkServiceConnection = @{
+    Name = "connection-to-pls"
+    PrivateLinkServiceId = $privateLinkServiceId
+}
+
+$privateEndpoint = New-AzPrivateEndpoint -Name $privateEndpointName -ResourceGroupName $peResourceGroupName -Location $location -Subnet $peSubnet -PrivateLinkServiceConnection $privateLinkServiceConnection
 
 Write-Output "Private Endpoint created: $($privateEndpoint.Name)"
 ```
