@@ -35,6 +35,8 @@ items:
         href: tutorial-migrate-outbound-nat.md
       - name: Migrate a virtual machine public IP address
         href: tutorial-migrate-ilip-nat.md
+      - name: Migrate from Standard to StandardV2 NAT Gateway - Guidance
+        href: nat-gateway-v2-migrate.md
   - name: Secure
     items:
       - name: NAT gateway security baseline
