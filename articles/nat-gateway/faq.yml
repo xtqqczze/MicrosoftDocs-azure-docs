@@ -64,7 +64,7 @@ sections:
 
       - question: Can I upgrade my existing Standard NAT Gateway to StandardV2 NAT Gateway?
         answer: |
-          No, you can't upgrade an existing Standard NAT Gateway to StandardV2 NAT Gateway. To migrate from Standard to StandardV2 NAT Gateway, create a new StandardV2 NAT Gateway resource and associate it with your subnet. See [Migrate to StandardV2 NAT Gateway](nat-gateway-v2-migrate.md) for step-by-step guidance.
+          No, you can't upgrade an existing Standard NAT Gateway to StandardV2 NAT Gateway. To migrate from Standard to StandardV2 NAT Gateway, create a new StandardV2 NAT gateway resource and associate it with your subnet. See [Migrate to StandardV2 NAT Gateway](nat-gateway-v2-migrate.md) for step-by-step guidance.
 
       - question: Are there any pricing differences between Standard and StandardV2 NAT Gateway?
         answer: |
