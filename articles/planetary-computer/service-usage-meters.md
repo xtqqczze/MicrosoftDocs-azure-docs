@@ -9,11 +9,17 @@ ms.date: 09/18/2024
 #customer intent: As a user, I want to understand the pricing structure for Microsoft Planetary Computer Pro so I can estimate costs.
 ---
 
-# Microsoft Planetary Computer Pro pricing
+# Microsoft Planetary Computer Pro service usage meters
 
 Microsoft Planetary Computer Pro offers a pay-as-you-go pricing model. You're charged for the resources you consume, providing flexibility and control over your spending. This article details the pricing for the different components of the service.
 
-## Billing Meters
+## Accessing usage metrics through the Azure portal
+
+Detailed information about the utilization of your GeoCatalog resource is available in the Azure portal under **Monitoring**->**Metrics** in the resource view. 
+
+[![Screenshot how to access the service usage meters in the Azure portal.](./media/service-usage-metrics.png) ](./media/service-usage-metrics.png#lightbox) 
+
+## Service usage meters
 
 Usage of the service is measured with the following dimensions (no pricing values are shown in this document):
 
