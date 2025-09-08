@@ -27,6 +27,8 @@ Azure NAT Gateway is available in two SKUs:
 * **Standard** SKU NAT Gateway is zonal (deployed to a single availability zone) and provides scalable outbound connectivity for subnets in a single virtual network.
 * **StandardV2** SKU NAT Gateway is **zone-redundant** with higher throughput than the Standard SKU and virtual network as well as subnet level association.
 
+For additional information, see [NAT Gateway SKUs](./nat-sku.md).
+
 ## StandardV2 NAT Gateway
 
 StandardV2 NAT Gateway provides all the same functionality of the Standard SKU NAT Gateway, such as dynamic SNAT port allocation and secure outbound connectivity for subnets within a virtual network. Additionally, StandardV2 NAT Gateway is zone-redundant, meaning that it provides outbound connectivity from all zones in a region instead of a single zone like Standard NAT Gateway.   
@@ -38,13 +40,13 @@ StandardV2 NAT Gateway provides all the same functionality of the Standard SKU N
 * **Virtual network level association** - can be associated to an entire virtual network through the source virtual network property. When associated to a virtual network, all subnets within the virtual network use the NAT Gateway for outbound connectivity.
 
 >[!NOTE]
-> StandardV2 NAT Gateway now supports IPv6 public IP addresses and prefixes in Public Preview. You can associate up to 16 IPv6 public IP addresses in order to provide outbound connectivity for IPv6 traffic.
+> StandardV2 NAT Gateway now supports IPv6 public IP addresses and prefixes in **Public Preview**. You can associate up to 16 IPv6 public IP addresses in order to provide outbound connectivity for IPv6 traffic.
 
 To learn more on how to deploy StandardV2 NAT Gateway, see [Create a StandardV2 NAT Gateway](./quickstart-create-nat-gateway-v2.md).
 
 ### Key limitations of StandardV2 NAT Gateway
 * Requires StandardV2 SKU public IP addresses or prefixes. Standard SKU public IPs aren't supported with StandardV2 NAT Gateway.
-* Standard SKU NAT Gateway can't be upgraded to StandardV2 NAT Gateway. You must first create StandardV2 SKU NAT Gateway and replace Standard SKU NAT Gateway on your subnet.
+* Standard SKU NAT Gateway can't be upgraded to StandardV2 NAT Gateway. You must first create StandardV2 SKU NAT Gateway and replace Standard SKU NAT Gateway on your subnet. For guidance on how to migrate to StandardV2 NAT Gateway, see [StandardV2 NAT Gateway migration guidance](./nat-gateway-v2-migrate.md).
 * The following regions don't support StandardV2 NAT Gateway:
     * Canada East
     * Central India
@@ -138,6 +140,15 @@ To migrate outbound access to a NAT Gateway from default outbound access or Load
 ### Traffic routes
 
 * NAT Gateway uses the subnet's [system default route](/azure/virtual-network/virtual-networks-udr-overview#default) for 0.0.0.0/0 to the internet automatically. After NAT Gateway is configured to the subnet, virtual machines in the subnet communicate to the internet using the public IP of the NAT Gateway.
+
+* Different outbound connectivity methods within Azure take [different levels of priority](/azure/virtual-network/ip-services/default-outbound-access#how-and-when-default-outbound-access-is-provided) for egress traffic. The order of priority is:
+  1. UDR with an NVA
+  2. NAT gateway associated to a subnet
+  3. NAT gateway associated to a virtual network (attached by the source virtual network property)
+  4. Instance-level public IPs
+  5. Load balancer with outbound rules
+  6. Load balancer with load balancing rule with DisableOutboundSnat = false
+  7. Default outbound access
 
 * A UDR that sends 0.0.0.0/0 traffic to a virtual appliance or a virtual network gateway (VPN Gateway and ExpressRoute) as the next hop type instead of the internet bypasses the use of NAT Gateway.
 
