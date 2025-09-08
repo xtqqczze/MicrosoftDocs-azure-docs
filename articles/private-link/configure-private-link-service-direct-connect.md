@@ -61,7 +61,7 @@ Be aware of these limitations when using Private Link Service Direct Connect:
 - **Maximum of 10 PLS per subscription** - There is a hardware limitation of 10 PLS per subscription
 - **IP forwarding is enabled** - If there is a policy on the subscription that disables IP forwarding, the policy must be disabled to allow proper configuration
 - **Static IP requirement** - The destination IP must be static and directly reachable, dynamically changing IPs are not supported
-- **Cross region limitation** - This feature currently requires that the source private endpoint and the private link service must both be in the same region, with this restriction to be removed when the feature is generally available
+- **Cross region limitation** - This feature currently requires that the source private endpoint, private link service, and client VM must be in the same region, with this restriction to be removed when the feature is generally available
 - **No migration support** - Using this feature requires the deployment of a new Private Link Service and migration of existing private link services is not supported
 - **Subscription feature flag enablement is required** - Register the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR through this link: [Set up preview features in Azure subscription - Azure Resource Manager | Microsoft Learn](https://review.learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?branch=main&tabs=azure-portal)
 - **Available client support** - You will need to use PowerShell, CLI, or Terraform to deploy this new Private Link Service, Portal client support is pending
