@@ -21,15 +21,15 @@ Customer Organizations can sign multiple contracts with Microsoft. Even though i
 
 ### Example
 
-The best example for this scenario is during a transition period from an Enterprise Agreement (EA) to Microsoft Customer Agreement (MCA), where the customer has an active EA and an active MCA contract. During M&A activities, a customer organization might end up with multiple EA or MCA contracts.
+The best example for this scenario is during a transition period from an Enterprise Agreement (EA) to Microsoft Customer Agreement (MCA), where the customer has an active EA and an active MCA contract. During merger and acquisition (M&A) activities, a customer organization might end up with multiple EA or MCA contracts.
 
 ## Contract to price sheet
 
-Every contract is associated with a customer specific price sheet. This determines the individual customer prices in the agreed billing currency. In an MCA the default associated price sheet equals the Azure Retail price list in USD. The price sheet can be accessed in the Azure portal.
+Every contract is associated with a customer specific price sheet. This determines the individual customer prices in the agreed billing currency. In an MCA, the default associated price sheet equals the Azure Retail price list in USD. The price sheet can be accessed in the Azure portal.
 
 ## Contract to Microsoft Azure Consumption Commitment (MACC)
 
-Customers can sign a MACC. There is usually a 1:1 relationship between a contract and a MACC. As a benefit of this commitment, Customers might get discounted pricing on Azure Resources (usage). This discount will be reflected in the price sheet associated with the contract.
+Customers can sign a MACC. There is usually a 1:1 relationship between a contract and a MACC. As a benefit of this commitment, Customers might get discounted pricing on Azure Resources (usage). The discount is reflected in the price sheet associated with the contract.
 
 ## Contract to billing roles
 
@@ -37,7 +37,7 @@ Both EA and MCA provide Customers with roles, that can manage certain aspects of
 
 ## Contract to tenant
 
-To manage billing roles, customers must associate exactly one Entra ID tenant with the contract, this must be completed at the time the contract is setup. Identities within this Tenant can be assigned to billing roles within the contract.
+To manage billing roles, customers must associate exactly one Entra ID tenant with the contract, this action must be completed at the time the contract is setup. Identities within this Tenant can be assigned to billing roles within the contract.
 
 Example
 
@@ -53,11 +53,11 @@ NOTE: Even though customers should strive for a single tenant, there is no restr
 
 ## Contract to subscription
 
-An Azure subscription is a logical container used to provision and manage Azure resources. Resource access is managed through a trust relationship to an Entra ID tenant and billing is managed by a billing relationship to a Microsoft contract (EA or MCA). Every subscription can only have one billing relationship to one contract. This billing relationship can be moved to a different contract based on certain conditions (for example, in EA/MCA transition scenarios or M&A scenarios).
+An Azure subscription is a logical container used to provision and manage Azure resources. Resource access is managed through a trust relationship to an Entra ID tenant and billing is managed via a billing relationship to a Microsoft contract (EA or MCA). Every subscription can only have one billing relationship to one contract. This billing relationship can be moved to a different contract based on certain conditions (for example, in EA/MCA transition scenarios or M&A scenarios).
 
 Every contract can manage 5000 subscriptions by default.
 
-NOTE: The billing relationship determines the prices for the consumed resources within the subscription. If you have a subscription that is associated with a contract that uses Azure retail prices you pay the retail price. If the associated contract has customer specific prices (e.g. by signing a MACC with applicable discounts), the resources within this subscription are charged at these prices.
+NOTE: The billing relationship determines the prices for the consumed resources within the subscription. If you have a subscription that is associated with a contract that uses Azure retail prices you pay the retail price. If the associated contract has customer specific prices (for example, by signing a MACC with applicable discounts), the resources within this subscription are charged at these prices.
 
 ## Subscription to tenant
 
@@ -65,4 +65,4 @@ Every subscription has a 1:1 trust relationship to an Entra ID tenant. This trus
 
 ## Tenant to subscription
 
-Every tenant can manage trust relationships with virtually unlimited number of subscriptions. These subscriptions can use billing relationships to multiple contracts which might lead to different prices for resources deployed to these subscriptions.
+Every tenant can manage trust relationships with virtually unlimited number of subscriptions. These subscriptions can use billing relationships to multiple contracts, which might lead to different prices for resources deployed to these subscriptions.
