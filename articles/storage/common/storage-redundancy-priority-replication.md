@@ -31,7 +31,7 @@ Geo Priority Replication enhances Azure's geo-redundant storage by prioritizing 
 
 The SLA conformance percentage is calculated monthly using the following formula:
 
-`(Total minutes − Bad LST minutes)/Total minutes X 100%`
+`(Total minutes − Bad LST minutes) / Total minutes X 100%`
 
 For example, assuming a 30-day month with 43,200 total minutes, SLA conformance for 432 Bad LST Minutes would be calculated as:
 
@@ -66,34 +66,6 @@ Certain operational scenarios can also disrupt SLA coverage. For example, an unp
 Finally, customers who choose to opt out of Geo Priority Replication continue to be billed for an extra 30 days. This policy acts as a safeguard against enabling the feature solely to prioritize backlog replication and then immediately disabling it to avoid charges. 
 
 These limitations are critical to understanding how and when the SLA applies, and Azure provides detailed telemetry and metrics to help customers monitor their eligibility throughout the billing cycle.
-
-## Monitoring compliance
-
-To ensure transparency and empower customers to track their SLA compliance, Azure provides a set of monitoring tools integrated directly into the Azure portal. 
-
-After Geo Priority Replication is enabled, access to detailed telemetry is provided through the **Metrics** and **Insights** panes. These dashboards display real-time and historical data on *geo blob lag*, which measures the replication delay between the primary and secondary regions. 
-
-You can view lag metrics over timeframes ranging from the last five minutes to multiple months. These metrics allow you to assess performance trends and identify potential SLA breaches. Additionally, a specialized **Reasons for Geo Priority Replication Ineligibility** metric identifies whether any guardrails were breached. Examples of these breaches include ingress limits and unsupported blob types, both of which would invalidate SLA eligibility during specific time windows. 
-
-These tools provide a comprehensive view of replication health and SLA conformance, enabling you to make informed decisions and initiate service credit claims when necessary.
-
-## Enabling and Disabling the SLA
-
-Enabling the SLA can be completed during account creation, or via the **Redundancy** pane in Azure portal (screen capture needed). The `SLAEffectiveDate` property indicates when SLA becomes active. After you enable the SLA, the status will be set to **Pending** until the replication backlog is cleared. You can check the SLA status in the Azure portal under the **Replication** section of your storage account. 
-
-Customers can opt out and disable the SLA at any time, but billing for GRS continues for 30 days post-disablement. The SLA can be re-enabled at any time, but the `SLAEffectiveDate` value is reset to the current date. Metrics are retained for historical analysis.
-
-## Claiming service credits
-
-To claim a refund for SLA violations:
-
-1. **Open a support case** via Azure portal.
-2. Include:
-   - "SLA Credit Request" in the subject.
-   - Billing cycle and region.
-   - Logs showing SLA breach.
-3. Submit within **two billing cycles** of the incident.
-4. Microsoft validates eligibility using internal dashboards.
 
 ## Next steps
 
