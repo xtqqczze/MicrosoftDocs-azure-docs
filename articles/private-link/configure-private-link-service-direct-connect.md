@@ -10,12 +10,13 @@ ms.reviewer: altheabata
 # Create a Private Link Service Direct Connect
 
 Customers can now connect any IP-based targets to Private Link Service without needing to use a standard load balancer.
+
 Azure Private Link Service allows service providers to make their applications available to their customers privately and securely. The current setup procedure requires service providers to configure their private link service and place their applications behind a standard internal load balancer. Private Link Service Direct Connect removes this limitation and allows customers to directly connect a private link service to any IP based target within your virtual network. This configuration is particularly useful for scenarios where you need to provide private connectivity to applications that require direct IP-based routing, such as database connections or custom applications.
 
 In this article, you'll learn how to create a Private Link Service Direct Connect using Azure PowerShell, Azure CLI, and Terraform.
 
 > [!NOTE]
-> This feature is currently in public preview and available in select regions. We recommend reviewing all considerations before enabling it for your subscription
+> This feature is currently in public preview and available in select regions. We recommend reviewing all considerations before enabling it for your subscription.
 
 ## Prerequisites
 
@@ -29,21 +30,12 @@ In this article, you'll learn how to create a Private Link Service Direct Connec
 
 ## What is Private Link Service Direct Connect?
 
-Private Link Service Direct Connect allows you to:
+Private Link Service (PLS) Direct Connect allows you to:
 
 - **Route traffic directly** to a specific routable IP address within your virtual network
 - **Bypass load balancer requirements** for scenarios that need direct IP connectivity
 - **Support custom routing scenarios** where you need precise control over traffic destination
 - **Configure expanded scenarios** such as secure access to on-premises resources, third-party SaaS, and virtual appliances
-
-### Key requirements
-
-When creating a Private Link Service Direct Connect, you must:
-
-1. **Provide a minimum of 2 IP configurations** - For this feature, at least 2 IP configurations in multiples of 2 are required for high availability
-1. **Specify a static destination IP address** - The target IP must be reachable within your virtual network
-1. **Disable Private Link Service network policies** on the subnet
-1. **Ensure no IP forwarding conflicts** - The destination IP cannot be behind NAT or load balancer forwarding
 
 ### Common use cases
 
@@ -52,6 +44,14 @@ When creating a Private Link Service Direct Connect, you must:
 - Legacy applications that need direct IP-based routing
 - Scenarios requiring user-defined routing (UDR) with Private Link
 - On-premises connectivity
+
+## Key requirements
+
+When creating a Private Link Service Direct Connect, you must:
+
+1. **Provide a minimum of 2 IP configurations** - For this feature, at least 2 IP configurations in multiples of 2 are required for high availability
+1. **Specify a static destination IP address** - The target IP must be reachable within your virtual network
+1. **Disable Private Link Service network policies** on the subnet
 
 ## Limitations and considerations
 
