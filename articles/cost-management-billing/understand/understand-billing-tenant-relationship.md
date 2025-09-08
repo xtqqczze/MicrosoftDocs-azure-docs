@@ -11,9 +11,9 @@ ms.date: 09/07/2025
 ms.author: chbenne
 ---
 
-## Billing and Tenant Relationship
+# Billing and Tenant Relationship
 
-:::image type="content" source="./media/azure-billing-tenant-relationship.png" alt-text="Diagram that shows the relationship between a billing contract and associated tenant(s) and subsequent subscriptions." border="false":::
+:::image type="content" source="./media/azure-billing-tenant-relationship/azure-billing-tenant-relationship.png" alt-text="Diagram that shows the relationship between a billing contract and associated tenant(s) and subsequent subscriptions." border="false":::
 
 ## Customer to contract
 
