@@ -94,3 +94,9 @@ To claim a refund for SLA violations:
    - Logs showing SLA breach.
 3. Submit within **two billing cycles** of the incident.
 4. Microsoft validates eligibility using internal dashboards.
+
+## Next steps
+
+- [Manage Geo Priority Replication](storage-redundancy-priority-replication-manage.md)
+- [Geo Priority Replication pricing](storage-redundancy-priority-replication-pricing.md)
+- [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/)

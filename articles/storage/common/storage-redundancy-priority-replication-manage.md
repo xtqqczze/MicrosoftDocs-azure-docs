@@ -30,7 +30,7 @@ Enabling Geo Priority Replication is straightforward and can be completed via th
 1. Navigate to the Azure portal and create a new storage account.
 1. In the **Basics** tab, select the checkbox for **Geo priority replication** as shown in the following screenshot.
 
-    :::image type="content" source="media/storage-redundancy-sla-manage/replication-new-accounts.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for a new storage account.":::
+    :::image type="content" source="media/storage-redundancy-priority-replication-manage/replication-new-accounts.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for a new storage account.":::
 
 ### Enabling replication for preexisting accounts
 
@@ -38,25 +38,26 @@ Enabling Geo Priority Replication is straightforward and can be completed via th
 1. In the **Data Management** group, select **Redundancy** to display the redundancy options for the storage account.
 1. Select the **Geo priority replication (Blob only)** checkbox to enable the feature as shown in the following screenshot.
 
-    :::image type="content" source="media/storage-redundancy-sla-manage/replication-existing-accounts.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for existing accounts.":::
+    :::image type="content" source="media/storage-redundancy-priority-replication-manage/replication-existing-accounts.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for existing accounts.":::
 
 ### Confirmation and Monitoring
 
 After priority replication is enabled, you have the ability to view geo-lag metrics on the account as shown in the following screenshot. You can check your "geo lag" performance throughout the month via the **Insights** and **Metrics** panes.
 
-:::image type="content" source="media/storage-redundancy-sla-manage/replication-enabled.png" alt-text="Screenshot showing a storage account with geo priority replication enabled.":::
+:::image type="content" source="media/storage-redundancy-priority-replication-manage/replication-enabled.png" alt-text="Screenshot showing a storage account with geo priority replication enabled.":::
 
+<!--
 ## Metrics and Performance Limitations
 
 After geo priority replication is enabled, you have access to monitor your storage account's geo lag metrics, which tracks replication delay in seconds. SLA compliance requires that the delay is less than 900 seconds, or 15 minutes.
 
 The following sample screen capture provides an example of a monthly geo lag metric view from within the **Insights** pane. This example shows that the storage account's geo lag is well within the 900-s range of the SLA. As a result, there's no need to request a service credit for an SLA violation.
 
-:::image type="content" source="media/storage-redundancy-sla-manage/replication-lag.png" alt-text="Screenshot showing a storage account's geo lag metrics with geo priority replication enabled.":::
+:::image type="content" source="media/storage-redundancy-priority-replication-manage/replication-lag.png" alt-text="Screenshot showing a storage account's geo lag metrics with geo priority replication enabled.":::
 
 By comparison, the following example shows the geo blob lag exceeding the 15-minute threshold several times throughout the billing month. As a result, the affected user might be eligible to receive a service credit for the SLA violation.
 
-:::image type="content" source="media/storage-redundancy-sla-manage/replication-lag-breach.png" alt-text="Screenshot showing a storage account's geo lag metrics breaching the SLA.":::
+:::image type="content" source="media/storage-redundancy-priority-replication-manage/replication-lag-breach.png" alt-text="Screenshot showing a storage account's geo lag metrics breaching the SLA.":::
 
 ### SLA Ineligibility
 
@@ -66,7 +67,7 @@ For example, although the geo blob lag might exceed 15 minutes, this spike could
 
 The **Reasons for Geo Priority Replication Ineligibility** metric allows you to track whether you're eligible for the SLA throughout the month. This metric tracks the number of reasons an account is ineligible for geo priority replication, providing a count of guardrails breached. If your geo blob lag exceeds 15 minutes, check the **Reasons for Geo Priority Replication Ineligibility** metric to ensure you haven't breached any guardrails during the billing period. The sample image provided illustrates this metric. If no guardrails are reported, the SLA has likely been breached and you should contact support to obtain a service credit.
 
-:::image type="content" source="media/storage-redundancy-sla-manage/replication-ineligibility-reason.png" alt-text="Screenshot of the Reasons for Geo Priority Replication Ineligibility metric when multiple guardrails are violated throughout the month.":::
+:::image type="content" source="media/storage-redundancy-priority-replication-manage/replication-ineligibility-reason.png" alt-text="Screenshot of the Reasons for Geo Priority Replication Ineligibility metric when multiple guardrails are violated throughout the month.":::
 
 ### Guardrails and performance limitations
 
@@ -76,3 +77,4 @@ To maintain SLA eligibility, users must remain within defined guardrails:
 - **CopyBlob Requests:** Must not exceed 100 requests/sec.
 - **Blob Types:** Page and Append Blob API calls within the last 30 days make the account ineligible.
 - **Initial LST:** LST must be ≤ 15 minutes on at least one occasion before the SLA applies.
+-->
