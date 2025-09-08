@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: quickstart 
-ms.date: 08/12/2025
+ms.date: 09/08/2025
 ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
 # Customer intent: As a cloud engineer, I want to create a NAT gateway using various deployment methods, so that I can facilitate outbound internet connectivity for virtual machines in Azure.
 ---
@@ -14,9 +14,6 @@ ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
 # Quickstart: Create a Standard V2 NAT gateway
 
 In this quickstart, learn how to create a Standard V2 NAT gateway by using the Azure portal, PowerShell. The NAT Gateway service provides scalable outbound connectivity for virtual machines in Azure.
-
-> [!NOTE]
-> Azure CLI is currently unavailable for this quickstart.
 
 ## Prerequisites
 
@@ -145,7 +142,7 @@ $ip = @{
     ResourceGroupName = 'test-rg'
     Location = 'eastus'
     Sku = 'StandardV2'
-    PrefixLength = `31`
+    PrefixLength = '31'
     IpAddressVersion = 'IPv4'
     Zone = 1,2,3
 }
@@ -174,7 +171,7 @@ $natGateway = New-AzNatGateway @nat
 
 Standard V2 NAT Gateway has a feature that allows you to associate the NAT gateway resource with a virtual network instead of the subnet level. Each subnet contained within the virtual network can then use the NAT gateway for outbound internet connectivity.
 
-Create a public IP address or prefix to your preference from the previous steps, then proceed to create the NAT gateway.
+Create a public IP address or prefix to your preference from the previous steps, then proceed to create the virtual network, subnets and NAT gateway resource.
 
 ### [Portal](#tab/portal)
 
@@ -187,7 +184,7 @@ Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtu
 $subnet = @{
     Name = 'subnet-1'
     AddressPrefix = '10.0.0.0/24'
-    DefaultOutboundAccess = 'False'
+    DefaultOutboundAccess = $false
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -209,6 +206,8 @@ $net = @{
 $vnet = New-AzVirtualNetwork @net
 ```
 
+#### Public IP address
+
 Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
 
 ```azurepowershell
@@ -217,6 +216,26 @@ $nat = @{
     ResourceGroupName = 'test-rg'
     Name = 'nat-gateway'
     IdleTimeoutInMinutes = '4'
+    PublicIpAddress = $publicIPIPv4
+    Sku = 'StandardV2'
+    Location = 'eastus'
+    SourceVirtualNetwork = $vnet
+    Zone = 1,2,3
+}
+$natGateway = New-AzNatGateway @nat
+```
+
+#### Public IP prefix
+
+Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
+
+```azurepowershell
+## Create NAT gateway resource ##
+$nat = @{
+    ResourceGroupName = 'test-rg'
+    Name = 'nat-gateway'
+    IdleTimeoutInMinutes = '4'
+    PublicIpPrefix = $publicIPIPv4prefix
     Sku = 'StandardV2'
     Location = 'eastus'
     SourceVirtualNetwork = $vnet
@@ -245,7 +264,7 @@ $subnet = @{
     Name = 'subnet-1'
     AddressPrefix = '10.0.0.0/24'
     NatGateway = $natGateway
-    DefaultOutboundAccess = 'False'
+    DefaultOutboundAccess = $false
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
