@@ -1,6 +1,5 @@
 ---
-
-title: NAT Gateway SKUs
+title: Azure NAT Gateway SKUs
 description: Overview of available NAT Gateway SKUs and their differences.
 ms.date: 09/05/2025
 ms.topic: article
