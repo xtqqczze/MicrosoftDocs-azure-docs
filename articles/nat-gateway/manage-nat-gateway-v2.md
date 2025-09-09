@@ -27,6 +27,9 @@ This article explains how to manage the following aspects of NAT gateway:
 
 - Add or remove a public IP address or public IP prefix.
 
+> [!NOTE]
+> Azure CLI is currently unavailable. Use the Azure portal or Azure PowerShell to manage a V2 NAT gateway.
+
 ## Prerequisites
 
 # [**Azure portal**](#tab/manage-nat-portal)
@@ -35,11 +38,11 @@ This article explains how to manage the following aspects of NAT gateway:
 
 - An existing Azure Virtual Network and subnet. For more information, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
-  - The example virtual network that is used in this article is named *vnet-1*.
+  - The example virtual network that is used in this article is named **vnet-1**.
 
-  - The example subnet is named *subnet-1*.
+  - The example subnet is named **subnet-1**.
 
-  - The example NAT gateway is named *nat-gateway*.
+  - The example NAT gateway is named **nat-gateway**.
 
 # [**Azure PowerShell**](#tab/manage-nat-powershell)
 
@@ -47,11 +50,11 @@ This article explains how to manage the following aspects of NAT gateway:
 
 - An existing Azure Virtual Network and subnet. For more information, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
-  - The example virtual network that is used in this article is named *vnet-1*.
+  - The example virtual network that is used in this article is named **vnet-1**.
 
-  - The example subnet is named *subnet-1*.
+  - The example subnet is named **subnet-1**.
 
-  - The example NAT gateway is named *nat-gateway*.
+  - The example NAT gateway is named **nat-gateway**.
 
 To use Azure PowerShell for this article, you need:
 
@@ -75,7 +78,7 @@ You can create a NAT gateway resource and add it to an existing subnet by using 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the Azure portal, enter *NAT gateway*. Select **NAT gateways** in the search results.
+1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
 1. Select **+ Create**.
 
@@ -87,7 +90,7 @@ You can create a NAT gateway resource and add it to an existing subnet by using 
     | Subscription | Select your subscription. |
     | Resource group | Select your resource group or select **Create new** to create a new resource group. |
     | **Instance details** |  |
-    | NAT gateway name | Enter *nat-gateway*. |
+    | NAT gateway name | Enter **nat-gateway**. |
     | Region | Select your region. This example uses **East US 2**. |
     | SKU | Select **Standard V2**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
@@ -264,7 +267,7 @@ You can create a NAT gateway resource and add it to an existing virtual network 
     | Subscription | Select your subscription. |
     | Resource group | Select your resource group or select **Create new** to create a new resource group. |
     | **Instance details** |  |
-    | NAT gateway name | Enter *nat-gateway*. |
+    | NAT gateway name | Enter **nat-gateway**. |
     | Region | Select your region. This example uses **East US 2**. |
     | SKU | Select **Standard V2**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
@@ -275,9 +278,9 @@ You can create a NAT gateway resource and add it to an existing virtual network 
 
 1. Select **+ Add public ip addresses or prefixes**.
 
-   - To create a new public IP for the NAT gateway, select **Create a new public IP address**. Enter *public-ip-nat* in **Name**. Select **OK**.
+   - To create a new public IP for the NAT gateway, select **Create a new public IP address**. Enter **public-ip-nat** in **Name**. Select **OK**.
 
-   - To create a new public IP prefix for the NAT gateway, select **Create a new public IP prefix**. Enter *public-ip-prefix-nat* in **Name**. Select a **Prefix size**. Select **OK**.
+   - To create a new public IP prefix for the NAT gateway, select **Create a new public IP prefix**. Enter **public-ip-prefix-nat** in **Name**. Select a **Prefix size**. Select **OK**.
 
 1. Select the **Networking** tab, or select **Next**.
 
@@ -397,7 +400,7 @@ To remove a NAT gateway from an existing subnet, complete the following steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the Azure portal, enter *NAT gateway*. Select **NAT gateways** in the search results.
+1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
 1. Select **nat-gateway**.
 
@@ -409,7 +412,7 @@ To remove a NAT gateway from an existing subnet, complete the following steps.
 
 You can now associate the NAT gateway with a different subnet or virtual network in your subscription. To delete the NAT gateway resource, complete the following steps.
 
-1. In the search box at the top of the Azure portal, enter *NAT gateway*. Select **NAT gateways** in the search results.
+1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
 1. Select **nat-gateway**.
 
@@ -479,7 +482,7 @@ To remove a NAT gateway from an existing virtual network, complete the following
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the Azure portal, enter *NAT gateway*. Select **NAT gateways** in the search results.
+1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
 1. Select **nat-gateway**.
 
@@ -489,7 +492,7 @@ To remove a NAT gateway from an existing virtual network, complete the following
 
 You can now associate the NAT gateway with a different subnet or virtual network in your subscription. To delete the NAT gateway resource, complete the following steps.
 
-1. In the search box at the top of the Azure portal, enter *NAT gateway*. Select **NAT gateways** in the search results.
+1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
 1. Select **nat-gateway**.
 
@@ -538,7 +541,7 @@ Complete the following steps to add or remove a public IP address from a NAT gat
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the Azure portal, enter *Public IP address*. Select **Public IP addresses** in the search results.
+1. In the search box at the top of the Azure portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
 
 1. Select **Create**.
 
@@ -549,7 +552,7 @@ Complete the following steps to add or remove a public IP address from a NAT gat
    | Subscription | Select your subscription. |
    | Resource group | Select your resource group. The example uses **test-rg**. |
    | Region | Select a region. This example uses **East US 2**. |
-   | Name | Enter *public-ip-nat2*. |
+   | Name | Enter **public-ip-nat2**. |
    | IP version | Select **IPv4**. |
    | SKU | Select **Standard V2**. |
    | Availability zone | Select the default of **Zone-redundant**. |
@@ -579,7 +582,7 @@ Complete the following steps to add or remove a public IP address from a NAT gat
 
 To add a public IP address to the NAT gateway, add it to an array object along with the current IP addresses. The PowerShell cmdlets replace all the addresses.
 
-In this example, the existing IP address associated with the NAT gateway is named *public-ip-nat*. Replace this value with an array that contains both public-ip-nat and a new IP address. If you have multiple IP addresses already configured, you must also add them to the array.
+In this example, the existing IP address associated with the NAT gateway is named **public-ip-nat**. Replace this value with an array that contains both **public-ip-nat** and a new IP address. If you have multiple IP addresses already configured, you must also add them to the array.
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a new IP address for the NAT gateway.
 
@@ -681,7 +684,7 @@ Complete the following steps to add or remove a public IP prefix from a NAT gate
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the Azure portal, enter *Public IP prefix*. Select **Public IP Prefixes** in the search results.
+1. In the search box at the top of the Azure portal, enter **Public IP prefix**. Select **Public IP Prefixes** in the search results.
 
 1. Select **Create**.
 
@@ -693,7 +696,7 @@ Complete the following steps to add or remove a public IP prefix from a NAT gate
    | Subscription | Select your subscription. |
    | Resource group | Select your resource group. This example uses **test-rg**. |
    | **Instance details** |   |
-   | Name | Enter *public-ip-prefix-nat*. |
+   | Name | Enter **public-ip-prefix-nat**. |
    | Region | Select your region. This example uses **East US 2**. |
    | Sku | Select **Standard V2**. |
    | IP version | Select **IPv4**. |
@@ -702,7 +705,7 @@ Complete the following steps to add or remove a public IP prefix from a NAT gate
 
 1. Select **Review + create**, then select **Create**.
 
-1. In the search box at the top of the Azure portal, enter *NAT gateway*. Select **NAT gateways** in the search results.
+1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
 1. Select **nat-gateway**.
 
@@ -722,7 +725,7 @@ Complete the following steps to add or remove a public IP prefix from a NAT gate
 
 To add a public IP prefix to the NAT gateway, add it to an array object along with the current IP prefixes. The PowerShell cmdlets replace all the IP prefixes.
 
-In this example, the existing public IP prefix associated with the NAT gateway is named *public-ip-prefix-nat*. Replace this value with an array that contains both public-ip-prefix-nat and a new IP address prefix. If you have multiple IP prefixes already configured, you must also add them to the array.
+In this example, the existing public IP prefix associated with the NAT gateway is named **public-ip-prefix-nat**. Replace this value with an array that contains both **public-ip-prefix-nat** and a new IP address prefix. If you have multiple IP prefixes already configured, you must also add them to the array.
 
 Use [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) to create a new public IP prefix for the NAT gateway.
 
@@ -777,7 +780,7 @@ Set-AzNatGateway @nt
 
 ### Remove public IP prefix
 
-To remove a public IP prefix from a NAT gateway, create an array object that *doesn't* contain the IP address prefix that you want to remove. For example, you have a NAT gateway configured with two public IP prefixes. You want to remove one of the IP prefixes. The IP prefixes associated with the NAT gateway are named public-ip-prefix-nat and public-ip-prefix-nat2. To remove public-ip-prefix-nat2, create an array object for the PowerShell command that contains *only* public-ip-prefix-nat. When you apply the command, the array is reapplied to the NAT gateway, and public-ip-prefix-nat is the only prefix associated.
+To remove a public IP prefix from a NAT gateway, create an array object that **doesn't** contain the IP address prefix that you want to remove. For example, you have a NAT gateway configured with two public IP prefixes. You want to remove one of the IP prefixes. The IP prefixes associated with the NAT gateway are named public-ip-prefix-nat and public-ip-prefix-nat2. To remove public-ip-prefix-nat2, create an array object for the PowerShell command that contains **only** public-ip-prefix-nat. When you apply the command, the array is reapplied to the NAT gateway, and public-ip-prefix-nat is the only prefix associated.
 
 Use the [Set-AzNatGateway](/powershell/module/az.network/set-aznatgateway) cmdlet to remove a public IP prefix from the NAT gateway.
 
@@ -818,7 +821,7 @@ Set-AzNatGateway @nt
 
 ## Next steps
 
-To learn more about Azure Virtual Network NAT and its capabilities, see the following articles:
+To learn more about Azure NAT Gateway and its capabilities, see the following articles:
 
 - [What is Azure NAT Gateway?](nat-overview.md)
 - [NAT gateway and availability zones](nat-availability-zones.md)
