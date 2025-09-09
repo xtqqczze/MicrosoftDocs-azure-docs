@@ -240,12 +240,110 @@ $vnet | Set-AzVirtualNetwork
 
 ## Create a NAT gateway and associate it with an existing virtual network.
 
-You can create a NAT gateway resource and add it to an existing subnet by using the Azure portal or Azure PowerShell.
+Azure NAT Gateway V2 adds a feature that allows you to associate a NAT gateway with an entire virtual network instead of a specific subnet.
+
+You can create a NAT gateway resource and add it to an existing virtual network by using the Azure portal or Azure PowerShell.
 
 # [**Azure portal**](#tab/manage-nat-portal)
 
 
 # [**Azure PowerShell**](#tab/manage-nat-powershell)
+
+Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
+
+### Public IP address
+
+Use the [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) cmdlet to create a public IP address for the NAT gateway.
+
+```azurepowershell
+## Create public IP address for NAT gateway ##
+$ip = @{
+    Name = 'public-ip-nat'
+    ResourceGroupName = 'test-rg'
+    Location = 'eastus'
+    Sku = 'StandardV2'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Zone = 1,2,3
+}
+New-AzPublicIpAddress @ip
+```
+
+```azurepowershell
+## Place the existing virtual network into a variable
+$net = @{
+    Name = 'vnet-1'
+    ResourceGroupName = 'test-rg'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Place the public IP address you created previously into a variable. ##
+$pip = @{
+    Name = 'public-ip-nat'
+    ResourceGroupName = 'test-rg'
+}
+$publicIPIPv4 = Get-AzPublicIpAddress @pip
+
+## Create NAT gateway resource ##
+$nat = @{
+    ResourceGroupName = 'test-rg'
+    Name = 'nat-gateway'
+    IdleTimeoutInMinutes = '4'
+    PublicIpAddress = $publicIPIPv4
+    Sku = 'StandardV2'
+    Location = 'eastus'
+    SourceVirtualNetwork = $vnet
+    Zone = 1,2,3
+}
+$natGateway = New-AzNatGateway @nat
+```
+
+### Public IP prefix
+
+Use the [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) cmdlet to create a public IP prefix for the NAT gateway.
+
+```azurepowershell
+## Create public IP prefix for NAT gateway ##
+$ip = @{
+    Name = 'public-ip-prefix-nat'
+    ResourceGroupName = 'test-rg'
+    Location = 'eastus'
+    Sku = 'StandardV2'
+    PrefixLength = '31'
+    IpAddressVersion = 'IPv4'
+    Zone = 1,2,3
+}
+New-AzPublicIpPrefix @ip
+```
+
+```azurepowershell
+## Place the existing virtual network into a variable
+$net = @{
+    Name = 'vnet-1'
+    ResourceGroupName = 'test-rg'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Place the public IP prefix you created previously into a variable. ##
+$pip = @{
+    Name = 'public-ip-prefix-nat'
+    ResourceGroupName = 'test-rg'
+}
+$publicIPIPv4prefix = Get-AzPublicIPPrefix @pip
+
+## Create NAT gateway resource ##
+$nat = @{
+    ResourceGroupName = 'test-rg'
+    Name = 'nat-gateway'
+    IdleTimeoutInMinutes = '4'
+    PublicIpPrefix = $publicIPIPv4prefix
+    Sku = 'StandardV2'
+    Location = 'eastus'
+    SourceVirtualNetwork = $vnet
+    Zone = 1,2,3
+}
+$natGateway = New-AzNatGateway @nat
+```
 
 ---
 
