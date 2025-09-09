@@ -6,7 +6,7 @@ services: virtual-network
 author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: troubleshooting
-ms.date: 09/108/2025
+ms.date: 09/08/2025
 ms.author: alittleton
 ms.customs: references_regions
 # Customer intent: "As a network engineer, I want to troubleshoot configuration and connectivity issues with the NAT gateway, so that I can ensure reliable outbound internet access for my virtual network resources."
