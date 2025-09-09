@@ -210,7 +210,7 @@ The following IP prefix sizes can be used with NAT gateway:
 
 Standard SKU [NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. Standard SKU NAT gateway can't be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. 
 
->![IMPORTANT]
+> [!IMPORTANT]
 > StandardV2 NAT Gateway support for IPv6 public IPs is in public preview in select Azure regions. For more information, see [NAT Gateway SKUs](nat-sku.md).
 
 ### Can't add Standard SKU public IPs to StandardV2 SKU NAT Gateway
