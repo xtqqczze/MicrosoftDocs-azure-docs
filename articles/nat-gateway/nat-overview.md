@@ -72,11 +72,9 @@ Deployments are intentionally made simple with NAT Gateway. Attach NAT Gateway t
 
 The following steps are an example of how to set up a NAT Gateway:
 
-1. Create a NAT gateway.
-
-2. Assign a public IP address or public IP prefix.
-
-3. Configure a virtual network subnet to use a NAT gateway.
+* Create a NAT gateway.
+* Assign a public IP address or public IP prefix.
+* Configure a virtual network subnet to use a NAT gateway.
 
 If necessary, modify Transmission Control Protocol (TCP) idle timeout (optional). Review [timers](/azure/nat-gateway/nat-gateway-resource#idle-timeout-timers) before you change the default. 
 
@@ -106,11 +104,6 @@ A NAT Gateway doesn't affect the network bandwidth of your compute resources. Le
 
 Azure NAT Gateway provides secure, scalable outbound connectivity for resources in a virtual network. It’s the recommended method for outbound access to the internet. 
 
-To migrate outbound access to a NAT Gateway from default outbound access or Load Balancer outbound rules, see [Migrate outbound access to Azure NAT Gateway](./tutorial-migrate-outbound-nat.md).
-
->[!NOTE]
->On September 30, 2025, new virtual networks will default to using private subnets, meaning that [default outbound access](/azure/virtual-network/ip-services/default-outbound-access#when-is-default-outbound-access-provided) will no longer be provided by default, and that explicit outbound method must be enabled in order to reach public endpoints on the Internet and within Microsoft. It's recommended to use an explicit form of outbound connectivity instead, like NAT Gateway. 
-
 ### Outbound connectivity
 
 * **Default outbound path for a subnet** - NAT Gateway replaces the default internet destination of a subnet to provide outbound connectivity.
@@ -136,6 +129,13 @@ To migrate outbound access to a NAT Gateway from default outbound access or Load
     * [Azure Databricks](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-default-managed-vnet) or with [virtual network injection](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-vnet-injection).
 
     * [Azure HDInsight](/azure/hdinsight/load-balancer-migration-guidelines#new-cluster-creation).
+
+### How NAT gateway works
+ * **No route table configuration** - NAT gateway operates at a subnet level. After attached, NAT gateway provides outbound connectivity without requiring routing configurations on the subnet route table. 
+
+* **No inbound traffic** - NAT gateway only allows return traffic in response to an active outbound flow – no inbound traffic from external services is allowed. 
+
+* **NAT gateway takes precedence** over other outbound connectivity methods. Once configured all new connections use NAT gateway.  
 
 ### Traffic routes
 
@@ -179,6 +179,17 @@ To migrate outbound access to a NAT Gateway from default outbound access or Load
 * Standard NAT Gateway is placed in **no zone** by default. A [nonzonal NAT Gateway](./nat-availability-zones.md#nonzonal) is placed in a zone for you by Azure.
 
 * StandardV2 NAT Gateway is a **zone-redundant** service and operates across all availability zones in a region.
+
+### Default outbound access
+
+* In order to provide secure outbound connectivity to the internet, it’s recommended to [enable private subnet](/azure/virtual-network/ip-services/default-outbound-access#how-can-i-transition-to-an-explicit-method-of-public-connectivity-and-disable-default-outbound-access) in order to prevent the creation of default outbound IPs and instead use an explicit method of outbound connectivity like NAT gateway. 
+
+* Certain services don’t function on a virtual machine in a private subnet without an explicit method of outbound connectivity, such as Windows Activation and Windows Updates. To activate or update virtual machine operating systems, such as Windows, an explicit method of outbound connectivity is required, like NAT gateway. 
+
+* To migrate outbound access to a NAT Gateway from default outbound access or Load Balancer outbound rules, see [Migrate outbound access to Azure NAT Gateway](./tutorial-migrate-outbound-nat.md).
+
+> [!NOTE]
+> On March 31, 2026, new virtual networks will default to using private subnets, meaning that [default outbound access](/azure/virtual-network/ip-services/default-outbound-access#when-is-default-outbound-access-provided) will no longer be provided by default, and that explicit outbound method must be enabled in order to reach public endpoints on the Internet and within Microsoft. It's recommended to use an explicit form of outbound connectivity instead, like NAT Gateway. 
 
 ### NAT Gateway and basic resources
 
