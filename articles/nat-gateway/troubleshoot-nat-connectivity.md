@@ -2,12 +2,12 @@
 title: Troubleshoot Azure NAT Gateway connectivity
 titleSuffix: Azure NAT Gateway
 description: Learn how to troubleshoot connectivity issues and possible causes and solutions for Azure NAT Gateway.
-author: asudbring
+author: alittleton
 ms.service: azure-nat-gateway
 ms.custom:
 ms.topic: troubleshooting
-ms.date: 02/20/2024
-ms.author: allensu
+ms.date: 09/08/2025
+ms.author: alittleton
 #Customer intent: For customers to troubleshoot and resolve common outbound connectivity issues with your NAT gateway. This article also provides best practices on how to design applications to use outbound connections efficiently.
 # Customer intent: As a network engineer, I want to troubleshoot connectivity issues with the NAT gateway, so that I can ensure reliable outbound connections for my applications and improve overall network performance.
 ---
@@ -81,6 +81,8 @@ Application layer keepalives can also be used to refresh idle flows and reset th
 ### Impact of removing public IPs or subnets from the NAT Gateway
 Any active connections associated with a public IP address terminate when the public IP address is removed from the NAT gateway. If the NAT gateway resource has multiple public IPs, new traffic is distributed among the assigned IPs. Traffic will also be disrupted if NAT gateway is removed from any subnets with active connections. Consider updating configurations on your NAT gateway during maintenance windows so as to minimize impact to outbound connectivity.
 
+When the source virtual network is removed from the StandardV2 NAT Gateway, all subnets in the virtual network will see a disruption in outbound connectivity. 
+
 ## Datapath availability drop on NAT gateway but no connection failures
 
 **Scenario**
@@ -121,6 +123,8 @@ You observe no outbound connectivity on your NAT gateway.
 
 * Check that NAT gateway is configured with at least one public IP address or prefix and attached to a subnet. NAT gateway isn't operational until a public IP and subnet are attached. For more information, see [NAT gateway configuration basics](/azure/nat-gateway/troubleshoot-nat#nat-gateway-configuration-basics).
 
+* Check if StandardV2 NAT Gateway is configured with a source virtual network and the virtual network contains a Bastion subnet. StandardV2 NAT Gateway causes disruption for Bastion connectivity when associated with a source virtual network. If you're using Bastion to access your virtual machines, attach StandardV2 NAT Gateway directly to subnets instead.
+
 * Check the routing table of the subnet attached to NAT gateway. Any 0.0.0.0/0 traffic being force-tunneled to a Network Virtual Appliance (NVA), ExpressRoute, or VPN Gateway will take priority over NAT gateway. For more information, see [how Azure selects a route](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route).
 
 * Check if there are any NSG rules configured for the network interface on your virtual machine that blocks internet access.
@@ -129,9 +133,13 @@ You observe no outbound connectivity on your NAT gateway.
 
 * Check your DNS settings if DNS isn't resolving properly.
 
-### Possible solutions for loss of outbound connectivity
+### Possible solutions for loss of outbound connectivity due to misconfiguration on NAT gateway
 
 * Attach a public IP address or prefix to NAT gateway. Also make sure that NAT gateway is attached to subnets from the same virtual network. [Validate that NAT gateway can connect outbound](/azure/nat-gateway/troubleshoot-nat#how-to-validate-connectivity).
+
+* If using an IPv6 public IP address, check that the virtual network or subnet associated with the StandardV2 NAT Gateway is dual stack. If it’s not dual stack, either add an IPv6 address space to the virtual network or add an IPv4 public IP address to the NAT gateway. 
+
+* If StandardV2 NAT Gateway is associated with a source virtual network and your virtual network contains a Bastion subnet, your Bastion connectivity may be impacted. To resolve, attach StandardV2 NAT gateway to each individual subnet that needs outbound connectivity, and exclude the Bastion subnet. After StandardV2 NAT gateway is associated with each subnet, remove the source virtual network.  
 
 * Carefully consider your traffic routing requirements before making any changes to traffic routes for your virtual network. User Defined Routes (UDRs) that send 0.0.0.0/0 traffic to a virtual appliance or virtual network gateway override NAT gateway. See [custom routes](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) to learn more about how custom routes affect the routing of network traffic. 
 
@@ -157,6 +165,8 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 
 * NAT gateway misconfiguration.
 
+* NAT gateway configured at the subnet level takes priority over a NAT gateway configured at the virtual network level.
+
 * Active connection with another Azure outbound connectivity method such as Azure Load balancer or instance-level public IPs on virtual machines or default outbound access. Active connection flows continue to use the previous public IP address that was assigned when the connection was established. When NAT gateway is deployed, **new** connections start using NAT gateway right away.
 
 * Private IPs are used to connect to Azure services by service endpoints or Private Link.
@@ -168,6 +178,8 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 **How to troubleshoot**
 
 * Check that your NAT gateway has at least one public IP address or prefix associated and at least one subnet.
+
+* Check if you have a NAT gateway attached to a subnet in the same virtual network as a different NAT gateway attached to a source virtual network. A NAT gateway attached to a subnet directly takes priority over a NAT gateway attached to a source virtual network. 
 
 * Verify if any previous outbound connectivity method, such as a public Load balancer, is still active after deploying NAT gateway.
 
@@ -182,6 +194,8 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 ### Possible solutions for NAT gateway public IP not used to connect outbound
 
 * Attach a public IP address or prefix to NAT gateway. Ensure that NAT gateway is attached to subnets from the same virtual network. [Validate that NAT gateway can connect outbound](/azure/nat-gateway/troubleshoot-nat#how-to-validate-connectivity).
+
+* If you have a NAT gateway attached at a subnet level which is taking priority over a different NAT gateway attached at the source virtual network level, determine which NAT gateway needs to be used to provide egress. The source virtual network level NAT gateway will be used for all existing and future subnets in the virtual network. The subnet level NAT gateway will be used only by the subnets it’s directly associated with. 
 
 * Test and resolve issues with VMs holding on to Public IP addresses from another outbound connectivity method, including Load balancer, instance-level public IPs or default outbound access by:
 
