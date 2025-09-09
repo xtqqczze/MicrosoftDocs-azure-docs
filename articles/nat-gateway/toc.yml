@@ -51,6 +51,8 @@ items:
     items:
       - name: Manage NAT gateway
         href: manage-nat-gateway.md
+      - name: Manage a V2 NAT gateway
+        href: manage-nat-gateway-v2.md
       - name: Create and configure NAT gateway after region move
         href: region-move-nat-gateway.md
       - name: Metrics and alerts
