@@ -32,19 +32,19 @@ Check these settings to enable outbound traffic through a NAT gateway.
 
 ### Standard NAT gateway 
 
-1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity. 
+* At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity. 
 
-2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway can't span beyond a single virtual network. 
+* At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway can't span beyond a single virtual network. 
 
-3. No [Network Security Group (NSG) rules](../virtual-network/network-security-groups-overview.md#outbound) or User Defined Routes (UDR) are blocking NAT gateway from directing traffic outbound to the internet.
+* No [Network Security Group (NSG) rules](../virtual-network/network-security-groups-overview.md#outbound) or User Defined Routes (UDR) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### StandardV2 NAT gateway
 
-1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity.
+* At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity.
 
-2. At least one subnet or source virtual network is attached to a StandardV2 NAT gateway. The source virtual network applies StandardV2 NAT gateway to all existing and future subnets in the virtual network.
+* At least one subnet or source virtual network is attached to a StandardV2 NAT gateway. The source virtual network applies StandardV2 NAT gateway to all existing and future subnets in the virtual network.
 
-3. No [Network Security Group (NSG) rules](../virtual-network/network-security-groups-overview.md#outbound) or User Defined Routes (UDR) are blocking NAT gateway from directing traffic outbound to the internet.
+* No [Network Security Group (NSG) rules](../virtual-network/network-security-groups-overview.md#outbound) or User Defined Routes (UDR) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### StandardV2 NAT gateway availability
 
@@ -65,7 +65,7 @@ StandardV2 NAT Gateway isn't available in the following Azure regions:
 
 [NAT gateway](./nat-overview.md#azure-nat-gateway-basics) supports User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) protocols. 
 > [!NOTE]
-> ICMP protocol isn't supported by NAT Gateway. Ping using ICMP protocol isn't supported and is expected to fail. 
+> NAT Gateway doesn't support ICMP protocol. Ping using ICMP protocol isn't supported and is expected to fail. 
 
 To validate end-to-end connectivity of NAT gateway, follow these steps: 
 
@@ -136,7 +136,7 @@ NAT gateway can't be deployed in a gateway subnet. A gateway subnet is used by a
 
 ### NAT gateway can't be attached to a subnet containing SQL managed instances
 
-NAT gateway can't be deployed to a subnet that contains SQL managed instances. NAT gateway attachment is not supported.
+NAT gateway can't be deployed to a subnet that contains SQL managed instances. NAT gateway attachment isn't supported.
 
 ### Can't attach NAT gateway to a subnet that contains a virtual machine network interface in a failed state
 
@@ -253,7 +253,7 @@ NAT gateway doesn't support public IP addresses with DDoS protection enabled. DD
 * [Azure DDoS Protection best practices](/azure/ddos-protection/fundamental-best-practices)
 * [Types of attacks Azure DDoS protection mitigates](/azure/ddos-protection/types-of-attacks)
 
-## Default Outbound Access
+## Default outbound access
 
 ### Virtual machine NICs still have default outbound IPs despite NAT gateway is present
 
