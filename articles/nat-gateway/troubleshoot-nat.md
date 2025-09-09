@@ -3,11 +3,11 @@ title: Troubleshoot Azure NAT Gateway
 titleSuffix: Azure NAT Gateway
 description: Get started using this article to learn how to troubleshoot issues and errors with Azure NAT Gateway.
 services: virtual-network
-author: asudbring
+author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: troubleshooting
-ms.date: 02/14/2024
-ms.author: allensu
+ms.date: 09/108/2025
+ms.author: alittleton
 # Customer intent: "As a network engineer, I want to troubleshoot configuration and connectivity issues with the NAT gateway, so that I can ensure reliable outbound internet access for my virtual network resources."
 ---
 
@@ -27,17 +27,42 @@ This article provides guidance on how to correctly configure your NAT gateway an
 
 ## NAT gateway configuration basics
 
-Check the following configurations to ensure that NAT gateway can be used to direct traffic outbound:
+Check these settings to enable outbound traffic through a NAT gateway.
+
+### Standard NAT gateway 
 
 1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity. 
 
-1. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway can't span beyond a single virtual network. 
+2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway can't span beyond a single virtual network. 
 
-1. No [Network Security Group (NSG) rules](../virtual-network/network-security-groups-overview.md#outbound) or User Defined Routes (UDR) are blocking NAT gateway from directing traffic outbound to the internet.
+3. No [Network Security Group (NSG) rules](../virtual-network/network-security-groups-overview.md#outbound) or User Defined Routes (UDR) are blocking NAT gateway from directing traffic outbound to the internet.
+
+### StandardV2 NAT gateway
+
+1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity.
+
+2. At least one subnet or source virtual network is attached to a StandardV2 NAT gateway. The source virtual network applies StandardV2 NAT gateway to all existing and future subnets in the virtual network.
+
+3. No [Network Security Group (NSG) rules](../virtual-network/network-security-groups-overview.md#outbound) or User Defined Routes (UDR) are blocking NAT gateway from directing traffic outbound to the internet.
+
+### StandardV2 NAT gateway availability
+
+StandardV2 NAT Gateway is not available in the following Azure regions: 
+* Canada East
+* Central India
+* Chile Central
+* Indonesia Central
+* Israel Northwest
+* Jio India West
+* Malaysia West
+* Qatar Central
+* Sweden South
+* UAE Central
+* West India
 
 ### How to validate connectivity
 
-[NAT gateway](./nat-overview.md#azure-nat-gateway-basics) supports IPv4 User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) protocols. 
+[NAT gateway](./nat-overview.md#azure-nat-gateway-basics) supports User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) protocols. 
 > [!NOTE]
 > ICMP protocol is not supported by NAT Gateway. Ping using ICMP protocol isn't supported and is expected to fail. 
 
@@ -108,6 +133,10 @@ NAT gateway isn't compatible with basic resources, such as Basic Load Balancer o
 
 NAT gateway can't be deployed in a gateway subnet. A gateway subnet is used by a VPN gateway for sending encrypted traffic between an Azure virtual network and on-premises location. See [VPN gateway overview](../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used by VPN gateway. To use a NAT gateway, attach it to any other subnet within the same virtual network.
 
+### NAT gateway cant be attached to a subnet containing SQL managed instances
+
+NAT gateway can't be deployed to a subnet that contains SQL managed instances. NAT gateway attachment is not supported.
+
 ### Can't attach NAT gateway to a subnet that contains a virtual machine network interface in a failed state
 
 When associating a NAT gateway to a subnet that contains a virtual machine network interface (network interface) in a failed state, you receive an error message indicating that this action can't be performed. You must first resolve the virtual machine network interface failed state before you can attach a NAT gateway to the subnet.
@@ -154,11 +183,17 @@ To get your virtual machine network interface out of a failed state, you can use
 
 1. The virtual machine network interface should now be in a succeeded provisioning state. You can close your browser. 
 
+## Add or remove source virtual network
+
+### NAT gateway can't be attached to a source virtual network already attached to another NAT gateway
+
+StandardV2 NAT Gateway introduces the source virtual network property. This property allows you to attach NAT gateway to a virtual network thereby applying NAT gateway to all subnets. A virtual network can’t be associated with more than one NAT gateway.  
+
 ## Add or remove public IP addresses
 
-### Can't exceed 16 public IP addresses on NAT gateway 
+### Can't exceed 16 public IP addresses on Standard NAT gateway 
 
-NAT gateway can't be associated with more than 16 public IP addresses. You can use any combination of public IP addresses and prefixes with NAT gateway up to a total of 16 IP addresses. To add or remove a public IP, see [add or remove a public IP address](/azure/virtual-network/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#add-or-remove-a-public-ip-address). 
+A Standard SKU NAT gateway can't be associated with more than 16 IPv4 public IP addresses. You can use any combination of public IP addresses and prefixes with NAT gateway up to a total of 16 IP addresses. To add or remove a public IP, see [add or remove a public IP address](/azure/virtual-network/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#add-or-remove-a-public-ip-address). 
 
 The following IP prefix sizes can be used with NAT gateway: 
 
@@ -172,21 +207,35 @@ The following IP prefix sizes can be used with NAT gateway:
 
 ### IPv6 coexistence
 
-[NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. NAT gateway can't be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. NAT gateway can be deployed on a dual stack subnet, but only uses IPv4 Public IP addresses for directing outbound traffic. Deploy NAT gateway on a dual stack subnet when you need IPv6 resources to exist in the same subnet as IPv4 resources. For more information about how to provide IPv4 and IPv6 outbound connectivity from your dual stack subnet, see [Dual stack outbound connectivity with NAT gateway and public Load balancer](/azure/virtual-network/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer?tabs=dual-stack-outbound-portal).
+Standard SKU [NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. Standard SKU NAT gateway can't be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. 
+
+>![IMPORTANT]
+> StandardV2 NAT Gateway support for IPv6 public IPs is in public preview in select Azure regions. For more information, see [NAT Gateway SKUs](nat-sku.md).
+
+### Can't add Standard SKU public IPs to StandardV2 SKU NAT Gateway
+Standard SKU public IPs are not supported with StandardV2 SKU NAT Gateway. Only StandardV2 SKU public IPs can be added to StandardV2 NAT Gateway.  
+
+### Can't add StandardV2 SKU public IPs to Standard SKU NAT Gateway
+StandardV2 SKU public IPs are not supported with Standard SKU NAT Gateway. Only Standard SKU public IPs can be added to Standard NAT Gateway.
 
 ### Can't use basic public IPs with NAT gateway 
 
-NAT gateway is a standard resource and can't be used with basic resources, including basic public IP addresses. You can upgrade your basic public IP address in order to use with your NAT gateway using the following guidance: [Upgrade a public IP address.](../virtual-network/ip-services/public-ip-upgrade-portal.md) 
+NAT gateway can't be used with basic resources, including basic public IP addresses. You can upgrade your basic public IP address in order to use with your NAT gateway using the following guidance: [Upgrade a public IP address.](../virtual-network/ip-services/public-ip-upgrade-portal.md) 
+
+### Can't use custom IP prefixes (BYOIP) with StandardV2 NAT Gateway
+Custom IP prefixes (BYOIP public IPs) aren't supported with StandardV2 NAT Gateway. Only StandardV2 SKU Azure public IPs are supported.
+
+Custom IPs are supported with Standard NAT Gateway.
 
 ### Can't use public IPs with internet routing preference together with NAT gateway
 
 When NAT gateway is configured with a public IP address, traffic is routed via the [Microsoft network](/azure/virtual-network/ip-services/routing-preference-overview#routing-via-microsoft-global-network). NAT gateway can't be associated with public IPs with routing preference choice **Internet**. NAT gateway can only be associated with public IPs with routing preference choice **Microsoft Global Network**. See [supported services](/azure/virtual-network/ip-services/routing-preference-overview#supported-services) for a list of all Azure services that do support public IPs with the Internet routing preference.
 
-### Can't mismatch zones of public IP addresses and NAT gateway 
+### Can't mismatch zones of public IP addresses and Standard NAT gateway 
 
-NAT gateway is a [zonal resource](./nat-availability-zones.md) and can either be designated to a specific zone or to "no zone." When NAT gateway is placed in "no zone," Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
+Standard NAT gateway is a [zonal resource](./nat-availability-zones.md) and can either be designated to a specific zone or to "no zone." When NAT gateway is placed in "no zone," Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
 
-NAT gateway can be used with public IP addresses designated to a specific zone, no zone, all zones (zone-redundant) depending on its own availability zone configuration.
+Standard NAT gateway can be used with Standard public IP addresses designated to a specific zone, no zone, all zones (zone-redundant) depending on its own availability zone configuration.
 
 | NAT gateway availability zone designation | Public IP address / prefix designation that can be used |
 |---|---|
@@ -194,7 +243,7 @@ NAT gateway can be used with public IP addresses designated to a specific zone, 
 | Designated to a specific zone | Zone-redundant or Zonal Public IPs can be used |
 
 >[!NOTE]
->If you need to know the zone that your NAT gateway resides in, make sure to designate it to a specific availability zone. 
+>If you need to know the zone that your NAT gateway resides in, make sure to designate it to a specific availability zone. Or use a zone-redundant StandardV2 NAT gateway.
 
 ### Can't use DDoS protected public IPs with NAT gateway 
 
@@ -202,6 +251,14 @@ NAT gateway doesn't support public IP addresses with DDoS protection enabled. DD
 * [Azure DDoS Protection features](/azure/ddos-protection/ddos-protection-features)
 * [Azure DDoS Protection best practices](/azure/ddos-protection/fundamental-best-practices)
 * [Types of attacks Azure DDoS protection mitigates](/azure/ddos-protection/types-of-attacks)
+
+## Default Outbound Access
+
+### Virtual machine NICs still have default outbound IPs despite NAT gateway is present
+
+There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a VM/VMSS instance. 
+
+In some cases, a default outbound IP is still assigned to virtual machines in a nonprivate subnet, even when an explicit outbound method—such as a NAT Gateway or a UDR directing traffic to an NVA/firewall—is configured. This doesn't mean the default outbound IPs are used for egress unless those explicit methods are removed. To completely remove the default outbound IPs (and remove the alert), the subnet must be made private, and the virtual machines must be stopped and deallocated. 
 
 ## More troubleshooting guidance
 
