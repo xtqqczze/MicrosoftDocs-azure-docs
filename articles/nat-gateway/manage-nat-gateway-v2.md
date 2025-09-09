@@ -563,9 +563,11 @@ Complete the following steps to add or remove a public IP address from a NAT gat
 
 1. Under **Settings**, select **Outbound IP**.
 
-1. The IP addresses and prefixes associated with the NAT gateway are displayed. Next to **Public IP addresses**, select **Change**.
+1. The IP addresses and prefixes associated with the NAT gateway are displayed. Select the IP address you want to remove and select **Remove**.
 
-1. Next to **Public IP addresses**, select the dropdown for IP addresses. Select the IP address that you created to add to the NAT gateway. To remove an address, unselect it.
+1. To add a public IP address, select **Edit**.
+
+1. Select the public IP address that you created to add it to the NAT gateway.
 
 1. Select **OK**.
 
@@ -706,9 +708,9 @@ Complete the following steps to add or remove a public IP prefix from a NAT gate
 
 1. Under **Settings**, select **Outbound IP**.
 
-1. The page displays the IP addresses and prefixes associated with the NAT gateway. Next to **Public IP prefixes**, select **Change**.
+1. The page displays the IP addresses and prefixes associated with the NAT gateway. Select the prefix you want to remove and select **Remove**.
 
-1. Next to **Public IP Prefixes**, select the dropdown box. Select the IP address prefix that you created to add the prefix to the NAT gateway. To remove a prefix, unselect it.
+1. To add a public IP prefix, select **Edit**. Select the public IP prefix that you created to add it to the NAT gateway.
 
 1. Select **OK**.
 
