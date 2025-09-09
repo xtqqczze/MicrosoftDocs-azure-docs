@@ -92,19 +92,23 @@ You can create a NAT gateway resource and add it to an existing subnet by using 
     | SKU | Select **Standard V2**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
-1. Select the **Outbound IP** tab, or select **Next: Outbound IP**.
+1. Select the **Outbound IP** tab, or select **Next**.
 
 1. You can select an existing public IP address or prefix or both to associate with the NAT gateway and enable outbound connectivity.
+
+1. Select **+ Add public ip addresses or prefixes**.
 
    - To create a new public IP for the NAT gateway, select **Create a new public IP address**. Enter *public-ip-nat* in **Name**. Select **OK**.
 
    - To create a new public IP prefix for the NAT gateway, select **Create a new public IP prefix**. Enter *public-ip-prefix-nat* in **Name**. Select a **Prefix size**. Select **OK**.
 
-1. Select the **Subnet** tab, or select **Next: Subnet**.
+1. Select the **Networking** tab, or select **Next**.
 
 1. Select your virtual network. In this example, select **vnet-1** in the dropdown list.
 
-1. Select the checkbox next to **subnet-1**.
+1. Leave the **Default to all subnets** unselected.
+
+1. Select **subnet-1** from the dropdown list.
 
 1. Select **Review + create**.
 
@@ -246,6 +250,44 @@ You can create a NAT gateway resource and add it to an existing virtual network 
 
 # [**Azure portal**](#tab/manage-nat-portal)
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box at the top of the Azure portal, enter *NAT gateway*. Select **NAT gateways** in the search results.
+
+1. Select **+ Create**.
+
+1. Enter or select the following information in the **Basics** tab of **Create network address translation (NAT) gateway**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select your resource group or select **Create new** to create a new resource group. |
+    | **Instance details** |  |
+    | NAT gateway name | Enter *nat-gateway*. |
+    | Region | Select your region. This example uses **East US 2**. |
+    | SKU | Select **Standard V2**. |
+    | TCP idle timeout (minutes) | Leave the default of **4**. |
+
+1. Select the **Outbound IP** tab, or select **Next**.
+
+1. You can select an existing public IP address or prefix or both to associate with the NAT gateway and enable outbound connectivity.
+
+1. Select **+ Add public ip addresses or prefixes**.
+
+   - To create a new public IP for the NAT gateway, select **Create a new public IP address**. Enter *public-ip-nat* in **Name**. Select **OK**.
+
+   - To create a new public IP prefix for the NAT gateway, select **Create a new public IP prefix**. Enter *public-ip-prefix-nat* in **Name**. Select a **Prefix size**. Select **OK**.
+
+1. Select the **Networking** tab, or select **Next**.
+
+1. Select your virtual network. In this example, select **vnet-1** in the dropdown list.
+
+1. Select the **Default to all subnets** checkbox.
+
+1. Select **Review + create**.
+
+1. Select **Create**.
 
 # [**Azure PowerShell**](#tab/manage-nat-powershell)
 
@@ -359,11 +401,11 @@ To remove a NAT gateway from an existing subnet, complete the following steps.
 
 1. Select **nat-gateway**.
 
-1. Under **Settings**, select **Subnets**.
+1. Select **Networking**.
 
 1. To remove NAT gateway from **all** subnets, select **Disassociate**.
 
-1. To remove NAT gateway from only one of multiple subnets, unselect the checkbox next to the subnet and select **Save**.
+1. To remove NAT gateway from only one of multiple subnets, unselect the checkbox next to the subnet in the dropdown and select **Save**.
 
 You can now associate the NAT gateway with a different subnet or virtual network in your subscription. To delete the NAT gateway resource, complete the following steps.
 
@@ -434,6 +476,26 @@ Remove-AzNatGateway @nat
 To remove a NAT gateway from an existing virtual network, complete the following steps.
 
 # [**Azure portal**](#tab/manage-nat-portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box at the top of the Azure portal, enter *NAT gateway*. Select **NAT gateways** in the search results.
+
+1. Select **nat-gateway**.
+
+1. Select **Networking**.
+
+1. To remove NAT gateway from the network, select **X Disassociate**.
+
+You can now associate the NAT gateway with a different subnet or virtual network in your subscription. To delete the NAT gateway resource, complete the following steps.
+
+1. In the search box at the top of the Azure portal, enter *NAT gateway*. Select **NAT gateways** in the search results.
+
+1. Select **nat-gateway**.
+
+1. Select **Delete**.
+
+1. Select **Yes**.
 
 # [**Azure PowerShell**](#tab/manage-nat-powershell)
 
