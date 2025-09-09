@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 09/08/2025
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 #Customer intent: As a network administrator, I want to learn how to create and remove a NAT gateway resource from a virtual network subnet. I also want to learn how to add and remove public IP addresses and prefixes used for outbound connectivity.
-# Customer intent: As a network administrator, I want to create and manage NAT gateway resources within a virtual network subnet, including adding or removing public IP addresses and prefixes, so that I can ensure reliable outbound connectivity for my resources.
 ---
 
 # Manage NAT gateway
@@ -70,7 +69,7 @@ To use Azure PowerShell for this article, you need:
 
 ## Create a NAT gateway and associate it with an existing subnet
 
-You can create a NAT gateway resource and add it to an existing subnet by using the Azure portal, Azure PowerShell, Azure CLI, or Bicep.
+You can create a NAT gateway resource and add it to an existing subnet by using the Azure portal or Azure PowerShell.
 
 # [**Azure portal**](#tab/manage-nat-portal)
 
@@ -90,8 +89,8 @@ You can create a NAT gateway resource and add it to an existing subnet by using 
     | **Instance details** |  |
     | NAT gateway name | Enter *nat-gateway*. |
     | Region | Select your region. This example uses **East US 2**. |
-    | Availability zone | Select **No Zone**. For more information about NAT gateway availability, see [NAT gateway and availability zones](nat-availability-zones.md). |
-    | TCP idle timeout (minutes) | Select the default of **4**. |
+    | SKU | Select **Standard V2**. |
+    | TCP idle timeout (minutes) | Leave the default of **4**. |
 
 1. Select the **Outbound IP** tab, or select **Next: Outbound IP**.
 
@@ -124,9 +123,11 @@ Use the [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddr
 $ip = @{
     Name = 'public-ip-nat'
     ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
-    Sku = 'Standard'
+    Location = 'eastus'
+    Sku = 'StandardV2'
     AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Zone = 1,2,3
 }
 New-AzPublicIpAddress @ip
 ```
@@ -146,16 +147,17 @@ $pip = @{
     Name = 'public-ip-nat'
     ResourceGroupName = 'test-rg'
 }
-$publicIP = Get-AzPublicIPAddress @pip
+$publicIPIPv4 = Get-AzPublicIPAddress @pip
 
 ## Create NAT gateway resource ##
 $nat = @{
     ResourceGroupName = 'test-rg'
     Name = 'nat-gateway'
     IdleTimeoutInMinutes = '4'
-    Sku = 'Standard'
-    Location = 'eastus2'
-    PublicIpAddress = $publicIP
+    Sku = 'StandardV2'
+    Location = 'eastus'
+    PublicIpAddress = $publicIPIPv4
+    Zone = 1,2,3
 }
 $natGateway = New-AzNatGateway @nat
 
@@ -183,9 +185,11 @@ Use the [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefi
 $ip = @{
     Name = 'public-ip-prefix-nat'
     ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
-    Sku = 'Standard'
-    PrefixLength ='29'
+    Location = 'eastus'
+    Sku = 'StandardV2'
+    PrefixLength = '31'
+    IpAddressVersion = 'IPv4'
+    Zone = 1,2,3
 }
 New-AzPublicIpPrefix @ip
 ```
@@ -205,16 +209,17 @@ $pip = @{
     Name = 'public-ip-prefix-nat'
     ResourceGroupName = 'test-rg'
 }
-$publicIPprefix = Get-AzPublicIPPrefix @pip
+$publicIPIPv4prefix = Get-AzPublicIPPrefix @pip
 
 ## Create NAT gateway resource ##
 $nat = @{
-    ResourceGroupName = 'test-rgNAT'
+    ResourceGroupName = 'test-rg'
     Name = 'nat-gateway'
     IdleTimeoutInMinutes = '4'
-    Sku = 'Standard'
-    Location = 'eastus2'
-    PublicIpPrefix = $publicIPprefix
+    Sku = 'StandardV2'
+    Location = 'eastus'
+    PublicIpPrefix = $publicIPIPv4prefix
+    Zone = 1,2,3
 }
 $natGateway = New-AzNatGateway @nat
 
@@ -233,6 +238,17 @@ $vnet | Set-AzVirtualNetwork
 
 ---
 
+## Create a NAT gateway and associate it with an existing virtual network.
+
+You can create a NAT gateway resource and add it to an existing subnet by using the Azure portal or Azure PowerShell.
+
+# [**Azure portal**](#tab/manage-nat-portal)
+
+
+# [**Azure PowerShell**](#tab/manage-nat-powershell)
+
+---
+
 ## Remove a NAT gateway from an existing subnet and delete the resource
 
 To remove a NAT gateway from an existing subnet, complete the following steps.
@@ -248,7 +264,8 @@ To remove a NAT gateway from an existing subnet, complete the following steps.
 1. Under **Settings**, select **Subnets**.
 
 1. To remove NAT gateway from **all** subnets, select **Disassociate**.
-2. To remove NAT gateway from only one of multiple subnets, unselect the checkbox next to the subnet and select **Save**.
+
+1. To remove NAT gateway from only one of multiple subnets, unselect the checkbox next to the subnet and select **Save**.
 
 You can now associate the NAT gateway with a different subnet or virtual network in your subscription. To delete the NAT gateway resource, complete the following steps.
 
@@ -338,13 +355,13 @@ Complete the following steps to add or remove a public IP address from a NAT gat
    | Region | Select a region. This example uses **East US 2**. |
    | Name | Enter *public-ip-nat2*. |
    | IP version | Select **IPv4**. |
-   | SKU | Select **Standard**. |
+   | SKU | Select **Standard V2**. |
    | Availability zone | Select the default of **Zone-redundant**. |
    | Tier | Select **Regional**. |
 
 1. Select **Review + create** and then select **Create**.
 
-1. In the search box at the top of the Azure portal, enter *NAT gateway*. Select **NAT gateways** in the search results.
+1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
 1. Select **nat-gateway**.
 
@@ -373,9 +390,11 @@ Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
 $ip = @{
     Name = 'public-ip-nat2'
     ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
-    Sku = 'Standard'
+    Location = 'eastus'
+    Sku = 'StandardV2'
     AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Zone = 1,2,3
 }
 New-AzPublicIpAddress @ip
 ```
@@ -395,17 +414,17 @@ $ip = @{
     Name = 'public-ip-nat'
     ResourceGroupName = 'test-rg'
 }
-$publicIP1 = Get-AzPublicIPaddress @ip
+$publicIPIPv4-1 = Get-AzPublicIPaddress @ip
 
 ## Place the public IP address you created previously into a variable. ##
 $ip = @{
     Name = 'public-ip-nat2'
     ResourceGroupName = 'test-rg'
 }
-$publicIP2 = Get-AzPublicIPaddress @ip
+$publicIPIPv4-2 = Get-AzPublicIPaddress @ip
 
 ## Place the public IP address variables into an array. ##
-$pipArray = $publicIP1,$publicIP2
+$pipArray = $publicIIPv4-1,$publicIIPv4-2
 
 ## Add the IP address to the NAT gateway. ##
 $nt = @{
@@ -417,7 +436,7 @@ Set-AzNatGateway @nt
 
 ### Remove public IP address
 
-To remove a public IP from a NAT gateway, create an array object that *doesn't* contain the IP address you want to remove. For example, you have a NAT gateway configured with two public IP addresses. You want to remove one of the IP addresses. The IP addresses associated with the NAT gateway are named public-ip-nat and public-ip-nat2. To remove public-ip-nat2, create an array object for the PowerShell command that contains *only* public-ip-nat. When you apply the command, the array is reapplied to the NAT gateway, and public-ip-nat is the only associated public IP address.
+To remove a public IP from a NAT gateway, create an array object that **doesn't** contain the IP address you want to remove. For example, you have a NAT gateway configured with two public IP addresses. You want to remove one of the IP addresses. The IP addresses associated with the NAT gateway are named public-ip-nat and public-ip-nat2. To remove public-ip-nat2, create an array object for the PowerShell command that contains **only** public-ip-nat. When you apply the command, the array is reapplied to the NAT gateway, and public-ip-nat is the only associated public IP address.
 
 Use [Set-AzNatGateway](/powershell/module/az.network/set-aznatgateway) to remove a public IP address from the NAT gateway.
 
@@ -434,17 +453,17 @@ $ip = @{
     Name = 'public-ip-nat'
     ResourceGroupName = 'test-rg'
 }
-$publicIP1 = Get-AzPublicIPaddress @ip
+$publicIPIPv4-1 = Get-AzPublicIPaddress @ip
 
 ## Place the second public IP address into a variable. ##
 $ip = @{
     Name = 'public-ip-nat2'
     ResourceGroupName = 'test-rg'
 }
-$publicIP2 = Get-AzPublicIPAddress @ip
+$publicIPIPv4-2 = Get-AzPublicIPAddress @ip
 
 ## Place ONLY the public IP you wish to keep in the array. ##
-$pipArray = $publicIP1
+$pipArray = $publicIPIPv4-1
 
 ## Add the public IP address to the NAT gateway. ##
 $nt = @{
@@ -478,6 +497,7 @@ Complete the following steps to add or remove a public IP prefix from a NAT gate
    | **Instance details** |   |
    | Name | Enter *public-ip-prefix-nat*. |
    | Region | Select your region. This example uses **East US 2**. |
+   | Sku | Select **Standard V2**. |
    | IP version | Select **IPv4**. |
    | Prefix ownership | Select **Microsoft owned**. |
    | Prefix size | Select a prefix size. This example uses **/28 (16 addresses)**. |
@@ -514,8 +534,10 @@ $ip = @{
     Name = 'public-ip-prefix-nat2'
     ResourceGroupName = 'test-rg'
     Location = 'eastus2'
-    Sku = 'Standard'
+    Sku = 'StandardV2'
     PrefixLength = '29'
+    Zone = 1,2,3
+    IpAddressVersion = 'IPv4'
 }
 New-AzPublicIpPrefix @ip
 ```
@@ -535,17 +557,17 @@ $ip = @{
     Name = 'public-ip-prefix-nat'
     ResourceGroupName = 'test-rg'
 }
-$prefixIP1 = Get-AzPublicIPPrefix @ip
+$publicIPIPv4prefix-1 = Get-AzPublicIPPrefix @ip
 
 ## Place the public IP prefix you created previously into a variable. ##
 $ip = @{
     Name = 'public-ip-prefix-nat2'
     ResourceGroupName = 'test-rg'
 }
-$prefixIP2 = Get-AzPublicIPprefix @ip
+$publicIPIPv4prefix-2 = Get-AzPublicIPprefix @ip
 
 ## Place the public IP address variables into an array. ##
-$preArray = $prefixIP1,$prefixIP2
+$preArray = $publicIPIPv4prefix-1,$publicIPIPv4prefix-2
 
 ## Add the IP address prefix to the NAT gateway. ##
 $nt = @{
@@ -574,17 +596,17 @@ $ip = @{
     Name = 'public-ip-prefix-nat'
     ResourceGroupName = 'test-rg'
 }
-$prefixIP1 = Get-AzPublicIPPrefix @ip
+$publicIPIPv4prefix-1 = Get-AzPublicIPPrefix @ip
 
 ## Place the secondary public IP prefix into a variable. ##
 $ip = @{
     Name = 'public-ip-prefix-nat2'
     ResourceGroupName = 'test-rg'
 }
-$prefixIP2 = Get-AzPublicIPprefix @ip
+$publicIPIPv4prefix-2 = Get-AzPublicIPrefix @ip
 
 ## Place ONLY the prefix you wish to keep in the array. DO NOT ADD THE SECONDARY VARIABLE ##
-$preArray = $prefixIP1
+$preArray = $publicIPIPv4prefix-1
 
 ## Add the IP address prefix to the NAT gateway. ##
 $nt = @{
