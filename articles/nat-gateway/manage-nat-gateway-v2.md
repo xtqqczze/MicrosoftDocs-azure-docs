@@ -471,7 +471,7 @@ Remove-AzNatGateway @nat
 
 ---
 
-### Remove a NAT gateway from an existing virtual network and delete the NAT gateway
+## Remove a NAT gateway from an existing virtual network and delete the NAT gateway
 
 To remove a NAT gateway from an existing virtual network, complete the following steps.
 
