@@ -8,6 +8,7 @@ ms.service: azure-nat-gateway
 ms.topic: troubleshooting
 ms.date: 09/108/2025
 ms.author: alittleton
+ms.customs: references_regions
 # Customer intent: "As a network engineer, I want to troubleshoot configuration and connectivity issues with the NAT gateway, so that I can ensure reliable outbound internet access for my virtual network resources."
 ---
 
@@ -47,7 +48,7 @@ Check these settings to enable outbound traffic through a NAT gateway.
 
 ### StandardV2 NAT gateway availability
 
-StandardV2 NAT Gateway is not available in the following Azure regions: 
+StandardV2 NAT Gateway isn't available in the following Azure regions: 
 * Canada East
 * Central India
 * Chile Central
@@ -64,7 +65,7 @@ StandardV2 NAT Gateway is not available in the following Azure regions:
 
 [NAT gateway](./nat-overview.md#azure-nat-gateway-basics) supports User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) protocols. 
 > [!NOTE]
-> ICMP protocol is not supported by NAT Gateway. Ping using ICMP protocol isn't supported and is expected to fail. 
+> ICMP protocol isn't supported by NAT Gateway. Ping using ICMP protocol isn't supported and is expected to fail. 
 
 To validate end-to-end connectivity of NAT gateway, follow these steps: 
 
@@ -89,9 +90,9 @@ To analyze outbound traffic from NAT gateway, use virtual network (VNet) flow lo
 
 * For guides on how to enable VNet flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md).
 
-* It is recommended to access the log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+* It's recommended to access the log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
-* For more details on the VNet flow log schema, see [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md).
+* For more information on the VNet flow log schema, see [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md).
 
 ## NAT gateway in a failed state
 
@@ -133,7 +134,7 @@ NAT gateway isn't compatible with basic resources, such as Basic Load Balancer o
 
 NAT gateway can't be deployed in a gateway subnet. A gateway subnet is used by a VPN gateway for sending encrypted traffic between an Azure virtual network and on-premises location. See [VPN gateway overview](../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used by VPN gateway. To use a NAT gateway, attach it to any other subnet within the same virtual network.
 
-### NAT gateway cant be attached to a subnet containing SQL managed instances
+### NAT gateway can't be attached to a subnet containing SQL managed instances
 
 NAT gateway can't be deployed to a subnet that contains SQL managed instances. NAT gateway attachment is not supported.
 
@@ -187,7 +188,7 @@ To get your virtual machine network interface out of a failed state, you can use
 
 ### NAT gateway can't be attached to a source virtual network already attached to another NAT gateway
 
-StandardV2 NAT Gateway introduces the source virtual network property. This property allows you to attach NAT gateway to a virtual network thereby applying NAT gateway to all subnets. A virtual network can’t be associated with more than one NAT gateway.  
+StandardV2 NAT Gateway introduces the source virtual network property. This property allows you to attach NAT gateway to a virtual network, which applies NAT gateway to all subnets. A virtual network can’t be associated with more than one NAT gateway.  
 
 ## Add or remove public IP addresses
 
@@ -213,10 +214,10 @@ Standard SKU [NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols.
 > StandardV2 NAT Gateway support for IPv6 public IPs is in public preview in select Azure regions. For more information, see [NAT Gateway SKUs](nat-sku.md).
 
 ### Can't add Standard SKU public IPs to StandardV2 SKU NAT Gateway
-Standard SKU public IPs are not supported with StandardV2 SKU NAT Gateway. Only StandardV2 SKU public IPs can be added to StandardV2 NAT Gateway.  
+Standard SKU public IPs aren't supported with StandardV2 SKU NAT Gateway. Only StandardV2 SKU public IPs can be added to StandardV2 NAT Gateway.  
 
 ### Can't add StandardV2 SKU public IPs to Standard SKU NAT Gateway
-StandardV2 SKU public IPs are not supported with Standard SKU NAT Gateway. Only Standard SKU public IPs can be added to Standard NAT Gateway.
+StandardV2 SKU public IPs aren't supported with Standard SKU NAT Gateway. Only Standard SKU public IPs can be added to Standard NAT Gateway.
 
 ### Can't use basic public IPs with NAT gateway 
 
@@ -247,7 +248,7 @@ Standard NAT gateway can be used with Standard public IP addresses designated to
 
 ### Can't use DDoS protected public IPs with NAT gateway 
 
-NAT gateway doesn't support public IP addresses with DDoS protection enabled. DDoS protected IPs are generally more critical for inbound traffic, since most DDoS attacks are designed to overwhelm the target's resources by flooding them with a large volume of incoming traffic. To learn more about DDoS protection, review the following articles below. 
+NAT gateway doesn't support public IP addresses with DDoS protection enabled. DDoS protected IPs are more critical for inbound traffic, since most DDoS attacks are designed to overwhelm the target's resources by flooding them with a large volume of incoming traffic. To learn more about DDoS protection, review the following articles. 
 * [Azure DDoS Protection features](/azure/ddos-protection/ddos-protection-features)
 * [Azure DDoS Protection best practices](/azure/ddos-protection/fundamental-best-practices)
 * [Types of attacks Azure DDoS protection mitigates](/azure/ddos-protection/types-of-attacks)
@@ -258,7 +259,7 @@ NAT gateway doesn't support public IP addresses with DDoS protection enabled. DD
 
 There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a VM/VMSS instance. 
 
-In some cases, a default outbound IP is still assigned to virtual machines in a nonprivate subnet, even when an explicit outbound method—such as a NAT Gateway or a UDR directing traffic to an NVA/firewall—is configured. This doesn't mean the default outbound IPs are used for egress unless those explicit methods are removed. To completely remove the default outbound IPs (and remove the alert), the subnet must be made private, and the virtual machines must be stopped and deallocated. 
+In some cases, a default outbound IP is still assigned to virtual machines in a nonprivate subnet, even when an explicit outbound method—such as a NAT Gateway or a UDR directing traffic to an NVA/firewall—is configured. Default outbound IPs aren't used for egress unless those explicit methods are removed. Remove the default outbound IPs by making the subnet private and perform a stop and deallocate on the virtual machines.
 
 ## More troubleshooting guidance
 
