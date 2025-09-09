@@ -429,6 +429,42 @@ Remove-AzNatGateway @nat
 
 ---
 
+### Remove a NAT gateway from an existing virtual network and delete the NAT gateway
+
+To remove a NAT gateway from an existing virtual network, complete the following steps.
+
+# [**Azure portal**](#tab/manage-nat-portal)
+
+# [**Azure PowerShell**](#tab/manage-nat-powershell)
+
+Use [Set-AzNatGateway](/powershell/module/az.network/set-aznatgateway) to remove the NAT gateway association from the virtual network by setting the value to $null.
+
+```azurepowershell
+## Place NAT gateway into a variable. ##
+$ng = @{
+    Name = 'nat-gateway'
+    ResourceGroupName = 'test-rg'
+}
+$nat = Get-AzNatGateway @ng
+
+## Remove the NAT gateway association from the virtual network. ##
+$nat.SourceVirtualNetwork = $null
+Set-AzNatGateway @nat
+```
+
+Use [Remove-AzNatGateway](/powershell/module/az.network/remove-aznatgateway) to delete the NAT gateway resource.
+
+```azurepowershell
+# Specify the resource group and NAT gateway name
+$nat = @{
+    Name = 'nat-gateway'
+    ResourceGroupName = 'test-rg'
+}
+Remove-AzNatGateway @nat
+```
+
+---
+
 > [!NOTE]
 > When you delete a NAT gateway, the public IP address or prefix associated with it isn't deleted.
 
