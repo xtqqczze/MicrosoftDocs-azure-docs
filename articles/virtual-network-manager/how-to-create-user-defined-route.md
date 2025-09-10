@@ -69,40 +69,15 @@ In this step, you create two virtual networks to become members of a network gro
     | **Virtual network name** | Enter **vnet-spoke-001**. |
     | **Region** | Select **(US) West US 2**. |
 
-1. Select **Next > Next** or the **IP addresses** tab.
+1. Select **Next: Security** > **Next: IP Addresses** or the **IP addresses** tab.
 
-1. On the **IP addresses** tab, enter an IPv4 address range of **10.0.0.0** and **/16**.
+1. On the **IP addresses** tab, enter an IPv4 address range of **10.1.0.0** and **/16**. The default subnet will be **10.1.0.0/24**
 
-1. Under **Subnets**, select **default** and enter the following information in the **Edit Subnet** window:
+1. Select **Review + create** > **Create**.
 
-    | Setting | Value |
-    | -------- | ----- |
-    | **Subnet purpose** | Leave as **Default**. |
-    | **Name** | Leave as **default**. |
-    | **IPv4** | |
-    | **IPv4 address range** | Select **10.0.0.0/16**. |
-    | **Starting address** | Enter **10.0.1.0**. |
-    | **Size** | Enter **/24 (256 addresses)**. |
+1. Return to **Home**. From the home screen, create another virtual network in **West US 2** called **vnet-spoke-002** with an IPv4 address range of **10.2.0.0/16**. The default subnet will be **10.2.0.0/24**. Use the same subscription, resource group, and region as the first virtual network.
 
-1. Select **Save** then **Review + create > Create**.
-
-1. Return to home and repeat the preceding steps to create another virtual network with the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Subscription** | Select the same subscription that you selected in step 2. |
-    | **Resource group** | Select **resource-group**. |
-    | **Virtual network name** | Enter **vnet-spoke-002**. |
-    | **Region** | Select **(US) West US 2**. |
-    | **Edit subnet window** | |
-    | **Subnet purpose** | Leave as **Default**. |
-    | **Name** | Leave as **default**. |
-    | **IPv4** | |
-    | **IPv4 address range** | Select **10.1.0.0/16**. |
-    | **Starting address** | Enter **10.1.1.0**. |
-    | **Size** | Enter **/24 (256 addresses)**. |
-
-1. Select **Save** then **Review + create > Create**.
+1. Select **Save** then **Review + create** > **Create**.
 
 ## Create a network group with Azure Policy
 
