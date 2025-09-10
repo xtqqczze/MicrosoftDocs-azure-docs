@@ -278,7 +278,7 @@ $natGateway = New-AzNatGateway @nat
 
 ---
 
-#### Zone redundant virtual network level
+### Zone redundant virtual network level
 
 Standard V2 NAT Gateway has a feature that allows you to associate the NAT gateway resource with a virtual network instead of the subnet level. Each subnet contained within the virtual network can then use the NAT gateway for outbound internet connectivity.
 
@@ -286,7 +286,7 @@ Create a public IP address or prefix to your preference from the previous steps,
 
 ### [Portal](#tab/portal)
 
-### Create the virtual network
+#### Create the virtual network
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -330,7 +330,7 @@ Create a public IP address or prefix to your preference from the previous steps,
 
 1. Select **Review + create**, then select **Create**.
 
-### Create the NAT gateway
+#### Create the NAT gateway
 
 1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
