@@ -27,13 +27,13 @@ This article provides a detailed breakdown of the SLA terms, eligibility criteri
 
 ## How geo priority replication works
 
-Geo Priority Replication enhances Azure's geo-redundant storage by prioritizing replication traffic in several layers of the Azure technology stack. This prioritization ensures that data written to the primary region is replicated to the secondary region within 15 minutes. Last Sync Time (LST) is recorded every minute, and any minute in which LST exceeds 15 minutes is counted as a *Bad LST Minute*. 
+Geo Priority Replication enhances Azure's geo-redundant storage by accelerating replication traffic. This prioritization ensures that data written to the primary region is replicated to the secondary region within 15 minutes. Minutes are tracked  Any minute in which LST exceeds 15 minutes is counted as a *Exceeded LST Minute*.
 
 The SLA conformance percentage is calculated monthly using the following formula:
 
-`(Total minutes − Bad LST minutes) / Total minutes X 100%`
+`(Total minutes − Exceeded LST minutes) / Total minutes X 100%`
 
-For example, assuming a 30-day month with 43,200 total minutes, SLA conformance for 432 Bad LST Minutes would be calculated as:
+For example, assuming a 30-day month with 43,200 total minutes, SLA conformance for 432 Exceeded LST Minutes would be calculated as:
 
 `(43,200 - 432) / 43,200 X 100% = 99.0%`
 
@@ -41,7 +41,7 @@ Customers can monitor their geo lag via Azure portal's **Insights** and **Metric
 
 ## SLA terms and guarantees
 
-The SLA defines the specific conditions under which Azure's Object Replication and GRS Priority Replication features are guaranteed. It also describes the service credit tiers and billing scope associated with SLA violations.
+The SLA defines the specific conditions under which GRS Priority Replication features are guaranteed. It also describes the service credit tiers and billing scope associated with SLA violations.
 
 Microsoft guarantees that the Last Sync Time (LST) is within 15 minutes across **99.0% of a billing month**. Failure to meet this performance guarantee results in Priority Replication and Geo Data Transfer fee credits for all write transactions during a specific billing month.
 
@@ -49,7 +49,7 @@ The following list specifies the credit tiers that apply if this guarantee isn't
 
 | Percent of billing month | Service Credit  |
 |--------------------------|-----------------|
-| 99.9% to 98.0%           | **10% credit**  |
+| 99.0% to 98.0%           | **10% credit**  |
 | 98.0% to 95.0%           | **25% credit**  |
 | Below 95.0%              | **100% credit** |
 
