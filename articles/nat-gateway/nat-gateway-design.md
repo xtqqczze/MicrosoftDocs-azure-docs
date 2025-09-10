@@ -5,6 +5,7 @@ author: alittleton
 ms.author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: concept-article #Required; leave this attribute/value as-is.
+ms.customs: references_regions
 ms.date: 09/09/2025
 # Customer intent: "As a network architect, I want to design virtual networks using a NAT gateway so that I can ensure efficient outbound connectivity and manage SNAT port inventory for scalable production workloads."
 ---
@@ -23,9 +24,9 @@ In the presence of other outbound configurations within a virtual network, such 
 
 [Availability zones](/azure/reliability/availability-zones-overview) are physically separate groups of datacenters within each Azure region. When one zone fails, services can fail over to one of the remaining healthy zones. 
 
-StandardV2 NAT Gateway supports availability zone scenarios. It's recommended for zone-resilient deployments, use StandardV2 NAT gateway.  
+StandardV2 NAT Gateway supports availability zone scenarios. 
 
-When StandardV2 NAT gateway is deployed, outbound connections can flow out of any zone in the region. When a zone goes down, some in flight connections from the failed zone may be impacted, but all new connections will flow out of the remaining healthy zones.  
+When StandardV2 NAT gateway is deployed, outbound connections can flow out of any zone in the region. When a zone goes down, some in flight connections from the failed zone may be impacted, but all new connections flow out of the remaining healthy zones.  
 
 StandardV2 NAT gateway can be configured to individual subnets or to a virtual network to provide zone-resilient outbound connectivity to the internet.  
 
@@ -60,7 +61,7 @@ Private Link uses the private IP addresses of your virtual machines or other com
 
 ## Provide outbound and inbound connectivity for your Azure virtual network
 
-A NAT gateway, load balancer and instance-level public IPs are flow direction aware and can coexist in the same virtual network to provide outbound and inbound connectivity seamlessly. Inbound traffic through a load balancer or instance-level public IPs is translated separately from outbound traffic through the NAT gateway.
+A NAT gateway, load balancer, and instance-level public IPs are flow direction aware and can coexist in the same virtual network to provide outbound and inbound connectivity seamlessly. Inbound traffic through a load balancer or instance-level public IPs is translated separately from outbound traffic through the NAT gateway.
 
 Private instances use the NAT gateway for outbound traffic and any response traffic to the **outbound originated flow**. Private instances use instance-level public IPs or a load balancer for inbound traffic and any response traffic to the **inbound originated flow**.
 
@@ -105,15 +106,15 @@ NAT Gateway supersedes any outbound configuration from a load-balancing rule or 
 | Virtual machine scale set (Subnet 1) | Inbound </br> Outbound | Load balancer </br> NAT gateway |
 | VMs (Subnet 2) | Inbound </br> Outbound | NA </br> NAT gateway |
 
-The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets 1 and 2 use the NAT gateway exclusively for outbound and return traffic. Instance-level public IPs take precedence over load balancer. The VM in subnet 1 uses the instance level public IP for inbound originating traffic. Virtual machine scale-sets (VMSS) do not have instance-level public IPs.
+The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets 1 and 2 use the NAT gateway exclusively for outbound and return traffic. Instance-level public IPs take precedence over load balancer. The VM in subnet 1 uses the instance level public IP for inbound originating traffic. Virtual machine scale-sets (VMSS) don't have instance-level public IPs.
 
 ## How to use service tagged public IPs with NAT Gateway
 [Service tags](/azure/virtual-network/service-tags-overview) represent a group of IP addresses from a given Azure service. Microsoft manages the address prefix encompassed by the service tag and automatically updates the service tag as addresses change, which reduces the complexity of managing network security rules. 
 
-Service tagged public IP addresses can be used with NAT gateway for providing outbound connectivity to the internet. To add a service tagged public IP to a NAT gateway, you can attach it using any of the available clients in Azure, such as the portal, CLI, or powershell. See [how to add and remove public IPs for NAT gateway](/azure/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for detailed guidance.
+Service tagged public IP addresses can be used with NAT gateway for providing outbound connectivity to the internet. To add a service tagged public IP to a NAT gateway, you can attach it using any of the available clients in Azure, such as the portal, CLI, or PowerShell. See [how to add and remove public IPs for NAT gateway](/azure/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for detailed guidance.
 
 > [!NOTE]
-> Public IP addresses with [routing preference "Internet"](/azure/virtual-network/ip-services/routing-preference-overview#routing-over-public-internet-isp-network) are not supported by NAT Gateway. Only public IPs that route over the Microsoft global network are supported by NAT gateway.
+> NAT gateway doesn't support Public IP addresses with [routing preference "Internet"](/azure/virtual-network/ip-services/routing-preference-overview#routing-over-public-internet-isp-network). NAT gateway only supports public IPs that route over the Microsoft global network.
 
 ## Monitor outbound network traffic with VNet flow logs
 
@@ -121,16 +122,16 @@ Service tagged public IP addresses can be used with NAT gateway for providing ou
 
 For guides on how to enable VNet flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md).
 
-It is recommended to access the log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+It's recommended to access the log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
-For more details on the VNet flow log schema, see [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md).
+For more information on the VNet flow log schema, see [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md).
 
 > [!NOTE]
-> Virtual network flow logs only show the private IPs of your VM instances connecting outbound to the internet. VNet flow logs don't show you which NAT gateway public IP address the VM’s private IP has SNATed to prior to connecting outbound.
+> Virtual network flow logs only show the private IPs of your VM instances connecting outbound to the internet. VNet flow logs don't show you which NAT gateway public IP address the VM’s private IP has SNATed to for connecting outbound.
 
 ## NAT gateway and user defined routes 
 
-A NAT gateway relies on the subnet’s default route 0.0.0.0/0 to next hop Internet to source NAT (SNAT) outbound traffic to the internet. 
+A NAT gateway relies on the subnet’s default route 0.0.0.0/0 to next hop internet to source NAT (SNAT) outbound traffic to the internet. 
 
 If you create a user-defined route (UDR) that sends 0.0.0.0/0 traffic to a virtual appliance as the next hop, the system’s default “Internet” route is overridden. As a result, all outbound traffic is sent to the virtual appliance instead of through the NAT gateway. 
 
@@ -148,9 +149,9 @@ With this configuration, the NAT gateway handles SNAT, and traffic to the KMS en
 
 ## Use NAT gateway instead of default outbound access
 
-When a virtual machine is deployed in a virtual network without an explicitly defined outbound connectivity method, it’s automatically assigned an outbound public IP address. This IP address enables outbound connectivity from the resources to the internet and to other public endpoints within Microsoft and is known as a default outbound IP. The default outbound access IP is owned by Microsoft and is subject to change without notice. The end user has no visibility of this default outbound access public IP address. This default outbound access public IP isn’t recommended for production workloads. 
+When a virtual machine is deployed in a virtual network without an explicitly defined outbound connectivity method, it’s assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the internet and to other public endpoints within Microsoft and is known as a default outbound IP. The default outbound access IP is owned by Microsoft and is subject to change without notice. The end user has no visibility of this default outbound access public IP address. This default outbound access public IP isn’t recommended for production workloads. 
 
-In order to provide secure outbound connectivity to the internet, it’s recommended to [enable private subnet](/azure/virtual-network/ip-services/default-outbound-access#how-can-i-transition-to-an-explicit-method-of-public-connectivity-and-disable-default-outbound-access) in order to prevent the creation of default outbound IPs and instead use an explicit method of outbound connectivity like NAT gateway. 
+Secure outbound connectivity to the internet by [enabling private subnet](/azure/virtual-network/ip-services/default-outbound-access#how-can-i-transition-to-an-explicit-method-of-public-connectivity-and-disable-default-outbound-access). Private subnet prevents the creation of new default outbound IPs for virtual machines in your subnet. Instead use an explicit method of outbound connectivity like NAT gateway. 
 
 > [!IMPORTANT]
 > On March 31, 2026, new virtual networks will default to using private subnets, meaning that default outbound access will no longer be provided by default, and that explicit outbound method must be enabled in order to reach public endpoints on the Internet and within Microsoft. It's recommended to use an explicit form of outbound connectivity instead, like NAT gateway. 
@@ -165,7 +166,7 @@ Certain services don’t function on a virtual machine in a private subnet witho
 
 * StandardV2 NAT Gateway doesn’t support custom IP prefixes (BYOIP) 
 
-* StandardV2 NAT Gateway can’t be deployed as a managed NAT Gateway for AKS workloads. It is only supported when configured as a user-assigned NAT Gateway. For more information, see [Create NAT Gateway for your AKS cluster](Create a managed or user-assigned NAT gateway for your Azure Kubernetes Service (AKS) cluster - Azure Kubernetes Service | Microsoft Learn 
+* StandardV2 NAT Gateway can’t be deployed as a managed NAT Gateway for AKS workloads. It's only supported when configured as a user-assigned NAT Gateway. For more information, see [Create NAT Gateway for your AKS cluster](Create a managed or user-assigned NAT gateway for your Azure Kubernetes Service (AKS) cluster - Azure Kubernetes Service | Microsoft Learn 
 
 * StandardV2 NAT Gateway is available in select Azure regions. It’s not available in the following regions:  
     * Canada East   
