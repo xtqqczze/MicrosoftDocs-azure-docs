@@ -437,8 +437,6 @@ Create the virtual network and subnets needed for this quickstart. You can skip 
 
 ### [Portal](#tab/portal)
 
-### Create the virtual network
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box at the top of the Azure portal, enter **Virtual network**. Select **Virtual networks** in the search results.
