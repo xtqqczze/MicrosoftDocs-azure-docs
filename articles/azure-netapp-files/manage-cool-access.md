@@ -34,7 +34,7 @@ There are several considerations to be aware of when using cool access.
 * Files moved to the cool tier remains there after you disable cool access on a volume. You must perform an I/O operation on _each_ file to return it to the warm tier. 
 * For the maximum number of volumes supported for cool access per subscription per region, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 * Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
-    * Cool access is also supported with dedicated capacity. You must be [registered to use dedicated capacity](large-volumes-requirements-considerations.md#register-for-dedicated-capacity-large-volumes) and to use [dedicated capacity with cool access](#dedicated). 
+    * Cool access is also supported with dedicated capacity, enabling you to create volumes with quotas up to 7.2 PiB. You must be [registered to use dedicated capacity](large-volumes-requirements-considerations.md#register-for-dedicated-capacity-large-volumes) and to use [dedicated capacity with cool access](#dedicated). 
     * Cool access with dedicated capacity is only available for newly created volumes. You must enable cool access and select dedicated capacity when creating the volume. 
 
 ### Considerations for cool access-enabled capacity pools 
@@ -133,7 +133,7 @@ No registration is required to use cool access at the Standard service level.
 
 ---
 
-### <a name="dedicated"></a> Register dedicated capacity for cool access (preview)
+### <a name="dedicated"></a> Register for dedicated capacity with cool access (preview)
 
 Cool access with dedicated capacity is currently in preview. Before using cool access with dedicated capacity, you must be registered to use both [dedicated capacity](large-volumes-requirements-considerations.md#register-for-dedicated-capacity-large-volumes). You must also register to use dedicated capacity with cool access: 
 
@@ -162,7 +162,7 @@ Before you create or enable a cool-access volume, configure a capacity pool with
 #### <a name="enable-cool-access-new-pool"></a> Enable cool access on a new capacity pool
 
 1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).  
-1. Select the **Enable Cool Access** checkbox, and then select **Create**.
+1. When creating the capacity pool, select the **Enable Cool Access** checkbox.
 
 #### <a name="enable-cool-access-existing-pool"></a> Enable cool access on an existing capacity pool  
 
@@ -184,6 +184,8 @@ You can enable Azure NetApp Files storage with cool access during the creation o
 1. On the **Create a volume** page, on the **Basics** tab, set the following options to enable the volume for cool access:
 
     [!INCLUDE [Cool access configuration settings](includes/cool-access-options.md)]
+
+    * If you're using dedicated capacity, select the box for **Dedicated capacity**. 
 
     :::image type="content" source="./media/manage-cool-access/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a volume page. On the Basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="./media/manage-cool-access/cool-access-new-volume.png"::: 
 

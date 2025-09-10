@@ -84,7 +84,7 @@ The following requirements and considerations apply to large volumes. For perfor
 * Dedicated capacity is only available for new volumes. 
 * Dedicated capacity large volumes are supported with cool access. This feature is currently in preview. You must register for both the [dedicated capacity preview](#register-for-dedicated-capacity-large-volumes) and to use [dedicated capacity with cool access](manage-cool-access.md#dedicated).
   
-  If you're using the Ultra or Premium service level, you must also [register to use those service levels with cool access](manage-cool-access.md#register-the-feature).
+If you're using the Ultra or Premium service level, you must also [register to use those service levels with cool access](manage-cool-access.md#register-the-feature).
 
 ## About 64-bit file IDs
 
