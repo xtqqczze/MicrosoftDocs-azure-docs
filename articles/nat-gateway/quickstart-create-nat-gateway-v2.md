@@ -1,7 +1,7 @@
 ---
-title: Create a Standard V2 Azure NAT Gateway
+title: Create a Azure NAT Gateway v2
 titlesuffix: Azure NAT Gateway
-description: This quickstart shows how to create a Standard V2 NAT gateway by using the Azure portal.
+description: This quickstart shows how to create a Azure NAT Gateway v2 by using the Azure portal.
 author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
@@ -11,9 +11,12 @@ ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
 # Customer intent: As a cloud engineer, I want to create a NAT gateway using various deployment methods, so that I can facilitate outbound internet connectivity for virtual machines in Azure.
 ---
 
-# Quickstart: Create a Standard V2 NAT gateway
+# Quickstart: Create a Azure NAT Gateway v2
 
-In this quickstart, learn how to create a Standard V2 NAT gateway by using the Azure portal, PowerShell. The NAT Gateway service provides scalable outbound connectivity for virtual machines in Azure.
+In this quickstart, learn how to create a Azure NAT Gateway v2 by using the Azure portal, and PowerShell. The NAT Gateway service provides scalable outbound connectivity for virtual machines in Azure.
+
+> [!NOTE]
+> Azure CLI is currently unavailable. Use the Azure portal or Azure PowerShell to create a v2 NAT gateway.
 
 ## Prerequisites
 
