@@ -50,7 +50,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 Create a resource group to contain all resources for this quickstart.
 
-# [Portal](#tab/portal)
+# [**Portal**](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -70,7 +70,7 @@ Create a resource group to contain all resources for this quickstart.
 
 1. Select **Create**.
 
-# [PowerShell](#tab/powershell)
+# [**Powershell**](#tab/powershell)
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
