@@ -1,6 +1,6 @@
 ---
 title: Configure Pre-Deployment for Azure Native Dynatrace Service
-description: Learn how to complete the prerequisites for Dynatrace on the Azure portal. 
+description: Learn how to complete the prerequisites for Dynatrace in the Azure portal. 
 ms.topic: concept-article
 ms.date: 09/15/2025
 
@@ -39,6 +39,6 @@ To use the SAML-based single sign-on (SSO) feature in the Dynatrace resource, yo
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a new Dynatrace environment](dynatrace-create.md)
+> [Quickstart: Create a new Dynatrace resource](dynatrace-create.md)
 
     
