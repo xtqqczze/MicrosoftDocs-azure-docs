@@ -58,10 +58,10 @@ New-AzFirewall `
 
 ## Choosing capacity values
 To determine the optimal minCapacity and maxCapacity: 
-1.	**Review usage trends** via the new Observed Capacity metric (historical and real-time instance counts).  
-2.	**Set minCapacity near peak demand** to avoid under-provisioning. 
-3.	**Set alerts on the Observed Capacity metric** to monitor when scaling occurs. 
-4.	**Allow headroom**: choose a higher maxCapacity if future surges are expected. 
+1.	**Set a reasonable minimum to avoid unnecessary scaling:** Start with a minimum capacity that handles your typical peak traffic comfortably so scaling events are rare under normal conditions.   
+2.	**Leave headroom with a higher maxCapacity:** Set maxCapacity higher than your expected peak to handle unexpected surges. Azure Firewall autoscaling will kick in to increase capacity up until your maxCapacity value.  
+3.	**Monitor the Observed Capacity metric** to see how often scaling occurs and adjust min/max values as needed. If scaling happens frequently, consider raising minCapacity.
+4.	**Add alerts** on the Observed Capacity metric to notify you when scaling events occur, so you can evaluate if adjustments are needed.
 
 ## Monitoring
 Prescaling introduces new observability:
@@ -76,9 +76,16 @@ Prescaling introduces new observability:
 ## Handling performance issues
 If experiencing packet drops or connectivity issues:
 - 	**Review Observed Capacity** to assess capacity trends.
-- 	**Each additional capacity unit** adds roughly 1.6 Gbps (approximate)
 - 	**Consider increasing minCapacity** to provide additional capacity support or if frequent upward scales occur
 - 	**Use key telemetry metrics** such as Latency Probe, Throughput, and Observed Capacity metrics to optimize scaling strategies.
+ 
+## Billing Information
+Prescaling introduces a **Capacity Unit Hour** billing meter. You pay based on the number of capacity units provisioned per hour. 
+
+| **SKU** | **Price per Capacity Unit** |
+| --- | --- |
+| **Azure Firewall Standard** | $0.07 per capacity unit hour |
+| **Azure Firewall Premium** | $0.11 per capacity unit hour |
 
 ## Limitations
 Keep the following considerations in mind when using Prescaling (Preview):
