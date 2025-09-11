@@ -18,7 +18,7 @@ Before you proceed, make sure that your subscription is enabled for Azure Market
 
 You can access the trial plan by finding Azure Native Dynatrace Service on the Azure portal or in the Azure Marketplace. For more information, see [Get started with Dynatrace](dynatrace-create.md#find-offer). Choose the free trial public plan when you subscribe.
 
-:::image type="content" source="media/dynatrace-free-trial/dynatrace-plans-free-trial.png" alt-text="Screenshot showing the free trial Dynatrace pricing plan in the Azure portal.":::
+:::image type="content" source="media/dynatrace-free-trial/dynatrace-plans-free-trial.png" alt-text="Screenshot showing the free trial Dynatrace pricing plan in the Azure Marketplace.":::
 
 ## Free trial upgrade and expiration
 
