@@ -19,6 +19,9 @@ Azure Firewall provides [2,496 SNAT ports per public IP address](../firewall/int
 
 NAT gateway can be integrated with Azure Firewall by configuring NAT gateway directly to the Azure Firewall subnet. This association provides a more scalable method of outbound connectivity. For production deployments, a hub and spoke network is recommended, where the firewall is in its own virtual network. The workload servers are peered virtual networks in the same region as the hub virtual network where the firewall resides. In this architectural setup, NAT gateway can provide outbound connectivity from the hub virtual network for all spoke virtual networks peered.
 
+> [!NOTE]
+> Azure CLI is currently unavailable. Use the Azure portal or Azure PowerShell to create a v2 NAT gateway.
+
 :::image type="content" source="./media/tutorial-hub-spoke-nat-firewall/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-hub-spoke-nat-firewall/resources-diagram.png":::
 
 >[!NOTE]
@@ -371,7 +374,7 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
 
 1. Select **Review + create** and then select **Create**.
 
-1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
+1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
 1. Select **+ Create**.
 
