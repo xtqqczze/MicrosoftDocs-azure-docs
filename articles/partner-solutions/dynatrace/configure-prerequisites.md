@@ -1,27 +1,26 @@
 ---
-title: Configure pre-deployment to use Azure Native Dynatrace Service
-description: This article describes how to complete the prerequisites for Dynatrace on the Azure portal. 
-ms.topic: conceptual
-
-ms.date: 02/02/2023
+title: Configure Pre-Deployment for Azure Native Dynatrace Service
+description: Learn how to complete the prerequisites for Dynatrace on the Azure portal. 
+ms.topic: concept-article
+ms.date: 09/15/2025
 
 ---
 
 # Configure pre-deployment
 
-This article describes the prerequisites that must be completed in your Azure subscription or Microsoft Entra ID before you create your first Dynatrace resource in Azure.
+This article describes the prerequisites that you must complete in your Azure subscription or Microsoft Entra ID before you create your first Dynatrace resource in Azure.
 
 ## Access control
 
-To set up Dynatrace for Azure, you must have **Owner** or **Contributor** access on the Azure subscription. First, [confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
+To set up Dynatrace for Azure, you must have **Owner** or **Contributor** access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before you start setup.
 
-## Add enterprise application
+## Add an enterprise application
 
-To use the Security Assertion Markup Language (SAML) based single sign-on (SSO) feature within the Dynatrace resource, you must set up an enterprise application. To add an enterprise application, you need one of these roles: Cloud Application Administrator, or Application Administrator.
+To use the SAML-based single sign-on (SSO) feature in the Dynatrace resource, you must set up an enterprise application. To add an enterprise application, you need either a Cloud Application Administrator or Application Administrator role.
 
-1. Go to Azure portal. Select **Microsoft Entra ID,** then **Enterprise App** and then **New Application**.
+1. Go to Azure portal. Select **Microsoft Entra ID** > **Enterprise App** > **New Application**.
 
-1. Under **Add from the gallery**, type in `Dynatrace`. Select the search result then select **Create**.
+1. Under **Add from the gallery**, enter **Dynatrace**. Select the search result and then select **Create**.
 
     :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png" alt-text="Screenshot of the Dynatrace service in the Marketplace gallery.":::
 
