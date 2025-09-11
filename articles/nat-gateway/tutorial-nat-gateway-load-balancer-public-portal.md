@@ -43,7 +43,7 @@ Create a resource group to contain all resources for this quickstart.
 
 1. Select **+ Create**.
 
-1. In the **Basics** tab of **Create a resource group**, enter or select the following information.
+1. In the **Basics** tab of **Create a resource group**, enter, or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
