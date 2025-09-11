@@ -1,6 +1,6 @@
 ---
 title: Monitor and track B2B messages - Consumption workflows
-description: Monitor, track, and troubleshoot AS2, X12, and EDIFACT messages with Azure Monitor by collecting diagnostics data for Consumption workflows in Azure Logic Apps.
+description: Learn how to monitor and track AS2, X12, and EDIFACT messages with Azure Monitor by collecting diagnostics data for Consumption workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, azla
@@ -10,7 +10,7 @@ ms.date: 02/28/2025
 
 # Monitor and track B2B messages in Consumption workflows with Azure Monitor and Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
 > [!NOTE]
 > This article applies only to Consumption logic app workflows. For Standard logic app workflows, see the following documentation: 
@@ -18,7 +18,7 @@ ms.date: 02/28/2025
 > - [Enable or open Application Insights after deployment for Standard workflows](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights)
 > - [Monitor and track B2B transactions in Standard workflows](monitor-track-b2b-transactions-standard.md)
 
-After you set up B2B communication between trading partners in your integration account, those partners can exchange messages by using protocols such as AS2, X12, and EDIFACT. To check that this communication works the way you expect, you can set up [Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs) for your integration account. [Azure Monitor](/azure/azure-monitor/overview) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can record and store data about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace). For messages, logging also collects information such as:
+After you set up B2B communication between trading partners in your integration account, those partners can exchange messages by using protocols such as AS2, X12, and EDIFACT. To check that this communication works the way you expect, you can set up [Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs) for your integration account. [Azure Monitor](/azure/azure-monitor/overview) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can record and store data about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](/azure/azure-monitor/essentials/resource-logs#destinations). For messages, logging also collects information such as:
 
 * Message count and status
 * Acknowledgments status
@@ -35,9 +35,9 @@ This article shows how to enable Azure Monitor logging for your integration acco
 
 ## Prerequisites
 
-* A Log Analytics workspace. If you don't have a Log Analytics workspace, learn [how to create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
+* A Log Analytics workspace. If you don't have a Log Analytics workspace, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
-* A logic app that's set up with Azure Monitor logging and sends that information to a Log Analytics workspace. Learn [how to set up Azure Monitor logs for your logic app](../logic-apps/monitor-logic-apps.md).
+* A Consumption logic app. Set it up with Azure Monitor logging. The logic app sends logging information to a Log Analytics workspace. Learn [how to set up Azure Monitor logs for your logic app](../logic-apps/monitor-logic-apps.md).
 
 * An integration account that's linked to your logic app. Learn [how to link your integration account to your logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -189,8 +189,8 @@ Here are the property descriptions for each AS2 message.
 | **Sender** | The guest partner specified in **Receive Settings**, or the host partner specified in **Send Settings** for an AS2 agreement |
 | **Receiver** | The host partner specified in **Receive Settings**, or the guest partner specified in **Send Settings** for an AS2 agreement |
 | **Logic App** | The logic app where the AS2 actions are set up |
-| **Status** | The AS2 message status <br>Success = Received or sent a valid AS2 message. No MDN is set up. <br>Success = Received or sent a valid AS2 message. MDN is set up and received, or MDN is sent. <br>Failed = Received an invalid AS2 message. No MDN is set up. <br>Pending = Received or sent a valid AS2 message. MDN is set up, and MDN is expected. |
-| **ACK** | The MDN message status <br>Accepted = Received or sent a positive MDN. <br>Pending = Waiting to receive or send an MDN. <br>Rejected = Received or sent a negative MDN. <br>Not Required = MDN is not set up in the agreement. |
+| **Status** | The AS2 message status <br>Success = Received or sent a valid AS2 message. No Message Disposition Notification (MDN) is set up. <br>Success = Received or sent a valid AS2 message. MDN is set up and received, or MDN is sent. <br>Failed = Received an invalid AS2 message. No MDN is set up. <br>Pending = Received or sent a valid AS2 message. MDN is set up, and MDN is expected. |
+| **ACK** | The MDN message status <br>Accepted = Received or sent a positive MDN. <br>Pending = Waiting to receive or send an MDN. <br>Rejected = Received or sent a negative MDN. <br>Not Required = MDN isn't set up in the agreement. |
 | **Direction** | The AS2 message direction |
 | **Tracking ID** | The ID that correlates all the triggers and actions in a logic app |
 | **Message ID** | The AS2 message ID from the AS2 message headers |
@@ -223,7 +223,7 @@ Here are the property descriptions for each X12 message.
 | **Receiver** | The host partner specified in **Receive Settings**, or the guest partner specified in **Send Settings** for an X12 agreement |
 | **Logic App** | The logic app where the X12 actions are set up |
 | **Status** | The X12 message status <br>Success = Received or sent a valid X12 message. No functional ack is set up. <br>Success = Received or sent a valid X12 message. Functional ack is set up and received, or a functional ack is sent. <br>Failed = Received or sent an invalid X12 message. <br>Pending = Received or sent a valid X12 message. Functional ack is set up, and a functional ack is expected. |
-| **ACK** | Functional Ack (997) status <br>Accepted = Received or sent a positive functional ack. <br>Rejected = Received or sent a negative functional ack. <br>Pending = Expecting a functional ack but not received. <br>Pending = Generated a functional ack but can't send to partner. <br>Not Required = Functional ack is not set up. |
+| **ACK** | Functional Ack (997) status <br>Accepted = Received or sent a positive functional ack. <br>Rejected = Received or sent a negative functional ack. <br>Pending = Expecting a functional ack but not received. <br>Pending = Generated a functional ack but can't send to partner. <br>Not Required = Functional ack isn't set up. |
 | **Direction** | The X12 message direction |
 | **Tracking ID** | The ID that correlates all the triggers and actions in a logic app |
 | **Msg Type** | The EDI X12 message type |
@@ -258,7 +258,7 @@ Here are the property descriptions for each EDIFACT message.
 | **Receiver** | The host partner specified in **Receive Settings**, or the guest partner specified in **Send Settings** for an EDIFACT agreement |
 | **Logic App** | The logic app where the EDIFACT actions are set up |
 | **Status** | The EDIFACT message status <br>Success = Received or sent a valid EDIFACT message. No functional ack is set up. <br>Success = Received or sent a valid EDIFACT message. Functional ack is set up and received, or a functional ack is sent. <br>Failed = Received or sent an invalid EDIFACT message <br>Pending = Received or sent a valid EDIFACT message. Functional ack is set up, and a functional ack is expected. |
-| **ACK** | Functional Ack (CONTRL) status <br>Accepted = Received or sent a positive functional ack. <br>Rejected = Received or sent a negative functional ack. <br>Pending = Expecting a functional ack but not received. <br>Pending = Generated a functional ack but can't send to partner. <br>Not Required = Functional Ack is not set up. |
+| **ACK** | Functional Ack (CONTRL) status <br>Accepted = Received or sent a positive functional ack. <br>Rejected = Received or sent a negative functional ack. <br>Pending = Expecting a functional ack but not received. <br>Pending = Generated a functional ack but can't send to partner. <br>Not Required = Functional Ack isn't set up. |
 | **Direction** | The EDIFACT message direction |
 | **Tracking ID** | The ID that correlates all the triggers and actions in a logic app |
 | **Msg Type** | The EDIFACT message type |
