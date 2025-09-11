@@ -70,8 +70,6 @@ Prescaling introduces new observability:
 | --- | --- |
 | **Observed Capacity (Preview)** | Reports the number of firewall capacity units (instances) currently provisioned and scaled over time. Notes: Updates may be delayed by up to 30 minutes during Preview. |
 | **Alerts** | Administrators can set an alert for when there is an autoscaling event, using the Observed Capacity metric. |
-| **Resource Health Capacity Limit Reached Metric** | In Resource Health, administrators can get alerted if their firewall is reaching their maximum capacity and needs to scale further. |
-
 
 ## Handling performance issues
 If experiencing packet drops or connectivity issues:
@@ -97,6 +95,6 @@ Keep the following considerations in mind when using Prescaling (Preview):
 - **Active scaling/maintenance events**: prescaling changes may fail if the firewall is mid-scale or upgrade. Retry after completion.
 
 ## Next steps
-- 	Monitor firewall health in [Logs and metrics](https://learn.microsoft.com/azure/firewall/monitor-firewall-reference)
+- 	Monitor and learn about the firewall Observed Capacity metrics in [Logs and metrics](https://learn.microsoft.com/azure/firewall/monitor-firewall-reference)
 - 	Review [Azure Firewall Best Practices](https://learn.microsoft.com/azure/firewall/firewall-best-practices) to optimize deployments.
 
