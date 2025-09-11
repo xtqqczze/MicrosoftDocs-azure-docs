@@ -24,17 +24,17 @@ To use the SAML-based single sign-on (SSO) feature in the Dynatrace resource, yo
 
     :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png" alt-text="Screenshot of the Dynatrace service in the Marketplace gallery." lightbox="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png":::
 
-1. After the app is created, go to properties from the side panel, and set the **User assignment required?** to **No**, then select **Save**.
+1. After the app is created, select **Properties** under **Manage** in the left pane, set **User assignment required?** to **No**, and then select **Save**.
 
-    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-properties.png" alt-text="Screenshot of the Dynatrace service properties.":::
+    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-properties.png" alt-text="Screenshot of the Dynatrace service properties page." lightbox="media/dynatrace-how-to-configure-prereqs/dynatrace-properties.png":::
 
-1. Go to **Single sign-on** from the side panel. Then select **SAML**.
+1. In the left pane, under **Manage**, select **Single sign-on**. Then select **SAML**.
 
-    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-single-sign-on.png" alt-text="Screenshot of the Dynatrace single sign-on settings.":::
+    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-single-sign-on.png" alt-text="Screenshot of the Dynatrace single sign-on settings." lightox="media/dynatrace-how-to-configure-prereqs/dynatrace-single-sign-on.png":::
 
-1. Select **Yes** when prompted to **Save single sign-on settings**.
+1. Select **Yes** when prompted to **Save single sign-on setting**.
 
-   :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-saml-sign-on.png" alt-text="Screenshot of the Dynatrace S A M L settings.":::
+   :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-saml-sign-on.png" alt-text="Screenshot of the confirmation prompt." lightobx="media/dynatrace-how-to-configure-prereqs/dynatrace-saml-sign-on.png":::
 
 ## Next step
 
