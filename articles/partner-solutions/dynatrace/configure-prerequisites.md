@@ -24,7 +24,7 @@ To use the SAML-based single sign-on (SSO) feature in the Dynatrace resource, yo
 
     :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png" alt-text="Screenshot of the Dynatrace service in the Microsoft Entra gallery." lightbox="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png":::
 
-1. After the app is created, select **Properties** under **Manage** in the left pane, set **User assignment required?** to **No**, and then select **Save**.
+1. After the app is created, select **Properties** under **Manage** in the left pane, set **Assignment required?** to **No**, and then select **Save**.
 
     :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-properties.png" alt-text="Screenshot of the Dynatrace service properties page." lightbox="media/dynatrace-how-to-configure-prereqs/dynatrace-properties.png":::
 
