@@ -1,38 +1,35 @@
 ---
-title: Linking to an existing Azure Native Dynatrace Service resource
-description: This article describes how to use the Azure portal to link to an instance of Dynatrace.
-
+title: Link to an Existing Azure Native Dynatrace Service Resource
+description: Learn how to use the Azure portal to link to an instance of Dynatrace.
 ms.topic: quickstart
-ms.date: 02/02/2023
+ms.date: 09/15/2025
 
 ---
 
 # Quickstart: Link to an existing Dynatrace environment
 
-In this quickstart, you link an Azure subscription to an existing Dynatrace environment. After linking to the Dynatrace environment, you can monitor the linked Azure subscription and the resources in that subscription using the Dynatrace environment.
+In this quickstart, you link an Azure subscription to an existing Dynatrace environment. After linking to the Dynatrace environment, you can monitor the linked Azure subscription and the resources in that subscription by using the Dynatrace environment.
 
 > [!NOTE]
 > You can only link Dynatrace environments that have been previously created via Dynatrace for Azure.
 
 When you use the integrated experience for Dynatrace in the Azure portal, your billing and monitoring for the following entities is tracked in the portal.
 
-:::image type="content" source="media/dynatrace-link-to-existing/dynatrace-entities-linking.png" alt-text="Flowchart showing three entities: subscription 1 connected to subscription 1 and Dynatrace S A A S.":::
+:::image type="content" source="media/dynatrace-link-to-existing/dynatrace-entities-linking.png" alt-text="Flowchart showing three entities: subscription 1 connected to subscription 2 and Dynatrace SaaS." lightbox="media/dynatrace-link-to-existing/dynatrace-entities-linking.png":::
 
-- **Dynatrace resource in Azure** - Using the Dynatrace resource, you can manage the Dynatrace environment in Azure. The resource is created in the Azure subscription and resource group that you select during the linking process.
-- **Dynatrace environment** - the Dynatrace environment on Dynatrace SaaS. When you choose to link an existing environment, a new Dynatrace resource is created in Azure. The Dynatrace environment and the Dynatrace resource must reside in the same region.
-- **Marketplace SaaS resource** - the SaaS resource is used for billing purposes. The SaaS resource typically resides in a different Azure subscription from where the Dynatrace environment was first created.
+- **Dynatrace resource in Azure**. By using the Dynatrace resource, you can manage the Dynatrace environment in Azure. The resource is created in the Azure subscription and resource group that you select during the linking process.
+- **Dynatrace environment**. The Dynatrace environment on Dynatrace SaaS. When you link an existing environment, a new Dynatrace resource is created in Azure. The Dynatrace environment and the Dynatrace resource must reside in the same region.
+- **Marketplace SaaS resource**. The SaaS resource is used for billing purposes. The SaaS resource typically doesn't reside in the Azure subscription where the Dynatrace environment was first created.
 
-## Find Offer
-
-1. Use the Azure portal to find Dynatrace.
+## Find Dynatrace
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign in.
 
-1. If you've gone to the Marketplace in a recent session, select the icon from the available options. Otherwise, search for Marketplace.
+1. Search for **Marketplace**.
 
-    :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-search-marketplace.png" alt-text="Screenshot showing a search for Dynatrace in Marketplace.":::
+    :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-search-marketplace.png" alt-text="Screenshot showing a search for Marketplace." lightbox="media/dynatrace-link-to-existing/dynatrace-search-marketplace.png":::
 
-1. In the Marketplace, search for _Dynatrace_.
+1. In Azure Marketplace, search for **Dynatrace**.
 
     :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-subscribe.png" alt-text="Screenshot showing Dynatrace in the working pane to create a subscription.":::
 

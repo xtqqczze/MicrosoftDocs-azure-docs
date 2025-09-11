@@ -18,9 +18,9 @@ To set up Dynatrace for Azure, you must have **Owner** or **Contributor** access
 
 To use the SAML-based single sign-on (SSO) feature in the Dynatrace resource, you must set up an enterprise application. To add an enterprise application, you need either a Cloud Application Administrator or Application Administrator role.
 
-1. Go to Azure portal. Search for **Entra ID** and then select **Microsoft Entra ID**. In Entra ID, in the left pane, select  **Enterprise App** under **Manage**. Select **New Application**.
+1. Go to the Azure portal. Search for **Entra ID** and then select **Microsoft Entra ID**. In Entra ID, in the left pane, select  **Enterprise App** under **Manage**. Select **New Application**.
 
-1. Under **Browse Microsoft Entra gallery**, enter **Dynatrace** in the search box. Select **Dynatrace** in the search results, and then select **Create**.
+1. Under **Browse Microsoft Entra Gallery**, enter **Dynatrace** in the search box. Select **Dynatrace** in the search results, and then select **Create**.
 
     :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png" alt-text="Screenshot of the Dynatrace service in the Microsoft Entra gallery." lightbox="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png":::
 
