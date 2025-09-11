@@ -21,7 +21,7 @@ When you use the integrated experience for Dynatrace in the Azure portal, your b
 - **Dynatrace environment**. The Dynatrace environment on Dynatrace SaaS. When you link an existing environment, a new Dynatrace resource is created in Azure. The Dynatrace environment and the Dynatrace resource must reside in the same region.
 - **Marketplace SaaS resource**. The SaaS resource is used for billing purposes. The SaaS resource typically doesn't reside in the Azure subscription where the Dynatrace environment was first created.
 
-## Find Dynatrace
+## Subscribe to Dynatrace
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign in.
 
@@ -29,15 +29,15 @@ When you use the integrated experience for Dynatrace in the Azure portal, your b
 
     :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-search-marketplace.png" alt-text="Screenshot showing a search for Marketplace." lightbox="media/dynatrace-link-to-existing/dynatrace-search-marketplace.png":::
 
-1. In Azure Marketplace, search for **Dynatrace**.
+1. In Azure Marketplace, search for **Dynatrace**, and select the **Dynatrace – An Azure Native ISV Service** tile.
 
-    :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-subscribe.png" alt-text="Screenshot showing Dynatrace in the working pane to create a subscription.":::
+1. On the **Dynatrace – An Azure Native ISV Service** page, select **Subscribe**.    
 
-1. In the working pane, select **Subscribe**.
+   :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-subscribe.png" alt-text="Screenshot showing the Subscribe button." lightbox="media/dynatrace-link-to-existing/dynatrace-subscribe.png":::
 
-## Link to existing Dynatrace environment
+## Link to an existing Dynatrace environment
 
-1. When creating a Dynatrace resource, you see two options: one to create a new Dynatrace environment, and another to link Azure subscription to an existing Dynatrace environment.
+1. When you create a Dynatrace resource, you see two options: one to create a new Dynatrace environment, and another to link an Azure subscription to an existing Dynatrace environment.
 
 1. If you're linking the Azure subscription to an existing Dynatrace environment, select **Create** under the **Link Azure subscription to an existing Dynatrace environment** option.
 
