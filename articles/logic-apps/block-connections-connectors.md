@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, estfan, azla
 ms.topic: how-to
-ms.date: 09/04/2025
+ms.date: 09/12/2025
 #Customer intent: As an integration developer, I want to use Azure Policy to block certain connections for use in my Azure Logic Apps workflows.
 ---
 
@@ -27,7 +27,7 @@ This article shows you how to set up a policy that blocks specific connections b
 
 ## Find connector reference ID
 
-If you already have a logic app with the connection that you want to block, skip the next section. Otherwise, follow these steps:
+If you already have a logic app with the connection that you want to block, skip the next section. Otherwise, follow these steps to review the connector reference:
 
 <a name="connector-ID-doc-reference"></a>
 
@@ -295,7 +295,7 @@ You need to assign the policy definition where you want to enforce the policy. Y
 
 1. On the **Policy** menu, under **Authoring**, select **Assignments**. On the **Assignments** toolbar, select **Assign policy**.
 
-   :::image type="content" source="./media/block-connections-connectors/add-new-policy-assignment.png" alt-text="Screenshot shows Assignments toolbar with Assign policy highlighted.":::
+   :::image type="content" source="./media/block-connections-connectors/add-new-policy-assignment.png" alt-text="Screenshot shows Assignments toolbar with Assign policy highlighted." lightbox="./media/block-connections-connectors/add-new-policy-assignment.png":::
 
 1. On the **Assign policy** page, under **Basics**, provide this information for the policy assignment:
 
