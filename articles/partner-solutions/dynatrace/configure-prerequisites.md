@@ -8,7 +8,7 @@ ms.date: 09/15/2025
 
 # Configure pre-deployment
 
-This article describes the prerequisites that you must complete in your Azure subscription or Microsoft Entra ID before you create your first Dynatrace resource in Azure.
+This article describes the prerequisites that you must complete in your Azure subscription or in Microsoft Entra ID before you create your first Dynatrace resource in Azure.
 
 ## Access control
 
@@ -18,11 +18,11 @@ To set up Dynatrace for Azure, you must have **Owner** or **Contributor** access
 
 To use the SAML-based single sign-on (SSO) feature in the Dynatrace resource, you must set up an enterprise application. To add an enterprise application, you need either a Cloud Application Administrator or Application Administrator role.
 
-1. Go to Azure portal. Select **Microsoft Entra ID** > **Enterprise App** > **New Application**.
+1. Go to Azure portal. Search for **Entra ID** and then select **Microsoft Entra ID**. In Entra ID, in the left pane, select  **Enterprise App** under **Manage**. Select **New Application**.
 
-1. Under **Add from the gallery**, enter **Dynatrace**. Select the search result and then select **Create**.
+1. Under **Browse Microsoft Entra gallery**, enter **Dynatrace** in the search box. Select **Dynatrace** in the search results, and then select **Create**.
 
-    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png" alt-text="Screenshot of the Dynatrace service in the Marketplace gallery." lightbox="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png":::
+    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png" alt-text="Screenshot of the Dynatrace service in the Microsoft Entra gallery." lightbox="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png":::
 
 1. After the app is created, select **Properties** under **Manage** in the left pane, set **User assignment required?** to **No**, and then select **Save**.
 
@@ -30,11 +30,11 @@ To use the SAML-based single sign-on (SSO) feature in the Dynatrace resource, yo
 
 1. In the left pane, under **Manage**, select **Single sign-on**. Then select **SAML**.
 
-    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-single-sign-on.png" alt-text="Screenshot of the Dynatrace single sign-on settings." lightox="media/dynatrace-how-to-configure-prereqs/dynatrace-single-sign-on.png":::
+    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-single-sign-on.png" alt-text="Screenshot of the Dynatrace single sign-on settings." lightbox="media/dynatrace-how-to-configure-prereqs/dynatrace-single-sign-on.png":::
 
 1. Select **Yes** when prompted to **Save single sign-on setting**.
 
-   :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-saml-sign-on.png" alt-text="Screenshot of the confirmation prompt." lightobx="media/dynatrace-how-to-configure-prereqs/dynatrace-saml-sign-on.png":::
+   :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-saml-sign-on.png" alt-text="Screenshot of the confirmation prompt." lightbox="media/dynatrace-how-to-configure-prereqs/dynatrace-saml-sign-on.png":::
 
 ## Next step
 
