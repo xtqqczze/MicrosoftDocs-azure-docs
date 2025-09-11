@@ -9,7 +9,7 @@ ms.date: 07/31/2025
 
 # AI Integration with Azure Container Apps
 
-Azure Container Apps is a fully managed, serverless container platform that simplifies the deployment and scaling of microservices and AI-powered applications. With native support for GPU workloads, seamless integration with Azure AI services, and flexible deployment options, is an ideal platform for building intelligent, cloud-native solutions.
+Azure Container Apps is a serverless container platform that simplifies the deployment and scaling of microservices and AI-powered applications. With native support for GPU workloads, seamless integration with Azure AI services, and flexible deployment options, it is an ideal platform for building intelligent, cloud-native solutions.
 
 
 ## GPU-Powered Inference
