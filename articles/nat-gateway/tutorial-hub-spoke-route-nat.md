@@ -268,6 +268,8 @@ $vNetParams = @{
 $vNet = New-AzVirtualNetwork @vNetParams
 ```
 
+---
+
 ## Create Azure Bastion host
 
 Azure Bastion provides secure RDP and SSH connectivity to virtual machines over TLS without requiring public IP addresses on the VMs.
