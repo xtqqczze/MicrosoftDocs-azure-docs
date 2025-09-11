@@ -22,9 +22,9 @@ To use the SAML-based single sign-on (SSO) feature in the Dynatrace resource, yo
 
 1. Under **Add from the gallery**, enter **Dynatrace**. Select the search result and then select **Create**.
 
-    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png" alt-text="Screenshot of the Dynatrace service in the Marketplace gallery.":::
+    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png" alt-text="Screenshot of the Dynatrace service in the Marketplace gallery." lightbox="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png":::
 
-1. Once the app is created, go to properties from the side panel, and set the **User assignment required?** to **No**, then select **Save**.
+1. After the app is created, go to properties from the side panel, and set the **User assignment required?** to **No**, then select **Save**.
 
     :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-properties.png" alt-text="Screenshot of the Dynatrace service properties.":::
 
