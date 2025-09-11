@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: camerost, azla
 ms.topic: how-to
-ms.date: 09/03/2025
+ms.date: 09/12/2025
 #Customer intent: As an integration developer who uses stored procedures in SQL databases, I want to use the SQL connector in Azure Logic Apps to support large result sets.
 ---
 
@@ -159,11 +159,11 @@ Here are the steps to add:
 
 To start the job, use a passthrough native query with the [**Execute a SQL query** action](/connectors/sql/#execute-a-sql-query-(v2)) and immediately push the job's parameters into the state table. To provide input to the `jobid` attribute in the target table, Logic Apps adds a **For each** loop that iterates through the table output from the preceding action. For each job execution ID, run an **Insert row** action that uses the dynamic data output, `ResultSets JobExecutionId`, to add the parameters for the job to unpack and pass to the target stored procedure.
 
-:::image type="content" source="media/handle-long-running-stored-procedures-sql-connector/start-job-actions.png" alt-text="Screenshot shows the insert row action and the preceding actions in the workflow.":::
+:::image type="content" source="media/handle-long-running-stored-procedures-sql-connector/start-job-actions.png" alt-text="Screenshot shows the insert row action and the preceding actions in the workflow." lightbox="media/handle-long-running-stored-procedures-sql-connector/start-job-actions.png":::
 
 When the job completes, the job updates the `LongRunningState` table. You can trigger on the result by using the [**When an item is modified** trigger](/connectors/sql/#when-an-item-is-modified-(v2)). If you don't need the output, or if you already have a trigger that monitors an output table, you can skip this part.
 
-:::image type="content" source="media/handle-long-running-stored-procedures-sql-connector/trigger-on-results-after-job-completes.png" alt-text="Screenshot shows the SQL trigger for when an item is modified.":::
+:::image type="content" source="media/handle-long-running-stored-procedures-sql-connector/trigger-on-results-after-job-completes.png" alt-text="Screenshot shows the SQL trigger for when an item is modified." lightbox="media/handle-long-running-stored-procedures-sql-connector/trigger-on-results-after-job-completes.png":::
 
 <a name="sql-on-premises-or-managed-instance"></a>
 
@@ -173,5 +173,5 @@ For the same scenario, you can use the [SQL Server Agent](/sql/ssms/agent/sql-se
 
 ## Next step
 
-[Connect to SQL Server, Azure SQL Database, or Azure SQL Managed Instance](../connectors/connectors-create-api-sqlazure.md)
+- [Connect to SQL databases from workflows in Azure Logic Apps](../connectors/connectors-create-api-sqlazure.md)
 
