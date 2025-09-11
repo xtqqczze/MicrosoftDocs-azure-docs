@@ -13,14 +13,14 @@ ms.custom:
 ---
 # Data cubes in Microsoft Planetary Computer Pro
 
-As mentioned in [Supported Data Types](./supported-data-types.md), Microsoft Planetary Computer Pro supports ingestion, cloud optimization, and visualization of data cube files in NetCDF, HDF5, Zarr and GRIB2 formats. Though complex and historically cumbersome on local storage, these assets are optimized for cloud environments with Planetary Computer Pro, further empowering them as efficient tools to structure and store multidimensional data like satellite imagery and climate models.
+As mentioned in [Supported Data Types](./supported-data-types.md), Microsoft Planetary Computer Pro supports ingestion, cloud optimization, and visualization of data cube files in NetCDF, HDF5, Zarr, and GRIB2 formats. Though complex and historically cumbersome on local storage, these assets are optimized for cloud environments with Planetary Computer Pro, further empowering them as efficient tools to structure and store multidimensional data like satellite imagery and climate models.
 
 ## Ingestion of data cubes
 
-Data cube files can be ingested into Planetary Computer Pro in the same way as other raster data types. As with other date formats, assets and associated Spatio Temporal Asset Catalog (STAC) Items must first be stored in Azure Blob Storage. Unlike other two-dimensional raster assets, however, additional cloud optimization steps will occur upon ingestion of certain data cube formats (NetCDF and HDF5).
+Data cube files can be ingested into Planetary Computer Pro in the same way as other raster data types. As with other date formats, assets and associated Spatio Temporal Asset Catalog (STAC) Items must first be stored in Azure Blob Storage. Unlike other two-dimensional raster assets, however, more cloud optimization steps occur upon ingestion of certain data cube formats (NetCDF and HDF5).
 
 > [!NOTE]
-> GRIB2 data will be ingested in the same way as other two-dimensional raster data (with no additional cloud optimization steps), as they are essentially a collection of 2D rasters with an associated index file that references the data efficiently in cloud environments. Similarly, Zarr is already a cloud-native format, so no optimization takes place upon ingestion. 
+> GRIB2 data is ingested in the same way as other two-dimensional raster data (with no other cloud optimization steps), as they're essentially a collection of 2D rasters with an associated index file that references the data efficiently in cloud environments. Similarly, Zarr is already a cloud-native format, so no optimization takes place upon ingestion. 
 
 ## Cloud optimization of data cubes
 
@@ -45,7 +45,7 @@ If these conditions are met, a Kerchunk manifest (`assetid-kerchunk.json`) is ge
 > [!NOTE]
 > The asset format type`application/x-hdf` often corresponds to HDF4 assets. GeoCatalog ingestion doesn't currently support creating virtual kerchunk manifests for HDF4 due to its added complexity and multiple variants.
 
-### STAC item enrichement 
+### STAC item enrichment 
 
 For each optimized asset within the STAC item, the following fields are added:  
 
@@ -69,15 +69,15 @@ If you decide you don't want to work with cloud optimized data cube assets, disa
 
 ## Zarr ingestion and data updates
 
-As previously mentioned, Zarr is inherently a cloud-native format, so no additional optimization occurs when ingested and no modification of it's STAC items is necessary. However, if you plan to dynamically update your Zarr assets and reingest STAC itmes to work with the latest version, you'll need to be aware of two update methods: **Append** and **Sync**. 
+As previously mentioned, Zarr is inherently a cloud-native format, so no extra optimization occurs when ingested and no modification of its STAC items is necessary. However, if you plan to dynamically update your Zarr assets and reingest STAC items to work with the latest version, you need to be aware of two update methods: **Append** and **Sync**. 
 
 ### Append
 
-If you add new data to a locally stored Zarr store, but want to update the version stored in Planetary Computer Pro, you'll need to reingest the STAC item. When that item is reingested, the default behavior is to review the assets for any new data, and add it to the data stored in the cloud. No modification to the STAC item is necessary prior to reingestion. 
+If you add new data to a locally stored Zarr store, but want to update the version stored in Planetary Computer Pro, you need to reingest the STAC item. When that item is reingested, the default behavior is to review the assets for any new data, and add it to the data stored in the cloud. No modification to the STAC item is necessary prior to reingestion. 
 
 ### Sync
 
-If you remove data from a locally stored Zarr store, reingesting the same STAC item will not allow the cloud-based version to match the version on your machine, as the **append** functionality will look for new data, but not adjust according to any missing data. That's where **sync** comes into play. By modifying the STAC item to include a parameter that indicates you want to sync, the existing data with the new, and reingesting that modified STAC item, only the most up-to-date data from the Zarr store will be available in Planetary Computer Pro. The modification to the STAC item should appear as follows:
+If you remove data from a locally stored Zarr store, reingesting the same STAC item won't allow the cloud-based version to match the version on your machine, as the **append** functionality looks for new data, but not adjust according to any missing data. That's where **sync** comes into play. By modifying the STAC item to include a parameter that indicates you want to sync, the existing data with the new, and reingesting that modified STAC item, only the most up-to-date data from the Zarr store are available in Planetary Computer Pro. The modification to the STAC item should appear as follows:
 
 ```json
 {
