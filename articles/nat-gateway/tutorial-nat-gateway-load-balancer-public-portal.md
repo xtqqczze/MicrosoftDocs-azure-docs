@@ -49,15 +49,13 @@ Create a resource group to contain all resources for this quickstart.
     | ------- | ----- |
     | Subscription | Select your subscription|
     | Resource group | test-rg |
-    | Region | **West US** |
+    | Region | **East US 2** |
 
 1. Select **Review + create**.
 
 1. Select **Create**.
 
 ## Create the virtual network
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box at the top of the Azure portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -72,7 +70,7 @@ Create a resource group to contain all resources for this quickstart.
     | Resource group | Select **test-rg** or your resource group. |
     | **Instance details** |  |
     | Name | Enter **vnet-1**. |
-    | Region | Select your region. This example uses **West US**. |
+    | Region | Select your region. This example uses **East US 2**. |
 
 1. Select the **IP Addresses** tab, or select **Next: Security**, then **Next: IP Addresses**.
 
@@ -116,7 +114,7 @@ Create an Azure Bastion host to securely connect to the virtual machine.
     | Resource group | Select **test-rg** or your resource group. |
     | **Instance details** |  |
     | Name | Enter **bastion**. |
-    | Region | Select your region. This example uses **West US**. |
+    | Region | Select your region. This example uses **East US 2**. |
     | Tier | Select **Developer**. |
     | Virtual network | Select **vnet-1**. |
     | Subnet | Select **AzureBastionSubnet**. |
@@ -135,7 +133,7 @@ Create an Azure Bastion host to securely connect to the virtual machine.
    | ------- | ----- |
    | Subscription | Select your subscription. |
    | Resource group | Select your resource group. The example uses **test-rg**. |
-   | Region | Select a region. This example uses **West US**. |
+   | Region | Select a region. This example uses **East US 2**. |
    | Name | Enter **public-ip-nat**. |
    | IP version | Select **IPv4**. |
    | SKU | Select **Standard V2**. |
@@ -157,7 +155,7 @@ Create an Azure Bastion host to securely connect to the virtual machine.
     | Resource group | Select **test-rg** or your resource group. |
     | **Instance details** |  |
     | NAT gateway name | Enter **nat-gateway**. |
-    | Region | Select your region. This example uses **West US**. |
+    | Region | Select your region. This example uses **East US 2**. |
     | SKU | Select **Standard V2**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
