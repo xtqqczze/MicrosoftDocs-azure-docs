@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/28/2025
+ms.date: 09/12/2025
 #Customer intent: As an integration developer, I want to understand the content types available in Azure Logic Apps workflows.
 ---
 
