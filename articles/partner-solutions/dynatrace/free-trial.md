@@ -2,7 +2,7 @@
 title: 'Dynatrace: start a free trial'
 description: This article describes how to use the Azure portal to try Dynatrace for free.
 ms.topic: quickstart
-ms.date: 11/07/2023
+ms.date: 09/15/2025
 ms.service: partner-services
 ms.subservice: dynatrace
 
