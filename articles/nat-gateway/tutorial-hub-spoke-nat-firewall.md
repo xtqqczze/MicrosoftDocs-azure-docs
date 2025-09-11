@@ -201,7 +201,6 @@ $hubVnet | Set-AzVirtualNetwork
 
 ---
 
-
 ## Create Azure Bastion host
 
 Azure Bastion provides secure RDP and SSH connectivity to virtual machines over TLS without requiring public IP addresses on the VMs.
@@ -372,7 +371,7 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
 
 1. Select **Review + create** and then select **Create**.
 
-1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
+1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
 
 1. Select **+ Create**.
 
@@ -682,7 +681,7 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 
 1. Select **+ Add** in **Routes**.
 
-10. Enter or select the following information in **Add route**:
+1. Enter or select the following information in **Add route**:
 
     | Setting | Value |
     | ------- | ----- |
@@ -692,20 +691,20 @@ Create a route table to force all inter-spoke and internet egress traffic throug
     | Next hop type | Select **Virtual appliance**. |
     | Next hop address | Enter **10.0.1.68**. |
 
-11. Select **Add**.
+1. Select **Add**.
 
-12. Select **Subnets** in **Settings**.
+1. Select **Subnets** in **Settings**.
 
-13. Select **+ Associate**.
+1. Select **+ Associate**.
 
-14. Enter or select the following information in **Associate subnet**:
+1. Enter or select the following information in **Associate subnet**:
 
     | Setting | Value |
     | ------- | ----- |
     | Virtual network | Select **vnet-spoke (test-rg)**. |
     | Subnet | Select **subnet-private**. |
 
-15. Select **OK**.
+1. Select **OK**.
 
 # [**PowerShell**](#tab/powershell)
 
@@ -946,7 +945,7 @@ $cred = Get-Credential
 ```
 
 > [!NOTE]
-> A username is required for the VM. The password is optional and isn't used if set. SSH key configuration is recommended for Linux VMs.
+> A username is required for the VM. The password is optional and won't be used if set. SSH key configuration is recommended for Linux VMs.
 
 Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to define a VM.
 
