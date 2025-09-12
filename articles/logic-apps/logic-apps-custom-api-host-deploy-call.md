@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/03/2025
+ms.date: 09/15/2025
 #Customer intent: As an integration developer working with Azure Logic Apps, I want to create and make available my own API by using Azure App Service.
 ---
 
@@ -25,11 +25,11 @@ Before you can call your custom API from a logic app workflow, deploy your API a
 
 1. In the [Azure portal](https://portal.azure.com), select your web app or API app.
 
-1. In the app menu that opens, under **API**, select **API definition**. Set the **API definition location** to the URL for your swagger JSONfile.
+1. In the app menu that opens, under **API**, select **API definition**. Set the **API definition location** to the URL for your swagger JSON file.
 
    :::image type="content" source="./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png" alt-text="Screenshot shows the Azure portal with web app's API definition pane open with the API definition URL of a Swagger document for your custom API.":::
 
-   To get your site URL, go to the *Overview* page and copy **Default domain**. The location is based on that value, such as: `https://<your-app-location>/swagger/docs/v1`
+   To get your site URL, go to the **Overview** page and copy **Default domain**. The location is based on that value, such as: `https://<your-app-location>/swagger/docs/v1`.
 
 1. Select **Save**.
 
