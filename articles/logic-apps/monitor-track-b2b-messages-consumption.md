@@ -70,7 +70,7 @@ Before Azure Monitor logs can track the B2B messages for your logic app, add the
 
 1. On the solution description pane, select **Create**.
 
-   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/create-logic-apps-b2b-solution.png" alt-text="Select "Create" to add "Logic Apps B2B" solution":::
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/create-logic-apps-b2b-solution.png" alt-text="Select Create to add Logic Apps B2B solution":::
 
 1. Review and confirm the Log Analytics workspace where you want to install the solution, and select **Create** again.
 
