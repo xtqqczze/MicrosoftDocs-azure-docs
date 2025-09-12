@@ -17,7 +17,10 @@ In this quickstart, you use Azure Marketplace and the Azure CLI to create a reso
 - An Azure account. If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 - The Owner or Contributor role for your Azure subscription. Only users who are assigned one of these roles can set up integration between Azure and Confluent. Before you get started, [verify that you have the required access](../../role-based-access-control/check-access.md).
 
-## Find the offer
+<!---
+i don't know why this section is here 
+
+## Find offer
 
 Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud application:
 
@@ -37,6 +40,9 @@ Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud 
 
    - **Pay-as-you-go free trial**.   
    - **Commitment plans**. You sign up for a minimum spend amount. Annual, monthly, multi-year, and one-time commitment plans are available.
+
+1. Select **Subscribe**.   
+-->
 
 ## Create a resource
 
