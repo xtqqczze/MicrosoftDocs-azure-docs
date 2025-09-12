@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A standard public load balancer in your subscription. The load balancer must have a separate frontend IP address and outbound rules configured. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
+* A standard public load balancer in your subscription. The load balancer must have a separate frontend IP address and outbound rules configured. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance virtual machines using the Azure portal](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
     
     * The load balancer name used in the examples is **load-balancer**.
 
@@ -108,11 +108,11 @@ In this section, you learn how to change your outbound connectivity method from 
 
 1. Select **Next**.
 
-1. In the **Networking** tab, in **Virtual network**, select your virtual network. In this example it's **test-rg**.
+1. In the **Networking** tab, in **Virtual network**, select your virtual network. In this example, it's **test-rg**.
 
 1. Leave the checkbox for **Default to all subnets** unchecked.
 
-1. In **Select specific subnets**, select your subnet. In this example it's **subnet-1**.
+1. In **Select specific subnets**, select your subnet. In this example, it's **subnet-1**.
 
 1. Select **Review + create**, then select **Create**.
 
@@ -165,15 +165,15 @@ In this section, you create a NAT gateway with the IP address previously used fo
 
 1. In the **Outbound IP** tab, select **+ Add public IP addresses or prefixes**.
 
-1. In **Add public IP addresses or prefixes**, select **Public IP addresses**. Select the public IP address you removed from the load balancer in the previous steps. In this example it's named **public-ip-outbound**.
+1. In **Add public IP addresses or prefixes**, select **Public IP addresses**. Select the public IP address you removed from the load balancer in the previous steps. In this example, it's **public-ip-outbound**.
 
 1. Select **Next**.
 
-1. In the **Networking** tab, in **Virtual network**, select your virtual network. In this example it's **test-rg**.
+1. In the **Networking** tab, in **Virtual network**, select your virtual network. In this example, it's **test-rg**.
 
 1. Leave the checkbox for **Default to all subnets** unchecked.
 
-1. In **Select specific subnets**, select your subnet. In this example it's **subnet-1**.
+1. In **Select specific subnets**, select your subnet. In this example, it's **subnet-1**.
 
 1. Select **Review + create**, then select **Create**.
 
