@@ -58,6 +58,62 @@ Create a resource group to contain all resources for this quickstart.
 
 1. Select **Create**.
 
+## Migrate default outbound access
+
+In this section, you learn how to change your outbound connectivity method from default outbound access to a NAT gateway.
+
+1. In the search box at the top of the Azure portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
+
+1. Select **Create**.
+
+1. Enter the following information in **Create public IP address**.
+
+   | Setting | Value |
+   | ------- | ----- |
+   | Subscription | Select your subscription. |
+   | Resource group | Select your resource group. The example uses **test-rg**. |
+   | Region | Select a region. This example uses **East US 2**. |
+   | Name | Enter **public-ip-nat**. |
+   | IP version | Select **IPv4**. |
+   | SKU | Select **Standard V2**. |
+   | Availability zone | Select the default of **Zone-redundant**. |
+   | Tier | Select **Regional**. |
+
+1. Select **Review + create** and then select **Create**.
+
+1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
+
+1. Select **Create**.
+
+1. Enter or select the following information in the **Basics** tab of **Create network address translation (NAT) gateway**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg** or your resource group. |
+    | **Instance details** |  |
+    | NAT gateway name | Enter **nat-gateway**. |
+    | Region | Select your region. This example uses **East US 2**. |
+    | SKU | Select **Standard V2**. |
+    | TCP idle timeout (minutes) | Leave the default of **4**. |
+
+1. Select **Next**.
+
+1. In the **Outbound IP** tab, select **+ Add public IP addresses or prefixes**.
+
+1. In **Add public IP addresses or prefixes**, select **Public IP addresses**. Select the public IP address you created earlier, **public-ip-nat**.
+
+1. Select **Next**.
+
+1. In the **Networking** tab, in **Virtual network**, select your virtual network. In this example it's **test-rg**.
+
+1. Leave the checkbox for **Default to all subnets** unchecked.
+
+1. In **Select specific subnets**, select your subnet. In this example it's **subnet-1**.
+
+1. Select **Review + create**, then select **Create**.
+
 ## Migrate load balancer outbound connectivity
 
 In this section, you learn how to change your outbound connectivity method from outbound rules to a NAT gateway. You keep the same frontend IP address used for the outbound rules. You remove the outbound rule’s frontend IP configuration then create a NAT gateway with the same frontend IP address. A public load balancer is used throughout this section.
