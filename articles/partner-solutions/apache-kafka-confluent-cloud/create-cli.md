@@ -25,22 +25,20 @@ Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud 
 
 1. Search for and then select **Marketplace**.
 
-1. On the **Marketplace** page, choose one of two billing options:
+1. On the **Marketplace** page, search for and then select the **Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service** offer.
 
-   - **Pay-as-you-go monthly plan**. Your Confluent Cloud consumption charges appear on your Azure monthly bill. This plan is publicly available.
-   - **Commitment plan**. You sign up for a minimum spend amount and get a discount on your committed usage of Confluent Cloud. This plan is available to customers who are approved for a private offer.
-
-   For **pay-as-you-go**, search for and then select the **Apache Kafka & Apache Flink on Confluent Cloud** offer.
+1. Select the **Apache Kafka & Apache Flink on Confluent Cloud** tile. 
 
    :::image type="content" source="media/search-pay-as-you-go.png" alt-text="Screenshot that shows a search for an Azure Marketplace offer." lightbox="media/search-pay-as-you-go.png":::
 
-   For **a commitment plan**, select the **View private plans** link. The commitment requires you to sign up for a minimum spend amount. Use this option only when you know you need to use the service for an extended time.
+1. On the **Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service** page, select your subscription. 
 
-   :::image type="content" source="media/view-private-offers.png" alt-text="Screenshot that shows the View private plans link." lightbox="media/view-private-offers.png":::
+1. Under **Plan**, choose a billing plan. There are several billing options:
 
-   Search for and then select the **Apache Kafka & Apache Flink on Confluent Cloud** private plan.
+   - **Pay-as-you-go free trial**.   
+   - **Commitment plans**. You sign up for a minimum spend amount. Annual, monthly, multi-year, and one-time commitment plans are available.
 
-   :::image type="content" source="media/select-from-private-offers.png" alt-text="Screenshot that shows the option to select a private plan." lightbox="media/select-from-private-offers.png":::
+1. Select **Subscribe**.   
 
 ## Create a resource
 
