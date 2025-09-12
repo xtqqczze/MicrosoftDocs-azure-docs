@@ -40,7 +40,7 @@ CycleCloud currently includes the following images:
 
 | Operating System | Label | Name | End of life date |
 | ---------------- | ------|------| ---------------- |
-| Alma Linux 8.5 HPC | Alma Linux 8 | almalinux-8 | |
+| Alma Linux 8.10 HPC | Alma Linux 8 | almalinux-8 | |
 | SLES 12     | SLES 12 HPC    | cycle.image.sles12-hpc  | |
 | SLES 15     | SLES 15 HPC    | cycle.image.sles15-hpc  | |
 | Ubuntu 20.04     | Ubuntu 20.04 LTS    | cycle.image.ubuntu20  | |
