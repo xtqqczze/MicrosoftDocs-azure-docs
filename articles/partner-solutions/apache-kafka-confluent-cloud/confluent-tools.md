@@ -1,17 +1,17 @@
 ---
 title: Confluent Resources and Developer Tools
-description: Learn about resources and developer tools you can use with Apache Kafka and Apache Flink on Confluent Cloud, an Azure Native Integrations service.
+description: Learn about resources and developer tools you can use with Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service.
 ms.topic: overview
 ms.date: 09/17/2025
 
-#customer intent: As a developer implementing Apache Kafka and Apache Flink on Confluent Cloud, I want to know about other resources and tools so that I can create applications that use Astro and Airflow for data orchestration.
+#customer intent: As a developer implementing Apache Kafka & Apache Flink on Confluent Cloud, I want to know about other resources and tools so that I can create applications that use Astro and Airflow for data orchestration.
 ---
 
 # Resources and tools for Apache Kafka & Apache Flink on Confluent Cloud
 
-In this article, learn about resources and tools you can use with Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service.
+In this article, you learn about resources and tools that you can use with Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service.
 
-## Confluent links
+## Confluent documentation
 
 For help with using Apache Kafka & Apache Flink on Confluent Cloud, see the following articles on the [Confluent website](https://docs.confluent.io/home/overview.html).
 
@@ -40,7 +40,7 @@ To learn more, see Confluent blog articles about Azure services that integrate w
 
 ## Related content
 
-* For more help with using Apache Airflow on Astro, see the Apache Airflow on Astro documentation.
+* For more help with using Apache Airflow on Astro, see the [Apache Airflow on Astro documentation](https://www.astronomer.io/docs/learn/intro-to-airflow).
 * Get started with Apache Airflow on Astro, an Azure Native Integrations service:
 
     > [!div class="nextstepaction"]
