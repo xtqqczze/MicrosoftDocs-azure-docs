@@ -88,11 +88,11 @@ You can enable Azure Monitor logging directly from your integration account.
 
 1. In the [Azure portal](https://portal.azure.com), find and select your integration account.
 
-   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/find-integration-account.png" alt-text="Screenshot shows the Integration accounts page where you can select your integration account.":::
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/find-integration-account.png" alt-text="Screenshot shows the Integration accounts page where you can select your integration account." lightbox="./media/monitor-b2b-messages-log-analytics/find-integration-account.png":::
 
 1. On your integration account's menu, under **Monitoring**, select **Diagnostic settings**. Select **Add diagnostic setting**.
 
-   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png" alt-text="Screenshot shows the Diagnostics settings page where you can add a diagnostics setting.":::
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png" alt-text="Screenshot shows the Diagnostics settings page where you can add a diagnostics setting." lightbox="./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png":::
 
 1. To create the setting, follow these steps:
 
@@ -110,7 +110,7 @@ You can enable Azure Monitor logging directly from your integration account.
 
    For example: 
 
-   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png" alt-text="Screenshot shows the Diagnostic setting page where you can set up Azure Monitor logs to collect diagnostic data.":::
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png" alt-text="Screenshot shows the Diagnostic setting page where you can set up Azure Monitor logs to collect diagnostic data." lightbox="./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png":::
 
 <a name="view-message-status"></a>
 
@@ -136,7 +136,7 @@ After your logic app runs, you can view the status and data about those messages
 
 1. After the message status dashboard appears, you can view more details for a specific message type, which shows data based on a single day. Select the tile for **AS2**, **X12**, or **EDIFACT**.
 
-   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png" alt-text="Screenshot shows the status messages.":::
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png" alt-text="Screenshot shows the status messages." lightbox="./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png":::
 
    A list of messages appears for your chosen tile. For example, here's what an AS2 message list might look like:
 
