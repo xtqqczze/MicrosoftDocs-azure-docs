@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 ## Create a resource group
 
-Create a resource group to contain all resources for this quickstart.
+Create a resource group to contain all resources for this tutorial.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -176,8 +176,6 @@ In this section, you create a NAT gateway with the IP address previously used fo
 1. In **Select specific subnets**, select your subnet. In this example, it's **subnet-1**.
 
 1. Select **Review + create**, then select **Create**.
-
-[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 
