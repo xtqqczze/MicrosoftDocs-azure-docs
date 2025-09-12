@@ -124,7 +124,7 @@ CycleCloud supports several default Marketplace images for different OS flavors.
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-ImageName | String | Cycle-supported image name. 
+ImageName | String | Cycle-supported [image name](../images.md). 
 
 #### Marketplace images
 
