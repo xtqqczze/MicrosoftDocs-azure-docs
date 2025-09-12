@@ -3,7 +3,7 @@ title: "Create a Confluent Cloud Resource - Azure CLI"
 description: Learn how to begin using Apache Kafka & Apache Flink on Confluent Cloud by creating an instance via the Azure CLI.
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.date: 1/31/2024
+ms.date: 09/17/2025
 
 #customer intent: As a developer, I want to learn how to create a new instance of Apache Kafka & Apache Flink on Confluent Cloud by using the Azure CLI so that I can create my own resources.
 ---
@@ -17,7 +17,7 @@ In this quickstart, you use Azure Marketplace and the Azure CLI to create a reso
 - An Azure account. If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 - The Owner or Contributor role for your Azure subscription. Only users who are assigned one of these roles can set up integration between Azure and Confluent. Before you get started, [verify that you have the required access](../../role-based-access-control/check-access.md).
 
-## Find offer
+## Find the offer
 
 Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud application:
 
@@ -25,22 +25,22 @@ Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud 
 
 1. Search for and then select **Marketplace**.
 
-1. On the **Marketplace** page, choose from two billing options:
+1. On the **Marketplace** page, choose one of two billing options:
 
-   - **Pay-as-you-go monthly plan**: Your Confluent Cloud consumption charges appear on your Azure monthly bill. This plan is publicly available.
-   - **Commitment plan**: You sign up for a minimum spend amount and get a discount on your committed usage of Confluent Cloud. This plan is available to customers who are approved for a private offer.
+   - **Pay-as-you-go monthly plan**. Your Confluent Cloud consumption charges appear on your Azure monthly bill. This plan is publicly available.
+   - **Commitment plan**. You sign up for a minimum spend amount and get a discount on your committed usage of Confluent Cloud. This plan is available to customers who are approved for a private offer.
 
-   For **pay-as-you-go** customers, search for and then select the **Apache Kafka & Apache Flink on Confluent Cloud** offer.
+   For **pay-as-you-go**, search for and then select the **Apache Kafka & Apache Flink on Confluent Cloud** offer.
 
-   :::image type="content" source="media/search-pay-as-you-go.png" alt-text="Screenshot that shows a search for an Azure Marketplace offer.":::
+   :::image type="content" source="media/search-pay-as-you-go.png" alt-text="Screenshot that shows a search for an Azure Marketplace offer." lightbox="media/search-pay-as-you-go.png":::
 
-   For **commitment** customers, select the **View private plans** link. The commitment requires you to sign up for a minimum spend amount. Use this option only when you know you need to use the service for an extended time.
+   For **a commitment plan**, select the **View private plans** link. The commitment requires you to sign up for a minimum spend amount. Use this option only when you know you need to use the service for an extended time.
 
-   :::image type="content" source="media/view-private-offers.png" alt-text="Screenshot that shows the view private plans link.":::
+   :::image type="content" source="media/view-private-offers.png" alt-text="Screenshot that shows the View private plans link." lightbox="media/view-private-offers.png":::
 
    Search for and then select the **Apache Kafka & Apache Flink on Confluent Cloud** private plan.
 
-   :::image type="content" source="media/select-from-private-offers.png" alt-text="Screenshot that shows the option to select a private plan.":::
+   :::image type="content" source="media/select-from-private-offers.png" alt-text="Screenshot that shows the option to select a private plan." lightbox="media/select-from-private-offers.png":::
 
 ## Create a resource
 
