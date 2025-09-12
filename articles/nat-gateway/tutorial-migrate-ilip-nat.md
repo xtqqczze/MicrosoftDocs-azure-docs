@@ -97,7 +97,7 @@ In this section, you create a NAT gateway with the IP address you previously rem
 
 1. Select **Next**.
 
-1. In the **Networking** tab, in **Virtual network**, select your virtual network. In this example, it's **test-rg**.
+1. In the **Networking** tab, in **Virtual network**, select your virtual network. In this example, it's **vnet-1**.
 
 1. Leave the checkbox for **Default to all subnets** unchecked.
 
