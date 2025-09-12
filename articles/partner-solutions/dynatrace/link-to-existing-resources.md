@@ -75,7 +75,7 @@ When you use the integrated experience for Dynatrace in the Azure portal, your b
     When the checkbox for Azure resource logs is selected, by default, logs are forwarded for all resources. To filter the set of Azure resources sending logs to Dynatrace, use inclusion and exclusion rules and set the Azure resource tags:
 
     - All Azure resources with tags defined in include rules send logs to Dynatrace.
-    - All Azure resources with tags defined in exclude rules don't send logs to Dynatrace.
+    - Azure resources with tags defined in exclude rules don't send logs to Dynatrace.
     - If there's a conflict between an inclusion and exclusion rule, the exclusion rule applies.
   
     The logs sent to Dynatrace are charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
