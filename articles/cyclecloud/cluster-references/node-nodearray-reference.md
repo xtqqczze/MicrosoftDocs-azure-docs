@@ -22,7 +22,7 @@ The `[[node defaults]]` is a special abstract node that specifies the default se
   MachineType = Standard_D2s_v3
 
   [[nodearray grid]]
-  ImageName = cycle.image.centos6
+  ImageName = cycle.image.ubuntu22
   MachineType = Standard_H16
 ```
 
@@ -41,7 +41,7 @@ This example template creates a cluster with two nodes and a node array. The pro
     Credentials = $Credentials
     SubnetId = $SubnetId
     KeyPairLocation = ~/.ssh/cyclecloud.pem
-    ImageName = cycle.image.centos7
+    ImageName = cycle.image.ubuntu22
 
   [[node proxy]]
     IsReturnProxy = true
@@ -124,7 +124,7 @@ CycleCloud supports several default Marketplace images for different OS flavors.
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-ImageName | String | Cycle-supported image name. Use one of the following: `cycle.image.win2016`, `cycle.image.win2012`, `cycle.image.centos7`, `cycle.image.centos6`, `cycle.image.ubuntu16`, `cycle.image.ubuntu14`.
+ImageName | String | Cycle-supported image name. 
 
 #### Marketplace images
 
