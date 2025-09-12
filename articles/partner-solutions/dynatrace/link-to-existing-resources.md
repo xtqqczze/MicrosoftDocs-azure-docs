@@ -17,7 +17,7 @@ When you use the integrated experience for Dynatrace in the Azure portal, your b
 
 :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-entities-linking.png" alt-text="Flowchart showing three entities: subscription 1 connected to subscription 2 and Dynatrace SaaS." lightbox="media/dynatrace-link-to-existing/dynatrace-entities-linking.png":::
 
-- **Dynatrace resource in Azure**. By using the Dynatrace resource, you can manage the Dynatrace environment in Azure. The resource is created in the Azure subscription and resource group that you select during the linking process.
+- **Dynatrace resource on Azure**. By using the Dynatrace resource, you can manage the Dynatrace environment on Azure. The resource is created in the Azure subscription and resource group that you select during the linking process.
 - **Dynatrace environment**. The Dynatrace environment on Dynatrace SaaS. When you link an existing environment, a new Dynatrace resource is created in Azure. The Dynatrace environment and the Dynatrace resource must reside in the same region.
 - **Marketplace SaaS resource**. The SaaS resource is used for billing purposes. The SaaS resource typically doesn't reside in the Azure subscription where the Dynatrace environment was first created.
 
@@ -41,7 +41,7 @@ When you use the integrated experience for Dynatrace in the Azure portal, your b
 
 1. If you're linking the Azure subscription to an existing Dynatrace environment, select **Create** under the **Link Azure subscription to an existing Dynatrace environment** option.
 
-1. The process creates a new Dynatrace resource on Azure and links it to an existing Dynatrace environment that's hosted on Azure. A form opens for creating the resource.
+1. A new Dynatrace resource is created on Azure and linked to an existing Dynatrace environment that's hosted on Azure. A form opens for creating the resource.
 
     :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-create-new-link-existing.png" alt-text="Screenshot that shows the Link Azure subscription to an existing Dynatrace environment pane." lightbox="media/dynatrace-link-to-existing/dynatrace-create-new-link-existing.png":::
 
@@ -70,7 +70,7 @@ When you use the integrated experience for Dynatrace in the Azure portal, your b
 
     - **Azure resource logs**. These logs provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a key vault is a data plane operation. Making a request to a database is also a data plane operation. The content of resource logs varies, depending on the Azure service and resource type.
 
-1. To send Azure resource logs to Dynatrace, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
+1. To send Azure resource logs to Dynatrace, select **Send Azure resource logs**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
     When the checkbox for Azure resource logs is selected, by default, logs are forwarded for all resources. To filter the set of Azure resources sending logs to Dynatrace, use inclusion and exclusion rules and set the Azure resource tags:
 
