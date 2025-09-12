@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, azla
 ms.topic: how-to
-ms.date: 02/28/2025
+ms.date: 09/15/2025
+#Customer intent: As an integration developer, I want to monitor the B2B transaction traffic for my Azure Logic Apps Consumption workflows using Azure Monitor.
 ---
 
 # Monitor and track B2B messages in Consumption workflows with Azure Monitor and Azure Logic Apps
@@ -13,21 +14,23 @@ ms.date: 02/28/2025
 [!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
 > [!NOTE]
-> This article applies only to Consumption logic app workflows. For Standard logic app workflows, see the following documentation: 
+> This article applies only to Consumption logic app workflows. For Standard logic app workflows, see:
 >
 > - [Enable or open Application Insights after deployment for Standard workflows](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights)
 > - [Monitor and track B2B transactions in Standard workflows](monitor-track-b2b-transactions-standard.md)
 
-After you set up B2B communication between trading partners in your integration account, those partners can exchange messages by using protocols such as AS2, X12, and EDIFACT. To check that this communication works the way you expect, you can set up [Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs) for your integration account. [Azure Monitor](/azure/azure-monitor/overview) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can record and store data about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](/azure/azure-monitor/essentials/resource-logs#destinations). For messages, logging also collects information such as:
+After you set up B2B communication between trading partners in your integration account, those partners can exchange messages by using protocols such as AS2, X12, and EDIFACT. To check that this communication works the way you expect, you can set up [Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs) for your integration account.
 
-* Message count and status
-* Acknowledgments status
-* Correlations between messages and acknowledgments
-* Detailed error descriptions for failures
+[Azure Monitor](/azure/azure-monitor/overview) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can record and store data about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](/azure/azure-monitor/essentials/resource-logs#destinations). For messages, logging also collects information such as:
+
+- Message count and status
+- Acknowledgments status
+- Correlations between messages and acknowledgments
+- Detailed error descriptions for failures
 
 Azure Monitor lets you create [log queries](/azure/azure-monitor/logs/log-query-overview) to help you find and review this information. You can also [use this diagnostics data with other Azure services](monitor-workflows-collect-diagnostic-data.md#other-destinations), such as Azure Storage and Azure Event Hubs.
 
-To set up logging for your integration account, [install the Logic Apps B2B solution](#install-b2b-solution) in the Azure portal. This solution provides aggregated information for B2B message events. Then, to enable logging and creating queries for this information, set up [Azure Monitor logs](#set-up-resource-logs).
+To set up logging for your integration account, install the Logic Apps B2B solution in the Azure portal. This solution provides aggregated information for B2B message events. Then, to enable logging and creating queries for this information, set up Azure Monitor logs.
 
 This article shows how to enable Azure Monitor logging for your integration account.
 
@@ -35,11 +38,11 @@ This article shows how to enable Azure Monitor logging for your integration acco
 
 ## Prerequisites
 
-* A Log Analytics workspace. If you don't have a Log Analytics workspace, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
+- A Log Analytics workspace. If you don't have a Log Analytics workspace, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
-* A Consumption logic app. Set it up with Azure Monitor logging. The logic app sends logging information to a Log Analytics workspace. Learn [how to set up Azure Monitor logs for your logic app](../logic-apps/monitor-logic-apps.md).
+- A Consumption logic app. Set it up with Azure Monitor logging. The logic app sends logging information to a Log Analytics workspace. Learn [how to set up Azure Monitor logs for your logic app](../logic-apps/monitor-logic-apps.md).
 
-* An integration account that's linked to your logic app. Learn [how to link your integration account to your logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+- An integration account that's linked to your logic app. Learn [how to link your integration account to your logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
 <a name="install-b2b-solution"></a>
 
@@ -47,37 +50,35 @@ This article shows how to enable Azure Monitor logging for your integration acco
 
 Before Azure Monitor logs can track the B2B messages for your logic app, add the **Logic Apps B2B** solution to your Log Analytics workspace.
 
-1. In the [Azure portal](https://portal.azure.com)'s search box, enter `log analytics workspaces`, and then select **Log Analytics workspaces**.
+1. In the [Azure portal](https://portal.azure.com) search box, enter *log analytics workspaces*, and then select **Log Analytics workspaces**.
 
-   ![Select "Log Analytics workspaces"](./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png" alt-text="Screenshot shows the Azure portal search box with Log Analytics workspaces highlighted.":::
 
 1. Under **Log Analytics workspaces**, select your workspace.
 
-   ![Select your Log Analytics workspace](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png" alt-text="Screenshot shows the Log Analytics workspaces where you can select your Log Analytics workspace.":::
 
-1. On the Overview pane, under **Get started with Log Analytics** > **Configure monitoring solutions**, select **View solutions**.
+1. On the **Overview** page, under **Get started with Log Analytics** > **Configure monitoring solutions**, select **View solutions**.
 
-   ![On Overview pane, select "View solutions"](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png" alt-text="Screenshot shows the Overview page for your workspace where you can select View solutions.":::
 
-1. On the Overview pane, select **Add**.
+1. On the **Overview** page, select **Add**.
 
-   ![On overview pane, add new solution](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
+1. After the **Marketplace** opens, in the search box, enter *logic apps b2b*, and select **Logic Apps B2B**.
 
-1. After the **Marketplace** opens, in the search box, enter `logic apps b2b`, and select **Logic Apps B2B**.
-
-   ![From Marketplace, select "Logic Apps Management"](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png" alt-text="Screenshot shows the Marketplace where you can search for and Logic Apps B2B.":::
 
 1. On the solution description pane, select **Create**.
 
-   ![Select "Create" to add "Logic Apps B2B" solution](./media/monitor-b2b-messages-log-analytics/create-logic-apps-b2b-solution.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/create-logic-apps-b2b-solution.png" alt-text="Select "Create" to add "Logic Apps B2B" solution":::
 
 1. Review and confirm the Log Analytics workspace where you want to install the solution, and select **Create** again.
 
-   ![Select "Create" for "Logic Apps B2B"](./media/monitor-b2b-messages-log-analytics/confirm-log-analytics-workspace.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/confirm-log-analytics-workspace.png" alt-text="Screenshot shows the Logic Apps B2B solution page, where you can select subscription and plan, then Create.":::
 
-   After Azure deploys the solution to the Azure resource group that contains your Log Analytics workspace, the solution appears on your workspace's summary pane. When B2B messages are processed, the message count on this pane is updated.
+   Azure deploys the solution to the Azure resource group that contains your Log Analytics workspace. You can open the solution from there and look at the **Summary** page. When the workflow processes B2B messages, it updates the message count on this page.
 
-   ![Workspace summary pane](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png" alt-text="Screenshot shows the Solution Summary page.":::
 
 <a name="set-up-resource-logs"></a>
 
@@ -87,57 +88,59 @@ You can enable Azure Monitor logging directly from your integration account.
 
 1. In the [Azure portal](https://portal.azure.com), find and select your integration account.
 
-   ![Find and select your integration account](./media/monitor-b2b-messages-log-analytics/find-integration-account.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/find-integration-account.png" alt-text="Screenshot shows the Integration accounts page where you can select your integration account.":::
 
 1. On your integration account's menu, under **Monitoring**, select **Diagnostic settings**. Select **Add diagnostic setting**.
 
-   ![Under "Monitoring", select "Diagnostics settings"](./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png" alt-text="Screenshot shows the Diagnostics settings page where you can add a diagnostics setting.":::
 
 1. To create the setting, follow these steps:
 
    1. Provide a name for the setting.
 
-   1. Select **Send to Log Analytics**.
+   1. Select **Send to Log Analytics workspace**.
 
    1. For **Subscription**, select the Azure subscription that's associated with your Log Analytics workspace.
 
    1. For **Log Analytics Workspace**, select the workspace that you want to use.
 
-   1. Under **log**, select the **IntegrationAccountTrackingEvents** category, which specifies the event category that you want to record.
+   1. Under **Logs**, select **Integration Account tracking events**, which specifies the event category that you want to record.
 
    1. When you're done, select **Save**.
 
    For example: 
 
-   ![Set up Azure Monitor logs to collect diagnostic data](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png" alt-text="Screenshot shows the Diagnostic setting page where you can set up Azure Monitor logs to collect diagnostic data.":::
 
 <a name="view-message-status"></a>
 
 ## View message status
 
-After your logic app runs, you can view the status and data about those messages in your Log Analytics workspace.
+After your logic app runs, you can view the status and data about those messages in the solution summary.
 
-1. In the [Azure portal](https://portal.azure.com) search box, find and open your Log Analytics workspace.
+1. In the [Azure portal](https://portal.azure.com) search box, find and open the resource group for your Log Analytics workspace.
 
-1. On your workspace's menu, select **Workspace summary** > **Logic Apps B2B**.
+1. In that resource group, select the Solution you created in the previous sections of this article.
 
-   ![Workspace summary pane](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
+1. In the Solution menu, select the **Summary** page.
+
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png" alt-text="Screenshot shows the Solution Summary page.":::
 
    > [!NOTE]
-   > If the Logic Apps B2B tile doesn't immediately show results after a run, 
-   > try selecting **Refresh** or wait for a short time before trying again.
+   >
+   > If the Logic Apps B2B tile doesn't immediately show results after a run, try selecting **Refresh** or wait for a short time before trying again.
 
    By default, the **Logic Apps B2B** tile shows data based on a single day. To change the data scope to a different interval, select the scope control at the top of the page:
 
-   ![Change interval](./media/monitor-b2b-messages-log-analytics/change-summary-interval.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/change-summary-interval.png" alt-text="Screenshot shows the control to change the interval.":::
 
 1. After the message status dashboard appears, you can view more details for a specific message type, which shows data based on a single day. Select the tile for **AS2**, **X12**, or **EDIFACT**.
 
-   ![View statuses for messages](./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png" alt-text="Screenshot shows the status messages.":::
 
    A list of messages appears for your chosen tile. For example, here's what an AS2 message list might look like:
 
-   ![Statuses and details for AS2 messages](./media/monitor-b2b-messages-log-analytics/as2-message-results-list.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/as2-message-results-list.png" alt-text="Screenshot shows statuses and details for AS2 messages.":::
 
    To learn more about the properties for each message type, see these message property descriptions:
 
@@ -159,7 +162,7 @@ After your logic app runs, you can view the status and data about those messages
    * [X12 folder and file name formats](#x12-folder-file-names)
    * [EDIFACT folder and file name formats](#edifact-folder-file-names)
 
-   ![Download message files](./media/monitor-b2b-messages-log-analytics/download-messages.png)
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/download-messages.png" alt-text="Download message files":::
 
 1. To view all actions that have the same run ID, on the **Log Search** page, select a message from the message list.
 
@@ -195,7 +198,6 @@ Here are the property descriptions for each AS2 message.
 | **Tracking ID** | The ID that correlates all the triggers and actions in a logic app |
 | **Message ID** | The AS2 message ID from the AS2 message headers |
 | **Timestamp** | The time when the AS2 action processed the message |
-|||
 
 <!--
 <a name="as2-folder-file-names"></a>
@@ -230,7 +232,6 @@ Here are the property descriptions for each X12 message.
 | **ICN** | The Interchange Control Number for the X12 message |
 | **TSCN** | The Transaction Set Control Number for the X12 message |
 | **Timestamp** | The time when the X12 action processed the message |
-|||
 
 <!--
 <a name="x12-folder-file-names"></a>
@@ -265,7 +266,6 @@ Here are the property descriptions for each EDIFACT message.
 | **ICN** | The Interchange Control Number for the EDIFACT message |
 | **TSCN** | The Transaction Set Control Number for the EDIFACT message |
 | **Timestamp** | The time when the EDIFACT action processed the message |
-|||
 
 <!--
 <a name="edifact-folder-file-names"></a>
@@ -281,6 +281,6 @@ Here are the name formats for each downloaded EDIFACT message folder and files.
 |||
 -->
 
-## Next steps
+## Next step
 
-* [Create monitoring and tracking queries](../logic-apps/create-monitoring-tracking-queries.md)
+- [Create monitoring and tracking queries](../logic-apps/create-monitoring-tracking-queries.md)
