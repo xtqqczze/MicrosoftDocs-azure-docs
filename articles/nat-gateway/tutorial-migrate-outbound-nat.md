@@ -13,7 +13,9 @@ ms.custom: template-tutorial
 
 # Tutorial: Migrate outbound access to Azure NAT Gateway
 
-In this tutorial, you learn how to migrate your outbound connectivity from [default outbound access](../virtual-network/ip-services/default-outbound-access.md) to a NAT gateway. You learn how to change your outbound connectivity from load balancer outbound rules to a NAT gateway. You reuse the IP address from the outbound rule configuration for the NAT gateway.
+In this tutorial, you learn how to migrate your outbound connectivity from [default outbound access](../virtual-network/ip-services/default-outbound-access.md) to a NAT gateway. 
+
+You learn how to change your outbound connectivity from load balancer outbound rules to a NAT gateway. You reuse the IP address from the outbound rule configuration for the NAT gateway.
 
 Azure NAT Gateway is the recommended method for outbound connectivity. A NAT gateway is a fully managed and highly resilient Network Address Translation (NAT) service. A NAT gateway doesn't have the same limitations of Source Network Address Translation (SNAT) port exhaustion as default outbound access. A NAT gateway replaces the need for outbound rules in a load balancer for outbound connectivity.
 
