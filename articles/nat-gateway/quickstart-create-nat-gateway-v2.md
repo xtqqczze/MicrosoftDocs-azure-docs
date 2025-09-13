@@ -1,7 +1,7 @@
 ---
-title: Create an Azure NAT Gateway v2
+title: Create a Standard V2 Azure NAT Gateway
 titlesuffix: Azure NAT Gateway
-description: This quickstart shows how to create an Azure NAT Gateway v2 by using the Azure portal.
+description: This quickstart shows how to create an Standard V2 Azure NAT Gateway by using the Azure portal.
 author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
@@ -11,12 +11,12 @@ ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
 # Customer intent: As a cloud engineer, I want to create a NAT gateway using various deployment methods, so that I can facilitate outbound internet connectivity for virtual machines in Azure.
 ---
 
-# Quickstart: Create an Azure NAT Gateway v2
+# Quickstart: Create a Standard V2 Azure NAT Gateway
 
-In this quickstart, learn how to create an Azure NAT Gateway v2 by using the Azure portal, and PowerShell. The NAT Gateway service provides scalable outbound connectivity for virtual machines in Azure.
+In this quickstart, learn how to create a Standard V2 Azure NAT Gateway by using the Azure portal, and PowerShell. The NAT Gateway service provides scalable outbound connectivity for virtual machines in Azure.
 
 > [!NOTE]
-> Azure CLI is currently unavailable. Use the Azure portal or Azure PowerShell to create a v2 NAT gateway.
+> Azure CLI is currently unavailable. Use the Azure portal or Azure PowerShell to create a Standard V2 NAT Gateway.
 
 ## Prerequisites
 
@@ -98,16 +98,18 @@ Azure NAT Gateway supports multiple deployment options for IP addresses and redu
 
 1. Enter the following information in **Create public IP address**.
 
-   | Setting | Value |
-   | ------- | ----- |
-   | Subscription | Select your subscription. |
-   | Resource group | Select your resource group. The example uses **test-rg**. |
-   | Region | Select a region. This example uses **West US**. |
-   | Name | Enter **public-ip-nat**. |
-   | IP version | Select **IPv4**. |
-   | SKU | Select **Standard V2**. |
-   | Availability zone | Select the default of **Zone-redundant**. |
-   | Tier | Select **Regional**. |
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select your resource group. The example uses **test-rg**. |
+    | **Instance details** |   |
+    | Region | Select a region. This example uses **West US**. |
+    | **Configuration details** |  |
+    | Name | Enter **public-ip-nat**. |
+    | IP version | Select **IPv4**. |
+    | SKU | Select **Standard V2 (For use with Standard V2 NAT Gateway)**. |
+    | Tier | Select **Regional**. |
 
 1. Select **Review + create** and then select **Create**.
 
@@ -134,13 +136,7 @@ Azure NAT Gateway supports multiple deployment options for IP addresses and redu
 
 1. In **Add public IP addresses or prefixes**, select **Public IP addresses**. Select the public IP address you created earlier, **public-ip-nat**.
 
-1. Select **Next**.
-
-1. In the **Networking** tab, in **Virtual network**, select **vnet-1**.
-
-1. Leave the checkbox for **Default to all subnets** unchecked.
-
-1. In **Select specific subnets**, select **subnet-1**.
+1. Select **Save**.
 
 1. Select **Review + create**, then select **Create**.
 
@@ -440,8 +436,6 @@ Create the virtual network and subnets needed for this quickstart. You can skip 
 
 ### [Portal](#tab/portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
 1. In the search box at the top of the Azure portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
 1. Select **Create**.
@@ -457,7 +451,7 @@ Create the virtual network and subnets needed for this quickstart. You can skip 
     | Name | Enter **vnet-1**. |
     | Region | Select your region. This example uses **West US**. |
 
-1. Select the **IP Addresses** tab, or select **Next: Security**, then **Next: IP Addresses**.
+1. Select the **IP Addresses** tab, or select **Next**, then **Next**.
 
 1. In **Subnets** select the **default** subnet.
 
@@ -467,8 +461,12 @@ Create the virtual network and subnets needed for this quickstart. You can skip 
     | ------- | ----- |
     | Subnet purpose | Leave the default. |
     | Name | Enter **subnet-1**. |
+    | **Private subnet** |  |
+    | Enable private subnet (no default outbound access) | **Check the box**. |
+    | **Security** |  |
+    | NAT gateway | Select **nat-gateway**. |
 
-1. Leave the rest of the settings as default, then select **Save**.
+1. Select **Save**.
 
 1. Select **+ Add a subnet**.
 
@@ -581,8 +579,6 @@ In this section, you create a virtual machine to test the NAT gateway and verify
 
 ### [Portal](#tab/portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 1. Select **Create** > **Virtual machine**.
@@ -600,7 +596,7 @@ In this section, you create a virtual machine to test the NAT gateway and verify
     | Availability options | Leave the default of **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
     | Image | Select **Ubuntu Server 24.04 LTS - Gen2**. |
-    | Size | Select **Standard_DS1_v2**. |
+    | Size | Select a size |
     | Authentication type | Select **SSH public key**. |
     | Username | Enter a username of your choice. You need this username to sign in to the virtual machine later. |
     | SSH public key source | Select **Generate new key pair**. |
