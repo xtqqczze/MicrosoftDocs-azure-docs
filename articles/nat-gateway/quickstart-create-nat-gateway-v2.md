@@ -1,7 +1,7 @@
 ---
 title: Create a Standard V2 Azure NAT Gateway
 titlesuffix: Azure NAT Gateway
-description: This quickstart shows how to create an Standard V2 Azure NAT Gateway by using the Azure portal.
+description: This quickstart shows how to create a Standard V2 Azure NAT Gateway by using the Azure portal.
 author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
@@ -48,7 +48,7 @@ Create a resource group to contain all resources for this quickstart.
 
 1. Select **+ Create**.
 
-1. In the **Basics** tab of **Create a resource group**, enter or select the following information.
+1. In the **Basics** tab of **Create a resource group**, enter, or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -278,7 +278,7 @@ $natGateway = New-AzNatGateway @nat
 
 Standard V2 NAT Gateway has a feature that allows you to associate the NAT gateway resource with a virtual network instead of the subnet level. Each subnet contained within the virtual network can then use the NAT gateway for outbound internet connectivity.
 
-Create a public IP address or prefix to your preference from the previous steps, then proceed to create the virtual network, subnets and NAT gateway resource.
+Create a public IP address or prefix to your preference from the previous steps, then proceed to create the virtual network, subnets, and NAT gateway resource.
 
 ### [Portal](#tab/portal)
 
