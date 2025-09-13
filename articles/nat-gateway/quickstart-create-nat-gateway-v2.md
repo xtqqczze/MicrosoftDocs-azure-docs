@@ -226,16 +226,6 @@ $natGateway = New-AzNatGateway @nat
 
 1. In **Add public IP addresses or prefixes**, select **Public IP prefixes**. Select the public IP prefix you created earlier, **public-ip-prefix-nat**.
 
-1. Select **Next**.
-
-1. In the **Networking** tab, in **Virtual network**, select **vnet-1**.
-
-1. Leave the checkbox for **Default to all subnets** unchecked.
-
-1. In **Select specific subnets**, select **subnet-1**.
-
-1. Select **Review + create**, then select **Create**.
-
 1. Select **Review + create**, then select **Create**.
 
 ### [PowerShell](#tab/powershell)
