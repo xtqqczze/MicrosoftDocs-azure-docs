@@ -1,5 +1,5 @@
 ---
-title: Manage a V2 NAT Gateway
+title: Manage a Standard V2 NAT Gateway
 titleSuffix: Azure NAT Gateway
 description: Learn how to create and remove a NAT gateway v2 resource from a virtual network and virtual network subnet. Add and remove public IP addresses and prefixes used for outbound connectivity.
 author: asudbring
@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 #Customer intent: As a network administrator, I want to learn how to create and remove a NAT gateway resource from a virtual network subnet. I also want to learn how to add and remove public IP addresses and prefixes used for outbound connectivity.
 ---
 
-# Manage a V2 NAT gateway
+# Manage a Standard V2 NAT gateway
 
 Learn how to create and remove a NAT gateway resource from a virtual network subnet. A NAT gateway enables outbound connectivity for resources in an Azure Virtual Network. You can change the public IP addresses and public IP address prefixes associated with the NAT gateway changed after deployment.
 
@@ -80,7 +80,7 @@ You can create a NAT gateway resource and add it to an existing subnet by using 
 
 1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
-1. Select **+ Create**.
+1. Select **Create**.
 
 1. Enter or select the following information in the **Basics** tab of **Create network address translation (NAT) gateway**.
 
@@ -88,22 +88,24 @@ You can create a NAT gateway resource and add it to an existing subnet by using 
     | ------- | ----- |
     | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select your resource group or select **Create new** to create a new resource group. |
+    | Resource group | Select **test-rg** or your resource group. |
     | **Instance details** |  |
     | NAT gateway name | Enter **nat-gateway**. |
-    | Region | Select your region. This example uses **East US 2**. |
+    | Region | Select your region. This example uses **West US**. |
     | SKU | Select **Standard V2**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
-1. Select the **Outbound IP** tab, or select **Next**.
+1. Select **Next**.
 
-1. You can select an existing public IP address or prefix or both to associate with the NAT gateway and enable outbound connectivity.
+1. In the **Outbound IP** tab, select **+ Add public IP addresses or prefixes**.
 
-1. Select **+ Add public ip addresses or prefixes**.
+1. In **Add public IP addresses or prefixes**, select **Public IP addresses**. You can select an existing public IP address or create a new one.
 
-   - To create a new public IP for the NAT gateway, select **Create a new public IP address**. Enter *public-ip-nat* in **Name**. Select **OK**.
+   - To create a new public IP for the NAT gateway, select **Create a new public IP address**. Enter **public-ip-nat** in **Name**. Select **OK**.
 
-   - To create a new public IP prefix for the NAT gateway, select **Create a new public IP prefix**. Enter *public-ip-prefix-nat* in **Name**. Select a **Prefix size**. Select **OK**.
+   - To create a new public IP prefix for the NAT gateway, select **Create a new public IP prefix**. Enter **public-ip-prefix-nat** in **Name**. Select a **Prefix size**. Select **OK**.
+
+1. Select **Save**.
 
 1. Select the **Networking** tab, or select **Next**.
 
@@ -255,9 +257,9 @@ You can create a NAT gateway resource and add it to an existing virtual network 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the Azure portal, enter *NAT gateway*. Select **NAT gateways** in the search results.
+1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
-1. Select **+ Create**.
+1. Select **Create**.
 
 1. Enter or select the following information in the **Basics** tab of **Create network address translation (NAT) gateway**.
 
@@ -265,28 +267,30 @@ You can create a NAT gateway resource and add it to an existing virtual network 
     | ------- | ----- |
     | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select your resource group or select **Create new** to create a new resource group. |
+    | Resource group | Select **test-rg** or your resource group. |
     | **Instance details** |  |
     | NAT gateway name | Enter **nat-gateway**. |
-    | Region | Select your region. This example uses **East US 2**. |
+    | Region | Select your region. This example uses **West US**. |
     | SKU | Select **Standard V2**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
-1. Select the **Outbound IP** tab, or select **Next**.
+1. Select **Next**.
 
-1. You can select an existing public IP address or prefix or both to associate with the NAT gateway and enable outbound connectivity.
+1. In the **Outbound IP** tab, select **+ Add public IP addresses or prefixes**.
 
-1. Select **+ Add public ip addresses or prefixes**.
+1. In **Add public IP addresses or prefixes**, select **Public IP addresses**. You can select an existing public IP address or create a new one.
 
    - To create a new public IP for the NAT gateway, select **Create a new public IP address**. Enter **public-ip-nat** in **Name**. Select **OK**.
 
    - To create a new public IP prefix for the NAT gateway, select **Create a new public IP prefix**. Enter **public-ip-prefix-nat** in **Name**. Select a **Prefix size**. Select **OK**.
 
+1. Select **Save**.
+
 1. Select the **Networking** tab, or select **Next**.
 
 1. Select your virtual network. In this example, select **vnet-1** in the dropdown list.
 
-1. Select the **Default to all subnets** checkbox.
+1. Select the checkbox **Default to all subnets**.
 
 1. Select **Review + create**.
 

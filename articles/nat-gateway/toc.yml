@@ -5,9 +5,9 @@ items:
     items:
       - name: What is Azure NAT Gateway?
         href: nat-overview.md
-      - name: Create and validate Azure NAT Gateway
+      - name: Create and validate a Standard Azure NAT Gateway
         href: quickstart-create-nat-gateway.md
-      - name: Create and validate Azure NAT Gateway V2
+      - name: Create and validate a Standard V2 Azure NAT Gateway
         href: quickstart-create-nat-gateway-v2.md
       - name: Availability zones
         href: nat-availability-zones.md
@@ -45,9 +45,9 @@ items:
         href: nat-gateway-snat.md
   - name: Manage and monitor
     items:
-      - name: Manage NAT gateway
+      - name: Manage a Standard NAT gateway
         href: manage-nat-gateway.md
-      - name: Manage a V2 NAT gateway
+      - name: Manage a Standard V2 NAT gateway
         href: manage-nat-gateway-v2.md
       - name: Create and configure NAT gateway after region move
         href: region-move-nat-gateway.md
