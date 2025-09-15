@@ -7,7 +7,8 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/29/2025
+ms.custom: sfi-image-nochange
+ms.date: 09/16/2025
 #Customer intent: As an integration developer, I want to use Azure Logic Apps workflows to manage B2B workflows that use AS2 messages.
 ---
 
