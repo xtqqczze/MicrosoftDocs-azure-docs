@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: camerost, azla
 ms.topic: how-to
-ms.date: 09/12/2025
+ms.custom: sfi-image-nochange
+ms.date: 09/15/2025
 #Customer intent: As an integration developer who uses stored procedures in SQL databases, I want to use the SQL connector in Azure Logic Apps to support large result sets.
 ---
 

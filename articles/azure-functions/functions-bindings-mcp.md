@@ -40,11 +40,13 @@ The Azure Functions MCP extension allows you to use Azure Functions to create re
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Mcp) in your preferred way:
 
-`Microsoft.Azure.Functions.Worker.Extensions.Mcp`
+`Microsoft.Azure.Functions.Worker.Extensions.Mcp`  
 ::: zone-end  
-
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java"  
+<!---At GA, replace with:
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
+-->
+[!INCLUDE [functions-extension-bundles-json-preview](../../includes/functions-extension-bundles-json-preview.md)]  
 ::: zone-end
 
 ## host.json settings
@@ -116,11 +118,11 @@ MCP clients accept this configuration in various ways. Consult the documentation
     ],
     "servers": {
         "local-mcp-function": {
-            "type": "sse",
+            "type": "http",
             "url": "http://localhost:7071/runtime/webhooks/mcp"
         },
         "remote-mcp-function": {
-            "type": "sse",
+            "type": "http",
             "url": "https://${input:functionapp-host}/runtime/webhooks/mcp",
             "headers": {
                 "x-functions-key": "${input:functions-mcp-extension-system-key}"
