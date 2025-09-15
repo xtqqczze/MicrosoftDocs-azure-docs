@@ -38,7 +38,7 @@ Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud 
    - **Pay-as-you-go free trial**.   
    - **Commitment plans**. You sign up for a minimum spend amount. Annual, monthly, multi-year, and one-time commitment plans are available. You can read about the plans on the **Plans + Pricing** tab.
 
-1. Select **Subscribe**. The **Create a Confluent organization** page opens. Rather than using this form, you'll create the organaization in the next section by using the Azure CLI. 
+1. Select **Subscribe**. The **Create a Confluent organization** page opens. Rather than using this form, you'll create the organization in the next section by using the Azure CLI. 
 
 ## Create a resource
 
