@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ms.date: 09/15/2025
 #Customer intent: As an integration developer working with Azure Logic Apps, I want to create and make available my own API by using Azure App Service.
 ---
