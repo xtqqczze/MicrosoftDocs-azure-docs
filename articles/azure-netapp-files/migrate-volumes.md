@@ -247,12 +247,16 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 3.	Provide information for the following fields under the **Source** tab:
 
     * **Cluster Name**
+    Specify the name for the cluster which has the volume that you are migrating.
 
     * **SVM Name**
+    Specify the name of the SVM which has the volume that you are migrating. 
 
     * **Source volume name**
+    Specify the name for the volume that you are migrating. 
 
     * **Volume size**
+    Specify the size of the volume that you are migrating.
 
 4.  Select **Destination** tab and provide information for the following fields:
     * **Volume name**      
