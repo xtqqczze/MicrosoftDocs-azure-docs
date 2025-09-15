@@ -1,11 +1,11 @@
 ---
-title: Block connector usage
+title: Block Connector Usage
 description: Learn how to use Azure Policy to block creating and using specific API connections in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, estfan, azla
 ms.topic: how-to
-ms.date: 09/12/2025
+ms.date: 09/15/2025
 #Customer intent: As an integration developer, I want to use Azure Policy to block certain connections for use in my Azure Logic Apps workflows.
 ---
 
@@ -59,21 +59,21 @@ If you already have a logic app with the connection that you want to block, skip
 
    - Standard logic app: Under **Workflows**, select **Connections**. On the **Connections** pane, select **API Connections** if not already selected.
 
-   1. On the API connections pane, select the connection. When the connection pane opens, in the upper right corner, select **JSON View**.
+1. On the API connections pane, select the connection. When the connection pane opens, in the upper right corner, select **JSON View**.
 
-   1. Find the `api` object, which contains an `id` property and value that has the following format: 
+1. Find the `api` object, which contains an `id` property and value that has the following format: 
 
-      `"id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{connection-name}"`
+   `"id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{connection-name}"`
 
-      The following example shows the `id` property and value for an Instagram connection:
+   The following example shows the `id` property and value for an Instagram connection:
 
-      `"id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Web/locations/westus/managedApis/instagram"`
+   `"id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Web/locations/westus/managedApis/instagram"`
 
-   1. From the `id` property value, copy and save the connector reference ID at the end, for example, `instagram`.
+1. From the `id` property value, copy and save the connector reference ID at the end, for example, `instagram`.
 
-      Later, when you create your policy definition, you use this ID in the definition's condition statement, for example:
+   Later, when you create your policy definition, you use this ID in the definition's condition statement, for example:
 
-      `"like": "*managedApis/instagram"`
+   `"like": "*managedApis/instagram"`
 
 <a name="create-policy-connections"></a>
 
