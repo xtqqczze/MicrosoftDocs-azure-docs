@@ -97,5 +97,5 @@ Keep the following considerations in mind when using Prescaling (Preview):
 
 ## Next steps
 - 	Monitor and learn about the firewall Observed Capacity metrics in [Logs and metrics](monitor-firewall-reference.md)
-- 	Review [Azure Firewall Best Practices](https://learn.microsoft.com/azure/firewall/firewall-best-practices) to optimize deployments.
+- 	Review [Azure Firewall Best Practices](firewall-best-practices.md) to optimize deployments.
 
