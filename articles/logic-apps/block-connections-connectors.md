@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, estfan, azla
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ms.date: 09/15/2025
 #Customer intent: As an integration developer, I want to use Azure Policy to block certain connections for use in my Azure Logic Apps workflows.
 ---
