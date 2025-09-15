@@ -201,6 +201,8 @@ items:
     href: easy-upgrade.md
 - name: Operational excellence
   items:
+  - name: Prescaling Azure Firewall
+    href: prescaling.md
   - name: Monitoring
     items:
     - name: Logs and metrics
