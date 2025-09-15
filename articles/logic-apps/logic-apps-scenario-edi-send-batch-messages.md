@@ -6,7 +6,8 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/27/2025
+ms.custom: sfi-image-nochange
+ms.date: 09/16/2025
 #Customer intent: As an integration developer, I want to set up batch EDI message processing by using Azure Logic Apps workflows.
 ---
 
