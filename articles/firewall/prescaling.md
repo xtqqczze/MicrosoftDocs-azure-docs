@@ -97,6 +97,6 @@ Keep the following considerations in mind when using Prescaling (Preview):
 - **Active scaling/maintenance events**: prescaling changes may fail if the firewall is mid-scale or upgrade. Retry after completion.
 
 ## Next steps
-- 	Monitor and learn about the firewall Observed Capacity metrics in [Logs and metrics](https://learn.microsoft.com/azure/firewall/monitor-firewall-reference)
+- 	Monitor and learn about the firewall Observed Capacity metrics in [Logs and metrics](monitor-firewall-reference.md)
 - 	Review [Azure Firewall Best Practices](https://learn.microsoft.com/azure/firewall/firewall-best-practices) to optimize deployments.
 
