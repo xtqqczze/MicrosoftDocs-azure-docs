@@ -12,7 +12,7 @@ ms.date: 09/19/2025
 
 # Manage users and user permissions in a Confluent organization
 
-An organization admin can add, view, and remove users and roles inside your Confluent organization in the Azure portal. By managing user permissions, you can ensure that only authorized users can access and complete actions on your Confluent Cloud resources on Azure.
+An organization admin can add, view, and remove users and roles inside an Confluent organization in the Azure portal. By managing user permissions, you can ensure that only authorized users can access and complete actions on your Confluent Cloud resources on Azure.
 
 Complete the steps described in the next sections to manage users and roles in Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service.
 
@@ -34,9 +34,7 @@ You can complete these actions in the Azure portal:
 To add a user to a Confluent organization:
 
 1. In the Azure portal, go to your Confluent organization.
-1. On the left pane, select **Confluent Account and Access**. A list of users who belong to the Confluent organization appears.
-
-   Optionally, you can view the same list in the Confluent portal under **Accounts & access**.
+1. In the left pane, under **Confluent entity management**, select **Account and Access**. A list of users who belong to the Confluent organization appears.
 
    :::image type="content" source="media/manage-access/account-and-access.png" alt-text="Screenshot that shows the Confluent Account and Access menu in the Azure portal." lightbox="media/manage-access/account-and-access.png":::
 
@@ -89,7 +87,7 @@ To remove a permission assigned to a user in a Confluent organization:
 1. To the right of the user, select **Manage Permissions**.
 1. In **Manage Permissions**, select **Remove Role**.
 
-    :::image type="content" source="media/manage-access/remove-role.png" alt-text="Screenshot that shows the Remove Role option in the Azure portal." lightobx="media/manage-access/remove-role.png":::
+    :::image type="content" source="media/manage-access/remove-role.png" alt-text="Screenshot that shows the Remove Role option in the Azure portal." lightbox="media/manage-access/remove-role.png":::
 
 1. Under **Enter Role Name to be removed**, enter the name of the role you want to remove.
 
