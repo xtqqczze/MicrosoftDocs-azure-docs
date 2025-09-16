@@ -40,11 +40,11 @@ To learn more, see Confluent blog articles about Azure services that integrate w
 
 ## Related content
 
-* For more help with using Apache Airflow on Astro, see the [Apache Airflow on Astro documentation](https://www.astronomer.io/docs/learn/intro-to-airflow).
-* Get started with Apache Airflow on Astro, an Azure Native Integrations service:
+* For more help with using Apache Kafka & Apache Flink, see the [Apache Kafka](https://kafka.apache.org/documentation/) and [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-lts/).
+* Get started with Apache Kafka & Apache Flink, an Azure Native Integrations service:
 
     > [!div class="nextstepaction"]
-    > [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations)
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
 
     > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/astronomer1591719760654.astronomer?tab=Overview)
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)

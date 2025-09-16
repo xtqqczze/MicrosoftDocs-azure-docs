@@ -28,7 +28,7 @@ To submit a request by using Azure help and support:
 1. In the list of services, select **Confluent on Azure**. Select **Next**. 
 1. Select the link to the Confluent support portal.
 
-    :::image type="content" source="media/support-request-help.png" alt-text="Screenshot that shows how to create a support request in the Azure portal." lightbox="media/support-request-help.png:::
+    :::image type="content" source="media/support-request-help.png" alt-text="Screenshot that shows how to create a support request in the Azure portal." lightbox="media/support-request-help.png":::
 
 To submit a request from your resource:
 
