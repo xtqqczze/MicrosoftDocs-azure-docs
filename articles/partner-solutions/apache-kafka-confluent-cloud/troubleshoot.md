@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Apache Kafka & Apache Flink on Confluent Cloud
-description: Learn how to troubleshoot and get answers to frequently asked questions for Apache Kafka & Apache Flink on Confluent Cloud in Azure Native Integrations.
-ms.topic: conceptual
-ms.date: 1/31/2024
-# customerIntent: As a developer I want to troubleshoot an error or get an answer to questions I have about using Apache Kafka & Apache Flink on Confluent Cloud.
+description: Learn how to troubleshoot Apache Kafka & Apache Flink on Confluent Cloud in Azure Native Integrations, and get answers to frequently asked questions.
+ms.topic: concept-article
+ms.date: 09/19/2025
+# customerIntent: As a developer, I want to troubleshoot an error or get an answer to questions I have about using Apache Kafka & Apache Flink on Confluent Cloud.
 ---
 
 # Troubleshoot Apache Kafka & Apache Flink on Confluent Cloud solutions
