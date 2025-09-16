@@ -26,9 +26,10 @@ Step 2: Grant access to Recovery services vault managed identity to read-write t
 ## Turning off key-based access on storage accounts.
 Turn off of key-auth on storage accounts is recommended by Azure Storage for higher security. Recently ASR has added support for this capability.
 
-If you are already using a scenario that requires use of recovery services vault identity, then you just need to do Next step.
+If you are already using a scenario that requires use of recovery services vault identity, then you just need to perform step in "Related Content".
+
 If your vault does not have managed identity when VMs were protected, managed identity can be added after VMs are protected as well.
-   You will need to follow step 1 , Step 2 in addition to next steps in this case.        
+You will need to follow step 1 , Step 2 in addition to step in "related content" in this case.        
 In either case re-enable is NOT needed.
 
 ## Related content
