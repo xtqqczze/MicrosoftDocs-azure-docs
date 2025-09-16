@@ -68,7 +68,7 @@ If the problem persists, contact [Confluent support](https://support.confluent.i
 
 1. Ensure that your Confluent organization is active and running.
 1. If you used the Confluent Marketplace resource, check that your Azure Native Integrations Confluent organization is active and not in an unsubscribed status.
-1. If you use a schema-based data type like AVRO, be sure that you also configured the schema registry.
+1. If you use a schema-based data type like Avro, make sure that you also configured the schema registry.
 
 ## List of connectors that use Confluent connectors isn't available
 
