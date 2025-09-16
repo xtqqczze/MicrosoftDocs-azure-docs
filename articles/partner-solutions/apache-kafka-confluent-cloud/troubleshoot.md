@@ -40,7 +40,7 @@ If you see a **DeploymentFailed** error message, check the status of your Azure 
 
 In the Azure portal, if the **Overview** or **Delete** panes for Confluent Cloud aren't visible, refresh the page. This error might be an intermittent issue with the portal. If refreshing the page doesn't work, contact [Confluent support](https://support.confluent.io).
 
-If the Confluent Cloud resource isn't found in the Azure **All resources** list, contact [Confluent support](https://support.confluent.io).
+If the Confluent Cloud resource isn't in the Azure **All resources** list, contact [Confluent support](https://support.confluent.io).
 
 ## Resource creation takes a long time
 
@@ -80,7 +80,7 @@ If you can't see the list of connectors, make sure that you're assigned the Owne
 1. Verify that the Azure service you're trying to connect to is configured properly.  
 1. If the issue persists, contact [Confluent support](https://support.confluent.io).
 
-## My Confluent connector isn't in the list of connectors
+## Confluent connector isn't in the list of connectors
 
 1. If you recently created a connector and it isn't in the list of connectors, select **Refresh**.
 1. If your Confluent connector still doesn't appear in the list of connectors, contact [Confluent support](https://support.confluent.io).
