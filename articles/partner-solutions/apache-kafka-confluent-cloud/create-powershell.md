@@ -47,10 +47,10 @@ Start by preparing your environment for Azure PowerShell:
 
 > [!IMPORTANT]
 > Currently, the `Az.Confluent` PowerShell module is in preview. During the preview, you must install the module separately by using the `Install-Module` cmdlet:
-
-```azurepowershell
-Install-Module -Name Az.Confluent -Scope CurrentUser -Repository PSGallery -Force
-```
+>
+> ```azurepowershell
+> Install-Module -Name Az.Confluent -Scope CurrentUser -Repository PSGallery -Force
+> ```
 
 After you sign in, use the [`New-AzConfluentOrganization`](/powershell/module/az.confluent/new-azconfluentorganization) cmdlet to create the new organization resource:
 
