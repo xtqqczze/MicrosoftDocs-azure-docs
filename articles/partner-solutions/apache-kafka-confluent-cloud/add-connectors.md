@@ -2,7 +2,7 @@
 title: Connect a Confluent Organization to Azure Compute Services
 description: Learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure compute services by using Service Connector in Azure.
 ms.topic: how-to
-ms.date: 05/28/2024
+ms.date: 09/19/2025
 
 #customer intent: As a developer I want learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure compute services so that I can connect Confluent Cloud to Azure services.
 ---
@@ -21,7 +21,7 @@ Complete the steps in this article to connect an app deployed to Azure App Servi
 * An existing Confluent organization. If you don't have one, see [Create a Confluent organization](./create.md).
 * An app deployed to [Azure App Service](/azure/app-service/quickstart-dotnetcore), [Azure Container Apps](/azure/container-apps/quickstart-portal), [Azure Spring Apps](/azure/spring-apps/enterprise/quickstart), or [Azure Kubernetes Services (AKS)](/azure/aks/learn/quick-kubernetes-deploy-portal).
 
-## Create a new connection
+## Create a connection
 
 To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
 
