@@ -47,4 +47,4 @@ To submit a request from your resource:
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
 
     > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)
