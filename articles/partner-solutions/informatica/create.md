@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create an Informatica Intelligent Data Management Cloud deployment"
-description: This article describes how to use the Azure portal to create an  Informatica IDMC organization.
+description: This article describes how to use the Azure portal to create an  Informatica Intelligent Data Management Cloud organization.
 
 ms.topic: quickstart
 ms.date: 04/02/2024
@@ -20,9 +20,9 @@ In this section, you see how to create an instance of  _Informatica Intelligent 
 
 ### Find the service
 
-1. Use the search in the [Azure portal](https://portal.azure.com) to find the _Informatica Intelligent Data Management Cloud - Azure Native ISV Service_ application.
-2. Alternatively, go to Marketplace and search for _Informatica Intelligent Data Management Cloud - Azure Native ISV Service_.
-3. Subscribe to the corresponding service.
+1. Use the search in the [Azure portal](https://portal.azure.com) to find *Informatica Intelligent Data Management Cloud - Azure Native ISV Service*. On that page, select **+ Create**.
+
+   Alternatively, go to Marketplace and search for *Informatica Intelligent Data Management Cloud - Azure Native ISV Service*. Subscribe to the corresponding service.
 
     :::image type="content" source="media/informatica-create/informatica-marketplace.png" alt-text="Screenshot of Informatica application in the Marketplace.":::
 
