@@ -12,7 +12,7 @@ ms.date: 09/19/2025
 
 # Manage users and user permissions in a Confluent organization
 
-An organization admin can add, view, and remove users and roles inside an Confluent organization in the Azure portal. By managing user permissions, you can ensure that only authorized users can access and complete actions on your Confluent Cloud resources on Azure.
+An organization admin can add, view, and remove users and roles inside a Confluent organization in the Azure portal. By managing user permissions, you can ensure that only authorized users can access and complete actions on your Confluent Cloud resources on Azure.
 
 Complete the steps described in the next sections to manage users and roles in Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service.
 
@@ -83,7 +83,7 @@ A notification indicates that the new user role is added. The list of assigned r
 
 To remove a permission assigned to a user in a Confluent organization:
 
-1. In the Azure portal, go to the **Confluent Account and Access** page to view the list of users in your Confluent organization.
+1. In the Azure portal, go to the **Account and Access** page to view the list of users in your Confluent organization.
 1. To the right of the user, select **Manage Permissions**.
 1. In **Manage Permissions**, select **Remove Role**.
 
