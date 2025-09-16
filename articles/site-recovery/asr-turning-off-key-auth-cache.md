@@ -4,11 +4,11 @@ description: Turning off key-based access on cache accounts.
 services: site-recovery
 author: swbela
 ms.service: azure-site-recovery
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 8/20/2025
 ms.author: swbela_microsoft
 
-# Customer intent: "I want to turn off key-based authentication on cache account."
+# Customer intent: As a Site Recovery administrator, I want to turn off key-based authentication on cache account used by Azure Site Recovery.
 ---
 
 # Steps for turning off key-based authentication on cache account.
