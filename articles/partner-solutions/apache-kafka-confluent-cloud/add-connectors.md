@@ -11,15 +11,15 @@ ms.date: 09/19/2025
 
 In this article, you'll learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service, to Azure compute services by using Service Connector in Azure.
 
-[Service Connector](../../service-connector/overview.md) is an Azure service that helps simplify the process of connecting Azure resources. Service Connector manages your connection's network and authentication settings to simplify connection.
+[Service Connector](../../service-connector/overview.md) is an Azure service that simplifies the process of connecting Azure resources. Service Connector manages your connection's network and authentication settings to simplify connection.
 
-Complete the steps in this article to connect an app deployed to Azure App Service to a Confluent organization. You can use similar steps to connect your Confluent organization to other [compute services supported by Service Connector](../../service-connector/overview.md#what-services-are-supported-by-service-connector).
+Complete the steps in this article to connect an app deployed to Azure App Service, Azure Container Apps, Azure Spring Apps, or Azure Kubernetes Service to a Confluent organization. You can use similar steps to connect your Confluent organization to other [compute services supported by Service Connector](../../service-connector/overview.md#what-services-are-supported-by-service-connector).
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * An existing Confluent organization. If you don't have one, see [Create a Confluent organization](./create.md).
-* An app deployed to [Azure App Service](/azure/app-service/quickstart-dotnetcore), [Azure Container Apps](/azure/container-apps/quickstart-portal), [Azure Spring Apps](/azure/spring-apps/enterprise/quickstart), or [Azure Kubernetes Services (AKS)](/azure/aks/learn/quick-kubernetes-deploy-portal).
+* An app deployed to [Azure App Service](/azure/app-service/quickstart-dotnetcore), [Azure Container Apps](/azure/container-apps/quickstart-portal), [Azure Spring Apps](/azure/spring-apps/enterprise/quickstart), or [Azure Kubernetes Service (AKS)](/azure/aks/learn/quick-kubernetes-deploy-portal).
 
 ## Create a connection
 
@@ -84,7 +84,7 @@ To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
    On the **Authentication** tab:
 
     * The **Connection string** authentication type is selected by default.
-    * For **API Keys**, select **Create New**. If you already have an API key, you can choose **Select Existing**, and then enter the Kafka API key and secret. If you use an existing API key and select the option to enable schema registry on the **Basics** tab, enter the schema registry URL, schema registry API key, and schema registry API secret.
+    * For **API Keys**, select **Create New**. If you already have an API key, you can click **Select Existing**, and then enter the Kafka API key and secret. If you use an existing API key and select the option to enable schema registry on the **Basics** tab, enter the schema registry URL, schema registry API key, and schema registry API secret.
     * Optionally, you can select **Advanced** to edit the configuration variable names.
 
     :::image type="content" source="./media/connect/authentication.png" alt-text="Screenshot that shows connection authentication settings in the Azure portal.":::
