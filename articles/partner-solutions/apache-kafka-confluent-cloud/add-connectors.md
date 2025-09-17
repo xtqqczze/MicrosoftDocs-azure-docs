@@ -71,7 +71,7 @@ To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
 
     | Name | Action |
     | --- | --- |
-    | **Kafka bootstrap server URL** | Enter your Kafka bootstrap server URL. For example, *example.eastus.azure.confluent.cloud:9092*. |
+    | **Kafka bootstrap server URL** | Enter your Kafka bootstrap server URL. For example, *xxx.eastus.azure.confluent.cloud:9092*. |
     | **Create connection for Schema Registry** | This checkbox is cleared by default. Optionally, select the checkbox to use a schema registry. |
     | **Client type** | Select the app stack that's on your compute service instance. For example, select **Node.js**. |
 
