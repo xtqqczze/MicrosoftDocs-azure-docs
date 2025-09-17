@@ -33,7 +33,7 @@ If you are already using a scenario that requires use of recovery services vault
 If your vault does not have managed identity when VMs were protected, managed identity can be added after VMs are protected as well.
 To do this, ensure you meet the prerequisites and then turn off Key-based authorization on cache account.
 
-In either scenario, disable-enable protections for Virtual Machines, servers which are already protected with ASR, is not needed. Replication will continue seamlessly if prerequisites are done correctly before turning off Key-based access.
+If you have Virtual Machines or servers which are already protected with ASR, disable-enable is not required in either scenario. Replication will continue seamlessly if prerequisites are done correctly before turning off Key-based access.
 
 ## Related content
 Turn off the key based access on cache account.
