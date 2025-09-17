@@ -80,7 +80,7 @@ You can specify custom tags for the new Informatica resource in Azure by adding 
 
     :::image type="content" source="media/informatica-create/informatica-deploy.png" alt-text="Screenshot of a completed Informatica deployment.":::
 
-1. In the resource menu, select **Overview** to see information your Informatica resource.
+1. In the service menu, select **Overview** to see information your Informatica resource.
 
     :::image type="content" source="media/informatica-create/informatica-overview-pane.png" alt-text="Screenshot of information on the Informatica resource overview.":::
 
