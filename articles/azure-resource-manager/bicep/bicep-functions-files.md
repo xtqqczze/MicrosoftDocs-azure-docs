@@ -3,7 +3,7 @@ title: Bicep functions - files
 description: Describes the functions to use in a Bicep file to load content from a file.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 09/12/2025
+ms.date: 09/17/2025
 ---
 
 # File functions for Bicep
@@ -22,7 +22,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| directoryPath | Yes | string | The path to the directory to load. The path is relative to the deployed Bicep file. It can't include variables. |
+| directoryPath | Yes | string | The path is relative to the Bicep file invoking this function. It can use variables, provided they are compile-time constants, but it cannot use parameters. |
 | searchPattern | No | string | The search pattern to use when loading files. This can include wildcards. |
 
 ### Return value
