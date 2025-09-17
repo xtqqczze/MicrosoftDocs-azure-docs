@@ -29,16 +29,16 @@ To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
 
    If your resource is an Azure Spring Apps resource, on the **Apps** menu, select your app.
 
-1. On the left menu, select **Service Connector**, and then select **Create**.
+1. In the left pane, select **Service Connector**, and then select **Create**.
 
-     :::image type="content" source="./media/connect/create-connection.png" alt-text="Screenshot that shows the Create button in the Azure portal.":::
+     :::image type="content" source="./media/connect/create-connection.png" alt-text="Screenshot that shows the Create button in the Azure portal." lightbox="./media/connect/create-connection.png":::
 
 1. On the **Basics** tab, enter or select values for the following settings:
 
     | Name | Action |
     | --- | --- |
     | **Service type**    | Select **Apache Kafka on Confluent Cloud** to generate a connection to a Confluent organization. |
-    | **Connection name** | Enter a connection name to identify the connection between your App Service and Confluent organization service. Use the connection name provided by Service Connector, or enter your own connection name. For example, *Confluent_d0fcp*. <br/><br/> Connection names can contain only letters, numbers (`0-9`), periods (`.`), and underscores (`_`).                           |
+    | **Connection name** | Enter a connection name to identify the connection between App Service and your Confluent organization service. Use the connection name provided by Service Connector, or enter your own connection name. For example, *Confluent_d0fcp*. <br/><br/> Connection names can contain only letters, numbers (`0-9`), periods (`.`), and underscores (`_`).                           |
     | **Source**          | Select **Azure Marketplace Confluent resource (preview)**. |
 
      :::image type="content" source="./media/connect/confluent-source.png" alt-text="Screenshot that shows the Source options in the Azure portal.":::
@@ -46,13 +46,13 @@ To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
 1. To connect to a Confluent resource that you deployed via Azure Marketplace or one that you deployed directly via the Confluent UI, use the information described in the following tables.
 
     > [!IMPORTANT]
-    > Service Connector for Azure Marketplace Confluent resources is currently in PREVIEW.
+    > Service Connector for Azure Marketplace Confluent resources is currently in preview.
     >
     > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
     ### [Azure Marketplace Confluent resource](#tab/marketplace-confluent)
 
-    If you deployed your Confluent resource through Azure Marketplace, enter or select values for the following settings:
+    If you deployed your Confluent resource by using Azure Marketplace, enter or select values for the following settings:
 
     | Name | Action |
     | --- | --- |
@@ -63,7 +63,7 @@ To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
     | **Create connection for Schema Registry** | This checkbox is cleared by default. Optionally, select the checkbox to create a connection for the schema registry. |
     | **Client type** | Select the app stack that's on your compute service instance. For example, select **Node.js**. |
 
-    :::image type="content" source="./media/connect/marketplace-basic.png" alt-text="Screenshot that shows the Service Connector Basics pane an Azure Marketplace Confluent resource in the Azure portal.":::
+    :::image type="content" source="./media/connect/marketplace-basic.png" alt-text="Screenshot that shows the Service Connector Basics pane an Azure Marketplace Confluent resource in the Azure portal." lightbox="./media/connect/marketplace-basic.png":::
 
     ### [Azure non-Marketplace Confluent resource](#tab/non-marketplace-confluent)
 
@@ -71,11 +71,11 @@ To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
 
     | Name | Action |
     | --- | --- |
-    | **Kafka bootstrap server URL** | Enter your Kafka bootstrap server URL. For example, *xxxx.eastus.azure.confluent.cloud:9092*. |
+    | **Kafka bootstrap server URL** | Enter your Kafka bootstrap server URL. For example, *example.eastus.azure.confluent.cloud:9092*. |
     | **Create connection for Schema Registry** | This checkbox is cleared by default. Optionally, select the checkbox to use a schema registry. |
     | **Client type** | Select the app stack that's on your compute service instance. For example, select **Node.js**. |
 
-    :::image type="content" source="./media/connect/non-marketplace-basic.png" alt-text="Screenshot that shows the Service Connector Basics settings in an Azure Marketplace Confluent resource in the Azure portal.":::
+    :::image type="content" source="./media/connect/non-marketplace-basic.png" alt-text="Screenshot that shows the Service Connector Basics settings in an Azure non-Marketplace Confluent resource in the Azure portal." lightbox="./media/connect/non-marketplace-basic.png":::
 
     ---
 
@@ -84,7 +84,7 @@ To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
    On the **Authentication** tab:
 
     * The **Connection string** authentication type is selected by default.
-    * For **API Keys**, select **Create New**. If you already have an API key, you can choose **Select Existing**, and then enter the Kafka API key and secret. If you use an existing API key and select the option to enable schema registry in the **Basics** tab, enter the schema registry URL, schema registry API key, and schema registry API secret.
+    * For **API Keys**, select **Create New**. If you already have an API key, you can choose **Select Existing**, and then enter the Kafka API key and secret. If you use an existing API key and select the option to enable schema registry on the **Basics** tab, enter the schema registry URL, schema registry API key, and schema registry API secret.
     * Optionally, you can select **Advanced** to edit the configuration variable names.
 
     :::image type="content" source="./media/connect/authentication.png" alt-text="Screenshot that shows connection authentication settings in the Azure portal.":::
@@ -96,9 +96,9 @@ To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
    * The **Configure firewall rules to enable access to your target service** checkbox is selected by default.
    * Optionally, you can configure your app's outbound traffic to integrate with Azure Virtual Network.
 
-   :::image type="content" source="./media/connect/networking.png" alt-text="Screenshot that shows the connection networking settings in the Azure portal.":::
+   :::image type="content" source="./media/connect/networking.png" alt-text="Screenshot that shows the connection networking settings in the Azure portal." lightbox="./media/connect/networking.png":::
 
-1. Select **Next: Review + create**  to review your settings.
+1. Select **Next: Review + Create**  to review your settings.
 1. Select **Create**.
 
 ## View and edit connections
@@ -107,7 +107,7 @@ To review your existing connections:
 
 1. In the Azure portal, go to your App Service, Container Apps, Azure Spring Apps, or AKS resource.
 
-1. On the left menu, select **Service Connector**.
+1. In the left pane, select **Service Connector**.
 
 1. Select a connection and explore the following options:
 
