@@ -18,10 +18,12 @@ ms.author: swbela_microsoft
 ## Prerequisites
 Before you begin ensure you:
 1. Enable Managed Identity on the Recovery Services Vault. Follow below guide on how to do it.
+   
    https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#enable-the-managed-identity-for-the-vault
 
-2. Grant access to Recovery services vault managed identity to read-write to cache account. Follow this guide.
-        https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#grant-required-permissions-to-the-vault
+3. Grant access to Recovery services vault managed identity to read-write to cache account. Follow this guide.
+   
+   https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#grant-required-permissions-to-the-vault
 
 ## Turn off key-based access on storage accounts.
 For higher security of Azure storage, we recommend you to Tturn off of key-based authentication.
@@ -37,4 +39,5 @@ If you have Virtual Machines or servers which are already protected with ASR, di
 
 ## Related content
 Turn off the key based access on cache account.
+
 https://learn.microsoft.com/en-us/azure/storage/common/shared-key-authorization-prevent?tabs=portal#disable-shared-key-authorization
