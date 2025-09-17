@@ -39,7 +39,7 @@ To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
     | --- | --- |
     | **Service type**    | Select **Apache Kafka on Confluent Cloud** to generate a connection to a Confluent organization. |
     | **Connection name** | Enter a connection name to identify the connection between App Service and your Confluent organization service. Use the connection name provided by Service Connector, or enter your own connection name. For example, *Confluent_d0fcp*. <br/><br/> Connection names can contain only letters, numbers (`0-9`), periods (`.`), and underscores (`_`).                           |
-    | **Source**          | Select **Azure Marketplace Confluent resource (preview)**. |
+    | **Source**          | Select **Azure Marketplace Confluent resource**. |
 
      :::image type="content" source="./media/connect/confluent-source.png" alt-text="Screenshot that shows the Source options in the Azure portal.":::
 
@@ -57,7 +57,7 @@ To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
     | Name | Action |
     | --- | --- |
     | **Subscription** | Select the subscription where you created your Confluent organization. For example, *my subscription*. |
-    | **Confluent Service** | Select the organization where your Confluent organization is located. For example, *my-confluent-org*. |
+    | **Confluent Organization** | Select the organization where your Confluent organization is located. For example, *my-confluent-org*. |
     | **Environment** | Select your Confluent organization environment. For example, *demoenv1*. |
     | **Cluster** | Select your Confluent organization cluster. For example, *ProdKafkaCluster*. |
     | **Create connection for Schema Registry** | This checkbox is cleared by default. Optionally, select the checkbox to create a connection for the schema registry. |
