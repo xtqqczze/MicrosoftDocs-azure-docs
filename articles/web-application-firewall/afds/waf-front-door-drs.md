@@ -73,8 +73,10 @@ The version of the DRS that you use also determines which content types are supp
 
 Each rule is assigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they're expected to trigger false positives which should be fine-tuned.
 
-By default, all DRS rule versions are pre-configured in Paranoia Level 2, including rules assigned in both PL1 and in PL2.
-If you want to use WAF exclusively with PL1, you can disable any or all PL2 rules or change their action to 'log'. PL3 and PL4 are currently not supported in Azure WAF.
+By default, DRS 2.2 is configured at Paranoia Level 1 (PL1), and all PL2 rules are disabled. To run WAF at PL2, you can manually enable any or all PL2 rules.
+For earlier rule sets, DRS 2.1 and CRS 3.2 include rules defined for Paranoia Level 2, which covers both PL1 and PL2 rules. If you prefer to operate strictly at PL1, you can disable specific PL2 rules or set their action to Log.
+
+Paranoia Levels 3 and 4 are not currently supported in Azure WAF.
 
 ### Upgrading or changing ruleset version
 
