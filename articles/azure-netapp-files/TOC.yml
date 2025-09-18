@@ -329,6 +329,8 @@
       items:
       - name: Create a dual-protocol volume 
         href: create-volumes-dual-protocol.md
+    - name: Configure a cache volume  
+      href: configure-cache-volumes.md
     - name: Migrate volumes to Azure NetApp Files
       href: migrate-volumes.md
     - name: Manage volume access and encryption 
