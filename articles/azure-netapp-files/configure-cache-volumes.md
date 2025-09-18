@@ -14,25 +14,25 @@ ms.custom: sfi-image-nochange
 
 The purpose of this article is to provide users of Azure NetApp Files with cache volumes that simplify file distribution, reduce WAN latency, and lower WAN/ExpressRoute bandwidth costs. Azure NetApp Files cache volumes are currently designed to be peered with external sources (aka origin volumes in on-prem ONTAP, Cloud Volumes ONTAP, or Amazon FSx for NetApp.
 
-Azure NetApp Files cache volumes are cloud based caches of an external origin volume, containing only the most actively accessed data on the volume. Cache volumes accept both reads and writes but operate at faster speeds with reduced latency. When a cache volume receives a read request of the hot data it contains, it can respond faster than the origin volume because the data does not need to travel as far to reach the client. If a cache volume receives a read request for infrequently read data (cold data), it retrieves the needed data from the origin volume and then stores the data before serving the client request. Subsequent read requests for that data are then served directly from the cache volume. After the first request, the data no longer needs to travel across the network or be served from a heavily loaded system.
+Azure NetApp Files cache volumes are cloud based caches of an external origin volume, containing only the most actively accessed data on the volume. Cache volumes accept both reads and writes but operate at faster speeds with reduced latency. When a cache volume receives a read request of the hot data it contains, it can respond faster than the origin volume because the data doesn't need to travel as far to reach the client. If a cache volume receives a read request for infrequently read data (cold data), it retrieves the needed data from the origin volume and then stores the data before serving the client request. Subsequent read requests for that data are then served directly from the cache volume. After the first request, the data no longer needs to travel across the network or be served from a heavily loaded system.
 
-Write-back allows the write to be committed to stable storage at the cache and acknowledges the client without waiting for the data to make it to the origin resulting in a globally distributed file system that enables writes to perform at near-local speeds for specific workloads and environments, offering significant performance benefits whereas write-around waits for the origin to commit the writes to the stable storage before acknowledging the client. This results in every write incurring the penalty of traversing the network between the cache and origin.  
+Write-back allows the write to be committed to stable storage at the cache and acknowledges the client without waiting for the data to make it to the origin. This results in a globally distributed file system that enables writes to perform at near-local speeds for specific workloads and environments, offering significant performance benefits whereas write-around waits for the origin to commit the writes to the stable storage before acknowledging the client. This results in every write incurring the penalty of traversing the network between the cache and origin.  
 
 ## Considerations
 
-* The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: 6 for cluster peering and 1 for data access to one or more cache volumes. It is recommended that the delegated subnet address space is sized appropriately to accommodate another Azure NetApp Files network interfaces. Review Guidelines for Azure NetApp Files network planning to ensure you meet the requirements for delegated subnet sizing.
-* When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to re-use the same Azure NetApp Files storage system as any previously created volumes in the subscription to try to reduce the number of NICs/IPs consumed in the delegated subnet. If this is not possible, another 6+1 NICs will be consumed.
-* If enabling write-back on the external origin volume consider these key points
+* The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: 6 for cluster peering and 1 for data access to one or more cache volumes. It's recommended that the delegated subnet address space is sized appropriately to accommodate another Azure NetApp Files network interfaces. Review Guidelines for Azure NetApp Files network planning to ensure you meet the requirements for delegated subnet sizing.
+* When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to re-use the same Azure NetApp Files storage system as any previously created volumes in the subscription. This is done to try and reduce the number of NICs/IPs consumed in the delegated subnet. If this isn't possible, another 6+1 NICs are consumed.
+* If enabling write-back on the external origin volume, consider these key points
     * You must be running ONTAP 9.15.1P5 or later on the system hosting the external origin volume. 
-    * It is recommended that each external origin system node have at least 128GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it will require more CPU and RAM.
-    * Testing has been executed for files smaller than 100GB and WAN round-trip times between the cache and origin not exceeding 100 ms. Any workloads outside of these limits might result in unexpected performance characteristics.
-    * The external origin must remain under 80% full. Cache volumes are not granted exclusive lock delegations if there isn't at least 20% space remaining in the origin volume. Calls to a write-back-enabled cache are forwarded to the origin in this situation. This helps prevent running out of space at the origin, which would result in leaving dirty data orphaned at a write-back-enabled cache.
-    * You should not configure qtree, user, or group quotas at origin volume with write-back enabled cache volumes. This may incur a significant latency increase.
+    * It's recommended that each external origin system node have at least 128GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it requires more CPU and RAM.
+    * Testing must have been executed for files smaller than 100GB and WAN round-trip times between the cache and origin not exceeding 100 ms. Any workloads outside of these limits might result in unexpected performance characteristics.
+    * The external origin must remain under 80% full. Cache volumes aren't granted exclusive lock delegations if there isn't at least 20% space remaining in the origin volume. Calls to a write-back-enabled cache are forwarded to the origin in this situation. This helps prevent running out of space at the origin, which would result in leaving dirty data orphaned at a write-back-enabled cache.
+    * You shouldn't configure qtree, user, or group quotas at origin volume with write-back enabled cache volumes. This may incur a significant latency increase.
 * You should be aware of the supported and unsupported features for cache volumes in Azure NetApp Files.
     * Unsupported features:
         * NFSv4.2
         * Ransomware protection
-        * FlexCache DR
+        * FlexCache Disaster Recovery
         * S3 Buckets
         * Azure NetApp Files Backup
         * CRR/CZR/CZRR
@@ -47,11 +47,11 @@ Write-back allows the write to be committed to stable storage at the cache and a
         * SMB continuous availability shares
         * Standard network features
 * The Azure NetApp Files cache volume must be deployed in an availability zone. To populate a new or existing volume in an availability zone, see [Manage availability zones in Azure NetApp Files](manage-availability-zone-volume-placement.md). 
-* Cache volumes only support standard network features. Basic network features cannot be configured on cache volumes. 
+* Cache volumes only support standard network features. Basic network features can't be configured on cache volumes. 
 * When creating a cache volume, you just ensure there is sufficient space in the capacity pool to accommodate the new cache volume.
-* You cannot move a cache volume to another capacity pool after it’s created.
+* You can't move a cache volume to another capacity pool after it’s created.
 * You should ensure that the protocol type is the same for the cache volume and origin volume as the security style and the Unix permissions are inherited from the origin volume. Example: create a cache volume with protocol NFSv3 or NFSv4 when origin is UNIX, and SMB when the origin is NTFS.
-* It is recommended to enable encryption on the origin volume.
+* It's recommended to enable encryption on the origin volume.
 * You can only modify specific fields of a cache volume such as ‘is-cifs-change-notify-enabled’, ‘is-writeback-enabled’, and ‘is-global-file-locking-enabled'.
 * Cache volumes are supported in the regions listed:
     * Australia Central
@@ -112,7 +112,7 @@ Write-back allows the write to be committed to stable storage at the cache and a
         A count of the constituents that are at least 90% full
 
     * **Flex Cache connection status**      
-        The metric displays 1 if all the cache volumes can connect to the origin volume. A value of 0 means the connection is not working. 
+        The metric displays 1 if all the cache volumes can connect to the origin volume. A value of 0 means the connection isn't working. 
 
     * **Maximum file size**      
         The maximum file size in bytes
@@ -243,7 +243,7 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
     
 ## Delete a cache volume
 
-You can delete a cache volume if it is no longer required. Before deleting a cache volume, you must ensure that the cache volume status is disconnected, and the write-back property of the cache volume is disabled.
+You can delete a cache volume if it's no longer required. Before deleting a cache volume, you must ensure that the cache volume status is disconnected, and the write-back property of the cache volume is disabled.
 
 1.	Run the following API to delete a cache volume:
 
