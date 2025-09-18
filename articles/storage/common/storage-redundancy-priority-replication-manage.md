@@ -20,7 +20,7 @@ Initial: 98 (896/1)
 
 # Managing Azure Geo-Redundant Storage replication
 
-Geo Priority Replication is a premium feature designed to meet stringent Recovery Point Objectives (RPO) for geo-redundant storage accounts. It carries a service level agreement (SLA) guaranteeing the Last Sync Time (LST) remains within 15 minutes lag for 99.0% of a billing month.
+Geo Priority Replication is a premium feature designed to meet stringent Recovery Point Objectives (RPO) for storage accounts using geo-redundant storage (GRS) or geo-zone redundant storage (GZRS). It enhances the replication process by enabling accelerated data replication between the primary and secondary regions. It carries a service level agreement (SLA) guaranteeing the Last Sync Time (LST) remains within 15 minutes lag for 99.0% of a billing month.
 
 ## Enabling Geo-Redundant Storage replication
 Enabling Geo Priority Replication is straightforward and can be completed via the Azure portal, PowerShell, or the Azure CLI. It can be enabled for existing accounts, or during the process of creating a new account. The `SLAEffectiveDate` property indicates when SLA becomes active. After you enable the SLA, the status will be set to **Pending** until the replication backlog is cleared. You can check the SLA status in the Azure portal under the **Replication** section of your storage account. 
@@ -44,7 +44,11 @@ Enabling Geo Priority Replication is straightforward and can be completed via th
 
 To ensure transparency and empower customers to track their SLA compliance, Azure provides a set of monitoring tools integrated directly into the Azure portal. After priority replication is enabled, you have the ability to view geo-lag metrics on a per-account basis. You can check your "geo lag" performance throughout the month via the **Insights** and **Metrics** panes. These dashboards display real-time and historical data on *geo blob lag*, which measures the replication delay between the primary and secondary regions. 
 
-You can view lag metrics over timeframes ranging from the last five minutes to multiple months. These metrics allow you to assess performance trends and identify potential SLA breaches. Additionally, a specialized **Reasons for Geo Priority Replication Ineligibility** metric identifies whether any guardrails were breached. Examples of these breaches include ingress limits and unsupported blob types, both of which would invalidate SLA eligibility during specific time windows. 
+You can view lag metrics over timeframes ranging from the last five minutes to multiple months. These metrics allow you to assess performance trends and identify potential SLA breaches. 
+
+One metric, **Geo Blob Lag**, allows you to monitor the lag, or the number of seconds since the last full data copy between the primary and secondary regions, of your block blob data. Geo blob lag can be viewed over the course of a specified time range, up to 12 months.
+
+Additionally, a specialized **Reasons for Geo Priority Replication Ineligibility** metric identifies whether any guardrails were breached. Examples of these breaches include ingress limits and unsupported blob types, both of which would invalidate SLA eligibility during specific time windows. 
 
 These tools provide a comprehensive view of replication health and SLA conformance, as shown in the following screenshot. This visibility enables you to make informed decisions and initiate service credit claims when necessary. 
 

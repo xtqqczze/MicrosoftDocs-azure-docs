@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 09/05/2025
+ms.date: 09/17/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
@@ -21,15 +21,9 @@ Current: 99 (975/1)
 
 # Azure Storage Geo Priority Replication
 
-The Azure Storage Geo Priority Replication feature is designed to meet the stringent compliance and business continuity requirements of enterprise customers. This feature includes a Service Level Agreement (SLA) that guarantees a Recovery Point Objective (RPO) of ≤15 minutes lag 99.0% of the time for geo-redundant storage (GRS) accounts. Opting into this feature provides prioritized replication traffic and detailed telemetry, with the assurance of service credits if the SLA isn't met.
+The Azure Storage Geo Priority Replication feature is designed to meet the stringent compliance and business continuity requirements of enterprise customers. The feature prioritizes replication traffic for storage accounts with geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) enabled. This prioritization accelerates data replication between the primary and secondary regions.
 
-This article provides a detailed breakdown of the SLA terms, eligibility criteria, exceptions, and monitoring mechanisms to help customers understand and manage their replication commitments effectively.
-
-## How geo priority replication works
-
-Geo Priority Replication enhances Azure's geo-redundant storage by accelerating replication traffic. This prioritization ensures that data written to the primary region is replicated to the secondary region within 15 minutes. Minutes are tracked  Any minute in which LST exceeds 15 minutes is counted as a *Exceeded LST Minute*.
-
-The SLA conformance percentage is calculated monthly using the following formula:
+Geo priority replication includes a Service Level Agreement (SLA) that applies to any account that has Geo priority replication enabled. It guarantees a Last Sync Time (LST) of 15 minutes or less for 99.0% of a billing month. In addition to prioritized replication traffic, the feature includes enhanced monitoring and detailed telemetry, with the assurance of service credits if the SLA isn't met. The SLA conformance percentage is calculated monthly using the following formula:
 
 `(Total minutes − Exceeded LST minutes) / Total minutes X 100%`
 
@@ -37,7 +31,15 @@ For example, assuming a 30-day month with 43,200 total minutes, SLA conformance 
 
 `(43,200 - 432) / 43,200 X 100% = 99.0%`
 
-Customers can monitor their geo lag via Azure portal's **Insights** and **Metrics** panes. If the SLA is breached, users might be eligible for service credits based on the degree of nonconformance.
+You can monitor your geo lag via Azure portal's **Insights** and **Metrics** panes. If the SLA is breached, you might be eligible for service credits based on the degree of nonconformance.
+
+## Benefits of geo priority replication
+
+While there are many benefits to using geo priority replication, it's especially beneficial, for example, in the following scenarios:
+
+- Meeting compliance regulations that require a strict Recovery Point Objective (RPO) for storage accounts that require an SLA. 
+- Recovering from a storage related outage in the primary region where initiating an unplanned failover is required. Users can guarantee that all their blob and data lake storage accounts are replicated to their secondary region within 15 minutes or less. As a result, data written within 15 minutes of an unplanned failover can be fully recovered after the unplanned failover is completed.
+- Strengthening your disaster recovery planning to meet both compliance and business requirements. Users with business-critical data and a need for high availability and disaster recovery receive a significant benefit.
 
 ## SLA terms and guarantees
 
