@@ -18,16 +18,16 @@ Azure NetApp Files cache volumes are cloud based caches of an external origin vo
 
 Write-back allows the write to be committed to stable storage at the cache and acknowledges the client without waiting for the data to make it to the origin resulting in a globally distributed file system that enables writes to perform at near-local speeds for specific workloads and environments, offering significant performance benefits whereas write-around waits for the origin to commit the writes to the stable storage before acknowledging the client. This results in every write incurring the penalty of traversing the network between the cache and origin.  
 
-# Considerations
+## Considerations
 
-* The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least 7 free IP addresses: 6 for cluster peering and 1 for data access to the cache volume(s). It is recommended that the delegated subnet address space is sized appropriately to accommodate additional Azure NetApp Files network interfaces. Review Guidelines for Azure NetApp Files network planning to ensure you meet the requirements for delegated subnet sizing.
-* When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to re-use the same Azure NetApp Files storage system as any previously created volumes in the subscription to try to reduce the number of NICs/IPs consumed in the delegated subnet. If this is not possible, an additional 6+1 NICs will be consumed.
+* The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: 6 for cluster peering and 1 for data access to one or more cache volumes. It is recommended that the delegated subnet address space is sized appropriately to accommodate another Azure NetApp Files network interfaces. Review Guidelines for Azure NetApp Files network planning to ensure you meet the requirements for delegated subnet sizing.
+* When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to re-use the same Azure NetApp Files storage system as any previously created volumes in the subscription to try to reduce the number of NICs/IPs consumed in the delegated subnet. If this is not possible, another 6+1 NICs will be consumed.
 * If enabling write-back on the external origin volume consider these key points
     * You must be running ONTAP 9.15.1P5 or later on the system hosting the external origin volume. 
-    * It is strongly recommended that each external origin system node have at least 128GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it will require more CPU and RAM.
-    * Testing has been executed for files smaller than 100GB and WAN round-trip times between the cache and origin not exceeding 100ms. Any workloads outside of these limits might result in unexpected performance characteristics.
+    * It is recommended that each external origin system node have at least 128GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it will require more CPU and RAM.
+    * Testing has been executed for files smaller than 100GB and WAN round-trip times between the cache and origin not exceeding 100 ms. Any workloads outside of these limits might result in unexpected performance characteristics.
     * The external origin must remain under 80% full. Cache volumes are not granted exclusive lock delegations if there isn't at least 20% space remaining in the origin volume. Calls to a write-back-enabled cache are forwarded to the origin in this situation. This helps prevent running out of space at the origin, which would result in leaving dirty data orphaned at a write-back-enabled cache.
-    * You should not configure qtree, user or group quotas at origin volume with write-back enabled cache volumes. This may incur a significant latency increase.
+    * You should not configure qtree, user, or group quotas at origin volume with write-back enabled cache volumes. This may incur a significant latency increase.
 * You should be aware of the supported and unsupported features for cache volumes in Azure NetApp Files.
     * Unsupported features:
         * NFSv4.2
@@ -152,7 +152,7 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
 
 1.	Create a cache volume
 
-   ```rest
+   ```
     curl -X 'PUT' \
     'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1?api-version=2025-07-01-preview' \
     -H 'accept: application/json' \
@@ -220,11 +220,11 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
         "writeBack": "Disabled"
     }
     }'
-    ```
+```
 
 2. Ensure the cache state is available in cluster peering or Vserver peering:
 
-    ```rest
+    ```
     GET all flexcache volumes:
     curl -X 'GET' \
     'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches?api-version=2025-07-01-preview' \
@@ -233,7 +233,7 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
 
 3.	Generate the passphrase to enable cluster peering and Vserver peering:
 
-    ```rest
+    ```
     listPeeringPassphrases:
     curl -X 'POST' \
     'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1/listPeeringPassphrases?api-version=2025-07-01-preview' \
