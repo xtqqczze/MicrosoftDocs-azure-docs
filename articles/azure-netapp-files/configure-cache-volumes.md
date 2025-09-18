@@ -1,5 +1,5 @@
 ---
-title: Create a cache volume for Azure NetApp Files 
+title: Configure a cache volume for Azure NetApp Files 
 description: This article shows you how to create a cache volume in Azure NetApp Files. 
 services: azure-netapp-files
 author: netapp-manishc
@@ -10,7 +10,7 @@ ms.author: anfdocs
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to create a cache volume in Azure NetApp Files, so that I can leverage scalable storage solutions and reduce cost.
 ---
-# Create a cache volume for Azure NetApp Files
+# Configure a cache volume for Azure NetApp Files
 
 The purpose of this article is to provide users of Azure NetApp Files with cache volumes that simplify file distribution, reduce WAN latency, and lower WAN/ExpressRoute bandwidth costs. Azure NetApp Files cache volumes are currently designed to be peered with external sources (aka origin volumes in on-prem ONTAP, Cloud Volumes ONTAP, or Amazon FSx for NetApp.
 
@@ -239,4 +239,16 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
     'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1/listPeeringPassphrases?api-version=2025-07-01-preview' \
     -H 'accept: application/json' \
     -d ''
+    ```
+    
+## Delete a cache volume
+
+You can delete a cache volume if it is no longer required. Before deleting a cache volume, you must ensure that the cache volume status is disconnected, and the write-back property of the cache volume is disabled.
+
+1.	Run the following API to delete a cache volume:
+
+    ```rest
+    curl -X 'DELETE' \
+    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1?api-version=2025-07-01-preview' \
+    -H 'accept: application/json'
     ```
