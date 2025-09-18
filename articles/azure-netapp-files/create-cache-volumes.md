@@ -18,37 +18,28 @@ Azure NetApp Files cache volumes are cloud based caches of an external origin vo
 
 Write-back allows the write to be committed to stable storage at the cache and acknowledges the client without waiting for the data to make it to the origin resulting in a globally distributed file system that enables writes to perform at near-local speeds for specific workloads and environments, offering significant performance benefits whereas write-around waits for the origin to commit the writes to the stable storage before acknowledging the client. This results in every write incurring the penalty of traversing the network between the cache and origin.  
 
-## Before you begin
+# Considerations
 
-* Customer must create Express Route or VPN resources to ensure network connectivity from the external NetApp ONTAP cluster to the target ANF cluster. This can be accomplished in many ways with the goal being that the source cluster has connectivity to the ANF delegated subnet. Connectivity includes this set of firewall rules (bi-directional for all):
-    * ICMP
-    * TCP 11104 
-    * TCP 11105 
-    * HTTPS
-* The network connectivity must be in place for all ‘intercluster’ (IC) LIFs on the source cluster to all IC LIFs on the ANF endpoint.
-
-## Considerations
-
-* The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least 7 free IP addresses: 6 for cluster peering and 1 for data access to the cache volume(s). It is recommended that the delegated subnet address space is sized appropriately to accommodate additional ANF network interfaces. Review Guidelines for Azure NetApp Files network planning to ensure you meet the requirements for delegated subnet sizing.
-* When creating each cache volume, the ANF volume placement algorithm attempts to re-use the same ANF storage system as any previously created volumes in the subscription to try to reduce the number of NICs/IPs consumed in the delegated subnet. If this is not possible, an additional 6+1 NICs will be consumed.
+* The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least 7 free IP addresses: 6 for cluster peering and 1 for data access to the cache volume(s). It is recommended that the delegated subnet address space is sized appropriately to accommodate additional Azure NetApp Files network interfaces. Review Guidelines for Azure NetApp Files network planning to ensure you meet the requirements for delegated subnet sizing.
+* When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to re-use the same Azure NetApp Files storage system as any previously created volumes in the subscription to try to reduce the number of NICs/IPs consumed in the delegated subnet. If this is not possible, an additional 6+1 NICs will be consumed.
 * If enabling write-back on the external origin volume consider these key points
     * You must be running ONTAP 9.15.1P5 or later on the system hosting the external origin volume. 
-    * It is strongly recommended that each external origin system node have at least 128GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled ANF cache volumes, it will require more CPU and RAM.
+    * It is strongly recommended that each external origin system node have at least 128GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it will require more CPU and RAM.
     * Testing has been executed for files smaller than 100GB and WAN round-trip times between the cache and origin not exceeding 100ms. Any workloads outside of these limits might result in unexpected performance characteristics.
     * The external origin must remain under 80% full. Cache volumes are not granted exclusive lock delegations if there isn't at least 20% space remaining in the origin volume. Calls to a write-back-enabled cache are forwarded to the origin in this situation. This helps prevent running out of space at the origin, which would result in leaving dirty data orphaned at a write-back-enabled cache.
     * You should not configure qtree, user or group quotas at origin volume with write-back enabled cache volumes. This may incur a significant latency increase.
-* You should be aware of the supported and unsupported features for cache volumes in ANF.
+* You should be aware of the supported and unsupported features for cache volumes in Azure NetApp Files.
     * Unsupported features:
         * NFSv4.2
         * Ransomware protection
         * FlexCache DR
         * S3 Buckets
-        * ANF Backup
+        * Azure NetApp Files Backup
         * CRR/CZR/CZRR
         * Snapshot Policies
         * Basic networking features
         * Application Volume Groups (AVGs)
-        * Any other ANF feature not included as supported
+        * Any other Azure NetApp Files feature not included as supported
     * Supported in private preview:
         * NFS and SMB
         * Availability zone volume placement
@@ -63,51 +54,52 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * It is recommended to enable encryption on the origin volume.
 * You can only modify specific fields of a cache volume such as ‘is-cifs-change-notify-enabled’, ‘is-writeback-enabled’, and ‘is-global-file-locking-enabled'.
 * Cache volumes are supported in the regions listed:
-    * AUSTRALIA CENTRAL
-    * AUSTRALIA CENTRAL 2
-    * AUSTRALIA EAST
-    * AUSTRALIA SOUTHEAST
-    * BRAZIL SOUTH
-    * BRAZIL SOUTHEAST
-    * CANADA CENTRAL
-    * CANADA EAST
-    * CENTRAL INDIA
-    * CENTRAL US
-    * EAST ASIA
-    * EAST US
-    * EAST US 2
-    * FRANCE CENTRAL
-    * GERMANY WEST CENTRAL
-    * ISRAEL CENTRAL
-    * ITALY NORTH
-    * JAPAN EAST
-    * JAPAN WEST
-    * KOREA CENTRAL
-    * KOREA SOUTH
-    * MALAYSIA WEST
-    * NEW ZEALAND NORTH
-    * NORTH CENTRAL US
-    * NORTH EUROPE
-    * NORWAY EAST
-    * QATAR CENTRAL
-    * SOUTH AFRICA NORTH
-    * SOUTH CENTRAL US
-    * SOUTHEAST ASIA
-    * SPAIN CENTRAL
-    * SWEDEN CENTRAL
-    * SWITZERLAND NORTH
-    * SWITZERLAND WEST
-    * TAIWAN NORTH
-    * UAE NORTH
-    * UK SOUTH
-    * UK WEST
-    * USGOV ARIZONA
-    * USGOV TEXAS
-    * USGOV VIRGINIA
-    * WEST EUROPE
-    * WEST US
-    * WEST US 2
-    * WEST US 3
+    * Australia Central
+    * Australia Central 2
+    * Australia East
+    * Australia Southeast
+    * Brazil South
+    * Brazil Southeast
+    * Canada Central
+    * Canada East
+    * Central India
+    * Central US
+    * East Asia
+    * East US
+    * East US 2
+    * France Central
+    * Germany West Central
+    * Israel Central
+    * Italy North
+    * Japan East
+    * Japan West
+    * Korea Central
+    * Korea South
+    * Malaysia West
+    * New Zealand North
+    * North Central US
+    * North Europe
+    * Norway East
+    * Qatar Central
+    * South Africa North
+    * South Central US
+    * Southeast Asia
+    * Spain Central
+    * Sweden Central
+    * Switzerland North
+    * Switzerland West
+    * Taiwan North
+    * UAE North
+    * UK South
+    * UK West
+    * US Gov Arizona
+    * US Gov Texas
+    * US Gov Virginia
+    * West Europe
+    * West US
+    * West US 2
+    * West US 3
+
 * The Azure Monitor portal supports the following new metrics for cache volumes:
 
     * **Cache miss blocks**      
@@ -146,6 +138,15 @@ You need to register the feature before using it for the first time. After regis
     ```
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
+
+## Before you begin
+
+You must create Express Route or VPN resources to ensure network connectivity from the external NetApp ONTAP cluster to the target Azure NetApp Files cluster. This can be accomplished in many ways with the goal being that the source cluster has connectivity to the Azure NetApp Files delegated subnet. Connectivity includes this set of firewall rules (bidirectional for all):
+    * ICMP
+    * TCP 11104 
+    * TCP 11105 
+    * HTTPS
+The network connectivity must be in place for all ‘intercluster’ (IC) LIFs on the source cluster to all IC LIFs on the Azure NetApp Files endpoint.
 
 ## Create a cache volume
 
