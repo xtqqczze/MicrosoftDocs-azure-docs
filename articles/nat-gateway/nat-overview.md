@@ -3,41 +3,66 @@
 title: What is Azure NAT Gateway?
 titlesuffix: Azure NAT Gateway
 description: Overview of Azure NAT Gateway features, resources, architecture, and implementation. Learn about what NAT Gateway is and how to use it.
-author: asudbring
+author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: overview
-ms.date: 08/12/2024
-ms.author: allensu
+ms.date: 09/05/2025
+ms.author: alittleton
+ms.customs: references_regions
 #Customer intent: I want to understand what Azure NAT Gateway is and how to use it.
 # Customer intent: As a cloud architect, I want to implement Azure NAT Gateway for outbound connectivity, so that I can ensure secure and scalable internet access for private resources without exposing them to unsolicited inbound connections.
 ---
 
 # What is Azure NAT Gateway?
 
-Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service. You can use Azure NAT Gateway to let all instances in a private subnet connect outbound to the internet while remaining fully private. Unsolicited inbound connections from the internet aren't permitted through a NAT Gateway. Only packets arriving as response packets to an outbound connection can pass through a NAT Gateway.
+Azure NAT Gateway is a fully managed and highly available Network Address Translation (NAT) service. Azure NAT Gateway allows all resources in a private subnet to connect outbound to the internet while remaining fully private. Unsolicited inbound connections from the internet aren't allowed through a NAT Gateway. Only response packets to an outbound connection are allowed.
 
-NAT Gateway provides dynamic SNAT port functionality to automatically scale outbound connectivity and reduce the risk of SNAT port exhaustion. 
+NAT Gateway dynamically allocates SNAT ports to automatically scale outbound connectivity and minimize the risk of SNAT port exhaustion. 
 
 :::image type="content" source="./media/nat-overview/flow-map.png" alt-text="Figure shows a NAT receiving traffic from internal subnets and directing it to a public IP address." lightbox="./media/nat-overview/flow-map.png":::
 
 *Figure: Azure NAT Gateway*
 
-Azure NAT Gateway provides outbound connectivity for many Azure resources, including: 
+Azure NAT Gateway is available in two SKUs:
+* **Standard** SKU NAT Gateway is zonal (deployed to a single availability zone) and provides scalable outbound connectivity for subnets in a single virtual network.
+* **StandardV2** SKU NAT Gateway is **zone-redundant** with higher throughput than the Standard SKU and virtual network as well as subnet level association.
 
-* Azure virtual machines or virtual machine scale sets in a private subnet.
+For additional information, see [NAT Gateway SKUs](./nat-sku.md).
 
-* [Azure Kubernetes Services (AKS) clusters](/azure/aks/nat-gateway).
+## StandardV2 NAT Gateway
 
-* [Azure Container group](/azure/container-instances/container-instances-nat-gateway).
+StandardV2 NAT Gateway provides all the same functionality of the Standard SKU NAT Gateway, such as dynamic SNAT port allocation and secure outbound connectivity for subnets within a virtual network. Additionally, StandardV2 NAT Gateway is zone-redundant, meaning that it provides outbound connectivity from all zones in a region instead of a single zone like Standard NAT Gateway.   
 
-* [Azure Function Apps](/azure/azure-functions/functions-how-to-use-nat-gateway).
+### Key capabilities of StandardV2 NAT Gateway
 
-* [Azure Firewall subnet](/azure/firewall/integrate-with-nat-gateway).
+* **Zone-redundant** - operates across all availability zones in a region to maintain connectivity during a single zone failure.
+* **Higher throughput** - each StandardV2 NAT Gateway can provide up to 100 Gbps of data throughput, compared to 50 Gbps for Standard NAT Gateway.
+* **Virtual network level association** - can be associated to an entire virtual network through the source virtual network property. When associated to a virtual network, all subnets within the virtual network use the NAT Gateway for outbound connectivity.
 
-* [Azure App Services instances](/azure/app-service/networking/nat-gateway-integration) (web applications, REST APIs, and mobile backends) through [virtual network integration](/azure/app-service/overview-vnet-integration).
+>[!NOTE]
+> StandardV2 NAT Gateway now supports IPv6 public IP addresses and prefixes in **Public Preview**. You can associate up to 16 IPv6 public IP addresses in order to provide outbound connectivity for IPv6 traffic.
 
-* [Azure Databricks](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-default-managed-vnet) or with [virtual network injection](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-vnet-injection).
-* [Azure HDInsight](/azure/hdinsight/load-balancer-migration-guidelines#new-cluster-creation).
+To learn more on how to deploy StandardV2 NAT Gateway, see [Create a StandardV2 NAT Gateway](./quickstart-create-nat-gateway-v2.md).
+
+### Key limitations of StandardV2 NAT Gateway
+* Requires StandardV2 SKU public IP addresses or prefixes. Standard SKU public IPs aren't supported with StandardV2 NAT Gateway.
+* Standard SKU NAT Gateway can't be upgraded to StandardV2 NAT Gateway. You must first create StandardV2 SKU NAT Gateway and replace Standard SKU NAT Gateway on your subnet. For guidance on how to migrate to StandardV2 NAT Gateway, see [StandardV2 NAT Gateway migration guidance](./nat-gateway-v2-migrate.md).
+* The following regions don't support StandardV2 NAT Gateway:
+    * Canada East
+    * Central India
+    * Chile Central
+    * Indonesia Central
+    * Israel Northwest
+    * Jio India West
+    * Malaysia West
+    * Qatar Central
+    * Sweden South
+    * UAE Central
+    * West India
+
+## Standard NAT Gateway
+
+Standard NAT Gateway provides outbound connectivity to the internet and can be associated with subnets within the same virtual network. Standard NAT Gateway operates out of a single availability zone. 
 
 ## Azure NAT Gateway benefits
 
@@ -47,11 +72,9 @@ Deployments are intentionally made simple with NAT Gateway. Attach NAT Gateway t
 
 The following steps are an example of how to set up a NAT Gateway:
 
-* Create a non-zonal or zonal NAT Gateway.
-
+* Create a NAT gateway.
 * Assign a public IP address or public IP prefix.
-
-* Configure a virtual network subnet to use a NAT Gateway.
+* Configure a virtual network subnet to use a NAT gateway.
 
 If necessary, modify Transmission Control Protocol (TCP) idle timeout (optional). Review [timers](/azure/nat-gateway/nat-gateway-resource#idle-timeout-timers) before you change the default. 
 
@@ -63,74 +86,87 @@ NAT Gateway is built on the Zero Trust network security model and is secure by d
 
 Azure NAT Gateway is a fully managed and distributed service. It doesn't depend on individual compute instances such as virtual machines or a single physical gateway device. A NAT Gateway always has multiple fault domains and can sustain multiple failures without service outage. Software-defined networking makes a NAT Gateway highly resilient. 
 
+Additionally, StandardV2 NAT Gateway provides **zonal resiliency** by operating out of multiple availability zones in a region. When a zone goes down, all new connections flow out of the remaining healthy zones in a region. 
+
 ### Scalability
 
 NAT Gateway is scaled out from creation. There isn't a ramp-up or scale-out operation required. Azure manages the operation of NAT Gateway for you. 
 
-Attach NAT Gateway to a subnet to provide outbound connectivity for all private resources in that subnet. All subnets in a virtual network can use the same NAT Gateway resource. Outbound connectivity can be scaled out by assigning up to 16 public IP addresses or a /28 size public IP prefix to NAT Gateway. When a NAT Gateway is associated to a public IP prefix, it automatically scales to the number of IP addresses needed for outbound.
+Attach NAT Gateway to a subnet to provide outbound connectivity for all private resources in that subnet. All subnets in a virtual network can use the same NAT Gateway resource. Outbound connectivity can be scaled out by adding public IP addresses or a larger public IP prefix size to NAT Gateway. When a NAT Gateway is associated to a public IP prefix, it automatically scales to the number of IP addresses needed for outbound.
 
 ### Performance
 
-Azure NAT Gateway is a software-defined networking service. Each NAT Gateway can process up to 50 Gbps of data for both outbound and return traffic. 
+Azure NAT Gateway is a software-defined networking service. Each Standard NAT Gateway can process up to 50 Gbps of data for both outbound and return traffic. StandardV2 NAT Gateway can process up to 100 Gbps of data.
 
 A NAT Gateway doesn't affect the network bandwidth of your compute resources. Learn more about [NAT Gateway's performance](nat-gateway-resource.md#performance).
 
 ## Azure NAT Gateway basics
 
+Azure NAT Gateway provides secure, scalable outbound connectivity for resources in a virtual network. It’s the recommended method for outbound access to the internet. 
+
 ### Outbound connectivity
 
-* NAT Gateway is the recommended method for outbound connectivity.
+* **Default outbound path for a subnet** - NAT Gateway replaces the default internet destination of a subnet to provide outbound connectivity.
 
-   * To migrate outbound access to a NAT Gateway from default outbound access or Load Balancer outbound rules, see [Migrate outbound access to Azure NAT Gateway](./tutorial-migrate-outbound-nat.md).
+* **Protocol support** - NAT Gateway supports TCP and User Datagram Protocol (UDP) protocols only. Internet Control Message Protocol (ICMP) isn't supported.
 
->[!NOTE]
->On September 30, 2025, new virtual networks will default to using private subnets, meaning that [default outbound access](/azure/virtual-network/ip-services/default-outbound-access#when-is-default-outbound-access-provided) will no longer be provided by default, and that explicit outbound method must be enabled in order to reach public endpoints on the Internet and within Microsoft. It's recommended to use an explicit form of outbound connectivity instead, like NAT Gateway. 
+* **Minimizes risk of SNAT port exhaustion** - NAT Gateway dynamically allocates SNAT ports to minimize the risk of SNAT port exhaustion. To learn more, see [SNAT port allocation](/azure/nat-gateway/nat-gateway-snat#nat-gateway-dynamically-allocates-snat-ports).
 
-* NAT Gateway provides outbound connectivity at a subnet level. NAT Gateway replaces the default Internet destination of a subnet to provide outbound connectivity.
+* **Service compatibility** - NAT Gateway provides outbound connectivity for multiple Azure services, including: 
 
-* NAT Gateway doesn't require any routing configurations on a subnet route table. After NAT Gateway is attached to a subnet, it provides outbound connectivity right away.
+    * Azure virtual machines or virtual machine scale sets in a private subnet.
 
-* NAT Gateway allows flows to be created from the virtual network to the services outside your virtual network. Return traffic from the internet is only allowed in response to an active flow. Services outside your virtual network can’t initiate an inbound connection through NAT Gateway.
+    * [Azure Kubernetes Services (AKS) clusters](/azure/aks/nat-gateway).
 
-* NAT Gateway takes precedence over other outbound connectivity methods, including a Load Balancer, instance-level public IP addresses, and Azure Firewall.
+    * [Azure Container group](/azure/container-instances/container-instances-nat-gateway).
 
-* NAT Gateway takes priority over other explicit outbound methods configured in a virtual network for all new connections. There are no drops in traffic flow for existing connections using other explicit methods of outbound connectivity. 
-  
-* NAT Gateway doesn't have the same limitations of SNAT port exhaustion as does [default outbound access](../virtual-network/ip-services/default-outbound-access.md) and [outbound rules of a Load Balancer](../load-balancer/outbound-rules.md).
+    * [Azure Function Apps](/azure/azure-functions/functions-how-to-use-nat-gateway).
 
-* NAT Gateway supports TCP and User Datagram Protocol (UDP) protocols only. Internet Control Message Protocol (ICMP) isn't supported.
+    * [Azure Firewall subnet](/azure/firewall/integrate-with-nat-gateway).
+
+    * [Azure App Services instances](/azure/app-service/networking/nat-gateway-integration) (web applications, REST APIs, and mobile backends) through [virtual network integration](/azure/app-service/overview-vnet-integration).
+
+    * [Azure Databricks](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-default-managed-vnet) or with [virtual network injection](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-vnet-injection).
+
+    * [Azure HDInsight](/azure/hdinsight/load-balancer-migration-guidelines#new-cluster-creation).
+
+### How NAT gateway works
+ * **No route table configuration** - NAT gateway operates at a subnet level. After attached, NAT gateway provides outbound connectivity without requiring routing configurations on the subnet route table. 
+
+* **No inbound traffic** - NAT gateway only allows return traffic in response to an active outbound flow – no inbound traffic from external services is allowed. 
+
+* **NAT gateway takes precedence** over other outbound connectivity methods. Once configured all new connections use NAT gateway.  
 
 ### Traffic routes
 
-* The subnet has a [system default route](/azure/virtual-network/virtual-networks-udr-overview#default) that routes traffic with destination 0.0.0.0/0 to the internet automatically. After NAT Gateway is configured to the subnet, virtual machines in the subnet communicate to the internet using the public IP of the NAT Gateway.
+* NAT Gateway uses the subnet's [system default route](/azure/virtual-network/virtual-networks-udr-overview#default) for 0.0.0.0/0 to the internet automatically. After NAT Gateway is configured to the subnet, virtual machines in the subnet communicate to the internet using the public IP of the NAT Gateway.
 
-* When you create a user defined route (UDR) in your subnet route table for 0.0.0.0/0 traffic, the default internet path for this traffic is overridden. A UDR that sends 0.0.0.0/0 traffic to a virtual appliance or a virtual network gateway (VPN Gateway and ExpressRoute) as the next hop type instead overrides NAT Gateway connectivity to the internet.
+* Different outbound connectivity methods within Azure take [different levels of priority](/azure/virtual-network/ip-services/default-outbound-access#how-and-when-default-outbound-access-is-provided) for egress traffic. The order of priority is:
+  1. UDR with an NVA
+  2. NAT gateway associated to a subnet
+  3. NAT gateway associated to a virtual network (attached by the source virtual network property)
+  4. Instance-level public IPs
+  5. Load balancer with outbound rules
+  6. Load balancer with load balancing rule with DisableOutboundSnat = false
+  7. Default outbound access
 
-* Outbound connectivity follows this order of precedence among different routing and outbound connectivity methods:
-
-    * UDR to next hop Virtual appliance or virtual network gateway >> NAT Gateway >> Instance-level public IP address on a virtual machine >> Load Balancer outbound rules >> default system route to the internet.
+* A UDR that sends 0.0.0.0/0 traffic to a virtual appliance or a virtual network gateway (VPN Gateway and ExpressRoute) as the next hop type instead of the internet bypasses the use of NAT Gateway.
 
 ### NAT Gateway configurations
 
-* Multiple subnets within the same virtual network can either use different NAT Gateways or the same NAT Gateway.
+* Standard NAT Gateway can be configured to subnets 
+
+* StandardV2 NAT Gateway can be configured to subnets in the same virtual network or to a virtual network with the source virtual network property.  
 
 * Multiple NAT Gateways can’t be attached to a single subnet.
 
 * A NAT Gateway can’t span multiple virtual networks. However, NAT Gateway can be used to provide outbound connectivity in a hub and spoke model. For more information, see the [NAT Gateway hub and spoke tutorial](/azure/nat-gateway/tutorial-hub-spoke-route-nat).
 
-* A NAT Gateway can’t be deployed in a [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub).
+* A NAT Gateway can’t be deployed in a [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) or subnet containing [SQL Managed Instances](/azure/azure-sql/managed-instance/connectivity-architecture-overview#networking-constraints).
 
-* A NAT Gateway resource can use up to 16 IP addresses in any combination of the following types:
+* A Standard NAT Gateway resource can use up to 16 IPv4 IP addresses of either public IP addresses or public IP prefixes or custom IP prefixes (BYOIP). To learn more on custom IP prefixes, see [Custom IP address prefix (BYOIP)](../virtual-network/ip-services/custom-ip-address-prefix.md).
 
-  * Public IP addresses.
-
-  * Public IP prefixes.
-
-  * Public IP addresses and prefixes derived from custom IP prefixes (BYOIP), to learn more, see [Custom IP address prefix (BYOIP)](../virtual-network/ip-services/custom-ip-address-prefix.md).
-
-* NAT Gateway can’t be associated to an IPv6 public IP address or IPv6 public IP prefix.
-
-* NAT Gateway can be used with Load Balancer using outbound rules to provide dual-stack outbound connectivity. See [dual stack outbound connectivity with NAT Gateway and Load Balancer](/azure/virtual-network/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer?tabs=dual-stack-outbound-portal).
+* A StandardV2 NAT Gateway can use up to 16 IPv4 and up to 16 IPv6 IP addresses of either public IP addresses or public IP prefixes. Custom IP prefixes (BYOIP) aren't supported with StandardV2 NAT Gateway.
 
 * NAT Gateway works with any virtual machine network interface or IP configuration. NAT Gateway can SNAT multiple IP configurations on a network interface.
 
@@ -138,15 +174,26 @@ A NAT Gateway doesn't affect the network bandwidth of your compute resources. Le
 
 ### Availability zones
 
-* A NAT Gateway can be created in a specific availability zone or placed in **no zone**. 
+* Standard NAT Gateway can be created in a specific availability zone or placed in **no zone**. After NAT Gateway is deployed, the zone selection can't be changed.
 
-* NAT Gateway can be isolated in a specific zone when you create [zone isolation scenarios](./nat-availability-zones.md). After NAT Gateway is deployed, the zone selection can't be changed.
+* Standard NAT Gateway is placed in **no zone** by default. A [nonzonal NAT Gateway](./nat-availability-zones.md#nonzonal) is placed in a zone for you by Azure.
 
-* NAT Gateway is placed in **no zone** by default. A [nonzonal NAT Gateway](./nat-availability-zones.md#nonzonal) is placed in a zone for you by Azure.
+* StandardV2 NAT Gateway is a **zone-redundant** service and operates across all availability zones in a region.
+
+### Default outbound access
+
+* In order to provide secure outbound connectivity to the internet, it’s recommended to [enable private subnet](/azure/virtual-network/ip-services/default-outbound-access#how-can-i-transition-to-an-explicit-method-of-public-connectivity-and-disable-default-outbound-access) in order to prevent the creation of default outbound IPs and instead use an explicit method of outbound connectivity like NAT gateway. 
+
+* Certain services don’t function on a virtual machine in a private subnet without an explicit method of outbound connectivity, such as Windows Activation and Windows Updates. To activate or update virtual machine operating systems, such as Windows, an explicit method of outbound connectivity is required, like NAT gateway. 
+
+* To migrate outbound access to a NAT Gateway from default outbound access or Load Balancer outbound rules, see [Migrate outbound access to Azure NAT Gateway](./tutorial-migrate-outbound-nat.md).
+
+> [!NOTE]
+> On March 31, 2026, new virtual networks will default to using private subnets, meaning that [default outbound access](/azure/virtual-network/ip-services/default-outbound-access#when-is-default-outbound-access-provided) will no longer be provided by default, and that explicit outbound method must be enabled in order to reach public endpoints on the Internet and within Microsoft. It's recommended to use an explicit form of outbound connectivity instead, like NAT Gateway. 
 
 ### NAT Gateway and basic resources
 
-* NAT Gateway is compatible with standard public IP addresses or public IP prefixes or a combination of both.
+* Standard NAT Gateway is compatible with Standard public IP addresses or public IP prefixes. StandardV2 NAT Gateway is compatible with StandardV2 public IP addresses or public IP prefixes only.
 
 * NAT Gateway can't be used with subnets where basic resources exist. Basic SKU resources, such as basic Load Balancer or basic public IPs aren't compatible with NAT Gateway. Basic Load Balancer and basic public IP can be upgraded to standard to work with a NAT Gateway.
   
@@ -173,6 +220,8 @@ A NAT Gateway doesn't affect the network bandwidth of your compute resources. Le
 * UDP traffic has a port reuse timer of 65 seconds for which a port is in hold down before it's available for reuse to the same destination endpoint.
 
 ## Pricing and Service Level Agreement (SLA)
+
+Standard and StandardV2 NAT Gateway are matched in price and SLA.
 
 For Azure NAT Gateway pricing, see [NAT Gateway pricing](https://azure.microsoft.com/pricing/details/azure-nat-gateway/).
 
