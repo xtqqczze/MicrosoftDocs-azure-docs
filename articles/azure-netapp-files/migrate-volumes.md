@@ -67,7 +67,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 ## Migrate volumes
 
-# [Using REST API](#tab/restapi)
+# [REST API](#tab/restapi)
 
 1. [Authenticate with Azure Active Directory to retrieve an OAuth token](azure-netapp-files-develop-with-rest-api.md#access-the-azure-netapp-files-rest-api). This token is used for subsequent API calls.
 
@@ -237,124 +237,44 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
     Finalizing replication removes all the peering information on Azure NetApp Files. Manually confirm that all replication data is removed on the ONTAP cluster. If any peering information remains, run the `cluster peer delete` command. 
 
-# [Using Portal](#tab/portal)
+# [Azure Portal](#tab/portal)
 
-1.	From the NetApp Account view, click **Migration assistant**.
+The portal version of the migration assistant is currently in preview.
 
-    The Migration Assistant page appears with a list of current and ongoing migrations along with actions that the customer can take to create and manage migrations.
+1.	From the NetApp account view, select **Migration assistant**.
 
-2.  Select the volume and click Migrate to initiate the migration process 
-3.	Provide information for the following fields under the **Source** tab:
+    The migration assistant page appears with a list of current and ongoing migrations along with actions that you can take to create and manage migrations.
+
+2.  Select the volume and then **Migrate** to initiate the migration. 
+3.	In the **Source** tab, provide the following information:
 
     * **Cluster Name**
-    Specify the name for the cluster which has the volume that you are migrating.
+    Enter the name for the cluster that contains the volume you're migrating.
 
     * **SVM Name**
-    Specify the name of the SVM which has the volume that you are migrating. 
-
+    Enter the name for the SVM that contains the volume you're migrating.
+    
     * **Source volume name**
-    Specify the name for the volume that you are migrating. 
+    Enter the name for the volume that you are migrating. 
 
     * **Volume size**
-    Specify the size of the volume that you are migrating.
+    Enter the size of the volume that you are migrating.
 
-4.  Select **Destination** tab and provide information for the following fields:
-    * **Volume name**      
-        Specify the name for the volume that you are creating. 
+4.  Proceed to create the Azure NetApp Files volume. Follow the steps for your appropriate protocol. See [Create an NFS volume](azure-netapp-files-create-volumes.md), [Create an SMB volume](azure-netapp-files-create-volumes-smb.md), and [Create a dual-protocol volume](create-volumes-dual-protocol.md).
 
-        Refer to [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftnetapp) for naming conventions on volumes. Additionally, you cannot use `default` or `bin` as the volume name.
-
-    * **Capacity pool**  
-        Specify the capacity pool where you want the volume to be created.
-
-    * **Quota**  
-        Specify the amount of logical storage that is allocated to the volume.  
-
-        The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
-
-    * **Large Volume**
-
-        [!INCLUDE [Large volumes warning](includes/large-volumes-notice.md)]
-
-    * **Throughput (MiB/S)**   
-        If the volume is created in a manual QoS capacity pool, specify the throughput you want for the volume.   
-
-        If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).
-
-    * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
-        These fields configure [Azure NetApp Files storage with cool access](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md). 
-
-    * **Virtual network**  
-        Specify the Microsoft Azure Virtual Network from which you want to access the volume.  
-
-        The Virtual Network you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Virtual Network or from a virtual network that's in the same region as the volume through virtual network peering. You can also access the volume from your on-premises network through Express Route.   
-
-    * **Subnet**  
-        Specify the subnet that you want to use for the volume.  
-        The subnet you specify must be delegated to Azure NetApp Files. 
-        
-        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
- 
-        :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-volume.png" alt-text="Screenshot of create new volume interface." lightbox="../media/azure-netapp-files/azure-netapp-files-new-volume.png":::
-    
-        ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
-
-    * **Network features**  
-        In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
-
-    * **Encryption key source** 
-        You can select Microsoft Managed Key or Customer Managed Key. See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
-
-    * **Availability zone**   
-        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
-
-    * If you want to apply an existing snapshot policy to the volume, select **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
-
-        For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
-
-        ![Show advanced selection](./media/shared/volume-create-advanced-selection.png)
-
-        >[!NOTE]
-        >By default, the `.snapshot` directory path is hidden from NFSv4.1 clients. Enabling the **Hide snapshot path** option will hide the .snapshot directory from NFSv3 clients; the directory will still be accessible.
-
-5.  Select **Protocol** then complete the following actions:  
-    * Select **NFS** as the protocol type for the volume.   
-
-    * Specify a unique **file path** for the volume. This path is used when you create mount targets. The requirements for the path are as follows:   
-        - For volumes not in an availability zone or volumes in the same availability zone, it must be unique within each subnet in the region. 
-        - For volumes in availability zones, it must be unique within each availability zone. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness). 
-        - It must start with an alphabetical character.
-        - It can contain only letters, numbers, or dashes (`-`). 
-        - The length must not exceed 80 characters.
-
-    * Select the **Version** (**NFSv3** or **NFSv4.1**) for the volume.  
-
-    * If you are using NFSv4.1, indicate whether you want to enable **Kerberos** encryption for the volume.  
-
-        Additional configurations are required if you use Kerberos with NFSv4.1. Follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).
-
-    * If you want to enable Active Directory LDAP users and extended groups (up to 1024 groups) to access the volume, select the **LDAP** option. Follow instructions in [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) to complete the required configurations. 
- 
-    *  Customize **Unix Permissions** as needed to specify change permissions for the mount path. The setting does not apply to the files under the mount path. The default setting is `0770`. This default setting grants read, write, and execute permissions to the owner and the group, but no permissions are granted to other users.     
-        Registration requirement and considerations apply for setting **Unix Permissions**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).   
-
-    * Optionally, [configure export policy for the NFS volume](azure-netapp-files-configure-export-policy.md).
-
-    ![Specify NFS protocol](./media/azure-netapp-files-create-volumes/azure-netapp-files-protocol-nfs.png)
-
-6.  Select **Review + Create** to review the volume details. Select **Create** to create the volume.
+5.  Select **Review + Create** to review the volume details. Select **Create** to create the volume.
 
     The volume you created appears in the Volumes page. 
  
     A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
 
-7.	If the cluster are not peered, provide the intercluster (IC) LIF address for the cluster and click **Continue**.
-8.	If the SVMs are not peered, provide the intercluster (IC) LIF address for the SVM and click **Continue**.
-9.	Click **Check Peering Status** to confirm that the cluster and SVM are peered successfully.
+6.	If the cluster are not peered, provide the intercluster (IC) LIF address for the cluster and select **Continue**.
+7.	If the SVMs are not peered, provide the intercluster (IC) LIF address for the SVM and select **Continue**.
+8.	Select **Check Peering Status** to confirm that the cluster and SVM are peered successfully.
 
     After peering is completed, the migration transfer is initialized, and the baseline data is transferred from the source on-premises volume to the destination migration volume.
 
-10.	Once the migration is complete, you can finalize the migration which will delete the replication relationship and clean up infrastructure as appropriate.
+9.	Once the migration is complete, you can finalize the migration which will delete the replication relationship and clean up infrastructure as appropriate.
 
 ---
 
