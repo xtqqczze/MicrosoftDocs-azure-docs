@@ -583,7 +583,13 @@
   - name: Troubleshoot Azure VMs
     items:
     - name: Azure VM replication errors
-      href: azure-to-azure-troubleshoot-errors.md
+      items:
+      - name: Protection errors
+        href: azure-to-azure-protection-errors.md
+      - name: Virtual Machine errors
+        href: azure-to-azure-virtual-machine-errors.md
+      - name: Other errors
+        href: azure-to-azure-troubleshoot-errors.md
     - name: Azure VM connectivity issues
       href: azure-to-azure-troubleshoot-network-connectivity.md
     - name: Azure VM disaster recovery replication errors
