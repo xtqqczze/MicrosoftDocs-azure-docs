@@ -33,7 +33,7 @@ For additional information, see [NAT Gateway SKUs](./nat-sku.md).
 
 StandardV2 NAT Gateway provides all the same functionality of the Standard SKU NAT Gateway, such as dynamic SNAT port allocation and secure outbound connectivity for subnets within a virtual network. Additionally, StandardV2 NAT Gateway is zone-redundant, meaning that it provides outbound connectivity from all zones in a region instead of a single zone like Standard NAT Gateway.  
 
-:::image type="content" source="./media/nat-overview/zone-redundant-standard-2.png" alt-text="Figure shows a StandardV2 NAT Gateway spanning multiple availability zones in a region." lightbox="./media/nat-overview/zone-redundant-standard-2.png":::
+:::image type="content" source="./media/nat-overview/zone-redundant-standard-2.png" alt-text="Diagram shows a StandardV2 NAT Gateway spanning multiple availability zones in a region." lightbox="./media/nat-overview/zone-redundant-standard-2.png":::
 
 *Figure: StandardV2 NAT Gateway spans across multiple availability zones in a region.* 
 
@@ -68,7 +68,7 @@ To learn more on how to deploy StandardV2 NAT Gateway, see [Create a StandardV2 
 
 Standard NAT Gateway provides outbound connectivity to the internet and can be associated with subnets within the same virtual network. Standard NAT Gateway operates out of a single availability zone. 
 
-:::image type="content" source="./media/nat-overview/zonal-standard-1.png" alt-text="Figure shows a Standard NAT Gateway in a single availability zone." lightbox="./media/nat-overview/zonal-standard-1.png":::
+:::image type="content" source="./media/nat-overview/zonal-standard-1.png" alt-text="Diagram shows a Standard NAT Gateway in a single availability zone." lightbox="./media/nat-overview/zonal-standard-1.png":::
 
 *Figure: Standard NAT Gateway in a single availability zone.
 
