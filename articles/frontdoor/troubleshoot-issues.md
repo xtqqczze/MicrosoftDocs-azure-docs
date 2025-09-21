@@ -7,6 +7,7 @@ ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 08/12/2024
 ms.custom: sfi-image-nochange
+#customer intent: As an Azure Front Door operator, I want to quickly diagnose and resolve common routing and timeout issues so that my applications remain available.
 ---
 
 # Troubleshoot Azure Front Door common issues
