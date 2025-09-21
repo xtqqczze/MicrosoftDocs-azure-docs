@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/10/2025
 ms.author: rolyon
 ms.custom: devx-track-azurecli
+#customer intent: As a Global Administrator, I want to temporarily elevate my access to manage all subscriptions and management groups so that I can regain access and configure resources across the tenant.
 ---
 # Elevate access to manage all Azure subscriptions and management groups
 
