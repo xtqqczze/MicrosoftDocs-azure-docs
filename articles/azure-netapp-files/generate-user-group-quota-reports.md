@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 09/16/2025
 # Customer intent: As a cloud storage administrator, I want to generate  user and group quota reports for Azure NetApp Files volumes.
 ---
-# Generate user and group quota reports for a volume 
+# Generate user and group quota reports for a volume (Preview)
 
 This article explains the considerations and steps for generating user and group quota reports on Azure NetApp Files volumes. To help with capacity management on volumes shared among multiple users, individual user and group quotas in Azure NetApp Files provide a way to restrict capacity usage on NFS, SMB, and dual-protocol volumes. Checking actual usage against the defined user and group quotas on a given volume has previously required using host-based methods. The addition of quota reporting in Azure NetApp Files allows administrators to generate usage reports for an existing volume with quota rules independent of host-based tooling, without having to mount the volume.
 
@@ -25,8 +25,8 @@ For more information and considerations related to capacity management, see [Und
 * The number of entries in the quota report are capped at 1,000 entries in this private preview.
 * The number of entries in the quota report can be larger than the number of quota rules on the volume. Users that are subjected to default quota are reported as individual quota report entries.
 * When using quota reporting on data protection volumes:
-** Quota report is unavailable for data protection volumes when the mirror state of the replication is in mirrored state. Use the quota report on the source volume instead.
-** Quota reports become available when the replication relation is broken.
+    * Quota report is unavailable for data protection volumes when the mirror state of the replication is in mirrored state. Use the quota report on the source volume instead.
+    * Quota reports become available when the replication relation is broken.
 * On volumes without a default user/group quota, users that aren't mapped to any rules and are accessing the volume will show 0 for total disk limit and percentage used in the quota report. In this instance, consider creating a default user/group quota rule.
 * When requesting quota reports for multiple volumes in the same subscription, these quota report requests are processed sequentially. When using the API, check responses (specifically percentComplete) for status. The quota report slide out in the Azure portal automatically retrieves the quota report in the background. Stay on the page until the quota report is successfully retrieved.
 * Quota reports take 5 seconds on average to generate.
@@ -54,8 +54,10 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Generate a quota report for a volume
 
-1. From the Azure portal, navigate to **User and group quotas** and select the volume for which you want to generate a quota report.
-2. Select **Quota Report** tab from the actions to generate the report. 
+1. From the Azure portal, select the volume for which you want to generate a quota report.
+2. Navigate to **User and group quotas** and select **Quota Report and Management** tab from the actions to generate the report. 
+
+    ![Screenshot that shows the generate quota report and management option.](./media/manage-default-individual-user-group-quotas/generate-quota-reports.png) 
 
     The Quota Report slide out will automatically retrieve the quota report in the background, stay on the page until the quota report has been successfully retrieved. Retrieval takes on average 5 seconds, but can take longer. The quota report lists one entry per user.
 
@@ -76,6 +78,19 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     * **% Used**
         How much % of the total quota limit has been used by user/group
+
+3. You can apply filter to view the specific quota reports.
+
+> [!NOTE]
+> You can add a new quota only for derived quotas and edit only non-derived quotas.
+
+4. To edit a quota, select `…` at the end of the quota rule row, then select **Edit**.
+
+![Screenshot that shows the edit option for non-derived quotas.](./media/manage-default-individual-user-group-quotas/edit-nonderived-quota.png) 
+
+5. To add a new quota for the default user and group quota, select `…` at the end of the quota rule row, then select **Add**.
+
+![Screenshot that shows the add option for derived quotas.](./media/manage-default-individual-user-group-quotas/add-derived-quota.png) 
 
 ## Next steps
 
