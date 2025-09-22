@@ -10,7 +10,7 @@ ms.author: anfdocs
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to create a cache volume in Azure NetApp Files, so that I can leverage scalable storage solutions and reduce cost.
 ---
-# Configure a cache volume for Azure NetApp Files
+# Configure a cache volume for Azure NetApp Files (Preview)
 
 The purpose of this article is to provide users of Azure NetApp Files with cache volumes that simplify file distribution, reduce WAN latency, and lower WAN/ExpressRoute bandwidth costs. Azure NetApp Files cache volumes are currently designed to be peered with external sources (aka origin volumes in on-prem ONTAP, Cloud Volumes ONTAP, or Amazon FSx for NetApp.
 
@@ -20,7 +20,8 @@ Write-back allows the write to be committed to stable storage at the cache and a
 
 ## Considerations
 
-* The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: 6 for cluster peering and 1 for data access to one or more cache volumes. Ensure that the delegated subnet address space is sized appropriately to accommodate another Azure NetApp Files network interfaces. Review the guidelines for Azure NetApp Files network planning to ensure you meet the requirements for delegated subnet sizing.
+* Cache volumes are currently only supported with the REST API. 
+The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: 6 for cluster peering and 1 for data access to one or more cache volumes. Ensure that the delegated subnet address space is sized appropriately to accommodate another Azure NetApp Files network interfaces. Review the guidelines for Azure NetApp Files network planning to ensure you meet the requirements for delegated subnet sizing.
 * When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created volumes in the subscription. This is done to try to reduce the number of NICs/IPs consumed in the delegated subnet. If this isn't possible, another 6+1 NICs are consumed.
 * If enabling write-back on the external origin volume, consider these key points
     * You must be running ONTAP 9.15.1P5 or later on the system hosting the external origin volume. 
@@ -35,12 +36,12 @@ Write-back allows the write to be committed to stable storage at the cache and a
         * FlexCache Disaster Recovery
         * S3 Buckets
         * Azure NetApp Files Backup
-        * CRR/CZR/CZRR
+        * cross-region replication/cross-zone replication/cross-zone region replication
         * Snapshot Policies
         * Basic networking features
         * Application Volume Groups (AVGs)
         * Any other Azure NetApp Files feature not included as supported
-    * Supported in private preview:
+    * Supported features:
         * NFS and SMB
         * Availability zone volume placement
         * Customer-managed keys
@@ -53,74 +54,59 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * You should ensure that the protocol type is the same for the cache volume and origin volume as the security style and the Unix permissions are inherited from the origin volume. Example: create a cache volume with protocol NFSv3 or NFSv4 when origin is UNIX, and SMB when the origin is NTFS.
 * It's recommended to enable encryption on the origin volume.
 * You can only modify specific fields of a cache volume such as ‘is-cifs-change-notify-enabled’, ‘is-writeback-enabled’, and ‘is-global-file-locking-enabled'.
-* Cache volumes are supported in the regions listed:
-    * Australia Central
-    * Australia Central 2
-    * Australia East
-    * Australia Southeast
-    * Brazil South
-    * Brazil Southeast
-    * Canada Central
-    * Canada East
-    * Central India
-    * Central US
-    * East Asia
-    * East US
-    * East US 2
-    * France Central
-    * Germany West Central
-    * Israel Central
-    * Italy North
-    * Japan East
-    * Japan West
-    * Korea Central
-    * Korea South
-    * Malaysia West
-    * New Zealand North
-    * North Central US
-    * North Europe
-    * Norway East
-    * Qatar Central
-    * South Africa North
-    * South Central US
-    * Southeast Asia
-    * Spain Central
-    * Sweden Central
-    * Switzerland North
-    * Switzerland West
-    * Taiwan North
-    * UAE North
-    * UK South
-    * UK West
-    * US Gov Arizona
-    * US Gov Texas
-    * US Gov Virginia
-    * West Europe
-    * West US
-    * West US 2
-    * West US 3
 
-* The Azure Monitor portal supports the following new metrics for cache volumes:
+## Supported regions
 
-    * **Cache miss blocks**      
-        This metric counts missed blocks in the caching process. If this value exceeds client requested blocks, you may need to adjust throughput
-
-    * **Client requested blocks**  
-        A data movement over time count to provide insights into latency 
-
-    * **Constituents at capacity count**      
-        A count of the constituents that are at least 90% full
-
-    * **Flex Cache connection status**      
-        The metric displays 1 if all the cache volumes can connect to the origin volume. A value of 0 means the connection isn't working. 
-
-    * **Maximum file size**      
-        The maximum file size in bytes
+* Australia Central
+* Australia Central 2
+* Australia East
+* Australia Southeast
+* Brazil South
+* Brazil Southeast
+* Canada Central
+* Canada East
+* Central India
+* Central US
+* East Asia
+* East US
+* East US 2
+* France Central
+* Germany West Central
+* Israel Central
+* Italy North
+* Japan East
+* Japan West
+* Korea Central
+* Korea South
+* Malaysia West
+* New Zealand North
+* North Central US
+* North Europe
+* Norway East
+* Qatar Central
+* South Africa North
+* South Central US
+* Southeast Asia
+* Spain Central
+* Sweden Central
+* Switzerland North
+* Switzerland West
+* Taiwan North
+* UAE North
+* UK South
+* UK West
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia
+* West Europe
+* West US
+* West US 2
+* West US 3
 
 
 ## Register the feature
 
-You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. 
+Cache volumes for Azure NetApp Files are currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. 
 
 1. Register the feature: 
 
