@@ -38,12 +38,6 @@ In this quickstart, learn how to create a Standard V2 Azure NAT Gateway by using
 
 ---
 
-### [ARM](#tab/arm/templates)
-
-### [Bicep](#tab/bicep/templates)
-
----
-
 ## Create a resource group
 
 Create a resource group to contain all resources for this quickstart.
@@ -181,6 +175,10 @@ $nat = @{
 }
 $natGateway = New-AzNatGateway @nat
 ```
+
+### [ARM](#tab/arm/templates)
+
+### [Bicep](#tab/bicep/templates)
 
 ---
 
