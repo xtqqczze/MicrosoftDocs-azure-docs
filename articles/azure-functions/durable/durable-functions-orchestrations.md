@@ -122,9 +122,9 @@ df.app.orchestration("helloSequence", function* (context) {
     const output = [];
     output.push(yield context.df.callActivity(helloActivityName, "Tokyo"));
     output.push(yield context.df.callActivity(helloActivityName, "Seattle"));
-    output.push(yield context.df.callActivity(helloActivityName, "London"));
+    output.push(yield context.df.callActivity(helloActivityName, "Cairo"));
 
-    // Return ["Hello Tokyo!", "Hello Seattle!", "Hello London!"].
+    // Return ["Hello Tokyo!", "Hello Seattle!", "Hello Cairo!"].
     return output;
 });
 ```
@@ -135,21 +135,13 @@ df.app.orchestration("helloSequence", function* (context) {
 import azure.functions as func
 import azure.durable_functions as df
 
-# Create a FunctionApp instance.
-app = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
-
-# Orchestrator
-@app.orchestration_trigger(context_name="context")
 def orchestrator_function(context: df.DurableOrchestrationContext):
     result1 = yield context.call_activity('SayHello', "Tokyo")
     result2 = yield context.call_activity('SayHello', "Seattle")
     result3 = yield context.call_activity('SayHello', "London")
     return [result1, result2, result3]
 
-# Activity
-@app.activity_trigger(input_name="city")
-def SayHello(city: str):
-    return f"Hello {city}"
+main = df.Orchestrator.create(orchestrator_function)
 ```
 
 # [PowerShell](#tab/powershell)
@@ -328,11 +320,8 @@ public static async Task CheckSiteAvailable(
     Uri url = context.GetInput<Uri>();
 
     // Make an HTTP GET request to the specified endpoint.
-    DurableHttpResponse response = await context.CallHttpAsync(
-        method: HttpMethod.Get,
-        uri: url,
-        content: null,
-        retryOptions: null);
+    DurableHttpResponse response =
+        await context.CallHttpAsync(HttpMethod.Get, url);
 
     if ((int)response.StatusCode == 400)
     {
@@ -381,7 +370,7 @@ app = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 def orchestrator_function(context: df.DurableOrchestrationContext):
     url = context.get_input()
     res = yield context.call_http('GET', url)
-    if res['statusCode'] >= 400:
+    if res.status_code >= 400:
         # Handle error codes.
 ```
 
@@ -449,28 +438,28 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
 
 ```csharp
 
-public record CourseInfo(string Major, int UniversityYear);
-
 [Function("GetCourseRecommendations")]
 public static async Task<object> RunOrchestrator(
     [OrchestrationTrigger] TaskOrchestrationContext context, int universityYear)
 {
-    CourseInfo courseInfo = new("ComputerScience", universityYear);
+    string major = "ComputerScience";
+
     object courseRecommendations = await context.CallActivityAsync<object>(
-        "CourseRecommendations", courseInfo);
+        "CourseRecommendations",
+        (major, universityYear));
     return courseRecommendations;
 }
 
-[Function("CourseRecommendations")]
-public static async Task<CourseInfo> Mapper(
-    [ActivityTrigger] CourseInfo studentInfo, FunctionContext executionContext)
+[FunctionName("CourseRecommendations")]
+public static async Task<object> Mapper(
+    [ActivityTrigger] (string Major, int UniversityYear) studentInfo, FunctionContext executionContext)
 {
     // Retrieve and return course recommendations by major and university year.
     return new
     {
         major = studentInfo.Major,
         universityYear = studentInfo.UniversityYear,
-        recommendedCourses = new[]
+        recommendedCourses = new []
         {
             "Introduction to .NET Programming",
             "Introduction to Linux",
@@ -524,9 +513,8 @@ df.app.orchestration("getWeatherOrchestrator", function* (context) {
     // ...
 });
 
-df.app.activity(getWeatherActivityName, {
-    handler: async (input) => {
-        const { city, state } = input; // Destructure properties into variables.
+df.app.activity(getWeatherActivityName, async function (location) {
+    const { city, state } = location; // Destructure properties into variables.
 
         // ...
     }
@@ -535,26 +523,29 @@ df.app.activity(getWeatherActivityName, {
 
 # [Python](#tab/python)
 
+#### Orchestrator
+
 ```python
 from collections import namedtuple
 import azure.functions as func
 import azure.durable_functions as df
 
-# Create a FunctionApp instance.
-app = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
-
-# Orchestrator
-@app.orchestration_trigger(context_name="context")
 def orchestrator_function(context: df.DurableOrchestrationContext):
     Location = namedtuple('Location', ['city', 'state'])
     location = Location(city='Seattle', state= 'WA')
 
     weather = yield context.call_activity("GetWeather", location)
     # ...
+```
 
-# Activity
-@app.activity_trigger(input_name="location")
-def GetWeather(location):
+#### GetWeather activity
+
+```python
+from collections import namedtuple
+
+Location = namedtuple('Location', ['city', 'state'])
+
+def main(location: Location) -> str:
     city, state = location
     return f"Hello {city}, {state}!"
 ```
