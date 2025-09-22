@@ -373,19 +373,25 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 ## Cache volume metrics
 
 * *Cache miss blocks*      
+
     This metric counts missed blocks in the caching process. If this value exceeds client requested blocks, you may need to adjust throughput.
 
 * *Client requested blocks*
+
     A data movement over time count to provide insights into latency. 
 
 * *Constituents at capacity count*    
+
     A count of the constituents that are at least 90% full.
 
-* *Flex Cache connection status*      
+* *Flex Cache connection status*  
+
     The metric displays 1 if all the cache volumes can connect to the origin volume. A value of 0 means the connection isn't working. 
 
-* *Maximum file size*     
+* *Maximum file size*  
+   
     The maximum file size in bytes.
+
  
 ## Next steps
 
