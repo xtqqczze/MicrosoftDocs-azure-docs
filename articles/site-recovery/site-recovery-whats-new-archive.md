@@ -5,7 +5,7 @@ ms.topic: overview
 ms.author: jsuri
 ms.service: azure-site-recovery
 author: jyothisuri
-ms.date: 08/19/2025
+ms.date: 09/22/2025
 # Customer intent: "As a system administrator, I want to review the latest updates and feature enhancements for the disaster recovery service, so that I can optimize our organization's backup strategy and ensure compatibility with our systems."
 ---
 
@@ -271,7 +271,7 @@ This public preview covers a complete overhaul of the current architecture for p
 **Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup.
 
 > [!NOTE]
-> Update rollup 48 has a known issue with enabling replication for Linux machines encrypted using ADE. [Learn more](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
+> Update rollup 48 has a known issue with enabling replication for Linux machines encrypted using ADE. [Learn more](./azure-to-azure-protection-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
 
 ### Update rollup 47
 

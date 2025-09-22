@@ -4,7 +4,7 @@ description: Troubleshoot protection errors when replicating Azure virtual machi
 author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 09/19/2025
+ms.date: 09/22/2025
 ms.author: jsuri
 ms.custom:
   - engagement-fy23
