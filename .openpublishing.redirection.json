@@ -7245,20 +7245,14 @@
       "redirect_document_id": false
     },
     {
-<<<<<<< HEAD
-      "source_path": "articles/reliability/migrate-load-balancer.md",
-      "redirect_url": "/azure/reliability/reliability-load-balancer",
-=======
       "source_path": "articles/reliability/reliability-event-hubs.md",
       "redirect_url": "/azure/event-hubs/event-hubs-business-continuity-outages-disasters",
->>>>>>> fee1d8a4dea6583714428af84c70bb33ae30987b
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-load-balancer.md",
+      "redirect_url": "/azure/reliability/reliability-load-balancer",
       "redirect_document_id": false
     }
-
-    
-
-
-
-    
   ]
 }
