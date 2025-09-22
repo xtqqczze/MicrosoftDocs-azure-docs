@@ -86,7 +86,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 4. To edit a quota, select `…` at the end of the quota rule row, then select **Edit**.
 
-![Screenshot that shows the edit option for non-derived quotas.](./media/manage-default-individual-user-group-quotas/edit-nonderived-quota.png) 
+![Screenshot that shows the edit option for non-derived quotas.](./media/manage-default-individual-user-group-quotas/edit-report-quota.png) 
 
 5. To add a new quota for the default user and group quota, select `…` at the end of the quota rule row, then select **Add**.
 
