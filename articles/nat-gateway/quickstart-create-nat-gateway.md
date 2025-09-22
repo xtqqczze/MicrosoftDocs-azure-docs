@@ -487,16 +487,6 @@ az group delete \
     --yes
 ```
 
-### [ARM](#tab/arm)
-
-When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group and all resources contained within.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroupNAT
-```
-
-### [Bicep](#tab/bicep)
-
 ### [Terraform](#tab/terraform)
 
 [!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
