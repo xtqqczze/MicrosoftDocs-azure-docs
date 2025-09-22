@@ -34,8 +34,6 @@ In this quickstart, learn how to create a Standard V2 Azure NAT Gateway by using
 
   You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
-### [Deployment templates](#tab/templates)
-
 ---
 
 ## Create a resource group
@@ -175,10 +173,6 @@ $nat = @{
 }
 $natGateway = New-AzNatGateway @nat
 ```
-
-### [ARM](#tab/arm/templates)
-
-### [Bicep](#tab/bicep/templates)
 
 ---
 
