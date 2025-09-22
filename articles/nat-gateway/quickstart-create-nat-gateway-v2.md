@@ -36,6 +36,8 @@ In this quickstart, learn how to create a Standard V2 Azure NAT Gateway by using
 
 ### [Deployment templates](#tab/templates)
 
+---
+
 ### [ARM](#tab/arm/templates)
 
 ### [Bicep](#tab/bicep/templates)
