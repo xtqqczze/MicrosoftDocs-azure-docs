@@ -4,12 +4,13 @@ description: Describes how to troubleshoot disaster recovery issues with Hyper-V
 author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 12/20/2024
+ms.date: 09/22/2025
 ms.author: jsuri
 ms.custom: engagement-fy23
 
 # Customer intent: "As an IT administrator managing Hyper-V disaster recovery, I want to troubleshoot replication issues to Azure, so that I can ensure seamless backup and recovery of virtual machines."
 ---
+
 # Troubleshoot Hyper-V to Azure replication and failover
 
 This article describes common issues that you might come across when replicating on-premises Hyper-V VMs to Azure, using [Azure Site Recovery](site-recovery-overview.md).
@@ -96,7 +97,7 @@ Network bandwidth limitations can affect replication. Troubleshoot issues as fol
 
 An app-consistent snapshot is a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that apps on the VM are in a consistent state when the snapshot is taken.  This section details some common issues you might experience.
 
-### VSS failing inside the VM
+# [VSS failing inside the VM](#tab/inside-vm)
 
 1. Check that the latest version of Integration services is installed and running.  Check if an update is available by running the following command from an elevated PowerShell prompt on the Hyper-V host: **get-vm  | select Name, State, IntegrationServicesState**.
 2. Check that VSS services are running and healthy:
@@ -129,8 +130,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 9. Run the [Deployment Planner](hyper-v-deployment-planner-run.md).
 10. Review the recommendations for [network](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) and [storage](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 
-
-### VSS failing inside the Hyper-V Host
+# [VSS failing inside the Hyper-V Host](#tab/inside-hyper-v)
 
 1. Check event logs for VSS errors and recommendations:
     - On the Hyper-V host server, open the Hyper-V Admin event log in **Event Viewer** > **Applications and Services Logs** > **Microsoft** > **Windows** > **Hyper-V** > **Admin**.
@@ -142,14 +142,14 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
     - You can check this from an elevated PowerShell session on the Hyper-V host with command **Get-VMIntegrationService -VMName\<VMName>-Name VSS** You can also get this information by logging into the guest VM. [Learn more](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Ensure that the Backup/VSS integration Services on the VM is running and in healthy state. If not, restart these services, and the Hyper-V Volume Shadow Copy requester service on the Hyper-V host server.
 
+---
+
 ### Common errors
 
 **Error code** | **Message** | **Details**
 --- | --- | ---
 **0x800700EA** | "Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available. (0x800700EA). VSS snapshot set generation can fail if backup operation is in progress.<br/><br/> Replication operation for virtual machine failed: More data is available." | Check if your VM has dynamic disk enabled. This isn't supported.
 **0x80070032** | "Hyper-V Volume Shadow Copy Requestor failed to connect to virtual machine <./VMname> because the version does not match the version expected by Hyper-V | Check if the latest Windows updates are installed.<br/><br/> [Upgrade](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) to the latest version of Integration Services.
-
-
 
 ## Collect replication logs
 
