@@ -68,12 +68,6 @@ To use Azure PowerShell for this article, you need:
 
 - Sign in to Azure PowerShell and select the subscription that you want to use. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-# [**Deployment templates**](#tab/templates)
-
-# [**ARM**](#tab/templates/arm)
-
-# [**Bicep**](#tab/templates/bicep)
-
 ---
 
 ## Create a NAT gateway and associate it with an existing subnet
