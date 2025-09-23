@@ -57,14 +57,15 @@ While Geo Priority Replication introduces an SLA-backed capability for Azure Blo
 
 Additionally, the SLA is contingent on the storage account remaining within specific operational thresholds, known as guardrails. These guardrails include:
 
-- Account ingress rate exceeding 1 Gbps
-- More than 100 CopyBlob requests per second
+- Account ingress rate must remain below 1 Gbps
+- Less than 100 CopyBlob requests per second
+- No Append or Page Blob API calls were made within the last 30 days
 
-Although the account's replication is still prioritized during these time periods, the account is temporarily ineligible for the SLA. The SLA will resume after the rate drops below these thresholds, and the resulting backlog of writes are replicated. These thresholds are in place to ensure that the replication pipeline can maintain the promised performance levels. 
+During these intervals, although replication of the data  remains prioritized, the account is temporarily excluded from SLA eligibility.
 
 Another consideration is the initial synchronization period, which is the period immediately following the enabling of the Geo Priority Replication feature. Data replication prioritization begins immediately after enabling the feature, but the SLA might not apply during this initial sync period. If the account's Last Sync Time exceeds 15 minutes during this time, the SLA doesn't apply and service credits aren't available until the Last Sync Time is consistently at or below 15 minutes. Customers can [monitor their LST](last-sync-time-get.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) and replication status through Azure's provided metrics and dashboards. 
 
-Certain operational scenarios can also disrupt SLA coverage. For example, an unplanned failover will automatically disable Geo Priority Replication, requiring you to re-enable the feature manually after geo-redundancy is restored. By comparison, planned failovers and account conversions between GRS and geo zone redundant storage (GZRS) don't affect SLA eligibility, provided the account remains within guardrails. 
+Certain operational scenarios can also disrupt SLA coverage. For example, an unplanned failover will automatically disable Geo Priority Replication, requiring you to re-enable the feature manually after geo-redundancy is restored. By comparison, planned failovers and account conversions between GRS and geo zone redundant storage (GZRS) don't affect SLA eligibility, provided the account remains within guardrails.
 
 These limitations are critical to understanding how and when the SLA applies, and Azure provides detailed telemetry and metrics to help customers monitor their eligibility throughout the billing cycle. 
 
@@ -87,18 +88,19 @@ To help visualize the pricing, the following sample calculation is provided. Thi
 
 | Component                       | Cost        |
 |---------------------------------|-------------|
-| Data Storage (GZRS)             | $8.28       |
-| Geo Priority Replication Fee    | $1.50       |
-| Write Operations (10,000)       | $0.10       |
+| Data Storage (GZRS)             | $9.20       |
+| Geo Priority Replication Fee    | $3.00       |
+| Write Operations (10,000)       | $0.118      |
 | Read Operations (10,000)        | $0.004      |
-| Geo-Replication Bandwidth       | $2.00       |
-| **Total**                       | **$11.884** |
+| Geo-Replication Bandwidth       | $4.00       |
+| **Total**                       | **$16.322** |
 
 This example shows how the total cost is built from multiple components. The Geo Priority Replication fee is just one part of the overall bill, but it's the key differentiator for SLA-backed replication.
 
 ## Opt-out policy and billing continuity
 
-Customers who disable Geo Priority Replication continue to be billed for 30 days post-disablement. This practice is meant to prevent short-term opt-ins aimed at clearing replication backlogs. It also aligns with Azure's approach to other features like read-access disablement.
+> [!IMPORTANT]
+> When you disable Geo Priority Replication, the account is billed for 30 days beyond the date on which the feature was disabled.
 
 ## Next steps
 
