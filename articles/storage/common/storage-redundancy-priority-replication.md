@@ -66,12 +66,41 @@ Another consideration is the initial synchronization period, which is the period
 
 Certain operational scenarios can also disrupt SLA coverage. For example, an unplanned failover will automatically disable Geo Priority Replication, requiring you to re-enable the feature manually after geo-redundancy is restored. By comparison, planned failovers and account conversions between GRS and geo zone redundant storage (GZRS) don't affect SLA eligibility, provided the account remains within guardrails. 
 
-Finally, customers who choose to opt out of Geo Priority Replication continue to be billed for an extra 30 days.  
-
 These limitations are critical to understanding how and when the SLA applies, and Azure provides detailed telemetry and metrics to help customers monitor their eligibility throughout the billing cycle. 
+
+## Feature pricing
+
+Users begin paying for Geo priority replication feature as soon as they enable the feature. Prioritization of the Block blob backlog and new writes are also prioritized after the feature is enabled. 
+
+Here's an example pricing breakdown:
+
+### Base pricing
+
+- New data ingress charges at $0.015 per GB. All new data written to the storage account after enabling Geo Priority Replication is charged at this rate.
+- Billing starts immediately upon enablement, regardless of current replication lag.
+
+### Other Charges
+
+- Standard GRS or GZRS charges still apply, for example, storage and read and write operations.
+
+To help visualize the pricing, the following sample calculation is provided. This example uses a GZRS storage account in the East US region with 200 GB of new data ingress and 10,000 read and write operations during a billing month:
+
+| Component                       | Cost        |
+|---------------------------------|-------------|
+| Data Storage (GZRS)             | $8.28       |
+| Geo Priority Replication Fee    | $1.50       |
+| Write Operations (10,000)       | $0.10       |
+| Read Operations (10,000)        | $0.004      |
+| Geo-Replication Bandwidth       | $2.00       |
+| **Total**                       | **$11.884** |
+
+This example shows how the total cost is built from multiple components. The Geo Priority Replication fee is just one part of the overall bill, but it's the key differentiator for SLA-backed replication.
+
+## Opt-out policy and billing continuity
+
+Customers who disable Geo Priority Replication continue to be billed for 30 days post-disablement. This practice is meant to prevent short-term opt-ins aimed at clearing replication backlogs. It also aligns with Azure's approach to other features like read-access disablement.
 
 ## Next steps
 
 - [Manage Geo Priority Replication](storage-redundancy-priority-replication-manage.md)
-- [Geo Priority Replication pricing](storage-redundancy-priority-replication-pricing.md)
 - [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/)
