@@ -102,5 +102,5 @@ To claim a refund for SLA violations:
 
 ## Next steps
 
-- [Geo Priority Replication overview](storage-redundancy-priority-replication-pricing.md)
+- [Geo Priority Replication overview](storage-redundancy-priority-replication.md#feature-pricing)
 - [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/)
