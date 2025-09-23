@@ -80,7 +80,7 @@ In this section, you create a public IP prefix using the Azure portal. Use the f
 | Routing preference | Leave the default of **Microsoft network**. |
 | Availability zone | Leave the default of **Zone-redundant**. |
 
-:::image type="content" source="./media/create-public-ip-prefix-portal/create-prefix-ipv4.png" alt-text="Screenshot of create public IP address prefix with default settings in the Azure portal.":::
+:::image type="content" source="./media/create-public-ip-prefix-portal/create-prefix-ipv4-v2.png" alt-text="Screenshot of create public IP address prefix with default settings in the Azure portal.":::
 
 5. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
