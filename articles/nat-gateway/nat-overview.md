@@ -185,12 +185,6 @@ Azure NAT Gateway provides secure, scalable outbound connectivity for resources 
 
 * NAT Gateway is placed in **no zone** by default. A [nonzonal NAT Gateway](./nat-availability-zones.md#standard-nat-gateway---zonal-vs-nonzonal) is placed in a zone for you by Azure.
 
-* Standard NAT Gateway can be created in a specific availability zone or placed in **no zone**. After NAT Gateway is deployed, the zone selection can't be changed.
-
-* Standard NAT Gateway is placed in **no zone** by default. A [nonzonal NAT Gateway](./nat-availability-zones.md#nonzonal) is placed in a zone for you by Azure.
-
-* StandardV2 NAT Gateway is a **zone-redundant** service and operates across all availability zones in a region.
-
 ### Default outbound access
 
 * In order to provide secure outbound connectivity to the internet, it’s recommended to [enable private subnet](/azure/virtual-network/ip-services/default-outbound-access#how-can-i-transition-to-an-explicit-method-of-public-connectivity-and-disable-default-outbound-access) in order to prevent the creation of default outbound IPs and instead use an explicit method of outbound connectivity like NAT gateway. 
