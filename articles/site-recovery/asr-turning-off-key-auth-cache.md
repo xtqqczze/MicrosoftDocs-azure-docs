@@ -8,36 +8,29 @@ ms.topic: concept-article
 ms.date: 09/16/2025
 ms.author: swbela_microsoft
 
-# Customer intent: As a Site Recovery administrator, I want to turn off key-based authentication on cache account used by Azure Site Recovery.
+# Customer intent: Turn off key-based authentication on cache account used by Azure Site Recovery.
 ---
 
 # Overview
- Key-based access on cache storage account was mandatory for successful functioning of ASR. Recently we have made changes to support cache accounts which have turned off Key based authentication. This article explains about Key-based access to cache accounts and howto turn off Key-based access on cache account, while you ensure no impact on replication.
+Previously, key-based access was required for cache storage accounts used by Azure Site Recovery (ASR). ASR now supports cache accounts with key-based authentication disabled. This article explains how to turn off key-based access without disrupting replication.
 
+We recommend disabling key-based authentication on cache storage accounts for security compliance.
 
 ## Prerequisites
-Before you begin ensure you:
-1. Enable Managed Identity on the Recovery Services Vault. Follow below guide on how to do it.
-   
-   https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#enable-the-managed-identity-for-the-vault
+Before proceeding, ensure the following:
+* [Enable Managed Identity on the Recovery Services Vault](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#enable-the-managed-identity-for-the-vault)
 
-3. Grant access to Recovery services vault managed identity to read-write to cache account. Follow this guide.
-   
-   https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#grant-required-permissions-to-the-vault
-
-## Turn off key-based access on storage accounts.
-For higher security of Azure storage, we recommend you to Tturn off of key-based authentication.
+* [Grant access to Recovery services vault managed identity to read-write to cache account](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#grant-required-permissions-to-the-vault)
 
 ### Scenario 1 
-If you are already using a scenario that requires use of recovery services vault identity, then you just need to perform step in "Related Content".
+If the Recovery Services Vault already has a managed identity enabled, follow the steps in the [Related Content](#Related-content).
 
 ### Scenario 2
-If your vault does not have managed identity when VMs were protected, managed identity can be added after VMs are protected as well.
-To do this, ensure you meet the prerequisites and then turn off Key-based authorization on cache account.
+If the vault lacked a managed identity when VMs were initially protected, you can add it afterward. Once prerequisites are met, you can safely disable key-based access on the cache account.
 
-If you have Virtual Machines or servers which are already protected with ASR, disable-enable is not required in either scenario. Replication will continue seamlessly if prerequisites are done correctly before turning off Key-based access.
 
-## Related content
-Turn off the key based access on cache account.
+> [!NOTE]  
+> Replication will continue without interruption if prerequisites are completed before disabling key-based access. Do not disable and re-enable protection for existing VMs or servers after completing prerequisites.
 
-https://learn.microsoft.com/en-us/azure/storage/common/shared-key-authorization-prevent?tabs=portal#disable-shared-key-authorization
+### Related content
+- [Disable shared key authorization on cache accounts](https://learn.microsoft.com/en-us/azure/storage/common/shared-key-authorization-prevent?tabs=portal#disable-shared-key-authorization)
