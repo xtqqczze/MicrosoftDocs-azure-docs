@@ -73,7 +73,7 @@ This means that outbound connections from that subnet will route through its dir
 
 NAT Gateway can be associated with static public IP addresses or public IP prefixes for providing outbound connectivity. If you assign a public IP prefix, the entire public IP prefix is used. You can use a public IP prefix directly or [distribute the public IP addresses of the prefix](../virtual-network/ip-services/manage-public-ip-address-prefix.md) across multiple NAT gateway resources.  NAT gateway sends all traffic to the range of IP addresses of the prefix.
 
-* StandardV2 NAT Gateway supports up to 16 IPv4 and and 16 IPv6 public IP addresses.
+* StandardV2 NAT Gateway supports up to 16 IPv4 and 16 IPv6 public IP addresses.
 *	Standard NAT Gateway can’t be used with IPv6 public IP addresses or prefixes. It supports up to 16 IPv4 public IP addresses.
 * NAT Gateway can’t be used with basic SKU public IP addresses.
 
