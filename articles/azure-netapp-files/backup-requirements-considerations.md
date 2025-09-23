@@ -5,10 +5,11 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 06/23/2025
+ms.date: 08/19/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: As a cloud administrator, I want to understand the requirements and considerations for using Azure NetApp Files backup, so that I can ensure proper backup configurations and compliance with best practices for data protection in my environment.
 ---
 # Requirements and considerations for Azure NetApp Files backup 
 
@@ -35,13 +36,13 @@ You need to be aware of several requirements and considerations before using Azu
 
     * West US   
 
-    LRS can recover from server-rack and drive failures. However, if a disaster such as a fire or flooding occurs within the data center, all replicas of a storage account using LRS might be lost or unrecoverable. 
+    LRS can recover from server-rack and drive failures. However, if a disaster such as a fire or flooding occurs within the data center, all replicas of a storage account using LRS may be lost or unrecoverable. 
 
 * Policy-based (scheduled) Azure NetApp Files backup is independent from [snapshot policy configuration](azure-netapp-files-manage-snapshots.md).
 
 * You can't apply a backup policy to a volume while a manual backup is in progress. Wait for the manual backup to complete before applying the policy. 
 
-* With [cross-region replication](cross-region-replication-introduction.md) or [cross-zone replication](cross-zone-replication-introduction.md), Azure NetApp Files backup can be configured on a source volume. 
+* With [cross-region or cross-zone replication](replication.md), Azure NetApp Files backup can be configured on a source volume. 
 
     Backups on a destination volume are only supported for manually created snapshots. To take backups of a destination volume, create a snapshot on the source volume then wait for the snapshot to be replicated to the destination volume. From the destination volume, you select the snapshot for backup. Scheduled backups on a destination volume aren't supported.
 
@@ -49,9 +50,11 @@ You need to be aware of several requirements and considerations before using Azu
 
 * If you delete a volume, the backups remain. If you no longer need the backups, you should [manually delete the backups](backup-delete.md).
 
-* If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription doesn't delete the backups.
+* If you need to delete a parent resource group or subscription that contains backups, delete any backups first. Deleting the resource group or subscription doesn't delete the backups.
 
 * To use Azure NetApp Files backup with large volumes, you must be [registered to use large volumes](large-volumes-requirements-considerations.md).  
+
+* If the volume reaches its maximum quota, backup creation can fail depending on the amount of data changed. If the backup fails, increase the size of the volume then wait for the next scheduled backup. 
 
 ## Next steps
 
@@ -62,6 +65,8 @@ You need to be aware of several requirements and considerations before using Azu
 * [Manage backup policies](backup-manage-policies.md)
 * [Search backups](backup-search.md)
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
+* [Restore individual files using single-file backup restore](restore-single-file-backup.md)
+* [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
