@@ -142,7 +142,7 @@ A NAT Gateway doesn't affect the network bandwidth of your compute resources. Le
 
 * NAT Gateway can be isolated in a specific zone when you create [zone isolation scenarios](./nat-availability-zones.md). After NAT Gateway is deployed, the zone selection can't be changed.
 
-* NAT Gateway is placed in **no zone** by default. A [nonzonal NAT Gateway](./nat-availability-zones.md) is placed in a zone for you by Azure.
+* NAT Gateway is placed in **no zone** by default. A [nonzonal NAT Gateway](./nat-availability-zones.md#standard-nat-gateway---zonal-vs-nonzonal) is placed in a zone for you by Azure.
 
 ### NAT Gateway and basic resources
 
