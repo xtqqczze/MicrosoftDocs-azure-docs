@@ -106,6 +106,10 @@ StandardV2 SKU NAT Gateway support for IPv6 public IPs is currently in **public 
 
 * StandardV2 NAT Gateway associated with a source virtual network disrupts Azure Bastion connectivity. If you're using Azure Bastion to access your virtual machines, attach StandardV2 NAT Gateway directly to subnets instead. 
 
+* StandardV2 NAT Gateway associated with a source virtual network doesn't provide outbound connectivity for subnets containing SQL Managed Instances. 
+
+* When associating a StandardV2 NAT Gateway to an empty virtual network or subnet created before May 2025 without any virtual machines, the virtual network or subnet will go into a failed state. To resolve this, create a virtual machine in the subnet or virtual network that the StandardV2 NAT gateway is attached and the virtual network will return to a successful state.
+
 ## Standard NAT Gateway features
 
 Standard SKU is a zonal resource. It's deployed into a specific availability zone and is resilient within that zone. 

@@ -144,7 +144,7 @@ NAT gateway can be used to connect outbound from your databricks cluster when yo
 
 ### NAT gateway can't be attached to the subnet used for Azure SQL Managed Instance
 
-NAT gateway can’t be deployed to a subnet that contains SQL managed instances. NAT gateway attachment isn't supported. 
+NAT gateway can’t be deployed to a subnet that contains SQL managed instances. NAT gateway attachment isn't supported. StandardV2 NAT Gateway associated with a source virtual network doesn't provide outbound connectivity for subnets containing SQL Managed Instances.
 
 ## Next steps
 

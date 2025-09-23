@@ -108,6 +108,10 @@ You can experience outbound connectivity failure if your NAT gateway resource is
 
 1. You can then proceed with other actions as the resource is out of failed state. 
 
+## Virtual network or subnet in a failed state with StandardV2 NAT gateway
+
+When associating a StandardV2 NAT Gateway to an empty virtual network or subnet created before May 2025 without any virtual machines, the virtual network or subnet will go into a failed state. To resolve this, create a virtual machine in the subnet or virtual network that the StandardV2 NAT gateway is attached and the virtual network will return to a successful state.
+
 ## Add or remove NAT gateway 
 
 ### Can't delete NAT gateway
