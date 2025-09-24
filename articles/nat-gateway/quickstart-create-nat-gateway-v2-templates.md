@@ -25,15 +25,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Basic understanding of Azure Resource Manager templates. For more information, see [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/syntax.md).
-
 # [Bicep](#tab/Bicep)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-- [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell).
-
-- [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 
 ---
 
