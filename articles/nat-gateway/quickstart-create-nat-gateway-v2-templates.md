@@ -81,12 +81,15 @@ Multiple Azure resources are defined in the template:
     $adminUsername = Read-Host -Prompt "Enter the administrator username"
     $adminPasswordOrKey = Read-Host -Prompt "Enter the SSH public key" -AsSecureString
 
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-    New-AzResourceGroupDeployment `
-        -ResourceGroupName $resourceGroupName `
-        -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/nat-gateway-1-vm/azuredeploy.json" `
-        -adminUsername $adminUsername `
-        -adminPasswordOrKey $adminPasswordOrKey
+    $deploymentParams = @{
+        ResourceGroupName = $resourceGroupName
+        TemplateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/nat-gateway-1-vm/azuredeploy.json"
+        adminUsername = $adminUsername
+        adminPasswordOrKey = $adminPasswordOrKey
+    }
+
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment @deploymentParams
 
     Write-Host "Press [ENTER] to continue ..."
     ```
@@ -151,20 +154,22 @@ Multiple Azure resources are defined in the template:
 
     # [PowerShell](#tab/PowerShell)
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     $resourceGroupName = "myResourceGroup"
     $location = "centralus"
     $adminUsername = "azureuser"
     $adminPasswordOrKey = "<your-ssh-public-key>"
 
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment `
-        -ResourceGroupName $resourceGroupName `
-        -TemplateFile "main.bicep" `
-        -adminUsername $adminUsername `
-        -adminPasswordOrKey $adminPasswordOrKey
-    ```
+    $deploymentParams = @{
+        ResourceGroupName = $resourceGroupName
+        TemplateFile = "main.bicep"
+        adminUsername = $adminUsername
+        adminPasswordOrKey = $adminPasswordOrKey
+    }
 
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment @deploymentParams
+    ```
     ---
 
     > [!NOTE]
