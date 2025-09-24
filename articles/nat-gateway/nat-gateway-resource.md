@@ -17,9 +17,9 @@ This article describes the key components of the NAT gateway resource that enabl
 ## NAT Gateway SKUs
 NAT Gateway is available in two SKUs: StandardV2 and Standard. 
 
-:::image type="content" source="./media/nat-gateway-resource/nat-gateway-skus.png" alt-text="Comparison of the Standard and StandardV2 SKUs of NAT Gateway.":::
+:::image type="content" source="./media/nat-gateway-resource/nat-gateway-skus.png" alt-text="Standard and StandardV2 SKUs of NAT Gateway.":::
 
-*Figure 1: Comparison of the Standard and StandardV2 SKUs of NAT Gateway.*
+*Figure 1: Standard and StandardV2 SKUs of NAT Gateway.*
 
 StandardV2 SKU is zone-redundant by default. It automatically spans across multiple availability zones in a region, ensuring continued outbound connectivity even if one zone becomes unavailable.
 
