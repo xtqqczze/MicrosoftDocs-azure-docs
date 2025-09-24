@@ -52,7 +52,7 @@ For more information, see [Availability zones](./nat-availability-zones.md).
 
 ### Performance 
 
-StandardV2 NAT Gateway supports up to 100 Gbps of bandwidth and can process up to 10 million packets per second.  On a per connection basis, StandardV2 NAT Gateway supports 1 Gbps per connection and 100,000 packets per second (PPS) per connection.  
+StandardV2 NAT Gateway supports up to 100 Gbps of bandwidth and can process up to 10 million packets per second. On a per connection basis, StandardV2 NAT Gateway supports 1 Gbps per connection and 100,000 packets per second (PPS) per connection.  
 
 ### Virtual network attachment 
 
@@ -98,7 +98,7 @@ StandardV2 SKU NAT Gateway support for IPv6 public IPs is currently in **public 
 
 * StandardV2 NAT Gateway can’t be deployed as a managed NAT Gateway for Azure Kubernetes Service (AKS) workloads. It's only supported when configured as a user-assigned NAT Gateway. For more information, see [Create NAT Gateway for your AKS cluster](/azure/aks/nat-gateway).
 
-* Terraform and CLI doesn't yet support StandardV2 NAT Gateway and StandardV2 Public IP deployments. 
+* Terraform and CLI don't yet support StandardV2 NAT Gateway and StandardV2 Public IP deployments. 
 
 ## Known issues 
 
