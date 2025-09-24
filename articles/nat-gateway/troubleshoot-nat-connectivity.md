@@ -125,7 +125,7 @@ You observe no outbound connectivity on your NAT gateway.
 
 * Check if StandardV2 NAT Gateway is configured with a source virtual network and the virtual network contains a Bastion subnet. StandardV2 NAT Gateway causes disruption for Bastion connectivity when associated with a source virtual network. If you're using Bastion to access your virtual machines, attach StandardV2 NAT Gateway directly to subnets instead.
 
-* Check if StandardV2 NAT Gateway has been associated with an empty virtual network or subnet created before May 2025 without any virtual machines. If so, create a virtual machine in the subnet or virtual network that the StandardV2 NAT gateway is attached and the virtual network will return to a successful state.
+* Check if StandardV2 NAT Gateway has been associated with an empty virtual network or subnet without any virtual machines. Create a virtual machine in the subnet or virtual network that the StandardV2 NAT gateway is attached to return the virtual network to a successful state.
 
 * Check the routing table of the subnet attached to NAT gateway. Any 0.0.0.0/0 traffic being force-tunneled to a Network Virtual Appliance (NVA), ExpressRoute, or VPN Gateway will take priority over NAT gateway. For more information, see [how Azure selects a route](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route).
 
@@ -143,7 +143,7 @@ You observe no outbound connectivity on your NAT gateway.
 
 * If StandardV2 NAT Gateway is associated with a source virtual network and your virtual network contains a Bastion subnet, your Bastion connectivity may be impacted. To resolve, attach StandardV2 NAT gateway to each individual subnet that needs outbound connectivity, and exclude the Bastion subnet. After StandardV2 NAT gateway is associated with each subnet, remove the source virtual network.  
 
-* If StandardV2 NAT Gateway is associated to an empty subnet or virtual network that was created before May 2025, add a virtual machine in order to return the subnet or virtual network to a successful state.
+* If StandardV2 NAT Gateway is associated to an empty subnet or virtual network, add a virtual machine in order to return the subnet or virtual network to a successful state.
 
 * Carefully consider your traffic routing requirements before making any changes to traffic routes for your virtual network. User Defined Routes (UDRs) that send 0.0.0.0/0 traffic to a virtual appliance or virtual network gateway override NAT gateway. See [custom routes](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) to learn more about how custom routes affect the routing of network traffic. 
 

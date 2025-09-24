@@ -102,13 +102,13 @@ StandardV2 SKU NAT Gateway support for IPv6 public IPs is currently in **public 
 
 ## Known issues 
 
-* StandardV2 NAT Gateway disrupts outbound connections made with Load balancer outbound rules for IPv6 traffic only. Before attaching StandardV2 NAT Gateway to a subnet, make sure there isn't IPv6 outbound traffic using Load balancer outbound rules. 
+* StandardV2 NAT Gateway disrupts outbound connections made with Load balancer outbound rules for IPv6 traffic only. Consider impact time when migrating to StandardV2 NAT Gateway if you're using Load balancer outbound rules for IPv6 traffic.
 
 * StandardV2 NAT Gateway associated with a source virtual network disrupts Azure Bastion connectivity. If you're using Azure Bastion to access your virtual machines, attach StandardV2 NAT Gateway directly to subnets instead. 
 
 * StandardV2 NAT Gateway associated with a source virtual network doesn't provide outbound connectivity for subnets containing SQL Managed Instances. 
 
-* When associating a StandardV2 NAT Gateway to an empty virtual network or subnet created before May 2025 without any virtual machines, the virtual network or subnet will go into a failed state. To resolve this, create a virtual machine in the subnet or virtual network that the StandardV2 NAT gateway is attached and the virtual network will return to a successful state.
+* Attaching a StandardV2 NAT Gateway to an empty virtual network or subnet without any virtual machines may cause the virtual network or subnet to go into a failed state. To return the virtual network or subnet to a successful state, create a virtual machine in the subnet.
 
 ## Standard NAT Gateway features
 

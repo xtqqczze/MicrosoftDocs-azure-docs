@@ -3,11 +3,11 @@ title: NAT gateway and availability zones
 titleSuffix: Azure NAT Gateway
 description: Learn about key concepts and design guidance on deploying Azure NAT Gateway with availability zones.
 services: virtual-network
-author: asudbring
+author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: concept-article
 ms.date: 09/23/2025
-ms.author: allensu
+ms.author: alittleton
 #Customer intent: For customers who want to understand how to use NAT gateway with availability zones.
 # Customer intent: "As a network architect, I want to understand how to deploy NAT gateway with availability zones, so that I can ensure resilient outbound connectivity for my virtual networks against potential zonal outages."
 ---
@@ -21,17 +21,25 @@ This article provides information on how NAT Gateway works with availability zon
 
 NAT Gateway offers two different SKUs for either single zone or zone-redundant support. 
 
-:::image type="content" source="./media/nat-availability-zones/zonal-nat-gateway.png" alt-text="Diagram of zonal deployment of NAT gateway.":::
+:::image type="content" source="./media/nat-gateway-resource/nat-gateway-skus.png" alt-text="Diagram of zonal deployment of NAT gateway.":::
 
-*Figure 1: On the left is a zonal deployment of NAT gateway, on the right is a zone-redundant deployment of StandardV2 NAT gateway.* 
+*Figure 1: On the left is a zonal deployment of Standard NAT gateway, on the right is a zone-redundant deployment of StandardV2 NAT gateway.* 
 
 ### StandardV2 SKU NAT Gateway - Zone-redundant
 
-StandardV2 SKU NAT Gateway is zone-redundant. When StandardV2 NAT Gateway is deployed, it provides outbound connectivity across multiple availability zones. StandardV2 NAT Gateway can survive a single zone failure. When one availability zone in a region goes down, traffic flows from the remaining healthy zones. To ensure that your architecture is resilient to single zone failures, deploy StandardV2 NAT gateway. StandardV2 NAT gateway must use a StandardV2 Public IP address for its Outbound IP. StandardV2 SKU public IPs are zone-redundant by default and do not require any additional setup to achieve zone-redundancy.
+StandardV2 SKU NAT Gateway is zone-redundant. When StandardV2 NAT Gateway is deployed, it provides outbound connectivity across multiple availability zones. StandardV2 NAT Gateway can survive a single zone failure. When one availability zone in a region goes down, new connections flow from the remaining healthy zones. To ensure that your architecture is resilient to single zone failures, deploy StandardV2 NAT gateway. StandardV2 NAT gateway must use a StandardV2 Public IP address for its Outbound IP. StandardV2 SKU public IPs are zone-redundant by default and do not require any additional setup to achieve zone-redundancy.
+
+:::image type="content" source="./media/nat-overview/zone-redundant-standard-2.png" alt-text="Diagram of zone-redundant deployment of StandardV2 NAT gateway.":::
+
+*Figure 2: Zone-redundant deployment of StandardV2 NAT gateway.*
 
 ## Standard SKU NAT Gateway - Zonal
 
-Standard SKU NAT Gateway is zonal, which means it operates out of a single availability zone. Standard SKU NAT Gateway can either be configured to a specific single zone in a region or to “no zone” in which Azure configures the NAT gateway to a zone for you. When configured to a single zone, NAT Gateway provides outbound connectivity for all subnets from that specific zone where it is located. Subnets can contain resources spread across multiple zones such as with zonal virtual machines. If the zone that is associated to that Standard NAT gateway goes down, then outbound connectivity for all virtual machines within those the subnets associated to the NAT gateway goes down. This setup doesn’t provide the best method of zone-resiliency.
+Standard SKU NAT Gateway is zonal, which means it operates out of a single availability zone. Standard SKU NAT Gateway can either be configured to a specific single zone in a region or to “no zone” in which Azure configures the NAT gateway to a zone for you. When configured to a single zone, NAT Gateway provides outbound connectivity for all subnets from that specific zone. Subnets can contain resources spread across multiple zones such as with zonal virtual machines. If the zone that is associated to that Standard NAT gateway goes down, then outbound connectivity for all virtual machines within those the subnets goes down. This setup doesn’t provide the best method of zone-resiliency.
+
+:::image type="content" source="./media/nat-overview/zonal-standard-1.png" alt-text="Diagram of zonal deployment of Standard NAT gateway.":::
+
+*Figure 3: Zonal deployment of Standard NAT gateway.*
 
 Standard SKU NAT Gateways must be associated with Standard SKU public IPs. The zone property you select for your NAT gateway resource informs the zone property of the public IP address that can be used for outbound connectivity. 
 
@@ -44,7 +52,7 @@ Standard SKU NAT Gateways must be associated with Standard SKU public IPs. The z
 |Standard | Single-zone | Standard Public IP must be zone-redundant or match same zone as NAT gateway |
 |Standard | No zone | Standard Public IP can be from a specific zone, no zone, or zone-redundant |
 
-## Standard NAT Gateway - Zonal vs Nonzonal
+## Standard NAT Gateway - Zonal vs Non-zonal
 
 You can place your Standard NAT gateway resource in a specific zone for a region. When Standard NAT gateway is deployed to a specific zone, it provides outbound connectivity to the internet explicitly from that zone. NAT gateway resources assigned to an availability zone can be attached to public IP addresses either from the same zone or that are zone redundant. Public IP addresses from a different availability zone or no zone aren't allowed.
 

@@ -1,12 +1,12 @@
 ---
 title: Azure NAT Gateway resource
 description: Learn about the NAT gateway resource of the Azure NAT Gateway service.
-author: asudbring
+author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: concept-article
 ms.custom: FY23 content-maintenance
 ms.date: 09/23/2025
-ms.author: allensu
+ms.author: alittleton
 # Customer intent: "As a network administrator, I want to configure and manage an Azure NAT Gateway, so that I can ensure secure and scalable outbound connectivity for my subnets without requiring complex routing configurations."
 ---
 
@@ -17,19 +17,23 @@ This article describes the key components of the NAT gateway resource that enabl
 ## NAT Gateway SKUs
 NAT Gateway is available in two SKUs: StandardV2 and Standard. 
 
+:::image type="content" source="./media/nat-gateway-resource/nat-gateway-skus.png" alt-text="Comparison of the Standard and StandardV2 SKUs of NAT Gateway.":::
+
 *Figure 1: Comparison of the Standard and StandardV2 SKUs of NAT Gateway.*
 
 StandardV2 SKU is zone-redundant by default. It automatically spans across multiple availability zones in a region, ensuring continued outbound connectivity even if one zone becomes unavailable.
+
 Standard SKU is a zonal resource. It is deployed into a specific availability zone and is resilient within that zone.
+
 Both SKUs support subnet-level association, while StandardV2 has the added capability of associating on a virtual network level, simplifying configuration and reducing operational overhead.
 StandardV2 SKU NAT Gateway also supports IPv6 public IPs, whereas Standard SKU NAT Gateway only supports IPv4 public IPs.
 
 > [!NOTE]
-> IPv6 support for StandardV2 NAT Gateway is now in public preview in select Azure regions. For more information, see the [supported regions](./nat-overview.md) list.
+> IPv6 support for StandardV2 NAT Gateway is now in public preview in [select Azure regions regions](./nat-overview.md).
 
 ## NAT Gateway architecture
 
-Azure NAT Gateway is a full managed, distributed service built on uses software-defined networking. It provides scalable and resilient outbound connectivity for virtual networks. By design, NAT spans multiple fault domains, enabling it to withstand multiple failures without any effect to the service.
+Azure NAT Gateway uses software-defined networking to operate as a fully managed, distributed service. By design, NAT Gateway spans multiple fault domains, enabling it to withstand multiple failures without any effect to the service.
 NAT Gateway provides source network address translation (SNAT) for private instances within the associated subnets of your Azure virtual network. The private IPs of the virtual machines SNAT to a NAT gateway's static public IP addresses to connect outbound to the internet. NAT Gateway also provides destination network address translation (DNAT) for response packets to an outbound originated connection only.
 
 :::image type="content" source="./media/nat-gateway-resource/nat-gateway-deployment.png" alt-text="Diagram of a NAT gateway resource with virtual machines.":::
@@ -40,7 +44,7 @@ When configured to a subnet within a virtual network, NAT Gateway becomes the su
 
 ## Subnets
 
-StandardV2 and Standard NAT Gateway can be attached to multiple subnets within a virtual network to provide outbound connectivity to the internet. When NAT Gateway is attached to a subnet, it assumes the default route to the internet. NAT Gateway will then be the next hop type for all outbound traffic destined to the internet.
+StandardV2 and Standard NAT Gateway can be attached to multiple subnets within a virtual network to provide outbound connectivity to the internet. When NAT Gateway is attached to a subnet, it assumes the default route to the internet. NAT Gateway serves as the next hop type for all outbound traffic destined to the internet.
 
 The following subnet configurations can’t be used with NAT Gateway:
 
@@ -51,31 +55,28 @@ The following subnet configurations can’t be used with NAT Gateway:
 * NAT Gateway can’t be used with a gateway subnet. A gateway subnet is a designated subnet for a VPN gateway to send encrypted traffic between an Azure virtual network and on-premises location. For more information about the gateway subnet, see [Gateway subnet](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub).
 
 ## Source virtual network (StandardV2 only)
-StandardV2 NAT Gateway has a new component called Source virtual network that allows you to associate an entire virtual network to the NAT gateway instead of individual subnets within a virtual network. When you attach a source virtual network, all the subnets in the virtual network will connect outbound to the internet through the NAT gateway. 
+StandardV2 NAT Gateway has a new component called Source virtual network that allows you to associate an entire virtual network to the NAT gateway instead of individual subnets within a virtual network. When you attach a source virtual network, all existing and newly created subnets in the virtual network connect outbound to the internet through the NAT gateway.
 
-<!-- --------------------------------------
-:::image type="content" source=".to be updated" alt-text="Diagram of a NAT gateway resource attached on source virtual network.":::
--->
+:::image type="content" source="./media/nat-gateway-resource/source-virtual-network.png" alt-text="Diagram of a NAT gateway resource attached on source virtual network.":::
 
 *Figure: Source virtual network property applies StandardV2 NAT Gateway to all subnets in a virtual network.*
 
-However, there is an order of precedence that governs outbound routing behavior. 
-If a subnet level NAT gateway is directly attached to a subnet within the same virtual network, that subnet level NAT gateway takes precedence over the NAT gateway configured with the source virtual network property. 
-This means that outbound connections from that subnet will route through its directly associated NAT gateway, rather than the one configured at the virtual network level. 
+Both subnet level and virtual network level NAT gateways can exist in the same virtual network. A subnet level NAT gateway takes precedence over the VNet level NAT gateway. Outbound connections route through the subnet level NAT gateway, rather than the one configured at the virtual network level. All remaining subnets in the virtual network use the NAT gateway configured at the virtual network level for outbound connectivity.
 
-<!-- --------------------------------------
-:::image type="content" source=".to be updated" alt-text="Diagram of a NAT gateway resource attached on subnet and another NAT gateway resource attached on source virtual network.":::
--->
+:::image type="content" source="./media/nat-gateway-resource/source-virtual-network-and-subnet.png" alt-text="Diagram of a NAT gateway resource attached on source virtual network and subnet level.":::
 
-*Figure: When StandardV2 NAT Gateway is configured at the virtual network level, it provides outbound connectivity for subnets 1 and 2. Subnet 3, however, uses its directly associated NAT Gateway, which overrides the VNet-level configuration for outbound traffic.*
+*Figure: The virtual network level NAT gateway provides outbound connectivity for subnets 1 and 2. The subnet level NAT gateway provides outbound connectivity for subnet 3.*
 
 ## Static public IP addresses
 
-NAT Gateway can be associated with static public IP addresses or public IP prefixes for providing outbound connectivity. If you assign a public IP prefix, the entire public IP prefix is used. You can use a public IP prefix directly or [distribute the public IP addresses of the prefix](../virtual-network/ip-services/manage-public-ip-address-prefix.md) across multiple NAT gateway resources.  NAT gateway sends all traffic to the range of IP addresses of the prefix.
+NAT Gateway can be associated with static public IP addresses or public IP prefixes. If you assign a public IP prefix, the entire public IP prefix is used. You can use a public IP prefix directly or [distribute the public IP addresses of the prefix](../virtual-network/ip-services/manage-public-ip-address-prefix.md) across multiple NAT gateway resources.  NAT gateway sends all traffic to the range of IP addresses of the prefix.
 
 * StandardV2 NAT Gateway supports up to 16 IPv4 and 16 IPv6 public IP addresses.
 *	Standard NAT Gateway can’t be used with IPv6 public IP addresses or prefixes. It supports up to 16 IPv4 public IP addresses.
 * NAT Gateway can’t be used with basic SKU public IP addresses.
+
+> [!NOTE]
+> IPv6 support for StandardV2 NAT Gateway is now in public preview in [select Azure regions regions](./nat-overview.md).
 
 | NAT Gateway SKU | IPv4 | IPv6 |
 | --- | --- | --- |
@@ -102,15 +103,19 @@ A single NAT gateway can scale up to 16 IP addresses. Each NAT gateway public IP
 
 ## Availability zones
 
-NAT Gateway has two SKUs – Standard and StandardV2. To ensure that your architecture is resilient to zonal failures, deploy StandardV2 NAT gateway as it is a zone-redundant resource. When an [availability zone](../reliability/availability-zones-overview.md) in a region goes down, traffic will continue flowing from the remaining healthy zones.
+NAT Gateway has two SKUs – Standard and StandardV2. To ensure that your architecture is resilient to zonal failures, deploy StandardV2 NAT gateway as it is a zone-redundant resource. When an [availability zone](../reliability/availability-zones-overview.md) in a region goes down, new connections flow from the remaining healthy zones.
 
-Standard NAT gateway is a zonal resource, which means it can be deployed and operate out of individual availability zones. However, Standard SKU is at greater risk of impact by a zonal outage. If the zone that is associated to Standard NAT gateway goes down, then outbound connectivity for the subnets associated to the NAT gateway will be impacted. 
+:::image type="content" source="./media/nat-overview/zone-redundant-standard-2.png" alt-text="Diagram of StandardV2 and Standard NAT Gateway comparison.":::
+
+*Figure: Multi-zone deployment of StandardV2 NAT Gateway.* 
+
+Standard NAT gateway is a zonal resource, which means it can be deployed and operate out of individual availability zones. If the zone that is associated to Standard NAT gateway goes down, then outbound connectivity for the subnets associated to the NAT gateway are impacted.
 
 For more information about availability zones and Azure NAT Gateway, see [Availability zones design considerations](/azure/nat-gateway/nat-availability-zones#design-considerations).
 
-:::image type="content" source="./media/nat-availability-zones/multiple-zonal-nat-gateways.png" alt-text="Diagram of StandardV2 and Standard NAT Gateway comparison.":::
+:::image type="content" source="./media/nat-overview/zonal-standard-1.png" alt-text="Diagram of StandardV2 and Standard NAT Gateway comparison.":::
 
-*Figure: Single zone deployment of Standard NAT Gateway in comparison to multi-zone deployment of StandardV2 NAT Gateway.*
+*Figure: Single zone deployment of Standard NAT Gateway.*
 
 After a NAT gateway is deployed, the zone selection can't be changed.
 
@@ -170,8 +175,8 @@ For UDP traffic, after a connection closes, the port is in hold down for 65 seco
 
 ## Bandwidth
 There are different bandwidth limits for each SKU of NAT Gateway.
-StandardV2 SKU NAT Gateway supports 100 Gbps of data throughput per NAT gateway resource.
-Standard SKU NAT Gateway provides 50 Gbps of throughput. Data throughput, which is split between outbound and inbound (response) data. Data throughput is rate limited at 25 Gbps for outbound and 25 Gbps for inbound (response) data per NAT gateway resource. 
+StandardV2 SKU NAT Gateway supports up to 100 Gbps of data throughput per NAT gateway resource.
+Standard SKU NAT Gateway provides 50 Gbps of throughput, which is split between outbound and inbound (response) data. Data throughput is rate limited at 25 Gbps for outbound and 25 Gbps for inbound (response) data per NAT gateway resource. 
 
 ## Performance
 
@@ -205,22 +210,11 @@ StandardV2 NAT gateway can process up to 10M packets per second. Standard NAT ga
   
 - Azure NAT Gateway isn't supported in a secured virtual hub network (vWAN) architecture.
 
-- StandardV2 NAT Gateway is not supported in the following public cloud regions: 
-
-  -	Canada East
-  -	Central India
-  - Chile Central
-  - Indonesia Central
-  - Israel Northwest
-  - Jio India West
-  - Malaysia West
-  - Qatar Central
-  - Sweden South
-  - UAE Central
-
-- Standard SKU NAT Gateway can’t be upgraded to StandardV2 SKU NAT Gateway. You must deploy StandardV2 SKU NAT Gateway and replace Standard SKU NAT Gateway to achieve zone-resiliency for architectures using zonal NAT gateways.
+- Standard SKU NAT Gateway can’t be upgraded to StandardV2 SKU NAT Gateway. You must deploy StandardV2 SKU NAT Gateway and replace Standard SKU NAT Gateway to achieve zone-resiliency for architectures using zonal NAT gateways. See [Migrate from Standard to StandardV2 NAT Gateway](./nat-gateway-v2-migrate.md) for more information.
 
 - Standard SKU public IPs can’t be used with StandardV2 NAT Gateway. You must re-IP to new StandardV2 SKU public IPs to use StandardV2 NAT Gateway.
+
+- For more known limitations of StandardV2 NAT Gateway, see [NAT Gateway SKUs](nat-sku.md). 
 
 ## Next steps
 
