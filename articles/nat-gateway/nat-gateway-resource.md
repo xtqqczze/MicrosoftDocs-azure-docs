@@ -17,7 +17,7 @@ This article describes the key components of the NAT gateway resource that enabl
 ## NAT Gateway SKUs
 NAT Gateway is available in two SKUs: StandardV2 and Standard. 
 
-:::image type="content" source="./media/nat-gateway-resource/nat-gateway-skus.png" alt-text="Standard and StandardV2 SKUs of NAT Gateway.":::
+:::image type="content" source="./media/nat-gateway-resource/nat-gateway-skus.png" alt-text="Diagram of Standard and StandardV2 SKUs of NAT Gateway." lightbox="./media/nat-gateway-resource/nat-gateway-skus.png:::
 
 *Figure 1: Standard and StandardV2 SKUs of NAT Gateway.*
 
