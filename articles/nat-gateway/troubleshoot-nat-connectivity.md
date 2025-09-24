@@ -125,7 +125,7 @@ You observe no outbound connectivity on your NAT gateway.
 
 * Check if StandardV2 NAT Gateway is configured with a source virtual network and the virtual network contains a Bastion subnet. StandardV2 NAT Gateway causes disruption for Bastion connectivity when associated with a source virtual network. If you're using Bastion to access your virtual machines, attach StandardV2 NAT Gateway directly to subnets instead.
 
-* Check if StandardV2 NAT Gateway has been associated with an empty virtual network or subnet created before May 2025 without any virtual machines. If so, create a virtual machine in the subnet or virtual network that the StandardV2 NAT gateway is attached and the virtual network will return to a successful state.
+* Check if StandardV2 NAT Gateway has been associated with an empty virtual network or subnet without any virtual machines. Create a virtual machine in the subnet or virtual network that the StandardV2 NAT gateway is attached to return the virtual network to a successful state.
 
 * Check the routing table of the subnet attached to NAT gateway. Any 0.0.0.0/0 traffic being force-tunneled to a Network Virtual Appliance (NVA), ExpressRoute, or VPN Gateway will take priority over NAT gateway. For more information, see [how Azure selects a route](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route).
 
@@ -143,7 +143,7 @@ You observe no outbound connectivity on your NAT gateway.
 
 * If StandardV2 NAT Gateway is associated with a source virtual network and your virtual network contains a Bastion subnet, your Bastion connectivity may be impacted. To resolve, attach StandardV2 NAT gateway to each individual subnet that needs outbound connectivity, and exclude the Bastion subnet. After StandardV2 NAT gateway is associated with each subnet, remove the source virtual network.  
 
-* If StandardV2 NAT Gateway is associated to an empty subnet or virtual network that was created before May 2025, add a virtual machine in order to return the subnet or virtual network to a successful state.
+* If StandardV2 NAT Gateway is associated to an empty subnet or virtual network, add a virtual machine in order to return the subnet or virtual network to a successful state.
 
 * Carefully consider your traffic routing requirements before making any changes to traffic routes for your virtual network. User Defined Routes (UDRs) that send 0.0.0.0/0 traffic to a virtual appliance or virtual network gateway override NAT gateway. See [custom routes](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) to learn more about how custom routes affect the routing of network traffic. 
 
@@ -201,11 +201,11 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 
 * If you have a NAT gateway attached at a subnet level which is taking priority over a different NAT gateway attached at the source virtual network level, determine which NAT gateway needs to be used to provide egress. The source virtual network level NAT gateway will be used for all existing and future subnets in the virtual network. The subnet level NAT gateway will be used only by the subnets it’s directly associated with. 
 
-* Test and resolve issues with VMs holding on to Public IP addresses from another outbound connectivity method, including Load balancer, instance-level public IPs or default outbound access by:
+* Test and resolve issues with VMs holding on to Public IP addresses from another outbound connectivity method, including Load balancer, instance-level public IPs, or default outbound access by:
 
   * Ensure you establish a new connection and that existing connections aren't being reused in the OS or that the browser is caching the connections. For example, when using curl in PowerShell, make sure to specify the -DisableKeepalive parameter to force a new connection. If you're using a browser, connections can also be pooled.
 
-  * Reboot the virtual machine (perform a STOP / START) in a subnet configured to NAT gateway. If a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all new connections begin using the NAT gateway resource's IP address or addresses. Keep in mind that if the VM has any active connections at the time that you reboot, those connections will be dropped.
+  * Reboot the virtual machine (perform a STOP / START) in a subnet configured to NAT gateway. If a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all new connections begin using the NAT gateway resource's IP address or addresses. Keep in mind that if the VM has any active connections at the time that you reboot, those connections are dropped.
 
   * If your investigation is inconclusive, open a support case to [further troubleshoot](#more-troubleshooting-guidance).
 
@@ -292,7 +292,7 @@ To prevent possible passive FTP connection failures, do the following steps:
 2. Make sure that the passive port range from your NAT gateway is allowed to pass any firewalls at the destination endpoint.
 
 >[!NOTE]
->Reducing the amount of public IP addresses on your NAT gateway reduces the SNAT port inventory available for making outbound connections and may increase the risk of SNAT port exhaustion. Consider your SNAT connectivity needs before removing public IP addresses from NAT gateway.
+>Reducing the number of public IP addresses on your NAT gateway reduces the SNAT port inventory available for making outbound connections and may increase the risk of SNAT port exhaustion. Consider your SNAT connectivity needs before removing public IP addresses from NAT gateway.
 >It is not recommended to change the FTP server settings to accept control and data plane traffic from different source IP addresses.
 
 ## Outbound connections on port 25 are blocked

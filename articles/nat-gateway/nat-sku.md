@@ -52,7 +52,7 @@ For more information, see [Availability zones](./nat-availability-zones.md).
 
 ### Performance 
 
-StandardV2 NAT Gateway supports up to 100 Gbps of bandwidth and can process up to 10 million packets per second.  On a per connection basis, StandardV2 NAT Gateway supports 1 Gbps per connection and 100,000 packets per second (PPS) per connection.  
+StandardV2 NAT Gateway supports up to 100 Gbps of bandwidth and can process up to 10 million packets per second. On a per connection basis, StandardV2 NAT Gateway supports 1 Gbps per connection and 100,000 packets per second (PPS) per connection.  
 
 ### Virtual network attachment 
 
@@ -98,17 +98,17 @@ StandardV2 SKU NAT Gateway support for IPv6 public IPs is currently in **public 
 
 * StandardV2 NAT Gateway can’t be deployed as a managed NAT Gateway for Azure Kubernetes Service (AKS) workloads. It's only supported when configured as a user-assigned NAT Gateway. For more information, see [Create NAT Gateway for your AKS cluster](/azure/aks/nat-gateway).
 
-* Terraform and CLI doesn't yet support StandardV2 NAT Gateway and StandardV2 Public IP deployments. 
+* Terraform and CLI don't yet support StandardV2 NAT Gateway and StandardV2 Public IP deployments. 
 
 ## Known issues 
 
-* StandardV2 NAT Gateway disrupts outbound connections made with Load balancer outbound rules for IPv6 traffic only. Before attaching StandardV2 NAT Gateway to a subnet, make sure there isn't IPv6 outbound traffic using Load balancer outbound rules. 
+* StandardV2 NAT Gateway disrupts outbound connections made with Load balancer outbound rules for IPv6 traffic only. Consider impact time when migrating to StandardV2 NAT Gateway if you're using Load balancer outbound rules for IPv6 traffic.
 
 * StandardV2 NAT Gateway associated with a source virtual network disrupts Azure Bastion connectivity. If you're using Azure Bastion to access your virtual machines, attach StandardV2 NAT Gateway directly to subnets instead. 
 
 * StandardV2 NAT Gateway associated with a source virtual network doesn't provide outbound connectivity for subnets containing SQL Managed Instances. 
 
-* When associating a StandardV2 NAT Gateway to an empty virtual network or subnet created before May 2025 without any virtual machines, the virtual network or subnet will go into a failed state. To resolve this, create a virtual machine in the subnet or virtual network that the StandardV2 NAT gateway is attached and the virtual network will return to a successful state.
+* Attaching a StandardV2 NAT Gateway to an empty virtual network or subnet without any virtual machines may cause the virtual network or subnet to go into a failed state. To return the virtual network or subnet to a successful state, create a virtual machine in the subnet.
 
 ## Standard NAT Gateway features
 
