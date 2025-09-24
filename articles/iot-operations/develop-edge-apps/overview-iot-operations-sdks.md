@@ -34,25 +34,20 @@ The SDKs are open source and available on GitHub:
 > Azure IoT Operations SDKs is currently in PREVIEW.
 > The assets in the [Azure IoT Operations SDKs GitHub repository](https://github.com/Azure/iot-operations-sdks) are available for early access and feedback purposes.
 
-## Goal of the SDKs
+## Goals and benefits of the SDKs
 
-The goal of the SDKs is to provide an application framework to abstract the MQTT concepts, with a clean API that let you use the *Protocol Compiler (codegen)*, to generate code from [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) models in the supported programming languages.
+The Azure IoT Operations SDKs provide an application framework that abstracts MQTT concepts, exposes a clean API surface, and supports the *Protocol Compiler (codegen)* to generate client and server code from [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) models. Use the SDKs to build highly available, secure, low latency edge applications that interact with Azure IoT Operations to perform operations such as **asset discovery**, **protocol translation** and **data transformation**.
 
-The SDKs can be used to build highly available applications at the edge, that interact with Azure IoT Operations to perform operations such as **asset discovery**, **protocol translation** and **data transformation**.
+### Key benefits
 
-## Benefits of using the SDKs
+- **Connectivity**: Maintain a secure connection to the MQTT Broker, including rotating server certificates and authentication keys.
+- **Security**: Support SAT or X.509 certificate authentication with credential rotation.
+- **Configuration**: Configure the MQTT Broker connection through the file system, environment, or connection string.
+- **Services**: Provides client libraries to Azure IoT Operations services for simplified development.
+- **Protocol Compiler (codegen)**: Provides contract guarantees between client and servers via RPC and Telemetry.
+- **High availability**: Building blocks for building highly available apps via state store, lease lock, and leader election clients.
+- **Payload formats**: Supports multiple serialization formats, built in.
 
-The SDKs provide many benefits compared to using the MQTT client directly:
-
-| Feature | Benefit |
-|-|-|
-| **Connectivity** | Maintain a secure connection to the MQTT Broker, including rotating server certificates and authentication keys. |
-| **Security** | Support SAT or X.509 certificate authentication with credential rotation. |
-| **Configuration** | Configure the MQTT Broker connection through the file system, environment, or connection string. |
-| **Services** | Provides client libraries to Azure IoT Operations services for simplified development. |
-| **Protocol Compiler (codegen)** | Provides contract guarantees between client and servers via RPC and Telemetry. |
-| **High availability** | Building blocks for building highly available apps via state store, lease lock, and leader election clients. |
-| **Payload formats** | Supports multiple serialization formats, built in. |
 
 ## Components of the SDKs
 
