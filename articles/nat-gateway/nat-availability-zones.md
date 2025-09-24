@@ -52,7 +52,7 @@ Standard SKU NAT Gateways must be associated with Standard SKU public IPs. The z
 |Standard | Single-zone | Standard Public IP must be zone-redundant or match same zone as NAT gateway |
 |Standard | No zone | Standard Public IP can be from a specific zone, no zone, or zone-redundant |
 
-## Standard NAT Gateway - Zonal vs Non-zonal
+## Standard NAT Gateway - Zonal vs Nonzonal
 
 You can place your Standard NAT gateway resource in a specific zone for a region. When Standard NAT gateway is deployed to a specific zone, it provides outbound connectivity to the internet explicitly from that zone. NAT gateway resources assigned to an availability zone can be attached to public IP addresses either from the same zone or that are zone redundant. Public IP addresses from a different availability zone or no zone aren't allowed.
 
