@@ -260,21 +260,21 @@
   - name: Change Tracking and Inventory using AMA
     items:
     - name: About Change tracking and inventory
-      href: change-tracking/overview-monitoring-agent.md
+      href: ../change-tracking/overview-monitoring-agent.md
     - name: Change tracking extension version
-      href: change-tracking/extension-version-details.md
+      href: ../change-tracking/extension-version-details.md
     - name: Supported regions
-      href: change-tracking/region-mappings-monitoring-agent.md
+      href: ../change-tracking/region-mappings-monitoring-agent.md
     - name: Enable change tracking and inventory
       items:
       - name: At scale using Azure portal - Machines blade (New)
-        href: change-tracking/enable-change-tracking-at-scale-machines-blade.md
+        href: ../change-tracking/enable-change-tracking-at-scale-machines-blade.md
       - name: At scale using Azure Policy
-        href: change-tracking/enable-change-tracking-at-scale-policy.md
+        href: ../change-tracking/enable-change-tracking-at-scale-policy.md
       - name: At scale using Azure portal - Virtual machines
-        href: change-tracking/enable-vms-monitoring-agent.md
+        href: ../change-tracking/enable-vms-monitoring-agent.md
     - name: Manage change tracking and inventory
-      href: change-tracking/manage-change-tracking-monitoring-agent.md
+      href: ../change-tracking/manage-change-tracking-monitoring-agent.md
   - name: Migration from Change Tracking and Inventory using LA to Change Tracking using AMA
     items:
     - name: Migration from Log Analytics to Azure Monitoring Agent version

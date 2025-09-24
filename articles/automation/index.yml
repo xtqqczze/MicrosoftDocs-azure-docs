@@ -31,7 +31,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Change tracking and inventory using Azure Monitoring Agent
-            url:  change-tracking/overview-monitoring-agent.md
+            url:  ../change-tracking/overview-monitoring-agent.md
 
   - title: Manage Updates for VMs
     linkLists:
