@@ -155,7 +155,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the `--version` parameter. 
     --zone 1 2 3
 ```
 
-# [**Zone redundant Standard v2 IPv6 prefix**](#tab/ipv6-zone-redundant)
+# [**Zone redundant Standard v2 IPv6 prefix**](#tab/ipv6-v2-zone-redundant)
 
 To create a Standard IPv6 public IP prefix, enter **IPv6** in the `--version` parameter. All Standardv2 IPv6 public IP prefixes must be zone-redundant, so enter **1 2 3** in the `--zone` parameter.
 
