@@ -110,7 +110,7 @@ You can experience outbound connectivity failure if your NAT gateway resource is
 
 ## Virtual network or subnet in a failed state with StandardV2 NAT gateway
 
-When associating a StandardV2 NAT Gateway to an empty virtual network or subnet created before May 2025 without any virtual machines, the virtual network or subnet will go into a failed state. To resolve this, create a virtual machine in the subnet or virtual network that the StandardV2 NAT gateway is attached and the virtual network will return to a successful state.
+Associating a StandardV2 NAT Gateway to an empty virtual network or subnet without any virtual machines may cause the virtual network or subnet to go into a failed state. To return the virtual network to a succeeded state, create a virtual machine in the subnet or virtual network that the StandardV2 NAT gateway is attached.
 
 ## Add or remove NAT gateway 
 
@@ -261,7 +261,7 @@ NAT gateway doesn't support public IP addresses with DDoS protection enabled. DD
 
 ### Virtual machine NICs still have default outbound IPs despite NAT gateway is present
 
-There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a VM/VMSS instance. 
+There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a virtual machine or virtual machine scale set instance. 
 
 In some cases, a default outbound IP is still assigned to virtual machines in a nonprivate subnet, even when an explicit outbound method—such as a NAT Gateway or a UDR directing traffic to an NVA/firewall—is configured. Default outbound IPs aren't used for egress unless those explicit methods are removed. Remove the default outbound IPs by making the subnet private and perform a stop and deallocate on the virtual machines.
 
