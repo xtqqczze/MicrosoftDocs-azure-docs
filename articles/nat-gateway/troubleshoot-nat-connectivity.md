@@ -201,11 +201,11 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 
 * If you have a NAT gateway attached at a subnet level which is taking priority over a different NAT gateway attached at the source virtual network level, determine which NAT gateway needs to be used to provide egress. The source virtual network level NAT gateway will be used for all existing and future subnets in the virtual network. The subnet level NAT gateway will be used only by the subnets it’s directly associated with. 
 
-* Test and resolve issues with VMs holding on to Public IP addresses from another outbound connectivity method, including Load balancer, instance-level public IPs or default outbound access by:
+* Test and resolve issues with VMs holding on to Public IP addresses from another outbound connectivity method, including Load balancer, instance-level public IPs, or default outbound access by:
 
   * Ensure you establish a new connection and that existing connections aren't being reused in the OS or that the browser is caching the connections. For example, when using curl in PowerShell, make sure to specify the -DisableKeepalive parameter to force a new connection. If you're using a browser, connections can also be pooled.
 
-  * Reboot the virtual machine (perform a STOP / START) in a subnet configured to NAT gateway. If a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all new connections begin using the NAT gateway resource's IP address or addresses. Keep in mind that if the VM has any active connections at the time that you reboot, those connections will be dropped.
+  * Reboot the virtual machine (perform a STOP / START) in a subnet configured to NAT gateway. If a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all new connections begin using the NAT gateway resource's IP address or addresses. Keep in mind that if the VM has any active connections at the time that you reboot, those connections are dropped.
 
   * If your investigation is inconclusive, open a support case to [further troubleshoot](#more-troubleshooting-guidance).
 
@@ -292,7 +292,7 @@ To prevent possible passive FTP connection failures, do the following steps:
 2. Make sure that the passive port range from your NAT gateway is allowed to pass any firewalls at the destination endpoint.
 
 >[!NOTE]
->Reducing the amount of public IP addresses on your NAT gateway reduces the SNAT port inventory available for making outbound connections and may increase the risk of SNAT port exhaustion. Consider your SNAT connectivity needs before removing public IP addresses from NAT gateway.
+>Reducing the number of public IP addresses on your NAT gateway reduces the SNAT port inventory available for making outbound connections and may increase the risk of SNAT port exhaustion. Consider your SNAT connectivity needs before removing public IP addresses from NAT gateway.
 >It is not recommended to change the FTP server settings to accept control and data plane traffic from different source IP addresses.
 
 ## Outbound connections on port 25 are blocked
