@@ -105,7 +105,7 @@ A single NAT gateway can scale up to 16 IP addresses. Each NAT gateway public IP
 
 NAT Gateway has two SKUs – Standard and StandardV2. To ensure that your architecture is resilient to zonal failures, deploy StandardV2 NAT gateway as it is a zone-redundant resource. When an [availability zone](../reliability/availability-zones-overview.md) in a region goes down, new connections flow from the remaining healthy zones.
 
-:::image type="content" source="./media/nat-overview/zone-redundant-standard-2.png" alt-text="Diagram of StandardV2 and Standard NAT Gateway comparison.":::
+:::image type="content" source="./media/nat-overview/zone-redundant-standard-2.png" alt-text="Diagram of multi-zone deployment of StandardV2 NAT Gateway.":::
 
 *Figure: Multi-zone deployment of StandardV2 NAT Gateway.* 
 
@@ -113,7 +113,7 @@ Standard NAT gateway is a zonal resource, which means it can be deployed and ope
 
 For more information about availability zones and Azure NAT Gateway, see [Availability zones design considerations](/azure/nat-gateway/nat-availability-zones#design-considerations).
 
-:::image type="content" source="./media/nat-overview/zonal-standard-1.png" alt-text="Diagram of StandardV2 and Standard NAT Gateway comparison.":::
+:::image type="content" source="./media/nat-overview/zonal-standard-1.png" alt-text="Diagram of single zone deployment of Standard NAT Gateway.":::
 
 *Figure: Single zone deployment of Standard NAT Gateway.*
 
