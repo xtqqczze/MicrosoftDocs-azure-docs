@@ -121,7 +121,7 @@ After a NAT gateway is deployed, the zone selection can't be changed.
 
 ## Protocols
 
-NAT Gateway interacts with IP and IP transport headers of UDP and TCP flows. NAT Gateway is agnostic to application layer payloads. Other IP protocols, such as ICMP aren't supported.
+NAT Gateway interacts with IP and IP transport headers of UDP and TCP flows. NAT Gateway is agnostic to application layer payloads. Other IP protocols, such as ICMP, aren't supported.
 
 ## TCP reset
 
