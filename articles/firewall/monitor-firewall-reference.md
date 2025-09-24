@@ -138,6 +138,27 @@ These logs provide valuable insights, such as:
 - Whether the Azure Firewall cache was used
 
 **Enabling Additional DNS Proxy Logs**
+
+Before setting up Additional DNS Proxy Logs, you must first enable the feature using Azure PowerShell:
+
+1. Enable logs (pre-requisite) - Run the following commands in Azure PowerShell, replacing placeholders with your values.
+
+```powershell
+Set-AzContext -SubscriptionName <SubscriptionName>
+$firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
+$firewall.EnableDnstapLogging = $true
+Set-AzFirewall -AzureFirewall $firewall
+```
+
+2. Disable logs (Optional) - To disable the logs, use the same previous Azure PowerShell command and set the value to *False*.
+
+```powershell
+Set-AzContext -SubscriptionName <SubscriptionName>
+$firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
+$firewall.EnableDnstapLogging = $false
+Set-AzFirewall -AzureFirewall $firewall
+```
+**Configuring DNS Proxy and Additional DNS Proxy Logs**
 1. Enable DNS proxy:
     1. Navigate to Azure Firewall DNS settings and Enable DNS Proxy.
     2. Configure a custom DNS server or use the default Azure DNS.
