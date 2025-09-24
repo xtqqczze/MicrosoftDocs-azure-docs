@@ -105,7 +105,7 @@ Follow these steps to create a public IPv4 address with a Standard v2 SKU named 
     | DNS name label                 | Leave the value blank.             |
     | Domain name label scope (preview) | Leave the default **None**.             |
 
-   :::image type="content" source="./media/create-public-ip-portal/create-standardv2-ip.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Standardv2 SKU.":::
+   :::image type="content" source="./media/create-public-ip-portal/create-standard-ip-v2.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Standardv2 SKU.":::
 
 4. Select **Review + create**. After validation succeeds, select **Create**.
 
