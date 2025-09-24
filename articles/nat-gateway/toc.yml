@@ -33,6 +33,8 @@ items:
         href: tutorial-migrate-ilip-nat.md
       - name: Migrate from Standard to StandardV2 NAT Gateway - Guidance
         href: nat-gateway-v2-migrate.md
+      - name: Use deployment templates to create StandardV2 NAT Gateway
+        href: quickstart-create-nat-gateway-v2-templates.md
   - name: Secure
     items:
       - name: NAT gateway security baseline
