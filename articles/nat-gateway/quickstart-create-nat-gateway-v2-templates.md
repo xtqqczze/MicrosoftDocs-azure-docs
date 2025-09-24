@@ -1,9 +1,8 @@
 ---
 title: 'Quickstart: Create a Standard V2 Azure NAT Gateway - Deployment templates'
 description: This quickstart shows how to create a NAT gateway by using an Azure Resource Manager template (ARM template) amd Bicep template.
-services: nat-gateway
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: quickstart
 ms.date: 09/24/2025
 ms.author: allensu
@@ -275,25 +274,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created a:
-
-- NAT gateway resource
-- Virtual network
-- Test virtual machine
-
-The virtual machine was created to test the NAT gateway. You verified that the outbound connection uses the public IP address of the NAT gateway.
-
-For more information about NAT gateway, continue to:
-
+For more information on Azure NAT Gateway, see:
 > [!div class="nextstepaction"]
-> [What is Azure NAT Gateway?](nat-overview.md)
-> [Designing virtual networks with NAT gateway resources](nat-gateway-resource.md)
-> [Tutorial: Create and validate a NAT gateway - Azure portal](tutorial-create-validate-nat-gateway-portal.md)
-
-## Related links
-
-- [Azure Resource Manager template reference](/azure/templates/microsoft.network/natgateways)
-- [Azure NAT Gateway overview](nat-overview.md)
-- [Azure NAT Gateway resource](nat-gateway-resource.md)
-- [NAT Gateway metrics and alerts](nat-metrics.md)
-- [Troubleshoot Azure NAT Gateway](troubleshoot-nat.md)
+> [Azure NAT Gateway overview](nat-overview.md)
+> [Azure NAT Gateway resource](nat-gateway-resource.md)
