@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a Standard V2 Azure NAT Gateway - Deployment templates'
-description: This quickstart shows how to create a NAT gateway by using an Azure Resource Manager template (ARM template) amd Bicep template.
+description: This quickstart shows how to create a NAT gateway by using an Azure Resource Manager template (ARM template) and Bicep template.
 author: asudbring
 ms.service: azure-nat-gateway
 ms.topic: quickstart
