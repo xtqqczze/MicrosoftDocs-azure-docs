@@ -261,7 +261,7 @@ NAT gateway doesn't support public IP addresses with DDoS protection enabled. DD
 
 ### Virtual machine NICs still have default outbound IPs despite NAT gateway is present
 
-There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a VM/VMSS instance. 
+There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a virtual machine or virtual machine scale set instance. 
 
 In some cases, a default outbound IP is still assigned to virtual machines in a nonprivate subnet, even when an explicit outbound method—such as a NAT Gateway or a UDR directing traffic to an NVA/firewall—is configured. Default outbound IPs aren't used for egress unless those explicit methods are removed. Remove the default outbound IPs by making the subnet private and perform a stop and deallocate on the virtual machines.
 
