@@ -7,7 +7,9 @@ ms.author: dobett
 ms.date: 03/05/2024
 ms.topic: how-to
 ms.service: azure-iot-central
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Export IoT data to Service Bus
@@ -34,7 +36,7 @@ Service Bus destinations let you configure the connection with a *connection str
 
 # [Managed identity](#tab/managed-identity)
 
-This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a managed identity.
 
 If you don't have an existing Service Bus namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Service Bus namespace, and queue. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your Service Bus queue:
 

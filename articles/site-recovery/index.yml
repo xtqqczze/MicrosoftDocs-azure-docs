@@ -10,9 +10,9 @@ metadata:
   ms.service: azure-site-recovery
   ms.topic: landing-page
 
-  author: ankitaduttaMSFT
-  ms.author: ankitadutta
-  ms.date: 04/04/2024
+  author: jyothisuri
+  ms.author: jsuri
+  ms.date: 08/19/2025
 
 landingContent:
   - title: About Site Recovery
@@ -130,4 +130,13 @@ landingContent:
             url: /answers/topics/azure-site-recovery.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure
-  
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Multiregion Business Continuity and Disaster Recovery
+            url: /azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr
+          - text: Designed to minimize VM downtime in Azure VMware Solution during disasters
+            url: /azure/well-architected/azure-vmware/operations
+          - text: Azure Local stretched clusters for disaster recovery
+            url: /azure/architecture/hybrid/azure-local-dr

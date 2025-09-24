@@ -78,31 +78,47 @@ Matrix size = 5 origins x 5 destinations = 25
 The Route Matrix POST request:
 
 ```html
-https://atlas.microsoft.com/route/matrix/json?api-version=1.0&routeType=shortest
+https://atlas.microsoft.com/route/matrix?api-version=2025-01-01&routeType=shortest&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 ```json
 {
-  "origins": { 
-    "type": "MultiPoint", 
-    "coordinates": [ 
-      [4.85106, 52.36006], //restaurant or depot 
-      [4.85056, 52.36187], //delivery location 1 
-      [4.85003, 52.36241], //delivery location 2 
-      [4.42937, 52.50931], //delivery location 3 
-      [4.42940, 52.50843]  //delivery location 4 
-    ] 
-  }, 
-  "destinations": { 
-    "type": "MultiPoint", 
-      [4.85106, 52.36006], //restaurant or depot 
-      [4.85056, 52.36187], //delivery location 1 
-      [4.85003, 52.36241], //delivery location 2 
-      [4.42937, 52.50931], //delivery location 3 
-      [4.42940, 52.50843]  //delivery location 4 
-    ] 
-  } 
-} 
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+            [4.85106, 52.36006], //restaurant or depot 
+            [4.85056, 52.36187], //delivery location 1 
+            [4.85003, 52.36241], //delivery location 2 
+            [4.42937, 52.50931], //delivery location 3 
+            [4.42940, 52.50843]  //delivery location 4 
+        ]
+      },
+      "properties": {
+        "pointType": "origins"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+            [4.85106, 52.36006], //restaurant or depot 
+            [4.85056, 52.36187], //delivery location 1 
+            [4.85003, 52.36241], //delivery location 2 
+            [4.42937, 52.50931], //delivery location 3 
+            [4.42940, 52.50843]  //delivery location 4 
+        ]
+      },
+      "properties": {
+        "pointType": "destinations"
+      }
+    }
+  ]
+}
 ```
 
 The Route Matrix response returns a 5x5 multi-dimensional array where each row represents the origins and columns represent the destinations. Use the field `travelTimeInSeconds` to get the time cost for each location pair. The time unit should be consistent across the solution. Once the preprocessing stage is complete, the order, depot, fleet info and the cost matrix, are sent over and imported to the cuOpt Server via API calls.
@@ -366,7 +382,7 @@ After the locations in the cuOpt response are mapped to the corresponding coordi
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps code samples]: https://samples.azuremaps.com/
-[Azure Maps Route Directions API]: /rest/api/maps/route/post-directions
+[Azure Maps Route Directions API]: /rest/api/maps/route/post-route-directions
 [Azure Maps Route Matrix API]: /rest/api/maps/route/post-route-matrix
 [Azure Maps]: /azure/azure-maps/
 [Azure Marketplace]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.nvidia-ai-enterprise?tab=Overview
@@ -375,6 +391,6 @@ After the locations in the cuOpt response are mapped to the corresponding coordi
 [List of cuOpt supported features]: https://docs.nvidia.com/cuopt/user-guide/index.html
 [Multi Itinerary Optimization]: https://samples.azuremaps.com/rest-services/mio
 [NVIDIA cuOpt]: https://www.nvidia.com/en-us/ai-data-science/products/cuopt/
-[Route Directions]: /rest/api/maps/route/post-directions
+[Route Directions]: /rest/api/maps/route/post-route-directions
 [Route Matrix]: /rest/api/maps/route/post-route-matrix
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
