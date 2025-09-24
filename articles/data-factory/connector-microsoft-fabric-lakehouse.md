@@ -35,8 +35,8 @@ This Microsoft Fabric Lakehouse connector is supported for the following capabil
 
 *&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
-This connector supports connecting to Microsoft Fabric Lakehouse in the workspace enabling a private link. You can set up and use a private link in Microsoft Fabric by referring to this [article](/fabric/security/security-workspace-level-private-links-set-up).
-
+This connector supports connecting to Microsoft Fabric Lakehouse in the workspace enabling a private link. You can set up and use a private link in Microsoft Fabric by referring to this [article](/fabric/security/security-workspace-level-private-links-set-up). This feature requires self-hosted integration runtime version 5.58.9377.1 or above.
+ 
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
