@@ -275,5 +275,5 @@ az group delete --name myResourceGroup
 
 For more information on Azure NAT Gateway, see:
 > [!div class="nextstepaction"]
-> [Azure NAT Gateway overview](nat-overview.md)
-> [Azure NAT Gateway resource](nat-gateway-resource.md)
+> - [Azure NAT Gateway overview](nat-overview.md)
+> - [Azure NAT Gateway resource](nat-gateway-resource.md)
