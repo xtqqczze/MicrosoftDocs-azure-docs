@@ -34,11 +34,11 @@ The SDKs are open source and available on GitHub:
 > Azure IoT Operations SDKs is currently in PREVIEW.
 > The assets in the [Azure IoT Operations SDKs GitHub repository](https://github.com/Azure/iot-operations-sdks) are available for early access and feedback purposes.
 
-## Goals and benefits of the SDKs
+## Benefits of the SDKs
 
-The Azure IoT Operations SDKs provide an application framework that abstracts MQTT concepts, exposes a clean API surface, and supports the *Protocol Compiler (codegen)* to generate client and server code from [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) models. Use the SDKs to build highly available, secure, low latency edge applications that interact with Azure IoT Operations to perform operations such as **asset discovery**, **protocol translation** and **data transformation**.
+Compared to using an MQTT client directly, the SDKs provide an application framework that abstracts MQTT concepts, exposes a clean API surface, and supports the *Protocol Compiler (codegen)* to generate client and server code from [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) models. The SDKs can be used to build highly available applications at the edge, that interact with Azure IoT Operations to perform operations such as **asset discovery**, **protocol translation** and **data transformation**.
 
-### Key benefits
+The key benefits of using the SDKs include:
 
 - **Connectivity**: Maintain a secure connection to the MQTT Broker, including rotating server certificates and authentication keys.
 - **Security**: Support SAT or X.509 certificate authentication with credential rotation.
