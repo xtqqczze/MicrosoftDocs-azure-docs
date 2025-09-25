@@ -1,6 +1,6 @@
 ---
-title: Azure Automation Change Tracking and Inventory overview using Azure Monitoring Agent
-description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
+title: Azure Change Tracking and Inventory overview using Azure Monitoring Agent
+description: Learn how to the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 03/13/2025
@@ -11,10 +11,10 @@ author: jasminemehndir
 ms.custom: sfi-image-nochange
 ---
 
-# Overview of change tracking and inventory using Azure Monitoring Agent
+# Overview of change tracking and inventory with Azure Monitoring Agent
 
 > [!Important]
-> - Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and will not be supported any further. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md)
+> - Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and will not be supported any further. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](../automation/guidance-migration-log-analytics-monitoring-agent.md)
 > - We recommend that you use Change Tracking with Azure Monitoring Agent with the Change tracking extension version 2.20.0.0 (or above) to access the GA version of this service.
 
 This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
@@ -74,7 +74,7 @@ The following table shows the tracked item limits per machine for change trackin
 
 Change Tracking and Inventory is supported on all operating systems that meet Azure Monitor agent requirements. See [supported operating systems](/azure/azure-monitor/agents/agents-overview#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
 
-To understand client requirements for TLS, see [TLS for Azure Automation](../automation-managing-data.md#tls-for-azure-automation).
+To understand client requirements for TLS, see [TLS for Azure Automation](../automation/automation-managing-data.md#tls-for-azure-automation).
 
 
 ## Enable Change Tracking and Inventory
@@ -83,7 +83,7 @@ You can enable Change Tracking and Inventory in the following ways:
 
 - Manually for non-Azure Arc-enabled machines, Refer to the Initiative *Enable Change Tracking and Inventory for Arc-enabled virtual machines* in **Policy > Definitions > Select Category = ChangeTrackingAndInventory**. To enable Change Tracking and Inventory at scale, use the **DINE Policy** based solution. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent (Preview)](enable-vms-monitoring-agent.md).
 
-- For a single Azure VM from the [Virtual machine page](enable-from-vm.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
+- For a single Azure VM from the [Virtual machine page](../automation/enable-from-vm.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
 
 - For [multiple Azure VMs](enable-vms-monitoring-agent.md) by selecting them from the Virtual machines page in the Azure portal.
 
@@ -93,7 +93,7 @@ For tracking changes in files on both Windows and Linux, Change Tracking and Inv
 
 ## Tracking file content changes
 
-Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. [Learn more](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
+Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. [Learn more](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
 
 ![Screenshot of viewing changes in a Windows or Linux file.](./media/overview/view-file-changes.png)
 

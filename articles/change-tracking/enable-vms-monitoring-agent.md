@@ -1,6 +1,6 @@
 ---
-title: Enable Azure Automation Change Tracking for single machine and multiple machines from the portal.
-description: This article tells how to enable the Change Tracking feature for single machine and multiple machines at scale from the Azure portal.
+title: Enable Azure Change Tracking for single machine and multiple machines from the portal.
+description: Learn how to enable the Change Tracking feature for single machine and multiple machines at scale from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 04/03/2025
@@ -12,12 +12,12 @@ zone_pivot_groups: enable-change-tracking-inventory-using-monitoring-agent
 ms.custom: sfi-image-nochange
 ---
 
-# Enable Change Tracking and Inventory using Azure Monitoring Agent
+# Enable Change Tracking and Inventory with Azure Monitoring Agent
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: File Content Changes
 
 
-This article describes how you can enable [Change Tracking and Inventory](overview.md) for single and multiple Azure Virtual Machines (VMs) from the Azure portal. 
+This article describes how you can enable [Change Tracking and Inventory](overview-monitoring-agent.md) for single and multiple Azure Virtual Machines (VMs) from the Azure portal. 
 
 ## Prerequisites
 
@@ -140,7 +140,7 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
 
 ### Create data collection rule
 
-1. Download [CtDcrCreation.json](change-tracking-data-collection-rule-creation.md) file on your machine.
+1. Download [CtDcrCreation.json](../automation/change-tracking-data-collection-rule-creation.md) file on your machine.
 1. Go to Azure portal and in the search, enter *Deploy a custom template*.
 1. In the **Custom deployment** page > **select a template**, select **Build your own template in the editor**.
    :::image type="content" source="media/enable-vms-monitoring-agent/build-template.png" alt-text="Screenshot to get started with building a template.":::
@@ -152,7 +152,7 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
    
    >[!NOTE]
    >- Ensure that the name of your Data Collection Rule is unique in that resource group, else the deployment will overwrite the existing Data Collection Rule.
-   >- The Log Analytics Workspace Resource Id specifies the Azure resource ID of the Log Analytics workspace used to store change tracking data. Ensure that location of workspace is from the [Change tracking supported regions](../how-to/region-mappings.md)
+   >- The Log Analytics Workspace Resource Id specifies the Azure resource ID of the Log Analytics workspace used to store change tracking data. Ensure that location of workspace is from the [Change tracking supported regions](../automation/how-to/region-mappings.md)
 
 1. Select **Review+create** > **Create** to initiate the deployment of *CtDcrCreation*.
 1. After the deployment is complete, select **CtDcr-Deployment** to see the DCR Name. Use the **Resource ID** of the newly created Data Collection Rule for Change tracking and inventory deployment through policy.
@@ -165,4 +165,4 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
 ## Next steps
 
 - For details of working with the feature, see [Manage Change Tracking](../change-tracking/manage-change-tracking-monitoring-agent.md).
-- To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](../troubleshoot/change-tracking.md).
+- To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](../automation/troubleshoot/change-tracking.md).
