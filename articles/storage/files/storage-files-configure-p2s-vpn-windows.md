@@ -6,7 +6,9 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/25/2025
 ms.author: kendownie
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: "As an IT administrator, I want to configure a point-to-site VPN on Windows for Azure file shares, so that I can securely access and mount file shares from on-premises without opening up port 445."
 ---
 
