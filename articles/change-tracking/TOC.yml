@@ -1,0 +1,22 @@
+- name: Azure Change Tracking & Inventory User Documentation
+  href: index.yml
+- name: Overview
+  href: overview-monitoring-agent.md
+- name: Get Started  
+  items:
+    - name: What's new
+      href: extension-version-details.md
+    - name: Supported Regions and mappings
+      href: region-mappings-monitoring-agent.md
+- name: Enable Change Tracking
+  items:
+    - name: Enable from Machines Pane
+      href: enable-change-tracking-at-scale-machines-blade.md
+    - name: Enable using Azure Policy
+      href: enable-change-tracking-at-scale-policy.md
+    - name: Enable from Azure portal
+      href: enable-vms-monitoring-agent.md
+- name: Manage Change Tracking
+  items:
+    - name: Manage Change Tracking
+      href: manage-change-tracking-monitoring-agent.md
