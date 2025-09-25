@@ -83,7 +83,7 @@ You can enable Change Tracking and Inventory in the following ways:
 
 - Manually for non-Azure Arc-enabled machines, Refer to the Initiative *Enable Change Tracking and Inventory for Arc-enabled virtual machines* in **Policy > Definitions > Select Category = ChangeTrackingAndInventory**. To enable Change Tracking and Inventory at scale, use the **DINE Policy** based solution. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent (Preview)](enable-vms-monitoring-agent.md).
 
-- For a single Azure VM from the [Virtual machine page](../automation/enable-vms-monitoring-agent.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
+- For a single Azure VM from the [Virtual machine page](../automation/change-tracking/enable-vms-monitoring-agent.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
 
 - For [multiple Azure VMs](enable-vms-monitoring-agent.md) by selecting them from the Virtual machines page in the Azure portal.
 
