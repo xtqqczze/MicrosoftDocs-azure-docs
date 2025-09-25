@@ -8,6 +8,10 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - horz-monitor
+  - subject-monitoring
+  - sfi-image-nochange
 ---
 
 # Monitor Azure IoT Hub Device Provisioning Service

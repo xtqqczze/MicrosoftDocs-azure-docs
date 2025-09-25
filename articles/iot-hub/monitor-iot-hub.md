@@ -7,6 +7,10 @@ ms.topic: concept-article
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
+ms.custom:
+  - horz-monitor
+  - subject-monitoring
+  - sfi-image-nochange
 ---
 
 # Monitor Azure IoT Hub
