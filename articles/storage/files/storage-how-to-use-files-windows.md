@@ -4,11 +4,9 @@ description: Learn how to mount an SMB Azure file shares on Windows and Windows 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/29/2025
+ms.date: 09/25/2025
 ms.author: kendownie
-ai-usage: ai-assisted
 ms.custom:
-  - ai-video-demo
   - sfi-image-nochange
 # Customer intent: "As an IT professional managing cloud storage, I want to mount an Azure file share on Windows, so that I can easily access and manage files stored in the cloud as if they were on a local drive."
 ---
