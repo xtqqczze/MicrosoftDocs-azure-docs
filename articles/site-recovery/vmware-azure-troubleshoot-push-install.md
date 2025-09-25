@@ -5,7 +5,7 @@ author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
 ms.author: jsuri
-ms.date: 09/24/2025
+ms.date: 09/25/2025
 ms.custom: sfi-image-nochange
 # Customer intent: "As a system administrator, I want to troubleshoot and resolve Mobility service installation errors during disaster recovery setup, so that I can ensure successful replication and recovery of virtual machines."
 ---
@@ -16,7 +16,7 @@ The Mobility service installation is a key step to enable replication. The succe
 
 * [Credential/Privilege errors](#credentials-check-errorid-95107--95108)
 * [Login failures](#login-failures-errorid-95519-95520-95521-95522)
-* [Connectivity errors](#connectivity-failure-errorid-95117--97118)
+* [Connectivity errors](#connectivity-failures)
 * [File and printer sharing errors](#file-and-printer-sharing-services-check-errorid-95105--95106)
 * [Windows Management Instrumentation (WMI) failures](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
 * [Unsupported operating systems](#unsupported-operating-systems)
