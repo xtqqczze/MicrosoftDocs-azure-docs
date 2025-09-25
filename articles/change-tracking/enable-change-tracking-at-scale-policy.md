@@ -1,6 +1,6 @@
 ---
-title: Enable Change Tracking and Inventory at Scale with Azure Policy
-description: Learn how to use Azure Policy to enable change tracking and inventory at scale for Windows and Linux VMs, including Arc-enabled VMs and VM Scale Sets.
+title: Enable Change Tracking and Inventory at Scale using Azure Policy
+description: Learn how to use Azure Policy to enable change tracking and inventory at scale for Windows and Linux VMs, including the Arc-enabled VMs and VM Scale Sets.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 04/03/2025
@@ -10,7 +10,7 @@ author: jasminemehndir
 ms.author: v-jasmineme
 ---
 
-# Enable Change Tracking at scale using policy
+# Enable Change Tracking at scale using the policy
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 

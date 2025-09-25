@@ -1,6 +1,6 @@
 ---
-title: Enable Change Tracking and Inventory at Scale Using Azure Portal - Machines Blade
-description: Learn how to enable change tracking and inventory at scale for Windows and Linux VMs using the Machines blade in the Azure portal.
+title: Enable Change Tracking and Inventory at Scale with Azure Portal - Machines Blade
+description: This article describes how to enable change tracking and inventory at scale for Windows and Linux VMs using the Machines blade in the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 04/03/2025
@@ -10,7 +10,7 @@ author: jasminemehndir
 ms.author: v-jasmineme
 ---
 
-# Enable Change Tracking at scale using Azure portal - Machines blade
+# Enable Change Tracking at scale with Azure portal - Machines blade
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 

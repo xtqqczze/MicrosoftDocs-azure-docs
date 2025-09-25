@@ -1,6 +1,6 @@
 ---
-title: Azure Automation Change Tracking extension version details and known issues.
-description: This article describes the Change Tracking extension version details and known issues.
+title: Azure Change Tracking extension version details and known issues.
+description: This article describes the Change Tracking extension version details and the known issues.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 03/21/2025
@@ -10,7 +10,7 @@ ms.author: v-jasmineme
 author: jasminemehndir
 ---
 
-# Change tracking and inventory extension version details and known issues
+# Change tracking and inventory extension version details and the known issues
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: Windows Services & Linux Daemons
 

@@ -140,7 +140,7 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
 
 ### Create data collection rule
 
-1. Download [CtDcrCreation.json](../automation/change-tracking-data-collection-rule-creation.md) file on your machine.
+1. Download [CtDcrCreation.json](../automation/change-tracking/change-tracking-data-collection-rule-creation.md) file on your machine.
 1. Go to Azure portal and in the search, enter *Deploy a custom template*.
 1. In the **Custom deployment** page > **select a template**, select **Build your own template in the editor**.
    :::image type="content" source="media/enable-vms-monitoring-agent/build-template.png" alt-text="Screenshot to get started with building a template.":::

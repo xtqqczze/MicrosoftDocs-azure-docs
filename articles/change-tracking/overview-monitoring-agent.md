@@ -14,7 +14,7 @@ ms.custom: sfi-image-nochange
 # Overview of change tracking and inventory with Azure Monitoring Agent
 
 > [!Important]
-> - Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and will not be supported any further. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](../automation/guidance-migration-log-analytics-monitoring-agent.md)
+> - Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and will not be supported any further. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](../automation/change-tracking/guidance-migration-log-analytics-monitoring-agent.md)
 > - We recommend that you use Change Tracking with Azure Monitoring Agent with the Change tracking extension version 2.20.0.0 (or above) to access the GA version of this service.
 
 This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
@@ -83,7 +83,7 @@ You can enable Change Tracking and Inventory in the following ways:
 
 - Manually for non-Azure Arc-enabled machines, Refer to the Initiative *Enable Change Tracking and Inventory for Arc-enabled virtual machines* in **Policy > Definitions > Select Category = ChangeTrackingAndInventory**. To enable Change Tracking and Inventory at scale, use the **DINE Policy** based solution. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent (Preview)](enable-vms-monitoring-agent.md).
 
-- For a single Azure VM from the [Virtual machine page](../automation/enable-from-vm.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
+- For a single Azure VM from the [Virtual machine page](../automation/enable-vms-monitoring-agent.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
 
 - For [multiple Azure VMs](enable-vms-monitoring-agent.md) by selecting them from the Virtual machines page in the Azure portal.
 
