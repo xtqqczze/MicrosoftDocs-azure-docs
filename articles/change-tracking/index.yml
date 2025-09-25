@@ -28,7 +28,7 @@ landingContent:
   # Card  
   - title: Enable Change Tracking
     linkLists:
-      - linkListType: how-to
+      - linkListType: how-to-guide
         links:
           - text: Enable from Machines Pane
             url: enable-change-tracking-at-scale-machines-blade.md
@@ -40,7 +40,7 @@ landingContent:
   # Card  
   - title: Manage Change Tracking
     linkLists:
-      - linkListType: how-to
+      - linkListType: how-to-guide
         links:
           - text: Manage Change Tracking
             url: manage-change-tracking-monitoring-agent.md
