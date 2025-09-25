@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 08/29/2025
 ms.author: kendownie
+ai-usage: ai-assisted
 ms.custom:
   - ai-video-demo
   - sfi-image-nochange
