@@ -12,6 +12,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The [Durable Functions](durable-functions-overview.md) extension introduces three trigger bindings that control the execution of orchestrator, entity, and activity functions. It also introduces an output binding that acts as a client for the Durable Functions runtime.
 
+This article discusses the use of these four bindings and provides code samples. It also provides information about the Durable Functions configuration properties in *host.json*, the metadata file that contains settings that affect all functions in a function app.
+
 Make sure to choose your Durable Functions development language at the top of the article.
 
 ::: zone pivot="programming-language-python" 
@@ -21,7 +23,7 @@ Make sure to choose your Durable Functions development language at the top of th
 
 ## Python v2 programming model
 
-Durable Functions is supported in the [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the Python Package Index (PyPI) package `azure-functions-durable`, version `1.2.2` or a later version. You must also check `host.json` to make sure your app references [Extension Bundles](../extension-bundles.md) version 4.x. 
+Durable Functions is supported in the [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the Python Package Index (PyPI) package `azure-functions-durable`, version `1.2.2` or a later version. You must also check *host.json* to make sure your app references [Extension Bundles](../extension-bundles.md) version 4.x. 
 
 You can provide feedback and suggestions in the [Durable Functions SDK for Python repo](https://github.com/Azure/azure-functions-durable-python/issues).
 ::: zone-end
@@ -37,7 +39,7 @@ When you develop functions in .NET, you use the [OrchestrationTriggerAttribute](
 For Java, you use the `@DurableOrchestrationTrigger` annotation to configure the orchestration trigger.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell" 
-When you write orchestrator functions, the orchestration trigger is defined by the following JSON object in the `bindings` array of the *function.json* file:
+When you write orchestrator functions, you define the orchestration trigger by using the following JSON object in the `bindings` array of the *function.json* file:
 
 ```json
 {
@@ -51,7 +53,7 @@ When you write orchestrator functions, the orchestration trigger is defined by t
 The `orchestration` value is the name of the orchestration that clients must use when they want to start new instances of the orchestrator function. This property is optional. If you don't specify it, the name of the function is used.
 ::: zone-end
 ::: zone pivot="programming-language-python"  
-Azure Functions supports two programming models for Python. The way that you define an orchestration trigger depends on the programming model that you select.
+Azure Functions supports two programming models for Python. The way that you define an orchestration trigger depends on the programming model that you use.
 
 ### [v2](#tab/python-v2)
 When you use the Python v2 programming model, you can define an orchestration trigger by using the `orchestration_trigger` decorator directly in your Python function code. 
@@ -59,7 +61,7 @@ When you use the Python v2 programming model, you can define an orchestration tr
 In the v2 model, you access the Durable Functions triggers and bindings from an instance of `DFApp`. You can use this subclass of `FunctionApp` to export decorators that are specific to Durable Functions. 
 
 ### [v1](#tab/python-v1)
-When you write orchestrator functions in the Python v1 programming model, the orchestration trigger is defined by the following JSON object in the `bindings` array of the *function.json* file:
+When you write orchestrator functions in the Python v1 programming model, you define the orchestration trigger by using the following JSON object in the `bindings` array of the *function.json* file:
 
 ```json
 {
@@ -98,7 +100,7 @@ Here are some notes about the orchestration trigger:
 <a name="python-trigger-usage"></a> 
 ### Trigger usage
 
-The orchestration trigger binding supports both inputs and outputs.
+The orchestration trigger binding supports both inputs and outputs. Here are some notes about input and output handling:
 
 * **Inputs**: You can invoke orchestration triggers with inputs, which are accessed through the context input object. All inputs must be JSON-serializable.
 * **Outputs**: Orchestration triggers support both output and input values. The return value of the function is used to assign the output value. The return value must be JSON-serializable.
@@ -271,7 +273,7 @@ You use the [ActivityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.exten
 You use the `@DurableActivityTrigger` annotation to configure the activity trigger.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell" 
-The activity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+To define the activity trigger, you use the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -288,10 +290,10 @@ The `activity` value is the name of the activity. This value is the name that or
 The way that you define an activity trigger depends on the programming model that you use.
 
 ### [v2](#tab/python-v2)
-Using the `activity_trigger` decorator directly in your Python function code. 
+You can define an activity trigger by using the `activity_trigger` decorator directly in your Python function code. 
 
 ### [v1](#tab/python-v1)
-The activity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+To define the activity trigger, you use the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -320,7 +322,7 @@ Here are some notes about the activity trigger:
 
 ### Trigger usage
 
-The activity trigger binding supports both inputs and outputs, just like the orchestration trigger.
+The activity trigger binding supports both inputs and outputs, just like the orchestration trigger. Here are some notes about input and output handling:
 
 * **Inputs**: Activity triggers can be invoked with inputs from an orchestrator function. All inputs must be JSON-serializable.
 * **Outputs**: Activity functions support both output and input values. The return value of the function is used to assign the output value and must be JSON-serializable.
@@ -474,7 +476,7 @@ You can bind to an orchestration client by using the [DurableClientAttribute](/d
 You can bind to an orchestration client by using the `@DurableClientInput` annotation.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell" 
-The durable client trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+To define the durable client trigger, you use the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -496,10 +498,10 @@ The durable client trigger is defined by the following JSON object in the `bindi
 The way that you define a durable client trigger depends on the programming model that you use.
 
 ### [v2](#tab/python-v2)
-Using the `durable_client_input` decorator directly in your Python function code. 
+You can define a durable client trigger by using the `durable_client_input` decorator directly in your Python function code. 
 
 ### [v1](#tab/python-v1)
-The durable client trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+To define the durable client trigger, you use the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -523,7 +525,7 @@ The durable client trigger is defined by the following JSON object in the `bindi
 ### Client usage
 
 ::: zone pivot="programming-language-csharp"
-You typically bind to [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient) ([DurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclient?view=azure-dotnet-legacy&preserve-view=true) in Durable Functions v1.x), which gives you full access to all orchestration client APIs supported by Durable Functions. 
+You typically bind to an implementation of [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient) ([DurableOrchestrationClient](/previous-versions/dotnet/api/microsoft.azure.webjobs.durableorchestrationclient) in Durable Functions v1.x), which gives you full access to all orchestration client APIs that Durable Functions supports. 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 You typically bind to the `DurableClientContext` class. 
@@ -631,7 +633,7 @@ async def durable_trigger(req: func.HttpRequest, client):
 
 #### [v1](#tab/python-v1)
 
-**`function.json`**
+**function.json**
 ```json
 {
   "bindings": [
@@ -650,7 +652,7 @@ async def durable_trigger(req: func.HttpRequest, client):
 }
 ```
 
-**`__init__.py`**
+**__init__.py**
 ```python
 import json
 import azure.functions as func
@@ -721,7 +723,7 @@ You use the [EntityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensi
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell" 
-The entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+To define the entity trigger, you use the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -742,10 +744,10 @@ By default, the name of an entity is the name of the function.
 The way that you define an entity trigger depends on the programming model that you use.
 
 #### [v2](#tab/python-v2)
-Using the `entity_trigger` decorator directly in your Python function code. 
+You can define an entity trigger by using the `entity_trigger` decorator directly in your Python function code. 
 
 #### [v1](#tab/python-v1)
-The entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+To define the entity trigger, you use the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -782,11 +784,11 @@ You can use the entity client binding to asynchronously trigger [entity function
 You can bind to the entity client by using the [DurableClientAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durableclientattribute) .NET attribute in .NET class library functions.
 
 > [!NOTE]
-> You can also use tThe `[DurableClientAttribute]` to bind to the [orchestration client](#orchestration-client).
+> You can also use the `[DurableClientAttribute]` to bind to the [orchestration client](#orchestration-client).
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell" 
-The entity client is defined by the following JSON object in the `bindings` array of *function.json*:
+To define the entity client, you use the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -798,7 +800,7 @@ The entity client is defined by the following JSON object in the `bindings` arra
 }
 ```
 
-* The `taskHub` property is used when multiple function apps share the same storage account but need to be isolated from each other. If you don't specify this property, the default value from `host.json` is used. This value must match the value that the target entity functions use.
+* The `taskHub` property is used when multiple function apps share the same storage account but need to be isolated from each other. If you don't specify this property, the default value from *host.json* is used. This value must match the value that the target entity functions use.
 * The `connectionName` value is the name of an app setting that contains a storage account connection string. The storage account represented by this connection string must be the same one that the target entity functions use. If you don't specify this property, the default storage account connection string for the function app is used.
 
 > [!NOTE]
@@ -808,10 +810,10 @@ The entity client is defined by the following JSON object in the `bindings` arra
 The way that you define an entity client depends on the programming model that you use.
 
 #### [v2](#tab/python-v2)
-Using the `durable_client_input` decorator directly in your Python function code. 
+You can define an entity client by using the `durable_client_input` decorator directly in your Python function code. 
 
 #### [v1](#tab/python-v1)
-The entity client is defined by the following JSON object in the `bindings` array of *function.json*:
+To define the entity client, you use the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -823,7 +825,7 @@ The entity client is defined by the following JSON object in the `bindings` arra
 }
 ```
 
-* The `taskHub` property is used when multiple function apps share the same storage account but need to be isolated from each other. If you don't specify this property, the default value from `host.json` is used. This value must match the value that the target entity functions use.
+* The `taskHub` property is used when multiple function apps share the same storage account but need to be isolated from each other. If you don't specify this property, the default value from *host.json* is used. This value must match the value that the target entity functions use.
 * The `connectionName` value is the name of an app setting that contains a storage account connection string. The storage account represented by this connection string must be the same one that the target entity functions use. If you don't specify this property, the default storage account connection string for the function app is used.
 
 > [!NOTE]
@@ -839,7 +841,9 @@ The entity client is defined by the following JSON object in the `bindings` arra
 For more information and examples of interacting with entities as a client, see [Access entities](durable-functions-entities.md#access-entities).
 
 <a name="host-json"></a>
-## host.json settings
+## Durable Functions settings in host.json
+
+This section provides information about the Durable Functions configuration properties in *host.json*. For information about general settings in *host.json*, see [host.json reference for Azure Functions 1.x](https://learn.microsoft.com/azure/azure-functions/functions-host-json-v1) or [host.json reference for Azure Functions 2.x and later](https://learn.microsoft.com/azure/azure-functions/functions-host-json).
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]
 
