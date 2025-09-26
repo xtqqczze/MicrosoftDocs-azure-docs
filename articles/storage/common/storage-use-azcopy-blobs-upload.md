@@ -269,6 +269,17 @@ You can tweak your upload operation by using optional flags. Here's a few exampl
 
 For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
 
+## Specify source and destination types
+
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection may fail-such as in piping scenarios or emulators. This helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `LocalBlob`            | Upload from local file system to Azure Blob Storage                                   |
+| `LocalBlobFS`          | Upload from local file system to Azure Data Lake Gen2 (BlobFS)                        |
+| `PipeBlob`             | Stream data from a pipe to Azure Blob Storage                                         |
+| `PipeFile`             | Stream data from a pipe to Azure File Storage                                         |
+
 ## Next steps
 
 Find more examples in these articles:

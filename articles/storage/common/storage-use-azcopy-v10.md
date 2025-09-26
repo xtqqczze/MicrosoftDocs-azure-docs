@@ -46,167 +46,36 @@ To learn more about these scenarios, see:
 
 [!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
-## Install AzCopy on Linux by using a package manager
-
-You can install AzCopy by using a Linux package that is hosted on the [Linux Software Repository for Microsoft Products](/linux/packages).
-
-### [dnf (RHEL)](#tab/dnf)
-
-1. Download the repository configuration package.
-
-   > [!IMPORTANT]
-   > Make sure to replace the distribution and version with the appropriate strings.
-
-   ```bash
-   curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.rpm
-   ```
-
-2. Install the repository configuration package.
-
-   ```bash
-   sudo rpm -i packages-microsoft-prod.rpm
-   ````
-
-3. Delete the repository configuration package after you've installed it.
-
-   ```bash
-   rm packages-microsoft-prod.rpm
-   ````
-
-4. Update the package index files.
-
-   ```bash
-   sudo dnf update
-   ```
-5. Install AzCopy.
-
-   ```bash
-   sudo dnf install azcopy
-   ```
-
-
-### [zypper (openSUSE, SLES)](#tab/zypper)
-
-1. Download the repository configuration package.
-
-   > [!IMPORTANT]
-   > Make sure to replace the distribution and version with the appropriate strings.
-
-   ```bash
-   curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.rpm
-   ```
-
-2. Install the repository configuration package.
-
-   ```bash
-   sudo rpm -i packages-microsoft-prod.rpm
-   ```
-
-3. Delete the repository configuration package after you've installed it.
-
-   ```bash
-   rm packages-microsoft-prod.rpm
-   ```
-
-4. Update the package index files.
-
-   ```bash
-   sudo zypper --gpg-auto-import-keys refresh
-   ```
-   
-5. Install AzCopy.
-   
-   ```bash
-   sudo zypper install -y azcopy
-   ```
-
-### [apt (Ubuntu, Debian)](#tab/apt)
-
-1. Download the repository configuration package.
-
-   > [!IMPORTANT]
-   > Make sure to replace the distribution and version with the appropriate strings.
-
-   ```bash
-   curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.deb
-   ```
-
-2. Install the repository configuration package.
-   
-   ```bash
-   sudo dpkg -i packages-microsoft-prod.deb
-   ```
-
-3. Delete the repository configuration package after you've installed it.
-
-   ```bash
-   rm packages-microsoft-prod.deb
-   ```
-
-4. Update the package index files.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-5. Install AzCopy.
-   
-   ```bash
-   sudo apt-get install azcopy
-   ```
-
-# [tdnf (Azure Linux)](#tab/tdnf)
-
-Install AzCopy.
-
-```bash
-sudo tdnf install azcopy
-```
-
----
-
 <a id="download-azcopy"></a>
 
-## Download the AzCopy portable binary
-
-As an alternative to installing a package, you can download the AzCopy V10 executable file to any directory on your computer. 
-
-- [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
-- [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
-- [Windows ARM64 Preview](https://aka.ms/downloadazcopy-v10-windows-arm64) (zip)
-- [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [Linux ARM64](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
-- [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
-- [macOS ARM64 Preview](https://aka.ms/downloadazcopy-v10-mac-arm64) (zip)
-
-These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
-
-For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
+## Download AzCopy
 
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
 
-## Run AzCopy
+You can download the AzCopy V10 executable file to any directory on your computer. Linux users can also use a convenient linux package.
 
-For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system.
+| Linux | Windows | macOS |
+|---|----|---|
+| [Linux package](storage-use-azcopy-install-linux-package.md) (package) <br>[Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)<br>[Linux ARM64](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar) | [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)<br>[Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)<br>[Windows ARM64 Preview](https://aka.ms/downloadazcopy-v10-windows-arm64) (zip) | [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)<br>[macOS ARM64 Preview](https://aka.ms/downloadazcopy-v10-mac-arm64) (zip) |
 
-If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in Windows PowerShell command prompts.
+Download links to always point to new versions of AzCopy. If you need to obtain a static (unchanging) link to a version of AzCopy, see [Use AzCopy v10 in a script](storage-use-azcopy-use-in-script.md).
 
-As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
+If you download a zip or tar file, you'll have to decompress it to obtain the executable file. For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system. If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in your command shell.
+
+For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
 
 <a id="choose-how-youll-provide-authorization-credentials"></a>
 
 ## Authorize AzCopy
 
+As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
+
 You can provide authorization credentials by using Microsoft Entra ID, or by using a Shared Access Signature (SAS) token.
 
 <a name='option-1-use-azure-active-directory'></a>
 
-#### Option 1: Use Microsoft Entra ID
-
-By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command.
-
-#### Option 2: Use a SAS token
+## Use a SAS token
 
 You can append a SAS token to each source or destination URL that use in your AzCopy commands.
 
@@ -220,6 +89,44 @@ To learn more about SAS tokens and how to obtain one, see [Using shared access s
 
 > [!NOTE]
 > The [Secure transfer required](storage-require-secure-transfer.md) setting of a storage account determines whether the connection to a storage account is secured with Transport Layer Security (TLS). This setting is enabled by default.
+
+## Use Microsoft Entra ID
+
+You can provide AzCopy with authorization credentials by using Microsoft Entra ID. That way, you won't have to append a shared access signature (SAS) token to each command.
+
+Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are each a type of security principal. 
+
+See any of these links:
+
+- [Authorize access for AzCopy with a user identity](storage-use-azcopy-authorize-managed-identity.md)
+- [Authorize access for AzCopy with a managed identity](storage-use-azcopy-authorize-managed-identity.md)
+- [Authorize access for AzCopy with a service principal](storage-use-azcopy-authorize-service-principal.md)
+
+#### Authorize with Azure CLI
+
+If you sign in by using Azure CLI, then Azure CLI obtains an OAuth token that AzCopy can use to authorize operations. 
+
+To enable AzCopy to use that token, type the following command, and then press the ENTER key.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
+export AZCOPY_TENANT_ID=<tenant-id>
+```
+
+For more information about how to sign in with the Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+
+#### Authorize with Azure PowerShell
+
+If you sign in by using Azure PowerShell, then Azure PowerShell obtains an OAuth token that AzCopy can use to authorize operations.  
+
+To enable AzCopy to use that token, type the following command, and then press the ENTER key.
+
+```PowerShell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
+```
+
+For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+
 
 <a id="transfer-data"></a>
 
@@ -239,37 +146,6 @@ To find example commands, see any of these articles.
 |Amazon S3|[Copy data from Amazon S3 to Azure Storage](storage-use-azcopy-s3.md)|
 |Google Cloud Storage|[Copy data from Google Cloud Storage to Azure Storage (preview)](storage-use-azcopy-google-cloud.md)|
 |Azure Stack storage|[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
-
-AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection may fail-such as in piping scenarios or emulators. This helps AzCopy understand the context of the transfer and optimize accordingly.
-
-| FromTo Value           | Description                                                                           |
-|------------------------|---------------------------------------------------------------------------------------|
-| `BlobBlob`             | Copy between two Azure Blob Storage locations                                         | 
-| `BlobBlobFS`           | Copy from Azure Blob Storage to Azure Data Lake Gen2 (BlobFS)                         |
-| `BlobFSBlob`           | Copy from Azure Data Lake Gen2 (BlobFS) to Azure Blob Storage                         |
-| `BlobFSBlobFS`         | Copy between two Azure Data Lake Gen2 (BlobFS) locations                              |
-| `BlobFSFile`           | Copy from Azure Data Lake Gen2 (BlobFS) to Azure File Storage                         |
-| `BlobFSLocal`          | Download from Azure Data Lake Gen2 (BlobFS) to local file system                      |
-| `BlobFile`             | Copy from Azure Blob Storage to Azure File Storage                                    |
-| `BlobLocal`            | Download from Azure Blob Storage to local file system                                 |
-| `BlobPipe`             | Stream data from Azure Blob Storage to a pipe                                         |
-| `FileBlob`             | Copy from Azure File Storage to Azure Blob Storage                                    |
-| `FileBlobFS`           | Copy from Azure File Storage to Azure Data Lake Gen2 (BlobFS)                         |
-| `FileSMBFileSMB`       | Copy between two SMB shares in Azure File Storage                                     |
-| `FileSMBLocal`         | Download from SMB share in Azure File Storage to local file system                    |
-| `FileNFSFileNFS`       | Copy between two NFS shares in Azure File Storage                                     |
-| `FileNFSLocal`         | Download from NFS share in Azure File Storage to local file system (Linux only)       |
-| `FilePipe`             | Stream data from Azure File Storage to a pipe                                         |
-| `FileSMBFileSMB`       | Copy between SMB shares (duplicate of above for completeness)                         |
-| `FileSMBLocal`         | Download from SMB share to local file system                                          |
-| `GCPBlob`              | Copy from Google Cloud Storage to Azure Blob Storage                                  |
-| `LocalBlob`            | Upload from local file system to Azure Blob Storage                                   |
-| `LocalBlobFS`          | Upload from local file system to Azure Data Lake Gen2 (BlobFS)                        |
-| `LocalFileSMB`         | Upload from local file system to SMB share in Azure File Storage                      |
-| `LocalFileNFS`         | Upload from local file system (Linux only) to NFS share in Azure File Storage         |
-| `PipeBlob`             | Stream data from a pipe to Azure Blob Storage                                         |
-| `PipeFile`             | Stream data from a pipe to Azure File Storage                                         |
-| `S3Blob`               | Copy from Amazon S3 to Azure Blob Storage                                             |
 
 ## Get command help
 
@@ -308,70 +184,6 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 > [!NOTE]
 > AzCopy does not have a command to rename files.
 
-## Use in a script
-
-#### Obtain a static download link
-
-Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon.
-
-To avoid these issues, obtain a static (unchanging) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
-
-> [!NOTE]
-> The static link to AzCopy binaries is subject to change over time due to our content delivery infrastructure. If you must use a specific version of AzCopy for any reason, we recommend using AzCopy with an operating system that leverages a [published package](#install-azcopy-on-linux-by-using-a-package-manager). This method ensures that you can reliably install and maintain the desired version of AzCopy.
-
-To obtain the link, run this command:
-
-| Operating system  | Command |
-|--------|-----------|
-| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux \| grep ^Location` |
-| **Windows PowerShell** | `(Invoke-WebRequest -Uri https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction SilentlyContinue).headers.location` |
-| **PowerShell 6.1+** | `(Invoke-WebRequest -Uri https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction SilentlyContinue -SkipHttpErrorCheck).headers.location` |
-
-> [!NOTE]
-> For Linux, `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
-
-The URL appears in the output of this command. Your script can then download AzCopy by using that URL.
-
-**Linux**
-```bash
-wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1
-```
-**Windows PowerShell** 
-```PowerShell
-Invoke-WebRequest -Uri <URL from the previous command> -OutFile 'azcopyv10.zip'
-Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\'
-$AzCopy = (Get-ChildItem -path '.\' -Recurse -File -Filter 'azcopy.exe').FullName
-# Invoke AzCopy 
-& $AzCopy
-```
-**PowerShell 6.1+**
-```PowerShell
-Invoke-WebRequest -Uri <URL from the previous command> -OutFile 'azcopyv10.zip'
-$AzCopy = (Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\' -PassThru | where-object {$_.Name -eq 'azcopy.exe'}).FullName
-# Invoke AzCopy
-& $AzCopy
-``` 
-
-#### Escape special characters in SAS tokens
-
-In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an extra `%` character next to existing `%` characters in the SAS token string. The resulting character sequence appears as `%%`. Make sure to add an extra `^` before each `&` character to create the character sequence `^&`.
-
-#### Run scripts by using Jenkins
-
-If you plan to use [Jenkins](https://jenkins.io/) to run scripts, make sure to place the following command at the beginning of the script.
-
-```
-/usr/bin/keyctl new_session
-```
-
-## Use in Azure Storage Explorer
-
-[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) uses AzCopy to perform all of its data transfer operations. You can use [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) if you want to apply the performance advantages of AzCopy, but you prefer to use a graphical user interface rather than the command line to interact with your files.
-
-Storage Explorer uses your account key to perform operations, so after you sign into Storage Explorer, you won't need to provide additional authorization credentials.
-
-<a id="previous-version"></a>
-
 ## Configure, optimize, and fix
 
 See any of the following resources:
@@ -383,6 +195,8 @@ See any of the following resources:
 - [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md)
 
 - [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)
+
+<a id="previous-version"></a>
 
 ## Use a previous version (deprecated)
 

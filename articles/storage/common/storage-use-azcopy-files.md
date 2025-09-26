@@ -277,8 +277,16 @@ azcopy copy '/myDirectory/*' 'https://mystorageaccount.file.core.windows.net/myf
 
 <a id="uploaddatetime"></a>
 
+### Specifying source and destination types when uploading blobs
 
-For detailed reference, see the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection may fail-such as in piping scenarios or emulators. This helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `LocalFileSMB`         | Upload from local file system to SMB share in Azure File Storage                      |
+| `LocalFileNFS`         | Upload from local file system (Linux only) to NFS share in Azure File Storage         |
+| `PipeFile`             | Stream data from a pipe to Azure File Storage                                         |
+
 
 ## Download files
 
@@ -512,6 +520,17 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileSh
 
 ---
 
+### Specifying source and destination types when downloading files
+
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection may fail-such as in piping scenarios or emulators. This helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `FileSMBLocal`         | Download from SMB share in Azure File Storage to local file system                    |
+| `FileNFSLocal`         | Download from NFS share in Azure File Storage to local file system (Linux only)       |
+| `FileSMBLocal`         | Download from SMB share to local file system                                          |
+| `FilePipe`             | Stream data from Azure File Storage to a pipe                                         |
+
 <a id="downloadsnapshotdirectory"></a>
 
 ## Copy files between storage accounts
@@ -702,6 +721,18 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net?[SAS]&sharesnapshot=2
 ```
 
 ---
+
+### Specifying source and destination types when copying files
+
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection may fail-such as in piping scenarios or emulators. This helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `FileBlob`             | Copy from Azure File Storage to Azure Blob Storage                                    |
+| `FileBlobFS`           | Copy from Azure File Storage to Azure Data Lake Gen2 (BlobFS)                         |
+| `FileSMBFileSMB`       | Copy between two SMB shares in Azure File Storage                                     |
+| `FileNFSFileNFS`       | Copy between two NFS shares in Azure File Storage                                     |
+| `FileSMBFileSMB`       | Copy between SMB shares (duplicate of above for completeness)                         |
 
 <a id="copyaccountsnapshottoaccount"></a>
 

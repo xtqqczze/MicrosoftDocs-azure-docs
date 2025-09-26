@@ -235,6 +235,15 @@ AzCopy does not support downloading data from static websites hosted in Azure St
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$web/*' 'C:\myDirectory' --recursive
 ```
 
+## Specify source and destination types
+
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection may fail-such as in piping scenarios or emulators. This helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `BlobFSLocal`          | Download from Azure Data Lake Gen2 (BlobFS) to local file system                      |
+| `BlobLocal`            | Download from Azure Blob Storage to local file system                                 |
+
 ## Next steps
 
 Find more examples in these articles:

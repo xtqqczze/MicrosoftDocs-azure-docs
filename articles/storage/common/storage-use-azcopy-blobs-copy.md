@@ -203,6 +203,22 @@ You can tweak your copy operation by using optional flags. Here's a few examples
 
 For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
 
+## Specify source and destination types
+
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection may fail-such as in piping scenarios or emulators. This helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `BlobBlob`             | Copy between two Azure Blob Storage locations                                         | 
+| `BlobBlobFS`           | Copy from Azure Blob Storage to Azure Data Lake Gen2 (BlobFS)                         |
+| `BlobFSBlob`           | Copy from Azure Data Lake Gen2 (BlobFS) to Azure Blob Storage                         |
+| `BlobFSBlobFS`         | Copy between two Azure Data Lake Gen2 (BlobFS) locations                              |
+| `BlobFSFile`           | Copy from Azure Data Lake Gen2 (BlobFS) to Azure File Storage                         |
+| `BlobFile`             | Copy from Azure Blob Storage to Azure File Storage                                    |
+| `FileBlob`             | Copy from Azure File Storage to Azure Blob Storage                                    |
+| `FileBlobFS`           | Copy from Azure File Storage to Azure Data Lake Gen2 (BlobFS)                         |
+
+
 ## Next steps
 
 Find more examples in these articles:
