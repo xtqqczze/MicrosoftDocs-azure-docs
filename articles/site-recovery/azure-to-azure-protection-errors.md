@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure VM replication in Azure Site Recovery - Protection errors
+title: Troubleshoot Azure VM replication in Azure Site Recovery - protection errors
 description: Troubleshoot protection errors when replicating Azure virtual machines for disaster recovery.
 author: jyothisuri
 ms.service: azure-site-recovery
@@ -12,7 +12,7 @@ ms.custom:
 # Customer intent: As a cloud administrator, I want to troubleshoot Azure VM replication errors in Site Recovery so that I can ensure reliable disaster recovery and maintain operational continuity for my organization's virtual machines.
 ---
 
-# Troubleshoot Azure-to-Azure VM replication errors - Protection errors
+# Troubleshoot Azure-to-Azure VM replication errors - protection errors
 
 This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of [Azure virtual machines](azure-to-azure-tutorial-enable-replication.md) (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
 

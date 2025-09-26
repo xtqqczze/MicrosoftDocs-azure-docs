@@ -40,7 +40,7 @@ When you're enabling replication for a machine and you encounter an error statin
 
 ### The VSS writer NTDS failed with status 11 and writer specific failure code 0x800423F4
 
-When trying to enable replication, you may face an error informing that enable replication failed ast NTDS failed. One of the possible causes for this issue is that the virtual machine's operating system in Windows Server 2012 and not Windows Server 2012 R2. To fix this issue, try the below steps:
+When trying to enable replication, you may face an error informing that enable replication failed as NTDS failed. One of the possible causes for this issue is that the virtual machine's operating system in Windows Server 2012 and not Windows Server 2012 R2. To fix this issue, try the below steps:
 
 - Upgrade to Windows Server R2 with 4072650 applied.
 - Ensure that Hyper-V Host is also Windows 2016 or higher.
@@ -106,7 +106,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
        - **Vssadmin list shadows**
        - **Vssadmin list providers**
    - Check the output. If writers are in a failed state, do the following:
-       - Check the application event log on the VM for VSS operation errors.
+       - Check the Application event log on the VM for VSS operation errors.
    - Try restarting these services associated with the failed writer:
      - Volume Shadow Copy
        - Azure Site Recovery VSS Provider

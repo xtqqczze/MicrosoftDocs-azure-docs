@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure VM replication in Azure Site Recovery - Other issues
+title: Troubleshoot Azure VM replication in Azure Site Recovery - other issues
 description: Troubleshoot errors when replicating Azure virtual machines for disaster recovery.
 author: jyothisuri
 ms.service: azure-site-recovery
@@ -12,7 +12,7 @@ ms.custom:
 # Customer intent: As a cloud administrator, I want to troubleshoot Azure VM replication errors in Site Recovery so that I can ensure reliable disaster recovery and maintain operational continuity for my organization's virtual machines.
 ---
 
-# Troubleshoot Azure-to-Azure VM replication errors - Other issues
+# Troubleshoot Azure-to-Azure VM replication errors - other issues
 
 This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of [Azure virtual machines](azure-to-azure-tutorial-enable-replication.md) (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
 
@@ -173,7 +173,7 @@ Because SUSE Linux uses symbolic links, or symlinks, to maintain a certificate l
 
 ## Outbound URLs or IP ranges (error code 151037 or 151072)
 
-For Site Recovery replication to work, outbound connectivity to specific URLs is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues. While we continue to support outbound access via URLs, using an allow list of IP ranges is no longer supported.
+For Site Recovery replication to work, outbound connectivity to specific URLs is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues. While we continue to support outbound access via URLs, using an allowlist of IP ranges is no longer supported.
 
 **Possible causes**
 
@@ -217,7 +217,7 @@ A connection can't be established to Azure Site Recovery service endpoints.
 
 **Workaround**
 
-If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use service tags. We no longer support using an allow list of IP addresses via NSGs for Azure Site Recovery.
+If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use service tags. We no longer support using an allowlist of IP addresses via NSGs for Azure Site Recovery.
 
 ## Issue 4: Replication fails when network traffic uses on-premises proxy server (151072)
 
