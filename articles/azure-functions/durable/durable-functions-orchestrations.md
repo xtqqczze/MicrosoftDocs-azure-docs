@@ -17,7 +17,7 @@ Durable Functions is an extension of [Azure Functions](../functions-overview.md)
 
 * They define function workflows by using procedural code. No declarative schemas or designers are needed.
 * They can call other durable functions synchronously and asynchronously. Output from called functions can be saved to local variables.
-* They're designed to be durable and reliable. Run progress is automatically saved as a checkpoint when the function calls an `await` or `yield` operator. Local state isn't lost when the process recycles or the virtual machine reboots.
+* They're designed to be durable and reliable. Execution progress is automatically saved as a checkpoint when the function calls an `await` or `yield` operator. Local state isn't lost when the process recycles or the virtual machine reboots.
 * They can be long running. The total lifespan of an *orchestration instance* can be seconds, days, or months, or the instance can be configured to never end.
 
 This article gives you an overview of orchestrator functions and how they can help you solve various app development challenges. For information about the types of functions available in a Durable Functions app, see [Durable Functions types and features](durable-functions-types-features-overview.md).
@@ -42,11 +42,11 @@ An orchestration's instance ID is a required parameter for most [instance manage
 
 ## Reliability
 
-Orchestrator functions use the [event sourcing](/azure/architecture/patterns/event-sourcing) design pattern to help maintain their run state reliably. Instead of directly storing the current state of an orchestration, the Durable Task Framework uses an append-only store to record the full series of actions the function orchestration takes. An append-only store has many benefits compared to *dumping* the full runtime state. Benefits include increased performance, scalability, and responsiveness. You also get eventual consistency for transactional data and full audit trails and history. The audit trails support reliable compensating actions.
+Orchestrator functions use the [event sourcing](/azure/architecture/patterns/event-sourcing) design pattern to help maintain their execution state reliably. Instead of directly storing the current state of an orchestration, the Durable Task Framework uses an append-only store to record the full series of actions the function orchestration takes. An append-only store has many benefits compared to *dumping* the full runtime state. Benefits include increased performance, scalability, and responsiveness. You also get eventual consistency for transactional data and full audit trails and history. The audit trails support reliable compensating actions.
 
-Durable Functions uses event sourcing transparently. Behind the scenes, an orchestrator function uses an `await` operator in C# and a `yield` operator in JavaScript and Python. These operators yield control of the orchestrator thread back to the Durable Task Framework dispatcher. In Java functions, there's no special language keyword. Instead, calling `.await()` on a task yields control back to the dispatcher via a custom instance of `Throwable`. The dispatcher then commits any new actions scheduled by the orchestrator function to storage. Examples of actions include calling one or more child functions or scheduling a durable timer. The transparent commit action updates the run history of the orchestration instance by appending all new events into storage, much like an append-only log. Similarly, the commit action creates messages in storage to schedule the actual work. At this point, the orchestrator function can be unloaded from memory. By default, Durable Functions uses Azure Storage as its runtime state store, but other [storage providers are also supported](durable-functions-storage-providers.md).
+Durable Functions uses event sourcing transparently. Behind the scenes, an orchestrator function uses an `await` operator in C# and a `yield` operator in JavaScript and Python. These operators yield control of the orchestrator thread back to the Durable Task Framework dispatcher. In Java functions, there's no special language keyword. Instead, calling `.await()` on a task yields control back to the dispatcher via a custom instance of `Throwable`. The dispatcher then commits any new actions scheduled by the orchestrator function to storage. Examples of actions include calling one or more child functions or scheduling a durable timer. The transparent commit action updates the execution history of the orchestration instance by appending all new events into storage, much like an append-only log. Similarly, the commit action creates messages in storage to schedule the actual work. At this point, the orchestrator function can be unloaded from memory. By default, Durable Functions uses Azure Storage as its runtime state store, but other [storage providers are also supported](durable-functions-storage-providers.md).
 
-While an orchestrator function runs, it can be given more work to do. The work might involve taking action after a response message is received or a durable timer expires. When work arrives, the orchestrator wakes up. It then reruns the entire function from the start to rebuild the local state. During the replay, if the code tries to call a function or do any other asynchronous work, the Durable Task Framework consults the run history of the current orchestration. If it finds that the [activity function](durable-functions-types-features-overview.md#activity-functions) has finished running and yielded a result, it replays that function's result. The orchestrator code then continues to run. Replay continues until the function code is finished or until it schedules new asynchronous work.
+When an orchestration function is given more work to do (for example, a response message is received or a durable timer expires), the orchestrator wakes up and re-executes the entire function from the start to rebuild the local state. During the replay, if the code tries to call a function (or do any other asynchronous work), the Durable Task Framework consults the execution history of the current orchestration. If it finds that the [activity function](durable-functions-types-features-overview.md#activity-functions) has already executed and yielded a result, it replays that function's result, and the orchestrator code continues to run. Replay continues until the function code is finished or until it schedules new asynchronous work.
 
 > [!NOTE]
 > To help the replay pattern work correctly and reliably, orchestrator function code must be *deterministic*. Nondeterministic orchestrator code can result in runtime errors or other unexpected behavior. For more information about code restrictions for orchestrator functions, see [Orchestrator function code constraints](durable-functions-code-constraints.md).
@@ -173,20 +173,20 @@ public String helloCitiesOrchestrator(
 
 ---
 
-Whenever an activity function is scheduled, the Durable Task Framework saves the run state of the function into a durable storage back end. By default, the framework uses Azure Table Storage as the storage back end. This state is referred to as the *orchestration history*.
+Whenever an activity function is scheduled, the Durable Task Framework saves the execution state of the function at various checkpoints. At each checkpoint, the framework saves the state into a durable storage back end, which is Azure Table Storage by default. This state is referred to as the *orchestration history*.
 
 ### History table
 
 Generally speaking, the Durable Task Framework does the following at each checkpoint:
 
-* Saves the run history into durable storage.
+* Saves the execution history into durable storage.
 * Enqueues messages for functions the orchestrator wants to invoke.
 * Enqueues messages for the orchestrator itself, such as durable timer messages.
 
 When the checkpoint is complete, the orchestrator function is free to be removed from memory until there's more work for it to do.
 
 > [!NOTE]
-> Azure Storage doesn't provide any transactional guarantees that table and queue save operations succeed or fail as a unit. To handle failures, the [Durable Functions Azure Storage](durable-functions-storage-providers.md#azure-storage) provider uses *eventual consistency* patterns. These patterns help ensure that no data is lost if there's a crash or loss of connectivity in the middle of a checkpoint. Alternate storage providers, such as the [Durable Functions Microsoft SQL Server (MSSQL) storage provider](durable-functions-storage-providers.md#mssql), might provide stronger consistency guarantees.
+> Azure Storage doesn't provide any transactional guarantees about data consistency between table storage and queues when the data is saved. To handle failures, the [Durable Functions Azure Storage](durable-functions-storage-providers.md#azure-storage) provider uses *eventual consistency* patterns. These patterns help ensure that no data is lost if there's a crash or loss of connectivity in the middle of a checkpoint. Alternate storage providers, such as the [Durable Functions Microsoft SQL Server (MSSQL) storage provider](durable-functions-storage-providers.md#mssql), might provide stronger consistency guarantees.
 
 When the function shown earlier finishes, its history looks something like the data in the following table in Table Storage. The entries are abbreviated for illustration purposes.
 
@@ -221,7 +221,7 @@ The table columns contain the following values:
 > [!WARNING]
 > This table can be useful as a debugging tool. But keep in mind that its format and content might change as the Durable Functions extension evolves.
 
-Every time the function is resumed after waiting for a task to complete, the Durable Task Framework reruns the orchestrator function from scratch. On each rerun, it consults the run history to determine whether the current asynchronous task is complete. If the run history shows that the task is complete, the framework replays the output of that task and moves on to the next task. This process continues until the entire run history is replayed. During the replay, the framework uses recorded output to restore local variables to their previous values.
+Every time the function is resumed after waiting for a task to complete, the Durable Task Framework reruns the orchestrator function from scratch. On each rerun, it consults the execution history to determine whether the current asynchronous task is complete. If the execution history shows that the task is already complete, the framework replays the output of that task and moves on to the next task. This process continues until the entire execution history has been replayed. As soon as the current execution history has been replayed, the local variables will have been restored to their previous values.
 
 ## Features and patterns
 
@@ -249,7 +249,7 @@ For more information and for examples, see [Handling external events in Durable 
 
 Orchestrator functions can use the error-handling features of the programming language. Existing patterns like `try`/`catch` are supported in orchestration code.
 
-Orchestrator functions can also add retry policies to the activity or sub-orchestrator functions that they call. If an activity or sub-orchestrator function fails with an exception, the specified retry policy can automatically delay and retry the run up to a specified number of times.
+Orchestrator functions can also add retry policies to the activity or sub-orchestrator functions that they call. If an activity or sub-orchestrator function fails with an exception, the specified retry policy can automatically delay and retry the execution up to a specified number of times.
 
 > [!NOTE]
 > If there's an unhandled exception in an orchestrator function, the orchestration instance finishes in a `Failed` state. An orchestration instance can't be retried after it fails.
@@ -260,7 +260,7 @@ For more information and for examples, see [Handling errors in Durable Functions
 
 Orchestration instances are single-threaded, so race conditions aren't a concern *within* an orchestration. However, race conditions are possible when orchestrations interact with external systems. To mitigate race conditions when interacting with external systems, orchestrator functions can define *critical sections* by using a `LockAsync` method in .NET.
 
-The following sample code shows an orchestrator function that defines a critical section. It uses the `LockAsync` method to enter the critical section. This method requires passing one or more references to a [durable entity](durable-functions-entities.md), which durably manages the lock state. Only a single instance of this orchestration can run the code in the critical section at a time.
+The following sample code shows an orchestrator function that defines a critical section. It uses the `LockAsync` method to enter the critical section. This method requires passing one or more references to a [durable entity](durable-functions-entities.md), which durably manages the lock state. Only a single instance of this orchestration can execute the code in the critical section at a time.
 
 ```csharp
 [FunctionName("Synchronize")]
@@ -275,7 +275,7 @@ public static async Task Synchronize(
 }
 ```
 
-The `LockAsync` method acquires the durable locks and returns an implementation of `IDisposable` that ends the critical section when disposed. This `IDisposable` result can be used together with a `using` block to get a syntactic representation of the critical section. When an orchestrator function enters a critical section, only one instance can run that block of code. Any other instances that try to enter the critical section are blocked until the previous instance exits the critical section.
+The `LockAsync` method acquires the durable locks and returns an `IDisposable` that ends the critical section when disposed. This `IDisposable` result can be used together with a `using` block to get a syntactic representation of the critical section. When an orchestrator function enters a critical section, only one instance can execute that block of code. Any other instances that try to enter the critical section are blocked until the previous instance exits the critical section.
 
 The critical section feature is also useful for coordinating changes to durable entities. For more information about critical sections, see [Entity coordination](durable-functions-entities.md#entity-coordination).
 
