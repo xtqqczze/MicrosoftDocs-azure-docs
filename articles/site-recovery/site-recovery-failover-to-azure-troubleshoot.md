@@ -20,7 +20,7 @@ You may receive one of the following errors while doing failover of a virtual ma
 
 Failover failed with the following errors:
 
-# [Error ID 28031](#tab/28931)
+# [Error ID 28031](#tab/28031)
 
 Site Recovery wasn't able to create a failed over virtual machine in Azure. It could happen because of one of the following reasons:
 
