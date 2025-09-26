@@ -2,17 +2,17 @@
   href: index.yml
 - name: Overview
   href: overview-monitoring-agent.md
-- name: Get Started  
+- name: Get started  
   items:
-    - name: What's new
+    - name: Release notes
       href: extension-version-details.md
-    - name: Supported Regions and mappings
+    - name: Supported regions and mappings
       href: region-mappings-monitoring-agent.md
 - name: Enable Change Tracking
   items:
-    - name: Enable from Machines Pane
+    - name: Enable from machines pane
       href: enable-change-tracking-at-scale-machines-blade.md
-    - name: Enable using Azure Policy
+    - name: Enable using Azure policy
       href: enable-change-tracking-at-scale-policy.md
     - name: Enable from Azure portal
       href: enable-vms-monitoring-agent.md

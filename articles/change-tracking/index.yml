@@ -14,15 +14,15 @@ metadata:
 landingContent: 
 
   # Card
-  - title: Get Started
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
           - text: About Azure Change Tracking
             url: overview-monitoring-agent.md
-          - text: What's new
+          - text: Release notes
             url: extension-version-details.md
-          - text: Supported Regions and mappings
+          - text: Supported regions and mappings
             url: region-mappings-monitoring-agent.md
 
   # Card  
@@ -30,9 +30,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable from Machines Pane
+          - text: Enable from machines pane
             url: enable-change-tracking-at-scale-machines-blade.md
-          - text: Enable using Azure Policy
+          - text: Enable using Azure policy
             url: enable-change-tracking-at-scale-policy.md
           - text: Enable from Azure portal
             url: enable-vms-monitoring-agent.md
