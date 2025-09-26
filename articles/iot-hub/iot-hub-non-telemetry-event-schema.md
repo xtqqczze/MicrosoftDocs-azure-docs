@@ -13,7 +13,7 @@ services: iot-hub
 
 This article provides the properties and schemas for non-telemetry events emitted by Azure IoT Hub. Non-telemetry events are different from device-to-cloud and cloud-to-device messages in that IoT Hub emits these events in response to specific state changes associated with your devices. For example, non-telemetry events include lifecycle changes like a device or module being created or deleted, or connection state changes like a device or module connecting or disconnecting. 
 
-You can route non-telemetry events using message routing, or reach to non-telemetry events using Azure Event Grid. To learn more about IoT Hub message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md) and [React to IoT Hub events by using Event Grid](./iot-hub-event-grid.md).
+You can route non-telemetry events using message routing, or reach to non-telemetry events using Azure Event Grid. To learn more about IoT Hub message routing, see [Use IoT Hub message routing to send device-to-cloud messages to Azure services](iot-hub-devguide-messages-d2c.md) and [RReact to IoT Hub events by using Event Grid to trigger actions](./iot-hub-event-grid.md).
 
 The event examples in this article were captured using the `az iot hub monitor-events` Azure CLI command. You might see a subset of properties included in the events that arrive at a message routing endpoint.
 
@@ -44,7 +44,7 @@ IoT Hub sets the following system properties on each event.
 | user-id | string | The name of IoT Hub that generated the event. | $userId |
 | iothub-connection-device-id | string | The device ID. | $connectionDeviceId |
 | iothub-connection-module-id | string | The module ID. This property is output only for module life cycle and twin events. | $connectionModuleId |
-| iothub-enqueuedtime | number | Date and time when the notification was sent. In routing queries, use an [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp; for example, `$enqueuedTime > "2022-06-06T22:56:06Z"` | $enqueuedTime |
+| iothub-enqueuedtime | number | Date and time when the notification was sent. In routing queries, use an [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp; for example, `$enqueuedTime > "2022-06-06T22:56:06Z"` | $enqueuedTime |
 | iothub-message-source | string | The event category that identifies the message source. For example, *deviceLifecycleEvents*. | N/A |
 
 ### Application properties
@@ -57,7 +57,7 @@ IoT Hub sets the following application properties on each event.
 | hubName | string | The name of the IoT Hub that generated the event. |
 | iothub-message-schema | string | The message schema associated with the event category; for example, *deviceLifecycleNotification*. |
 | moduleId | string | The module ID. This property is output only for module lifecycle and twin change events. |
-| operationTimestamp | string | The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp of the operation. |
+| operationTimestamp | string | The [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp of the operation. |
 | opType | string | The identifier for the operation that generated the event. For example, *createDeviceIdentity* or *deleteDeviceIdentity*. |
 
 In routing queries, use the property name. For example, `deviceId = "my-device"`.
@@ -207,7 +207,7 @@ The following JSON shows a device lifecycle event emitted when a module is creat
 
 ## Device twin change events
 
-Device twin change events are emitted whenever a device twin or a module twin is updated or replaced. In some cases, several changes might be packaged in a single event. To learn more, see [Device twin backend operations](iot-hub-devguide-device-twins.md#back-end-operations) or [Module twin backend operations](iot-hub-devguide-module-twins.md#back-end-operations).
+Device twin change events are emitted whenever a device twin or a module twin is updated or replaced. In some cases, several changes might be packaged in a single event. To learn more, see [Back-end operations](iot-hub-devguide-device-twins.md#back-end-operations) for device twins or [Back-end operations](iot-hub-devguide-module-twins.md#back-end-operations) for module twins.
 
 **Application properties**: The following table shows how application properties are set for device twin change events:  
 
@@ -286,7 +286,7 @@ The following JSON shows a twin change event emitted for an update of a desired 
 
 ## Next steps
 
-- To learn about message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md).
+- To learn about message routing, see [Use IoT Hub message routing to send device-to-cloud messages to Azure services](iot-hub-devguide-messages-d2c.md).
 
 - To learn how to add queries to your message routes, see [IoT Hub message routing query syntax](iot-hub-devguide-routing-query-syntax.md).
 

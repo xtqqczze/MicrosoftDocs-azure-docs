@@ -1,6 +1,6 @@
 ---
 title: Understand Azure IoT Hub AMQP support | Microsoft Docs
-description: This article describes support for devices connecting to IoT Hub device-facing and service-facing endpoints using the AMQP Protocol. Includes information about built-in AMQP support in the Azure IoT device SDKs.
+description: This article describes support for devices connecting to IoT Hub device-facing and service-facing endpoints using the AMQP protocol. Includes information about built-in AMQP support in the Azure IoT device SDKs.
 author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
@@ -60,12 +60,12 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 
 ### Invoke cloud-to-device messages (service client)
 
-To learn about the cloud-to-device message exchange between the service and the IoT hub and between the device and the IoT hub, see [Send cloud-to-device messages from your IoT hub](iot-hub-devguide-messages-c2d.md). The service client uses two links to send messages and receive feedback for previously sent messages from devices, as described in the following table:
+To learn about the cloud-to-device message exchange between the service and the IoT hub and between the device and the IoT hub, see [Understand cloud-to-device messaging from an IoT hub](iot-hub-devguide-messages-c2d.md). The service client uses two links to send messages and receive feedback for previously sent messages from devices, as described in the following table:
 
 | Created by | Link type | Link path | Description |
 |------------|-----------|-----------|-------------|
 | Service | Sender link | `/messages/devicebound` | The link to which the service sends cloud-to-device messages that are destined for devices. Messages sent over this link have their `To` property set to the target device's receiver link path, `/devices/<deviceID>/messages/devicebound`. |
-| Service | Receiver link | `/messages/serviceBound/feedback` | Completion, rejection, and abandonment feedback messages that come from devices received on this link by service. For more information about feedback messages, see [Send cloud-to-device messages from an IoT hub](./iot-hub-devguide-messages-c2d.md#message-feedback). |
+| Service | Receiver link | `/messages/serviceBound/feedback` | Completion, rejection, and abandonment feedback messages that come from devices received on this link by service. For more information about feedback messages, see [Understand cloud-to-device messaging from an IoT hub](./iot-hub-devguide-messages-c2d.md#message-feedback). |
 
 The following code snippet demonstrates how to create a cloud-to-device message and send it to a device by using the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python).
 
@@ -133,7 +133,7 @@ As shown in the preceding code, a cloud-to-device feedback message has a content
 
 ### Receive telemetry messages (service client)
 
-By default, your IoT hub stores ingested device telemetry messages in a built-in event hub. Your service client can use the AMQP Protocol to receive the stored events.
+By default, your IoT hub stores ingested device telemetry messages in a built-in event hub. Your service client can use the AMQP protocol to receive the stored events.
 
 For this purpose, the service client first needs to connect to the IoT hub endpoint and receive a redirection address to the built-in event hubs. The service client then uses the provided address to connect to the built-in event hub.
 
@@ -223,7 +223,7 @@ The following information is required for the device client:
 |-------------|--------------|
 | IoT hub hostname | `<iot-hub-name>.azure-devices.net` |
 | Access key | A primary or secondary key associated with the device |
-| Shared access signature | A short-lived shared access signature in the following format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. To get the code for generating this signature, see [Control access to IoT Hub](./iot-hub-dev-guide-sas.md#sas-token-structure).
+| Shared access signature | A short-lived shared access signature in the following format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. To get the code for generating this signature, see [Control access to IoT Hub with shared access signatures](./iot-hub-dev-guide-sas.md#sas-token-structure). |
 
 The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python) to connect to an IoT hub via a sender link.
 
@@ -266,7 +266,7 @@ The following link paths are supported as device operations:
 
 Cloud-to-device commands that are sent to devices arrive on a `/devices/<deviceID>/messages/devicebound` link. Devices can receive these messages in batches, and use the message data payload, message properties, annotations, or application properties in the message as needed.
 
-The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python)) to receive cloud-to-device messages by a device.
+The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python) to receive cloud-to-device messages by a device.
 
 ```python
 # ...
@@ -316,7 +316,7 @@ while True:
 
 You can also send telemetry messages from a device by using AMQP. The device can optionally provide a dictionary of application properties, or various message properties, such as message ID.
 
-To route messages based on message body, you must set the `content_type` property to be `application/json;charset=utf-8`. To learn more about routing messages either based on message properties or message body, see the [IoT Hub message routing query syntax documentation](iot-hub-devguide-routing-query-syntax.md).
+To route messages based on message body, you must set the `content_type` property to be `application/json;charset=utf-8`. To learn more about routing messages either based on message properties or message body, see the [IoT Hub message routing query syntax](iot-hub-devguide-routing-query-syntax.md) documentation.
 
 The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python) to send device-to-cloud messages from a device.
 
@@ -367,10 +367,10 @@ for result in results:
 
 ## Next steps
 
-To learn more about the AMQP Protocol, see the [AMQP v1.0 specification](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
+To learn more about the AMQP protocol, see the [AMQP v1.0 specification](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
 
 To learn more about IoT Hub messaging, see:
 
-* [Cloud-to-device messages](./iot-hub-devguide-messages-c2d.md)
-* [Support for additional protocols](../iot-edge/iot-edge-as-gateway.md)
-* [Support for the Message Queuing Telemetry Transport (MQTT) Protocol](../iot/iot-mqtt-connect-to-iot-hub.md)
+* [Understand cloud-to-device messaging from an IoT hub](./iot-hub-devguide-messages-c2d.md)
+* [How an IoT Edge device can be used as a gateway](../iot-edge/iot-edge-as-gateway.md)
+* [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md)

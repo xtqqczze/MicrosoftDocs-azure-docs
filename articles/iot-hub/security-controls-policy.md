@@ -24,5 +24,5 @@ with the specific standard.
 
 ## Next steps
 
-- Learn more about [Azure Policy Regulatory Compliance](../governance/policy/concepts/regulatory-compliance.md).
+- Learn more about [Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md).
 - See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
