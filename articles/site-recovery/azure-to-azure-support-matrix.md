@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 09/09/2025
+ms.date: 09/22/2025
 ms.service: azure-site-recovery
 author: jyothisuri
 ms.author: jsuri
@@ -141,18 +141,18 @@ Alma Linux | [See supported versions](#supported-alma-linux-kernel-versions-for-
 To support newly released Linux kernels, Azure Site Recovery provides hotfix patches of mobility agent on top of the latest mobility agent version. These hotfixes are released on a **best-effort basis within 30 days** of the kernel release and apply only to **Azure-to-Azure disaster recovery scenarios**.
 
 >[!Note]
->This is not a service-level agreement (SLA). The 30-days support window on **a best effort basis** applies only to specific scenarios as outlined in the following table.
+>This isn't a service-level agreement (SLA). The 30-days support window on **a best effort basis** applies only to specific scenarios as outlined in the following table.
 
-Only those scenarios mentioned in the *Scenarios covered by 30-Days best effort support* are applicable for the best effort basis of 30 days. Any other scenario, even if it is not mentioned in the *Scenarios **not** covered by 30-Days best effort support* column, is not applicable for this best effort support.
+Only those scenarios mentioned in the *Scenarios covered by 30-Days best effort support* are applicable for the best effort basis of 30 days. Any other scenario, even if it isn't mentioned in the *Scenarios **not** covered by 30-Days best effort support* column, isn't applicable for this best effort support.
 
 ###### Scope of 30-Day Kernel support on best effort
 
  **Distribution** | **Scenarios covered by 30-Days best effort support** | **Scenarios not covered by 30-Days best effort support** 
  --- | --- | --- 
-Ubuntu | - New kernel within an already supported kernel series within a supported Ubuntu version.<br/>e.g., 5.15.0-1081-azure for Ubuntu 22.04 if 5.15.0-1079-azure is already supported for Ubuntu 22.04 since both belong to the 5.15.0-* kernel series. This applies to both Azure (-azure) and generic kernels (-generic) only. | - New Major OS version released.<br/>e.g., Assume Ubuntu releases Ubuntu 26.04 which is not supported by Azure Site Recovery yet.<br/><br/>- New kernel series not previously supported for the same Ubuntu version.<br/>e.g., 6.5.0-18-azure for Ubuntu 22.04 if no kernel from the 6.5.0-* series is supported. 
-Debian | - New kernel within an already supported kernel series within a supported Debian version.<br/>e.g., 4.19.0-27-cloud-amd64 for Debian 10 if 4.19.0-26-cloud-amd64 is already supported for Debian 10 since both belong to the 4.19.0-* kernel series. This applies to Azure kernels (-cloud-amd64) and Stock kernels (-amd64) only. | - New Major OS version released.<br/>e.g., Assume Debian releases Debian 11 which is not supported by Azure Site Recovery yet.<br/><br/>- New kernel series not previously supported for the same Debian version.<br/>e.g., 5.10.0-0.deb10.30-cloud-amd64 for Debian 10 if no kernel from the 5.10.0-* series is supported. 
-SUSE | - New kernel within an already supported kernel series within supported Service Pack (SP) version <br/>e.g., 6.4.0-150600.8.8 for SUSE 15 SP6 if 6.4.0-150600.8.5 is already supported for SUSE 15 SP6 since both belong to the 6.4.0-150600.8.* kernel series. This applies to Azure kernels (-azure:[Service Pack Number]). Stock kernels (-default) are supported by default. | - New Service Pack releases.<br/>e.g., Assume SUSE releases SUSE 15 SP7 which Azure Site Recovery does not support yet.<br/><br/>- New kernel series not previously supported for the same SP version. 
-RHEL, Rocky, Alma, Oracle Linux (All distros are based on RHEL kernels) | - A new kernel for RHEL 8.x or 9.y would be supported if the minor OS version (RHEL 8.x or RHEL 9.y) is supported and the kernel series is already supported for that minor OS version. For RHEL 8.x, this only applies if x ≥ 6. <br/><br/>For Oracle Linux UEK kernels, new kernels within a supported uek kernel series within a supported OS version. | -New Major version released.<br/>e.g., Assume RHEL 10.x, Rocky Linux 10.x, Alma Linux 10.x, or Oracle Linux 10.x is released which Azure Site Recovery does not support. <br/><br/>- Minor OS version released within a supported Major OS version.<br/>e.g., Assume RHEL 9.5 is released which Azure Site Recovery does not support.<br/><br/>- New kernels for RHEL 8.x where x < 6 (e.g., RHEL 8.4) are not supported within 30 days.<br/><br/>-New kernel releases for a UEK kernel series not yet supported by Azure Site Recovery. 
+Ubuntu | - New kernel within an already supported kernel series within a supported Ubuntu version.<br/>e.g., 5.15.0-1081-azure for Ubuntu 22.04 if 5.15.0-1079-azure is already supported for Ubuntu 22.04 since both belong to the 5.15.0-* kernel series. This applies to both Azure (-azure) and generic kernels (-generic) only. | - New Major OS version released.<br/>e.g., Assume Ubuntu releases Ubuntu 26.04 which isn't supported by Azure Site Recovery yet.<br/><br/>- New kernel series not previously supported for the same Ubuntu version.<br/>e.g., 6.5.0-18-azure for Ubuntu 22.04 if no kernel from the 6.5.0-* series is supported. 
+Debian | - New kernel within an already supported kernel series within a supported Debian version.<br/>e.g., 4.19.0-27-cloud-amd64 for Debian 10 if 4.19.0-26-cloud-amd64 is already supported for Debian 10 since both belong to the 4.19.0-* kernel series. This applies to Azure kernels (-cloud-amd64) and Stock kernels (-amd64) only. | - New Major OS version released.<br/>e.g., Assume Debian releases Debian 11 which isn't supported by Azure Site Recovery yet.<br/><br/>- New kernel series not previously supported for the same Debian version.<br/>e.g., 5.10.0-0.deb10.30-cloud-amd64 for Debian 10 if no kernel from the 5.10.0-* series is supported. 
+SUSE | - New kernel within an already supported kernel series within supported Service Pack (SP) version <br/>e.g., 6.4.0-150600.8.8 for SUSE 15 SP6 if 6.4.0-150600.8.5 is already supported for SUSE 15 SP6 since both belong to the 6.4.0-150600.8.* kernel series. This applies to Azure kernels (-azure:[Service Pack Number]). Stock kernels (-default) are supported by default. | - New Service Pack releases.<br/>e.g., Assume SUSE releases SUSE 15 SP7 which Azure Site Recovery doesn't support yet.<br/><br/>- New kernel series not previously supported for the same SP version. 
+RHEL, Rocky, Alma, Oracle Linux (All distros are based on RHEL kernels) | - A new kernel for RHEL 8.x or 9.y would be supported if the minor OS version (RHEL 8.x or RHEL 9.y) is supported and the kernel series is already supported for that minor OS version. For RHEL 8.x, this only applies if x ≥ 6. <br/><br/>For Oracle Linux UEK kernels, new kernels within a supported uek kernel series within a supported OS version. | -New Major version released.<br/>e.g., Assume RHEL 10.x, Rocky Linux 10.x, Alma Linux 10.x, or Oracle Linux 10.x is released which Azure Site Recovery doesn't support. <br/><br/>- Minor OS version released within a supported Major OS version.<br/>e.g., Assume RHEL 9.5 is released which Azure Site Recovery doesn't support.<br/><br/>- New kernels for RHEL 8.x where x < 6 (e.g., RHEL 8.4) aren't supported within 30 days.<br/><br/>-New kernel releases for a UEK kernel series not yet supported by Azure Site Recovery. 
  
 #### Supported kernel versions for Red Hat Enterprise Linux for Azure virtual machines 
 
@@ -373,7 +373,7 @@ Tags  | Supported | User-generated tags applied on source virtual machines are c
 Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Resizing should be performed before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, changes aren't captured by Site Recovery, and failback is to the original VM size.<br/><br/> If resizing to >=4 TB, note Azure guidance on disk caching [here](/azure/virtual-machines/premium-storage-performance). 
 Add a disk to a replicated VM | Supported
 Offline changes to protected disks | Disconnecting disks and making offline modifications to them require triggering a full resync.
-Disk caching | Disk Caching isn't supported for disks 4 TB and larger. If multiple disks are attached to your VM, each disk that is smaller than 4 TB supports caching. Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it's the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting. Not following those recommendations could lead to data corruption.
+Disk caching | Disk Caching isn't supported for disks 4 TB and larger. If multiple disks are attached to your VM, each disk that's smaller than 4 TB supports caching. Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it's the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting. Not following those recommendations could lead to data corruption.
 
 
 ## Replicated machines - storage
@@ -415,7 +415,7 @@ Encryption at rest (CMK) | Supported | Both Software and HSM keys are supported 
 Double Encryption at rest | Supported | Learn more on supported regions for [Windows](/azure/virtual-machines/disk-encryption) and [Linux](/azure/virtual-machines/disk-encryption)
 FIPS encryption | Not supported
 Azure Disk Encryption (ADE) for Windows OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. |
-Azure Disk Encryption (ADE) for Linux OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. <br><br> Known issue with enabling replication. [Learn more.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
+Azure Disk Encryption (ADE) for Linux OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. <br><br> Known issue with enabling replication. [Learn more.](./azure-to-azure-protection-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 SAS key rotation | Supported | If the SAS key for storage accounts is rotated, you must disable and re-enable replication.  |
 Host Caching | Supported | |
 Hot add    | Supported | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks. <br/><br/> Only one disk can be hot added to an Azure VM at a time. Parallel addition of multiple disks isn't supported. |
@@ -434,8 +434,8 @@ General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Trans
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
 Managed Shared Disk| Supported 
-Managed Premium SSD v2 Disk| Supported |Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported. 
-Ultra Disks | Supported | Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Ultra disks cannot be supported.
+Managed Premium SSD v2 Disk| Supported |Note: Since Block Blob storage accounts aren't supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks can't be supported. 
+Ultra Disks | Supported | Note: Since Block Blob storage accounts aren't supported in China North and China East regions, Azure Site Recovery for Ultra disks can't be supported.
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported
 Tags  | Supported | User-generated tags are replicated every 24 hours.
