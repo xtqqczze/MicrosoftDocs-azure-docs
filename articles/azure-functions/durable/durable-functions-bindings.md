@@ -1,12 +1,12 @@
 ---
 title: Bindings for Durable Functions - Azure
 description: Become familiar with triggers and bindings for the Durable Functions extension for Azure Functions. Also find information about Durable Functions settings.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 03/22/2023
+ms.date: 09/29/2025
 ms.author: azfuncdf
 zone_pivot_groups: programming-languages-set-functions-lang-workers
-# Customer intent: As a developer, I want to become familiar with Durable Functions triggers and bindings so that I can use them to control the execution of orchestrator, entity, and activity functions in my function apps.
+# Customer intent: As a developer, I want to become familiar with Durable Functions triggers and bindings so that I can use them to control the execution of orchestrator, entity, activity, and client functions in my function apps.
 ---
 
 # Bindings for Durable Functions (Azure Functions)
@@ -15,18 +15,18 @@ The [Durable Functions](durable-functions-overview.md) extension introduces thre
 
 This article discusses the use of these four bindings and provides code samples. It also provides information about the Durable Functions configuration properties in *host.json*, the metadata file that contains settings that affect all functions in a function app.
 
-Make sure to choose your Durable Functions development language at the top of the article.
+Make sure to select your Durable Functions development language at the top of the article.
 
 ::: zone pivot="programming-language-python" 
 
 > [!IMPORTANT]   
-> This article supports both Python v1 and Python v2 programming models for Durable Functions.  
+> This article supports both the Python v1 and Python v2 programming models for Durable Functions.  
 
 ## Python v2 programming model
 
-Durable Functions is supported in the [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the Python Package Index (PyPI) package `azure-functions-durable`, version `1.2.2` or a later version. You must also check *host.json* to make sure your app references [Extension Bundles](../extension-bundles.md) version 4.x. 
+Durable Functions is supported in the [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the Python Package Index (PyPI) package `azure-functions-durable`, version `1.2.2` or a later version. You must also check *host.json* to make sure your app references [extension bundle](../extension-bundles.md) version 4.x. 
 
-You can provide feedback and suggestions in the [Durable Functions SDK for Python repo](https://github.com/Azure/azure-functions-durable-python/issues).
+You can provide feedback and suggestions in the [Durable Functions SDK for Python repository](https://github.com/Azure/azure-functions-durable-python/issues).
 ::: zone-end
 
 ## Orchestration trigger
@@ -91,7 +91,7 @@ Here are some notes about the orchestration trigger:
 * **Return values**: Return values are serialized to JSON and persisted to the orchestration history table in Azure Table Storage. These return values can be queried by the orchestration client binding, described later.
 
 > [!WARNING]
-> Orchestrator functions should never use any input or output bindings other than the orchestration trigger binding. Using other bindings can cause problems with the Durable Task extension, because those bindings might not obey the single-threading and I/O rules. If you want to use other bindings, add them to an activity function called from your orchestrator function. For more information about coding constraints for orchestrator functions, see the [Orchestrator function code constraints](durable-functions-code-constraints.md) documentation.
+> Orchestrator functions should never use any input or output bindings other than the orchestration trigger binding. Using other bindings can cause problems with the Durable Task extension, because those bindings might not obey the single-threading and I/O rules. If you want to use other bindings, add them to an activity function called from your orchestrator function. For more information about coding constraints for orchestrator functions, see [Orchestrator function code constraints](durable-functions-code-constraints.md).
 
 ::: zone pivot="programming-language-javascript,programming-language-python"
 > [!WARNING]
@@ -103,7 +103,7 @@ Here are some notes about the orchestration trigger:
 
 The orchestration trigger binding supports both inputs and outputs. Here are some notes about input and output handling:
 
-* **Inputs**: You can invoke orchestration triggers with inputs, which are accessed through the context input object. All inputs must be JSON-serializable.
+* **Inputs**: You can invoke orchestration triggers that have inputs. The inputs are accessed through the context input object. All inputs must be JSON-serializable.
 * **Outputs**: Orchestration triggers support both output and input values. The return value of the function is used to assign the output value. The return value must be JSON-serializable.
 
 ### Trigger sample
@@ -138,7 +138,7 @@ public static string Run([OrchestrationTrigger] TaskOrchestrationContext context
 ```
 
 > [!NOTE]
-> In the isolated worker model and the in-process model for .NET durable function apps, you can use `context.GetInput<T>()` to extract the orchestration input. However, the isolated worker model also supports the input being supplied as a parameter, as shown in the preceding code. The input binds to the first parameter, which has no binding attribute on it and isn't a well-known type already covered by other input bindings, such as `FunctionContext`.
+> In the isolated worker model and the in-process model for .NET Durable Functions apps, you can use `context.GetInput<T>()` to extract the orchestration input. However, the isolated worker model also supports the input being supplied as a parameter, as shown in the preceding code. The input binds to the first parameter, which has no binding attribute on it and isn't a well-known type already covered by other input bindings, such as `FunctionContext`.
 
 ---
 
@@ -182,6 +182,8 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+---
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
 
@@ -265,7 +267,7 @@ public String helloWorldOrchestration(
 
 ## Activity trigger
 
-You can use an activity trigger to develop functions known as [activity functions](durable-functions-types-features-overview.md#activity-functions) that are called by orchestrator functions.
+You can use the activity trigger to develop functions known as [activity functions](durable-functions-types-features-overview.md#activity-functions) that are called by orchestrator functions.
 
 ::: zone pivot="programming-language-csharp"
 You use the [ActivityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.activitytriggerattribute) .NET attribute to configure the activity trigger.
@@ -345,7 +347,7 @@ public static string SayHello([ActivityTrigger] IDurableActivityContext helloCon
 }
 ```
 
-The default parameter type for the .NET `ActivityTriggerAttribute` binding is [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext) (or [DurableActivityContext](/dotnet/api/microsoft.azure.webjobs.durableactivitycontext?view=azure-dotnet-legacy&preserve-view=true) for Durable Functions v1). However, .NET activity triggers also support binding directly to JSON-serializeable types (including primitive types), so you can also use the following simplified version of the function:
+The default parameter type for the .NET `ActivityTriggerAttribute` binding is [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext) (or [DurableActivityContext](/previous-versions/dotnet/api/microsoft.azure.webjobs.durableactivitycontext) for Durable Functions v1). However, .NET activity triggers also support binding directly to JSON-serializeable types (including primitive types), so you can also use the following simplified version of the function:
 
 ```csharp
 [FunctionName("SayHello")]
@@ -471,7 +473,7 @@ You can use the orchestration client binding to write functions that interact wi
 * Purge the instance history.
 
 ::: zone pivot="programming-language-csharp"
-You can bind to an orchestration client by using the [DurableClientAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durableclientattribute) attribute ([OrchestrationClientAttribute](/dotnet/api/microsoft.azure.webjobs.orchestrationclientattribute?view=azure-dotnet-legacy&preserve-view=true) in Durable Functions v1.x). 
+You can bind to an orchestration client by using the [DurableClientAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durableclientattribute) attribute ([OrchestrationClientAttribute](/previous-versions/dotnet/api/microsoft.azure.webjobs.orchestrationclientattribute) in Durable Functions v1.x). 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 You can bind to an orchestration client by using the `@DurableClientInput` annotation.

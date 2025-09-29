@@ -4,7 +4,7 @@ description: include file
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/26/2025
+ms.date: 09/29/2025
 ms.author: glenga
 ms.custom:
   - include file
