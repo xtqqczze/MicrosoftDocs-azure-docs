@@ -31,7 +31,7 @@ You can provide feedback and suggestions in the [Durable Functions SDK for Pytho
 
 ## Orchestration trigger
 
-You can use the orchestration trigger to develop [durable orchestrator functions](durable-functions-types-features-overview.md#orchestrator-functions). This trigger runs when a new orchestration instance is scheduled and when an existing orchestration instance receives an event. Examples of events that can trigger orchestrator functions include durable timer expirations, activity function responses, and events raised by external clients.
+You can use the orchestration trigger to develop [durable orchestrator functions](durable-functions-types-features-overview.md#orchestrator-functions). This trigger executes when a new orchestration instance is scheduled and when an existing orchestration instance receives an event. Examples of events that can trigger orchestrator functions include durable timer expirations, activity function responses, and events raised by external clients.
 
 ::: zone pivot="programming-language-csharp"
 When you develop functions in .NET, you use the [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute) .NET attribute to configure the orchestration trigger. 
@@ -117,7 +117,7 @@ The attribute that you use to define the trigger depends on whether you run your
 
 ```csharp
 [FunctionName("HelloWorld")]
-public static string Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+public static string RunOrchestrator([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
     return $"Hello {name}!";
@@ -131,7 +131,7 @@ public static string Run([OrchestrationTrigger] IDurableOrchestrationContext con
 
 ```csharp
 [Function("HelloWorld")]
-public static string Run([OrchestrationTrigger] TaskOrchestrationContext context, string name)
+public static string RunOrchestrator([OrchestrationTrigger] TaskOrchestrationContext context, string name)
 {
     return $"Hello {name}!";
 }
@@ -213,7 +213,7 @@ Most orchestrator functions call activity functions. The following code provides
 
 ```csharp
 [FunctionName("HelloWorld")]
-public static async Task<string> Run(
+public static async Task<string> RunOrchestrator(
     [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
@@ -229,7 +229,7 @@ public static async Task<string> Run(
 
 ```csharp
 [Function("HelloWorld")]
-public static async Task<string> Run(
+public static async Task<string> RunOrchestrator(
     [OrchestrationTrigger] TaskOrchestrationContext context, string name)
 {
     string result = await context.CallActivityAsync<string>("SayHello", name);
@@ -573,7 +573,7 @@ public static Task Run(
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell" 
+::: zone pivot="programming-language-javascript" 
 
 **function.json**
 ```json
@@ -594,8 +594,6 @@ public static Task Run(
 }
 ```
 
-::: zone-end
-::: zone pivot="programming-language-javascript"
 **index.js**
 ```javascript
 const df = require("durable-functions");
@@ -604,15 +602,6 @@ module.exports = async function (context) {
     const client = df.getClient(context);
     return instanceId = await client.startNew("HelloWorld", undefined, context.bindings.input);
 };
-```
-::: zone-end  
-::: zone pivot="programming-language-powershell" 
-
-**run.ps1**
-```powershell
-param([string] $input, $TriggerMetadata)
-
-$InstanceId = Start-DurableOrchestration -FunctionName $FunctionName -Input $input
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
@@ -625,13 +614,16 @@ import azure.durable_functions as df
 
 myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-@myApp.route(route="orchestrators/{functionName}")
+@myApp.queue_trigger(
+    arg_name="msg",
+    queue_name="start-orchestration",
+    connection="AzureWebJobsStorage"
+)
 @myApp.durable_client_input(client_name="client")
-async def durable_trigger(req: func.HttpRequest, client):
-    function_name = req.route_params.get('functionName')
-    instance_id = await client.start_new(function_name)
-    response = client.create_check_status_response(req, instance_id)
-    return response
+async def client_function(msg: func.QueueMessage, client: df.DurableOrchestrationClient):
+    input_data = msg.get_body().decode("utf-8")
+    await client.start_new("my_orchestrator", None, input_data)
+    return None
 ```
 
 #### [v1](#tab/python-v1)
@@ -676,7 +668,7 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
 {
   "bindings": [
     {
-      "name": "input",
+      "name": "InputData",
       "type": "queueTrigger",
       "queueName": "durable-function-trigger",
       "direction": "in"
@@ -725,7 +717,7 @@ Internally, this trigger binding polls the configured durable store for new enti
 You use the [EntityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.entitytriggerattribute) .NET attribute to configure the entity trigger.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell" 
+::: zone pivot="programming-language-javascript" 
 To define the entity trigger, you use the following JSON object in the `bindings` array of *function.json*:
 
 ```json
@@ -743,6 +735,10 @@ By default, the name of an entity is the name of the function.
 > [!NOTE]
 > Entity triggers aren't yet supported for Java.
 ::: zone-end  
+::: zone pivot="programming-language-powershell" 
+> [!NOTE]
+> Entity triggers aren't yet supported for PowerShell.
+::: zone-end 
 ::: zone pivot="programming-language-python"  
 The way that you define an entity trigger depends on the programming model that you use.
 
@@ -790,7 +786,7 @@ You can bind to the entity client by using the [DurableClientAttribute](/dotnet/
 > You can also use the `[DurableClientAttribute]` to bind to the [orchestration client](#orchestration-client).
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell" 
+::: zone pivot="programming-language-javascript" 
 To define the entity client, you use the following JSON object in the `bindings` array of *function.json*:
 
 ```json
@@ -839,6 +835,10 @@ To define the entity client, you use the following JSON object in the `bindings`
 ::: zone pivot="programming-language-java" 
 > [!NOTE]
 > Entity clients aren't yet supported for Java.
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+> [!NOTE]
+> Entity clients aren't yet supported for PowerShell.
 ::: zone-end  
 
 For more information and examples of interacting with entities as a client, see [Access entities](durable-functions-entities.md#access-entities).

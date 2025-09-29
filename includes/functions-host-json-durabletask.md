@@ -16,7 +16,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 > [!NOTE]
 > All major versions of Durable Functions are supported on all versions of the Azure Functions runtime. However, the schema of the *host.json* configuration differs slightly depending on the version of the Azure Functions runtime and the version of the Durable Functions extension that you use.
 >
-> The following code provides two examples of `durableTask` settings in *host.json*: one for Durable Functions 2.x and one for Durable Functions 1.x. You can use both examples with Azure Functions 2.0 and 3.0. With Azure Functions 1.0, the available settings are the same, but the `durableTask` section of *host.json* is located in the root of the *host.json* configuration instead of as a field under `extensions`.
+> The following code provides two examples of `durableTask` settings in *host.json*: one for Durable Functions 2.x and one for Durable Functions 1.x. You can use both examples with Azure Functions 2.0 and 3.0. With Azure Functions 1.0, the available settings are the same, but the `durableTask` section of *host.json* is located in the root of the *host.json* configuration instead of being a field under `extensions`.
 
 # [Durable Functions 2.x](#tab/2x-durable-functions)
 
