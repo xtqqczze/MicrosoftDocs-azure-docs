@@ -36,19 +36,19 @@ This section provides detailed procedure on how you can enable change tracking o
 
 1. Sign in to [Azure portal](https://portal.azure.com) and navigate to **Virtual machines**.
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-vm-portal-expanded.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-virtual-machine-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-virtual-machine-portal-expanded.png":::
 
 1. Select the virtual machine for which you want to enable Change Tracking.
 
 1. In the search, enter **Change tracking** to view the change tracking and inventory page.
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-vm-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-vm-expanded.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-change-tracking-virtual-machines-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-change-tracking-virtual-machine-expanded.png":::
 
 1. In the **Stay up-to-date with all changes** layout, select **Enable using AMA agent (Recommended)** option and **Enable**. 
 
    It will initiate the deployment and the notification appears on the top right corner of the screen.
    
-   :::image type="content" source="media/enable-vms-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-monitoring-agent/deployment-success-expanded.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-virtual-machines-monitoring-agent/deployment-success-expanded.png":::
     
 > [!NOTE]
 > - When you enable Change Tracking in the Azure portal using the Azure Monitoring Agent, the process automatically creates a Data Collection Rule (DCR). This rule will appear in the resource group with a name in the format ct-dcr-aaaaaaaaa. After the rule is created, add the required resources.
@@ -58,13 +58,13 @@ This section provides detailed procedure on how you can enable change tracking o
 
 1. Sign in to [Azure portal](https://portal.azure.com). Search for and select **Machines-Azure Arc**.
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/select-arc-machines-portal.png" alt-text="Screenshot showing how to select Azure Arc machines from the portal." lightbox="media/enable-vms-monitoring-agent/select-arc-machines-portal.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-arc-machines-portal.png" alt-text="Screenshot showing how to select Azure Arc machines from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-arc-machines-portal.png":::
 
 1. Select the Azure-Arc machine for which you want to enable Change Tracking.
 1. Under **Operations**, select **Change tracking** to view the change tracking and inventory page.
 1. In the **Stay up-to-date with all changes** layout, select **Enable using AMA agent (Recommended)** option and **Enable**. 
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-arc-vm.png" alt-text="Screenshot showing to select change tracking option for a single Azure arc virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-arc-vm.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-change-tracking-arc-virtual-machine.png" alt-text="Screenshot showing to select change tracking option for a single Azure arc virtual machine from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-change-tracking-arc-virtual-machine.png":::
 
    It will initiate the deployment and the notification appears on the top right corner of the screen.
 
@@ -82,22 +82,22 @@ This section provides detailed procedure on how you can enable change tracking a
 
 1. Sign in to [Azure portal](https://portal.azure.com) and navigate to **Virtual machines**.
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/select-vm-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-vm-portal-expanded.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-virtual-machine-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-virtual-machine-portal-expanded.png":::
 
 1. Select the virtual machines to which you intend to enable change tracking and select **Services** > **Change Tracking**. 
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select multiple virtual machines from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-multiple-vms-expanded.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-change-tracking-multiple-virtual-machines-inline.png" alt-text="Screenshot showing how to select multiple virtual machines from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-change-tracking-multiple-virtual-machines-expanded.png":::
 
    > [!NOTE]
    > You can select up to 250 virtual machines at a time to enable this feature.
 
 1. In **Enable Change Tracking** page, select the banner at the top of the page, **Click here to try new change tracking and inventory with Azure Monitoring Agent (AMA) experience**.
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/enable-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select enable change tracking for multiple vms from the portal." lightbox="media/enable-vms-monitoring-agent/enable-change-tracking-multiple-vms-expanded.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/enable-change-tracking-multiple-virtual-machines-inline.png" alt-text="Screenshot showing how to select enable change tracking for multiple vms from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/enable-change-tracking-multiple-virtual-machines-expanded.png":::
 
 1. In **Enable Change Tracking** page, you can view the list of machines that are enabled, ready to be enabled and the ones that you can't enable. You can use the filters to select the **Subscription**, **Location**, and **Resource groups**. You can select a maximum of three resource groups.
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/change-tracking-status-inline.png" alt-text="Screenshot showing the status of multiple vm." lightbox="media/enable-vms-monitoring-agent/change-tracking-status-expanded.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/change-tracking-status-inline.png" alt-text="Screenshot showing the status of multiple vm." lightbox="media/enable-virtual-machines-monitoring-agent/change-tracking-status-expanded.png":::
 
 1. Select **Enable** to initiate the deployment.
 1. A notification appears on the top right corner of the screen indicating the status of deployment.
@@ -111,16 +111,16 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
 1. [Create Change Tracking Data collection rule](#create-data-collection-rule).
 1. Sign in to [Azure portal](https://portal.azure.com) and go to **Monitor** and under **Settings**, select **Data Collection Rules**.
       
-   :::image type="content" source="media/enable-vms-monitoring-agent/monitor-menu-data-collection-rules.png" alt-text="Screenshot showing the menu option to access data collection rules from Azure Monitor." lightbox="media/enable-vms-monitoring-agent/monitor-menu-data-collection-rules.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/monitor-menu-data-collection-rules.png" alt-text="Screenshot showing the menu option to access data collection rules from Azure Monitor." lightbox="media/enable-virtual-machines-monitoring-agent/monitor-menu-data-collection-rules.png":::
 
 1. Select the data collection rule that you have created in Step 1 from the listing page.
 1. In the data collection rule page, under **Configurations**, select **Resources** and then select **Add**.
     
-   :::image type="content" source="media/enable-vms-monitoring-agent/select-resources.png" alt-text="Screenshot showing the menu option to select resources from the data collection rule page." lightbox="media/enable-vms-monitoring-agent/select-resources.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-resources.png" alt-text="Screenshot showing the menu option to select resources from the data collection rule page." lightbox="media/enable-virtual-machines-monitoring-agent/select-resources.png":::
     
 1. In the **Select a scope**, from **Resource types**, select *Machines-Azure Arc* that is connected to the subscription and then select **Apply** to associate the *ctdcr* created in Step 1 to the Arc-enabled machine and it will also install the Azure Monitoring Agent extension.
     
-   :::image type="content" source="media/enable-vms-monitoring-agent/scope-select-arc-machines.png" alt-text="Screenshot showing the selection of Arc-enabled machines from the scope." lightbox="media/enable-vms-monitoring-agent/scope-select-arc-machines.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/scope-select-arc-machines.png" alt-text="Screenshot showing the selection of Arc-enabled machines from the scope." lightbox="media/enable-virtual-machines-monitoring-agent/scope-select-arc-machines.png":::
     
 1. Install the Change Tracking extension as per the OS type for the Arc-enabled VM.
     
@@ -143,12 +143,12 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
 1. Download [CtDcrCreation.json](../automation/change-tracking/change-tracking-data-collection-rule-creation.md) file on your machine.
 1. Go to Azure portal and in the search, enter *Deploy a custom template*.
 1. In the **Custom deployment** page > **select a template**, select **Build your own template in the editor**.
-   :::image type="content" source="media/enable-vms-monitoring-agent/build-template.png" alt-text="Screenshot to get started with building a template.":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/build-template.png" alt-text="Screenshot to get started with building a template.":::
 1. In the **Edit template**, select **Load file** to upload the *CtDcrCreation.json* file.
 1. Select **Save**.
 1. In the **Custom deployment** > **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy the Data Collection Rule. The **Data Collection Rule Name** is optional. The resource group must be same as the resource group associated with the Log Analytic workspace ID chosen here.
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/build-template-basics.png" alt-text="Screenshot to provide subscription and resource group details to deploy data collection rule.":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/build-template-basics.png" alt-text="Screenshot to provide subscription and resource group details to deploy data collection rule.":::
    
    >[!NOTE]
    >- Ensure that the name of your Data Collection Rule is unique in that resource group, else the deployment will overwrite the existing Data Collection Rule.
@@ -157,7 +157,7 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
 1. Select **Review+create** > **Create** to initiate the deployment of *CtDcrCreation*.
 1. After the deployment is complete, select **CtDcr-Deployment** to see the DCR Name. Use the **Resource ID** of the newly created Data Collection Rule for Change tracking and inventory deployment through policy.
  
-   :::image type="content" source="media/enable-vms-monitoring-agent/deployment-confirmation.png" alt-text="Screenshot of deployment notification.":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/deployment-confirmation.png" alt-text="Screenshot of deployment notification.":::
 
 > [!NOTE]
 > After creating the Data Collection Rule (DCR) using the Azure Monitoring Agent's change tracking schema, ensure that you don't add any Data Sources to this rule. This can cause Change Tracking and Inventory to fail. You must only add new Resources in this section.

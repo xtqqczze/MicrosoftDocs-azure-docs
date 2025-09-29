@@ -72,4 +72,4 @@ For Windows SvcDescription is coming as base64 encoded string. As a workaround f
 
 ## Next steps
 
-- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking/enable-vms-monitoring-agent.md).
+- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking/enable-virtual-machines-monitoring-agent.md).

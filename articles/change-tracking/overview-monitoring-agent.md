@@ -81,11 +81,11 @@ To understand client requirements for TLS, see [TLS for Azure Automation](../aut
 
 You can enable Change Tracking and Inventory in the following ways:
 
-- Manually for non-Azure Arc-enabled machines, Refer to the Initiative *Enable Change Tracking and Inventory for Arc-enabled virtual machines* in **Policy > Definitions > Select Category = ChangeTrackingAndInventory**. To enable Change Tracking and Inventory at scale, use the **DINE Policy** based solution. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent (Preview)](enable-vms-monitoring-agent.md).
+- Manually for non-Azure Arc-enabled machines, Refer to the Initiative *Enable Change Tracking and Inventory for Arc-enabled virtual machines* in **Policy > Definitions > Select Category = ChangeTrackingAndInventory**. To enable Change Tracking and Inventory at scale, use the **DINE Policy** based solution. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent (Preview)](enable-virtual-machines-monitoring-agent.md).
 
-- For a single Azure VM from the [Virtual machine page](../automation/change-tracking/enable-vms-monitoring-agent.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
+- For a single Azure VM from the [Virtual machine page](../automation/change-tracking/enable-virtual-machines-monitoring-agent.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
 
-- For [multiple Azure VMs](enable-vms-monitoring-agent.md) by selecting them from the Virtual machines page in the Azure portal.
+- For [multiple Azure VMs](enable-virtual-machines-monitoring-agent.md) by selecting them from the Virtual machines page in the Azure portal.
 
 ## Tracking file changes
 
@@ -234,4 +234,4 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 
 ## Next steps
 
-- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking/enable-vms-monitoring-agent.md).
+- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking/enable-virtual-machines-monitoring-agent.md).

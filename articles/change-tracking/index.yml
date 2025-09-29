@@ -35,7 +35,7 @@ landingContent:
           - text: Enable using Azure policy
             url: enable-change-tracking-at-scale-policy.md
           - text: Enable from Azure portal
-            url: enable-vms-monitoring-agent.md
+            url: enable-virtual-machines-monitoring-agent.md
 
   # Card  
   - title: Manage Change Tracking

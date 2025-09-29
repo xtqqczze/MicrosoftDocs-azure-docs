@@ -15,7 +15,7 @@
     - name: Enable using Azure policy
       href: enable-change-tracking-at-scale-policy.md
     - name: Enable from Azure portal
-      href: enable-vms-monitoring-agent.md
+      href: enable-virtual-machines-monitoring-agent.md
 - name: Manage Change Tracking
   items:
     - name: Manage Change Tracking

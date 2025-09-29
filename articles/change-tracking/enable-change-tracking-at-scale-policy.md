@@ -18,7 +18,7 @@ This article provides detailed procedure on how you can enable change tracking a
 
 ## Prerequisite
 
-- You must [create the Data collection rule](enable-vms-monitoring-agent.md#create-data-collection-rule).
+- You must [create the Data collection rule](enable-virtual-machines-monitoring-agent.md#create-data-collection-rule).
 
 ## Enable Change tracking
 
@@ -39,19 +39,19 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 
      - Select *Enable Change Tracking and Inventory for Arc-enabled virtual machines*.
  
-       :::image type="content" source="media/enable-vms-monitoring-agent/enable-for-arc-virtual-machine-manager-inline.png" alt-text="Screenshot showing the selection of Arc-enabled virtual machines." lightbox="media/enable-vms-monitoring-agent/enable-for-arc-virtual-machine-manager-expanded.png":::
+       :::image type="content" source="media/enable-virtual-machines-monitoring-agent/enable-for-arc-virtual-machine-manager-inline.png" alt-text="Screenshot showing the selection of Arc-enabled virtual machines." lightbox="media/enable-virtual-machines-monitoring-agent/enable-for-arc-virtual-machine-manager-expanded.png":::
 
     #### [Virtual Machines Scale Sets](#tab/vmss)
 
      - Select *[Preview]: Enable Change Tracking and inventory for Virtual Machine Scale Sets*.
      
-       :::image type="content" source="media/enable-vms-monitoring-agent/enable-for-virtual-machine-scale-set-inline.png" alt-text="Screenshot showing the selection of virtual machines scale sets." lightbox="media/enable-vms-monitoring-agent/enable-for-virtual-machine-scale-set-expanded.png":::
+       :::image type="content" source="media/enable-virtual-machines-monitoring-agent/enable-for-virtual-machine-scale-set-inline.png" alt-text="Screenshot showing the selection of virtual machines scale sets." lightbox="media/enable-virtual-machines-monitoring-agent/enable-for-virtual-machine-scale-set-expanded.png":::
 
     #### [Virtual machines](#tab/vm)
 
      - Select *Enable Change Tracking and inventory for virtual machines*.
  
-       :::image type="content" source="media/enable-vms-monitoring-agent/enable-for-vm-inline.png" alt-text="Screenshot showing the selection of virtual machines." lightbox="media/enable-vms-monitoring-agent/enable-for-vm-expanded.png"::: 
+       :::image type="content" source="media/enable-virtual-machines-monitoring-agent/enable-for-virtual-machine-inline.png" alt-text="Screenshot showing the selection of virtual machines." lightbox="media/enable-virtual-machines-monitoring-agent/enable-for-virtual-machine-expanded.png"::: 
     
 
 1. Select *Enable Change Tracking and Inventory for virtual machines* to enable the change tracking on Azure virtual machines.
@@ -61,7 +61,7 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
    - Configure ChangeTracking Extension for Windows virtual machines
    - Configure ChangeTracking Extension for Linux virtual machines
 
-     :::image type="content" source="media/enable-vms-monitoring-agent/enable-change-tracking-virtual-machines-inline.png" alt-text="Screenshot showing the selection of three policies." lightbox="media/enable-vms-monitoring-agent/enable-change-tracking-virtual-machines-expanded.png":::
+     :::image type="content" source="media/enable-virtual-machines-monitoring-agent/enable-change-tracking-virtual-machines-inline.png" alt-text="Screenshot showing the selection of three policies." lightbox="media/enable-virtual-machines-monitoring-agent/enable-change-tracking-virtual-machines-expanded.png":::
 
 1. Select **Assign** to assign the policy to a resource group. For example, *Assign Built in User-Assigned Managed identity to virtual machines*.
 
@@ -71,7 +71,7 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 1. In the **Enable Change Tracking and Inventory for virtual machines** page, enter the following options:
    1. In **Basics**, you can define the scope. Select the three dots to configure a scope. In the **Scope** page, provide the **Subscription** and **Resource group**.
    1. In **Parameters**, select the option in the **Bring your own user assigned managed identity**.
-   1. Provide the **Data Collection Rule Resource id**. Learn more on [how to obtain the Data Collection Rule Resource ID after you create the Data collection rule](enable-vms-monitoring-agent.md#create-data-collection-rule).
+   1. Provide the **Data Collection Rule Resource id**. Learn more on [how to obtain the Data Collection Rule Resource ID after you create the Data collection rule](enable-virtual-machines-monitoring-agent.md#create-data-collection-rule).
    1. Select **Review + create**.
 
 ## Next steps

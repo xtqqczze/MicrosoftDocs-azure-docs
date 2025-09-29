@@ -18,7 +18,7 @@ author: jasminemehndir
 This article describes how to manage change tracking, and includes the procedure on how you can change a workspace and configure data collection rule.
 
 >[!NOTE]
->Before using the procedures in this article, ensure that you've enabled Change Tracking and Inventory on your VMs. For detailed information on how you can enable, see [Enable change tracking and inventory from portal](enable-vms-monitoring-agent.md)
+>Before using the procedures in this article, ensure that you've enabled Change Tracking and Inventory on your VMs. For detailed information on how you can enable, see [Enable change tracking and inventory from portal](enable-virtual-machines-monitoring-agent.md)
 
 
 ## Configure Windows, Linux files, and Windows Registry using Data Collection Rules
@@ -102,7 +102,7 @@ When the storage account is linked using the system assigned managed identity, a
 
 1. Select the role and assign it to your virtual machine.
 
-     :::image type="content" source="media/manage-change-tracking-monitoring-agent/blob-add-role-vm-inline.png" alt-text="Screenshot of assigning the role to VM." lightbox="media/manage-change-tracking-monitoring-agent/blob-add-role-vm-expanded.png":::
+     :::image type="content" source="media/manage-change-tracking-monitoring-agent/blob-add-role-virtual-machine-inline.png" alt-text="Screenshot of assigning the role to VM." lightbox="media/manage-change-tracking-monitoring-agent/blob-add-role-virtual-machine-expanded.png":::
 
 #### [User Assigned Managed Identity](#tab/ua-mi)
 
