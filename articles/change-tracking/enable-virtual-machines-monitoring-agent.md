@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Change Tracking for single machine and multiple machines from the portal.
+title: Enable Azure Change Tracking for single machine and multiple machines from the portal
 description: Learn how to enable the Change Tracking feature for single machine and multiple machines at scale from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
@@ -152,7 +152,7 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
    
    >[!NOTE]
    >- Ensure that the name of your Data Collection Rule is unique in that resource group, else the deployment will overwrite the existing Data Collection Rule.
-   >- The Log Analytics Workspace Resource Id specifies the Azure resource ID of the Log Analytics workspace used to store change tracking data. Ensure that location of workspace is from the [Change tracking supported regions](../automation/how-to/region-mappings.md)
+   >- The Log Analytics Workspace Resource ID specifies the Azure resource ID of the Log Analytics workspace used to store change tracking data. Ensure that location of workspace is from the [Change tracking supported regions](../automation/how-to/region-mappings.md)
 
 1. Select **Review+create** > **Create** to initiate the deployment of *CtDcrCreation*.
 1. After the deployment is complete, select **CtDcr-Deployment** to see the DCR Name. Use the **Resource ID** of the newly created Data Collection Rule for Change tracking and inventory deployment through policy.

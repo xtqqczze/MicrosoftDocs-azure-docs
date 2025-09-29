@@ -1,4 +1,4 @@
-- name: Azure Change Tracking & Inventory User Documentation
+- name: Azure Change Tracking & Inventory user documentation
   href: index.yml
 - name: Overview
   href: overview-monitoring-agent.md
