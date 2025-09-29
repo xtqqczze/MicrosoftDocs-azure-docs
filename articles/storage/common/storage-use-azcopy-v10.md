@@ -16,13 +16,12 @@ ai-usage: ai-assisted
 
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 
-AzCopy **V10** is the currently supported version of AzCopy. The tool is not supported on versions of Windows, Linux, or macOS that are no longer officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
-
-<a id="download-and-install-azcopy"></a>This video shows you how to download and run the AzCopy utility.
+<a id="download-and-install-azcopy"></a>
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
-<a id="download-azcopy"></a>
+> [!NOTE]
+> AzCopy **V10** is the currently supported version of AzCopy. The tool is not supported on versions of Windows, Linux, or macOS that are no longer officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 ## AzCopy use cases
 
@@ -81,15 +80,13 @@ As an owner of your Azure Storage account, you aren't automatically assigned per
 
 ## Authorize AzCopy
 
-You can provide authorization credentials by using Microsoft Entra ID, or by using a Shared Access Signature (SAS) token.
+Provide authorization credentials by using Microsoft Entra ID, or by using a Shared Access Signature (SAS) token.
 
 <a name='option-1-use-azure-active-directory'></a>
 
 ### Use Microsoft Entra ID
 
-By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. 
-
-Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are each a type of security principal. 
+By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are each a type of security principal. 
 
 For guidance, see any of these articles.
 
@@ -103,7 +100,9 @@ For guidance, see any of these articles.
 
 You can append a SAS token to each source or destination URL that use in your AzCopy commands. This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the container URL.
 
-`azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true`
+```azcopy
+azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
+```
 
 To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](./storage-sas-overview.md).
 
