@@ -19,32 +19,36 @@ For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-
 
 ## Verify role assignments
 
-The level of authorization that you need is based on whether you plan to upload files or just download them.
-
-If you just want to download files, then verify that the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role (Azure Blob Storage) or the [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) role (Azure Files) has been assigned to your user identity, managed identity, or service principal.
-
-If you want to upload files to Azure Blob Storage, then verify that one of these roles has been assigned to your security principal.
-
-- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
-- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
-
-If you want to upload files to an Azure file share, then verify that the [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) has been assigned to your security principal.
-
-These roles can be assigned to your security principal in any of these scopes:
-
-- Container (file system) or file share
-- Storage account
-- Resource group
-- Subscription
-
-To learn how to verify and assign roles, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md) (Blob Storage) or [Choose how to authorize access to file data in the Azure portal](../files/authorize-data-operations-portal.md) (Azure Files).
+The appropriate Azure role must be assigned to your user identity in the scope of the container or file share, storage account, resource group or subscription. The level of authorization that you need is based on whether you plan to upload files or just download them. 
 
 > [!NOTE]
 > Keep in mind that Azure role assignments can take up to five minutes to propagate.
 
+### Roles for Azure Blob Storage
+
+Use the following table as a guide:
+
+| Task | Azure role |
+|---|---|
+| Upload data | [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)<br>[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) |
+| Download data | [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) |
+
+To learn how to verify and assign roles, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
+
 You don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory.
 
 To learn more, see [Access control model in Azure Data Lake Storage](../blobs/data-lake-storage-access-control-model.md).
+
+### Roles for Azure Files
+
+Use the following table as a guide:
+
+| Task | Azure role |
+|---|---|
+| Upload data |[Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) |
+| Download Data | [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) |
+
+To learn how to verify and assign roles, see [Choose how to authorize access to file data in the Azure portal](../files/authorize-data-operations-portal.md).
 
 ## Authorize a user identity by environment variables
 
