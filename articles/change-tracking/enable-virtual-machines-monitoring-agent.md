@@ -42,7 +42,7 @@ This section provides detailed procedure on how you can enable change tracking o
 
 1. In the search, enter **Change tracking** to view the change tracking and inventory page.
 
-   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-change-tracking-virtual-machines-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-change-tracking-virtual-machine-expanded.png":::
+   :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-change-tracking-virtual-machine-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-change-tracking-virtual-machine-expanded.png":::
 
 1. In the **Stay up-to-date with all changes** layout, select **Enable using AMA agent (Recommended)** option and **Enable**. 
 
