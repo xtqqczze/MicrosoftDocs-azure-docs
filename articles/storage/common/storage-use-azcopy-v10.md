@@ -73,7 +73,7 @@ For detailed information on AzCopy releases, see the [AzCopy release page](https
 
 For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system.
 
-If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in Windows PowerShell command prompts.
+If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in a command shell.
 
 As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
 
@@ -91,26 +91,21 @@ By using Microsoft Entra ID, you can provide credentials once instead of having 
 
 Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are each a type of security principal. 
 
-See any of these links:
+For guidance, see any of these articles.
 
-- [Authorize access for AzCopy with a user identity](storage-use-azcopy-authorize-managed-identity.md)
-- [Authorize access for AzCopy with a managed identity](storage-use-azcopy-authorize-managed-identity.md)
-- [Authorize access for AzCopy with a service principal](storage-use-azcopy-authorize-service-principal.md)
+| Security principal | Guidance |
+|-----|-----|
+| User identity | [Authorize access for AzCopy with a user identity](storage-use-azcopy-authorize-managed-identity.md) |
+| Managed identity | [Authorize access for AzCopy with a managed identity](storage-use-azcopy-authorize-managed-identity.md) |
+| Service principal | [Authorize access for AzCopy with a service principal](storage-use-azcopy-authorize-service-principal.md) |
 
 ### Use a SAS token
 
-You can append a SAS token to each source or destination URL that use in your AzCopy commands.
+You can append a SAS token to each source or destination URL that use in your AzCopy commands. This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the container URL.
 
-This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the container URL.
-
-```azcopy
-azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
-```
+`azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true`
 
 To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](./storage-sas-overview.md).
-
-> [!NOTE]
-> The [Secure transfer required](storage-require-secure-transfer.md) setting of a storage account determines whether the connection to a storage account is secured with Transport Layer Security (TLS). This setting is enabled by default.
 
 <a id="transfer-data"></a>
 

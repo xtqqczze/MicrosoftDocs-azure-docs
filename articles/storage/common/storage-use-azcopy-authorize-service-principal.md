@@ -173,6 +173,31 @@ Replace the `<application-id>` placeholder with the application ID of your servi
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history.
 
+## Authorize with Azure CLI
+
+If you sign in by using Azure CLI, then Azure CLI obtains an OAuth token that AzCopy can use to authorize operations. 
+
+To enable AzCopy to use that token, type the following command, and then press the ENTER key.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
+export AZCOPY_TENANT_ID=<tenant-id>
+```
+
+For more information about how to sign in with the Azure CLI, see [Sign into Azure with a service principal using the Azure CLI](/cli/azure/authenticate-azure-cli-service-principal).
+
+## Authorize with Azure PowerShell
+
+If you sign in by using Azure PowerShell, then Azure PowerShell obtains an OAuth token that AzCopy can use to authorize operations.  
+
+To enable AzCopy to use that token, type the following command, and then press the ENTER key.
+
+```PowerShell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
+```
+
+For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-noninteractive#login-with-a-service-principal).
+
 ## Next steps
 
 - For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-v10.md)

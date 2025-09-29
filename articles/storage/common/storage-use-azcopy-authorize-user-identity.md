@@ -63,7 +63,7 @@ This command returns an authentication code and the URL of a website. Open the w
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, the operation can complete.
 
-### Authorize by using the AzCopy login command
+## Authorize by using the AzCopy login command
 
 As an alternative to using in-memory variables, you authorize access by using the azcopy login command.
 
@@ -89,6 +89,30 @@ This command returns an authentication code and the URL of a website. Open the w
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
+## Authorize with Azure CLI
+
+If you sign in by using Azure CLI, then Azure CLI obtains an OAuth token that AzCopy can use to authorize operations. 
+
+To enable AzCopy to use that token, type the following command, and then press the ENTER key.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
+export AZCOPY_TENANT_ID=<tenant-id>
+```
+
+For more information about how to sign in with the Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+
+## Authorize with Azure PowerShell
+
+If you sign in by using Azure PowerShell, then Azure PowerShell obtains an OAuth token that AzCopy can use to authorize operations.  
+
+To enable AzCopy to use that token, type the following command, and then press the ENTER key.
+
+```PowerShell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
+```
+
+For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ## Next steps
 

@@ -145,6 +145,31 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 
 Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
 
+## Authorize with Azure CLI
+
+If you sign in by using Azure CLI, then Azure CLI obtains an OAuth token that AzCopy can use to authorize operations. 
+
+To enable AzCopy to use that token, type the following command, and then press the ENTER key.
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
+export AZCOPY_TENANT_ID=<tenant-id>
+```
+
+For more information about how to sign in with the Azure CLI, see [Sign into Azure with a managed identity using Azure CLI](/cli/azure/authenticate-azure-cli-managed-identity).
+
+## Authorize with Azure PowerShell
+
+If you sign in by using Azure PowerShell, then Azure PowerShell obtains an OAuth token that AzCopy can use to authorize operations.  
+
+To enable AzCopy to use that token, type the following command, and then press the ENTER key.
+
+```PowerShell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
+```
+
+For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-noninteractive#login-with-a-managed-identity).
+
 ## Next steps
 
 - For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-v10.md)
