@@ -16,66 +16,88 @@ ai-usage: ai-assisted
 
 AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 
-> [!NOTE]
-> AzCopy **V10** is the currently supported version of AzCopy. The tool is not supported on versions of Windows, Linux, or macOS that are no longer officially maintained.
-> 
-> If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
+AzCopy **V10** is the currently supported version of AzCopy. The tool is not supported on versions of Windows, Linux, or macOS that are no longer officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 <a id="download-and-install-azcopy"></a>This video shows you how to download and run the AzCopy utility.
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
-The steps in the video are also described in the following sections.
+<a id="download-azcopy"></a>
 
-## Use cases for AzCopy
+## AzCopy use cases
 
-AzCopy can be used to copy your data to, from, or between Azure storage accounts. Common use cases include:
+You can use AzCopy to copy your data to, from, or between Azure storage accounts. For example, you can:
 
-- Copying data from an on-premises source to an Azure storage account
-- Copying data from an Azure storage account to an on-premises source
-- Copying data from one storage account to another storage account
+- Copy data from an on-premises source to an Azure storage account
+- Copy data from an Azure storage account to an on-premises source
+- Copy data from one storage account to another storage account
 
-Each of these use cases has unique options. For example, AzCopy has native commands for copying and/or synchronizing data. This makes AzCopy a flexible tool that can be used for one-time copy activities and ongoing synchronization scenarios. AzCopy also allows you to target specific storage services such as Azure Blob Storage or Azure Files. This allows you to copy data from blob to file, file to blob, file to file, etc.
+To learn about how to accomplish these tasks, see the [Transfer data](#transfer-data) section of this article.
 
-To learn more about these scenarios, see:
+AzCopy has native commands for copying and synchronizing data so you can use it for one-time copy activities or ongoing synchronization scenarios. 
 
-- [Upload files to Azure Blob storage by using AzCopy](storage-use-azcopy-blobs-upload.md)
-- [Download blobs from Azure Blob Storage by using AzCopy](storage-use-azcopy-blobs-download.md)
-- [Copy blobs between Azure storage accounts by using AzCopy](storage-use-azcopy-blobs-copy.md)
-- [Synchronize with Azure Blob storage by using AzCopy](storage-use-azcopy-blobs-synchronize.md)
+You can use AzCopy to target specific storage services such as Azure Blob Storage or Azure Files. You can also copy between storage services (For example: from Azure Blob Storage to Azure Files or from Azure Files to Azure Blob Storage).
 
 [!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
+## Install AzCopy
+
+If you are using AzCopy on a linux machine, you can use a package manager. For all other operating systems, download a portable binary file.
+
+### Use a package manager (Linux only)
+
+You can install AzCopy by using a Linux package that is hosted on the [Linux Software Repository for Microsoft Products](/linux/packages). See [Install AzCopy on Linux by using a package manager](storage-use-azcopy-install-linux-package.md).
+
 <a id="download-azcopy"></a>
 
-## Download AzCopy
+### Download a portable binary
+
+As an alternative to installing a package, you can download the AzCopy V10 executable file to any directory on your computer. 
+
+- [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
+- [Windows ARM64 Preview](https://aka.ms/downloadazcopy-v10-windows-arm64) (zip)
+- [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
+- [Linux ARM64](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
+- [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [macOS ARM64 Preview](https://aka.ms/downloadazcopy-v10-mac-arm64) (zip)
+
+These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
+
+For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
 
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
 
-You can download the AzCopy V10 executable file to any directory on your computer. Linux users can also use a convenient linux package.
+## Run AzCopy
 
-| Linux | Windows | macOS |
-|---|----|---|
-| [Linux package](storage-use-azcopy-install-linux-package.md) (package) <br>[Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)<br>[Linux ARM64](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar) | [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)<br>[Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)<br>[Windows ARM64 Preview](https://aka.ms/downloadazcopy-v10-windows-arm64) (zip) | [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)<br>[macOS ARM64 Preview](https://aka.ms/downloadazcopy-v10-mac-arm64) (zip) |
+For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system.
 
-Download links to always point to new versions of AzCopy. If you need to obtain a static (unchanging) link to a version of AzCopy, see [Use AzCopy v10 in a script](storage-use-azcopy-use-in-script.md).
+If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in Windows PowerShell command prompts.
 
-If you download a zip or tar file, you'll have to decompress it to obtain the executable file. For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system. If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in your command shell.
-
-For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
+As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
 
 <a id="choose-how-youll-provide-authorization-credentials"></a>
 
 ## Authorize AzCopy
 
-As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
-
 You can provide authorization credentials by using Microsoft Entra ID, or by using a Shared Access Signature (SAS) token.
 
 <a name='option-1-use-azure-active-directory'></a>
 
-## Use a SAS token
+### Use Microsoft Entra ID
+
+By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. 
+
+Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are each a type of security principal. 
+
+See any of these links:
+
+- [Authorize access for AzCopy with a user identity](storage-use-azcopy-authorize-managed-identity.md)
+- [Authorize access for AzCopy with a managed identity](storage-use-azcopy-authorize-managed-identity.md)
+- [Authorize access for AzCopy with a service principal](storage-use-azcopy-authorize-service-principal.md)
+
+### Use a SAS token
 
 You can append a SAS token to each source or destination URL that use in your AzCopy commands.
 
@@ -89,44 +111,6 @@ To learn more about SAS tokens and how to obtain one, see [Using shared access s
 
 > [!NOTE]
 > The [Secure transfer required](storage-require-secure-transfer.md) setting of a storage account determines whether the connection to a storage account is secured with Transport Layer Security (TLS). This setting is enabled by default.
-
-## Use Microsoft Entra ID
-
-You can provide AzCopy with authorization credentials by using Microsoft Entra ID. That way, you won't have to append a shared access signature (SAS) token to each command.
-
-Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are each a type of security principal. 
-
-See any of these links:
-
-- [Authorize access for AzCopy with a user identity](storage-use-azcopy-authorize-managed-identity.md)
-- [Authorize access for AzCopy with a managed identity](storage-use-azcopy-authorize-managed-identity.md)
-- [Authorize access for AzCopy with a service principal](storage-use-azcopy-authorize-service-principal.md)
-
-#### Authorize with Azure CLI
-
-If you sign in by using Azure CLI, then Azure CLI obtains an OAuth token that AzCopy can use to authorize operations. 
-
-To enable AzCopy to use that token, type the following command, and then press the ENTER key.
-
-```bash
-export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
-export AZCOPY_TENANT_ID=<tenant-id>
-```
-
-For more information about how to sign in with the Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
-
-#### Authorize with Azure PowerShell
-
-If you sign in by using Azure PowerShell, then Azure PowerShell obtains an OAuth token that AzCopy can use to authorize operations.  
-
-To enable AzCopy to use that token, type the following command, and then press the ENTER key.
-
-```PowerShell
-$Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
-```
-
-For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
-
 
 <a id="transfer-data"></a>
 
