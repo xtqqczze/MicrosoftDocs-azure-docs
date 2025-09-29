@@ -245,7 +245,7 @@ The portal version of the migration assistant is currently in preview.
 
     The migration assistant page appears with a list of current and ongoing migrations along with actions that you can take to create and manage migrations.
 
-2.  Select the volume and then **Migrate** to initiate the migration. 
+2.  Select **Migrate** to initiate the migration process. 
 3.	In the **Source** tab, provide the following information:
 
     * **Cluster Name**
@@ -264,17 +264,21 @@ The portal version of the migration assistant is currently in preview.
 
 5.  Select **Review + Create** to review the volume details. Select **Create** to create the volume.
 
-    The volume you created appears in the Volumes page. 
+    The volume you created appears in the Migration Assistant view and is also visible among list of all volumes.
  
     A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
 
-6.	If the cluster are not peered, provide the intercluster (IC) LIF address for the cluster and select **Continue**.
-7.	If the SVMs are not peered, provide the intercluster (IC) LIF address for the SVM and select **Continue**.
-8.	Select **Check Peering Status** to confirm that the cluster and SVM are peered successfully.
+6.  Navigate to the **Migration** tab and select **Configure Peering**.
+
+7.	If the cluster are not peered, provide the intercluster (IC) LIF address for the cluster and select **Continue**.
+8.	If the SVMs are not peered, select **Continue** to peer the SVMs.
+9.	Select **Check Peering Status** to confirm that the cluster and SVM are peered successfully.
 
     After peering is completed, the migration transfer is initialized, and the baseline data is transferred from the source on-premises volume to the destination migration volume.
 
-9.	Once the migration is complete, you can finalize the migration which will delete the replication relationship and clean up infrastructure as appropriate.
+10.	Once the migration is complete, you can finalize the migration which will delete the replication relationship and clean up infrastructure as appropriate.
+
+    The volume becomes read-write and functions as a regular ANF volume once the migration has been completed.
 
 ---
 
