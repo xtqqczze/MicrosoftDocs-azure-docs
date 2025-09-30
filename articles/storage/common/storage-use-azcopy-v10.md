@@ -16,16 +16,19 @@ ai-usage: ai-assisted
 
 AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data. 
 
-> [!NOTE]
-> AzCopy **V10** is the currently supported version of AzCopy and it is supported only on versions of Windows, Linux, or macOS that are officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
+AzCopy **V10** is the currently supported version of AzCopy and it is supported only on versions of Windows, Linux, or macOS that are officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 ## AzCopy use cases
 
-Use AzCopy to upload data from an on-premises source, download data to an on-premises source, or copy and/or synchronize data between accounts. You can target specific storage services such as Azure Blob Storage or Azure Files and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa. For a complete list of data transfer guides, see the [Transfer data](#transfer-data) section of this article.
+Use AzCopy to upload data from an on-premises source, download data to an on-premises source, or copy and/or synchronize data between accounts. You can target specific storage services such as Azure Blob Storage or Azure Files and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa. 
+
+For a complete list of data transfer guides, see the [Transfer data](#transfer-data) section of this article.
 
 [!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
-AzCopy is primarily a data transfer tool, but you can also use it to create containers and file shares, list accounts and objects, delete data, set properties and metadata, manage AzCopy jobs and run performance benchmark tests. For a complete list of commands, see the [List of commands](#list-of-commands) section of this article.
+AzCopy is primarily a data transfer tool, but you can also use it to create containers and file shares, list accounts and objects, delete data, set properties and metadata, manage AzCopy jobs and run performance benchmark tests. 
+
+For a complete list of commands, see the [List of commands](#list-of-commands) section of this article.
 
 The following video shows how to download a portable binary file to a local machine, and then upload a file by using a SAS token. 
 
@@ -72,7 +75,7 @@ As an owner of your Azure Storage account, you aren't automatically assigned per
 
 ### Authorize with Microsoft Entra ID
 
-By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. Use the following table as a guide. 
+By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by choosing what type of *security principal* you want to authorize. Use the following table as a guide. 
 
 | Security principal | Guidance |
 |-----|-----|

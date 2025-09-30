@@ -145,13 +145,13 @@ items:
       items:
       - name: Get started
         items:
-        - name: Overview
+        - name: Get started
           href: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Linux package
+        - name: Install a Linux package
           href: ../common/storage-use-azcopy-install-linux-package.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Use AzCopy in a script
           href: ../common/storage-use-azcopy-use-in-script.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Authorize
+      - name: Authorize AzCopy
         items:
         - name: User identity
           href: ../common/storage-use-azcopy-authorize-user-identity.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -179,7 +179,7 @@ items:
         href: ../common/storage-use-azcopy-blobs-properties-metadata.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Optimize performance
         href: ../common/storage-use-azcopy-optimize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Troubleshooting
+      - name: Troubleshoot AzCopy
         items:
         - name: Use logs to find errors and resume jobs
           href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json

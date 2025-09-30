@@ -13,44 +13,28 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Authorize access for AzCopy with a user identity
 
-You can provide AzCopy with authorization credentials by using Microsoft Entra user identity.
+You can provide [AzCopy](storage-use-azcopy-v10.md) with authorization credentials by using Microsoft Entra user identity. By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by verifying your role assignments. Then, authorize your the user identity by using environment variables or by using the AzCopy login command. 
 
-For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-v10.md).
+> [!TIP]
+> You can also authorize access by using a managed identity, security principal or a shared access signature. To learn about other ways to authorize access to AzCopy, see [Authorize AzCopy](storage-use-azcopy-v10.md#authorize-azcopy).
 
 ## Verify role assignments
 
-The appropriate Azure role must be assigned to your user identity in the scope of the container or file share, storage account, resource group or subscription. The level of authorization that you need is based on whether you plan to upload files or just download them. 
+The appropriate Azure role must be assigned to your user identity. Role assignments can take up to five minutes to propagate. Use the following table as a guide.
 
-> [!NOTE]
-> Keep in mind that Azure role assignments can take up to five minutes to propagate.
+| Task | Azure Storage service | Azure role |
+|---|---|---|
+| Upload data | Azure Blob Storage<sup>1</sup> | [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)<br>[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | 
+| Upload data | Azure Files | [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) |
+| Download data | Azure Blob Storage<sup>1</sup> | [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) |
+| Download Data | Azure Files | [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) |
 
-### Roles for Azure Blob Storage
-
-Use the following table as a guide:
-
-| Task | Azure role |
-|---|---|
-| Upload data | [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)<br>[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) |
-| Download data | [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) |
+<sup>1</sup>   You don't need to have one of these roles assigned to your user identity if your user identity is added to the access control list (ACL) of the target container or directory. In the ACL, your user identity needs write permission on the target directory, and execute permission on container and each parent directory. To learn more, see [Access control model in Azure Data Lake Storage](../blobs/data-lake-storage-access-control-model.md).
 
 To learn how to verify and assign roles, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
-
-You don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory.
-
-To learn more, see [Access control model in Azure Data Lake Storage](../blobs/data-lake-storage-access-control-model.md).
-
-### Roles for Azure Files
-
-Use the following table as a guide:
-
-| Task | Azure role |
-|---|---|
-| Upload data |[Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) |
-| Download Data | [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) |
-
 To learn how to verify and assign roles, see [Choose how to authorize access to file data in the Azure portal](../files/authorize-data-operations-portal.md).
 
-## Authorize a user identity by environment variables
+## Authorize with environment variables
 
 To authorize access, you'll set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory. AzCopy retrieves the OAuth token by using the credentials that you provide. 
 
@@ -67,7 +51,7 @@ This command returns an authentication code and the URL of a website. Open the w
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, the operation can complete.
 
-## Authorize by using the AzCopy login command
+## Authorize with the AzCopy login command
 
 As an alternative to using in-memory variables, you authorize access by using the azcopy login command.
 
