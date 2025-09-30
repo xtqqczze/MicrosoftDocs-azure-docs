@@ -21,25 +21,25 @@ AzCopy is a command-line utility that you can use to copy data to, from, or betw
 
 ## AzCopy use cases
 
-Use AzCopy to upload data from an on-premises source, download data to an on-premises source, or copy and/or synchronize data between accounts. You can target specific storage services such as Azure Blob Storage or Azure Files or copy between storage services. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa. For a list of data transfer guides, see the [Transfer data](#transfer-data) section of this article.
+Use AzCopy to upload data from an on-premises source, download data to an on-premises source, or copy and/or synchronize data between accounts. You can target specific storage services such as Azure Blob Storage or Azure Files and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa. For a complete list of data transfer guides, see the [Transfer data](#transfer-data) section of this article.
 
-You can also use it to create containers and file shares, list accounts and objects, delete data, set properties and metadata, manage AzCopy jobs and run performance benchmark tests. For a complete list of commands and links to command reference articles, see the [List of commands](#list-of-commands) section of this article.
+[!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
-If you are using AzCopy on a linux machine, you can get AzCopy by using a package manager. For all other operating systems, download a portable binary file. Then, you can authorize transfers by using either Microsoft Entra ID or a shared access signature (SAS). The following video shows how to download a portable binary file to a local machine, and then upload a file by using a SAS token. 
+AzCopy is primarily a data transfer tool, but you can also use it to create containers and file shares, list accounts and objects, delete data, set properties and metadata, manage AzCopy jobs and run performance benchmark tests. For a complete list of commands, see the [List of commands](#list-of-commands) section of this article.
+
+The following video shows how to download a portable binary file to a local machine, and then upload a file by using a SAS token. 
 
 <a id="download-and-install-azcopy"></a>
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
-[!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
-
 ## Install AzCopy
 
-If you are using AzCopy on a linux machine, you can use a package manager. For all other operating systems, download a portable binary file.
+If you are using AzCopy on a linux machine, you can use a package manager. For all other operating systems, download a portable binary file. For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
 
 ### Use a package manager (Linux only)
 
-You can install AzCopy by using a Linux package that is hosted on the [Linux Software Repository for Microsoft Products](/linux/packages). See [Install AzCopy on Linux by using a package manager](storage-use-azcopy-install-linux-package.md).
+You can install AzCopy by using a Linux package that is hosted on the [Linux Software Repository for Microsoft Products](/linux/packages). For step-by-step guidance, see [Install AzCopy on Linux by using a package manager](storage-use-azcopy-install-linux-package.md).
 
 <a id="download-azcopy"></a>
 
@@ -55,34 +55,24 @@ As an alternative to installing a package, you can download the AzCopy V10 execu
 - [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 - [macOS ARM64 Preview](https://aka.ms/downloadazcopy-v10-mac-arm64) (zip)
 
-These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
-
-For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
+These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution. 
 
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
 
-## Run AzCopy
-
-For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system.
-
-If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in a command shell.
-
-As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
+For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system. If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in a command shell.
 
 <a id="choose-how-youll-provide-authorization-credentials"></a>
 
 ## Authorize AzCopy
 
-Provide authorization credentials by using Microsoft Entra ID or by using a SAS token.
+As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service. You can provide credentials by using Microsoft Entra ID or by using a SAS token.
 
 <a name='option-1-use-azure-active-directory'></a>
 
 ### Authorize with Microsoft Entra ID
 
-By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are each a type of security principal. 
-
-For guidance, see any of these articles.
+By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. Use the following table as a guide. 
 
 | Security principal | Guidance |
 |-----|-----|
@@ -142,7 +132,7 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy jobs clean](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_clean)|Remove all log and plan files for all jobs.|
 |[azcopy jobs list](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_list)|Displays information on all jobs.|
 |[azcopy jobs remove](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_remove)|Remove all files associated with the given job ID.|
-|[azcopy jobs resume](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_resume)|Resumes the existing job with the given job ID.|
+|[azcopy jobs resume](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_resume)|Resumes the existing job with the given job ID. |
 |[azcopy jobs show](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_show)|Shows detailed information for the given job ID.|
 |[azcopy list](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_list)|Lists the entities in a given resource.|
 |[azcopy login](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_login)|Logs in to Microsoft Entra ID to access Azure Storage resources.|
