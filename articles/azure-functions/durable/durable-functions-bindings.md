@@ -347,7 +347,7 @@ public static string SayHello([ActivityTrigger] IDurableActivityContext helloCon
 }
 ```
 
-The default parameter type for the .NET `ActivityTriggerAttribute` binding is [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext) (or [DurableActivityContext](/previous-versions/dotnet/api/microsoft.azure.webjobs.durableactivitycontext) for Durable Functions v1). However, .NET activity triggers also support binding directly to JSON-serializeable types (including primitive types), so you can also use the following simplified version of the function:
+The default parameter type for the .NET `ActivityTriggerAttribute` binding is [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext) (or [DurableActivityContext](/previous-versions/dotnet/api/microsoft.azure.webjobs.durableactivitycontext) for Durable Functions 1.x). However, .NET activity triggers also support binding directly to JSON-serializeable types (including primitive types), so you can also use the following simplified version of the function:
 
 ```csharp
 [FunctionName("SayHello")]
@@ -436,6 +436,8 @@ Besides the activity trigger binding, you can also use regular input and output 
 ::: zone pivot="programming-language-javascript" 
 For example, an activity function can receive input from an orchestrator function. That activity function can also send a message to an event hub by using the Azure Event Hubs output binding.
 
+**function.json**
+
 ```json
 {
   "bindings": [
@@ -455,6 +457,8 @@ For example, an activity function can receive input from an orchestrator functio
 }
 ```
 
+**index.js**
+
 ```javascript
 module.exports = async function (context) {
     context.bindings.outputEventHubMessage = context.bindings.message;
@@ -473,7 +477,7 @@ You can use the orchestration client binding to write functions that interact wi
 * Purge the instance history.
 
 ::: zone pivot="programming-language-csharp"
-You can bind to an orchestration client by using the [DurableClientAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durableclientattribute) attribute ([OrchestrationClientAttribute](/previous-versions/dotnet/api/microsoft.azure.webjobs.orchestrationclientattribute) in Durable Functions v1.x). 
+You can bind to an orchestration client by using the [DurableClientAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durableclientattribute) attribute ([OrchestrationClientAttribute](/previous-versions/dotnet/api/microsoft.azure.webjobs.orchestrationclientattribute) in Durable Functions 1.x). 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 You can bind to an orchestration client by using the `@DurableClientInput` annotation.
@@ -528,7 +532,7 @@ To define the durable client trigger, you use the following JSON object in the `
 ### Client usage
 
 ::: zone pivot="programming-language-csharp"
-You typically bind to an implementation of [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient) ([DurableOrchestrationClient](/previous-versions/dotnet/api/microsoft.azure.webjobs.durableorchestrationclient) in Durable Functions v1.x), which gives you full access to all orchestration client APIs that Durable Functions supports. 
+You typically bind to an implementation of [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient) ([DurableOrchestrationClient](/previous-versions/dotnet/api/microsoft.azure.webjobs.durableorchestrationclient) in Durable Functions 1.x), which gives you full access to all orchestration client APIs that Durable Functions supports. 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 You typically bind to the `DurableClientContext` class. 
@@ -647,7 +651,7 @@ async def client_function(msg: func.QueueMessage, client: df.DurableOrchestratio
 }
 ```
 
-**__init__.py**
+**\_\_init\_\_.py**
 ```python
 import json
 import azure.functions as func
@@ -702,7 +706,7 @@ public void queueStart(
 }
 ```
 ::: zone-end  
-For detailed information about starting instances, see [Instance management](durable-functions-instance-management.md).
+For detailed information about starting instances, see [Manage instances in Durable Functions in Azure](durable-functions-instance-management.md).
 
 ## Entity trigger
 
@@ -846,7 +850,7 @@ For more information and examples of interacting with entities as a client, see 
 <a name="host-json"></a>
 ## Durable Functions settings in host.json
 
-This section provides information about the Durable Functions configuration properties in *host.json*. For information about general settings in *host.json*, see [host.json reference for Azure Functions 1.x](https://learn.microsoft.com/azure/azure-functions/functions-host-json-v1) or [host.json reference for Azure Functions 2.x and later](https://learn.microsoft.com/azure/azure-functions/functions-host-json).
+This section provides information about the Durable Functions configuration properties in *host.json*. For information about general settings in *host.json*, see [host.json reference for Azure Functions 1.x](../functions-host-json-v1.md) or [host.json reference for Azure Functions 2.x and later](../functions-host-json.md).
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]
 
