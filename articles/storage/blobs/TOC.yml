@@ -161,17 +161,17 @@ items:
           href: ../common/storage-use-azcopy-authorize-service-principal.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Transfer data
         items:
-        - name: 'Examples: Upload'
+        - name: Upload
           href: ../common/storage-use-azcopy-blobs-upload.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: 'Examples: Download'
+        - name: Download
           href: ../common/storage-use-azcopy-blobs-download.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: 'Examples: Copy between accounts'
+        - name: Copy between accounts
           href: ../common/storage-use-azcopy-blobs-copy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: 'Examples: Synchronize'
+        - name: Synchronize between accounts or with on-premises data
           href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: 'Examples: Amazon S3 buckets'
+        - name: Copy from Amazon S3 buckets
           href: ../common/storage-use-azcopy-s3.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: 'Examples: Google Cloud Storage buckets'
+        - name: Copy from Google Cloud Storage buckets
           href: ../common/storage-use-azcopy-google-cloud.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: 'Tutorial: Migrate data to the cloud'
           href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -179,7 +179,7 @@ items:
         href: ../common/storage-use-azcopy-blobs-properties-metadata.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Optimize performance
         href: ../common/storage-use-azcopy-optimize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Troubleshoot AzCopy
+      - name: Troubleshoot
         items:
         - name: Use logs to find errors and resume jobs
           href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json

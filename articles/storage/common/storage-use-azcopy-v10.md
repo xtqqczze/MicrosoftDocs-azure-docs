@@ -20,7 +20,7 @@ AzCopy **V10** is the currently supported version of AzCopy and it is supported 
 
 ## AzCopy use cases
 
-Use AzCopy to upload data from an on-premises source, download data to an on-premises source, or copy and/or synchronize data between accounts. You can target specific storage services such as Azure Blob Storage or Azure Files and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa. 
+Use AzCopy to upload data from an on-premises source, download data to an on-premises source, or copy data between accounts. You can also synchronize data between storage accounts or between a storage account an on-premises source. You can target specific storage services such as Azure Blob Storage or Azure Files and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa. 
 
 For a complete list of data transfer guides, see the [Transfer data](#transfer-data) section of this article.
 
@@ -30,13 +30,7 @@ AzCopy is primarily a data transfer tool, but you can also use it to create cont
 
 For a complete list of commands, see the [List of commands](#list-of-commands) section of this article.
 
-The following video shows how to download a portable binary file to a local machine, and then upload a file by using a SAS token. 
-
-<a id="download-and-install-azcopy"></a>
-
-> [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
-
-## Install AzCopy
+## Get AzCopy
 
 If you are using AzCopy on a linux machine, you can use a package manager. For all other operating systems, download a portable binary file. For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
 
@@ -64,6 +58,12 @@ These files are compressed as a zip file (Windows and Mac) or a tar file (Linux)
 > If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
 
 For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system. If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in a command shell.
+
+The following video shows how to download a portable binary file to a local machine, and then upload a file by using a SAS token. 
+
+<a id="download-and-install-azcopy"></a>
+
+> [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
 <a id="choose-how-youll-provide-authorization-credentials"></a>
 

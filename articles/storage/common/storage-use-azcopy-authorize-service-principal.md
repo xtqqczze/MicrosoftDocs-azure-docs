@@ -13,9 +13,10 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Authorize access for AzCopy with a service principal
 
-You can provide AzCopy with authorization credentials by using service principal.
+You can provide [AzCopy](storage-use-azcopy-v10.md) with authorization credentials by using Microsoft Entra ID with a service principal. By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by verifying your role assignments. Then, authorize your service principal by using environment variables or by using the AzCopy login command. 
 
-For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-v10.md).
+> [!TIP]
+> You can also authorize access by using a user identity, managed identity or a shared access signature. To learn about other ways to authorize access to AzCopy, see [Authorize AzCopy](storage-use-azcopy-v10.md#authorize-azcopy).
 
 ## Verify role assignments
 
@@ -46,7 +47,7 @@ You don't need to have one of these roles assigned to your security principal if
 
 To learn more, see [Access control model in Azure Data Lake Storage](../blobs/data-lake-storage-access-control-model.md).
 
-## Authorize with AzCopy
+## Authorize with environment variables
 
 To authorize access, you'll set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory.
 
@@ -63,7 +64,7 @@ To learn more about creating service principal, see [How to: Use the portal to c
 
 To learn more about service principals in general, see [Application and service principal objects in Microsoft Entra ID](../../active-directory/develop/app-objects-and-service-principals.md)
 
-##### Authorize a service principal by using a client secret
+### Authorize a service principal by using a client secret
 
 Type the following command, and then press the ENTER key.
 
@@ -81,7 +82,7 @@ Replace the `<application-id>` placeholder with the application ID of your servi
 
 Then, run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
 
-##### Authorize a service principal by using a certificate
+### Authorize a service principal by using a certificate
 
 If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration, and then use that certificate to log in.
 
@@ -104,7 +105,7 @@ Replace the `<application-id>` placeholder with the application ID of your servi
 
 Then, run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
 
-## Authorize by using the AzCopy login command
+## Authorize with the AzCopy login command
 
 As an alternative to using in-memory variables, you authorize access by using the azcopy login command.
 

@@ -13,10 +13,10 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Authorize access for AzCopy using a managed identity
 
-You can provide AzCopy with authorization credentials by using Microsoft Entra managed identity. 
+You can provide [AzCopy](storage-use-azcopy-v10.md) with authorization credentials by using Microsoft Entra ID and a managed identity. By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by verifying your role assignments. Then, authorize your the managed identity by using environment variables or by using the AzCopy login command. 
 
-
-For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-v10.md).
+> [!TIP]
+> You can also authorize access by using a user identity, security principal or a shared access signature. To learn about other ways to authorize access to AzCopy, see [Authorize AzCopy](storage-use-azcopy-v10.md#authorize-azcopy).
 
 ## Verify role assignments
 
@@ -47,7 +47,7 @@ You don't need to have one of these roles assigned to your security principal if
 
 To learn more, see [Access control model in Azure Data Lake Storage](../blobs/data-lake-storage-access-control-model.md).
 
-## Authorize a managed identity
+## Authorize with environment variables
 
 To authorize access, you'll set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory.
 
@@ -59,7 +59,7 @@ You can sign into your account by using a system-wide managed identity that you'
 
 To learn more about how to enable a system-wide managed identity or create a user-assigned managed identity, see [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
 
-### Authorize by using a system-wide managed identity
+### Authorize with a system-wide managed identity
 
 First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
@@ -71,7 +71,7 @@ export AZCOPY_AUTO_LOGIN_TYPE=MSI
 
 Then, run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
 
-### Authorize by using a user-assigned managed identity
+### Authorize with a user-assigned managed identity
 
 First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
 
@@ -105,13 +105,13 @@ After you set these variables, you can run any azcopy command (For example: `azc
 
 <a id="service-principal"></a>
 
-## Authorize by using the AzCopy login command
+## Authorize with the AzCopy login command
 
 As an alternative to using in-memory variables, you authorize access by using the azcopy login command.
 
 The azcopy login command retrieves an OAuth token and then places that token into a secret store on your system. If your operating system doesn't have a secret store such as a Linux keyring, the azcopy login command won't work because there is nowhere to place the token.
 
-### Authorize by using a system-wide managed identity
+### Authorize with a system-wide managed identity
 
 First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
@@ -121,7 +121,7 @@ Then, in your command console, type the following command, and then press the EN
 azcopy login --identity
 ```
 
-### Authorize by using a user-assigned managed identity
+### Authorize with a user-assigned managed identity
 
 First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
 
