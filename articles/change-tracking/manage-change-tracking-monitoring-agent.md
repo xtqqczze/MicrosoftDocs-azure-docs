@@ -11,7 +11,7 @@ ms.author: v-jasmineme
 author: jasminemehndir
 ---
 
-# Manage change tracking and inventory with Azure Monitoring Agent
+# Manage change tracking and inventory using Azure Monitoring Agent
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
