@@ -123,26 +123,26 @@ If you're using a real Azure Storage account, replace `UseDevelopmentStorage=tru
 To configure system assigned identity follow the instructions below:
 
 #### App Settings
-- Add EventGrid__topicEndpoint app setting with the value as the Event Grid topic endpoint
+- Add an `EventGrid__topicEndpoint` app setting with the value as the Event Grid topic endpoint.
 
 #### Configuration
-- Turn on system assigned identity for the function app
-- In the event grid topic resource, give the function app the EventGrid Data Sender role.
+- Turn on system assigned identity for the function app.
+- In the Event Grid topic resource, give the function app the EventGrid Data Sender role.
 
 ### User Assigned Identity
 To configure user assigned assigned identity follow the instructions below:
 
 #### App Settings
-- Add EventGrid__topicEndpoint app setting with the value as the Event Grid topic endpoint
-- Add EventGrid__credential app setting with the value managedidentity
-- Add EventGrid__clientId app setting with the value of the user assigned managed identity client ID.
+- Add an `EventGrid__topicEndpoint` app setting with the value as the Event Grid topic endpoint.
+- Add an `EventGrid__credential` app setting with the value `managedidentity`.
+- Add an `EventGrid__clientId` app setting with the value of the user assigned managed identity client ID.
 
 #### Configuration
-- Create a user assigned managed identity (uami)
-- Attach the uami to the function app resource (in the Identity section)
-- Attach the uami to the event grid topic resource (in the Identity section)
-- Create an event grid subscription and enable managed identity with the uami
-- In the event grid topic resource, assign the EventGrid Data Sender role to the uami
+- Create a user assigned managed identity (uami).
+- Attach the uami to the function app resource (in the Identity section).
+- Attach the uami to the event grid topic resource (in the Identity section).
+- Create an Event Grid subscription and enable managed identity with the uami.
+- In the Event Grid topic resource, assign the EventGrid Data Sender role to the uami.
 
 ## Create functions that listen for events
 
