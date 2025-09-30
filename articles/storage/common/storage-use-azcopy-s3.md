@@ -189,7 +189,7 @@ AzCopy performs these steps:
    This key will be used to save original metadata invalid **key**.
    You can use this key to try to recover the metadata in Azure side since metadata key is preserved as a value on the Blob storage service.
 
-## Explicit source and destination
+## Specify source and destination types
 
 AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection may fail-such as in piping scenarios or emulators. This helps AzCopy understand the context of the transfer and optimize accordingly. You can set this parameter to `S3Blob`to explicitly indicate that the command is copying from Amazon S3 to Azure Blob Storage.
 
