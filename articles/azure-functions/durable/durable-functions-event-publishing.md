@@ -54,7 +54,7 @@ Get the endpoint of the topic. Replace `<topic_name>` with the name you chose.
 az eventgrid topic show --name <topic_name> -g eventResourceGroup --query "endpoint" --output tsv
 ```
 
-Get the topic key. Replace `<topic_name>` with the name you chose.
+Get the topic key if you're using key based authentication. Replace `<topic_name>` with the name you chose.
 
 ```azurecli
 az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "key1" --output tsv
@@ -62,7 +62,7 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 
 Now you can send events to the topic.
 
-## Configure Event Grid publishing
+## Configure Event Grid publishing with key based authentication
 
 In your Durable Functions project, find the `host.json` file.
 
@@ -116,6 +116,33 @@ Set the app setting for the topic key in the Function App and `local.settings.js
 If you're using the [Storage Emulator](../../storage/common/storage-use-emulator.md) instead of a real Azure Storage account, make sure it's running. It's a good idea to clear any existing storage data before executing.
 
 If you're using a real Azure Storage account, replace `UseDevelopmentStorage=true` in `local.settings.json` with its connection string.
+
+## Configure Event Grid publishing with Managed Identity
+
+### System Assigned Identity
+To configure system assigned identity follow the instructions below:
+
+#### App Settings
+- Add EventGrid__topicEndpoint app setting with the value as the Event Grid topic endpoint
+
+#### Configuration
+- Turn on system assigned identity for the function app
+- In the event grid topic resource, give the function app the EventGrid Data Sender role.
+
+### User Assigned Identity
+To configure user assigned assigned identity follow the instructions below:
+
+#### App Settings
+- Add EventGrid__topicEndpoint app setting with the value as the Event Grid topic endpoint
+- Add EventGrid__credential app setting with the value managedidentity
+- Add EventGrid__clientId app setting with the value of the user assigned managed identity client ID.
+
+#### Configuration
+- Create a user assigned managed identity (uami)
+- Attach the uami to the function app resource (in the Identity section)
+- Attach the uami to the event grid topic resource (in the Identity section)
+- Create an event grid subscription and enable managed identity with the uami
+- In the event grid topic resource, assign the EventGrid Data Sender role to the uami
 
 ## Create functions that listen for events
 
