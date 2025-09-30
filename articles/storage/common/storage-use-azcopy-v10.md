@@ -14,28 +14,22 @@ ai-usage: ai-assisted
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer data.
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data. 
+
+> [!NOTE]
+> AzCopy **V10** is the currently supported version of AzCopy and it is supported only on versions of Windows, Linux, or macOS that are officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
+
+## AzCopy use cases
+
+Use AzCopy to upload data from an on-premises source, download data to an on-premises source, or copy and/or synchronize data between accounts. You can target specific storage services such as Azure Blob Storage or Azure Files or copy between storage services. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa. For a list of data transfer guides, see the [Transfer data](#transfer-data) section of this article.
+
+You can also use it to create containers and file shares, list accounts and objects, delete data, set properties and metadata, manage AzCopy jobs and run performance benchmark tests. For a complete list of commands and links to command reference articles, see the [List of commands](#list-of-commands) section of this article.
+
+If you are using AzCopy on a linux machine, you can get AzCopy by using a package manager. For all other operating systems, download a portable binary file. Then, you can authorize transfers by using either Microsoft Entra ID or a shared access signature (SAS). The following video shows how to download a portable binary file to a local machine, and then upload a file by using a SAS token. 
 
 <a id="download-and-install-azcopy"></a>
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
-
-> [!NOTE]
-> AzCopy **V10** is the currently supported version of AzCopy. The tool is not supported on versions of Windows, Linux, or macOS that are no longer officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
-
-## AzCopy use cases
-
-You can use AzCopy to copy your data to, from, or between Azure storage accounts. For example, you can:
-
-- Copy data from an on-premises source to an Azure storage account
-- Copy data from an Azure storage account to an on-premises source
-- Copy data from one storage account to another storage account
-
-To learn about how to accomplish these tasks, see the [Transfer data](#transfer-data) section of this article.
-
-AzCopy has native commands for copying and synchronizing data so you can use it for one-time copy activities or ongoing synchronization scenarios. 
-
-You can use AzCopy to target specific storage services such as Azure Blob Storage or Azure Files. You can also copy between storage services (For example: from Azure Blob Storage to Azure Files or from Azure Files to Azure Blob Storage).
 
 [!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
@@ -80,11 +74,11 @@ As an owner of your Azure Storage account, you aren't automatically assigned per
 
 ## Authorize AzCopy
 
-Provide authorization credentials by using Microsoft Entra ID, or by using a Shared Access Signature (SAS) token.
+Provide authorization credentials by using Microsoft Entra ID or by using a SAS token.
 
 <a name='option-1-use-azure-active-directory'></a>
 
-### Use Microsoft Entra ID
+### Authorize with Microsoft Entra ID
 
 By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by verifying your role assignments. Then, choose what type of *security principal* you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are each a type of security principal. 
 
@@ -96,7 +90,7 @@ For guidance, see any of these articles.
 | Managed identity | [Authorize access for AzCopy with a managed identity](storage-use-azcopy-authorize-managed-identity.md) |
 | Service principal | [Authorize access for AzCopy with a service principal](storage-use-azcopy-authorize-service-principal.md) |
 
-### Use a SAS token
+### Authorize with a SAS token
 
 You can append a SAS token to each source or destination URL that use in your AzCopy commands. This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the container URL.
 
