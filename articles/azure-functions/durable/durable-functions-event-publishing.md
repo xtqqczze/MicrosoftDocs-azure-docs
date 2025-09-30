@@ -130,7 +130,7 @@ To configure system assigned identity follow the instructions below:
 - In the Event Grid topic resource, give the function app the EventGrid Data Sender role.
 
 ### User Assigned Identity
-To configure user assigned assigned identity follow the instructions below:
+To configure user assigned managed identity follow the instructions below:
 
 #### App Settings
 - Add an `EventGrid__topicEndpoint` app setting with the value as the Event Grid topic endpoint.
