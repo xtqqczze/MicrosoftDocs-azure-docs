@@ -11,7 +11,7 @@ author: jasminemehndir
 ms.custom: sfi-image-nochange
 ---
 
-# Overview of change tracking and inventory with Azure Monitoring Agent
+# Overview of change tracking and inventory using Azure Monitoring Agent
 
 > [!Important]
 > - Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and will not be supported any further. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](../automation/change-tracking/guidance-migration-log-analytics-monitoring-agent.md)

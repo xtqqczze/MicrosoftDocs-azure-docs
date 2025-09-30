@@ -10,7 +10,7 @@ author: jasminemehndir
 ms.service: azure-automation
 ---
 
-# Supported regions for Change tracking and inventory using Azure Monitoring Agent
+# Supported regions for Change tracking and inventory Azure Monitoring Agent
 
 This article provides the supported regions for change tracking and inventory using Azure Monitoring Agent.
 

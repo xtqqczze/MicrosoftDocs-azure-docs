@@ -10,7 +10,7 @@ author: jasminemehndir
 ms.author: v-jasmineme
 ---
 
-# Enable Change Tracking at scale with Azure portal - Machines blade
+# Enable Change Tracking at scale using Azure portal - Machines blade
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 

@@ -10,7 +10,7 @@ ms.author: v-jasmineme
 author: jasminemehndir
 ---
 
-# Change tracking and inventory extension version details and the known issues
+# Change tracking and inventory extension version details and known issues
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: Windows Services & Linux Daemons
 
