@@ -20,7 +20,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Cool access with dedicated capacity](manage-cool-access.md#register-dedicated-capacity-for-cool-access) (preview)
 
     <!-- TBD -->
-    You must be registered for [dedicated capacity](large-volumes-requirements-considerations.md#register-for-dedicated-capacity-large-volumes) and then to use [cool access with dedicated capacity](manage-cool-access.md#register-dedicated-capacity-for-cool-access-preview). This feature is currently in preview. 
+    You must be registered for [dedicated capacity](large-volumes-requirements-considerations.md#register-for-dedicated-capacity-large-volumes) and then to use [cool access with dedicated capacity](manage-cool-access.md#dedicated). This feature is currently in preview. 
     
 ## September 2025
 

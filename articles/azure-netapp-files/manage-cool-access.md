@@ -35,7 +35,7 @@ There are several considerations to be aware of when using cool access.
 * For the maximum number of volumes supported for cool access per subscription per region, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 * Flexible service level capacity pools with cool access maintain the user-configured throughput limits. Unlike Premium or Ultra pools, performance isn't reduced when cool access is enabled.
 * Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
-    * Cool access is also supported with dedicated capacity, enabling you to create volumes with quotas up to 7.2 PiB. You must be [registered to use dedicated capacity](large-volumes-requirements-considerations.md#register-for-dedicated-capacity-large-volumes) and to use [dedicated capacity with cool access](#dedicated). 
+    * Cool access is also supported with dedicated capacity, enabling you to create volumes with quotas up to 7.2 PiB. You must be [registered to use dedicated capacity](large-volumes-requirements-considerations.md#dedicated) and to use [dedicated capacity with cool access](#dedicated). 
     * Cool access with dedicated capacity is only available for newly created volumes. You must enable cool access and select dedicated capacity when creating the volume. 
 
 ### Considerations for cool access-enabled capacity pools 
