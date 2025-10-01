@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 You can provide [AzCopy](storage-use-azcopy-v10.md) with authorization credentials by using Microsoft Entra ID and a managed identity. By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by verifying your role assignments. Then, authorize your the managed identity by using environment variables or by using the AzCopy login command. 
 
 > [!TIP]
-> You can also authorize access by using a user identity, security principal or a shared access signature. To learn about other ways to authorize access to AzCopy, see [Authorize AzCopy](storage-use-azcopy-v10.md#authorize-azcopy).
+> You can also authorize access by using a user identity, service principal or a shared access signature. To learn about other ways to authorize access to AzCopy, see [Authorize AzCopy](storage-use-azcopy-v10.md#authorize-azcopy).
 
 ## Verify role assignments
 

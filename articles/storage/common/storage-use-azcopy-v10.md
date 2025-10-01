@@ -30,6 +30,8 @@ AzCopy is primarily a data transfer tool, but you can also use it to create cont
 
 For a complete list of commands, see the [List of commands](#list-of-commands) section of this article.
 
+<a id="run-azcopy"></a>
+
 ## Get AzCopy
 
 If you are using AzCopy on a linux machine, you can use a package manager. For all other operating systems, download a portable binary file. For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
@@ -82,6 +84,8 @@ By using Microsoft Entra ID, you can provide credentials once instead of having 
 | User identity | [Authorize access for AzCopy with a user identity](storage-use-azcopy-authorize-managed-identity.md) |
 | Managed identity | [Authorize access for AzCopy with a managed identity](storage-use-azcopy-authorize-managed-identity.md) |
 | Service principal | [Authorize access for AzCopy with a service principal](storage-use-azcopy-authorize-service-principal.md) |
+
+<a id="option-2-use-a-sas-token"></a>
 
 ### Authorize with a SAS token
 

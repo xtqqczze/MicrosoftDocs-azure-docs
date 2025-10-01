@@ -20,12 +20,12 @@ This article shows you how to use AzCopy effectively in scripts by obtaining sta
 
 ## Obtain a static download link
 
-Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon.
+Over time, the AzCopy [download link](storage-use-azcopy-v10.md#download-a-portable-binary) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon.
 
 To avoid these issues, obtain a static (unchanging) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
 
 > [!NOTE]
-> The static link to AzCopy binaries is subject to change over time due to our content delivery infrastructure. If you must use a specific version of AzCopy for any reason, we recommend using AzCopy with an operating system that leverages a [published package](#install-azcopy-on-linux-by-using-a-package-manager). This method ensures that you can reliably install and maintain the desired version of AzCopy.
+> The static link to AzCopy binaries is subject to change over time due to our content delivery infrastructure. If you must use a specific version of AzCopy for any reason, we recommend using AzCopy with an operating system that leverages the [Linux published package](storage-use-azcopy-install-linux-package.md). This method ensures that you can reliably install and maintain the desired version of AzCopy.
 
 ### [Linux](#tab/linux)
 
@@ -86,7 +86,7 @@ $AzCopy = (Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\' -PassThr
 
 You can create a scheduled task or cron job that runs an AzCopy command script. The script identifies and uploads new on-premises data to cloud storage at a specific time interval.
 
-The following examples assume that you have configured Microsoft Entra authentication by using the `AZCOPY_AUTO_LOGIN_TYPE` environment variable. To learn more, see [Authorize with Microsoft Entra ID](storage-use-azcopy-v10#authorize-with-microsoft-entra-id).
+The following examples assume that you have configured Microsoft Entra authentication by using the `AZCOPY_AUTO_LOGIN_TYPE` environment variable. To learn more, see [Authorize with Microsoft Entra ID](storage-use-azcopy-v10.md#authorize-with-microsoft-entra-id).
 
 ### [Linux](#tab/linux)
 

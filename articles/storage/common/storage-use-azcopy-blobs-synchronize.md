@@ -159,7 +159,6 @@ Find more examples in these articles:
 - [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
 - [Examples: Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [Examples: Azure Files](storage-use-azcopy-files.md)
-- [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
 See these articles to configure settings, optimize performance, and troubleshoot issues:
 

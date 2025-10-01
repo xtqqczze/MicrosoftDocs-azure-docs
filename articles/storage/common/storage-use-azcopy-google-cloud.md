@@ -196,7 +196,6 @@ Find more examples in these articles:
 - [Examples: Synchronize](storage-use-azcopy-blobs-synchronize.md)
 - [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
 - [Examples: Azure Files](storage-use-azcopy-files.md)
-- [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
 See these articles to configure settings, optimize performance, and troubleshoot issues:
 

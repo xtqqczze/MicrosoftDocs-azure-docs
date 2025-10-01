@@ -2161,7 +2161,12 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/storage/storage-use-azcopy-migrate-on-premises-data.md",
+            "source_path_from_root": "/articles/common/storage-use-azcopy-authorize-azure-active-directory.md",
+            "redirect_url": "/azure/storage/common/storage-use-azcopy-authorize-user-identity",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/common/storage-use-azcopy-migrate-on-premises-data.md",
             "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
             "redirect_document_id": true
         },
