@@ -71,7 +71,7 @@ StandardV2 SKU NAT Gateway support for IPv6 public IPs is currently in **public 
 
 * Standard SKU NAT Gateway can’t be upgraded to StandardV2 SKU NAT Gateway. You must deploy StandardV2 SKU NAT Gateway and replace Standard SKU NAT Gateway. 
 
-* StandardV2 NAT Gateway attached at the virtual network level is not supported by AKS workloads. To use StandardV2 NAT Gateway with AKS, attach it directly to the subnet. For more information, see [troubleshooting NAT Gateway with AKS](./troubleshoot-nat-and-azure-services.md#virtual-network-level-standardv2-nat-gateway-with-AKS-isnt-supported).
+* StandardV2 NAT Gateway attached at the virtual network level is not supported by AKS workloads. To use StandardV2 NAT Gateway with AKS, attach it directly to the subnet.
 
 * Custom IP prefixes (BYOIP public IPs) aren't supported with StandardV2 NAT Gateway. Only StandardV2 SKU Azure public IPs are supported. 
 
