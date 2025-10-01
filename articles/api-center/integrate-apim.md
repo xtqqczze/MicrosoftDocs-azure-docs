@@ -33,18 +33,12 @@ If you don't have an Azure subscription, create a free trial account before you 
 
 * An Azure API Management instance in the same directory (tenant). The instance can be in the same or a different subscription.
 
-* For Azure CLI steps:
-
-  * Prepare the Azure CLI and sign in. See the include for environment preparation.
-
-  * Install the API Center (apic) CLI extension: [!INCLUDE [install-apic-extension](includes/install-apic-extension.md)]
-
 > [!NOTE]
 > Azure CLI command examples in this tutorial can run in PowerShell or bash. Where needed because of different variable syntax, separate command examples are provided for the two shells.
 
-## Open Azure Cloud Shell or your local Azure CLI
+## Open Azure Cloud Shell
 
-Use Azure Cloud Shell in the [Azure portal](https://portal.azure.com) or open a local shell where the Azure CLI is installed. If you're using a local shell and haven't installed the apic extension, do so now.
+Use Azure Cloud Shell in the [Azure portal](https://portal.azure.com).
 
 ## 1. Enable managed identity and assign the API Management Service Reader role
 
@@ -57,8 +51,6 @@ Azure API Center uses a managed identity to read APIs from your API Management i
 ## 2. Integrate an API Management instance
 
 You can integrate an API Management instance from the Azure portal or with the Azure CLI. Integration creates an environment in your API center and synchronizes APIs (and optionally API definitions) from APIM into your API center inventory.
-
-### Portal
 
 1. In the [Azure portal](https://portal.azure.com), open your API center.
 
@@ -82,17 +74,6 @@ You can integrate an API Management instance from the Azure portal or with the A
 
 After creation, the APIM instance is represented as an environment in your API center and its APIs are added to the inventory.
 
-### Azure CLI
-
-Run the following command to create the integration with the Azure CLI. Replace the placeholders with your resource group, API center (service) name, and an integration name. If the APIM instance is in a different resource group, use the APIM resource ID.
-
-```azurecli
-az apic integration create apim \
-  --resource-group <resource-group-name> \
-  --service-name <api-center-name> \
-  --integration-name <apim-integration-name> \
-  --azure-apim <apim-instance-name-or-resource-id>
-```
 
 >[!NOTE]
 >
@@ -122,11 +103,7 @@ If you want to remove the integration and stop synchronization, delete the integ
 
 ## Related content
 
-* [Manage API inventory with Azure CLI commands](manage-apis-azure-cli.md)
-
 * [Import APIs from API Management to your Azure API center (one-time import)](import-api-management-apis.md)
-
-* [Register and discover MCP servers in your API center](register-discover-mcp-server.md)
 
 * [Azure API Management documentation](../api-management/index.yml)
 
