@@ -8,44 +8,31 @@ ms.date: 02/26/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-# Customer intent: "As a cloud administrator, I want to authorize access for AzCopy operations using Microsoft Entra ID, so that I can streamline file uploads and downloads without the need for SAS tokens, enhancing security and ease of management."
+# Customer intent: "As a cloud administrator or developer, I want to authorize AzCopy operations using managed identities, so that I can securely transfer files to and from Azure Storage without managing credentials or SAS tokens, especially in automated scenarios and VM-based workloads."
 ---
 
 # Authorize access for AzCopy using a managed identity
 
-You can provide [AzCopy](storage-use-azcopy-v10.md) with authorization credentials by using Microsoft Entra ID and a managed identity. By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by verifying your role assignments. Then, authorize your the managed identity by using environment variables or by using the AzCopy login command. 
+Managed identities provide a secure and convenient way to authorize [AzCopy](storage-use-azcopy-v10.md) operations without storing credentials or managing SAS tokens. This authentication method is particularly valuable for automated scripts, CI/CD pipelines, and applications running on Azure Virtual Machines or other Azure services.
 
-> [!TIP]
-> You can also authorize access by using a user identity, service principal or a shared access signature. To learn about other ways to authorize access to AzCopy, see [Authorize AzCopy](storage-use-azcopy-v10.md#authorize-azcopy).
+This article shows you how to configure AzCopy to use either system-assigned or user-assigned managed identities. You'll learn to authorize access through environment variables, the AzCopy login command, or by leveraging existing Azure CLI or Azure PowerShell sessions.
+
+To learn about other ways to authorize access to AzCopy, see [Authorize AzCopy](storage-use-azcopy-v10.md#authorize-azcopy).
 
 ## Verify role assignments
 
-The level of authorization that you need is based on whether you plan to upload files or just download them.
+Ensure your managed identity has the required Azure role for your intended operations:
 
-If you just want to download files, then verify that the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role (Azure Blob Storage) or the [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) role (Azure Files) has been assigned to your user identity, managed identity, or service principal.
+- **Download operations**: [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) (Blob Storage) or [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) (Azure Files)
 
-If you want to upload files to Azure Blob Storage, then verify that one of these roles has been assigned to your security principal.
+- **Upload operations**: [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) or [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) (Blob Storage) or [Storage File Data Privileged Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-contributor) (Azure Files)
 
-- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
-- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
-
-If you want to upload files to an Azure file share, then verify that the [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) has been assigned to your security principal.
-
-These roles can be assigned to your security principal in any of these scopes:
-
-- Container (file system) or file share
-- Storage account
-- Resource group
-- Subscription
-
-To learn how to verify and assign roles, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md) (Blob Storage) or [Choose how to authorize access to file data in the Azure portal](../files/authorize-data-operations-portal.md) (Azure Files).
+For role assignment instructions, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md) (Blob Storage) or [Choose how to authorize access to file data in the Azure portal](../files/authorize-data-operations-portal.md) (Azure Files).
 
 > [!NOTE]
-> Keep in mind that Azure role assignments can take up to five minutes to propagate.
+> Role assignments can take up to five minutes to propagate.
 
-You don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory.
-
-To learn more, see [Access control model in Azure Data Lake Storage](../blobs/data-lake-storage-access-control-model.md).
+If you're transferring blobs in an account that has a hierarchical namespace, you don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory. To learn more, see [Access control model in Azure Data Lake Storage](../blobs/data-lake-storage-access-control-model.md).
 
 ## Authorize with environment variables
 

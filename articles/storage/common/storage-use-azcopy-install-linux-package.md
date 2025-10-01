@@ -10,14 +10,14 @@ ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
-# Customer intent: As a cloud administrator, I want to use AzCopy to transfer data to and from Azure Storage, so that I can efficiently manage storage operations across my cloud environment.
+# Customer intent: As a Linux system administrator or developer, I want to install AzCopy using my distribution's package manager, so that I can easily maintain and update the tool while ensuring proper system integration for Azure Storage operations.
 ---
 
 # Install AzCopy on Linux by using a package manager
 
-AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer data.
+Installing AzCopy through your Linux distribution's package manager provides the most convenient and maintainable way to get this tool. Package manager installation offers several advantages over manual downloads, including automatic dependency resolution, simplified updates, and integration with your system's software management.
 
-You can install AzCopy by using a Linux package that is hosted on the [Linux Software Repository for Microsoft Products](/linux/packages).
+This article walks you through installing AzCopy using popular Linux package managers (dnf, apt, zypper) via packages hosted on the [Linux Software Repository for Microsoft Products](/linux/packages). Once installed, you'll have AzCopy available system-wide and can easily keep it updated through your regular system maintenance routines.
 
 ### [dnf (RHEL)](#tab/dnf)
 
@@ -47,12 +47,12 @@ You can install AzCopy by using a Linux package that is hosted on the [Linux Sof
    ```bash
    sudo dnf update
    ```
+
 5. Install AzCopy.
 
    ```bash
    sudo dnf install azcopy
    ```
-
 
 ### [zypper (openSUSE, SLES)](#tab/zypper)
 
@@ -82,9 +82,9 @@ You can install AzCopy by using a Linux package that is hosted on the [Linux Sof
    ```bash
    sudo zypper --gpg-auto-import-keys refresh
    ```
-   
+
 5. Install AzCopy.
-   
+
    ```bash
    sudo zypper install -y azcopy
    ```
@@ -101,7 +101,7 @@ You can install AzCopy by using a Linux package that is hosted on the [Linux Sof
    ```
 
 2. Install the repository configuration package.
-   
+
    ```bash
    sudo dpkg -i packages-microsoft-prod.deb
    ```
@@ -119,7 +119,7 @@ You can install AzCopy by using a Linux package that is hosted on the [Linux Sof
    ```
 
 5. Install AzCopy.
-   
+
    ```bash
    sudo apt-get install azcopy
    ```

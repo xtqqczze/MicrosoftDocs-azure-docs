@@ -2161,7 +2161,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/common/storage-use-azcopy-authorize-azure-active-directory.md",
+            "source_path_from_root": "/articles/storage/common/storage-use-azcopy-authorize-azure-active-directory.md",
             "redirect_url": "/azure/storage/common/storage-use-azcopy-authorize-user-identity",
             "redirect_document_id": true
         },
