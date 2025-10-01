@@ -20,7 +20,7 @@ AzCopy **V10** is the currently supported version of AzCopy and it is supported 
 
 ## AzCopy use cases
 
-Use AzCopy to upload data from an on-premises source, download data to an on-premises source, or copy data between accounts. You can also synchronize data between storage accounts or between a storage account an on-premises source. You can target specific storage services such as Azure Blob Storage or Azure Files and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa. 
+Use AzCopy to upload data from an on-premises source, download data to an on-premises source, or copy data between storage accounts. You can also synchronize data between storage accounts or between a storage account an on-premises source. You can target specific storage services such as Azure Blob Storage or Azure Files and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa. 
 
 For a complete list of data transfer guides, see the [Transfer data](#transfer-data) section of this article.
 
@@ -42,7 +42,7 @@ You can install AzCopy by using a Linux package that is hosted on the [Linux Sof
 
 ### Download a portable binary
 
-As an alternative to installing a package, you can download the AzCopy V10 executable file to any directory on your computer. 
+An installation package is available only for Linux. For all other operating systems, download the AzCopy V10 executable file to any directory on your computer. 
 
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
