@@ -42,7 +42,7 @@ Azure API Center uses a managed identity to read APIs from your API Management i
 
 1. If you need guidance to enable a managed identity, see: [!INCLUDE [enable-managed-identity](includes/enable-managed-identity.md)]
 
-2. Assign the managed identity the Service Reader role for the API Management instance: [!INCLUDE [configure-managed-identity-apim-reader](includes/configure-managed-identity-apim-reader.md)]
+2. Assign the managed identity the Service Reader role for the API Management instance.
 
 ## 2. Integrate an API Management instance
 
@@ -87,15 +87,9 @@ To verify:
 
 * Make a small change in the APIM instance (for example, create or update an API) and confirm the change appears in the API center inventory after synchronization.
 
-### Entities synchronized from API Management
-
-[!INCLUDE [synchronized-properties-api-source](includes/synchronized-properties-api-source.md)]
-
 ## Clean up resources
 
-If you want to remove the integration and stop synchronization, delete the integration from your API center. Instructions:
-
-[!INCLUDE [delete-api-integration](includes/delete-api-integration.md)]
+If you want to remove the integration and stop synchronization, delete the integration from your API center. 
 
 ## Related content
 
