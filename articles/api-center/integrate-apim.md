@@ -40,9 +40,7 @@ Use Azure Cloud Shell in the [Azure portal](https://portal.azure.com).
 
 Azure API Center uses a managed identity to read APIs from your API Management instance. If your API Center doesn't already have a managed identity with the required permissions, you can configure one during integration or manually.
 
-1. If you need guidance to enable a managed identity, see: [!INCLUDE [enable-managed-identity](includes/enable-managed-identity.md)]
-
-2. Assign the managed identity the Service Reader role for the API Management instance.
+Assign the managed identity the Service Reader role for the API Management instance.
 
 ## 2. Integrate an API Management instance
 
