@@ -9,12 +9,14 @@ ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
-# Customer intent: As a cloud administrator, I want to use AzCopy to transfer data to and from Azure Storage, so that I can efficiently manage storage operations across my cloud environment.
+# Customer intent: As a developer or system administrator, I want to incorporate AzCopy into automated scripts and scheduled tasks, so that I can reliably transfer data to and from Azure Storage without manual intervention.
 ---
 
 # Use AzCopy v10 in a script
 
-Put some introductory text here.
+AzCopy is a command-line utility that you can use to copy blobs or files to or from Azure Storage accounts. While you can run AzCopy commands interactively, you'll often want to incorporate AzCopy into automated scripts for batch operations, scheduled data transfers, or continuous integration pipelines.
+
+This article shows you how to use AzCopy effectively in scripts by obtaining static download links to ensure version consistency, creating scheduled tasks for automated data transfers, and handling special considerations like character escaping and Jenkins integration.
 
 ## Obtain a static download link
 
