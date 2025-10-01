@@ -66,6 +66,10 @@ sections:
         answer: |
           No, you can't upgrade an existing Standard NAT Gateway to StandardV2 NAT Gateway. To migrate from Standard to StandardV2 NAT Gateway, create a new StandardV2 NAT gateway resource and associate it with your subnet. See [Migrate to StandardV2 NAT Gateway](nat-gateway-v2-migrate.md) for step-by-step guidance.
 
+      - question: Does StandardV2 NAT Gateway have any known issues or limitations?
+        answer: |
+          Yes, to learn more see [known issues](./nat-sku.md#known-issues) and [limitations](./nat-sku.md#known-limitations) of StandardV2 NAT Gateway.
+
       - question: Are there any pricing differences between Standard and StandardV2 NAT Gateway?
         answer: |
           No, there aren't pricing differences between Standard and StandardV2 NAT Gateway. For more information, see [Azure NAT Gateway pricing](https://azure.microsoft.com/pricing/details/azure-nat-gateway/) for more information.
