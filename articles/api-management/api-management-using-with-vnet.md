@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 10/1/2025
 ms.author: danlep
 ---
 # Deploy your Azure API Management instance to a virtual network - external mode
