@@ -10,7 +10,7 @@ customer_intent: "As an API program manager, I want to integrate my Azure API Ma
 
 ---
 
-## Tutorial: Integrate an API Management instance with Azure API Center
+# Tutorial: Integrate an API Management instance with Azure API Center
 
 This tutorial shows how to integrate an Azure API Management (APIM) instance with an Azure API Center so that the APIM instance's APIs and optional API definitions are continuously synchronized into your API Center inventory.
 
