@@ -66,6 +66,17 @@ To learn more on how to deploy StandardV2 NAT Gateway, see [Create a StandardV2 
     * Sweden South
     * UAE Central
     * West India
+* Terraform and CLI don't yet support StandardV2 NAT Gateway and StandardV2 Public IP deployments. 
+
+### Known issues of StandardV2 NAT Gateway
+* StandardV2 NAT Gateway breaks outbound connectivity in VNet injection scenarios used by certain Azure services. For these scenarios, Standard NAT Gateway should be used instead. StandardV2 NAT Gateway is not supported to provide outbound connectivity for these services:
+  * Azure Container Instances
+  * Azure Stream Analytics
+  * Azure Web Apps
+
+* IPv6 outbound traffic using Load balancer outbound rules is disrupted when StandardV2 NAT Gateway is associated to a subnet. If you require both IPv4 and IPv6 outbound connectivity, use either Load balancer outbound rules for both IPv4 and IPv6 traffic or use Standard NAT Gateway for IPv4 traffic and Load balancer outbound rules for IPv6 traffic.
+
+For more information about known issues and limitations of StandardV2 NAT Gateway, see [StandardV2 NAT Gateway known issues and limitations](./nat-sku.md#known-limitations).
 
 ## Standard NAT Gateway
 

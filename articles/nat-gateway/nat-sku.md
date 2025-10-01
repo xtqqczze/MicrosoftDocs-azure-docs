@@ -71,6 +71,8 @@ StandardV2 SKU NAT Gateway support for IPv6 public IPs is currently in **public 
 
 * Standard SKU NAT Gateway can’t be upgraded to StandardV2 SKU NAT Gateway. You must deploy StandardV2 SKU NAT Gateway and replace Standard SKU NAT Gateway. 
 
+* StandardV2 NAT Gateway attached at the virtual network level is not supported by AKS workloads. To use StandardV2 NAT Gateway with AKS, attach it directly to the subnet. For more information, see [troubleshooting NAT Gateway with AKS](./troubleshoot-nat-and-azure-services.md#virtual-network-level-standardv2-nat-gateway-with-AKS-isn't-supported).
+
 * Custom IP prefixes (BYOIP public IPs) aren't supported with StandardV2 NAT Gateway. Only StandardV2 SKU Azure public IPs are supported. 
 
 * The following regions don't support StandardV2 NAT Gateway:  
@@ -102,7 +104,12 @@ StandardV2 SKU NAT Gateway support for IPv6 public IPs is currently in **public 
 
 ## Known issues 
 
-* StandardV2 NAT Gateway disrupts outbound connections made with Load balancer outbound rules for IPv6 traffic only. Consider impact time when migrating to StandardV2 NAT Gateway if you're using Load balancer outbound rules for IPv6 traffic.
+* StandardV2 NAT Gateway breaks outbound connectivity in VNet injection scenarios used by certain Azure services. For these scenarios, Standard NAT Gateway should be used instead. StandardV2 NAT Gateway is not supported to provide outbound connectivity for these services:
+  * Azure Container Instances
+  * Azure Stream Analytics
+  * Azure Web Apps
+
+* StandardV2 NAT Gateway disrupts outbound connections made with Load balancer outbound rules for IPv6 traffic only. Standard SKU NAT gateway can be used to provide outbound for IPv4 traffic while Load balancer outbound rules is used for IPv6 outbound traffic. If you see disruption to outbound connectivity for IPv6 outbound traffic with Load balancer outbound rules, remove the StandardV2 NAT Gateway from the subnet or virtual network. Use Load balancer outbound rules to provide outbound connectivity for both IPv4 and IPv6 traffic. Or use Standard SKU NAT Gateway to provide outbound connectivity for IPv4 traffic and Load balancer outbound rules for IPv6 traffic.
 
 * StandardV2 NAT Gateway associated with a source virtual network disrupts Azure Bastion connectivity. If you're using Azure Bastion to access your virtual machines, attach StandardV2 NAT Gateway directly to subnets instead. 
 

@@ -221,7 +221,7 @@ Standard SKU [NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols.
 Standard SKU public IPs aren't supported with StandardV2 SKU NAT Gateway. Only StandardV2 SKU public IPs can be added to StandardV2 NAT Gateway.  
 
 ### Can't add StandardV2 SKU public IPs to Standard SKU NAT Gateway
-StandardV2 SKU public IPs aren't supported with Standard SKU NAT Gateway. Only Standard SKU public IPs can be added to Standard NAT Gateway.
+StandardV2 SKU public IPs aren't supported with Standard SKU NAT Gateway or any other Azure resources. Only Standard SKU public IPs can be added to Standard NAT Gateway.
 
 ### Can't use basic public IPs with NAT gateway 
 

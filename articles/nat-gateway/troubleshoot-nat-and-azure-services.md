@@ -13,6 +13,7 @@ ms.author: alittleton
 # Troubleshoot outbound connectivity with NAT gateway and Azure services 
 
 This article provides guidance on how to troubleshoot connectivity issues when using NAT gateway with other Azure services, including:
+* [Known issues with StandardV2 NAT Gateway and VNet injection scenarios](#known-issues-with-standardv2-nat-gateway-and-vnet-injection-scenarios)
 
 * [Azure App Services](#azure-app-services)
 
@@ -21,6 +22,15 @@ This article provides guidance on how to troubleshoot connectivity issues when u
 * [Azure Firewall](#azure-firewall)
 
 * [Azure Databricks](#azure-databricks)
+
+* [Azure SQL Managed Instance](#azure-sql-managed-instance)
+
+## Known issues with StandardV2 NAT Gateway and VNet injection scenarios
+
+StandardV2 NAT Gateway breaks outbound connectivity in VNet injection scenarios used by certain Azure services. For these scenarios, Standard NAT Gateway should be used instead. StandardV2 NAT Gateway is not supported to provide outbound connectivity for these services:
+  * Azure Container Instances
+  * Azure Stream Analytics
+  * Azure Web Apps
 
 ## Azure App Services 
 
@@ -71,6 +81,10 @@ Standard SKU NAT Gateway can be deployed as either a Managed NAT gateway or User
 StandardV2 SKU NAT Gateway can only be deployed as a User-Assigned NAT gateway.  
 
 Learn more at [Managed NAT Gateway](/azure/aks/nat-gateway).
+
+### Virtual network level StandardV2 NAT gateway with AKS isn't supported
+
+StandardV2 NAT Gateway attached at the virtual network level is not recognized as a valid configuration for AKS workloads. To use StandardV2 NAT Gateway with AKS, attach it directly to the subnet. 
 
 ### Connecting from AKS cluster to the AKS API server over the internet
 
