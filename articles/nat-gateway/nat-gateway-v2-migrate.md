@@ -37,7 +37,7 @@ Before you migrate to StandardV2 NAT gateway, make sure that your specific scena
 
 * Azure Kubernetes Service (AKS) managed NAT gateway doesn't support StandardV2 NAT Gateway deployment. To use a StandardV2 NAT gateway with AKS, StandardV2 NAT Gateway must be deployed as user-assigned. 
 
-* StandardV2 NAT Gateway attached at the virtual network level is not supported by AKS workloads. To use StandardV2 NAT Gateway with AKS, attach it directly to the subnet. For more information, see [troubleshooting NAT Gateway with AKS](./troubleshoot-nat-and-azure-services.md#virtual-network-level-standardv2-nat-gateway-with-AKS-isn't-supported).
+* StandardV2 NAT Gateway attached at the virtual network level is not supported by AKS workloads. To use StandardV2 NAT Gateway with AKS, attach it directly to the subnet. For more information, see [troubleshooting NAT Gateway with AKS](./troubleshoot-nat-and-azure-services.md#virtual-network-level-standardv2-nat-gateway-with-AKS-isnt-supported).
 
 * StandardV2 NAT Gateway and Basic SKU Load balancer or Basic SKU public IPs aren't supported. 
 
