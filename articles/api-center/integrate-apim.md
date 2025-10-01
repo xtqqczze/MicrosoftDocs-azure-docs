@@ -33,9 +33,6 @@ If you don't have an Azure subscription, create a free trial account before you 
 
 * An Azure API Management instance in the same directory (tenant). The instance can be in the same or a different subscription.
 
-> [!NOTE]
-> Azure CLI command examples in this tutorial can run in PowerShell or bash. Where needed because of different variable syntax, separate command examples are provided for the two shells.
-
 ## Open Azure Cloud Shell
 
 Use Azure Cloud Shell in the [Azure portal](https://portal.azure.com).
