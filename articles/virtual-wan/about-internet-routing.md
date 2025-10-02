@@ -22,7 +22,7 @@ The following table summarizes the two different modes that define how Virtual W
 |Mode| Internet traffic |
 |--|--|
 |Direct Access|Forwarded **directly** to the Internet after inspection. |
-|Forced Tunnel|Forwarded via **0.0.0.0/0 route learnt** from on-premises, from a Network Virtual Appliance (NVA) or a Virtual WAN static route after inspection. If no 0.0.0.0/0 route is learnt from on-premises, a NVA or a static route on a Virtual Network connection, forward directly to Internet after inspection. |
+|Forced Tunnel|Forwarded via **0.0.0.0/0 route learnt** from on-premises, from a Network Virtual Appliance (NVA) or a Virtual WAN static route after inspection. If no 0.0.0.0/0 route is learnt from on-premises, an NVA or a static route on a Virtual Network connection, forward directly to Internet after inspection. |
 
 ## Availability
 
@@ -31,7 +31,7 @@ The following table shows the availability status of securing Internet access wi
 | Security solution |Status|
 |--|--|
 |Azure Firewall |Generally Available in Azure Public and Azure Government Clouds.|
-|Firewall NVA in the Virtual WAN hub| Generally Avaialble in Azure Public Cloud |
+|Firewall NVA in the Virtual WAN hub| Generally Available in Azure Public Cloud |
 | Software-as-a-service in the Virtual WAN Hub| Generally Available in Azure Public Cloud|
 
 The following table shows the availability status of securing Internet access with **forced tunneling** by configuring private routing policy.
@@ -45,15 +45,15 @@ The following table shows the availability status of securing Internet access wi
 ### Known Limitations
 
 * **Forced Tunnel configuration**:
-    * Forced tunnel requires a specific routing intent configuration. Non-routing intent deployments do **not** support forced tunnel internet access.
+    * Forced tunnel requires a specific routing intent configuration. 
     * Destination-NAT (DNAT) for security solutions deployed in the Virtual WAN hub is **not supported** for Virtual WAN hubs that are configured with Forced Tunnel internet routing mode. The incoming connection for DNAT traffic originates from the Internet. However, forced tunnel mode forces return traffic via on-premises or a NVA. This routing pattern results in asymmetric routing. 
-    * Traffic from on-premises destined for the public IP address of an Azure storage account deployed in the same Azure region as the Virtual WAN hub bypasses security solution in the hub. For more details on this limitation and potential mitigations, see [VIrtual WAN known issues](whats-new.md#knownissues).
-    * On-premises **can't** advertise forced tunnel routes more specific that 0.0.0.0/0. Advertising more specifc rotues like 0.0.0.0/1 and 128.0.0.0/1 from on-premises may blackhole in management traffic for Azure Firewall or NVAs integrated in the Virtual Hub.
+    * Traffic from on-premises destined for the public IP address of an Azure storage account deployed in the same Azure region as the Virtual WAN hub bypasses security solution in the hub. For more details on issue, see [Virtual WAN known issues](whats-new.md#knownissues).
+    * On-premises **can't** advertise forced tunnel routes more specific that 0.0.0.0/0. Advertising more specific routes like 0.0.0.0/1 and 128.0.0.0/1 from on-premises may blackhole in management traffic for Azure Firewall or NVAs integrated in the Virtual Hub.
     * Virtual Network connection **bypass next hop setting** is ignored for deployments using static routes on Virtual Network connections with **propagate static route** enabled. Traffic destined for the Virtual Network connection will be inspected by the security appliance in the hub and  routed directly to the destination IP in the spoke Virtual Network, bypassing the next hop IP configured in the static route.  
 * **Direct Access**:
     * Traffic from on-premises destined for the public IP address of an Azure storage account deployed in the same Azure region as the Virtual WAN hub bypasses security solution in the hub. For more details on this limitation and potential mitigations, see [VIrtual WAN known issues](whats-new.md#knownissues).
 * **Portal issues**:
-  * When a hub is configured in Forced Tunnel mode, Azure Firewall Manager does not properly display Internet Traffic as **secured** for connections. Azure Firewall Manager does not allow you to change the secured status of connections either. To modify the **secured** status, change the **enable internet security** or **propagate default route** setting on the connection.  
+  * When a hub is configured in Forced Tunnel mode, Azure Firewall Manager doesn't properly display Internet Traffic as **secured** for connections. Additionally, Azure Firewall Manager doesn't allow you to change the secured status of connections. To modify the **secured** status, change the **enable internet security** or **propagate default route** setting on the connection.  
 
 ### Direct Access
 
@@ -113,11 +113,11 @@ The following table summarizes the configuration needed to route traffic using t
 ### Configuration steps in Routing Intent Portal
 
 >[!NOTE]
-> Azure Portal perfoms validations to ensure deployments are either in forced tunnel mode or direct access mode. This means that if forced tunnel mode is enabled, you won't be able to add an Internet policy directly. To migrate from forced tunnel mode to direct access mode,execute the following steps in order:  remove the 0.0.0.0/0 static route from additional prefixes,  enable internet policy and save.
+> Azure portal performs validations to ensure deployments are either in forced tunnel mode or direct access mode. This means that if forced tunnel mode is enabled, you won't be able to add an Internet policy directly. To migrate from forced tunnel mode to direct access mode, execute the following steps in order:  remove the 0.0.0.0/0 static route from additional prefixes,  enable internet policy, and save.
 
-The following section describes how to configure routing intent to configure **forced tunnel** and **direct access** using Virtual WAN routing intent and policies Azure Portal. These steps apply to  Azure Firewall, Network Virtual Appliances or software-as-a-service solutions deployed in the Virtual WAN hub.
+The following section describes how to configure routing intent to configure **forced tunnel** and **direct access** using Virtual WAN routing intent and policies Azure portal. These steps apply to  Azure Firewall, Network Virtual Appliances, or software-as-a-service solutions deployed in the Virtual WAN hub.
 
-1. Navigate to your Virtual Hub that is deployed with a security solution.
+1. Navigate to your Virtual Hub that's deployed with a security solution.
 1. Under **Routing**, select **Routing Intent and Routing Policies**.
 
 #### Forced tunnel
@@ -137,9 +137,9 @@ The following section describes how to configure routing intent to configure **f
 ### Configuration steps in Azure Firewall Manager
 
 >[!NOTE]
-> Azure Portal perfoms validations to ensure deployments are either in forced tunnel mode or direct access mode. This means that if forced tunnel mode is enabled, you won't be able to add an Internet policy directly. To migrate from forced tunnel mode to direct access mode,execute the following steps in order:  remove the 0.0.0.0/0 static route from additional prefixes, enable internet policy and save.
+> Azure portal perfoms validations to ensure deployments are either in forced tunnel mode or direct access mode. This means that if forced tunnel mode is enabled, you won't be able to add an Internet policy directly. To migrate from forced tunnel mode to direct access mode,execute the following steps in order:  remove the 0.0.0.0/0 static route from additional prefixes, enable internet policy and save.
 
-The following section describes how to configure routing intent to configure **forced tunnel** and **direct access** using Virtual WAN routing intent and policies Azure Portal. These steps apply to Azure Firewall in the Virtual WAN hub. 
+The following section describes how to configure routing intent to configure **forced tunnel** and **direct access** using Virtual WAN routing intent and policies Azure Firewall Manager. These steps apply **only** to Azure Firewall in the Virtual WAN hub. 
 
 1. Navigate to your Virtual WAN hub.
 1. Select **Azure Firewall and Firewall Manager** under **Security** and select your Virtual WAN hub.
@@ -149,16 +149,16 @@ The following section describes how to configure routing intent to configure **f
 
 1. Set **Private Traffic** to **Send via Azure Firewall** and **Inter-hub** to enabled. 
 1. Add the 0.0.0.0/0 route to **additional prefixes**.
-1. **Save** your configruation.
+1. **Save** your configuration.
 
 #### Direct access
 
 1. Set **Internet Traffic** to **Azure Firewall** and **Inter-hub** to enabled. Optionally, set **Private Traffic** to **Send via Azure Firewall** and **Inter-hub** to enabled. 
-1. **Save** your configruation.
+1. **Save** your configuration.
 
 ### Other configuration methodologies (Terraform, CLI, PowerShell, REST, Bicep)
 
-The following JSON configurations represent sample Azure resource manager resource representations of Virtual WAN routing constructs configured for direct access or forced tunnel modes. These JSON configurations can be customized to your specific environment/configuration and be used to derive the correct Terraform, CLI, Powershell or Bicep configuration.
+The following JSON configurations represent sample Azure resource manager resource representations of Virtual WAN routing constructs configured for direct access or forced tunnel modes. These JSON configurations can be customized to your specific environment/configuration and be used to derive the correct Terraform, CLI, PowerShell, or Bicep configuration.
 
 #### Forced tunnel
 
@@ -302,7 +302,7 @@ The following section describes the differences in security solution configurati
 The following section describes configuration considerations needed to ensure security solutions **in the Virtual WAN hub** can forward packets to the Internet directly.
 
 **Azure Firewall**:
-* Ensure [Source-NAT (SNAT)](../firewall/snat-private-range.md) is  **on** for all non-private network traffic configurations.
+* Ensure [Source-NAT (SNAT)](../firewall/snat-private-range.md) is  **on** for all non-RFC1918 network traffic configurations.
 * Avoid SNAT port exhaustion by ensuring sufficient Public IP addresses are allocated to your Azure Firewall deployment.
 
 **SaaS solution or Integrated NVAs**:
@@ -311,7 +311,7 @@ The following recommendations are generic baseline recommendations. Contact your
 
 * Reference provider documentation to ensure:
     * Internal route table in NVA or SaaS solution has 0.0.0.0/0 properly configured to forward internet traffic out of the external interface.
-    * SNAT is configured for the NVA or SaaS solutions for all non-prvate network traffic configurations.
+    * SNAT is configured for the NVA or SaaS solutions for all non-RFC 1918 network traffic configurations.
 *  Ensure sufficient Public IP addresses are allocated to your [NVA](how-to-network-virtual-appliance-add-ip-configurations.md) or SaaS deployment to avoid SNAT port exhaustion.
 
 ### Forced tunnel
@@ -321,7 +321,7 @@ The following section describe configuration considerations needed to ensure sec
 **Azure Firewall**:
 * Configure [Source-NAT (SNAT)](../firewall/snat-private-range.md). 
     * **Preserve original source IP of Internet traffic**: turn SNAT  **off** for all traffic configurations. 
-    * **SNAT internet traffic to Firewall instance private IP**: turn SNAT **on** for non-private traffic ranges. 
+    * **SNAT internet traffic to Firewall instance private IP**: turn SNAT **on** for non-RFC 1918 traffic ranges. 
 
 **SaaS solution or Integrated NVAs**:
 
