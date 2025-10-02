@@ -52,6 +52,8 @@ The following table shows the availability status of securing Internet access wi
     * Virtual Network connection **bypass next hop setting** is ignored for deployments using static routes on Virtual Network connections with **propagate static route** enabled. Traffic destined for the Virtual Network connection will be inspected by the security appliance in the hub and  routed directly to the destination IP in the spoke Virtual Network, bypassing the next hop IP configured in the static route.  
 * **Direct Access**:
     * Traffic from on-premises destined for the public IP address of an Azure storage account deployed in the same Azure region as the Virtual WAN hub bypasses security solution in the hub. For more details on this limitation and potential mitigations, see [VIrtual WAN known issues](whats-new.md#knownissues).
+* **Portal issues**:
+  * When a hub is configured in Forced Tunnel mode, Azure Firewall Manager does not properly display Internet Traffic as **secured** for connections. Azure Firewall Manager does not allow you to change the secured status of connections either. To modify the **secured** status, change the **enable internet security** or **propagate default route** setting on the connection.  
 
 ### Direct Access
 
@@ -71,9 +73,7 @@ When Virtual WAN is configured in forced tunnel mode, the highest priority defau
 
 :::image type="content" source="./media/about-internet-routing/force-tunnel.png" alt-text="Screenshot that shows forced tunnel." lightbox="./media/about-internet-routing/force-tunnel.png":::
 
-However, there's an implicit route that allows the security solution to forward traffic directly to the internet. This implicit route is treated with the lowest priority.
-
-If there are no default routes learnt dynamically from on-premises or configured as a static route on Virtual Network connections, Internet traffic is routed directly to the Internet via the implicit route.
+However, there's an implicit route that allows the security solution to forward traffic directly to the internet. This implicit route is treated with the lowest priority. If there are no default routes learnt dynamically from on-premises or configured as a static route on Virtual Network connections, Internet traffic is routed directly to the Internet via the implicit route. For traffic routed via the implicit route, the source IP address of the internet-bound packet is one of the public IP addresses assigned to your security solution.
 
 ### Supported sources of the default route
 
@@ -110,7 +110,185 @@ The following table summarizes the configuration needed to route traffic using t
 | Direct Access| Optional| None required | Required|
 | Forced Tunnel| Required | 0.0.0.0/0| No |
 
-## Connection-level configurations
+### Configuration steps in Routing Intent Portal
+
+>[!NOTE]
+> Azure Portal perfoms validations to ensure deployments are either in forced tunnel mode or direct access mode. This means that if forced tunnel mode is enabled, you won't be able to add an Internet policy directly. To migrate from forced tunnel mode to direct access mode,execute the following steps in order:  remove the 0.0.0.0/0 static route from additional prefixes,  enable internet policy and save.
+
+The following section describes how to configure routing intent to configure **forced tunnel** and **direct access** using Virtual WAN routing intent and policies Azure Portal. These steps apply to  Azure Firewall, Network Virtual Appliances or software-as-a-service solutions deployed in the Virtual WAN hub.
+
+1. Navigate to your Virtual Hub that is deployed with a security solution.
+1. Under **Routing**, select **Routing Intent and Routing Policies**.
+
+#### Forced tunnel
+
+1. Select your preferred  security solution as the next hop resource for **Private traffic**. Do **not** select anything for **Internet traffic**.
+:::image type="content" source="./media/about-internet-routing/routing-intent-select-firewall.png" alt-text="Screenshot that shows how to select firewall." lightbox="./media/about-internet-routing/routing-intent-select-firewall.png":::
+1. Add the 0.0.0.0/0 route to **additional prefixes**.
+:::image type="content" source="./media/about-internet-routing/routing-intent-add-default-route.png" alt-text="Screenshot that shows how to add default route to additional prefixes." lightbox="./media/about-internet-routing/routing-intent-add-default-route.png":::
+1. **Save** your configuration.
+
+#### Direct access
+
+1. Select your preferred  security solution as the next hop resource for **Internet traffic**. Optionally, select your preferred security solution as the next hop resource for **Private traffic**.
+:::image type="content" source="./media/about-internet-routing/routing-intent-select-both-policy.png" alt-text="Screenshot that shows how to select both policy." lightbox="./media/about-internet-routing/routing-intent-select-both-policy.png":::
+1. **Save** your configuration.
+
+### Configuration steps in Azure Firewall Manager
+
+>[!NOTE]
+> Azure Portal perfoms validations to ensure deployments are either in forced tunnel mode or direct access mode. This means that if forced tunnel mode is enabled, you won't be able to add an Internet policy directly. To migrate from forced tunnel mode to direct access mode,execute the following steps in order:  remove the 0.0.0.0/0 static route from additional prefixes, enable internet policy and save.
+
+The following section describes how to configure routing intent to configure **forced tunnel** and **direct access** using Virtual WAN routing intent and policies Azure Portal. These steps apply to Azure Firewall in the Virtual WAN hub. 
+
+1. Navigate to your Virtual WAN hub.
+1. Select **Azure Firewall and Firewall Manager** under **Security** and select your Virtual WAN hub.
+1. Select **Security configuration** under **Settings**. 
+
+#### Forced tunnel
+
+1. Set **Private Traffic** to **Send via Azure Firewall** and **Inter-hub** to enabled. 
+1. Add the 0.0.0.0/0 route to **additional prefixes**.
+1. **Save** your configruation.
+
+#### Direct access
+
+1. Set **Internet Traffic** to **Azure Firewall** and **Inter-hub** to enabled. Optionally, set **Private Traffic** to **Send via Azure Firewall** and **Inter-hub** to enabled. 
+1. **Save** your configruation.
+
+### Other configuration methodologies (Terraform, CLI, PowerShell, REST, Bicep)
+
+The following JSON configurations represent sample Azure resource manager resource representations of Virtual WAN routing constructs configured for direct access or forced tunnel modes. These JSON configurations can be customized to your specific environment/configuration and be used to derive the correct Terraform, CLI, Powershell or Bicep configuration.
+
+#### Forced tunnel
+
+The following example JSON shows a sample routing intent resource configured with private routing policy.
+
+```json
+{
+  "name": "<>",
+  "id": "/subscriptions/<>/resourceGroups/<>/providers/Microsoft.Network/virtualHubs/<>/routingIntent/<>",
+  "properties": {
+    "routingPolicies": [
+      {
+        "name": "PrivateTraffic",
+        "destinations": [
+          "PrivateTraffic"
+        ],
+        "nextHop": "<security solution resource URI>"
+      }
+    ]
+  },
+  "type": "Microsoft.Network/virtualHubs/routingIntent"
+}
+```
+
+The following example JSON shows a sample default route table configuration with private routing policy routes and additional prefix (0.0.0.0/0) added in the default route table.
+
+```json
+{
+  "name": "defaultRouteTable",
+  "id": "/subscriptions/<subscriptionID>/resourceGroups/<>/providers/Microsoft.Network/virtualHubs/<>/hubRouteTables/defaultRouteTable",
+  "properties": {
+    "routes": [
+      {
+        "name": "_policy_PrivateTraffic",
+        "destinationType": "CIDR",
+        "destinations": [
+          "10.0.0.0/8",
+          "172.16.0.0/12",
+          "192.168.0.0/16"
+        ],
+        "nextHopType": "ResourceId",
+        "nextHop": "<security solution resource URI>"
+      },
+      {
+        "name": "private_traffic",
+        "destinationType": "CIDR",
+        "destinations": [
+          "0.0.0.0/0"
+        ],
+        "nextHopType": "ResourceId",
+        "nextHop": "<security solution resource URI>"
+      }
+    ],
+    "labels": [
+      "default"
+    ]
+  },
+  "type": "Microsoft.Network/virtualHubs/hubRouteTables"
+}
+```
+
+#### Direct access
+
+The following example JSON shows a sample routing intent resource configured with both internet and private routing policy.
+
+```json
+{
+  "name": "<>",
+  "id": "/subscriptions/<>/resourceGroups/<>/providers/Microsoft.Network/virtualHubs/<>/routingIntent/<>",
+  "properties": {
+    "routingPolicies": [
+      {
+        "name": "PrivateTraffic",
+        "destinations": [
+          "PrivateTraffic"
+        ],
+        "nextHop": "<security solution resource URI>"
+      },
+      {
+        "name": "PublicTraffic",
+        "destinations": [
+          "Internet"
+        ],
+        "nextHop": "<security solution resource URI>"
+      }
+    ]
+  },
+  "type": "Microsoft.Network/virtualHubs/routingIntent"
+}
+```
+
+The following example JSON shows a sample default route table configuration with both private and internet routing policy routes.
+
+```json
+{
+  "name": "defaultRouteTable",
+  "id": "/subscriptions/<subscriptionID>/resourceGroups/<>/providers/Microsoft.Network/virtualHubs/<>/hubRouteTables/defaultRouteTable",
+  "properties": {
+    "routes": [
+      {
+        "name": "_policy_PrivateTraffic",
+        "destinationType": "CIDR",
+        "destinations": [
+          "10.0.0.0/8",
+          "172.16.0.0/12",
+          "192.168.0.0/16"
+        ],
+        "nextHopType": "ResourceId",
+        "nextHop": "<security solution resource URI>"
+      },
+      {
+        "name": "_policy_PublicTraffic",
+        "destinationType": "CIDR",
+        "destinations": [
+          "0.0.0.0/0"
+        ],
+        "nextHopType": "ResourceId",
+        "nextHop": "<security solution resource URI>"
+      }
+    ],
+    "labels": [
+      "default"
+    ]
+  },
+  "type": "Microsoft.Network/virtualHubs/hubRouteTables"
+}
+```
+
+
+## Ensure connections learn the default route (0.0.0.0/0)
 
 For connections that need Internet access via Virtual WAN, ensure the **Enable internet security** or **propagate default route** is set to **true**. This configuration instructs Virtual WAN to advertise the default route to that connection.
 
