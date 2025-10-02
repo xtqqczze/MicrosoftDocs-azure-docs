@@ -45,7 +45,7 @@ The key benefits of using the SDKs include:
 - **Configuration**: Configure the MQTT Broker connection through the file system, environment, or connection string.
 - **Services**: Provides client libraries to Azure IoT Operations services for simplified development.
 - **Protocol Compiler (codegen)**: Provides contract guarantees between client and servers via RPC and Telemetry.
-- **High availability**: Building blocks for building highly available apps via state store, lease lock, and leader election clients.
+- **High availability**: Building blocks for building highly available apps via state store and lease lock.
 - **Payload formats**: Supports multiple serialization formats, built in.
 
 
