@@ -52,13 +52,13 @@ First, make sure that you've enabled a system-wide managed identity on your VM. 
 
 Type the following command, and then press the ENTER key.
 
-### [Linux](#tab/linux)
+#### [Linux](#tab/linux)
 
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=MSI
 ```
 
-### [Windows](#tab/windows)
+#### [Windows](#tab/windows)
 
 ```powershell
 $Env:AZCOPY_AUTO_LOGIN_TYPE="MSI"
@@ -73,7 +73,7 @@ First, make sure that you've enabled a user-assigned managed identity on your VM
 
 Type the following command, and then press the ENTER key.
 
-### [Linux](#tab/linux)
+#### [Linux](#tab/linux)
 
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=MSI
@@ -82,7 +82,7 @@ export AZCOPY_MSI_OBJECT_ID=<object-id>
 export AZCOPY_MSI_RESOURCE_STRING=<resource-id>
 ```
 
-### [Windows](#tab/windows)
+#### [Windows](#tab/windows)
 
 ```powershell
 $Env:AZCOPY_AUTO_LOGIN_TYPE="MSI"

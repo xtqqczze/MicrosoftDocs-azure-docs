@@ -83,11 +83,17 @@ You can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environmen
 
 If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `300`, but you can manually set this value higher or lower.
 
-| Operating system | Command  |
-|--------|-----------|
-| **Windows** | `set AZCOPY_CONCURRENCY_VALUE=<value>` |
-| **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
-| **macOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
+### [Linux](#tab/linux)
+
+```bash
+export AZCOPY_CONCURRENCY_VALUE=<value>
+```
+
+### [Windows](#tab/windows)
+
+```powershell
+set AZCOPY_CONCURRENCY_VALUE=<value>
+```
 
 Use the `azcopy env` to check the current value of this variable. If the value is blank, then you can read which value is being used by looking at the beginning of any AzCopy log file. The selected value, and the reason it was selected, are reported there.
 
@@ -105,11 +111,17 @@ azcopy jobs resume <job-id> --cap-mbps 10
 
 Set the `AZCOPY_BUFFER_GB` environment variable to specify the maximum amount of your system memory you want AzCopy to use for buffering when downloading and uploading files. Express this value in gigabytes (GB).
 
-| Operating system | Command  |
-|--------|-----------|
-| **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
-| **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
-| **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
+### [Linux](#tab/linux)
+
+```bash
+export AZCOPY_BUFFER_GB=<value>
+```
+
+### [Windows](#tab/windows)
+
+```powershell
+set AZCOPY_BUFFER_GB=<value
+```
 
 > [!NOTE]
 > Job tracking always incurs additional overhead in memory usage. The amount varies based on the number of transfers in a job. Buffers are the largest component of memory usage. You can help control overhead by using `AZCOPY_BUFFER_GB` to approximately meet your requirements, but there is no flag available to strictly cap the overall memory usage.

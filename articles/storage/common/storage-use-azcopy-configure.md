@@ -35,17 +35,20 @@ The relevant error isn't necessarily the first error that appears in the file. F
 
 The following command will get all errors with `UPLOADFAILED` status from the `04dc9ca9-158f-7945-5933-564021086c79` log:
 
-**Windows (PowerShell)**
+### [Linux](#tab/linux)
 
-```
+```bash
 Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
 ```
 
-**Linux**
+### [Windows](#tab/windows)
+
+```powershell
+Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
 
 ```
-grep UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log
-```
+
+---
 
 ## View and resume jobs
 
@@ -83,27 +86,43 @@ When you resume a job, AzCopy looks at the job plan file. The plan file lists al
 
 ## Change the location of plan files
 
-Use any of these commands.
+Use the following command.
 
-| Operating system | Command  |
-|--------|-----------|
-| **Windows** | PowerShell:`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> In a command prompt use:: `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
-| **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
-| **macOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+### [Linux](#tab/linux)
+
+```bash
+export AZCOPY_JOB_PLAN_LOCATION=<value>
+```
+
+### [Windows](#tab/windows)
+
+```powershell
+$env:AZCOPY_JOB_PLAN_LOCATION="<value>"
+```
 
 Use the `azcopy env` to check the current value of this variable. If the value is blank, then plan files are written to the default location.
 
+---
+
 ## Change the location of log files
 
-Use any of these commands.
+Use the following command.
 
-| Operating system | Command  |
-|--------|-----------|
-| **Windows** | PowerShell:`$env:AZCOPY_LOG_LOCATION="<value>"` <br> In a command prompt use:: `set AZCOPY_LOG_LOCATION=<value>`|
-| **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
-| **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
+### [Linux](#tab/linux)
+
+```bash
+export AZCOPY_LOG_LOCATION=<value>
+```
+
+### [Windows](#tab/windows)
+
+```powershell
+$env:AZCOPY_LOG_LOCATION="<value>"
+```
 
 Use the `azcopy env` to check the current value of this variable. If the value is blank, then logs are written to the default location.
+
+---
 
 ## Change the default log level
 
