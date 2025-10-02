@@ -34,7 +34,11 @@ Apply the following guidelines to your AzCopy commands.
 
 - If you're using Microsoft Entra authorization for both source and destination, then both accounts must belong to the same Microsoft Entra tenant.
 
-- Your client must have network access to both the source and destination storage accounts. To learn how to configure the network settings for each storage account, see [Configure Azure Storage firewalls and virtual networks](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
+- Your client must have **network access** to both the source and destination storage accounts. 
+  
+  To learn how to configure the network settings for each storage account, see [Configure Azure Storage firewalls and virtual networks](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
+
+  To learn about supported network topologies when copying between accounts, see [Copy blobs between storage accounts with access restriction](/troubleshoot/azure/azure-storage/blobs/connectivity/copy-blobs-between-storage-accounts-network-restriction.md#copy-blobs-between-storage-accounts-with-access-restriction).
 
 -  If you copy to a premium block blob storage account, omit the access tier of a blob from the copy operation by setting the `s2s-preserve-access-tier` to `false` (For example: `--s2s-preserve-access-tier=false`). Premium block blob storage accounts don't support access tiers.
 

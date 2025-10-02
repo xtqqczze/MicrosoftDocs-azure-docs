@@ -29,7 +29,7 @@ For more detailed guidance on installing these packages, see [Linux Software Rep
 
    Replace the `<distribution>` and `<version>` placeholders in this command with the Linux distribution and version that you are running on your machine. See [packages.microsoft.com](https://packages.microsoft.com/) to find the list of supported Linux distributions and versions.
 
-   For example, if you entered `cat /etc/os-release` and saw that Ubuntu, version 20.04, is running, your distribution would be `Ubuntu` and your version would be `20.04`. You would then open the [packages.microsoft.com](https://packages.microsoft.com/) page, select **ubuntu**, and then verify that **20.04** appears in the list. Then, you would use that distribution and version in your comment.
+   Use the `cat /etc/os-release` command to get the Linux distribution and version running on your machine. For example, if `Ubuntu` and `version 20.04` appears in the output of that command, then open the [packages.microsoft.com](https://packages.microsoft.com/) page, select **ubuntu**, and then verify that **20.04** appears in the list. Then, use that distribution and version in your comment.
 
    ````bash
    curl -sSL -O https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.rpm
@@ -69,7 +69,7 @@ For more detailed guidance on installing these packages, see [Linux Software Rep
 
    Replace the `<distribution>` and `<version>` placeholders in this command with the Linux distribution and version that you are running on your machine. See [packages.microsoft.com](https://packages.microsoft.com/) to find the list of supported Linux distributions and versions.
 
-   For example, if you entered `cat /etc/os-release` and saw that Ubuntu, version 20.04, is running, your distribution would be `Ubuntu` and your version would be `20.04`. You would then open the [packages.microsoft.com](https://packages.microsoft.com/) page, select **ubuntu**, and then verify that **20.04** appears in the list. Then, you would use that distribution and version in your comment.
+   Use the `cat /etc/os-release` command to get the Linux distribution and version running on your machine. For example, if `Ubuntu` and `version 20.04` appears in the output of that command, then open the [packages.microsoft.com](https://packages.microsoft.com/) page, select **ubuntu**, and then verify that **20.04** appears in the list. Then, use that distribution and version in your comment.
 
    ````bash
    curl -sSL -O https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.rpm
@@ -109,7 +109,7 @@ For more detailed guidance on installing these packages, see [Linux Software Rep
 
    Replace the `<distribution>` and `<version>` placeholders in this command with the Linux distribution and version that you are running on your machine. See [packages.microsoft.com](https://packages.microsoft.com/) to find the list of supported Linux distributions and versions.
 
-   For example, if you entered `cat /etc/os-release` and saw that Ubuntu, version 20.04, is running, your distribution would be `Ubuntu` and your version would be `20.04`. You would then open the [packages.microsoft.com](https://packages.microsoft.com/) page, select **ubuntu**, and then verify that **20.04** appears in the list. Then, you would use that distribution and version in your comment.
+   Use the `cat /etc/os-release` command to get the Linux distribution and version running on your machine. For example, if `Ubuntu` and `version 20.04` appears in the output of that command, then open the [packages.microsoft.com](https://packages.microsoft.com/) page, select **ubuntu**, and then verify that **20.04** appears in the list. Then, use that distribution and version in your comment.
 
    ````bash
    curl -sSL -O https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb

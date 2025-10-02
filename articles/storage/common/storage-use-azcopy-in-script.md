@@ -1,5 +1,5 @@
 ---
-title: Use AzCopy v10 in a script
+title: Use AzCopy v10 in scripts and scheduled transfers
 description: Learn how to obtain a static link to a specific AzCopy version and use that link in your scripts.
 author: normesta
 ms.service: azure-storage
@@ -12,7 +12,7 @@ ai-usage: ai-assisted
 # Customer intent: As a developer or system administrator, I want to incorporate AzCopy into automated scripts and scheduled tasks, so that I can reliably transfer data to and from Azure Storage without manual intervention.
 ---
 
-# Use AzCopy v10 in a script
+# Use AzCopy in scripts and scheduled transfers
 
 AzCopy is a command-line utility that you can use to copy blobs or files to or from Azure Storage accounts. While you can run AzCopy commands interactively, you'll often want to incorporate AzCopy into automated scripts for batch operations, scheduled data transfers, or continuous integration pipelines.
 
@@ -78,7 +78,7 @@ Invoke-WebRequest -Uri <URL from the previous command> -OutFile 'azcopyv10.zip'
 $AzCopy = (Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\' -PassThru | where-object {$_.Name -eq 'azcopy.exe'}).FullName
 # Invoke AzCopy
 & $AzCopy
-``` 
+```
 
 ---
 

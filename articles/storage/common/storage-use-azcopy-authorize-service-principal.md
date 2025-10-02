@@ -56,12 +56,25 @@ To learn more about service principals in general, see [Application and service 
 
 Type the following command, and then press the ENTER key.
 
+### [Linux](#tab/linux)
+
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=SPN
 export AZCOPY_SPA_APPLICATION_ID=<application-id>
 export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
 export AZCOPY_TENANT_ID=<tenant-id>
 ```
+
+### [Windows](#tab/windows)
+
+```powershell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="SPN"
+$Env:AZCOPY_SPA_APPLICATION_ID="<application-id>"
+$Env:AZCOPY_SPA_CLIENT_SECRET="<client-secret>"
+$Env:AZCOPY_TENANT_ID="<tenant-id>"
+```
+
+---
 
 Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<client-secret>` placeholder with the client secret. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Tenant properties > Tenant ID** in the Azure portal.
 
@@ -85,6 +98,28 @@ export AZCOPY_SPA_CERT_PATH=<path-to-certificate-file>
 export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
 export AZCOPY_TENANT_ID=<tenant-id>
 ```
+
+### [Linux](#tab/linux)
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=SPN
+export AZCOPY_SPA_APPLICATION_ID=<application-id>
+export AZCOPY_SPA_CERT_PATH=<path-to-certificate-file>
+export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
+export AZCOPY_TENANT_ID=<tenant-id>
+```
+
+### [Windows](#tab/windows)
+
+```bash
+$Env:AZCOPY_AUTO_LOGIN_TYPE="SPN"
+$Env:AZCOPY_SPA_APPLICATION_ID="<application-id>"
+$Env:AZCOPY_SPA_CERT_PATH="<path-to-certificate-file>"
+$Env:AZCOPY_SPA_CERT_PASSWORD="<certificate-password>"
+$Env:AZCOPY_TENANT_ID="<tenant-id>"
+```
+
+---
 
 Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place. Replace the `<certificate-password>` placeholder with the password of the certificate. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Tenant properties > Tenant ID** in the Azure portal.
 
@@ -168,9 +203,18 @@ If you sign in by using Azure CLI, then Azure CLI obtains an OAuth token that Az
 
 To enable AzCopy to use that token, type the following command, and then press the ENTER key.
 
+### [Linux](#tab/linux)
+
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
 export AZCOPY_TENANT_ID=<tenant-id>
+```
+
+### [Windows](#tab/windows)
+
+```powershell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
+$Env:AZCOPY_TENANT_ID="<tenant-id>"
 ```
 
 For more information about how to sign in with the Azure CLI, see [Sign into Azure with a service principal using the Azure CLI](/cli/azure/authenticate-azure-cli-service-principal).
@@ -183,9 +227,11 @@ To enable AzCopy to use that token, type the following command, and then press t
 
 ```PowerShell
 $Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
+$Env:AZCOPY_TENANT_ID=<tenant-id>
+
 ```
 
-For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-noninteractive#login-with-a-service-principal).
+For more information about how to sign in with the Azure PowerShell, see [Login with a service principal](/powershell/azure/authenticate-noninteractive#login-with-a-service-principal).
 
 ## Next steps
 

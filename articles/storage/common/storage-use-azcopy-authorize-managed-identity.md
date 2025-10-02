@@ -52,8 +52,17 @@ First, make sure that you've enabled a system-wide managed identity on your VM. 
 
 Type the following command, and then press the ENTER key.
 
+### [Linux](#tab/linux)
+
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=MSI
+```
+
+### [Windows](#tab/windows)
+
+```powershell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="MSI"
+
 ```
 
 Then, run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
@@ -64,29 +73,26 @@ First, make sure that you've enabled a user-assigned managed identity on your VM
 
 Type the following command, and then press the ENTER key.
 
+### [Linux](#tab/linux)
+
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=MSI
-```
-
-Then, type any of the following commands, and then press the ENTER key.
-
-```bash
 export AZCOPY_MSI_CLIENT_ID=<client-id>
-```
-
-Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
-
-```bash
 export AZCOPY_MSI_OBJECT_ID=<object-id>
-```
-
-Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity.
-
-```bash
 export AZCOPY_MSI_RESOURCE_STRING=<resource-id>
 ```
 
-Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
+### [Windows](#tab/windows)
+
+```powershell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="MSI"
+$Env:AZCOPY_MSI_CLIENT_ID="<client-id>"
+$Env:AZCOPY_MSI_OBJECT_ID="<object-id>"
+$Env:AZCOPY_MSI_RESOURCE_STRING="<resource-id>"
+
+```
+
+Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity. Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity. Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity. 
 
 After you set these variables, you can run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
 
@@ -134,14 +140,25 @@ Replace the `<resource-id>` placeholder with the resource ID of the user-assigne
 
 ## Authorize with Azure CLI
 
-If you sign in by using Azure CLI, then Azure CLI obtains an OAuth token that AzCopy can use to authorize operations. 
+If you sign in by using Azure CLI, then Azure CLI obtains an OAuth token that AzCopy can use to authorize operations.
 
 To enable AzCopy to use that token, type the following command, and then press the ENTER key.
+
+### [Linux](#tab/linux)
 
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
 export AZCOPY_TENANT_ID=<tenant-id>
 ```
+
+### [Windows](#tab/windows)
+
+```powershell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
+$Env:AZCOPY_TENANT_ID="<tenant-id>"
+```
+
+---
 
 For more information about how to sign in with the Azure CLI, see [Sign into Azure with a managed identity using Azure CLI](/cli/azure/authenticate-azure-cli-managed-identity).
 
@@ -153,9 +170,10 @@ To enable AzCopy to use that token, type the following command, and then press t
 
 ```PowerShell
 $Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
+$Env:AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-noninteractive#login-with-a-managed-identity).
+For more information about how to sign in with the Azure PowerShell, see [Login with a managed identity](/powershell/azure/authenticate-noninteractive#login-with-a-managed-identity).
 
 ## Next steps
 

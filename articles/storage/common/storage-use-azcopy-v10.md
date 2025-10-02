@@ -14,13 +14,15 @@ ai-usage: ai-assisted
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data. 
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 
 AzCopy **V10** is the currently supported version of AzCopy and it is supported only on versions of Windows, Linux, or macOS that are officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
+> [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
+
 ## AzCopy use cases
 
-Use AzCopy to upload data from an on-premises source, download data to an on-premises source, or copy data between storage accounts. You can also synchronize data between storage accounts or between a storage account an on-premises source. You can target specific storage services such as Azure Blob Storage or Azure Files and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa. 
+Use AzCopy to upload data from an on-premises source, download data to an on-premises source, or copy data between storage accounts. You can also synchronize data between storage accounts or between a storage account an on-premises source. You can target specific storage services such as Azure Blob Storage or Azure Files and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa.
 
 For a complete list of data transfer guides, see the [Transfer data](#transfer-data) section of this article.
 
@@ -30,6 +32,7 @@ AzCopy is primarily a data transfer tool, but you can also use it to create cont
 
 For a complete list of commands, see the [List of commands](#list-of-commands) section of this article.
 
+<a id="download-and-install-azcopy"></a>
 <a id="run-azcopy"></a>
 
 ## Get AzCopy
@@ -48,24 +51,20 @@ An installation package is available only for Linux. For all other operating sys
 
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
-- [Windows ARM64 Preview](https://aka.ms/downloadazcopy-v10-windows-arm64) (zip)
+- [Windows ARM64](https://aka.ms/downloadazcopy-v10-windows-arm64) (zip)
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [Linux ARM64](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
 - [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
-- [macOS ARM64 Preview](https://aka.ms/downloadazcopy-v10-mac-arm64) (zip)
+- [macOS ARM64](https://aka.ms/downloadazcopy-v10-mac-arm64) (zip)
 
 These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
 
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
 
+### Add AzCopy to your system path
+
 For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system. If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in a command shell.
-
-The following video shows how to download a portable binary file to a local machine, and then upload a file by using a SAS token. 
-
-<a id="download-and-install-azcopy"></a>
-
-> [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
 <a id="choose-how-youll-provide-authorization-credentials"></a>
 
@@ -77,7 +76,7 @@ As an owner of your Azure Storage account, you aren't automatically assigned per
 
 ### Authorize with Microsoft Entra ID
 
-By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by choosing what type of *security principal* you want to authorize. Use the following table as a guide. 
+By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command. Start by choosing what type of *security principal* you want to authorize. Use the following table as a guide.
 
 | Security principal | Guidance |
 |-----|-----|
@@ -115,6 +114,9 @@ To find example commands, see any of these articles.
 |Amazon S3|[Copy data from Amazon S3 to Azure Storage](storage-use-azcopy-s3.md)|
 |Google Cloud Storage|[Copy data from Google Cloud Storage to Azure Storage (preview)](storage-use-azcopy-google-cloud.md)|
 |Azure Stack storage|[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
+
+> [!TIP]
+> While you can run AzCopy commands interactively, you can also incorporate AzCopy into automated scripts for batch operations, scheduled data transfers, or continuous integration pipelines. For more information, see [Use AzCopy in scripts and scheduled transfers](storage-use-azcopy-in-script.md).
 
 ## Get command help
 

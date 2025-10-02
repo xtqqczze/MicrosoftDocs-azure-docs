@@ -36,13 +36,25 @@ If you're transferring blobs in an account that has a hierarchical namespace, yo
 
 ## Authorize with environment variables
 
-To authorize access, you'll set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory. AzCopy retrieves the OAuth token by using the credentials that you provide. 
+To authorize access, you'll set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory. AzCopy retrieves the OAuth token by using the credentials that you provide.
 
 After you've verified that your user identity has been given the necessary authorization level, type the following command, and then press the ENTER key.
+
+### [Linux](#tab/linux)
 
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=DEVICE
 ```
+
+### [Windows](#tab/windows)
+
+```powershell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="DEVICE"
+
+```
+
+---
+
 Then, run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
 
 This command returns an authentication code and the URL of a website. Open the website, provide the code, and then choose the **Next** button.
@@ -83,12 +95,23 @@ If you sign in by using Azure CLI, then Azure CLI obtains an OAuth token that Az
 
 To enable AzCopy to use that token, type the following command, and then press the ENTER key.
 
+### [Linux](#tab/linux)
+
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
 export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-For more information about how to sign in with the Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+### [Windows](#tab/windows)
+
+```powershell
+$Env:AZCOPY_AUTO_LOGIN_TYPE="AZCLI"
+
+```
+
+---
+
+For more information about how to sign in with the Azure CLI, see [Sign into Azure interactively using the Azure CLI](/cli/azure/authenticate-azure-cli-interactively).
 
 ## Authorize with Azure PowerShell
 
@@ -98,9 +121,10 @@ To enable AzCopy to use that token, type the following command, and then press t
 
 ```PowerShell
 $Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
+$Env:AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-For more information about how to sign in with the Azure PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+For more information about how to sign in with the Azure PowerShell, see [Sign in to Azure PowerShell interactively](/powershell/azure/authenticate-interactive).
 
 ## Next steps
 

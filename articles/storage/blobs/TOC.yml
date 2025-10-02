@@ -150,7 +150,7 @@ items:
         - name: Install a Linux package
           href: ../common/storage-use-azcopy-install-linux-package.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Use in a script
-          href: ../common/storage-use-azcopy-use-in-script.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          href: ../common/storage-use-azcopy-in-script.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Authorize access
         items:
         - name: User identity
@@ -1397,7 +1397,7 @@ items:
         - name: Install a Linux package
           href: ../common/storage-use-azcopy-install-linux-package.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Use in a script
-          href: ../common/storage-use-azcopy-use-in-script.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          href: ../common/storage-use-azcopy-in-script.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Authorize access
         items:
         - name: User identity
