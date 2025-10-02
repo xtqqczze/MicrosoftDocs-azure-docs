@@ -91,14 +91,6 @@ In addition to uploading your certificate to your app registration, you'll also 
 
 Type the following command, and then press the ENTER key.
 
-```bash
-export AZCOPY_AUTO_LOGIN_TYPE=SPN
-export AZCOPY_SPA_APPLICATION_ID=<application-id>
-export AZCOPY_SPA_CERT_PATH=<path-to-certificate-file>
-export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
-export AZCOPY_TENANT_ID=<tenant-id>
-```
-
 ### [Linux](#tab/linux)
 
 ```bash
@@ -216,6 +208,8 @@ export AZCOPY_TENANT_ID=<tenant-id>
 $Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
 $Env:AZCOPY_TENANT_ID="<tenant-id>"
 ```
+
+---
 
 For more information about how to sign in with the Azure CLI, see [Sign into Azure with a service principal using the Azure CLI](/cli/azure/authenticate-azure-cli-service-principal).
 

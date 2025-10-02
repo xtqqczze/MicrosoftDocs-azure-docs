@@ -64,12 +64,13 @@ export AZCOPY_AUTO_LOGIN_TYPE=MSI
 $Env:AZCOPY_AUTO_LOGIN_TYPE="MSI"
 
 ```
+---
 
 Then, run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
 
 ### Authorize with a user-assigned managed identity
 
-First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
+First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). 
 
 Type the following command, and then press the ENTER key.
 
@@ -77,26 +78,76 @@ Type the following command, and then press the ENTER key.
 
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=MSI
-export AZCOPY_MSI_CLIENT_ID=<client-id>
-export AZCOPY_MSI_OBJECT_ID=<object-id>
-export AZCOPY_MSI_RESOURCE_STRING=<resource-id>
 ```
 
 #### [Windows](#tab/windows)
 
 ```powershell
 $Env:AZCOPY_AUTO_LOGIN_TYPE="MSI"
-$Env:AZCOPY_MSI_CLIENT_ID="<client-id>"
-$Env:AZCOPY_MSI_OBJECT_ID="<object-id>"
-$Env:AZCOPY_MSI_RESOURCE_STRING="<resource-id>"
 
 ```
+---
 
-Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity. Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity. Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity. 
+Next, set environment variables for either the client ID, object ID, or resource ID of the user-assigned managed identity. After you set these variables, you can run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
 
-After you set these variables, you can run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
+#### Use a client ID
 
-<a id="service-principal"></a>
+Type the following command, and then press the ENTER key.
+
+##### [Linux](#tab/linux)
+
+```bash
+export AZCOPY_MSI_CLIENT_ID=<client-id>
+```
+
+##### [Windows](#tab/windows)
+
+```powershell
+$Env:AZCOPY_MSI_CLIENT_ID="<client-id>"
+```
+---
+
+Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
+
+#### Use an object ID
+
+Type the following command, and then press the ENTER key.
+
+##### [Linux](#tab/linux)
+
+```bash
+export AZCOPY_MSI_OBJECT_ID=<object-id>
+```
+
+##### [Windows](#tab/windows)
+
+```powershell
+$Env:AZCOPY_MSI_CLIENT_ID="<object-id>"
+```
+
+---
+
+Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity.
+
+#### Use a resource ID
+
+Type the following command, and then press the ENTER key.
+
+##### [Linux](#tab/linux)
+
+```bash
+export AZCOPY_MSI_RESOURCE_STRING=<resource-id>
+```
+
+##### [Windows](#tab/windows)
+
+```powershell
+$Env:AZCOPY_MSI_CLIENT_ID="<resource-id>"
+```
+
+---
+
+Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
 
 ## Authorize with the AzCopy login command
 
@@ -116,9 +167,11 @@ azcopy login --identity
 
 ### Authorize with a user-assigned managed identity
 
-First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
+First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Then, login by using either the client ID, object ID, or resource ID of the user-assigned managed identity. 
 
-Then, in your command console, type any of the following commands, and then press the ENTER key.
+#### login by using a client ID
+
+Type the following command, and then press the ENTER key.
 
 ```azcopy
 azcopy login --identity --identity-client-id "<client-id>"
@@ -126,11 +179,19 @@ azcopy login --identity --identity-client-id "<client-id>"
 
 Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
 
+#### login by using an object ID
+
+Type the following command, and then press the ENTER key.
+
 ```azcopy
 azcopy login --identity --identity-object-id "<object-id>"
 ```
 
 Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity.
+
+#### login by using a resource ID
+
+Type the following command, and then press the ENTER key.
 
 ```azcopy
 azcopy login --identity --identity-resource-id "<resource-id>"
