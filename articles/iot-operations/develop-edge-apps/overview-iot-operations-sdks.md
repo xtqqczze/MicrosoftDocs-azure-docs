@@ -57,7 +57,7 @@ The SDKs provide many components available for simplicity and ease of use:
 
 * A set of protocol primitives, designed to help creating applications, built on the fundamental protocol implementations: **Commands** and **Telemetry**. 
 
-* A set of clients providing integration with Azure IoT Operations services such as **state store**, **leader election**, **lease lock**, and **schema registry**.
+* A set of clients providing integration with Azure IoT Operations services such as **state store**, **lease lock**, and **schema registry**.
 
 * A **Protocol Compiler (codegen)**, that allows clients and servers to communicate via a schema contract. First describe the communication (using **Telemetry** and **Commands**) with DTDL, then generate a set of client libraries and server library stubs across the supported programming languages.
 
