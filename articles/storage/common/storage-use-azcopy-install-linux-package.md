@@ -5,7 +5,7 @@ description: You can install AzCopy by using a Linux package that is hosted on t
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/01/2025
+ms.date: 10/02/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
@@ -15,20 +15,25 @@ ai-usage: ai-assisted
 
 # Install AzCopy on Linux by using a package manager
 
-Installing AzCopy through your Linux distribution's package manager provides the most convenient and maintainable way to get this tool. Package manager installation offers several advantages over manual downloads, including automatic dependency resolution, simplified updates, and integration with your system's software management.
+This article helps you install [AzCopy](storage-use-azcopy-v10.md) by using popular Linux package managers (dnf, apt, zypper). Once installed, you'll have AzCopy available system-wide and can easily keep it updated through your regular system maintenance routines.
 
-This article walks you through installing AzCopy using popular Linux package managers (dnf, apt, zypper) via packages hosted on the [Linux Software Repository for Microsoft Products](/linux/packages). Once installed, you'll have AzCopy available system-wide and can easily keep it updated through your regular system maintenance routines.
+For more detailed guidance on installing these packages, see [Linux Software Repository for Microsoft Products](/linux/packages).
 
 ### [dnf (RHEL)](#tab/dnf)
 
 1. Download the repository configuration package.
 
-   > [!IMPORTANT]
-   > Make sure to replace the distribution and version with the appropriate strings.
-
    ```bash
    curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.rpm
    ```
+
+   Replace the `<distribution>` and `<version>` placeholders in this command with the Linux distribution and version that you are running on your machine. See [packages.microsoft.com](https://packages.microsoft.com/) to find the list of supported Linux distributions and versions.
+
+   For example, if you entered `cat /etc/os-release` and saw that Ubuntu, version 20.04, is running, your distribution would be `Ubuntu` and your version would be `20.04`. You would then open the [packages.microsoft.com](https://packages.microsoft.com/) page, select **ubuntu**, and then verify that **20.04** appears in the list. Then, you would use that distribution and version in your comment.
+
+   ````bash
+   curl -sSL -O https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.rpm
+   ````
 
 2. Install the repository configuration package.
 
@@ -58,32 +63,37 @@ This article walks you through installing AzCopy using popular Linux package man
 
 1. Download the repository configuration package.
 
-   > [!IMPORTANT]
-   > Make sure to replace the distribution and version with the appropriate strings.
-
    ```bash
    curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.rpm
    ```
 
-2. Install the repository configuration package.
+   Replace the `<distribution>` and `<version>` placeholders in this command with the Linux distribution and version that you are running on your machine. See [packages.microsoft.com](https://packages.microsoft.com/) to find the list of supported Linux distributions and versions.
+
+   For example, if you entered `cat /etc/os-release` and saw that Ubuntu, version 20.04, is running, your distribution would be `Ubuntu` and your version would be `20.04`. You would then open the [packages.microsoft.com](https://packages.microsoft.com/) page, select **ubuntu**, and then verify that **20.04** appears in the list. Then, you would use that distribution and version in your comment.
+
+   ````bash
+   curl -sSL -O https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.rpm
+   ````
+
+1. Install the repository configuration package.
 
    ```bash
    sudo rpm -i packages-microsoft-prod.rpm
    ```
 
-3. Delete the repository configuration package after you've installed it.
+1. Delete the repository configuration package after you've installed it.
 
    ```bash
    rm packages-microsoft-prod.rpm
    ```
 
-4. Update the package index files.
+1. Update the package index files.
 
    ```bash
    sudo zypper --gpg-auto-import-keys refresh
    ```
 
-5. Install AzCopy.
+1. Install AzCopy.
 
    ```bash
    sudo zypper install -y azcopy
@@ -93,12 +103,17 @@ This article walks you through installing AzCopy using popular Linux package man
 
 1. Download the repository configuration package.
 
-   > [!IMPORTANT]
-   > Make sure to replace the distribution and version with the appropriate strings.
-
    ```bash
    curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.deb
    ```
+
+   Replace the `<distribution>` and `<version>` placeholders in this command with the Linux distribution and version that you are running on your machine. See [packages.microsoft.com](https://packages.microsoft.com/) to find the list of supported Linux distributions and versions.
+
+   For example, if you entered `cat /etc/os-release` and saw that Ubuntu, version 20.04, is running, your distribution would be `Ubuntu` and your version would be `20.04`. You would then open the [packages.microsoft.com](https://packages.microsoft.com/) page, select **ubuntu**, and then verify that **20.04** appears in the list. Then, you would use that distribution and version in your comment.
+
+   ````bash
+   curl -sSL -O https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+   ````
 
 2. Install the repository configuration package.
 

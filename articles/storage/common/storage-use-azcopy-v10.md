@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/01/2025
+ms.date: 10/02/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
@@ -38,13 +38,13 @@ If you are using AzCopy on a linux machine, you can use a package manager. For a
 
 ### Use a package manager (Linux only)
 
-You can install AzCopy by using a Linux package that is hosted on the [Linux Software Repository for Microsoft Products](/linux/packages). For step-by-step guidance, see [Install AzCopy on Linux by using a package manager](storage-use-azcopy-install-linux-package.md).
+Installing AzCopy through your Linux distribution's package manager is the most convenient and maintainable way to get this tool. Package manager installation includes automatic dependency resolution, simplified updates, and integration with your system's software management. For step-by-step guidance, see [Install AzCopy on Linux by using a package manager](storage-use-azcopy-install-linux-package.md).
 
 <a id="download-azcopy"></a>
 
 ### Download a portable binary
 
-An installation package is available only for Linux. For all other operating systems, download the AzCopy V10 executable file to any directory on your computer. 
+An installation package is available only for Linux. For all other operating systems, you can download the AzCopy V10 executable file to any directory on your computer.
 
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
@@ -54,7 +54,7 @@ An installation package is available only for Linux. For all other operating sys
 - [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 - [macOS ARM64 Preview](https://aka.ms/downloadazcopy-v10-mac-arm64) (zip)
 
-These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution. 
+These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
 
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
