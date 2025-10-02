@@ -88,7 +88,9 @@ For high availability and zone redundancy, a minimum of three CUs is required 
 
 ### Capacity Unit Planning Examples
 
-#### Small five activity example
+Here are three capacity plannning examples that progress from small to large.
+
+#### Five activity example
 
 For orchestrations with five activities plus error handling, averaging 12 actions per orchestration (orchestrator invocations + activity invocations).
 
