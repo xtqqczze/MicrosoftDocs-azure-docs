@@ -3,17 +3,18 @@ title: Configure TLS termination with Key Vault certificates - PowerShell
 titleSuffix: Azure Application Gateway
 description: Learn how to use an Azure PowerShell script to integrate your key vault with your application gateway for TLS/SSL termination certificates.
 services: application-gateway
-author: greg-lindsay
-ms.service: application-gateway
+author: mbender-ms
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 05/26/2020
-ms.author: greglin 
+ms.author: mbender 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to configure TLS termination using Key Vault certificates with Azure PowerShell, so that I can secure my application gateway communications effectively."
 ---
 
 # Configure TLS termination with Key Vault certificates using Azure PowerShell
 
-[Azure Key Vault](../key-vault/general/overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the Application Gateway v2 SKU.
+[Azure Key Vault](/azure/key-vault/general/overview) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the Application Gateway v2 SKU.
 
 For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
 

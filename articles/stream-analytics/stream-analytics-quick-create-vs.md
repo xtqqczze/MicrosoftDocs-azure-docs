@@ -5,8 +5,10 @@ author: AliciaLiMicrosoft
 ms.author: ali 
 ms.date: 06/07/2023
 ms.topic: quickstart
-ms.service: stream-analytics
-ms.custom: mode-ui
+ms.service: azure-stream-analytics
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio.
 ---
 

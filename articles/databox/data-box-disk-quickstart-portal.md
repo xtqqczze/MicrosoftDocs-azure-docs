@@ -3,13 +3,13 @@ title: Quickstart for Microsoft Azure Data Box Disk| Microsoft Docs
 description: Use this quickstart to quickly deploy your Azure Data Box Disk in Azure portal
 services: databox
 author: stevenmatthew
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: quickstart
 ms.date: 03/26/2024
 ms.author: shaas
 ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
+# Customer intent: As an IT admin, I want to deploy Azure Data Box Disk using the Azure portal, so that I can efficiently import large data sets into Azure storage.
 ---
 
 ::: zone target="docs"

@@ -2,13 +2,15 @@
 title: Use custom activities in a pipeline
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create custom activities by using .NET, and then use the activities in an Azure Data Factory or Azure Synapse Analytics pipeline.
-ms.service: data-factory
-ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: synapse, devx-track-dotnet
-ms.date: 08/10/2023
+ms.date: 03/27/2025
+ms.subservice: orchestration
+ms.custom:
+  - synapse
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Use custom activities in an Azure Data Factory or Azure Synapse Analytics pipeline
@@ -22,7 +24,7 @@ There are two types of activities that you can use in an Azure Data Factory or S
 
 To move data to/from a data store that the service does not support, or to transform/process data in a way that isn't supported by the service, you can create a **Custom activity** with your own data movement or transformation logic and use the activity in a pipeline. The custom activity runs your customized code logic on an **Azure Batch** pool of virtual machines.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 See following articles if you are new to Azure Batch service:
 
@@ -31,7 +33,7 @@ See following articles if you are new to Azure Batch service:
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
 > [!IMPORTANT]
-> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'. For more details refer [Azure Batch Pool migration guidance](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
+> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'.  
 
 ## Add custom activities to a pipeline with UI
 

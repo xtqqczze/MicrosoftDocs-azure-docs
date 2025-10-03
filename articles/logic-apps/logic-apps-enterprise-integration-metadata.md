@@ -8,12 +8,13 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/04/2024
+ms.custom: sfi-image-nochange
 #Customer intent: As an Azure Logic Apps developer, I want to define custom metadata for integration account artifacts so that my logic app workflow can use that metadata.
 ---
 
 # Manage artifact metadata in integration accounts for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 You can define custom metadata for artifacts in integration accounts and get that metadata during runtime for your logic app workflow to use. For example, you can provide metadata for artifacts, such as partners, agreements, schemas, and maps. All these artifact types store metadata as key-value pairs. 
 

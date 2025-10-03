@@ -1,7 +1,7 @@
 ---
 author: JanSchietse
 ms.author: janschietse
-ms.date: 01/25/2024
+ms.date: 03/17/2025
 ms.topic: include
 ms.service: azure-health-insights
 ---
@@ -12,7 +12,7 @@ ms.service: azure-health-insights
   "result": {
     "patientResults": [
       {
-        "patientId": "11111",
+        "patientId": "111111",
         "inferences": [
           {
             "kind": "sexMismatch",
@@ -29,12 +29,12 @@ ms.service: azure-health-insights
         ]
       }
     ],
-    "modelVersion": "2024-01-10-Preview"
+    "modelVersion": "2025-03-17"
   },
-  "id": "9ac3de47-c163-4838-bfe8-c27f127123ae",
-  "createdDateTime": "2024-01-12T07:33:22.787062Z",
-  "expirationDateTime": "2024-01-12T07:50:02.787062Z",
-  "lastUpdateDateTime": "2024-01-12T07:33:29.786962Z",
+  "id": "fca116",
+  "createdAt": "2025-04-30T11:32:10Z",
+  "expiresAt": "2025-05-01T11:32:10Z",
+  "updatedAt": "2025-04-30T11:32:13Z",
   "status": "succeeded"
 }
 ```

@@ -8,7 +8,9 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: storage-common-concepts
+ms.custom: sfi-image-nochange
 #Customer intent: As a customer with data, I want to move my data from its existing location so that I can have access to that data in my storage account.
+# Customer intent: "As an IT administrator, I want to migrate on-premises data to cloud storage using a command-line tool, so that I can ensure efficient data access and management in my organization's storage account."
 ---
 
 #  Tutorial: Migrate on-premises data to cloud storage with AzCopy
@@ -117,7 +119,7 @@ Copy the AzCopy command to a text editor. Update the parameter values of the AzC
 These examples assume that your folder is named `myFolder`, your storage account name is `mystorageaccount` and your container name is `mycontainer`.
 
 > [!NOTE]
-> The Linux example appends a SAS token. You'll need to provide one in your command. The current version of AzCopy V10 doesn't support Microsoft Entra authorization in cron jobs.
+> The Linux example appends a SAS token. You'll need to provide one in your command. To utilize Microsoft Entra authentication in cron jobs, ensure you configure the AZCOPY_AUTO_LOGIN_TYPE environment variable appropriately.
 
 # [Linux](#tab/linux)
 

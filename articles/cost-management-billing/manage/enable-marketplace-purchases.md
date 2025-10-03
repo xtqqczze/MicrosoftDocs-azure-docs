@@ -1,13 +1,14 @@
 ---
 title: Enable marketplace purchases in Azure
 description: This article covers the steps used to enable marketplace private offer purchases.
-author: bandersmsft
+author: echung
 ms.reviewer: echung
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 02/13/2024
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: nicholak
+ms.custom: sfi-ga-nochange
 ---
 
 # Enable marketplace purchases in Azure

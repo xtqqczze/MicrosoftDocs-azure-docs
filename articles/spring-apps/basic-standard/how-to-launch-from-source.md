@@ -1,22 +1,22 @@
 ---
-title: How to Deploy Spring Boot applications from Azure CLI
+title: How to Deploy Spring Boot Applications from Azure CLI
 description: In this quickstart, learn how to launch your application in Azure Spring Apps directly from your source code
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 04/23/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-api
 ---
 
 # How to Deploy Spring Boot applications from Azure CLI
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ❌ C#
+**This article applies to:** ✅ Java ❎ C#
 
-**This article applies to:** ✔️ Basic/Standard ❌️ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎️ Enterprise
 
 Azure Spring Apps enables Spring Boot applications on Azure.
 

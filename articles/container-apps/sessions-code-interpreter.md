@@ -1,21 +1,20 @@
 ---
-title: Serverless code interpreter sessions in Azure Container Apps (preview)
+title: Serverless code interpreter sessions in Azure Container Apps
 description: Learn to run a serverless code interpreter session in Azure Container Apps.
 services: container-apps
-author: anthonychu
-ms.service: container-apps
+author: craigshoemaker
+ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 05/06/2024
-ms.author: antchu
+ms.date: 05/19/2025
+ms.update-cycle: 180-days
+ms.author: cshoe
 ms.custom: references_regions
+ms.collection: ce-skilling-ai-copilot
 ---
 
-# Serverless code interpreter sessions in Azure Container Apps (preview)
+# Serverless code interpreter sessions in Azure Container Apps
 
-Azure Container Apps dynamic sessions provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated by a Hyper-V boundary and is designed to run untrusted code.
-
-> [!NOTE]
-> Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](#preview-limitations) for more information.
+Azure Container Apps [dynamic sessions](sessions.md) provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated by a Hyper-V boundary and is designed to run untrusted code.
 
 ## Uses for code interpreter sessions
 
@@ -26,172 +25,140 @@ Code interpreter sessions are ideal for scenarios where you need to run code tha
 
 For popular LLM frameworks such as LangChain, LlamaIndex, or Semantic Kernel, you can use [tools and plugins](#llm-framework-integrations) to integrate AI apps with code interpreter sessions.
 
-Your applications can also integrate with code interpreter session using a [REST API](#management-api-endpoints). The API allows you to execute code in a session and retrieve results. You can also upload and download files to and from the session. You can upload and download executable code files, or data files that your code can process.
+Your applications can also integrate with code interpreter session using a [REST API](#management-api-endpoints). The API allows you to:
+
+- Execute code in a session and retrieve results
+- Upload and download files to and from the session.
+
+    You can upload and download executable code files, or data files that your code can process.
+
+The built-in code interpreter sessions support the most common code execution scenarios without the need to manage infrastructure or containers.
+
+If you need full control over the code execution environment or have a different scenario that requires isolated sandboxes, you can use [custom code interpreter sessions](sessions-custom-container.md).
 
 ## Code interpreter session pool
 
-To use code interpreter sessions, you need an Azure resource called a session pool that defines the configuration for code interpreter sessions. In the session pool, you can specify settings such as the maximum number of concurrent sessions and how long a session can be idle before the session is terminated.
+To use code interpreter sessions, you need an Azure resource called a [session pool](session-pool.md) that defines the configuration for code interpreter sessions.
+
+In the session pool, you can specify settings such as the maximum number of concurrent sessions and how long a session can be idle before the session is terminated.
 
 You can create a session pool using the Azure portal, Azure CLI, or Azure Resource Manager templates. After you create a session pool, you can use the pool's management API endpoints to manage and execute code inside a session.
 
-### Create a session pool with Azure CLI
-
-To create a code interpreter session pool using the Azure CLI, ensure you have the latest versions of the Azure CLI and the Azure Container Apps extension with the following commands:
-
-```bash
-# Upgrade the Azure CLI
-az upgrade
-
-# Remove the existing containerapp extension (if installed) and add the preview version
-# that supports code interpreter sessions
-az extension remove --name containerapp
-az extension add \
-    --source https://acacli.blob.core.windows.net/sessionspreview/containerapp-0.3.50-py2.py3-none-any.whl \
-    --allow-preview true -y
-```
-
-Use the `az containerapps sessionpool create` command to create the pool. The following example creates a Python code interpreter session pool named `my-session-pool`. Make sure to replace `<RESOURCE_GROUP>` with your resource group name before you run the command.
-
-```bash
-az containerapp sessionpool create \
-    --name my-session-pool \
-    --resource-group <RESOURCE_GROUP> \
-    --location westus2 \
-    --container-type PythonLTS \
-    --max-sessions 100 \
-    --cooldown-period 300 \
-    --network-status EgressDisabled
-```
-
-You can define the following settings when you create a session pool:
-
-| Setting | Description |
-|---------|-------------|
-| `--container-type` | The type of code interpreter to use. The only supported value is `PythonLTS`. |
-| `--max-concurrent-sessions` | The maximum number of allocated sessions allowed concurrently. The maximum value is `600`. |
-| `--cooldown-period` | The number of allowed idle seconds before termination. The idle period is reset each time the session's API is called. The allowed range is between `300` and `3600`. |
-| `--network-status` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
-
-> [!IMPORTANT]
-> If you enable egress, code running in the session can access the internet. Use caution when the code is untrusted as it can be used to perform malicious activities such as denial-of-service attacks.
-
-### Get the pool management API endpoint with Azure CLI
-
-To use code interpreter sessions with LLM framework integrations or by calling the management API endpoints directly, you need the pool's management API endpoint. The endpoint is in the format `https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>`.
-
-To retrieve the management API endpoint for a session pool, use the `az containerapps sessionpool show` command. Make sure to replace `<RESOURCE_GROUP>` with your resource group name before you run the command.
-
-```bash
-az containerapp sessionpool show \
-    --name my-session-pool \
-    --resource-group <RESOURCE_GROUP> \
-    --query 'properties.poolManagementEndpoint' -o tsv
-```
+For more information about how to create and configure a session pool, see [Use session pools](./session-pool.md).
 
 ## Code execution in a session
 
 After you create a session pool, your application can interact with sessions in the pool using an integration with an [LLM framework](#llm-framework-integrations) or by using the pool's [management API endpoints](#management-api-endpoints) directly.
 
-### Session identifiers
+## Session identifiers
 
-When you interact with sessions in a pool, you use a session identifier to reference each session A session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
+> [!IMPORTANT]
+> The session identifier is sensitive information which requires you to use a secure process to manage its value. Part of this process requires that your application ensures each user or tenant only has access to their own sessions.
+>
+> Failure to secure access to sessions could result in misuse or unauthorized access to data stored in your users' sessions. For more information, see [Session identifiers](sessions-usage.md#identifiers).
+
+When you interact with sessions in a pool, you use a [session identifier](sessions-usage.md#identifiers) to reference each session A session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
 
 If there's a running session with the identifier, the session is reused. If there's no running session with the identifier, a new session is automatically created.
 
-The identifier must be a string that is 4 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
+## Authentication
 
-### Authentication
-
-Authentication is handled using Microsoft Entra (formerly Azure Active Directory) tokens. Valid Microsoft Entra tokens are generated by an identity belonging to the *Azure ContainerApps Session Creator* and *Contributor* roles on the session pool.
-
-To assign the roles to an identity, use the following Azure CLI commands:
-
-```bash
-# Assign the Azure ContainerApps Session Creator role using its ID
-az role assignment create \
-    --role "0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
-    --assignee <PRINCIPAL_ID> \
-    --scope <SESSION_POOL_RESOURCE_ID>
-
-az role assignment create \
-    --role "Contributor" \
-    --assignee <PRINCIPAL_ID> \
-    --scope <SESSION_POOL_RESOURCE_ID>
-```
+Authentication is handled using Microsoft Entra tokens. Valid Microsoft Entra tokens are generated by an identity belonging to the *Azure ContainerApps Session Executor* and *Contributor* roles on the session pool.
 
 If you're using an LLM framework integration, the framework handles the token generation and management for you. Ensure that the application is configured with a managed identity with the necessary role assignments on the session pool.
 
 If you're using the pool's management API endpoints directly, you must generate a token and include it in the `Authorization` header of your HTTP requests. In addition to the role assignments previously mentioned, token needs to contain an audience (`aud`) claim with the value `https://dynamicsessions.io`.
 
-##### [Azure CLI](#tab/azure-cli)
+To learn more, see [Authentication and authorization](sessions-usage.md#authentication).
 
-To generate a token using the Azure CLI, run the following command:
+## Work with files
 
-```bash
-az account get-access-token --resource https://dynamicsessions.io
+You can upload and download files, and list all the files in a code interpreter session.
+
+### Upload a file
+
+To upload a file to a session, send a `POST` request to the `uploadFile` endpoint in a multipart form data request. Include the file data in the request body. The file must include a filename.
+
+Uploaded files are stored in the session's file system under the `/mnt/data` directory.
+
+The following example shows how to upload a file to a session.
+
+Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
+
+```http
+POST https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/upload?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Authorization: Bearer <token>
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="<FILE_NAME_AND_EXTENSION>"
+Content-Type: application/octet-stream
+
+(data)
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
 
-##### [C#](#tab/csharp)
+### Download a file
 
-In C#, you can use the `Azure.Identity` library to generate a token. First, install the library:
+To download a file from a session's `/mnt/data` directory, send a `GET` request to the `file/content/{filename}` endpoint. The response includes the file data.
 
-```bash
-dotnet add package Azure.Identity
+The following example demonstrates how to format a `GET` request to download a file.
+
+Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
+
+```http
+GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/content/<FILE_NAME_AND_EXTENSION>?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+Authorization: Bearer <TOKEN>
 ```
 
-Then, use the following code to generate a token:
+### List the files
 
-```csharp
-using Azure.Identity;
+To list the files in a session's `/mnt/data` directory, send a `GET` request to the `files` endpoint.
 
-var credential = new DefaultAzureCredential();
-var token = credential.GetToken(new TokenRequestContext(new[] { "https://dynamicsessions.io/.default" }));
-var accessToken = token.Token;
+The following example shows you how to list the files in a session's directory.
+
+Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
+
+```http
+GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+Authorization: Bearer <TOKEN>
 ```
 
-##### [JavaScript](#tab/javascript)
+The response contains a list of files in the session.
 
-In JavaScript, you can use the `@azure/identity` library to generate a token. First, install the library:
+The following listing shows a sample of the type of response you can expect from requesting session contents.
 
-```bash
-npm install @azure/identity
+```json
+{
+    "$id": "1",
+    "value": [
+        {
+            "$id": "2",
+            "properties": {
+                "$id": "3",
+                "filename": "test1.txt",
+                "size": 16,
+                "lastModifiedTime": "2024-05-02T07:21:07.9922617Z"
+            }
+        },
+        {
+            "$id": "4",
+            "properties": {
+                "$id": "5",
+                "filename": "test2.txt",
+                "size": 17,
+                "lastModifiedTime": "2024-05-02T07:21:08.8802793Z"
+            }
+        }
+    ]
+}
 ```
 
-Then, use the following code to generate a token:
+## Security
 
-```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { TokenCredential } = require("@azure/core-auth");
+Code interpreter sessions are designed to run untrusted code in isolated environments, ensuring that your applications and data remain protected.
 
-const credential = new DefaultAzureCredential();
-const token = await credential.getToken("https://dynamicsessions.io/.default");
-const accessToken = token.token;
-```
-
-##### [Python](#tab/python)
-
-In Python, you can use the `azure-identity` library to generate a token. First, install the library:
-
-```bash
-pip install azure-identity
-```
-
-Then, use the following code to generate a token:
-
-```python
-from azure.identity import DefaultAzureCredential
-
-credential = DefaultAzureCredential()
-token = credential.get_token("https://dynamicsessions.io/.default")
-access_token = token.token
-```
-
----
-
-> [!IMPORTANT]
-> A valid token can be used to create and access any session in the pool. Keep your tokens secure and don't share them with untrusted parties. End users should access sessions through your application, not directly.
-
-### LLM framework integrations
+## LLM framework integrations
 
 Instead of using the session pool management API directly, the following LLM frameworks provide integrations with code interpreter sessions:
 
@@ -201,26 +168,15 @@ Instead of using the session pool management API directly, the following LLM fra
 | LlamaIndex | Python: [`llama-index-tools-azure-code-interpreter`](https://pypi.org/project/llama-index-tools-azure-code-interpreter/) | [Tutorial ](./sessions-tutorial-llamaindex.md) |
 | Semantic Kernel | Python: [`semantic-kernel`](https://pypi.org/project/semantic-kernel/) (version 0.9.8-b1 or later) | [Tutorial ](./sessions-tutorial-semantic-kernel.md) |
 
-### Management API endpoints
+## Management API endpoints
 
-If you're not using an LLM framework integration, you can interact with the session pool directly using the management API endpoints.
+If you're not using an LLM framework integration, you can interact with the session pool directly using the [management API endpoints](session-pool.md#management-endpoint).
 
-The following endpoints are available for managing sessions in a pool:
+## Execute code in a session
 
-| Endpoint path | Method | Description |
-|----------|--------|-------------|
-| `code/execute` | `POST` | Execute code in a session. |
-| `files/upload` | `POST` | Upload a file to a session. |
-| `files/content/{filename}` | `GET` | Download a file from a session. |
-| `files` | `GET` | List the files in a session. |
+To execute code in a session, send a `POST` request to the `code/execute` endpoint with the code to run in the request body.
 
-Build the full URL for each endpoint by concatenating the pool's management API endpoint with the endpoint path. The query string must include an `identifier` parameter containing the session identifier, and an `api-version` parameter with the value `2024-02-02-preview`.
-
-For example: `https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/code/execute?api-version=2024-02-02-preview&identifier=<IDENTIFIER>`
-
-#### Execute code in a session
-
-To execute code in a session, send a `POST` request to the `code/execute` endpoint with the code to run in the request body. This example prints "Hello, world!" in Python.
+The following example prints `Hello, world!` in Python.
 
 Before you send the request, replace the placeholders between the `<>` brackets with the appropriate values for your session pool and session identifier.
 
@@ -260,6 +216,9 @@ Content-Type: application/octet-stream
 (data)
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
+
+> [!NOTE]
+> The file upload limit is `128MB`. If this is exceeded a `HTTP 413` may be returned.
 
 #### Download a file from a session
 
@@ -315,7 +274,7 @@ The following listing shows a sample of the type of response you can expect from
 
 ## Preinstalled packages
 
-Python code interpreter sessions include popular Python packages such as NumPy, pandas, and scikit-learn.
+Python code interpreter sessions include popular Python packages such as *NumPy*, *pandas*, and *scikit-learn*.
 
 To output the list of preinstalled packages, call the `code/execute` endpoint with the following code.
 
@@ -335,19 +294,15 @@ Authorization: Bearer <TOKEN>
 }
 ```
 
-## Preview limitations
+## Logging
 
-Azure Container Apps dynamic sessions is currently in preview. The following limitations apply:
+Code interpreter sessions don't support logging directly. Your application that's interacting with the sessions can log requests to the session pool management API and its responses.
 
-* It's only available in the following regions:
-    * East US
-    * West US 2
-    * North Central US
-    * East Asia
-    * North Europe
-* Logging is not supported. Your application can log requests to the session pool management API and its responses.
+## Billing
+
+Code interpreter sessions are billed based on the duration of each session. For more information, see [Billing](billing.md#dynamic-sessions).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: use code interpreter sessions with LangChain](./sessions-tutorial-langchain.md)
+> [Use code interpreter sessions with LangChain](./sessions-tutorial-langchain.md)

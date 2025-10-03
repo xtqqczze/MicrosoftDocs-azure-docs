@@ -1,7 +1,7 @@
 ---
 title: Use condition in templates
 description: Learn how to deploy Azure resources based on conditions. Shows how to either deploy a new resource or use an existing resource.
-ms.date: 03/20/2024
+ms.date: 06/20/2024
 ms.topic: tutorial
 ---
 
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* [Visual Studio Code](https://code.visualstudio.com/).
 * To increase security, use a generated password for the virtual machine administrator account. You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to run the following command in PowerShell or Bash:
 
     ```shell

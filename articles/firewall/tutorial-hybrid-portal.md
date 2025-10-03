@@ -2,12 +2,13 @@
 title: Deploy and configure Azure Firewall in a hybrid network by using the Azure portal
 description: In this article, you learn how to deploy and configure Azure Firewall by using the Azure portal.
 services: firewall
-author: vhorne
-ms.service: firewall
+author: duau
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 08/31/2023
-ms.author: victorh
+ms.author: duau
 #Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+# Customer intent: As a network administrator, I want to deploy and configure Azure Firewall in a hybrid network, so that I can effectively control and secure access between on-premises and Azure virtual networks.
 ---
 
 # Deploy and configure Azure Firewall in a hybrid network by using the Azure portal
@@ -22,7 +23,7 @@ For this article, you create three virtual networks:
 - **VNet-Spoke**: The spoke virtual network represents the workload located on Azure.
 - **VNet-Onprem**: The on-premises virtual network represents an on-premises network. In an actual deployment, you can connect to it by using either a virtual private network (VPN) connection or an Azure ExpressRoute connection. For simplicity, this article uses a VPN gateway connection, and an Azure-located virtual network represents an on-premises network.
 
-![Diagram that shows a firewall in a hybrid network.](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
+:::image type="content" source="media/tutorial-hybrid-ps/hybrid-network-firewall.png" alt-text="Diagram that shows a firewall in a hybrid network." lightbox="media/tutorial-hybrid-ps/hybrid-network-firewall.png":::
 
 If you want to use Azure PowerShell instead to complete the procedures in this article, see [Deploy and configure Azure Firewall in a hybrid network by using Azure PowerShell](tutorial-hybrid-ps.md).
 
@@ -273,8 +274,6 @@ Create the virtual network connection between on-premises and the hub. The follo
 
 After about five minutes, the status of both connections should be **Connected**.
 
-![Screenshot that shows gateway connections.](media/tutorial-hybrid-portal/gateway-connections.png)
-
 ## Peer the hub and spoke virtual networks
 
 Now, peer the hub and spoke virtual networks:
@@ -306,8 +305,6 @@ Now, peer the hub and spoke virtual networks:
 1. Select **Add**.
 
 The following screenshot shows the settings to use when you peer hub and spoke virtual networks:
-
-:::image type="content" source="media/tutorial-hybrid-portal/firewall-peering.png" alt-text="Screenshot that shows selections for peering hub and spoke virtual networks.":::
 
 ## Create the routes
 
@@ -437,7 +434,7 @@ Create a virtual machine that you use to connect via remote access to the public
 1. For **Boot diagnostics**, select **Disable**.
 1. Select **Review+Create**, review the settings on the summary page, and then select **Create**.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Test the firewall
 

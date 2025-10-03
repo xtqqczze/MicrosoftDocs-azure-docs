@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot connectivity for Azure to Azure disaster recovery with Azure Site Recovery
 description: Troubleshoot connectivity issues in Azure VM disaster recovery
-author: ankitaduttaMSFT
-ms.author: ankitadutta
-manager: rochakm
+author: jyothisuri
+ms.author: jsuri
 ms.topic: how-to
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.date: 05/02/2024
+# Customer intent: As an IT administrator, I want to troubleshoot network connectivity issues for Azure-to-Azure disaster recovery, so that I can ensure seamless replication and recovery of virtual machines during failover events.
 ---
 
 # Troubleshoot Azure-to-Azure VM network connectivity issues
@@ -111,11 +111,11 @@ If you are using an Azure Network Security Group (NSG) rule/firewall proxy to co
 
 #### Possible cause
 
-The custom proxy settings are invalid and the Azure Site Recovery Mobility service agent didn't autodetect the proxy settings from Internet Explorer (IE).
+The custom proxy settings are invalid and the Azure Site Recovery Mobility service agent didn't autodetect the proxy settings from Internet Explorer.
 
 #### Resolution
 
-1. The Mobility service agent detects the proxy settings from IE on Windows and `/etc/environment` on Linux.
+1. The Mobility service agent detects the proxy settings from Internet Explorer on Windows and `/etc/environment` on Linux.
 1. If you prefer to set proxy only for Azure Site Recovery Mobility service, you can provide the proxy details in _ProxyInfo.conf_ located at:
 
    - **Linux**: `/usr/local/InMage/config/`

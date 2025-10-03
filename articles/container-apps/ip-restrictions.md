@@ -3,12 +3,14 @@ title: Set up IP ingress restrictions in Azure Container Apps
 description: Enable IP restrictions to limit access to your app with Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
-ms.custom: devx-track-azurecli
+ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 12/02/2024
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Set up IP ingress restrictions in Azure Container Apps
@@ -62,7 +64,6 @@ You can manage IP access restrictions rules through the Azure portal or Azure CL
 1. Select **Add**.
 1. Repeat steps 4-6 to add more rules.
 1. When you have finished adding rules, select **Save**.
-    :::image type="content" source="media/ingress/screenshot-save-ip-restriction.png" alt-text="Screenshot to save IP restrictions on container app Ingress page.":::
 
 ### Update a rule
 

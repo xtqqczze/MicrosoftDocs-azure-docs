@@ -1,9 +1,8 @@
 ---
 title: include file
 description: include file
-services: service-bus-messaging
 author: spelluru
-ms.service: service-bus-messaging
+ms.service: azure-service-bus
 ms.topic: include
 ms.date: 03/31/2023
 ms.author: spelluru
@@ -13,6 +12,9 @@ ms.custom: "include file"
 
 ## Trusted Microsoft services
 When you enable the **Allow trusted Microsoft services to bypass this firewall** setting, the following services are granted access to your Service Bus resources.
+
+> [!IMPORTANT]
+> When enabling trusted Microsoft services, always assign a Managed Identity. This identity facilitates secure communication between your Service Bus namespace and the trusted Microsoft service.
 
 | Trusted service | Supported usage scenarios | 
 | --------------- | ------------------------- | 
@@ -32,4 +34,5 @@ The other trusted services for Azure Service Bus can be found below:
 -	Azure Kubernetes 
 - Azure Machine Learning
 - Microsoft Purview
-
+- Microsoft Defender for Cloud
+- Azure Provider Hub

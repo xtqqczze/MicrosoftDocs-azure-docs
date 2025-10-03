@@ -11,7 +11,12 @@ ms.date: 11/07/2023
 ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud storage administrator, I want to configure customer-managed keys for my existing storage account, so that I can enhance control over data encryption and key management using Azure Key Vault.
 ---
 
 # Configure customer-managed keys in the same tenant for an existing storage account
@@ -114,7 +119,7 @@ When the key version is changed, whether automatically or manually, the protecti
 You can use either a system-assigned or user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys for an existing storage account.
 
 > [!NOTE]
-> To rotate a key, create a new version of the key in Azure Key Vault. Azure Storage does not handle key rotation, so you will need to manage rotation of the key in the key vault. You can [configure key auto-rotation in Azure Key Vault](../../key-vault/keys/how-to-configure-key-rotation.md) or rotate your key manually.
+> To rotate a key, create a new version of the key in Azure Key Vault. Azure Storage does not handle key rotation, so you will need to manage rotation of the key in the key vault. You can [configure key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation) or rotate your key manually.
 
 ### Configure encryption for automatic updating of key versions
 

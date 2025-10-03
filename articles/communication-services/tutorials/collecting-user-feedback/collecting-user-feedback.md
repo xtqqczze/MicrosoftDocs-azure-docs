@@ -4,10 +4,11 @@ description: Enabling the Support Form and tooling, and handling support request
 author:      ahammer # GitHub alias
 ms.author:   adamhammer # Microsoft alias
 ms.service: azure-communication-services
-ms.topic: quick-start
+ms.topic: quickstart
 ms.date:     01/08/2024
 ms.subservice: calling
 zone_pivot_groups: acs-programming-languages-support-kotlin-swift
+ms.custom: sfi-ropc-nochange
 ---
 
 # Collecting user feedback in the ACS UI library

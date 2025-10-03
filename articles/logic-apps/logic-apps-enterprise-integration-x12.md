@@ -8,6 +8,7 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 12/12/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Exchange X12 messages using workflows in Azure Logic Apps
@@ -20,13 +21,11 @@ This how-to guide shows how to add the X12 encoding and decoding actions to an e
 
 ## Connector technical reference
 
-The **X12** connector has one version across workflows in [multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, and the integration service environment (ISE)](logic-apps-overview.md#resource-environment-differences). For technical information about the **X12** connector, see the following documentation:
+The **X12** connector has one version across workflows in [multitenant Azure Logic Apps and single-tenant Azure Logic Apps](logic-apps-overview.md#resource-environment-differences). For technical information about the **X12** connector, see the following documentation:
 
 * [Connector reference page](/connectors/x12/), which describes the triggers, actions, and limits as documented by the connector's Swagger file
 
 * [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits)
-
-  For example, in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), this connector's ISE version uses the [B2B message limits for ISE](logic-apps-limits-and-config.md#b2b-protocol-limits).
 
 ## Prerequisites
 

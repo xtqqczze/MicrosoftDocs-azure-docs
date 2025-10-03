@@ -1,9 +1,9 @@
 ---
 title: Release notes for Microsoft Azure Data Manager for Energy
 description: This article provides release notes of Azure Data Manager for Energy releases, improvements, bug fixes, and known issues.
-author: nitinnms
-ms.author: nitindwivedi
-ms.service: energy-data-services
+author: bharathim
+ms.author: bselvaraj
+ms.service: azure-data-manager-energy
 ms.topic: conceptual
 ms.date: 09/20/2022
 ms.custom: template-concept
@@ -23,10 +23,81 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## September 2025
+### Rock and Fluid Samples (RAFS) Preview
+The Rock and Fluid Samples (RAFS) DDMS introduces a standardized approach for storing, querying, and analyzing geological and engineering sample data collected from subsurface and surface sites. These samples are critical for workflows such as reservoir modeling, facility design, and drilling planning. RAFS DDMS is now available as a Preview feature on ADME Developer SKU. See [Tutorial: Use Rock and Fluid Samples (RAFS) DDMS APIs](tutorial-rock-and-fluid-samples-ddms.md) on how to use RAFS DDMS APIs.
+
+### Manifest Ingestion log enhancements
+Manifest ingestion logs have been enhanced to improve troubleshooting of data ingestion issues. Skipped records are now logged for better visibility. See [Skipped records logging](troubleshoot-manifest-ingestion.md#skipped-records-logging)
+
+## August 2025
+### Compliant with M25 OSDU&reg; release
+Azure Data Manager for Energy has now been upgraded with the supported set of services with the M25 OSDU&reg; milestone release. With this release, you can take advantage of the key improvements made in the OSDU&reg; latest 
+ community features and capabilities available in the [OSDU&reg; M25](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M25-Release-Notes). The upgrade with the OSDU&reg; M25 release is limited to the services available and supported and you can refer [here](osdu-services-on-adme.md) for a detailed list of services available and unavailable on Azure Data Manager for Energy. See the [updated API Swaggers here](https://microsoft.github.io/adme-samples/).
+
+## July 2025
+### Azure Data Manager for Energy available in Central India and Indonesia Central
+Azure Data Manager for Energy is now available in two new regions: **Central India** and **Indonesia Central**. This expansion allows customers and partners in these regions to deploy and manage energy data solutions closer to their operations, supporting improved performance and compliance with local regulations. Both Standard and Developer tiers are supported.
+
+Central India is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Central India" as your preferred region when creating Azure Data Manager for Energy resource, using the Azure portal or your preferred provisioning method.
+
+For more information on region reliability, refer to [Azure Data Manager for Energy reliability](../reliability/reliability-energy-data-services.md).
+
+## April 2025
+### Azure Data Manager for Energy available in four new regions
+Azure Data Manager for Energy is now available in four new regions: **South Africa North**, **Southeast Asia**, **Sweden Central**, and **UAE North**. This expansion allows customers and partners in these regions to deploy and manage energy data solutions closer to their operations, supporting improved performance and compliance with local regulations. Both Standard and Developer tiers are supported. 
+
+### 3D SEG-Y to OpenZGY Data Conversion Bug Fix
+This release fixes a bug in the 3D SEG-Y to OpenZGY conversion process. When you convert SEG-Y datasets with many inlines or crosslines not divisible by 64 after January 26, 2024, you may notice missing or empty traces in the resulting OpenZGY files. To resolve this issue, re-convert any affected datasets to ensure your OpenZGY files accurately reflect the original SEG-Y volumes.
+
+### User OID added to service logs for traceability and audit purpose
+After this release, a dedicated OID (Object ID) field appears in the service logs to ensure that user IDs are correctly captured. This enhancement improves traceability and supports your auditing requirements.
+
+## February 2025
+### Reservoir DDMS preview 
+Reservoir DDMS (M23 version) is available as a preview feature on Azure Data Manager for Energy Developer tier as a fully integrated offering for customers and partners. See [How to enable Reservoir DDMS (Preview)](how-to-enable-reservoir-ddms.md) for more details.
+
+### Wellbore domain services worker
+Azure Data Manager for Energy now includes support for the Wellbore domain services worker, which enhances Wellbore DDMS performance and scalability when handling large bulk data (> 1 GB). This Python back-end service is used internally by the OSDU&reg; Wellbore Domain Data Management Service (WDDMS). It provides an internal API for accessing wellbore bulk data, facilitating efficient data management and processing. See [ADR: Worker Service for Wellbore Bulk Data Access](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/wellbore/wellbore-domain-services/-/issues/73) for more details.
+
+### Scale and Performance improvements for seismic workflows
+Azure Data Manager for Energy has implemented performance and scale enhancements to handle ingestion and conversion of seismic datasets with higher number of vertical samples. Additionally, for consuming these datasets via seismic streaming applications, Azure Data Manager for Energy now supports up to 4x higher throughput, allowing a proportional increase in the number of consumers using SDMS APIs.
+
+### Create legal tags for restricted COO (Country of Origin)
+OSDU&reg; defines `residencyRisk` for data originating from certain countries/regions in the default configuration [DefaultCountryCode.json](https://community.opengroup.org/osdu/platform/security-and-compliance/legal/-/blob/master/legal-core/src/main/resources/DefaultCountryCode.json?ref_type=heads). This configuration can now be edited in an OSDU&reg; compliant manner to allow the creation of legal tags and the ingestion of data from such countries/regions on Azure Data Manager for Energy. These configurations apply at a partition level. See [How to enable legal tag creation for OSDU&reg; restricted COO (Country of Origin) data?](how-to-enable-legal-tags-restricted-country-of-origin.md) for more details.
+
+## November 2024
+### SOC 2 and ISO certification
+Azure Data Manager for Energy is now SOC 2 and ISO compliant, reinforcing our commitment to securely managing sensitive data, building trust, and meeting regulatory requirements. All certifications and compliance reports are available [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3) and will be regularly updated.
+
+### Support for EDS Naturalization DAG (Preview)
+Support for the `eds_naturalization` DAG is now available as a preview feature with the Azure Data Manager for Energy M23 release.
+
+### Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM
+You can now use keys stored in Azure Key Vault Managed HSM to encrypt data stored at rest in Azure Data Manager for Energy. See [Data security and encryption in Azure Data Manager for Energy](how-to-manage-data-security-and-encryption.md).
+
+## August 2024
+
+### Compliant with M23 OSDU&reg; release
+Azure Data Manager for Energy has now been upgraded with the supported set of services with the M23 OSDU&reg; milestone release. With this release, you can take advantage of the key improvements made in the OSDU&reg; latest 
+ community features and capabilities available in the [OSDU&reg; M23](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M23-Release-Notes) The upgrade with the OSDU&reg; M23 release is limited to the services available and supported and you can refer [here](osdu-services-on-adme.md) for a detailed list of services available and unavailable on Azure Data Manager for Energy. See the [updated API Swaggers here](https://microsoft.github.io/adme-samples/).
+
+### Syncing Reference Values
+We are releasing a Limited Preview for syncing Reference Values with your Azure Data Manager for Energy data partitions. Note that this feature is currently only available for newly created Azure Data Manager for Energy after feature enablement for your Azure subscription. Learn more about [Reference Values on Azure Data Manager for Energy](concepts-reference-data-values.md).
+
+### CNAME DNS Record Fix
+Previously, each ADME resource had an incorrect privatelink DNS record by default, causing inaccessibility issues for some SLB apps. This release resolves the issue for both new and existing instances, ensuring correct and secure configuration of private endpoints. For more details, see [How to setup private links](how-to-set-up-private-links.md).
+
+## June 2024
+
+### Azure Data Manager for Energy Developer Tier Price Update
+Effective June 1, 2024, the monthly base instance fee of the Developer tier of Azure Data Manager for Energy will be $2,898 (US East Region). This reflects a 75% cost savings to our customers/partners compared to the previous base instance price of $11,680 per month (US East) and provides ongoing support to our partners and customers as they continue their application modernization and interoperability efforts. The monthly cost above is based on an hourly rate of $3.97 (US East) and an assumption of 730 hours for a given month. These new cost savings will be reflected in all available regions where the product is available based on current regional rate adjustments. Regional differences and additional pricing details will be reflected on the product's [pricing](https://azure.microsoft.com/pricing/details/energy-data-services) page. Note that the pricing page will reflect the current price and will be updated to the new pricing amount on the effective date listed above.
+
+
 ## April 2024
 
 ### Azure Data Manager for Energy in Qatar Central Region
-Azure Data Manager for Energy is now available in the Qatar Central Region. This new region is enabled for both the Standard and Developer tiers of Azure Data Manager for Energy, and is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Qatar" as your preferred region when creating Azure Data Manager for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy) or your preferred provisioning method. Qatar Central region supports zone-redundant storage (ZRS) with 3 availabilty zones for disaster recovery. Data is stored at rest in Qatar in compliance with data residency requirements. For more details on zonal replication, please review the [documentation](https://learn.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery) page. Note that the default maximum ingress per geneneral purpose v2 and Blob storage accounts in Qatar Central is 25 Gbps. For more details, please review scalability and performance [targets](https://learn.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts).
+Azure Data Manager for Energy is now available in the Qatar Central Region. This new region is enabled for both the Standard and Developer tiers of Azure Data Manager for Energy, and is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Qatar" as your preferred region when creating Azure Data Manager for Energy resource, using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy) or your preferred provisioning method. Qatar Central region supports zone-redundant storage (ZRS) with 3 availability zones for disaster recovery. Data is stored at rest in Qatar in compliance with data residency requirements. For more details on zonal replication, please review the [documentation](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md) page. Note that the default maximum ingress per general purpose v2 and Blob storage accounts in Qatar Central is 25 Gbps. For more details, please review scalability and performance [targets](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts).
 
 ## March 2024
 
@@ -99,7 +170,7 @@ Now you can configure diagnostic settings of your Azure Data Manager for Energy 
 
 ### Monitoring and investigating actions with Audit logs
 
-Knowing who is taking what action on which item is critical in helping organizations meet regulatory compliance and record management requirements. Azure Data Manager for Energy captures audit logs for data plane APIs of OSDU services and audit events listed [here](https://community.opengroup.org/osdu/documentation/-/wikis/Releases/R3.0/GCP/GCP-Operation/Logging/Audit-Logging-Status). Learn more about [audit logging in Azure Data Manager for Energy](how-to-manage-audit-logs.md).
+Knowing who is taking what action on which item is critical in helping organizations meet regulatory compliance and record management requirements. Azure Data Manager for Energy captures audit logs for data plane APIs of OSDU services and audit events listed [here](https://community.opengroup.org/osdu/platform/deployment-and-operations/audit-and-metrics). Learn more about [audit logging in Azure Data Manager for Energy](how-to-manage-audit-logs.md).
 
 <hr width = 100%>
 

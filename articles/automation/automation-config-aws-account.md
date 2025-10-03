@@ -7,6 +7,9 @@ ms.subservice: process-automation
 ms.date: 10/28/2022
 ms.custom: engagement-fy23
 ms.topic: conceptual
+ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 # Authenticate runbooks with Amazon Web Services
 

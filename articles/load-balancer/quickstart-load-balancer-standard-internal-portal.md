@@ -4,19 +4,25 @@ titleSuffix: Azure Load Balancer
 description: Learn to create an internal Azure Load Balancer and test it with two virtual machines. Learn how to configure traffic rules and health probes to distribute traffic across multiple VMs.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 10/19/2023
+ms.date: 06/28/2024
 ms.author: mbender
-ms.custom: mvc, mode-ui, template-quickstart, engagement-fy24
+ms.custom:
+  - mvc
+  - mode-ui
+  - template-quickstart
+  - engagement-fy24
+  - sfi-image-nochange
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: "As a cloud engineer, I want to create an internal load balancer with traffic rules and health probes for my VMs, so that I can efficiently distribute internal traffic and ensure high availability of my applications."
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using the Azure portal
 
 Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer for a backend pool with two virtual machines. Other resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
-:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
+:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer." lightbox="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png":::
 
 > [!NOTE]
 > In this example you'll create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
@@ -97,7 +103,7 @@ During the creation of the load balancer, you configure:
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **lb-health-probe**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**.</br> In **Name**, enter **lb-health-probe**.</br> Select **TCP** in **Protocol**.</br> Leave the rest of the defaults, and select **Save**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | Enable TCP reset | Select **checkbox**. |
@@ -109,7 +115,7 @@ During the creation of the load balancer, you configure:
 
 [!INCLUDE [load-balancer-create-2-virtual-machines](../../includes/load-balancer-create-2-virtual-machines.md)]
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Create test virtual machine
 

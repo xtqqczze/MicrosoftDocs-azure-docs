@@ -3,10 +3,11 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
 ms.date: 01/29/2022
+ms.service: azure-app-service
 ---
 #### [Windows](#tab/windows)
 
-```Cmd
+```Console
 py -m venv .venv
 .venv\scripts\activate
 ```

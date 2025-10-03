@@ -5,10 +5,14 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 12/1/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.custom: devx-track-arm-template, devx-track-azurecli
+ms.custom:
+  - devx-track-arm-template
+  - devx-track-azurecli
+  - sfi-ropc-nochange
+# Customer intent: As an DevOps engineer, I want to configure Azure DevOps Services for the SAP Deployment Automation Framework, so that I can automate the deployment and management of SAP applications across different environments efficiently.
 ---
 
 # Use SAP Deployment Automation Framework from Azure DevOps Services
@@ -44,7 +48,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
       az login --output none --only-show-errors --scope https://graph.microsoft.com//.default
     }
     else {
-      az login --output none --tenant $ARM_TENANT_ID --only-show-errors --scope https://graph.microsoft.com//.default
+      az login --output none --tenant $Env:ARM_TENANT_ID --only-show-errors --scope https://graph.microsoft.com//.default
     }
 
     az config set extension.use_dynamic_install=yes_without_prompt --only-show-errors
@@ -55,7 +59,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
     if ($differentTenant -eq 'y') {
         $env:AZURE_DEVOPS_EXT_PAT = Read-Host "Please enter your Personal Access Token (PAT) with permissions to add new projects, manage agent pools to the Azure DevOps organization $Env:ADO_Organization"
         try {
-            az devops login --organization $Env:ADO_Organization
+            az devops project list
         }
         catch {
             $_
@@ -171,6 +175,8 @@ Open PowerShell ISE and copy the following script and update the parameters to m
             New-Item -Path $sdaf_path -Type Directory
         }
     }
+
+    $branchName = "main"
     
     Set-Location -Path $sdaf_path
     
@@ -178,7 +184,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
         remove-item .\New-SDAFDevopsWorkloadZone.ps1
     }
     
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/New-SDAFDevopsWorkloadZone.ps1 -OutFile .\New-SDAFDevopsWorkloadZone.ps1 ; .\New-SDAFDevopsWorkloadZone.ps1
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/$branchName/deploy/scripts/New-SDAFDevopsWorkloadZone.ps1 -OutFile .\New-SDAFDevopsWorkloadZone.ps1 ; .\New-SDAFDevopsWorkloadZone.ps1
     
 ```
 
@@ -486,7 +492,7 @@ s-password="<SAP Support user password>"
 
 az devops login
 
-az pipelines variable-group create --name SDAF-General --variables ANSIBLE_HOST_KEY_CHECKING=false Deployment_Configuration_Path=WORKSPACES Branch=main S-Username=$s-user S-Password=$s-password tf_varsion=1.3.0 --output yaml
+az pipelines variable-group create --name SDAF-General --variables ANSIBLE_HOST_KEY_CHECKING=false Deployment_Configuration_Path=WORKSPACES Branch=main S-Username=$s-user S-Password=$s-password tf_version=1.3.0 --output yaml
 
 ```
 

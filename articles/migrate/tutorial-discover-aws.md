@@ -4,14 +4,23 @@ description: Learn how to discover AWS instances with Azure Migrate Discovery an
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
-ms.date: 04/05/2024
+ms.date: 02/07/2025
 ms.service: azure-migrate
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
-#Customer intent: As a server admin I want to discover my AWS instances.
+ms.collection:
+ - migration
+ - aws-to-azure
+ms.custom:
+  - mvc
+  - subject-rbac-steps
+  - engagement-fy25
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: "As a server administrator, I want to discover my AWS instances using a migration tool, so that I can assess and plan their migration to Azure efficiently."
 ---
 
-# Tutorial: Discover AWS instances with Azure Migrate: Discovery and assessment
+# Tutorial: Discover AWS instances with Azure Migrate
 
 As part of your migration journey to Azure, you discover your servers for assessment and migration.
 
@@ -68,7 +77,7 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of Add role assignment page in Azure portal.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of Add role assignment page in Azure portal.":::
 
 1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.**
 
@@ -80,8 +89,8 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 Set up an account that the appliance can use to access AWS instances.
 
-- For **Windows servers**, set up a local user account on all the Windows servers that you want to include in the discovery. Add the user account to the following groups: - Remote Management Users - Performance Monitor Users - Performance Log users.
- - For **Linux servers**, you need a root account on the Linux servers that you want to discover. Refer to the instructions in the [support matrix](migrate-support-matrix-physical.md#permissions-for-linux-server) for an alternative.
+- For **Windows servers**, set up a local user account on all the Windows servers that you want to include in the discovery. Add the user account to the following groups: - Remote Management Users - Performance Monitor Users - Performance Log users. Refer the [instructions](tutorial-discover-physical.md#prepare-windows-server).
+ - For **Linux servers**, you need a root account on the Linux servers that you want to discover. Refer the [instructions](tutorial-discover-physical.md#prepare-linux-server).
 - Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
     - For Windows servers, allow WinRM port 5985 (HTTP). This allows remote WMI calls.
     - For Linux servers:
@@ -103,7 +112,7 @@ Set up a new project.
 2. Under **Services**, select **Azure Migrate**.
 3. In **Get started**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
@@ -157,13 +166,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
 
     - For Azure Government:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857 
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
  
 
 ### 3. Run the Azure Migrate installer script
@@ -307,5 +316,5 @@ After discovery finishes, you can verify that the servers appear in the portal.
 
 ## Next steps
 
-- [Assess physical servers](tutorial-migrate-aws-virtual-machines.md) for migration to Azure VMs.
+- [Assess AWS VMs](tutorial-migrate-aws-virtual-machines.md) for migration to Azure.
 - [Review the data](discovered-metadata.md#collected-data-for-physical-servers) that the appliance collects during discovery.

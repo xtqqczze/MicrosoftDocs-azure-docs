@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/30/2022
@@ -24,6 +24,9 @@ This quickstart shows you how to make these changes within your browser, without
 # [JBoss EAP](#tab/jbosseap)
 
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
 
 ---
 
@@ -69,6 +72,9 @@ To complete this quickstart you need:
 # [JBoss EAP](#tab/jbosseap)
 
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
 
 ---
 
@@ -145,6 +151,9 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
 
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
+
 ---
 
 1. Select the **Review + create** button at the bottom of the page.
@@ -174,6 +183,9 @@ The Java Tomcat sample code is running in an Azure App Service Linux web app.
 # [JBoss EAP](#tab/jbosseap)
 
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
 
 ---
 
@@ -257,6 +269,9 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 # [JBoss EAP](#tab/jbosseap)
 
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
+> [!NOTE]
+> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
 
 ---
 

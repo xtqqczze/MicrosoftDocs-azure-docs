@@ -2,15 +2,22 @@
 title: "Quickstart: Azure Blob Storage client library for Python"
 titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for Python to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: pauljewellmsft
-ms.author: pauljewell
-ms.date: 02/22/2024
+author: stevenmatthew
+ms.author: shaas
+ms.date: 09/13/2024
 ms.topic: quickstart
 ms.service: azure-blob-storage
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, passwordless-python, ai-video-demo, devx-track-extended-azdevcli
 ai-usage: ai-assisted
 zone_pivot_groups: azure-blob-storage-quickstart-options
+ms.custom:
+  - devx-track-python
+  - mode-api
+  - passwordless-python
+  - ai-video-demo
+  - devx-track-extended-azdevcli
+  - sfi-ropc-nochange
+# Customer intent: As a developer, I want to quickly set up and manage Azure Blob Storage using Python, so that I can efficiently store and manipulate unstructured data in my applications.
 ---
 
 # Quickstart: Azure Blob Storage client library for Python
@@ -452,14 +459,9 @@ You'll be prompted to confirm the deletion of the resources. Enter `y` to confir
 
 ::: zone-end
 
-## Next steps
-
-In this quickstart, you learned how to upload, download, and list blobs using Python.
-
-To see Blob storage sample apps, continue to:
+## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage library for Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Azure Storage samples and developer guides for Python](../common/storage-samples-python.md?toc=/azure/storage/blobs/toc.json)
 
-- To learn more, see the [Azure Blob Storage client libraries for Python](/python/api/overview/azure/storage-blob-readme).
-- For tutorials, samples, quickstarts, and other documentation, visit [Azure for Python Developers](/azure/developer/python/sdk/azure-sdk-overview).
+

@@ -5,7 +5,7 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 11/02/2021
 ms.author: ryanwi
@@ -13,7 +13,6 @@ ms.reviewer: stsoneff
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
 ms.custom: azureday1
-ms.subservice: web-apps
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
 ---
 ## Clean up resources

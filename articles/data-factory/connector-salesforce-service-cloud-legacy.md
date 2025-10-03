@@ -1,24 +1,24 @@
 ---
-title: Copy data from and to Salesforce Service Cloud using legacy
+title: Copy data from and to Salesforce Service Cloud V1
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Salesforce Service Cloud to supported sink data stores, or from supported source data stores to Salesforce Service Cloud, using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from Salesforce Service Cloud V1 to supported sink data stores, or from supported source data stores to Salesforce Service Cloud V1, using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 01/26/2024
+ms.date: 05/07/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
-# Copy data from and to Salesforce Service Cloud using Azure Data Factory or Synapse Analytics (legacy)
-
+# Copy data from and to Salesforce Service Cloud V1 using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Salesforce Service Cloud. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
->[!IMPORTANT]
->The service has released a new Salesforce Service Cloud connector which provides better native Salesforce Service Cloud support, refer to [Salesforce Service Cloud connector](connector-salesforce-service-cloud.md) article on details. 
+> [!IMPORTANT]
+> The [Salesforce Service Cloud V2 connector](connector-salesforce-service-cloud.md) provides improved native Salesforce Service Cloud support. If you are using the [Salesforce Service Cloud V1 connector](connector-salesforce-service-cloud-legacy.md) in your solution, please [upgrade your Salesforce Service Cloud connector](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](connector-salesforce-service-cloud.md#differences-between-salesforce-service-cloud-and-salesforce-service-cloud-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 

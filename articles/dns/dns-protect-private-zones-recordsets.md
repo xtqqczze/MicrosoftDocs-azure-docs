@@ -2,18 +2,22 @@
 title: Protecting private DNS Zones and Records - Azure DNS
 description: In this learning path, get started protecting private DNS zones and record sets in Microsoft Azure DNS.
 services: dns
-ms.service: dns
-author: greg-lindsay
-ms.author: greglin
+ms.service: azure-dns
+author: asudbring
+ms.author: allensu
 ms.topic: how-to
 ms.date: 11/30/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: As a DNS administrator, I want to implement protection measures for private DNS zones and records using role-based access control and resource locks, so that I can prevent unauthorized changes and accidental deletions that could impact service availability.
 ---
 
 # How to protect private DNS zones and records
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Private DNS zones and records are critical resources. Deleting a DNS zone or a single DNS record can result in a service outage. It's important that DNS zones and records are protected against unauthorized or accidental changes.
 
@@ -154,7 +158,7 @@ The following example shows a custom role definition for managing CNAME records 
     "NotActions": [
     ],
     "AssignableScopes": [
-        "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
+        "/subscriptions/<subscription id>"
     ]
 }
 ```

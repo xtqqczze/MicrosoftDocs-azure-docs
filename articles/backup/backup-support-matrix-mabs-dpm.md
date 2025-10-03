@@ -1,19 +1,22 @@
 ---
 title: MABS & System Center DPM support matrix
 description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server (MABS) or System Center DPM to back up on-premises and Azure VM resources.
-ms.service: backup
-ms.date: 05/04/2023
-ms.topic: conceptual
+ms.service: azure-backup
+ms.date: 07/17/2025
+ms.topic: reference
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator using MABS or DPM, I want to understand the backup support limitations and configurations, so that I can effectively manage and safeguard my on-premises and Azure workloads.
 ---
 
 # Support matrix for backup with Microsoft Azure Backup Server or System Center DPM
 
-You can use the [Azure Backup service](backup-overview.md) to back up on-premises machines and workloads, and Azure virtual machines (VMs). This article summarizes support settings and limitations for backing up machines by using Microsoft Azure Backup Server (MABS) or System Center Data Protection Manager (DPM), and Azure Backup.
+This article summarizes support settings and limitations for backing up machines by using Microsoft Azure Backup Server (MABS) or System Center Data Protection Manager (DPM), and Azure Backup.
 
-## About DPM/MABS
+[Azure Backup](backup-overview.md) allows you to back up on-premises machines and workloads, and Azure virtual machines (VMs).
+
+## About DPM or MABS
 
 [System Center DPM](/system-center/dpm/dpm-overview) is an enterprise solution that configures, facilitates, and manages backup and recovery of enterprise machines and data. It's part of the [System Center](https://www.microsoft.com/system-center/pricing) suite of products.
 
@@ -33,7 +36,7 @@ DPM and MABS support backing up a wide variety of apps, and server and client op
 - You can back up specific volumes, shares, folders, and files.
 - You can back up specific apps by using optimized app-aware settings.
 
-## DPM/MABS backup
+## DPM or MABS backup workflow
 
 Backup using DPM/MABS and Azure Backup works as follows:
 
@@ -213,9 +216,11 @@ Deduplication support for MABS depends on operating system support.
 
 - MABS v3 UR1, MABS v4, and later continues to support protection and recovery of normal ReFS volumes.
 
-## Next steps
+## Next step
 
 - [Learn more](backup-architecture.md#architecture-back-up-to-dpmmabs) about MABS architecture.
 - [Review](backup-support-matrix-mars-agent.md) what's supported for the MARS agent.
 - [Set up](backup-azure-microsoft-azure-backup.md) a MABS server.
 - [Set up DPM](/system-center/dpm/install-dpm).
+- [Back up a SharePoint farm on Azure Stack](backup-mabs-sharepoint-azure-stack.md).
+- [Back up SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md).

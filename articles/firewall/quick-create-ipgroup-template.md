@@ -2,19 +2,24 @@
 title: 'Quickstart: Create an Azure Firewall and IP Groups - Resource Manager template'
 description: In this quickstart, you learn how to use an Azure Resource Manager template (ARM template) to create an Azure Firewall and IP Groups.
 services: firewall
-author: vhorne
-ms.service: firewall
+author: duau
+ms.service: azure-firewall
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 05/10/2021
-ms.author: victorh
+ms.author: duau
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
+# Customer intent: As an IT administrator, I want to deploy an Azure Firewall and configure IP Groups using an ARM template, so that I can efficiently manage network security and access for my Azure resources.
 ---
 
 # Quickstart: Create an Azure Firewall and IP Groups - ARM template
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall with sample IP Groups used in a network rule and application rule. An IP Group is a top-level resource that allows you to define and group IP addresses, ranges, and subnets into a single object. This is useful for managing IP addresses in Azure Firewall rules. You can either manually enter IP addresses or import them from a file.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -68,10 +73,6 @@ Deploy the ARM template to Azure:
 ## Review deployed resources
 
 In the Azure portal, review the deployed resources, especially the firewall rules that use IP Groups.
-
-:::image type="content" source="media/quick-create-ipgroup-template/ipgroups.png" alt-text="IP Groups.":::
-
-:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Network rules.":::
 
 To learn about the JSON syntax and properties for a firewall in a template, see [Microsoft.Network azureFirewalls template reference](/azure/templates/microsoft.network/azurefirewalls).
 
