@@ -76,7 +76,7 @@ $Env:AZCOPY_TENANT_ID="<tenant-id>"
 
 ---
 
-Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<client-secret>` placeholder with the client secret. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Tenant properties > Tenant ID** in the Azure portal.
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<client-secret>` placeholder with the client secret. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Tenant properties > Tenant ID** in the Azure portal. For information about how to obtain the client secret and application ID, see [Register a Microsoft Entra app and create a service principal](/entra/identity-platform/howto-create-service-principal-portal#sign-in-to-the-application).
 
 > [!NOTE]
 > Consider using a prompt to collect the password from the user. That way, your password won't appear in your command history.
@@ -113,7 +113,7 @@ $Env:AZCOPY_TENANT_ID="<tenant-id>"
 
 ---
 
-Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place. Replace the `<certificate-password>` placeholder with the password of the certificate. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Tenant properties > Tenant ID** in the Azure portal.
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place. Replace the `<certificate-password>` placeholder with the password of the certificate. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Tenant properties > Tenant ID** in the Azure portal. 
 
 > [!NOTE]
 > Consider using a prompt to collect the password from the user. That way, your password won't appear in your command history.
@@ -159,7 +159,7 @@ Next, type the following command, and then press the ENTER key.
 azcopy login --service-principal  --application-id application-id --tenant-id=tenant-id
 ```
 
-Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Tenant properties > Tenant ID** in the Azure portal.
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Tenant properties > Tenant ID** in the Azure portal. For information about how to obtain the client secret and application ID, see [Register a Microsoft Entra app and create a service principal](/entra/identity-platform/howto-create-service-principal-portal#sign-in-to-the-application).
 
 #### Authorize a service principal by using a certificate
 

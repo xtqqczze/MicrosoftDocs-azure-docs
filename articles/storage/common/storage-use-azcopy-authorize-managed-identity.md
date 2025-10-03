@@ -88,9 +88,6 @@ $Env:AZCOPY_AUTO_LOGIN_TYPE="MSI"
 
 Next, set environment variables for either the client ID, object ID, or resource ID of the user-assigned managed identity. 
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the location of the client ID](./media/storage-use-azcopy-authorize-managed-identity/client-id.png)
-
 #### Use a client ID
 
 To authorize by using a client ID, type the following command, and then press the ENTER key.
@@ -195,6 +192,11 @@ azcopy login --identity --identity-client-id "<client-id>"
 
 Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
 
+You can find the client ID in the Azure portal by viewing the properties of the managed identity. The following screenshot shows the location of the client ID property.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot that shows the location of the client ID](./media/storage-use-azcopy-authorize-managed-identity/client-id.png)
+
 #### login by using an object ID
 
 Type the following command, and then press the ENTER key.
@@ -205,6 +207,11 @@ azcopy login --identity --identity-object-id "<object-id>"
 
 Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity.
 
+You can find the object ID in the Azure portal by viewing the properties of the managed identity. The following screenshot shows the location of the object ID (also called the *principal ID*).
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot that shows the location of the object ID](./media/storage-use-azcopy-authorize-managed-identity/object-id.png)
+
 #### login by using a resource ID
 
 Type the following command, and then press the ENTER key.
@@ -214,6 +221,11 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 ```
 
 Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
+
+You can find the resource ID in the Azure portal by viewing the properties of the managed identity. The following screenshot shows the location of the resource ID property.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot that shows the location of the resource ID](./media/storage-use-azcopy-authorize-managed-identity/resource-id.png)
 
 ## Authorize with Azure CLI
 
