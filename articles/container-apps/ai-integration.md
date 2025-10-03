@@ -26,8 +26,8 @@ Use GPU accelerated workload profiles to meet a variety of your AI workload need
 Dynamic Sessions provide a secure, isolated environment for executing AI-generated code. Perfect for scenarios like sandboxed execution, code evaluation, or AI agents.
 
 Supported session types include:
-- **[Code interpreters](/azure/container-apps/sessions-code-interpreter)**: a platform-managed container that supports executing code in multiple programming languages, including Python and JavaScript.
-- **[Custom containers](/azure/container-apps/sessions-custom-container)**: create a sessions pool using a custom container for specialized workloads or additional language support.
+- **[Platform managed built-in containers](/container-apps/sessions-code-interpreter)**: a platform-managed container that supports executing code in Python and Node.js.
+- **[Custom containers](/container-apps/sessions-custom-container)**: create a sessions pool using a custom container for specialized workloads or additional language support.
 
 ## Deploying Azure AI Foundry models
 
@@ -39,11 +39,11 @@ The following are a few examples that demonstrate AI integration with Azure Cont
 
 | Sample | Description |
 |--------|-------------|
-| [container-apps-openai](https://github.com/Azure-Samples/container-apps-openai) | ChatGPT-like apps using OpenAI, LangChain, ChromaDB, and Chainlit deployed to ACA using Terraform. |
-| [azure-container-apps-ai-mcp](https://github.com/Azure-Samples/azure-container-apps-ai-mcp) | Demonstrates multi-agent coordination using the MCP protocol with Azure OpenAI and GitHub models in ACA. |
-| [openai-mcp-agent-dotnet](https://github.com/Azure-Samples/openai-mcp-agent-dotnet) | .NET-based MCP agent app using Azure OpenAI with a TypeScript MCP server, both hosted on ACA. |
-| [mcp-container-ts](https://github.com/Azure-Samples/mcp-container-ts) | TypeScript-based MCP server template for ACA, ideal for building custom AI toolchains. |
-| [python-code-interpreter](https://github.com/Azure-Samples/aca-python-code-interpreter-session) | Dynamic session for executing Python code in a secure environment. |
+| [Chat app with Azure OpenAI](https://github.com/Azure-Samples/container-apps-openai) | ChatGPT-like apps using OpenAI, LangChain, ChromaDB, and Chainlit deployed to ACA using Terraform. |
+| [Host an MCP server](https://github.com/Azure-Samples/azure-container-apps-ai-mcp) | Demonstrates multi-agent coordination using the MCP protocol with Azure OpenAI and GitHub models in ACA. |
+| [MCP client and server](https://github.com/Azure-Samples/openai-mcp-agent-dotnet) | .NET-based MCP agent app using Azure OpenAI with a TypeScript MCP server, both hosted on ACA. |
+| [Remote MCP server](https://github.com/Azure-Samples/mcp-container-ts) | TypeScript-based MCP server template for ACA, ideal for building custom AI toolchains. |
+| [Dynamic session Python code interpreter](https://github.com/Azure-Samples/aca-python-code-interpreter-session) | Dynamic session for executing Python code in a secure environment. |
 
 ## Related content
 - [Multiple-agent workflow automation](/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation)
