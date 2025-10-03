@@ -10,6 +10,7 @@ ms.topic: sample
 ms.date: 04/15/2022
 ms.author: msangapu
 ms.custom: mvc, devx-track-azurecli
+ms.service: azure-app-service
 ---
 # Create an App Service app with continuous deployment from an Azure DevOps repository using Azure CLI
 
@@ -18,13 +19,13 @@ This sample script creates an app in App Service with its related resources, and
 * An Azure DevOps repository with application code, that you have administrative permissions for.
 * A [Personal Access Token (PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) for your Azure DevOps organization.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### To create the web app
 
@@ -48,7 +49,7 @@ az webapp deployment source config --name $webapp --resource-group $resourceGrou
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

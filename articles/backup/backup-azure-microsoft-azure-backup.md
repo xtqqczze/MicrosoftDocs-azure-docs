@@ -2,11 +2,12 @@
 title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 04/30/2024
-ms.service: backup
+ms.date: 07/15/2025
+ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator, I want to set up Azure Backup Server to back up application workloads, so that I can ensure data protection and recovery for my organization's critical systems."
 ---
 
 # Install and upgrade Azure Backup Server
@@ -20,7 +21,7 @@ ms.custom: engagement-fy24
 
 > Applies To: MABS v4.
 
-This article explains how to prepare your environment to back up workloads using Microsoft Azure Backup Server (MABS). With Azure Backup Server, you can protect application workloads, such as Hyper-V VMs, VMware VMs, Azure Stack HCI VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange, and Windows clients from a single console.
+This article explains how to prepare your environment to back up workloads using Microsoft Azure Backup Server (MABS). With Azure Backup Server, you can protect application workloads, such as Hyper-V VMs, VMware VMs, Azure Local VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange, and Windows clients from a single console.
 
 > [!NOTE]
 > To learn more about backing up VMware servers with Azure Backup Server, see the article, [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md). To learn about security capabilities, refer to [Azure Backup security features documentation](backup-azure-security-feature.md).
@@ -45,7 +46,7 @@ The first step towards getting the Azure Backup Server up and running is to set 
 
 ### Using a server in Azure
 
-When choosing a server for running Azure Backup Server, it's recommended you start with a gallery image of Windows Server 2022 Datacenter or Windows Server 2019 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=/azure/virtual-machines/windows/toc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: Standard_A4_v2  with four cores and 8-GB RAM.
+When choosing a server for running Azure Backup Server, it's recommended you start with a gallery image of Windows Server 2022 Datacenter or Windows Server 2019 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal?toc=/azure/virtual-machines/windows/toc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: Standard_A4_v2  with four cores and 8-GB RAM.
 
 Protecting workloads with Azure Backup Server has many nuances. The [protection matrix for MABS](./backup-mabs-protection-matrix.md) helps explain these nuances. Before deploying the machine, read this article completely.
 
@@ -67,7 +68,7 @@ You can deduplicate the DPM storage using Windows Server Deduplication. Learn mo
 > * A computer on which the Application Server role is installed
 > * A computer that's a System Center Operations Manager management server
 > * A computer on which Exchange Server is running
-> * A computer that's a node of a cluster
+> * A computer that's a node of a system
 >
 > Installing Azure Backup Server isn't supported on Windows Server Core or Microsoft Hyper-V Server.
 
@@ -374,7 +375,7 @@ Use the following steps to upgrade MABS:
 
 ## Increase maximum parallel online backups
 
-You can increase the number of maximum parallel online backup jobs from the default 8 to a configurable number using the following registry keys (if your underlying hardware and network bandwidth can support it).
+You can increase the number of maximum parallel online backup jobs from the default 8 to a configurable limit of 20 using the following registry keys (if your underlying hardware and network bandwidth can support it).
 
 The example below increases the limit to 12 jobs.
 
@@ -401,3 +402,7 @@ You can use these articles to gain a deeper understanding of workload protection
 * [SQL Server backup](backup-azure-backup-sql.md)
 * [SharePoint Server backup](backup-azure-backup-sharepoint.md)
 * [Alternate server backup](backup-azure-alternate-dpm-server.md)
+
+## Related content
+
+[Run an unattended installation of MABS](backup-mabs-unattended-install.md).

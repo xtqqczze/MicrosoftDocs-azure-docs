@@ -2,12 +2,12 @@
 title: Geocoding coverage in Microsoft Azure Maps Search service
 titleSuffix: Microsoft Azure Maps
 description: See which regions Azure Maps Search covers. Geocoding categories include address points, house numbers, street level, city level, and points of interest.
-author: eriklindeman
-ms.author: eriklind
-ms.date: 11/30/2021
+author: farazgis
+ms.author: fsiddiqui
+ms.date: 06/12/2025
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: search
 ---
 
 # Azure Maps geocoding coverage
@@ -133,7 +133,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Samoa                                               |                 |                |              |      ✓     |       ✓        |
 | Singapore                                           |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Solomon Islands                                     |                 |                |              |      ✓     |       ✓        |
-| South Korea                                         |                 |                |              |      ✓     |       ✓        |
+| South Korea<sup>1</sup>                             |                 |                |              |      ✓     |       ✓        |
 | Sri Lanka                                           |                 |                |              |      ✓     |       ✓        |
 | Taiwan                                              |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Thailand                                            |        ✓        |                |       ✓     |      ✓     |       ✓        |
@@ -145,6 +145,8 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Vanuatu                                             |                 |                |              |      ✓     |       ✓        |
 | Vietnam                                             |        ✓        |                |       ✓     |      ✓     |       ✓        |
 | Wallis & Futuna                                     |                 |                |              |      ✓     |       ✓        |
+
+<sup>1</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
 
 ## Europe
 

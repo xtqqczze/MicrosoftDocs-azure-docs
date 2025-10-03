@@ -1,7 +1,7 @@
 ---
 author: JanSchietse
 ms.author: janschietse
-ms.date: 01/25/2024
+ms.date: 03/17/2025
 ms.topic: include
 ms.service: azure-health-insights
 ---
@@ -12,7 +12,7 @@ ms.service: azure-health-insights
   "result": {
     "patientResults": [
       {
-        "patientId": "11111",
+        "patientId": "111111",
         "inferences": [
           {
             "kind": "limitedOrderDiscrepancy",
@@ -31,7 +31,7 @@ ms.service: azure-health-insights
                   {
                     "system": "http://radlex.org",
                     "code": "RID58",
-                    "display": "Liver"
+                    "display": "LIVER"
                   }
                 ]
               },
@@ -113,12 +113,12 @@ ms.service: azure-health-insights
         ]
       }
     ],
-    "modelVersion": "2024-01-10-Preview"
+    "modelVersion": "2025-03-17"
   },
-  "id": "6d836504-f884-428d-b823-752947387b4a",
-  "createdDateTime": "2024-01-12T07:13:58.7944605Z",
-  "expirationDateTime": "2024-01-12T07:30:38.7944605Z",
-  "lastUpdateDateTime": "2024-01-12T07:14:11.9375243Z",
+  "id": "fca111",
+  "createdAt": "2025-04-30T11:20:48Z",
+  "expiresAt": "2025-05-01T11:20:48Z",
+  "updatedAt": "2025-04-30T11:20:53Z",
   "status": "succeeded"
 }
 ```

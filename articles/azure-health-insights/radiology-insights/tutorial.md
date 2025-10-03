@@ -25,7 +25,7 @@ In this tutorial, you:
 
 If you don’t have a service subscription, create a [free trial account](//azure.microsoft.com/free/ai-services). 
 
-A complete working example of the code contained in this tutorial (with some extra additions) can be found here: [SampleFollowupRecommendationInferenceAsync](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/src/samples/java/com/azure/health/insights/radiologyinsights/SampleFollowupRecommendationInferenceAsync.java).
+A complete working example of the code contained in this tutorial (with some extra additions) can be found here: [SampleFollowupRecommendationInferenceAsync](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/src/samples/java/com/azure/health/insights/radiologyinsights/SampleCriticalResultInferenceAsync.java).
 
 ## Prerequisites
 
@@ -103,7 +103,7 @@ The extractEvidenceToken() method loops over the subExtensions and extracts the 
                     
 ## Retrieve the imaging procedures contained in the follow-up recommendation
 
-The imaging procedures are wrapped in an ImagingProcedureRecommendation (which is itself a subclass of ProcedureRecommendation), and can be retrieved as follows:
+The imaging procedures are wrapped in an ImagingProcedureRecommendation (which is itself a subclass of ProcedureRecommendation) and can be retrieved as follows:
 
 ```java
         ProcedureRecommendation recommendedProcedure = followupRecommendationInference.getRecommendedProcedure();
@@ -134,7 +134,7 @@ An imaging procedure can contain both a modality and an anatomy. The supporting 
                         }
 ```
 
-The codes (in this example SNOMED) can be displayed using the displayCodes() method. The codes are wrapped in FHir4Coding objects, and can be displayed in a straightforward manner as in the following code. The indentation parameter is only added for formatting purposes:
+The codes (in this example SNOMED) can be displayed using the displayCodes() method. The codes are wrapped in FHir4Coding objects and can be displayed in a straightforward manner as in the following code. The indentation parameter is only added for formatting purposes:
 
 ```java
     private static void displayCodes(FhirR4CodeableConcept codeableConcept, int indentation) {
@@ -159,7 +159,7 @@ If you created a resource or resource group for this tutorial, these resources c
 
 ## Related content
 
-* [SampleFollowupRecommendationInferenceAsync](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/src/samples/java/com/azure/health/insights/radiologyinsights/SampleFollowupRecommendationInferenceAsync.java)
+* [SampleFollowupRecommendationInferenceAsync](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/src/samples/java/com/azure/health/insights/radiologyinsights/SampleCriticalResultInferenceAsync.java)
 * [Deploy Azure AI Health Insights using the Azure portal](../deploy-portal.md)
 <!---* [Deploy Azure Health Insights using CLI or PowerShell](get-started-CLI.md)--->
 * [Azure Cognitive Services Health Insights Radiology Insights client library for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/README.md)

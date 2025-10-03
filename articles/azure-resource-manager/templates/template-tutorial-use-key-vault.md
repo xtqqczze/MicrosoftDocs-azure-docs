@@ -1,7 +1,7 @@
 ---
 title: Use Azure Key Vault in templates
 description: Learn how to use Azure Key Vault to pass secure parameter values during Azure Resource Manager template (ARM template) deployment.
-ms.date: 06/23/2023
+ms.date: 06/20/2024
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
@@ -32,7 +32,7 @@ For a Learn module that uses a secure value from a key vault, see [Manage comple
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* [Visual Studio Code](https://code.visualstudio.com/).
 * To increase security, use a generated password for the VM administrator account. You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to run the following command in PowerShell or Bash:
 
     ```shell
@@ -41,7 +41,7 @@ To complete this article, you need:
 
     To learn more, run `man openssl rand` to open the manual page.
 
-    Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+    Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
 
 ## Prepare a key vault
 

@@ -3,10 +3,11 @@ title: include file
 description: include file
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
 ms.topic: include
-ms.custom: include file
 ms.date: 06/27/2019
+ms.custom:
+  - include file
+  - sfi-image-nochange
 ---
 
 ## Prerequisites

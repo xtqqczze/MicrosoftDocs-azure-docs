@@ -1,11 +1,12 @@
 ---
 title: Restore SQL server databases in Azure VMs with REST API
 description: Learn how to use REST API to restore SQL server databases in Azure VM from a restore point created by Azure Backup
-ms.topic: conceptual
-ms.date: 08/11/2022
-ms.service: backup
+ms.topic: how-to
+ms.date: 06/03/2025
+ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to restore SQL Server databases in Azure VMs using the REST API, so that I can efficiently manage backup and recovery operations without using the portal."
 ---
 
 # Restore SQL Server databases in Azure VMs with REST API
@@ -375,7 +376,7 @@ To perform Cross-region restore, you will require an access token to enable prop
     }
     ```
 
-1. Use the [Get Access Token API](/rest/api/backup/recovery-points-get-access-token-for-crr/get-access-token) to get an access token to enable communication between the Azure Backup services.
+1. Use the Get Access Token API to get an access token to enable communication between the Azure Backup services.
 
     ```http
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/accessToken?api-version=2018-12-20
@@ -492,7 +493,9 @@ Sample request body to restore the disks of a VM to the secondary region is as f
 
 ## Next steps
 
+Manage SQL server databases in Azure VMs with [Azure portal](manage-monitor-sql-database-backup.md), [Azure CLI](backup-azure-sql-manage-cli.md), [REST API](manage-azure-sql-vm-rest-api.md).
+
 For more information on the Azure Backup REST APIs, see the following documents:
 
-- [Azure Recovery Services provider REST API](/rest/api/recoveryservices/)
-- [Get started with Azure REST API](/rest/api/azure/)
+- [Azure Recovery Services provider REST API](/rest/api/recoveryservices/).
+- [Get started with Azure REST API](/rest/api/azure/).

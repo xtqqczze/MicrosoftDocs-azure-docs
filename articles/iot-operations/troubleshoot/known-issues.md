@@ -1,190 +1,207 @@
 ---
-title: "Known issues: Azure IoT Operations Preview"
-description: A list of known issues for Azure IoT Operations.
+title: "Known issues: Azure IoT Operations"
+description: Known issues for the MQTT broker, connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.custom:
-  - ignite-2023
-ms.date: 05/03/2024
+ms.custom: sfi-ropc-nochange
+ms.date: 09/17/2025
 ---
 
-# Known issues: Azure IoT Operations Preview
+# Known issues: Azure IoT Operations
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+This article lists the current known issues you might encounter when using Azure IoT Operations. The guidance helps you identify these issues and provides workarounds where available.
 
-This article contains known issues for Azure IoT Operations Preview.
+For general troubleshooting guidance, see [Troubleshoot Azure IoT Operations](troubleshoot.md).
 
-## Azure IoT Operations Preview
+## MQTT broker issues
 
-- You must use the Azure CLI interactive login `az login`. If you don't, you might see an error such as _ERROR: AADSTS530003: Your device is required to be managed to access this resource_.
+This section lists current known issues for the MQTT broker.
 
-- Uninstalling K3s: When you uninstall k3s on Ubuntu by using the `/usr/local/bin/k3s-uninstall.sh` script, you might encounter an issue where the script gets stuck on unmounting the NFS pod. A workaround for this issue is to run the following command before you run the uninstall script: `sudo systemctl stop k3s`.
+### MQTT broker resources aren't visible in the Azure portal
 
-## Azure IoT MQ Preview
+---
 
-- You can only access the default deployment by using the cluster IP, TLS, and a service account token. Clients outside the cluster need extra configuration before they can connect.
+Issue ID: 4257
 
-- You can't update the Broker custom resource after the initial deployment. You can't make configuration changes to cardinality, memory profile, or disk buffer.
+---
 
-- You can't configure the size of a disk-backed buffer unless your chosen storage class supports it.
+Log signature: N/A
 
-- Even though IoT MQ's [diagnostic service](../monitor/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
+---
 
-- Some clusters that have slow Kubernetes API calls may result in selftest ping failures: `Status {Failed}. Probe failed: Ping: 1/2` from running `az iot ops check` command.
+MQTT broker resources created in your cluster using Kubernetes aren't visible in the Azure portal. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#manage-components-using-kubernetes-deployment-manifests-preview), and synchronizing resources from the edge to the cloud isn't currently supported.
 
-- You might encounter an error in the KafkaConnector StatefulSet event logs such as `Invalid value: "mq-to-eventhub-connector-<token>--connectionstring": must be no more than 63 characters`. Ensure your KafkaConnector name is of maximum 5 characters.
+There's currently no workaround for this issue.
 
-- You may encounter timeout errors in the Kafka connector and Event Grid connector logs. Despite this, the connector will continue to function and forward messages.
+## Connector for OPC UA issues
 
-## Azure IoT Layered Network Management Preview
+This section lists current known issues for the connector for OPC UA.
 
-- If the Layered Network Management service isn't getting an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.
+### An OPC UA server modeled as a device can only have one inbound endpoint of type "Microsoft.OpcUa"
 
-    ```bash
-    curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
-    ```
+---
 
-    For more information, see [Networking | K3s](https://docs.k3s.io/networking#traefik-ingress-controller).
+Issue ID: 2411
 
-- If DNS queries aren't getting resolved to expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S.
+---
 
-## Azure IoT OPC UA Broker Preview
+`2025-07-24T13:29:30.280Z aio-opc-supervisor-85b8c78df5-26tn5 - Maintaining the new asset test-opcua-asset | - | 1 is skipped because the endpoint profile test-opcua.opcplc-e2e-anon-000000 is not present`
 
-- All AssetEndpointProfiles in the cluster have to be configured with the same transport authentication certificate, otherwise the OPC UA Broker might exhibit random behavior. To avoid this issue when using transport authentication, configure all asset endpoints with the same thumbprint for the transport authentication certificate in the Azure IoT Operations (preview) portal.
+---
 
-- If you deploy an AssetEndpointProfile into the cluster and the OPC UA Broker can't connect to the configured endpoint on the first attempt, then the OPC UA Broker never retries to connect.
+When you create an OPC UA device, you can only have one inbound endpoint of type `Microsoft.OpcUa`. Currently, any other endpoints aren't used.
 
-    As a workaround, first fix the connection problem. Then either restart all the pods in the cluster with pod names that start with "aio-opc-opc.tcp", or delete the AssetEndpointProfile and deploy it again.
+Workaround: Create multiple devices with a single endpoint each if you want to use namespace assets.
 
-## OPC PLC simulator
+An OPC UA namespaced asset can only have a single dataset. Currently, any other datasets aren't used.
 
-If you create an asset endpoint for the OPC PLC simulator, but the OPC PLC simulator isn't sending data to the IoT MQ broker, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
+Workaround: Create multiple namespace assets each with a single dataset.
 
-```bash
-ENDPOINT_NAME=<name-of-you-endpoint-here>
-kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
--n azure-iot-operations \
---type=merge \
--p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
+### Application error BadUnexpectedError
+
+---
+
+Issue ID: 9044
+
+---
+
+Log signature: `BadUnexpectedError`
+
+---
+
+In the process control sample application, if you call the `Switch` method on the demo asset `demo-method-call.asset.yaml` then currently you receive a `BadUnexpectedError` application error.
+
+## Connector for media and connector for ONVIF issues
+
+This section lists current known issues for the connector for media and the connector for ONVIF.
+
+### Secret sync conflict
+
+---
+
+Issue ID: 0606
+
+---
+
+Log signature: N/A
+
+---
+
+When using secret sync, ensure that secret names are globally unique. If a local secret with the same name exists, connectors might fail to retrieve the intended secret.
+
+## Data flows issues
+
+This section lists current known issues for data flows.
+
+### Data flow resources aren't visible in the operations experience web UI
+
+---
+
+Issue ID: 8724
+
+---
+
+Log signature: N/A
+
+---
+
+Data flow custom resources created in your cluster using Kubernetes aren't visible in the operations experience web UI. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#manage-components-using-kubernetes-deployment-manifests-preview), and synchronizing resources from the edge to the cloud isn't currently supported.
+
+There's currently no workaround for this issue.
+
+### A data flow profile can't exceed 70 data flows
+
+---
+
+Issue ID: 1028
+
+---
+
+Log signature:
+
+`exec /bin/main: argument list too long`
+
+---
+
+If you create more than 70 data flows for a single data flow profile, deployments fail with the error `exec /bin/main: argument list too long`.
+
+To work around this issue, create multiple data flow profiles and distribute the data flows across them. Don't exceed 70 data flows per profile.
+
+### The request persistence flag is not set for MQTT sessions created for data flow graphs (WASM)
+
+---
+
+Issue ID: 6415
+
+---
+
+Log signature: N/A
+
+---
+
+When you create a data flow graph using the WASM, the MQTT session doesn't have the request persistence flag set.
+
+To work around this issue, set MQTT broker **Retained messages** mode to `All`. For more information, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
+
+### Data flow graphs only support specific endpoint types
+
+---
+
+Issue ID: 5693
+
+---
+
+Log signature: N/A
+
+---
+
+Data flow graphs (WASM) currently only support MQTT, Kafka, and OpenTelemetry (OTel) data flow endpoints. OpenTelemetry endpoints can only be used as destinations in data flow graphs. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported for data flow graphs.
+
+To work around this issue, use one of the supported endpoint types:
+- [MQTT endpoints](../connect-to-cloud/howto-configure-mqtt-endpoint.md) for bi-directional messaging with MQTT brokers
+- [Kafka endpoints](../connect-to-cloud/howto-configure-kafka-endpoint.md) for bi-directional messaging with Kafka brokers, including Azure Event Hubs
+- [OpenTelemetry endpoints](../connect-to-cloud/howto-configure-opentelemetry-endpoint.md) for sending metrics and logs to observability platforms (destination only)
+
+For more information about data flow graphs, see [Use WebAssembly (WASM) with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
+
+### Complex data might be flattened when enriching data in a data flow
+
+---
+
+Issue ID: 7385
+
+---
+
+Log signature: N/A
+
+---
+
+When enriching data using complex object DSS reference data, the output might be moved to the root level instead of preserving the original structure.
+
+For example, if you have a complex object with properties like:
+
+```json
+{
+  "complex_property_1": {
+      "field1": 12,
+      "field2": 13 
+  },
+  "complex_property_2": {
+     "field2": 24
+  }
+}
 ```
 
-> [!CAUTION]
-> Don't use this configuration in production or pre-production environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+The output might look like:
 
-You can patch all your asset endpoints with the following command:
-
-```bash
-ENDPOINTS=$(kubectl get AssetEndpointProfile -n azure-iot-operations --no-headers -o custom-columns=":metadata.name")
-for ENDPOINT_NAME in `echo "$ENDPOINTS"`; do \
-kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
-   -n azure-iot-operations \
-   --type=merge \
-   -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'; \
-done
+```json
+{
+  "property_1": 2,
+  "property_2": 3,
+  "field1": 12,
+  "field2": 24,
+}
 ```
 
-Update the OPC UA Broker cluster extension to accept untrusted server certificates with the following command:
-
-```azurecli
-az k8s-extension update --version 0.3.0-preview --name opc-ua-broker --release-train preview --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --auto-upgrade-minor-version false --config opcPlcSimulation.deploy=true --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
-```
-
-> [!CAUTION]
-> Don't use this configuration in production or pre-production environments. The configuration lowers the security level for the OPC PLC so that it accepts connections from any client without an explicit peer certificate trust operation.
-
-If the OPC PLC simulator isn't sending data to the IoT MQ broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
-
-```bash
-kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
-```
-
-## Azure IoT Akri Preview
-
-A sporadic issue might cause the handler to restart with the following error in the logs: `opcua@311 exception="System.IO.IOException: Failed to bind to address http://unix:/var/lib/akri/opcua-asset.sock: address already in use.`.
-
-To work around this issue, use the following steps to update the **DaemonSet** specification:
-
-1. Locate the **Target** custom resource provided by **orchestration.iotoperations.azure.com** that contains the deployment specifications for **aio-opc-asset-discovery**.
-1. In the **aio-opc-asset-discovery** component of the target file, find the `spect.components.aio-opc-asset-discovery.properties.resource.spec.template.spec.containers.env` parameter.
-1. Add the following environment variables:
-
-```yml
-- name: ASPNETCORE_URLS 
-  value: http://+8443 
-- name: POD_IP 
-  valueFrom: 
-    fieldRef: 
-      fieldPath: "status.podIP" 
-```
-
-The final specification should look like the following example:
-
-```yml
-apiVersion: orchestrator.iotoperations.azure.com/v1 
-kind: Target 
-metadata: 
-  name: <cluster-name>-target 
-  namespace: azure-iot-operations 
-spec: 
-  displayName: <cluster-name>-target 
-  scope: azure-iot-operations 
-  topologies: 
-  ...
-  version: 1.0.0.0 
-  components: 
-    ... 
-    - name: aio-opc-asset-discovery 
-      type: yaml.k8s 
-      properties: 
-        resource: 
-          apiVersion: apps/v1 
-          kind: DaemonSet 
-          metadata: 
-            labels: 
-              app.kubernetes.io/part-of: aio 
-            name: aio-opc-asset-discovery 
-          spec: 
-            selector: 
-              matchLabels: 
-                name: aio-opc-asset-discovery 
-            template: 
-              metadata: 
-                labels: 
-                  app.kubernetes.io/part-of: aio 
-                  name: aio-opc-asset-discovery 
-              spec: 
-                containers: 
-                  - env: 
-                      - name: ASPNETCORE_URLS 
-                        value: http://+8443 
-                      - name: POD_IP 
-                        valueFrom: 
-                          fieldRef: 
-                            fieldPath: status.podIP 
-                      - name: DISCOVERY_HANDLERS_DIRECTORY 
-                        value: /var/lib/akri 
-                      - name: AKRI_AGENT_REGISTRATION 
-                        value: 'true' 
-                    image: >- 
-                      edgeappmodel.azurecr.io/opcuabroker/discovery-handler:0.4.0-preview.3 
-                    imagePullPolicy: Always 
-                    name: aio-opc-asset-discovery 
-                    ports: ... 
-                    resources: ...
-                    volumeMounts: ...
-                volumes: ...
-```
-
-## Azure IoT Operations Preview portal
-
-To sign in to the Azure IoT Operations portal, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create an account in your Azure tenant:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
-1. In the Azure portal, navigate to the **Microsoft Entra ID** section, select **Users > +New user > Create new user**. Create a new user and make a note of the password, you need it to sign in later.
-1. In the Azure portal, navigate to the resource group that contains your **Kubernetes - Azure Arc** instance. On the **Access control (IAM)** page, select **+Add > Add role assignment**.
-1. On the **Add role assignment page**, select **Privileged administrator roles**. Then select **Contributor** and then select **Next**.
-1. On the **Members** page, add your new user to the role.
-1. Select **Review and assign** to complete setting up the new user.
-
-You can now use the new user account to sign in to the [Azure IoT Operations](https://iotoperations.azure.com) portal.
+The complex properties are flattened to the root, and the original structure is lost. If fields with the same name exist in the complex objects or the root, the values might overwrite the root values. In the example, `field2` from `complex_property_2` overwrites the `field2` from `complex_property_1`.

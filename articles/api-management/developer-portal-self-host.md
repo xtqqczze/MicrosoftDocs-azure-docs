@@ -5,7 +5,7 @@ description: Learn how to self-host the developer portal for Azure API Managemen
 author: dlepow
 ms.author: danlep
 ms.date: 03/29/2024
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ---
 
@@ -432,7 +432,7 @@ Update the developer portal URL in any template that has a link in the footer:
 
 ## Move from managed to self-hosted developer portal
 
-Over time, your business requirements may change. You can end up in a situation where the managed version of the API Management developer portal no longer satisfies your needs. For example, a new requirement may force you to build a custom widget that integrates with a third-party data provider. Unlike the manged version, the self-hosted version of the portal offers you full flexibility and extensibility.
+Over time, your business requirements may change. You can end up in a situation where the managed version of the API Management developer portal no longer satisfies your needs. For example, a new requirement may force you to build a custom widget that integrates with a third-party data provider. Unlike the managed version, the self-hosted version of the portal offers you full flexibility and extensibility.
 
 ### Transition process
 
@@ -444,6 +444,6 @@ The conversion process is almost identical to setting up a generic self-hosted p
 > We recommend using a separate storage account in the `config.publish.json` file. This approach gives you more control and simplifies the management of the hosting service of your portal.
 
 
-## Next steps
+## Related content
 
 - Learn about [Alternative approaches to self-hosting](developer-portal-alternative-processes-self-host.md)

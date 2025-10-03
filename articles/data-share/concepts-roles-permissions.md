@@ -3,9 +3,9 @@ title: Roles and requirements for Azure Data Share
 description: Learn about the permissions required to share and receive data using Azure Data Share.
 author: sidontha
 ms.author: sidontha
-ms.service: data-share
-ms.topic: conceptual
-ms.date: 01/03/2023
+ms.service: azure-data-share
+ms.topic: concept-article
+ms.date: 02/12/2025
 ms.custom: subject-rbac-steps
 ---
 
@@ -217,7 +217,7 @@ To create a role assignment for the data share resource's managed identity manua
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select one of the roles listed in the role assignment table in the previous section.
 
@@ -245,7 +245,7 @@ Alternatively, user can have owner of the storage account add the data share res
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select one of the roles listed in the role assignment table in the previous section. For example, for a storage account, select Storage Blob Data Reader.
 
@@ -344,6 +344,6 @@ The following shows an example of how the required actions will be listed in JSO
 }
 ```
 
-## Next steps
+## Related content
 
-- Learn more about roles in Azure - [Understand Azure role definitions](../role-based-access-control/role-definitions.md)
+Learn more about roles in Azure - [Understand Azure role definitions](../role-based-access-control/role-definitions.md)

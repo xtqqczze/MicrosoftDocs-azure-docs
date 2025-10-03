@@ -75,7 +75,7 @@ Common concerns for enterprises that migrate workloads to the cloud include:
 
 ### Enroll all users in Microsoft Entra ID
 
-For management, such as adding users or adding lab owners, all lab users must belong to the [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory) tenant for the Azure subscription the pilot uses. Many enterprises set up [hybrid identity](../active-directory/hybrid/whatis-hybrid-identity.md) to enable users to use their on-premises identities in the cloud. You don't need a hybrid identity for a DevTest Labs proof of concept.
+For management, such as adding users or adding lab owners, all lab users must belong to the [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) tenant for the Azure subscription the pilot uses. Many enterprises set up [hybrid identity](../active-directory/hybrid/whatis-hybrid-identity.md) to enable users to use their on-premises identities in the cloud. You don't need a hybrid identity for a DevTest Labs proof of concept.
 
 ## Scope the proof of concept
 
@@ -168,7 +168,8 @@ The solution has the following requirements:
 ### Prerequisites 
 
 - A subscription to use for the project
-- A Microsoft Entra tenant, and a Microsoft Entra Global Administrator who can provide Microsoft Entra ID help and guidance
+- A Microsoft Entra tenant, and a platform engineer who can provide Microsoft Entra ID help and guidance
+
 - Ways for project members to collaborate, such as:
   - Azure Repos for source code and scripts
   - Microsoft Teams or SharePoint for documents

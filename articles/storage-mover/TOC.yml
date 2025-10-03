@@ -7,6 +7,8 @@ items:
     href: service-overview.md
   - name: Cloud migration basics
     href: migration-basics.md
+  - name: Get started with cloud-to-cloud migration
+    href: cloud-to-cloud-migration.md
   expanded: true
 - name: Concepts
   items: 
@@ -34,17 +36,23 @@ items:
       href: project-manage.md
     - name: Define and start a migration job
       href: job-definition-create.md
+  - name: Manage
+    items:
+    - name: Configure bandwidth limits
+      href: bandwidth-management.md
   - name: Decommission
     items: 
     - name: Unregister an agent
-      href: agent-deploy.md#decommissioning-an-agent  
+      href: agent-deploy.md#decommissioning-an-agent 
+  - name: Troubleshoot
+    items: 
+    - name: Job run error codes
+      href: status-code.md
+    - name: Collect a support bundle
+      href: troubleshooting.md
 - name: Resources
   items:
   - name: Monitor copy and job run logs
     href: log-monitoring.md
-  - name: Troubleshoot job run error codes
-    href: status-code.md
-  - name: Collect a support bundle
-    href: troubleshooting.md
   - name: Release notes
     href: release-notes.md

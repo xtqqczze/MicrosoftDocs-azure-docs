@@ -2,14 +2,13 @@
 services: storage, app-service-web
 author: rwike77
 manager: CelesteDG
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 03/14/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp azurecli
 ms.custom: azureday1
-ms.subservice: web-apps
 ---
 
 ## Clean up resources

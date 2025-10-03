@@ -3,11 +3,15 @@ title: Quickstart - Create Azure API Management instance - ARM template
 description: Use this quickstart to create an Azure API Management instance in the Developer tier by using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: quickstart-arm
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: danlep
 ms.date: 03/25/2024
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a new Azure API Management service instance using an ARM template
@@ -18,7 +22,7 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 [!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

@@ -1,20 +1,20 @@
 ---
 title: Set up VMware disaster recovery using PowerShell in Azure Site Recovery
 description: Learn how to set up replication and failover to Azure for disaster recovery of VMware VMs using PowerShell in Azure Site Recovery.
-author: ankitaduttaMSFT
-manager: gaggupta
-ms.service: site-recovery
-ms.topic: conceptual
-ms.author: ankitadutta
+author: jyothisuri
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.author: jsuri
 ms.date: 03/07/2024
 ms.custom: devx-track-azurepowershell
 
 
+# Customer intent: "As a cloud architect, I want to set up disaster recovery for VMware VMs to Azure using PowerShell, so that I can ensure business continuity and quick recovery in case of a disaster."
 ---
 # Set up disaster recovery of VMware VMs to Azure with PowerShell
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 In this article, you see how to replicate and fail over VMware virtual machines to Azure using Azure PowerShell.
 
@@ -29,7 +29,7 @@ You learn how to:
 > - Perform a failover. Configure failover settings, perform a settings for replicating virtual machines.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -224,7 +224,7 @@ In this step, two replication policies are created. One policy to replicate VMwa
    StateDescription : Completed
    StartTime        : 11/24/2017 2:49:24 AM
    EndTime          : 11/24/2017 2:49:23 AM
-   TargetObjectId   : ab31026e-4866-5440-969a-8ebcb13a372f
+   TargetObjectId   : bbbbbbbb-1111-2222-3333-cccccccccccc
    TargetObjectType : ProtectionProfile
    TargetObjectName : ReplicationPolicy
    AllowedActions   :
@@ -438,7 +438,7 @@ State            : InProgress
 StateDescription : InProgress
 StartTime        : 11/24/2017 2:04:26 PM
 EndTime          :
-TargetObjectId   : 88bc391e-d091-11e7-9484-000c2955bb50
+TargetObjectId   : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 TargetObjectType : ProtectionEntity
 TargetObjectName : Win2K12VM1
 AllowedActions   :

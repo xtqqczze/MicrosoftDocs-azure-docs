@@ -1,7 +1,7 @@
 ---
 author: JanSchietse
 ms.author: janschietse
-ms.date: 01/25/2024
+ms.date: 03/17/2025
 ms.topic: include
 ms.service: azure-health-insights
 ---
@@ -12,7 +12,7 @@ ms.service: azure-health-insights
   "result": {
     "patientResults": [
       {
-        "patientId": "11111",
+        "patientId": "111111",
         "inferences": [
           {
             "kind": "criticalResult",
@@ -20,19 +20,8 @@ ms.service: azure-health-insights
               "description": "NEW FRACTURE",
               "finding": {
                 "resourceType": "Observation",
-                "id": "722",
+                "id": "872",
                 "status": "unknown",
-                "category": [
-                  {
-                    "coding": [
-                      {
-                        "system": "http://snomed.info/sct",
-                        "code": "439401001",
-                        "display": "DIAGNOSIS (OBSERVABLE ENTITY)"
-                      }
-                    ]
-                  }
-                ],
                 "code": {
                   "coding": [
                     {
@@ -197,7 +186,30 @@ ms.service: azure-health-insights
                   }
                 ]
               }
-            }
+            },
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "code",
+                    "valueString": "18782-3"
+                  },
+                  {
+                    "url": "codingSystem",
+                    "valueString": "2.16.840.1.113883.6.1"
+                  },
+                  {
+                    "url": "codingSystemName",
+                    "valueString": "http://loinc.org"
+                  },
+                  {
+                    "url": "displayName",
+                    "valueString": "RADIOLOGY STUDY OBSERVATION (NARRATIVE)"
+                  }
+                ],
+                "url": "section"
+              }
+            ]
           },
           {
             "kind": "criticalResult",
@@ -205,19 +217,8 @@ ms.service: azure-health-insights
               "description": "NEW FRACTURE",
               "finding": {
                 "resourceType": "Observation",
-                "id": "724",
+                "id": "874",
                 "status": "unknown",
-                "category": [
-                  {
-                    "coding": [
-                      {
-                        "system": "http://snomed.info/sct",
-                        "code": "439401001",
-                        "display": "DIAGNOSIS (OBSERVABLE ENTITY)"
-                      }
-                    ]
-                  }
-                ],
                 "code": {
                   "coding": [
                     {
@@ -382,17 +383,40 @@ ms.service: azure-health-insights
                   }
                 ]
               }
-            }
+            },
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "url": "code",
+                    "valueString": "19005-8"
+                  },
+                  {
+                    "url": "codingSystem",
+                    "valueString": "2.16.840.1.113883.6.1"
+                  },
+                  {
+                    "url": "codingSystemName",
+                    "valueString": "http://loinc.org"
+                  },
+                  {
+                    "url": "displayName",
+                    "valueString": "RADIOLOGY IMAGING STUDY (NARRATIVE)"
+                  }
+                ],
+                "url": "section"
+              }
+            ]
           }
         ]
       }
     ],
-    "modelVersion": "2024-01-10-Preview"
+    "modelVersion": "2025-03-17"
   },
-  "id": "780e4802-2a64-44d9-a108-bda47f477198",
-  "createdDateTime": "2024-01-12T07:35:57.9734608Z",
-  "expirationDateTime": "2024-01-12T07:52:37.9734608Z",
-  "lastUpdateDateTime": "2024-01-12T07:36:04.755901Z",
+  "id": "fca106",
+  "createdAt": "2025-04-30T09:37:27Z",
+  "expiresAt": "2025-05-01T09:37:27Z",
+  "updatedAt": "2025-04-30T09:37:31Z",
   "status": "succeeded"
 }
 ```

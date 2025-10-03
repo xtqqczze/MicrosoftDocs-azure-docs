@@ -3,23 +3,30 @@ title: 'Quickstart: Direct web traffic using the portal'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use the Azure portal to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: greg-lindsay
-ms.author: greglin
-ms.date: 04/18/2024
+author: mbender-ms
+ms.author: mbender
+ms.date: 09/04/2024
 ms.topic: quickstart
-ms.service: application-gateway
-ms.custom: mvc, mode-ui
+ms.service: azure-application-gateway
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
+# Customer intent: "As a network engineer, I want to set up an application gateway that directs web traffic to backend virtual machines, so that I can manage traffic efficiently and ensure high availability for my web applications."
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure portal
 
 In this quickstart, you use the Azure portal to create an [Azure Application Gateway](overview.md) and test it to make sure it works correctly. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, a simple setup is used with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines (VMs) in the backend pool.
 
-![Conceptual diagram of the quickstart setup.](./media/quick-create-portal/application-gateway-qs-resources.png)
+:::image type="content" source="./media/quick-create-portal/application-gateway-qs-resources.png" alt-text="Conceptual diagram of the quickstart setup." lightbox="./media/quick-create-portal/application-gateway-qs-resources.png":::
 
 For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md).
 
 You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or [Azure CLI](quick-create-cli.md).
+
+> [!NOTE]
+> Application Gateway frontend now supports dual-stack IP addresses (Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 ## Prerequisites
 
@@ -42,7 +49,10 @@ Create the application gateway using the tabs on the **Create application gatewa
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
    - Use the default selections for other settings.
 
-     ![Screenshot of create new application gateway: basics.](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+     ![Screenshot of create new application gateway: basics.](./media/application-gateway-create-gateway-portal/application-gateway-create-zone-redundant.png)
+
+    > [!NOTE]
+    > Application Gateways are zone-redundant by default in regions that support multiple availability zones.
 
 2. For Azure to communicate between the resources that you create, a virtual network is needed. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: One for the application gateway, and another for the backend servers.
 
@@ -54,8 +64,6 @@ Create the application gateway using the tabs on the **Create application gatewa
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
     - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
-  
-    - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
 
          ![Screenshot of create new application gateway: virtual network.](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
 
@@ -67,14 +75,13 @@ Create the application gateway using the tabs on the **Create application gatewa
 
 1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
    > [!NOTE]
-   > For the Application Gateway v2 SKU, there must be a **Public** frontend IP configuration. You can still have both a Public and a Private frontend IP configuration, but Private only frontend IP configuration (Only ILB mode) is currently not enabled for the v2 SKU. 
+   > * The [Private-only deployment](application-gateway-private-deployment.md) (with only private IP) for the Application Gateway v2 SKU is currently in Public Preview.
+   > * Application Gateway frontend now supports dual-stack IP addresses in Public Preview. You can create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 2. Select **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
      ![Screenshot of create new application gateway: frontends.](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
-  > [!NOTE]
-  > Application Gateway frontend now supports dual-stack IP addresses (Public Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 
 3. Select **Next: Backends**.

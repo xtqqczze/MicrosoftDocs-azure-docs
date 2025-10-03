@@ -5,7 +5,9 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-image-nochange
 ---
 
 # Tutorial: Securing Azure Remote Rendering and model storage
@@ -353,7 +355,7 @@ With the Azure side of things in place, we now need to modify how your code conn
 >[!NOTE]
 > This code is by no means complete and is not ready for a commercial application. For example, at a minimum you'll likely want to add the ability to sign out too. This can be done using the `Task RemoveAsync(IAccount account)` method provided by the client application. This code is only intended for tutorial use, your implementation will be specific to your application.
 
-The code first tries to get the token silently using **AquireTokenSilent**. This is successful if the user has previously authenticated this application. If it's not successful, move on to a more user-involved strategy.
+The code first tries to get the token silently using **AcquireTokenSilent**. This is successful if the user has previously authenticated this application. If it's not successful, move on to a more user-involved strategy.
 
 For this code, we're using the [device code flow](../../../../active-directory/develop/v2-oauth2-device-code.md) to obtain an Access Token. This flow allows the user to sign in to their Azure account on a computer or mobile device and have the resulting token sent back to the HoloLens application.
 

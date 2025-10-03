@@ -1,7 +1,7 @@
 ---
 author: JanSchietse
 ms.author: janschietse
-ms.date: 01/25/2024
+ms.date: 03/17/2025
 ms.topic: include
 ms.service: azure-health-insights
 ---
@@ -12,19 +12,10 @@ ms.service: azure-health-insights
   "result": {
     "patientResults": [
       {
-        "patientId": "11111",
+        "patientId": "111111",
         "inferences": [
           {
             "procedureCodes": [
-              {
-                "coding": [
-                  {
-                    "system": "http://loinc.org",
-                    "code": "24727-0",
-                    "display": "CT HEAD W CONTRAST IV"
-                  }
-                ]
-              },
               {
                 "coding": [
                   {
@@ -70,26 +61,6 @@ ms.service: azure-health-insights
                   "coding": [
                     {
                       "system": "http://snomed.info/sct",
-                      "code": "69536005",
-                      "display": "HEAD STRUCTURE (BODY STRUCTURE)"
-                    }
-                  ]
-                }
-              },
-              {
-                "modality": {
-                  "coding": [
-                    {
-                      "system": "http://snomed.info/sct",
-                      "code": "77477000",
-                      "display": "COMPUTERIZED AXIAL TOMOGRAPHY (PROCEDURE)"
-                    }
-                  ]
-                },
-                "anatomy": {
-                  "coding": [
-                    {
-                      "system": "http://snomed.info/sct",
                       "code": "12738006",
                       "display": "BRAIN STRUCTURE (BODY STRUCTURE)"
                     }
@@ -101,26 +72,23 @@ ms.service: azure-health-insights
               "code": {
                 "coding": [
                   {
-                    "code": "24727-0"
-                  },
-                  {
                     "code": "70460"
                   }
                 ]
               },
-              "description": "CT HEAD W CONTRAST IV.;;Ct head/brain w/dye."
+              "description": "Ct head/brain w/dye"
             },
             "kind": "radiologyProcedure"
           }
         ]
       }
     ],
-    "modelVersion": "2024-01-10-Preview"
+    "modelVersion": "2025-03-17"
   },
-  "id": "89d4d36c-a8ce-444d-807b-333f3b7c08ec",
-  "createdDateTime": "2024-01-12T07:22:56.1444627Z",
-  "expirationDateTime": "2024-01-12T07:39:36.1444627Z",
-  "lastUpdateDateTime": "2024-01-12T07:23:04.9333715Z",
+  "id": "fca113",
+  "createdAt": "2025-04-30T11:28:03Z",
+  "expiresAt": "2025-05-01T11:28:03Z",
+  "updatedAt": "2025-04-30T11:28:09Z",
   "status": "succeeded"
 }
 ```

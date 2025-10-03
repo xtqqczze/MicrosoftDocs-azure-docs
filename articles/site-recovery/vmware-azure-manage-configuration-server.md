@@ -1,12 +1,15 @@
 ---
 title: Manage the configuration server for disaster recovery with Azure Site Recovery
 description: Learn about the common tasks to manage an on-premises configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
-author: ankitaduttaMSFT
-manager: gaggupta
-ms.service: site-recovery
-ms.topic: conceptual
-ms.author: ankitadutta
-ms.date: 08/03/2022
+author: jyothisuri
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.author: jsuri
+ms.date: 03/25/2025
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: As a system administrator managing disaster recovery of VMware VMs, I want to effectively configure and maintain the on-premises configuration server, so that I can ensure reliable data replication and recovery to Azure.
 ---
 
 # Manage the configuration server for VMware VM/physical server disaster recovery
@@ -14,7 +17,7 @@ ms.date: 08/03/2022
 You set up an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure and manages data replication. This article summarizes common tasks for managing the configuration server after it's deployed.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Update Windows license
 
@@ -249,6 +252,8 @@ ProxyPassword="Password"
 ```
 
 ## Delete or unregister a configuration server
+
+If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can unregister an unconnected configuration server from a vault as follows:
 
 1. [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all VMs under the configuration server.
 2. [Disassociate](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) and [delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) all replication policies from the configuration server.

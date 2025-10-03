@@ -3,10 +3,12 @@ title: 'Configure packet capture for VPN Gateway'
 titleSuffix: Azure VPN Gateway
 description: Learn about packet capture functionality that you can use on VPN gateways to help narrow down the cause of a problem.  
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 03/31/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
+# Customer intent: As a network administrator, I want to configure packet capture on my VPN gateway, so that I can effectively diagnose and troubleshoot connectivity issues by narrowing down traffic analysis to specific network segments.
 ---
 
 # Configure packet capture for VPN gateways
@@ -42,7 +44,7 @@ The following examples of JSON and a JSON schema provide explanations of each pr
   "Filters": [
     {
       "SourceSubnets": [
-        "20.1.1.0/24"
+        "10.1.0.0/24"
       ],
       "DestinationSubnets": [
         "10.1.1.0/24"
@@ -130,7 +132,7 @@ The following examples of JSON and a JSON schema provide explanations of each pr
                         ],
                         "TcpFlags": 16,
                         "SourceSubnets": [
-                            "20.1.1.0/24"
+                            "10.1.0.0/24"
                         ],
                         "DestinationSubnets": [
                             "10.1.1.0/24"
@@ -155,7 +157,7 @@ The following examples of JSON and a JSON schema provide explanations of each pr
                         ],
                         "TcpFlags": 16,
                         "SourceSubnets": [
-                            "20.1.1.0/24"
+                            "10.1.0.0/24"
                         ],
                         "DestinationSubnets": [
                             "10.1.1.0/24"
@@ -185,7 +187,7 @@ The following examples of JSON and a JSON schema provide explanations of each pr
                         "default": [],
                         "examples": [
                             [
-                                "20.1.1.0/24"
+                                "10.1.0.0/24"
                             ]
                         ],
                         "additionalItems": true,
@@ -196,7 +198,7 @@ The following examples of JSON and a JSON schema provide explanations of each pr
                             "description": "An explanation about the purpose of this instance.",
                             "default": "",
                             "examples": [
-                                "20.1.1.0/24"
+                                "10.1.0.0/24"
                             ]
                         }
                     },

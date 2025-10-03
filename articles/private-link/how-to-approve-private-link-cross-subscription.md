@@ -4,9 +4,9 @@ titleSuffix: Azure Private Link
 description: Get started learning how to approve and manage private endpoint connections across subscriptions by using Azure Private Link.
 author: abell
 ms.author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 01/11/2024
+ms.date: 03/25/2025
 # Customer intent: As a network administrator, I want to approve Private Link connections across Azure subscriptions.
 
 ---
@@ -22,6 +22,8 @@ Azure Private Link enables you to connect privately to Azure resources. Private 
     - One subscription hosts the Azure resource and the other subscription contains the consumer private endpoint and virtual network.
 
 - An administrator account for each subscription or an account with permissions in each subscription to create and manage resources.
+
+- Azure Private Link requires the private endpoint and the Private Link service to be in the same tenant, as cross-tenant configurations are not supported.
 
 Resources used in this article:
 
@@ -60,7 +62,7 @@ For the private endpoint connection to complete successfully, the `Microsoft.Sto
 
 1. Select **+ Create**.
 
-1. On the **Basics** tab of **Create a resource group**, enter or select the following information:
+1. On the **Basics** tab of **Create a resource group**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -73,7 +75,7 @@ For the private endpoint connection to complete successfully, the `Microsoft.Sto
 
 1. Select **Create**.
 
-[!INCLUDE [create-storage-account.md](../../includes/create-storage-account.md)]
+[!INCLUDE [create-storage-account.md](~/reusable-content/ce-skilling/azure/includes/create-storage-account.md)]
 
 ## Obtain the storage account resource ID
 
@@ -110,7 +112,7 @@ For the private endpoint connection to complete successfully, the `Microsoft.Sto
 
 1. Repeat the previous steps to register the `Microsoft.Network` resource provider.
 
-[!INCLUDE [virtual-network-create.md](../../includes/virtual-network-create.md)]
+[!INCLUDE [virtual-network-create.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create.md)]
 
 ## Create private endpoint
 
@@ -118,7 +120,7 @@ For the private endpoint connection to complete successfully, the `Microsoft.Sto
 
 1. Select **+ Create** in **Private endpoints**.
 
-1. On the **Basics** tab of **Create a private endpoint**, enter or select the following information:
+1. On the **Basics** tab of **Create a private endpoint**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |

@@ -1,14 +1,13 @@
 ---
 title: Connect Azure Communications Gateway to Operator Connect or Teams Phone Mobile
 description:  After deploying Azure Communications Gateway, you can configure it to connect to the Operator Connect and Teams Phone Mobile environments.
-author: rcdun
-ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: integration
 ms.date: 03/22/2024
 ms.custom:
     - template-how-to-pattern
-    - has-azure-ad-ps-ref
+    - no-azure-ad-ps-ref
+    - sfi-ga-nochange
 ---
 
 # Connect Azure Communications Gateway to Operator Connect or Teams Phone Mobile
@@ -62,24 +61,24 @@ If you want to set up Teams Phone Mobile and you didn't select it when you deplo
 Before starting this step, check that the **Provisioning Status** field for your resource is "Complete".
 
 > [!NOTE]
->This step and the next step ([Assign an Admin user to the Project Synergy application](#assign-an-admin-user-to-the-project-synergy-application)) set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. If you've already gone through onboarding, go to [Find the Application ID for your Azure Communication Gateway resource](#find-the-application-id-for-your-azure-communication-gateway-resource).
+>This step and the next step ([Assign an Admin user to the Project Synergy application](#assign-an-admin-user-to-the-project-synergy-application)) set you up as an Operator in the Teams Phone Mobile and Operator Connect environments. If you've already gone through onboarding, go to [Find the Application ID for your Azure Communication Gateway resource](#find-the-application-id-for-your-azure-communication-gateway-resource).
 
 The Operator Connect and Teams Phone Mobile programs require your Microsoft Entra tenant to contain a Microsoft application called Project Synergy. Operator Connect and Teams Phone Mobile inherit permissions and identities from your Microsoft Entra tenant through the Project Synergy application. The Project Synergy application also allows configuration of Operator Connect or Teams Phone Mobile and assigning users and groups to specific roles.
 
 To add the Project Synergy application:
 
-1. Check whether the Microsoft Entra ID (`AzureAD`) module is installed in PowerShell. Install it if necessary.
+1. Check whether the Microsoft Entra ID (`Microsoft.Entra`) module is installed in PowerShell. Install it if necessary.
     1. Open PowerShell.
-    1. Run the following command and check whether `AzureAD` appears in the output.
+    1. Run the following command and check whether `Microsoft.Entra` appears in the output.
        ```powershell
        Get-Module -ListAvailable
        ```
-    1. If `AzureAD` doesn't appear in the output, install the module.
+    1. If `Microsoft.Entra` doesn't appear in the output, install the module.
         1. Close your current PowerShell window.
         1. Open PowerShell as an admin.
         1. Run the following command.
             ```powershell
-            Install-Module AzureAD
+            Install-Module Microsoft.Entra
             ```
         1. Close your PowerShell admin window.
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as a Microsoft Entra Global Admin.
@@ -89,8 +88,8 @@ To add the Project Synergy application:
 1. Open PowerShell.
 1. Run the following cmdlet, replacing *`<TenantID>`* with the tenant ID you noted down in step 5.
     ```powershell
-    Connect-AzureAD -TenantId "<TenantID>"
-    New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
+    Connect-Entra -TenantId <TenantID> -Scopes 'Application.ReadWrite.All'
+    New-EntraServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
     ```
 
 ## Assign an Admin user to the Project Synergy application
@@ -202,7 +201,7 @@ Do the following steps in the tenant that contains your Project Synergy applicat
 ## Provide additional information to your onboarding team
 
 > [!NOTE]
->This step is required to set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. Skip this step if you have already onboarded to TPM or OC.
+>This step is required to set you up as an Operator in the Teams Phone Mobile and Operator Connect environments. Skip this step if you've finished onboarding.
 
 Before your onboarding team can finish onboarding you to the Operator Connect and/or Teams Phone Mobile environments, you need to provide them with some additional information.
 

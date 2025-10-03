@@ -2,12 +2,12 @@
 title: Best practices for large-scale IoT deployments
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Best practices, patterns, and sample code you can use to help with large-scale deployments of Azure IoT Hub and Device Provisioning Service.
-author: kgremban
-
-ms.author: kgremban
-ms.service: iot-dps
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 01/26/2024
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Best practices for large-scale IoT device deployments
@@ -64,7 +64,7 @@ Devices that have the ability to store their connection string after initial pro
 
 ### Devices that can't store a connection string
 
-Some devices don't have a large enough footprint or memory to accommodate caching of the connection string from a past successful IoT Hub connection. These devices need to reprovision through DPS after rebooting. Use the [DPS registration API](/rest/api/iot-dps/device/runtime-registration/register-device) to re-register. Keep in mind that the number of re-registrations per minute is limited based on the DPS [device registration limit](about-iot-dps.md#quotas-and-limits).
+Some devices don't have a large enough footprint or memory to accommodate caching of the connection string from a past successful IoT Hub connection. These devices need to reprovision through DPS after rebooting. Use the [DPS registration API](/rest/api/iot-dps/device/runtime-registration) to re-register. Keep in mind that the number of re-registrations per minute is limited based on the DPS [device registration limit](about-iot-dps.md#quotas-and-limits).
 
 ### Reprovisioning sample
 

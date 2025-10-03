@@ -1,8 +1,8 @@
 ---
-author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: include
-ms.date: 04/30/2024
+ms.date: 02/03/2025
+author: craigshoemaker
 ms.author: cshoe
 ---
 
@@ -16,7 +16,7 @@ To sign in to Azure from the CLI, run the following command and follow the promp
 az login
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Connect-AzAccount
@@ -32,7 +32,7 @@ To ensure you're running the latest version of the CLI, run the upgrade command.
 az upgrade
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
@@ -44,19 +44,27 @@ Ignore any warnings about modules currently in use.
 
 Next, install or update the Azure Container Apps extension for the CLI.
 
+If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
+
 # [Bash](#tab/bash)
 
 ```azurecli
 az extension add --name containerapp --upgrade
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+> [!NOTE]
+> Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](../articles/container-apps/whats-new.md), install the Container Apps extension with `--allow-preview true`.
+> ```azurecli
+> az extension add --name containerapp --upgrade --allow-preview true
+> ```
+
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Install-Module -Name Az.App
 ```
 
-If you have an older version of the Az.App module installed, update it.
+Make sure to update the `Az.App` module to the latest version.
 
 ```azurepowershell
 Update-Module -Name Az.App
@@ -65,9 +73,6 @@ Update-Module -Name Az.App
 ---
 
 Now that the current extension or module is installed, register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces.
-
-> [!NOTE]
-> Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 # [Bash](#tab/bash)
 
@@ -79,7 +84,7 @@ az provider register --namespace Microsoft.App
 az provider register --namespace Microsoft.OperationalInsights
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.App

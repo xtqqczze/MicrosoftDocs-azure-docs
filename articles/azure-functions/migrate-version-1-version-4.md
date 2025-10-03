@@ -4,8 +4,18 @@ description: This article shows you how to migrate your existing function apps r
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 07/31/2023
-ms.custom: template-how-to-pattern, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-dotnet, devx-track-azurecli, ignite-2023, linux-related-content
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - template-how-to-pattern
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-dotnet
+  - devx-track-azurecli
+  - ignite-2023
+  - linux-related-content
+  - devx-track-ts
+  - sfi-ropc-nochange
 ---
 
 # <a name="top"></a>Migrate apps from Azure Functions version 1.x to version 4.x 
@@ -86,7 +96,7 @@ On version 1.x of the Functions runtime, your C# function app targets .NET Frame
 >
 > Although you can choose to instead use the in-process model, this is not recommended if it can be avoided. [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you'll need to move to the isolated worker model before then. Doing so while migrating to version 4.x will decrease the total effort required, and the isolated worker model will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
-This guide doesn't present specific examples for .NET 6 on the isolated worker model. If you need to target that version, you can adapt the .NET 8 isolated worker model examples.
+This guide doesn't present specific examples for .NET 10 (preview) or .NET 9. If you need to target one of those versions, you can adapt the .NET 8 examples.
 
 ::: zone-end
 
@@ -167,7 +177,7 @@ Use one of the following procedures to update this XML file to run in Functions 
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net-framework](../../includes/functions-dotnet-migrate-project-v4-isolated-net-framework.md)]
 
-# [.NET 6 (in-process model)](#tab/net6-in-proc)
+# [.NET 8 (in-process model)](#tab/net8-in-proc)
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-inproc](../../includes/functions-dotnet-migrate-project-v4-inproc.md)]
 
@@ -185,7 +195,7 @@ Based on the model you are migrating to, you might need to update or change the 
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
-# [.NET 6 (in-process model)](#tab/net6-in-proc)
+# [.NET 8 (in-process model)](#tab/net8-in-proc)
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-in-process](../../includes/functions-dotnet-migrate-packages-v4-in-process.md)]
 
@@ -248,7 +258,7 @@ namespace Company.FunctionApp
 
 [!INCLUDE [functions-dotnet-migrate-isolated-program-cs](../../includes/functions-dotnet-migrate-isolated-program-cs.md)]
 
-# [.NET 6 (in-process model)](#tab/net6-in-proc)
+# [.NET 8 (in-process model)](#tab/net8-in-proc)
 
 A program.cs file isn't required when running in-process.
 
@@ -272,7 +282,7 @@ The `host.json` file only controls logging from the Functions host runtime, and 
 
 The `host.json` file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
 
-# [.NET 6 (in-process model)](#tab/net6-in-proc)
+# [.NET 8 (in-process model)](#tab/net8-in-proc)
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp/host.json":::
 
@@ -300,17 +310,21 @@ When you migrate to version 4.x, make sure that your local.settings.json file ha
 > [!NOTE]
 > When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
 
-# [.NET 6 (in-process model)](#tab/net6-in-proc)
+# [.NET 8 (in-process model)](#tab/net8-in-proc)
 
 ```json
 {
     "IsEncrypted": false,
     "Values": {
         "AzureWebJobsStorage": "AzureWebJobsStorageConnectionStringValue",
-        "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "FUNCTIONS_INPROC_NET8_ENABLED": "1"
     }
 }
 ```
+
+> [!NOTE]
+> When choosing to target .NET 8 using the in-process model, you need to set the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet" and set the `FUNCTIONS_INPROC_NET8_ENABLED` value to "1".
 
 ---
 
@@ -337,9 +351,9 @@ Some key classes changed names between version 1.x and version 4.x. These change
 | `HttpRequestMessage` | `HttpRequestData` |
 | `HttpResponseMessage` | `HttpResponseData` |
 
-# [.NET 6 (in-process model)](#tab/net6-in-proc)
+# [.NET 8 (in-process model)](#tab/net8-in-proc)
 
-| Version 1.x | .NET 6 (in-process) | 
+| Version 1.x | .NET 8 (in-process) | 
 | --- | --- | 
 | `FunctionName` (attribute) | `FunctionName` (attribute) | 
 | `TraceWriter` | `ILogger<T>`, `ILogger`  |
@@ -360,7 +374,7 @@ This section highlights other code changes to consider as you work through the m
 
 [!INCLUDE [functions-dotnet-migrate-isolated-other-code-changes](../../includes/functions-dotnet-migrate-isolated-other-code-changes.md)]
 
-# [.NET 6 (in-process)](#tab/net6-in-proc)
+# [.NET 8 (in-process model)](#tab/net8-in-proc)
 
 Make sure to check [Behavior changes after version 1.x](#behavior-changes-after-version-1x) for additional changes you might need to make to your project.
 
@@ -485,7 +499,7 @@ namespace Company.Function
 }
 ```
 
-# [.NET 6 (in-process model)](#tab/net6-in-proc)
+# [.NET 8 (in-process model)](#tab/net8-in-proc)
 
 :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp/HttpTriggerCSharp.cs":::
 
@@ -505,7 +519,7 @@ To update your project to Azure Functions 4.x:
 
     [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
  
-    The `extensionBundle` element is required because after version 1.x, bindings are maintained as external packages. For more information, see [Extension bundles](functions-bindings-register.md#extension-bundles).
+    The `extensionBundle` element is required because after version 1.x, bindings are maintained as external packages. For more information, see [Extension bundles](extension-bundles.md).
 
 1. Update your local.settings.json file so that it has at least the following elements:
 

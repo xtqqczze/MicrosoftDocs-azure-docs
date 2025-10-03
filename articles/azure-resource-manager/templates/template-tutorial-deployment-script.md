@@ -3,7 +3,7 @@ title: Use template deployment scripts | Microsoft Docs
 description: Learn how to use deployment scripts in Azure Resource Manager templates (ARM templates).
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.topic: tutorial
-ms.date: 03/20/2024
+ms.date: 06/20/2024
 ---
 
 # Tutorial: Use deployment scripts to create a self-signed certificate
@@ -28,8 +28,7 @@ For a Learn module that covers deployment scripts, see [Extend ARM templates by 
 
 To complete this article, you need:
 
-* **[Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension**. See [Quickstart: Create ARM templates with Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
-
+* **[Visual Studio Code](https://code.visualstudio.com/).
 * **A user-assigned managed identity**. This identity is used to perform Azure-specific actions in the script. To create one, see [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). You need the identity ID when you deploy the template. The format of the identity is:
 
   ```json

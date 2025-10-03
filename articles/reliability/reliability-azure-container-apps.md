@@ -1,18 +1,18 @@
 ---
 title: Reliability in Azure Container Apps
-description: Learn how to ensure application reliability in Azure Container Apps
+description: Learn how to improve reliability in Azure Container Apps by using availability zones and zone redundancy. Follow configuration steps for high availability and SLA.
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: container-apps
-ms.custom: subject-reliability, references_regions, devx-track-azurepowershell, devx-track-azurecli
+ms.service: azure-container-apps
+ms.custom: subject-reliability,  devx-track-azurepowershell, devx-track-azurecli
 ms.topic: reliability-article
 ms.date: 10/23/2023
 ---
 
 # Reliability in Azure Container Apps
 
-This article describes reliability support in [Azure Container Apps](/azure/container-apps/overview), and covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/resiliency/).
+This article describes reliability support in [Azure Container Apps](/azure/container-apps/overview), including Container Apps environment configuration with replicas and load balancing. It covers how to use availability zones and zone redundancy to improve application uptime and meet SLA requirements. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/resiliency/).
 
 ## Availability zone support
 
@@ -29,7 +29,7 @@ By enabling Container Apps' zone redundancy feature, replicas are automatically 
 
 Azure Container Apps offers the same reliability support regardless of your plan type.
 
-Azure Container Apps uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Availability zone service and regional support](availability-zones-service-support.md).
+Azure Container Apps uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Azure regions with availability zones](regions-list.md).
 
 ### SLA improvements
 
@@ -69,7 +69,7 @@ Create a virtual network and infrastructure subnet to include with the Container
 When using these commands, replace the `<PLACEHOLDERS>` with your values.
 
 >[!NOTE]
-> The Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/networking.md#subnet).
+> The Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
 
 # [Azure CLI](#tab/azure-cli)
 

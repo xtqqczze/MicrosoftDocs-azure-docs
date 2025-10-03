@@ -1,7 +1,7 @@
 ---
 author: JanSchietse
 ms.author: janschietse
-ms.date: 01/25/2024
+ms.date: 03/17/2025
 ms.topic: include
 ms.service: azure-health-insights
 ---
@@ -12,7 +12,7 @@ ms.service: azure-health-insights
   "result": {
     "patientResults": [
       {
-        "patientId": "11111",
+        "patientId": "111111",
         "inferences": [
           {
             "kind": "followupRecommendation",
@@ -4948,12 +4948,12 @@ ms.service: azure-health-insights
         ]
       }
     ],
-    "modelVersion": "2024-01-10-Preview"
+    "modelVersion": "2025-03-17"
   },
-  "id": "5efeb8c5-5e43-44a2-a261-2f1454271830",
-  "createdDateTime": "2024-01-12T07:12:08.1045971Z",
-  "expirationDateTime": "2024-01-12T07:28:48.1045971Z",
-  "lastUpdateDateTime": "2024-01-12T07:12:16.3194638Z",
+  "id": "fca103",
+  "createdAt": "2025-04-30T09:28:34Z",
+  "expiresAt": "2025-05-01T09:28:34Z",
+  "updatedAt": "2025-04-30T09:28:41Z",
   "status": "succeeded"
 }
 ```

@@ -6,9 +6,10 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.date: 03/26/2024
+ms.topic: concept-article
+ms.date: 07/14/2025
 ms.author: normesta
+# Customer intent: "As a data storage administrator, I want to implement container-level WORM policies for immutable blob data, so that I can ensure compliance and protection against data modification or deletion."
 ---
 
 # Container-level write once, read many (WORM) policies for immutable blob data
@@ -33,6 +34,8 @@ A container with a container-level WORM policy set must be empty before the cont
 > [!div class="mx-imgBorder"]
 > ![Diagram that shows the order of operations in deleting an account that has a container-level WORM policy.](media/immutable-version-level-worm-policies/container-level-immutable-storage-deletion.png)
 
+You can delete a container that has a container-level WORM policy only by using control plane operations. All such requests are sent to the Azure Resource Manager URL. For example, the PowerShell command [Remove-AzRmStorageContainer](/powershell/module/az.storage/remove-azrmstoragecontainer) uses a control plane operation to delete a container. In contrast, the [Remove-AzStorageContainer](/powershell/module/az.storage/remove-azstoragecontainer) command attempts to use a data plane operation, which won't succeed. Similarly, the Azure CLI command [az storage container-rm delete](/cli/azure/storage/container-rm) uses a control plane operation, whereas [az storage container](/cli/azure/storage/container#az-storage-container-delete) delete relies on a data plane operation. You can also delete a container through the Azure portal, as it performs the task using a control plane operation.
+
 ## Scenarios
 
 | Scenario | Prohibited operations | Blob protection | Container protection | Account protection |
@@ -50,7 +53,7 @@ Append blobs are composed of blocks of data and optimized for data append operat
 
 The **allowProtectedAppendWrites** property setting allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If this setting is enabled, you can create an append blob directly in the policy-protected container and then continue to add new blocks of data to the end of the append blob  with the Append Block operation. Only new blocks can be added; any existing blocks can't be modified or deleted. Enabling this setting doesn't affect the immutability behavior of block blobs or page blobs.
 
-The **AllowProtectedAppendWritesAll** property setting provides the same permissions as the **allowProtectedAppendWrites** property and adds the ability to write new blocks to a block blob. The Blob Storage API doesn't provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage Gen2 API. Also, this property enables Microsoft applications such as Azure Data Factory to append blocks of data by using internal APIs. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append data to blobs.
+The **AllowProtectedAppendWritesAll** property setting provides the same permissions as the **allowProtectedAppendWrites** property and adds the ability to write new blocks to a block blob. The Blob Storage API doesn't provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage API. Also, this property enables Microsoft applications such as Azure Data Factory to append blocks of data by using internal APIs. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append data to blobs.
 
 Append blobs remain in the immutable state during the effective retention period. Since new data can be appended beyond the initial creation of the append blob, there's a slight difference in how the retention period is determined. The effective retention is the difference between append blob's last modification time and the user-specified retention interval. Similarly, when the retention interval is extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 

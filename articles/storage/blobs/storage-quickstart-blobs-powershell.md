@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 06/26/2023
 ms.author: shaas
 ms.custom: devx-track-azurepowershell, mode-api
+# Customer intent: As a cloud user, I want to upload, download, and manage blobs using PowerShell, so that I can efficiently transfer and organize files in Azure Blob storage.
 ---
 
 # Quickstart: Upload, download, and list blobs with PowerShell
@@ -21,7 +22,7 @@ To access Azure Storage, you'll need an Azure subscription. If you don't already
 
 You will also need the Storage Blob Data Contributor role to read, write, and delete Azure Storage containers and blobs.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This quickstart requires the Azure PowerShell module Az version 0.7 or later. Run `Get-InstalledModule -Name Az -AllVersions | select Name,Version` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
@@ -84,9 +85,9 @@ Upload as many files as you like before continuing.
 
 ## List the blobs in a container
 
-Get a list of blobs in the container by using [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). This example shows just the names of the blobs uploaded.
+Get a list of blobs in the container by using [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). This example lists the names of the blobs uploaded.
 
-```azurepowershell-intereactive
+```azurepowershell-interactive
 Get-AzStorageBlob -Container $ContainerName -Context $Context |
   Select-Object -Property Name
 ```

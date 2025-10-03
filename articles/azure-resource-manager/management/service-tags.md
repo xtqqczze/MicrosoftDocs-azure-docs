@@ -2,7 +2,8 @@
 title: Use service tag for Azure Resource Manager
 description: Learn how to use the service tag for Azure Resource Manager to create security rules that allow or deny traffic.
 ms.topic: conceptual
-ms.date: 05/07/2024
+ms.custom: devx-track-arm-template
+ms.date: 09/15/2025
 ---
 
 # Understand how to use Azure Resource Manager service tag

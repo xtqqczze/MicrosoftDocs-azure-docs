@@ -3,12 +3,14 @@ title: View topology
 description: Learn how to use Network Insights topology to get a visual representation of Azure resources with connectivity and traffic insights for monitoring. 
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 04/30/2024
-ms.custom: subject-monitoring
+ms.date: 09/23/2025
+ms.custom:
+  - subject-monitoring
+  - sfi-image-nochange
 
-#CustomerIntent: As an Azure administrator, I want to see my resources across multiple resource groups, regions, and subscriptions so that I can easily manage resource inventory and have connectivity and traffic insights.
+# Customer intent: "As an Azure administrator, I want to visualize resource topologies and their connectivity, so that I can effectively monitor and troubleshoot network infrastructure across multiple subscriptions and regions."
 ---
 
 # View topology
@@ -16,6 +18,8 @@ ms.custom: subject-monitoring
 Topology provides an interactive interface to view resources and their relationships in Azure across multiple subscriptions, regions, and resource groups. It helps you manage and monitor your cloud network infrastructure with interactive graphical interface that provides you with insights from Azure Network Watcher [connection monitor](connection-monitor-overview.md) and [traffic analytics](traffic-analytics.md). Topology helps you diagnose and troubleshoot network issues by providing contextual access to Network Watcher diagnostic tools such as [connection troubleshoot](connection-troubleshoot-overview.md), [packet capture](packet-capture-overview.md), and [next hop](next-hop-overview.md).
 
 In this article, you learn how to use topology to visualize virtual networks and connected resources.
+
+[!INCLUDE [Resource Graph](~/reusable-content/ce-skilling/azure/includes/network-watcher-resource-graph-topology.md)]
 
 ## Prerequisites
 
@@ -62,7 +66,7 @@ In this section, you learn how to view a region's topology and insights.
 
 1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
 
-   :::image type="content" source="./media/network-insights-topology/portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-insights-topology/portal-search.png":::
+   :::image type="content" source="./media/network-watcher-portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-watcher-portal-search.png":::
     
 1. Under **Monitoring**, select **Topology**. 
 

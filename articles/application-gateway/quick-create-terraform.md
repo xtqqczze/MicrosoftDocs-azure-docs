@@ -3,15 +3,16 @@ title: 'Quickstart: Direct web traffic with Azure Application Gateway - Terrafor
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use Terraform to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: greg-lindsay
-ms.author: greglin
-ms.date: 02/28/2024
+author: mbender-ms
+ms.author: mbender
+ms.date: 05/30/2024
 ms.topic: quickstart
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: As a cloud engineer, I want to set up an Azure Application Gateway using Terraform, so that I can efficiently direct web traffic to virtual machines and ensure proper connectivity within my cloud infrastructure.
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Terraform
@@ -32,6 +33,9 @@ In this quickstart, you use Terraform to create an Azure Application Gateway. Th
 > * Create an Azure Virtual Machine Extension using [azurerm_virtual_machine_extension](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_extension)
 
 ![Conceptual diagram of the quickstart setup.](./media/quick-create-portal/application-gateway-qs-resources.png)
+
+> [!NOTE]
+> Application Gateway frontend now supports dual-stack IP addresses (Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 ## Prerequisites
 

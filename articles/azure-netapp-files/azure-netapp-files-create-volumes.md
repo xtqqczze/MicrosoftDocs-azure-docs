@@ -1,12 +1,13 @@
 ---
-title: Create an NFS volume for Azure NetApp Files | Microsoft Docs
+title: Create an NFS volume for Azure NetApp Files
 description: This article shows you how to create an NFS volume in Azure NetApp Files. Learn about considerations, like which version to use, and best practices.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/28/2023
+ms.date: 06/10/2025
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to create an NFS volume in Azure NetApp Files, so that I can support my application’s data management requirements and ensure optimized performance through proper version selection and configuration.
 ---
 # Create an NFS volume for Azure NetApp Files
 
@@ -15,6 +16,9 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3,
 This article shows you how to create an NFS volume. For SMB volumes, see [Create an SMB volume](azure-netapp-files-create-volumes-smb.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
 
 ## Before you begin 
+
+[!INCLUDE [Delegated subnet permission](includes/create-volume-permission.md)]
+
 * You must have already set up a capacity pool.  
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
@@ -60,7 +64,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
 
     * **Large Volume**
-        For volumes between 50 TiB and 500 TiB, select **Yes**. If the volume does not require more than 100 TiB, select **No**. 
+
         [!INCLUDE [Large volumes warning](includes/large-volumes-notice.md)]
 
     * **Throughput (MiB/S)**   
@@ -69,7 +73,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
     * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
-        These fields configure [standard storage with cool access in Azure NetApp Files](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
+        These fields configure [Azure NetApp Files storage with cool access](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md). 
 
     * **Virtual network**  
         Specify the Microsoft Azure Virtual Network from which you want to access the volume.  
@@ -80,7 +84,9 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         Specify the subnet that you want to use for the volume.  
         The subnet you specify must be delegated to Azure NetApp Files. 
         
-        If you have not delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each Virtual Network, only one subnet can be delegated to Azure NetApp Files.   
+        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
+ 
+        :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-volume.png" alt-text="Screenshot of create new volume interface." lightbox="../media/azure-netapp-files/azure-netapp-files-new-volume.png":::
     
         ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
 
@@ -88,7 +94,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
     * **Encryption key source** 
-        You can select `Microsoft Managed Key` or `Customer Managed Key`. See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
+        You can select Microsoft Managed Key or Customer Managed Key. See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
 
     * **Availability zone**   
         This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
@@ -107,7 +113,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     * Specify a unique **file path** for the volume. This path is used when you create mount targets. The requirements for the path are as follows:   
         - For volumes not in an availability zone or volumes in the same availability zone, it must be unique within each subnet in the region. 
-        - For volumes in availability zones, it must be unique within each availability zone. This feature is currently in **preview** and requires you to register the feature. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness). 
+        - For volumes in availability zones, it must be unique within each availability zone. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness). 
         - It must start with an alphabetical character.
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.

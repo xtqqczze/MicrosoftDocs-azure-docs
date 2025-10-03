@@ -3,11 +3,10 @@ title: "Pricing example: Get delta data from SAP ECC via SAP CDC in mapping data
 description: This article shows how to price getting delta data from SAP ECC via SAP CDC in mapping data flows.
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: jburchel
-ms.service: data-factory
+ms.reviewer: whhender
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Pricing example: Get delta data from SAP ECC via SAP CDC in mapping data flows

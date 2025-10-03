@@ -2,12 +2,16 @@
 title: 'Quickstart: Create an Azure Firewall and a firewall policy - Resource Manager template'
 description: In this quickstart, you deploy an Azure Firewall and a firewall policy.
 services: firewall-manager
-author: vhorne
-ms.author: victorh
-ms.date: 09/28/2023
+author: duongau
+ms.author: duau
+ms.date: 01/08/2025
 ms.topic: quickstart
-ms.service: firewall-manager
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.service: azure-firewall-manager
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an Azure Firewall and a firewall policy - ARM template
@@ -16,7 +20,7 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 
 Also, IP Groups are used in the rules to define the **Source** IP addresses.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 For information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
 

@@ -2,19 +2,20 @@
 title: Add an external endpoint to an existing profile - Azure Template
 titlesuffix: Azure Traffic Manager
 description: Learn how to add an external endpoint to an existing Azure Traffic Manager profile using an Azure Template.
-author: greg-lindsay
-ms.author: greglin
-ms.service: traffic-manager
+author: asudbring
+ms.author: allensu
+ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.custom: template-how-to
+# Customer intent: "As a cloud administrator, I want to add an external endpoint to an existing Traffic Manager profile using an ARM template, so that I can enhance traffic routing capabilities across my resources."
 ---
 
 # Add an external endpoint to an existing profile using an Azure Template
 
 This article describes how to use an Azure Resource Manager template (ARM Template) to add an external endpoint to an existing Traffic Manager profile.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

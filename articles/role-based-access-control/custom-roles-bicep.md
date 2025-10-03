@@ -3,7 +3,7 @@ title: Create or update Azure custom roles using Bicep - Azure RBAC
 description: Learn how to create or update Azure custom roles using Bicep and Azure role-based access control (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 02/15/2024
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 
 If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md). This article describes how to create or update a custom role using Bicep.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 To create a custom role, you specify a role name, role permissions, and where the role can be used. In this article, you create a role named _Custom Role - RG Reader_ with resource permissions that can be assigned at a subscription scope or lower.
 

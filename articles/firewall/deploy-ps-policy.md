@@ -2,13 +2,16 @@
 title: 'Deploy and configure Azure Firewall policy using Azure PowerShell'
 description: In this article, you learn how to deploy and configure Azure Firewall policy using the Azure PowerShell. 
 services: firewall
-author: vhorne
-ms.service: firewall
-ms.custom: devx-track-azurepowershell
+author: duongau
+ms.service: azure-firewall
 ms.date: 06/08/2023
-ms.author: victorh
+ms.author: duau
 ms.topic: how-to
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
+# Customer intent: As a network administrator, I want to deploy and configure Azure Firewall using PowerShell, so that I can control and secure outbound network access from my Azure subnets effectively.
 ---
 
 # Deploy and configure Azure Firewall policy using Azure PowerShell
@@ -31,9 +34,9 @@ For this article, you create a simplified single VNet with three subnets for eas
 For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
-![Tutorial network infrastructure](media/deploy-ps/tutorial-network.png)
+:::image type="content" source="media/deploy-ps/tutorial-network.png" alt-text="Diagram that shows a firewall network infrastructure." lightbox="media/deploy-ps/tutorial-network.png":::
 
 In this article, you learn how to:
 

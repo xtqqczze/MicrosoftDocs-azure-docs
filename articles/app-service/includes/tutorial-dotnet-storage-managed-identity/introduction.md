@@ -2,14 +2,18 @@
 services: storage, app-service-web
 author: rwike77
 manager: CelesteDG
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 02/16/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: azurecli
-ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
-ms.subservice: web-apps
+ms.custom:
+  - azureday1
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 Learn how to access Azure services, _such as Azure Storage_, from a web app (not a signed-in user) running on Azure App Service by using managed identities. This tutorial demonstrates connecting to Azure Storage as an example. 
 
@@ -33,7 +37,7 @@ In this tutorial, you learn how to:
 > * Create a storage account and an Azure Blob Storage container.
 > * Access storage from a web app by using managed identities.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

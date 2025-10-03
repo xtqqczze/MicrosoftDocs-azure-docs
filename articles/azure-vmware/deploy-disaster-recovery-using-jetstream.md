@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: references_regions, engagement-fy23
+# Customer intent: "As an IT administrator, I want to implement JetStream DR for my Azure VMware Solution, so that I can ensure minimal downtime and data loss during disaster recovery scenarios."
 ---
 
 # Deploy disaster recovery using JetStream DR software
@@ -108,7 +109,10 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
 - [Azure Blob Storage account](../storage/common/storage-account-create.md) created using either Standard or Premium Performance tier. For [access tier, select **Hot**](../storage/blobs/access-tiers-overview.md). 
 
    >[!NOTE]
-   >The **Enable hierarchical namespace** option on the blob isn't supported.   
+   >The **Enable hierarchical namespace** option on the blob isn't supported.
+   
+   >[!NOTE]
+   >Protecting a **shared disk** (eg WFC) is not supported.   
 
 - An NSX-T network segment configured on Azure VMware Solution private cloud with DHCP enabled on the segment for the transient JetStream Virtual appliances is employed during recovery or failover.  
 
@@ -140,13 +144,13 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
   - [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
   - [Disaster Recovery with Azure NetApp Files, JetStream DR, and Azure VMware Solution](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/)
   
-For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installation Guide](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/Pre-Installation.html).
+For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installation Guide](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/preinstallation.html).
 
 ## Install JetStream DR on Azure VMware Solution  
  
 You can follow these steps for both supported scenarios. 
  
-1. In your on-premises data center, install JetStream DR following the [JetStream documentation](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/Installation.html).  
+1. In your on-premises data center, install JetStream DR following the [JetStream documentation](https://openjournalsystems.com/ojs-2-user-guide/installation/).  
 
 1. In your Azure VMware Solution private cloud, install JetStream DR using a Run command. From the [Azure portal](https://portal.azure.com),select **Run command** > **Packages** > **JSDR.Configuration**.  
     
@@ -260,7 +264,7 @@ Once JetStream DR MSA and JetStream VIB are installed on the Azure VMware Soluti
 
 1. [Add an external storage site](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/add-a-storage-site/).  
 
-1. [Deploy a JetStream DRVA appliance](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/DeployaDRVA.html). 
+1. [Deploy a JetStream DRVA appliance](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/deploydrva.html). 
 
 1. Create a JetStream replication log store volume using one of the datastores available to the Azure VMware Solution cluster. 
 
@@ -324,7 +328,7 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
  
 JetStream DR is a solution that [JetStream Software](https://www.jetstreamsoft.com/) supports. For any product or support issues with JetStream, contact support-avs@jetstreamsoft.com.  
  
-Azure VMware Solution uses the Run command to automate both the install and uninstall of JetStream DR. Contact Microsoft support for any issue with the run commands. For issues with JetStream install and uninstall cmdlets, contact JetStream for support. 
+Azure VMware Solution uses the Run command to automate both the install and uninstall of JetStream DR. Contact Microsoft support for any issue with the run commands. For issues with JetStream install and uninstall cmdlets, contact JetStream for [support](https://jetstreamsoft.com/portal/online-docs/contactJS/ContactJetStreamSoftware.html). 
 
 
 

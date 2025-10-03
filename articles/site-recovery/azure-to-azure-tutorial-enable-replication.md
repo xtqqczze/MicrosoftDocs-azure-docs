@@ -2,11 +2,12 @@
 title: Tutorial to set up Azure VM disaster recovery with Azure Site Recovery
 description: In this tutorial, set up disaster recovery for Azure VMs to another Azure region, using the Site Recovery service.
 ms.topic: tutorial
-ms.service: site-recovery
-ms.date: 05/10/2024
+ms.service: azure-site-recovery
+ms.date: 08/29/2025
 ms.custom: mvc
-ms.author: ankitadutta
+ms.author: jsuri
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
+# Customer intent: As an Azure administrator, I want to configure disaster recovery for my Azure VMs using replication, so that they remain available in a secondary region during outages in the primary region.
 ---
 # Tutorial: Set up disaster recovery for Azure VMs
 
@@ -44,7 +45,6 @@ Your Azure account needs permissions to create a Recovery Services vault, and to
 
 - If you just created a free Azure subscription, you're the account admin, and no further action is needed.
 - If you aren't the admin, work with the admin to get the permissions you need.
-    - **Microsoft Entra ID**: Application owner and application developer roles to enable replication.
     - **Create a vault**: Admin or owner permissions on the subscription.
     - **Manage Site Recovery operations in the vault**: The *Site Recovery Contributor* built-in Azure role.
     - **Create Azure VMs in the target region**: Either the built-in *Virtual Machine Contributor* role, or specific permissions to:
@@ -99,7 +99,7 @@ GuestAndHybridManagement tag | Use if you want to automatically upgrade the Site
 
 #### Azure Instance Metadata Service (IMDS) connectivity
 
-Azure Site Recovery mobility agent uses [Azure Instance Metadata Service (IMDS)](../virtual-machines/instance-metadata-service.md) to get virtual machine security type. Communications between VM and IMDS never leaves the host. Ensure that you bypass the IP  `169.254.169.254` when using any proxies.    
+Azure Site Recovery mobility agent uses [Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/instance-metadata-service) to get virtual machine security type. Communications between VM and IMDS never leaves the host. Ensure that you bypass the IP  `169.254.169.254` when using any proxies.    
 
 
 ### Verify VM certificates
