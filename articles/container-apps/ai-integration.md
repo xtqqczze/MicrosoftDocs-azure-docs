@@ -5,6 +5,7 @@ author: jefmarti
 ms.author: jefmarti
 ms.service: azure-container-apps
 ms.date: 10/03/2025
+ms.topic: article
 ---
 
 # AI integration with Azure Container Apps
@@ -16,7 +17,7 @@ Azure Container Apps is a serverless container platform that simplifies the depl
 
 Use GPU accelerated workload profiles to meet a variety of your AI workload needs, including:
 
-- **[Serverless GPUs](https://learn.microsoft.com/azure/container-apps/gpu-serverless-overview)**: Ideal for variable traffic scenarios and cost-sensitive inference workloads.
+- **[Serverless GPUs](/container-apps/gpu-serverless-overview)**: Ideal for variable traffic scenarios and cost-sensitive inference workloads.
 - **Dedicated GPUs**: best for continuous, low-latency inference scenarios.
 - **Scale to zero**: automatically scale down idle GPU resources to minimize costs.
 
@@ -25,8 +26,8 @@ Use GPU accelerated workload profiles to meet a variety of your AI workload need
 Dynamic Sessions provide a secure, isolated environment for executing AI-generated code. Perfect for scenarios like sandboxed execution, code evaluation, or AI agents.
 
 Supported session types include:
-- **[Code interpreters](https://learn.microsoft.com/azure/container-apps/sessions-code-interpreter)**: a platform-managed container that supports executing code in multiple programming languages, including Python and JavaScript.
-- **[Custom containers](https://learn.microsoft.com/azure/container-apps/sessions-custom-container)**: create a sessions pool using a custom container for specialized workloads or additional language support.
+- **[Code interpreters](/azure/container-apps/sessions-code-interpreter)**: a platform-managed container that supports executing code in multiple programming languages, including Python and JavaScript.
+- **[Custom containers](/azure/container-apps/sessions-custom-container)**: create a sessions pool using a custom container for specialized workloads or additional language support.
 
 ## Deploying Azure AI Foundry models
 
