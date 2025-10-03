@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 User identity authentication provides a straightforward way to authorize [AzCopy](storage-use-azcopy-v10.md) operations using your personal Microsoft Entra ID credentials. This authentication method is ideal for interactive scenarios where you're manually running AzCopy commands or working in development environments.
 
-This article shows you how to authenticate AzCopy using your user identity through various methods: device code flow with environment variables, the interactive AzCopy login command, or by leveraging existing Azure CLI or Azure PowerShell sessions.
+This article shows you how to authenticate AzCopy using your user identity by using environment variables, the interactive AzCopy login command, or by leveraging existing Azure CLI or Azure PowerShell sessions.
 
 To learn about other ways to authorize access to AzCopy, see [Authorize AzCopy](storage-use-azcopy-v10.md#authorize-azcopy).
 
@@ -23,9 +23,9 @@ To learn about other ways to authorize access to AzCopy, see [Authorize AzCopy](
 
 Ensure your user identity has the required Azure role for your intended operations:
 
-- **Download operations**: [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) (Blob Storage) or [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) (Azure Files)
+For download operations, use [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) (Blob Storage) or [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) (Azure Files).
 
-- **Upload operations**: [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) or [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) (Blob Storage) or [Storage File Data Privileged Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-contributor) (Azure Files)
+For upload operations, use [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) or [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) (Blob Storage) or [Storage File Data Privileged Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-contributor) (Azure Files)
 
 For role assignment instructions, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md) (Blob Storage) or [Choose how to authorize access to file data in the Azure portal](../files/authorize-data-operations-portal.md) (Azure Files).
 
@@ -105,6 +105,7 @@ export AZCOPY_TENANT_ID=<tenant-id>
 
 ```powershell
 $Env:AZCOPY_AUTO_LOGIN_TYPE="AZCLI"
+$Env:AZCOPY_TENANT_ID="<tenant-id>"
 ```
 
 ---

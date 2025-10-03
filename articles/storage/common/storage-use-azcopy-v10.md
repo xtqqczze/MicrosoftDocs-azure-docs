@@ -14,8 +14,7 @@ ai-usage: ai-assisted
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data.
-
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data.<br>
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 

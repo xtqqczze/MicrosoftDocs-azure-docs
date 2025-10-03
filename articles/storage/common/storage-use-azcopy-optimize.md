@@ -122,7 +122,7 @@ export AZCOPY_BUFFER_GB=<value>
 ### [Windows](#tab/windows)
 
 ```powershell
-set AZCOPY_BUFFER_GB=<value
+set AZCOPY_BUFFER_GB=<value>
 ```
 
 ---

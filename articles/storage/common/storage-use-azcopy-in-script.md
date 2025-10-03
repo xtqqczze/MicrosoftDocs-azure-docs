@@ -14,9 +14,7 @@ ai-usage: ai-assisted
 
 # Use AzCopy in scripts and scheduled transfers
 
-AzCopy is a command-line utility that you can use to copy blobs or files to or from Azure Storage accounts. While you can run AzCopy commands interactively, you'll often want to incorporate AzCopy into automated scripts for batch operations, scheduled data transfers, or continuous integration pipelines.
-
-This article shows you how to use AzCopy effectively in scripts by obtaining static download links to ensure version consistency, creating scheduled tasks for automated data transfers, and handling special considerations like character escaping and Jenkins integration.
+You can incorporate [AzCopy](storage-use-azcopy-v10.md) into automated scripts for batch operations, scheduled data transfers, or continuous integration pipelines. This article shows you how to obtain static download links to ensure version consistency, create scheduled tasks for automated data transfers, and handle special considerations like character escaping and Jenkins integration.
 
 ## Obtain a static download link
 
@@ -45,9 +43,7 @@ wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azc
 
 ### [Windows](#tab/windows)
 
-To obtain the link, run one of these commands:
-
-For Windows PowerShell run this command,To obtain the link, run this command:
+To obtain the link, run the following command:
 
 ```powershell
 (Invoke-WebRequest -Uri https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction SilentlyContinue).headers.location
