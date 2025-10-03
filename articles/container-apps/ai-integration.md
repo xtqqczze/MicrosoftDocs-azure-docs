@@ -35,7 +35,7 @@ Azure Container Apps integrates with Azure AI Foundry, which enables you to depl
 
 ### Sample projects
 
-The following are a few examples that demonstrate AI integration with Azure Container Apps. These samples showcase various AI capabilities, including OpenAI integration, multi-agent coordination, and retrieval-augmented generation (RAG) using Azure AI Search. For more samples, visit the [template library](https://azure-sdk.github.io/awesome-azd/?name=azure+container+apps)
+The following are a few examples that demonstrate AI integration with Azure Container Apps. These samples showcase various AI capabilities, including OpenAI integration, multi-agent coordination, and retrieval-augmented generation (RAG) using Azure AI Search. For more samples, visit the [template library](https://azure-sdk.github.io/awesome-azd/?name=azure+container+apps).
 
 | Sample | Description |
 |--------|-------------|
