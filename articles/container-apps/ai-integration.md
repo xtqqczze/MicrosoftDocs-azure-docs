@@ -17,7 +17,7 @@ Azure Container Apps is a serverless container platform that simplifies the depl
 
 Use GPU accelerated workload profiles to meet a variety of your AI workload needs, including:
 
-- **[Serverless GPUs](/container-apps/gpu-serverless-overview)**: Ideal for variable traffic scenarios and cost-sensitive inference workloads.
+- **[Serverless GPUs](./gpu-serverless-overview.md)**: Ideal for variable traffic scenarios and cost-sensitive inference workloads.
 - **Dedicated GPUs**: best for continuous, low-latency inference scenarios.
 - **Scale to zero**: automatically scale down idle GPU resources to minimize costs.
 
