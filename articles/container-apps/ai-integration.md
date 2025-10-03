@@ -40,7 +40,7 @@ The following are a few examples that demonstrate AI integration with Azure Cont
 | Sample | Description |
 |--------|-------------|
 | [Chat app with Azure OpenAI](https://github.com/Azure-Samples/container-apps-openai) | ChatGPT-like apps using OpenAI, LangChain, ChromaDB, and Chainlit deployed to ACA using Terraform. |
-| [Host an MCP server](https://github.com/Azure-Samples/azure-container-apps-ai-mcp) | Demonstrates multi-agent coordination using the MCP protocol with Azure OpenAI and GitHub models in ACA. |
+| [Host an MCP server](https://github.com/Azure-Samples/azure-container-apps-ai-mcp) | Demonstrates multi-agent coordination using the MCP protocol with Azure OpenAI and GitHub models in Container Apps. |
 | [MCP client and server](https://github.com/Azure-Samples/openai-mcp-agent-dotnet) | .NET-based MCP agent app using Azure OpenAI with a TypeScript MCP server, both hosted on ACA. |
 | [Remote MCP server](https://github.com/Azure-Samples/mcp-container-ts) | TypeScript-based MCP server template for Container Apps, ideal for building custom AI toolchains. |
 | [Dynamic session Python code interpreter](https://github.com/Azure-Samples/aca-python-code-interpreter-session) | Dynamic session for executing Python code in a secure environment. |
