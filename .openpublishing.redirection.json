@@ -7913,6 +7913,11 @@
       "source_path": "articles/reliability/reliability-event-hubs.md",
       "redirect_url": "/azure/event-hubs/event-hubs-business-continuity-outages-disasters",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/reliability-spring-apps.md",
+      "redirect_url": "/azure/reliability/overview-reliability-guidance",
+      "redirect_document_id": false
     }
 
 
