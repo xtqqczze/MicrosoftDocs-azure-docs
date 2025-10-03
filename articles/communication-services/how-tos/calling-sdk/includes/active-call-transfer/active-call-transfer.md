@@ -1,0 +1,68 @@
+---
+author: probableprime
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 10/03/2025
+ms.author: dmceachern
+---
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
+
+Active Call Transfer is a feature of the core `CallAgent` API. In this guide will talk about how you can manage and track any ongoing calls for your users and how to transfer their client to that active call.
+
+**Note:** This is also true for the `TeamsCallAgent` as this feature is supported for Custom Teams Endpoint users as well.
+
+This guide assumes you went through the QuickStart or that you implemented an application that is able to make and receive calls. If you didn't complete the getting starting guide, refer to our [Quickstart](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md).
+
+### Fetching your Active Calls
+
+After you have signed in your user to the `CallAgent` there is a new method that you can use to fetch the ongoing calls `getActiveCallDetails` this will return to you the active call, or active meeting that your users are in.
+
+```js
+const activeCallDetails = await callAgent.getActiveCallDetails();
+```
+
+This is a way that you can manually query for this data. Once you have the active call details you can use it to switch the client to the call that was found. This function will return `undefined` if there is no active call ongoing for your user.
+
+### Switching Active Calls
+
+Once you have your active call data you can switch the client over to the new call. This can be done with the `activeCallTransfer` function.
+
+```js
+const activeCallDetails = await callAgent.getActiveCallDetails();
+const call = await callAgent.activeCallTransfer(activeCallDetails, {isTransfer: true});
+```
+
+This function returns the call object for your applications state.
+
+### Subscribing to Active Call Notification events
+
+There are two new events that you can subscribe to so you can recieve events notifying you of your user joining a call on another client. The first event notifies the application that the user is in a call on another device. This event is also emitted when the user logs into the `CallAgent` if they are on a call already elsewhere.
+
+```js
+callAgent.on("activeCallsUpdated", (args) => {
+    // show UI indicating that the user is in another call on another device
+    await callAgent.activeCallTransfer(args.activeCallDetails, {isTransfer: true});
+});
+```
+The second event notifies the application that the user is no longer in an active call anywhere else. This is to be used to hide any UI indicating that they are in a call elsewhere, as well as any controls to manually transfer the call over.
+
+```js
+callAgent.on("NoActiveCalls", () => {
+    // hide UI indicating that the user is in a call elsewhere
+});
+```
+
+### Companion mode
+
+When transferring the active call to your client you also have the option to just bring the client into the call without hanging up on the device that initiated the call the user is in.
+
+```js
+const activeCallDetails = await callAgent.getActiveCallDetails();
+const call = await callAgent.activeCallTransfer(activeCallDetails, {isTransfer: false}); // <-- isTransfer: false - does not remove the original client. 
+```
+
+
+
+
+
+
