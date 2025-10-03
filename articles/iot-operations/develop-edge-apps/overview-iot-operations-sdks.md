@@ -57,7 +57,7 @@ The SDKs provide many components available for simplicity and ease of use:
 
 * A set of protocol primitives, designed to help creating applications, built on the fundamental protocol implementations: **Commands** and **Telemetry**. 
 
-* A set of clients providing integration with Azure IoT Operations services such as **state store**, **lease lock**, and **schema registry**.
+* A set of clients providing integration with Azure IoT Operations services such as **state store**, **lease lock**, **Azure Device Registry**, and **schema registry**.
 
 * A **Protocol Compiler (codegen)**, that allows clients and servers to communicate via a schema contract. First describe the communication (using **Telemetry** and **Commands**) with DTDL, then generate a set of client libraries and server library stubs across the supported programming languages.
 
@@ -72,7 +72,7 @@ The SDKs supports the following application types:
 | Application type | Description |
 |-|-|
 | [Edge application](https://github.com/Azure/iot-operations-sdks/blob/main/doc/edge_application/README.md) | Generic edge applications that need to interface with various Azure IoT Operations services such as the MQTT broker and state store. The SDKs provide convenient clients to simplify the development experience. </br></br>*An Edge application is a customer managed artifact, including deployment to the cluster and monitoring execution.* |
-| [Akri connector](../discover-manage-assets/overview-akri.md#connector-deployment-and-lifecycle-management)| Specialized edge applications deployed by the _Akri operator_ service and designed to interface with on-premises devices. An Akri connector is responsible for discovering assets available via the endpoint, and relaying information to and from those assets. </br></br>*An Akri connector's deployment is managed automatically by the Akri operator service.* |
+| [Akri connector](../discover-manage-assets/overview-akri.md#connectors)| Specialized edge applications deployed by the _Akri operator_ service and designed to interface with on-premises devices. An Akri connector is responsible for discovering assets available via the endpoint, and relaying information to and from those assets. </br></br>*An Akri connector's deployment is managed automatically by the Akri operator service.* |
 
 ## Samples and tutorials
 
