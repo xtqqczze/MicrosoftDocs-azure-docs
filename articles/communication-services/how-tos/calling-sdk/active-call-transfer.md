@@ -24,7 +24,7 @@ During an active call, you may want to transfer the call to device that you are 
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-[!INCLUDE [Transfer active calls Client-side JavaScript](./includes/active-call-transfer/active-call-transfer.md.md)]
+[!INCLUDE [Transfer active calls Client-side JavaScript](./includes/active-call-transfer/active-call-transfer.md)]
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
