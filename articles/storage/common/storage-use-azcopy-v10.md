@@ -14,7 +14,7 @@ ai-usage: ai-assisted
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data.<br>
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data.<br><br>
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
@@ -22,15 +22,39 @@ AzCopy **V10** is the currently supported version of AzCopy and it is supported 
 
 ## AzCopy use cases
 
-Use AzCopy to upload data from an on-premises source, download data to an on-premises source, or copy data between storage accounts. You can also synchronize data between storage accounts or between a storage account an on-premises source. You can target specific storage services such as Azure Blob Storage or Azure Files and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa.
+Use AzCopy to accomplish these tasks:
 
-For a complete list of data transfer guides, see the [Transfer data](#transfer-data) section of this article.
+> [!div class="checklist"]
+> - Download data from an on-premises source
+> - Upload data to an on-premises source
+> - Copy data between accounts
+> - Synchronize data with an on-premises source or with another account
+> - Copy data from Amazon S3 or Google Cloud Storage buckets
+> - Modify properties and metadata
+> - Create new containers or file shares, list accounts, and delete objects
+> - Manage AzCopy jobs
+> - Run performance benchmark tests
+
+The following table shows the all supported sources and destinations for transferring data.
+
+| Source | Destination |
+|---|---|
+| On-premises | Azure Blob Storage containers |
+| On-premises | SMB Azure file shares |
+| On-premises | NFS Azure file shares |
+| On-premises | Azure Data Lake Storage containers |
+| Azure Blob Storage containers | Azure Blob Storage containers |
+| Data Lake Storage containers | Data Lake Storage containers |
+| SMB Azure file shares | SMB Azure file shares |
+| NFS Azure file shares | NFS Azure file shares |
+| Azure Blob containers | Data Lake Storage containers |
+| Data Lake Storage containers | Azure Blob containers |
+| Azure Blob containers | SMB Azure file shares |
+| SMB Azure file shares | Azure Blob containers |
+| AWS S3 | Azure Block Blob |
+| Google Cloud Storage | Azure Block Blob |
 
 [!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
-
-AzCopy is primarily a data transfer tool, but you can also use it to create containers and file shares, list accounts and objects, delete data, set properties and metadata, manage AzCopy jobs and run performance benchmark tests. 
-
-For a complete list of commands, see the [List of commands](#list-of-commands) section of this article.
 
 <a id="download-and-install-azcopy"></a>
 <a id="run-azcopy"></a>
