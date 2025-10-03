@@ -46,7 +46,7 @@ The key benefits of using the SDKs include:
 - **Services**: Provides client libraries to Azure IoT Operations services for simplified development.
 - **Protocol Compiler (codegen)**: Provides contract guarantees between client and servers via RPC and Telemetry.
 - **High availability**: Building blocks for building highly available apps via state store and lease lock.
-- **Payload formats**: Supports multiple serialization formats, built in.
+- **Payload formats**: Supports multiple serialization formats, built in when using codegen.
 
 
 ## Components of the SDKs
