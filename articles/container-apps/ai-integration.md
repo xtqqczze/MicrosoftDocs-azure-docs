@@ -4,29 +4,29 @@ description: Examples for running AI workloads in Azure Container Apps, includin
 author: jefmarti
 ms.author: jefmarti
 ms.service: azure-container-apps
-ms.date: 07/31/2025
+ms.date: 10/03/2025
 ---
 
-# AI Integration with Azure Container Apps
+# AI integration with Azure Container Apps
 
 Azure Container Apps is a serverless container platform that simplifies the deployment and scaling of microservices and AI-powered applications. With native support for GPU workloads, seamless integration with Azure AI services, and flexible deployment options, it is an ideal platform for building intelligent, cloud-native solutions.
 
 
-## GPU-Powered Inference
+## GPU-powered inference
 
 Use GPU accelerated workload profiles to meet a variety of your AI workload needs, including:
 
-- **Serverless GPUs**: Ideal for variable traffic scenarios and cost-sensitive inference workloads.
-- **Dedicated GPUs**: Best for continuous, low-latency inference scenarios.
-- **Scale to zero**: Automatically scale down idle GPU resources to minimize costs.
+- **[Serverless GPUs](https://learn.microsoft.com/azure/container-apps/gpu-serverless-overview)**: Ideal for variable traffic scenarios and cost-sensitive inference workloads.
+- **Dedicated GPUs**: best for continuous, low-latency inference scenarios.
+- **Scale to zero**: automatically scale down idle GPU resources to minimize costs.
 
 ## Dynamic sessions for AI-generated code
 
 Dynamic Sessions provide a secure, isolated environment for executing AI-generated code. Perfect for scenarios like sandboxed execution, code evaluation, or AI agents.
 
 Supported session types include:
-- Code interpreters
-- Custom containers
+- **[Code interpreters](https://learn.microsoft.com/azure/container-apps/sessions-code-interpreter)**: a platform-managed container that supports executing code in multiple programming languages, including Python and JavaScript.
+- **[Custom containers](https://learn.microsoft.com/azure/container-apps/sessions-custom-container)**: create a sessions pool using a custom container for specialized workloads or additional language support.
 
 ## Deploying Azure AI Foundry models
 
@@ -34,7 +34,7 @@ Azure Container Apps integrates with Azure AI Foundry, which enables you to depl
 
 ### Sample projects
 
-The following are a few examples that demonstrate AI integration with Azure Container Apps. These samples showcase various AI capabilities, including OpenAI integration, multi-agent coordination, and retrieval-augmented generation (RAG) using Azure AI Search.
+The following are a few examples that demonstrate AI integration with Azure Container Apps. These samples showcase various AI capabilities, including OpenAI integration, multi-agent coordination, and retrieval-augmented generation (RAG) using Azure AI Search. For more samples, visit the [template library](https://azure-sdk.github.io/awesome-azd/?name=azure+container+apps)
 
 | Sample | Description |
 |--------|-------------|
@@ -42,7 +42,9 @@ The following are a few examples that demonstrate AI integration with Azure Cont
 | [azure-container-apps-ai-mcp](https://github.com/Azure-Samples/azure-container-apps-ai-mcp) | Demonstrates multi-agent coordination using the MCP protocol with Azure OpenAI and GitHub models in ACA. |
 | [openai-mcp-agent-dotnet](https://github.com/Azure-Samples/openai-mcp-agent-dotnet) | .NET-based MCP agent app using Azure OpenAI with a TypeScript MCP server, both hosted on ACA. |
 | [mcp-container-ts](https://github.com/Azure-Samples/mcp-container-ts) | TypeScript-based MCP server template for ACA, ideal for building custom AI toolchains. |
+| [python-code-interpreter](https://github.com/Azure-Samples/aca-python-code-interpreter-session) | Dynamic session for executing Python code in a secure environment. |
 
 ## Related content
 - [Multiple-agent workflow automation](/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation)
+
 
