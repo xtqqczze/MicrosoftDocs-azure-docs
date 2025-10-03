@@ -22,39 +22,23 @@ AzCopy **V10** is the currently supported version of AzCopy and it is supported 
 
 ## AzCopy use cases
 
-Use AzCopy to accomplish these tasks:
+AzCopy can be used to copy your data to, from, or between Azure storage accounts. Common use cases include:
 
-> [!div class="checklist"]
-> - Download data from an on-premises source
-> - Upload data to an on-premises source
-> - Copy data between accounts
-> - Synchronize data with an on-premises source or with another account
-> - Copy data from Amazon S3 or Google Cloud Storage buckets
-> - Modify properties and metadata
-> - Create new containers or file shares, list accounts, and delete objects
-> - Manage AzCopy jobs
-> - Run performance benchmark tests
+- Copying data from an on-premises source to an Azure storage account
 
-The following table shows the all supported sources and destinations for transferring data.
+- Copying data from an Azure storage account to an on-premises source
 
-| Source | Destination |
-|---|---|
-| On-premises | Azure Blob Storage containers |
-| On-premises | SMB Azure file shares |
-| On-premises | NFS Azure file shares |
-| On-premises | Azure Data Lake Storage containers |
-| Azure Blob Storage containers | Azure Blob Storage containers |
-| Data Lake Storage containers | Data Lake Storage containers |
-| SMB Azure file shares | SMB Azure file shares |
-| NFS Azure file shares | NFS Azure file shares |
-| Azure Blob containers | Data Lake Storage containers |
-| Data Lake Storage containers | Azure Blob containers |
-| Azure Blob containers | SMB Azure file shares |
-| SMB Azure file shares | Azure Blob containers |
-| AWS S3 | Azure Block Blob |
-| Google Cloud Storage | Azure Block Blob |
+- Copying data from one storage account to another storage account
 
-[!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
+AzCopy supports each use case with commands and options. For example, AzCopy has native commands for copying or synchronizing data. This makes AzCopy a flexible tool that can be used for one-time copy activities and ongoing synchronization scenarios. You can target specific storage services such as Azure Blob Storage or Azure Files and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa.
+
+For a complete list of data transfer guides, see the [Transfer data](#transfer-data) section of this article.
+
+AzCopy is primarily a data transfer tool, but you can also use it to create containers and file shares, list accounts and objects, delete data, set properties and metadata, manage AzCopy jobs and run performance benchmark tests. 
+
+For a complete list of commands, see the [List of commands](#list-of-commands) section of this article.
+
+While you can run AzCopy commands interactively, you can also incorporate AzCopy into automated scripts for batch operations, scheduled data transfers, or continuous integration pipelines. For more information, see [Use AzCopy in scripts and scheduled transfers](storage-use-azcopy-in-script.md).
 
 <a id="download-and-install-azcopy"></a>
 <a id="run-azcopy"></a>
@@ -127,7 +111,6 @@ To learn more about SAS tokens and how to obtain one, see [Using shared access s
 After you've authorized your identity or obtained a SAS token, you can begin transferring data.
 
 To find example commands, see any of these articles.
-
 | Service | Article |
 |--------|-----------|
 |Azure Blob Storage|[Upload files to Azure Blob Storage](storage-use-azcopy-blobs-upload.md) |
@@ -139,8 +122,7 @@ To find example commands, see any of these articles.
 |Google Cloud Storage|[Copy data from Google Cloud Storage to Azure Storage (preview)](storage-use-azcopy-google-cloud.md)|
 |Azure Stack storage|[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
-> [!TIP]
-> While you can run AzCopy commands interactively, you can also incorporate AzCopy into automated scripts for batch operations, scheduled data transfers, or continuous integration pipelines. For more information, see [Use AzCopy in scripts and scheduled transfers](storage-use-azcopy-in-script.md).
+[!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
 ## Get command help
 
