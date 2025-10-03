@@ -504,6 +504,10 @@ In this configuration, ADE uses the Managed Identity for the PET, whether system
 > [!Tip]
 > This role assignment has to be made for every project environment type. It can be automated through the Azure CLI.
 
+> [!Tip]
+> If your ACR uses [Microsoft Entra attribute-based access control (ABAC) for repository permissions](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-rbac-abac-repository-permissions), you might need to make additional role assignments such as `Container Registry Repository Reader` to the PET identity.
+
+
 When you're ready to push your image to your registry, run the following command:
 
 ```docker
