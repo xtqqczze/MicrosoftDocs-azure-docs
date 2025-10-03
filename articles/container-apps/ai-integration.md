@@ -23,7 +23,7 @@ Use GPU accelerated workload profiles to meet a variety of your AI workload need
 
 ## Dynamic sessions for AI-generated code
 
-Dynamic Sessions provide a secure, isolated environment for executing AI-generated code. Perfect for scenarios like sandboxed execution, code evaluation, or AI agents.
+Dynamic sessions provide a secure, isolated environment for executing AI-generated code. Perfect for scenarios like sandboxed execution, code evaluation, and AI agents.
 
 Supported session types include:
 - **[Platform managed built-in containers](./sessions-code-interpreter.md)**: a platform-managed container that supports executing code in Python and Node.js.
