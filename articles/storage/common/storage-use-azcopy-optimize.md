@@ -95,6 +95,8 @@ export AZCOPY_CONCURRENCY_VALUE=<value>
 set AZCOPY_CONCURRENCY_VALUE=<value>
 ```
 
+---
+
 Use the `azcopy env` to check the current value of this variable. If the value is blank, then you can read which value is being used by looking at the beginning of any AzCopy log file. The selected value, and the reason it was selected, are reported there.
 
 Before you set this variable, we recommend that you run a benchmark test. The benchmark test process will report the recommended concurrency value. Alternatively, if your network conditions and payloads vary, set this variable to the word `AUTO` instead of to a particular number. That will cause AzCopy to always run the same automatic tuning process that it uses in benchmark tests.
@@ -122,6 +124,8 @@ export AZCOPY_BUFFER_GB=<value>
 ```powershell
 set AZCOPY_BUFFER_GB=<value
 ```
+
+---
 
 > [!NOTE]
 > Job tracking always incurs additional overhead in memory usage. The amount varies based on the number of transfers in a job. Buffers are the largest component of memory usage. You can help control overhead by using `AZCOPY_BUFFER_GB` to approximately meet your requirements, but there is no flag available to strictly cap the overall memory usage.

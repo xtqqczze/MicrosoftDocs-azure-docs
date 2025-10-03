@@ -16,9 +16,10 @@ ai-usage: ai-assisted
 
 AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 
-AzCopy **V10** is the currently supported version of AzCopy and it is supported only on versions of Windows, Linux, or macOS that are officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
+
+AzCopy **V10** is the currently supported version of AzCopy and it is supported only on versions of Windows, Linux, or macOS that are officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 ## AzCopy use cases
 

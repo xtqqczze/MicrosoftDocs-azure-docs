@@ -62,7 +62,6 @@ export AZCOPY_AUTO_LOGIN_TYPE=MSI
 
 ```powershell
 $Env:AZCOPY_AUTO_LOGIN_TYPE="MSI"
-
 ```
 ---
 
@@ -84,7 +83,6 @@ export AZCOPY_AUTO_LOGIN_TYPE=MSI
 
 ```powershell
 $Env:AZCOPY_AUTO_LOGIN_TYPE="MSI"
-
 ```
 ---
 

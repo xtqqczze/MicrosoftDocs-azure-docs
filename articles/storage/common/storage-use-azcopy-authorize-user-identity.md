@@ -50,7 +50,6 @@ export AZCOPY_AUTO_LOGIN_TYPE=DEVICE
 
 ```powershell
 $Env:AZCOPY_AUTO_LOGIN_TYPE="DEVICE"
-
 ```
 
 ---
@@ -106,7 +105,6 @@ export AZCOPY_TENANT_ID=<tenant-id>
 
 ```powershell
 $Env:AZCOPY_AUTO_LOGIN_TYPE="AZCLI"
-
 ```
 
 ---
