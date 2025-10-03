@@ -26,8 +26,8 @@ Use GPU accelerated workload profiles to meet a variety of your AI workload need
 Dynamic Sessions provide a secure, isolated environment for executing AI-generated code. Perfect for scenarios like sandboxed execution, code evaluation, or AI agents.
 
 Supported session types include:
-- **[Platform managed built-in containers](/container-apps/sessions-code-interpreter)**: a platform-managed container that supports executing code in Python and Node.js.
-- **[Custom containers](/container-apps/sessions-custom-container)**: create a sessions pool using a custom container for specialized workloads or additional language support.
+- **[Platform managed built-in containers](./sessions-code-interpreter.md)**: a platform-managed container that supports executing code in Python and Node.js.
+- **[Custom containers](./sessions-custom-container.md)**: create a sessions pool using a custom container for specialized workloads or additional language support.
 
 ## Deploying Azure AI Foundry models
 
