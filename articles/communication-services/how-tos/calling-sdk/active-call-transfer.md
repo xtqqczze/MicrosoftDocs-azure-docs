@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 10/03/2025
 ms.custom: template-how-to
 
-#Customer intent: As a developer, I want to learn how to transfer calls so that users have the option to transfer calls.
+#Customer intent: As a developer, I want to learn how to transfer calls between devices so that users have the option to transfer calls to their other devices while in a call.
 ---
 
 # Active Call Transfer
