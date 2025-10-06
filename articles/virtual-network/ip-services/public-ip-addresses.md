@@ -51,8 +51,6 @@ The following table shows the property a public IP can be associated to a resour
 | Route Server | Front-end configuration | No | Yes | No | No |
 | API Management | Front-end configuration | No | Yes | No | No |
 
-Whether an IP address maintains its static IP address upon migration is dependent on the associated resources. See the public IP address upgrade article for each service for more information.
-
 ## IP address version
 
 Public IP addresses can be created with an IPv4 or IPv6 address. You may be given the option to create a dual-stack deployment with a IPv4 and IPv6 address.
@@ -79,9 +77,6 @@ Virtual machines attached to a backend pool don't need a public IP address to be
 ## IP address assignment
 
 Public IPs have two types of assignments:
-
-> [!IMPORTANT]
-> Dynamic IP allocation isn't supported for Standard SKU public IP addresses and isn't an option moving forward. Migrate your workload to use static allocation as there's no replacement for dynamic allocation besides static allocation.
 
 - **Dynamic** - The IP address **isn't** given to the resource at the time of creation when selecting dynamic. The IP is assigned when you associate the public IP address with a resource. The IP address is released when you stop, or delete the resource. Dynamic public IP addresses are commonly used for when there's no dependency on the IP address. For example, a public IP resource is released from a VM upon stop and then start. Any associated IP address is released if the allocation method is **dynamic**. If you don't want the IP address to change, set the allocation method to **static** to ensure the IP address remains the same.
   
@@ -130,7 +125,7 @@ If a custom domain is desired for services that use a public IP, you can use [Az
 
 ## Domain Name Label Scope (preview)
 
-Public IPs also have an optional parameter for **Domain Name Label Scope**, which defines what domain label an object with the same name uses. This feature can help to prevent "dangling DNS names", which can be reused by malicious actors. When this option is chosen, the public IP address' DNS name has another string in between the **domainnamelabel** and **location** fields, for example, **contoso.fjdng2acavhkevd8.westus.cloudapp.Azure.com**. (This string is a hash generated from input specific to your subscription, resource group, domain name label, and other properties). 
+Public IPs also have an optional parameter for **Domain Name Label Scope**, which defines what domain label an object with the same name uses. This feature can help to prevent "dangling DNS names" which can be reused by malicious actors. When this option is chosen, the public IP address' DNS name has another string in between the **domainnamelabel** and **location** fields, for example, **contoso.fjdng2acavhkevd8.westus.cloudapp.Azure.com**. (This string is a hash generated from input specific to your subscription, resource group, domain name label, and other properties). 
 
 The domain name label scope can only be specified at the creation of a public IP address.
 
@@ -174,7 +169,7 @@ To learn more about IP address pricing in Azure, review the [IP address pricing]
 
 * Azure doesn't support IPv6 communication for containers.
 
-* Use of IPv6-only virtual machines or virtual machines scale sets aren't supported. Each NIC must include at least one IPv4 IP configuration (dual-stack).
+* Use of IPv6-only virtual machines or virtual machines scale sets aren't supported. Each NIC must include at least one IPv4 IP configuration (dual-stack). 
 
 * IPv6 ranges can't be added to a virtual network with existing resource navigation links when adding IPv6 to existing IPv4 deployments.
 
