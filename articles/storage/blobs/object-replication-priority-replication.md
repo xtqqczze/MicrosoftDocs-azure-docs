@@ -65,11 +65,7 @@ There are also operational thresholds that might affect SLA eligibility. The SLA
 
 ## Prerequisites during preview
 
-During the preview phase, priority replication is subject to the following prerequisites:
-
-### Object replication metrics
-
-Object replication metrics are required to be enabled when enabling priority replication. The OR metrics provide users with insights into the replication progress: 
+During the preview phase, OR metrics are required to be enabled when enabling priority replication. The OR metrics provide users with insights into the replication progress and help monitor the health of their replication policies. The following metrics are available: 
 
 - **Operations pending replication:** The total number of operations pending replication from the source to the destination storage account, emitted per the time buckets.
 - **Bytes pending replication:** The sum of bytes pending replication from the source to the destination storage accounts, emitted per the time buckets.
@@ -85,15 +81,9 @@ Each of these metrics can be viewed with a time bucket dimension, enabling insig
 - 8-24 hrs
 - 24+ hrs
 
-You can enable and view the metrics on the source storage account for each OR policy. If you're new to OR, you can refer to the [OR Overview](object-replication-overview) for more information.
+You can enable and view the metrics on the source storage account for each OR policy. For more information, see the [OR Overview](object-replication-overview) article.
 
-###  Azure Feature Exposure Control
-
-The Azure Feature Exposure Control (AFEC) is a mechanism in Azure that allows users to manage preview features within their subscriptions. To manage features, you need permissions associated with the `Microsoft.Features/AllowObjectReplicationSLA` and `Microsoft.Features/AllowObjectReplicationMetrics` actions, granted through the **Contributor** or **Owner** roles.
-
-When you request **AllowObjectReplicationSLA**, your subscription is manually approved for registration. Enrollment requests can take up to five business days for completion after the Blob Storage team is notified. Requesting **AllowObjectReplicationMetrics** doesn't require manual approval, and your subscription is autoenrolled, though registration might take some time to take effect.
-
-## Supported scenarios during preview
+## Supported scenarios and limitations during preview
 
 During the preview phase, priority replication supports only the following scenarios:
 
@@ -104,8 +94,22 @@ During the preview phase, priority replication supports only the following scena
 - Viewing the OR metrics in Azure Monitor by clicking through the metric on OR pane. 
 - Setting Alerts on metrics based on threshold values relevant to your workload.
 
-## Preview limitations
+During the preview phase, the OR SLA can only be configured using the REST API. The Azure portal and Azure CLI don't yet support the configuration of this feature. Moreover, SDKs, Azure PowerShell cmdlet, and Azure CLI support aren't available during preview.
 
-During the preview phase, the OR SLA can only be configured using the RERST API. The Azure portal and Azure CLI don't yet support the configuration of this feature. Moreover, SDKs, Azure PowerShell cmdlet, and Azure CLI support aren't available during preview.
+## Configuring Object Replication Priority Replication
+
+As previously mentioned in the [Prerequisites during preview](#prerequisites-during-preview) section, enabling priority replication requires that object replication metrics are also enabled. To list, register, or unregister preview features in your Azure subscription, you need to access Azure Feature Exposure Control (AFEC). Access permission for AFEC is granted through the **Contributor** and **Owner** built-in roles, or through a custom role.
+
+The following features must be registered in your subscription to use priority replication:
+
+- **`Microsoft.Storage/ObjectReplicationPriorityReplication`**<br>
+    This feature enables priority replication for object replication policies. Any request to enable the feature requires manual approval for registration. Enrollment requests can take up to five business days to complete after submission.
+- **`Microsoft.Storage/ObjectReplicationMetrics`**<br>
+    This feature enables object replication metrics on the source storage account. The subscription will be autoenrolled after the priority replication request is approved, though registration might take some amount of time to take effect.
+
+## Register, check approval status, and re-register resource providers
+
+
+
 
 
