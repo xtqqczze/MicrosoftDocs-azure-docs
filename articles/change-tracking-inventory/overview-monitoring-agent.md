@@ -3,26 +3,18 @@ title: Azure Change Tracking and Inventory overview using Azure Monitoring Agent
 description: Learn how to the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 03/13/2025
+ms.date: 10/03/2025
 ms.topic: overview
-ms.service: azure-automation
+ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
 author: jasminemehndir
 ms.custom: sfi-image-nochange
 ---
 
-# Overview of change tracking and inventory using Azure Monitoring Agent
+# About Azure Change Tracking and Inventory
 
-> [!Important]
-> - Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and will not be supported any further. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](../automation/change-tracking/guidance-migration-log-analytics-monitoring-agent.md)
-> - We recommend that you use Change Tracking with Azure Monitoring Agent with the Change tracking extension version 2.20.0.0 (or above) to access the GA version of this service.
-
-This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
-
-> [!NOTE]
-> File Integrity Monitoring (FIM) using [Microsoft Defender for Endpoint (MDE)](/azure/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint) is now currently available. If you have FIM configured with either AMA or LA, follow the guidance to migrate from:
-> - [FIM with Change Tracking and Inventory using AMA](/azure/defender-for-cloud/migrate-file-integrity-monitoring#migrate-from-fim-over-ama).
-> - [FIM with Change Tracking and Inventory using MMA](/azure/defender-for-cloud/migrate-file-integrity-monitoring#migrate-from-fim-over-mma).
+> [!IMPORTANT]
+> - It is recommended that you use Azure Change Tracking and Inventory with the Change tracking extension version 2.20.0.0 (or above).
 
 ## What is Change Tracking & Inventory
 
@@ -234,4 +226,4 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 
 ## Next steps
 
-- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking/enable-virtual-machines-monitoring-agent.md).
+- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking-inventory/enable-virtual-machines-monitoring-agent.md).

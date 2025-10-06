@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 
-title: Azure Change Tracking & Inventory documentation
+title: Azure Change Tracking and Inventory documentation
 metadata:
-  title: Azure Change Tracking & Inventory documentation
-  description: Learn how to use Change Tracking & Inventory.
+  title: Azure Change Tracking and Inventory documentation
+  description: Learn how to use Change Tracking and Inventory.
   
   ms.service: azure-automation
   ms.topic: landing-page
@@ -18,7 +18,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About Azure Change Tracking
+          - text: About Azure Change Tracking and Inventory
             url: overview-monitoring-agent.md
           - text: Release notes
             url: extension-version-details.md
@@ -26,7 +26,7 @@ landingContent:
             url: region-mappings-monitoring-agent.md
 
   # Card  
-  - title: Enable Change Tracking
+  - title: Enable Change Tracking and Inventory
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -38,9 +38,9 @@ landingContent:
             url: enable-virtual-machines-monitoring-agent.md
 
   # Card  
-  - title: Manage Change Tracking
+  - title: Manage Change Tracking and Inventory
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage Change Tracking
+          - text: Manage Change Tracking and Inventory
             url: manage-change-tracking-monitoring-agent.md
