@@ -48,7 +48,7 @@ Priority replication introduces a new pricing model to reflect its enhanced capa
 
 While Priority replication itself incurs a charge, the associated OR metrics are free of cost. However, enabling metrics might lead to increased change feed reads, which could result in extra charges depending on usage.
 
-Standard costs for read and write transactions, and for network egress still apply. These charges are consistent with existing OR pricing and should be considered when estimating the total cost of using Priority replication. For detailed pricing information, customers are encouraged to consult the [Blob Storage pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) page.
+Standard costs for read and write transactions, and for network egress still apply. These charges are consistent with existing OR pricing and should be considered when estimating the total cost of using Priority replication. For detailed pricing information, customers are encouraged to consult the [Blob Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
 
 ## Opt-Out Policy and Billing Continuity
 
@@ -81,7 +81,7 @@ Each of these metrics can be viewed with a time bucket dimension, enabling insig
 - 8-24 hrs
 - 24+ hrs
 
-You can enable and view the metrics on the source storage account for each OR policy. For more information, see the [OR Overview](object-replication-overview) article.
+You can enable and view the metrics on the source storage account for each OR policy. For more information, see the [OR Overview](object-replication-overview.md) article.
 
 ## Supported scenarios and limitations during preview
 
