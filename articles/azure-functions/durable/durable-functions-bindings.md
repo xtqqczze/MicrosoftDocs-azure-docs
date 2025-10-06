@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The [Durable Functions](durable-functions-overview.md) extension introduces three trigger bindings that control the execution of orchestrator, entity, and activity functions. It also introduces an output binding that acts as a client for the Durable Functions runtime.
 
-This article discusses the use of these four bindings and provides code samples. It also provides information about the Durable Functions configuration properties in *host.json*, the metadata file that contains settings that affect all functions in a function app.
+This article discusses the use of these four bindings and provides code samples. It also provides information about the Durable Functions configuration properties in *host.json*, the metadata file that contains settings that affect all functions in a function app. 
 
 Make sure to select your Durable Functions development language at the top of the article.
 
