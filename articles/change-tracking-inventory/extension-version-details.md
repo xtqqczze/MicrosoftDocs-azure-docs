@@ -2,19 +2,18 @@
 title: Azure Change Tracking extension version details and known issues
 description: This article describes the Change Tracking extension version details and the known issues.
 services: automation
-ms.subservice: change-inventory-management
-ms.date: 03/21/2025
+ms.date: 10/03/2025
 ms.topic: overview
-ms.service: azure-automation
+ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
 author: jasminemehndir
 ---
 
-# Change tracking and inventory extension version details and the known issues
+# Change Tracking and Inventory extension version details and the known issues
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: Windows Services & Linux Daemons
 
-This article explains the version details of change tracking extension.
+This article explains the version details of change tracking and inventory extension.
 
 
 ## Release Notes for Extension
@@ -72,4 +71,4 @@ For Windows SvcDescription is coming as base64 encoded string. As a workaround f
 
 ## Next steps
 
-- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking/enable-virtual-machines-monitoring-agent.md).
+- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking-inventory/enable-virtual-machines-monitoring-agent.md).

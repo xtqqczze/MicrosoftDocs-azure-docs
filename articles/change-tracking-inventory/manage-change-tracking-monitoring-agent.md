@@ -2,16 +2,15 @@
 title: Manage change tracking and inventory in Azure using Azure Monitoring Agent
 description: Learn how to use change tracking and inventory to track software and Microsoft service changes in your environment using Azure Monitoring Agent
 services: automation
-ms.subservice: change-inventory-management
 ms.custom: linux-related-content
-ms.date: 03/07/2025
+ms.date: 10/03/2025
 ms.topic: how-to
-ms.service: azure-automation
+ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
 author: jasminemehndir
 ---
 
-# Manage change tracking and inventory with Azure Monitoring Agent
+# Manage Change Tracking and Inventory with Azure Monitoring Agent
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
@@ -123,7 +122,7 @@ For user-assigned managed identity, follow these steps to assign the user assign
 #### Upgrade the extension version
 
 > [!NOTE]
-> Ensure that ChangeTracking-Linux/ ChangeTracking-Windows extension version is upgraded to the current general release version: [GA Extension Version](../change-tracking/extension-version-details.md)
+> Ensure that ChangeTracking-Linux/ ChangeTracking-Windows extension version is upgraded to the current general release version: [GA Extension Version](../change-tracking-inventory/extension-version-details.md)
 
 Use the following command to upgrade the extension version:
 
