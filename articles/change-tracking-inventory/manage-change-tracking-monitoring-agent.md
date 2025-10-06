@@ -2,7 +2,6 @@
 title: Manage change tracking and inventory in Azure using Azure Monitoring Agent
 description: Learn how to use change tracking and inventory to track software and Microsoft service changes in your environment using Azure Monitoring Agent
 services: automation
-ms.subservice: change-inventory-management
 ms.custom: linux-related-content
 ms.date: 10/03/2025
 ms.topic: how-to

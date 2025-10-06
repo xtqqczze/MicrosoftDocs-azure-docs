@@ -2,7 +2,6 @@
 title: Azure Change Tracking extension version details and known issues
 description: This article describes the Change Tracking extension version details and the known issues.
 services: automation
-ms.subservice: change-inventory-management
 ms.date: 10/03/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
