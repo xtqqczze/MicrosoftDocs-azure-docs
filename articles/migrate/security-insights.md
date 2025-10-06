@@ -29,9 +29,7 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 
 | Resource | Security Insight | Details | 
 | --- | --- | --- | 
-| Servers | With security risks </br> </br> OS end of support </br> </br> Software end of support. </br></br> With vulnerabilities </br></br> Missing security software| </br></br> Missing patch management software. </br> </br> Pending updates | Servers with Security Risks: These are servers with at least one identified risk—such as end-of-support operating systems or software, known vulnerabilities, missing security or patch management tools, or pending critical and security updates.
-| Servers with security risks: These servers have one or more issues, such as outdated operating systems or software, known vulnerabilities, missing security tools, or pending updates. Servers running an end-of-support operating system. </br></br> Servers with end-of-support operating systems: These servers run operating systems that no longer receive vendor support.</br></br> Servers with vulnerabilities: These servers have known vulnerabilities - Common Vulnerabilities and Exposures(CVEs) in the operating system or discovered software. Servers missing security software: These servers don't have any discovered software categorized as security software. </br></br> Servers without any discovered patch management software. </br></br> Servers with pending updates or patches. | 
-| Software | With security risks </br></br> End of support </br></br> With vulnerabilities| Software with at least one of the following risks: end-of-support status or known vulnerabilities. </br></br> Software that reached end-of-support status as declared by the vendor.</br></br> Software with known vulnerabilities (CVEs). | 
+
 
 ### How Azure Migrate derives Security Insights from datacenter discovery
 
