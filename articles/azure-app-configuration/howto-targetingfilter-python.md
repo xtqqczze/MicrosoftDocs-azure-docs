@@ -112,7 +112,7 @@ In this section, you create a web application that uses the [_Beta_ feature flag
         app.run(debug=True)
     ```
 
-    You connect to Azure App Configuration to load feature flags, enable automatic refresh, and create a `FeatureManager` object for accessing feature flags later. The `before_request` function ensures that the configuration is refreshed before each request.
+    You connect to Azure App Configuration to load feature flags, enable automatic refresh, and create a `FeatureManager` object for accessing feature flags later. The `app.before_request` decorator ensures that configuration is refreshed before each request.
 
 ### Use the feature flag
 
