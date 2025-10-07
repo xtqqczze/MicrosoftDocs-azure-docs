@@ -122,7 +122,6 @@ Although the registration process for some features can be completed using the A
 To register for a feature with PowerShell, use the `Register-AzProviderFeature` cmdlet. For the OR SLA, you must register for both features to enable priority replication and the required metrics.
 
 ```azurepowershell
-
 Register-AzProviderFeature `
     -FeatureName AllowObjectReplicationMetrics `
     -ProviderNamespace Microsoft.Storage
@@ -130,13 +129,11 @@ Register-AzProviderFeature `
 Register-AzProviderFeature `
     -FeatureName AllowObjectReplicationSLA `
     -ProviderNamespace Microsoft.Storage
-
  ```
 
 After registering, you can check the status of your registration using the `Get-AzProviderFeature` command as shown in the following example:
 
 ```azurepowershell
-
 Get-AzProviderFeature 
     `-ProviderNamespace Microsoft.Storage 
     `-FeatureName AllowObjectReplicationMetrics 
@@ -144,15 +141,12 @@ Get-AzProviderFeature
 Get-AzProviderFeature 
     `-ProviderNamespace Microsoft.Storage 
     `-FeatureName AllowObjectReplicationSLA
-
 ```
 
 When checking the status of the registration request, you're shown one of two states: **Registered** or **Pending**. After your registration is approved, you must re-register with the Azure Storage resource provider. To re-register the resource provider, use the `Register-AzResourceProvider` cmdlet.
 
 ```azurepowershell
-
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage' 
-
 ```
 
 # [Azure CLI](#tab/cli)
@@ -160,29 +154,23 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 To register for a feature with Azure CLI, use the `az feature register` command. For the OR SLA, you must register for both features to enable priority replication and the required metrics.
 
 ```azurecli
-
 az feature register --name AllowObjectReplicationMetrics --namespace Microsoft.Storage
 
 az feature register --name AllowObjectReplicationSLA --namespace Microsoft.Storage
-
 ```
 
 After registering, you can check the status of your registration using the `az feature show` command as shown in the following example:
 
 ```azurecli
-
 az feature show --namespace Microsoft.Storage --name AllowObjectReplicationMetrics 
 
 az feature show --namespace Microsoft.Storage --name AllowObjectReplicationSLA
-
 ```
 
 After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with Azure CLI, use the `az provider register` command.
 
 ```azurecli
-
 az provider register --namespace 'Microsoft.Storage' 
-
 ```
 ---
 
@@ -193,7 +181,6 @@ After successfully registering your subscription to use the preview, you can ena
 When priority replication is enabled, monitoring metrics must also be enabled. The request to enable priority replication fails if the request doesn't enable metrics in the OR policy.
 
 ```rest
- 
   "properties": { 
     "sourceAccount": "mysourceaccount",
     "destinationAccount": "mydestinationaccount", 
@@ -219,5 +206,4 @@ When priority replication is enabled, monitoring metrics must also be enabled. T
       } 
     ] 
   } 
-
 ```
