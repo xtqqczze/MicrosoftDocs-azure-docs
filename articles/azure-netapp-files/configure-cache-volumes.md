@@ -43,6 +43,7 @@ The delegated subnet address space for hosting the Azure NetApp Files volumes mu
         * Any other Azure NetApp Files feature not included as supported
     * Supported features:
         * NFS and SMB
+        * Lightweight Directory Access Protocol (LDAP)
         * Availability zone volume placement
         * Customer-managed keys
         * SMB continuous availability shares
