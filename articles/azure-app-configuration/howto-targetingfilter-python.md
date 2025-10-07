@@ -89,7 +89,7 @@ In this section, you create a web application that uses the [_Beta_ feature flag
     def initialize_config():
         global azure_app_config, feature_manager
         # Load feature flags from App Configuration
-        azure_app_config = await load(
+        azure_app_config = load(
             endpoint=app_config_endpoint,
             credential=DefaultAzureCredential(),
             feature_flag_enabled=True,
@@ -149,38 +149,9 @@ Update the _app.py_ file to import the `TargetingContext` class and use it in th
 
 ```python
 from flask import Flask, request
-import os
-from azure.identity import DefaultAzureCredential
-from azure.appconfiguration.provider import load
 from featuremanagement import FeatureManager, TargetingContext
 
-app = Flask(__name__)
-
-# Get the App Configuration endpoint from environment variables
-app_config_endpoint = os.environ.get("AZURE_APPCONFIG_ENDPOINT")
-
-# Initialize the App Configuration and Feature Manager
-azure_app_config = None
-feature_manager = None
-
-def initialize_config():
-    global azure_app_config, feature_manager
-    # Load feature flags from App Configuration
-    azure_app_config = load(
-        endpoint=app_config_endpoint,
-        credential=DefaultAzureCredential(),
-        feature_flag_enabled=True,
-        feature_flag_refresh_enabled=True
-    )
-    
-    # Create a feature manager with the loaded configuration
-    feature_manager = FeatureManager(azure_app_config)
-
-# Flask route before the request to refresh configuration
-@app.before_request
-def refresh_config():
-    if azure_app_config:
-        azure_app_config.refresh()
+...
 
 @app.route("/")
 def home():
@@ -210,12 +181,6 @@ def home():
         </body>
     </html>
     """
-
-if __name__ == "__main__":
-    # Initialize configuration before starting the app
-    initialize_config()
-    
-    app.run(debug=True)
 ```
 
 
