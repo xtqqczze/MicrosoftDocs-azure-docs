@@ -50,6 +50,8 @@ The following table shows the availability status of securing Internet access wi
     * Traffic from on-premises destined for the public IP address of an Azure storage account deployed in the same Azure region as the Virtual WAN hub bypasses security solution in the hub. For more details on issue, see [Virtual WAN known issues](whats-new.md#knownissues).
     * On-premises **can't** advertise forced tunnel routes more specific that 0.0.0.0/0. Advertising more specific routes like 0.0.0.0/1 and 128.0.0.0/1 from on-premises may blackhole in management traffic for Azure Firewall or NVAs integrated in the Virtual Hub.
     * Virtual Network connection **bypass next hop setting** is ignored for deployments using static routes on Virtual Network connections with **propagate static route** enabled. Traffic destined for the Virtual Network connection will be inspected by the security appliance in the hub and  routed directly to the destination IP in the spoke Virtual Network, bypassing the next hop IP configured in the static route.  
+  * The default route learned from ExpressRoute can't be advertised to another ExpressRoute circuit. This means you can't configure Virtual WAN to route Internet traffic from one ExpressRoute circuit to another ExpressRoute circuit for egress. 
+  
 * **Direct Access**:
     * Traffic from on-premises destined for the public IP address of an Azure storage account deployed in the same Azure region as the Virtual WAN hub bypasses security solution in the hub. For more details on this limitation and potential mitigations, see [VIrtual WAN known issues](whats-new.md#knownissues).
 * **Portal issues**:
