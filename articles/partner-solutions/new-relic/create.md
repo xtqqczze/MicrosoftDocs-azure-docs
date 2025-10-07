@@ -56,7 +56,7 @@ There are required fields (identified with a red asterisk) in each section that 
     > [!NOTE]
     > If you choose to associate your resource with an existing organization, the resource is billed to that organization's plan. 
 
-    Select **Choose plan** to [change the billing plan](manage.md#change-billing-plan) . 
+    Select **Choose plan** to [change the billing plan](manage.md#change-billing-plan). 
 
     In the **Choose Plan** pane, you can choose a Marketplace plan or an existing SaaS resource. 
 
