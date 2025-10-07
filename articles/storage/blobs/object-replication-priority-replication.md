@@ -122,25 +122,25 @@ Although the registration process for some features can be completed using the A
 To register for a feature with PowerShell, use the `Register-AzProviderFeature` cmdlet. For the OR SLA, you must register for both features to enable priority replication and the required metrics.
 
 ```azurepowershell
-Register-AzProviderFeature `
-    -FeatureName AllowObjectReplicationMetrics `
+Register-AzProviderFeature`
+    -FeatureName AllowObjectReplicationMetrics`
     -ProviderNamespace Microsoft.Storage
 
-Register-AzProviderFeature `
-    -FeatureName AllowObjectReplicationSLA `
+Register-AzProviderFeature`
+    -FeatureName AllowObjectReplicationSLA`
     -ProviderNamespace Microsoft.Storage
  ```
 
 After registering, you can check the status of your registration using the `Get-AzProviderFeature` command as shown in the following example:
 
 ```azurepowershell
-Get-AzProviderFeature 
-    `-ProviderNamespace Microsoft.Storage 
-    `-FeatureName AllowObjectReplicationMetrics 
+Get-AzProviderFeature` 
+    -ProviderNamespace Microsoft.Storage`
+    -FeatureName AllowObjectReplicationMetrics 
 
-Get-AzProviderFeature 
-    `-ProviderNamespace Microsoft.Storage 
-    `-FeatureName AllowObjectReplicationSLA
+Get-AzProviderFeature`
+    -ProviderNamespace Microsoft.Storage`
+    -FeatureName AllowObjectReplicationSLA
 ```
 
 When checking the status of the registration request, you're shown one of two states: **Registered** or **Pending**. After your registration is approved, you must re-register with the Azure Storage resource provider. To re-register the resource provider, use the `Register-AzResourceProvider` cmdlet.
