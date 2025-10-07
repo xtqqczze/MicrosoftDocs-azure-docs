@@ -17,6 +17,12 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## November 2025
+
+* [Generate user and quota reports](generate-user-group-quota-reports.md)
+
+    Azure NetApp Files support user and group quota reporting on actual capacity usage on NFS, SMB, and dual-protocol volumes against defined individual and group quotas. Users can generate quota reports for existing volumes with quota rules using the Azure API independent of host-based tooling or without having to mount the volume.
+
 ## September 2025
 
 * [Azure NetApp Files datastore support in Azure VMware Solution Generation 2](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)

@@ -79,7 +79,10 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * **% Used**
         How much % of the total quota limit has been used by user/group
 
-3. You can apply filter to view the specific quota reports.
+3. You can apply filters for “Quota Target”. “Quota Type”, and “%Used” to view the specific quota reports.
+
+> [!IMPORTANT]
+> When using the Quota Target filter, you must first select a Quota Type value. The Quota Target is dependent on the Quota Type and cannot be applied independently.
 
 > [!NOTE]
 > You can add a new quota only for derived quotas and edit only non-derived quotas.
