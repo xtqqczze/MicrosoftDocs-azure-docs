@@ -555,7 +555,7 @@ items:
       items:
       - name: Object replication
         href: object-replication-overview.md
-      - name: Object Replication Priority Replication (Preview)
+      - name: Object replication Priority Replication (Preview)
         href: object-replication-priority-replication.md
       - name: Configure object replication policies
         href: object-replication-configure.md
