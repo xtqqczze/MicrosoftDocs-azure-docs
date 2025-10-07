@@ -193,8 +193,7 @@ After successfully registering your subscription to use the preview, you can ena
 When priority replication is enabled, monitoring metrics must also be enabled. The request to enable priority replication fails if the request doesn't enable metrics in the OR policy.
 
 ```rest
-
-{ 
+ 
   "properties": { 
     "sourceAccount": "mysourceaccount",
     "destinationAccount": "mydestinationaccount", 
