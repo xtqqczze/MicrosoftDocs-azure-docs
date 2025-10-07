@@ -29,7 +29,7 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 
 | Resource | Security Insight | Details | 
 | --- | --- | --- | 
-| Servers  | With security risks <br/> <br/> OS end of support   | Servers are flagged if they have at least one of the following security risks: </br> </br> End-of-support operating system </br> </br> End-of-support software </br> </br> Known vulnerabilities (CVEs) </br> </br> Missing security or patch management software </br> </br> Pending critical or security updates </br></br> Servers with end of support Operating system  | 
+| Servers  | With security risks </br> </br> OS end of support   | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates, Servers with end of support Operating system. </br> </br> Servers with end of support Operating system   | 
 | Resource | Security Insight | Details | 
 
 ### How Azure Migrate derives Security Insights from datacenter discovery
