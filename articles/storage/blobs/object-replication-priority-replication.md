@@ -65,25 +65,29 @@ Standard costs for read and write transactions, and for network egress still app
     - Your storage account or Replication Policy exceeds 1,000 PUT or DELETE operations per second and the resulting back log of writes are being replicated, and 
     - Existing blob replication is pending following a recent Replication Policy creation or update. Existing blob replication is estimated to progress at 100 TB per day on average but may experience reduced velocity when blobs with many versions are present. 
 
-## Prerequisites during preview
+## How to monitor SLA compliance for OR priority Replication
 
-During the preview phase, OR metrics are required to be enabled when enabling priority replication. The OR metrics provide users with insights into the replication progress and help monitor the health of their replication policies. The following metrics are available: 
+Object Replication Priority Replication: 
 
-- **Operations pending replication:** The total number of operations pending replication from the source to the destination storage account, emitted per the time buckets.
-- **Bytes pending replication:** The sum of bytes pending replication from the source to the destination storage accounts, emitted per the time buckets.
+Replication Metrics for Object Replication is now Generally Available. These metrics empower users to troubleshoot replication delays and will help users with priority replication enabled monitor their SLA compliance. Metrics now supported are: 
 
-Each of these metrics can be viewed with a time bucket dimension, enabling insight into the replication lag for the following time buckets:
+Pending Operations: Tracks the total number of operations pending replication from the source to the destination storage account of your OR policy  
 
-- 0-5 mins
-- 5-10 mins
-- 10-15 mins
-- 15-30 mins
-- 30 mins-2 hrs
-- 2-8 hrs
-- 8-24 hrs
-- 24+ hrs
+Pending Bytes: Tracks the total volume of data pending replication from the source to the destination storage account of your OR policy  
 
-You can enable and view the metrics on the source storage account for each OR policy. For more information, see the [OR Overview](object-replication-overview.md) article.
+These metrics are grouped into various time buckets including 0-5 minutes, 10-15 minutes and > 24 hours.  
+
+Users with OR priority replication that would like to ensure all their operations are replicating within 15 minutes; can monitor the larger time buckets (ex: 30 mins – 2hours or 8-24 hours) and ensure they are at zero or near zero. 
+
+A graph with numbers and a line
+
+AI-generated content may be incorrect.A graph with numbers and a line
+
+AI-generated content may be incorrect.  
+
+ 
+
+Users also have other options such as checking the replication status of their source blob. Users can check the replication status of a source blob to determine whether replication to the destination has been completed. Once the replication status is marked as “Completed,” the user can guarantee the blob is available in the destination account. 
 
 ## Configuring priority replication
 
