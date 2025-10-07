@@ -4,10 +4,10 @@ description: This article describes the Azure built-in roles for Azure role-base
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: jenniferf-skc    
+author: rolyon    
 manager: pmwongera
-ms.author: jfields
-ms.date: 08/26/2025
+ms.author: rolyon
+ms.date: 09/24/2025
 ms.custom: generated
 ---
 
@@ -201,6 +201,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-arc-kubernetes-cluster-admin'></a>[Azure Arc Kubernetes Cluster Admin](./built-in-roles/containers.md#azure-arc-kubernetes-cluster-admin) | Lets you manage all resources in the cluster. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
 > | <a name='azure-arc-kubernetes-viewer'></a>[Azure Arc Kubernetes Viewer](./built-in-roles/containers.md#azure-arc-kubernetes-viewer) | Lets you view all resources in cluster/namespace, except secrets. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
 > | <a name='azure-arc-kubernetes-writer'></a>[Azure Arc Kubernetes Writer](./built-in-roles/containers.md#azure-arc-kubernetes-writer) | Lets you update everything in cluster/namespace, except (cluster) roles and (cluster)role bindings. | 5b999177-9696-4545-85c7-50de3797e5a1 |
+> | <a name='azure-container-instances-contributor-role'></a>[Azure Container Instances Contributor Role](./built-in-roles/containers.md#azure-container-instances-contributor-role) | Grants read/write access to container groups provided by Azure Container Instances | 5d977122-f97e-4b4d-a52f-6b43003ddb4d |
 > | <a name='azure-container-storage-contributor'></a>[Azure Container Storage Contributor](./built-in-roles/containers.md#azure-container-storage-contributor) | Install Azure Container Storage and manage its storage resources. Includes an ABAC condition to constrain role assignments. | 95dd08a6-00bd-4661-84bf-f6726f83a4d0 |
 > | <a name='azure-container-storage-operator'></a>[Azure Container Storage Operator](./built-in-roles/containers.md#azure-container-storage-operator) | Enable a managed identity to perform Azure Container Storage operations, such as manage virtual machines and manage virtual networks. | 08d4c71a-cc63-4ce4-a9c8-5dd251b4d619 |
 > | <a name='azure-container-storage-owner'></a>[Azure Container Storage Owner](./built-in-roles/containers.md#azure-container-storage-owner) | Install Azure Container Storage, grant access to its storage resources, and configure Azure Elastic storage area network (SAN). Includes an ABAC condition to constrain role assignments. | 95de85bd-744d-4664-9dde-11430bc34793 |
@@ -217,6 +218,8 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-kubernetes-service-cluster-monitoring-user'></a>[Azure Kubernetes Service Cluster Monitoring User](./built-in-roles/containers.md#azure-kubernetes-service-cluster-monitoring-user) | List cluster monitoring user credential action. | 1afdec4b-e479-420e-99e7-f82237c7c5e6 |
 > | <a name='azure-kubernetes-service-cluster-user-role'></a>[Azure Kubernetes Service Cluster User Role](./built-in-roles/containers.md#azure-kubernetes-service-cluster-user-role) | List cluster user credential action. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | <a name='azure-kubernetes-service-contributor-role'></a>[Azure Kubernetes Service Contributor Role](./built-in-roles/containers.md#azure-kubernetes-service-contributor-role) | Grants access to read and write Azure Kubernetes Service clusters | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
+> | <a name='azure-kubernetes-service-namespace-contributor'></a>[Azure Kubernetes Service Namespace Contributor](./built-in-roles/containers.md#azure-kubernetes-service-namespace-contributor) | Allows users to create and manage Azure Kubernetes Service namespace resources. | 289d8817-ee69-43f1-a0af-43a45505b488 |
+> | <a name='azure-kubernetes-service-namespace-user'></a>[Azure Kubernetes Service Namespace User](./built-in-roles/containers.md#azure-kubernetes-service-namespace-user) | Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster. | c9f76ca8-b262-4b10-8ed2-09cf0948aa35 |
 > | <a name='azure-kubernetes-service-rbac-admin'></a>[Azure Kubernetes Service RBAC Admin](./built-in-roles/containers.md#azure-kubernetes-service-rbac-admin) | Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces. | 3498e952-d568-435e-9b2c-8d77e338d7f7 |
 > | <a name='azure-kubernetes-service-rbac-cluster-admin'></a>[Azure Kubernetes Service RBAC Cluster Admin](./built-in-roles/containers.md#azure-kubernetes-service-rbac-cluster-admin) | Lets you manage all resources in the cluster. | b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b |
 > | <a name='azure-kubernetes-service-rbac-reader'></a>[Azure Kubernetes Service RBAC Reader](./built-in-roles/containers.md#azure-kubernetes-service-rbac-reader) | Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation). Applying this role at cluster scope will give access across all namespaces. | 7f6c6a51-bcf8-42ba-9220-52d62157d7db |
@@ -583,6 +586,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='arc-gateway-manager'></a>[Arc Gateway Manager](./built-in-roles/hybrid-multicloud.md#arc-gateway-manager) | Manage Arc Gateway Resources | f6e92014-8af2-414d-9948-9b1abf559285 |
 > | <a name='azure-arc-scvmm-administrator-role'></a>[Azure Arc ScVmm Administrator role](./built-in-roles/hybrid-multicloud.md#azure-arc-scvmm-administrator-role) | Arc ScVmm VM Administrator has permissions to perform all ScVmm actions. | a92dfd61-77f9-4aec-a531-19858b406c87 |
 > | <a name='azure-arc-scvmm-private-cloud-user'></a>[Azure Arc ScVmm Private Cloud User](./built-in-roles/hybrid-multicloud.md#azure-arc-scvmm-private-cloud-user) | Azure Arc ScVmm Private Cloud User has permissions to use the ScVmm resources to deploy VMs. | c0781e91-8102-4553-8951-97c6d4243cda |
 > | <a name='azure-arc-scvmm-private-clouds-onboarding'></a>[Azure Arc ScVmm Private Clouds Onboarding](./built-in-roles/hybrid-multicloud.md#azure-arc-scvmm-private-clouds-onboarding) | Azure Arc ScVmm Private Clouds Onboarding role has permissions to provision all the required resources for onboard and deboard vmm server instances to Azure. | 6aac74c4-6311-40d2-bbdd-7d01e7c6e3a9 |
