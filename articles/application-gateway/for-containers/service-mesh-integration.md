@@ -37,10 +37,16 @@ The ALB Controller Service Mesh extension is installed via a separate, to ALB Co
 The following helm command can be used to install the extension.
 
 ```bash
-helm install alb-controller-istio-extension oci://trafficcontrollerdev.azurecr.io/public/application-lb/charts/alb-controller-servicemesh-extension \
---namespace azure-alb-system \
---version 0.0.0-pjayathirth-e779b8af \
---set albServiceMeshExtension.image.tag=0.0.0-pjayathirth-e779b8af
+HELM_NAMESPACE='<namespace for deployment>'
+CONTROLLER_NAMESPACE='azure-alb-system'
+RESOURCE_GROUP='<your resource group name>'
+AKS_NAME='<your aks cluster name>'
+
+az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
+
+helm install alb-controller-servicemesh-extension oci://mcr.microsoft.com/application-lb/charts/alb-controller-servicemesh-extension \
+     --namespace $HELM_NAMESPACE \
+     --version 1.8.8
 ```
 
 ### Verify the ALB Controller installation
