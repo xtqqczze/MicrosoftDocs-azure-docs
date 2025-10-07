@@ -335,11 +335,11 @@
       href: route-maps-summarize-from-device-spoke-vnet-nva.md
   - name: View virtual hub effective routes
     href: effective-routes-virtual-hub.md
-  - name: Routing intenet and policies
-    items:
-    - name: Configure routing intent and policies
+  - name: Routing intent and policies
+    items: 
+    - name: Configure routing intent.md
       href: how-to-routing-policies.md
-    - name: Routing to the interconnect-china.md
+    - name: Internet access with routing intent
       href: about-internet-routing.md
   - name: Next hop IP support
     href: next-hop-ip.md
