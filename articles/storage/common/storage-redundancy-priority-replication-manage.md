@@ -1,7 +1,7 @@
 ---
-title: Managing the Azure Object and Geo-Redundant Storage Replication Service Level Agreement
+title: Manage Geo Priority Replication
 titleSuffix: Azure Storage
-description: Enable and disable Geo-Redundant Storage Replication.
+description: Learn how to enable and disable Geo-Priority replication.
 services: storage
 author: stevenmatthew
 
@@ -18,9 +18,9 @@ ms.custom: references_regions, engagement
 Initial: 98 (896/1)
 -->
 
-# Managing Azure Geo-Redundant Storage replication
+# Managing Geo-Priority replication
 
-Geo Priority Replication is a premium feature designed to meet stringent Recovery Point Objectives (RPO) for storage accounts using geo-redundant storage (GRS) or geo-zone redundant storage (GZRS). It enhances the replication process by enabling accelerated data replication between the primary and secondary regions. It carries a service level agreement (SLA) guaranteeing the Last Sync Time (LST) remains within 15 minutes lag for 99.0% of a billing month.
+Geo Priority Replication is a premium feature designed to meet stringent Recovery Point Objectives (RPO) for storage accounts using geo-redundant storage (GRS) or geo-zone redundant storage (GZRS). It enhances the replication process by enabling accelerated data replication between the primary and secondary regions. This feature is backed by a Service Level Agreement (SLA), ensuring the Last Sync Time for Block Blob data remains at 15 minutes or less 99.0% of the time of the billing month.
 
 ## Enabling Geo-Redundant Storage replication
 Enabling Geo Priority Replication is straightforward and can be completed via the Azure portal, PowerShell, or the Azure CLI. It can be enabled for existing accounts, or during the process of creating a new account.
@@ -88,6 +88,7 @@ The following screenshot shows an example of geo blob lag over a 30-day period. 
 
 :::image type="content" source="media/storage-redundancy-priority-replication-manage/replication-enabled.png" alt-text="Screenshot showing a storage account with geo priority replication enabled.":::
 
+<!--
 ## Claiming service credits
 
 To claim a refund for SLA violations:
@@ -99,6 +100,7 @@ To claim a refund for SLA violations:
    - Logs showing SLA breach.
 3. Submit within **two billing cycles** of the incident.
 4. Microsoft validates eligibility using internal dashboards.
+-->
 
 ## Next steps
 

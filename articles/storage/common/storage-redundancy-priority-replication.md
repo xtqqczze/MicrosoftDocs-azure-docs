@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Geo Priority Replication
+title: Managing Geo Priority Replication
 titleSuffix: Azure Storage
 description: Learn how Azure Storage Geo Priority Replication helps maintain high availability and cross-region data integrity.
 services: storage
@@ -19,7 +19,7 @@ Initial: 98 (896/1)
 Current: 99 (975/1)
 -->
 
-# Azure Storage Geo Priority Replication
+# Managing Geo Priority Replication
 
 Azure Blob Storage Geo Priority Replication is designed to meet the stringent compliance and business continuity requirements of Azure Blob users. The feature prioritizes the replication traffic of Blob data for storage accounts with geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) enabled. This prioritization accelerates data replication between the primary and secondary regions of these geo-redundant accounts. 
 
