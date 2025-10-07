@@ -59,7 +59,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     ![Screenshot that shows the generate quota report and management option.](./media/manage-default-individual-user-group-quotas/generate-quota-reports.png) 
 
-    The Quota Report slide out will automatically retrieve the quota report in the background, stay on the page until the quota report has been successfully retrieved. Retrieval takes on average 5 seconds, but can take longer. The quota report lists one entry per user.
+    The Quota Report slide out will automatically retrieve the quota report in the background, stay on the page until the quota report has been successfully retrieved. Retrieval takes on average 5 seconds, but can take longer. The quota report lists one entry per user. The following are the fields available in the page.
 
     * **Quota Type**      
         Indicates which type of quota rule caused this user or group entry in the report; possible types are default or individual quotas for users or groups.
@@ -79,7 +79,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * **% Used**
         How much % of the total quota limit has been used by user/group
 
-3. You can apply filters for “Quota Target”. “Quota Type”, and “%Used” to view the specific quota reports.
+3. You can apply filters for “Quota Target”. “Quota Type”, and “%Used” to view the specific quota report.
 
 > [!IMPORTANT]
 > When using the Quota Target filter, you must first select a Quota Type value. The Quota Target is dependent on the Quota Type and cannot be applied independently.
