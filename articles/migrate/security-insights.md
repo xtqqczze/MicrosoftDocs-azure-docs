@@ -56,7 +56,7 @@ Security risks are identified through the following analysis:
 >[!Note]
 > **Security Insights scope**: Azure Migrate provides guidance on potential security risks in your datacenter but is not a replacement for specialized security tools. For comprehensive protection of your hybrid environment, it's recommended to adopt Azure security services after migration. 
 
-## Prerequisites for Reviewing Insights 
+## Prerequisites for reviewing Insights 
 
 - Use [appliance-based discovery in Azure Migrate](how-to-review-discovered-inventory.md) to review Insights (preview). [Import-based discovery](discovery-methods-modes.md) isn't supported.
 - Create an [Azure Migrate project using portal](quickstart-create-project.md) by following the steps or use an existing project.
@@ -100,3 +100,91 @@ Add screen
 Add screen
 
 ## Review detailed security risks 
+
+The process of examining specific security vulnerabilities identified in your environment.
+
+### Review Servers with security risks
+
+To review detailed security risks, follow the below steps:
+
+1. Open the **Insights** (preview) page.
+1. In the **Servers** card, select the link that shows the number of servers with security risks.
+
+Add screen
+
+1. You can view the detailed list of discovered servers, apply tags to support migration planning, and export the server data as a .csv file.
+
+Add screen
+
+### View impacted servers by security risk
+
+To view servers impacted by specific security risks, return to the Insights (preview) page. From there, you can access a detailed list of servers affected by:
+
+- End-of-support operating systems
+- End-of-support software
+- Known vulnerabilities (CVEs) in installed software or operating systems
+- Missing security or patch management tools
+- Pending critical and security updates
+
+Add screen
+
+1. Alternatively, you can filter servers with security risks from the **Explore inventory** > **All inventory** and **Explore inventory** > **Infrastructure** page.
+
+Add screen
+
+### Review Software with security risks 
+
+To review software with identified security risks, follow these steps:
+
+1. Open the **Insights** (preview) page.
+1. In the **Software** card, select the link that shows the number of software items with security risks.
+
+Add screen
+
+1. You can view the detailed list of discovered software, examine associated metadata, and export the data as a .csv file.
+
+Add screen
+
+1. To view software impacted by specific security risks, return to the Insights (preview) page. From there, you can access a detailed list of software affected by:
+    - End-of-support status
+    - Known vulnerabilities (CVEs)
+Add screen
+
+1. Alternatively, you can filter end-of-support software and software with known vulnerabilities from the **Explore inventory** > **Software** page.
+
+Add screen
+
+### Review detailed Security Insights for a server 
+
+To view detailed security insights for a specific server:
+
+1. Go to the **Infrastructure** page and select the server you want to review.
+1. Select the **Insights** (preview) tab.
+
+The tab displays security insights for the selected server, including:
+
+- Operating system support status
+- Presence of security and patch management software
+- Pending critical and security updates
+- End-of-support software
+- Software with known vulnerabilities (CVEs)
+
+The summary of the top five pending updates and top five vulnerabilities is provided to help prioritize remediation.
+
+Add screen
+
+## Manage permissions for Security Insights 
+
+Security insights are enabled by default for all users. To manage access, create custom roles and remove the following permissions:
+
+- View security insights
+- Access vulnerability data
+- View update status
+
+| Resource | Permissions | 
+| --- | --- | 
+| Pending updates  | `.../machines/inventoryinsights/pendingUpdates`  | 
+| Vulnerabilities  | `.../machines/inventoryinsights/vulnerabilities`  | 
+
+>[!Note]
+> Support status for operating systems and software is a machine-level property. User access to this information is determined by the permissions assigned at the machine level.
