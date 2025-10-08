@@ -81,9 +81,11 @@ To view security insights in Azure Migrate:
     - Servers running end-of-support operating systems, recommending upgrades during migration.
     - The number of servers with pending critical and security updates, suggesting remediation using Azure Update Manager post-migration.
 
+    :::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
+
 You can tag servers with critical risks to support effective planning and mitigation during modernization to Azure.
 
-    :::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
+    add summary card screen
 
 1. **Servers** card shows a summary of all discovered servers with security risks. A server is considered at risk if it has at least one of the following issues:
     - End-of-support operating system
@@ -169,9 +171,11 @@ The tab displays security insights for the selected server, including:
   - End-of-support software
   - Software with known vulnerabilities (CVEs)
 
+    :::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
+
 The summary of the top five pending updates and top five vulnerabilities is provided to help prioritize remediation.
 
-    :::image type="content" source="./media/security-insights-overview/pending-updates.png" alt-text="Screenshot shows the top five pending updates." lightbox="./media/security-insights-overview/pending-updates.png":::
+    Add pending updates screen 
 
 ## Manage permissions for Security Insights 
 
