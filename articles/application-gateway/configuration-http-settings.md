@@ -173,7 +173,12 @@ For example, if *www.contoso.com* is specified in the **Host name** setting, the
 Azure Application Gateway, by default, reuses idle backend connections to optimize the resource utilization of TCP connections for both the Application Gateway and the backend server.
 To support security functions in customer data paths that necessitate unique backend connections per client, Azure Application Gateway V2 provides dedicated connections to backend servers.
 
-:::image type="content" source="media/configuration-http-settings/dedicated-backend.png" alt-text="Screenshot of network flows through Application Gateway layer 7 proxy."::: This capability establishes direct, one-to-one mapping between frontend and backend connections, ensuring persistent connectivity for each individual client.
+:::image type="content" source="media/configuration-http-settings/dedicated-backend.png" alt-text="Screenshot of network flows through Application Gateway layer 7 proxy."::: 
+
+This capability establishes direct, one-to-one mapping between frontend and backend connections, ensuring persistent connectivity for each individual client.
+
+>[!NOTE]
+>To enable NTLM or Kerberos passthrough authentication, ensure that the Dedicated Backend Connection setting is turned on. This configuration maintains a one-to-one mapping between frontend and backend connections, which is essential for preserving session integrity required by these authentication protocols.
 
 >[!IMPORTANT]
 >Dedicated backend connection leads to an increase in the number of backend connections and hence could require more resources to support the increased concurrent connections on Application Gateway and the backend servers. On Application Gateway, you must consider increasing the number of instances or enabling auto scale.
