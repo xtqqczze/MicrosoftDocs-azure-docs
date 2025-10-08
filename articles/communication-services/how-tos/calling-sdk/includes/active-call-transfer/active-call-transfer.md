@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/03/2025
 ms.author: dmceachern
 ---
-Before learning about Active Call Transfer, make sure you check out how to [install the Calling SDK SDK](../install-sdk/install-sdk-web.md).
 Active Call Transfer is a feature of the core `CallAgent` API. This guide talks about how you can manage and track any ongoing calls for your users and how to transfer their client to that active call.
 
 **Note:** This feature is also enabled for the `TeamsCallAgent` as this feature is supported for Teams users as well.

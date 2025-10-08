@@ -15,7 +15,11 @@ ms.custom: template-how-to
 
 # Active Call Transfer
 
+Before learning about Active Call Transfer, make sure you check out how to [install the Calling SDK SDK](./includes/install-sdk/install-sdk-web.md).
+
 During an active call, you may want to transfer the call to device that you are signed in on. Let's learn how. 
+
+
 
 ## Prerequisites
 
