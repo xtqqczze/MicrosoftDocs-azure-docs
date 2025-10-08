@@ -21,10 +21,6 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 
 + [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 
-+ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
-
-[!INCLUDE [functions-requirements-azure-cli](../../includes/functions-requirements-azure-cli.md)]
-
 + [Python 3.11 or later](https://www.python.org/downloads/)
 
 ## Initialize the project
