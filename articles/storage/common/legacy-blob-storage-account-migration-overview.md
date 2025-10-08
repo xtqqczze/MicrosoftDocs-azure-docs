@@ -89,7 +89,7 @@ Resources
 
 ## Special Cases: Databricks DBFS Accounts
 
-If you see a storage account that is part of a **Databricks-managed resource group** in your subscription, **no action is required**. These accounts are read-only for you and are used by Databricks for workspace operations. Microsoft will migrate these DBFS accounts to **GPv2 automatically** ahead of the 2026 retirement.
+If you see a storage account that is part of a **Databricks-managed resource group** in your subscription, **no action is required**. These accounts are read-only for you and are used by Databricks for workspace operations. Microsoft will migrate these DBFS accounts to **GPv2 automatically** ahead of the October 13, 2026 retirement.
 
 ### How to identify DBFS accounts
 - Most DBFS accounts start with the prefix `dbstorage`.  
@@ -108,7 +108,7 @@ Examples:
 > - You have **read-only permissions** (cannot modify or delete the account).
 
 ### What about other accounts?
-All other storage accounts including any **GPv1** or **Blob-only accounts** that you manage for your workloads must be migrated to GPv2 by following the instructions provided earlier in this article.
+All other storage accounts including any **general-purpose v1 (GPv1)** or **legacy blob storage accounts** that you manage for your workloads must be migrated to general-purpose v2 (GPv2) by following the instructions provided earlier in this article.
 
 ## What happens if you don’t migrate by the deadline
 After **October 13 2026**, if you don't migrate your legacy blob storage account to general-purpose v2, all existing legacy blob storage accounts are auto migrated over to a general-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf.
