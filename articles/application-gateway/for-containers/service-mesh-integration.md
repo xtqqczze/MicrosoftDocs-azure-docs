@@ -94,21 +94,21 @@ For example:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: isto-example-namespace
+  name: istio-example-namespace
   labels:
     istio-injection: enabled
 ```
 
 #### Enable mTLS handling for services in the namespace
 
-In this example, we'll define a `PeerAuthentication` Istio custom resource to require mTLS for incoming connections to the services in the `isto-example-namespace`.
+In this example, we'll define a `PeerAuthentication` Istio custom resource to require mTLS for incoming connections to the services in the `istio-example-namespace`.
 
 ```yaml
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
 metadata:
   name: default
-  namespace: isto-example-namespace
+  namespace: istio-example-namespace
 spec:
   mtls:
     mode: STRICT
@@ -146,7 +146,7 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: gateway-01
-  namespace: isto-example-namespace
+  namespace: test-infra
   annotations:
     alb.networking.azure.io/alb-namespace: alb-test-infra
     alb.networking.azure.io/alb-name: alb-test
@@ -158,7 +158,7 @@ spec:
     protocol: HTTP
     allowedRoutes:
       namespaces:
-        from: Same
+        from: All
 EOF
 ```
 
@@ -184,7 +184,7 @@ EOF
     kind: Gateway
     metadata:
       name: gateway-01
-      namespace: isto-example-namespace
+      namespace: test-infra
       annotations:
         alb.networking.azure.io/alb-id: $RESOURCE_ID
     spec:
@@ -195,7 +195,7 @@ EOF
         protocol: HTTP
         allowedRoutes:
           namespaces:
-            from: Same
+            from: All
       addresses:
       - type: alb.networking.azure.io/alb-frontend
         value: $FRONTEND_NAME
@@ -207,7 +207,7 @@ EOF
 Once the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
 
 ```bash
-kubectl get gateway gateway-01 -n isto-example-namespace -o yaml
+kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
 Example output of successful gateway creation.
@@ -267,10 +267,11 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: traffic-split-mesh-route
-  namespace: isto-example-namespace
+  namespace: istio-example-namespace
 spec:
   parentRefs:
   - name: gateway-01
+    namespace: test-infra
   rules:
   - backendRefs:
     - name: backend-v1
@@ -281,7 +282,7 @@ EOF
 Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
 
 ```bash
-kubectl get httproute traffic-split-mesh-route -n isto-example-namespace -o yaml
+kubectl get httproute traffic-split-mesh-route -n istio-example-namespace -o yaml
 ```
 
 Verify the status of the Application Gateway for Containers resource has been successfully updated.
@@ -313,7 +314,7 @@ status:
       group: gateway.networking.k8s.io
       kind: Gateway
       name: gateway-01
-      namespace: isto-example-namespace
+      namespace: test-infra
   ```
 
 #### Test access to the application
@@ -333,7 +334,7 @@ curl http://$fqdn
 Next, let's delete the PeerAuthentication resource to similate removal of mTLS.
 
 ```bash
-kubectl delete PeerAuthentication default -n isto-example-namespace
+kubectl delete PeerAuthentication default -n istio-example-namespace
 ```
 
 When you run the curl command again, you should see a 503 HTTP response code, indicating failure of mTLS negotiation between Application Gateway for Containers and the test application (as the test application is no longer expecting mutual authentication).
