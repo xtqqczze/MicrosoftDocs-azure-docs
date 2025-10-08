@@ -83,7 +83,7 @@ To view security insights in Azure Migrate:
 
 You can tag servers with critical risks to support effective planning and mitigation during modernization to Azure.
 
-    :::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
+:::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
 
 1. **Servers** card shows a summary of all discovered servers with security risks. A server is considered at risk if it has at least one of the following issues:
 
@@ -139,20 +139,22 @@ To review software with identified security risks, follow these steps:
 1. Open the **Insights** (preview) page.
 1. In the **Software** card, select the link that shows the number of software items with security risks.
 
-Add screen
+    :::image type="content" source="./media/security-insights-overview/software-with-security-risks.png" alt-text="Screenshot shows the number of software security risks." lightbox="./media/security-insights-overview/software-with-security-risks.png":::
 
 1. You can view the detailed list of discovered software, examine associated metadata, and export the data as a .csv file.
 
-Add screen
+    :::image type="content" source="./media/security-insights-overview/metadata-export-view.png" alt-text="Screenshot shows detailed list of discovered software and its metadata." lightbox="./media/security-insights-overview/metadata-export-view.png":::
+
 
 1. To view software impacted by specific security risks, return to the Insights (preview) page. From there, you can access a detailed list of software affected by:
     - End-of-support status
     - Known vulnerabilities (CVEs)
-Add screen
+
+    :::image type="content" source="./media/security-insights-overview/software-impacted.png" alt-text="Screenshot shows detailed list of software impacted by each security risk." lightbox="./media/security-insights-overview/software-impacted.png":::
 
 1. Alternatively, you can filter end-of-support software and software with known vulnerabilities from the **Explore inventory** > **Software** page.
 
-Add screen
+    :::image type="content" source="./media/security-insights-overview/software-with-vulnerabilities.png" alt-text="Screenshot shows how to filter end of support software with vulnerabilities." lightbox="./media/security-insights-overview/software-with-vulnerabilities.png":::
 
 ### Review detailed Security Insights for a server 
 
@@ -171,7 +173,7 @@ The tab displays security insights for the selected server, including:
 
 The summary of the top five pending updates and top five vulnerabilities is provided to help prioritize remediation.
 
-Add screen
+    :::image type="content" source="./media/security-insights-overview/pending-updates.png" alt-text="Screenshot shows the top five pending updates." lightbox="./media/security-insights-overview/pending-updates.png":::
 
 ## Manage permissions for Security Insights 
 
