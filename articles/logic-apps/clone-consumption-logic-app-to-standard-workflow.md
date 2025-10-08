@@ -63,7 +63,7 @@ Once the clone process completes, navigate to the cloned workflow by selecting o
 ![A screenshot of the Clone to Standard wizard showing the operation success and the go to workflow button](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-success.png)
 
 > [!NOTE]
-
+>
 > The new workflow will be created in a disabled state, so it doesn’t clash with the existing workflow or generate execution errors before you complete the configuration.
 
 ## Reviewing the new workflow configuration
