@@ -76,16 +76,14 @@ To view security insights in Azure Migrate:
     
     This page provides a summary of security risks across discovered servers and software. Select any insight to view detailed information.
 
-    :::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
-
-1. The summary highlights critical security risks in your datacenter that need immediate attention. It identifies:
+    1. The summary highlights critical security risks in your datacenter that need immediate attention. It identifies:
     1. Servers with critical vulnerabilities that benefit from enabling Microsoft Defender for Cloud after migration. 
     1. Servers running end-of-support operating systems, recommending upgrades during migration.
     1. The number of servers with pending critical and security updates, suggesting remediation using Azure Update Manager post-migration.
 
 You can tag servers with critical risks to support effective planning and mitigation during modernization to Azure.
+    :::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
 
-Add screen
 1. **Servers** card shows a summary of all discovered servers with security risks. A server is considered at risk if it has at least one of the following issues:
 
 - End-of-support operating system
@@ -94,11 +92,11 @@ Add screen
 - Missing security or patch management software
 - Pending critical or security updates
 
-Add screen
+    :::image type="content" source="./media/security-insights-overview/servers-card.png" alt-text="Screenshot shows the summarized view of all servers with security risks out of total discovered servers." lightbox="./media/security-insights-overview/servers-card.png":::
 
 1. **Software** card shows a summary of all discovered software with security risks. Software is flagged as at risk if it is either end-of-support or has known vulnerabilities (CVEs). The card displays the number of end-of-support software and software with vulnerabilities as fractions of the total at-risk software.
 
-Add screen
+    :::image type="content" source="./media/security-insights-overview/software-card.png" alt-text="Screenshot provides aggregated view of all software with security risks out of total discovered software." lightbox="./media/security-insights-overview/software-card.png":::
 
 ## Review detailed security risks 
 
@@ -111,11 +109,11 @@ To review detailed security risks, follow the below steps:
 1. Open the **Insights** (preview) page.
 1. In the **Servers** card, select the link that shows the number of servers with security risks.
 
-Add screen
+    :::image type="content" source="./media/security-insights-overview/servers-risk-type.png" alt-text="Screenshot shows the servers with security risks." lightbox="./media/security-insights-overview/servers-risk-type.png":::
 
 1. You can view the detailed list of discovered servers, apply tags to support migration planning, and export the server data as a .csv file.
 
-Add screen
+    :::image type="content" source="./media/security-insights-overview/servers-with-security-risks.png" alt-text="Screenshot shows the detailed list of discovered servers." lightbox="./media/security-insights-overview/servers-with-security-risks.png":::
 
 ### View impacted servers by security risk
 
@@ -127,11 +125,11 @@ To view servers impacted by specific security risks, return to the Insights (pre
 - Missing security or patch management tools
 - Pending critical and security updates
 
-Add screen
+    :::image type="content" source="./media/security-insights-overview/servers-impacted.png" alt-text="Screenshot shows the detailed list of servers impacted by each security risk." lightbox="./media/security-insights-overview/servers-impacted.png":::
 
 1. Alternatively, you can filter servers with security risks from the **Explore inventory** > **All inventory** and **Explore inventory** > **Infrastructure** page.
 
-Add screen
+    :::image type="content" source="./media/security-insights-overview/sserver-filters-with-security-risks.png" alt-text="Screenshot shows how to filter servers with security risks." lightbox="./media/security-insights-overview/server-filters-with-security-risks.png":::
 
 ### Review Software with security risks 
 
