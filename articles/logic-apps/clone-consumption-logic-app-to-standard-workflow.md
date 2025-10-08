@@ -1,6 +1,6 @@
 ---
 title: Clone Consumption logic apps to Standard workflows
-description: Clone logic app workflows created in the consumption sku to a Standard logic app using Azure Portaql.
+description: Clone logic app workflows created in the consumption sku to a Standard logic app using Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -17,13 +17,13 @@ ms.date: 08/09/2025
 
 Standard logic app workflows, which run in single-tenant Azure Logic Apps, offer many new and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with App Services Environment hosting, local development and debugging using Visual Studio Code, low latency with stateless workflows, and more.
 
-If you want the benefits from Standard workflows, but your workflows run in multitenant Azure Logic Apps, you can now clone your Consumption workflows to single-tenant Azure Logic Apps. This operation makes sense in scenarios that require some of the Standard capabilities such as isolation and network integration, lower latency or better predictability of costs.
+If you want the benefits from Standard workflows, but your workflows run in multitenant Azure Logic Apps, you can now clone your Consumption workflows to single-tenant Azure Logic Apps. This operation makes sense in scenarios that require some of the Standard capabilities such as isolation and network integration, lower latency, or better predictability of costs.
 
-You can now clone your Consumption logic apps to a Standard logic app directly from the Azure Portal, replicating your logic app as stateful workflows in a Standard logic app resource.
+You can now clone your Consumption logic apps to a Standard logic app directly from the Azure portal, replicating your logic app as stateful workflows in a Standard logic app resource.
 
 > [!NOTE]
 > 
-> The export capability doesn't migrate your Consumpion logic apps. Instead, this tool replicates artifacts, such as workflow definitions, connections and others. Your source logic app resources, workflows, trigger history, run history, and other data stay intact.
+> The export capability doesn't migrate your Consumption logic apps. Instead, this tool replicates artifacts, such as workflow definitions, connections, and others. Your source logic app resources, workflows, trigger history, run history, and other data stay intact.
 > 
 > You control the export process and your migration journey. You can test and validate your exported workflows to your satisfaction with the destination environment. You choose when to disable or delete your source logic apps.
 
@@ -35,30 +35,30 @@ You can now clone your Consumption logic apps to a Standard logic app directly f
 
 ## Prerequisites
 
--   A destination Standard logic apps application where the Consumption logic apps will be cloned.
+-   A destination Standard logic apps application where the Consumption logic apps are cloned.
 -   Azure Logic Apps Standard contributor resource group-level access to create the cloned connections.
 -   Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](https://learn.microsoft.com/en-us/azure/logic-apps/create-single-tenant-workflows-visual-studio-code#prerequisites).
 
 ## Walkthrough
 
-1.  Login to Azure Portal and navigate to the Consumption logic app you want to clone.
+1.  Sign in to Azure portal and navigate to the Consumption logic app you want to clone.
 2.  In the Overview page, select **Clone to Standard** on the toolbar.
 
-![A screenshot of the Azure Portal showing the Clone to Standard button.](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-start.png)
+![A screenshot of the Azure portal showing the Clone to Standard button.](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-start.png)
 
-3.  Define the clone destination, selecting the subscription, resource group and Standard logic app resource, then click **Next**.
+3.  Define the clone destination, selecting the subscription, resource group and Standard logic app resource, then select **Next**.
 
 ![A screenshot of the Clone to Standard wizard showing the configuration step.](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-configure.png)
 
 > [!NOTE]
 > 
-> You can rename the workflow name to a name that matches your naming convention if required. The interface will verify if the name is valid and that it doesn’t clash with an existing workflow in the destination Standard logic app, avoiding overwriting of the destination workflow.
+> You can rename the workflow name to a name that matches your naming convention if necessary.. The interface verifies if the name is valid and that it doesn’t clash with an existing workflow in the destination Standard logic app, avoiding overwriting of the destination workflow.
 
-4.  Review yourclone settings and click on Clone to start the process.
+4.  After Reviewing your clone settings start the process by selecting on **Clone** .
 
 ![A screenshot of the Clone to Standard wizard showing the review and clone step.](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-review+clone.png)
 
-Once the clone process completes, you can click on **Go to** workflow, tonavigate to the new workflow created.
+Once the clone process completes, navigate to the cloned workflow by selecting on **Go to workflow**, .
 
 ![A screenshot of the Clone to Standard wizard showing the operation success and the go to workflow button](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-success.png)
 
@@ -72,31 +72,31 @@ You must review the following areas before enabling your workflow:
 
 ### Connection configuration
 
-If your workflow have any API connections, a copy of that connection is created in the same resource group of your Logic Apps Standard application. When you navigate to the workflow, you can click on the Connection button to verify connection any connection errors:
+If your workflow has any API connections, a copy of that connection is created in the same resource group of your Logic Apps Standard application. When you navigate to the workflow, you can select on the **Connection** button to verify connection any connection errors:
 
 ![A screenshot of the logic apps designer showing the connections button.](media/clone-consumption-logic-app-to-standard-workflow/designer-connections-review.png)
 
-This opens the Connections side pane. Within that pane you can review each connection.
+This action opens the Connections side pane, where you can review each connection.
 
-Expand each connection marked with an error (red dot) and click on **Open Connection** button to navigate to the connection and reconfigure its property, including any authentication properties.
+Expand each connection marked with an error (red dot) and select on **Open Connection** button to navigate to the connection and reconfigure its property, including any authentication properties.
 
 ![A screenshot of the logic apps designer showing a connection in error and the open connection button.](media/clone-consumption-logic-app-to-standard-workflow/connection-error.png)
 
 ### Networking configuration
 
-If your source Consumption logic app connects to a system via a firewall, you might need to reconfigure the firewall rules with a new set of outbound IPs to include in the allow list.
+If your source Consumption logic app connects to a system via a firewall, you might need to reconfigure the firewall rules with a new set of outbound IPs to include in the allowlist.
 
-You can find the outbound IPs for your Logic Apps Standard application clicking on **Properties** on the application blade.
+You can find the outbound IPs for your Logic Apps Standard application selecting on **Properties** on the application blade.
 
 ![A screenshot of the logic apps standard properties button on the side blade.](media/clone-consumption-logic-app-to-standard-workflow/la-standard-settings-properties.png)
 
-You will find the list of Outbound IPs under **Outbound IP Addresses**:
+You can find the list of Outbound IPs under **Outbound IP Addresses**:
 
 ![A screenshot of the logic apps standard oubound ip addresses property.](media/clone-consumption-logic-app-to-standard-workflow/properties-outbound-ip-addresses.png)
 
 > [!NOTE]
 > 
-> If your application is connecting to an Azure virtual network, you can configure Virtual Network Integration instead, which will give you more granular control over the traffic between the Logic Apps Standard application and your resources within the virtual network. See [**Secure traffic between Standard logic apps and Azure virtual networks using private endpoints**](https://learn.microsoft.com/en-us/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint) for more information.
+> If your application connects to an Azure virtual network, use Virtual Network Integration instead. This approach gives you more control over traffic. It separates communication between the Logic Apps Standard application and your resources inside the virtual network. For more information, see [**Secure traffic between Standard logic apps and Azure virtual networks using private endpoints**](https://learn.microsoft.com/en-us/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint).
 
 ## Enabling your cloned workflow
 
@@ -106,7 +106,7 @@ To enable your workflow:
 
 1.  Navigate the workflow list
     1.  Select the workflow you want to enable
-    2.  Click on the **Enable** button on the Toolbar.
+    2.  select on the **Enable** button on the Toolbar.
 
 ![A screenshot of workflows list with the enable button.](media/clone-consumption-logic-app-to-standard-workflow/workflow-enable.png)
 
@@ -117,10 +117,10 @@ To enable your workflow:
 > To find the source Consumption Logic Apps:
 > 
 > 1.  Navigate to the cloned workflow
-> 2.  Click on **Properties** on the workflow side panel
+> 2.  select on **Properties** on the workflow side panel
 > 
 > ![A screenshot of the workflow properties button on the side blade.](media/clone-consumption-logic-app-to-standard-workflow/workflow-configuration-properties.png)
 > 
-> You will find the source Consumption logic app reference under **Source workflow:**
+> You'll find the source Consumption logic app reference under **Source workflow:**
 > 
 > ![A screenshot of the source workflow property.](media/clone-consumption-logic-app-to-standard-workflow/workflow-properties-source-workflow.png)
