@@ -4,7 +4,7 @@ description: Learn to use zonal placement for Azure storage accounts so you can 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 10/08/2025
 ms.author: kendownie
 ms.custom:
   - references_regions
@@ -79,7 +79,7 @@ Follow these steps to create a new zonal storage account using the Azure portal.
 
 1. Select a region. Make sure it's on the [supported list](#region-support).
 
-1. Under **Primary service**, select **Azure Files**.
+1. Under **Preferred storage type**, select **Azure Files**.
 
 1. Under **Performance**, select **Premium**.
 
@@ -87,7 +87,7 @@ Follow these steps to create a new zonal storage account using the Azure portal.
 
 1. Under **Redundancy**, select **Locally redundant storage (LRS)**.
 
-1. If the selected region supports zonal placement, a **Zone options** dropdown appears, offering three choices:
+1. If the selected region supports zonal placement, a **Zone options** dropdown appears. It offers three choices:
 
    - **None:** Creates a regional storage account.
    - **Self-selected zone:** Enables a secondary dropdown to select a specific availability zone (1, 2, or 3).
