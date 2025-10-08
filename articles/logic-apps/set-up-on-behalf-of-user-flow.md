@@ -22,7 +22,7 @@ Some conversational agent workflow scenarios might require agent tools to author
 
 This option provides benefits around governance and compliance because resource access, action results, and audit logs are linked to a specific user. OBO is also known as *user context* because agent tools apply the user's specific security context, which specifies personalized licensing and data access rights.
 
-For conversational agent workflows, you can set up an agent with delegated permissions for the signed-in user. Agent tools, backed and powered by connector actions, can then use the delegated permissions if the connector actions support OBO and [*per-user* connections](#limitations-and-known-issues). During chat sessions, connections set up with OBO use the signed-in chat participant's credentials, not the connection creator. This behavior makes sure that OBO-enabled actions run with the signed-in user's identity and permissions.
+For conversational agent workflows, you can set up an agent with delegated permissions for the signed-in user. Agent tools, backed and powered by connector actions, can then use the delegated permissions if the connector actions support OBO authorization and [*per-user* connections](#limitations-and-known-issues). During chat sessions, connections set up with OBO authorization use the signed-in chat participant's credentials, not the connection creator. This behavior makes sure that OBO-enabled actions run with the signed-in user's identity and permissions.
 
 For example, the following list describes common examples where agent tools must respect the user's permissions, licenses, and personal data boundaries:
 
@@ -36,7 +36,7 @@ The following screenshot shows an example agent tool backed by a connector actio
 
 :::image type="content" source="media/set-up-on-behalf-of-user-flow/create-per-user-connection.png" alt-text="Screenshot shows workflow designer, example Get emails (V3) action, and connection pane with selected option for Create as per-user connection." lightbox="media/set-up-on-behalf-of-user-flow/create-per-user-connection.png":::
 
-This guide shows how to set up the OBO flow, delegated permissions, and per-user connections on supported connector actions in agent tools for conversational agent workflows.
+This guide shows how to set up the OBO authorization, delegated permissions, and per-user connections on supported connector actions in agent tools for conversational agent workflows.
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ This guide shows how to set up the OBO flow, delegated permissions, and per-user
 
   | Authorization | Actions |
   |---------------|---------|
-  | OBO | For user-specific actions like working with personal data, such as "get my emails", "find my account", or "check my order".|
+  | OBO (per-user) | For user-specific actions like working with personal data, such as "get my emails", "find my account", or "check my order".|
   | App-only | For shared resources, automations, or impersonal operations, such as "Send today's health status to the operations channel". |
 
 - To test the single user scenario in this guide, you only need your Azure account credentials. Testing this scenario happens through the internal chat interface integrated with your agent workflow in the Azure portal.
@@ -85,7 +85,7 @@ This guide shows how to set up the OBO flow, delegated permissions, and per-user
 
 ## Limitations and known issues
 
-- OBO flow currently applies only to managed connector actions that work with Microsoft services and systems. These connectors must also support delegated access and per-user connections, for example, Microsoft 365, Microsoft SharePoint, and Microsoft Graph.
+- OBO authorization is currently available only for managed connector actions that work with Microsoft services and systems. These connectors must also support delegated access and per-user connections, for example, Microsoft 365, Microsoft SharePoint, and Microsoft Graph.
 
   Per-user connections have the following criteria:
 
@@ -114,11 +114,21 @@ This guide shows how to set up the OBO flow, delegated permissions, and per-user
 
 - The signed-in user's identity currently exists only to validate connection creation validation. At runtime, this identity isn't available to other users.
 
+## Best practices
+
+The following table describes best practices to consider for OBO flow scenarios:
+
+| Concept | Description |
+|---------|-------------|
+| Mixed identity patterns | Set up OBO authorization for read-only operations. Use app-only authorization for write operations with explicit confirmation. |
+| Clear feedback | Instruct the agent to briefly summarize permission errors and suggest remediation like `You might not have access to this mailbox.` |
+| Auditing and logging | Track and analyze the tools that run and the identities they use by reviewing the workflow run history and metrics. |
+
 ## Part 1 - Set up OBO flow on tool actions
 
 To use OBO, an agent tool must use at least one managed connector action that supports delegated permissions and per-user connections. For example, Azure Logic Apps provides the **Office 365 Outlook** managed connector with actions that require user sign in with a work or school account.
 
-The following steps show how to set up OBO after you select an OBO-supported connector action to create an agent tool:
+The following steps show how to set up OBO authorization after you select an OBO-supported connector action to create an agent tool:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and conversational agent workflow, if not already open.
 
@@ -184,7 +194,7 @@ The following steps show how to set up OBO after you select an OBO-supported con
 
 The first time when the agent calls a tool that runs an action set up with per-user connections, the chat user gets an authentication prompt to sign in with their credentials. After the user signs in, reauthentication is required for later calls to the same tool with the same per-user connection.
 
-The following steps describe how to confirm that your OBO authorization setup works as expected:
+The following steps describe how to confirm that your OBO flow setup works as expected:
 
 1. On the designer toolbar or workflow sidebar menu, select **Chat**.
 
@@ -206,7 +216,7 @@ The following steps describe how to confirm that your OBO authorization setup wo
 
    The agent now returns a summary with unread emails in the chat interface.
 
-## Test OBO flow with two different users
+## Part 3 - Test OBO flow with two different users
 
 After you test your OBO flow with a single user, try testing with two users that have different permissions. Before you start, make sure to meet the [prerequisites for the two-user test scenario](#prerequisites).
 
@@ -222,17 +232,7 @@ After you test your OBO flow with a single user, try testing with two users that
 
    In this case, after you try to sign in, your authentication attempt fails.
 
-## Best practices
-
-The following table describes best practices to consider for OBO authorization scenarios:
-
-| Concept | Description |
-|---------|-------------|
-| Mixed identity patterns | Set up OBO authorization for read-only operations. Use app-only authorization for write operations with explicit confirmation. |
-| Clear feedback | Instruct the agent to briefly summarize permission errors and suggest remediation like `You might not have access to this mailbox.` |
-| Auditing and logging | Track and analyze the tools that run and the identities they use by reviewing the workflow run history and metrics. |
-
-## Troubleshoot errors during OBO testing
+## Troubleshoot problems during OBO testing
 
 The following table describes common problems you might encounter when you set up OBO, possible causes, and actions you can take:
 
