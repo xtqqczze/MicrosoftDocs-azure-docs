@@ -70,34 +70,34 @@ To view security insights in Azure Migrate:
 1. Go to the **Azure Migrate** portal.
 1. Select your project from **All Projects**.
 
-    :::image type="content" source="./media/security-insights-overview/insights-preview.png" alt-text="Screenshot shows to select Insights." lightbox="./media/security-insights-overview/insights-preview.png":::
+:::image type="content" source="./media/security-insights-overview/insights-preview.png" alt-text="Screenshot shows to select Insights." lightbox="./media/security-insights-overview/insights-preview.png":::
 
 1. In the left menu, select **Explore inventory** > **Insights (preview)** to view security insights for the selected project.
     
     This page provides a summary of security risks across discovered servers and software. Select any insight to view detailed information.
 
-    1. The summary highlights critical security risks in your datacenter that need immediate attention. It identifies:
-    1. Servers with critical vulnerabilities that benefit from enabling Microsoft Defender for Cloud after migration. 
-    1. Servers running end-of-support operating systems, recommending upgrades during migration.
-    1. The number of servers with pending critical and security updates, suggesting remediation using Azure Update Manager post-migration.
+    - The summary highlights critical security risks in your datacenter that need immediate attention. It identifies:
+    - Servers with critical vulnerabilities that benefit from enabling Microsoft Defender for Cloud after migration. 
+    - Servers running end-of-support operating systems, recommending upgrades during migration.
+    - The number of servers with pending critical and security updates, suggesting remediation using Azure Update Manager post-migration.
 
 You can tag servers with critical risks to support effective planning and mitigation during modernization to Azure.
 
 :::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
 
 1. **Servers** card shows a summary of all discovered servers with security risks. A server is considered at risk if it has at least one of the following issues:
+    - End-of-support operating system
+    - End-of-support software
+    - Known vulnerabilities (CVEs) in installed software or OS
+    - Missing security or patch management software
+    - Pending critical or security updates
 
-- End-of-support operating system
-- End-of-support software
-- Known vulnerabilities (CVEs) in installed software or OS
-- Missing security or patch management software
-- Pending critical or security updates
+:::image type="content" source="./media/security-insights-overview/servers-card.png" alt-text="Screenshot shows the summarized view of all servers with security risks out of total discovered servers." lightbox="./media/security-insights-overview/servers-card.png":::
 
-    :::image type="content" source="./media/security-insights-overview/servers-card.png" alt-text="Screenshot shows the summarized view of all servers with security risks out of total discovered servers." lightbox="./media/security-insights-overview/servers-card.png":::
 
 1. **Software** card shows a summary of all discovered software with security risks. Software is flagged as at risk if it is either end-of-support or has known vulnerabilities (CVEs). The card displays the number of end-of-support software and software with vulnerabilities as fractions of the total at-risk software.
 
-    :::image type="content" source="./media/security-insights-overview/software-card.png" alt-text="Screenshot provides aggregated view of all software with security risks out of total discovered software." lightbox="./media/security-insights-overview/software-card.png":::
+:::image type="content" source="./media/security-insights-overview/software-card.png" alt-text="Screenshot provides aggregated view of all software with security risks out of total discovered software." lightbox="./media/security-insights-overview/software-card.png":::
 
 ## Review detailed security risks 
 
@@ -110,27 +110,26 @@ To review detailed security risks, follow the below steps:
 1. Open the **Insights** (preview) page.
 1. In the **Servers** card, select the link that shows the number of servers with security risks.
 
-    :::image type="content" source="./media/security-insights-overview/servers-risk-type.png" alt-text="Screenshot shows the servers with security risks." lightbox="./media/security-insights-overview/servers-risk-type.png":::
+:::image type="content" source="./media/security-insights-overview/servers-risk-type.png" alt-text="Screenshot shows the servers with security risks." lightbox="./media/security-insights-overview/servers-risk-type.png":::
 
 1. You can view the detailed list of discovered servers, apply tags to support migration planning, and export the server data as a .csv file.
 
-    :::image type="content" source="./media/security-insights-overview/servers-with-security-risks.png" alt-text="Screenshot shows the detailed list of discovered servers." lightbox="./media/security-insights-overview/servers-with-security-risks.png":::
+:::image type="content" source="./media/security-insights-overview/servers-with-security-risks.png" alt-text="Screenshot shows the detailed list of discovered servers." lightbox="./media/security-insights-overview/servers-with-security-risks.png":::
 
 ### View impacted servers by security risk
 
 To view servers impacted by specific security risks, return to the Insights (preview) page. From there, you can access a detailed list of servers affected by:
+ - End-of-support operating systems
+ - End-of-support software
+ - Known vulnerabilities (CVEs) in installed software or operating systems
+ - Missing security or patch management tools
+ - Pending critical and security updates
 
-- End-of-support operating systems
-- End-of-support software
-- Known vulnerabilities (CVEs) in installed software or operating systems
-- Missing security or patch management tools
-- Pending critical and security updates
-
-    :::image type="content" source="./media/security-insights-overview/servers-impacted.png" alt-text="Screenshot shows the detailed list of servers impacted by each security risk." lightbox="./media/security-insights-overview/servers-impacted.png":::
+:::image type="content" source="./media/security-insights-overview/servers-impacted.png" alt-text="Screenshot shows the detailed list of servers impacted by each security risk." lightbox="./media/security-insights-overview/servers-impacted.png":::
 
 1. Alternatively, you can filter servers with security risks from the **Explore inventory** > **All inventory** and **Explore inventory** > **Infrastructure** page.
 
-    :::image type="content" source="./media/security-insights-overview/server-filters-with-security-risks.png" alt-text="Screenshot shows how to filter servers with security risks." lightbox="./media/security-insights-overview/server-filters-with-security-risks.png":::
+:::image type="content" source="./media/security-insights-overview/server-filters-with-security-risks.png" alt-text="Screenshot shows how to filter servers with security risks." lightbox="./media/security-insights-overview/server-filters-with-security-risks.png":::
 
 ### Review Software with security risks 
 
@@ -139,22 +138,22 @@ To review software with identified security risks, follow these steps:
 1. Open the **Insights** (preview) page.
 1. In the **Software** card, select the link that shows the number of software items with security risks.
 
-    :::image type="content" source="./media/security-insights-overview/software-with-security-risks.png" alt-text="Screenshot shows the number of software security risks." lightbox="./media/security-insights-overview/software-with-security-risks.png":::
+:::image type="content" source="./media/security-insights-overview/software-with-security-risks.png" alt-text="Screenshot shows the number of software security risks." lightbox="./media/security-insights-overview/software-with-security-risks.png":::
 
 1. You can view the detailed list of discovered software, examine associated metadata, and export the data as a .csv file.
 
-    :::image type="content" source="./media/security-insights-overview/metadata-export-view.png" alt-text="Screenshot shows detailed list of discovered software and its metadata." lightbox="./media/security-insights-overview/metadata-export-view.png":::
+:::image type="content" source="./media/security-insights-overview/metadata-export-view.png" alt-text="Screenshot shows detailed list of discovered software and its metadata." lightbox="./media/security-insights-overview/metadata-export-view.png":::
 
 
 1. To view software impacted by specific security risks, return to the Insights (preview) page. From there, you can access a detailed list of software affected by:
     - End-of-support status
     - Known vulnerabilities (CVEs)
 
-    :::image type="content" source="./media/security-insights-overview/software-impacted.png" alt-text="Screenshot shows detailed list of software impacted by each security risk." lightbox="./media/security-insights-overview/software-impacted.png":::
+:::image type="content" source="./media/security-insights-overview/software-impacted.png" alt-text="Screenshot shows detailed list of software impacted by each security risk." lightbox="./media/security-insights-overview/software-impacted.png":::
 
 1. Alternatively, you can filter end-of-support software and software with known vulnerabilities from the **Explore inventory** > **Software** page.
 
-    :::image type="content" source="./media/security-insights-overview/software-with-vulnerabilities.png" alt-text="Screenshot shows how to filter end of support software with vulnerabilities." lightbox="./media/security-insights-overview/software-with-vulnerabilities.png":::
+:::image type="content" source="./media/security-insights-overview/software-with-vulnerabilities.png" alt-text="Screenshot shows how to filter end of support software with vulnerabilities." lightbox="./media/security-insights-overview/software-with-vulnerabilities.png":::
 
 ### Review detailed Security Insights for a server 
 
@@ -164,24 +163,22 @@ To view detailed security insights for a specific server:
 1. Select the **Insights** (preview) tab.
 
 The tab displays security insights for the selected server, including:
-
-- Operating system support status
-- Presence of security and patch management software
-- Pending critical and security updates
-- End-of-support software
-- Software with known vulnerabilities (CVEs)
+  - Operating system support status
+  - Presence of security and patch management software
+  - Pending critical and security updates
+  - End-of-support software
+  - Software with known vulnerabilities (CVEs)
 
 The summary of the top five pending updates and top five vulnerabilities is provided to help prioritize remediation.
 
-    :::image type="content" source="./media/security-insights-overview/pending-updates.png" alt-text="Screenshot shows the top five pending updates." lightbox="./media/security-insights-overview/pending-updates.png":::
+:::image type="content" source="./media/security-insights-overview/pending-updates.png" alt-text="Screenshot shows the top five pending updates." lightbox="./media/security-insights-overview/pending-updates.png":::
 
 ## Manage permissions for Security Insights 
 
 Security insights are enabled by default for all users. To manage access, create custom roles and remove the following permissions:
-
-- View security insights
-- Access vulnerability data
-- View update status
+  - View security insights
+  - Access vulnerability data
+  - View update status
 
 | Resource | Permissions | 
 | --- | --- | 
