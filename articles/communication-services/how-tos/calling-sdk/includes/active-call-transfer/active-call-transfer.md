@@ -6,7 +6,7 @@ ms.date: 10/03/2025
 ms.author: dmceachern
 ---
 
-[!INCLUDE [install the Calling SDK SDK](./includes/install-sdk/install-sdk-web.md).]
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 ## Active Call Management
 Active Call Transfer is a feature of the core `CallAgent` API. This guide talks about how you can manage and track any ongoing calls for your users and how to transfer their client to that active call.
