@@ -70,13 +70,13 @@ To view security insights in Azure Migrate:
 1. Go to the **Azure Migrate** portal.
 1. Select your project from **All Projects**.
 
-Add screen
+    :::image type="content" source="./media/security-insights-overview/insights-preview.png" alt-text="Screenshot shows to select Insights." lightbox="./media/security-insights-overview/insights-preview.png":::
 
 1. In the left menu, select **Explore inventory** > **Insights (preview)** to view security insights for the selected project.
     
     This page provides a summary of security risks across discovered servers and software. Select any insight to view detailed information.
 
-Add screen
+    :::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
 
 1. The summary highlights critical security risks in your datacenter that need immediate attention. It identifies:
     1. Servers with critical vulnerabilities that benefit from enabling Microsoft Defender for Cloud after migration. 
