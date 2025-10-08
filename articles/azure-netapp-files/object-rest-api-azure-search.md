@@ -23,8 +23,8 @@ You must have configured [OneLake access](object-rest-api-onelake.md) before you
 1. In the data source dropdown, select **Fabric OneLake files**.
 1. Provide a name for the data source. 
 1. Enter the Lakehouse URL that was configured in the OneLake setup. 
-1. Validate the connection once your OneLake data is reflected. 
-1. Select **Add Indexer** then provide your details by selecting your dataset and OneLake details. 
+1. Validate the connection once your OneLake data appears. 
+1. Select **Add Indexer**, then provide your details by selecting your dataset and OneLake details. 
 1. Navigate to the 'Index' section and select your data source name. 
 1. In the search field, enter the information you want to query or use '*' to view the complete indexing details. 
 

@@ -20,7 +20,7 @@ This mapping is accomplished by presenting a specified NAS directory hierarchy a
 
 * Object REST API buckets are associated with volumes. Deleting the volume associated with a bucket permanently deletes the bucket. This action can't be undone. 
 * Buckets are supported with cool access-enabled volumes and with large volumes. 
-* You are responsible for maintaining the lifecycle of your bucket certificates. To check the expiration and renew certificates, view the **Bucket** menu then check the **Certificate** status and **Certificate expiration date** fields. 
+* You are responsible for maintaining the lifecycle of your bucket certificates. To check the expiration and renew certificates view the **Bucket** menu then check the **Certificate** status and **Certificate expiration date** fields. 
 
 ## Supported actions
 
@@ -36,7 +36,7 @@ The following S3 actions are supported with the object REST API feature:
     - Simultaneous access to the same data via the NFS and SMB file protocols and the S3 object protocol, supporting hybrid workloads.
 - **Authentication and security**
     - Secure access using Azure Active Directory and integration with enterprise identity providers.  
-    - Data remains protected by Azure NetApp File's built-in security and compliance features.
+    - Data remains protected by Azure NetApp Files' built-in security and compliance features.
 - **Preview capabilities**  
     - Currently, the API supports core S3 operations for read/write and metadata management.
 

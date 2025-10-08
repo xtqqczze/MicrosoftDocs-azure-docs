@@ -21,20 +21,15 @@ You must submit a waitlist request to use the object REST API feature.
 
 <!-- URL -->
 
-2. Check the status of the feature registration: 
+You can check the status of the feature registration with the command:
 
-    > [!NOTE]
-    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEnableObjectRESTAPI
-    ```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+```azurepowershell-interactive
+Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEnableObjectRESTAPI
+```
 
 ## Create the self-signed certificate
 
-You must generate a PEM-formatted SSL certificate. For instructions. You can create the SSL certificate in the Azure portal or with a script.  
+You must generate a PEM-formatted SSL certificate. You can create the SSL certificate in the Azure portal or with a script.  
 
 ### [Portal](#tab/portal)
 
@@ -44,7 +39,7 @@ When creating the certificate, ensure the **Content Type** is set to PEM. In the
 
 ### [Script](#tab/script)
 
-This script creates a certificate locally. Set the computer name `CN=` to the IP address or full qualified domain name (FQDN) of your object REST API-enabled endpoint. This script creates a folder that includes the necessary PEM file and private keys. 
+This script creates a certificate locally. Set the computer name `CN=` to the IP address or fully qualified domain name (FQDN) of your object REST API-enabled endpoint. This script creates a folder that includes the necessary PEM file and private keys. 
 
 Create and run the following script:
 
