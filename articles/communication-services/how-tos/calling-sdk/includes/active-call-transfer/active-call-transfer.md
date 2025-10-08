@@ -5,8 +5,7 @@ ms.topic: include
 ms.date: 10/03/2025
 ms.author: dmceachern
 ---
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
-
+Before learning about Active Call Transfer, make sure you have learned how to [install the Calling SDK SDK](../install-sdk/install-sdk-web.md).
 Active Call Transfer is a feature of the core `CallAgent` API. This guide talks about how you can manage and track any ongoing calls for your users and how to transfer their client to that active call.
 
 **Note:** This feature is also enabled for the `TeamsCallAgent` as this feature is supported for Custom Teams Endpoint users as well.
@@ -34,6 +33,15 @@ const call = await callAgent.activeCallTransfer(activeCallDetails, {isTransfer: 
 
 This function returns the call object for your applications state.
 
+### Companion mode
+
+When transferring the active call to your client, you have the option to just bring the client into the call without hanging up on the device that initiated the call the user is in.
+
+```js
+const activeCallDetails = await callAgent.getActiveCallDetails();
+const call = await callAgent.activeCallTransfer(activeCallDetails, {isTransfer: false}); // <-- isTransfer: false - does not remove the original client. 
+```
+
 ### Subscribing to Active Call Notification events
 
 There are two new events that you can subscribe to so you can recieve events notifying you of your user joining a call on another client. The first event notifies the application that the user is in a call on another device. This event is also emitted when the user logs into the `CallAgent` if they are on a call already elsewhere.
@@ -50,15 +58,6 @@ The second event notifies the application that the user is no longer in an activ
 callAgent.on("NoActiveCalls", () => {
     // hide UI indicating that the user is in a call elsewhere
 });
-```
-
-### Companion mode
-
-When transferring the active call to your client, you have the option to just bring the client into the call without hanging up on the device that initiated the call the user is in.
-
-```js
-const activeCallDetails = await callAgent.getActiveCallDetails();
-const call = await callAgent.activeCallTransfer(activeCallDetails, {isTransfer: false}); // <-- isTransfer: false - does not remove the original client. 
 ```
 
 
