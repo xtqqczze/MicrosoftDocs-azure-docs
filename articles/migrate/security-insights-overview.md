@@ -82,6 +82,7 @@ To view security insights in Azure Migrate:
     1. The number of servers with pending critical and security updates, suggesting remediation using Azure Update Manager post-migration.
 
 You can tag servers with critical risks to support effective planning and mitigation during modernization to Azure.
+
     :::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
 
 1. **Servers** card shows a summary of all discovered servers with security risks. A server is considered at risk if it has at least one of the following issues:
@@ -129,7 +130,7 @@ To view servers impacted by specific security risks, return to the Insights (pre
 
 1. Alternatively, you can filter servers with security risks from the **Explore inventory** > **All inventory** and **Explore inventory** > **Infrastructure** page.
 
-    :::image type="content" source="./media/security-insights-overview/sserver-filters-with-security-risks.png" alt-text="Screenshot shows how to filter servers with security risks." lightbox="./media/security-insights-overview/server-filters-with-security-risks.png":::
+    :::image type="content" source="./media/security-insights-overview/server-filters-with-security-risks.png" alt-text="Screenshot shows how to filter servers with security risks." lightbox="./media/security-insights-overview/server-filters-with-security-risks.png":::
 
 ### Review Software with security risks 
 
