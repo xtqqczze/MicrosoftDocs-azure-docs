@@ -20,11 +20,11 @@ In this article, you'll learn how to create a Private Link Service Direct Connec
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
 - Azure PowerShell installed locally or use Azure Cloud Shell. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
-- Azure CLI installed locally or use Azure Cloud Shell. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-- For Terraform: [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
-- Feature flag Microsoft.Network/AllowPrivateLinkServiceUDR enabled in current subscription, see [Enable Azure preview features](https://review.learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features).
+- Azure CLI installed locally or use Azure Cloud Shell. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli)
+- For Terraform: [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+- Feature flag Microsoft.Network/AllowPrivateLinkServiceUDR enabled in current subscription, see [Enable Azure preview features](https://review.learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features)
 - A virtual network with a subnet
 - A routable IP address to set as the destination IP address
 
@@ -58,7 +58,8 @@ When creating a Private Link Service Direct Connect, you must:
 Be aware of these limitations when using Private Link Service Direct Connect:
 
 - **Minimum 2 IP configurations required** - A minimum of 2 IP addresses or in multiples of 2 are required to deploy a PLS Direct Connect
-- **Maximum of 10 PLS per subscription** - There is a hardware limitation of 10 PLS per subscription
+- **Maximum of 10 PLS per subscription** - There is a hardware limitation of 10 PLS per region per subscription
+- **Bandwidth limitation** - Bandwidth is capped at 10gbps
 - **IP forwarding is enabled** - If there is a policy on the subscription that disables IP forwarding, the policy must be disabled to allow proper configuration
 - **Static IP requirement** - The destination IP must be static and directly reachable, dynamically changing IPs are not supported
 - **Cross region limitation** - This feature currently requires that the source private endpoint, private link service, and client VM must be in the same region, with this restriction to be removed when the feature is generally available
