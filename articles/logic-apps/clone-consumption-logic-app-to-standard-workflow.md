@@ -56,7 +56,7 @@ You can now clone your Consumption logic apps to a Standard logic app directly f
 
 4.  After Reviewing your clone settings start the process by selecting on **Clone** .
 
-![A screenshot of the Clone to Standard wizard showing the review and clone step.](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-review+clone.png)
+![A screenshot of the Clone to Standard wizard showing the review and clone step.](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-review-clone.png)
 
 Once the clone process completes, navigate to the cloned workflow by selecting on **Go to workflow**, .
 
@@ -96,7 +96,7 @@ You can find the list of Outbound IPs under **Outbound IP Addresses**:
 
 > [!NOTE]
 > 
-> If your application connects to an Azure virtual network, use Virtual Network Integration instead. This approach gives you more control over traffic. It separates communication between the Logic Apps Standard application and your resources inside the virtual network. For more information, see [**Secure traffic between Standard logic apps and Azure virtual networks using private endpoints**](https://learn.microsoft.com/en-us/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint).
+> If your application connects to an Azure virtual network, use Virtual Network Integration instead. This approach gives you more control over traffic. It separates communication between the Logic Apps Standard application and your resources inside the virtual network. For more information, see [**Secure traffic between Standard logic apps and Azure virtual networks using private endpoints**](secure-single-tenant-workflow-virtual-network-private-endpoint).
 
 ## Enabling your cloned workflow
 
