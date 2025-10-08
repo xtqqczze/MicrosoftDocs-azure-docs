@@ -19,10 +19,7 @@ In this tutorial, you:
 >
 > * Enable and configure the API Center managed identity and grant it the API Management Service Reader role
 > * Integrate an API Management instance using the Azure portal
-> * Integrate an API Management instance using the Azure CLI
 > * Verify that APIs are synchronized and learn how to clean up the integration
-
-If you don't have an Azure subscription, create a free trial account before you begin.
 
 ## Prerequisites
 
@@ -32,29 +29,27 @@ If you don't have an Azure subscription, create a free trial account before you 
 
 * An Azure API Management instance in the same directory (tenant). The instance can be in the same or a different subscription.
 
-## Open Azure Cloud Shell
-
-Use Azure Cloud Shell in the [Azure portal](https://portal.azure.com).
-
 ## 1. Enable managed identity and assign the API Management Service Reader role
 
-Azure API Center uses a managed identity to read APIs from your API Management instance. If your API Center doesn't already have a managed identity with the required permissions, you can configure one during integration or manually.
+Azure API Center uses a managed identity to read APIs from your API Management instance. 
+
+If your API Center doesn't already have a managed identity with the required permissions, you can configure one during integration or manually.
 
 Assign the managed identity the Service Reader role for the API Management instance.
 
 ## 2. Integrate an API Management instance
 
-You can integrate an API Management instance from the Azure portal or with the Azure CLI. Integration creates an environment in your API center and synchronizes APIs (and optionally API definitions) from APIM into your API center inventory.
+You can integrate an API Management instance with API Center from the Azure portal. Integration creates an environment in your API center and synchronizes APIs (and optionally API definitions) from APIM into your API Center inventory.
 
-1. In the [Azure portal](https://portal.azure.com), open your API center.
+1. In the [Azure portal](https://portal.azure.com), open your API Management instance
 
-1. Under **Platforms**, select **Integrations**.
+1. From the sidebar select **APIs** > **API Center**.
 
-1. Select **+ New integration** > **From Azure API Management**.
+1. On the **Use API Center for API discovery, reuse, and governance** page:
 
-1. On the **Integrate your Azure API Management Service** page:
-
-   1. Choose whether to synchronize all APIs from the API Management instance or only APIs in a specific API Management workspace.
+   1. Select the API center you'd like to syncronize your API to.  IF you don't have a
+   
+   `Choose whether to synchronize all APIs from the API Management instance or only APIs in a specific API Management workspace.
 
    1. Select the **Subscription**, **Resource group**, and **Azure API Management service** to integrate. If you choose to synchronize only a workspace, select it in **Choose a workspace**.
 
