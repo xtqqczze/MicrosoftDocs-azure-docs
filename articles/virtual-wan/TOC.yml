@@ -337,7 +337,7 @@
     href: effective-routes-virtual-hub.md
   - name: Routing intent and policies
     items: 
-    - name: Configure routing intent.md
+    - name: Configure routing intent
       href: how-to-routing-policies.md
     - name: Internet access with routing intent
       href: about-internet-routing.md
