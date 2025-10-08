@@ -6,10 +6,10 @@ author: ecfan
 ms.topic: how-to
 ms.date: 10/09/2025
 ms.update-cycle: 365-days
-#Customer intent: As an integration developer working with workflows in Azure Logic Apps, I want to authorize access to protected resources with the signed-in user's identity and permissions. For this task, I can set up delegated permissions with the OAuth 2.0 On-Behalf-Of (OBO) flow for authorization.
+#Customer intent: As an integration developer working with conversational agent workflows in Azure Logic Apps, I want to authorize access to protected resources with the signed-in user's identity and permissions. For this task, I can set up delegated permissions with the OAuth 2.0 On-Behalf-Of (OBO) flow for authorization.
 ---
 
-# Set up resource access with signed-in user's permissions using on-behalf-of (OBO) authorization in Azure Logic Apps (Preview)
+# Authorize agent access to resources with on-behalf-of (OBO) flow in Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -44,7 +44,7 @@ This guide shows how to set up the OBO flow, delegated permissions, and per-user
 
 - A Standard logic app resource and conversational agent workflow
 
-  Make sure that you have a deployed *large language model* (LLM) per the [Prerequisites](create-conversational-agent-workflows.md#Prerequisites) and that you [connect your agent to that model](create-conversational-agent-workflows.md#connect-the-agent-to-your-model).
+  Make sure that you have a deployed *large language model* (LLM) per the [Prerequisites](create-conversational-agent-workflows.md#prerequisites) and that you [connect your agent to that model](create-conversational-agent-workflows.md#connect-the-agent-to-your-model).
   
   This example uses **Admin agent** as the agent name, for example:
 
