@@ -17,6 +17,9 @@ zone_pivot_groups: programming-languages-set-functions
 This article shows you how to configure your function app to export log and trace data in an OpenTelemetry format. Azure Functions generates telemetry data on your function executions from both the Functions host process and the language-specific worker process in which your function code runs. By default, this telemetry data is sent to Application Insights using the Application Insights SDK. However, you can choose to export this data using OpenTelemetry semantics. While you can still use an OpenTelemetry format to send your data to Application Insights, you can now also export the same data to any other OpenTelemetry-compliant endpoint.  
 
 > [!TIP]  
+> To get started quickly with OpenTelemetry and Azure Functions, try the [OpenTelemetry quickstart](create-first-function-azure-developer-cli-opentelemetry.md), which shows you how to create and deploy a function app with distributed tracing using the Azure Developer CLI.
+
+> [!TIP]  
 > Because this article is targeted at your development language of choice, remember to choose the correct language at the top of the article.
 ::: zone pivot="programming-language-csharp" 
 > OpenTelemetry currently isn't supported for [C# in-process apps](./functions-dotnet-class-library.md).
@@ -417,7 +420,9 @@ To access diagnostics in your app:
   
   1. Review the guidelines and any recommendations provided by the troubleshooter.
 
-## Related content
+## Next steps
 
-[Monitor Azure Functions](monitor-functions.md)
-[Flex Consumption plan](./flex-consumption-plan.md)
+Learn more about OpenTelemetry and monitoring Azure Functions:
+
++ [Create and deploy functions with OpenTelemetry](create-first-function-azure-developer-cli-opentelemetry.md)
++ [Monitor Azure Functions](functions-monitoring.md)
