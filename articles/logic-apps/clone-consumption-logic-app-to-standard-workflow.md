@@ -37,7 +37,7 @@ You can now clone your Consumption logic apps to a Standard logic app directly f
 
 -   A destination Standard logic apps application where the Consumption logic apps are cloned.
 -   Azure Logic Apps Standard contributor resource group-level access to create the cloned connections.
--   Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](https://learn.microsoft.com/en-us/azure/logic-apps/create-single-tenant-workflows-visual-studio-code#prerequisites).
+-   Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code#prerequisites).
 
 ## Walkthrough
 
