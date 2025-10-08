@@ -337,7 +337,9 @@
         href: object-rest-api-databricks.md
       - name: Connect to OneLake
         href: object-rest-api-onelake.md
-      - name: Connect to an S3 browser
+      - name: Connect to Azure AI Search
+        href: object-rest-api-azure-search.md
+      - name: Access volumes with an S3-compatible client 
         href: object-rest-api-browser.md
     - name: Manage volume access and encryption 
       items:

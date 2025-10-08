@@ -5,30 +5,40 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 12/02/2024
+ms.date: 10/08/2025
 ms.author: anfdocs
 ---
 # Understand Azure NetApp Files object REST API (preview)
 
-Azure NetApp Files supports the Object REST API, an S3-compatible REST API. The object REST API extends your file-based storage, enabling native S3 read access. You can integrate Azure NetApp Files with services including Azure AI Search, Azure AI Foundry, Azure Databricks, OneLake and more.
+Azure NetApp Files supports the Object REST API, an S3-compatible REST API. The object REST API extends your file-based storage, enabling native S3 read and write access. You can integrate Azure NetApp Files with services including Azure AI Search, Azure AI Foundry, Azure Databricks, OneLake and more.
 
-Object REST API allows you to present the same data set as a file hierarchy or as objects in a bucket. To do so, object REST API creates buckets that allow S3 clients to read and enumerate files in network attached storage (NAS) storage using S3 object requests. This mapping conforms to the NAS security configuration, observing file and directory access permissions.
+Object REST API allows you to present the same data set as a file hierarchy or as objects in a bucket. To do so, object REST API creates buckets that allow S3 clients to read, write, and enumerate files in network attached storage (NAS) storage using S3 object requests. This mapping conforms to the NAS security configuration, observing file and directory access permissions.
 
-This mapping is accomplished by presenting a specified NAS directory hierarchy as an S3 bucket. Each file in the directory hierarchy is represented as an S3 object whose name is relative from the mapped directory downwards; directory boundaries are represented by the slash character (/).
+This mapping is accomplished by presenting a specified NAS directory hierarchy as an S3 bucket. Each file in the directory hierarchy is represented as an S3 object whose name is relative from the mapped directory downwards. Directory boundaries are represented by the slash character (/).
 
 ## Requirements and considerations
 
 * Object REST API buckets are associated with volumes. Deleting the volume associated with a bucket permanently deletes the bucket. This action can't be undone. 
 * Buckets are supported with cool access-enabled volumes and with large volumes. 
-* You can only create one bucket per volume. 
-<!-- user limit of 1?-->
 * You are responsible for maintaining the lifecycle of your bucket certificates. To check the expiration and renew certificates, view the **Bucket** menu then check the **Certificate** status and **Certificate expiration date** fields. 
 
 ## Supported actions
 
 The following S3 actions are supported with the object REST API feature:
 
-<!-- list forthcoming -->
+- **Read and write operations**  
+    - Upload (PUT) and download (GET) objects directly to and from ANF volumes using S3-compatible APIs.  
+    - List objects within a bucket (volume) and retrieve object metadata.  
+    - Delete objects.
+- **Snapshot integration** 
+    - Access data from Azure NetApp Files snapshots, enabling point-in-time recovery and analytics on historical data without data movement.
+- **Multi-protocol access** 
+    - Simultaneous access to the same data via the NFS and SMB file protocols and the S3 object protocol, supporting hybrid workloads.
+- **Authentication and security**
+    - Secure access using Azure Active Directory and integration with enterprise identity providers.  
+    - Data remains protected by Azure NetApp File's built-in security and compliance features.
+- **Preview capabilities**  
+    - Currently, the API supports core S3 operations for read/write and metadata management.
 
 ## Next steps 
 

@@ -1,6 +1,6 @@
 ---
-title: Connect an S3 browser to an Azure NetApp Files object REST API-enabled volume 
-description: Learn how to connect an S3 browser to access REST API-enabled volumes in Azure NetApp Files. 
+title: Access an Azure NetApp Files object REST API-enabled volume with S3-compatible clients
+description: Learn how to access Azure NetApp Files object REST API-enabled volumes from S3-compatible clients
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
@@ -9,7 +9,7 @@ ms.date: 07/31/2025
 ms.author: anfdocs
 ---
 
-# Connect an S3 browser to an Azure NetApp Files object REST API-enabled volume 
+# Access an Azure NetApp Files object REST API-enabled volume with S3-compatible clients
 
 You can use Azure NetApp Files' object REST API with an S3 Browser, taking advantage of secure SSL communication and seamless data management. 
 
@@ -21,17 +21,17 @@ You can use Azure NetApp Files' object REST API with an S3 Browser, taking advan
 1. Download and install the certificate.
     During installation, select **Trusted Root Certification Authorities** as the destination. 
     Connect S3 Browser to Your Object REST API-Enabled Volume 
-1. After the installation completes successfully, configure your S3 Browser connection. Provide the bucket name, access key, and secret key as required. 
+1. After the installation completes successfully, configure your S3 browser connection Download the S3 compatible browser, add the bucket, then provide the name of the bucket (`https:<domain-name>`), the access key, and the secret key. 
 
 ## Access files with the AWS CLI
 
 1. [Download and install the AWS CLI.](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-1. Check the version of your AWS CLI with the `aws --version` command.
+1. Verify the AWS CLI installed correctly with the `aws --version` command. If the output displays the AWS CLI version, it has installed correctly. 
 1. Configure your AWS account with the `aws configure` command. When you enter the command, you are required to provide:
     - AWS access key ID
     - AWS secret access key 
-    - Default region name
-    - Default output format 
+    - Default region name (for example, `us-east-1`)
+    - Default output format (for example, JSON)
 1. Verify access to your bucket by listing the files in your bucket with the command `aws s3 ls <S3URI> --endpoint-url <volumeIPAddress>`. If access is configured correctly, the CLI displays a list of files in your bucket. 
     
     Refer to the [AWS CLI command reference](https://docs.aws.amazon.com/cli/latest/reference/s3/ls.html) for more information about this command. 

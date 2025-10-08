@@ -17,11 +17,9 @@ Azure NetApp Files supports access to S3 objects with the [object REST API](obje
 
 The object REST API access feature in Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time. Feature registration can take up to 60 minutes to complete.
 
-1. Register the feature
+You must submit a waitlist request to use the object REST API feature. 
 
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEnableObjectRESTAPI
-    ```
+<!-- URL -->
 
 2. Check the status of the feature registration: 
 

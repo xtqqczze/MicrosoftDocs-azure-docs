@@ -21,7 +21,6 @@ Ensure you have:
 
 - Configured an [Azure NetApp Files object REST API-enabled volume](object-rest-api-access-configure.md) with the SSL certificate
 - An active [Azure Databricks workspace](/azure/databricks/workspace/workspace-browser)
-- Necessary permissions to access Azure Databricks and the Azure NetApp Files compute endpoint
 
 ### Create the init script 
 
@@ -87,7 +86,7 @@ The init script runs during cluster startup. For more information about init scr
 
     :::image type="content" source="./media/object-rest-api-databricks/create-compute.png" alt-text="Screenshot of Create new compute menu." lightbox="./media/object-rest-api-databricks/create-compute.png":::
 
-1. Select **Confirm**. 
+1. Select the init.sh script. Select **Add** then **Confirm**. 
 1. [To apply the changes and load the SSL certificate, restart the cluster.](/azure/databricks/compute/clusters-manage#cluster-start)
 1. [In the logs, validate if the certificate is placed correctly.](/azure/databricks/init-scripts/logs) 
 
