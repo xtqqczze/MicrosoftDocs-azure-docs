@@ -94,12 +94,12 @@ If you see a storage account that is part of a **Databricks-managed resource gro
 ### How to identify DBFS accounts
 - Most DBFS accounts start with the prefix `dbstorage`.  
 Examples:  
-`dbstoragezeoppf6waviqm`
-`dbstorageb3qvu2dqsbsrg`
-`dbstorageolaatsgryngy6`
+- `dbstoragezeoppf6waviqm`
+- `dbstorageb3qvu2dqsbsrg`
+- `dbstorageolaatsgryngy6`
 
 - These accounts are typically found under resource groups named like:
-`databricks-rg---`
+- `databricks-rg---`
 
 > [!IMPORTANT]
 > While `dbstorage*` is the most common pattern, it is **not a reserved name**, so there may be exceptions.  
@@ -108,7 +108,7 @@ Examples:
 > - You have **read-only permissions** (cannot modify or delete the account).
 
 ### What about other accounts?
-All other storage accounts—including any **GPv1** or **Blob-only accounts** that you manage for your workloads—must be migrated to GPv2 by following the instructions provided earlier in this article.
+All other storage accounts including any **GPv1** or **Blob-only accounts** that you manage for your workloads must be migrated to GPv2 by following the instructions provided earlier in this article.
 
 ## What happens if you don’t migrate by the deadline
 After **October 13 2026**, if you don't migrate your legacy blob storage account to general-purpose v2, all existing legacy blob storage accounts are auto migrated over to a general-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf.
