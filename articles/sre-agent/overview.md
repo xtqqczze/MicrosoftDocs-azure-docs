@@ -3,7 +3,7 @@ title: Overview of Azure SRE Agent Preview
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 10/01/2025
+ms.date: 10/09/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
