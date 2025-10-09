@@ -32,7 +32,7 @@
     - name: 2 - Add APIs to the inventory
       href: ./tutorials/register-apis.md
     - name: 3 - Add environments and deployments
-      href: configure-environments-deployments.md
+      href: ./tutorials/configure-environments-deployments.md
   expanded: true
 - name: API inventory
   items:

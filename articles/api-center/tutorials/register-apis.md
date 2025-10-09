@@ -127,5 +127,5 @@ As you build out your API inventory, take advantage of automated tools to regist
 Your API inventory is starting to take shape! Now you can add information about API environments and deployments.
 
 > [!div class="nextstepaction"]
-> [Add API environments and deployments](configure-environments-deployments.md)
+> [Add API environments and deployments](./tutorials/configure-environments-deployments.md)
 
