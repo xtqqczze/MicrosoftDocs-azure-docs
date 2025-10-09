@@ -17,9 +17,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Cache volumes](configure-cache-volumes.md) (preview)
+* [Azure NetApp Files cache volumes](configure-cache-volumes.md) (preview)
 
-    <!-- Text TBD -->
+    Azure NetApp Files now support cache volumes, which are cloud-based caches of an external origin volume, containing only the most actively accessed data on the volume. This brings data and files closer to the user for faster throughput with a smaller footprint. Azure NetApp Files cache volumes simplify file distribution, reduces WAN latency, and lowers WAN/ExpressRoute bandwidth costs.
 
 ## October 2025
 

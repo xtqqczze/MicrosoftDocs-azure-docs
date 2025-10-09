@@ -205,6 +205,8 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
         "cifsChangeNotifications": "Disabled",
         "globalFileLocking": "Disabled",
         "writeBack": "Disabled"
+        "ldap": "Enabled", 
+        "ldapServerType": "OpenLDAP"
     }
     }'
 ```
