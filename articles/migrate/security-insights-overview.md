@@ -22,15 +22,14 @@ Key benefits
 - Detect vulnerabilities in discovered software and take action to remediate risks.
 - Identify servers that lack security or patch management software, and plan to configure of Microsoft Defender for Cloud and Azure Update Manager.
 
-
 ## Security Insights data
 
 Azure Migrate currently focuses on a core set of security risk areas. Each area corresponds to a specific security insight. The following table summarizes the available insights data.
 
 | Resource | Security Insight | Details | 
 | --- | --- | --- | 
-| Servers  | With security risks </br> </br> OS end of support   | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates, Servers with end of support Operating system. </br> </br> Servers with end of support Operating system   | 
-| Resource | Security Insight | Details | 
+| Servers  | With security risks </br> </br> OS end of support  </br> </br> Software end of support </br> </br> With vulnerabilities </br> </br> Missing security software </br> </br> Missing patch management software  </br> </br> Pending updates  | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates, Servers with end of support Operating system. </br> </br> Servers with end of support Operating system </br> </br> Servers with end of support Software discovered in Azure Migrate </br> </br> Servers with known vulnerability (CVE) in OS and discovered software </br> </br> Servers without any discovered software belonging to Security software category <doc link> </br> </br> Servers without any discovered patch management software </br></br> Servers with pending updates or patches    | 
+| Software  | With security risks </br> </br> End of support </br> </br> With vulnerabilities.  | Software with at least one of the security risks – end of support, vulnerabilities. </br></br> Software declared end of support by vendor. </br> </br> Software with known vulnerability (CVE).   | 
 
 ### How Azure Migrate derives Security Insights from datacenter discovery
 
