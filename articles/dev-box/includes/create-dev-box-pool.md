@@ -3,7 +3,7 @@
 
 The following steps show you how to create a dev box pool in a project. 
 
-If you don't have an available dev center and project, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create them.
+If you don't have an available dev center and project, follow the steps in [Quickstart: Configure Microsoft Dev Box](../quickstart-configure-dev-box-service.md) to create them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -11,11 +11,11 @@ If you don't have an available dev center and project, follow the steps in [Quic
 
 1. Open the project where you want to create the dev box pool.
   
-   :::image type="content" source="../media/create-dev-box-pool/select-project.png" alt-text="Screenshot that shows the list of existing projects." lightbox="./media/create-dev-box-pool/select-project.png":::
+   :::image type="content" source="../media/create-dev-box-pool/select-project.png" alt-text="Screenshot that shows the list of existing projects." lightbox="../media/create-dev-box-pool/select-project.png":::
 
 1. Select **Dev box pools**, then select **Create**.
 
-   :::image type="content" source="../media/create-dev-box-pool/create-pool.png" alt-text="Screenshot of an empty list of dev box pools within a project, along with selections to start creating a pool." lightbox="./media/create-dev-box-pool/create-pool.png":::
+   :::image type="content" source="../media/create-dev-box-pool/create-pool.png" alt-text="Screenshot of an empty list of dev box pools within a project, along with selections to start creating a pool." lightbox="../media/create-dev-box-pool/create-pool.png":::
 
 1. On the **Create a dev box pool** pane, on the **Basics** tab, enter the following values:
 
@@ -30,7 +30,7 @@ If you don't have an available dev center and project, follow the steps in [Quic
    | **Network connection** | 1. Select **Deploy to a Microsoft hosted network**. </br>2. Select your desired deployment region for the dev boxes. Choose a region close to your expected dev box users for the optimal user experience. |
    | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
-   :::image type="content" source="../media/create-dev-box-pool/dev-box-image-pool-create-basics-hibernation.png" alt-text="Screenshot of the Basics pane for creating a dev box pool." lightbox="./media/create-dev-box-pool/dev-box-image-pool-create-basics-hibernation.png":::
+   :::image type="content" source="../media/create-dev-box-pool/dev-box-image-pool-create-basics-hibernation.png" alt-text="Screenshot of the Basics pane for creating a dev box pool." lightbox="../media/create-dev-box-pool/dev-box-image-pool-create-basics-hibernation.png":::
 
 1. On the **Management** tab, enter the following values:
 
@@ -48,7 +48,7 @@ If you don't have an available dev center and project, follow the steps in [Quic
    | **Hibernate on disconnect** | Hibernates dev boxes that no one is connected to after a specified grace period. |
    | **Grace period** | Hibernates dev boxes that have never been connected to after a specified grace period. |
 
-   :::image type="content" source="../media/create-dev-box-pool/dev-box-pool-create-management-hibernation.png" alt-text="Screenshot of the Management pane for creating a dev box pool." lightbox="./media/create-dev-box-pool/dev-box-pool-create-management-hibernation.png":::
+   :::image type="content" source="../media/create-dev-box-pool/dev-box-pool-create-management-hibernation.png" alt-text="Screenshot of the Management pane for creating a dev box pool." lightbox="../media/create-dev-box-pool/dev-box-pool-create-management-hibernation.png":::
 
 1. Select **Create**.
 
@@ -56,4 +56,4 @@ If you don't have an available dev center and project, follow the steps in [Quic
 
 The Azure portal deploys the dev box pool and runs health checks to make sure the image and network pass the validation criteria for dev boxes. The following screenshot shows four dev box pools, each with a different status.
 
-:::image type="content" source="../media/create-dev-box-pool/dev-box-pool-grid-populated.png" alt-text="Screenshot that shows a list of dev box pools and status information." lightbox="./media/create-dev-box-pool/dev-box-pool-grid-populated.png":::
+:::image type="content" source="../media/create-dev-box-pool/dev-box-pool-grid-populated.png" alt-text="Screenshot that shows a list of dev box pools and status information." lightbox="../media/create-dev-box-pool/dev-box-pool-grid-populated.png":::
