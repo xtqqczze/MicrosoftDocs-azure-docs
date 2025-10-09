@@ -74,20 +74,20 @@ The following table provides a summary of the required services, their endpoint 
 
 Your network settings must allow the Storage Mover Agent to connect over HTTPS to the following endpoints for proper functionality:
 
-| Service                | Public Cloud FQDN                               | Fairfax FQDN                                         |
-|------------------------|-------------------------------------------------|------------------------------------------------------|
-| MCR                    | mcr.microsoft.com                               | mcr.microsoft.com                                    |
-| Storage Mover Service  | <region>.agentgateway.prd.azsm.azure.com        | <region>.agentgateway.ff.azsm.azure.us               |
-| Event Hubs             | evhns-sm-ur-prd-<region>.servicebus.windows.net | evhns-sm-ur-ff-<region>.servicebus.usgovcloudapi.net |
-| ARC                    | *.his.arc.azure.com                             | *.his.arc.azure.us                                   |
-| ARC                    | *.guestconfiguration.azure.com                  | *.guestconfiguration.azure.us                        |
-| Entra ID               | login.microsoftonline.com                       | login.microsoftonline.us                             |
-| Entra ID               | pas.windows.net                                 | pasff.usgovcloudapi.net                              |
-| Azure Resource Manager | management.azure.com                            | management.usgovcloudapi.net                         |
-| Storage Account (Blob) | *.blob.core.windows.net                         | *.blob.core.usgovcloudapi.net                        |
-| Storage Account (DFS)  | *.dfs.core.windows.net                          | *.dfs.core.usgovcloudapi.net                         |
-| Storage Account (File) | *.file.core.windows.net                         | *.file.core.usgovcloudapi.net                        |
-| Key Vault              | *.vault.azure.net                               | *.vault.usgovcloudapi.net                            |
+| Service                | Public Cloud FQDN                                 | Fairfax FQDN                                           |
+|------------------------|---------------------------------------------------|--------------------------------------------------------|
+| MCR                    | `mcr.microsoft.com`                               | `mcr.microsoft.com`                                    |
+| Storage Mover Service  | `<region>.agentgateway.prd.azsm.azure.com`        | `<region>.agentgateway.ff.azsm.azure.us`               |
+| Event Hubs             | `evhns-sm-ur-prd-<region>.servicebus.windows.net` | `evhns-sm-ur-ff-<region>.servicebus.usgovcloudapi.net` |
+| ARC                    | `*.his.arc.azure.com`                             | `*.his.arc.azure.us`                                   |
+| ARC                    | `*.guestconfiguration.azure.com`                  | `*.guestconfiguration.azure.us`                        |
+| Entra ID               | `login.microsoftonline.com`                       | `login.microsoftonline.us`                             |
+| Entra ID               | `pas.windows.net`                                 | `pasff.usgovcloudapi.net`                              |
+| Azure Resource Manager | `management.azure.com`                            | `management.usgovcloudapi.net`                         |
+| Storage Account (Blob) | `*.blob.core.windows.net`                         | `*.blob.core.usgovcloudapi.net`                        |
+| Storage Account (DFS)  | `*.dfs.core.windows.net`                          | `*.dfs.core.usgovcloudapi.net`                         |
+| Storage Account (File) | `*.file.core.windows.net`                         | `*.file.core.usgovcloudapi.net`                        |
+| Key Vault              | `*.vault.azure.net`                               | `*.vault.usgovcloudapi.net`                            |
 
 ## Arc-Enabled Server Considerations
 
