@@ -17,6 +17,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Cache volumes](configure-cache-volumes.md) (preview)
+
+    <!-- Text TBD -->
+
 ## October 2025
 
 * [Support for FreeIPA, OpenLDAP, and Red Hat Directory Server](configure-directory-server.md) (preview)
