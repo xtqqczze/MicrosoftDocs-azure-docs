@@ -25,11 +25,11 @@ With Azure NetApp Files' migration assistant, you can peer and migrate volumes f
 * You should complete migrations from a single source cluster using one Azure subscription before migrating volumes destined for another subscription. Cluster peering fails when using a second Azure subscription and the same external source clusters. 
 * If you use Azure RBAC to separate the role of Azure NetApp Files storage management with the intention of separating volume management tasks where volumes reside on the same network sibling set, be aware that externally connected ONTAP systems peered to that sibling set don't adhere to these Azure-defined roles. The external storage administrator might have limited visibility to all volumes in the sibling set showing storage level metadata details.
 * When creating each migration volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created volumes in the subscription to reduce the number of network interface cards (NICs) or IPs consumed in the delegated subnet. If this isn't possible, an additional seven NICs are consumed.
-* You should ensure that there are no external FlexGroup volumes as they cannot be migrated to Azure NetApp Files large volumes.
+* You should ensure that there are no external FlexGroup volumes as they can't be migrated to Azure NetApp Files large volumes.
 * When the migration is in progress, don't enable features such as backup. Only enable features once the migration has completed.
 
 >[!TIP]
->For help creating a migration volume and peering clusters for the migration assistant, see the [PowerShell migration assistant workflow sample script](https://github.com/Azure-Samples/azure-docs-powershell-samples/blob/main/migration-assistant/migration-assistant-workflow.ps1).
+>For help with creating a migration volume and peering clusters for the migration assistant, see the [PowerShell migration assistant workflow sample script](https://github.com/Azure-Samples/azure-docs-powershell-samples/blob/main/migration-assistant/migration-assistant-workflow.ps1).
 
 ## Register the feature
 
@@ -246,7 +246,7 @@ The portal version of the migration assistant is currently in preview.
 
 1.	From the NetApp account view, select **Migration assistant**.
 
-    The migration assistant page appears with a list of current and ongoing migrations along with actions that you can take to create and manage migrations. These actions are "_New migration_", "_Sync now_", "_Dry run_", "_Resume_", "_Cut over_", "_Finalize migration_", and "_Cancel migration_".
+    The migration assistant page appears with a list of current and ongoing migrations along with actions that you can take to create and manage migrations. These actions are "_New migration_," "_Sync now_," "_Dry run_," "_Resume_," "_Cut over_," "_Finalize migration_," and "_Cancel migration_".
     
 2.  Select **New migration** to initiate the migration process and proceed to creation of ANF Migration volume. 
 3.	In the **Source** tab, provide the following information:
@@ -258,7 +258,7 @@ The portal version of the migration assistant is currently in preview.
     Enter the name for the external SVM that contains the volume you're migrating.
     
     * **Source volume name**
-    Enter the name for the external ONTAP volume that you are migrating. 
+    Enter the name for the external ONTAP volume that you're migrating. 
 
     * **Volume size**
     Enter the size of the volume that you are migrating.
@@ -276,7 +276,7 @@ The portal version of the migration assistant is currently in preview.
 
 6.  Navigate to the **Migration** tab and select **Configure Peering**.
 
-7.	If the clusters are not peered, provide the intercluster (IC) LIF address(es) for each node of the external cluster and select **Continue**. If clusters are already peered but SVM peering has not yet been established, you will be guided directly to SVM peering.
+7.	If the clusters aren't peered, provide the intercluster (IC) LIF addresses for each node of the external cluster and select **Continue**. If clusters are already peered but SVM peering hasn't yet been established, you are guided directly to SVM peering.
     
     Wait until cluster peering command and passphrase are returned.
 
@@ -290,9 +290,9 @@ The portal version of the migration assistant is currently in preview.
 
     Pausing the migration makes the volume read-writeable but resuming after pausing will erase all the data written to the volume during the pause.
 
-11.	Once the migration is complete, you can finalize the migration which will delete the replication relationship and clean up the infrastructure.
+11.	Once the migration is complete, you can finalize the migration which deletes the replication relationship and clean up the infrastructure.
 
-    The volume becomes read-write and functions as a regular Azure NetApp Files volume once the migration has been completed.
+    The volume becomes read-write and functions as a regular Azure NetApp Files volume once the migration is complete.
 
 ---
 

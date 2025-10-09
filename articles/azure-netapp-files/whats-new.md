@@ -17,7 +17,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-<!-- update month day of release -->
+## November 2025
 
 * [Azure NetApp Files migration assistant portal experience](migrate-volumes.md) (Preview)
 
