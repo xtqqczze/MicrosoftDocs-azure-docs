@@ -84,4 +84,4 @@ You can view and download the JSON schema for the metadata defined in your API c
 Add APIs to the inventory in your API center. 
 
 > [!div class="nextstepaction"]
-> [Register APIs in your API inventory](../register-apis.md)
+> [Register APIs in your API inventory](.././tutorials/register-apis.md)

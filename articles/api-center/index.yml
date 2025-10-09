@@ -44,7 +44,7 @@ landingContent:
           - text: 1 - Customize metadata properties
             url: ./tutorials/add-metadata-properties.md
           - text: 2 - Add APIs to the inventory
-            url: ./tutorials/register-apis.md
+            url: ./tutorials/./tutorials/register-apis.md
           - text: 3 - Add environments and deployments
             url: ./tutorials/configure-environments-deployments.md
       - linkListType: how-to-guide

@@ -24,7 +24,7 @@ The following sections describe how to manually inventory a remote MCP server in
 
 ### MCP API type
 
-Manually register an MCP server in your API center inventory similar to the way you register other APIs, specifying the API type as **MCP**. To register an API using the Azure portal, see [Tutorial: Register APIs in your API inventory](./tutorials/register-apis.md).
+Manually register an MCP server in your API center inventory similar to the way you register other APIs, specifying the API type as **MCP**. To register an API using the Azure portal, see [Tutorial: Register APIs in your API inventory](./tutorials/./tutorials/register-apis.md).
 
 As described in the following sections, when you register an MCP server, you can specify an environment, deployment, and definition.
 
@@ -40,7 +40,7 @@ For information about creating an environment and a deployment, see [Tutorial: A
 
 ### Definition for remote MCP server
 
-Optionally, add an API definition for a remote MCP server in OpenAPI 3.0 format. The API definition must include a URL endpoint for the MCP server. For an example of adding an OpenAPI definition, see [Tutorial: Register APIs in your API inventory](./tutorials/register-apis.md#add-a-definition-to-your-version).
+Optionally, add an API definition for a remote MCP server in OpenAPI 3.0 format. The API definition must include a URL endpoint for the MCP server. For an example of adding an OpenAPI definition, see [Tutorial: Register APIs in your API inventory](./tutorials/./tutorials/register-apis.md#add-a-definition-to-your-version).
 
 
 You can use the following lightweight OpenAPI 3.0 API definition for your MCP server, which includes a `url` endpoint for the MCP server:

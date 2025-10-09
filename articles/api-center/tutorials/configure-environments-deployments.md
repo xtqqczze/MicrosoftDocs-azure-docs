@@ -28,7 +28,7 @@ In this tutorial, you learn how to use the portal to:
 
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
-* One or more APIs registered in your API center. If you haven't registered any APIs already, see [Tutorial: Register APIs in your API inventory](register-apis.md). This tutorial uses the sample APIs you added from the previous tutorial.
+* One or more APIs registered in your API center. If you haven't registered any APIs already, see [Tutorial: Register APIs in your API inventory](./tutorials/register-apis.md). This tutorial uses the sample APIs you added from the previous tutorial.
 
 ## Add an environment
 
