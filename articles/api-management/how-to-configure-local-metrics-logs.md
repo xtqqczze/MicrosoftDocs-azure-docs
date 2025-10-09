@@ -315,7 +315,7 @@ May 15 05:54:21 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05
 ```
 
 > [!NOTE]
-> If you change the root with `chroot`, for example `chroot /host`, then the above path needs to reflect that change.
+> If you change the root with `chroot`, for example `chroot /host`, then the preceding path needs to reflect that change.
 
 ## Related content
 
