@@ -12,48 +12,47 @@ ms.date: 10/08/2025
 
 Azure Storage Mover is a service designed to facilitate seamless data migration to Azure Storage accounts. For organizations prioritizing security and compliance, integrating Storage Mover with Azure Private Networking ensures that sensitive data and credentials remain protected throughout the migration process. 
 
+Azure Storage Mover communicates over HTTPS, and in addition to operating over the public internet, it supports Azure-recommended private network configurations. These configurations typically begin with the creation of an Azure virtual network, which serves as the foundation for secure connectivity. For more information about Azure virtual networks, see [What is an Azure virtual network?](../virtual-network/virtual-networks-overview.md).
+
+To link on-premises infrastructure to Azure, organizations need to enable hybrid connectivity. This hybrid link can be created using a Site-to-Site VPN via Azure VPN Gateway, Azure ExpressRoute, or an Azure Virtual WAN. Each option establishes private tunnels that enable secure access to Azure resources. For more information about Azure VPN Gateway, ExpressRoute, or Virtual WAN, see [What is an Azure VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md), [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md), or [What is Azure Virtual WAN?](../virtual-wan/virtual-wan-about.md).
+
+Private Endpoints also play a critical role in this approach, allowing services such as Azure Storage Accounts and Azure Key Vaults to be accessed privately. These endpoints reside within a subnet of the virtual network and require domain name system (DNS) records to correctly resolve private IP addresses. During setup, users can configure a Private DNS Zone to manage these records. For more information about Private Endpoints, see [What is an Azure Private Endpoint?](../private-link/private-endpoint-overview.md).
+
 This article outlines the key requirements and configuration steps necessary to deploy Azure Storage Mover in a private network environment.
-
-## Overview of Private Networking with Azure Storage Mover
-
-Azure Storage Mover communicates over HTTPS, and in addition to operating over the public internet, it supports Azure-recommended private network configurations. These configurations typically begin with the creation of an Azure virtual network, which serves as the foundation for secure connectivity. To link on-premises infrastructure to Azure, organizations can use either a Site-to-Site VPN via Azure VPN Gateway or Azure ExpressRoute. Both services establish private tunnels that enable secure access to Azure resources.
-
-Private Endpoints play a critical role in this approach, allowing services such as Azure Storage Accounts and Azure Key Vaults to be accessed privately. These endpoints reside within a subnet of the virtual network and require domain name system (DNS) records to correctly resolve private IP addresses. During setup, users can configure a Private DNS Zone to manage these records.
 
 ## Required Components for Private Networking
 
-Within the Storage Mover hierarchy, a storage mover resource is the name of the top-level service resource that you deploy in your Azure subscription. All aspects of the service and of your migration are controlled from this resource. However, Storage Mover Agents perform most of the migration's work. Storage Mover agents are virtual machines within your network that are used to facilitate migrations by performing the data transfer. 
+Within the Storage Mover hierarchy, a storage mover resource is the top-level service resource that you deploy in your Azure subscription. All aspects of the service and of your migration are controlled from this resource. However, Storage Mover Agents perform most of the migration's work. Storage Mover agents are virtual machines within your network that are used to facilitate migrations by performing the data transfer. 
 
-To ensure that the Storage Mover Agent connects privately to Azure resources, the following components are required:
+To ensure that a Storage Mover Agent connects privately to Azure resources, the following components are required:
 
 - **Azure Virtual Network:**<br>
-An Azure virtual network is an isolated network within Azure that can be extended to your on-premises network, and which provides the foundation for private connectivity.
+An Azure virtual network is an isolated network within Azure that provides the foundation for private connectivity. It allows you to define subnets, configure routing, and set up network security groups (NSGs) to control traffic flow. The virtual network serves as the backbone for connecting your on-premises infrastructure to Azure resources securely.
 - **VPN Gateway or ExpressRoute:**<br>
-A VPN Gateway is used for Site-to-Site VPN connections between on-premises networks and Azure, while ExpressRoute provides a dedicated private connection. Both options enable secure communication between on-premises infrastructure and Azure resources.
+You can use a VPN gateway or Azure ExpressRoute to link your on-premises network to your Azure virtual network. A VPN Gateway is used for Site-to-Site VPN connections between networks, while ExpressRoute provides a dedicated private connection. Both options enable secure communication between on-premises infrastructure and Azure resources. 
 - **Private Endpoints:**<br>
 Azure Private Endpoints securely connect Azure services using a private IP from your virtual network. Each resource, such as a Storage Account or Key Vault, is assigned as a private endpoint.
 - **DNS Configuration:**<br>
-Proper DNS configuration is necessary to resolve the private endpoint IP addresses of your resource endpoints. Because you can create a Private DNS Zone and link it to your virtual network when creating a Private Endpoint, this configuration can be accomplished during setup.
+Proper DNS configuration is necessary to resolve the private endpoint IP addresses of your resource endpoints. Because you can create a Private DNS Zone and link it to your virtual network during Private Endpoint creation, this configuration can be accomplished during setup.
 
 All services that support Private Endpoints can also be accessed as public endpoints, though some resources can be configured to either reject or allow public connections.
 
 The following diagram illustrates an example of a resource topology for enabling private connectivity to all endpoints that support it. 
 
 > [!NOTE]
-> This configuration is one of many possible setups for a private network and doesn't encompass all components involved in network configuration, such as DNS, proxies, VNet-to-VNet peering, etc.
+> This configuration is one of many possible setups for a private network and doesn't encompass all components involved in network configuration, such as DNS, proxies, and virtual network peering.
 
 :::image type="content" source="media/private-networking-prerequisites/private-networking-topology.png" alt-text="A diagram illustrating an example of a resource topology for enabling private connectivity to all endpoints that support it.":::
 
-## Arc-Enabled Server Considerations
-
-The Storage Mover Agent is an Arc-enabled server and requires connectivity to Azure Arc services. While some Arc services support private access, they don't directly support Azure Private Endpoint resources. Instead, users must configure an Arc Private Link Scope to enable private connectivity. Unlike data-plane services, Arc services are control-plane, meaning public access doesn't expose sensitive data.
-
-> [!NOTE]
-> Azure Arc Private Link Scopes aren't required for Storage Accounts or Key Vaults.
+<sup>*1</sup> Arc Private Link Scopes provide access to three Arc services as shown in the image. One of the Arc services, Extensions, isn't used by the Storage Mover Agent, and is shown as disabled to avoid confusion.<br>
+<sup>*2</sup> Arc Private Link Scopes and the three Arc services to which they connect can both be accessed directly over public endpoints. The Arc Private Link Scope can be configured to enable or disable public network access.<br>
+<sup>*</sup> The recommended best practice is to use multiple Azure Virtual Networks. Use the Azure VPN Gateway to connect to the "hub" Virtual Network. Use a second "spoke" virtual network, connected to the "hub" using virtual network peering, to contain the resources. For detailed guidance, see [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/).
 
 ## Public Endpoint Dependencies
 
-Despite the emphasis on private networking, certain required Storage Mover services are only accessible via public endpoints. These services can be accessed securely over public endpoints using ExpressRoute Microsoft Peering, which provides a private tunnel to Azure services. The following list outlines these dependencies:
+Despite the emphasis on private networking, certain required Storage Mover services are only accessible via public endpoints, as shown in the preceding diagram. These services can be accessed securely over public endpoints using ExpressRoute Microsoft Peering, which provides a private tunnel to Azure services. For more information, see [Microsoft Peering](../expressroute/expressroute-circuit-peerings#microsoftpeering.md).
+
+The following list outlines these dependencies:
 
 - **MCR (mcr.microsoft.com)** for automated agent updates.
 - **The Storage Mover Service** for agent heartbeats and job coordination.
@@ -72,6 +71,30 @@ The following table provides a summary of the required services, their endpoint 
 | **ARM**                               | Public         | Registration         | &#10060;       |
 | **Storage Account (Blob, DFS, File)** | Private        | Job targets          | &#9989;        |
 | **Key Vault**                         | Private        | SMB credentials      | &#9989;        |
+
+Your network settings must allow the Storage Mover Agent to connect over HTTPS to the following endpoints for proper functionality:
+
+| Service                | Public Cloud FQDN                               | Fairfax FQDN                                         |
+|------------------------|-------------------------------------------------|------------------------------------------------------|
+| MCR                    | mcr.microsoft.com                               | mcr.microsoft.com                                    |
+| Storage Mover Service  | <region>.agentgateway.prd.azsm.azure.com        | <region>.agentgateway.ff.azsm.azure.us               |
+| Event Hubs             | evhns-sm-ur-prd-<region>.servicebus.windows.net | evhns-sm-ur-ff-<region>.servicebus.usgovcloudapi.net |
+| ARC                    | *.his.arc.azure.com                             | *.his.arc.azure.us                                   |
+| ARC                    | *.guestconfiguration.azure.com                  | *.guestconfiguration.azure.us                        |
+| Entra ID               | login.microsoftonline.com                       | login.microsoftonline.us                             |
+| Entra ID               | pas.windows.net                                 | pasff.usgovcloudapi.net                              |
+| Azure Resource Manager | management.azure.com                            | management.usgovcloudapi.net                         |
+| Storage Account (Blob) | *.blob.core.windows.net                         | *.blob.core.usgovcloudapi.net                        |
+| Storage Account (DFS)  | *.dfs.core.windows.net                          | *.dfs.core.usgovcloudapi.net                         |
+| Storage Account (File) | *.file.core.windows.net                         | *.file.core.usgovcloudapi.net                        |
+| Key Vault              | *.vault.azure.net                               | *.vault.usgovcloudapi.net                            |
+
+## Arc-Enabled Server Considerations
+
+The Storage Mover Agent is an Arc-enabled server and requires connectivity to Azure Arc services. While some Arc services support private access, they don't directly support Azure Private Endpoint resources. Instead, users must configure an Arc Private Link Scope to enable private connectivity. Unlike data-plane services, Arc services reside in the control-plane, which means public access doesn't expose sensitive data.
+
+> [!NOTE]
+> Azure Arc Private Link Scopes aren't required for Storage Accounts or Key Vaults.
 
 ## Additional Networking Considerations
 
