@@ -1,7 +1,7 @@
 ---
 title: Respond to database changes in Azure Cosmos DB using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a local project to a Flex Consumption plan on Azure. The project features an Azure Cosmos DB trigger function that runs in response to changes in an Azure Cosmos DB database."
-ms.date: 08/02/2025
+ms.date: 10/06/2025
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy an Azure Cosmos DB triggered function project securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
@@ -22,45 +22,7 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 > This article is currently only supported in C#, Python, and TypeScript. To complete the quickstart, select one of these supported languages at the top of the article.
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
-## Prerequisites
-
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-+ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
-::: zone-end
-::: zone pivot="programming-language-csharp"  
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
-
-+ [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
-::: zone-end  
-<!---::: zone pivot="programming-language-java"  
-+ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21(Linux).
-
-+ [Apache Maven](https://maven.apache.org), version 3.0 or above.
-
-+ The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)       
-::: zone-end  -->
-::: zone pivot="programming-language-typescript"  
-+ [Node.js 18.x](https://nodejs.org/en/about/previous-releases) or above. Use the `node --version` command to check your version.
-::: zone-end 
-<!---::: zone pivot="programming-language-powershell"  
-+ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
-
-+ [.NET 6.0 runtime](https://dotnet.microsoft.com/download/dotnet)     
-
-+ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
-::: zone-end-->
-::: zone pivot="programming-language-python" 
-+ Python versions that are [supported by Azure Functions](supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
-
-+ The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
-::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
-+ The [Azure Developer CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) for Visual Studio Code. 
-
-[!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
+[!INCLUDE [functions-scenario-quickstarts-prerequisites](../../includes/functions-scenario-quickstarts-prerequisites.md)]
 
 ## Initialize the project
 
@@ -237,11 +199,13 @@ You can run the `azd deploy` command from Visual Studio Code to deploy the proje
 
 1. In the **Overview** tab on the main page, select your function app name and then the **Logs** tab.  
 
-1. Use the `NoSQL: Create Item` command in Visual Studio Code to again add a document to the container as before and verify that the function gets triggered by an update in the monitored container.
+1. Use the `NoSQL: Create Item` command in Visual Studio Code to again add a document to the container as before.
+
+1. Verify again that the function gets triggered by an update in the monitored container.
 
  ## Redeploy your code
 
-You can run the `azd up` command as many times as you need to both create your Azure resources and deploy code updates to your function app. 
+You can run the `azd deploy` command as many times as you need to deploy code updates to your function app. 
 
 >[!NOTE]
 >Deployed code files are always overwritten by the latest deployment package.
