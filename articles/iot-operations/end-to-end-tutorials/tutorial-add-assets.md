@@ -29,6 +29,9 @@ An instance of Azure IoT Operations with secure settings enabled deployed in a K
 - [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials. Then, to enable secure settings follow the steps in [Enable secure settings in Azure IoT Operations](../deploy-iot-ops/howto-enable-secure-settings.md).
 - [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s. Follow the steps in the deployment article for a secure settings deployment and to install the latest version.
 
+> [!IMPORTANT]
+> It's not possible to enable secure settings on the instance you create if you follow the steps in the [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) article.
+
 After you enable secure settings, the resource group that contains your Azure IoT Operations instance also contains the following resources:
 
 - An Azure Key Vault instance to store the secrets to synchronize into your Kubernetes cluster.
