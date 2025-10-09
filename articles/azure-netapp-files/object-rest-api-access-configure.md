@@ -107,9 +107,7 @@ To enable object REST API, you must create a bucket.
     * **Certificate source**
 
         Upload the appropriate certificate. Only PEM files are supported. 
-<!-- replace image
-    :::image type="content" source="./media/object-rest-api-access-configure/certificate-management.png" alt-text="Screenshot of certificate management options." lightbox="./media/object-rest-api-access-configure/certificate-management.png":::
--->
+
     Select **Save**. 
 
 1. Select **Create**. 

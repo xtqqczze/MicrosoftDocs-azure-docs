@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Connect to Azure AI Search with an Azure NetApp Files volume using object REST API 
 
-With the Azure NetApp Files object REST API feature, you can connect a volume to [Azure AI Search](/search/search-what-is-azure-search) to create a search service. 
+With the Azure NetApp Files object REST API feature, you can connect a volume to [Azure AI Search](/azure/search/search-what-is-azure-search) to create a search service. 
 
 ## Before you begin 
 
@@ -30,6 +30,6 @@ You must have configured [OneLake access](object-rest-api-onelake.md) before you
 
 ## More information 
 
-* [What's Azure AI Search?](/search/search-what-is-azure-search)
-* [How to index OneLake files](/search/search-how-to-index-onelake-files)
+* [What's Azure AI Search?](/azure/search/search-what-is-azure-search)
+* [How to index OneLake files](/azure/search/search-how-to-index-onelake-files)
 * [Understand Azure NetApp Files object REST API](object-rest-api-introduction.md)

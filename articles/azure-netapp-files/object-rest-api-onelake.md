@@ -33,9 +33,9 @@ Sensitive information is protected through Microsoft Virtual Networks and Azure 
 
 ## Next steps
 
-After connecting to OneLake, you can configure [Azure AI Search](/search/search-what-is-azure-search). For more information, see:
+After connecting to OneLake, you can configure [Azure AI Search](/azure/search/search-what-is-azure-search). For more information, see:
 
-- [How to index OneLake files](/search/search-how-to-index-onelake-files)
+- [How to index OneLake files](/azure/search/search-how-to-index-onelake-files)
 - [Connect to Azure AI Search](object-rest-api-azure-search.md)
 
 ## More information 
