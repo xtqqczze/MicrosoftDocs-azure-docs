@@ -7,7 +7,8 @@ ms.subservice: billing
 ms.reviewer: presharm
 ms.topic: conceptual
 ms.date: 07/25/2025
-ms.author: presharm
+ms.author: nicholak
+ms.custom: NonCE
 ---
 
 # Grant access to create Azure Enterprise subscriptions (legacy)
