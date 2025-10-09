@@ -91,6 +91,12 @@ Keep in mind the following considerations as you use Azure SRE Agent:
 - Availability varies by region and tenant configuration.  
 - Preview [billing](billing.md) begins *September 1, 2025*, via Azure agent units (AAUs).
 
+When you create an agent, following resources are also automatically created for you:
+
+- Azure Application Insights
+- Log Analytics workspace
+- Managed Identity
+
 ## Preview access
 
 While access to SRE Agent was previously only available to customers via a waitlist, the agent is now available to all customers through the [Azure portal](https://aka.ms/sreagent-portal).
