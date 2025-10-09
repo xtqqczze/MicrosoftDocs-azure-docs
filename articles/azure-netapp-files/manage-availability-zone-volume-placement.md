@@ -128,8 +128,8 @@ If you're using a custom RBAC role or the [built-in Contributor role](../role-ba
     	    "description": "",
     	    "assignableScopes": ["/subscription/<subscriptionID>"
             ],
-    	    "permissions": [
-            {
+            "permissions": [
+                {
                 "actions": [
                     "Microsoft.NetApp/locations/*",
                     "Microsoft.NetApp/netAppAccounts/read",
