@@ -24,21 +24,12 @@ This mapping is accomplished by presenting a specified NAS directory hierarchy a
 
 ## Supported actions
 
-The following S3 actions are supported with the object REST API feature:
-
-- **Read and write operations**  
-    - Upload (PUT) and download (GET) objects directly to and from ANF volumes using S3-compatible APIs.  
-    - List objects within a bucket (volume) and retrieve object metadata.  
-    - Delete objects.
-- **Snapshot integration** 
-    - Access data from Azure NetApp Files snapshots, enabling point-in-time recovery and analytics on historical data without data movement.
-- **Multi-protocol access** 
-    - Simultaneous access to the same data via the NFS and SMB file protocols and the S3 object protocol, supporting hybrid workloads.
-- **Authentication and security**
-    - Secure access using Azure Active Directory and integration with enterprise identity providers.  
-    - Data remains protected by Azure NetApp Files' built-in security and compliance features.
-- **Preview capabilities**  
-    - Currently, the API supports core S3 operations for read/write and metadata management.
+- ListBucket
+- ListObjects / ListObjectsV2
+- GetObject
+- PutObject
+- DeleteObject
+- HeadObject
 
 ## Next steps 
 
