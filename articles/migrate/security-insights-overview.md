@@ -28,8 +28,8 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 
 | Resource | Security Insight | Details | 
 | --- | --- | --- | 
-| Servers  | With security risks </br> </br> OS end of support  </br> </br> Software end of support </br> </br> With vulnerabilities </br> </br> Missing security software </br> </br> Missing patch management software  </br> </br> Pending updates  | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates, Servers with end of support Operating system. </br> </br> Servers with end of support Operating system </br> </br> Servers with end of support Software discovered in Azure Migrate </br> </br> Servers with known vulnerability (CVE) in OS and discovered software </br> </br> Servers without any discovered software belonging to Security software category <doc link> </br> </br> Servers without any discovered patch management software </br></br> Servers with pending updates or patches    | 
-| Software  | With security risks </br> </br> End of support </br> </br> With vulnerabilities.  | Software with at least one of the security risks – end of support, vulnerabilities. </br></br> Software declared end of support by vendor. </br> </br> Software with known vulnerability (CVE).   | 
+| Servers  | With security risks </br> </br> OS end of support  </br> </br> Software end of support </br> </br> With vulnerabilities </br> </br> Missing security software </br> </br> Missing patch management software  </br> </br> Pending updates  | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates, Servers with end of support Operating system. </br> </br> Servers with end of support Operating system </br> </br> Servers with end of support Software discovered in Azure Migrate. </br> </br> Servers with known vulnerability (CVE) in OS and discovered software. </br> </br> Servers without any discovered software belonging to Security software category. </br> </br> Servers without any discovered patch management software </br></br> Servers with pending updates or patches.    | 
+| Software  | With security risks </br> </br> End of support. </br> </br> With vulnerabilities.  | Software with at least one of the security risks – end of support, vulnerabilities. </br></br> Software declared end of support by vendor. </br> </br> Software with known vulnerability (CVE).   | 
 
 ### How Azure Migrate derives Security Insights from datacenter discovery
 
@@ -82,9 +82,9 @@ To view security insights in Azure Migrate:
 
 You can tag servers with critical risks to support effective planning and mitigation during modernization to Azure.
 
-    :::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
+:::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
 
-1. **Servers** card shows a summary of all discovered servers with security risks. A server is considered at risk if it has at least one of the following issues:
+4. **Servers** card shows a summary of all discovered servers with security risks. A server is considered at risk if it has at least one of the following issues:
     - End-of-support operating system
     - End-of-support software
     - Known vulnerabilities (CVEs) in installed software or OS
@@ -94,7 +94,7 @@ You can tag servers with critical risks to support effective planning and mitiga
     :::image type="content" source="./media/security-insights-overview/servers-card.png" alt-text="Screenshot shows the summarized view of all servers with security risks out of total discovered servers." lightbox="./media/security-insights-overview/servers-card.png":::
 
 
-1. **Software** card shows a summary of all discovered software with security risks. Software is flagged as at risk if it is either end-of-support or has known vulnerabilities (CVEs). The card displays the number of end-of-support software and software with vulnerabilities as fractions of the total at-risk software.
+5. **Software** card shows a summary of all discovered software with security risks. Software is flagged as at risk if it is either end-of-support or has known vulnerabilities (CVEs). The card displays the number of end-of-support software and software with vulnerabilities as fractions of the total at-risk software.
 
     :::image type="content" source="./media/security-insights-overview/software-card.png" alt-text="Screenshot provides aggregated view of all software with security risks out of total discovered software." lightbox="./media/security-insights-overview/software-card.png":::
 
@@ -170,7 +170,7 @@ The tab displays security insights for the selected server, including:
 
 The summary of the top five pending updates and top five vulnerabilities is provided to help prioritize remediation.
 
-    :::image type="content" source="./media/security-insights-overview/pending-updates.png" alt-text="Screenshot shows the top five pending updates." lightbox="./media/security-insights-overview/pending-updates.png":::
+:::image type="content" source="./media/security-insights-overview/pending-updates.png" alt-text="Screenshot shows the top five pending updates." lightbox="./media/security-insights-overview/pending-updates.png":::
 
 ## Manage permissions for Security Insights 
 
