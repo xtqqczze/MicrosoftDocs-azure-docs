@@ -3,7 +3,7 @@ title: Template syntax and expressions
 description: Describes the declarative JSON syntax for Azure Resource Manager templates (ARM templates).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 04/28/2025
+ms.date: 10/08/2025
 ---
 
 # Syntax and expressions in ARM templates
@@ -11,6 +11,17 @@ ms.date: 04/28/2025
 The basic syntax of the Azure Resource Manager template (ARM template) is JavaScript Object Notation (JSON). However, you can use expressions to extend the JSON values available within the template.  Expressions start and end with brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. An expression can return a string, integer, boolean, array, or object.
 
 A template expression can't exceed 24,576 characters.
+
+## Limitations of expressions
+
+Template expressions are evaluated at runtime, but some properties in Azure Resource Manager (ARM) templates and Bicep files must be known at compile time and therefore can't use expressions. These properties include:
+
+- The `type` and `apiVersion` of a resourceba
+- The `name` of variables, parameters, and outputs
+- Extension references
+- The `scope` of a module or extension resource
+
+These properties must be provided as literal strings because the deployment engine and compiler need to validate resource schemas, dependencies, and properties before evaluating expressions.
 
 ## Use functions
 
