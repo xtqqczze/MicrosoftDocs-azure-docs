@@ -40,7 +40,7 @@ API Management supports pass-through with the following types of gRPC service me
 
 * A gateway resource provisioned in your instance. If you don't already have one, see [Provision a self-hosted gateway in Azure API Management](api-management-howto-provision-self-hosted-gateway.md).
 
-* A gRPC protobuff (*.proto*) file available locally, and gRPC service that's accessible over HTTPS.
+* A gRPC protobuf (*.proto*) file available locally, and gRPC service that's accessible over HTTPS.
 
 ## Add a gRPC API
 
