@@ -1,11 +1,11 @@
 ---
-title: Get started with cloud-to-cloud migration in Azure Storage Mover (Preview)
-description: The Cloud-to-Cloud Migration feature (preview) in Azure Storage mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage, utilizing Azure Arc for AWS (Amazon Web Services) to simplify authentication and resource management.
+title: Azure Storage Mover Private Networking Requirements
+description: Learn about the prerequisites for using Azure Storage Mover with private networking.
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
-ms.topic: quickstart
-ms.date: 07/01/2025
+ms.topic: conceptual
+ms.date: 10/08/2025
 ---
 
 # Storage Mover Private Networking Requirements
@@ -79,9 +79,9 @@ Beyond the core components, there are networking considerations that can be conf
 
 ### Proxy Support
 
-The Storage Mover Agent supports external HTTP and HTTPS proxies. Configuration is done via the agent's shell within the **Network Configuration** section's **Update network configuration** menu. When prompted, select **Proxy** and enter the proxy's Fully Qualified Domain Name (FQDN) or IP address. Include the port number if necessary. The following example illustrates the configuration steps:
+The Storage Mover Agent supports external HTTP and HTTPS proxies. Configuration is done via the agent's shell within the **Network Configuration** section's **Update network configuration** menu. When prompted, select **Proxy** and enter the Fully Qualified Domain Name (FQDN) or IP address of the proxy. Include the port number if necessary. The following example illustrates the configuration steps:
 
 :::image type="content" source="media/private-networking-prerequisites/proxy-configuration.png" alt-text="A screenshot showing the proxy configuration screen in the Storage Mover Agent.":::
 
 ### SSL Inspection
-If your network performs SSL interception, the agent might fail to recognize modified certificates. Currently, adding custom certificates to the agent isn't supported. To avoid issues, whitelist required endpoints to bypass SSL inspection.
+If your network performs SSL interception, the agent might fail to recognize modified certificates. Currently, adding custom certificates to the agent isn't supported. To avoid issues, allowlist required endpoints to bypass SSL inspection.
