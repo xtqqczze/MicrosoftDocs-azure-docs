@@ -1,5 +1,5 @@
 ---
-title: How to use the connector for HTTP/REST (preview)
+title: How to use the connector for HTTP/REST
 description: Use the operations experience web UI or the Azure CLI to configure assets and devices for connections to HTTP endpoints.
 author: dominicbetts
 ms.author: dobett
@@ -10,9 +10,9 @@ ms.date: 07/23/2025
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from HTTP/REST endpoints.
 ---
 
-# Configure the connector for HTTP/REST (preview)
+# Configure the connector for HTTP/REST
 
-In Azure IoT Operations, the connector for HTTP/REST (preview) enables access to data from REST endpoints exposed by HTTP services.
+In Azure IoT Operations, the connector for HTTP/REST enables access to data from REST endpoints exposed by HTTP services.
 
 [!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
 
@@ -43,7 +43,7 @@ This article explains how to use the connector for HTTP/REST to perform tasks su
 
 ## Prerequisites
 
-To configure devices and assets, you need a running preview instance of Azure IoT Operations.
+To configure devices and assets, you need a running instance of Azure IoT Operations.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -53,7 +53,7 @@ You need any credentials required to access the HTTP source. If the HTTP source 
 
 ## Deploy the connector for HTTP/REST
 
-[!INCLUDE [deploy-preview-media-connectors-simple](../includes/deploy-preview-media-connectors-simple.md)]
+[!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
 
 ## Create a device
 

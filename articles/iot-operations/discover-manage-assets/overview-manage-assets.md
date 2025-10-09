@@ -39,12 +39,9 @@ ms.custom: sfi-image-nochange
 
 # What is asset and device management in Azure IoT Operations?
 
-> [!IMPORTANT]
-> Devices (preview) are new in version 1.2.x of Azure IoT Operations. To learn about asset endpoints, see [Asset management overview](/previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets) on the previous versions site.
-
 In Azure IoT Operations, a key task is to manage the namespace assets and devices that are part of your solution. This article:
 
-- Defines what *namespace assets (preview)* and *devices (preview)* mean in Azure IoT Operations.
+- Defines what *namespace assets* and *devices* mean in Azure IoT Operations.
 - Provides an overview of services used to manage namespace assets and devices.
 - Explains common use cases for these services.
 
@@ -139,7 +136,7 @@ The schema registry is a service that lets you define and manage the schema for 
 
 ### Namespaces
 
-Azure Device Registry uses *namespaces (preview)* to organize namespace assets and devices. Each Azure IoT Operations instance uses one namespace (preview) for its assets and devices. Multiple instances can share a namespace.
+Azure Device Registry uses *namespaces* to organize namespace assets and devices. Each Azure IoT Operations instance uses one namespace for its assets and devices. Multiple instances can share a namespace.
 
 ### Synchronization
 
@@ -147,7 +144,7 @@ Manage devices and namespace assets through the operations experience or Azure A
 
 ## Akri services
 
-*Akri services (preview)* in Azure IoT Operations:
+*Akri services* in Azure IoT Operations:
 
 - Provide an extensible framework for building and deploying connectors that enable connectivity protocols like ONVIF and HTTP/REST.
 - Enable automatic discovery, onboarding, and monitoring of physical devices and assets at the edge.
@@ -157,21 +154,21 @@ Manage devices and namespace assets through the operations experience or Azure A
 Akri services let you deploy and set up connectivity protocols at the edge. Akri services use the asset and device resources in Azure Device Registry to model different device and protocol connections in your environment. They let you easily onboard and provision assets with open standards. They provide an extensible framework for all device protocols and a single-pane-of-glass view for all assets. Connectors include:
 
 - The **connector for OPC UA** is a data ingress and protocol translation service that lets Azure IoT Operations ingest data from OPC UA servers. A key requirement in industrial environments is a common standard or protocol for machine-to-machine and machine-to-cloud data exchange. [OPC UA](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a specification for a platform-independent, service-oriented architecture that enables data exchange in industrial environments. The connector receives messages and events from your assets and publishes the data to topics in the MQTT broker.
-- The **media connector (preview)** is a service that makes media from sources like edge-attached cameras available to other Azure IoT Operations components.
-- The **connector for ONVIF (preview)** is a service that discovers and registers ONVIF assets like cameras. The connector lets you manage and control ONVIF assets like cameras connected to your cluster.
-- The **connector for HTTP/REST (preview)** is a service that lets you connect to HTTP/REST endpoints and publish data to the MQTT broker.
-- The **connector for SSE (preview)** is a service that lets you connect to SSE endpoints and publish event data to the MQTT broker.
+- The **media connector** is a service that makes media from sources like edge-attached cameras available to other Azure IoT Operations components.
+- The **connector for ONVIF** is a service that discovers and registers ONVIF assets like cameras. The connector lets you manage and control ONVIF assets like cameras connected to your cluster.
+- The **connector for HTTP/REST** is a service that lets you connect to HTTP/REST endpoints and publish data to the MQTT broker.
+- The **connector for SSE** is a service that lets you connect to SSE endpoints and publish event data to the MQTT broker.
 - **Custom connectors** are services that you create to connect to other data sources and publish data to the MQTT broker. Use the Azure IoT Operations SDKs to create custom connectors that meet your specific requirements.
 
 ### Discovery
 
-*Akri services (preview)* let you automatically discover physical devices and assets and help OT users set up devices and namespace assets in the operations experience web UI. The connectors described earlier all use the framework provided by Akri services to implement their core capabilities.
+*Akri services* let you automatically discover physical devices and assets and help OT users set up devices and namespace assets in the operations experience web UI. The connectors described earlier all use the framework provided by Akri services to implement their core capabilities.
 
 Akri services simplify creating assets by automatically onboarding assets with preconfigured datasets and endpoints generated by the connectors to represent capabilities and devices on the network.
 
 ### Monitoring
 
-*Akri services (preview)* provide monitoring capabilities for physical devices and assets. This includes tracking the status and health of devices. The monitoring framework works seamlessly with the connectors and the Azure Device Registry, letting you gain insights into your edge environment.
+*Akri services* provide monitoring capabilities for physical devices and assets. This includes tracking the status and health of devices. The monitoring framework works seamlessly with the connectors and the Azure Device Registry, letting you gain insights into your edge environment.
 
 ## Operations experience
 

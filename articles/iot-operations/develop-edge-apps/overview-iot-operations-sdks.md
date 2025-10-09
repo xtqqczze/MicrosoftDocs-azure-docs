@@ -80,7 +80,7 @@ The SDKs supports the following application types:
 | [Akri connector](../discover-manage-assets/overview-akri.md#connectors)</br>*(in development)*| Specialized edge applications deployed by the _Akri operator_ service and designed to interface with on-premises devices. An Akri connector is responsible for discovering assets available via the endpoint, and relaying information to and from those assets. </br></br>*An Akri connector's deployment is managed automatically by the Akri operator service.* |
 
 > [!NOTE]
-> Akri connectors are part of the [Akri services (preview)](../discover-manage-assets/overview-akri.md), which is under active development and will be available soon.
+> Akri connectors are part of the [Akri services](../discover-manage-assets/overview-akri.md), which is under active development and will be available soon.
 
 ## Samples and tutorials
 
