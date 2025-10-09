@@ -119,7 +119,7 @@ If you're using a real Azure Storage account, replace `UseDevelopmentStorage=tru
 
 ## Configure Event Grid publishing with Managed Identity
 
-Managed identities in Azure allow resources to authenticate to Azure services without storing credentials, simplifying security and identity management. System-assigned managed identity is automatically created when you enable it on an Azure resource and is tied to that resource’s lifecycle. If the resource is deleted, the identity is also removed, making it simple and secure for single-resource use. User-assigned managed identity is created as a standalone Azure resource and can be assigned to multiple resources. It persists independently of any resource, offering flexibility for shared access and centralized identity management. We recommend using user-assigned identity because it's not attached to the lifecycle of the app.
+Managed identities in Azure allow resources to authenticate to Azure services without storing credentials, simplifying security and identity management. _System-assigned_ managed identity is automatically created when you enable it on an Azure resource and is tied to that resource’s lifecycle. If the resource is deleted, the identity is also removed. _User-assigned_ managed identity is created as a standalone Azure resource and can be assigned to multiple resources. It persists independently of any resource, offering flexibility for shared access and centralized identity management. It's recommended that you use user-assigned identity because it's not attached to the lifecycle of the app.
 
 For more information, visit [Use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md).
 
