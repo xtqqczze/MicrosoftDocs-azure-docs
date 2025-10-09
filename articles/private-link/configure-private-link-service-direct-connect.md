@@ -24,7 +24,7 @@ In this article, you'll learn how to create a Private Link Service Direct Connec
 - Azure PowerShell installed locally or use Azure Cloud Shell. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 - Azure CLI installed locally or use Azure Cloud Shell. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli)
 - For Terraform: [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
-- Feature flag Microsoft.Network/AllowPrivateLinkServiceUDR enabled in current subscription, see instructions on how to register via Azure CLI or PowerShell here (feature is not visible on Portal): [Enable Azure preview features](https://review.learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features)
+- Feature flag Microsoft.Network/AllowPrivateLinkServiceUDR enabled in current subscription, see instructions on how to register via Azure CLI or PowerShell here (feature is not visible on Portal): [Enable Azure preview features](/azure/azure-resource-manager/management/preview-features)
 - A virtual network with a subnet
 - A routable IP address to set as the destination IP address
 
@@ -64,7 +64,7 @@ Be aware of these limitations when using Private Link Service Direct Connect:
 - **Static IP requirement** - The destination IP must be static and directly reachable, dynamically changing IPs are not supported
 - **Cross region limitation** - This feature currently requires that the source private endpoint, private link service, and client VM must be in the same region, with this restriction to be removed when the feature is generally available
 - **No migration support** - Using this feature requires the deployment of a new Private Link Service and migration of existing private link services is not supported
-- **Subscription feature flag enablement is required** - Register the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR via Azure CLI or PowerShell, see this for how-to: [Set up preview features in Azure subscription - Azure Resource Manager | Microsoft Learn](https://review.learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?branch=main&tabs=azure-portal)
+- **Subscription feature flag enablement is required** - Register the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR via Azure CLI or PowerShell, see this for how-to: [Set up preview features in Azure subscription - Azure Resource Manager | Microsoft Learn](/azure/azure-resource-manager/management/preview-features)
 - **Available client support** - You will need to use PowerShell, CLI, or Terraform to deploy this new Private Link Service, Portal client support is pending
 - **Regional availability** - This feature is currently available in limited regions (North Central US, East US 2, Central US, South Central US, West US, West US 2, West US 3, Asia Southeast, Australia East, Spain Central)
 
