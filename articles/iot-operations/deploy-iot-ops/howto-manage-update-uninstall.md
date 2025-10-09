@@ -67,11 +67,11 @@ You can view your Azure IoT Operations instance in the Azure portal.
 
 1. Select the name of your Azure IoT Operations instance.
 
-1. On the **Overview** page of your instance, you can see the properties of your instance. For example, you can see the status of the **preview connectors**, which can be enabled or disabled. To change the status of the preview connectors, click on **Edit**. 
+1. On the **Overview** page of your instance, you can see the properties of your instance. For example, you can see the status of the **connectors**, which can be enabled or disabled. To change the status of the connectors, click on **Edit**. 
 
     :::image type="content" source="media/howto-deploy-iot-operations/view-enable-connectors.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster and how to enable connectors."lightbox="media/howto-deploy-iot-operations/view-enable-connectors.png":::
 
-    This action opens a configuration panel where you can enable or disable the [ONVIF preview connector](../discover-manage-assets/howto-use-onvif-connector.md).
+    This action opens a configuration panel where you can enable or disable the [connector for ONVIF](../discover-manage-assets/howto-use-onvif-connector.md).
 
 1. The **Resource Summary** tab displays the resources that were deployed to your cluster.
 
@@ -113,7 +113,7 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 
 In the Azure portal, you can view the Azure Device Registry, which is a collection of all the devices and assets that are connected to your Azure IoT Operations instance.
 
-The Azure Device Registry uses _namespaces (preview)_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+The Azure Device Registry uses _namespaces_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
 
 To view items in the Azure Device Registry in the Azure portal:
 
@@ -217,13 +217,13 @@ To delete all tags on an instance, set the tags parameter to a null value. For e
 az iot ops update --name <INSTANCE_NAME> --resource-group --tags ""
 ```
 
-To enable the preview connector configuration, run: 
+To enable the connector configuration, run: 
 
 ```azurecli
 az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --feature connectors.settings.preview=Enabled 
 ```
 
-To disable the preview connector configuration, run: 
+To disable the connector configuration, run: 
 
 ```azurecli
 az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --feature connectors.settings.preview=Disabled  

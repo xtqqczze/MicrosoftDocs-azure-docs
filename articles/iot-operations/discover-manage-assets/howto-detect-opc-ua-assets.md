@@ -1,5 +1,5 @@
 ---
-title: Automatically discover OPC UA assets (preview)
+title: Automatically discover OPC UA assets
 description: How to automatically discover and configure OPC UA assets at the edge
 author: dominicbetts
 ms.subservice: azure-akri
@@ -10,7 +10,7 @@ ms.date: 04/02/2025
 # CustomerIntent: As an industrial edge IT or operations user, I want to discover and create OPC UA assets in my industrial edge environment so that I can reduce manual configuration overhead. 
 ---
 
-# Automatically discover and configure OPC UA assets (preview)
+# Automatically discover and configure OPC UA assets
 
 The Akri services and connector for OPC UA are a turnkey solution that lets you discover assets connected to an OPC UA server and add the asset configurations into Azure Device Registry. The connector for OPC UA discovers assets at the edge and Akri services maps them to assets in Azure Device Registry. The assets send messages, such as sensor data, to upstream brokers and components. The Akri services let you eliminate the time-consuming and error-prone process of manually configuring and onboarding the assets to your cluster and Azure Device Registry.
 
@@ -18,11 +18,11 @@ To discover OPC UA assets, the assets must be compliant with the [OPC 10000-100:
 
 In this article, you learn how to automatically discover and configure OPC UA devices and assets connected to your Azure IoT Operations deployment. The automatic discovery process starts when you add a device with the **Enable discovery** option selected.
 
-To learn more, see [What is asset discovery (preview)?](overview-akri.md).
+To learn more, see [What is asset discovery?](overview-akri.md).
 
 ## Prerequisites
 
-- **Enable resource sync rules.** A deployed preview instance of Azure IoT Operations with resource sync rules enabled. To learn more, see [Deploy Azure IoT Operations](../deploy-iot-ops/overview-deploy.md).
+- **Enable resource sync rules.** A deployed instance of Azure IoT Operations with resource sync rules enabled. To learn more, see [Deploy Azure IoT Operations](../deploy-iot-ops/overview-deploy.md).
 
 - **Set permissions on your custom location.** The custom location in the resource group where you deployed Azure IoT Operations must have the **Azure Kubernetes Service Arc Contributor Role** role enabled with **K8 Bridge** as a member: For example:
 
