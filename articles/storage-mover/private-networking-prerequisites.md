@@ -50,7 +50,7 @@ The following diagram illustrates an example of a resource topology for enabling
 
 ## Public Endpoint Dependencies
 
-Despite the emphasis on private networking, certain required Storage Mover services are only accessible via public endpoints, as shown in the preceding diagram. These services can be accessed securely over public endpoints using ExpressRoute Microsoft Peering, which provides a private tunnel to Azure services. For more information, see [Microsoft Peering](../expressroute/expressroute-circuit-peerings#microsoftpeering.md).
+Despite the emphasis on private networking, certain required Storage Mover services are only accessible via public endpoints, as shown in the preceding diagram. These services can be accessed securely over public endpoints using ExpressRoute Microsoft Peering, which provides a private tunnel to Azure services. For more information, see [Microsoft Peering](../expressroute/expressroute-circuit-peerings.md).
 
 The following list outlines these dependencies:
 
