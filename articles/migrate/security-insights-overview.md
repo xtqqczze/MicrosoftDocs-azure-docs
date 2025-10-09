@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article 
 ms.date: 09/19/2025
 ms.custom: engagement-fy24 
+::: moniker range="migrate"
 # Customer intent: To evaluate how Security Insights (preview) in Azure Migrate helps identify infrastructure and software risks during migration planning, enabling proactive remediation and a secure transition to Azure.
 ---
 
@@ -186,3 +187,8 @@ Security insights are enabled by default for all users. To manage access, create
 
 >[!Note]
 > Support status for operating systems and software is a machine-level property. User access to this information is determined by the permissions assigned at the machine level.
+
+## Next steps
+
+- Learn more about [Security cost in Business case](concepts-business-case-calculation.md).
+- Learn more about [Assessments](concepts-overview.md).
