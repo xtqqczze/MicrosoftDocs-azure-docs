@@ -5,7 +5,7 @@ services: site-recovery
 author: swbela
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 09/16/2025
+ms.date: 10/09/2025
 ms.author: swbela_microsoft
 
 # Customer intent: Turn off key-based authentication on cache account used by Azure Site Recovery.
