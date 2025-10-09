@@ -42,7 +42,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: 1 - Customize metadata properties
-            url: ./tutorials/add-metadata-properties.md
+            url: ./tutorials/./tutorials/add-metadata-properties.md
           - text: 2 - Add APIs to the inventory
             url: ./tutorials/./tutorials/register-apis.md
           - text: 3 - Add environments and deployments

@@ -29,7 +29,7 @@ In this tutorial, you learn how to use the Azure portal to:
     * [Swagger Petstore API](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
     * [Conference API](https://bigconference.azurewebsites.net)
 
-* Complete the previous tutorial, [Define custom metadata](add-metadata-properties.md), to define custom metadata for your APIs.
+* Complete the previous tutorial, [Define custom metadata](./tutorials/add-metadata-properties.md), to define custom metadata for your APIs.
 
 ## Register APIs
 

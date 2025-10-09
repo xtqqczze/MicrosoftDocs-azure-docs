@@ -10,7 +10,7 @@ ms.date: 01/08/2025
 ms.author: danlep
 ms.custom: Include file
 ---
-You can add or update metadata properties and documentation to the synchronized APIs in your API center to help stakeholders discover, understand, and consume the APIs. Learn more about Azure API Center's [built-in and custom metadata properties](../tutorials/add-metadata-properties.md).
+You can add or update metadata properties and documentation to the synchronized APIs in your API center to help stakeholders discover, understand, and consume the APIs. Learn more about Azure API Center's [built-in and custom metadata properties](../tutorials/./tutorials/add-metadata-properties.md).
 
 The following table shows entity properties that can be modified in Azure API Center and properties that are set based on their values in the API source. 
 

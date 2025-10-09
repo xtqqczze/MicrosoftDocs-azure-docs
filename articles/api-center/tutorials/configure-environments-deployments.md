@@ -34,7 +34,7 @@ In this tutorial, you learn how to use the portal to:
 
 Use your API center to keep track of your real-world API environments. For example, you might use Azure API Management or another solution to distribute, secure, and monitor some of your APIs. Or you might directly serve some APIs using a compute service or a Kubernetes cluster. 
 
-Here you add information about a fictitious Azure API Management environment to your API center. If you prefer, add information about one of your existing environments. You'll configure both built-in metadata and any custom metadata that you defined in a [previous tutorial](add-metadata-properties.md).
+Here you add information about a fictitious Azure API Management environment to your API center. If you prefer, add information about one of your existing environments. You'll configure both built-in metadata and any custom metadata that you defined in a [previous tutorial](./tutorials/add-metadata-properties.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com), then navigate to your API center.
 
