@@ -243,42 +243,53 @@ The portal version of the migration assistant is currently in preview.
 
 1.	From the NetApp account view, select **Migration assistant**.
 
-    The migration assistant page appears with a list of current and ongoing migrations along with actions that you can take to create and manage migrations.
-
-2.  Select **Migrate** to initiate the migration process. 
+    The migration assistant page appears with a list of current and ongoing migrations along with actions that you can take to create and manage migrations. These actions are "_New migration_", "_Sync now_", "_Dry run_", "_Resume_", "_Cut over_", "_Finalize migration_", and "_Cancel migration_".
+    
+2.  Select **New migration** to initiate the migration process and proceed to creation of ANF Migration volume. 
 3.	In the **Source** tab, provide the following information:
 
     * **Cluster Name**
     Enter the name for the cluster that contains the volume you're migrating.
 
     * **SVM Name**
-    Enter the name for the SVM that contains the volume you're migrating.
+    Enter the name for the external SVM that contains the volume you're migrating.
     
     * **Source volume name**
-    Enter the name for the volume that you are migrating. 
+    Enter the name for the external ONTAP volume that you are migrating. 
 
     * **Volume size**
     Enter the size of the volume that you are migrating.
 
-4.  Proceed to create the Azure NetApp Files volume. Follow the steps for your appropriate protocol. See [Create an NFS volume](azure-netapp-files-create-volumes.md), [Create an SMB volume](azure-netapp-files-create-volumes-smb.md), and [Create a dual-protocol volume](create-volumes-dual-protocol.md).
+    * **Replication schedule** 
+    Select the desired replication schedule for how often the data is synced from the source volume on the external ONTAP cluster to the Azure NetApp Files Migration volume.
 
-5.  Select **Review + Create** to review the volume details. Select **Create** to create the volume.
+4.  Complete the remaining information and proceed to create the Azure NetApp Files volume. Follow the steps for your appropriate protocol. See [Create an NFS volume](azure-netapp-files-create-volumes.md), [Create an SMB volume](azure-netapp-files-create-volumes-smb.md), and [Create a dual-protocol volume](create-volumes-dual-protocol.md).
 
-    The volume you created appears in the Migration Assistant view and is also visible among list of all volumes.
+5.  Select **Review + Create** to review the volume details. Select **Create** to create the Azure NetApp Files Migration volume.
+
+    The volume you created appears in the Migration Assistant view and is also visible among the list of all volumes for NetApp account or selected pool in pool view.
  
-    A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
+    A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab. Once the deployment of the Azure NetApp Files Migration volume has been completed, click **Go to resource** to navigate to the overview blade for the newly created volume.
 
 6.  Navigate to the **Migration** tab and select **Configure Peering**.
 
-7.	If the cluster are not peered, provide the intercluster (IC) LIF address for the cluster and select **Continue**.
-8.	If the SVMs are not peered, select **Continue** to peer the SVMs.
-9.	Select **Check Peering Status** to confirm that the cluster and SVM are peered successfully.
+7.	If the clusters are not peered, provide the intercluster (IC) LIF address(es) for each node of the external cluster and select **Continue**. If clusters are already peered but SVM peering has not yet been established, you will be guided directly to SVM peering.
+    
+    Wait until cluster peering command and passphrase are returned.
 
-    After peering is completed, the migration transfer is initialized, and the baseline data is transferred from the source on-premises volume to the destination migration volume.
+8.	Run the cluster peering command on the external cluster and authenticate with the provided passphrase and select **Continue to SVM Peering**.
 
-10.	Once the migration is complete, you can finalize the migration which will delete the replication relationship and clean up infrastructure as appropriate.
+9.	Collect the SVM peering command to run on the external cluster.
 
-    The volume becomes read-write and functions as a regular ANF volume once the migration has been completed.
+    After the peering is complete, the migration transfer is initialized, and the baseline data is transferred from the source external ONTAP volume to the Azure NetApp Files Migration volume. Once the initial transfer is complete, the data between the two volumes will be synced according to the replication schedule selected during migration volume creation.
+
+10. Pause the migration to perform a dry run exercise to test and make changes or perform the cut over to prepare for finalizing the migration. 
+
+    Pausing the migration makes the volume read-writeable but resuming after pausing will erase all the data written to the volume during the pause.
+
+11.	Once the migration is complete, you can finalize the migration which will delete the replication relationship and clean up the infrastructure.
+
+    The volume becomes read-write and functions as a regular Azure NetApp Files volume once the migration has been completed.
 
 ---
 
