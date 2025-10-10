@@ -44,7 +44,7 @@ Learn about the assessment prerequisites and how to implement them.
     c.	On the Azure Migrate project overview page, under **Decide and Plan** > **Assessments** > **Create assessment**.
 
 2. Provide a suitable name for the assessment and select **Add workloads** to add workloads to the assessment scope.
-![Add workloads.](./media/create-application-assessment/Add-workloads.png)
+![Add workloads.](./media/create-application-assessment/add-workloads.png)
 
 3. Select the appropriate workloads from the inventory of workloads shown to you. Use this view to identify the relationships among different workloads. All the workloads discovered within a server are listed under it. Select the chevron to access the list and information of workloads under any server. 
 ![select workloads.](./media/create-application-assessment/select-workloads.png)
@@ -58,7 +58,7 @@ Learn about the assessment prerequisites and how to implement them.
 7. After reviewing selected workloads, select **Next**.
 
 8. On the **General** tab, modify assessment properties that are applicable across all Azure targets. [Learn more](assessment-properties.md) about general settings.
-![general settings .](./media/create-application-assessment/General-settings.png)
+![general settings .](./media/create-application-assessment/general-settings.png)
 
 9. Select **Next** to move to **Advanced** tab, customize workload specific properties for different type of workloads added to the scope. Select **Edit defaults** to corresponding to the workload type to update advanced assessment properties of the selected workloads. [Learn more](assessment-properties.md) about customizing assessments.
 ![advanced settings .](./media/create-application-assessment/advanced-settings.png)
