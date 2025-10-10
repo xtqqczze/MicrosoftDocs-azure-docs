@@ -53,6 +53,13 @@ Note: other $expand parameters beyond this list aren't currently supported.
 Add example $expand request here
 -->
 
+<!-->
+### US Core 6 test data
+We have provided [sample test data](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/USCore6-test-data) that can be used for US Core 6 compliance testing.  
+
+Note: Samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support.   
+-->
+
 Medical device disclaimer: Microsoft products and services (1) aren't designed, intended, or made available as a medical device, and (2) aren't designed or intended to be a substitute for professional medical advice, diagnosis, treatment, or judgment and shouldn't be used to replace or as a substitute for professional medical advice, diagnosis, treatment, or judgment. Customers/partners are responsible for ensuring solutions comply with applicable laws and regulations.  
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
