@@ -7,7 +7,7 @@ zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy an Azure SQL Database triggered function project securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
 ---
 
-# Quickstart: Respond to database changes in Azure SQL Database using Azure Functions
+# Quickstart: Respond to Azure SQL Database changes using Azure Functions
 
 In this Quickstart, you use Visual Studio Code to build an app that responds to changes in an Azure SQL Database table. After testing the code locally, you deploy it to a new serverless function app running in a Flex Consumption plan in Azure Functions.
 
@@ -19,9 +19,7 @@ The project source uses the Azure Developer CLI (azd) extension with Visual Stud
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 [!INCLUDE [functions-scenario-quickstarts-prerequisites](../../includes/functions-scenario-quickstarts-prerequisites.md)]
-+ The [MSSQL extension]() for Visual Studio Code
-
-+ [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or an equivalent extension that sends HTTP requests. Otherwise, you must use a command line tool like cURL to send requests.
++ The [SQL Server (mssql) extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) for Visual Studio Code.
 
 ## Initialize the project
 
@@ -109,7 +107,7 @@ Both functions use the app-level `AZURE_SQL_CONNECTION_STRING_KEY_*` environment
 
 ## Connect to the SQL database
 
-You can use the MSSQL extension for Visual Studio Code to connect to the new database. This extension helps you make updates in the `ToDo` table to run the SQL trigger function.
+You can use the SQL Server (mssql) extension for Visual Studio Code to connect to the new database. This extension helps you make updates in the `ToDo` table to run the SQL trigger function.
 
 1. Press <kbd>F1</kbd> and in the command palette search for and run the command `MS SQL: Add Connection`.  
 
