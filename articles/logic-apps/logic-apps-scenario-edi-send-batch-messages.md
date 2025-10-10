@@ -64,7 +64,6 @@ For this batch receiver, specify the batch mode, name, release criteria, X12 agr
 
 1. If you didn't previously link logic app to your integration account, [link your logic app now](logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-1. In workflow designer, add the **Batch** trigger, which starts your logic app workflow. 
 
 1. Follow these [general steps](add-trigger-action-workflow.md#add-trigger) to add a **Batch Operations** trigger named **Batch trigger**.
 
@@ -141,6 +140,8 @@ To make sure your batch receiver works as expected, you can add an HTTP action f
    Your batch receiver logic app looks like the following example: 
 
    :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-finished.png" alt-text="Screenshot shows the workflow of your batch receiver logic app.":::
+   
+1. Continue to the next section where you learn to create a logic app that sends messages to the batch receiver.
    
 1. Continue to the next section where you learn to create a logic app that sends messages to the batch receiver.
 
