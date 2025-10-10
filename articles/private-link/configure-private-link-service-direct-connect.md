@@ -1,5 +1,7 @@
 ---
 title: Configure Private Link Service Direct Connect
+description: Learn about Azure Private Link Service Direct Connect.
+services: private-link
 author: altheapm
 contributors:
 ms.topic: concept-article
