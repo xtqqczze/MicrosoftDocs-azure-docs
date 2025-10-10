@@ -11,7 +11,7 @@ ms.author: anfdocs
 
 # Access an Azure NetApp Files object REST API-enabled volume with S3-compatible clients
 
-You can use Azure NetApp Files' object REST API with an S3 Browser, taking advantage of secure SSL communication and seamless data management. 
+You can use Azure NetApp Files' object REST API with an S3-compatible client, taking advantage of secure SSL communication and seamless data management.
 
 ## Connect to the S3 browser
 
