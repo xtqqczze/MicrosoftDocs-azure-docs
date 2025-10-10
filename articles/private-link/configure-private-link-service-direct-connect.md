@@ -24,13 +24,13 @@ This article explains Private Link Service Direct Connect and how to create it u
 
 ## Prerequisites
 
-1. An Azure account with an active subscription. [Create an account for free](/azure/free).
-1. Azure PowerShell installed locally or use Azure Cloud Shell. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
-1. Azure CLI installed locally or use Azure Cloud Shell. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-1. For Terraform: [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
-1. Enable the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR in your subscription. Follow the instructions to register via Azure CLI or PowerShell: [Enable Azure preview features](/azure/azure-resource-manager/management/preview-features).
-1. A virtual network with a subnet.
-1. A routable IP address to set as the destination IP address.
+- An Azure account with an active subscription. [Create an account for free](/azure/free).
+- Azure PowerShell installed locally or use Azure Cloud Shell. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
+- Azure CLI installed locally or use Azure Cloud Shell. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+- For Terraform: [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
+- Enable the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR in your subscription. Follow the instructions to register via Azure CLI or PowerShell: [Enable Azure preview features](/azure/azure-resource-manager/management/preview-features).
+- A virtual network with a subnet.
+- A routable IP address to set as the destination IP address.
 
 ## What is Private Link Service Direct Connect?
 
