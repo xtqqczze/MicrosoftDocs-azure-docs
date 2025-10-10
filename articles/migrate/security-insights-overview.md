@@ -21,7 +21,8 @@ This article describes the **Security Insights** (preview) feature in Azure Migr
 - Plan mitigation to fix security issues and make your migration to Azure smooth and secure.
 - Identify Windows and Linux servers running end-of-support operating systems or software and plan for upgrades and pending updates.
 - Detect vulnerabilities in discovered software and take action to remediate risks.
-- Identify servers without security or patch management software, and plan to configure Microsoft Defender for Cloud and Azure Update Manager.
+- Identify servers without security or patch management software, and plan to configure [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md).
+
 
 ## Security Insights data
 
