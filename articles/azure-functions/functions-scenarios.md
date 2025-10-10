@@ -357,7 +357,9 @@ There are processes where you might need to log, audit, or perform some other op
 ::: zone pivot="programming-language-csharp,programming-language-typescript,programming-language-python" 
 Consider these examples:
 
-+ Article: [Respond to database changes in Azure Cosmos DB using Azure Functions](scenario-database-changes-azure-cosmosdb.md)
++ Quickstart: [Respond to database changes in Azure Cosmos DB using Azure Functions](scenario-database-changes-azure-cosmosdb.md)
+
++ Quickstart: [Respond to database changes in Azure SQL Database using Azure Functions](scenario-database-changes-azure-sqldb.md)
 ::: zone-end  
 ::: zone pivot="programming-language-csharp" 
 + Sample: [Azure Functions with Azure Cosmos DB (trigger)](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb)

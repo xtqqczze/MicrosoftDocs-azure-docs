@@ -7,6 +7,8 @@ ms.author: glenga
 ---
 
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"
+## Prerequisites
+
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
