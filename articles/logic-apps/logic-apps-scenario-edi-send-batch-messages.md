@@ -76,10 +76,10 @@ The batch receiver collects messages until the specified criteria are met to rel
    |-----------|-------|-------|
    | **Mode** | **Inline** or **IntegrationAccount** | Only available for Consumption workflows. |
    | **Batch Name** | \<*batch-name*\> | The batch name to use. This example uses `TestBatch`. <br><br>- Consumption workflows: Only available when **Mode** is **Inline**. This example uses `TestBatch`. <br>- Standard workflows: Always available. |
-   | **Release Criteria** | - **Message count based** <br>-**Size based** <br>- **Schedule based** | Consumption workflows: Available only when **Mode** is **Inline**. |
-   | **Message Count** | \<*integer*\> | Available only with **Message count based** release criteria and specifies the number of messages to batch and release. For example, you can enter `10` for this value. |
-   | **Interval** | \<*integer*\> | Available only with **Schedule based** release criteria and specifies the number of time intervals for the recurrence. For example, you can enter `10` for this value. |
-   | **Frequency** | \<*time-unit*\> | Available only with **Schedule based** release criteria and specifies the time unit for the recurrence. For example, you can select **Minute** for this example. |
+   | **Release Criteria** | - **Message count based** <br>- **Size based** <br>- **Schedule based** | The release criteria type to use. <br><br>- Consumption workflows: Only available when **Mode** is **Inline**. <br>- Standard workflows: Always available. <br><br>This example uses **Message count based** and **Schedule based**. |
+   | **Message Count** | \<*integer*\> | Only available when **Release Criteria** is **Message count based**. Specifies the number of messages to collect and release. This example uses `10` as the value. |
+   | **Interval** | \<*integer*\> | Only available when **Release Criteria** is **Schedule based**. Specifies the number of time intervals for the recurrence. This example uses `10` as the value. |
+   | **Frequency** | \<*time-unit*\> | Only available when **Release Criteria** is **Schedule based**. Specifies the time unit for the recurrence. This example uses **Minute** as the value. |
 
    :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png" alt-text="Screenshot shows the batch messages trigger pane where you can enter the parameter values.":::
 
@@ -93,7 +93,7 @@ The batch receiver collects messages until the specified criteria are met to rel
 
    1. If you didn't previously connect to your integration account, create the connection now.
    
-      1.  Provide a name for your connection.
+      1. Provide a name for your connection.
       1. Provide values for the **Integration Account ID** and **Integration Account SAS URL** parameters.
       1. Select **Create new**.
 
@@ -136,9 +136,9 @@ To make sure your batch receiver works as expected, you can add an HTTP action f
 
 1. Save your workflow.
 
-   Your batch receiver logic app looks like the following example: 
+   Your batch receiver workflow looks like the following example: 
 
-   :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-finished.png" alt-text="Screenshot shows the workflow of your batch receiver logic app.":::
+   :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-finished.png" alt-text="Screenshot shows the completed batch receiver workflow.":::
    
 1. Continue to the next section where you learn to create a logic app that sends messages to the batch receiver.
    
