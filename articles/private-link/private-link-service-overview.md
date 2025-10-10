@@ -19,7 +19,7 @@ Azure Private Link service is the reference to your own service that is powered 
 *Figure: Azure Private Link Service.*
 
 > [!IMPORTANT]
-> The feature Private Link Service Direct Connect, allows you to connect to any privately routable destination IP address, is now in public preview. For more information and known limitations, see [Private Link Service Direct Connect](configure-private-link-service-direct-connect.md)
+> The feature Private Link Service Direct Connect, which allows you to connect to any privately routable destination IP address, is now in public preview. For more information and known limitations, see [Private Link Service Direct Connect](configure-private-link-service-direct-connect.md)
 
 ## Workflow
 
