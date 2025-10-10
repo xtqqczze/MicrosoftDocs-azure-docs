@@ -55,7 +55,7 @@ Security risks are identified through the following analysis:
 - **Security Insights refresh**: Azure Migrate updates security insights whenever discovery data is refreshed—either through a new discovery run or inventory updates from the appliance. A full discovery is performed at the start of a project, with optional rescans before finalizing assessments. Any changes, such as new patches or software reaching end-of-life, are reflected in the updated insights. 
 
 >[!Note]
-> Security Insights in Azure Migrate help identify potential risks in your datacenter. They are not a substitute for specialized security tools. For full protection of your hybrid environment after migration, use Azure services such as [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager-overview.md). 
+> Security Insights in Azure Migrate help identify potential risks in your datacenter. They are not a substitute for specialized security tools. For full protection of your hybrid environment after migration, use Azure services such as [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md).
 
 ## Prerequisites for reviewing Insights 
 
@@ -187,7 +187,7 @@ Security insights are enabled by default for all users. To manage access, create
   - View security insights
   - Access vulnerability data
   - View update status
-
+  
 | Resource | Permissions | 
 | --- | --- | 
 | Pending updates  | `.../machines/inventoryinsights/pendingUpdates`  | 
@@ -198,5 +198,7 @@ Security insights are enabled by default for all users. To manage access, create
 
 ## Next steps
 
+- Learn more about [permissions in Azure Migrate](/azure/role-based-access-control/permissions/migration#microsoftmigrate).
+- Learn more about [creating custom role](/azure/role-based-access-control/role-definitions).
 - Learn more about [Security cost in Business case](concepts-business-case-calculation.md).
 - Learn more about [Assessments](concepts-overview.md).
