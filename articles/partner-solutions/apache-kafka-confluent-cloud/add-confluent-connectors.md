@@ -21,7 +21,7 @@ In this article, you'll learn how to connect an instance of Apache Kafka & Apach
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* An [Azure Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-portal) resource.
+* An [Azure Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-portal) or [Azure Cosmos DB](/azure/cosmos-db/) resource.
 * A [Confluent organization](./create.md) created in Azure Native Integrations.
 * The Owner or Contributor role for the Azure subscription. You might need to ask your subscription administrator to assign you one of these roles.  
 * A [configured environment, cluster, and topic](https://docs.confluent.io/cloud/current/get-started/index.html) inside the Confluent organization. If you don't have one already, go to Confluent to create these components.
