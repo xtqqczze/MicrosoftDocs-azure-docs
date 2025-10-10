@@ -6,6 +6,7 @@ ms.date: 10/08/2025
 ms.author: glenga
 ---
 
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
@@ -35,9 +36,10 @@ ms.author: glenga
 + The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
 ::: zone-end-->
 ::: zone pivot="programming-language-python" 
-+ Python versions that are [supported by Azure Functions](supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
++ Python versions that are [supported by Azure Functions](../articles/azure-functions/supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
 + The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
-+ The [Azure Developer CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) for Visual Studio Code. 
++ The [Azure Developer CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) for Visual Studio Code.
+::: zone-end 

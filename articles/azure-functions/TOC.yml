@@ -34,7 +34,7 @@
             href: scenario-database-changes-azure-cosmosdb.md
           - name: Azure SQL trigger
             displayName: data validation
-            href: scenario-database-changes-azure-sql.md
+            href: scenario-database-changes-azure-sqldb.md
     - name: Developer tools
       expanded: true
       items:
