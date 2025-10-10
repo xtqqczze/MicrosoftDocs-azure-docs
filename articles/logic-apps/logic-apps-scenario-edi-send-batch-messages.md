@@ -140,8 +140,7 @@ To make sure your batch receiver works as expected, you can add an HTTP action f
 
    :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-finished.png" alt-text="Screenshot shows the completed batch receiver workflow.":::
    
-1. Continue to the next section where you learn to create a logic app that sends messages to the batch receiver.
-1. Continue to the next section where you learn to create a logic app that sends messages to the batch receiver.
+1. Continue to the next section where you create a batch sender to send messages to the batch receiver.
 
 <a name="sender"></a>
 
