@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Configure Microsoft Dev Box'
-description: Quickly set up Microsoft Dev Box resources for developers to self-service a cloud-based dev box. Create a dev center, dev box definition, and dev box pool.
+description: Quickly set up Microsoft Dev Box resources for developers to self-service a cloud-based dev box. Create a dev center, dev box project, and dev box pool.
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
