@@ -167,8 +167,8 @@ On the **Basics** tab, enter or select values for the following settings:
 |**Environment** |Select the environment where you want to create the connector.| 
 |**Cluster** |Select the cluster where you want to create the connector.| 
 |**Topics**|Select one or more Kafka topics to pull data from. |
-|**Cosmos account endpoint (URI)** |Select the destination Cosmos DB account in your Azure tenant. |
-|**Database** |Select the destination Cosmos DB database under the account. |
+|**Cosmos account endpoint (URI)** |Select the destination Azure Cosmos DB account in your Azure tenant. |
+|**Database** |Select the destination Azure Cosmos DB database under the account. |
 
 ### Authentication 
 
@@ -183,7 +183,7 @@ On the **Configuration** tab, enter or select the following values, and then sel
 
 |Setting|Action| 
 |-|-|
-|Input Data Format|Select an input Kafka record data format type: **AVRO**, **JSON**, **string**, or **Protobuf**.|  
+|**Input Data Format**|Select an input Kafka record data format type: **AVRO**, **JSON**, **string**, or **Protobuf**.|  
 |**Id Strategy**|Select the ID strategy used to derive the Azure Cosmos DB item ID.  |
 |**Cosmos DB Write Configuration** |Select the write behavior for Azure Cosmos DB items.  |
 |**Topic container map**|Map Kafka topics to Azure Cosmos DB containers in the format `topic1#container1,topic2#container2...`.| 
