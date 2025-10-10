@@ -1,17 +1,17 @@
 ---
 title: Security Insights In Azure Migrate – Assess Risks, Plan Secure Cloud Migration
-description: Describe Security Insights in Azure Migrate to assess infrastructure and software risks, detect vulnerabilities, and plan a secure migration to Azure.
+description: Discover how Azure Migrate's Security Insights (preview) feature helps identify vulnerabilities, end-of-support software, and missing security tools in your datacenter. Plan secure and efficient cloud migrations with early risk visibility and actionable insights.
 author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-migrate 
-ms.topic: concept-article 
+ms.topic: how-to 
 ms.date: 09/19/2025
 ms.custom: engagement-fy24 
 ::: moniker range="migrate"
-# Customer intent: To evaluate how Security Insights (preview) in Azure Migrate helps identify infrastructure and software risks during migration planning, enabling proactive remediation and a secure transition to Azure.
+# Customer intent: IT administrators and cloud architects use the Security Insights (preview) feature in Azure Migrate to identify and mitigate security risks in their datacenter during cloud migration planning. This helps them assess vulnerabilities, outdated software, and missing security tools to ensure a secure and efficient migration to Azure
 ---
 
-# Security Insights in Azure Migrate (preview) 
+# Security Insights in Azure Migrate: Assess and mitigate datacenter risks before migration (Preview)
 
 This article describes the **Security Insights** (preview) feature in Azure Migrate, which provides a security assessment of the infrastructure and software inventory discovered in your datacenter.
 
@@ -46,7 +46,7 @@ Security risks are identified through the following analysis:
 
     *Data is refreshed for every 30 days*.
 
-- **Vulnerabilities**: Azure Migrate identifies installed software and operating systems, maps them to CPE identifiers, and correlates them with known Common Vulnerabilities and Exposures [CVE](https://www.cve.org/) IDs from the National Vulnerability Database [NVD](https://nvd.nist.gov/). Only software metadata is stored—no organization-specific data is captured. The system categorizes vulnerabilities by risk level using [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) scores. CVEs without scores are marked as Unknown. Azure Migrate also captures the age and publish date of each CVE. Data is refreshed to every 30 days. Azure Migrate accesses the NVD API but doesn't receive endorsement from NVD.
+- **Vulnerabilities**: Azure Migrate identifies installed software and operating systems, maps them to CPE identifiers, and correlates them with known Common Vulnerabilities and Exposures [CVE](https://www.cve.org/) IDs from the National Vulnerability Database [NVD](https://nvd.nist.gov/). Only software metadata is stored—no organization-specific data is captured. The system categorizes vulnerabilities by risk level using Common Vulnerability Scoring System [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) scores. CVEs without scores are marked as Unknown. Azure Migrate also captures the age and publish date of each CVE. Data is refreshed to every 30 days. Azure Migrate accesses the NVD API but doesn't receive endorsement from NVD.
 
 - **Pending Updates for servers**: Azure Migrate identifies Windows and Linux servers that aren't fully patched, based on metadata from Windows Update and Linux package managers. It classifies updates as Critical, Security, or Other, and refreshes data every 24 hours. Servers with pending critical or security updates are flagged, indicating they should be updated before or immediately after migration.
 
