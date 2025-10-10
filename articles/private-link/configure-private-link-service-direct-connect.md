@@ -17,10 +17,10 @@ Customers can now connect a Private Link Service to any privately routable desti
 
 Azure Private Link Service allows service providers to make their applications available to their customers privately and securely by placing them behind a standard load balancer. Private Link Service Direct Connect expands on this capability and allows customers to directly connect a private link service to any privately routable destination IP address. This configuration is particularly useful for scenarios that provide private connectivity to applications that require direct IP-based routing, such as database connections or custom applications.
 
-This article explains Private Link Service Direct Connect and how to create it using Azure PowerShell, Azure CLI, and Terraform.
+This article explains Private Link Service Direct Connect and how to create it using Azure PowerShell, Azure CLI, or Terraform.
 
 > [!NOTE]
-> This feature is in public preview and available in select regions. Review all considerations before enabling it for your subscription.
+> This feature is in public preview and is available in select regions. Review all considerations before enabling it for your subscription.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ This article explains Private Link Service Direct Connect and how to create it u
 1. Azure PowerShell installed locally or use Azure Cloud Shell. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 1. Azure CLI installed locally or use Azure Cloud Shell. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 1. For Terraform: [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
-1. Enable the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR in your subscription. Follow the instructions on how to register via Azure CLI or PowerShell here (feature is not visible on Portal): [Enable Azure preview features](/azure/azure-resource-manager/management/preview-features).
+1. Enable the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR in your subscription. Follow the instructions to register via Azure CLI or PowerShell: [Enable Azure preview features](/azure/azure-resource-manager/management/preview-features).
 1. A virtual network with a subnet.
 1. A routable IP address to set as the destination IP address.
 
@@ -63,7 +63,7 @@ Note these limitations when using Private Link Service Direct Connect:
 - **Maximum of 10 PLS per subscription**: There is a hardware limitation of 10 PLS per region per subscription.
 - **Bandwidth limitation**: Each PLS Direct Connect can support a bandwidth of up to 10 Gbps.
 - **Static IP requirement**: The destination IP must be private, static, and directly reachable, dynamically changing IPs are not supported.
-- **Cross-region limitation**: This feature requires that the source private endpoint, private link service, and client VM must be in the same region, with this restriction to be removed when the feature is generally available.
+- **Cross-region limitation**: The source private endpoint, private link service, and client VM must be in the same region. This restriction is to be removed when the feature is generally available.
 - **Regional availability**: This feature is available in limited regions (North Central US, East US 2, Central US, South Central US, West US, West US 2, West US 3, Asia Southeast, Australia East, Spain Central).
 
 ## Considerations
@@ -76,7 +76,7 @@ Note these limitations when using Private Link Service Direct Connect:
 
 # [PowerShell](#tab/powershell)
 
-Use the following script to create a Private Link Service Direct Connect using Azure PowerShell:
+Use this script to create a Private Link Service Direct Connect using Azure PowerShell:
 
 ```powershell
 # Define variables
@@ -127,7 +127,7 @@ Write-Output "Destination IP Address: $destinationIP"
 
 # [Azure CLI](#tab/cli)
 
-Use the following script to create a Private Link Service Direct Connect using Azure CLI:
+Use this script to create a Private Link Service Direct Connect using Azure CLI:
 
 ```azurecli
 # Define variables
@@ -189,7 +189,7 @@ echo "Destination IP Address: $destinationIP"
 
 # [Terraform](#tab/terraform)
 
-Use the following Terraform configuration to create a Private Link Service Direct Connect:
+Use this Terraform configuration to create a Private Link Service Direct Connect:
 
 ```hcl
 # Configure the Azure Provider
@@ -469,7 +469,7 @@ az network private-link-service show \
 
 ## Clean up resources
 
-When you finish testing, clean up the resources to avoid ongoing charges:
+After testing, clean up the resources to avoid ongoing charges:
 
 # [PowerShell](#tab/cleanup-powershell)
 
@@ -502,9 +502,9 @@ The feature flag isn't visible on portal. How do I register for the feature?
 
 - Register the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR via Azure CLI or PowerShell, see this for how-to: [Set up preview features in Azure subscription - Azure Resource Manager | Microsoft Learn](/azure/azure-resource-manager/management/preview-features).
 
-Will privateLinkServiceNetworkPolicies ever need to be set to True, such as by GA?
+Does the property privateLinkServiceNetworkPolicies ever need to be set to True, such as by GA?
 
-- The property privateLinkServiceNetworkPolicies is not needed for this feature, so please set it to false.
+- The property privateLinkServiceNetworkPolicies is not needed for this feature, so set it to false.
 
 ## Next steps
 
