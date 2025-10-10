@@ -141,7 +141,6 @@ To make sure your batch receiver works as expected, you can add an HTTP action f
    :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-finished.png" alt-text="Screenshot shows the completed batch receiver workflow.":::
    
 1. Continue to the next section where you learn to create a logic app that sends messages to the batch receiver.
-   
 1. Continue to the next section where you learn to create a logic app that sends messages to the batch receiver.
 
 <a name="sender"></a>
@@ -162,25 +161,23 @@ Before you start, make sure that you finished the following tasks:
 
 1. Follow these [general steps](create-workflow-with-trigger-or-action.md#add-action) to add the **Batch Operations** action based on your logic app type:
 
-   - Consumption: **Send to batch**
-   - Standard: **Send to batch trigger workflow**
+   - Consumption: **Send to batch trigger workflow**
+   - Standard: **Send to batch**
 
    1. Follow the steps for your logic app type:
    
       - Consumption: Select your previously created **BatchX12Messages** **>** **Batch_messages** **>** **Add action**.
       - Standard: Skip this step and go to the next step.
 
-
 1. On the **Parameters** tab, provide values for the following parameters:
 
    | Parameter | Description |
    |-----------|-------------|
    | **Batch Name** | The batch name defined in the batch receiver, which is `TestBatch` for this example. <br><br>**Important**: The batch name gets validated at runtime and must match the name specified by the batch receiver. Changing the batch name causes the batch sender to fail. |
-   | **Message Content** | The message content to send, which is **Content** for this example. |
+   | **Message Content** | The message content to send, which is the **Body** output from the **HTTP** trigger. <br><br>Select inside the **Message Content** box to show the input options. Select the lightning icon to open the dynamic content list. From the list, under **HTTP**, select **Body**. |
    | - Consumption: **Workflow Id** <br>- Standard: **Workflow Name** | - Consumption workflows: The value is prepopulated. <br>- Standard: Enter the trigger name in the batch receiver workflow, which is **Batch messages** in this example. |
-   | **Trigger Name** | - Consumption workflows: The value is prepopulated. <br>- Standard: Enter the trigger name in the batch receiver workflow. |
+   | **Trigger Name** | - Consumption workflows: The value is prepopulated. <br>- Standard: Enter the trigger name from the batch receiver workflow. |
     
-
    :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png" alt-text="Screenshot shows the BatchX12Messages action where you set the batch parameters." lightbox="./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png":::
 
 1. Save your workflow.
