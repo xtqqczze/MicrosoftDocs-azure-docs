@@ -36,7 +36,7 @@ To create a sink connector for Azure Blob Storage:
    :::image type="content" source="./media/confluent-connectors/create-new-connector.png" alt-text="Screenshot that shows the Confluent Connectors menu in the Azure portal.":::
 
 1. Select **Create new connector**.
-1. On the **Create a new connector** pane, configure the settings that are described in the next sections.
+1. In the **Create a new connector** pane, configure the settings that are described in the next sections.
 
 ### Basics
 
@@ -56,7 +56,7 @@ On the **Basics** tab, enter or select values for the following settings:
 
 :::image type="content" source="./media/confluent-connectors/basic-sink.png" alt-text="Screenshot that shows the Basics tab and creating a sink connector in the Azure portal.":::
 
-Then, select **Next**.
+Select **Next**.
 
 ### Authentication
 
@@ -72,11 +72,11 @@ On the **Configuration** tab, enter or select the following values, and then sel
 
 | Setting | Action |
 | --- | --- |
-| **Input Data Format**  | Select an input Kafka record data format type: AVRO, JSON, string, or Protobuf. |
-| **Output Data Format** | Select an output data format: AVRO, JSON, string, or Protobuf. |
+| **Input Data Format**  | Select an input Kafka record data format type: **AVRO**, **JSON**, **string**, or **Protobuf**. |
+| **Output Data Format** | Select an output data format: **AVRO**, **JSON**, **string**, or **Protobuf**. |
 | **Time Interval**      | Select the time interval in which to group the data. Choose between hourly and daily. |
 | **Flush size**         | Optionally, you can enter a flush size. The default flush size is 1,000. |
-| **Number of tasks**    | Optionally, you can enter the maximum number of simultaneous tasks you want your connector to support. The default is 1. |
+| **Number of tasks**    | Optionally, you can enter the maximum number of simultaneous tasks you want your connector to support. The default is **1**. |
 
 :::image type="content" source="./media/confluent-connectors/configuration-sink.png" alt-text="Screenshot that shows the Configuration tab for a sink connector in the Azure portal.":::
 
@@ -84,18 +84,18 @@ Select **Review + create** to continue.
 
 ### Review + create
 
-Review your settings for the connector to ensure that the details are accurate and complete. Then, select **Create** to begin the connector deployment.
+Review your settings for the connector to ensure that the details are accurate and complete. Then select **Create** to begin the connector deployment.
 
-In the upper-right corner of the Azure portal, a notification displays the deployment status. When it shows the status *Completed*, refresh the **Confluent Connectors (Preview)** pane and check for the new connector tile on this pane.  
+In the upper-right corner of the Azure portal, a notification displays the deployment status. When the status is **Completed**, refresh the **Confluent Connectors (Preview)** pane and check for the new connector tile on this pane.  
 
 ## Create a Confluent source Connector for Azure Blob Storage (preview)
 
 1. In the Azure portal, go to your Confluent organization.
-1. On the left menu, select **Confluent** > **Confluent Connectors (Preview)**.
+1. In the left pane, select **Confluent** > **Confluent Connectors (Preview)**.
 
    :::image type="content" source="./media/confluent-connectors/create-new-connector.png" alt-text="Screenshot that shows the Confluent Connectors menu in the Azure portal.":::
 
-1. On the **Create a new connector** pane, select **Create new connector**.
+1. In the **Create a new connector** pane, select **Create new connector**.
 
 ### Basics
 
@@ -114,7 +114,7 @@ On the **Basics** tab, enter or select values for the following settings:
 
 :::image type="content" source="./media/confluent-connectors/basic-source.png" alt-text="Screenshot that shows the Basics tab and creating a source connector in the Azure portal.":::
 
-Then, select **Next**.
+Select **Next**.
 
 ### Authentication
 
@@ -130,11 +130,11 @@ On the **Configuration** tab, enter or select values for the following settings:
 
 | Name | Action |
 | --- | --- |
-| **Input Data Format**  | Select an input Kafka record data format type: AVRO, JSON, string, Protobuf. |
-| **Output Data Format** | Select an output data format: AVRO, JSON, string, or Protobuf. |
+| **Input Data Format**  | Select an input Kafka record data format type: **AVRO**, **JSON**, **string**, **Protobuf**. |
+| **Output Data Format** | Select an output data format: **AVRO**, **JSON**, **string**, or **Protobuf**. |
 | **Topic name and regex** | Configure the topic name and the regex pattern of your messages to ensure they're mapped. For example, `*my-topic:.*\.json+` moves all the files that have the `.json` extension into `my-topic`. |
 | **Flush size**         | (Optional) Enter a flush size. The default flush size is 1,000. |
-| **Number of tasks**    | (Optional) Enter the maximum number of simultaneous tasks you want your connector to support. The default is 1. |
+| **Number of tasks**    | (Optional) Enter the maximum number of simultaneous tasks you want your connector to support. The default is **1**. |
 
 :::image type="content" source="./media/confluent-connectors/configuration-source.png" alt-text="Screenshot that shows the Configuration tab and creating a source connector in the Azure portal.":::
 
@@ -163,7 +163,7 @@ On the **Basics** tab, enter or select values for the following settings:
 |-|-|
 |**Connector Type**| Select **Sink**.| 
 |**Connector Class**|Select **Azure Cosmos DB V2**.| 
-|**Connector Name** |Enter a name for your connector. For example, **cosmos-sink-connector**. |
+|**Connector Name** |Enter a name for your connector. For example, *cosmos-sink-connector*. |
 |**Environment** |Select the environment where you want to create the connector.| 
 |**Cluster** |Select the cluster where you want to create the connector.| 
 |**Topics**|Select one or more Kafka topics to pull data from. |
@@ -186,7 +186,7 @@ On the **Configuration** tab, enter or select the following values, and then sel
 |**Input Data Format**|Select an input Kafka record data format type: **AVRO**, **JSON**, **string**, or **Protobuf**.|  
 |**Id Strategy**|Select the ID strategy used to derive the Azure Cosmos DB item ID.  |
 |**Cosmos DB Write Configuration** |Select the write behavior for Azure Cosmos DB items.  |
-|**Topic container map**|Map Kafka topics to Azure Cosmos DB containers in the format `topic1#container1,topic2#container2...`.| 
+|**Topic container map**|Map Kafka topics to Azure Cosmos DB containers. Use the format `topic1#container1,topic2#container2...`.| 
 |**Number of tasks**|(Optional) Enter the maximum number of simultaneous tasks you want your connector to support. The default is **1**.  |
 
 For more information, see [Azure Cosmos DB Sink V2 Connector for Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/cc-azure-cosmos-sink-v2.html?utm_source=chatgpt.com).
@@ -212,7 +212,7 @@ On the **Basics** tab, enter or select values for the following settings:
 |-|-|
 |**Connector Type**|Select **Source**.| 
 |**Connector Class**|Select **Azure Cosmos DB V2**.|
-|**Connector Name**|Enter a name for your connector. For example, **cosmos-source-connector**.|
+|**Connector Name**|Enter a name for your connector. For example, *cosmos-source-connector*.|
 |**Environment**|Select the environment where you want to create the connector. |
 |**Cluster**|Select the cluster where you want to create the connector.| 
 |**Cosmos account endpoint (URI)**|Select the source Azure Cosmos DB account. |
@@ -232,7 +232,7 @@ On the **Configuration** tab, enter or select the following values, and then sel
 |Name|Action|
 |-|-|
 |**Output Data Format** |Select an output Kafka record data format type: **AVRO**, **JSON**, **string**, or **Protobuf**.|
-|**Container topic map**|Map Azure Cosmos DB containers to Kafka topics in the format `container1#topic1,container2:topic2…`. |
+|**Container topic map**|Map Azure Cosmos DB containers to Kafka topics. Use the format `container1#topic1,container2:topic2…`. |
 |**Number of tasks**|(Optional) Enter the maximum number of simultaneous tasks you want your connector to support. The default is **1**. |
 
 Select **Review + create** to continue. 
