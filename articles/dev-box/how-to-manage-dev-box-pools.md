@@ -19,7 +19,7 @@ ms.custom:
 
 In this article, you learn how to manage a dev box pool in Microsoft Dev Box by using the Azure portal.
 
-A dev box pool is a collection of dev boxes that have the same settings, such as the dev box definition and network connection. A dev box pool is associated with a Microsoft Dev Box project.
+A dev box pool is a collection of dev boxes that have the same settings, such as the image and network connection. A dev box pool is associated with a Microsoft Dev Box project.
 
 Dev box pools define the location of the dev boxes through the network connection. You can choose to deploy dev boxes to a Microsoft-hosted network or to a network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). Organizations that support developers in multiple geographical locations can create dev box pools for each location by specifying a nearby region.
 
@@ -117,5 +117,4 @@ To delete a dev box pool in the Azure portal:
 ## Related content
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)
-- [Create a dev box definition](how-to-manage-dev-box-definitions.md#create-a-dev-box-definition)
 - [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)
