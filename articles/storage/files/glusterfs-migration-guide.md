@@ -4,7 +4,7 @@ description: Red Hat Gluster Storage (based on GlusterFS) has reached the end of
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/29/2025
+ms.date: 10/10/2025
 ms.author: kendownie
 # Customer intent: As an IT administrator managing legacy storage, I want to migrate GlusterFS volumes to a supported cloud file service, so that my organization can ensure ongoing support, security updates, and optimized performance.
 ---

@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/29/2025
+ms.date: 10/10/2025
 ms.author: kendownie
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator managing multiple Active Directory forests, I want to configure Azure file shares with identity-based authentication, so that users from different forests can access shared resources seamlessly after mergers or acquisitions.

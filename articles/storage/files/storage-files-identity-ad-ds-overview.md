@@ -4,7 +4,7 @@ description: Learn about Active Directory Domain Services (AD DS) authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/01/2025
+ms.date: 10/10/2025
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to enable on-premises Active Directory Domain Services authentication for Azure file shares, so that I can manage access permissions seamlessly while leveraging existing AD credentials for secure file access."
 ---

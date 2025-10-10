@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/30/2025
+ms.date: 10/10/2025
 ms.author: kendownie
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: As a cloud administrator, I want to enable identity-based authentication for SMB Azure file shares using Microsoft Entra Domain Services, so that users can securely access file shares using their Microsoft Entra credentials.
