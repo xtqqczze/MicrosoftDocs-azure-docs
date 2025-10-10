@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/12/2025
+ms.date: 10/08/2025
 ms.author: danlep
 ---
 
@@ -49,14 +49,11 @@ Depending on the service tier, API Management supports TLS versions up to 1.2 or
 > [!NOTE]
 > Some protocols or cipher suites (such as backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST API call. Use the `properties.customProperties` structure in the [Create/Update API Management Service](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API.
 
-## TLS 1.3 support in classic tiers
+## TLS 1.3 support
 
-TLS 1.3 support is available in the API Management classic service tiers (**Consumption**, **Developer**, **Basic**, **Standard**, and **Premium**). In most instances created in those service tiers, TLS 1.3 is permanently enabled by default for client-side connections. Enabling backend-side TLS 1.3 is optional. TLS 1.2 is also enabled by default on both client and backend sides.
+TLS 1.3 support is available in all API Management service tiers. In most instances created in those service tiers, TLS 1.3 is permanently enabled by default for client-side connections. Enabling backend-side TLS 1.3 is optional. TLS 1.2 is also enabled by default on both client and backend sides.
 
 TLS 1.3 is a major revision of the TLS protocol that provides improved security and performance. It includes features such as reduced handshake latency and improved security against certain types of attacks.
-
-> [!NOTE]
-> The [v2 tiers](v2-service-tiers-overview.md) of API Management and [workspace gateways](workspaces-overview.md) support TLS 1.2 by default for client-side and backend-side connections. They don't currently support TLS 1.3.
 
 ### Optionally enable TLS 1.3 when clients require certificate renegotiation
 
