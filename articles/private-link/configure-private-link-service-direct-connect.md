@@ -15,7 +15,7 @@ ms.reviewer: altheabata
 
 Customers can now connect a Private Link Service to any privately routable destination IP address.
 
-Azure Private Link Service allows service providers to make their applications available to their customers privately and securely. The current setup procedure requires service providers to configure their private link service and place their applications behind a standard internal load balancer. Private Link Service Direct Connect expands on this capability and allows customers to directly connect a private link service to any privately routable destination IP address. This configuration is particularly useful for scenarios where you need to provide private connectivity to applications that require direct IP-based routing, such as database connections or custom applications.
+Azure Private Link Service allows service providers to make their applications available to their customers privately and securely by placing them behind a standard load balancer. Private Link Service Direct Connect expands on this capability and allows customers to directly connect a private link service to any privately routable destination IP address. This configuration is particularly useful for scenarios that provide private connectivity to applications that require direct IP-based routing, such as database connections or custom applications.
 
 This article explains Private Link Service Direct Connect and how to create it using Azure PowerShell, Azure CLI, and Terraform.
 
