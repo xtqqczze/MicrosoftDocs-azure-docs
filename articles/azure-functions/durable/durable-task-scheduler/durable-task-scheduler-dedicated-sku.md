@@ -88,9 +88,9 @@ For high availability and zone redundancy, a minimum of three CUs is required 
 
 ### Capacity Unit Planning Examples
 
-Here are three capacity plannning examples that progress from small to large.
+Here are three capacity planning examples that progress from small to large.
 
-#### Five activity example
+#### Five activities example
 
 For orchestrations with five activities plus error handling, averaging 12 actions per orchestration (orchestrator invocations + activity invocations).
 
@@ -116,7 +116,7 @@ Calculation:
 
 #### SaaS platform example
 
-A SaaS platform supporting 800 million orchestrations monthly, each with an average of 15 actions (for example, user interactions, background processing, and external API calls).
+A Software as a Service (SaaS) platform supporting 800 million orchestrations monthly, each with an average of 15 actions (for example, user interactions, background processing, and external API calls).
 
 Calculation:
 
@@ -158,7 +158,7 @@ Cost Calculation:
 
 - Cost: 30,000 × \$0.003 = \$90/month
 
-#### Bursty workloads example
+#### Workloads with bursts example
 
 An e-commerce application experiences dynamic workload scaling during promotional sales events, especially on weekends. It uses an orchestration comprising seven total actions, which executes approximately 20,000 times per month.
 
@@ -172,7 +172,7 @@ Cost Calculation:
 
 | Feature         | Consumption SKU                 | Dedicated SKU                     |
 |-----------------|---------------------------------|-----------------------------------|
-| Infrastructure  | Multitenant                    | Dedicated Infrastructure          |
+| Infrastructure  | Multi-tenant                    | Dedicated Infrastructure          |
 | Pricing Model   | Pay-per-action                  | Fixed monthly CU cost             |
 | Cost per Action | \$0.003                         | Varies by CU utilization          |
 | Max Throughput  | 500 actions/second              | 2,000 actions/second per CU       |
