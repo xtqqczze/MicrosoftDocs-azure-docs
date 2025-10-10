@@ -24,7 +24,7 @@ This article explains Private Link Service Direct Connect and how to create it u
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](/azure/free).
+- An Azure account with an active subscription.
 - Azure PowerShell installed locally or use Azure Cloud Shell. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 - Azure CLI installed locally or use Azure Cloud Shell. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 - For Terraform: [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
