@@ -37,15 +37,17 @@ Learn about the assessment prerequisites and how to implement them.
 1. There are multiple ways you can start with the creation of an application/cross-workload assessment: 
     a. If you're on the **Overview** page, you can start by selecting the **Create assessment** button on the **Assessments** card.
 
-    ![Diagram representing the Migration journey.](./media/create-application-assessment/create-assessment.png)
+    ![Create Assessments Overview.](./media/create-application-assessment/create-assessment.png)
     
     b. If you're exploring the inventory of workloads from the **All inventory** blade, you can start by selecting the desired workloads and selecting **Create assessment**.
 
     c.	On the Azure Migrate project overview page, under **Decide and Plan** > **Assessments** > **Create assessment**.
 
 2. Provide a suitable name for the assessment and select **Add workloads** to add workloads to the assessment scope.
+![Add workloads.](./media/create-application-assessment/Add-workloads.png)
 
 3. Select the appropriate workloads from the inventory of workloads shown to you. Use this view to identify the relationships among different workloads. All the workloads discovered within a server are listed under it. Select the chevron to access the list and information of workloads under any server. 
+![select workloads.](./media/create-application-assessment/select-workloads.png)
 
 4. Use appropriate filters to identify your workloads and add them to the assessment scope. If you have already tagged all the servers and workloads that constitute an application, you can use that tag to filter the list and select the workloads.
 
@@ -56,7 +58,9 @@ Learn about the assessment prerequisites and how to implement them.
 7. After reviewing selected workloads, select **Next**.
 
 8. On the **General** tab, modify assessment properties that are applicable across all Azure targets. [Learn more](assessment-properties.md) about general settings.
+![general settings .](./media/create-application-assessment/General-settings.png)
 
 9. Select **Next** to move to **Advanced** tab, customize workload specific properties for different type of workloads added to the scope. Select **Edit defaults** to corresponding to the workload type to update advanced assessment properties of the selected workloads. [Learn more](assessment-properties.md) about customizing assessments.
+![advanced settings .](./media/create-application-assessment/advanced-settings.png)
 
 10.	Review and create the assessment.
