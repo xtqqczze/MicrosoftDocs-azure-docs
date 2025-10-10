@@ -1,6 +1,6 @@
 ---
 title: Process EDI Messages in Batches or Groups
-description: Learn to send and receive EDI messages in batches, groups, or collections by using batch actions in Azure Logic Apps.
+description: Learn to send and receive EDI messages in batches, groups, or collections by using batch operations in Azure Logic Apps.
 services: logic-apps
 author: divyaswarnkar
 ms.author: divswa
@@ -8,26 +8,26 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: sfi-image-nochange
 ms.date: 10/10/2025
-#Customer intent: As an integration developer working with Azure Logic Apps, I want to process EDI messages in batches or groups by using batch actions in my workflows.
+#Customer intent: As an integration developer working with Azure Logic Apps, I want to process EDI messages in batches or groups by using batch operations in my workflows.
 ---
 
 # Exchange EDI messages in batches or groups between trading partners in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-In business to business (B2B) scenarios, partners often exchange messages in groups or *batches*. When you build a batching solution with Azure Logic Apps, you can send messages to trading partners and process those messages together in batches. This article shows how you can batch process Electronic Data Interchange (EDI) messages, using X12 as an example, by creating a *batch sender* logic app and a *batch receiver* logic app. 
+In business to business (B2B) scenarios, partners often exchange messages in groups or *batches*. When you build a batching solution with Azure Logic Apps, you can send messages to trading partners and process those messages together in batches.
 
 Processing X12 messages in batches works the same way as batching other messages. You use a batch trigger to collect messages into a batch. You use a batch action to send messages to the batch. Before the messages go to the trading partner or other destination, you also include an X12 encoding step. For more information, see [Send, receive, and batch process messages](logic-apps-batch-process-send-receive-messages.md).
 
-This guide shows how to build a batching solution by creating two logic apps in the same Azure subscription, Azure region, and in the following order:
+This guide shows how to build a batching solution that processes Electronic Data Interchange (EDI) messages by creating two logic apps, a *batch sender* and a *batch receiver*. As an example, this solution handles X12 messages.
 
-- The [batch receiver](#receiver) logic app workflow accepts and collects messages into a batch until specific criteria are met to release and process those messages. The batch receiver also encodes the messages in the batch by using the specified X12 agreement or partner identities.
+- The [batch receiver](#receiver) collects messages into a batch until specific criteria are met to release and process these messages. This batch receiver also encodes the messages in the batch by using the specified X12 agreement or partner identities.
 
-  Make sure to first create the batch receiver. You can then later select the batch destination when you create the batch sender.
+  You must first create the batch receiver as the batch destination. You can then later select the batch receiver when you create the batch sender.
 
 - The [batch sender](#sender) logic app workflow sends messages to the previously created batch receiver.
 
-Make sure that your batch receiver and batch sender logic apps use the same Azure subscription *and* Azure region. If they don't, you can't select the batch receiver when you create the batch sender because they're not visible to each other.
+Your batch receiver and batch sender must use the same Azure subscription *and* Azure region. If they don't, you can't select the batch receiver when you create the batch sender because they're not visible to each other.
 
 > [!NOTE]
 >
@@ -58,7 +58,6 @@ Before you can send messages to a batch, the batch must first exist as the desti
 
 The batch receiver collects messages until the specified criteria are met to release and process these messages. Batch receivers don't have to know about the batch senders, but batch senders must know where to send the messages.
 
-For this batch receiver, specify the batch mode, name, release criteria, X12 agreement, and other settings. 
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, create a logic app named **BatchX12Messages**.
 
@@ -75,8 +74,8 @@ For this batch receiver, specify the batch mode, name, release criteria, X12 agr
 
    | Parameter | Value | Notes |
    |-----------|-------|-------|
-   | **Mode** | **Inline** or **IntegrationAccount* | Consumption workflows only. |
-   | **Batch Name** | \<*batch-name*\> | - Consumption workflows: Available only when **Mode** is **Inline**. <br><br>- Standard workflows: The batch name to use. This example uses `TestBatch`. |
+   | **Mode** | **Inline** or **IntegrationAccount** | Only available for Consumption workflows. |
+   | **Batch Name** | \<*batch-name*\> | The batch name to use. This example uses `TestBatch`. <br><br>- Consumption workflows: Only available when **Mode** is **Inline**. This example uses `TestBatch`. <br>- Standard workflows: Always available. |
    | **Release Criteria** | - **Message count based** <br>-**Size based** <br>- **Schedule based** | Consumption workflows: Available only when **Mode** is **Inline**. |
    | **Message Count** | \<*integer*\> | Available only with **Message count based** release criteria and specifies the number of messages to batch and release. For example, you can enter `10` for this value. |
    | **Interval** | \<*integer*\> | Available only with **Schedule based** release criteria and specifies the number of time intervals for the recurrence. For example, you can enter `10` for this value. |
