@@ -3,9 +3,10 @@ title: Configure Private Link Service Direct Connect
 author: altheapm
 contributors:
 ms.topic: concept-article
-ms.date: 10/09/2025
+ms.date: 07/14/2025
 ms.author: altheabata
 ms.reviewer: altheabata
+# Customer intent: "As a service provider, I want to configure an Azure Private Link Service for my application to any privately routable destination address, so that I can enable secure private access for consumers from their virtual networks."
 ---
 # Create a Private Link Service Direct Connect
 
