@@ -499,11 +499,13 @@ terraform destroy -auto-approve
 
 **Frequently asked questions:**
 
-### The feature flag is not visible on portal. How do I register for the feature?
-Register the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR via Azure CLI or PowerShell, see this for how-to: [Set up preview features in Azure subscription - Azure Resource Manager | Microsoft Learn](/azure/azure-resource-manager/management/preview-features)
+1. The feature flag is not visible on portal. How do I register for the feature?
 
-### Will privateLinkServiceNetworkPolicies ever need to be set to True, such as by GA?
-The property privateLinkServiceNetworkPolicies is not needed for this feature, so by default please set it to false.
+- Register the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR via Azure CLI or PowerShell, see this for how-to: [Set up preview features in Azure subscription - Azure Resource Manager | Microsoft Learn](/azure/azure-resource-manager/management/preview-features)
+
+1. Will privateLinkServiceNetworkPolicies ever need to be set to True, such as by GA?
+
+- The property privateLinkServiceNetworkPolicies is not needed for this feature, so please set it to false
 
 ## Next steps
 
