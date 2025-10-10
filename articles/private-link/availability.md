@@ -16,6 +16,7 @@ Azure Private Link enables you to access Azure PaaS Services (for example, Azure
 
 > [!IMPORTANT]
 > Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations).
+> A new feature, Private Link Service Direct Connect, which allows connection to any routable destination IP address is now in public preview. For more information and known limitations, see [Private Link Service Direct Connect](configure-private-link-service-direct-connect.md)
 
 ## Service availability
 
@@ -127,11 +128,12 @@ The following tables list the Private Link services and the regions where they'r
 |Azure Relay | All public regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Relay.](../azure-relay/private-link-service.md)  |
 |Azure Static Web Apps | All public regions      |  | GA <br/> [Configure private endpoint in Azure Static Web Apps](../static-web-apps/private-endpoint.md)  |
 
-### Private Link service with a standard load balancer
+### Private Link service
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Private Link services behind standard Azure Load Balancer | All public regions<br/> All Government regions<br/>All China regions  | Supported on Standard Load Balancer | GA <br/> [Learn how to create a private link service.](create-private-link-service-portal.md) |
+|Private Link services behind standard Azure Load Balancer | All public regions<br/> All Government regions<br/>All China regions  | Only supported on Standard Load Balancer with VM based backends | GA <br/> [Learn how to create a private link service.](create-private-link-service-portal.md) |
+|Private Link Service Direct Connect | North Central US, East US 2, Central US, South Central US, West US, West US 2, West US 3, Asia Southeast, Australia East, Spain Central  | [See known limitations and considerations](configure-private-link-service-direct-connect.md#limitations) | Public Preview <br/> [Learn how to create Private Link Service Direct Connect](configure-private-link-service-direct-connect.md) |
 
 ## Next steps
 

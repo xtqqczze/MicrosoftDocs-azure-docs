@@ -3,15 +3,15 @@ title: Configure Private Link Service Direct Connect
 author: altheapm
 contributors:
 ms.topic: concept-article
-ms.date: 07/08/2025
+ms.date: 10/09/2025
 ms.author: altheabata
 ms.reviewer: altheabata
 ---
 # Create a Private Link Service Direct Connect
 
-Customers can now connect a Private Link Service to any routable destination IP address.
+Customers can now connect a Private Link Service to any privately routable destination IP address.
 
-Azure Private Link Service allows service providers to make their applications available to their customers privately and securely. The current setup procedure requires service providers to configure their private link service and place their applications behind a standard internal load balancer. Private Link Service Direct Connect expands on this capability and allows customers to directly connect a private link service to any routable destination IP address. This configuration is particularly useful for scenarios where you need to provide private connectivity to applications that require direct IP-based routing, such as database connections or custom applications.
+Azure Private Link Service allows service providers to make their applications available to their customers privately and securely. The current setup procedure requires service providers to configure their private link service and place their applications behind a standard internal load balancer. Private Link Service Direct Connect expands on this capability and allows customers to directly connect a private link service to any privately routable destination IP address. This configuration is particularly useful for scenarios where you need to provide private connectivity to applications that require direct IP-based routing, such as database connections or custom applications.
 
 In this article, you'll learn how to create a Private Link Service Direct Connect using Azure PowerShell, Azure CLI, and Terraform.
 
@@ -51,22 +51,24 @@ When creating a Private Link Service Direct Connect, you must:
 
 1. **Provide a minimum of 2 IP configurations** - For this feature, at least 2 IP configurations in multiples of 2 are required for high availability
 1. **Specify a static destination IP address** - The target IP must be reachable within your virtual network
-1. **Disable Private Link Service network policies** on the subnet
+1. **Disable the privateLinkServiceNetworkPolicies property** on the subnet
 
-## Limitations and considerations
+## Limitations
 
 Be aware of these limitations when using Private Link Service Direct Connect:
 
-- **Minimum 2 IP configurations required** - A minimum of 2 IP addresses or in multiples of 2 are required to deploy a PLS Direct Connect
+- **Minimum 2 IP configurations required** - A minimum of 2 IP addresses or in multiples of 2 (maximum of 8 IP addresses) are required to deploy a PLS Direct Connect
 - **Maximum of 10 PLS per subscription** - There is a hardware limitation of 10 PLS per region per subscription
 - **Bandwidth limitation** - Each PLS Direct Connect can support a bandwidth of up to 10 Gbps
-- **IP forwarding is enabled** - If there is a policy on the subscription that disables IP forwarding, the policy must be disabled to allow proper configuration
-- **Static IP requirement** - The destination IP must be static and directly reachable, dynamically changing IPs are not supported
+- **Static IP requirement** - The destination IP must be private, static, and directly reachable, dynamically changing IPs are not supported
 - **Cross region limitation** - This feature currently requires that the source private endpoint, private link service, and client VM must be in the same region, with this restriction to be removed when the feature is generally available
-- **No migration support** - Using this feature requires the deployment of a new Private Link Service and migration of existing private link services is not supported
-- **Subscription feature flag enablement is required** - Register the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR via Azure CLI or PowerShell, see this for how-to: [Set up preview features in Azure subscription - Azure Resource Manager | Microsoft Learn](/azure/azure-resource-manager/management/preview-features)
-- **Available client support** - You will need to use PowerShell, CLI, or Terraform to deploy this new Private Link Service, Portal client support is pending
 - **Regional availability** - This feature is currently available in limited regions (North Central US, East US 2, Central US, South Central US, West US, West US 2, West US 3, Asia Southeast, Australia East, Spain Central)
+
+## Considerations
+
+- **No migration support** - Using this feature requires the deployment of a new Private Link Service and migration of existing private link services is not supported
+- **Available client support** - You will need to use PowerShell, CLI, or Terraform to deploy this new Private Link Service, Portal client support is pending
+- **IP forwarding is enabled** - If there is a policy on the subscription that disables IP forwarding, the policy must be disabled to allow proper configuration
 
 ## Create a Private Link Service Direct Connect
 
@@ -491,6 +493,16 @@ terraform destroy -auto-approve
 ```
 
 ---
+
+## FAQs
+
+**Frequently asked questions:**
+
+### The feature flag is not visible on portal. How do I register for the feature?
+Register the feature flag Microsoft.Network/AllowPrivateLinkServiceUDR via Azure CLI or PowerShell, see this for how-to: [Set up preview features in Azure subscription - Azure Resource Manager | Microsoft Learn](/azure/azure-resource-manager/management/preview-features)
+
+### Will privateLinkServiceNetworkPolicies ever need to be set to True, such as by GA?
+The property privateLinkServiceNetworkPolicies is not needed for this feature, so by default please set it to false.
 
 ## Next steps
 
