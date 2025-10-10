@@ -13,6 +13,10 @@ ms.author: anfdocs
 
 Azure NetApp Files supports access to S3 objects with the [object REST API](object-rest-api-introduction.md) feature. With the object REST API feature, you can connect to services including Azure AI Search, Azure AI Foundry, Azure Databricks, OneLake, and others.
 
+## Considerations
+
+* Editing a bucket isn't currently supported. If you need to edit a bucket, you should instead create a new bucket with the same name as the one you want to edit then adjust the properties. 
+
 ## Register the feature 
 
 The object REST API access feature in Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time. Feature registration can take up to 60 minutes to complete.
@@ -30,6 +34,8 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEnable
 ## Create the self-signed certificate
 
 You must generate a PEM-formatted SSL certificate. You can create the SSL certificate in the Azure portal or with a script.  
+
+<!-- DNS? -->
 
 ### [Portal](#tab/portal)
 
@@ -112,14 +118,7 @@ To enable object REST API, you must create a bucket.
 
 1. Select **Create**. 
 
-<!--
-ACCESS KEYS
-1. In your NetApp account, navigate to **Buckets**. 
-1. For the bucket you want to create an access key for, select **Generate keys**. 
-1. In the **Access key lifespan** field, provide a numerical value for the number of days the key is valid. 
-1. When the key successfully generates, the portal presents your masked Access key and Secret access key. Display and securely save the information. 
--->
-
+<!-- 
 ## Edit a bucket
 
 After you create a bucket, you have the option to modify the user identifier (UID or GID) of the bucket.
@@ -128,6 +127,7 @@ After you create a bucket, you have the option to modify the user identifier (UI
 1. Select the three dots `...` at the end of the line next to the name of the bucket you want to modify then select **Edit**. 
 1. Enter the new User ID or Group ID for the bucket. 
 1. Select **Save**. 
+-->
 
 ## Delete a bucket
 

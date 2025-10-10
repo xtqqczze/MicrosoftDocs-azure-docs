@@ -13,13 +13,13 @@ ms.author: anfdocs
 
 The [object REST API feature](object-rest-api-introduction.md) enables Azure Databricks to read and write data to Azure NetApp Files volumes, supporting end-to-end data science workflows from ingestion to model deployment.
 
-To connect to Azure Databricks, you configure an initialization (init) script to load the SSL certificate for compute endpoints. Using this setup ensures secure communication between Azure Databricks and your Azure NetApp Files object REST API-enabled volume. 
+To connect to Azure Databricks, you configure an initialization (init) script to load the SSL certificate on the Databricks compute endpoints. Using this setup ensures secure communication between Azure Databricks and your Azure NetApp Files object REST API-enabled volume. 
 
 ## Before you begin 
 
 Ensure you have: 
 
-- Configured an [Azure NetApp Files object REST API-enabled volume](object-rest-api-access-configure.md) with the SSL certificate
+- Configured an [Azure NetApp Files object REST API-enabled volume](object-rest-api-access-configure.md)
 - An active [Azure Databricks workspace](/azure/databricks/workspace/workspace-browser)
 
 ### Create the init script 
