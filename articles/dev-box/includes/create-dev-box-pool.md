@@ -25,7 +25,7 @@ If you don't have an available dev center and project, follow the steps in [Quic
    | Setting | Value |
    |---|---|
    | **Display name** | Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes. The name must be unique within a project. |
-   | **Definition** | Select a marketplace image definition, custom image definition or existing dev box definition.  |
+   | **Definition** | Select a marketplace image, custom image, or existing dev box definition.  |
    | **Compute** | When you select an image, you can specify the VM size for the dev boxes in this pool. |
    | **Storage** | When you select an image, you can specify the storage size for the dev boxes in this pool. |
    | **Hibernation** | Shows whether hibernation is supported or not. |
