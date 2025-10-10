@@ -59,35 +59,44 @@ The following list outlines these dependencies:
 - **Event Hub** for publishing copy logs.
 - **AAD/Entra ID and ARM** for registration and identity management.
 
-The following table provides a summary of the required services, their endpoint types, and whether private access is supported:
+The following table provides a summary of the required services, their endpoint types, and whether private access is supported. Because your network settings must allow the Storage Mover Agent to connect over HTTPS to the service's endpoints, the Fully Qualified Domain Name (FQDN) is also included.
 
-| Service                               | Endpoint Type  | Needed For           | Private Access |
-|---------------------------------------|--------------- |----------------------|----------------|
-| **MCR (mcr.microsoft.com)**           | Public         | Agent updates        | &#10060;       |
-| **The Storage Mover Service**         | Public         | Agent heartbeats     | &#10060;       |
-| **Event Hub**                         | Public         | Publishing copy logs | &#10060;       |
-| **Azure Arc**                         | Public/Private | Registration         | &#9989; (via Arc Private Link Scope) |
-| **AAD / Entra ID**                    | Public         | Registration         | &#10060;       |
-| **ARM**                               | Public         | Registration         | &#10060;       |
-| **Storage Account (Blob, DFS, File)** | Private        | Job targets          | &#9989;        |
-| **Key Vault**                         | Private        | SMB credentials      | &#9989;        |
+# [Public Cloud](#tab/public)
 
-Your network settings must allow the Storage Mover Agent to connect over HTTPS to the following endpoints for proper functionality:
+| Service                               | Needed For           | Private Access | FQDN                                              |
+|---------------------------------------|----------------------|----------------|---------------------------------------------------|
+| **MCR (mcr.microsoft.com)**           | Agent updates        | &#10060;       | `mcr.microsoft.com`                               |
+| **Storage Mover Service**             | Agent heartbeats     | &#10060;       | `<region>.agentgateway.prd.azsm.azure.com`        |
+| **Event Hubs**                        | Publishing copy logs | &#10060;       | `evhns-sm-ur-prd-<region>.servicebus.windows.net` |
+| **Azure Arc**                         | Registration         | &#9989; (via Arc Private Link Scope) | `*.his.arc.azure.com`       |
+| **Azure Arc**                         | Registration         | &#9989; (via Arc Private Link Scope) | `*.guestconfiguration.azure.com` |
+| **Entra ID**                          | Registration         | &#10060;       | `login.microsoftonline.com`                       |
+| **Entra ID**                          | Registration         | &#10060;       | `pas.windows.net`                                 |
+| **Azure Resource Manager**            | Registration         | &#10060;       | `management.azure.com`                            |
+| **Storage Account (Blob)**            | Job targets          | &#9989;        | `*.blob.core.windows.net`                         |
+| **Storage Account (DFS)**             | Job targets          | &#9989;        | `*.dfs.core.windows.net`                          |
+| **Storage Account (File)**            | Job targets          | &#9989;        | `*.file.core.windows.net`                         |
+| **Key Vault**                         | SMB credentials      | &#9989;        |  `*.vault.azure.net`                              |
 
-| Service                    | Public Cloud FQDN                                 | Fairfax FQDN                                           |
-|----------------------------|---------------------------------------------------|--------------------------------------------------------|
-| **MCR**                    | `mcr.microsoft.com`                               | `mcr.microsoft.com`                                    |
-| **Storage Mover Service**  | `<region>.agentgateway.prd.azsm.azure.com`        | `<region>.agentgateway.ff.azsm.azure.us`               |
-| **Event Hubs**             | `evhns-sm-ur-prd-<region>.servicebus.windows.net` | `evhns-sm-ur-ff-<region>.servicebus.usgovcloudapi.net` |
-| **ARC**                    | `*.his.arc.azure.com`                             | `*.his.arc.azure.us`                                   |
-| **ARC**                    | `*.guestconfiguration.azure.com`                  | `*.guestconfiguration.azure.us`                        |
-| **Entra ID**               | `login.microsoftonline.com`                       | `login.microsoftonline.us`                             |
-| **Entra ID**               | `pas.windows.net`                                 | `pasff.usgovcloudapi.net`                              |
-| **Azure Resource Manager** | `management.azure.com`                            | `management.usgovcloudapi.net`                         |
-| **Storage Account (Blob)** | `*.blob.core.windows.net`                         | `*.blob.core.usgovcloudapi.net`                        |
-| **Storage Account (DFS)**  | `*.dfs.core.windows.net`                          | `*.dfs.core.usgovcloudapi.net`                         |
-| **Storage Account (File)** | `*.file.core.windows.net`                         | `*.file.core.usgovcloudapi.net`                        |
-| **Key Vault**              | `*.vault.azure.net`                               | `*.vault.usgovcloudapi.net`                            |
+# [Fairfax](#tab/fairfax)
+
+| Service                               | Needed For           | Private Access | FQDN                                                   |
+|---------------------------------------|----------------------|----------------|--------------------------------------------------------|
+| **MCR (mcr.microsoft.com)**           | Agent updates        | &#10060;       | `mcr.microsoft.com`                                    |
+| **Storage Mover Service**             | Agent heartbeats     | &#10060;       | `<region>.agentgateway.ff.azsm.azure.us`               |
+| **Event Hubs**                        | Publishing copy logs | &#10060;       | `evhns-sm-ur-ff-<region>.servicebus.usgovcloudapi.net` |
+| **Azure Arc**                         | Registration         | &#9989; (via Arc Private Link Scope) | `*.his.arc.azure.com`            |
+| **Azure Arc**                         | Registration         | &#9989; (via Arc Private Link Scope) | `*.guestconfiguration.azure.com` |
+| **Entra ID**                          | Registration         | &#10060;       | `login.microsoftonline.com`                            |
+| **Entra ID**                          | Registration         | &#10060;       | `pasff.usgovcloudapi.net`                              |
+| **Azure Resource Manager**            | Registration         | &#10060;       | `management.usgovcloudapi.net`                         |
+| **Storage Account (Blob)**            | Job targets          | &#9989;        | `*.blob.core.usgovcloudapi.net`                        |
+| **Storage Account (DFS)**             | Job targets          | &#9989;        | `*.dfs.core.usgovcloudapi.net`                         |
+| **Storage Account (File)**            | Job targets          | &#9989;        | `*.file.core.usgovcloudapi.net`                        |
+| **Key Vault**                         | SMB credentials      | &#9989;        |  `*.vault.usgovcloudapi.net`                           |
+
+---
+
 
 ## Arc-Enabled Server Considerations
 
