@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/23/2025
+ms.date: 10/10/2025
 ms.topic: how-to
 ms.custom:
   - ai-gen-docs-bap
@@ -37,7 +37,7 @@ To manage a dev box pool, you need the following permissions:
 
 ## Create a dev box pool
 
-In Microsoft Dev Box, a dev box pool is a collection of dev boxes that you manage together. You must have at least one dev box pool before users can create a dev box. 
+In Microsoft Dev Box, a dev box pool is a collection of dev boxes that you manage together. You must have at least one dev box pool before users can create a dev box. When creating a dev box pool, you can select a marketplace image, custom image, or dev box definition. 
 
 ### Pool properties
 A dev box pool has the following properties:
@@ -45,7 +45,9 @@ A dev box pool has the following properties:
 | Property | Description |
 |----------|-------------|
 | **Display name** | The name of the dev box pool. The pool name is visible to developers when they create dev boxes. The name must be unique within a project. |
-| **Definition** | Determines the definition used for dev boxes in this pool. You can select an existing dev box definition or image definition when you create a dev box pool.</br>- **Dev Box Definitions** define the base image and size for dev boxes. </br>- **Image definitions** specify the software and configuration for the dev boxes. |
+| **Definition** | Select an image for the dev boxes in this pool: </br>- **Marketplace image**: Pre-configured images from Azure Marketplace </br>- **Custom image**: Your organization's custom images </br>- **Dev box definition**: Existing dev box definitions that define the base image and size. |
+| **Compute** | Select the VM size (SKU) for the dev boxes in this pool. Available when using marketplace or custom images. |
+| **Storage** | Select the storage size for the dev boxes in this pool. Available when using marketplace or custom images. |
 | **Hibernation** |Hibernation is supported when the source image and compute size are both compatible. |
 | **Region** | The region where the dev boxes in the pool are deployed. Choose a region close to your expected dev box users for the optimal user experience. |
 | **Network connection** | Determines the network that the dev boxes in the pool connect to. </br> - **Microsoft Hosted Network**: You can choose to deploy dev boxes to a Microsoft-hosted network. </br> - **Azure joined network**: You can choose to deploy dev boxes to an Azure joined network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). |

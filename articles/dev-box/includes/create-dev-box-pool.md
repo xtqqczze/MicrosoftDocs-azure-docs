@@ -25,9 +25,9 @@ If you don't have an available dev center and project, follow the steps in [Quic
    | Setting | Value |
    |---|---|
    | **Display name** | Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes. The name must be unique within a project. |
-   | **Definition** | Select a marketplace image definition, custom image definition or existing dev box definition. </br>A dev box definition determines the base image and size for the dev boxes that are created. </br>An image definition allows you to specify your required Compute and SKU.  |
-   | **Compute** | Image definitions only. Select the VM size for the dev boxes in this pool. |
-   | **Storage** | Image definition only. Select the storage size for the dev boxes in this pool. |
+   | **Definition** | Select a marketplace image definition, custom image definition or existing dev box definition.  |
+   | **Compute** | When you select an image, you can specify the VM size for the dev boxes in this pool. |
+   | **Storage** | When you select an image, you can specify the storage size for the dev boxes in this pool. |
    | **Hibernation** | Shows whether hibernation is supported or not. |
    | **Region** |  |
    | **Network connection** | 1. Select **Deploy to a Microsoft hosted network**. </br>2. Select your desired deployment region for the dev boxes. Choose a region close to your expected dev box users for the optimal user experience. |

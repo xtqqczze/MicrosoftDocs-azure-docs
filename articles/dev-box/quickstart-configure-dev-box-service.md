@@ -13,7 +13,7 @@ ms.date: 09/23/2025
 
 # Quickstart: Configure Microsoft Dev Box 
 
-In this quickstart, you set up all the resources in Microsoft Dev Box to enable development teams to self-service their dev boxes. Learn how to create and configure a dev center, specify a dev box definition, and create a dev box pool. After you complete this quickstart, developers can use the developer portal to create and connect to a dev box.
+In this quickstart, you set up all the resources in Microsoft Dev Box to enable development teams to self-service their dev boxes. Learn how to create and configure a dev center, select an image for your dev boxes, and create a dev box pool. After you complete this quickstart, developers can use the developer portal to create and connect to a dev box.
 
 A dev box is a daily cloud-based workstation for the developer. It's a virtual machine (VM) preconfigured with the tools and resources the developer needs for a project.
 
@@ -23,7 +23,7 @@ The following diagram shows the steps to set up Microsoft Dev Box.
 
 :::image type="content" source="media/quickstart-configure-dev-box-service/dev-box-build-stages.png" alt-text="Diagram that shows the stages to set up Microsoft Dev Box in the Azure portal." lightbox="media/quickstart-configure-dev-box-service/dev-box-build-stages.png":::
 
-First, create a dev center and a project to organize dev box resources. Next, create a dev box pool to define the network connection and dev box definition that dev boxes use. Users who have access to a project can create dev boxes from the pools associated with that project.
+First, create a dev center and a project to organize dev box resources. Next, create a dev box pool to define the network connection and marketplace image, custom image, or dev box definition that dev boxes use. Users who have access to a project can create dev boxes from the pools associated with that project.
 
 If you already set up Microsoft Dev Box and want to learn how to create and connect to dev boxes, see [Quickstart: Create a dev box by using the developer portal](quickstart-create-dev-box.md).
 
@@ -48,19 +48,7 @@ Follow these steps to create a dev center and manage your dev box resources:
 
 [!INCLUDE [create-dev-center-steps](includes/create-dev-center-steps.md)]
 
-### View a dev box definition
 
-When you select the **Create a default dev box definition (recommended)** option as you create a dev center, Dev Box creates a dev box definition. A dev box definition specifies the VM image and VM SKU (compute size and storage) used to create dev boxes. Depending on the development project or developer profile, you might need multiple dev box definitions. For example, some developers need a specific tool set, while others need a cloud workstation with more compute resources. Dev box definitions in a dev center are available to all projects associated with that dev center. 
-
-To view the dev box definitions for your dev center:
-
-1. Open the dev center where you want to create the dev box definition.
-
-1. Select **Dev box definitions**.
-
-1. On the **Dev box definitions** page, you see a list of all dev box definitions associated with this dev center, along with their details.
-
-You can edit a dev box definition to change the VM image or VM SKU, or to enable hibernation. For more information, see [How to manage dev box definitions](./how-to-manage-dev-box-definitions.md).
 
 ## Create a project
 
@@ -115,7 +103,7 @@ To create and set up a project in a dev box:
 
 ## Create a dev box pool
 
-After you create a project in your dev center, create a dev box pool in the project. A dev box pool is a collection of dev boxes with the same settings, like the definition, location and network connection. Developers who have access to the project can create a dev box from a dev box pool.
+After you create a project in your dev center, create a dev box pool in the project. A dev box pool is a collection of dev boxes with the same settings, like the image, location, and network connection. You can select a marketplace image, custom image, or dev box definition for your pool. When using images, you have the flexibility to independently choose the compute size and storage. Developers who have access to the project can create a dev box from a dev box pool.
 
 > [!IMPORTANT]
 > Associate at least one dev box pool with your project before users can create a dev box.
