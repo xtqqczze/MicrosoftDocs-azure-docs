@@ -62,7 +62,7 @@ Security risks are identified through the following analysis:
 
 Ensure the following for reviewing Insights:
 
-- Use [appliance-based discovery in Azure Migrate](how-to-review-discovered-inventory.md) to review Insights (preview). [Import-based discovery](discovery-methods-modes.md) isn't supported.
+- Use [appliance-based discovery in Azure Migrate](how-to-review-discovered-inventory.md) to review Insights. [Import-based discovery](discovery-methods-modes.md) isn't supported.
 - Use an existing project or create an [Azure Migrate project using portal](quickstart-create-project.md).
 - Ensure all servers are in an active state. Azure Migrate purges data for servers that show no activity in the last 30 days.
 
