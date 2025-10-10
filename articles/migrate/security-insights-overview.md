@@ -18,8 +18,8 @@ This article describes the **Security Insights** (preview) feature in Azure Migr
 ## Key benefits of Security Insights: What users gain 
 
 - See security risks in your datacenter early during migration planning.
-- Plan mitigation to fix security issues and make your migration to Azure smooth and secure
-- Identify Windows and Linux servers running end-of-support operating systems or software, and plan for upgrades and pending updates.
+- Plan mitigation to fix security issues and make your migration to Azure smooth and secure.
+- Identify Windows and Linux servers running end-of-support operating systems or software and plan for upgrades and pending updates.
 - Detect vulnerabilities in discovered software and take action to remediate risks.
 - Identify servers without security or patch management software, and plan to configure Microsoft Defender for Cloud and Azure Update Manager.
 
@@ -34,11 +34,11 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 
 ### How Azure Migrate derives Security Insights from datacenter discovery
 
-Azure Migrate identifies potential security risks in your datacenter by analyzing software inventory data collected during the discovery process. When you run a discovery of your on-premises environment, you generally provide guest credentials for Windows and Linux servers. It allows Azure Migrate to collect information about installed software, operating system configurations, and pending updates.
+Azure Migrate identifies potential security risks in your datacenter by analyzing software inventory data collected during the discovery process. When you run a discovery of your on-premises environment, you provide guest credentials for Windows and Linux servers. It allows Azure Migrate to collect information about installed software, operating system configurations, and pending updates.
 Azure Migrate processes this data to generate key security insights. It doesn't require any other credentials or permissions beyond these used during discovery.
 
 >[!Note]
-> Azure Migrate provides limited security insights based on quick discovery of software and operating systems. The feature doesn’t install agents or perform deep scans, but analyzes inventory data against public vulnerability and lifecycle databases to identify risks.
+> Azure Migrate provides limited security insights based on quick discovery of software and operating systems. The feature doesn’t install agents or perform deep scans but analyzes inventory data against public vulnerability and lifecycle databases to identify risks.
 
 Security risks are identified through the following analysis:
 
@@ -52,17 +52,17 @@ Security risks are identified through the following analysis:
 
 - **Missing security and Patch Management Software**: Azure Migrate flags servers as unprotected if no software is detected in the Security & Compliance category. Missing Security and Patch Management Software: Servers without antivirus, threat detection, SIEM, IAM, or patch management software are identified as potential security risks. 
 
-- **Security Insights refresh**: Azure Migrate updates security insights whenever discovery data is refreshed—either through a new discovery run or inventory updates from the appliance. Generally, a full discovery is performed at the start of a project, with optional rescans before finalizing assessments. Any changes, such as new patches or software reaching end-of-life, are reflected in the updated insights. 
+- **Security Insights refresh**: Azure Migrate updates security insights whenever discovery data is refreshed—either through a new discovery run or inventory updates from the appliance. A full discovery is performed at the start of a project, with optional rescans before finalizing assessments. Any changes, such as new patches or software reaching end-of-life, are reflected in the updated insights. 
 
 >[!Note]
-> **Security Insights scope**: Azure Migrate provides guidance on potential security risks in your datacenter but is not a replacement for specialized security tools. For comprehensive protection of your hybrid environment, we recommended that you adopt Azure security services after migration. 
+> Security Insights in Azure Migrate help identify potential risks in your datacenter. They are not a substitute for specialized security tools. For full protection of your hybrid environment after migration, use Azure services such as [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager-overview.md). 
 
 ## Prerequisites for reviewing Insights 
 
 Ensure the following for reviewing Insights:
 
 - Use [appliance-based discovery in Azure Migrate](how-to-review-discovered-inventory.md) to review Insights (preview). [Import-based discovery](discovery-methods-modes.md) isn't supported.
-- Use an exisitng project or create an [Azure Migrate project using portal](quickstart-create-project.md).
+- Use an existing project or create an [Azure Migrate project using portal](quickstart-create-project.md).
 - Ensure all servers are in an active state. Azure Migrate purges data for servers that show no activity in the last 30 days.
 
 ## Review Security Insights 
