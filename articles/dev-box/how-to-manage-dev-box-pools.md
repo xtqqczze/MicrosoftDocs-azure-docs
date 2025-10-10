@@ -37,7 +37,7 @@ To manage a dev box pool, you need the following permissions:
 
 ## Create a dev box pool
 
-In Microsoft Dev Box, a dev box pool is a collection of dev boxes that you manage together. You must have at least one dev box pool before users can create a dev box. When creating a dev box pool, you can select a marketplace image, custom image, or dev box definition. 
+In Microsoft Dev Box, a dev box pool is a collection of dev boxes that you manage together. You must have at least one dev box pool before users can create a dev box. When creating a dev box pool, you can select an [image definition](how-to-configure-team-customizations.md) to provide customized dev boxes, a custom image from the compute gallery, or a marketplace image either directly or via the dev box definition.
 
 ### Pool properties
 A dev box pool has the following properties:
@@ -45,7 +45,7 @@ A dev box pool has the following properties:
 | Property | Description |
 |----------|-------------|
 | **Display name** | The name of the dev box pool. The pool name is visible to developers when they create dev boxes. The name must be unique within a project. |
-| **Definition** | Select an image for the dev boxes in this pool: </br>- **Marketplace image**: Pre-configured images from Azure Marketplace </br>- **Custom image**: Your organization's custom images </br>- **Dev box definition**: Existing dev box definitions that define the base image and size. |
+| **Definition** | Select an image for the dev boxes in this pool: </br>- **Custom image**: Your organization's custom images </br>-**Marketplace image**: Pre-configured images from Azure Marketplace </br>-  **Dev box definition**: Existing dev box definitions that define the base image and size. |
 | **Compute** | Select the VM size (SKU) for the dev boxes in this pool. Available when using marketplace or custom images. |
 | **Storage** | Select the storage size for the dev boxes in this pool. Available when using marketplace or custom images. |
 | **Hibernation** |Hibernation is supported when the source image and compute size are both compatible. |
