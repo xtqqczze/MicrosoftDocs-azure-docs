@@ -144,8 +144,6 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     ![Specify NFS protocol](./media/azure-netapp-files-create-volumes/azure-netapp-files-protocol-nfs.png)
 
-    <!-- object-rest api -->
-
 4. Select **Review + Create** to review the volume details. Select **Create** to create the volume.
 
     The volume you created appears in the Volumes page. 

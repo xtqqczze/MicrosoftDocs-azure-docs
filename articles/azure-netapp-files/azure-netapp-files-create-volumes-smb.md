@@ -90,8 +90,6 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
         ![Show advanced selection](./media/shared/volume-create-advanced-selection.png)
 
-    <!-- object-rest api -->
-
 4. Select **Protocol** and complete the following information:  
     * Select **SMB** as the protocol type for the volume.  
 
