@@ -170,8 +170,6 @@ On the **Basics** tab, enter or select values for the following settings:
 |**Cosmos account endpoint (URI)** |Select the destination Azure Cosmos DB account in your Azure tenant. |
 |**Database** |Select the destination Azure Cosmos DB database under the account. |
 
-image 
-
 ### Authentication 
 
 On the **Authentication** tab, select an authentication method: **User** or **Service account**. 
