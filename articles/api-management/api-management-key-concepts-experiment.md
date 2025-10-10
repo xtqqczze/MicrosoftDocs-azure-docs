@@ -1,5 +1,5 @@
 ---
-title: Azure API Management - Overview and key concepts | Microsoft Docs
+title: Azure API Management - Overview and Key Concepts | Microsoft Docs
 description: Introduction to key scenarios, capabilities, and concepts of the Azure API Management service. API Management supports the full API lifecycle.
 services: api-management
 author: dlepow
@@ -19,10 +19,10 @@ This article provides an overview of common scenarios and key components of Azur
 
 > [!TIP]
 > If you're already familiar with API Management and ready to start, see these resources:
-> * [Features and service tiers](api-management-features.md)
-> * [Create an API Management instance](get-started-create-service-instance.md)
-> * [Import and publish an API](import-and-publish.md)
-> * [API Management policies](api-management-howto-policies.md)
+> - [Features and service tiers](api-management-features.md)
+> - [Create an API Management instance](get-started-create-service-instance.md)
+> - [Import and publish an API](import-and-publish.md)
+> - [API Management policies](api-management-howto-policies.md)
 
 ## Scenarios 
 
@@ -30,20 +30,19 @@ APIs enable digital experiences, simplify application integration, underpin new 
 
 :::image type="content" source="media/api-management-key-concepts/apis-connected-experiences.png" alt-text="Diagram showing role of APIs in connected experiences.":::
 
-
 Azure API Management helps customers meet these challenges:
 
-* Abstract backend architecture diversity and complexity from API consumers
-* Securely expose services hosted on and outside of Azure as APIs
-* Protect, accelerate, and observe APIs
-* Enable API discovery and consumption by internal and external users
+- Abstract backend architecture diversity and complexity from API consumers
+- Securely expose services hosted on and outside of Azure as APIs
+- Protect, accelerate, and observe APIs
+- Enable API discovery and consumption by internal and external users
 
 Common scenarios include:
 
-* **Unlocking legacy assets** - APIs are used to abstract and modernize legacy backends and make them accessible from new cloud services and modern applications. APIs allow innovation without the risk, cost, and delays of migration.
-* **API-centric app integration** - APIs are easily consumable, standards-based, and self-describing mechanisms for exposing and accessing data, applications, and processes. They simplify and reduce the cost of app integration.
-* **Multi-channel user experiences** - APIs are frequently used to enable user experiences such as web, mobile, wearable, or Internet of Things applications. Reuse APIs to accelerate development and ROI.
-* **B2B integration** - APIs exposed to partners and customers lower the barrier to integrate business processes and exchange data between business entities. APIs eliminate the overhead inherent in point-to-point integration. Especially with self-service discovery and onboarding enabled, APIs are the primary tools for scaling B2B integration.
+- **Unlocking legacy assets** - APIs are used to abstract and modernize legacy backends and make them accessible from new cloud services and modern applications. APIs allow innovation without the risk, cost, and delays of migration.
+- **API-centric app integration** - APIs are easily consumable, standards-based, and self-describing mechanisms for exposing and accessing data, applications, and processes. They simplify and reduce the cost of app integration.
+- **Multi-channel user experiences** - APIs are frequently used to enable user experiences such as web, mobile, wearable, or Internet of Things applications. Reuse APIs to accelerate development and ROI.
+- **B2B integration** - APIs exposed to partners and customers lower the barrier to integrate business processes and exchange data between business entities. APIs eliminate the overhead inherent in point-to-point integration. Especially with self-service discovery and onboarding enabled, APIs are the primary tools for scaling B2B integration.
 
 ## API Management components
 
@@ -57,14 +56,15 @@ All requests from client applications first reach the API gateway, which then fo
 
 The API gateway:
   
-  * Accepts API calls and routes them to configured backends
-  * Verifies API keys, JWTs, certificates, and other credentials
-  * Enforces usage quotas and rate limits
-  * Optionally transforms requests and responses as specified in [policy statements](#policies)
-  * If configured, caches responses to improve response latency and minimize the load on backend services
-  * Emits logs, metrics, and traces for monitoring, reporting, and troubleshooting
+- Accepts API calls and routes them to configured backends
+- Verifies API keys, JWTs, certificates, and other credentials
+- Enforces usage quotas and rate limits
+- Optionally transforms requests and responses as specified in [policy statements](#policies)
+- If configured, caches responses to improve response latency and minimize the load on backend services
+- Emits logs, metrics, and traces for monitoring, reporting, and troubleshooting
 
 ### Self-hosted gateway
+
 With the [self-hosted gateway](self-hosted-gateway-overview.md), customers can deploy the API gateway to the same environments where they host their APIs, to optimize API traffic and ensure compliance with local regulations and guidelines. The self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure.
 
 The self-hosted gateway is packaged as a Linux-based Docker container and is commonly deployed to Kubernetes, including to Azure Kubernetes Service and [Azure Arc-enabled  Kubernetes](how-to-deploy-self-hosted-gateway-azure-arc.md). 
@@ -73,17 +73,16 @@ The self-hosted gateway is packaged as a Linux-based Docker container and is com
 
 API providers interact with the service through the management plane, which provides full access to the API Management service capabilities. 
 
-Customers interact with the management plane through Azure tools including the Azure portal, Azure PowerShell, Azure CLI, a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview), or client SDKs in several popular programming languages.
+Customers interact with the management plane through Azure tools that include the Azure portal, Azure PowerShell, Azure CLI, and a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview). Or they can interact through client SDKs in several popular programming languages.
 
 Use the management plane to:
 
-  * Provision and configure API Management service settings
-  * Define or import API schemas from a wide range of sources, including OpenAPI specifications, Azure compute services, or WebSocket or GraphQL backends
-  * Package APIs into products
-  * Set up [policies](#policies) like quotas or transformations on the APIs
-  * Get insights from analytics
-  * Manage users
-
+- Provision and configure API Management service settings
+- Define or import API schemas from a wide range of sources, including OpenAPI specifications, Azure compute services, or WebSocket or GraphQL backends
+- Package APIs into products
+- Set up [policies](#policies) like quotas or transformations on the APIs
+- Get insights from analytics
+- Manage users
 
 ## Developer portal
 
@@ -95,31 +94,31 @@ API providers can customize the look and feel of the developer portal by adding 
 
 App developers use the open-source developer portal to discover the APIs, onboard to use them, and learn how to consume them in applications. (APIs can also be exported to the [Power Platform](export-api-power-platform.md) for discovery and use by citizen developers.)
 
-Using the developer portal, developers can:
+When they use the developer portal, developers can:
 
-  * Read API documentation
-  * Call an API via the interactive console
-  * Create an account and subscribe to get API keys
-  * Access analytics on their own usage
-  * Download API definitions
-  * Manage API keys
+- Read API documentation
+- Call an API via the interactive console
+- Create an account and subscribe to get API keys
+- Access analytics on their own usage
+- Download API definitions
+- Manage API keys
 
 ## Integration with Azure services
 
 API Management integrates with many complementary Azure services to create enterprise solutions, including:
 
-* [Azure Key Vault](/azure/key-vault/general/overview) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
-* [Azure Monitor](api-management-howto-use-azure-monitor.md) for logging, reporting, and alerting on management operations, systems events, and API requests​
-* [Application Insights](api-management-howto-app-insights.md) for live metrics, end-to-end tracing, and troubleshooting
-* [Virtual networks](virtual-network-concepts.md), [private endpoints](private-endpoint.md), and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​
-* Microsoft Entra ID for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
-* [Event Hubs](api-management-howto-log-event-hubs.md) for streaming events​
-* Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.yml), and others.​
+- [Azure Key Vault](/azure/key-vault/general/overview) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
+- [Azure Monitor](api-management-howto-use-azure-monitor.md) for logging, reporting, and alerting on management operations, systems events, and API requests​
+- [Application Insights](api-management-howto-app-insights.md) for live metrics, end-to-end tracing, and troubleshooting
+- [Virtual networks](virtual-network-concepts.md), [private endpoints](private-endpoint.md), and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​
+- Microsoft Entra ID for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
+- [Event Hubs](api-management-howto-log-event-hubs.md) for streaming events​
+- Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.yml), and others.​
 
 **More information**:
-* [Basic enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
-* [Landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
+- [Basic enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+- [Landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 ## Key concepts
 
@@ -127,11 +126,12 @@ API Management integrates with many complementary Azure services to create enter
 
 APIs are the foundation of an API Management service instance. Each API represents a set of *operations* available to app developers. Each API contains a reference to the backend service that implements the API, and its operations map to backend operations. 
 
-Operations in API Management are highly configurable, with control over URL mapping, query and path parameters, request and response content, and operation response caching. 
+Operations in API Management are highly configurable. You have control over URL mapping, query and path parameters, request and response content, and operation response caching. 
 
 **More information**:
-* [Import and publish your first API][How to create APIs]
-* [Mock API responses][How to add operations to an API]
+
+- [Import and publish your first API][How to create APIs]
+- [Mock API responses][How to add operations to an API]
 
 ### Products
 
@@ -140,25 +140,27 @@ Products are how APIs are surfaced to developers. Products in API Management hav
 When a product is ready for use by developers, it can be published. Once published, it can be viewed or subscribed to by developers. Subscription approval is configured at the product level and can either require an administrator's approval or be automatic.
 
 **More information**:
-* [Create and publish a product][How to create and publish a product]
-* [Subscriptions in API Management](api-management-subscriptions.md)
+
+- [Create and publish a product][How to create and publish a product]
+- [Subscriptions in API Management](api-management-subscriptions.md)
 
 ### Groups
 
 Groups are used to manage the visibility of products to developers. API Management has the following built-in groups:
 
-* **Administrators** -  Manage API Management service instances and create the APIs, operations, and products that are used by developers.
+- **Administrators** -  Manage API Management service instances and create the APIs, operations, and products that are used by developers.
 
     Azure subscription administrators are members of this group. 
 
-* **Developers** - Authenticated developer portal users that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API. 
+- **Developers** - Authenticated developer portal users that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API. 
 
-* **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal. They can be granted certain read-only access, such as the ability to view APIs but not call them.
+- **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
 Administrators can also create custom groups or use external groups in an [associated Microsoft Entra tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
 
-**More information**: 
-* [How to create and use groups][How to create and use groups]
+**More information**:
+ 
+- [How to create and use groups][How to create and use groups]
 
 ### Developers
 
@@ -167,7 +169,8 @@ Developers represent the user accounts in an API Management service instance. De
 When developers subscribe to a product, they're granted the primary and secondary key for the product for use when calling the product's APIs.
 
 **More information**:
-* [How to manage user accounts][How to create or invite developers]
+
+- [How to manage user accounts][How to create or invite developers]
 
 ### Policies
 
@@ -179,8 +182,8 @@ Policies can be applied at different scopes, depending on your needs: global (al
 
 **More information**:
 
-* [Transform and protect your API][How to create and configure advanced product settings].
-* [Policy expressions](./api-management-policy-expressions.md)
+- [Transform and protect your API][How to create and configure advanced product settings].
+- [Policy expressions](./api-management-policy-expressions.md)
 
 ## Related content
 

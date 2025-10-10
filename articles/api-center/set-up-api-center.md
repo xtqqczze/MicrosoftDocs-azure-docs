@@ -28,7 +28,7 @@ To register the resource provider using the portal:
 
 1. In the sidebar menu, under **Settings**, select **Resource providers**.
 
-1. Search for **Microsoft.ApiCenter** in the list of resource providers. If it's not registered, select **Register**.
+1. Search for **Microsoft.ApiCenter** in the list of resource providers. If it isn't registered, select **Register**.
 
 ## Create an API center
 

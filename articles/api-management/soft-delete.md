@@ -48,11 +48,11 @@ In the soft-deleted state:
 - Azure will schedule the permanent deletion of the underlying data corresponding to the API Management instance after the predetermined (48 hour) retention period. 
 - You can't reuse the name of the API Management instance.
 
-If your API Management instance isn't recovered or purged by you within 48 hours, it's automatically deleted permanently. 
+If you don't recover or purge your API Management instance within 48 hours, it's automatically deleted permanently. 
 
 ## List deleted API Management instances
 
-You can verify that a soft-deleted API Management instance is available to restore (undelete), by using either the Deleted Services [Get By Name](/rest/api/apimanagement/current-ga/deleted-services/get-by-name) or [List By Subscription](/rest/api/apimanagement/current-ga/deleted-services/list-by-subscription) operations.
+You can verify that a soft-deleted API Management instance is available to restore (undelete), by using either the Deleted Services [Get By Name](/rest/api/apimanagement/current-ga/deleted-services/get-by-name) operations or the  [List By Subscription](/rest/api/apimanagement/current-ga/deleted-services/list-by-subscription) operation.
 
 ### Get a soft-deleted instance by name
 
@@ -125,7 +125,7 @@ Use the API Management [Purge](/rest/api/apimanagement/current-ga/deleted-servic
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2021-08-01
 ```
 
-This command will permanently delete your API Management instance from Azure.
+This command permanently deletes your API Management instance from Azure.
 
 ## Reuse an API Management instance name after deletion
 
@@ -141,7 +141,7 @@ You **can't** reuse the name of an API Management instance in a new deployment:
 
 - In a subscription other than the one used to deploy the original instance, even after the original instance has been permanently deleted (purged) from Azure. This restriction applies whether the new subscription used is in the same or a different Microsoft Entra tenant. The restriction is in effect for several days or longer after deletion, depending on the subscription type. 
 
-    This restriction is because Azure reserves the service host name to a customer's tenant for a reservation period to prevent the threat of subdomain takeover with dangling DNS entries. For more information, see [Prevent dangling DNS entries and avoid subdomain takeover](/azure/security/fundamentals/subdomain-takeover). To see all dangling DNS entries for subscriptions in a Microsoft Entra tenant, see [Identify dangling DNS entries](/azure/security/fundamentals/subdomain-takeover#identify-dangling-dns-entries). 
+  This restriction is because Azure reserves the service host name to a customer's tenant for a reservation period to prevent the threat of subdomain takeover with dangling DNS entries. For more information, see [Prevent dangling DNS entries and avoid subdomain takeover](/azure/security/fundamentals/subdomain-takeover). To see all dangling DNS entries for subscriptions in a Microsoft Entra tenant, see [Identify dangling DNS entries](/azure/security/fundamentals/subdomain-takeover#identify-dangling-dns-entries). 
 
 
 ## Related content
