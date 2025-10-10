@@ -1,12 +1,12 @@
 ---
 title: Use Confluent Connectors in Azure (Preview)
-description: Learn how to use Confluent Connectors in Azure (preview) to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure Blob Storage.
+description: Learn how to use Confluent Connectors in Azure (preview) to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure Blob Storage or Azure Cosmos DB.
 ms.topic: how-to
-ms.date: 05/28/2024
+ms.date: 10/10/2025
 ms.author: malev
 author: maud-lv
 
-#customer intent: As a developer, I want learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure Blob Storage so that I can use Confluent Connectors in Azure.
+#customer intent: As a developer, I want learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure Blob Storage or Azure Cosmos DB so that I can use Confluent Connectors in Azure.
 ---
 
 # Use Confluent Connectors in Azure (preview)
@@ -14,9 +14,9 @@ author: maud-lv
 Confluent Cloud helps you connect your Confluent clusters to popular data sources and sinks. The solution is available on Azure by using the Confluent Connectors feature.
 
 > [!NOTE]
-> Currently, Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service, supports only Confluent Connectors for Azure Blob Storage. It supports both source and sink connectors in Azure Blob Storage.
+> Currently, Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service, supports only Confluent Connectors for Azure Blob Storage and Azure Cosmos DB. It supports both source and sink connectors in these services.
 
-In this article, learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure Blob Storage.
+In this article, you'll learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure Blob Storage or Azure Cosmos DB.
 
 ## Prerequisites
 
