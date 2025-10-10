@@ -46,23 +46,18 @@
             href: how-to-create-function-azure-cli.md
           - name: Visual Studio Code
             href: how-to-create-function-vs-code.md
-          - name: Visual Studio (C#)
+          - name: Visual Studio
             href: functions-create-your-first-function-visual-studio.md
-          - name: Java-specific tools  
-            displayName: Java
-            items:
-              - name: Eclipse
-                href: functions-create-maven-eclipse.md
-              - name: Gradle 
-                href: functions-create-first-java-gradle.md
-              - name: IntelliJ IDEA
-                href: functions-create-maven-intellij.md
-              - name: Quarkus
-                href: functions-create-first-quarkus.md
-              - name: Spring Cloud
-                href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json
-          - name: Custom handlers (Go/Rust)
-            href: create-first-function-vs-code-other.md
+          - name: Eclipse
+            href: functions-create-maven-eclipse.md
+          - name: Gradle 
+            href: functions-create-first-java-gradle.md
+          - name: IntelliJ IDEA
+            href: functions-create-maven-intellij.md
+          - name: Quarkus
+            href: functions-create-first-quarkus.md
+          - name: Spring Cloud
+            href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json
     - name: Resource Manager
       items:
       - name: Bicep
@@ -74,6 +69,8 @@
       - name: Terraform
         displayName: Terraform, quickstart, get started
         href: functions-create-first-function-terraform.md
+    - name: Custom handlers (Go/Rust)
+      href: create-first-function-vs-code-other.md
     - name: Connect to services  
       items:
       - name: Storage
