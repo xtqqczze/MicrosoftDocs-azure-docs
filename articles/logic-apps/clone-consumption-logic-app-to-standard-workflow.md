@@ -1,12 +1,12 @@
 ---
-title: Clone Consumption logic apps to Standard workflows
-description: Clone logic app workflows created in the consumption sku to a Standard logic app using Azure portal.
+title: Clone Consumption Logic Apps to Standard Workflows
+description: Learn to clone a Consumption logic app to a Standard logic app using the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/09/2025
-#Customer intent: As a developer, I want to clone a Consumption workflows to a Standard workflow.
+ms.date: 10/20/2025
+#Customer intent: As an integration developer working with Azure Logic Apps, I want to migrate a Consumption logic app to a Standard logic app by cloning resources.
 ---
 
 # Clone Consumption logic apps to Standard workflows (Preview)
@@ -37,7 +37,7 @@ You can now clone your Consumption logic apps to a Standard logic app directly f
 
 -   A destination Standard logic apps application where the Consumption logic apps are cloned.
 -   Azure Logic Apps Standard contributor resource group-level access to create the cloned connections.
--   Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code#prerequisites).
+-   Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
 ## Walkthrough
 
