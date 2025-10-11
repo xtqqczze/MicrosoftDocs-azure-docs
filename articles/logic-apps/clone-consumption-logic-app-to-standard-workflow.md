@@ -96,7 +96,7 @@ You can find the list of Outbound IPs under **Outbound IP Addresses**:
 
 > [!NOTE]
 > 
-> If your application connects to an Azure virtual network, use Virtual Network Integration instead. This approach gives you more control over traffic. It separates communication between the Logic Apps Standard application and your resources inside the virtual network. For more information, see [**Secure traffic between Standard logic apps and Azure virtual networks using private endpoints**](secure-single-tenant-workflow-virtual-network-private-endpoint).
+> If your Standard logic app connects to an Azure virtual network, use Virtual Network Integration instead. This approach gives you more control over traffic. It separates communication between your logic app and your resources inside the virtual network. For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
 ## Enabling your cloned workflow
 
