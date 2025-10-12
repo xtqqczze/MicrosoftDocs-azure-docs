@@ -55,13 +55,13 @@ Private Link service (PLS) Direct Connect allows you to:
 
 - **Provide a minimum of 2 IP configurations**: For this feature, at least 2 IP configurations in multiples of 2 are required for high availability.
 - **Specify a static destination IP address**: The target IP must be reachable within your virtual network.
-- **Disable the privateLinkserviceNetworkPolicies property** on the subnet: This property is not needed for this feature.
+- **Disable the privateLinkServiceNetworkPolicies property** on the subnet: This property is not needed for this feature.
 
 ## Limitations
 
 Note these limitations when using Private Link service Direct Connect:
 
-- **Minimum 2 IP configurations required**: At least 2 IP addresses, or multiples of 2 (up to 8) are required to deploy a PLS Direct Connect.
+- **Minimum 2 IP configurations required**: At least 2 IP configurations, or multiples of 2 ([limit](/azure/azure-resource-manager/management/azure-subscription-service-limits) of 8 max) are required to deploy a PLS Direct Connect.
 - **Maximum of 10 PLS per subscription**: There is a hardware limitation of 10 PLS per region per subscription.
 - **Bandwidth limitation**: Each PLS Direct Connect can support a bandwidth of up to 10 Gbps.
 - **Static IP requirement**: The destination IP must be private, static, and directly reachable, dynamically changing IPs are not supported.
@@ -93,7 +93,7 @@ $destinationIP = "10.0.1.100"
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 # Create virtual network (corrected parameter name)
-$subnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.1.0/24" -PrivateLinkserviceNetworkPoliciesFlag "Disabled"
+$subnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.1.0/24" -privateLinkServiceNetworkPoliciesFlag "Disabled"
 $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $subnet
 
 # Get subnet reference
@@ -504,9 +504,9 @@ The feature flag isn't visible on portal. How do I register for the feature?
 
 - Register the feature flag Microsoft.Network/AllowPrivateLinkserviceUDR via Azure CLI or PowerShell, see this for how-to: [Set up preview features in Azure subscription - Azure Resource Manager | Microsoft Learn](/azure/azure-resource-manager/management/preview-features).
 
-Does the property privateLinkserviceNetworkPolicies ever need to be set to True, such as by GA?
+Does the property privateLinkServiceNetworkPolicies ever need to be set to True, such as by GA?
 
-- The property privateLinkserviceNetworkPolicies is not needed for this feature, so set it to false.
+- The property privateLinkServiceNetworkPolicies is not needed for this feature, so set it to false.
 
 ## Next steps
 

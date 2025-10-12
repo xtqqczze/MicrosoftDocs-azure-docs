@@ -34,8 +34,6 @@ The following tables list the Private Link services and the regions where they'r
 | Azure AI services | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](/azure/ai-services/cognitive-services-virtual-networks#use-private-endpoints)  |
 | Azure AI Video Indexer | All public regions  |   | GA   <br/> [Use private endpoints with Azure AI Video Indexer.](/azure/azure-video-indexer/private-endpoint-overview)  |
 
-
-
 ### Analytics
 
 |Supported services  |Available regions | Other considerations | Status  |
