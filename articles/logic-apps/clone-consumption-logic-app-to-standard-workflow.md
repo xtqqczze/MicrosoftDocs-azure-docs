@@ -23,15 +23,25 @@ You can now clone your Consumption logic apps to a Standard logic app directly f
 
 > [!NOTE]
 > 
-> The export capability doesn't migrate your Consumption logic apps. Instead, this tool replicates artifacts, such as workflow definitions, connections, and others. Your source logic app resources, workflows, trigger history, run history, and other data stay intact.
+> The export capability doesn't migrate your Consumption logic apps. Instead, this tool replicates artifacts, such as workflow definitions, connections, and others. Your source logic app resource stays operation and your workflow, trigger history, run history, and other data stay intact.
 > 
-> You control the export process and your migration journey. You can test and validate your exported workflows to your satisfaction with the destination environment. You choose when to disable or delete your source logic apps.
+> You control the export process and your migration journey. You can test and validate your exported workflows to your satisfaction with the destination environment. You choose when to disable or delete your source logic apps. Notice that regular billing charges are applied to your source logic app while it stays enabled.
 
 ## Known issues and limitations
 
 -   The clone feature doesn't export any infrastructure information, such as integration account settings.
--   By default, connection configuration isn’t cloned from source logic app workflows. Before your logic app workflows can run, you'll have to reconfigure these connections after export.
--   By default, all connectors are cloned as Azure Connectors, even when a built-in option is available. No option exists to opt out from this behavior.
+-   By default, connection configuration, including credential details,  isn’t cloned from source logic app workflows. You have to reconfigure these connections, before your destination logic app workflows can run.
+-   Action and workflow parameters using secure string or secure object aren't cloned to the destination. Placeholders are created for those parameters with **sanitized** as the value. You have to reconfigure those parameters with secure content from KeyVault before running your workflows. 
+-   By default, all connectors are cloned as Azure Connectors, even when a built-in option is available.
+-   Workflows with the following actions aren't supported for cloning:
+    - Integration account references
+      - Transform XML
+      - XML Validation
+      - Flat File Encoding/Decoding
+      - Edifact actions
+      - X12 actions
+    - Nested workflow.
+    - Call Azure function.
 
 ## Prerequisites
 
@@ -46,25 +56,25 @@ You can now clone your Consumption logic apps to a Standard logic app directly f
 
 ![A screenshot of the Azure portal showing the Clone to Standard button.](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-start.png)
 
-3.  Define the clone destination, selecting the subscription, resource group and Standard logic app resource, then select **Next**.
+3.  Define the clone destination, selecting the subscription, resource group, and Standard logic app resource, then select **Next**.
 
 ![A screenshot of the Clone to Standard wizard showing the configuration step.](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-configure.png)
 
 > [!NOTE]
 > 
-> You can rename the workflow name to a name that matches your naming convention if necessary.. The interface verifies if the name is valid and that it doesn’t clash with an existing workflow in the destination Standard logic app, avoiding overwriting of the destination workflow.
+> You can rename the workflow name to a name that matches your naming convention if necessary. The interface verifies if the name is valid and that it doesn’t clash with an existing workflow in the destination Standard logic app, avoiding overwriting of the destination workflow.
 
-4.  After Reviewing your clone settings start the process by selecting on **Clone** .
+4.  After reviewing your clone settings, start the process by selecting on **Clone** .
 
 ![A screenshot of the Clone to Standard wizard showing the review and clone step.](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-review-clone.png)
 
-Once the clone process completes, navigate to the cloned workflow by selecting on **Go to workflow**, .
+Once the clone process completes, navigate to the cloned workflow by selecting on **Go to workflow**.
 
 ![A screenshot of the Clone to Standard wizard showing the operation success and the go to workflow button](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-success.png)
 
 > [!NOTE]
 >
-> The new workflow will be created in a disabled state, so it doesn’t clash with the existing workflow or generate execution errors before you complete the configuration.
+> The new workflow is created in a disabled state, so it doesn’t clash with the existing workflow or generate execution errors before you complete the configuration.
 
 ## Reviewing the new workflow configuration
 
