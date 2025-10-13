@@ -27,7 +27,7 @@ Install the Azure App Configuration Provider package with pip:
 pip install azure-appconfiguration-provider
 ```
 
-To use Microsoft Entra ID Azure Identity is also needed.
+To use Microsoft Entra ID, Azure Identity is also needed.
 
 ```bash
 pip install azure-identity
@@ -36,7 +36,7 @@ pip install azure-identity
 
 ## Load configuration
 
-The `load` function in the `azure-appconfiguration-provider` package is used to load configuration from the Azure App Configuration. The `load` function allows you to either use Microsoft Entra ID (Recommended) or connection string to connect to the App Configuration store.
+The `load` function in the `azure-appconfiguration-provider` package is used to load configuration from Azure App Configuration. The `load` function allows you to either use Microsoft Entra ID (recommended) or a connection string to connect to the App Configuration store.
 
 > [!NOTE]
 > `azure-appconfiguration-provider` has both sync `from azure.appconfiguration.provider import load` and async `from azure.appconfiguration.provider.aio import load` versions. When using the async version, the async credential needs to be used.
@@ -86,7 +86,7 @@ You can [create JSON key-values](./howto-leverage-json-content-type.md#create-js
 }
 ```
 
-This json results in the key-value to be loaded as `{ size: 12, color: "red" }`.
+This JSON content results in the key-value to be loaded as `{ size: 12, color: "red" }`.
 
 ```python
 appConfig = load(endpoint, credential)
@@ -265,7 +265,7 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), keyvault_c
 
 ### Secret resolver
 
-If no Credentials or Clients are provided, a secret resolver can be used. Secret resolver provides a way to return any value you want to a key vault reference.
+If no credentials or clients are provided, a secret resolver can be used. Secret resolver provides a way to return any value you want to a key vault reference.
 
 ```python
 from azure.appconfiguration.provider import load
@@ -279,7 +279,7 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), secret_res
 
 ## Geo-replication
 
-The Azure App Configuration Provider library automatically discovers the provided configuration store's replicas and uses the replicas if any issue arises. For more information, see [Geo-Replication](./howto-geo-replication.md).
+The Azure App Configuration Provider library automatically discovers the provided configuration store's replicas and uses the replicas if any issue arises. For more information, see [geo-replication](./howto-geo-replication.md).
 
 Replica discovery is enabled by default. If you want to disable it, you can set `replica_discovery_enabled` to `False`.
 
