@@ -3,7 +3,7 @@ title: Overview of Azure SRE Agent Preview
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 10/01/2025
+ms.date: 10/13/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -86,7 +86,7 @@ Use the following steps to start working with Azure SRE Agent.
 Keep in mind the following considerations as you use Azure SRE Agent:
 
 - English is the only supported language in the chat interface.
-- During the preview, you can deploy the agent to the Sweden Central region, but the agent can monitor and remediate issues for services in any Azure region.
+- During the preview, you can deploy the agent to the *Sweden Central*, *East US 2*, and *Australia East* regions, but the agent can monitor and remediate issues for services in any Azure region.
 - For more information on how data is managed in Azure SRE Agent, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
 - Availability varies by region and tenant configuration.  
 - Preview [billing](billing.md) begins *September 1, 2025*, via Azure agent units (AAUs).
