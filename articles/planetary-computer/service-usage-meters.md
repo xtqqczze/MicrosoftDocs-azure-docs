@@ -62,9 +62,7 @@ To estimate your vCPU-hours, select a data type that's similar to the one you pl
 
 **Example:** Suppose you're ingesting 250 GiB of [National Aerial Imagery Program](./data-visualization-samples.md#the-national-agriculture-imagery-program-collection-configuration) (NAIP) data already in Cloud Optimized GeoTIFF (COG) format. Using the representative value of 0.030 vCPU/GiB from the table:
 
-$$
-250 \text{ GiB} \times 0.030 \frac{\text{vCPU-hour}}{\text{GiB}} = 7.5 \text{ vCPU-hours}
-$$
+250 GiB × 0.030 vCPU/GiB = 7.5 vCPU-hours
 
 
 ### Bandwidth
