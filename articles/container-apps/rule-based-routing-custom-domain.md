@@ -1,16 +1,16 @@
 ---
-title: Use a custom domain with rule-based routing in Azure Container Apps
+title: Use a custom domain with rule-based routing in Azure Container Apps (preview)
 description: Learn how to configure a custom domain with rule-based routing in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: how-to
-ms.date: 10/13/2025
+ms.date: 04/16/2025
 ms.author: cshoe
 ---
 
-# Use a custom domain with rule-based routing in Azure Container Apps
+# Use a custom domain with rule-based routing in Azure Container Apps (preview)
 
 HTTP route configurations support custom domains, allowing you to route traffic from your own domain names to your container apps.
 
