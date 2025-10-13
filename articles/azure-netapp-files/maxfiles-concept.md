@@ -11,7 +11,7 @@ ms.author: anfdocs
 ---
 # Understand `maxfiles` limits in Azure NetApp Files
 
-Azure NetApp Files volumes have a value called `maxfiles` that refers to the maximum number of files and folders (also known as inodes) a volume can contain. The `maxfiles` limit for an Azure NetApp Files volume is based on the size (quota) of the volume, where the service dynamically adjusts the `maxfiles` limit for a volume based on its provisioned size and uses the following guidelines.
+Azure NetApp Files volumes have a value called `maxfiles` that refers to the maximum number of files and folders (also known as inodes) a volume can contain. The `maxfiles` limit for an Azure NetApp Files volume is based on the size (quota) of the volume. The service dynamically adjusts the `maxfiles` limit for a volume based on its provisioned size and uses the following guidelines.
 
 - For regular volumes less than or equal to 683 GiB, the default `maxfiles` limit is 21,251,126.
 - For regular volumes greater than 683 GiB, the default `maxfiles` limit is approximately one file (or inode) per 32 KiB of allocated volume capacity up to a maximum of 2,147,483,632.
@@ -52,9 +52,9 @@ To see the `maxfiles` allocation for a specific volume size, check the **Maximum
 When the `maxfiles` limit is reached, clients receive "out of space" messages when attempting to create new files or folders. Adjusting your quota based on this information can create greater inode availability. 
 
 >[!NOTE]
->If you want to increase the `maxfiles` limit for a volume, you must increase the volume's size. If your volume is at the [maximum size](azure-netap-files-resource-limits.md) and still need to increase the `maxfiles` limit, contact Microsoft technical support.
+>If you want to increase the `maxfiles` limit for a volume, you must increase the volume's size. If your volume is at the [maximum size](azure-netapp-files-resource-limits.md) and you still need to increase the `maxfiles` limit, contact Microsoft technical support.
 
-You can't set `maxfiles` limits for data protection volumes via a quota request. Azure NetApp Files automatically increases the `maxfiles` limit of a data protection volume to accommodate the number of files replicated to the volume. When a failover happens on a data protection volume, the `maxfiles` limit remains the last value before the failover. In this situation, you can submit a `maxfiles` [quota request](azure-netapp-files-resource-limits.md#request-limit-increase) for the volume.
+You can't set `maxfiles` limits for data protection volumes with a quota request. Azure NetApp Files automatically increases the `maxfiles` limit of a data protection volume to accommodate the number of files replicated to the volume. When a failover happens on a data protection volume, the `maxfiles` limit remains the last value before the failover. In this situation, you can submit a `maxfiles` [quota request](azure-netapp-files-resource-limits.md#request-limit-increase) for the volume.
 
 ## Next steps
 
