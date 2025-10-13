@@ -153,4 +153,4 @@ The investigation section enables exploration and troubleshooting, offering addi
 ## Next steps
 
 - Learn more about [Azure Firewall Diagnostics](firewall-diagnostics.md)
-- Learn how to [Track rule set changes](ruleset-change-tracking.md) using Azure Resource Graph
+- Learn how to [Track rule set changes](rule-set-change-tracking.md) using Azure Resource Graph

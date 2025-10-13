@@ -73,7 +73,7 @@ Use the following best practices for testing and monitoring:
 - **Add alerts to key metrics**
    - In addition to regular monitoring, it's crucial to set up alerts for key firewall metrics. This ensures that you're promptly notified when specific metrics surpass predefined thresholds. To configure alerts, see [Azure Firewall logs and metrics](metrics.md#alert-on-azure-firewall-metrics) for detailed instructions about setting up effective alerting mechanisms. Proactive alerting enhances your ability to respond swiftly to potential issues and maintain optimal firewall performance.
 - **Track configuration changes**
-   - Monitor changes to firewall rules and policies to maintain security compliance and troubleshoot issues. For comprehensive rule set change tracking using Azure Resource Graph, see [Track rule set changes](ruleset-change-tracking.md).
+   - Monitor changes to firewall rules and policies to maintain security compliance and troubleshoot issues. For comprehensive rule set change tracking using Azure Resource Graph, see [Track rule set changes](rule-set-change-tracking.md).
 
 ## Next steps
 

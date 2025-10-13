@@ -137,9 +137,9 @@ networkresourcechanges
 
 For continuous monitoring, consider setting up:
 
-1. **Scheduled queries**: Use Azure Logic Apps or Azure Automation to run queries on a schedule
-2. **Alerts**: Create Azure Monitor alerts based on change patterns
-3. **Reports**: Export results to storage or visualization tools for reporting
+- **Scheduled queries**: Use Azure Logic Apps or Azure Automation to run queries on a schedule
+- **Alerts**: Create Azure Monitor alerts based on change patterns
+- **Reports**: Export results to storage or visualization tools for reporting
 
 ## Best practices
 
