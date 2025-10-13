@@ -40,7 +40,7 @@ Measured in GiB-month of data stored in your GeoCatalog (original plus derived /
 
 Operations are read operations for data that is stored in the managed storage inside a GeoCatalog resource. Common patterns include:
 * Use the SAS API to read stored assets.
-* Use the Data API to render a tiles based on managed data.,
+* Use the Data API to render a tile based on managed data.
 
 Use of the [STAC API](./stac-overview.md) for querying or searching a catalog isn't considered a read operation. 
 
