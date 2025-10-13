@@ -16,9 +16,9 @@ Previously, key-based access was required for cache storage accounts used by Azu
 
 ## Prerequisites
 Before proceeding, ensure the following:
-* [Enable Managed Identity on the Recovery Services Vault](https://learn.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#enable-the-managed-identity-for-the-vault)
+* [Enable Managed Identity on the Recovery Services Vault](/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#enable-the-managed-identity-for-the-vault)
 
-* [Grant access to Recovery services vault managed identity to read-write to cache account](https://learn.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#grant-required-permissions-to-the-vault)
+* [Grant access to Recovery services vault managed identity to read-write to cache account](/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints#grant-required-permissions-to-the-vault)
 
 ## Turn off key-based access on storage accounts
 For higher security of Azure storage, we recommend you to turn off of key-based authentication.
@@ -34,4 +34,4 @@ If the vault lacked a managed identity when virtual machines were initially prot
 > Replication continues without interruption if prerequisites are completed before disabling key-based access. Don't disable and re-enable protection for existing VMs or servers after completing prerequisites.
 
 ## Related content
-- [Disable shared key authorization on cache accounts](https://learn.microsoft.com/azure/storage/common/shared-key-authorization-prevent?tabs=portal#disable-shared-key-authorization)
+- [Disable shared key authorization on cache accounts](/azure/storage/common/shared-key-authorization-prevent?tabs=portal#disable-shared-key-authorization)
