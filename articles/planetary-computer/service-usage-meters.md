@@ -47,7 +47,7 @@ Use of the [STAC API](./stac-overview.md) for querying or searching a catalog is
 
 ### Ingestion & Transformation
 
-Measured in vCPU-hours consumed while ingesting and transforming source data (including optimization to formats such as COGs). Consumption varies with data volume and the format of the data. 
+A virtual CPU (vCPU) hour reflects how much processing power the service spent on your ingestion job. While data is being ingested and transformed, Microsoft Planetary Computer Pro tracks the CPU time consumed by the workers that run your job inside its managed environment. It adds up every second of CPU usage from those workers, converts the total into hours, and reports that number as vCPU-hours for billing.
 
 To estimate your vCPU-hours, choose a data type similar to the one you plan to ingest:
  
@@ -60,9 +60,11 @@ To estimate your vCPU-hours, choose a data type similar to the one you plan to i
 
 To estimate your vCPU-hours, select a data type that's similar to the one you plan on ingesting, and multiply the **Representative vCPU-hours/GiB**  value by the number of gigabytes of data you intend to ingest. 
 
-> [!EXAMPLE]
->Suppose you're ingesting 250 GiB of [National Aerial Imagery Program](./data-visualization-samples.md#the-national-agriculture-imagery-program-collection-configuration) (NAIP) data already in Cloud Optimized GeoTIFF (COG) format. Using the representative value of 0.030 vCPU/GiB from the table:
-> $250 \text{ GiB} \times 0.030 \frac{\text{vCPU-hour}}{\text{GiB}} = 7.5 \text{ vCPU-hours}$
+**Example:** Suppose you're ingesting 250 GiB of [National Aerial Imagery Program](./data-visualization-samples.md#the-national-agriculture-imagery-program-collection-configuration) (NAIP) data already in Cloud Optimized GeoTIFF (COG) format. Using the representative value of 0.030 vCPU/GiB from the table:
+
+$$
+250 \text{ GiB} \times 0.030 \frac{\text{vCPU-hour}}{\text{GiB}} = 7.5 \text{ vCPU-hours}
+$$
 
 
 ### Bandwidth
