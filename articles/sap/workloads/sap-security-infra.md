@@ -105,140 +105,137 @@ Defender for Key Vault is recommended to alert if suspicious activity occurs on 
 
 Operating System patching is one key layer in a secure solution. It isn't possible to consistently and reliably update VMs at scale manually without the use of patch management tools. Azure Update Manager should be used to accelerate and automate this process [Azure Update Manager overview | Microsoft Learn](https://learn.microsoft.com/en-us/azure/update-manager/overview)
 
-[!NOTE] Linux kernel hotpatching has restrictions when the target VMs are running Defender for Endpoint. Review the Defender for Endpoint for SAP documentation. Linux patching requiring OS reboot should be handled manually on Pacemaker systems. 
+[!NOTE] 
+Linux kernel hotpatching has restrictions when the target VMs are running Defender for Endpoint. Review the Defender for Endpoint for SAP documentation. Linux patching requiring OS reboot should be handled manually on Pacemaker systems. 
 
-The Microsoft Secure Score should be used to monitor status of a landscape Microsoft Secure Score for Devices - Microsoft Defender Vulnerability Management | Microsoft Learn
+The Microsoft Secure Score should be used to monitor status of a landscape [Microsoft Secure Score for Devices - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/en-us/defender-vulnerability-management/tvm-microsoft-secure-score-devices)
 
-Suse, Redhat, and Oracle Linux 
-Azure security baseline for Virtual Machines - Linux Virtual Machines | Microsoft Learn.
-The 18 CIS Critical Security Controls
-CIS Benchmarks®
-Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15 GA and SP1.
-Security hardening guide for SAP HANA | Red Hat Enterprise Linux for SAP Solutions | 9 | Red Hat Documentation.
+### Suse, Redhat, and Oracle Linux 
+[Azure security baseline for Virtual Machines - Linux Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-machines-linux-virtual-machines-security-baseline)
+[The 18 CIS Critical Security Controls](https://www.cisecurity.org/controls/cis-controls-list)
+[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)
+[Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15 GA and SP1](https://documentation.suse.com/sbp/sap-15/html/OS_Security_Hardening_Guide_for_SAP_HANA_SLES15/index.html)
+[Security hardening guide for SAP HANA | Red Hat Enterprise Linux for SAP Solutions | 9 | Red Hat Documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/security_hardening_guide_for_sap_hana/index)
 High priority items for Linux Operating Systems include:
 •	Generation 2 VMs with Secure Boot 
 •	Don't allow third Party Repositories (supply chain attack)
 •	Use Keys and disable password sign-in in sshd_config 
-•	Use Managed Identify for Pacemaker not SPN Azure SAP Pacemaker MSI SPN
+•	Use Managed Identify for Pacemaker not SPN [Azure SAP Pacemaker MSI SPN](https://techcommunity.microsoft.com/blog/sapapplications/sap-on-azure-high-availability-%E2%80%93-change-from-spn-to-msi-for-pacemaker-clusters-u/3609278)
 •	Disable root sign-in 
-It's supported to use SELinux with modern RHEL releases. Microsoft doesn't provide support for SELinux and careful testing is required 3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9 - SAP for Me
+It's supported to use SELinux with modern RHEL releases. Microsoft doesn't provide support for SELinux and careful testing is required [3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302/E)
 
-Windows Operating System
-Azure security baseline for Virtual Machines - Windows Virtual Machines | Microsoft Learn
+### Windows Operating System
+[Azure security baseline for Virtual Machines - Windows Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-machines-windows-virtual-machines-security-baseline)
 High priority items for Windows Operating System include:
 •	Generation 2 VMs with Secure Boot 
 •	Minimize the installation of any 3rd party software 
 •	Configure Windows Firewall with minimal open ports via Group Policy 
-•	SMB Encryption enforced via Group Policy Configure the SMB client to require encryption in Windows | Microsoft Learn
-•	After installation, lock the <sid>adm username as per SAPService<SID> account denied interactive sign-in (default) and <sid>adm account disabled (but not deleted). Review 1837765 - Security policies for <SID>adm and SAPService<SID> on Windows - SAP for Me
+•	SMB Encryption enforced via Group Policy [Configure the SMB client to require encryption in Windows | Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/storage/file-server/configure-smb-client-require-encryption?tabs=group-policy)
+•	After installation, lock the <sid>adm username as per SAPService<SID> account denied interactive sign-in (default) and <sid>adm account disabled (but not deleted). Review [1837765 - Security policies for <SID>adm and SAPService<SID> on Windows](https://me.sap.com/notes/1837765/E)
 •	Configure Windows Group Policy to clear last user name, on permit AD authenticated sign-in (mitigates against cloning attack) and disable legacy TLS and SMB protocols 
 
 Other links for Windows: 
-Windows Server Security documentation | Microsoft Learn
+[Windows Server Security documentation | Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/security/security-and-assurance)
 https://aka.ms/ws2025securitybook 
-7.	Azure Infrastructure Platform Security 
+
+## 7.	Azure Infrastructure Platform Security 
 
 Azure infrastructure security configuration can be enhanced to reduce or eliminate attack vectors.
 
-Generation 2 VM and Trusted Launch 
-It's recommended to only deploy Generation 2 VMs and to activate Trusted Launch. Note only recent versions of Suse 15 support Trusted Launch. Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn
-Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn
-Improve the security of Generation 2 VMs via Trusted Launch in Azure DevTest Labs | Develop from the cloud
+#### Generation 2 VM and Trusted Launch 
+It's recommended to only deploy Generation 2 VMs and to activate Trusted Launch. 
 
-The conversion from Gen1 to Gen2 can be a little complex especially for Windows OS.   It's recommended to only deploy Gen2 Trusted Launch VMs by default. Upgrade Gen1 VMs to Trusted launch - Azure Virtual Machines | Microsoft Learn
-The list of Azure VMs supported Trusted Launch is listed here: Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn
+[!NOTE] 
+Note only recent versions of Suse 15 support Trusted Launch. [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#operating-systems-supported)
 
-Defender for Cloud can monitor Trusted Launch. Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn
+[Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch)
+[Improve the security of Generation 2 VMs via Trusted Launch in Azure DevTest Labs | Develop from the cloud](https://devblogs.microsoft.com/develop-from-the-cloud/improve-the-security-of-generation-2-vms-via-trusted-launch-in-azure-devtest-labs/)
 
-Encryption in Transit for Azure Files NFS & SMB 
+The conversion from Gen1 to Gen2 can be a little complex especially for Windows OS.   It's recommended to only deploy Gen2 Trusted Launch VMs by default. [Upgrade Gen1 VMs to Trusted launch - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch-existing-vm-gen-1?tabs=windows%2Cpowershell)
+The list of Azure VMs supported Trusted Launch is listed here [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#virtual-machines-sizes)
+
+Defender for Cloud can monitor Trusted Launch. [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#microsoft-defender-for-cloud-integration)
+
+#### Encryption in Transit for Azure Files NFS & SMB 
 Azure Files NFS traffic can be encrypted to protect against packet tracing and other threats.  
-How to Encrypt Data in Transit for NFS shares | Microsoft Learn. 
-Azure Files NFS Encryption In Transit for SAP on Azure Systems | Microsoft Community Hub.
-Azure Files SMB supports Encryption in Transit by default SMB file shares in Azure Files | Microsoft Learn.
+[How to Encrypt Data in Transit for NFS shares | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/files/encryption-in-transit-for-nfs-shares?tabs=Ubuntu) 
+[Azure Files NFS Encryption In Transit for SAP on Azure Systems | Microsoft Community Hub](https://techcommunity.microsoft.com/blog/sapapplications/azure-files-nfs-encryption-in-transit-for-sap-on-azure-systems/4426918)
+Azure Files SMB supports Encryption in Transit by default [SMB file shares in Azure Files | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/files/files-smb-protocol?tabs=azure-portal#security)
 
-Encryption at Host (HBE)
+#### Encryption at Host (HBE)
 Currently customers should contact Microsoft to verify M-series VMs have the latest drivers required for Encryption at Host. M-series v3, D series, and E series VMs can use Encryption at Host without restriction.
 Encryption at Host is tested with SAP and can be used without restriction on modern Azure VMs.  The overhead is around 2%.
-Server-side encryption of Azure managed disks - Azure Virtual Machines | Microsoft Learn.
-Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn.
+[Server-side encryption of Azure managed disks - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+[Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview#comparison)
 
-Storage Account Encryption 
-Storage Accounts use either Platform Managed Keys (PMK) or Customer Managed Keys (CMK). Both are fully supported with SAP applications.   Azure Storage encryption for data at rest | Microsoft Learn.
-Customer Managed Keys within one tenant or across tenants is supported Use a disk encryption set across Microsoft Entra tenants - Azure Virtual Machines | Microsoft Learn.
+#### Storage Account Encryption 
+Storage Accounts use either Platform Managed Keys (PMK) or Customer Managed Keys (CMK). Both are fully supported with SAP applications.   [Azure Storage encryption for data at rest | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption)
+Customer Managed Keys within one tenant or across tenants is supported Use a disk encryption set across [Microsoft Entra tenants - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-cross-tenant-customer-managed-keys?tabs=azure-portal)
 
-Double Encryption at rest can be used for highly secure SAP systems Enable double encryption at rest for managed disks - Azure Virtual Machines | Microsoft Learn  (not supported on Ultra or Premium SSD v2). 
-A comparison of Disk Encryption technologies can be found here Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn. Azure Disk Encryption isn't supported for SAP systems.  
+Double Encryption at rest can be used for highly secure SAP systems [Enable double encryption at rest for managed disks - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal?tabs=portal)  (not supported on Ultra or Premium SSD v2). 
+A comparison of Disk Encryption technologies can be found here [Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview#comparison) Azure Disk Encryption isn't supported for SAP systems.  
 
-Virtual Network Encryption 
+#### Virtual Network Encryption 
 Virtual Network Encryption doesn't support private endpoints currently. Virtual Network Encryption is currently used for specific high security scenarios.  
-What is Azure Virtual Network encryption? - Azure Virtual Network | Microsoft Learn
+[What is Azure Virtual Network encryption? - Azure Virtual Network | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview)
 
-Intel Total Memory Encryption (TME)
-Modern Azure VMs automatically use the TME-MK feature built into modern CPUs. High security customers should use modern VMs and contact Microsoft directly for confirmation that all VM types supported TME.  For more information Runtime Encryption of Memory with Intel® Total Memory... 
-
-
-Azure Automation account for Azure Site Recovery Agent updates.  
-Review the latest documentation for Azure Site Recovery to configure the Azure Automation user account required for Azure Site Recovery Agent updates from a 'Contributor' to a lower security context. More information can be found Azure Site Recovery documentation | Microsoft Learn
+#### Intel Total Memory Encryption (TME)
+Modern Azure VMs automatically use the TME-MK feature built into modern CPUs. High security customers should use modern VMs and contact Microsoft directly for confirmation that all VM types supported TME.  For more information [Runtime Encryption of Memory with Intel® Total Memory](https://www.intel.com/content/www/us/en/developer/articles/news/runtime-encryption-of-memory-with-intel-tme-mk.html) 
 
 
+#### Azure Automation account for Azure Site Recovery Agent updates.  
+Review the latest documentation for Azure Site Recovery to configure the Azure Automation user account required for Azure Site Recovery Agent updates from a 'Contributor' to a lower security context. More information can be found [Azure Site Recovery documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/site-recovery/)
 
-
-Remove Public Endpoints 
+#### Remove Public Endpoints 
 Public endpoints for Azure objects such as storage accounts and Azure Files should be removed
-Use private endpoints - Azure Storage | Microsoft Learn
-Set the default public network access rule: Azure Storage | Microsoft Learn
+[Use private endpoints - Azure Storage | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints) 
+[Set the default public network access rule: Azure Storage | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security-set-default-access?tabs=azure-portal)
 
-DNS hijacking and Subdomain Takeover  
-Prevent subdomain takeovers with Azure DNS alias records and Azure App Service's custom domain verification | Microsoft Learn.
-In addition Defender for DNS can be used to protect against Malware/RAT command and control targets and other protections Microsoft Defender for DNS - the benefits and features - Microsoft Defender for Cloud | Microsoft Learn.
+#### DNS hijacking and Subdomain Takeover  
+[Prevent subdomain takeovers with Azure DNS alias records and Azure App Service's custom domain verification | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/subdomain-takeover)
+In addition Defender for DNS can be used to protect against Malware/RAT command and control targets and other protections [Microsoft Defender for DNS - the benefits and features - Microsoft Defender for Cloud | Microsoft Learn](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-dns-introduction)
 
-Azure Bastion 
-System Administrator’s workstations can be infected with Malware such as Key loggers. Azure Bastion is generally recommended Azure Bastion documentation | Microsoft Learn
+#### Azure Bastion 
+System Administrator’s workstations can be infected with Malware such as Key loggers. Azure Bastion is generally recommended [Azure Bastion documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/bastion/)
 
 
-8.	Ransomware Protection 
+## 8.	Ransomware Protection 
 
 The Azure platform includes powerful ransomware protection features.  
 It's recommended to use the Azure Immutable Backup Vault to prevent Ransomware or other trojans from encrypting backups. Azure offers WORM storage for this purpose.  
-Azure Backup for SAP Hana and SQL Server can write to Azure Blob Storage  Azure backup and restore plan to protect against ransomware | Microsoft Learn. It's possible to configure storage to require a PIN code or MFA before any modification can be performed on backups.  
-It's possible to configure fully SEC 17a-4(f) Locked Immutable storage polices. Configure immutability policies for containers - Azure Storage | Microsoft Learn
-It's recommended to review these steps and select the appropriate measures Azure backup and restore plan to protect against ransomware | Microsoft Learn
+[Azure Backup for SAP Hana and SQL Server can write to Azure Blob Storage  Azure backup and restore plan to protect against ransomware | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/backup-plan-to-protect-against-ransomware#azure-backup) It's possible to configure storage to require a PIN code or MFA before any modification can be performed on backups.  
+It's possible to configure fully SEC 17a-4(f) Locked Immutable storage polices. [Configure immutability policies for containers - Azure Storage | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy)
+It's recommended to review these steps and select the appropriate measures [Azure backup and restore plan to protect against ransomware | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/backup-plan-to-protect-against-ransomware#steps-to-take-before-an-attack)
 Further links: 
-•	Concept of Immutable vault for Azure Backup - Azure Backup | Microsoft Learn 
-•	Azure security fundamentals documentation | Microsoft Learn
-•	Microsoft Digital Defense Report and Security Intelligence Insights
+•	[Concept of Immutable vault for Azure Backup - Azure Backup | Microsoft Learn](https://learn.microsoft.com/en-us/azure/backup/backup-azure-immutable-vault-concept?tabs=recovery-services-vault)
+•	[Azure security fundamentals documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/)
+•	[Microsoft Digital Defense Report and Security Intelligence Insights](https://www.microsoft.com/en-us/security/business/security-intelligence-report?msockid=343d619786f36e041990740887e36ff0)
 Microsoft also offers support and consulting services for security related topics 
-https://www.microsoft.com/en-us/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/
-Microsoft provides tools to remove ransomware and other Malware from Windows https://learn.microsoft.com/en-us/defender-endpoint/safety-scanner-download
-https://www.microsoft.com/en-us/download/details.aspx?id=9905
-https://learn.microsoft.com/en-us/azure/backup/protect-backups-from-ransomware-faq
+[DART: the Microsoft cybersecurity team we hope you never meet | Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/)
+Microsoft provides tools to remove ransomware and other Malware from Windows [Microsoft Safety Scanner Download - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/en-us/defender-endpoint/safety-scanner-download) 
+
+[Windows Malicious Software Removal Tool 64-bit](https://www.microsoft.com/en-us/download/details.aspx?id=9905)
+[FAQ - Protect backups from Ransomware with Azure Backup - Azure Backup | Microsoft Learn](https://learn.microsoft.com/en-us/azure/backup/protect-backups-from-ransomware-faq)
  
-Further recommendations for large organizations include segregation of duties. For example, the SAP Administrators and Server Administrators should only have Read Only access to the Backup Vault. Multiuser Authorization and Resource Guard can be implemented to protect against rouge administrators and ransomware Configure Multi-user authorization using Resource Guard - Azure Backup | Microsoft Learn
+Further recommendations for large organizations include segregation of duties. For example, the SAP Administrators and Server Administrators should only have Read Only access to the Backup Vault. Multiuser Authorization and Resource Guard can be implemented to protect against rouge administrators and ransomware [Configure Multi-user authorization using Resource Guard - Azure Backup | Microsoft Learn](https://learn.microsoft.com/en-us/azure/backup/multi-user-authorization?tabs=azure-portal&pivots=vaults-recovery-services-vault)
 
- Extra protection from Ransomware can be achieved by deploying Azure Firewall Premium Improve your security defenses for ransomware attacks with Azure Firewall Premium | Microsoft Learn
-
-
-
+ Extra protection from Ransomware can be achieved by deploying [Azure Firewall Premium Improve your security defenses for ransomware attacks with Azure Firewall Premium | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/ransomware-protection-with-azure-firewall)
 
 9.	Unsupported Technologies 
 
 Azure Disk Encryption (ADE) isn't supported for SAP solutions. RHEL and SLES Linux images for SAP applications are considered to be 'custom images' and aren't tested or supported. Azure Encryption at Host is typically used for customers with a requirement for at rest encryption. 
-Azure Disk Encryption is now a deprecated feature Azure updates | Microsoft Azure
+Azure Disk Encryption is now a deprecated feature [Azure updates | Microsoft Azure](https://azure.microsoft.com/en-us/updates?id=493779)
 
 10.	SAP Security Notes 
 SAP release information about vulnerabilities in their products on the second Tuesday of every month.  
 Vulnerabilities with a CVE score between 9.0 and 10 are severe and should be immediately mitigated.
-Entry point for SAP Security Notes https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html 
-Second Tuesday of every month SAP release Security Notes https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html?anchorId=section_370125364  
-Searchable database of Security Notes https://me.sap.com/app/securitynotes 
-
-
-
+Entry point for [SAP Security Notes](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html)  
+Second Tuesday of every month [SAP release Security Notes](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html?anchorId=section_370125364) 
+Searchable [database of Security Notes](https://me.sap.com/app/securitynotes ) 
 
 11.	Links 
 
 Azure security fundamentals documentation | Microsoft Learn
-
 MDE for SAP on Linux 
 MDE for SAP on Windows – Note DLP update
 Azure Encryption Comparison Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn
@@ -250,7 +247,7 @@ Microsoft Purview classic data governance best practices for security - Microsof
 
 
 Azure Bastion documentation | Microsoft Learn
-Runtime Encryption of Memory with Intel® Total Memory...
+Runtime Encryption of Memory with Intel® Total Memory.
 https://learn.microsoft.com/en-us/azure/security/fundamentals/ 
 SAP HANA Database Encryption - SAP Community
 3345490 - Common Criteria Compliance FAQ - SAP for Me
