@@ -46,7 +46,6 @@ This documentation provides a basic deployment pattern covering a minimum securi
 12.	Stronger Segregation of Duties between SAP Basis, Backup, Server Team, and Security/Key Management.  
 
 ## 1.	Defender for Endpoint 
-
 Defender for Endpoint is the only comprehensive Antivirus (AV) and Endpoint Detection and Response (EDR) solution that is comprehensively benchmarked and tested with SAP Benchmarking tools and documented for SAP workloads. 
 Defender for Endpoint should be deployed on all NetWeaver, S4HANA, Hana, and AnyDB servers without exception. The deployment guidance for Defender fully covers the correct deployment and configuration of Defender for Endpoint for SAP applications.
 [Deployment guidance for Microsoft Defender for Endpoint on Linux for SAP - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-deployment-on-sap)
@@ -66,7 +65,6 @@ Microsoft Secure Score and Vulnerability Management is discussed in the Operatin
 Microsoft Sentinel SIEM/SOAR solution has a connector for SAP. SAP application specific signals such as user logons and access to sensitive transactions can be monitored and corelated with other SIEM/SOAR signals, such as network access and data exfiltration.  
 [Microsoft Sentinel solution for SAP applications overview | Microsoft Learn](https://learn.microsoft.com/en-us/azure/sentinel/sap/solution-overview)
 [140 - The one with Microsoft Sentinel for SAP (Yoav Daniely, Yossi Hasson & Martin Pankraz, Sebastian Ullrich - YouTube](https://www.youtube.com/watch?v=uVsrqCoVWlI)
-
 
 ## 4.	Database Level Encryption – TDE and Backup Encryption 
 It is recommended to enable Transparent Database Encryption (TDE) for all DBMS running SAP applications on Azure. Testing shows that the performance overhead is between zero to two percent. The advantages of TDE far outweigh the disadvantages. Most DBMS platforms create encrypted backups if the database is TDE enabled mitigating one common attack vector, theft of backups. 
@@ -89,7 +87,6 @@ Db2 native encryption - IBM Documentation.
 IBM DB2 and Thales Luna HSMs - Integration Guide | Thales
 
 ## 5.	Key Management – Azure Key Vault and HSM 
-
 Azure supports two solutions for Key Management:
 1.	Azure Key Vault – a native Azure service that provides Key Management services (non PKCS#11 compliant) 
 2.	Azure Cloud HSM – a hardware level PKCS#11 FIPS 140-3 Level 3 single tenant solution
@@ -102,7 +99,6 @@ Defender for Key Vault is recommended to alert if suspicious activity occurs on 
 
 
 ## 6.	Operating System Level Hardening 
-
 Operating System patching is one key layer in a secure solution. It isn't possible to consistently and reliably update VMs at scale manually without the use of patch management tools. Azure Update Manager should be used to accelerate and automate this process [Azure Update Manager overview | Microsoft Learn](https://learn.microsoft.com/en-us/azure/update-manager/overview)
 
 [!NOTE] 
@@ -139,7 +135,6 @@ Other links for Windows:
 https://aka.ms/ws2025securitybook 
 
 ## 7.	Azure Infrastructure Platform Security 
-
 Azure infrastructure security configuration can be enhanced to reduce or eliminate attack vectors.
 
 #### Generation 2 VM and Trusted Launch 
@@ -182,7 +177,6 @@ Virtual Network Encryption doesn't support private endpoints currently. Virtual 
 #### Intel Total Memory Encryption (TME)
 Modern Azure VMs automatically use the TME-MK feature built into modern CPUs. High security customers should use modern VMs and contact Microsoft directly for confirmation that all VM types supported TME.  For more information [Runtime Encryption of Memory with Intel® Total Memory](https://www.intel.com/content/www/us/en/developer/articles/news/runtime-encryption-of-memory-with-intel-tme-mk.html) 
 
-
 #### Azure Automation account for Azure Site Recovery Agent updates.  
 Review the latest documentation for Azure Site Recovery to configure the Azure Automation user account required for Azure Site Recovery Agent updates from a 'Contributor' to a lower security context. More information can be found [Azure Site Recovery documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/site-recovery/)
 
@@ -200,7 +194,6 @@ System Administrator’s workstations can be infected with Malware such as Key l
 
 
 ## 8.	Ransomware Protection 
-
 The Azure platform includes powerful ransomware protection features.  
 It's recommended to use the Azure Immutable Backup Vault to prevent Ransomware or other trojans from encrypting backups. Azure offers WORM storage for this purpose.  
 [Azure Backup for SAP Hana and SQL Server can write to Azure Blob Storage  Azure backup and restore plan to protect against ransomware | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/backup-plan-to-protect-against-ransomware#azure-backup) It's possible to configure storage to require a PIN code or MFA before any modification can be performed on backups.  
@@ -222,7 +215,6 @@ Further recommendations for large organizations include segregation of duties. F
  Extra protection from Ransomware can be achieved by deploying [Azure Firewall Premium Improve your security defenses for ransomware attacks with Azure Firewall Premium | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/ransomware-protection-with-azure-firewall)
 
 9.	Unsupported Technologies 
-
 Azure Disk Encryption (ADE) isn't supported for SAP solutions. RHEL and SLES Linux images for SAP applications are considered to be 'custom images' and aren't tested or supported. Azure Encryption at Host is typically used for customers with a requirement for at rest encryption. 
 Azure Disk Encryption is now a deprecated feature [Azure updates | Microsoft Azure](https://azure.microsoft.com/en-us/updates?id=493779)
 
