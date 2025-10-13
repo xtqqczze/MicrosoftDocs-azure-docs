@@ -7,12 +7,12 @@ ms.devlang: python
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 10/07/2025
 ---
 
 # Roll out features to targeted audiences in a Python application
 
-In this guide, you'll use a targeting filter to roll out a feature to targeted audiences for your Python application. For more information about this targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
+In this guide, you use a targeting filter to roll out a feature to targeted audiences for your Python application. For more information about this targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ In this section, you create a web application that uses the [_Beta_ feature flag
 
 ### Set up a Python Flask project
 
-1. Create a folder called `targeting-filter-tutorial` and initialize the project.
+1. Create a folder called `targeting-filter-tutorial` and navigate to it.
 
     ```bash
     mkdir targeting-filter-tutorial
@@ -68,7 +68,7 @@ In this section, you create a web application that uses the [_Beta_ feature flag
 
 ### Connect to Azure App Configuration
 
-1. Update the _app.py_ and add the following code.
+1. Update _app.py_ and add the following code.
 
     ```python
     from flask import Flask
@@ -82,7 +82,7 @@ In this section, you create a web application that uses the [_Beta_ feature flag
     # Get the App Configuration endpoint from environment variables
     app_config_endpoint = os.environ.get("AZURE_APPCONFIG_ENDPOINT")
 
-    # Initialize the App Configuration and Feature Manager
+    # Declare App Configuration and feature manager variables
     azure_app_config = None
     feature_manager = None
     
@@ -226,7 +226,7 @@ def home():
 
 ## Next steps
 
-To learn more about the feature filters, continue to the following documents.
+To learn more about feature filters, continue to the following documents.
 
 > [!div class="nextstepaction"]
 > [Enable conditional features with feature filters](./howto-feature-filters.md)
