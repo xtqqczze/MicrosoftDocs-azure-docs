@@ -28,7 +28,7 @@ When a STAC Item containing NetCDF or HDF5 assets is ingested, the assets are cl
 
 ### Cloud optimization via Kerchunk manifests  
 
-Unlike 2D raster data that is transformed into cloud optimized geotiffs when ingested into Planetary Computer Pro, data cube assets are optimized by generation of reference files, or Kerchunk manifests. Kerchunk is an open-source Python library that creates these chunk manifests, or JSON files that describe the structure of the data cube and its chunks using Zarr-style chunk keys that map to the byte ranges in the original file where those chunks reside. Once generated, the Kerchunk files are stored in blob storage alongside the assets, and the STAC items are enriched to include references to these manifests, optimizing data access for cloud environments.
+Unlike 2D raster data that is transformed into Cloud Optimized Geotiffs (COGs) when ingested into Planetary Computer Pro, data cube assets are optimized by generation of reference files, or Kerchunk manifests. [Kerchunk](https://fsspec.github.io/kerchunk/) is an open-source Python library that creates these chunk manifests, or JSON files that describe the structure of the data cube and its chunks using Zarr-style chunk keys that map to the byte ranges in the original file where those chunks reside. Once generated, the Kerchunk files are stored in blob storage alongside the assets, and the STAC items are enriched to include references to these manifests, optimizing data access for cloud environments.
 
 ### STAC item properties that trigger cloud optimization
 
