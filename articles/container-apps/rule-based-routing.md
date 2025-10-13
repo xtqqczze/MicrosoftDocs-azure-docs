@@ -1,17 +1,17 @@
 ---
-title: Use rule-based routing in Azure Container Apps
+title: Use rule-based routing in Azure Container Apps (preview)
 description: Learn how to use rule-based routing in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: tutorial
-ms.date: 10/13/2025
+ms.date: 04/16/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-bicep
 ---
 
-# Use rule-based routing with Azure Container Apps
+# Use rule-based routing with Azure Container Apps (preview)
 
 In this article, you learn how to use rule-based routing with Azure Container Apps. With rule-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests for this FQDN to different container apps, depending on the path of each request.
 
