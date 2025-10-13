@@ -128,4 +128,4 @@ To disable soft delete for file shares using the ARM client, follow these steps:
 
 ## Related content
 
-[Frequently asked questions for Azure Backup Soft Delete for Azure Files](soft-delete-azure-file-share.md#frequently-asked-questions-azure-backup-soft-delete-for-azure-files)
+[Frequently asked questions for Azure Backup Soft Delete for Azure Files](../soft-delete-azure-file-share.md#frequently-asked-questions-azure-backup-soft-delete-for-azure-files)
