@@ -12,7 +12,8 @@ ms.author: anfdocs
 
 With Azure NetApp Files object REST API, you can use [OneLake shortcuts](/fabric/onelake/onelake-shortcuts) to virtualize Azure NetApp Files into Microsoft Fabric's unified data lake. With this shortcut, Azure AI search can index and retrieve data directly from Azure NetApp Files for semantic search and vector-based retrieval with intelligent applications. 
 
-Sensitive information is protected through Microsoft Virtual Networks and Azure NetApp Files robust security protocols when you create the OneLake shortcut. A virtual data lake design approach simplifies data sharing across Azure's Data and AI services, improving collaboration.  
+Sensitive information is protected through Microsoft Virtual Networks and Azure NetApp Files robust security protocols when you create the OneLake shortcut. A virtual data lake design approach simplifies data sharing across Azure's Data and AI services, improving collaboration. 
+
 ## Before you begin 
 
 - You must have created an [Azure NetApp Files object REST API-enabled volume](object-rest-api-access-configure.md).
@@ -40,5 +41,5 @@ After connecting to OneLake, you can connect a volume to [Azure AI Search](/azur
 
 * [Understand object REST API](object-rest-api-introduction.md)
 * [Configure object REST API access in Azure NetApp Files](object-rest-api-access-configure.md)
-* [OneLake shortcuts](/fabric/onelake//onelake-shortcuts)
+* [OneLake shortcuts](/fabric/onelake/onelake-shortcuts)
 * [What is an on-premises data gateway?](/data-integration/gateway/service-gateway-onprem)

@@ -19,11 +19,11 @@ You must install a certificate on your machine before accessing the bucket with 
 Before accessing your object REST API-enabled volume with an S3-compatible client, you must install the certificate. 
 
 1. Open the Edge browser on your client system and navigate your bucket's URL: `https://<your-bucket-endpoint-IP-or-FQDN>`.
-1. Select the lock icon in the address bar the select **Certificate (Valid)**.
-1. In the certificate dialog, select the **Detail tab** then **Copy to file (or Export**). Follow the steps in the export wizard, ensuring you choose the DER encoded binary X.509 (.CER) format. Save the .CER file to your local machine. 
+1. Select the lock icon in the address bar then select **Certificate (Valid)**.
+1. In the certificate dialog, select the **Detail tab** then **Copy to file (or Export)**. Follow the steps in the export wizard, ensuring you choose the DER encoded binary X.509 (.CER) format. Save the .CER file to your local machine. 
 1. To install the certificate, select the .CER file on your local machine. 
 1. In the Certificate window, select **Install Certificate**. In the installation wizard, choose **Local machine** as your installation destination. Note that this requires administrator privileges.
-    In the Certificate Store screen, select **Place all certificates in the following store** then **Browse** and choose **Trusted Root Certification Authorities**
+    In the Certificate Store screen, select **Place all certificates in the following store** then **Browse** and choose **Trusted Root Certification Authorities**.
 1. When you complete the steps in the installation wizard, a dialog confirms the certificate was installed successfully. 
 
 ## Access files with S3 Browser
@@ -37,20 +37,9 @@ Before accessing your object REST API-enabled volume with an S3-compatible clien
     * **Secret access key**: Use corresponding secret key from when you generated the bucket.
     * Select **Encrypt Access Keys with a Password** and **Use secure transfer (SSL/TLS)**.
 
-1. After adding the account, verify the connection. In the S3 Browser, select your newly added account in the **Accounts** menu. If the connection was succesful, you see your buckets and can manage the objects. 
+1. After adding the account, verify the connection. In the S3 Browser, select your newly added account in the **Accounts** menu. If the connection was successful, you see your buckets and can manage the objects. 
 
 ## Access files with the AWS CLI
-
-1. [Download and install the AWS CLI.](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-1. Verify the AWS CLI installed correctly with the `aws --version` command. If the output displays the AWS CLI version, it has installed correctly. 
-1. Configure your AWS account with the `aws configure` command. When you enter the command, you are required to provide:
-    - AWS access key ID
-    - AWS secret access key 
-    - Default region name (for example, `us-east-1`)
-    - Default output format (for example, JSON)
-1. Verify access to your bucket by listing the files in your bucket with the command `aws s3 ls <S3URI> --endpoint-url <volumeIPAddress>`. If access is configured correctly, the CLI displays a list of files in your bucket. 
-    
-    Refer to the [AWS CLI command reference](https://docs.aws.amazon.com/cli/latest/reference/s3/ls.html) for more information about this command. 
 
 1. Download the AWS CLI:
     * For Windows, [download the Microsoft Software Installer and run it]( https://aws.amazon.com/cli/).
@@ -69,23 +58,24 @@ Before accessing your object REST API-enabled volume with an S3-compatible clien
     * **AWS access key ID** - Use the access key created when you generated the bucket on the NFS volume.
     * **AWS secret access key** - The corresponding secret key from when you generated the bucket.
     * **Default region name**: us-east-1 
-    * **Ouptut**: JSON
+    * **Output**: JSON
     >[!NOTE]
     >When using AWS CLI with Azure NetApp Files buckets, always use us-east-1 as the default region name.
 1. List the buckets:
     ```
-    aws s3 ls -—endpoint-url https://<your-bucket-endpoint-IP-or-FQDN> -—no-verify-ssl
+    aws s3 ls --endpoint-url https://<your-bucket-endpoint-IP-or-FQDN> --no-verify-ssl
     ```
 1. List the objects in a bucket:
     ```
-    aws s3 ls -—endpoint-url [https://<your bucket endpoint IP or FQDN>](https://<your-bucket-endpoint-IP-or-FQDN>) s3://<bucket-name>/ —-no-verify-ssl
+    aws s3 ls --endpoint-url [https://<your-bucket-endpoint-IP-or-FQDN>](https://<your-bucket-endpoint-IP-or-FQDN>) s3://<bucket-name>/ --no-verify-ssl
     ```
 1. Copy an object from a bucket to your local workstation:
     ```
-    aws s3 cp -—endpoint-url https://<your-bucket-endpoint-IP-or-FQDN> s3://<bucket-name>/<object-name> ./<local-object-name> -—no-verify-ssl
+    aws s3 cp --endpoint-url https://<your-bucket-endpoint-IP-or-FQDN> s3://<bucket-name>/<object-name> ./<local-object-name> --no-verify-ssl
     ```
 
 ## More information
 
 * [Configure object REST API](object-rest-api-access-configure.md)
 * [Understand object REST API](object-rest-api-introduction.md)
+* [AWS CLI command reference](https://docs.aws.amazon.com/cli/latest/reference/s3/ls.html)
