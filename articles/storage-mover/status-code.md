@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 03/30/2025
+ms.date: 10/13/2025
 ms.custom: template-how-to
 ---
 
@@ -58,7 +58,7 @@ Each of these scopes further divides statuses into categories and subcategories.
 | <a name="AZSM1031"></a>**AZSM1031** |Failed to resolve target host | Check the network configuration to confirm firewalls, or ACLs aren't blocking access to the storage account endpoint. Use the xdmsh menu option "5) Test single endpoint connectivity" under "2) Network configuration" to verify endpoint reachability. |
 | <a name="AZSM1040"></a>**AZSM1040** |Miscellaneous error while accessing target  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, create a support ticket for further assistance. |
 | <a name="AZSM1041"></a>**AZSM1041** |Failed to send job progress  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, create a support ticket for further assistance. |
-| <a name="AZSM1042"></a>**AZSM1042** |Failed to create job  | This error may occur due to various reasons, such as the agent being unable to reach the storage account endpoint, firewalls, or network ACLs blocking the connection, traffic from the agent being routed over a public IP when a private endpoint is configured on the storage account, or a proxy modifying the certificate. To verify storage account endpoint reachability, use the xdmsh menu option "5) Test single endpoint connectivity" under "2) Network configuration". If the error reported is "x509: certificate signed by unknown authority," it indicates that the on-premises network is intercepting and altering SSL certificates (SSL Interception) for traffic to the required endpoints, causing the Agent not to recognize the received certificates. While adding certificates to the Agent would typically resolve this issue, this feature is currently unsupported. To enable the Agent to access these endpoints, consider whitelisting them to bypass SSL Interception.  |
+| <a name="AZSM1042"></a>**AZSM1042** |Failed to create job  | This error may occur due to various reasons, such as the agent being unable to reach the storage account endpoint, firewalls, or network ACLs blocking the connection, traffic from the agent being routed over a public IP when a private endpoint is configured on the storage account, or a proxy modifying the certificate. To verify storage account endpoint reachability, use the xdmsh menu option "5) Test single endpoint connectivity" under "2) Network configuration". If the error reported is "x509: certificate signed by unknown authority," it indicates that the on-premises network is intercepting and altering SSL certificates (SSL Interception) for traffic to the required endpoints, causing the Agent not to recognize the received certificates. While adding certificates to the Agent would typically resolve this issue, this feature is currently unsupported. To enable the Agent to access these endpoints, consider adding them to the allowlist to bypass SSL Interception.  |
 | <a name="AZSM1043"></a>**AZSM1043** |Failed to resume job  | Retry or create a support ticket. |
 | <a name="AZSM1044"></a>**AZSM1044** |Failed to finalize the job.  | Retry or create a support ticket. |
 | <a name="AZSM1045"></a>**AZSM1045** |Job was aborted while it was still running.  | Retry or create a support ticket. |
