@@ -68,7 +68,9 @@ For more information:
 | Recover system state after BMR on the same hardware | ✅ Yes |
 | Recover system state after BMR on different hardware | ❌ No |
 | Recover system state after non-BMR full restore (same/different hardware) | ❌ No |
-> > This limitation is primarily due to the fact that **system state backups contain hardware-dependent information**, making recovery on different environments technically infeasible.
+
+>[!Note]
+>This limitation is primarily due to the fact that **system state backups contain hardware-dependent information**, making recovery on different environments technically infeasible.
 
 ## Supported deployments
 
