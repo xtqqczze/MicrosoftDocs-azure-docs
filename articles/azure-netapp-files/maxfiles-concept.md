@@ -47,12 +47,12 @@ To see the `maxfiles` allocation for a specific volume size, check the **Maximum
 :::image type="content" source="./media/azure-netapp-files-resource-limits/maximum-number-files.png" alt-text="Screenshot of volume overview menu." lightbox="./media/azure-netapp-files-resource-limits/maximum-number-files.png":::
 
 >[!NOTE]
->The maximum number of files metric is reported against the `maxfiles` account quota limit. The metric in Azure Mmonitor might reflect fewer files than metrics provided by the operating system mounting the volume. This behavior is expected. 
+>The maximum number of files metric is reported against the `maxfiles` account quota limit. The metric in Azure Monitor might reflect fewer files than metrics provided by the operating system mounting the volume. This behavior is expected. 
 
 When the `maxfiles` limit is reached, clients receive "out of space" messages when attempting to create new files or folders. Adjusting your quota based on this information can create greater inode availability. 
 
 >[!NOTE]
->If you want to increase the `maxfiles` limit for a volume, you must increase the volume's size. If you're volume is at the [maximum size](azure-netap-files-resource-limits.md) and still need to increase the `maxfiles` limit, contact Microsoft technical support.
+>If you want to increase the `maxfiles` limit for a volume, you must increase the volume's size. If your volume is at the [maximum size](azure-netap-files-resource-limits.md) and still need to increase the `maxfiles` limit, contact Microsoft technical support.
 
 You can't set `maxfiles` limits for data protection volumes via a quota request. Azure NetApp Files automatically increases the `maxfiles` limit of a data protection volume to accommodate the number of files replicated to the volume. When a failover happens on a data protection volume, the `maxfiles` limit remains the last value before the failover. In this situation, you can submit a `maxfiles` [quota request](azure-netapp-files-resource-limits.md#request-limit-increase) for the volume.
 
