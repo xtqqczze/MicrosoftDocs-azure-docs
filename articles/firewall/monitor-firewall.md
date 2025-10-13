@@ -56,7 +56,9 @@ Below is a sample change output.  
 
 :::image type="content" source="media/monitor-firewall/output.png" alt-text="Screenshot of the output that depicts the change to Azure Firewall Rule Collection Groups.":::
 
-This capability can help you track changes made to your firewall rules helping ensure accountability for a sensitive resource like a firewall.  
+This capability can help you track changes made to your firewall rules helping ensure accountability for a sensitive resource like a firewall.
+
+For comprehensive tracking of rule set changes with detailed queries and examples, see [Track rule set changes](ruleset-change-tracking.md).
 
 ## Structured Azure Firewall logs
 
