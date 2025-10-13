@@ -16,7 +16,7 @@ This article demonstrates how to create an agent and connect it to your resource
 
 ## Preview access
 
-While access to SRE Agent was previously only available to customers via a waitlist, the agent is now available to all customers through the [Azure portal](https://aka.ms/sreagent-portal).
+While access to SRE Agent was previously only available to customers via a waitlist, the agent is now available to all customers through the [Azure portal](https://aka.ms/sreagent/portal).
 
 > [!NOTE]
 > By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -41,7 +41,7 @@ To create an agent, you need to grant your agent the correct permissions and acc
 
 Create an agent by associating resource groups that you want to monitor with the agent:
 
-1. Open the [Azure portal](https://aka.ms/sreagent-portal).
+1. Open the [Azure portal](https://aka.ms/sreagent/portal).
 
 1. Select **Create**.
 

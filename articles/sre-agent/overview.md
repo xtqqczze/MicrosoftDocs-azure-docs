@@ -93,7 +93,7 @@ Keep in mind the following considerations as you use Azure SRE Agent:
 
 ## Preview access
 
-While access to SRE Agent was previously only available to customers via a waitlist, the agent is now available to all customers through the [Azure portal](https://aka.ms/sreagent-portal).
+While access to SRE Agent was previously only available to customers via a waitlist, the agent is now available to all customers through the [Azure portal](https://aka.ms/sreagent/portal).
 
 > [!NOTE]
 > By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
