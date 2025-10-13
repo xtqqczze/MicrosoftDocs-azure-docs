@@ -290,7 +290,7 @@ When you use App Configuration in client applications, ensure that you consider 
 
 To address these concerns, we recommend that you use a proxy service between your client applications and your App Configuration store. The proxy service can securely authenticate with your App Configuration store without a security issue of leaking authentication information. You can build a proxy service by using one of the App Configuration provider libraries, so you can take advantage of built-in caching and refresh capabilities for optimizing the volume of requests sent to App Configuration. For more information about using App Configuration providers, see articles in Quickstarts and Tutorials. The proxy service serves the configuration from its cache to your client applications, and you avoid the two potential issues that are discussed in this section.
 
-It is important to consider that when surfacing configuration to client applications, configuration values will be visible to end users. Care should be taken to avoid unintended exposure of sensitive or internal data. For example, user and group names in feature flag targeting settings may be considered EUII (End User Identifiable Information).
+It is important to consider that, when surfacing configuration to client applications, configuration values will be visible to end users. Care should be taken to avoid unintended exposure of sensitive or internal data. For example, user and group names in feature flag targeting settings may be considered EUII (End User Identifiable Information).
 
 ## Multitenant applications in App Configuration
 
