@@ -212,15 +212,18 @@ Microsoft provides tools to remove ransomware and other Malware from Windows [Mi
 Further recommendations for large organizations include segregation of duties. For example, the SAP Administrators and Server Administrators should only have Read Only access to the Backup Vault. Multiuser Authorization and Resource Guard can be implemented to protect against rouge administrators and ransomware [Configure Multi-user authorization using Resource Guard - Azure Backup | Microsoft Learn](https://learn.microsoft.com/en-us/azure/backup/multi-user-authorization?tabs=azure-portal&pivots=vaults-recovery-services-vault)
 
  Extra protection from Ransomware can be achieved by deploying [Azure Firewall Premium Improve your security defenses for ransomware attacks with Azure Firewall Premium | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/ransomware-protection-with-azure-firewall)
+
 ## 9.	Unsupported Technologies 
 Azure Disk Encryption (ADE) isn't supported for SAP solutions. RHEL and SLES Linux images for SAP applications are considered to be 'custom images' and aren't tested or supported. Azure Encryption at Host is typically used for customers with a requirement for at rest encryption. 
 Azure Disk Encryption is now a deprecated feature [Azure updates | Microsoft Azure](https://azure.microsoft.com/en-us/updates?id=493779)
+
 ## 10.	SAP Security Notes 
 SAP release information about vulnerabilities in their products on the second Tuesday of every month.  
 Vulnerabilities with a CVE score between 9.0 and 10 are severe and should be immediately mitigated.
 Entry point for [SAP Security Notes](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html)  
 Second Tuesday of every month [SAP release Security Notes](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html?anchorId=section_370125364) 
 Searchable [database of Security Notes](https://me.sap.com/app/securitynotes ) 
+
 ## 11.	Links 
 Azure security fundamentals documentation | Microsoft Learn
 MDE for SAP on Linux 
