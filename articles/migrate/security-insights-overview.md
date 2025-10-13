@@ -1,6 +1,6 @@
 ---
-title: Security Insights In Azure Migrate – Assess Risks, Plan Secure Cloud Migration
-description: Discover how Azure Migrate's Security Insights (preview) feature helps identify vulnerabilities, end-of-support software, and missing security tools in your datacenter. Plan secure and efficient cloud migrations with early risk visibility and actionable insights.
+title: Insights In Azure Migrate – Assess Risks, Plan Secure Cloud Migration
+description: Discover how Azure Migrate's Insights (preview) feature helps identify vulnerabilities, end-of-support software, and missing security tools in your datacenter. Plan secure and efficient cloud migrations with early risk visibility and actionable insights.
 author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-migrate 
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 09/19/2025
 ms.custom: engagement-fy24 
 ::: moniker range="migrate"
-# Customer intent: IT administrators and cloud architects use the Security Insights (preview) feature in Azure Migrate to identify and mitigate security risks in their datacenter during cloud migration planning. This helps them assess vulnerabilities, outdated software, and missing security tools to ensure a secure and efficient migration to Azure
+# Customer intent: IT administrators and cloud architects use the Insights (preview) feature in Azure Migrate to identify and mitigate security risks in their datacenter during cloud migration planning. This helps them assess vulnerabilities, outdated software, and missing security tools to ensure a secure and efficient migration to Azure
 ---
 
-# Security Insights in Azure Migrate: Assess and mitigate datacenter risks before migration (Preview)
+# Insights in Azure Migrate: Assess and mitigate datacenter risks before migration (Preview)
 
-This article describes the **Security Insights** (preview) feature in Azure Migrate, which provides a security assessment of the infrastructure and software inventory discovered in your datacenter.
+This article describes the **Insights** (preview) feature in Azure Migrate, which provides a security assessment of the infrastructure and software inventory discovered in your datacenter.
 
-## Key benefits of Security Insights: What users gain 
+## Key benefits of Insights: What users gain 
 
 - See security risks in your datacenter early during migration planning.
 - Plan mitigation to fix security issues and make your migration to Azure smooth and secure.
@@ -33,7 +33,7 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 | Servers  | With security risks </br> </br> OS end of support  </br> </br> Software end of support </br> </br> With vulnerabilities </br> </br> Missing security software </br> </br> Missing patch management software  </br> </br> Pending updates  | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates, Servers with end of support Operating system. </br> </br> Servers with end of support Operating system </br> </br> Servers with end of support Software discovered in Azure Migrate. </br> </br> Servers with known vulnerability (CVE) in OS and discovered software. </br> </br> Servers without any discovered software belonging to Security software category. </br> </br> Servers without any discovered patch management software </br></br> Servers with pending updates or patches.    | 
 | Software  | With security risks </br> </br> End of support. </br> </br> With vulnerabilities.  | Software with at least one of the security risks – end of support, vulnerabilities. </br></br> Software declared end of support by vendor. </br> </br> Software with known vulnerability (CVE).   | 
 
-### How Azure Migrate derives Security Insights from datacenter discovery
+### How Azure Migrate derives Insights from datacenter discovery
 
 Azure Migrate identifies potential security risks in your datacenter by analyzing software inventory data collected during the discovery process. When you run a discovery of your on-premises environment, you provide guest credentials for Windows and Linux servers. It allows Azure Migrate to collect information about installed software, operating system configurations, and pending updates.
 Azure Migrate processes this data to generate key security insights. It doesn't require any other credentials or permissions beyond these used during discovery.
@@ -66,17 +66,17 @@ Ensure the following for reviewing Insights:
 - Use an existing project or create an [Azure Migrate project using portal](quickstart-create-project.md).
 - Ensure all servers are in an active state. Azure Migrate purges data for servers that show no activity in the last 30 days.
 
-## Review Security Insights 
+## Review Insights 
 
-To review security insights in Azure Migrate:
+To review insights in Azure Migrate:
 
 1. Go to the **[Azure Migrate](https://portal.azure.com)** portal.
 1. Select your project from **All Projects**.
 
     :::image type="content" source="./media/security-insights-overview/insights-preview.png" alt-text="Screenshot shows to select Insights." lightbox="./media/security-insights-overview/insights-preview.png":::
 
-1. In the left menu, select **Explore inventory** > **Insights (preview)** to view security insights for the selected project. This page provides a summary of security risks across discovered servers and software. 
-1. Select any insight to view detailed information. The summary highlights critical security risks in your datacenter that need immediate attention. It identifies:
+1. In the left menu, select **Explore inventory** > **Insights (preview)** to review security insights for the selected project. This page provides a summary of security risks across discovered servers and software. 
+1. Select any insight to review detailed information. The summary highlights critical security risks in your datacenter that need immediate attention. It identifies:
     - Servers with critical vulnerabilities that benefit from enabling Microsoft Defender for Cloud after migration. 
     - Servers running end-of-support operating systems, recommending upgrades during migration.
     - The number of servers with pending critical and security updates, suggesting remediation using Azure Update Manager post-migration.
@@ -85,7 +85,7 @@ You can tag servers with critical risks to support effective planning and mitiga
 
 :::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
 
-### Server risk assessment
+### Review Server risk assessment
 
 The **Servers** shows a summary of all discovered servers with security risks. A server is considered at risk if it has at least one of the following issues:
 
@@ -98,13 +98,13 @@ The **Servers** shows a summary of all discovered servers with security risks. A
     :::image type="content" source="./media/security-insights-overview/servers-card.png" alt-text="Screenshot shows the summarized view of all servers with security risks out of total discovered servers." lightbox="./media/security-insights-overview/servers-card.png":::
 
 
-### Software risk assessment 
+### Review Software risk assessment 
 
 The **Software** shows a summary of all discovered software with security risks. Software is flagged as at risk if it is either end-of-support or has known vulnerabilities (CVEs). The card displays the number of end-of-support software and software with vulnerabilities as fractions of the total at-risk software.
 
 :::image type="content" source="./media/security-insights-overview/software-card.png" alt-text="Screenshot provides aggregated view of all software with security risks out of total discovered software." lightbox="./media/security-insights-overview/software-card.png":::
 
-## Review detailed security risks 
+## Review detailed Security Insights for a server 
 
 The process of analyzing specific vulnerabilities, threats, or exposures identified within an environment, such as servers, software, or configurations.
 
@@ -185,10 +185,6 @@ The summary of the top five pending updates and top five vulnerabilities is prov
 
 Security insights are enabled by default for all users. To manage access, create custom roles and remove the following permissions:
 
-  - View security insights
-  - Access vulnerability data
-  - View update status
-  
 | Resource | Permissions | 
 | --- | --- | 
 | Pending updates  | `.../machines/inventoryinsights/pendingUpdates`  | 
