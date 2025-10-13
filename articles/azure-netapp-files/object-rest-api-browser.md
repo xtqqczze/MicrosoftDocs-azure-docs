@@ -18,9 +18,9 @@ You must install a certificate on your machine before accessing the bucket with 
 
 Before accessing your object REST API-enabled volume with an S3-compatible client, you must install the certificate. 
 
-1. Open the Edge browser on your client system and navigate your bucket's URL: `https://<your-bucket-endpoint-IP-or-FQDN>`.
+1. Open the Edge browser on your client system and navigate to your bucket's URL: `https://<your-bucket-endpoint-IP-or-FQDN>`.
 1. Select the lock icon in the address bar then select **Certificate (Valid)**.
-1. In the certificate dialog, select the **Detail tab** then **Copy to file (or Export)**. Follow the steps in the export wizard, ensuring you choose the DER encoded binary X.509 (.CER) format. Save the .CER file to your local machine. 
+1. In the certificate dialog, select the **Details** tab then **Copy to file (or Export)**. Follow the steps in the export wizard, ensuring you choose the DER encoded binary X.509 (.CER) format. Save the .CER file to your local machine. 
 1. To install the certificate, select the .CER file on your local machine. 
 1. In the Certificate window, select **Install Certificate**. In the installation wizard, choose **Local machine** as your installation destination. Note that this requires administrator privileges.
     In the Certificate Store screen, select **Place all certificates in the following store** then **Browse** and choose **Trusted Root Certification Authorities**.
@@ -49,7 +49,7 @@ Before accessing your object REST API-enabled volume with an S3-compatible clien
     unzip awscliv2.zip
     sudo ./aws/install
     ```
-1. Verify the installation succeeded with the command `aws -version`. The expected output is:
+1. Verify the installation succeeded with the command `aws --version`. The expected output is:
     ```
     aws-cli/2.x.x Python/3.x.x Linux/…
     ```
@@ -67,7 +67,7 @@ Before accessing your object REST API-enabled volume with an S3-compatible clien
     ```
 1. List the objects in a bucket:
     ```
-    aws s3 ls --endpoint-url [https://<your-bucket-endpoint-IP-or-FQDN>](https://<your-bucket-endpoint-IP-or-FQDN>) s3://<bucket-name>/ --no-verify-ssl
+    aws s3 ls --endpoint-url https://<your-bucket-endpoint-IP-or-FQDN>(https://<your-bucket-endpoint-IP-or-FQDN>) s3://<bucket-name>/ --no-verify-ssl
     ```
 1. Copy an object from a bucket to your local workstation:
     ```
