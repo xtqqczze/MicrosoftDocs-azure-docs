@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: overview
-ms.date: 06/27/2022
+ms.date: 10/13/2025
 ms.author: danlep
 ms.custom: mvc
 

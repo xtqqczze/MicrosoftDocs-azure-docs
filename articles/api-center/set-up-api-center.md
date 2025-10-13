@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to set up an API center for API d
 author: dlepow
 ms.service: azure-api-center
 ms.topic: quickstart
-ms.date: 08/25/2025
+ms.date: 10/13/2025
 ms.author: danlep 
 ---
 
