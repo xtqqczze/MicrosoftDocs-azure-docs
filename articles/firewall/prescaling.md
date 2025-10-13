@@ -1,25 +1,23 @@
 ---
-title: Azure Firewall prescaling (Preview)
-description: You can enable prescaling (Preview) to proactively set a minimum and maximum number of firewall capacity units (instances) for predictable performance.
+title: Azure Firewall prescaling
+description: You can enable prescaling to proactively set a minimum and maximum number of firewall capacity units (instances) for predictable performance.
 author: sujamiya
 ms.service: azure-firewall
 services: firewall
 ms.topic: concept-article
-ms.date: 08/18/2025
+ms.date: 10/13/2025
 ms.author: sujamiya
-# Customer intent: As a network security administrator, I want to enable Prescaling (Preview) on my Azure Firewall, so that I can proactively set a minimum and maximum number of firewall capacity units (instances) for predictable performance during high-traffic events.
+# Customer intent: As a network security administrator, I want to enable Prescaling on my Azure Firewall, so that I can proactively set a minimum and maximum number of firewall capacity units (instances) for predictable performance during high-traffic events.
 ---
 
-# Azure Firewall prescaling (Preview)
+# Azure Firewall prescaling
 
-> [!IMPORTANT]
-> Prescaling is in Preview and subject to change.
 
 ## Overview
 
 Azure Firewall supports built-in autoscaling to dynamically adjust capacity based on CPU utilization, throughput, and connection volume. However, for mission-critical workloads or predictable traffic spikes (e.g., Black Friday, migrations), administrators may want greater control to ensure consistent performance.
 
-**Prescaling (Preview)** allows administrators to proactively set a minimum and maximum number of firewall capacity units (instances). This provides predictable performance while still allowing autoscaling to occur within the defined range.
+**Prescaling** allows administrators to proactively set a minimum and maximum number of firewall capacity units (instances). This provides predictable performance while still allowing autoscaling to occur within the defined range.
 
 ## Key benefits
 With Prescaling, administrators can:
@@ -28,7 +26,7 @@ With Prescaling, administrators can:
 - 	**Observe live capacity count** with the Observed Capacity metric.
 
 ## How prescaling works
-Administrators can define two new properties for the firewall:
+Administrators can define two new fields in the new autoscaleConfiguration property:
 
 | **Property** | **Description** | **Allowed Range** |
 | --- | --- | --- |
@@ -37,10 +35,13 @@ Administrators can define two new properties for the firewall:
 
 If minCapacity and maxCapacity are set to the same value, the firewall runs at a fixed instance count with no autoscaling.
 
+Note: The minimum and maximum capacity values must be the same, or their difference must be greater than 1. For example, if minCapacity is set to 5, maxCapacity must be at least 7.
+
 ## Configuration options
 Prescaling can be configured using Azure portal, Azure PowerShell, ARM templates, or Bicep.
 
 ### Portal example
+If configuring through Azure Portal, navigate to your Azure Firewall resource and select "Scaling options" under the Settings section. Choose "Prescaling" and set your desired minimum and maximum capacity values. 
 
 :::image type="content" source="media/prescaling/prescaling-portal.png" alt-text="Screenshot of Azure portal showing Azure Firewall prescaling minimum and maximum capacity settings." lightbox="media/prescaling/prescaling-portal.png":::
 
@@ -55,6 +56,8 @@ New-AzFirewall `
   -MinCapacity 4 `
   -MaxCapacity 10
 ```
+### Bicep Example
+For reference, here’s an example configuration using a Bicep template where you can see the new autoscaleConfiguration property: [Azure Firewall Bicep template – Microsoft Docs](https://learn.microsoft.com/azure/templates/microsoft.network/azurefirewalls?pivots=deployment-language-bicep)
 
 ## Choosing capacity values
 To determine the optimal minCapacity and maxCapacity: 
@@ -68,7 +71,7 @@ Prescaling introduces new observability:
 
 | **Metric** | **Description** |
 | --- | --- |
-| **Observed Capacity (Preview)** | Reports the number of firewall capacity units (instances) currently provisioned and scaled over time. Notes: Updates may be delayed by up to 30 minutes during Preview. |
+| **Observed Capacity** | Reports the number of firewall capacity units (instances) currently provisioned and scaled over time. Notes: Updates may be delayed by up to 30 minutes during Preview. |
 | **Alerts** | Administrators can set an alert for when there is an autoscaling event, using the Observed Capacity metric. |
 
 ## Handling performance issues
