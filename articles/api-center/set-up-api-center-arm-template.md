@@ -5,7 +5,7 @@ author: dlepow
 ms.service: azure-api-center
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ms.topic: quickstart
-ms.date: 08/26/2025
+ms.date: 10/13/2025
 ms.author: danlep 
 ---
 
