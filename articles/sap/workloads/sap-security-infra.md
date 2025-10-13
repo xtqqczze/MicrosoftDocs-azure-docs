@@ -1,0 +1,261 @@
+# Secure Azure Infrastructure for SAP Applications 
+A well secured SAP solution incorporates many security concepts with many layers spanning multiple domains:
+1.	Identity Management, Provisioning and Single Sign-on, MFA, Global Secure Access, Secure Network Connection (SNC)  
+2.	Auditing, Log Analytics and Event Management
+3.	SIEM/SOAR Solutions 
+4.	Antivirus and anti-malware Endpoint Protection 
+5.	Encryption and Key Management
+6.	Operating System Hardening 
+7.	Azure Infrastructure Hardening 
+These topics are covered in a series of related pages.  
+SAP applications should be incorporated into the overall Zero-Trust security solution for the entire IT landscape. [Zero Trust Strategy & Architecture | Microsoft Security](https://www.microsoft.com/en-us/security/business/zero-trust?msockid=343d619786f36e041990740887e36ff0#modal-21)
+The SAP Security Solution should reference the Zero-Trust security model. The Zero-Trust security solution validates each action at each layer such as Identity, Endpoint Network Access, Authentication, and MFA through SAP Application and Data Access. 
+ 
+ ![alt text](image.png)
+
+The purpose of this documentation is to provide a single location with links and a brief description on how to implement Identity, Security, and Audit related features for SAP solutions running on Azure Hyperscale Cloud.   This documentation doesn't precisely specify which security features should be implemented as requirements are dependent on risk profile, industry, and regulatory environment. This document does make some default recommendations such as a general recommendation to use Defender for Endpoint, Transparent Database Encryption (TDE), and Backup Encryption on all systems.  
+Customers designing and implementing Identity, Security, and Audit solutions for SAP review the concepts explained in [Microsoft cloud security benchmark introduction | Microsoft Learn](https://learn.microsoft.com/en-us/security/benchmark/azure/introduction). More Checklists can be found [Secure Overview - Cloud Adoption Framework | Microsoft Learn}(https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/overview#cloud-security-checklist) 
+
+## Deployment Checklist 
+The design and implementation of a comprehensive security solution for SAP applications running on Azure is a consulting project. 
+This documentation provides a basic deployment pattern covering a minimum security configuration and a more secure configuration.   Organizations that require high security solutions should seek expert consulting advice. Very secure SAP landscapes could increase operational complexity and make tasks such as system refreshes, upgrades, remote access for support, debugging, or HA/DR testing difficult or complex.  
+
+### Minimum - Security Deployment Checklist:
+1.	Defender for Endpoint active in real-time Mode on all Endpoints (SAP and non-SAP). Unprotected Endpoints are a gateway that can be used to compromise other protected Endpoints
+2.	Defender XDR rules for alerting (and on Windows blocking) high risk executables 
+3.	Microsoft Sentinel for SAP and/or other SIEM/SOAR solution
+4.	All Database Management Systems (DBMS) protected with Transparent Database Encryption (TDE). Keys stored in Key Vault (if supported) or HSM (if supported)
+5.	Operating System, DBMS and other passwords stored in Azure Key Vault 
+6.	Linux sign-in via password disabled. Key sign-in only 
+7.	Generation 2 VMs and Secure Launch enabled on all VMs 
+8.	Storage Accounts – PMK 
+9.	VM, Hana, SQL, and Oracle Backups to Azure Backup Vault with Immutable storage 
+
+### More Secure - Security Deployment Checklist:
+1.	Defender for Endpoint active in real-time Mode on all Endpoints (SAP and non-SAP). Unprotected Endpoints are a gateway that can be used to compromise other protected Endpoints
+2.	Defender XDR rules for alerting (and on Windows blocking) high risk executables 
+3.	Microsoft Sentinel for SAP and/or other SIEM/SOAR solution
+4.	All DBMS protected with Transparent Database Encryption (TDE). Keys stored in Key Vault (if supported) or HSM (if supported)
+5.	Operating System, DBMS and other passwords stored in Azure Key Vault 
+6.	Linux sign-in via password disabled. Key sign-in only 
+7.	Generation 2 VMs and Secure Launch enabled on all VMs. Enable Boot Integrity Monitoring 
+8.	Host Based Encryption enabled for all VMs
+9.	All VMs are modern generation VMs supporting Intel TME memory encryption 
+10.	Storage Accounts – PMK for general storage. CMK for sensitive data 
+11.	VM, Hana, SQL, and Oracle Backups to Azure Backup Vault with Immutable storage 
+12.	Stronger Segregation of Duties between SAP Basis, Backup, Server Team, and Security/Key Management.  
+
+## 1.	Defender for Endpoint 
+
+Defender for Endpoint is the only comprehensive Antivirus (AV) and Endpoint Detection and Response (EDR) solution that is comprehensively benchmarked and tested with SAP Benchmarking tools and documented for SAP workloads. 
+Defender for Endpoint should be deployed on all NetWeaver, S4HANA, Hana, and AnyDB servers without exception. The deployment guidance for Defender fully covers the correct deployment and configuration of Defender for Endpoint for SAP applications.
+[Deployment guidance for Microsoft Defender for Endpoint on Linux for SAP - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/en-us/defender-endpoint/mde-linux-deployment-on-sap)
+[Microsoft Defender Endpoint on Windows Server with SAP - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/en-us/defender-endpoint/mde-sap-windows-server)
+
+## 2.	Defender XDR
+In addition to AV and EDR protection Defender can provide more protection with features such as advanced threat hunting, Vulnerability Management, and other capabilities.  
+The SAPXPG can be exploited and should be monitored using this procedure [Custom detection rules with advanced hunting: Protecting SAP external OS commands (SAPXPG) - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/en-us/defender-endpoint/mde-sap-custom-detection-rules)
+Defender Vulnerability Management can detect vulnerabilities in the Operating System and Database layer. [Microsoft Defender Vulnerability Management dashboard - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/en-us/defender-vulnerability-management/tvm-dashboard-insights)  
+Defender Vulnerability Management doesn't have the functionality to detect ABAP and Java vulnerabilities today
+
+Defender for Storage for Blob What is [Microsoft Defender for Storage - Microsoft Defender for Cloud | Microsoft Learn](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction)
+Support for Azure Files SMB [Azure Files support and new updates in advanced threat protection for Azure Storage | Microsoft Azure Blog](https://azure.microsoft.com/en-us/blog/azure-files-support-and-new-updates-in-advanced-threat-protection-for-azure-storage/).
+Microsoft Secure Score and Vulnerability Management is discussed in the Operating System section below [Microsoft Defender Vulnerability Management dashboard - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/en-us/defender-vulnerability-management/tvm-dashboard-insights)
+
+## 3.	Microsoft Sentinel for SAP Connector 
+Microsoft Sentinel SIEM/SOAR solution has a connector for SAP. SAP application specific signals such as user logons and access to sensitive transactions can be monitored and corelated with other SIEM/SOAR signals, such as network access and data exfiltration.  
+[Microsoft Sentinel solution for SAP applications overview | Microsoft Learn](https://learn.microsoft.com/en-us/azure/sentinel/sap/solution-overview)
+[140 - The one with Microsoft Sentinel for SAP (Yoav Daniely, Yossi Hasson & Martin Pankraz, Sebastian Ullrich - YouTube](https://www.youtube.com/watch?v=uVsrqCoVWlI)
+
+
+## 4.	Database Level Encryption – TDE and Backup Encryption 
+It is recommended to enable Transparent Database Encryption (TDE) for all DBMS running SAP applications on Azure. Testing shows that the performance overhead is between zero to two percent. The advantages of TDE far outweigh the disadvantages. Most DBMS platforms create encrypted backups if the database is TDE enabled mitigating one common attack vector, theft of backups. 
+SAP Hana Transparent Database Encryption.
+SAP Hana doesn't support storing Keys in Azure Key Vault or any other HSM device. [3444154 - HSM for SAP HANA Encryption Key Management](https://me.sap.com/notes/3444154/E)  
+To enable TDE on Hana follow [Enable Encryption | SAP Help Portal](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/4b11e7dee04f4dd98301fcd86e2f3d8b.html)
+
+SQL Server Transparent Database Encryption is fully integrated into the Azure Key Vault.  
+[1380493 - SQL Server Transparent Data Encryption (TDE)](https://me.sap.com/notes/1380493)
+[Transparent data encryption (TDE) - SQL Server | Microsoft Learn](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver17)
+
+Oracle DBMS supports TDE in combination with SAP applications. TDE keys can be stored in HSM PKCS#11 devices 
+[974876 - Oracle Transparent Data Encryption (TDE)](https://me.sap.com/notes/974876/E)
+[2591575 - Using Oracle Transparent Data Encryption (TDE) with SAP NetWeaver](https://me.sap.com/notes/2591575)
+[Oracle Database Transparent Data Encryption (TDE)](https://thalesdocs.com/gphsm/ptk/protectserver3/docs/integration_docs/oracle/index.html) – Thales 
+
+DB2 Native Encryption is supported in combination with SAP applications. Encryption keys can be stored in HSM PKCS#11 devices.
+Running an SAP NetWeaver Application Server on DB2 for LUW with the IBM DB2 Encryption Technology
+Db2 native encryption - IBM Documentation.
+IBM DB2 and Thales Luna HSMs - Integration Guide | Thales
+
+## 5.	Key Management – Azure Key Vault and HSM 
+
+Azure supports two solutions for Key Management:
+1.	Azure Key Vault – a native Azure service that provides Key Management services (non PKCS#11 compliant) 
+2.	Azure Cloud HSM – a hardware level PKCS#11 FIPS 140-3 Level 3 single tenant solution
+More information on these services:
+[What is Azure Key Vault? | Microsoft Learn](https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts)
+[Overview of Azure Cloud HSM Preview | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cloud-hsm/overview)
+[How to choose the right key management solution - How to choose between Azure Key Vault, Azure Managed HSM, Azure Dedicated HSM, and Azure Payment HSM | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/key-management-choose)
+It is recommended to store OS and application passwords in Azure Key Vault. Training on secret management [Manage secrets in your server apps with Azure Key Vault - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/manage-secrets-with-azure-key-vault/?source=recommendations)
+Defender for Key Vault is recommended to alert if suspicious activity occurs on Azure Key Vault [Microsoft Defender for Key Vault - the benefits and features - Microsoft Defender for Cloud | Microsoft Learn](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-key-vault-introduction)
+
+
+## 6.	Operating System Level Hardening 
+
+Operating System patching is one key layer in a secure solution. It isn't possible to consistently and reliably update VMs at scale manually without the use of patch management tools. Azure Update Manager should be used to accelerate and automate this process [Azure Update Manager overview | Microsoft Learn](https://learn.microsoft.com/en-us/azure/update-manager/overview)
+
+[!NOTE] Linux kernel hotpatching has restrictions when the target VMs are running Defender for Endpoint. Review the Defender for Endpoint for SAP documentation. Linux patching requiring OS reboot should be handled manually on Pacemaker systems. 
+
+The Microsoft Secure Score should be used to monitor status of a landscape Microsoft Secure Score for Devices - Microsoft Defender Vulnerability Management | Microsoft Learn
+
+Suse, Redhat, and Oracle Linux 
+Azure security baseline for Virtual Machines - Linux Virtual Machines | Microsoft Learn.
+The 18 CIS Critical Security Controls
+CIS Benchmarks®
+Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15 GA and SP1.
+Security hardening guide for SAP HANA | Red Hat Enterprise Linux for SAP Solutions | 9 | Red Hat Documentation.
+High priority items for Linux Operating Systems include:
+•	Generation 2 VMs with Secure Boot 
+•	Don't allow third Party Repositories (supply chain attack)
+•	Use Keys and disable password sign-in in sshd_config 
+•	Use Managed Identify for Pacemaker not SPN Azure SAP Pacemaker MSI SPN
+•	Disable root sign-in 
+It's supported to use SELinux with modern RHEL releases. Microsoft doesn't provide support for SELinux and careful testing is required 3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9 - SAP for Me
+
+Windows Operating System
+Azure security baseline for Virtual Machines - Windows Virtual Machines | Microsoft Learn
+High priority items for Windows Operating System include:
+•	Generation 2 VMs with Secure Boot 
+•	Minimize the installation of any 3rd party software 
+•	Configure Windows Firewall with minimal open ports via Group Policy 
+•	SMB Encryption enforced via Group Policy Configure the SMB client to require encryption in Windows | Microsoft Learn
+•	After installation, lock the <sid>adm username as per SAPService<SID> account denied interactive sign-in (default) and <sid>adm account disabled (but not deleted). Review 1837765 - Security policies for <SID>adm and SAPService<SID> on Windows - SAP for Me
+•	Configure Windows Group Policy to clear last user name, on permit AD authenticated sign-in (mitigates against cloning attack) and disable legacy TLS and SMB protocols 
+
+Other links for Windows: 
+Windows Server Security documentation | Microsoft Learn
+https://aka.ms/ws2025securitybook 
+7.	Azure Infrastructure Platform Security 
+
+Azure infrastructure security configuration can be enhanced to reduce or eliminate attack vectors.
+
+Generation 2 VM and Trusted Launch 
+It's recommended to only deploy Generation 2 VMs and to activate Trusted Launch. Note only recent versions of Suse 15 support Trusted Launch. Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn
+Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn
+Improve the security of Generation 2 VMs via Trusted Launch in Azure DevTest Labs | Develop from the cloud
+
+The conversion from Gen1 to Gen2 can be a little complex especially for Windows OS.   It's recommended to only deploy Gen2 Trusted Launch VMs by default. Upgrade Gen1 VMs to Trusted launch - Azure Virtual Machines | Microsoft Learn
+The list of Azure VMs supported Trusted Launch is listed here: Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn
+
+Defender for Cloud can monitor Trusted Launch. Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn
+
+Encryption in Transit for Azure Files NFS & SMB 
+Azure Files NFS traffic can be encrypted to protect against packet tracing and other threats.  
+How to Encrypt Data in Transit for NFS shares | Microsoft Learn. 
+Azure Files NFS Encryption In Transit for SAP on Azure Systems | Microsoft Community Hub.
+Azure Files SMB supports Encryption in Transit by default SMB file shares in Azure Files | Microsoft Learn.
+
+Encryption at Host (HBE)
+Currently customers should contact Microsoft to verify M-series VMs have the latest drivers required for Encryption at Host. M-series v3, D series, and E series VMs can use Encryption at Host without restriction.
+Encryption at Host is tested with SAP and can be used without restriction on modern Azure VMs.  The overhead is around 2%.
+Server-side encryption of Azure managed disks - Azure Virtual Machines | Microsoft Learn.
+Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn.
+
+Storage Account Encryption 
+Storage Accounts use either Platform Managed Keys (PMK) or Customer Managed Keys (CMK). Both are fully supported with SAP applications.   Azure Storage encryption for data at rest | Microsoft Learn.
+Customer Managed Keys within one tenant or across tenants is supported Use a disk encryption set across Microsoft Entra tenants - Azure Virtual Machines | Microsoft Learn.
+
+Double Encryption at rest can be used for highly secure SAP systems Enable double encryption at rest for managed disks - Azure Virtual Machines | Microsoft Learn  (not supported on Ultra or Premium SSD v2). 
+A comparison of Disk Encryption technologies can be found here Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn. Azure Disk Encryption isn't supported for SAP systems.  
+
+Virtual Network Encryption 
+Virtual Network Encryption doesn't support private endpoints currently. Virtual Network Encryption is currently used for specific high security scenarios.  
+What is Azure Virtual Network encryption? - Azure Virtual Network | Microsoft Learn
+
+Intel Total Memory Encryption (TME)
+Modern Azure VMs automatically use the TME-MK feature built into modern CPUs. High security customers should use modern VMs and contact Microsoft directly for confirmation that all VM types supported TME.  For more information Runtime Encryption of Memory with Intel® Total Memory... 
+
+
+Azure Automation account for Azure Site Recovery Agent updates.  
+Review the latest documentation for Azure Site Recovery to configure the Azure Automation user account required for Azure Site Recovery Agent updates from a 'Contributor' to a lower security context. More information can be found Azure Site Recovery documentation | Microsoft Learn
+
+
+
+
+Remove Public Endpoints 
+Public endpoints for Azure objects such as storage accounts and Azure Files should be removed
+Use private endpoints - Azure Storage | Microsoft Learn
+Set the default public network access rule: Azure Storage | Microsoft Learn
+
+DNS hijacking and Subdomain Takeover  
+Prevent subdomain takeovers with Azure DNS alias records and Azure App Service's custom domain verification | Microsoft Learn.
+In addition Defender for DNS can be used to protect against Malware/RAT command and control targets and other protections Microsoft Defender for DNS - the benefits and features - Microsoft Defender for Cloud | Microsoft Learn.
+
+Azure Bastion 
+System Administrator’s workstations can be infected with Malware such as Key loggers. Azure Bastion is generally recommended Azure Bastion documentation | Microsoft Learn
+
+
+8.	Ransomware Protection 
+
+The Azure platform includes powerful ransomware protection features.  
+It's recommended to use the Azure Immutable Backup Vault to prevent Ransomware or other trojans from encrypting backups. Azure offers WORM storage for this purpose.  
+Azure Backup for SAP Hana and SQL Server can write to Azure Blob Storage  Azure backup and restore plan to protect against ransomware | Microsoft Learn. It's possible to configure storage to require a PIN code or MFA before any modification can be performed on backups.  
+It's possible to configure fully SEC 17a-4(f) Locked Immutable storage polices. Configure immutability policies for containers - Azure Storage | Microsoft Learn
+It's recommended to review these steps and select the appropriate measures Azure backup and restore plan to protect against ransomware | Microsoft Learn
+Further links: 
+•	Concept of Immutable vault for Azure Backup - Azure Backup | Microsoft Learn 
+•	Azure security fundamentals documentation | Microsoft Learn
+•	Microsoft Digital Defense Report and Security Intelligence Insights
+Microsoft also offers support and consulting services for security related topics 
+https://www.microsoft.com/en-us/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/
+Microsoft provides tools to remove ransomware and other Malware from Windows https://learn.microsoft.com/en-us/defender-endpoint/safety-scanner-download
+https://www.microsoft.com/en-us/download/details.aspx?id=9905
+https://learn.microsoft.com/en-us/azure/backup/protect-backups-from-ransomware-faq
+ 
+Further recommendations for large organizations include segregation of duties. For example, the SAP Administrators and Server Administrators should only have Read Only access to the Backup Vault. Multiuser Authorization and Resource Guard can be implemented to protect against rouge administrators and ransomware Configure Multi-user authorization using Resource Guard - Azure Backup | Microsoft Learn
+
+ Extra protection from Ransomware can be achieved by deploying Azure Firewall Premium Improve your security defenses for ransomware attacks with Azure Firewall Premium | Microsoft Learn
+
+
+
+
+9.	Unsupported Technologies 
+
+Azure Disk Encryption (ADE) isn't supported for SAP solutions. RHEL and SLES Linux images for SAP applications are considered to be 'custom images' and aren't tested or supported. Azure Encryption at Host is typically used for customers with a requirement for at rest encryption. 
+Azure Disk Encryption is now a deprecated feature Azure updates | Microsoft Azure
+
+10.	SAP Security Notes 
+SAP release information about vulnerabilities in their products on the second Tuesday of every month.  
+Vulnerabilities with a CVE score between 9.0 and 10 are severe and should be immediately mitigated.
+Entry point for SAP Security Notes https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html 
+Second Tuesday of every month SAP release Security Notes https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html?anchorId=section_370125364  
+Searchable database of Security Notes https://me.sap.com/app/securitynotes 
+
+
+
+
+11.	Links 
+
+Azure security fundamentals documentation | Microsoft Learn
+
+MDE for SAP on Linux 
+MDE for SAP on Windows – Note DLP update
+Azure Encryption Comparison Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn
+Microsoft Response Center MSRC - Microsoft Security Response Center
+3356389 - Antivirus or other security software affecting SAP operations - SAP for Me
+CVE: Common Vulnerabilities and Exposures
+Azure operational security checklist | Microsoft Learn
+Microsoft Purview classic data governance best practices for security - Microsoft Purview | Azure Docs
+
+
+Azure Bastion documentation | Microsoft Learn
+Runtime Encryption of Memory with Intel® Total Memory...
+https://learn.microsoft.com/en-us/azure/security/fundamentals/ 
+SAP HANA Database Encryption - SAP Community
+3345490 - Common Criteria Compliance FAQ - SAP for Me
+Microsoft Security Compliance Toolkit Guide | Microsoft Learn
+SQL Server database security for SAP on Azure - Cloud Adoption Framework | Microsoft Learn
+
+Firmware measured boot and host attestation - Azure Security | Microsoft Learn
+
