@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: tutorial
-ms.date: 10/10/2025
+ms.date: 10/13/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-bicep
 ---
