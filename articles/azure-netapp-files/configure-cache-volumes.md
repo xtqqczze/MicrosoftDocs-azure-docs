@@ -10,7 +10,7 @@ ms.author: anfdocs
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to create a cache volume in Azure NetApp Files, so that I can leverage scalable storage solutions and reduce cost.
 ---
-# Configure a cache volume for Azure NetApp Files (Preview)
+# Configure a cache volume for Azure NetApp Files (preview)
 
 The purpose of this article is to provide users of Azure NetApp Files with cache volumes that simplify file distribution, reduce WAN latency, and lower WAN/ExpressRoute bandwidth costs. Azure NetApp Files cache volumes are currently designed to be peered with external sources (aka origin volumes in on-prem ONTAP, Cloud Volumes ONTAP, or Amazon FSx for NetApp.
 
@@ -54,6 +54,7 @@ The delegated subnet address space for hosting the Azure NetApp Files volumes mu
 * You can't move a cache volume to another capacity pool.
 * You should ensure that the protocol type is the same for the cache volume and origin volume as the security style and the Unix permissions are inherited from the origin volume. Example: create a cache volume with protocol NFSv3 or NFSv4 when origin is UNIX, and SMB when the origin is NTFS.
 * You should enable encryption on the origin volume.
+* You should configured an active directory or LDAP connection under the NetApp account."
 * You can only modify specific fields of a cache volume such as ‘is-cifs-change-notify-enabled’, ‘is-writeback-enabled’, and ‘is-global-file-locking-enabled.'
 
 ## Supported regions
