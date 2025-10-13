@@ -39,7 +39,7 @@ pip install azure-identity
 The `load` function in the `azure-appconfiguration-provider` package is used to load configuration from Azure App Configuration. The `load` function allows you to either use Microsoft Entra ID (recommended) or a connection string to connect to the App Configuration store.
 
 > [!NOTE]
-> `azure-appconfiguration-provider` has both synchronous `from azure.appconfiguration.provider import load` and asynchronous `from azure.appconfiguration.provider.aio import load` versions. When using the async version, the async credential needs to be used.
+> `azure-appconfiguration-provider` has both synchronous `from azure.appconfiguration.provider import load` and asynchronous `from azure.appconfiguration.provider.aio import load` versions. When using the async version, the async credential, `from azure.identity.aio import DefaultAzureCredential`, needs to be used.
 
 ### [Microsoft Entra ID](#tab/entra-id)
 
@@ -121,7 +121,7 @@ You can trim the prefix off of keys by providing a list of trimmed key prefixes 
 from azure.appconfiguration.provider import load
 from azure.identity import DefaultAzureCredential
 
-trim_prefixes = ["/application/"]
+trim_prefixes = ["App1/"]
 config = load(endpoint=endpoint, credential=DefaultAzureCredential(), trim_prefixes=trim_prefixes)
 print(config["message"])  # Access the key "message" instead of "/application/message"
 ```
@@ -160,7 +160,7 @@ Setting up `refresh_on` alone doesn't automatically refresh the configuration. Y
 config.refresh()
 ```
 
-This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This process is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task. If the refresh fails, an error is thrown, unless a `on_refresh_error` is provided.
+This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This process is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task. If the refresh fails, an error is thrown, unless a `on_refresh_error` is provided. The `refresh` method is a no-op if the refresh interval has not elapsed. In addition, only one refresh check can happen at a time, returning as a no-op if a refresh is already in progress.
 
 ## Feature flag
 
