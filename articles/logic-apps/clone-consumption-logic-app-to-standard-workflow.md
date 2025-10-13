@@ -23,9 +23,9 @@ You can now clone your Consumption logic apps to a Standard logic app directly f
 
 > [!NOTE]
 > 
-> The export capability doesn't migrate your Consumption logic apps. Instead, this tool replicates artifacts, such as workflow definitions, connections, and others. Your source logic app resource stays operation and your workflow, trigger history, run history, and other data stay intact.
+> The clone capability doesn't migrate your Consumption logic apps. Instead, this tool replicates artifacts, such as workflow definitions, connections, and others. Your source logic app resource stays operation and your workflow, trigger history, run history, and other data stay intact.
 > 
-> You control the export process and your migration journey. You can test and validate your exported workflows to your satisfaction with the destination environment. You choose when to disable or delete your source logic apps. Notice that regular billing charges are applied to your source logic app while it stays enabled.
+> You control the cloning process and your migration journey. You can test and validate your cloned workflows to your satisfaction with the destination environment. You choose when to disable or delete your source logic apps. Notice that regular billing charges are applied to your source logic app while it stays enabled.
 
 ## Known issues and limitations
 
