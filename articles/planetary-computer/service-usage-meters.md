@@ -67,7 +67,7 @@ To estimate your vCPU-hours, select a data type that's similar to the one you pl
 
 ### Bandwidth
 
-Measured in GiB egress when data leaves the Azure region of the GeoCatalog resource. Egress occurs concurrently with read [operations](#operations) when data leaves a GeoCatalog resource and goes to a different Azure Region or to the internet. 
+Bandwidth is measured in GiB of data that leave the GeoCatalog’s Azure region. This meter increments alongside read [operations](#geospatial-data-operations) whenever data moves to another Azure region or outside of Azure.
 
 ## Cost management
 
