@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/31/2025
+ms.date: 10/13/2025
 ms.author: anfdocs
 ---
 # Connect OneLake to an Azure NetApp Files volume using object REST API 
@@ -26,7 +26,7 @@ Sensitive information is protected through Microsoft Virtual Networks and Azure 
 1. Create a workspace in [OneLake](/fabric/onelake/create-lakehouse-onelake).
 1. In OneLake, right-click the workspace then select 
 **Create new lakehouse**.
-1. After the lakehouse is successfully created, select **New shortcut**. Follow the instructions to [Create an Amazon S3 compatible shortcut](/fabric/onelake/create-on-premises-shortcut). 
+1. After the lakehouse is successfully created, select **New shortcut**. Follow the instructions to [Create a OneLake shortcut](/fabric/onelake/create-onelake-shortcut). 
 
     The endpoint must be a URL with the volume's IP address, for example `http://0.0.0.0` or a fully qualified domain name, such as https://myanfendpoint.contoso.com.
 1. Select your on-premises data gateway in the **Data Gateway** field. After you provide the access key and secret key, the Azure NetApp Files data appears in your OneLake workspace.
@@ -34,19 +34,7 @@ Sensitive information is protected through Microsoft Virtual Networks and Azure 
 
 ##  Connect to Azure AI Search
 
-After connecint to OneLake, you can connect a volume to [Azure AI Search](/azure/search/search-what-is-azure-search) to create a search service. For additional information, see [How to index OneLake files](/azure/search/search-how-to-index-onelake-files).
-
-## Steps
-
-1. In the Azure portal, access the Azure AI Search service. If this is your first time accessing the service, see [Create an Azure AI Search service](/azure/search/search-create-service-portal).
-1. In the search management section, navigate to **Data Sources**. Select **Add Data Source**. 
-1. In the data source dropdown, select **Fabric OneLake files**.
-1. Provide a name for the data source. 
-1. Enter the Lakehouse URL that was configured in the OneLake setup. 
-1. Validate the connection once your OneLake data appears. 
-1. Select **Add Indexer**, then provide your details by selecting your dataset and OneLake details. 
-1. Navigate to the 'Index' section and select your data source name. 
-1. In the search field, enter the information you want to query or use '*' to view the complete indexing details. 
+After connecting to OneLake, you can connect a volume to [Azure AI Search](/azure/search/search-what-is-azure-search) to create a search service. For additional information, see [How to index OneLake files](/azure/search/search-how-to-index-onelake-files).
 
 ## More information 
 

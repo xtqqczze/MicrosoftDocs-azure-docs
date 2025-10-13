@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/26/2025
+ms.date: 10/13/2025
 ms.author: anfdocs
 ---
 
@@ -21,9 +21,7 @@ Azure NetApp Files supports access to S3 objects with the [object REST API](obje
 
 The object REST API access feature in Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time. Feature registration can take up to 60 minutes to complete.
 
-<!-- confirm link -->
-You must submit a [waitlist request](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2Qj2eZL0mZPv1iKUrDGvc9URURJNEpXSVc0SzZLOEw0VFRSUUFURFBSTSQlQCN0PWcu&b2b=true) to use the object REST API feature. 
-
+You must submit a [waitlist request](https://forms.office.com/r/pTpTESUSZb) to use the object REST API feature. 
 
 You can check the status of the feature registration with the command:
 
