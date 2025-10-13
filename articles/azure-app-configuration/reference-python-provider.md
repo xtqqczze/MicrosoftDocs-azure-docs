@@ -9,13 +9,13 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 08/18/2025
+ms.date: 10/13/2025
 #Customer intent: I want to learn how to use Azure App Configuration Python client library.
 ---
 
 # Python configuration provider
 
-[![Python package](https://img.shields.io/pypi/v/azure-appconfiguration-provider.svg)](https://pypi.org/project/azure-appconfiguration-provider/)
+:::image type="content" border="true" source="https://img.shields.io/pypi/v/azure-appconfiguration-provider.svg" alt-text="Python package":::
 
 Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The Python configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds more [functionality](./configuration-provider-overview.md#feature-development-status) above the Azure SDK for Python.
 
