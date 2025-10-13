@@ -17,7 +17,7 @@ ms.date: 10/13/2025
 
 :::image type="content" border="true" source="https://img.shields.io/pypi/v/azure-appconfiguration-provider.svg" alt-text="Python package":::
 
-Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The Python configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds more [functionality](./configuration-provider-overview.md#feature-development-status) above the Azure SDK for Python.
+Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The Python configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional [functionality](./configuration-provider-overview.md#feature-development-status) on top of the Azure SDK for Python.
 
 ## Install the package
 
@@ -39,7 +39,7 @@ pip install azure-identity
 The `load` function in the `azure-appconfiguration-provider` package is used to load configuration from Azure App Configuration. The `load` function allows you to either use Microsoft Entra ID (recommended) or a connection string to connect to the App Configuration store.
 
 > [!NOTE]
-> `azure-appconfiguration-provider` has both sync `from azure.appconfiguration.provider import load` and async `from azure.appconfiguration.provider.aio import load` versions. When using the async version, the async credential needs to be used.
+> `azure-appconfiguration-provider` has both synchronous `from azure.appconfiguration.provider import load` and asynchronous `from azure.appconfiguration.provider.aio import load` versions. When using the async version, the async credential needs to be used.
 
 ### [Microsoft Entra ID](#tab/entra-id)
 
@@ -128,7 +128,7 @@ print(config["message"])  # Access the key "message" instead of "/application/me
 
 ## Configuration refresh
 
-Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application. You can set the `refresh_on` to enable the refresh. `refresh_on` is a `List[WatchKey]`, which specifies the one or more key/labels to watch for changes. The loaded configuration is updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter.
+The provider can be configured to pull the latest settings from the App Configuration store without having to restart the application. You can use the `refresh_on` parameter to enable this behavior. The `refresh_on` parameter is a `List[WatchKey]`, which specifies the one or more key/labels to watch for changes. The loaded configuration is updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter.
 
 The `on_refresh_success` callback is called only if a change is detected and no error happens. The `on_refresh_error` callback is called when a refresh fails.
 
@@ -172,7 +172,7 @@ alpha = config["feature_management"]["feature_flags"]["Alpha"]
 print(alpha["enabled"])
 ```
 
-By default, all feature flags with no label are loaded when `feature_flags_enabled` is set to `True`. If you want to load feature flags with a specific label, you can use `SettingSelector` to filter the feature flags using the `feature_flag_selectors` parameter, which takes in a list of `SettingSelector` objects.
+By default, all feature flags with no label are loaded when `feature_flags_enabled` is set to `True`. If you want to load feature flags with a specific label, you can use the `feature_flag_selectors` parameter to filter the feature flags, which takes in a list of `SettingSelector` objects.
 
 ```python
 from azure.appconfiguration.provider import load, SettingSelector
@@ -192,7 +192,7 @@ print(alpha["enabled"])
 
 ### Feature management
 
-Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management library is designed to work in with with the configuration provider library. The configuration provider loads all selected feature flags into the configuration under the `feature_flags` list of the `feature_management` section. The feature management library consumes and manages the loaded feature flags for your application.
+The feature management library provides a way to develop and expose application functionality based on feature flags. The feature management library is designed to work together with the configuration provider library. The configuration provider loads all selected feature flags into the configuration under the `feature_flags` list of the `feature_management` section. The feature management library consumes and manages the loaded feature flags for your application.
 
 The following example demonstrates how to integrate the `featuremanagement` library with the configuration provider to dynamically control API accessibility in an Express application based on the status of the `Beta` feature flag.
 
