@@ -132,6 +132,7 @@ It's supported to use SELinux with modern RHEL releases. Microsoft doesn't provi
 [Azure security baseline for Virtual Machines - Windows Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/virtual-machines-windows-virtual-machines-security-baseline)
 
 High priority items for Windows Operating System include:
+
 •	Generation 2 VMs with Secure Boot 
 •	Minimize the installation of any 3rd party software 
 •	Configure Windows Firewall with minimal open ports via Group Policy 
@@ -151,6 +152,7 @@ It's recommended to only deploy Generation 2 VMs and to activate Trusted Launch.
 Note only recent versions of Suse 15 support Trusted Launch. [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#operating-systems-supported)
 
 [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch)
+
 [Improve the security of Generation 2 VMs via Trusted Launch in Azure DevTest Labs | Develop from the cloud](https://devblogs.microsoft.com/develop-from-the-cloud/improve-the-security-of-generation-2-vms-via-trusted-launch-in-azure-devtest-labs/)
 
 The conversion from Gen1 to Gen2 can be a little complex especially for Windows OS.   It's recommended to only deploy Gen2 Trusted Launch VMs by default. [Upgrade Gen1 VMs to Trusted launch - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch-existing-vm-gen-1?tabs=windows%2Cpowershell)
@@ -159,20 +161,23 @@ The list of Azure VMs supported Trusted Launch is listed here [Trusted Launch fo
 Defender for Cloud can monitor Trusted Launch. [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#microsoft-defender-for-cloud-integration)
 #### Encryption in Transit for Azure Files NFS & SMB 
 Azure Files NFS traffic can be encrypted to protect against packet tracing and other threats.  
-[How to Encrypt Data in Transit for NFS shares | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/files/encryption-in-transit-for-nfs-shares?tabs=Ubuntu) 
+[How to Encrypt Data in Transit for NFS shares | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/files/encryption-in-transit-for-nfs-shares?tabs=Ubuntu)
+
 [Azure Files NFS Encryption In Transit for SAP on Azure Systems | Microsoft Community Hub](https://techcommunity.microsoft.com/blog/sapapplications/azure-files-nfs-encryption-in-transit-for-sap-on-azure-systems/4426918)
 Azure Files SMB supports Encryption in Transit by default [SMB file shares in Azure Files | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/files/files-smb-protocol?tabs=azure-portal#security)
 #### Encryption at Host (HBE)
 Currently customers should contact Microsoft to verify M-series VMs have the latest drivers required for Encryption at Host. M-series v3, D series, and E series VMs can use Encryption at Host without restriction.
 Encryption at Host is tested with SAP and can be used without restriction on modern Azure VMs.  The overhead is around 2%.
 [Server-side encryption of Azure managed disks - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+
 [Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview#comparison)
 #### Storage Account Encryption 
 Storage Accounts use either Platform Managed Keys (PMK) or Customer Managed Keys (CMK). Both are fully supported with SAP applications.   [Azure Storage encryption for data at rest | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption)
 Customer Managed Keys within one tenant or across tenants is supported Use a disk encryption set across [Microsoft Entra tenants - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-cross-tenant-customer-managed-keys?tabs=azure-portal)
 
 Double Encryption at rest can be used for highly secure SAP systems [Enable double encryption at rest for managed disks - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal?tabs=portal)  (not supported on Ultra or Premium SSD v2). 
-A comparison of Disk Encryption technologies can be found here [Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview#comparison) Azure Disk Encryption isn't supported for SAP systems.  
+A comparison of Disk Encryption technologies can be found here [Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview#comparison) 
+Azure Disk Encryption isn't supported for SAP systems.  
 #### Virtual Network Encryption 
 Virtual Network Encryption doesn't support private endpoints currently. Virtual Network Encryption is currently used for specific high security scenarios.  
 [What is Azure Virtual Network encryption? - Azure Virtual Network | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview)
@@ -196,10 +201,12 @@ It's recommended to use the Azure Immutable Backup Vault to prevent Ransomware o
 [Azure Backup for SAP Hana and SQL Server can write to Azure Blob Storage  Azure backup and restore plan to protect against ransomware | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/backup-plan-to-protect-against-ransomware#azure-backup) It's possible to configure storage to require a PIN code or MFA before any modification can be performed on backups.  
 It's possible to configure fully SEC 17a-4(f) Locked Immutable storage polices. [Configure immutability policies for containers - Azure Storage | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy)
 It's recommended to review these steps and select the appropriate measures [Azure backup and restore plan to protect against ransomware | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/backup-plan-to-protect-against-ransomware#steps-to-take-before-an-attack)
-Further links: 
 
+Further links: 
 [Concept of Immutable vault for Azure Backup - Azure Backup | Microsoft Learn](https://learn.microsoft.com/en-us/azure/backup/backup-azure-immutable-vault-concept?tabs=recovery-services-vault)
+
 [Azure security fundamentals documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/)
+
 [Microsoft Digital Defense Report and Security Intelligence Insights](https://www.microsoft.com/en-us/security/business/security-intelligence-report?msockid=343d619786f36e041990740887e36ff0)
 
 Microsoft also offers support and consulting services for security related topics 
