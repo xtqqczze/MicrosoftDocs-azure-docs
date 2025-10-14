@@ -33,7 +33,7 @@ Only requests with Content-Type of *multipart/form-data* are considered for file
 >**Example:** If you have a custom rule with priority 0 (the highest priority) set to allow a request with the header xyz, even if the request's size is larger than your maximum request size limit, it will get allowed before the max size limit is enforced
 
 >[!NOTE]
->There is a 4KB buffer on the file upload limit. File upload size enforcement will not take effect until the file upload has exceeded your set limit plus the buffer.
+>There is a 4 KB buffer on the file upload limit. The file size restriction won't be enforced until the file upload exceeds your set limit plus this buffer.
 
 ## Request body inspection
 
