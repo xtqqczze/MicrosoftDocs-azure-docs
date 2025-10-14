@@ -12,7 +12,7 @@ Take the following steps if you're returning the device in Japan.
 2. Power off the device and remove the cables.
 3. Spool and securely place the power cord that was provided with the device in the back of the device.
 4. Write your company name and address information on the consignment note as your sender information.
-5. Email adbops@microsoft.com using the following template: 
+5. Email adbops@microsoft.com using the following template to get the return shipment label: 
     * If you have multiple orders, email to ensure individual pickup.
 
     ```
