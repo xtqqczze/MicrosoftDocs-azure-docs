@@ -165,13 +165,11 @@ The full sample source code is available in the [Azure App Configuration GitHub 
     openAIClient := openai.NewClient(azure.WithEndpoint(aiConfig.AzureOpenAI.Endpoint, aiConfig.AzureOpenAI.APIVersion), azure.WithTokenCredential(tokenCredential))
     ```
 
-    To access your Azure OpenAI resource with an API key, add the following code:
+    To access your Azure OpenAI resource with an API key, add the following code. If the key _ChatApp:AzureOpenAI:ApiKey_ is a Key Vault reference in App Configuration, make sure to [grant your app access to Key Vault](./use-key-vault-references-dotnet-core.md#grant-your-app-access-to-key-vault).
 
     ```golang
     openAIClient := openai.NewClient(azure.WithAPIKey(aiConfig.AzureOpenAI.APIKey), azure.WithEndpoint(aiConfig.AzureOpenAI.Endpoint, aiConfig.AzureOpenAI.APIVersion))
     ```
-
-    If the key _ChatApp:AzureOpenAI:ApiKey_ is a Key Vault reference in App Configuration, make sure to [grant your app access to Key Vault](./use-key-vault-references-dotnet-core.md#grant-your-app-access-to-key-vault).
 
 1. Create a function to get AI responses from the OpenAI client:
 
