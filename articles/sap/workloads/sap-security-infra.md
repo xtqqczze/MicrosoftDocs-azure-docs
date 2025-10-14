@@ -117,7 +117,7 @@ Operating System patching is one key layer in a secure solution. It isn't possib
 The Microsoft Secure Score should be used to monitor status of a landscape [Microsoft Secure Score for Devices - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/defender-vulnerability-management/tvm-microsoft-secure-score-devices)
 
 ### Suse, Redhat, and Oracle Linux 
-The following links have resources for hardening Linux OS distributions:   
+The following links have resources for hardening Linux OS distributions:    
 - [Azure security baseline for Virtual Machines - Linux Virtual Machines | Microsoft Learn](https://learn.microsoft.com/security/benchmark/azure/baselines/virtual-machines-linux-virtual-machines-security-baseline) 
 - [The 18 CIS Critical Security Controls](https://www.cisecurity.org/controls/cis-controls-list)
 - [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)
