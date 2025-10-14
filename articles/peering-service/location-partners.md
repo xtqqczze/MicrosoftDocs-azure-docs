@@ -49,7 +49,7 @@ The following table provides information on the Peering Service connectivity par
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) | Asia |
 | [Sunrise](https://www.sunrise.ch/business/en/home). | Europe |
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline.html) | Europe |
-| [Telstra International](https://www.telstrainternational.com/enterprise/products/adaptive-networks/global-internet/global-internet-direct) | Asia, Europe |
+| [Telstra International](https://www.telstrainternational.com/en/enterprise/products/adaptive-networks/global-internet/global-internet-direct) | Asia, Europe |
 | [TOKAI-NETWORK](https://www.broadline.ne.jp/en/) | Japan  |
 | [Vodacom](https://www.vodacom.com/index.php) | Africa |
 | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) | Asia, Europe, North America |
