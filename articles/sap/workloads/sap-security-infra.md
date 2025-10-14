@@ -58,6 +58,7 @@ Defender for Endpoint should be deployed on all NetWeaver, S4HANA, Hana, and Any
 ## 2.	Defender XDR
 In addition to AV and EDR protection Defender can provide more protection with features such as advanced threat hunting, Vulnerability Management, and other capabilities.  
 The SAPXPG can be exploited and should be monitored using this procedure [Custom detection rules with advanced hunting: Protecting SAP external OS commands (SAPXPG) - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/defender-endpoint/mde-sap-custom-detection-rules)
+
 Defender Vulnerability Management can detect vulnerabilities in the Operating System and Database layer. [Microsoft Defender Vulnerability Management dashboard - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/defender-vulnerability-management/tvm-dashboard-insights)  
 Defender Vulnerability Management doesn't have the functionality to detect ABAP and Java vulnerabilities today
 
@@ -98,7 +99,9 @@ Azure supports two solutions for Key Management:
 More information on these services
 
 [What is Azure Key Vault? | Microsoft Learn](https://learn.microsoft.com/azure/key-vault/general/basic-concepts)
+
 [Overview of Azure Cloud HSM Preview | Microsoft Learn](https://learn.microsoft.com/azure/cloud-hsm/overview)
+
 [How to choose the right key management solution - How to choose between Azure Key Vault, Azure Managed HSM, Azure Dedicated HSM, and Azure Payment HSM | Microsoft Learn](https://learn.microsoft.com/azure/security/fundamentals/key-management-choose)
 
 It is recommended to store OS and application passwords in Azure Key Vault. Training on secret management [Manage secrets in your server apps with Azure Key Vault - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/manage-secrets-with-azure-key-vault/?source=recommendations)
@@ -114,15 +117,12 @@ Operating System patching is one key layer in a secure solution. It isn't possib
 The Microsoft Secure Score should be used to monitor status of a landscape [Microsoft Secure Score for Devices - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/defender-vulnerability-management/tvm-microsoft-secure-score-devices)
 
 ### Suse, Redhat, and Oracle Linux 
-[Azure security baseline for Virtual Machines - Linux Virtual Machines | Microsoft Learn](https://learn.microsoft.com/security/benchmark/azure/baselines/virtual-machines-linux-virtual-machines-security-baseline) 
-
-[The 18 CIS Critical Security Controls](https://www.cisecurity.org/controls/cis-controls-list)
-
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)
-
-[Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15 GA and SP1](https://documentation.suse.com/sbp/sap-15/html/OS_Security_Hardening_Guide_for_SAP_HANA_SLES15/index.html)
-
-[Security hardening guide for SAP HANA | Red Hat Enterprise Linux for SAP Solutions | 9 | Red Hat Documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/security_hardening_guide_for_sap_hana/index)
+The following links have resources for hardening Linux OS distributions:   
+- [Azure security baseline for Virtual Machines - Linux Virtual Machines | Microsoft Learn](https://learn.microsoft.com/security/benchmark/azure/baselines/virtual-machines-linux-virtual-machines-security-baseline) 
+- [The 18 CIS Critical Security Controls](https://www.cisecurity.org/controls/cis-controls-list)
+- [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)
+- [Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15 GA and SP1](https://documentation.suse.com/sbp/sap-15/html/OS_Security_Hardening_Guide_for_SAP_HANA_SLES15/index.html)
+- [Security hardening guide for SAP HANA | Red Hat Enterprise Linux for SAP Solutions | 9 | Red Hat Documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/security_hardening_guide_for_sap_hana/index)
 
 High priority items for Linux Operating Systems include:
 - Generation 2 VMs with Secure Boot     
