@@ -56,6 +56,6 @@ ms:author: mbender
 
 <sup>2</sup> Limit is per Application Gateway instance not per Application Gateway resource.
 
-<sup>3</sup> There is a 4KB buffer on the file upload limit. File upload size enforcement will not take effect until the file upload has exceeded your set limit plus the buffer.
+<sup>3</sup> There is a 4 KB buffer on the file upload limit. The file size restriction won't be enforced until the file upload exceeds your set limit plus this buffer.
 
 <sup>4</sup> Must define the value via WAF Policy for Application Gateway.
