@@ -219,4 +219,4 @@ To view roles and permissions for other services, see the following links:
 
 - [What is Azure Role Based Access](../role-based-access-control/overview.md)
 
-- [Azure Role Based Access Control](../role-based-access-control/azure/role-based-access-control/role-assignments-list-portal)
+- [Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal)
