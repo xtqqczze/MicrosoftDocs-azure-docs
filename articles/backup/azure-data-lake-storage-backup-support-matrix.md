@@ -1,6 +1,6 @@
 ---
-title: Support matrix for Azure Data Lake Storage Vaulted Backup (preview)
-description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
+title: Support matrix for Azure Data Lake Storage Vaulted Backup
+description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage.
 ms.topic: reference
 ms.date: 09/26/2025
 ms.custom:
@@ -13,19 +13,19 @@ ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to understand the supported scenarios and limitations for vaulted backups of Azure Data Lake Storage, so that I can effectively configure and manage data protection for my storage accounts."
 ---
 
-# Support matrix for Azure Data Lake Storage vaulted backup (preview)
+# Support matrix for Azure Data Lake Storage vaulted backup
 
-This article summarizes the regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
+This article summarizes the regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage.
 Azure Backup now enables enhanced protection and recovery for Azure Data Lake Storage through vaulted backups that offer ransomware resilience, secure offsite storage, and long-term data retention. See the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/protect-azure-data-lake-storage-with-vaulted-backups/4410707).
 
-For more insights on Azure Backup’s support for vaulted backups in Azure Data Lake Storage (preview) that enables secure, long-term, and isolated data protection, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=488835).
+For more insights on Azure Backup’s support for vaulted backups in Azure Data Lake Storage that enables secure, long-term, and isolated data protection, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=488835).
 
 ## Supported regions
 
 Vaulted backups of Azure Data Lake Storage are available in the following regions: Australia East, Central India, Central US, East Asia, East US, East US 2, France South, Germany West Central, North Central US, North Europe, South India, Southeast Asia, Southeast US, Switzerland North, Switzerland West, UAE North, UK West, West Central US, West India, West US, West US 2, West US 3.
 
 >[!Note]
->- This feature is currently in Public preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
+>- This feature is currently available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
 
 
 ## Supported storage accounts
@@ -48,9 +48,9 @@ The following table lists the protection limits:
 | Maximum number of containers in a storage account that can be protected | 100 |
 | Vault redundancy              | LRS/ZRS/GRS |
 
-### Supported and unsupported scenarios for Azure Data Lake Storage protection (preview)
+### Supported and unsupported scenarios for Azure Data Lake Storage protection
 
-Azure Data Lake Storage protection (preview) has the following supported and unsupported scenarios:
+Azure Data Lake Storage protection has the following supported and unsupported scenarios:
 
 - Any new containers that get created after backup configuration for the storage account aren't backed up automatically. To enable the backup operation for the new containers, modify the protection of the storage account. 
 - The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error might appear when you configure backup.
@@ -101,5 +101,5 @@ The following table lists the restore method limits:
 
 ## Next steps
 
-- [Configure vaulted backup for Azure Data Lake Storage using Azure portal (preview)](azure-data-lake-storage-configure-backup.md).
-- [Restore Azure Data Lake Storage using Azure portal (preview)](azure-data-lake-storage-restore.md).
+- [Configure vaulted backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-configure-backup.md).
+- [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
