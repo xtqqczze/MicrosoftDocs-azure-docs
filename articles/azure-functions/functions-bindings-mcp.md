@@ -1,8 +1,8 @@
 ---
-title: MCP tool bindings for Azure Functions
+title: Model context protocol bindings for Azure Functions
 description: Learn how you can expose your functions as model context protocol (MCP) tools using bindings in Azure Functions.
 ms.topic: reference
-ms.date: 05/03/2025
+ms.date: 08/29/2025
 ms.update-cycle: 180-days
 ms.custom: 
   - build-2025
@@ -12,53 +12,49 @@ ms.collection:
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-
-# MCP tool bindings for Azure Functions overview
+# Model Context Protocol bindings for Azure Functions overview
 
 The [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol) is a client-server protocol intended to enable language models and agents to more efficiently discover and use external data sources and tools. 
 
-[!INCLUDE [functions-mcp-extension-preview-note](../../includes/functions-mcp-extension-preview-note.md)]
+The Azure Functions MCP extension allows you to use Azure Functions to create remote MCP servers. These servers can host MCP tool trigger functions, which MCP clients, such as language models and agents, can query and access to do specific tasks.
 
-The Azure Functions MCP extension allows you to use Azure Functions to create remote MCP servers. Your function app implements a remote MCP server by exposing a set of endpoints that are implemented as MCP tool trigger functions. MCP clients, such as language models and agents, can query and access these tools to do specific tasks, such as storing or accessing code snippets. MCP clients can also subscribe to your app to receive notifications about changes to the exposed tools. 
+| Action | Type |
+|---------|---------|
+| Run a function from an MCP tool call request | [Trigger](./functions-bindings-mcp-trigger.md) |
+
 
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]
 ## Prerequisites 
 
-+ The MCP tool trigger relies on Azure Queue storage provided by the [default host storage account](./storage-considerations.md) (`AzureWebJobsStorage`). When using managed identities, make sure that your function app has at least the equivalent of these role-based permissions in the host storage account: [Storage Queue Data Reader](/azure/role-based-access-control/built-in-roles#storage-queue-data-reader) and [Storage Queue Data Message Processor](/azure/role-based-access-control/built-in-roles#storage-queue-data-message-processor).   
++ When you use the SSE transport, the MCP extension relies on Azure Queue storage provided by the [default host storage account](./storage-considerations.md) (`AzureWebJobsStorage`). When using identity-based connections, make sure that your function app has at least the equivalent of these role-based permissions in the host storage account: [Storage Queue Data Reader](/azure/role-based-access-control/built-in-roles#storage-queue-data-reader) and [Storage Queue Data Message Processor](/azure/role-based-access-control/built-in-roles#storage-queue-data-message-processor).
 + When running locally, the MCP extension requires version 4.0.7030 of the [Azure Functions Core Tools](functions-run-local.md), or a later version.
 ::: zone pivot="programming-language-csharp"
-+ Requires version 2.0.2 or later of the `Microsoft.Azure.Functions.Worker.Sdk` package.  
++ Requires version 2.1.0 or later of the `Microsoft.Azure.Functions.Worker` package.
++ Requires version 2.0.2 or later of the `Microsoft.Azure.Functions.Worker.Sdk` package.
 
 ## Install extension
 
->[!TIP]  
->The Azure Functions MCP extension supports only the [isolated worker model](dotnet-isolated-process-guide.md). 
+>[!NOTE]  
+>For C#, the Azure Functions MCP extension supports only the [isolated worker model](dotnet-isolated-process-guide.md). 
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Mcp) in your preferred way:
 
 `Microsoft.Azure.Functions.Worker.Extensions.Mcp`  
 ::: zone-end  
-
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java"  
-
-## Install bundle    
-
-The MCP extension preview is part of an experimental [extension bundle], which is specified in your host.json project file. 
-
-To use this experimental bundle in your app, replace the existing `extensionBundle` object in your project's host.json file with this JSON object:
-
-```json
-"extensionBundle": {
-  "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-  "version": "[4.*, 5.0.0)"
-}
-```
-
+<!---At GA, replace with:
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
+-->
+> [!IMPORTANT]
+> A generally available version of the extension is now available. However, it isn’t yet included in the default extension bundle. The instructions show how to use the preview extension bundle, which includes an earlier preview version of the MCP extension, along with other preview dependencies. For now, to use the generally available version of the extension, you must [manually install the extension](./functions-bindings-register.md#explicitly-install-extensions).
+[!INCLUDE [functions-extension-bundles-json-preview](../../includes/functions-extension-bundles-json-preview.md)]
 ::: zone-end
 
 ## host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
+
+You can use the `extensions.mcp` section in `host.json` to define MCP server information.
 
 ```json
 {
@@ -67,8 +63,12 @@ To use this experimental bundle in your app, replace the existing `extensionBund
     "mcp": {
       "instructions": "Some test instructions on how to use the server",
       "serverName": "TestServer",
-      "serverVersion": "2.0.0"
-    }
+      "serverVersion": "2.0.0",
+      "encryptClientState": true,
+      "messageOptions": {
+        "useAbsoluteUriForEndpoint": false
+      }
+    }    
   }
 }
 ```
@@ -78,7 +78,59 @@ To use this experimental bundle in your app, replace the existing `extensionBund
 | **instructions** | Describes to clients how to access the remote MCP server. |
 | **serverName** | A friendly name for the remote MCP server. |
 | **serverVersion** | Current version of the remote MCP server. |
+| **encryptClientState** | Determines if client state is encrypted. Defaults to true. Setting to false may be useful for debugging and test scenarios but isn't recommended for production. |
+| **messageOptions** | Options object for the message endpoint in the SSE transport. |
+| **messageOptions.UseAbsoluteUriForEndpoint** | Defaults to `false`. Only applicable to the server-sent events (SSE) transport; this setting doesn't affect the Streamable HTTP transport. If set to `false`, the message endpoint is provided as a relative URI during initial connections over the SSE transport. If set to `true`, the message endpoint is returned as an absolute URI. Using a relative URI isn't recommended unless you have a specific reason to do so.|
 
+## Connect to your MCP server
+
+To connect to the MCP server exposed by your function app, you need to provide an MCP client with the appropriate endpoint and transport information. The following table shows the transports supported by the Azure Functions MCP extension, along with their corresponding connection endpoint.
+
+| Transport | Endpoint |
+| ----- | ----- |
+| Streamable HTTP | `/runtime/webhooks/mcp` |
+| Server-Sent Events (SSE)<sup>1</sup> | `/runtime/webhooks/mcp/sse` |
+
+<sup>1</sup> Newer protocol versions deprecated the Server-Sent Events transport. Unless your client specifically requires it, you should use the Streamable HTTP transport instead.
+
+When hosted in Azure, the endpoints exposed by the extension also require the [system key](./function-keys-how-to.md) named `mcp_extension`. If it isn't provided in the `x-functions-key` HTTP header, your client receives a `401 Unauthorized` response. You can retrieve the key using any of the methods described in [Get your function access keys](./function-keys-how-to.md#get-your-function-access-keys). The following example shows how to get the key with the Azure CLI:
+
+```azurecli
+az functionapp keys list --resource-group <RESOURCE_GROUP> --name <APP_NAME> --query systemKeys.mcp_extension --output tsv
+```
+
+MCP clients accept this configuration in various ways. Consult the documentation for your chosen client. The following example shows an `mcp.json` file like you might use to [configure MCP servers for GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers#_configuration-format). The example sets up two servers, both using the Streamable HTTP transport. The first is for local testing with the Azure Functions Core Tools. The second is for a function app hosted in Azure. The configuration takes input parameters for which Visual Studio Code prompts you when you first run the remote server. Using inputs ensures that secrets like the system key aren't saved to the file and checked into source control.
+
+```json
+{
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "functions-mcp-extension-system-key",
+            "description": "Azure Functions MCP Extension System Key",
+            "password": true
+        },
+        {
+            "type": "promptString",
+            "id": "functionapp-host",
+            "description": "The host domain of the function app."
+        }
+    ],
+    "servers": {
+        "local-mcp-function": {
+            "type": "http",
+            "url": "http://localhost:7071/runtime/webhooks/mcp"
+        },
+        "remote-mcp-function": {
+            "type": "http",
+            "url": "https://${input:functionapp-host}/runtime/webhooks/mcp",
+            "headers": {
+                "x-functions-key": "${input:functions-mcp-extension-system-key}"
+            }
+        }
+    }
+}
+```
 
 ## Related articles
 
