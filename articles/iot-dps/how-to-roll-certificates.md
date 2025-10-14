@@ -8,6 +8,7 @@ ms.date: 08/11/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: azure-iot-hub-dps
+ms.custom: sfi-image-nochange
 ---
 
 # How to roll X.509 device certificates
