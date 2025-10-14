@@ -54,7 +54,7 @@ The delegated subnet address space for hosting the Azure NetApp Files volumes mu
 * You can't move a cache volume to another capacity pool.
 * You should ensure that the protocol type is the same for the cache volume and origin volume as the security style and the Unix permissions are inherited from the origin volume. Example: create a cache volume with protocol NFSv3 or NFSv4 when origin is UNIX, and SMB when the origin is NTFS.
 * You should enable encryption on the origin volume.
-* You should configure an active directory or LDAP connection under the NetApp account.
+* You should configure an Active Directory (AD) or LDAP connection within the NetApp account to create an LDAP-enabled cache volume.
 * You can only modify specific fields of a cache volume such as ‘is-cifs-change-notify-enabled’, ‘is-writeback-enabled’, and ‘is-global-file-locking-enabled.'
 
 ## Supported regions
