@@ -75,7 +75,7 @@ This guide shows how to set up the OBO authorization, delegated permissions, and
 
     You switch between these accounts when you try conversing with the agent through the *external* chat client outside the Azure portal.
 
-  - To make the external chat client available, you must set up your logic app resource with [Easy Auth (App Service Authentication)](set-up-authentication-agent-workflows.md). This authentication and authorization flow lets you authorize only people with the correct permissions to interact with the agent.
+  - To make the external chat client available, you must set up your logic app resource with [Easy Auth (App Service Authentication)](set-up-authentication-agent-workflows.md). This authentication and authorization flow also requires people to sign in and confirms their identity and permissions before they can access and chat with the agent.
 
     > [!NOTE]
     >
