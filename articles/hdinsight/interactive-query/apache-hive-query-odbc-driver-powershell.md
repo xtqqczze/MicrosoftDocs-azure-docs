@@ -35,7 +35,7 @@ Before you begin this tutorial, you must have the following items:
 
 ## Install Microsoft Hive ODBC driver
 
-[!Note]
+> [!Note]
 > [Microsoft Hive ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=40886) is no longer supported with HDInsight and to be discontinued.
 
 Download and install the [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886).
