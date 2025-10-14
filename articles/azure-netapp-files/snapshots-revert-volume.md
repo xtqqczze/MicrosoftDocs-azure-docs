@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 03/28/2025
 ms.author: anfdocs
+# Customer intent: As a storage administrator, I want to quickly revert a volume to a previous state using snapshot functionality, so that I can efficiently manage data recovery and minimize downtime in my cloud storage environment.
 ---
 
 # Revert a volume using snapshot revert with Azure NetApp Files
@@ -18,7 +19,7 @@ You can find the Revert Volume option in the Snapshots menu of a volume. After y
 The revert functionality is also available in configurations with volume replication relationships.
 
 > [!IMPORTANT]
-> Active filesystem data and snapshots that were taken after the selected snapshot will be lost. The snapshot revert operation will replace *all* the data in the targeted volume with the data in the selected snapshot. You should pay attention to the snapshot contents and creation date when you select a snapshot. You can't undo reverting a snapshot.
+> Active filesystem data and snapshots taken after the selected snapshot will be lost. The snapshot revert operation replaces *all* the data in the targeted volume with the data in the selected snapshot. You should pay attention to the snapshot contents and creation date when you select a snapshot. You can't undo reverting a snapshot.
 
 ## Considerations
 
@@ -35,7 +36,7 @@ The revert functionality is also available in configurations with volume replica
 
     The volume is now restored to the point in time of the selected snapshot.
 
-![Screenshot that shows the Revert Volume to Snapshot window.](./media/snapshots-revert-volume/snapshot-revert-volume.png) 
+![Screenshot that shows the Revert Volume to snapshot window.](./media/snapshots-revert-volume/snapshot-revert-volume.png) 
 
 ## Next steps
 
@@ -43,3 +44,5 @@ The revert functionality is also available in configurations with volume replica
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw)
 * [Azure NetApp Files Snapshot Overview](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
+* [Create a short-term clone from an Azure NetApp File snapshot](create-short-term-clone.md)
+

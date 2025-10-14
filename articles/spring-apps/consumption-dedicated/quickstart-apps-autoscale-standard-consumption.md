@@ -6,8 +6,12 @@ ms.author: karler
 ms.reviewer: haojianzhong
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 08/29/2024
-ms.custom: devx-track-java, devx-track-extended-java
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Quickstart: Set up autoscale for applications in the Azure Spring Apps Standard consumption and dedicated plan
@@ -25,7 +29,7 @@ For more information, see [Azure Container Apps documentation](../../container-a
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, see [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, see [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An Azure Spring Apps Standard consumption and dedicated plan service instance.
 - A Spring app deployed to Azure Spring Apps.
 

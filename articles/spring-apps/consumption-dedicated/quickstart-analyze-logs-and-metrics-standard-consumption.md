@@ -6,7 +6,8 @@ ms.author: karler
 ms.reviewer: shiqiu
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 08/29/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java
 ---
 
@@ -20,7 +21,7 @@ This article shows you how to analyze logs and metrics in the Azure Spring Apps 
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An Azure Spring Apps Standard consumption and dedicated plan service instance.
 - A Spring app deployed to Azure Spring Apps.
 
