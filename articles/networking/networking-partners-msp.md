@@ -6,7 +6,7 @@ ms.author: mbender
 author: mbender-ms
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 06/30/2023
+ms.date: 10/14/2025
 # Customer intent: "As a network administrator, I want to explore managed networking services offered by Azure Networking partners, so that I can effectively implement and manage cloud and hybrid networking solutions tailored to my organization's needs."
 ---
 
