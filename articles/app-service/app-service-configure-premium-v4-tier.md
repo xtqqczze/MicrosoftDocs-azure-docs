@@ -127,7 +127,7 @@ Premium V4 is available in the following regions:
 - West US 2
 - West US 3
 
-- <sup>*</sup> Region supports Premium v4 with availability zones.
+<sup>*</sup> Region supports Premium v4 with availability zones.
 
 ## Scale up from an unsupported resource group and region combination
 
