@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 10/07/2025
+ms.date: 10/13/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -22,6 +22,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     Azure NetApp Files now support cache volumes, which are cloud-based caches of an external origin volume, containing only the most actively accessed data on the volume. This brings data and files closer to the user for faster throughput with a smaller footprint. Azure NetApp Files cache volumes simplify file distribution, reduces WAN latency, and lowers WAN/ExpressRoute bandwidth costs.
 
 ## October 2025
+
+* [Object REST API](object-rest-api-access-configure.md) (Preview)
+
+    The [Object REST API (an S3-compatible REST API)](object-rest-api-introduction.md) on Azure NetApp Files bridges the gap between traditional file-based storage and modern cloud services, enabling you to use your existing data in new ways. With the Object REST API, you can seamlessly integrate Azure NetApp Files data with Microsoft Fabric, Azure AI services, and other Azure offerings without the need to move or replicate data. This unlocks new use cases such as advanced analytics, machine learning, and real-time business intelligence, while reducing costs and accelerating innovation.
+
+    The Object REST API introduces native S3-compatible read/write access, allowing modern applications to interact with your data directly and efficiently. Enterprises benefit from simplified integration, enhanced productivity, and improved data security, as data remains in place and protected by Azure NetApp Files’ robust security measures. This feature is ideal for organizations looking to leverage AI-driven insights, streamline workflows, and maintain compliance with industry standards. This feature is currently in preview.
 
 * [Support for FreeIPA, OpenLDAP, and Red Hat Directory Server](configure-directory-server.md) (preview)
  
