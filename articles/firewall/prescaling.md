@@ -12,9 +12,6 @@ ms.author: sujamiya
 
 # Azure Firewall prescaling
 
-
-## Overview
-
 Azure Firewall supports built-in autoscaling to dynamically adjust capacity based on CPU utilization, throughput, and connection volume. However, for mission-critical workloads or predictable traffic spikes (e.g., Black Friday, migrations), administrators may want greater control to ensure consistent performance.
 
 **Prescaling** allows administrators to proactively set a minimum and maximum number of firewall capacity units (instances). This provides predictable performance while still allowing autoscaling to occur within the defined range.
@@ -98,6 +95,6 @@ Keep the following considerations in mind when using Prescaling (Preview):
 - **Active scaling/maintenance events**: prescaling changes may fail if the firewall is mid-scale or upgrade. Retry after completion.
 
 ## Next steps
-- 	Monitor and learn about the firewall Observed Capacity metrics in [Logs and metrics](https://learn.microsoft.com/azure/firewall/monitor-firewall-reference)
-- 	Review [Azure Firewall Best Practices](https://learn.microsoft.com/azure/firewall/firewall-best-practices) to optimize deployments.
+- 	Monitor and learn about the firewall Observed Capacity metrics in [Logs and metrics](monitor-firewall-reference.md)
+- 	Review [Azure Firewall Best Practices](firewall-best-practices.md) to optimize deployments.
 
