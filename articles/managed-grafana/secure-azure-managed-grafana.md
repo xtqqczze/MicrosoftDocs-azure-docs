@@ -60,7 +60,7 @@ Logging and monitoring capabilities provide visibility into Azure Managed Grafan
 
 - **Enable diagnostic settings for audit logging**: Configure diagnostic settings to stream Grafana login events and other logs to Log Analytics, Storage Account, or Event Hub for centralized monitoring and security analysis. This provides visibility into user access patterns and system events. See [Monitor Azure Managed Grafana using diagnostic settings](/azure/managed-grafana/how-to-monitor-managed-grafana-workspace).
 
-- **Configure log retention policies**: Establish appropriate retention periods for diagnostic logs based on compliance requirements and security analysis needs. Store logs in secure, tamper-evident storage locations with proper access controls. See [Monitor Azure Managed Grafana using diagnostic settings](azure/managed-grafana/how-to-monitor-managed-grafana-workspace).
+- **Configure log retention policies**: Establish appropriate retention periods for diagnostic logs based on compliance requirements and security analysis needs. Store logs in secure, tamper-evident storage locations with proper access controls. See [Monitor Azure Managed Grafana using diagnostic settings](/azure/managed-grafana/how-to-monitor-managed-grafana-workspace).
 
 - **Monitor workspace metrics**: Use Azure Monitor metrics to track performance indicators and detect anomalous behavior that might indicate security issues or resource exhaustion attacks. Monitor metrics such as total requests and response times through Azure Monitor's metric charts. See [Monitor Azure Managed Grafana using Azure Monitor's metric chart](/azure/managed-grafana/how-to-monitor-managed-grafana-metrics).
 
@@ -76,7 +76,7 @@ Compliance and governance controls ensure that Azure Managed Grafana deployments
 
 - **Configure resource tagging for governance**: Apply consistent tags to Azure Managed Grafana resources to support cost management, security classification, and compliance reporting. Use tags to identify resource owners, environments, and data sensitivity levels. See [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources).
 
-- **Establish access review processes**: Implement regular access reviews for Azure Managed Grafana permissions to ensure users maintain only necessary access levels. Remove unused accounts and adjust permissions based on changing role requirements. See [What are Azure AD access reviews?](entra/id-governance/access-reviews-overview).
+- **Establish access review processes**: Implement regular access reviews for Azure Managed Grafana permissions to ensure users maintain only necessary access levels. Remove unused accounts and adjust permissions based on changing role requirements. See [What are Azure AD access reviews?](/entra/id-governance/access-reviews-overview).
 
 ## Backup and recovery
 
@@ -98,11 +98,9 @@ Service-specific security controls address unique security considerations and fe
 
 - **Document recovery procedures**: Create detailed recovery procedures that include steps for recreating workspaces, restoring configurations, and reestablishing data source connections. Test recovery procedures regularly to ensure they remain current and effective. See [Azure Managed Grafana service reliability](/azure/managed-grafana/high-availability).
 
-## Service-specific security
-
 Azure Managed Grafana provides unique security capabilities designed specifically for data visualization, dashboard management, and monitoring workloads that require specific attention to maintain secure operations.
 
-- **Secure data source plugin configurations**: When configuring data source plugins, use managed identities wherever possible instead of storing connection credentials directly in Grafana. For data sources that require direct credentials, use Azure Key Vault to store and retrieve connection information securely. See [How to manage data sources in Azure Managed Grafana]/azure/managed-grafana/how-to-data-source-plugins-managed-identity).
+- **Secure data source plugin configurations**: When configuring data source plugins, use managed identities wherever possible instead of storing connection credentials directly in Grafana. For data sources that require direct credentials, use Azure Key Vault to store and retrieve connection information securely. See [How to manage data sources in Azure Managed Grafana](/azure/managed-grafana/how-to-data-source-plugins-managed-identity).
 
 - **Control Grafana Enterprise plugin access**: If using Grafana Enterprise features, carefully review and approve the specific plugins enabled in your environment. Only install plugins that are required for your monitoring use cases and ensure they come from trusted sources. Monitor plugin usage for security issues. See [Enable Grafana Enterprise](/azure/managed-grafana/how-to-grafana-enterprise).
 
