@@ -177,7 +177,8 @@ Customer Managed Keys within one tenant or across tenants is supported Use a dis
 
 Double Encryption at rest can be used for highly secure SAP systems [Enable double encryption at rest for managed disks - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal?tabs=portal)  (not supported on Ultra or Premium SSD v2). 
 A comparison of Disk Encryption technologies can be found here [Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview#comparison) 
-Azure Disk Encryption isn't supported for SAP systems.  
+> [!Important]
+> Azure Disk Encryption isn't supported for SAP systems.  
 #### Virtual Network Encryption 
 Virtual Network Encryption doesn't support private endpoints currently. Virtual Network Encryption is currently used for specific high security scenarios.  
 [What is Azure Virtual Network encryption? - Azure Virtual Network | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview)
@@ -203,18 +204,14 @@ It's possible to configure fully SEC 17a-4(f) Locked Immutable storage polices. 
 It's recommended to review these steps and select the appropriate measures [Azure backup and restore plan to protect against ransomware | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/backup-plan-to-protect-against-ransomware#steps-to-take-before-an-attack)
 
 Further links: 
-[Concept of Immutable vault for Azure Backup - Azure Backup | Microsoft Learn](https://learn.microsoft.com/en-us/azure/backup/backup-azure-immutable-vault-concept?tabs=recovery-services-vault)
-
-[Azure security fundamentals documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/)
-
-[Microsoft Digital Defense Report and Security Intelligence Insights](https://www.microsoft.com/en-us/security/business/security-intelligence-report?msockid=343d619786f36e041990740887e36ff0)
-
-Microsoft also offers support and consulting services for security related topics 
+> - [Concept of Immutable vault for Azure Backup - Azure Backup | Microsoft Learn](https://learn.microsoft.com/en-us/azure/backup/backup-azure-immutable-vault-concept?tabs=recovery-services-vault)
+> - [Azure security fundamentals documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/)
+> - [Microsoft Digital Defense Report and Security Intelligence Insights](https://www.microsoft.com/en-us/security/business/security-intelligence-report?msockid=343d619786f36e041990740887e36ff0)
+> - Microsoft also offers support and consulting services for security related topics 
 [DART: the Microsoft cybersecurity team we hope you never meet | Microsoft Security Blog](https://www.microsoft.com/en-us/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/)
-Microsoft provides tools to remove ransomware and other Malware from Windows [Microsoft Safety Scanner Download - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/en-us/defender-endpoint/safety-scanner-download) 
-
-[Windows Malicious Software Removal Tool 64-bit](https://www.microsoft.com/en-us/download/details.aspx?id=9905)
-[FAQ - Protect backups from Ransomware with Azure Backup - Azure Backup | Microsoft Learn](https://learn.microsoft.com/en-us/azure/backup/protect-backups-from-ransomware-faq)
+> - Microsoft provides tools to remove ransomware and other Malware from Windows [Microsoft Safety Scanner Download - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/en-us/defender-endpoint/safety-scanner-download) 
+> - [Windows Malicious Software Removal Tool 64-bit](https://www.microsoft.com/en-us/download/details.aspx?id=9905)
+> - [FAQ - Protect backups from Ransomware with Azure Backup - Azure Backup | Microsoft Learn](https://learn.microsoft.com/en-us/azure/backup/protect-backups-from-ransomware-faq)
  
 Further recommendations for large organizations include segregation of duties. For example, the SAP Administrators and Server Administrators should only have Read Only access to the Backup Vault. Multiuser Authorization and Resource Guard can be implemented to protect against rouge administrators and ransomware [Configure Multi-user authorization using Resource Guard - Azure Backup | Microsoft Learn](https://learn.microsoft.com/en-us/azure/backup/multi-user-authorization?tabs=azure-portal&pivots=vaults-recovery-services-vault)
 
@@ -222,7 +219,8 @@ Further recommendations for large organizations include segregation of duties. F
 
 ## 9.	Unsupported Technologies 
 Azure Disk Encryption (ADE) isn't supported for SAP solutions. RHEL and SLES Linux images for SAP applications are considered to be 'custom images' and aren't tested or supported. Azure Encryption at Host is typically used for customers with a requirement for at rest encryption. 
-Azure Disk Encryption is now a deprecated feature [Azure updates | Microsoft Azure](https://azure.microsoft.com/en-us/updates?id=493779)
+> [!Important]
+> Azure Disk Encryption is now a deprecated feature [Azure updates | Microsoft Azure](https://azure.microsoft.com/en-us/updates?id=493779)
 
 ## 10.	SAP Security Notes 
 SAP release information about vulnerabilities in their products on the second Tuesday of every month.  
