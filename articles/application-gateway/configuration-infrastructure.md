@@ -264,4 +264,4 @@ To view roles and permissions for other services, see the following links:
 - [Learn about frontend IP address configuration](configuration-frontend-ip.md)
 - [Learn about private Application Gateway deployment](application-gateway-private-deployment.md)
 - [What is Azure Role Based Access](../role-based-access-control/overview.md)
-- [Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal)
+- [Azure Role Based Access Control](/articles/role-based-access-control/role-assignments-list-portal)
