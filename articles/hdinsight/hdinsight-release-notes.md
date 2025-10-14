@@ -55,6 +55,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 * Grafana login now supported for Entra clusters.
 
 * C++ CodeQL scanning enabled for better static analysis coverage.
+* Managed Identity (MI) based authentication for SQL databases is now supported in non-public clouds. For more information see, [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
 
 ## Issues fixed
 
@@ -62,6 +63,11 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 * Disabled local user creation by default to strengthen access control. 
 
+## Updates
+
+* The following standalone drivers are no longer supported with HDInsight.
+   * [Hive ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=40886)
+   * [Spark ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=49883)
 
 ## Reminder
 
