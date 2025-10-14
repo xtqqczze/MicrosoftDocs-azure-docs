@@ -21,6 +21,8 @@ items:
   expanded: true
 - name: Concepts
   items:
+  - name: Secure your deployment
+    href: secure-azure-managed-grafana.md
   - name: Service reliability
     href: high-availability.md
   - name: Encryption

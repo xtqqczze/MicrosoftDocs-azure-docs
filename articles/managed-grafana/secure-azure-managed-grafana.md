@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: conceptual
 ms.custom: horz-security
-ms.date: 09/29/2025
+ms.date: 10/24/2025
 ai-usage: ai-assisted
 ---
 
@@ -22,35 +22,35 @@ This article provides security recommendations to help protect your Azure Manage
 
 Network security controls prevent unauthorized access to Azure Managed Grafana workspaces and establish secure communication boundaries for monitoring and visualization workloads.
 
-- **Enable private endpoints**: Eliminate public internet exposure by routing traffic through your virtual network using Azure Private Link. Private endpoints provide dedicated network interfaces that connect directly to Azure Managed Grafana while preventing data exfiltration risks. See [Set up private access](https://learn.microsoft.com/azure/managed-grafana/how-to-set-up-private-access).
+- **Enable private endpoints**: Eliminate public internet exposure by routing traffic through your virtual network using Azure Private Link. Private endpoints provide dedicated network interfaces that connect directly to Azure Managed Grafana while preventing data exfiltration risks. See [Set up private access](/azure/managed-grafana/how-to-set-up-private-access#create-a-private-endpoint).
 
-- **Disable public network access**: Block all internet-based connections when using private endpoints by configuring the workspace to deny public network access. This forces all communication through private endpoints and reduces your attack surface. See [Set up private access](https://learn.microsoft.com/azure/managed-grafana/how-to-set-up-private-access).
+- **Disable public network access**: Block all internet-based connections when using private endpoints by configuring the workspace to deny public network access. This forces all communication through private endpoints and reduces your attack surface. See [Set up private access](/azure/managed-grafana/how-to-set-up-private-access#disable-public-access-to-a-workspace).
 
-- **Configure network security groups for private endpoints**: Apply Network Security Groups to control traffic flow to and from subnets hosting private endpoints by implementing restrictive rules that deny unauthorized access while allowing necessary communication patterns. Configure NSG rules on the subnet where the private endpoint is deployed to control access. See [Set up private access](https://learn.microsoft.com/azure/managed-grafana/how-to-set-up-private-access).
+- **Configure network security groups for private endpoints**: Apply Network Security Groups to control traffic flow to and from subnets hosting private endpoints by implementing restrictive rules that deny unauthorized access while allowing necessary communication patterns. Configure NSG rules on the subnet where the private endpoint is deployed to control access. See [Set up private access](/azure/managed-grafana/how-to-set-up-private-access).
 
-- **Use deterministic outbound IP addresses**: Enable deterministic outbound IP feature in Azure Managed Grafana Standard tier to obtain predictable IP addresses for outbound connections. This allows you to configure data source firewalls to allow specific IP addresses, reducing the need for broad network access rules. See [Use deterministic outbound IPs](https://learn.microsoft.com/azure/managed-grafana/how-to-deterministic-ip).
+- **Use deterministic outbound IP addresses**: Enable deterministic outbound IP feature in Azure Managed Grafana Standard tier to obtain predictable IP addresses for outbound connections. This allows you to configure data source firewalls to allow specific IP addresses, reducing the need for broad network access rules. See [Use deterministic outbound IPs](/azure/managed-grafana/how-to-deterministic-ip).
 
 ## Identity and access management
 
 Identity and access management controls ensure that only authorized users and applications can access Azure Managed Grafana resources with appropriate permissions for dashboard management and data visualization.
 
-- **Use Microsoft Entra ID authentication**: Replace local authentication mechanisms with Microsoft Entra ID to leverage centralized identity management, conditional access policies, and advanced security features. This provides better security through multi-factor authentication and eliminates long-lived secrets. See [Set up Azure Managed Grafana authentication and permissions](https://learn.microsoft.com/azure/managed-grafana/how-to-authentication-permissions).
+- **Use Microsoft Entra ID authentication**: Replace local authentication mechanisms with Microsoft Entra ID to leverage centralized identity management, conditional access policies, and advanced security features. This provides better security through multi-factor authentication and eliminates long-lived secrets. See [Set up Azure Managed Grafana authentication and permissions](/azure/managed-grafana/how-to-authentication-permissions).
 
-- **Implement role-based access control (RBAC)**: Assign users and applications the minimum required permissions using built-in Grafana roles such as Grafana Viewer, Grafana Editor, or Grafana Admin rather than using administrative roles. Use Azure RBAC to enforce least-privilege access principles. See [Manage access and permissions for users and identities](https://learn.microsoft.com/azure/managed-grafana/how-to-manage-access-permissions-users-identities).
+- **Implement role-based access control (RBAC)**: Assign users and applications the minimum required permissions using built-in Grafana roles, rather than using administrative roles. Use Azure RBAC to enforce least-privilege access principles. See [Manage access and permissions for users and identities](/azure/managed-grafana/how-to-manage-access-permissions-users-identities).
 
-- **Enable managed identities for data source authentication**: Configure system-assigned or user-assigned managed identities to authenticate Azure Managed Grafana to data sources without storing credentials in code or configuration. Managed identities eliminate credential management overhead and provide automatic secret rotation. See [Set up Azure Managed Grafana authentication and permissions](https://learn.microsoft.com/azure/managed-grafana/how-to-authentication-permissions).
+- **Enable managed identities for data source authentication**: Configure system-assigned or user-assigned managed identities to authenticate Azure Managed Grafana to data sources without storing credentials in code or configuration. Managed identities eliminate credential management overhead and provide automatic secret rotation. See [Set up Azure Managed Grafana authentication and permissions](/azure/managed-grafana/how-to-authentication-permissions).
 
-- **Assign Monitoring Reader role for data access**: Grant the managed identity associated with Azure Managed Grafana the Monitoring Reader role on target subscriptions to provide read-only access to monitoring data across all resources within the subscription. This follows least-privilege principles for data source access. See [Set up Azure Managed Grafana authentication and permissions](https://learn.microsoft.com/azure/managed-grafana/how-to-authentication-permissions).
+- **Assign Monitoring Reader role for data access**: Grant the managed identity associated with Azure Managed Grafana the Monitoring Reader role on target subscriptions to provide read-only access to monitoring data across all resources within the subscription. This follows least-privilege principles for data source access. See [Set up Azure Managed Grafana authentication and permissions](/azure/managed-grafana/how-to-authentication-permissions).
 
 ## Data protection
 
 Data protection controls ensure that configuration data, dashboard definitions, and user information stored in Azure Managed Grafana are properly encrypted and secured against unauthorized access.
 
-- **Leverage default encryption at rest**: Azure Managed Grafana automatically encrypts all data at rest using server-side encryption with service-managed keys. Resource-provider metadata is stored in Azure Cosmos DB and Grafana user data is stored in Azure Database for PostgreSQL, both providing automatic encryption without additional configuration required. See [Encryption in Azure Managed Grafana](https://learn.microsoft.com/azure/managed-grafana/encryption).
+- **Leverage default encryption at rest**: Azure Managed Grafana automatically encrypts all data at rest using server-side encryption with service-managed keys. Resource-provider metadata is stored in Azure Cosmos DB and Grafana user data is stored in Azure Database for PostgreSQL, both providing automatic encryption without additional configuration required. See [Encryption in Azure Managed Grafana](/azure/managed-grafana/encryption).
 
-- **Ensure data in transit encryption**: All communication to and from Azure Managed Grafana is automatically encrypted in transit using TLS. This includes connections from users to the Grafana interface and connections from Grafana to data sources. No additional configuration is required as this is enabled by default. See [Encryption in Azure Managed Grafana](https://learn.microsoft.com/azure/managed-grafana/encryption).
+- **Ensure data in transit encryption**: All communication to and from Azure Managed Grafana is automatically encrypted in transit using TLS. This includes connections from users to the Grafana interface and connections from Grafana to data sources. No additional configuration is required as this is enabled by default. See [Encryption in Azure Managed Grafana](/azure/managed-grafana/encryption).
 
-- **Secure data source connections**: Configure data sources to use managed identities rather than storing credentials directly in Grafana. The Azure Monitor data source is preconfigured with managed identity authentication, eliminating the need to manage service principals manually. For other data sources, use managed identity authentication where supported. See [How to manage data sources in Azure Managed Grafana](https://learn.microsoft.com/azure/managed-grafana/how-to-data-source-plugins-managed-identity).
+- **Secure data source connections**: Configure data sources to use managed identities rather than storing credentials directly in Grafana. The Azure Monitor data source is preconfigured with managed identity authentication, eliminating the need to manage service principals manually. For other data sources, use managed identity authentication where supported. See [How to manage data sources in Azure Managed Grafana](/azure/managed-grafana/how-to-data-source-plugins-managed-identity).
 
 - **Implement proper dashboard and folder permissions**: Use Grafana's built-in permission system to control access to dashboards and folders based on user roles and responsibilities. Ensure sensitive monitoring data is only accessible to authorized personnel. See [Manage access and permissions for users and identities](https://learn.microsoft.com/azure/managed-grafana/how-to-manage-access-permissions-users-identities).
 
