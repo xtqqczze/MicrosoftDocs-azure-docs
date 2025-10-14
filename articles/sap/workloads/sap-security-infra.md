@@ -148,8 +148,8 @@ https://aka.ms/ws2025securitybook
 Azure infrastructure security configuration can be enhanced to reduce or eliminate attack vectors.
 #### Generation 2 VM and Trusted Launch 
 It's recommended to only deploy Generation 2 VMs and to activate Trusted Launch. 
-[!NOTE]
-Note only recent versions of Suse 15 support Trusted Launch. [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#operating-systems-supported)
+> [!NOTE]
+> Note only recent versions of Suse 15 support Trusted Launch. [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#operating-systems-supported)
 
 [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch)
 
@@ -232,6 +232,9 @@ Second Tuesday of every month [SAP release Security Notes](https://support.sap.c
 Searchable [database of Security Notes](https://me.sap.com/app/securitynotes ) 
 
 ## 11.	Links 
+
+
+
 Azure security fundamentals documentation | Microsoft Learn
 MDE for SAP on Linux 
 MDE for SAP on Windows – Note DLP update
