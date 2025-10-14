@@ -37,7 +37,19 @@ To manage a dev box pool, you need the following permissions:
 
 ## Create a dev box pool
 
-In Microsoft Dev Box, a dev box pool is a collection of dev boxes that you manage together. You must have at least one dev box pool before users can create a dev box. When creating a dev box pool, you can select an [image definition](how-to-configure-team-customizations.md) to provide customized dev boxes, a custom image from the compute gallery, or a marketplace image either directly or via the dev box definition.
+In Microsoft Dev Box, a dev box pool is a collection of dev boxes that you manage together. You must have at least one dev box pool before users can create a dev box. When creating a dev box pool, you can select from several image and definition types.
+
+### Understanding image and definition types
+
+| Type | Description | When to use |
+|------|-------------|-------------|
+| **Marketplace image** | Pre-configured images from Azure Marketplace, such as Windows 11 Enterprise or Visual Studio images. | Standard configurations with common tools. Offers independent compute size and storage selection. |
+| **Custom image** | Your organization's custom images from Azure Compute Gallery. | Organization-specific configurations with independent compute and storage selection. |
+| **Image definition** | YAML-based customization files that define a base image and apply team-specific customizations. Can be built into reusable images. | Team-specific environments with automated installations. For more information, see [Configure team customizations](how-to-configure-team-customizations.md). |
+| **Dev box definition** | Legacy option bundling a base image with fixed VM size and storage. | Backward compatibility. Consider migrating to marketplace or custom images. |
+
+> [!TIP]
+> We recommend using marketplace images, custom images, or image definitions for more flexibility in selecting compute size and storage.
 
 ### Pool properties
 A dev box pool has the following properties:

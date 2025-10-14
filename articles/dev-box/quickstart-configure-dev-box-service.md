@@ -103,7 +103,21 @@ To create and set up a project in a dev box:
 
 ## Create a dev box pool
 
-After you create a project in your dev center, create a dev box pool in the project. A dev box pool is a collection of dev boxes with the same settings, like the image, location, and network connection. You can select a marketplace image, custom image, or dev box definition for your pool. When using images, you have the flexibility to independently choose the compute size and storage. Developers who have access to the project can create a dev box from a dev box pool.
+After you create a project in your dev center, create a dev box pool in the project. A dev box pool is a collection of dev boxes with the same settings, like the image, location, and network connection. You can select a marketplace image, custom image, image definition, or dev box definition for your pool. When using images, you have the flexibility to independently choose the compute size and storage. Developers who have access to the project can create a dev box from a dev box pool.
+
+### Understanding image and definition types
+
+When creating a dev box pool, you can choose from four options:
+
+| Type | Description | When to use |
+|------|-------------|-------------|
+| **Marketplace image** | Pre-configured images available from Azure Marketplace, such as Windows 11 Enterprise or Visual Studio images. | For standard configurations with common development tools. Offers flexibility to select compute size and storage independently. |
+| **Custom image** | Your organization's custom images stored in Azure Compute Gallery. | For organization-specific configurations. Allows independent selection of compute size and storage. |
+| **Image definition** | YAML-based customization files that define a base image and apply team-specific customizations. Can be built into reusable images. | For team-specific environments with automated software installation and configuration. Best for standardized team setups. |
+| **Dev box definition** | Legacy option that bundles a base image with a fixed VM size and storage configuration. | For backward compatibility with existing configurations. Consider migrating to marketplace or custom images for more flexibility. |
+
+> [!TIP]
+> We recommend using marketplace images, custom images, or image definitions instead of dev box definitions. These options provide more flexibility by allowing you to select compute size and storage independently.
 
 > [!IMPORTANT]
 > Associate at least one dev box pool with your project before users can create a dev box.
