@@ -27,10 +27,10 @@ Before you begin this article, you must have the following items:
 
 ## Install Microsoft Hive ODBC driver
 
-Download and install [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886). Choose the version that matches the version of the application where you'll be using the ODBC driver.  For this article, the driver is used for Office Excel.
+> [!Note]
+> [Microsoft Hive ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=40886) is no longer supported with HDInsight and to be discontinued.
 
-[!Note]
-> [Microsoft Hive ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=40886) is no longer supported with HDInsight and has been discontinued.
+Download and install [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886). Choose the version that matches the version of the application where you'll be using the ODBC driver.  For this article, the driver is used for Office Excel.
 
 ## Create Apache Hive ODBC data source
 
