@@ -62,6 +62,6 @@ Learn about the assessment prerequisites and how to implement them.
 8. On the **General** tab, modify assessment properties that are applicable across all Azure targets. [Learn more](assessment-properties.md) about general settings.
     :::image type="content" source="./media/create-application-assessment/general-settings.png" alt-text="The screenshot that shows how to update general settings for an application assessment" lightbox="./media/create-application-assessment/general-settings.png" :::
 9. Select **Next** to move to **Advanced** tab, customize workload specific properties for different type of workloads added to the scope. Select **Edit defaults** to corresponding to the workload type to update advanced assessment properties of the selected workloads. [Learn more](assessment-properties.md) about customizing assessments.
-![advanced settings .](./media/create-application-assessment/advanced-settings.png)
+
     :::image type="content" source="./media/create-application-assessment/advanced-settings.png" alt-text="The screenshot that shows how to update advanced settings for an application assessment" lightbox="./media/create-application-assessment/advanced-settings.png" :::
 10.	Review and create the assessment.
