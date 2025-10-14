@@ -7,6 +7,7 @@ A well secured SAP solution incorporates many security concepts with many layers
 5.	Encryption and Key Management
 6.	Operating System Hardening 
 7.	Azure Infrastructure Hardening 
+
 These topics are covered in a series of related pages.  
 SAP applications should be incorporated into the overall Zero-Trust security solution for the entire IT landscape. [Zero Trust Strategy & Architecture | Microsoft Security](https://www.microsoft.com/security/business/zero-trust?msockid=343d619786f36e041990740887e36ff0#modal-21)
 The SAP Security Solution should reference the Zero-Trust security model. The Zero-Trust security solution validates each action at each layer such as Identity, Endpoint Network Access, Authentication, and MFA through SAP Application and Data Access. 
@@ -14,7 +15,8 @@ The SAP Security Solution should reference the Zero-Trust security model. The Ze
  ![alt text](image.png)
 
 The purpose of this documentation is to provide a single location with links and a brief description on how to implement Identity, Security, and Audit related features for SAP solutions running on Azure Hyperscale Cloud.   This documentation doesn't precisely specify which security features should be implemented as requirements are dependent on risk profile, industry, and regulatory environment. This document does make some default recommendations such as a general recommendation to use Defender for Endpoint, Transparent Database Encryption (TDE), and Backup Encryption on all systems.  
-Customers designing and implementing Identity, Security, and Audit solutions for SAP review the concepts explained in [Microsoft cloud security benchmark introduction | Microsoft Learn](https://learn.microsoft.com/security/benchmark/azure/introduction). More Checklists can be found [Secure Overview - Cloud Adoption Framework | Microsoft Learn}(https://learn.microsoft.com/azure/cloud-adoption-framework/secure/overview#cloud-security-checklist) 
+Customers designing and implementing Identity, Security, and Audit solutions for SAP review the concepts explained in [Microsoft cloud security benchmark introduction | Microsoft Learn](https://learn.microsoft.com/security/benchmark/azure/introduction). 
+More Checklists can be found [Secure Overview - Cloud Adoption Framework | Microsoft Learn](https://learn.microsoft.com/azure/cloud-adoption-framework/secure/overview#cloud-security-checklist) 
 
 ## Deployment Checklist 
 The design and implementation of a comprehensive security solution for SAP applications running on Azure is a consulting project. 
@@ -61,6 +63,7 @@ Defender Vulnerability Management doesn't have the functionality to detect ABAP 
 
 Defender for Storage for Blob What is [Microsoft Defender for Storage - Microsoft Defender for Cloud | Microsoft Learn](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-storage-introduction)
 Support for Azure Files SMB [Azure Files support and new updates in advanced threat protection for Azure Storage | Microsoft Azure Blog](https://azure.microsoft.com/blog/azure-files-support-and-new-updates-in-advanced-threat-protection-for-azure-storage/).
+
 Microsoft Secure Score and Vulnerability Management is discussed in the Operating System section below [Microsoft Defender Vulnerability Management dashboard - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/defender-vulnerability-management/tvm-dashboard-insights)
 
 ## 3.	Microsoft Sentinel for SAP Connector 
@@ -120,6 +123,7 @@ The Microsoft Secure Score should be used to monitor status of a landscape [Micr
 [Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15 GA and SP1](https://documentation.suse.com/sbp/sap-15/html/OS_Security_Hardening_Guide_for_SAP_HANA_SLES15/index.html)
 
 [Security hardening guide for SAP HANA | Red Hat Enterprise Linux for SAP Solutions | 9 | Red Hat Documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/security_hardening_guide_for_sap_hana/index)
+
 High priority items for Linux Operating Systems include:
 - Generation 2 VMs with Secure Boot     
 - Don't allow third Party Repositories (supply chain attack)    
