@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell, mode-api, devdivchpfy22
-ms.date: 12/12/2023
+ms.date: 10/14/2025
 ms.author: danlep
 ---
 

@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: quickstart
-ms.date: 12/12/2023
+ms.date: 10/14/2025
 ms.custom: mode-api, devdivchpfy22
 ---
 

@@ -5,7 +5,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devdivchpfy22
-ms.date: 12/11/2023
+ms.date: 10/14/2025
 ms.author: danlep 
 ms.devlang: azurecli
 ---
