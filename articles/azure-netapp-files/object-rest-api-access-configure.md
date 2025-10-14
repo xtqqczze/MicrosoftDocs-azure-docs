@@ -42,7 +42,7 @@ See the [Azure Key Vault documentation for adding a certificate to Key Vault](/a
 When creating the certificate, ensure:
 
 * the **Content Type** is set to PEM
-* the **Subject** field is set to the IP address or fully-qualified domain name (FQDN) of your Azure NetApp Files endpoint using the format `CN=<IP or FQDN>`
+* the **Subject** field is set to the IP address or fully qualified domain name (FQDN) of your Azure NetApp Files endpoint using the format `CN=<IP or FQDN>`
 * the **DNS Names** entry specifies the IP address or FQDN
 
 :::image type="content" source="./media/object-rest-api-access-configure/create-certificate.png" alt-text="Screenshot of create certificate options." lightbox="./media/object-rest-api-access-configure/create-certificate.png":::
@@ -130,11 +130,11 @@ After you create bucket, you need to generate credentials to access the bucket.
 1. Enter the desired Access key lifespan in days then select **Generate keys**. After you select **Generate keys**, the portal displays the access key and secret access key. 
     >[!IMPORTANT]
     >The access key and secret access key are only displayed once. Store the keys securely. Do not share the keys.
-1. After you set the credentials, you can regenerate a new access key and secret access key by selecting the `...` menu then selecting **Generate acess keys**. Gerating new keys immediately invalidates the existing keys. 
+1. After you set the credentials, you can regenerate a new access key and secret access key by selecting the `...` menu then selecting **Generate access keys**. Generating new keys immediately invalidates the existing keys. 
 
 ## Delete a bucket
 
-Deleting a bucket is a permanent operation. You can't recover the bucket once it's deleted. 
+Deleting a bucket is a permanent operation. You can't recover the bucket after deleting it. 
 
 1. In your NetApp account, navigate to **Buckets**. 
 1. Select the checkbox next to the bucket you want to delete. 
