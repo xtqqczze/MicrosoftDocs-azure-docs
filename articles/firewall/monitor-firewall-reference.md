@@ -26,8 +26,8 @@ The following table lists the metrics available for the Microsoft.Network/azureF
 [!INCLUDE [Microsoft.Network/azureFirewalls](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-azurefirewalls-metrics-include.md)]
 
 
-### Observed capacity (preview)
-The Observed Capacity (preview) metric is the primary tool for understanding how your firewall is scaling in practice.
+### Observed capacity
+The Observed Capacity metric is the primary tool for understanding how your firewall is scaling in practice.
 
 Best practices for using it:
 - Validate your prescaling setup: Confirm that your firewall consistently maintains the minCapacity you’ve defined.
