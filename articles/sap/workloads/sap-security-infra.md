@@ -203,8 +203,10 @@ System Administrator’s workstations can be infected with Malware such as Key l
 ## 8.	Ransomware Protection 
 The Azure platform includes powerful ransomware protection features.  
 It's recommended to use the Azure Immutable Backup Vault to prevent Ransomware or other trojans from encrypting backups. Azure offers WORM storage for this purpose.  
-[Azure Backup for SAP Hana and SQL Server can write to Azure Blob Storage  Azure backup and restore plan to protect against ransomware | Microsoft Learn](https://learn.microsoft.com/azure/security/fundamentals/backup-plan-to-protect-against-ransomware#azure-backup) It's possible to configure storage to require a PIN code or MFA before any modification can be performed on backups.  
-It's possible to configure fully SEC 17a-4(f) Locked Immutable storage polices. [Configure immutability policies for containers - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy)
+[Azure Backup for SAP Hana and SQL Server can write to Azure Blob Storage  Azure backup and restore plan to protect against ransomware | Microsoft Learn](https://learn.microsoft.com/azure/security/fundamentals/backup-plan-to-protect-against-ransomware#azure-backup) 
+It's possible to configure storage to require a PIN code or MFA before any modification can be performed on backups.  
+
+It's possible to configure fully SEC 17a-4(f) Locked Immutable storage policies. [Configure immutability policies for containers - Azure Storage | Microsoft Learn](https://learn.microsoft.com/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy)
 It's recommended to review these steps and select the appropriate measures [Azure backup and restore plan to protect against ransomware | Microsoft Learn](https://learn.microsoft.com/azure/security/fundamentals/backup-plan-to-protect-against-ransomware#steps-to-take-before-an-attack)
 
 Further links: 
@@ -235,6 +237,7 @@ Searchable [database of Security Notes](https://me.sap.com/app/securitynotes )
 
 ## 11.	Links 
 
+Fix these links later 
 
 
 Azure security fundamentals documentation | Microsoft Learn
