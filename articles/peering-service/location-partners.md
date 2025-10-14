@@ -30,7 +30,6 @@ The following table provides information on the Peering Service connectivity par
 | [CCL](https://concepts.co.nz/news) | Oceania |
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) | Africa |
 | [Colt](https://www.colt.net/product/cloud-prioritisation/)| Asia, Europe |
-| [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) | Asia |
 | [Dimension Data](https://www.dimensiondata.com/en-gb/about-us/our-partners/microsoft/)| Africa |
 | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/)| Asia, Europe, North America |
 | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) | Asia, North America |
@@ -79,7 +78,6 @@ The following table provides information on the Peering Service connectivity par
 | Madrid | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Miami | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Milan | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
-| Manila | [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) |
 | Marseilles | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Nairobi | [Liquid Telecom](https://liquidc2.com/connect/#maps) |
 | Osaka | [Colt](https://www.colt.net/product/cloud-prioritisation/), [IIJ](https://www.iij.ad.jp/en/), [NTT Communications](https://www.ntt.com/en/index.html), [TOKAI-NETWORK](https://www.broadline.ne.jp/en/) |
