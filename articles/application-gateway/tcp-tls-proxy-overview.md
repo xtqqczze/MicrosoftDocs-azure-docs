@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/21/2025
+ms.date: 10/14/2025
 ms.author: mbender
 # Customer intent: As a network architect, I want to implement TCP/TLS proxy capabilities on an application gateway, so that I can efficiently manage both HTTP and non-HTTP workloads while ensuring secure connections to backend servers.
 ---
@@ -33,6 +33,21 @@ Process flow:
 | [**Azure Load Balancer**](../load-balancer/load-balancer-overview.md) | A pass-through load balancer where a client directly establishes a connection with a backend server selected by the Load Balancer's distribution algorithm. |
 | **Azure Application Gateway** | Terminating load balancer where a client directly establishes a connection with Application Gateway and a separate connection is initiated with a backend server selected by Application Gateway's distribution algorithm. |
 
+#### Azure Application Gateway (TLS/TCP proxy)
+1. **Type** – Layer-4 terminating proxy.
+2. **Protocols** – Supports TCP or TLS protocols.
+3. **Versatility** – Use a single endpoint (frontend IP) to serve HTTP and non-HTTP workloads.
+4. **Scaling** – Configure autoscaling (up to 125 instances) to server your TCP and TLS traffic.
+5. **Security through TLS termination** – Simplify security with centralized TLS termination and certificate management ensuring consistent compliance across all applications, including non-HTTP workloads. Seamlessly integrates with Azure Key Vault for secure certificate management.
+6. **Backend types** – Flexibly connect your applications to backends anywhere; within the same Virtual Network, across peered VNets, through remote FQDNs or IPs, or even via hybrid connectivity to your on-premises servers.
+
+#### Azure Load Balancer (TLS/TCP proxy)
+1. **Type** – Layer-4 pass-through network device.
+2. **Protocols** – Supports TCP or UDP protocols.
+3. **Performance** – Provides low latency and high throughput. Built for millions of simultaneous connections with microsecond-level latency.
+4. **Scaling** – Handles long-lived connections and scales up to millions of flows for all TCP and UDP applications.
+5. **Inbound and outbound** – Azure Load Balancer delivers complete traffic control with both inbound and outbound capabilities. Seamlessly connect external clients to your applications, while enabling your backend instances to securely reach the internet and other services.
+6. **Direct server return** - For the return traffic, the backend instance sends the response packet directly back to the client's IP address. 
 
 ## Features
 
