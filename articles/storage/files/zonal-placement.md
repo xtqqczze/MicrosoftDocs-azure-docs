@@ -111,7 +111,7 @@ Follow these steps to create a new zonal storage account using the Azure portal.
 
 You can use Azure PowerShell to create regional or zonal storage accounts.
 
-## Create a regional storage account
+### Create a regional storage account
 
 To create a regional storage account, set `ZonePlacementPolicy` to **None** by running the following command:. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your desired values.
 
@@ -119,7 +119,7 @@ To create a regional storage account, set `ZonePlacementPolicy` to **None** by r
 New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName Premium_LRS -Kind FileStorage -ZonePlacementPolicy None​
 ```
 
-## Create a storage account in an Azure-selected zone
+### Create a storage account in an Azure-selected zone
 
 To create a storage account and have Azure automatically assign a zone, set `ZonePlacementPolicy` to **Any** by running the following command. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your desired values.
 
@@ -127,7 +127,7 @@ To create a storage account and have Azure automatically assign a zone, set `Zon
 New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName Premium_LRS -Kind FileStorage -ZonePlacementPolicy Any​
 ```
 
-## Create a storage account in a self-selected zone
+### Create a storage account in a self-selected zone
 
 To create a storage account and specify an availability zone, run the following command and specify zone 1, 2, or 3. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your desired values.
 
