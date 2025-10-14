@@ -122,7 +122,7 @@ To enable object REST API, you must create a bucket.
 
 1. Select **Create**. 
 
-After you create bucket, you need to generate credentials to access the bucket.
+After you create a bucket, you need to generate credentials to access the bucket.
 
 ## Generate credentials
 
