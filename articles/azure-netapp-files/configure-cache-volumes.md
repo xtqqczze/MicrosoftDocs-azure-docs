@@ -77,11 +77,8 @@ The delegated subnet address space for hosting the Azure NetApp Files volumes mu
 * Israel Central
 * Italy North
 * Japan East
-* Japan West
 * Korea Central
 * Korea South
-* Malaysia West
-* New Zealand North
 * North Central US
 * North Europe
 * Norway East
