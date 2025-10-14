@@ -121,11 +121,11 @@ The Microsoft Secure Score should be used to monitor status of a landscape [Micr
 
 [Security hardening guide for SAP HANA | Red Hat Enterprise Linux for SAP Solutions | 9 | Red Hat Documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/security_hardening_guide_for_sap_hana/index)
 High priority items for Linux Operating Systems include:
-•	Generation 2 VMs with Secure Boot     
-•	Don't allow third Party Repositories (supply chain attack)    
-•	Use Keys and disable password sign-in in sshd_config      
-•	Use Managed Identify for Pacemaker not SPN [Azure SAP Pacemaker MSI SPN](https://techcommunity.microsoft.com/blog/sapapplications/sap-on-azure-high-availability-%E2%80%93-change-from-spn-to-msi-for-pacemaker-clusters-u/3609278)
-•	Disable root sign-in 
+- Generation 2 VMs with Secure Boot     
+- Don't allow third Party Repositories (supply chain attack)    
+- Use Keys and disable password sign-in in sshd_config      
+- Use Managed Identify for Pacemaker not SPN [Azure SAP Pacemaker MSI SPN](https://techcommunity.microsoft.com/blog/sapapplications/sap-on-azure-high-availability-%E2%80%93-change-from-spn-to-msi-for-pacemaker-clusters-u/3609278)
+- Disable root sign-in 
 It's supported to use SELinux with modern RHEL releases. Microsoft doesn't provide support for SELinux and careful testing is required [3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302/E)
 
 ### Windows Operating System
@@ -133,12 +133,12 @@ It's supported to use SELinux with modern RHEL releases. Microsoft doesn't provi
 
 High priority items for Windows Operating System include:
 
-•	Generation 2 VMs with Secure Boot 
-•	Minimize the installation of any 3rd party software 
-•	Configure Windows Firewall with minimal open ports via Group Policy 
-•	SMB Encryption enforced via Group Policy [Configure the SMB client to require encryption in Windows | Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/storage/file-server/configure-smb-client-require-encryption?tabs=group-policy)
-•	After installation, lock the <sid>adm username as per SAPService<SID> account denied interactive sign-in (default) and <sid>adm account disabled (but not deleted). Review [1837765 - Security policies for <SID>adm and SAPService<SID> on Windows](https://me.sap.com/notes/1837765/E)
-•	Configure Windows Group Policy to clear last user name, on permit AD authenticated sign-in (mitigates against cloning attack) and disable legacy TLS and SMB protocols 
+- Generation 2 VMs with Secure Boot 
+- Minimize the installation of any 3rd party software 
+- Configure Windows Firewall with minimal open ports via Group Policy 
+- SMB Encryption enforced via Group Policy [Configure the SMB client to require encryption in Windows | Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/storage/file-server/configure-smb-client-require-encryption?tabs=group-policy)
+- After installation, lock the <sid>adm username as per SAPService<SID> account denied interactive sign-in (default) and <sid>adm account disabled (but not deleted). Review [1837765 - Security policies for <SID>adm and SAPService<SID> on Windows](https://me.sap.com/notes/1837765/E)
+- Configure Windows Group Policy to clear last user name, on permit AD authenticated sign-in (mitigates against cloning attack) and disable legacy TLS and SMB protocols 
 
 Other links for Windows: 
 [Windows Server Security documentation | Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/security/security-and-assurance)
