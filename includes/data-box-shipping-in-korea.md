@@ -28,4 +28,4 @@ Take the following steps if you're returning the device in Korea.
 7. If you encounter pickup issues:
    * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
    * Include the Order Name and a description of the issue in the subject line.
-8. Once the device is picked up and scanned by the carrier, the order status in the Azure Portal will update to “Picked Up” and a tracking ID will be displayed.
+8. Once the device is picked up and scanned by the carrier, the order status in the Azure portal will update to “Picked Up” and a tracking ID will be displayed.
