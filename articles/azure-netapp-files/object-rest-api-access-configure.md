@@ -130,7 +130,7 @@ After you create a bucket, you need to generate credentials to access the bucket
 1. Enter the desired Access key lifespan in days then select **Generate keys**. After you select **Generate keys**, the portal displays the access key and secret access key. 
     >[!IMPORTANT]
     >The access key and secret access key are only displayed once. Store the keys securely. Do not share the keys.
-1. After you set the credentials, you can regenerate a new access key and secret access key by selecting the `...` menu then selecting **Generate access keys**. Generating new keys immediately invalidates the existing keys. 
+1. After you set the credentials, you can generate a new access key and secret access key by selecting the `...` menu then selecting **Generate access keys**. Generating new keys immediately invalidates the existing keys. 
 
 ## Delete a bucket
 
