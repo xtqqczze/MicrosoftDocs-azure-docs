@@ -166,7 +166,7 @@ Actions are any steps that occur after the trigger starts the logic app workflow
 
 Before you leave the workflow designer, copy the URL that your logic app is listening to for a trigger. You use this URL to configure Event Grid. 
 
-1. Expand the **When a HTTP request is received** trigger configuration box by selecting it. 
+1. Expand the **When an HTTP request is received** trigger configuration box by selecting it. 
 
 1. Copy the value of **HTTP URL** by selecting the copy button next to it. 
 
@@ -186,7 +186,7 @@ In this section, you configure your IoT hub to publish events as they occur.
 
 1. Select **Event subscription**. 
 
-  :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/event-subscription.png" alt-text="Screenshot of the working pane for your IoT hub in the Azure portal, highlighting the Event Subscription command in the command bar." lightbox="./media/publish-iot-hub-events-to-logic-apps/event-subscription.png":::
+   :::image type="content" source="./media/publish-iot-hub-events-to-logic-apps/event-subscription.png" alt-text="Screenshot of the working pane for your IoT hub in the Azure portal, highlighting the Event Subscription command in the command bar." lightbox="./media/publish-iot-hub-events-to-logic-apps/event-subscription.png":::
 
 1. Create the event subscription with the following values: 
 
