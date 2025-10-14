@@ -41,7 +41,7 @@ Process flow:
 5. **Security through TLS termination** – Simplify security with centralized TLS termination and certificate management ensuring consistent compliance across all applications, including non-HTTP workloads. Seamlessly integrates with Azure Key Vault for secure certificate management.
 6. **Backend types** – Flexibly connect your applications to backends anywhere; within the same Virtual Network, across peered VNets, through remote FQDNs or IPs, or even via hybrid connectivity to your on-premises servers.
 
-#### Azure Load Balancer (TLS/TCP proxy)
+#### Azure Load Balancer
 1. **Type** – Layer-4 pass-through network device.
 2. **Protocols** – Supports TCP or UDP protocols.
 3. **Performance** – Provides low latency and high throughput. Built for millions of simultaneous connections with microsecond-level latency.
