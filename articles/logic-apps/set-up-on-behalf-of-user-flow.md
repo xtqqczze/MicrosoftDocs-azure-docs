@@ -1,15 +1,15 @@
 ---
 title: Authorize Agent Access with On-Behalf-Of Flow
-description: Learn to authorize resource access with the signed-in user's identity and permissions for tool actions in conversational agent workflows for Azure Logic Apps. Set up OAuth 2.0 On-Behalf-Of (OBO) authorization so that tool actions use delegated permissions and per-user connections.
+description: Learn to authorize agent tool access to protected Microsoft resources through the signed-in user's identity and permissions in conversational agent workflows for Azure Logic Apps. Set up OAuth 2.0 On-Behalf-Of (OBO) authorization so that tool actions use delegated permissions and per-user connections.
 services: logic-apps
 author: ecfan
 ms.topic: how-to
-ms.date: 10/09/2025
+ms.date: 10/14/2025
 ms.update-cycle: 365-days
 #Customer intent: As an integration developer working with conversational agent workflows in Azure Logic Apps, I want to authorize access to protected resources with the signed-in user's identity and permissions. For this task, I can set up delegated permissions with the OAuth 2.0 On-Behalf-Of (OBO) flow for authorization.
 ---
 
-# Authorize agent access to resources with on-behalf-of (OBO) flow in Azure Logic Apps (Preview)
+# Authorize agent tool access to resources with on-behalf-of (OBO) flow in Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -18,11 +18,11 @@ ms.update-cycle: 365-days
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Some conversational agent workflow scenarios might require agent tools to authorize access for user-specific resources with the signed-in user's identity and permissions. For this authorization approach, you need to set up [*delegated permissions*](/entra/identity-platform/delegated-access-primer) with the [OAuth 2.0 On-Behalf-Of (OBO) flow](/entra/identity-platform/v2-oauth2-on-behalf-of-flow). This flow passes the user's identity and permissions through the request chain so that resource authorization requires a user-specific identity and permissions instead.
+To access protected, user-specific Microsoft resources, some conversational agent solutions might require agent tools to use the identity and permissions for the person who's signed in to the chat session. For this authorization approach, you need to set up [*delegated permissions*](/entra/identity-platform/delegated-access-primer) with the [OAuth 2.0 On-Behalf-Of (OBO) flow](/entra/identity-platform/v2-oauth2-on-behalf-of-flow). This flow passes the signed-in chat user's identity and permissions through the request chain so that resource connections use the person's identity and permissions to gain access.
 
-This option provides benefits around governance and compliance because resource access, action results, and audit logs are linked to a specific user. OBO is also known as *user context* because agent tools apply the user's specific security context, which specifies personalized licensing and data access rights.
+This option provides benefits around governance and compliance because resource access, inputs, outputs, and audit logs are linked to a specific person. OBO is also known as *user context* because agent tools apply the signed-in user's specific security context, including personalized licensing and data access rights.
 
-For conversational agent workflows, you can set up an agent with delegated permissions for the signed-in user. Agent tools, backed and powered by connector actions, can then use the delegated permissions if the connector actions support OBO authorization and [*per-user* connections](#limitations-and-known-issues). During chat sessions, connections set up with OBO authorization use the signed-in chat participant's credentials, not the connection creator. This behavior makes sure that OBO-enabled actions run with the signed-in user's identity and permissions.
+In conversational agent workflows, you can set up an agent with delegated permissions for the signed-in user. Agent tools, backed and powered by connector actions, can then use the delegated permissions if the connector actions support OBO authorization and [*per-user* connections](#limitations-and-known-issues). During chat sessions, connections set up with OBO authorization use the signed-in chat participant's credentials, not the connection creator. This behavior makes sure that OBO-enabled actions run with the signed-in user's identity and permissions.
 
 For example, the following list describes common examples where agent tools must respect the user's permissions, licenses, and personal data boundaries:
 
@@ -44,7 +44,7 @@ This guide shows how to set up the OBO authorization, delegated permissions, and
 
 - A Standard logic app resource and conversational agent workflow
 
-  Make sure that you have a deployed *large language model* (LLM) per the [Prerequisites](create-conversational-agent-workflows.md#prerequisites) and that you [connect your agent to that model](create-conversational-agent-workflows.md#connect-the-agent-to-your-model).
+  Make sure that you have a deployed *large language model* (LLM) per the [prerequisites for conversational agent workflows](create-conversational-agent-workflows.md#prerequisites) and that you [connect your agent to that model](create-conversational-agent-workflows.md#connect-the-agent-to-your-model).
   
   This example uses **Admin agent** as the agent name, for example:
 
@@ -57,7 +57,7 @@ This guide shows how to set up the OBO authorization, delegated permissions, and
   | Identity | Description |
   |----------|-------------|
   | Signed-in user (OBO or user context) | A connector action runs with a delegated access token for the signed-in user. The result depends on the user's permissions and licenses. <br><br>**Note**: OBO uses only delegated permissions for [scopes](/entra/identity-platform/scopes-oidc), not [application roles](/entra/identity-platform/howto-add-app-roles-in-apps) because roles stay attached to the user (principal) and never to the app that operates on behalf of the user or caller. This behavior prevents the user or caller from gaining permission to resources that they shouldn't access. |
-  | App-only or application identity | A connector operation runs using a managed identity, application principal, or service principal. The result depends on app permissions and configuration. For more information, see [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals) <br><br>**Important**: Don't use an app-only identity unless your agent tool performs shared operations. These operations aren't user-specific like posting system status to a shared channel, running a back office job, or signing in with a service account. |
+  | App-only or application identity | A connector operation runs using a managed identity, application principal, or service principal. The result depends on app permissions and configuration. For more information, see [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals). <br><br>**Important**: Don't use an app-only identity unless your agent tool performs shared operations. These operations aren't user-specific like posting system status to a shared channel, running a back office job, or signing in with a service account. |
   | Connection reference | Your workflow binds each connector operation to a specific connection that determines how to perform authentication. |
 
   The following table describes common examples for OBO and app-only authorization:
@@ -148,13 +148,13 @@ The following steps show how to set up OBO authorization after you select an OBO
 
      1. On the **Change connection** pane, select **Add new**.
 
-1. On the **Create connection** pane, select **Create as per-user connection?**.
+1. On the **Create connection** pane, select **Create as per-user connection?**
 
    :::image type="content" source="media/set-up-on-behalf-of-user-flow/create-per-user-connection.png" alt-text="Screenshot shows workflow designer, Get emails (V3) action, and connection pane with selected option for Create as per-user connection." lightbox="media/set-up-on-behalf-of-user-flow/create-per-user-connection.png":::
 
    > [!TIP]
    >
-   > If the per-user connection option doesn't appear, and the connection requires an authentication type, set the authentication type to Microsoft Entra ID, if available.
+   > If the per-user connection box doesn't appear, and the connection requires an authentication type, set the authentication type to Microsoft Entra ID, if available.
 
 1. Sign in with your user account and complete the consent flow.
 
