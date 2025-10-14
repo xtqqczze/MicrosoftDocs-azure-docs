@@ -28,7 +28,7 @@ Reprovisioning support within the Device Provisioning Service addresses these ne
 
 Device state data is composed of the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) and device capabilities. This data is stored in the Device Provisioning Service instance and the IoT hub that a device is assigned to.
 
-![Diagram that shows how provisioning works with the Device Provisioning Service.](./media/concepts-device-reprovisioning/dps-provisioning.png)
+:::image type="content" source="./media/concepts-device-reprovisioning/dps-provisioning.png" alt-text="Diagram that shows how provisioning works with the Device Provisioning Service.":::
 
 When a device is initially provisioned with a Device Provisioning Service instance, the following steps are done:
 
@@ -38,7 +38,7 @@ When a device is initially provisioned with a Device Provisioning Service instan
 
 Over time, [device operations](../iot-hub/iot-hub-devguide-device-twins.md#device-operations) and [back-end operations](../iot-hub/iot-hub-devguide-device-twins.md#back-end-operations) could update the device state data on the IoT hub. The initial device state information stored in the Device Provisioning Service instance stays untouched. This untouched device state data is the initial configuration.
 
-![Provisioning with the Device Provisioning Service](./media/concepts-device-reprovisioning/dps-provisioning-2.png)
+:::image type="content" source="./media/concepts-device-reprovisioning/dps-provisioning-2.png" alt-text="Diagram that highlights device state changes for devices provisioned with the Device Provisioning Service":::
 
 Depending on the scenario, as a device moves between IoT hubs, it might also be necessary to migrate device state updated on the previous IoT hub over to the new IoT hub. Reprovisioning policies in the Device Provisioning Service can support this migration.
 
@@ -48,13 +48,13 @@ Depending on the scenario, a device could send a request to a provisioning servi
 
 * **Reprovision and migrate data**: This policy is the default for new enrollment entries. This policy takes action when devices associated with the enrollment entry submit a new request (1). Depending on the enrollment entry configuration, the device might be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub is removed. The updated device state information from that initial IoT hub is migrated over to the new IoT hub (2). During migration, the device's status is reported as **Assigning**.
 
-    ![Diagram that shows that a policy takes action when devices associated with the enrollment entry submit a new request.](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
+    :::image type="content" source="./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png" alt-text="Diagram that shows that a policy takes action when devices associated with the enrollment entry submit a new request.":::
 
 * **Reprovision and reset to initial config**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request (1). Depending on the enrollment entry configuration, the device might be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub is removed. The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub (2). During migration, the device's status is reported as **Assigning**.
 
     This policy is often used for a factory reset without changing IoT hubs.
 
-    ![Diagram that shows how a policy takes action when devices associated with the enrollment entry submit a new provisioning request.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
+    :::image type="content" source="./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png" alt-text="Diagram that shows how a policy takes action when devices associated with the enrollment entry submit a new provisioning request.":::
 
 * **Never reprovision**: The device is never reassigned to a different hub. This policy is provided for managing backwards compatibility.
 
@@ -69,16 +69,15 @@ While you design your solution and define a reprovisioning logic, there are a fe
 * Retry capability implemented on your client code, as described on the [Retry general guidance](/azure/architecture/best-practices/transient-faults) at the Azure Architecture Center
 
 >[!TIP]
-> We recommend not provisioning on every reboot of the device, as this could cause some issues when reprovisioning several thousands or millions of devices at once. Instead you should attempt to use the [Device Registration Status Lookup](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup) API and try to connect with that information to IoT Hub. If that fails, then try to reprovision as the IoT Hub information might have changed. Keep in mind that querying for the registration state counts as a new device registration, so you should consider the [Device registration limit]( about-iot-dps.md#quotas-and-limits). Also consider implementing an appropriate retry logic, such as exponential back-off with randomization, as described on the [Retry general guidance](/azure/architecture/best-practices/transient-faults).
->In some cases, depending on the device capabilities, it’s possible to save the IoT Hub information directly on the device to connect directly to IoT Hub after the first-time provisioning using DPS occurred. If you choose to do this, make sure you implement a fallback mechanism in case you get specific [errors from Hub occur](../iot-hub/troubleshoot-message-routing.md#common-error-codes), for example, consider the following scenarios:
-> * Retry the Hub operation if the result code is 429 (Too Many Requests) or an error in the 5xx range. Don't retry for any other errors. 
+> We recommend not provisioning on every reboot of the device, as this action could cause some issues when reprovisioning several thousands or millions of devices at once. Instead you should attempt to use the [Device Registration Status Lookup](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup) API and try to connect with that information to IoT Hub. If that fails, then try to reprovision as the IoT Hub information might change. Keep in mind that querying for the registration state counts as a new device registration, so you should consider the [device registration limit]( about-iot-dps.md#quotas-and-limits). Also consider implementing an appropriate retry logic, such as exponential back-off with randomization, as described on the [retry general guidance](/azure/architecture/best-practices/transient-faults).
+>In some cases, depending on the device capabilities, it’s possible to save the IoT Hub information directly on the device, to connect directly to IoT Hub after the first-time provisioning using DPS occurred. If you choose to save directly on the device, make sure you implement a fallback mechanism in case specific [errors from IoT Hub](../iot-hub/troubleshoot-message-routing.md#common-error-codes) occur. For example, consider the following scenarios:
+> * Retry the IoT Hub operation if the result code is 429 (Too Many Requests) or an error in the 5xx range. Don't retry for any other errors. 
 > * For 429 errors, only retry after the time indicated in the Retry-After header. 
 > * For 5xx errors, use exponential back-off, with the first retry at least 5 seconds after the response. 
 > * On errors other than 429 and 5xx, re-register through DPS 
-> * Ideally you should also support a [method](../iot-hub/iot-hub-devguide-direct-methods.md) to manually trigger provisioning on demand.
+> * Ideally you should also support a [direct method](../iot-hub/iot-hub-devguide-direct-methods.md) to manually trigger provisioning on demand.
 > 
 > We also recommend taking into account the service limits when planning activities like pushing updates to your fleet. For example, updating the fleet all at once could cause all devices to re-register through DPS (which could easily be above the registration quota limit) - For such scenarios, consider planning for device updates in phases instead of updating your entire fleet at the same time.
-
 
 ### Managing backwards compatibility
 
@@ -94,16 +93,16 @@ This compatibility makes sure that previously deployed devices experience the sa
 
 The following flow chart helps to show when the behavior is present:
 
-![backwards compatibility flow chart](./media/concepts-device-reprovisioning/reprovisioning-compatibility-flow.png)
+:::image type="content" source="./media/concepts-device-reprovisioning/reprovisioning-compatibility-flow.png" alt-text="Flowchart that shows backwards compatibility for device behavior.":::
 
 The following table shows the API versions before the availability of native reprovisioning support in the Device Provisioning Service:
 
 | REST API | C SDK | Python SDK |  Node SDK | Java SDK | .NET SDK |
 | -------- | ----- | ---------- | --------- | -------- | -------- |
-| [2018-04-01 and earlier](/rest/api/iot-dps/service/individual-enrollment/create-or-update#uri-parameters) | [1.2.8 and earlier](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 and earlier](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 or earlier](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 or earlier](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 or earlier](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
+| [2018-04-01 and earlier](/rest/api/iot-dps/service/individual-enrollment/create-or-update#uri-parameters) | [1.2.8 and earlier](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 and earlier](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 or earlier](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 or earlier](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 or earlier](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20) |
 
 > [!NOTE]
-> These values and links are likely to change. This table is only a placeholder attempt to determine where the versions can be determined by a customer and what the expected versions are.
+> These values and links are likely to change. This table is only a placeholder attempt to indicate where the versions can be determined by a customer and what the expected versions are.
 
 ## Next steps
 

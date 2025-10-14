@@ -30,7 +30,7 @@ A series of Quickstarts is provided in the table of contents to the left, to hel
 
 The following diagram summarizes the roles and sequencing of operations during device autoprovisioning:
 <br><br>
-[![Auto-provisioning sequence for a device](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
+:::image type="content" source="./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png" alt-text="Sequence diagram that shows the roles and sequencing of operations during device autoprovisioning." lightbox="./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png":::
 
 > [!NOTE]
 > Optionally, the manufacturer can also perform the "Enroll device identity" operation using Device Provisioning Service APIs (instead of via the Operator). For a detailed discussion of this sequencing and more, see the [Zero touch device registration with Azure IoT video](https://youtu.be/cSbDRNg72cU?t=2460) (starting at marker 41:00)
@@ -55,7 +55,7 @@ In this scenario, there might be two Azure accounts involved:
 
 The manufacturer could be an "All-in-one OEM" where only a single manufacturer account would be needed. The manufacturer handles security and provisioning end to end.
 
-The manufacturer could provide a cloud-based application to customers who purchase devices. This application would interface with the IoT Hub allocated by the manufacturer.
+The manufacturer could provide a cloud-based application to customers who purchase devices. This application would interface with the IoT hub allocated by the manufacturer.
 
 Vending machines or automated coffee machines represent examples for this scenario.
 
@@ -67,7 +67,7 @@ Begin by completing a "Set up autoprovisioning" Quickstart that best suits your 
 
 - [Set up autoprovisioning using Azure CLI](quick-setup-auto-provision-cli.md)
 - [Set up autoprovisioning using the Azure portal](quick-setup-auto-provision.md)
-- [Set up autoprovisioning using a Resource Manager template](quick-setup-auto-provision-rm.md)
+- [Set up autoprovisioning using an Azure Resource Manager (ARM) template](quick-setup-auto-provision-rm.md)
 
 Then continue with a "Provision a device" Quickstart that suits your device attestation mechanism and Device Provisioning Service SDK/language preference. In this Quickstart, you walk through the "Device enrollment" and "Device registration and configuration" phases: 
 

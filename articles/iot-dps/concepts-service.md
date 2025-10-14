@@ -47,9 +47,9 @@ The allocation policy is a service-level setting that determines how Device Prov
 
 * **Static configuration via the enrollment list**: specification of the desired IoT hub in the enrollment list takes priority over the service-level allocation policy.
 
-* **Custom (Use Azure Function)**: A custom allocation policy gives you more control over how devices are assigned to an IoT hub. Custom allocation policies use an Azure Function to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment to your code. Your function code is executed and returns the IoT hub information used to provisioning the device. For more information, see [Understand custom allocation policies](how-to-use-custom-allocation-policies.md).
+* **Custom (Use Azure Function)**: A custom allocation policy gives you more control over how devices are assigned to an IoT hub. Custom allocation policies use an Azure Function to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment to your code. Your function code is executed and returns the IoT hub information used to provisioning the device. For more information, see [Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)](how-to-use-custom-allocation-policies.md).
 
-For more information, see [How to use allocation policies](./how-to-use-allocation-policies.md).
+For more information, see [How to use allocation policies to provision devices across IoT hubs](./how-to-use-allocation-policies.md).
 
 ## Enrollment
 
@@ -97,7 +97,7 @@ An attestation mechanism is the method used for confirming a device's identity. 
 
 The Device Provisioning Service supports the following forms of attestation:
 
-* **X.509 certificates** based on the standard X.509 certificate authentication flow. For more information, see [X.509 attestation](concepts-x509-attestation.md).
+* **X.509 certificates** based on the standard X.509 certificate authentication flow. For more information, see [X.509 certificate attestation](concepts-x509-attestation.md).
 * **Trusted Platform Module (TPM)** based on a nonce challenge, using the TPM standard for keys to present a signed Shared Access Signature (SAS) token. This doesn't require a physical TPM on the device, but the service expects to attest using the endorsement key per the [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/). For more information, see [TPM attestation](concepts-tpm-attestation.md).
 * **Symmetric Key** based on shared access signature (SAS) [SAS tokens](../iot-hub/iot-hub-dev-guide-sas.md#sas-tokens), which include a hashed signature and an embedded expiration. For more information, see [Symmetric key attestation](concepts-symmetric-key-attestation.md).
 
@@ -116,7 +116,7 @@ The ID scope is assigned to a Device Provisioning Service when it's created and 
 
 ## Registration Record
 
-A registration record is the record of a device successfully registering/provisioning to an IoT Hub via the Device Provisioning Service. Registration records are created automatically; they can be deleted, but they can't be updated.
+A registration record is the record of a device successfully registering/provisioning to an IoT hub via the Device Provisioning Service. Registration records are created automatically; they can be deleted, but they can't be updated.
 
 ## Registration ID
 
@@ -127,7 +127,7 @@ The registration ID is used to uniquely identify a device registration with the 
 
 ## Device ID
 
-The device ID is the ID as it appears in IoT Hub. The desired device ID can be set in the enrollment entry, but it isn't required to be set. Setting the desired device ID is only supported in individual enrollments. If no desired device ID is specified in the enrollment list, the registration ID is used as the device ID when registering the device. Learn more about [device IDs in IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
+The device ID is the ID as it appears in IoT Hub. The desired device ID can be set in the enrollment entry, but it isn't required to be set. Setting the desired device ID is only supported in individual enrollments. If no desired device ID is specified in the enrollment list, the registration ID is used as the device ID when registering the device. For more information about device IDs in IoT Hub, see [Understand the identity registry in your IoT hub](../iot-hub/iot-hub-devguide-identity-registry.md).
 
 ## Operations
 

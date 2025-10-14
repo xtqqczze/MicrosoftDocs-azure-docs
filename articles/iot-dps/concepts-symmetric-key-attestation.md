@@ -44,7 +44,7 @@ Here are the components of each token:
 | {URL-encoded-resourceURI} |Lower case URL-encoding of the lower case resource URI |
 | {policyName} |The name of the shared access policy to which this token refers. The policy name used when provisioning with symmetric key attestation is **registration**. |
 
-For code examples that create a SAS token, see [SAS tokens](../iot-hub/iot-hub-dev-guide-sas.md#sas-token-structure).
+For code examples that create a SAS token, see [SAS token structure](../iot-hub/iot-hub-dev-guide-sas.md#sas-token-structure).
 
 ## Individual enrollments with symmetric keys
 
@@ -166,13 +166,13 @@ Consider the following diagram that shows a table of device keys generated in a 
 
 The registration ID and derived device key that is installed at the factory represents the identity of each device. The device key is never copied to another location and the group key is never stored on a device.
 
-If the device keys aren't installed in the factory, a [hardware security module HSM](concepts-service.md#hardware-security-module) should be used to securely store the device identity.
+If the device keys aren't installed in the factory, a [hardware security module](concepts-service.md#hardware-security-module) (HSM) should be used to securely store the device identity.
 
 ## Next steps
 
 Now that you have an understanding of symmetric key attestation, check out the following articles to learn more:
 
-* [Understand custom allocation policies for assigning devices to IoT hubs](./quick-setup-auto-provision.md) 
-* [Device reprovisioning concepts](concepts-device-reprovision.md)
-* [Roles and operations in the provisioning process](concepts-roles-operations.md)
+* [Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) 
+* [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
+* [Roles and operations](concepts-roles-operations.md)
 

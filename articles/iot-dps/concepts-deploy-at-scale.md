@@ -43,7 +43,7 @@ For more information on the timing of retry operations, see [Retry timing](https
 
 ## Reprovision devices
 
-Reprovisioning is the process where a device needs to be provisioned to an IoT Hub after having been successfully connected previously. There can be many reasons that result in a need for a device to reconnect to an IoT Hub, such as:
+Reprovisioning is the process where a device needs to be provisioned to an IoT hub after having been successfully connected previously. There can be many reasons that result in a need for a device to reconnect to an IoT hub, such as:
 
 * A device could reboot due to power outage, loss in network connectivity, geo-relocation, firmware updates, factory reset, or certificate key rotation.
 * The IoT Hub instance could be unavailable due to an unplanned IoT Hub outage.
@@ -52,23 +52,23 @@ You shouldn't need to go through the provisioning process every time a device re
 
 ### Devices that can store a connection string
 
-Devices that have the ability to store their connection string after initial provisioning should do so and attempt to reconnect directly to IoT Hub after reboot. This pattern reduces the latency in successfully connecting to the appropriate IoT Hub. There are two possible cases here:
+Devices that have the ability to store their connection string after initial provisioning should do so and attempt to reconnect directly to IoT Hub after reboot. This pattern reduces the latency in successfully connecting to the appropriate IoT hub. There are two possible cases here:
 
-* The IoT Hub to connect upon device reboot is the same as the previously connected IoT Hub.
+* The IoT hub to connect upon device reboot is the same as the previously connected IoT hub.
 
   The connection string retrieved from the cache should work fine and the device can reconnect to the same endpoint. No need for a fresh start for the provisioning process.
 
-* The IoT Hub to connect upon device reboot is different from the previously connected IoT Hub.
+* The IoT hub to connect upon device reboot is different from the previously connected IoT hub.
 
-  The connection string stored in memory is inaccurate. Attempting to connect to the same endpoint fails and so the retry mechanism for the IoT Hub connection is triggered. Once the threshold for the IoT Hub connection failure is reached, the retry mechanism automatically triggers a fresh start to the provisioning process.
+  The connection string stored in memory is inaccurate. Attempting to connect to the same endpoint fails and so the retry mechanism for the IoT hub connection is triggered. Once the threshold for the IoT hub connection failure is reached, the retry mechanism automatically triggers a fresh start to the provisioning process.
 
 ### Devices that can't store a connection string
 
-Some devices don't have a large enough footprint or memory to accommodate caching of the connection string from a past successful IoT Hub connection. These devices need to reprovision through DPS after rebooting. Use the [DPS registration API](/rest/api/iot-dps/device/runtime-registration) to re-register. Keep in mind that the number of re-registrations per minute is limited based on the DPS [device registration limit](about-iot-dps.md#quotas-and-limits).
+Some devices don't have a large enough footprint or memory to accommodate caching of the connection string from a past successful IoT hub connection. These devices need to reprovision through DPS after rebooting. Use the [DPS registration API](/rest/api/iot-dps/device/runtime-registration) to re-register. Keep in mind that the number of re-registrations per minute is limited based on the DPS [device registration limit](about-iot-dps.md#quotas-and-limits).
 
 ### Reprovisioning sample
 
-The code examples in this section show a class for reading to and writing from the device cache, followed by code that attempts to reconnect a device to the IoT Hub if a connection string is found and reprovision through DPS if it isn't.
+The code examples in this section show a class for reading to and writing from the device cache, followed by code that attempts to reconnect a device to the IoT hub if a connection string is found and reprovision through DPS if it isn't.
 
 ```csharp
 using Newtonsoft.Json;
@@ -137,10 +137,10 @@ if(provisioningDetails == null)
   provisioningDetailCache.SetProvisioningDetailResponse(registrationId, provisioningDetails);
 }
 
-// If there was IoT Hub info from previous provisioning in the cache, try connecting to the IoT Hub directly
-// If trying to connect to the IoT Hub returns status 429, make sure to retry operation honoring
+// If there was IoT Hub info from previous provisioning in the cache, try connecting to the IoT hub directly
+// If trying to connect to the IoT hub returns status 429, make sure to retry operation honoring
 //   the retry-after header
-// If trying to connect to the IoT Hub returns a 500-series server error, have an exponential backoff with
+// If trying to connect to the IoT hub returns a 500-series server error, have an exponential backoff with
 //   at least 5 seconds of wait-time
 // For all response codes 429 and 5xx, reprovision through DPS
 // Ideally, you should also support a method to manually trigger provisioning on demand
@@ -171,7 +171,7 @@ if (provisioningDetails != null)
 
 ## IoT Hub connectivity considerations
 
-Any single IoT hub is limited to 1 million devices plus modules. If you plan to have more than a million devices, cap the number of devices to 1 million per hub and add hubs as needed when increasing the scale of your deployment. For more information, see [IoT Hub quotas](../iot-hub/iot-hub-devguide-quotas-throttling.md). If you have plans for more than a million devices and you need to support them in a specific region (such as in an EU region for data residency requirements), you can [contact us](../iot/iot-support-help.md) to ensure that the region you're deploying to has the capacity to support your current and future scale.
+Any single IoT hub is limited to 1 million devices plus modules. If you plan to have more than a million devices, cap the number of devices to 1 million per hub and add hubs as needed when increasing the scale of your deployment. For more information, see [IoT Hub quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md). If you have plans for more than a million devices and you need to support them in a specific region (such as in an EU region for data residency requirements), you can [contact us](../iot/iot-support-help.md) to ensure that the region you're deploying to has the capacity to support your current and future scale.
 
 When devices connect to IoT Hub via DPS, they should use the following logic in response to error codes when connecting:
 
@@ -180,12 +180,12 @@ When devices connect to IoT Hub via DPS, they should use the following logic in 
 
 At any time, devices should be capable of responding to a user-initiated reprovisioning command.
 
-If devices get disconnected from IoT Hub, devices should try to reconnect directly to the same IoT Hub for 15-30 minutes before attempting to go back to DPS.  
+If devices get disconnected from IoT Hub, devices should try to reconnect directly to the same IoT hub for 15-30 minutes before attempting to go back to DPS.  
 
 Other IoT Hub scenarios when using DPS:
 
 * IoT Hub failover: Devices should continue to work as connection information shouldn't change and logic is in place to retry the connection once the hub is available again.
-* Change of IoT Hub: Assigning devices to a different IoT Hub should be done by using a [custom allocation policy](tutorial-custom-allocation-policies.md).
+* Change of IoT Hub: Assigning devices to a different IoT hub should be done by using a [custom allocation policy](tutorial-custom-allocation-policies.md).
 * Retry IoT Hub connection: You shouldn't use an aggressive retry strategy. Instead, allow a gap of at least a minute before a retry.
 * IoT Hub partitions: If your device strategy leans heavily on telemetry, the number of device-to-cloud partitions should be increased.
 
@@ -198,5 +198,5 @@ An important part of the overall deployment is monitoring the solution end-to-en
 
 ## Next steps
 
-* [Provision devices across IoT Hubs](how-to-use-allocation-policies.md)
+* [How to use allocation policies to provision devices across IoT hubs](how-to-use-allocation-policies.md)
 * [Retry timing](https://github.com/Azure/azure-sdk-for-c/blob/main/sdk/docs/iot/mqtt_state_machine.md#retry-timing) when retrying operations

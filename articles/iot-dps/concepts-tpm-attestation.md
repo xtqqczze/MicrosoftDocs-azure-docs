@@ -16,7 +16,7 @@ This article describes the concepts involved when provisioning devices using Tru
 
 A Trusted Platform Module (TPM) is a type of hardware security module (HSM). This article assumes that you're using a discrete, firmware, or integrated TPM. Software emulated TPMs are well-suited for prototyping or testing, but they don't provide the same level of security as discrete, firmware, or integrated TPMs do. We don't recommend using software TPMs in production.
 
-This article is only relevant for devices using TPM 2.0 with HMAC key support and their endorsement keys. TPM is an industry-wide, ISO standard from the Trusted Computing Group, and you can read more about TPM at the [complete TPM 2.0 spec](https://trustedcomputinggroup.org/tpm-library-specification/) or the [ISO/IEC 11889 spec](https://www.iso.org/standard/66510.html). This article also assumes that you're familiar with public and private key pairs, and how they're used for encryption.
+This article is only relevant for devices using TPM 2.0 with hash-based message authentication code (HMAC) key support and their endorsement keys. TPM is an industry-wide, ISO standard from the Trusted Computing Group, and you can read more about TPM at the [complete TPM 2.0 spec](https://trustedcomputinggroup.org/tpm-library-specification/) or the [ISO/IEC 11889 spec](https://www.iso.org/standard/66510.html). This article also assumes that you're familiar with public and private key pairs, and how they're used for encryption.
 
 The Device Provisioning Service device SDKs handle everything that is described in this article for you. There's no need for you to implement TPM support if you're using the SDKs on your devices. This article helps you understand conceptually what’s going on with your TPM security chip when your device provisions and why it’s so secure.
 
@@ -28,7 +28,7 @@ TPMs have another type of key called the storage root key (SRK). The TPM's owner
 
 Once a device is set up, it has both an EK and an SRK available for use.
 
-![Diagram that demonstrates taking ownership of a TPM.](./media/concepts-tpm-attestation/tpm-ownership.png)
+:::image type="content" source="./media/concepts-tpm-attestation/tpm-ownership.png" alt-text="Diagram that demonstrates taking ownership of a TPM.":::
 
 The specific steps involved in taking ownership of a TPM vary depending on the manufacturer, the set of TPM tools being used, and the device operating system.
 
@@ -44,16 +44,16 @@ Let’s walk through the attestation process in detail.
 
 First the device connects to the Device Provisioning Service and requests to provision. In doing so, the device provides the service with its registration ID, an ID scope, and the EK_pub and SRK_pub from the TPM. The service passes the encrypted nonce back to the device and asks the device to decrypt the nonce and use that to sign a SAS token to connect again and finish provisioning.
 
-![Device requests provisioning](./media/concepts-tpm-attestation/step-one-request-provisioning.png)
+:::image type="content" source="./media/concepts-tpm-attestation/step-one-request-provisioning.png" alt-text="Diagram that shows how a device requests provisioning.":::
 
 ### Nonce challenge
 
 The device takes the nonce and uses the private portions of the EK and SRK to decrypt the nonce into the TPM; the order of nonce encryption delegates trust from the EK, which is immutable, to the SRK, which can change if a new owner takes ownership of the TPM.
 
-![Decrypting the nonce](./media/concepts-tpm-attestation/step-two-nonce.png)
+:::image type="content" source="./media/concepts-tpm-attestation/step-two-nonce.png" alt-text="Diagram that shows how a nonce is decrypted.":::
 
 ### Validate the nonce and receive credentials
 
 The device can then sign a SAS token using the decrypted nonce and reestablish a connection to the Device Provisioning Service using the signed SAS token. With the Nonce challenge completed, the service allows the device to provision.
 
-![Device reestablishes connection to Device Provisioning Service to validate EK ownership](./media/concepts-tpm-attestation/step-three-validation.png)
+:::image type="content" source="./media/concepts-tpm-attestation/step-three-validation.png" alt-text="Diagram that shows how a device reestablishes connection to Device Provisioning Service to validate EK ownership":::

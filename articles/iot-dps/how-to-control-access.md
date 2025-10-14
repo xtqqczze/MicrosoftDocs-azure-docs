@@ -27,7 +27,7 @@ The Device API supports key-based and X.509 certificated-based device authentica
 
 The Service API supports key-based authentication for backend apps.  
 
-When using key-based authentication, the Device Provisioning Service uses security tokens to authenticate services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. Azure IoT Device Provisioning SDKs automatically generate tokens without requiring any special configuration.  
+When using key-based authentication, the Device Provisioning Service uses security tokens to authenticate services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. Azure IoT Hub Device Provisioning SDKs automatically generate tokens without requiring any special configuration.  
 
 In some cases you might need to use the HTTP Device Provisioning Service REST APIs directly, without using the SDKs. The following sections describe how to authenticate directly against the REST APIs.
 
@@ -109,7 +109,7 @@ curl -L -i -X PUT -H 'Content-Type: application/json' -H 'Content-Encoding:  utf
 
 ```
 
-If using a symmetric key-based enrollment group, you need to first generate a `device symmetric` key using the enrollment group key. Use the enrollment group primary or secondary key to compute an HMAC-SHA256 of the registration ID for the device. The result is then converted into Base64 format to obtain the derived device key. To view code examples, see [How to provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md?tabs=linux%22%20%5Cl%20%22derive-a-device-key). Once the device symmetric key is derived, you can register the device using the previous examples.
+If using a symmetric key-based enrollment group, you need to first generate a `device symmetric` key using the enrollment group key. Use the enrollment group primary or secondary key to compute an HMAC-SHA256 of the registration ID for the device. The result is then converted into Base64 format to obtain the derived device key. To view code examples, see [Derive a device key](how-to-legacy-device-symm-key?tabs=linux&pivots=programming-language-java#derive-a-device-key). Once the device symmetric key is derived, you can register the device using the previous examples.
 
 >[!WARNING]
 >To avoid including the group master key in your device code, the process of deriving device key should be done off the device.
@@ -118,9 +118,9 @@ If using a symmetric key-based enrollment group, you need to first generate a `d
 
 If you set up an individual enrollment or enrollment group for X.509 certificated-based authentication, the device needs to use its issued X.509 certificate to attest to Device API. Refer to the following articles on how to set up the enrollment and generate the device certificate.
 
-* Quickstart - [Provision simulated X.509 device to Azure IoT Hub](quick-create-simulated-device-x509.md)
+* [Quickstart: Provision an X.509 certificate simulated device](quick-create-simulated-device-x509.md)
 
-* Quickstart -  [Enroll X.509 devices to Azure Device Provisioning Service](quick-enroll-device-x509.md)
+* [Programmatically create a Device Provisioning Service enrollment group for X.509 certificate attestation](quick-enroll-device-x509.md)
 
 Once the enrollment is set up and the device certificate issued, the following example demonstrates how to authenticate to Device API with the device’s X.509 certificate.
 
@@ -161,15 +161,15 @@ SharedAccessSignature sr =
 ```
 
 > [!NOTE]
-> The [Azure IoT Device Provisioning Service SDKs][lnk-sdks] automatically generate tokens when connecting to the service.
+> The [Azure IoT Hub Device Provisioning Service SDKs][lnk-sdks] automatically generate tokens when connecting to the service.
 
 ### Security tokens
 
-The Device Provisioning Service uses security tokens to authenticate services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT Device Provisioning Service SDKs][lnk-sdks] automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include the direct use of the HTTP surface.
+The Device Provisioning Service uses security tokens to authenticate services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT Hub Device Provisioning Service SDKs][lnk-sdks] automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include the direct use of the HTTP surface.
 
 ### Security token structure
 
-You use security tokens to grant time-bounded access for services to specific functionality in IoT Device Provisioning Service. To get authorization to connect to the provisioning service, services must send security tokens signed with either a shared access or symmetric key.
+You use security tokens to grant time-bounded access for services to specific functionality in IoT Hub Device Provisioning Service. To get authorization to connect to the provisioning service, services must send security tokens signed with either a shared access or symmetric key.
 
 A token signed with a shared access key grants access to all the functionality associated with the shared access policy permissions. 
 
@@ -273,10 +273,10 @@ The result, which would grant access to read all enrollment records, would be:
 
 ## SDKs and samples
 
-- [Azure IoT SDK for Java Preview Release ](https://aka.ms/IoTDPSJavaSDKRBAC)
-    - [Sample](https://aka.ms/IoTDPSJavaSDKSASSample])
-- [Microsoft Azure IoT SDKs for .NET Preview Release](https://aka.ms/IoTDPScsharpSDKRBAC)
-    - [Sample](https://aka.ms/IoTDPSscharpSDKSASSample)
+- [Microsoft Azure IoT SDKs for Java](https://github.com/Azure/azure-iot-sdk-java)
+    - [Sample](https://github.com/Azure/azure-iot-sdk-java/tree/main/provisioning/provisioning-service-client-samples)
+- [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp)
+    - [Sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service/samples)
 
 ## Reference articles:
 

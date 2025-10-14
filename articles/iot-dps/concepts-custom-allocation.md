@@ -35,7 +35,7 @@ The following steps describe how custom allocation polices work:
 
 1. The device connects to the assigned IoT hub and downloads its initial twin state. If a custom payload is returned in the registration response, the device uses it according to its own client-side logic.  
 
-The following sections provide more detail about the custom allocation request and response, custom payloads, and policy implementation. For a complete end-to-end example of a custom allocation policy, see [Use custom allocation policies](tutorial-custom-allocation-policies.md).
+The following sections provide more detail about the custom allocation request and response, custom payloads, and policy implementation. For more information about a complete end-to-end example of a custom allocation policy, see [Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)](tutorial-custom-allocation-policies.md).
 
 ## Manage function keys
 
@@ -55,7 +55,7 @@ When you create an enrollment programmatically using the DPS API, you need to ma
 
 Before you create the individual or group enrollment, retrieve the function key from your function. For more information, see [Get your function access keys](../azure-functions/function-keys-how-to.md#get-your-function-access-keys). Then, include the function key in the **webhookUrl** field of the **CustomAllocationDefinition**.
 
-For more information, see [Azure Functions HTTP trigger > Access key authorization](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization).
+For more information, see [Access key authorization](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization).
 
 ## Custom allocation policy request
 
@@ -125,7 +125,7 @@ The following JSON shows the **AllocationRequest** object sent by DPS for a devi
 }
 ```
 
-Because this is the initial registration for the device, the **deviceRuntimeContext** property contains only the registration ID and the authentication details for the device. The following JSON shows the **deviceRuntimeContext** for a subsequent call to register the same device. Notice that the current IoT Hub hostname and device ID are included in the request.
+Because this is the initial registration for the device, the **deviceRuntimeContext** property contains only the registration ID and the authentication details for the device. The following JSON shows the **deviceRuntimeContext** for a subsequent call to register the same device. Notice that the current IoT hub hostname and device ID are included in the request.
 
 ```json
 {
@@ -177,7 +177,7 @@ For example, you might want to allocate devices based on the device model. In th
 
 ### Device sends data payload to DPS
 
-A device calls the [register](/rest/api/iot-dps/device/runtime-registration/register-device) API to register with DPS. The request can be enhanced with the optional **payload** property. This property can contain any valid JSON object. The exact contents depend on the requirements of your solution.
+A device calls the [DPS registration API](/rest/api/iot-dps/device/runtime-registration/register-device) to register with DPS. The request can be enhanced with the optional **payload** property. This property can contain any valid JSON object. The exact contents depend on the requirements of your solution.
 
 For attestation with TPM, the request body looks like the following example:
 
@@ -262,7 +262,7 @@ The following JSON shows a successful registration response for a TPM device tha
 
 ## Implementation details
 
-The custom allocation webhook can be called for a device that wasn't previously registered through DPS (initial assignment) or for a device that was previously registered through DPS (reprovisioning). DPS supports the following reprovisioning policies: *Reprovision and migrate data*, *Reprovision and reset to initial config*, and *Never reprovision*. These policies are applied whenever a previously provisioned device is assigned to a new IoT hub. For more information, see [Reprovisioning](concepts-device-reprovision.md).
+The custom allocation webhook can be called for a device that wasn't previously registered through DPS (initial assignment) or for a device that was previously registered through DPS (reprovisioning). DPS supports the following reprovisioning policies: *Reprovision and migrate data*, *Reprovision and reset to initial config*, and *Never reprovision*. These policies are applied whenever a previously provisioned device is assigned to a new IoT hub. For more information, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
 
 The following points describe the requirements that your custom allocation webhook must observe and behavior that you should be aware of when designing your webhook:
 
@@ -287,10 +287,10 @@ The following points describe the requirements that your custom allocation webho
 
 ## SDK support
 
-The DPS device SDKs provide APIs in C, C#, Java, and Node.js to help you register devices with DPS. Both the IoT Hub SDKs and the DPS SDKs provide classes that represent device and service artifacts like device twins and enrollment entries that might be helpful when developing custom allocation webhooks. To learn more about the Azure IoT SDKs available for IoT Hub and IoT Hub Device Provisioning service, see [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) and [Azure DPS SDKs](./libraries-sdks.md).
+The DPS device SDKs provide APIs in C, C#, Java, and Node.js to help you register devices with DPS. Both the IoT Hub SDKs and the DPS SDKs provide classes that represent device and service artifacts like device twins and enrollment entries that might be helpful when developing custom allocation webhooks. To learn more about the Azure IoT SDKs available for IoT Hub and IoT Hub Device Provisioning service, see [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) and [Microsoft SDKs for IoT Hub Device Provisioning Service](./libraries-sdks.md).
 
 ## Next steps
 
-* For an end-to-end example using a custom allocation policy, see [Use custom allocation policies](tutorial-custom-allocation-policies.md)
+* For an end-to-end example using a custom allocation policy, see [Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)](tutorial-custom-allocation-policies.md)
 
 * To learn more about Azure Functions, see the [Azure Functions documentation](../azure-functions/index.yml)
