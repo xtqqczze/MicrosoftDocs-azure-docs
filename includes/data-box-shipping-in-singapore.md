@@ -9,10 +9,9 @@ ms.author: shaas
 Take the following steps if you're returning the device in Singapore.
 
 1. Keep the original box used to ship the device for return shipment.
-2. Note down the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). The tracking number is available after the **Prepare to ship** step completes successfully. Download the shipping label from this page and paste on the packing box.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device. 
-5. Email adbops@microsoft.com using the following template: 
+5. Email adbops@microsoft.com using the following template to get the return shipment label: 
     * If you have multiple orders, email to ensure individual pickup.
 
     ```
