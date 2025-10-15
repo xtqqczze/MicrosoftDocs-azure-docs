@@ -3,7 +3,7 @@ title: Handle content types
 description: Learn how to handle various content types in workflows during design time and run time in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.date: 10/15/2025
 #Customer intent: As an integration developer who works with Azure Logic Apps, I want to understand how to handle the available content types in workflows.
@@ -62,31 +62,39 @@ The following steps describe how the expression works without casting or convers
   }
   ```
 
-If you're working with JSON data that doesn't specify a header, you can manually cast that data to JSON by using the [json() function](../logic-apps/workflow-definition-language-functions-reference.md#json): 
+If you work with JSON data that doesn't use a `Content-Type` header, you can manually convert that data to JSON by using the [json() function](workflow-definition-language-functions-reference.md#json), for example:
   
 `@json(triggerBody())['client']['animal-type']`
 
 ### Create tokens for JSON properties
 
-Logic Apps provides the capability for you to generate user-friendly tokens that represent the properties in JSON content. You can reference and use those properties more easily in your logic app's workflow.
+In Azure Logic Apps, you can generate user-friendly tokens that represent the properties in JSON content. You can then use these tokens so you can more easily reference these properties and their values in your workflow.
 
-- **Request trigger**
+The following list describes common workflow operations and the corresponding ways that you can generate tokens for properties in JSON content:
 
-  When you use this trigger in the Logic App Designer, you can provide a JSON schema that describes the payload you expect. The designer parses JSON content by using this schema and generates user-friendly tokens that represent the properties in your JSON content. You can then reference and use those properties throughout your logic app's workflow.
-  
-  If you don't have a schema, you can generate the schema. 
-  
-  1. In the Request trigger, select **Use sample payload to generate schema**.  
-  
-  1. Under **Enter or paste a sample JSON payload** and provide a sample payload. Then choose **Done**.
+- **Request** trigger named **When a HTTP request is received**
 
-     :::image type="content" source="./media/logic-apps-content-type/request-trigger.png" alt-text="Screenshot shows the When a HTTP request is received action with a sample JSON payload." lightbox="./media/logic-apps-content-type/request-trigger.png":::
+  When you work in the designer with the **Request** trigger, you can optionally provide a JSON schema that defines the JSON objects, properties, and the expected data types for each property value. If you don't have a JSON schema, you can provide an example payload to generate a JSON schema that you can use.
+
+  The trigger uses the schema to parse JSON content from incoming HTTP requests and generate tokens that represent the properties in the JSON content. You can then easily reference and use these properties and their values in subsequent actions in your workflow.
+
+  The following steps describe how you can provide an example payload to generate a JSON schema:
+  
+  
+  1. On the designer, select the **Request** trigger to open the information pane.
+
+  1. On the **Parameters** tab, under the **Request Body JSON Schema** box, select **Use sample payload to generate schema**.  
+
+  
+  1. In the **Enter or paste a sample JSON payload** box, enter a sample payload, then select **Done**.
+
+     :::image type="content" source="./media/logic-apps-content-type/request-trigger.png" alt-text="Screenshot shows the Request trigger named When a HTTP request is received plus a sample JSON payload." lightbox="./media/logic-apps-content-type/request-trigger.png":::
 
      The generated schema now appears in your trigger.
 
-     :::image type="content" source="./media/logic-apps-content-type/generated-schema.png" alt-text="Screenshot shows the JSON payload generated from the sample JSON.":::
+     :::image type="content" source="./media/logic-apps-content-type/generated-schema.png" alt-text="Screenshot shows the JSON schema generated from the sample JSON payload.":::
 
-     Here's the underlying definition for your Request trigger in the code view editor:
+     In the code view editor, you can review the underlying JSON definition for the **Request** trigger:
 
      ```json
      "triggers": { 
@@ -118,7 +126,9 @@ Logic Apps provides the capability for you to generate user-friendly tokens that
      }
      ```
 
-  1. In the HTTP request that your client app sends to Azure Logic Apps, make sure that you include a header named **Content-Type**, and set the header's value to **application/json**.
+  1. To trigger your workflow, get the **Workflow URL** or the trigger's **HTTP URL**, which is generated after you save the workflow for the first time.
+
+  1. To test the workflow, use a client tool or app from where you can send an HTTP request to the workflow URL or trigger URL. Make sure that the request includes a header named **Content-Type** and the header value is set to **application/json**.
 
 - **Parse JSON action**
 
