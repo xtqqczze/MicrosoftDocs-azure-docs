@@ -37,7 +37,7 @@ Learn about the assessment prerequisites and how to implement them.
 1. There are multiple ways you can start with the creation of an application/cross-workload assessment: 
     1. If you're on the **Overview** page, you can start by selecting the **Create assessment** button on the **Assessments** card.
 
-    :::image type="content" source="./media/create-application-assessment/create-assessment.png" alt-text="The screenshot that shows where the user can start to create an application assessment." lightbox="./media/create-application-assessment/create-assessment.png":::
+       :::image type="content" source="./media/create-application-assessment/create-assessment.png" alt-text="The screenshot that shows where the user can start to create an application assessment." lightbox="./media/create-application-assessment/create-assessment.png":::
     
     1. If you're exploring the inventory of workloads from the **All inventory** blade, you can start by selecting the desired workloads and selecting **Create assessment**.
 
