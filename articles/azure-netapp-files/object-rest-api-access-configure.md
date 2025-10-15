@@ -42,7 +42,7 @@ See the [Azure Key Vault documentation for adding a certificate to Key Vault](/a
 When creating the certificate, ensure:
 
 * the **Content Type** is set to PEM
-* the **Subject** field is set to the IP address or fully qualified domain name (FQDN) of your Azure NetApp Files endpoint using the format `CN=<IP or FQDN>`
+* the **Subject** field is set to the IP address or fully qualified domain name (FQDN) of your Azure NetApp Files endpoint using the format `"CN=<IP or FQDN>"`
 * the **DNS Names** entry specifies the IP address or FQDN
 
 :::image type="content" source="./media/object-rest-api-access-configure/create-certificate.png" alt-text="Screenshot of create certificate options." lightbox="./media/object-rest-api-access-configure/create-certificate.png":::
