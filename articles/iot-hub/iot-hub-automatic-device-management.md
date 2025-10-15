@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 09/22/2022
 ms.author: sonialopez
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
-zone-pivots: service-portal-azcli
+zone_pivots_groups: service-portal-azcli
 ---
 
 # Automatic IoT device and module management using the Azure portal

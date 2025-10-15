@@ -23,8 +23,6 @@
     - name: Create an IoT hub
       href: create-hub.md
       displayName: create IoT Hub, delete IoT hub, portal, CLI
-
-
 - name: Quickstarts
   items:
     - name: Codeless quickstart using CLI
@@ -33,9 +31,6 @@
     - name: Send telemetry using SDK
       href: ../iot/tutorial-send-telemetry-iot-hub.md
       displayName: IoT Plug and Play, Azure IoT Explorer
-
-
-
 - name: Concepts
   items: 
     - name: Understand IoT Hub endpoints
@@ -300,7 +295,7 @@
     - name: Regenerate access keys
       href: regenerate-keys.md
       displayName: access keys, primary key, secondary key, rotate keys
-    - name: X.509 certificates
+    - name: Third-partyX.509 certificates
       href: authenticate-authorize-x509.md
       displayName: authenticate, authentication, auth, authn, authz
     - name: Create and upload certificates for testing

@@ -8,4 +8,4 @@ services: iot-hub
 ---
 
 > [!IMPORTANT]
-> IoT Hub Gen 2 is in **public preview** and is not recommended for production workloads. For more information, see the [FAQ: What is new in IoT Hub Gen 2](iot-hub-faq.md).
+> IoT Hub Gen 2 is in **public preview** and isn't recommended for production workloads. For more information, see the [FAQ: What is new in IoT Hub Gen 2?](../iot-hub-faq.md).

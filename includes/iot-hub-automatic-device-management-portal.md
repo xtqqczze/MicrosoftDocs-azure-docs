@@ -14,14 +14,13 @@ ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 
 * An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
-
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](../articles/iot-hub/create-hub.md).
 
 ## Implement twins
 
-Automatic device configurations require the use of device twins to synchronize state between the cloud and devices.  For more information, see [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md).
+Automatic device configurations require the use of device twins to synchronize state between the cloud and devices.  For more information, see [Understand and use device twins in IoT Hub](../articles/iot-hub/iot-hub-devguide-device-twins.md).
 
-Automatic module configurations require the use of module twins to synchronize state between the cloud and modules. For more information, see [Understand and use module twins in IoT Hub](iot-hub-devguide-module-twins.md).
+Automatic module configurations require the use of module twins to synchronize state between the cloud and modules. For more information, see [Understand and use module twins in IoT Hub](../articles/iot-hub/iot-hub-devguide-module-twins.md).
 
 ## Use tags to target twins
 
@@ -38,13 +37,13 @@ Before you create a configuration, you must specify which devices or modules you
 
 ## Create a configuration
 
-You can create a maximum of 100 automatic configurations on standard tier IoT hubs; ten on free tier IoT hubs. To learn more, see [Quotas and Throttling](iot-hub-devguide-quotas-throttling.md).
+You can create a maximum of 100 automatic configurations on standard tier IoT hubs; ten on free tier IoT hubs. To learn more, see [Quotas and Throttling](../articles/iot-hub/iot-hub-devguide-quotas-throttling.md).
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 1. Select **Configurations + Deployments** in the left navigation pane.
 1. Select **Add** and choose **Device twin configuration** or **Module twin configuration** from the drop-down list.
 
-   :::image type="content" source="./media/iot-hub-automatic-device-management/create-automatic-configuration.png" alt-text="Screenshot showing how to add a configuration." border="true":::
+   :::image type="content" source="../articles/iot-hub/media/iot-hub-automatic-device-management/create-automatic-configuration.png" alt-text="Screenshot showing how to add a configuration." border="true":::
 
 There are five steps to create a configuration. The following sections walk through each one.
 
@@ -67,7 +66,7 @@ For example, you could set the twin path to `properties.desired.chiller-water` a
 }
 ```
 
-:::image type="content" source="./media/iot-hub-automatic-device-management/module-config-twin-settings.png" alt-text="Screenshot of setting the device or module twin property and json content.":::
+:::image type="content" source="../articles/iot-hub/media/iot-hub-automatic-device-management/module-config-twin-settings.png" alt-text="Screenshot of setting the device or module twin property and json content.":::
 
 You can also set individual settings by specifying the entire twin path and providing the value with no brackets. For example, with the twin path `properties.desired.chiller-water.temperature`, set the content to `66`. Then create a new twin setting for the pressure property. 
 

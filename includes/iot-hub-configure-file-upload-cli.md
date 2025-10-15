@@ -13,9 +13,9 @@ ms.custom: devx-track-azurecli
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](../articles/iot-hub/create-hub.md).
 
-* An Azure Storage account with a blob container. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create a storage account](../storage/common/storage-account-create.md).
+* An Azure Storage account with a blob container. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create a storage account](../articles/storage/common/storage-account-create.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -65,13 +65,13 @@ Make a note of the `connectionString` value. The connection string looks similar
 
 ### Identity-based authentication
 
-You can use system-assigned managed identities or user-assigned managed identities for identity-based authentication. For more information, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
+You can use system-assigned managed identities or user-assigned managed identities for identity-based authentication. For more information, see [IoT Hub support for managed identities](../articles/iot-hub//iot-hub-managed-identity.md).
 
-Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign a role to your managed identity. For more information, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md).
+Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign a role to your managed identity. For more information, see [Assign an Azure role for access to blob data](../articles/storage/blobs/assign-azure-role-data-access.md).
 
 ## Configure your IoT hub
 
-You can now configure your IoT hub to enable the ability to [upload files to the IoT hub](iot-hub-devguide-file-upload.md) using your storage account details.
+You can now configure your IoT hub to enable the ability to [upload files to the IoT hub](../articles/iot-hub/iot-hub-devguide-file-upload.md) using your storage account details.
 
 The configuration requires the following values:
 
@@ -126,7 +126,7 @@ az iot hub update --name {your iot hub name} \
     --fileupload-storage-auth-type keyBased
 ```
 
-The following command configures authentication using the IoT hub's system-assigned managed identity. Before you can run this command, you need to enable the system-assigned managed identity for your IoT hub and grant it the correct role-based access control role on your Azure Storage account. To learn how, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
+The following command configures authentication using the IoT hub's system-assigned managed identity. Before you can run this command, you need to enable the system-assigned managed identity for your IoT hub and grant it the correct role-based access control role on your Azure Storage account. To learn how, see [IoT Hub support for managed identities](../articles/iot-hub/iot-hub-managed-identity.md).
 
 ```azurecli
 az iot hub update --name {your iot hub name} \
@@ -134,7 +134,7 @@ az iot hub update --name {your iot hub name} \
     --fileupload-storage-identity [system] 
 ```
 
-The following commands retrieve the user-assigned managed identities configured on your IoT hub and configure authentication with one of them. Before you can use a user-assigned managed identity to authenticate, it must be configured on your IoT hub and granted an appropriate role-based access control role on your Azure Storage account. For more detail and steps, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
+The following commands retrieve the user-assigned managed identities configured on your IoT hub and configure authentication with one of them. Before you can use a user-assigned managed identity to authenticate, it must be configured on your IoT hub and granted an appropriate role-based access control role on your Azure Storage account. For more detail and steps, see [IoT Hub support for managed identities](../articles/iot-hub/iot-hub-managed-identity.md).
 
 To query for user-assigned managed identities on your IoT hub, use the [az iot hub identity show](/cli/azure/iot/hub/identity#az-iot-hub-identity-show) command.
 

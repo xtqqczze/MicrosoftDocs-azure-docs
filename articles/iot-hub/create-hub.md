@@ -138,7 +138,7 @@ The service connection string should look similar to the following example:
 
 ### Connect with role assignments
 
-Authenticating access by using Microsoft Entra ID and controlling permissions by using Azure role-based access control (RBAC) provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you enforce Microsoft Entra authentication whenever possible. For more information, see [Control access to IoT Hub by using Microsoft Entra ID](./authenticate-authorize-azure-ad.md).
+Authenticating access by using Microsoft Entra ID and controlling permissions by using Azure role-based access control (RBAC) provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you enforce Microsoft Entra authentication whenever possible. For more information, see [Control access to IoT Hub by using Microsoft Entra ID](authenticate-authorize-azure-ad.md).
 
 ## Delete an IoT hub
 

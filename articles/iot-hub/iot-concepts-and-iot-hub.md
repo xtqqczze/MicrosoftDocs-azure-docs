@@ -37,7 +37,7 @@ IoT Hub is available in two generations: Gen 1 and Gen 2 (Preview). Azure IoT Hu
 
 IoT Hub Gen 2 instances have all the capabilities and functionalities of existing [Standard tier of IoT Hub](iot-hub-devguide-quotas-throttling.md#standard-tier-operations). An IoT Hub Gen2 instance is a pre-requisite for any workflow looking to take advantage of Gen 2 capabilities, such as Azure Device Registry (ADR) and Certificate Management. Upgrading an existing Hub to a Gen2 Hub is currently not supported.
 
-For more information, see the [FAQ: What is new in Azure IoT Hub Gen 2 (Preview)?](iot-hub-faq.md#what-is-new-in-azure-iot-hub-gen-2-preview).
+For more information, see the [FAQ: What is new in Azure IoT Hub Gen 2 (Preview)?](iot-hub-faq.md).
 
 Learn how to create an [IoT Hub Gen2 instance](create-hub.md).
 
