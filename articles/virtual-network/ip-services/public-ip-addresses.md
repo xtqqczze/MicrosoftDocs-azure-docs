@@ -57,7 +57,7 @@ Public IP addresses can be created with an IPv4 or IPv6 address. You may be give
 
 ## SKU
 >[!Important]
->On September 30, 2025, Basic SKU public IPs were retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. For guidance on upgrading, visit [Upgrading a basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md).
+>On September 30, 2025, Basic SKU public IPs were retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU as soon as possible. For guidance on upgrading, visit [Upgrading a basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md).
 
 Public IP addresses are created with a SKU of **Standard** or **Basic**. The SKU determines their functionality including allocation method, feature support, and resources they can be associated with.
 
@@ -97,7 +97,7 @@ Static public IP addresses are commonly used in the following scenarios:
 
 ## Availability Zone
 > [!IMPORTANT]
-> All formerly Standard non-zonal IPs [are now zone-redundant](https://azure.microsoft.com/en-us/blog/azure-public-ips-are-now-zone-redundant-by-default/) in all regions that support availability zones. The means that IPs that show as either "zones 1 2 3" or have no zones are equivalently zone-redundant.
+> All formerly Standard non-zonal IPs [are now zone-redundant](https://azure.microsoft.com/blog/azure-public-ips-are-now-zone-redundant-by-default/) in all regions that support availability zones. The means that IPs that show as either "zones 1 2 3" or have no zones are equivalently zone-redundant.
 > 
 
 Standard SKU Public IPs can be created as zonal or zone-redundant in [regions that support availability zones](../../reliability/availability-zones-region-support.md). Basic SKU Public IPs don't have any zones and are created as non-zonal. Once created, a public IP address can't change its availability zone.
