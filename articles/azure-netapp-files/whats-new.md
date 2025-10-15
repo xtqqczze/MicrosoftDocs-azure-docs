@@ -17,10 +17,13 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Cool access with dedicated capacity](manage-cool-access.md#register-dedicated-capacity-for-cool-access) (preview)
+* [Cool access with dedicated capacity](large-volumes-requirements-considerations.md#register-for-breakthrough-mode) (preview)
 
-    <!-- TBD -->
-    You must be registered for [dedicated capacity](large-volumes-requirements-considerations.md#register-for-dedicated-capacity-large-volumes) to use [cool access with dedicated capacity](manage-cool-access.md#dedicated). This feature is currently in preview. 
+    <!-- TEXT TBD -->
+
+* [Large volumes breakthrough mode](large-volumes-requirements-considerations.md#register-for-breakthrough-mode) (preview)
+
+    PLACEHOLDER: Azure NetApp Files supports enhanced performance with large volumes for high-performance workloads. 
 
 ## October 2025
 

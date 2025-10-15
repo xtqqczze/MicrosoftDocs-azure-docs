@@ -35,8 +35,8 @@ There are several considerations to be aware of when using cool access.
 * For the maximum number of volumes supported for cool access per subscription per region, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 * Flexible service level capacity pools with cool access maintain the user-configured throughput limits. Unlike Premium or Ultra pools, performance isn't reduced when cool access is enabled.
 * Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
-    * Cool access is also supported with dedicated capacity, enabling you to create volumes with quotas up to 7.2 PiB. You must be [registered to use dedicated capacity](large-volumes-requirements-considerations.md#dedicated) and to use [dedicated capacity with cool access](#dedicated). 
-    * Cool access with dedicated capacity is only available for newly created volumes. You must enable cool access and select dedicated capacity when creating the volume. 
+    * Cool access is also supported with dedicated capacity, enabling you to create volumes with quotas up to 7.2 PiB. You must be [registered to use large volumes breakthrough](large-volumes-requirements-considerations.md#register-for-breakthrough-mode) and to use [dedicated capacity with cool access](;arge-volumes-requirements-considerations.md#register-for-breakthrough-mode-with-cool-access). 
+    * Cool access with dedicated capacity is only available for newly created volumes. You must enable cool access and select **Large volume** and **Breakthough mode** when creating the volume. 
 
 ### Considerations for cool access-enabled capacity pools 
 
@@ -211,7 +211,7 @@ You can enable Azure NetApp Files storage with cool access during the creation o
 
     [!INCLUDE [Cool access configuration settings](includes/cool-access-options.md)]
 
-    * If you're using dedicated capacity, select the box for **Dedicated capacity**. 
+    * If you're using breakthrough mode, select the box for **Breakthrough mode**. 
 
     :::image type="content" source="./media/manage-cool-access/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a volume page. On the Basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="./media/manage-cool-access/cool-access-new-volume.png"::: 
 
