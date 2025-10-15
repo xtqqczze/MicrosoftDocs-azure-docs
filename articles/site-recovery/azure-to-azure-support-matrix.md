@@ -4,8 +4,8 @@ description: Summarizes support for Azure VMs disaster recovery to a secondary r
 ms.topic: concept-article
 ms.date: 09/09/2025
 ms.service: azure-site-recovery
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.custom: engagement-fy23, references_regions, linux-related-content
 # Customer intent: As an IT manager, I want to understand the disaster recovery support for Azure VMs using site recovery, so that I can effectively plan my organization's resilience against data loss and ensure compliance with our recovery objectives.
 ---
@@ -433,7 +433,7 @@ Azure Storage firewalls for virtual networks  | Supported | If you want to restr
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
-Managed Shared Disk| Supported 
+Managed Shared Disk| Supported | Premium SSDv2 and Ultra Disks are not supported.
 Managed Premium SSD v2 Disk| Supported |Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported. 
 Ultra Disks | Supported | Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Ultra disks cannot be supported.
 Secure transfer option | Supported
