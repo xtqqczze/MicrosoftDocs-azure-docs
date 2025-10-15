@@ -1,6 +1,6 @@
 ---
-title: Secure Azure Infrastructure for SAP Applications 
-description: Links collection and guidance Secure Azure Infrastructure for SAP Applications 
+title: Secure Azure identity for  SAP Applications 
+description: Links collection and guidance Secure Identity for SAP Applications 
 services: virtual-machines-windows,virtual-network,storage
 author: cgardin
 manager: juergent
