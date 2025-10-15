@@ -105,7 +105,7 @@ To run the script:
 *  The script relaxes backend TLS validation by default (no cert chain, expiry, or SNI validation) during cloning.If stricter TLS validation or authentication certificates are required customer can update their Application Gateway V2 post creation to add trusted root certificates and enable this feature as per their requirement.
 *  For NTLM/Kerberos passthrough, set the dedicated backend connection to ‘true’ in HTTP settings after cloning.
 
-   ### Caveats\Limitations of Enhanced Cloning script
+   ### Caveats
 *  You must provide an IP address space for another subnet within your virtual network where your V1 gateway is located. The script can't create the V2 gateway in a subnet that already has a V1 gateway. If the subnet already has a V2 gateway the script might still work, provided enough IP address space is available.
 *  If you have a network security group or user defined routes associated to the V2 gateway subnet, make sure they adhere to the [NSG requirements](../application-gateway/configuration-infrastructure.md#network-security-groups) and [UDR requirements](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) for a successful migration
 * If you have FIPS mode enabled for your V1 gateway, it isn't migrated to your new V2 gateway.
@@ -217,7 +217,7 @@ To run the script:
       -publicIpResourceId "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/MyPublicIP" `
       -validateMigration -enableAutoScale
    ```
-### Caveats\Limitations of Legacy Cloning script
+### Caveats\Limitations
 
 * The new V2 gateway has new public and private IP addresses. It isn't possible to move the IP addresses associated with the existing V1 gateway seamlessly to V2. However, you can allocate an existing (unallocated) public or private IP address to the new V2 gateway.
 * You must provide an IP address space for another subnet within your virtual network where your V1 gateway is located. The script can't create the V2 gateway in a subnet that already has a V1 gateway. If the subnet already has a V2 gateway the script might still work, provided enough IP address space is available.
@@ -286,7 +286,7 @@ We provide an Azure PowerShell script designed to **retain the Public IP address
 *	Expected Downtime: This IP swap operation typically results in a brief **downtime of approximately 1-5 minutes**. Please plan accordingly.
 *	After a successful script run, the Public IP is moved from AppGw V1 to AppGw V2, with AppGw V1 receiving a new internal public IP. 
 
-You can **download** this Public IP retention script  from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWIPMigrate/1.0.0)
+You can **download** this Public IP retention script  from the  [PowerShell Gallery](https://www.powershellgallery.com/packages)
 
   **Parameters for the script:**
   
