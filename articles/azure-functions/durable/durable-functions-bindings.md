@@ -19,9 +19,6 @@ Make sure to select your Durable Functions development language at the top of th
 
 ::: zone pivot="programming-language-python" 
 
-> [!IMPORTANT]   
-> This article supports both the Python v1 and Python v2 programming models for Durable Functions.  
-
 ## Python v2 programming model
 
 Durable Functions is supported in the [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the Python Package Index (PyPI) package `azure-functions-durable`, version `1.2.2` or a later version. You must also check *host.json* to make sure your app references [extension bundle](../extension-bundles.md) version 4.x. 
@@ -39,7 +36,10 @@ When you develop functions in .NET, you use the [OrchestrationTriggerAttribute](
 ::: zone pivot="programming-language-java"   
 For Java, you use the `@DurableOrchestrationTrigger` annotation to configure the orchestration trigger.
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell" 
+::: zone pivot="programming-language-javascript"
+When you use version 4 of the Node.js programming model to develop functions, you import the `app` object from the `@azure/functions npm` module. Then you call the `app.orchestration` method of the Durable Functions API directly in your function code. This method registers your orchestrator function with the Durable Functions framework.
+::: zone-end
+::: zone pivot="programming-language-powershell" 
 When you write orchestrator functions, you define the orchestration trigger by using the following JSON object in the `bindings` array of the *function.json* file:
 
 ```json
@@ -54,29 +54,9 @@ When you write orchestrator functions, you define the orchestration trigger by u
 The `orchestration` value is the name of the orchestration that clients must use when they want to start new instances of the orchestrator function. This property is optional. If you don't specify it, the name of the function is used.
 ::: zone-end
 ::: zone pivot="programming-language-python"  
-Azure Functions supports two programming models for Python. The way that you define an orchestration trigger depends on the programming model that you use.
-
-### [v2](#tab/python-v2)
 When you use the Python v2 programming model, you can define an orchestration trigger by using the `orchestration_trigger` decorator directly in your Python function code. 
 
 In the v2 model, you access the Durable Functions triggers and bindings from an instance of `DFApp`. You can use this subclass of `FunctionApp` to export decorators that are specific to Durable Functions. 
-
-### [v1](#tab/python-v1)
-When you write orchestrator functions in the Python v1 programming model, you define the orchestration trigger by using the following JSON object in the `bindings` array of the *function.json* file:
-
-```json
-{
-    "name": "<name-of-input-parameter-in-function-signature>",
-    "orchestration": "<optional-name-of-orchestration>",
-    "type": "orchestrationTrigger",
-    "direction": "in"
-}
-```
-
-The `orchestration` value is the name of the orchestration that clients must use when they want to start new instances of the orchestrator function. This property is optional. If you don't specify it, the name of the function is used.
-
----
-
 ::: zone-end    
 
 Internally, this trigger binding polls the configured durable store for new orchestration events. Examples of events include orchestration start events, durable timer expiration events, activity function response events, and external events raised by other functions.
@@ -146,11 +126,12 @@ public static string RunOrchestrator([OrchestrationTrigger] TaskOrchestrationCon
 ::: zone pivot="programming-language-javascript" 
 
 ```javascript
-const df = require("durable-functions");
+const { app } = require('@azure/functions');
+const df = require('durable-functions');
 
-module.exports = df.orchestrator(function*(context) {
+df.app.orchestration('helloOrchestrator', function* (context) {
     const name = context.df.getInput();
-    return `Hello ${name}!`;
+    return `Hello ${name}`;
 });
 ```
 
@@ -158,7 +139,6 @@ module.exports = df.orchestrator(function*(context) {
 > The `durable-functions` library calls the synchronous `context.done` method when the generator function exits.
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
-### [v2](#tab/python-v2)
 
 ```python
 import azure.functions as func
@@ -172,18 +152,6 @@ def my_orchestrator(context):
     return result
 ```
 
-### [v1](#tab/python-v1)
-```python
-import azure.durable_functions as df
-
-def orchestrator_function(context: df.DurableOrchestrationContext):
-    input = context.get_input()
-    return f"Hello {input['name']}!"
-
-main = df.Orchestrator.create(orchestrator_function)
-```
-
----
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
 
@@ -243,11 +211,14 @@ public static async Task<string> RunOrchestrator(
 ::: zone pivot="programming-language-javascript" 
 
 ```javascript
-const df = require("durable-functions");
+const { app } = require('@azure/functions');
+const df = require('durable-functions');
 
-module.exports = df.orchestrator(function*(context) {
+const activityName = 'hello';
+
+df.app.orchestration('helloOrchestrator', function* (context) {
     const name = context.df.getInput();
-    const result = yield context.df.callActivity("SayHello", name);
+    const result = yield context.df.callActivity(activityName, name);
     return result;
 });
 ```
@@ -275,7 +246,10 @@ You use the [ActivityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.exten
 ::: zone pivot="programming-language-java" 
 You use the `@DurableActivityTrigger` annotation to configure the activity trigger.
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell" 
+::: zone pivot="programming-language-javascript"
+To register your activity function, you import the `app` object from the `@azure/functions npm` module. Then you call the `app.activity` method of the Durable Functions API directly in your function code.
+::: zone-end
+::: zone pivot="programming-language-powershell" 
 To define the activity trigger, you use the following JSON object in the `bindings` array of *function.json*:
 
 ```json
@@ -290,26 +264,7 @@ To define the activity trigger, you use the following JSON object in the `bindin
 The `activity` value is the name of the activity. This value is the name that orchestrator functions use to invoke this activity function. This property is optional. If you don't specify it, the name of the function is used.
 ::: zone-end
 ::: zone pivot="programming-language-python"  
-The way that you define an activity trigger depends on the programming model that you use.
-
-### [v2](#tab/python-v2)
 You can define an activity trigger by using the `activity_trigger` decorator directly in your Python function code. 
-
-### [v1](#tab/python-v1)
-To define the activity trigger, you use the following JSON object in the `bindings` array of *function.json*:
-
-```json
-{
-    "name": "<name-of-input-parameter-in-function-signature>",
-    "activity": "<optional-name-of-activity>",
-    "type": "activityTrigger",
-    "direction": "in"
-}
-```
-
-The `activity` value is the name of the activity. This value is the name that orchestrator functions use to invoke this activity function. This property is optional. If you don't specify it, the name of the function is used.
-
----
 ::: zone-end    
 
 Internally, this trigger binding polls the configured durable store for new activity execution events.
@@ -374,23 +329,18 @@ public static string SayHello([ActivityTrigger] string name)
 ::: zone-end  
 ::: zone pivot="programming-language-javascript" 
 ```javascript
-module.exports = async function(context) {
-    return `Hello ${context.bindings.name}!`;
-};
-```
-
-JavaScript bindings can also be passed in as extra parameters, so you can also use the following simplified version of the function:
-
-```javascript
-module.exports = async function(context, name) {
-    return `Hello ${name}!`;
-};
+const { app } = require('@azure/functions');
+const df = require('durable-functions');
+const activityName = 'hello';
+df.app.activity(activityName, {
+    handler: (input) => {
+        return `Hello, ${input}`;
+    },
+});
 ```
 
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
-
-### [v2](#tab/python-v2)
 
 ```python
 import azure.functions as func
@@ -402,15 +352,6 @@ myApp = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 def my_activity(myInput: str):
     return "Hello " + myInput
 ```
-
-### [v1](#tab/python-v1)
-
-```python
-def main(name: str) -> str:
-    return f"Hello {name}!"
-```
-
----
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
@@ -434,35 +375,50 @@ public String sayHello(@DurableActivityTrigger(name = "name") String name) {
 Besides the activity trigger binding, you can also use regular input and output bindings. 
 
 ::: zone pivot="programming-language-javascript" 
-For example, an activity function can receive input from an orchestrator function. That activity function can also send a message to an event hub by using the Azure Event Hubs output binding.
-
-**function.json**
-
-```json
-{
-  "bindings": [
-    {
-      "name": "message",
-      "type": "activityTrigger",
-      "direction": "in"
-    },
-    {
-      "type": "eventHub",
-      "name": "outputEventHubMessage",
-      "connection": "EventhubConnectionSetting",
-      "eventHubName": "eh_messages",
-      "direction": "out"
-  }
-  ]
-}
-```
-
-**index.js**
+For example, an activity function can receive input from an orchestrator function. The activity function can then send that input as a message to Azure Event Hubs.
 
 ```javascript
-module.exports = async function (context) {
-    context.bindings.outputEventHubMessage = context.bindings.message;
-};
+const { app } = require('@azure/functions');
+const df = require('durable-functions');
+
+df.app.orchestration('helloOrchestrator', function* (context) {
+    const input = context.df.getInput();
+    yield context.df.callActivity('sendToEventHub', input);
+    return `Message sent: ${input}`;
+});
+
+const { EventHubProducerClient } = require("@azure/event-hubs");
+const connectionString = process.env.EVENT_HUB_CONNECTION_STRING;
+const eventHubName = process.env.EVENT_HUB_NAME;
+
+df.app.activity("sendToEventHub", {
+    handler: async (message, context) => {
+        const producer = new EventHubProducerClient(connectionString, eventHubName);
+        try {
+            const batch = await producer.createBatch();
+            batch.tryAdd({ body: message });
+            await producer.sendBatch(batch);
+            context.log(`Message sent to Event Hub: ${message}`);
+        } catch (err) {
+            context.log.error("Failed to send message to Event Hub:", err);
+            throw err;
+        } finally {
+            await producer.close();
+        }
+    },
+});
+
+app.storageQueue('helloQueueStart', {
+    queueName: 'start-orchestration',
+    extraInputs: [df.input.durableClient()],
+    handler: async (message, context) => {
+        const client = df.getClient(context);
+        const orchestratorName = message.orchestratorName || 'helloOrchestrator';
+        const input = message.input || null;
+        const instanceId = await client.startNew(orchestratorName, { input });
+        context.log(`Started orchestration with ID = '${instanceId}'`);
+    },
+});
 ```
 ::: zone-end
 
@@ -482,7 +438,10 @@ You can bind to an orchestration client by using the [DurableClientAttribute](/d
 ::: zone pivot="programming-language-java" 
 You can bind to an orchestration client by using the `@DurableClientInput` annotation.
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell" 
+::: zone pivot="programming-language-javascript"
+To register your client function, you import the `app` object from the `@azure/functions npm` module. Then you call a Durable Functions API method that's specific to your trigger type. For instance, for an HTTP trigger, you call the `app.http` method. For a queue trigger, you call the `app.storageQueue` method.
+::: zone-end
+::: zone pivot="programming-language-powershell" 
 To define the durable client trigger, you use the following JSON object in the `bindings` array of *function.json*:
 
 ```json
@@ -502,31 +461,7 @@ To define the durable client trigger, you use the following JSON object in the `
 > In most cases, we recommend that you omit these properties and rely on the default behavior.
 ::: zone-end
 ::: zone pivot="programming-language-python"  
-The way that you define a durable client trigger depends on the programming model that you use.
-
-### [v2](#tab/python-v2)
 You can define a durable client trigger by using the `durable_client_input` decorator directly in your Python function code. 
-
-### [v1](#tab/python-v1)
-To define the durable client trigger, you use the following JSON object in the `bindings` array of *function.json*:
-
-```json
-{
-    "name": "<name-of-input-parameter-in-function-signature>",
-    "taskHub": "<optional-name-of-task-hub>",
-    "connectionName": "<optional-name-of-connection-string-app-setting>",
-    "type": "orchestrationClient",
-    "direction": "in"
-}
-```
-
-* The `taskHub` property is used when multiple function apps share the same storage account but need to be isolated from each other. If you don't specify this property, the default value from *host.json* is used. This value must match the value that the target orchestrator functions use.
-* The `connectionName` value is the name of an app setting that contains a storage account connection string. The storage account represented by this connection string must be the same one that the target orchestrator functions use. If you don't specify this property, the default storage account connection string for the function app is used.
-
-> [!NOTE]
-> In most cases, we recommend that you omit these properties and rely on the default behavior.
-
----
 ::: zone-end 
 
 ### Client usage
@@ -578,39 +513,24 @@ public static Task Run(
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript" 
-
-**function.json**
-```json
-{
-  "bindings": [
-    {
-      "name": "input",
-      "type": "queueTrigger",
-      "queueName": "durable-function-trigger",
-      "direction": "in"
-    },
-    {
-      "name": "starter",
-      "type": "durableClient",
-      "direction": "in"
-    }
-  ]
-}
-```
-
-**index.js**
 ```javascript
-const df = require("durable-functions");
+const { app } = require('@azure/functions');
+const df = require('durable-functions');
 
-module.exports = async function (context) {
-    const client = df.getClient(context);
-    return instanceId = await client.startNew("HelloWorld", undefined, context.bindings.input);
-};
+app.storageQueue('helloQueueStart', {
+    queueName: 'start-orchestration',
+    extraInputs: [df.input.durableClient()],
+    handler: async (message, context) => {
+        const client = df.getClient(context);
+        const orchestratorName = message.orchestratorName || 'helloOrchestrator';
+        const input = message.input || null;
+        const instanceId = await client.startNew(orchestratorName, { input });
+        context.log(`Started orchestration with ID = '${instanceId}' from queue message.`);
+    },
+});
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
-
-#### [v2](#tab/python-v2)
 
 ```python
 import azure.functions as func
@@ -629,40 +549,6 @@ async def client_function(msg: func.QueueMessage, client: df.DurableOrchestratio
     await client.start_new("my_orchestrator", None, input_data)
     return None
 ```
-
-#### [v1](#tab/python-v1)
-
-**function.json**
-```json
-{
-  "bindings": [
-    {
-      "name": "input",
-      "type": "queueTrigger",
-      "queueName": "durable-function-trigger",
-      "direction": "in"
-    },
-    {
-      "name": "starter",
-      "type": "durableClient",
-      "direction": "in"
-    }
-  ]
-}
-```
-
-**\_\_init\_\_.py**
-```python
-import json
-import azure.functions as func
-import azure.durable_functions as df
-
-async def main(msg: func.QueueMessage, starter: str) -> None:
-    client = df.DurableOrchestrationClient(starter)
-    payload = msg.get_body().decode('utf-8')
-    instance_id = await client.start_new("HelloWorld", client_input=payload)
-```
----
 
 ::: zone-end 
 ::: zone pivot="programming-language-powershell" 
@@ -722,18 +608,24 @@ You use the [EntityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensi
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript" 
-To define the entity trigger, you use the following JSON object in the `bindings` array of *function.json*:
-
-```json
-{
-    "name": "<name-of-input-parameter-in-function-signature>",
-    "entityName": "<optional-name-of-entity>",
-    "type": "entityTrigger",
-    "direction": "in"
-}
+To register the entity trigger, you import the `app` object from the `@azure/functions npm` module. Then you call the `app.entity` method of the Durable Functions API directly in your function code.
+```javascript
+const df = require('durable-functions');
+df.app.entity('counter', (context) => {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case 'add':
+            context.df.setState(currentValue + context.df.getInput());
+            break;
+        case 'reset':
+            context.df.setState(0);
+            break;
+        case 'get':
+            context.df.return(currentValue);
+            break;
+    }
+});
 ```
-
-By default, the name of an entity is the name of the function.
 ::: zone-end 
 ::: zone pivot="programming-language-java" 
 > [!NOTE]
@@ -744,26 +636,7 @@ By default, the name of an entity is the name of the function.
 > Entity triggers aren't yet supported for PowerShell.
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
-The way that you define an entity trigger depends on the programming model that you use.
-
-#### [v2](#tab/python-v2)
 You can define an entity trigger by using the `entity_trigger` decorator directly in your Python function code. 
-
-#### [v1](#tab/python-v1)
-To define the entity trigger, you use the following JSON object in the `bindings` array of *function.json*:
-
-```json
-{
-    "name": "<name-of-input-parameter-in-function-signature>",
-    "entityName": "<optional-name-of-entity>",
-    "type": "entityTrigger",
-    "direction": "in"
-}
-```
-
-By default, the name of an entity is the name of the function.
-
----
 ::: zone-end 
 
 ### Trigger behavior
@@ -791,50 +664,39 @@ You can bind to the entity client by using the [DurableClientAttribute](/dotnet/
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript" 
-To define the entity client, you use the following JSON object in the `bindings` array of *function.json*:
+Instead of registering an entity client, you use `signalEntity` or `callEntity` to call an entity trigger method from any registered function.
 
-```json
-{
-    "name": "<name-of-input-parameter-in-function-signature>",
-    "taskHub": "<optional-name-of-task-hub>",
-    "connectionName": "<optional-name-of-connection-string-app-setting>",
-    "type": "durableClient",
-    "direction": "in"
-}
-```
+- From a queue-triggered function, you can use `client.signalEntity`:
+  ```javascript
+  const { app } = require('@azure/functions');
+  const df = require('durable-functions');
+  app.storageQueue('helloQueueStart', {
+      queueName: 'start-orchestration',
+      extraInputs: [df.input.durableClient()],
+      handler: async (message, context) => {
+          const client = df.getClient(context);
+          const entityId = new df.EntityId('counter', 'myCounter');
+          await client.signalEntity(entityId, 'add', 5);
+      },
+  });
+  ```
 
-* The `taskHub` property is used when multiple function apps share the same storage account but need to be isolated from each other. If you don't specify this property, the default value from *host.json* is used. This value must match the value that the target entity functions use.
-* The `connectionName` value is the name of an app setting that contains a storage account connection string. The storage account represented by this connection string must be the same one that the target entity functions use. If you don't specify this property, the default storage account connection string for the function app is used.
+- From an orchestrator function, you can use `context.df.callEntity`:
 
-> [!NOTE]
-> In most cases, we recommend that you omit the optional properties and rely on the default behavior.
+  ```javascript
+  const { app } = require('@azure/functions');
+  const df = require('durable-functions');
+  df.app.orchestration('entityCaller', function* (context) {
+      const entityId = new df.EntityId('counter', 'myCounter');
+      yield context.df.callEntity(entityId, 'add', 5);
+      yield context.df.callEntity(entityId, 'add', 5);
+      const result = yield context.df.callEntity(entityId, 'get');
+      return result;
+  });
+  ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-The way that you define an entity client depends on the programming model that you use.
-
-#### [v2](#tab/python-v2)
 You can define an entity client by using the `durable_client_input` decorator directly in your Python function code. 
-
-#### [v1](#tab/python-v1)
-To define the entity client, you use the following JSON object in the `bindings` array of *function.json*:
-
-```json
-{
-    "name": "<name-of-input-parameter-in-function-signature>",
-    "taskHub": "<optional-name-of-task-hub>",
-    "connectionName": "<optional-name-of-connection-string-app-setting>",
-    "type": "durableClient",
-    "direction": "in"
-}
-```
-
-* The `taskHub` property is used when multiple function apps share the same storage account but need to be isolated from each other. If you don't specify this property, the default value from *host.json* is used. This value must match the value that the target entity functions use.
-* The `connectionName` value is the name of an app setting that contains a storage account connection string. The storage account represented by this connection string must be the same one that the target entity functions use. If you don't specify this property, the default storage account connection string for the function app is used.
-
-> [!NOTE]
-> In most cases, we recommend that you omit the optional properties and rely on the default behavior.
-
----
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 > [!NOTE]
