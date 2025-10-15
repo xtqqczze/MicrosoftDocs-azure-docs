@@ -15,7 +15,6 @@ ms.date: 10/15/2025
 
 Azure Logic Apps supports all content types like JSON, XML, flat files, and binary data. While some content types have native support, meaning they don't need casting or conversion, other content types need some work to give you the required format.
 
-
 To help determine the best way to handle content or data in workflows, Azure Logic Apps uses the `Content-Type` header value in the HTTP requests that workflows get from external callers.
 
 The following list includes some example `Content-Type` values that a workflow can encounter:
@@ -24,6 +23,7 @@ The following list includes some example `Content-Type` values that a workflow c
 - [text/plain (native type)](#text-plain)
 - [application/xml and application/octet-stream](#application-xml-octet-stream)
 - [Other content types](#other-content-types)
+
 This guide describes how Azure Logic Apps handles different content types and shows how to correctly cast or convert these types when necessary. 
 
 <a name="application-json"></a>
@@ -74,11 +74,9 @@ The following list describes common workflow operations and the corresponding wa
 
   The following steps describe how you can provide an example payload to generate a JSON schema:
   
-  
   1. On the designer, select the **Request** trigger to open the information pane.
 
   1. On the **Parameters** tab, under the **Request Body JSON Schema** box, select **Use sample payload to generate schema**.  
-
   
   1. In the **Enter or paste a sample JSON payload** box, enter a sample payload, then select **Done**.
 
@@ -92,7 +90,7 @@ The following list describes common workflow operations and the corresponding wa
 
      ```json
      "triggers": { 
-        "when_an_HTTP_request_is_received": {
+        "When_an_HTTP_request_is_received": {
            "type": "Request",
            "kind": "Http",
            "inputs": { 
