@@ -42,25 +42,9 @@ The following steps describe how the expression works without casting or convers
 
 1. From the returned `body` object, the function accesses the `client` object.
 
-   The `client` object contains the `animal-type` property, which is set to an array, for example:
+   The `client` object contains the `animal-type` property, which is set to an array.
 
-   ```json
-   {
-      "client": {
-         "name": "Fido",
-         "animal-type": ["dog", "cat", "rabbit", "snake"]
-      }
-   }
- 
-  
-  ```json
-  {
-    "client": {
-       "name": "Fido",
-       "animal-type": [ "dog", "cat", "rabbit", "snake" ]
-    }
-  }
-  ```
+1.	The function accesses the first item in the array and directly returns the value dog without casting or conversion.
 
 If you work with JSON data that doesn't use a `Content-Type` header, you can manually convert that data to JSON by using the [json() function](workflow-definition-language-functions-reference.md#json), for example:
   
@@ -98,7 +82,7 @@ The following list describes common workflow operations and the corresponding wa
 
      ```json
      "triggers": { 
-        "manual": {
+        "when_an_HTTP_request_is_received": {
            "type": "Request",
            "kind": "Http",
            "inputs": { 
@@ -132,7 +116,7 @@ The following list describes common workflow operations and the corresponding wa
 
 - **Parse JSON action**
 
-  When you use this action in the Logic App Designer, you can parse JSON output and generate user-friendly tokens that represent the properties in your JSON content. You can then easily reference and use those properties throughout your logic app's workflow.
+  When you use this action in the designer, you can parse JSON output and generate user-friendly tokens that represent the properties in your JSON content. You can then easily reference and use those properties throughout your logic app's workflow.
 
   Similar to the Request trigger, you can provide or generate a JSON schema that describes the JSON content you want to parse. That way, you can more easily consume data from Azure Service Bus, Azure Cosmos DB, and so on.
 
