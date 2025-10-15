@@ -12,9 +12,9 @@ ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files large volumes
 
-Large volumes are Azure NetApp Files volumes with a size of 50 TiB to 1,024 TiB, though 2-PiB large volumes are available on request depending on regional dedicated capacity availability.
+Large volumes are Azure NetApp Files volumes with a size of 50 TiB to 1,024 TiB. 
 
-Large volumes with dedicated capacity are also available in select circumstances, enabling you to create volumes between 2.4 and 7.2 PiB in size. 
+2-PiB large volumes are available on request depending on regional dedicated capacity availability. If cool access is enabled on a dedicated capacity large volume, the quota can increase to 7.2 PiB. 
 
 This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
 
@@ -23,7 +23,7 @@ This article describes the requirements and considerations you need to be aware 
 The following requirements and considerations apply to large volumes. For performance considerations of *regular volumes*, see [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md).
 
 * A regular volume can’t be converted to a large volume.
-* You must create a large volume at a size of 50 TiB or larger. The maximum size of a large volume is 1,024 TiB, though 2-PiB large volumes are available on request depending on regional dedicated capacity availability. To request 2-PiB large volumes, contact your account team. 
+* You must create a large volume at a size of 50 TiB or larger. The maximum size of a large volume is 1,024 TiB, though 2-PiB large volumes are available on request depending on regional dedicated capacity availability. With cool access enabled, large volumes on regional dedicated capacity can scale to 7.2 PiB. 
 * You can't resize a large volume to less than 50 TiB.
     * A large volume can't be resized to more than 30% of its lowest provisioned size. This limit is adjustable via [a support request](azure-netapp-files-resource-limits.md#resource-limits). When requesting the resize, specify the desired size in TiB. 
     * When reducing the size of a large volume, the size you can decrease to depends on the size of files written to the volume and the snapshots currently active on the volumes. 
@@ -69,7 +69,7 @@ The following requirements and considerations apply to large volumes. For perfor
     </tbody>
     </table>
 
-    \* 2-PiB large volumes are available on request depending on regional dedicated capacity availability. To request 2-PiB large volumes, contact your account team. 
+    \* These maximums increase with dedicated capacity deployments. Read all the [Requirements and considerations](#requirements-and-considerations) and see [dedicated capacity](#dedicated) for more information. 
 
     For the latest performance benchmark numbers conducted on Azure NetApp Files Large volumes, see [Azure NetApp Files large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)](solutions-benefits-azure-netapp-files-electronic-design-automation.md).
 
