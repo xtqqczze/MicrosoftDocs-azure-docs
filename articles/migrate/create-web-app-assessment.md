@@ -8,7 +8,6 @@ ms.date: 10/15/2025
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.custom: engagement-fy24
-:::monikerRange="migrate"
 # Customer intent: As a cloud architect, I want to create a comprehensive assessment for web applications, so that I can determine the best modernization path and resource allocation for deploying them on Azure efficiently.
 ---
 # Tutorial: Create web app assessment for modernization 
@@ -62,12 +61,14 @@ To create an assessment, follow these steps.
     | Default savings option | Select applicable commitment-based savings option if you opted for Reserved Instances or Savings Plan. | - 1 year reservation<br> - 3 years reservation<br> - 1 year savings plan or 1 year reservation<br> - 3 year savings plan or 3 year reservation<br> - None |
     | Discount Percentage          | Any subscription-specific discounts you receive on top of the Azure offer. This setting is disabled if Savings option is selected. | Numeric decimal value, Default is 0% |
     | Subscription              | Negotiated subscription ID for cost estimation | Only Negotiated subscription IDs are listed here |
+:::monikerRange="migrate"
     | Uptime | Time for which you expect the workloads to run |	Days per month and Hours per day |
     | Sizing criteria	|	Criteria for target Web app right-sizing | - Performance based  (default) – Select this option if you want assessment based on resource utilization (CPU and memory) and configuration data<br> -	As on-premises - Select this option if you want assessment based on configuration data of the on-premises workloads |
     | Performance history |		Duration of performance history to generate assessment of the on-premises workloads | -	1 day (default)<br> - 1 week<br> -	1 month |
     | Percentile utilization |	Percentile value considered for the performance history of the on-premises workloads | - 50th<br> -	90th<br> -	95th (default)<br> - 99th |
     | Comfort factor |	Buffer added on top of utilization to account for scenarios like seasonal spikes in usage, insufficient performance data, likely increase in future usage, etc. As an example, normally, a 16-core VM with 20% utilization results in a 4-core VM. With a comfort factor of 2.0, it results in an 8-core VM as a match. | 	Multiple options. Default is 1. |
     | Azure Hybrid benefit		|  Azure Hybrid Benefit allows Microsoft customers with Windows Server Software Assurance or Windows Server subscriptions to bring their licenses to Azure. Learn more /https://azure.microsoft.com/en-us/pricing/offers/hybrid-benefit/ | Specify whether you already have a Windows Server license. This setting is enabled by default. |
+::: moniker-end
     | Microsoft Defender for Cloud | Includes Microsoft Defender for Cloud to protect your Web apps on Azure. | Specify whether you want to include Microsoft Defender for Cloud in the cost estimate. Microsoft Defender for App service or Microsoft Defender for Containers cost would be selected based on the target workload. This setting is enabled by default. |
  
 1. On the **Advanced settings** tab, select **Edit defaults** to choose the preferred Azure targets and target-specific settings. 
@@ -91,7 +92,7 @@ To create an assessment, follow these steps.
 1. Review and create the assessment. 
 
      :::image type="content" source="./media/create-web-app-assessment/review-and-create.png" alt-text="Screenshot shows how to review and create the assessment." lightbox="./media/create-web-app-assessment/review-and-create.png" :::
-
+:::monikerRange="migrate"
 ## Target right-sizing for Web apps
 
 Azure Migrate supports two types of target sizing for Web app assessments:
@@ -120,7 +121,7 @@ This method is used when performance data isn't available. Following values are 
 Besides the values estimated for performance-based and as on-premises sizing, following default resource utilization values for running the container image for each web app are added when Azure App Service containers and AKS are considered as migration targets:
 - ASP.NET web app: 0.2 core, 0.65 GB memory
 - Java web app: 0.1 core, 0.25 GB memory
-
+::: moniker-end
 
 ## Next steps 
 
