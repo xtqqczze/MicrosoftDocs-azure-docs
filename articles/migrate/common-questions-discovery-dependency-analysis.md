@@ -23,14 +23,14 @@ This article answers common questions about discovery and dependency analysis in
 
 ## What is dependency analysis?
 
-Dependency analysis feature in Azure Migrate helps customers analyze inter-server network dependencies through a visualization which can help them build high-confidence migration plans by grouping dependent servers together so that no critical dependency is left behind during migration. [Learn more](concepts-dependency-visualization.md)
+The Dependency Analysis feature in Azure Migrate helps customers visualize inter-server network dependencies, enabling them to build high-confidence migration plans. By grouping dependent servers together, it ensures that no critical dependency is overlooked during migration. [Learn more](concepts-dependency-visualization.md)
 
-Azure Migrate supports 2 approaches for dependency analysis- agentless and agent-based. **Agentless dependency analysis** gathers TCS connection data from the servers where it is enabled without installing any agents on the guest servers. The gathered depedencies can be visualized either at the project level (across all servers) or at per server level. 
+Azure Migrate supports two approaches for dependency analysis: agentless and agent-based. Agentless dependency analysis gathers TCP connection data from servers without installing any agents on the guest operating systems. The gathered dependencies can be visualized either at the project level (across all servers) or at the individual server level.
 
-**Agent-based dependency analysis** need the installation of [Azure Monitor Agent (AMA)](https://learn.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview) and dependency agent on each guest server to gather the dependency data that can be visualized in a Log Analytics workspace, associated with the Azure Migrate project.
+Agent-based dependency analysis requires the installation of the https://learn.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview and the Dependency agent on each guest server to gather dependency data. This data can then be visualized in a Log Analytics workspace associated with the Azure Migrate project.
 
 > [!NOTE]
-> Agent-based dependency analysis isn't available in Azure Government. It is currently only supported from the Classic Azure Migrate experiences. 
+> Agent-based dependency analysis isn't available in Azure Government. It is currently supported only in the classic Azure Migrate experience.
 
 ## What's the difference between agent-based and agentless?
 
@@ -59,7 +59,7 @@ No. Learn more about [Azure Migrate pricing](https://azure.microsoft.com/pricing
 
 The new agentless dependency experience was released on Sep 30,2025. You need to upgrade your existing dependency capability by following simple steps as provided on dependencies view. In the new capability:
 
-1. Dependency analysis **runs automatically on 1,000 servers** discovered by each Azure Migrate appliance that passes the prerequisite checks. You don’t need to enable it manually anymore.
+1. Dependency analysis automatically runs on up to 1,000 servers discovered by each Azure Migrate appliance that passes the prerequisite checks. You don’t need to enable it manually anymore.
 2. The enhanced dependency visualization helps you **review additional information** about the servers, connections, and processes. You can filter the view by process type to analyze resolvable or relevant dependencies in the visualization.
 3. In the new visualization, after identifying key dependencies, you can **group servers into an application** by tagging them inline.
 4. Going to the **Explore application** menu, you can select dependency analyis to view dependencies gathered across all enabled servers, discovered in the project.
@@ -99,14 +99,14 @@ Refer to the [documentation](https://learn.microsoft.com/azure/migrate/how-to-cr
 ## After the deprecation of MMA agent, how can I continue to use agent-based dependency anlaysis for Azure Migrate discovered servers?
 - The Log Analytics MMA agent was retired on August 31st 2024. To gather dependencies, you still need a separate Dependency Agent. 
 - Dependency Agent will need the new Azure Monitor Agent (AMA) to be deployed on the guest servers to gather the dependency data.
-- After switching to AMA, the Dependency agent will push the dependency data to the same LA workspace [id] that was earlier associated with Azure Migrate project for Agent-based dependency analysis.
+- After switching to AMA, the Dependency agent will push the dependency data to the same Log Analytics workspace (ID) that was previously associated with the Azure Migrate project for agent-based dependency analysis.
 
 ## After the deprecation of MMA agent, how can I transition to the new AMA agent to continue gathering the dependency data?
-- Step1: To deploy the AMA agent, it is recommended to first clean up the existing Service Map to avoid duplicates. [Learn more](/azure/azure-monitor/vm/vminsights-migrate-from-service-map#remove-the-service-map-solution-from-the-workspace) 
-- Step 2: To deploy the AMA agent, on the on-prem guest servers, you will first have to Arc enable these servers by installing the Arc agent on the required guest servers.
-- Step 3: Download and run the script on the host server. To get the AMA and the Dependency Agent deployed on the guest machine, you need to create the Data collection rule (DCR) that maps to a particular LA workspace Id.
-- Step 4: In the transition scenario, the LA workspace would be the same as the one that was configured for Service Map agent. DCR will allow you to enable the collection of processes and dependencies as it is disabled by default.
-
+- Step1: To deploy the AMA agent, we recommend to first clean up the existing Service Map to avoid duplicates. [Learn more](/azure/azure-monitor/vm/vminsights-migrate-from-service-map#remove-the-service-map-solution-from-the-workspace) 
+- Step 2: To deploy the AMA agent, on the on-prem guest servers, you must first Arc-enable these servers by installing the Arc agent on the required guest servers.
+- Step 3: Download and run the script on the host server. o deploy both the AMA and the Dependency agent on the guest machine, you need to create the Data collection rule (DCR) that maps to a particular LA workspace ID.
+- Step 4: In a transition scenario, the Log Analytics workspace should be the same one previously configured for the Service Map agent. The DCR allows you to enable the collection of processes and dependencies, which is disabled by default.
+  
 ## What do I install for agent-based dependency visualization?
 
 To use agent-based dependency visualization, download and install agents on each on-premises machine that you want to evaluate:
