@@ -79,6 +79,12 @@ External tables access underlying Azure storage using the database scoped creden
 - Data source without credential enables external tables to access publicly available files on Azure storage.
 - Data source can have a credential that enables external tables to access only the files on Azure storage using SAS token or workspace Managed Identity - For examples, see [the Develop storage files storage access control](develop-storage-files-storage-access-control.md#examples) article.
 
+### Remarks
+When using external tables in a **dedicated** SQL pool to read data from external files, keep the following in mind:
+- Files and folders must remain unchanged during the execution of the statement against the external table.
+- If the referenced files or folders are modified while the statement is running, the operation may fail to complete successfully, or produce inconsistent or unreliable results.
+- Before running queries that read external data, ensure the source files and folders are stable and are not updated, deleted, or replaced during execution.
+
 ### Example for CREATE EXTERNAL DATA SOURCE
 
 #### [Hadoop](#tab/hadoop)
