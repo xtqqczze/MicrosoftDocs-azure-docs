@@ -20,7 +20,7 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 ## October 2025
 ### FHIR service
 
-**SMART Wildcard _include and _revinclude Scope Enforcement**: Previously, SMART searches using wildcards for _include and _revinclude could return resource types that are not part of the current scope of the SMART user. This issue has been addressed, and proper responses are returned for _include and _revinclude SMART wildcard searches now.
+**SMART Wildcard _include and _revinclude Scope Enforcement**: Previously, SMART searches using wildcards for _include and _revinclude could return resource types that aren't part of the current scope of the SMART user. This issue has been addressed, and proper responses are returned for _include and _revinclude SMART wildcard searches now.
 
 **Enhancement to _not-referenced search and delete**: Adds the ability to use not referenced search and delete to look for the lack of specific references. For example, to search for Patients without an Encounter listing them as a subject: /Patient?_not-referenced=Encounter:subject.
 
@@ -30,11 +30,11 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 **SMART on FHIR compartment searches**: Previously, SMART compartment search expressions weren't properly comparing CompartmentId values and could return resources from different compartments. This issue has now been fixed.
 
-**SMART on FHIR system level searches with historical records**:  Previously, if historical records were in the system and a SMART system level search on all resource types was conducted, the search could return an empty result set even if there exists resources in a compartment. This issue got fixed, and resources will be correctly returned.
+**SMART on FHIR system level searches with historical records**:  Previously, if historical records were in the system and a SMART system level search on all resource types was conducted, the search could return an empty result set even if there exists resources in a compartment. This issue got fixed, and resources are correctly returned.
 
 **Reindex fix**: Previously, after adding and reindexing a new search parameter, a warning would sometimes be returned "Search Parameter not recognized". This issue got fixed by improving background refresh and synchronization.
 
-**Bulk delete remove references bug fix**: Previously, when performing a bulk delete with "remove references," if a resource has a reference removed and another reference remains—whose ID contains the ID of the removed reference but does not exactly match it—that second reference will also be removed unintentionally. This issue has been fixed by changing from contains check to exact match for ID checking, and only the correct reference will be removed now.
+**Bulk delete remove references bug fix**: Previously, when performing a bulk delete with "remove references," if a resource has a reference removed and another reference remains—whose ID contains the ID of the removed reference but doesn't exactly match it—that second reference will also be removed unintentionally. This issue has been fixed by changing from contains check to exact match for ID checking, and only the correct reference will be removed now.
 
 **Conditional Create Latency Improvement via Optimized Profile Loading**: Improved latency on conditional create requests by changing the way profiles are loaded by the validator.
 
