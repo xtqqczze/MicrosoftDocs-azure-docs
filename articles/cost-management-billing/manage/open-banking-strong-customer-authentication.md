@@ -6,7 +6,7 @@ ms.reviewer: drjones
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/01/2025
+ms.date: 10/14/2025
 ms.author: drjones
 ---
 
