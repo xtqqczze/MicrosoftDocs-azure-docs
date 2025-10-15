@@ -257,7 +257,7 @@ Entry point for [SAP Security Notes](https://support.sap.com/en/my-support/knowl
 Second Tuesday of every month [SAP release Security Notes](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html?anchorId=section_370125364) 
 Searchable [database of Security Notes](https://me.sap.com/app/securitynotes ) 
 
-## 11.	Links 
+## 11.	Links  
 
 Fix these links later 
 
