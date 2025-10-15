@@ -1,3 +1,20 @@
+---
+title: Secure Azure Infrastructure for SAP Applications 
+description: Links collection and guidance Secure Azure Infrastructure for SAP Applications 
+services: virtual-machines-windows,virtual-network,storage
+author: cgardin
+manager: juergent
+ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
+ms.topic: tutorial
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.date: 10/07/2025
+ms.author: cgardin
+# Customer intent: provide information to SAP Basis team and Security teams.
+---
+
+
+
 # Secure Azure Infrastructure for SAP Applications 
 A well secured SAP solution incorporates many security concepts with many layers spanning multiple domains:
 1.	Identity Management, Provisioning and Single Sign-on, MFA, Global Secure Access, Secure Network Connection (SNC)  
@@ -167,7 +184,7 @@ Defender for Cloud can monitor Trusted Launch. [Trusted Launch for Azure VMs - A
 Azure Files NFS traffic can be encrypted to protect against packet tracing and other threats.  
 [How to Encrypt Data in Transit for NFS shares | Microsoft Learn](https://learn.microsoft.com/azure/storage/files/encryption-in-transit-for-nfs-shares?tabs=Ubuntu)
 
-[Azure Files NFS Encryption In Transit for SAP on Azure Systems | Microsoft Community Hub](https://techcommunity.microsoft.com/blog/sapapplications/azure-files-nfs-encryption-in-transit-for-sap-on-azure-systems/4426918)
+[Azure Files NFS Encryption in Transit for SAP on Azure Systems | Microsoft Learn](https://learn.microsoft.com/azure/sap/workloads/sap-azure-files-nfs-encryption-in-transit-guide?tabs=SUSE)
 Azure Files SMB supports Encryption in Transit by default [SMB file shares in Azure Files | Microsoft Learn](https://learn.microsoft.com/azure/storage/files/files-smb-protocol?tabs=azure-portal#security)
 #### Encryption at Host (HBE)
 Currently customers should contact Microsoft to verify M-series VMs have the latest drivers required for Encryption at Host. M-series v3, D series, and E series VMs can use Encryption at Host without restriction.
@@ -238,6 +255,7 @@ Searchable [database of Security Notes](https://me.sap.com/app/securitynotes )
 ## 11.	Links 
 
 Fix these links later 
+
 
 
 Azure security fundamentals documentation | Microsoft Learn

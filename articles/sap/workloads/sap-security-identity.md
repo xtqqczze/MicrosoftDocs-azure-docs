@@ -8,7 +8,8 @@ The links below are intended to be a starting point for developing the appropria
 
 https://aka.ms/MigrateFromSAPIDM 
 
-## 2.	Authentication – It's recommended to use SSO and/or multifactor authentication for all SAP applications. Traditional User and Password for SAP applications isn't recommended. There are three typical options: User and Password (not recommended), Single Sign On (SSO) or SSO + MFA
+## 2.	Authentication  
+It's recommended to use SSO and/or multifactor authentication for all SAP applications. Traditional User and Password for SAP applications isn't recommended. There are three typical options: User and Password (not recommended), Single Sign On (SSO) or SSO + MFA
 
 ### i.	Web Browser based Clients – SAML or OIDC (OpenID Connect)
 > - Configure SAP NetWeaver for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn
@@ -16,7 +17,7 @@ SAML is a well established industry standard but OIDC is a newer solution. This 
 
 
 ### ii.	SAPGUI – X.509 or Kerberos Tickets
-> - SAP Secure Login Client - SNC certificate X.509 and Kerberos Tickets are documented here SNC X.509 Configuration | SAP Help Portal   
+SAP Secure Login Client - SNC certificate X.509 and Kerberos Tickets are documented here SNC X.509 Configuration | SAP Help Portal   
 
 Additional information is available here 
 > - Exploring SAP Secure Login Service for SAP GUI: A ... - SAP Community
@@ -24,8 +25,8 @@ Additional information is available here
 > - How to Configure SSO for SAP GUI Including MFA - SAP Community
 
 ### iii.	Mobile Devices – X509 or SAML 
-> - SAP discontinued Fiori mobile app as of 2022 and now support native browsers
-> - Time for a Fresh-Up: Single sign-on for SAP on Mobile Devices
+SAP discontinued Fiori mobile app as of 2022 and now support native browsers
+Time for a Fresh-Up: Single sign-on for SAP on Mobile Devices
 
 
 ### iv.	Microsoft Power Platform and Microsoft AI 
@@ -91,6 +92,7 @@ There are some limited functionalities available to synchronize Authorization Ro
 The diagram here depicts the architecture from a SAP centric point of view:  SAP IAM integration with SAP Cloud Identity Services | SAP Architecture Center.   This diagram shows the concept with reference to Entra Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn
 
 4.	Global Secure Access GSA with SAPGUI SNC  
+
 The video embedded in the following blog is recommended for customers wanting to achieve Network Level Security similar to operating a VPN without the overhead of installing and maintaining a full VPN on client devices.  
 The GSA client implements an NDIS 6.0 lightweight filter (LWF) network driver to route any traffic to internal and external applications based on centrally defined access rules at the company's Entra ID tenant level.
   > - SAP GUI MFA with Microsoft Entra (Part II): Integr... - SAP Community
