@@ -243,7 +243,6 @@ Here is the anticipated timeline for the migration tool availability and Basic S
 | Feb 2026                      | Basic SKU Public IP addresses are fully deprecated.                                                |
 
 
-> [!NOTE]
 > For the latest migration timeline, please see [this page](/azure/vpn-gateway/whats-new#upcoming-projected-changes). 
 
 
