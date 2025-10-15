@@ -81,13 +81,12 @@ To create an assessment, follow these steps.
     | Category         | Selecting a particular SKU category ensures we recommend the best AKS Node SKUs from that category. | - All <br> - Compute optimized <br> - General purpose <br> - GPU <br> - High performance compute  <br> - Isolated  <br> - Memory optimized <br> - Storage optimized |
     | Pricing tier | Pricing tier for AKS | Standard  | 
     | Consolidation   | Maximize the number of web apps to be packed per node. | Full Consolidation(default) |
-
  
     **App Service Settings** 
 
     | **Setting** | **Description** | **Possible Values** |
     |--------------------|-----------------|-----------|
-    | Isolation required | - No   <br> - Yes   | The Isolated plan allows you to run your apps in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard.|
+    | Isolation required | The Isolated plan allows you to run your apps in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard.| - No   <br> - Yes   |
 
 1. Review and create the assessment. 
 
@@ -97,7 +96,7 @@ To create an assessment, follow these steps.
 
 Azure Migrate supports two types of target sizing for Web app assessments:
 
-## • Performance-based Sizing
+#### Performance-based Sizing
 
 This method provides target size recommendations based on gathered performance and configuration data.
 
@@ -113,7 +112,7 @@ This method provides target size recommendations based on gathered performance a
 > [!NOTE]
 > For private endpoint scenarios, data is stored in a user-managed Storage account set up during Azure Migrate project creation.
 
-## •	As on-premises sizing: 
+#### As on-premises sizing: 
 This methos is used When performance data is not available. Following values are considered for CPU and memory utilization per web app:
 - ASP.NET web app: 0.15 cores, 0.25 GB memory
 - Java web app : 0.15 cores, 0.15 GB memory. If static memory is configured for Tomcat server, it  will be considered instead of these values.
