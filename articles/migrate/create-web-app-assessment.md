@@ -4,16 +4,16 @@ description: Learn how to create assessment for web apps in Azure Migrate
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
-ms.date: 06/16/2025
+ms.date: 10/15/2025
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.custom: engagement-fy24
-monikerRange:
+:::monikerRange="migrate"
 # Customer intent: As a cloud architect, I want to create a comprehensive assessment for web applications, so that I can determine the best modernization path and resource allocation for deploying them on Azure efficiently.
 ---
 # Tutorial: Create web app assessment for modernization 
 
-This article describes how to create a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or Azure App Service using Azure Migrate. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month. 
+This article describes how to create a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or [Azure App Service](/azure/app-service/overview) using Azure Migrate. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month. 
 
 In this article, you'll learn how to: 
 
@@ -58,7 +58,7 @@ To create an assessment, follow these steps.
     | Default target location | Target Azure region to which you want to migrate your workloads. Target right-sizing and costing recommendations would be done based on the selected location.  | All locations supported by Azure targets |
     | Default Environment  | Environment type for the workloads you intend to migrate. You can avail Azure discounts for Dev/Test workloads. | - Production (default)<br> -	Dev/Test |
     | Currency  | Currency in which you would like to get your cost estimates. | Multiple options, Default is US Dollar ($) |
-    | Program/offer  | The Azure offer in which you're enrolled. Assessment estimates the cost for that offer. | - Pay-as-you-go (default)<br> - Enterprise Agreement<br> - Microsoft Customer Agreement |
+    | Program/offer  | The Azure offer in which you're enrolled. Assessment estimates the cost for that offer. | - [Pay-as-you-go](https://azure.microsoft.com/en-us/pricing/offers/ms-azr-0003p/) (default)<br> - [Enterprise Agreement](https://azure.microsoft.com/en-us/pricing/offers/enterprise-agreement-support/)<br> - [Microsoft Customer Agreement](/azure/cost-management-billing/understand/mca-overview) |
     | Default savings option | Select applicable commitment-based savings option if you opted for Reserved Instances or Savings Plan. | - 1 year reservation<br> - 3 years reservation<br> - 1 year savings plan or 1 year reservation<br> - 3 year savings plan or 3 year reservation<br> - None |
     | Discount Percentage          | Any subscription-specific discounts you receive on top of the Azure offer. This setting is disabled if Savings option is selected. | Numeric decimal value, Default is 0% |
     | Subscription              | Negotiated subscription ID for cost estimation | Only Negotiated subscription IDs are listed here |
@@ -117,7 +117,6 @@ This method is used when performance data isn't available. Following values are 
 - ASP.NET web app: 0.15 cores, 0.25 GB memory
 - Java web app: 0.15 cores, 0.15 GB memory. If static memory is configured for Tomcat server, it is considered instead of these values.
 
-
 Besides the values estimated for performance-based and as on-premises sizing, following default resource utilization values for running the container image for each web app are added when Azure App Service containers and AKS are considered as migration targets:
 - ASP.NET web app: 0.2 core, 0.65 GB memory
 - Java web app: 0.1 core, 0.25 GB memory
@@ -128,5 +127,5 @@ Besides the values estimated for performance-based and as on-premises sizing, fo
 - Understand the [assessment insights](https://microsoftapc.sharepoint.com/:w:/t/AzureCoreIDC/EQ8jF5QuAeJDqoYwJ8Y_k1IBOH8E2zjyGIChYANVLUxRdw?e=WIsw26) to make data-driven decisions for web app modernization. 
 - [Optimize](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) Windows Dockerfiles. 
 - Review and implement [best practices](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) to build and manage apps on AKS. 
-
+:::moniker-end
  
