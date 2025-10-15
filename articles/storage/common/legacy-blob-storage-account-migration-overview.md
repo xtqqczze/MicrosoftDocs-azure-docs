@@ -94,12 +94,12 @@ If you see a storage account that is part of a **Databricks-managed resource gro
 ### How to identify DBFS accounts
 - Most DBFS accounts start with the prefix `dbstorage`.  
 Examples:  
--   `dbstoragezeoppf6waviqm`
--   `dbstorageb3qvu2dqsbsrg`
--   `dbstorageolaatsgryngy6`
+   - `dbstoragezeoppf6waviqm`
+   -`dbstorageb3qvu2dqsbsrg`
+   - `dbstorageolaatsgryngy6`
 
 - These accounts are typically found under resource groups named like:
--  `databricks-rg---`
+   - `databricks-rg---`
 
 > [!IMPORTANT]
 > Although dbstorage* is a common naming pattern, it’s not a reserved name, so exceptions may exist.
