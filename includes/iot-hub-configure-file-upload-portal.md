@@ -12,17 +12,17 @@ ms.date: 07/20/2021
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](../articles/iot-hubcreate-hub.md).
 
 ## Configure your IoT hub in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub and select **File upload** to display the file upload properties. Then select **Azure Storage Container** under **Storage container settings**.
 
-    :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-settings.png" alt-text="Screenshot that shows how to configure file upload settings in the portal.":::
+    :::image type="content" source="../articles/iot-hub/media/iot-hub-configure-file-upload/file-upload-settings.png" alt-text="Screenshot that shows how to configure file upload settings in the portal.":::
 
 1. Select an Azure Storage account and blob container in your current subscription to associate with your IoT hub. If necessary, you can create an Azure Storage account on the **Storage accounts** pane and create a blob container on the **Containers** pane.
 
-   :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-container-selection.png" alt-text="Screenshot showing how to view storage containers for file upload.":::
+   :::image type="content" source="../articles/iot-hub/media/iot-hub-configure-file-upload/file-upload-container-selection.png" alt-text="Screenshot showing how to view storage containers for file upload.":::
 
 1. After you've selected an Azure Storage account and blob container, configure the rest of the file upload properties.
 
@@ -34,7 +34,7 @@ ms.date: 07/20/2021
 
     * **File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default but can be customized to other values using the slider.
 
-    * **Authentication type**: By default, Azure IoT Hub uses key-based authentication to connect and authorize with Azure Storage. You can also configure user-assigned or system-assigned managed identities to authenticate Azure IoT Hub with Azure Storage. Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. To learn how to configure managed identities, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md). After you've configured one or more managed identities on your Azure Storage account and IoT hub, you can select one for authentication with Azure storage with the **System-assigned** or **User-assigned** buttons.
+    * **Authentication type**: By default, Azure IoT Hub uses key-based authentication to connect and authorize with Azure Storage. You can also configure user-assigned or system-assigned managed identities to authenticate Azure IoT Hub with Azure Storage. Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. To learn how to configure managed identities, see [IoT Hub support for managed identities](../articles/iot-hub/iot-hub-managed-identity.md). After you've configured one or more managed identities on your Azure Storage account and IoT hub, you can select one for authentication with Azure storage with the **System-assigned** or **User-assigned** buttons.
 
         > [!NOTE]
         > The authentication type setting configures how your IoT hub authenticates with your Azure Storage account. Devices always authenticate with Azure Storage using the SAS URI that they get from the IoT hub. 

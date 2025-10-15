@@ -16,9 +16,9 @@ ms.custom:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzIoTHub cmdlet](/powershell/module/az.iothub/new-aziothub) to create one or follow the steps in [Create an IoT hub](create-hub.md).
+* An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzIoTHub cmdlet](/powershell/module/az.iothub/new-aziothub) to create one or follow the steps in [Create an IoT hub](../articles/iot-hub/create-hub.md).
 
-* An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](/powershell/module/az.storage/) to create one or use the portal to [Create a storage account](../storage/common/storage-account-create.md)
+* An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](/powershell/module/az.storage/) to create one or use the portal to [Create a storage account](../articles/storage/common/storage-account-create.md).
 
 * Use the PowerShell environment in [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md).
 
@@ -72,7 +72,7 @@ Make a note of the **key1** storage account key value. You need it in the follow
 
 You can either use an existing blob container for your file uploads or create new one:
 
-* To list the existing blob containers in your storage account, use the [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) and [Get-AzStorageContainer](/powershell/module/az.storage/get-azstoragecontainer)  commands:
+* To list the existing blob containers in your storage account, use the [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) and [Get-AzStorageContainer](/powershell/module/az.storage/get-azstoragecontainer) commands:
 
     ```powershell
     $ctx = New-AzStorageContext `
@@ -95,7 +95,7 @@ You can either use an existing blob container for your file uploads or create ne
 
 ## Configure your IoT hub
 
-You can now configure your IoT hub to [upload files to the IoT hub](iot-hub-devguide-file-upload.md) using your storage account details.
+You can now configure your IoT hub to [upload files to the IoT hub](../articles/iot-hub/iot-hub-devguide-file-upload.md) using your storage account details.
 
 The configuration requires the following values:
 
@@ -124,5 +124,5 @@ Set-AzIotHub `
 ```
 
 > [!NOTE]
-> By default, IoT Hub authenticates with Azure Storage using the account key in the connection string. Authentication using either system-assigned or user-assigned managed identities is also available. Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. To learn more, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md). Currently, there are not parameters on the **Set-AzIotHub** command to set the authentication type.
+> By default, IoT Hub authenticates with Azure Storage using the account key in the connection string. Authentication using either system-assigned or user-assigned managed identities is also available. Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. To learn more, see [IoT Hub support for managed identities](../articles/iot-hub/iot-hub-managed-identity.md). Currently, there are not parameters on the **Set-AzIotHub** command to set the authentication type.
 
