@@ -63,9 +63,9 @@ To create a backup policy for Azure Data Lake Storage vaulted backup, run the fo
 
 1.	To retrieve the policy template, use the [`Get-AzDataProtectionPolicyTemplate`](/powershell/module/az.dataprotection/get-azdataprotectionpolicytemplate) cmdlet. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
-   ```azurepowershell-interactive
-   $defaultPol = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureDataLakeStorage
-   ```
+     ```azurepowershell-interactive
+     $defaultPol = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureDataLakeStorage
+     ```
 
 1.	To create a vaulted backup policy, define the schedule and retention for backups. The following cmdlets create a backup policy with backup frequency every week on Friday and Tuesday at 10 AM and retention of three months.
 
@@ -106,9 +106,9 @@ To create a backup policy for Azure Date Lake Storage vaulted backup, run the fo
 
 1.	To understand the inner components of a Backup policy for Azure Data Lake Storage backup, retrieve the policy template using the `az dataprotection backup-policy get-default-policy-template` command. The following command returns a default policy template for a given datasource type that you can use to create a new policy.
 
-   ```azurecli-interactive
-   az dataprotection backup-policy get-default-policy-template --datasource-type AzureDataLakeStorage > policy.json
-   ```
+       ```azurecli-interactive
+       az dataprotection backup-policy get-default-policy-template --datasource-type AzureDataLakeStorage > policy.json
+       ```
 1.	After you save the policy JSON with all the required values, proceed to create a new policy from the policy object using the `az dataprotection backup-policy create` command.
 
    ```azurecli-interactive
