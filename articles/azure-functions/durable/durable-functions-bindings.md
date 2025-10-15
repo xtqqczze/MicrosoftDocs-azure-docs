@@ -398,9 +398,9 @@ df.app.activity("sendToEventHub", {
             const batch = await producer.createBatch();
             batch.tryAdd({ body: message });
             await producer.sendBatch(batch);
-            context.log(`Message sent to Event Hub: ${message}`);
+            context.log(`Message sent to Event Hubs: ${message}`);
         } catch (err) {
-            context.log.error("Failed to send message to Event Hub:", err);
+            context.log.error("Failed to send message to Event Hubs:", err);
             throw err;
         } finally {
             await producer.close();
@@ -476,7 +476,7 @@ You typically bind to the `DurableClientContext` class.
 You must use the language-specific SDK to get access to a client object.
 ::: zone-end
 
-The following code provides an example of a queue-triggered function that starts a `HelloWorld` orchestration.
+The following code provides an example of a queue-triggered function that starts a *Hello World* orchestration.
 
 ::: zone pivot="programming-language-csharp"
 
