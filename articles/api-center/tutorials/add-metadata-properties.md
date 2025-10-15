@@ -45,11 +45,11 @@ Here you define two custom metadata examples: *Line of business* and *Public-fac
 
     1. Select type **Predefined choices** and enter choices such as *Marketing, Finance, IT, Sales*, and so on. Optionally, enable **Allow selection of multiple values**. Select **Next**.
 
-    :::image type="content" source="../media/add-metadata-properties/metadata-property-details.png" alt-text="Screenshot showing how to add custom metadata in the portal." lightbox="../media/add-metadata-properties/metadata-property-details.png":::
+    :::image type="content" source="./media/add-metadata-properties/metadata-property-details.png" alt-text="Screenshot showing how to add custom metadata in the portal." lightbox="./media/add-metadata-properties/metadata-property-details.png":::
 
 1. On the **Assignments** tab, select **Required** for APIs. Select **Optional** for Deployments and Environments. You can add these entities in later tutorials. Select **Next**.
 
-    :::image type="content" source="../media/add-metadata-properties/metadata-property-assignments.png" alt-text="Screenshot of metadata assignments in the portal." :::
+    :::image type="content" source="./media/add-metadata-properties/metadata-property-assignments.png" alt-text="Screenshot of metadata assignments in the portal." :::
 
 1. On the **Review + create** tab, review the settings, and select **Create**. 
  
@@ -77,7 +77,7 @@ You can view and download the JSON schema for the metadata defined in your API c
 
 1. Select **View metadata schema** > **APIs** to see the metadata schema for APIs, which includes built-in and custom metadata. You can also view the metadata schema defined for deployments and environments in your API center.
 
-    :::image type="content" source="../media/add-metadata-properties/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal." lightbox="../media/add-metadata-properties/metadata-schema.png":::
+    :::image type="content" source="./media/add-metadata-properties/metadata-schema.png" alt-text="Screenshot of metadata schema in the portal." lightbox="./media/add-metadata-properties/metadata-schema.png":::
 
 ## Next step
 

@@ -66,7 +66,7 @@ The following steps register two sample APIs: Swagger Petstore API and Conferenc
     | **Line of business** | If you added this metadata in the previous tutorial, make a selection from the dropdown, such as **Marketing**. | Custom metadata that identifies the business unit that owns the API  |
     | **Public-facing**  | If you added this metadata, select the checkbox.    |  Custom metadata that identifies whether the API is public-facing or internal only    |
 
-    :::image type="content" source="../media/register-apis/register-api.png" alt-text="Screenshot of the dialog box to register an API in the Azure portal." lightbox="../media/register-apis/register-api.png":::
+    :::image type="content" source="./media/register-apis/register-api.png" alt-text="Screenshot of the dialog box to register an API in the Azure portal." lightbox="./media/register-apis/register-api.png":::
 
 1. Select **Create** to register the API.
 
@@ -77,7 +77,7 @@ The following steps register two sample APIs: Swagger Petstore API and Conferenc
 
 The APIs appear on the **APIs** page in the portal. If you add a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.
 
-:::image type="content" source="../media/register-apis/apis-page.png" alt-text="Screenshot of the APIs page in the portal." lightbox="../media/register-apis/apis-page.png":::
+:::image type="content" source="./media/register-apis/apis-page.png" alt-text="Screenshot of the APIs page in the portal." lightbox="./media/register-apis/apis-page.png":::
 
 After registering an API, you can view or edit the API's properties. On the **APIs** page, select the API to see pages to manage the API registration. 
 
@@ -95,7 +95,7 @@ Here you add a version to one of your APIs:
 
 1. On the API page, under **Details**, select **Versions** > **+ Add version**.
 
-    :::image type="content" source="../media/register-apis/add-version.png" alt-text="Screenshot of adding an API version in the portal." lightbox="../media/register-apis/add-version.png":::
+    :::image type="content" source="./media/register-apis/add-version.png" alt-text="Screenshot of adding an API version in the portal." lightbox="./media/register-apis/add-version.png":::
 
 1. On the **Add API version** page, under **Version details**, enter or select the following information:
 
@@ -116,7 +116,7 @@ Here you add a version to one of your APIs:
     |**Specification version** | Enter a version identifier of your choice, such as *3.0*. | Specification version |
     |**File** or **URL**   | Browse to a local definition file for the Petstore API, or enter a URL. Example URL: `https://raw.githubusercontent.com/swagger-api/swagger-petstore/refs/heads/master/src/main/resources/openapi.yaml`   |  API definition file   |
 
-    :::image type="content" source="../media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="../media/register-apis/add-definition.png" :::
+    :::image type="content" source="./media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="./media/register-apis/add-definition.png" :::
 
 1. Select **Create**.
 
