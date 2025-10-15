@@ -277,8 +277,6 @@ To use that string in the Hybrid Connection Manager CLI, run `hcm add` with eith
 
 :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-manual-cli.png" alt-text="Screenshot of the Hybrid Connection Manager CLI showing how to manually add a Hybrid Connection.":::
 
-### 
-
 ### Upgrade
 
 # [Windows](#tab/windows)
