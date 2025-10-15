@@ -7,7 +7,7 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
-ms.date: 02/27/2025
+ms.date: 10/20/2025
 #Customer intent: As a developer new to IoT Hub, learn the basic concepts.
 ---
 
@@ -33,13 +33,31 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
-IoT Hub is available in two generations: Gen 1 and Gen 2 (Preview). Azure IoT Hub Gen2 introduces advanced capabilities to improve security and unify operations across cloud and edge-connected deployments. Moving to Gen2 is essential to leverage the latest enhancements in device provisioning, certificate management, and deeper integration with Azure Resource Manager. 
+IoT Hub is available in two generations: Gen 1 and Gen 2 (Preview). IoT Hub Gen 2 is the next evolution of IoT Hub, designed to provide enhanced security, simplified device management, and unified operations across cloud and edge deployments.
 
-IoT Hub Gen 2 instances have all the capabilities and functionalities of existing [Standard tier of IoT Hub](iot-hub-devguide-quotas-throttling.md#standard-tier-operations). An IoT Hub Gen2 instance is a pre-requisite for any workflow looking to take advantage of Gen 2 capabilities, such as Azure Device Registry (ADR) and Certificate Management. Upgrading an existing Hub to a Gen2 Hub is currently not supported.
+Moving to Gen2 is essential to leverage the latest enhancements in device provisioning, certificate management, and deeper integration with Azure Resource Manager. Upgrading an existing Hub to a Gen2 Hub is currently **not** supported. For more information, see the [FAQ: What is new in Azure IoT Hub Gen 2 (Preview)?](iot-hub-faq.md).
 
-For more information, see the [FAQ: What is new in Azure IoT Hub Gen 2 (Preview)?](iot-hub-faq.md).
+IoT Hub Gen 2 introduces two major innovations: Azure Device Registry (ADR) and Certificate Management. These features are designed to enhance security, simplify device management, and streamline operations for IoT deployments. 
 
-Learn how to create an [IoT Hub Gen2 instance](create-hub.md).
+## Unified registry between cloud and edge with Azure Device Registry
+
+IoT Hub Gen 2 integrates directly with Azure Device Registry (ADR) to bring a consistent experience across cloud and edge workloads. ADR is a centralized device registry that allows you to manage devices across multiple IoT hubs using namespaces. You can create a link between an existing ADR namespace to your IoT Hub Gen 2 or create a new namespace and create the link. 
+
+ADR is an ARM resource provider that​ registers devices as Azure resources in ARM, providing a single registry for all devices and enabling consistent policy, resource queries and control plane operations. 
+
+For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
+
+## Zero-Touch provisioning of IoT devices at scale
+
+Similarly to IoT Hub Gen 1, in order to use certificate management, devices must be provisioned via [Device Provisioning Service (DPS)](../iot-dps/index.yml). The device must onboard and authenticate using one of the existing supported methods: including X.509 certificate (procured from a third-party CA) or symmetric keys. Once the device is successfully authenticated, it's provisioned to the appropriate IoT Hub and registered to the appropriate ADR namespace. As part of this provisioning call, the device also submits a Certificate Signing Request (CSR) to DPS, which it uses to request an X.509 operational certificate that IoT Hub recognizes.
+
+### X.509 credential management for IoT Devices
+
+IoT Hub Gen 2 introduces built-in support for managing device certificates using Microsoft-managed PKI with X.509 certificates. X.509 certificates are undoubtedly the gold standard for IoT security. With IoT Hub Gen 2, you can use DPS to improve the security posture of your IoT devices by adopting X.509-based authentication. 
+
+These X.509 certificates are strictly **operational certificates** which the devices uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. 
+
+For more information, see [What is Certificate Management?](iot-hub-certificate-management-overview.md).
 
 ## What is an IoT device?
 
