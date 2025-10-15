@@ -19,8 +19,8 @@ In general, deprovisioning a device involves two steps:
 
 1. Disenroll the device from your provisioning service to prevent future auto-provisioning. Depending on whether you want to revoke access temporarily or permanently, you can either disable or delete an enrollment entry. For devices that use X.509 attestation, you might want to disable/delete an entry in the hierarchy of your existing enrollment groups.  
 
-   - To learn how to disenroll a device, see [How to disenroll a device from Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
-   - To learn how to disenroll a device programmatically using one of the provisioning service SDKs, see [Manage device enrollments with service SDKs](./quick-enroll-device-x509.md).
+   - To learn how to disenroll a device, see [How to disenroll or revoke a device from Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
+   - To learn how to disenroll a device programmatically using one of the provisioning service SDKs, see [Programmatically create a Device Provisioning Service enrollment group for X.509 certificate attestation](./quick-enroll-device-x509.md).
 
 2. Deregister the device from your IoT hub to prevent future communications and data transfer. Again, you can temporarily disable or permanently delete the device's entry in the identity registry for the IoT Hub where it was provisioned. See [Disable devices](../iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) to learn more about disablement.
 
@@ -70,7 +70,7 @@ With enrollment groups, there are two scenarios to consider:
       - If you have the device (end-entity) certificate, you can create a disabled X.509 individual enrollment.
       - If you don't have the device certificate, you can create a disabled symmetric key individual enrollment based on the device ID in the registration record for that device.
 
-      To learn more, see [Disallow specific devices in an enrollment group](./how-to-revoke-device-access-portal.md#disallow-specific-devices-from-an-x509-enrollment-group).
+      To learn more, see [Disallow specific devices from an X.509 enrollment group](./how-to-revoke-device-access-portal.md#disallow-specific-devices-from-an-x509-enrollment-group).
   
       The presence of a disabled individual enrollment for a device revokes access to the provisioning service for that device while still permitting access for other devices that have the enrollment group's signing certificate in their chain. Don't delete the disabled individual enrollment for the device. Doing so allows the device to re-enroll through the enrollment group.
 

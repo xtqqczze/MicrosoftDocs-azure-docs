@@ -17,13 +17,13 @@ Proper management of device credentials is crucial for high-profile systems like
 
 Enrollment in the Device Provisioning Service enables a device to be [provisioned](about-iot-dps.md#provisioning-process). A provisioned device is one that is registered with IoT Hub, allowing it to receive its initial [device twin](~/articles/iot-hub/iot-hub-devguide-device-twins.md) state and begin reporting telemetry data.
 
-This article describes how to revoke a device from your provisioning service instance, preventing it from being provisioned or reprovisioned in the future. Disabling an individual enrollment or enrollment group doesn't remove an existing device registration from IoT Hub. To learn how to deprovision a device already provisioned to an IoT hub, see [Manage deprovisioning](how-to-unprovision-devices.md).
+This article describes how to revoke a device from your provisioning service instance, preventing it from being provisioned or reprovisioned in the future. Disabling an individual enrollment or enrollment group doesn't remove an existing device registration from IoT Hub. To learn how to deprovision a device already provisioned to an IoT hub, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md).
 
 ## Disallow a device by using an individual enrollment
 
 To disallow a device from being provisioned through Device Provisioning Service, you can change the provisioning status of an individual enrollment to prevent the device from provisioning and reprovisioning. You can use this capability if the device is behaving outside its normal parameters or is assumed to be compromised, or as a way to test out provisioning retry mechanism of your devices.
 
-If the device that you want to disallow was provisioned through an enrollment group, refer to the steps to [Disallow specific devices from an X.509 enrollment group](#disallow-specific-devices-from-an-x509-enrollment-group).
+If the device that you want to disallow was provisioned through an enrollment group, refer to the steps in [Disallow specific devices from an X.509 enrollment group](#disallow-specific-devices-from-an-x509-enrollment-group).
 
 > [!NOTE]
 > Be aware of the retry policy of devices that you revoke access for. For example, a device that has an infinite retry policy might continuously try to register with the provisioning service. That situation consumes service resources such as service operation quotas and possibly affects performance.
@@ -59,15 +59,15 @@ To temporarily disallow the certificate by disabling its enrollment group:
 1. Select the enrollment group using the certificate that you want to disallow.
 1. On the enrollment details page, uncheck the **Enable this enrollment** box in the **Provisioning status** section then select **Save**.
 
-   ![Disable enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
-
+   :::image type="content" source="./media/how-to-revoke-device-access-portal/disable-enrollment-group.png" alt-text="Screenshot that shows disabling an enrollment group in the portal.":::
+   
 To permanently disallow the certificate by deleting its enrollment group:
 
 1. In your provisioning service, select **Manage enrollments**, and then select the **Enrollment Groups** tab.
 1. Select the check box next to the enrollment group for the certificate that you want to disallow.
 1. Select **Delete** at the top of the window, and then select **Yes** to confirm that you want to remove the enrollment group.
 
-   ![Delete enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/delete-enrollment-group.png)
+   :::image type="content" source="./media/how-to-revoke-device-access-portal/delete-enrollment-group.png" alt-text="Screenshot that shows deleting an enrollment group in the portal.":::
 
 After you finish the procedure, you should see your entry removed from the list of enrollment groups.  
 
@@ -113,4 +113,4 @@ When you successfully create your enrollment, you should see your disabled devic
 
 ## Next steps
 
-Disenrollment is also part of the larger deprovisioning process. Deprovisioning a device includes both disenrollment from the provisioning service, and deregistering from IoT hub. To learn about the full process, see [How to deprovision devices that were previously provisioned](how-to-unprovision-devices.md)
+Disenrollment is also part of the larger deprovisioning process. Deprovisioning a device includes both disenrollment from the provisioning service, and deregistering from the IoT hub. To learn about the full process, see [How to deprovision devices that were previously provisioned](how-to-unprovision-devices.md).

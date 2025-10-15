@@ -23,7 +23,7 @@ Rolling device certificates involve updating the certificate stored on the devic
 
 There are many ways to obtain new certificates for your IoT devices, including obtaining certificates from the device factory, generating your own certificates, and having a non-Microsoft provider manage certificate creation for you.
 
-Certificates can sign each other to form a chain of trust from a root CA certificate to a [leaf certificate](concepts-x509-attestation.md#end-entity-leaf-certificate). A signing certificate is the certificate used to sign the leaf certificate at the end of the chain of trust. A signing certificate can be a root CA certificate, or an intermediate certificate in chain of trust. For more information, see [X.509 certificates](concepts-x509-attestation.md).
+Certificates can sign each other to form a chain of trust from a root CA certificate to a [leaf certificate](concepts-x509-attestation.md#end-entity-leaf-certificate). A signing certificate is the certificate used to sign the leaf certificate at the end of the chain of trust. A signing certificate can be a root CA certificate, or an intermediate certificate in chain of trust. For more information, see [X.509 certificate attestation](concepts-x509-attestation.md).
 
 There are two different ways to obtain a signing certificate. The first way, which is recommended for production systems, is to purchase a signing certificate from a root certificate authority (CA). This way chains security down to a trusted source.
 
@@ -51,7 +51,7 @@ When a device is initially provisioned through auto-provisioning, it boots-up, a
 
 Once a new leaf certificate is rolled to the device, it can no longer connect to the IoT hub because it’s using a new certificate to connect. The IoT hub only recognizes the device with the old certificate. The result of the device's connection attempt is an "unauthorized" connection error. To resolve this error, you must update the enrollment entry for the device to account for the device's new leaf certificate. Then the provisioning service can update the IoT Hub device registry information as needed when the device is reprovisioned.
 
-One possible exception to this connection failure would be a scenario where you create an [Enrollment Group](concepts-service.md#enrollment-group) for your device in the provisioning service. In this case, if you aren't rolling the root or intermediate certificates in the device's certificate chain of trust, then the device is recognized if the new certificate is part of the chain of trust defined in the enrollment group. If this scenario arises as a reaction to a security breach, you should at least disallow the specific device certificates in the group that are considered to be breached. For more information, see [Disallow specific devices in an enrollment group](./how-to-revoke-device-access-portal.md#disallow-specific-devices-from-an-x509-enrollment-group)
+One possible exception to this connection failure would be a scenario where you create an [enrollment group](concepts-service.md#enrollment-group) for your device in the provisioning service. In this case, if you aren't rolling the root or intermediate certificates in the device's certificate chain of trust, then the device is recognized if the new certificate is part of the chain of trust defined in the enrollment group. If this scenario arises as a reaction to a security breach, you should at least disallow the specific device certificates in the group that are considered to be breached. For more information, see [Disallow specific devices from an X.509 enrollment group](./how-to-revoke-device-access-portal.md#disallow-specific-devices-from-an-x509-enrollment-group)
 
 How you handle updating the enrollment entry depends on whether you're using individual enrollments, or group enrollments. Also the recommended procedures differ depending on whether you're rolling certificates because of a security breach, or certificate expiration. The following sections describe how to handle these updates.
 
@@ -97,11 +97,11 @@ If you're rolling certificates to handle certificate expirations, you should use
 
 1. Select **Certificates** from the **Settings** section of the navigation menu for your Device Provisioning Service instance.
 
-   :::image type="content" source="./media/how-to-roll-certificates/manage-certificates.png" alt-text="Screenshot that shows the certificates page.":::
+   :::image type="content" source="./media/how-to-roll-certificates/manage-certificates.png" alt-text="Screenshot that shows the Certificates page in the Azure portal.":::
 
 1. Select the compromised or expired certificate from the list, and then select **Delete**. Confirm the delete by entering the certificate name and select **OK**.
 
-1. Follow steps outlined in [Configure verified CA certificates](how-to-verify-certificates.md) to add and verify new root CA certificates.
+1. Follow steps outlined in [How to verify X.509 CA certificates with your Device Provisioning Service](how-to-verify-certificates.md) to add and verify new root CA certificates.
 
 1. Select **Manage enrollments** from the **Settings** section of the navigation menu for your Device Provisioning Service instance, and select the **Enrollment groups** tab.
 
@@ -131,7 +131,7 @@ If you're rolling certificates to handle certificate expirations, you should use
 
    If one of your certificates is nearing its expiration, you can keep it in place as long as the second certificate will still be active after that date.
 
-   You should sign each intermediate certificate with a verified root CA certificate that is already added to the provisioning service. For more information, see [X.509 certificates](concepts-x509-attestation.md).
+   You should sign each intermediate certificate with a verified root CA certificate that is already added to the provisioning service. For more information, see [X.509 certificate attestation](concepts-x509-attestation.md).
 
    :::image type="content" source="./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png" alt-text="Screenshot that shows replacing an intermediate certificate for an enrollment group.":::
 
@@ -153,12 +153,12 @@ Once reprovisioning is complete, devices are able to connect to IoT Hub using th
 
 ## Disallow certificates
 
-In response to a security breach, you might need to disallow a device certificate. To disallow a device certificate, disable the enrollment entry for the target device/certificate. For more information, see disallowing devices in the [Manage disenrollment](how-to-revoke-device-access-portal.md) article.
+In response to a security breach, you might need to disallow a device certificate. To disallow a device certificate, disable the enrollment entry for the target device/certificate. For more information, see [How to disenroll or revoke a device from Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
 
 Once a certificate is included as part of a disabled enrollment entry, any attempts to register with an IoT hub using that certificate fails even if the certificate's enabled as part of another enrollment entry.
 
 ## Next steps
 
 - To learn more about X.509 certificates in the Device Provisioning Service, see [X.509 certificate attestation](concepts-x509-attestation.md) 
-- To learn about how to do proof-of-possession for X.509 CA certificates with the Azure IoT Hub Device Provisioning Service, see [How to verify certificates](how-to-verify-certificates.md)
-- To learn about how to use the portal to create an enrollment group, see [Managing device enrollments with Azure portal](how-to-manage-enrollments.md).
+- To learn about how to do proof-of-possession for X.509 CA certificates with the Azure IoT Hub Device Provisioning Service, see [How to verify X.509 CA certificates with your Device Provisioning Service](how-to-verify-certificates.md)
+- To learn about how to use the portal to create an enrollment group, see [Manage device enrollments in the Azure portal](how-to-manage-enrollments.md).

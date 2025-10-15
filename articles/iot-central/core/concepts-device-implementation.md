@@ -13,9 +13,9 @@ ms.custom:  [amqp, mqtt, device-developer]
 # This article applies to device developers.
 ---
 
-# Device implementation and best practices for IoT central
+# Device implementation and best practices for IoT Central
 
-This article provides information about how to implement devices that connect to your IoT central application. It also includes some best practices. To learn more about the overall connection process, see [Connect a device](overview-iot-central-developer.md#how-devices-connect).
+This article provides information about how to implement devices that connect to your IoT Central application. It also includes some best practices. To learn more about the overall connection process, see [Connect a device](overview-iot-central-developer.md#how-devices-connect).
 
 For sample device implementation code, see [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 

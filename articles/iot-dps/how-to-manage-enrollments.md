@@ -26,7 +26,7 @@ The Device Provisioning Service supports two types of enrollments:
 
 ## Prerequisites
 
-* Create an instance of Device Provisioning Service in your subscription and link it to an IoT hub. For more information, see [Quickstart: Set up the IoT Hub Device Provisioning Service](./quick-setup-auto-provision.md).
+* Create an instance of Device Provisioning Service in your subscription and link it to an IoT hub. For more information, see [Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
 ## Create an enrollment group
 
@@ -34,7 +34,7 @@ An enrollment group is an entry for a group of devices that share a common attes
 
 ### [X.509 certificate](#tab/x509)
 
-For a walkthrough that demonstrates how to create and use enrollment groups with X.509 certificates, see the [Provision multiple X.509 devices using enrollment groups](how-to-legacy-device-symm-key.md) tutorial.
+For a walkthrough that demonstrates how to create and use enrollment groups with X.509 certificates, see [Tutorial: Provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md).
 
 To create an X.509 certificate enrollment group:
 
@@ -43,7 +43,7 @@ To create an X.509 certificate enrollment group:
 
 ### [Symmetric key](#tab/key)
 
-For a walkthrough that demonstrates how to create and use enrollment groups with symmetric keys, see the [Provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md) tutorial.
+For a walkthrough that demonstrates how to create and use enrollment groups with symmetric keys, see [Tutorial: Provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md).
 
 To create a symmetric key enrollment group:
 
@@ -63,7 +63,7 @@ An individual enrollment is an entry for a single device that can be assigned to
 
 ### [X.509 certificate](#tab/x509)
 
-For a walkthrough of how to create and use individual enrollments with X.509 certificates, see [Quickstart:Provision an X.509 certificate device](quick-create-simulated-device-x509.md#create-a-device-enrollment).
+For a walkthrough of how to create and use individual enrollments with X.509 certificates, see [Quickstart: Provision an X.509 certificate device](quick-create-simulated-device-x509.md#create-a-device-enrollment).
 
 To create an X.509 certificate individual enrollment:
 
@@ -81,7 +81,7 @@ To create a symmetric key individual enrollment:
 
 ### [TPM](#tab/tpm)
 
-For a walkthrough of how to create and use individual enrollments using TPM attestation, see [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md#create-a-device-enrollment-entry) samples. If you don't have the endorsement key and registration ID for your device, use the quickstart to try these steps on a simulated device.
+For a walkthrough of how to create and use individual enrollments using TPM attestation, see [Quickstart: Provision a simulated TPM device](quick-create-simulated-device-tpm.md#create-a-device-enrollment-entry). If you don't have the endorsement key and registration ID for your device, use the quickstart to try these steps on a simulated device.
 
 To create a TPM individual enrollment:
 

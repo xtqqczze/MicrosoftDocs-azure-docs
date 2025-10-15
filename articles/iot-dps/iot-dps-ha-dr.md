@@ -15,7 +15,7 @@ ms.custom:
 
 # IoT Hub Device Provisioning Service high availability and disaster recovery
 
-Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch device provisioning at-scale. DPS is an important part of your IoT solution. This article describes the High Availability (HA) and Disaster Recovery (DR) capabilities that DPS provides. To learn more about how to achieve HA-DR across your entire IoT solution, see [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery). To learn more, see [Reliability in Azure IoT Hub](/azure/reliability/reliability-iot-hub).
+Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch device provisioning at-scale. DPS is an important part of your IoT solution. This article describes the High Availability (HA) and Disaster Recovery (DR) capabilities that DPS provides. To learn more about how to achieve HA-DR across your entire IoT solution, see [Architecture strategies for designing a disaster recovery strategy](/azure/architecture/reliability/disaster-recovery). To learn more, see [Reliability in Azure IoT Hub](/azure/reliability/reliability-iot-hub).
 
 ## High availability
 
@@ -42,13 +42,13 @@ You don't need to take any action to use availability zones in supported regions
 
 Device Provisioning Service stores customer data in the region where you deployed the service instance, and replicates data to a secondary region to support disaster recovery scenarios.
 
-By default, DPS uses [cross-region replication](../reliability/cross-region-replication-azure.md) to enable automatic failover. Microsoft exercises Microsoft-initiated failover in rare situations when an entire region goes down to fail over all the DPS instances from the affected region to its corresponding secondary region. Microsoft reserves the right to determine when this option is exercised. This mechanism doesn't involve user consent before the user's DPS instance is failed over.
+By default, DPS uses [cross-region replication](../reliability/regions-paired.md) to enable automatic failover. Microsoft exercises Microsoft-initiated failover in rare situations when an entire region goes down to fail over all the DPS instances from the affected region to its corresponding secondary region. Microsoft reserves the right to determine when this option is exercised. This mechanism doesn't involve user consent before the user's DPS instance is failed over.
 
 Customers that have DPS deployed in Southeast Asia and Brazil South can opt out of automatic failover, in which case the customer data stays in the primary region and isn't replicated to a secondary region.
 
 ## Disable disaster recovery
 
-By default, DPS provides automatic failover by replicating data to a [secondary region](../reliability/cross-region-replication-azure.md#azure-paired-regions) for a DPS instance. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating a DPS instance. The following regions support this feature:
+By default, DPS provides automatic failover by replicating data to a [secondary region](../reliability/regions-paired.md#paired-regions) for a DPS instance. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating a DPS instance. The following regions support this feature:
 
 * **Brazil South**: paired region, South Central US.
 * **Southeast Asia (Singapore)**: paired region, East Asia (Hong Kong Special Administrative Region).

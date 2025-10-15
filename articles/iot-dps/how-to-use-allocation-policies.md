@@ -28,7 +28,7 @@ DPS supports four allocation policies:
 
 * **Static configuration**: devices are provisioned to a single IoT hub, which must be specified on the enrollment.
 
-* **Custom (Use Azure Function)**: A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This custom allocation is accomplished by using a custom webhook hosted in Azure Functions to assign devices to an IoT hub. DPS calls your webhook providing all relevant information about the device and the enrollment. Your webhook returns the IoT hub and initial device twin (optional) used to provision the device. Custom payloads can also be passed to and from the device. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md). Can't be set as the DPS instance default policy.
+* **Custom (Use Azure Function)**: A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This custom allocation is accomplished by using a custom webhook hosted in Azure Functions to assign devices to an IoT hub. DPS calls your webhook providing all relevant information about the device and the enrollment. Your webhook returns the IoT hub and initial device twin (optional) used to provision the device. Custom payloads can also be passed to and from the device. To learn more, see [Understand custom allocation policies with Azure IoT Hub Device Provisioning Service](concepts-custom-allocation.md). Can't be set as the DPS instance default policy.
 
 > [!NOTE]
 > The preceding list shows the names of the allocation policies as they appear in the Azure portal. When setting the allocation policy using the DPS REST API, Azure CLI, and DPS service SDKs, they're referred to as follows: **hashed**, **geolatency**, **static**, and **custom**.
@@ -45,7 +45,7 @@ There are two settings on a linked IoT hub that control how it participates in a
 
 * **Apply allocation policy**: specifies whether the IoT hub participates in allocation policy. The default is **Yes** (true). If set to **No** (false), devices aren't assigned to the IoT hub. The IoT hub can still be selected on an enrollment, but it doesn't participate in allocation. You can use this setting to temporarily or permanently remove an IoT hub from participating in allocation; for example, if it's approaching the allowed number of devices.
 
-To learn more about linking and managing IoT hubs in your DPS instance, see [Link and manage IoT hubs](how-to-manage-linked-iot-hubs.md).
+To learn more about linking and managing IoT hubs in your DPS instance, see [How to link and manage IoT hubs](how-to-manage-linked-iot-hubs.md).
 
 When a device provisions through DPS, the service assigns it to an IoT hub according to the following guidelines:
 
@@ -115,7 +115,7 @@ To set allocation policy and select IoT hubs on an enrollment in the Azure porta
 
    1. Optionally, you can select the **Link a new IoT hub** button to link a new IoT hub to the DPS instance and make it available in the list of IoT hubs that can be selected. For details about linking an IoT hub, see [Add a linked IoT Hub](how-to-manage-linked-iot-hubs.md#add-a-linked-iot-hub).
 
-   1. Select the allocation policy you want to apply to the enrollment. The default allocation policy for the DPS instance is selected by default. For custom allocation, you also need to specify a custom allocation policy webhook in Azure Functions. For details, see the [Use custom allocation policies](tutorial-custom-allocation-policies.md) tutorial.
+   1. Select the allocation policy you want to apply to the enrollment. The default allocation policy for the DPS instance is selected by default. For custom allocation, you also need to specify a custom allocation policy webhook in Azure Functions. For more information, see [Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)](tutorial-custom-allocation-policies.md).
 
 1. Set any other properties needed for the enrollment and then save your settings.
 
@@ -163,10 +163,10 @@ There are some limitations when working with allocation policies and private end
 
 ## Next steps
 
-* To learn more about linking and managing linked IoT hubs, see [Manage linked IoT hubs](how-to-manage-linked-iot-hubs.md).
+* To learn more about linking and managing linked IoT hubs, see [How to link and manage IoT hubs](how-to-manage-linked-iot-hubs.md).
 
-* To learn more about custom allocation policies, see [Understand custom allocation policies](concepts-custom-allocation.md).
+* To learn more about custom allocation policies, see [Understand custom allocation policies with Azure IoT Hub Device Provisioning Service](concepts-custom-allocation.md).
 
-* For an end-to-end example using the lowest latency allocation policy, see the [Provision for geolatency](how-to-provision-multitenant.md) tutorial.
+* For an end-to-end example using the lowest latency allocation policy, see [Tutorial: Provision for geo latency](how-to-provision-multitenant.md).
 
-* For an end-to-end example using a custom allocation policy, see the [Use custom allocation policies](tutorial-custom-allocation-policies.md) tutorial.
+* For an end-to-end example using a custom allocation policy, see [Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)](tutorial-custom-allocation-policies.md).
