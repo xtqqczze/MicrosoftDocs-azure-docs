@@ -6,7 +6,8 @@ ms.author: karler
 ms.reviewer: CaihuaRui
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 08/29/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -21,7 +22,7 @@ Spring Cloud Config Server is a centralized configuration service for distribute
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli). Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`.
 - [Git](https://git-scm.com/downloads).
 - An Azure Spring Apps Standard consumption and dedicated plan service instance.

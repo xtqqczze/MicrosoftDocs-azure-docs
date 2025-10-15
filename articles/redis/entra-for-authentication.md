@@ -1,8 +1,7 @@
 ---
 title: Use Microsoft Entra for cache authentication with Azure Managed Redis
 description: Learn how to use Microsoft Entra with Azure Managed Redis.
-ms.date: 05/18/2025
-ms.service: azure-managed-redis
+ms.date: 07/23/2025
 ms.topic: conceptual
 ms.custom:
   - references_regions
@@ -25,6 +24,7 @@ In this article, you learn how to use your service principal or managed identity
 ## Prerequisites and limitations
 
 - Microsoft Entra authentication is supported for SSL connections only.
+- Microsoft Entra groups are not supported.
 - Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Managed Redis](best-practices-client-libraries.md#blocked-commands).
 
 > [!IMPORTANT]
@@ -98,14 +98,14 @@ The library [`Microsoft.Azure.StackExchangeRedis`](https://www.nuget.org/package
 
 The following table includes links to code samples. They demonstrate how to connect to your Azure Managed Redis instance by using a Microsoft Entra token. Various client libraries are included in multiple languages.
 
-| Client library  | Language   | Link to sample code|
-|----|----|----|
-| StackExchange.Redis | .NET           | [StackExchange.Redis code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis)   |
-| redis-py            | Python         | [redis-py code sample](https://redis.io/docs/latest/develop/clients/redis-py/amr/)   |
-| Jedis               | Java           | [Jedis code sample](https://redis.io/docs/latest/develop/clients/jedis/amr/)    |
-| Lettuce             | Java           | [Lettuce code sample](https://redis.io/docs/latest/develop/clients/lettuce/amr/)  |
-| node-redis          | Node.js        | [node-redis code sample](https://redis.io/docs/latest/develop/clients/nodejs/amr/)  |
-| go-redis            | go language    | [go code sample](https://redis.io/docs/latest/develop/clients/go/amr)  |
+| Client library      | Language | Link to sample code                                                                            |
+|---------------------|----------|------------------------------------------------------------------------------------------------|
+| StackExchange.Redis | .NET     | [StackExchange.Redis code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis) |
+| redis-py            | Python   | [redis-py code sample](https://redis.io/docs/latest/develop/clients/redis-py/amr/)             |
+| Jedis               | Java     | [Jedis code sample](https://redis.io/docs/latest/develop/clients/jedis/amr/)                   |
+| Lettuce             | Java     | [Lettuce code sample](https://redis.io/docs/latest/develop/clients/lettuce/amr/)               |
+| node-redis          | Node.js  | [node-redis code sample](https://redis.io/docs/latest/develop/clients/nodejs/amr/)             |
+| go-redis            | Go       | [go code sample](https://redis.io/docs/latest/develop/clients/go/amr)                          |
 
 ### Best practices for Microsoft Entra authentication
 

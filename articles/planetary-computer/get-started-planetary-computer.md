@@ -17,7 +17,7 @@ Microsoft Planetary Computer Pro is an Azure cloud service for storing, catalogi
 
 ## Prerequisites
 
-- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Table of Contents
 
@@ -110,7 +110,7 @@ Planetary Computer Pro supports [connecting collections to ESRI's ArcGIS Pro Ser
 ## Get help
 
 1. Review the [rest of the documentation](/azure/planetary-computer) for relevant articles
-2. [Check out Microsoft Q&A](/answers/tags/133/azure) to ask a question or find answers from others
+2. [Check out Microsoft Q&A](/answers/tags/775/planetary-computer-pro) to ask a question or find answers from others
 3. [File a Support Ticket](https://azure.microsoft.com/support/create-ticket)
 
 
