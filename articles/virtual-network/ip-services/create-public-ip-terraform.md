@@ -27,9 +27,7 @@ In this article, you learn how to:
 > * Create a random pet name for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a standard zone-redundant public IPv4 address named **myStandardPublicIP**
-> * Create a basic static public IPv4 address named **myBasicPublicIP**
 > * Create a standard zonal public IPv4 address in Zone 2 named **myZonalStandardPublicIP**
-> * Create a non-zonal IP address named **myNonZonalStandardPublicIP**
 > * Create a standard static public IPv4 address named **myRoutingPreferenceStandardPublicIP** that supports the Routing Preference feature
 > * Create a standard static public IPv4 address named **myGlobalTierStandardPublicIP** that supports the Global Tier feature
 
@@ -59,24 +57,9 @@ An Azure resource group is a logical container into which Azure resources are de
 > For versions of the API older than 2020-08-01, omit the `zone` field to create a zone-redundant IP address. 
 >
 
-# [Basic SKU](#tab/create-public-ip-basic)
+## Create a zonal IP address
 
-In this section, you create a basic IP. Basic public IPs don't support availability zones.
-
-The following code snippet creates an IPv6 address. For an IPv6 address, set the `ip_version` value to **IPv6**. 
-
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip/main.tf" range="20-27":::
-
-If it's acceptable for the IP address to change over time, dynamic IP assignment can be selected by changing the `allocation_method` value to **Dynamic**. 
-
->[!NOTE]
-> A basic IPv6 address must always be dynamic.
-
----
-
-## Create a zonal or no-zone IP address
-
-In this section, you learn how to create a zonal and a non-zone public IP address.
+In this section, you learn how to create a zonal public IP address.
 
 # [Zonal](#tab/create-public-ip-zonal)
 
@@ -88,19 +71,6 @@ To create an IPv6 address, set the `ip_version` value to **IPv6**.
 
 >[!NOTE]
 >For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-# [Non-zonal](#tab/create-public-ip-non-zonal)
-
-The following code snippet creates a standard public IPv4 address as a non-zonal resource named **myNonZonalStandardPublicIP**. 
-
->[!NOTE]
->The following command works for API version 2020-08-01 or later. For more information about the API version currently being used, see [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
-
-To create an IPv6 address, set the `ip_version` value to **IPv6**.
-
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip/main.tf" range="39-46":::
-
-The removal of the `zone` field is valid in all regions. 
 
 The removal of the `zone` field is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
