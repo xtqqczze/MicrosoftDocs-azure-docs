@@ -201,7 +201,7 @@ To copy data from QuickBooks Online, set the source type in the copy activity to
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | `type` | The type of the copy activity source. It must be set to `QuickBooksSource`. | Yes |
-| `query` | Use the custom SQL query to read data. <br><br>For version 2.0 of the QuickBooks connector, you can use only the QuickBooks native query, with limitations. For more information, see [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site. The `tableName` value specified in the query must match the `tableName` value in the dataset. <br><br>For version 1.0 of the QuickBooks connector, you can use the SQL-92 query. For example: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (if `tableName` in the dataset is specified) |
+| `query` | Use the custom SQL query to read data. <br><br>For version 2.0 of the QuickBooks connector, you can use only the QuickBooks native query, with limitations. For more information, see [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site. <br><br>For version 1.0 of the QuickBooks connector, you can use the SQL-92 query. For example: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (if `tableName` in the dataset is specified) |
 
 Here's an example:
 
@@ -267,7 +267,7 @@ The following table summarizes information about the versions of the QuickBooks 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | 1.0 | Removed | Not applicable. |  
-| 2.0 | General availability |QuickBooks native query is supported, with limitations. `GROUP BY` clauses, `JOIN` clauses, and aggregate functions (`Avg`, `Max`, `Sum`) aren't supported. For more information, see [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site. <br><br>The `tableName` value specified in the query must match the `tableName` value in the dataset. <br><br> Table and column names retain the QuickBooks API format. <br><br>The SQL-92 query is not supported. <br><br>The `useEncryptedEndpoints` property is not supported.  |
+| 2.0 | General availability |QuickBooks native query is supported, with limitations. `GROUP BY` clauses, `JOIN` clauses, and aggregate functions (`Avg`, `Max`, `Sum`) aren't supported. For more information, see [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site. <br><br> Table and column names retain the QuickBooks API format. <br><br>The SQL-92 query is not supported. <br><br>The `useEncryptedEndpoints` property is not supported.  |
 
 ### Upgrade the Quickbooks connector from version 1.0 to version 2.0
 
