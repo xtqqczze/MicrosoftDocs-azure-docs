@@ -1,13 +1,13 @@
 ---
-title: Prerequisites For Wave Planning
-description: Learn how Azure Migrate – Wave Planning simplifies cloud migration and modernization. Break large projects into manageable waves, reduce risks, and improve execution with structured planning and continuous feedback.
+title: Prerequisites For Azure Migrate Wave Planning - Complete Discovery & Best Practices
+description: Learn the key prerequisites for effective wave planning in Azure Migrate. Complete infrastructure discovery, perform dependency analysis, define applications, and run assessments to ensure accurate migration planning.
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: concept-article
 ms.date: 10/15/2025
-# Customer intent: Customers want to leverage Azure Migrate’s Wave Planning to simplify large-scale cloud migrations. They’re looking for a structured way to break down complex projects, reduce risks, maintain business continuity, and track progress using integrated planning and execution tools.
+# Customer intent: 
 ---
 # Prerequisites
 
@@ -25,4 +25,6 @@ The following are recommended for creating high quality wave plan.
 
 - **Run assessments for readiness and cost insights**: Assessments provide readiness status, cost estimates, and recommended migration strategies. These insights improve planning accuracy and group based on the migration strategies.
 
-## Next steps:
+## Next steps
+
+Add next steps
