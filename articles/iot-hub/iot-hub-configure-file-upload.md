@@ -6,7 +6,7 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 07/20/2021
-zone-pivots: service-portal-azcli-powershell
+zone_pivot_groups: service-portal-azcli-powershell
 ---
 
 # Configure IoT Hub file uploads using the Azure portal
@@ -17,19 +17,19 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 :::zone pivot="azure-portal"
 
-[!INCLUDE [iot-hub-configure-file-portal](../../includes/iot-hub-configure-file-portal.md)]
+[!INCLUDE [iot-hub-configure-file-portal](../../includes/iot-hub-configure-file-upload-portal.md)]
 
 :::zone-end
 
 :::zone pivot="azure-cli"
 
-[!INCLUDE [iot-hub-configure-file-cli](../../includes/iot-hub-configure-file-cli.md)]
+[!INCLUDE [iot-hub-configure-file-cli](../../includes/iot-hub-configure-file-upload-cli.md)]
 
 :::zone-end
 
 :::zone pivot="powershell"
 
-[!INCLUDE [iot-hub-configure-file-powershell](../../includes/iot-hub-configure-file-powershell.md)]
+[!INCLUDE [iot-hub-configure-file-powershell](../../includes/iot-hub-configure-file-upload-powershell.md)]
 
 :::zone-end
 

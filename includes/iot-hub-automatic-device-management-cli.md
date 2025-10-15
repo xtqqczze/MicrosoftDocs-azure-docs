@@ -14,19 +14,19 @@ ms.custom: devx-track-azurecli
 
 * An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](../articles/iot-hub/create-hub.md).
 
 * [Azure CLI](/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
 
 * The [IoT extension for Azure CLI](https://github.com/Azure/azure-cli).
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
 
 ## Implement twins
 
-Automatic device configurations require the use of device twins to synchronize state between the cloud and devices.  For more information, see [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md).
+Automatic device configurations require the use of device twins to synchronize state between the cloud and devices.  For more information, see [Understand and use device twins in IoT Hub](../articles/iot-hub/iot-hub-devguide-device-twins.md).
 
-Automatic module configurations require the use of module twins to synchronize state between the cloud and modules. For more information, see [Understand and use module twins in IoT Hub](iot-hub-devguide-module-twins.md).
+Automatic module configurations require the use of module twins to synchronize state between the cloud and modules. For more information, see [Understand and use module twins in IoT Hub](../articles/iot-hub/iot-hub-devguide-module-twins.md).
 
 ## Use tags to target twins
 
@@ -99,7 +99,7 @@ Metric queries for modules are also similar to queries for devices, but you sele
 
 ## Create a configuration
 
-You can create a maximum of 100 automatic configurations on standard tier IoT hubs; ten on free tier IoT hubs. To learn more, see [Quotas and Throttling](iot-hub-devguide-quotas-throttling.md).
+You can create a maximum of 100 automatic configurations on standard tier IoT hubs; ten on free tier IoT hubs. To learn more, see [Quotas and Throttling](../articles/iot-hub/iot-hub-devguide-quotas-throttling.md).
 
 You configure target devices by creating a configuration that consists of the target content and metrics. Use the following command to create a configuration:
 
