@@ -63,10 +63,10 @@ To create an assessment, follow these steps.
     | Discount Percentage          | Any subscription-specific discounts you receive on top of the Azure offer. This setting is disabled if Savings option is selected. | Numeric decimal value, Default is 0% |
     | Subscription              | Negotiated subscription ID for cost estimation | Only Negotiated subscription IDs are listed here |
     | Uptime | Time for which you expect the workloads to run |	Days per month and Hours per day |
-    | Sizing criteria	|	Criteria for target Web app right-sizing | - Performance based  (default) – Select this if you want assessment based on resource utilization (CPU and memory) and configuration data<br> -	As on-premises - Select this if you want assessment based on configuration data of the on-premises workloads |
+    | Sizing criteria	|	Criteria for target Web app right-sizing | - Performance based  (default) – Select this option if you want assessment based on resource utilization (CPU and memory) and configuration data<br> -	As on-premises - Select this option if you want assessment based on configuration data of the on-premises workloads |
     | Performance history |		Duration of performance history to generate assessment of the on-premises workloads | -	1 day (default)<br> - 1 week<br> -	1 month |
     | Percentile utilization |	Percentile value considered for the performance history of the on-premises workloads | - 50th<br> -	90th<br> -	95th (default)<br> - 99th |
-    | Comfort factor |	Buffer added on top of utilization to account for scenarios like seasonal spikes in usage, insufficient performance data, likely increase in future usage, etc. As an example, normally, a 16-core VM with 20% utilization will result in a 4-core VM. With a comfort factor of 2.0, it will result in a 8-core VM as a match. | 	Multiple options. Default is 1. |
+    | Comfort factor |	Buffer added on top of utilization to account for scenarios like seasonal spikes in usage, insufficient performance data, likely increase in future usage, etc. As an example, normally, a 16-core VM with 20% utilization results in a 4-core VM. With a comfort factor of 2.0, it results in an 8-core VM as a match. | 	Multiple options. Default is 1. |
     | Azure Hybrid benefit		|  Azure Hybrid Benefit allows Microsoft customers with Windows Server Software Assurance or Windows Server subscriptions to bring their licenses to Azure. Learn more /https://azure.microsoft.com/en-us/pricing/offers/hybrid-benefit/ | Specify whether you already have a Windows Server license. This setting is enabled by default. |
     | Microsoft Defender for Cloud | Includes Microsoft Defender for Cloud to protect your Web apps on Azure. | Specify whether you want to include Microsoft Defender for Cloud in the cost estimate. Microsoft Defender for App service or Microsoft Defender for Containers cost would be selected based on the target workload. This setting is enabled by default. |
  
@@ -100,7 +100,7 @@ Azure Migrate supports two types of target sizing for Web app assessments:
 
 This method provides target size recommendations based on gathered performance and configuration data.
 
-- For ASP.NET web apps, performance data is collected for the associated application pool(s).
+- For ASP.NET web apps, performance data is collected for the associated application pools.
     - When multiple web apps run under the same application pool, the percentage of resources allocated to every web app is a linear function of the number of apps in the application pool.
     - The more the number of web apps in a single application pool, the lesser the resource allocation per app.
     - The minimum utilization share for any web app is 60%.
@@ -113,12 +113,12 @@ This method provides target size recommendations based on gathered performance a
 > For private endpoint scenarios, data is stored in a user-managed Storage account set up during Azure Migrate project creation.
 
 #### As on-premises sizing: 
-This methos is used When performance data is not available. Following values are considered for CPU and memory utilization per web app:
+This method is used when performance data isn't available. Following values are considered for CPU and memory utilization per web app:
 - ASP.NET web app: 0.15 cores, 0.25 GB memory
-- Java web app : 0.15 cores, 0.15 GB memory. If static memory is configured for Tomcat server, it  will be considered instead of these values.
+- Java web app: 0.15 cores, 0.15 GB memory. If static memory is configured for Tomcat server, it is considered instead of these values.
 
 
-Besides the values mentioned above, following default resource utilization values for running the container image for each web app are added when Azure App Service containers and AKS are considered as migration targets:
+Besides the values estimated for performance-based and as on-premises sizing, following default resource utilization values for running the container image for each web app are added when Azure App Service containers and AKS are considered as migration targets:
 - ASP.NET web app: 0.2 core, 0.65 GB memory
 - Java web app: 0.1 core, 0.25 GB memory
 
