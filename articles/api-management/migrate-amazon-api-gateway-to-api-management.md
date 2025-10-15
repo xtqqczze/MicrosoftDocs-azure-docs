@@ -71,7 +71,7 @@ This architecture example showcases common features in Amazon API Gateway and Az
 
 Both architectures provide comparable functionality, including:
 
-- **High availability deployment** - Resources are distributed across multiple availability zones in a region for fault tolerance, with option for higher availability by deployment to multiple regions
+- **High availability deployment** - Resources are distributed across multiple availability zones in a region for fault tolerance, with option for higher availability by deployment to multiple regions.
 
 - **Custom domains and certificates** - The platforms support custom domain names with TLS/SSL termination for secure API communication. 
 
@@ -81,7 +81,7 @@ Both architectures provide comparable functionality, including:
 
 - **API workload support** – Gateways support a variety of API backends, including REST APIs, HTTP APIs, serverless APIs, microservices-based backends, and WebSocket APIs.
 
-- **API monitoring** - Built-in platform services log API activity and expose service metrics
+- **API monitoring** - Built-in platform services log API activity and expose service metrics.
 
 - **API modulation** – Services support response caching, request quotas and rate limits, CORS configuration, and request/response transformations.
 
@@ -181,7 +181,7 @@ The following table assesses API configurations in Amazon API Gateway and equiva
 
 - [Microsoft Copilot in Azure](/azure/copilot/author-api-management-policies) for API Management policy generation
 
-- [AWS documentation](rhttps://awslabs.github.io/mcp/servers/aws-documentation-mcp-server) MCP server
+- [AWS documentation](https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server) MCP server
 
 - [Microsoft Learn](/training/support/mcp) MCP server
 
