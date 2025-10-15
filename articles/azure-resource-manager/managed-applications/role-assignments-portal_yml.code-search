@@ -1,0 +1,14 @@
+# Query: role-assignments-portal.yml
+# Including: ./articles/azure-signalr
+# ContextLines: 1
+
+2 results - 1 file
+
+articles\azure-signalr\includes\signalr-add-role-assignments.md:
+  11  
+  12: The following steps describe how to assign a SignalR App Server role to a service principal or a managed identity for an Azure SignalR Service resource. For detailed steps, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+  13  
+
+  54  
+  55: - [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
+  56  - [Assign Azure roles by using the REST API](../../role-based-access-control/role-assignments-rest.md)

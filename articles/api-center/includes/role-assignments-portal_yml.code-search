@@ -1,0 +1,15 @@
+# Query: role-assignments-portal.yml
+# Including: ./articles/azure-relay
+# ContextLines: 1
+
+2 results - 2 files
+
+articles\azure-relay\authenticate-application.md:
+  40  ## Assign Azure roles using the Azure portal
+  41: Assign one of the Azure Relay roles to the application's service principal at the desired scope (Relay entity, namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+  42  
+
+articles\azure-relay\authenticate-managed-identity.md:
+  32  1. Enable system-assigned identity or a user-assigned identity for the Azure VM. For instructions, see [Enable identity for a VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
+  33: 1. Assign one of the Relay roles to the managed service identity at the desired scope (Relay entity, Relay namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+  34  1. Build the console app locally on your local computer as per instructions from the [README document](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/dotnet/rolebasedaccesscontrol#rolebasedaccesscontrol-hybrid-connection-sample). 
