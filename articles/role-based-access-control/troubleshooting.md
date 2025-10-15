@@ -2,14 +2,17 @@
 title: Troubleshoot Azure RBAC
 description: Troubleshoot issues with Azure role-based access control (Azure RBAC).
 services: azure-portal
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.topic: troubleshooting
 ms.date: 05/27/2025
-ms.author: jfields
-ms.custom: seohack1, devx-track-azurecli
+ms.author: rolyon
+ms.custom:
+  - seohack1
+  - devx-track-azurecli
+  - sfi-ga-nochange
 ---
 # Troubleshoot Azure RBAC
 
@@ -623,5 +626,5 @@ If you're a Microsoft Entra Global Administrator and you don't have access to a 
 ## Next steps
 
 - [Troubleshoot for external users](role-assignments-external-users.md#troubleshoot)
-- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [View activity logs for Azure RBAC changes](change-history-report.md)
