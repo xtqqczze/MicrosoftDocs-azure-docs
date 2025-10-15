@@ -19,6 +19,7 @@ ms.custom:
 # Control access to IoT Hub by using Microsoft Entra ID
 
 **Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 1 
+
 You can use Microsoft Entra ID to authenticate requests to Azure IoT Hub service APIs, like **create device identity** and **invoke direct method**. You can also use Azure role-based access control (Azure RBAC) to authorize those same service APIs. By using these technologies together, you can grant permissions to access IoT Hub service APIs to a Microsoft Entra security principal. This security principal could be a user, group, or application service principal.
 
 Authenticating access by using Microsoft Entra ID and controlling permissions by using Azure RBAC provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you [enforce Microsoft Entra authentication](#enforce-azure-ad-authentication)  whenever possible.

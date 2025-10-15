@@ -494,7 +494,6 @@
       href: https://azure.microsoft.com/develop/iot/
     - name: Customer data requests
       href: iot-hub-customer-data-requests.md
-      displayName: GDPR
     - name: Azure Roadmap
       href: https://azure.microsoft.com/updates/?category=iot
     - name: Azure IoT Hub extension for Visual Studio Code
