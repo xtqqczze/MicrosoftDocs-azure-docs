@@ -4,7 +4,7 @@ description: Augment the API inventory in your API center by adding information 
 author: dlepow
 ms.service: azure-api-center
 ms.topic: tutorial
-ms.date: 08/27/2025
+ms.date: 10/15/2025
 ms.author: danlep 
 #customer intent: As the owner of an Azure API center, I want a step by step introduction to adding API environments and deployments to my inventory.
 ---

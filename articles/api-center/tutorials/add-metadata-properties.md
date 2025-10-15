@@ -4,7 +4,7 @@ description: Define custom metadata in your API center. Use custom and built-in 
 author: dlepow
 ms.service: azure-api-center
 ms.topic: tutorial
-ms.date: 08/26/2025
+ms.date: 10/15/2025
 ms.author: danlep 
 #customer intent: As the owner of an Azure API center, I want a step by step introduction to configure custom metadata properties to govern my APIs.
 ---
