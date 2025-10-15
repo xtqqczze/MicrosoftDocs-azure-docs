@@ -96,7 +96,7 @@ Virtual hub **Reset** is available only in the Azure portal. Resetting provides 
 
 ## <a name="reset"></a>Router reset
 
-If your Virtual Hub Router enters a failed state you may be unable to update routes, even though network connectivity might still work. In this scenario, use the "**Reset router**" option in the vHub settings to restore normal operation; this process typically takes less than 10 minutes and rarely disrupts network traffic. Use this option if the Hub status is in a succeeded state while the routing status is in a failed state.
+If your Virtual Hub Router enters a failed state, you may be unable to update routes, even though network connectivity might still work. In this scenario, use the **Reset router** option in the vHub settings to restore normal operation. This process typically takes less than 10 minutes and rarely disrupts network traffic. Use this option if the Hub status is in a succeeded state while the routing status is in a failed state.
 
 ## <a name="considerations"></a>Additional considerations
 
