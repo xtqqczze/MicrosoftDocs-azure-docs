@@ -6,7 +6,7 @@ author: jianleishen
 ms.author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 09/12/2025
+ms.date: 10/14/2025
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -18,7 +18,8 @@ ms.custom:
 
 This article outlines how to use the copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline to copy data from QuickBooks Online. It builds on the [overview article about the copy activity](copy-activity-overview.md).
 
-This article also describes how to upgrade the QuickBooks connector from version 1.0 to 2.0. Version 2.0 provides improved native QuickBooks support.
+> [!IMPORTANT]
+> The QuickBooks connector version 1.0 is at [Removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the QuickBooks connector](#quickbooks-connector-lifecycle-and-upgrade) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -170,7 +171,7 @@ To copy data from QuickBooks Online, set the `type` property of the dataset to `
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | `type` | The type of the dataset. It must be set to `QuickBooksObject`. | Yes |
-| `tableName` | Name of the table. | No (if `query` in the activity source is specified) |
+| `tableName` | Name of the table. For version 2.0, table and column names retain the QuickBooks API format. For more information, see this [article](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account).| No (if `query` in the activity source is specified) |
 
 Here's an example:
 
@@ -265,8 +266,8 @@ The following table summarizes information about the versions of the QuickBooks 
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| 1.0 | End of support announced | Not applicable. |  
-| 2.0 | General availability |QuickBooks native query is supported, with limitations. `GROUP BY` clauses, `JOIN` clauses, and aggregate functions (`Avg`, `Max`, `Sum`) aren't supported. For more information, see [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site. <br><br>The `tableName` value specified in the query must match the `tableName` value in the dataset. <br><br>The SQL-92 query is not supported. <br><br>The `useEncryptedEndpoints` property is not supported.  |
+| 1.0 | Removed | Not applicable. |  
+| 2.0 | General availability |QuickBooks native query is supported, with limitations. `GROUP BY` clauses, `JOIN` clauses, and aggregate functions (`Avg`, `Max`, `Sum`) aren't supported. For more information, see [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site. <br><br>The `tableName` value specified in the query must match the `tableName` value in the dataset. <br><br> Table and column names retain the QuickBooks API format. <br><br>The SQL-92 query is not supported. <br><br>The `useEncryptedEndpoints` property is not supported.  |
 
 ### Upgrade the Quickbooks connector from version 1.0 to version 2.0
 
@@ -277,6 +278,8 @@ The following table summarizes information about the versions of the QuickBooks 
 1. On the **Edit linked service** pane, select **2.0** for the version. For more information, see the [linked service properties for version 2.0](#version-20) earlier in this article.
 
 1. If you use a SQL query in the copy activity source or the lookup activity that refers to the version 1.0 linked service, you need to convert it to the QuickBooks native query. Learn more about the native query from [Copy activity properties](#copy-activity-properties) earlier in this article and from [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site.
+1. For version 2.0, note that table and column names retain the QuickBooks API format. For more information, see this [article](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account).
+
 
 ## Related content
 
