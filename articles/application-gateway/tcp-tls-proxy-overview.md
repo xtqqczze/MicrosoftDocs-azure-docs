@@ -37,7 +37,7 @@ Process flow:
 1. **Type** – Layer-4 terminating proxy.
 2. **Protocols** – Supports TCP or TLS protocols.
 3. **Versatility** – Use a single endpoint (frontend IP) to serve HTTP and non-HTTP workloads.
-4. **Scaling** – Configure autoscaling (up to 125 instances) to server your TCP and TLS traffic.
+4. **Scaling** – Configure autoscaling (up to 125 instances) to serve your TCP and TLS traffic.
 5. **Security through TLS termination** – Simplify security with centralized TLS termination and certificate management ensuring consistent compliance across all applications, including non-HTTP workloads. Seamlessly integrates with Azure Key Vault for secure certificate management.
 6. **Backend types** – Flexibly connect your applications to backends anywhere; within the same Virtual Network, across peered VNets, through remote FQDNs or IPs, or even via hybrid connectivity to your on-premises servers.
 
