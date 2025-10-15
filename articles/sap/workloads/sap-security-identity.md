@@ -1,3 +1,19 @@
+---
+title: Secure Azure Infrastructure for SAP Applications 
+description: Links collection and guidance Secure Azure Infrastructure for SAP Applications 
+services: virtual-machines-windows,virtual-network,storage
+author: cgardin
+manager: juergent
+ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
+ms.topic: tutorial
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.date: 10/07/2025
+ms.author: cgardin
+# Customer intent: provide information to SAP Basis team and Security teams.
+---
+ 
+
 # Identity Management, Provisioning and Single Sign-on, multifactor authentication & Global Secure Access SNC  
 
 There are too many complex scenarios covering Identity Management, Authentication, and Authorization and it isn't possible to document generalizable scenarios.     

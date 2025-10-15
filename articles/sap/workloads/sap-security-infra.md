@@ -87,27 +87,29 @@ Microsoft Secure Score and Vulnerability Management is discussed in the Operatin
 ## 3.	Microsoft Sentinel for SAP Connector 
 Microsoft Sentinel SIEM/SOAR solution has a connector for SAP. SAP application specific signals such as user logons and access to sensitive transactions can be monitored and corelated with other SIEM/SOAR signals, such as network access and data exfiltration.  
 [Microsoft Sentinel solution for SAP applications overview | Microsoft Learn](https://learn.microsoft.com/azure/sentinel/sap/solution-overview)
+
 [140 - The one with Microsoft Sentinel for SAP (Yoav Daniely, Yossi Hasson & Martin Pankraz, Sebastian Ullrich - YouTube](https://www.youtube.com/watch?v=uVsrqCoVWlI)
 
 ## 4.	Database Level Encryption – TDE and Backup Encryption 
 It is recommended to enable Transparent Database Encryption (TDE) for all DBMS running SAP applications on Azure. Testing shows that the performance overhead is between zero to two percent. The advantages of TDE far outweigh the disadvantages. Most DBMS platforms create encrypted backups if the database is TDE enabled mitigating one common attack vector, theft of backups. 
 SAP Hana Transparent Database Encryption.
+
 SAP Hana doesn't support storing Keys in Azure Key Vault or any other HSM device. [3444154 - HSM for SAP HANA Encryption Key Management](https://me.sap.com/notes/3444154/E)  
 To enable TDE on Hana follow [Enable Encryption | SAP Help Portal](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/4b11e7dee04f4dd98301fcd86e2f3d8b.html)
 
 SQL Server Transparent Database Encryption is fully integrated into the Azure Key Vault.  
-[1380493 - SQL Server Transparent Data Encryption (TDE)](https://me.sap.com/notes/1380493)
-[Transparent data encryption (TDE) - SQL Server | Microsoft Learn](https://learn.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver17)
+- [1380493 - SQL Server Transparent Data Encryption (TDE)](https://me.sap.com/notes/1380493)
+- [Transparent data encryption (TDE) - SQL Server | Microsoft Learn](https://learn.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver17)
 
 Oracle DBMS supports TDE in combination with SAP applications. TDE keys can be stored in HSM PKCS#11 devices 
-[974876 - Oracle Transparent Data Encryption (TDE)](https://me.sap.com/notes/974876/E)
-[2591575 - Using Oracle Transparent Data Encryption (TDE) with SAP NetWeaver](https://me.sap.com/notes/2591575)
-[Oracle Database Transparent Data Encryption (TDE)](https://thalesdocs.com/gphsm/ptk/protectserver3/docs/integration_docs/oracle/index.html) – Thales 
+- [974876 - Oracle Transparent Data Encryption (TDE)](https://me.sap.com/notes/974876/E)
+- [2591575 - Using Oracle Transparent Data Encryption (TDE) with SAP NetWeaver](https://me.sap.com/notes/2591575)
+- [Oracle Database Transparent Data Encryption (TDE)](https://thalesdocs.com/gphsm/ptk/protectserver3/docs/integration_docs/oracle/index.html) – Thales 
 
 DB2 Native Encryption is supported in combination with SAP applications. Encryption keys can be stored in HSM PKCS#11 devices.
-[Running an SAP NetWeaver Application Server on DB2 for LUW with the IBM DB2 Encryption Technology](https://www.sap.com/documents/2015/07/7e504681-5b7c-0010-82c7-eda71af511fa.html)
-[DB2 native encryption - IBM Documentation](https://www.ibm.com/docs/en/db2/12.1.0?topic=rest-db2-native-encryption)
-[IBM DB2 and Thales Luna HSMs - Integration Guide | Thales](https://cpl.thalesgroup.com/resources/encryption/ibm-db2-luna-hsms-integration-guide#:~:text=This%20document%20is%20intended%20to%20guide%20security%20administrators,databases%20and%20backup%20images%20using%20DB2%20native%20encryption.)
+- [Running an SAP NetWeaver Application Server on DB2 for LUW with the IBM DB2 Encryption Technology](https://www.sap.com/documents/2015/07/7e504681-5b7c-0010-82c7-eda71af511fa.html)
+- [DB2 native encryption - IBM Documentation](https://www.ibm.com/docs/en/db2/12.1.0?topic=rest-db2-native-encryption)
+- [IBM DB2 and Thales Luna HSMs - Integration Guide | Thales](https://cpl.thalesgroup.com/resources/encryption/ibm-db2-luna-hsms-integration-guide#:~:text=This%20document%20is%20intended%20to%20guide%20security%20administrators,databases%20and%20backup%20images%20using%20DB2%20native%20encryption.)
 
 ## 5.	Key Management – Azure Key Vault and HSM 
 Azure supports two solutions for Key Management:
@@ -146,7 +148,8 @@ High priority items for Linux Operating Systems include:
 - Don't allow third Party Repositories (supply chain attack)    
 - Use Keys and disable password sign-in in sshd_config      
 - Use Managed Identify for Pacemaker not SPN [Azure SAP Pacemaker MSI SPN](https://techcommunity.microsoft.com/blog/sapapplications/sap-on-azure-high-availability-%E2%80%93-change-from-spn-to-msi-for-pacemaker-clusters-u/3609278)
-- Disable root sign-in 
+- Disable root sign-in
+
 It's supported to use SELinux with modern RHEL releases. Microsoft doesn't provide support for SELinux and careful testing is required [3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302/E)
 
 ### Windows Operating System
@@ -162,8 +165,8 @@ High priority items for Windows Operating System include:
 - Configure Windows Group Policy to clear last user name, on permit AD authenticated sign-in (mitigates against cloning attack) and disable legacy TLS and SMB protocols 
 
 Other links for Windows: 
-[Windows Server Security documentation | Microsoft Learn](https://learn.microsoft.com/windows-server/security/security-and-assurance)
 https://aka.ms/ws2025securitybook 
+[Windows Server Security documentation | Microsoft Learn](https://learn.microsoft.com/windows-server/security/security-and-assurance)
 
 ## 7.	Azure Infrastructure Platform Security 
 Azure infrastructure security configuration can be enhanced to reduce or eliminate attack vectors.
