@@ -53,7 +53,7 @@ To create an assessment, follow these steps.
 6. On the **General settings** tab, modify the assessment settings that are applicable across all Azure targets. 
 
 ::: moniker range="migrate-classic"
-    | **Setting**  | **Description**  | **Possible Values**  | 
+| **Setting**  | **Description**  | **Possible Values**  | 
     |----------|-------|---|
     | Default target location | Used to generate regional cost for Azure targets.   | All locations supported by Azure targets | 
     | Default Environment  | Allows you to toggle between pay-as-you-go and pay-as-you-go Dev/Test offers.  | | Production <br> Dev/Test 
@@ -63,7 +63,7 @@ To create an assessment, follow these steps.
     | Discount Percentage         | Used to factor in any custom discount agreements with Microsoft. This setting is disabled if Savings options are selected.  | Numeric decimal value                             
     | EA subscription    | Select the subscription ID for which you have an Enterprise Agreement.         | Subscription ID         |
     | Microsoft Defender for Cloud    | Includes Microsoft Defender for App Service cost in the month over month cost estimate. | -                       |
- ::: moniker-end
+    ::: moniker-end
 
 ::: moniker range="migrate"
 | **Setting**  | **Description**  | **Possible Values**  |
