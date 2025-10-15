@@ -2,11 +2,12 @@
 title: Troubleshoot Azure RBAC limits - Azure RBAC
 description: Learn how to use Azure Resource Graph to reduce the number of Azure role assignments and Azure custom roles in Azure role-based access control (Azure RBAC).
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.author: rolyon
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot Azure RBAC limits
@@ -36,7 +37,7 @@ Azure supports up to **4000** role assignments per subscription. This limit incl
 > [!NOTE]
 > The **4000** role assignments limit per subscription is fixed and cannot be increased.
 
-To get the number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.yml#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
+To get the number of role assignments, you can view the [chart on the Access control (IAM) page](/azure/role-based-access-control/role-assignments-list-portal#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
 
 ```azurepowershell
 $scope = "/subscriptions/<subscriptionId>"

@@ -10,6 +10,7 @@ ms.author: halkazwini
 #customer intent: As a Terraform user, I want to learn how to configure Azure Web Application Firewall v2 on Azure Application Gateway.
 content_well_notification: 
   - AI-contribution
+# Customer intent: As a cloud engineer using infrastructure as code, I want to configure an Azure Application Gateway with WAF policies using Terraform, so that I can ensure secure and efficient management of web traffic for my applications.
 ---
 
 # Quickstart: Use Terraform to configure Azure Web Application Firewall v2 on Azure Application Gateway
@@ -40,7 +41,7 @@ In this quickstart, you use Terraform to create an Azure Application Gateway wit
 
 ## Prerequisites
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Terraform. For more information, see [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 

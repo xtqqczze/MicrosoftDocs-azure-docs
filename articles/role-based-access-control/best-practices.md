@@ -2,7 +2,7 @@
 title: Best practices for Azure RBAC
 description: Best practices for using Azure role-based access control (Azure RBAC).
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.date: 03/30/2025
@@ -39,7 +39,7 @@ Some roles are identified as [privileged administrator roles](./role-assignments
 - If you must assign a privileged administrator role, use a narrow scope, such as resource group or resource, instead of a broader scope, such as management group or subscription.
 - If you are assigning a role with permission to create role assignments, consider adding a condition to constrain the role assignment. For more information, see [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md).
 
-For more information, see [List or manage privileged administrator role assignments](./role-assignments-list-portal.yml#list-or-manage-privileged-administrator-role-assignments).
+For more information, see [List or manage privileged administrator role assignments](/azure/role-based-access-control/role-assignments-list-portal#list-or-manage-privileged-administrator-role-assignments).
 
 <a name='use-azure-ad-privileged-identity-management'></a>
 

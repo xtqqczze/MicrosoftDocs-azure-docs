@@ -7,6 +7,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.reviewer: glenga
 #Customer intent: As a web developer, I want to quickly run a background script that prints the current time.
+ms.service: azure-app-service
 ---
 
 # Quickstart: Create a scheduled WebJob
@@ -15,7 +16,7 @@ WebJobs in Azure App Service let you run scripts or programs as background tasks
 
 ## Prerequisites
 
-- An Azure account. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing App Service app running on your preferred OS:
   - Windows App Service (any stack: code or container)
   - Linux App Service (any stack: code or container)
