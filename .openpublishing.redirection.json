@@ -7923,6 +7923,11 @@
       "source_path": "articles/iot-hub-device-update/device-update-simulator.md",
       "redirect_url": "/azure/iot-hub-device-update/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub-device-update/device-update-azure-real-time-operating-system.md",
+      "redirect_url": "/azure/iot-hub-device-update/",
+      "redirect_document_id": false
     }
 
 
