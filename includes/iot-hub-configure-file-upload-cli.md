@@ -2,21 +2,12 @@
 title: Configure file upload to IoT Hub using Azure CLI
 description: How to configure file uploads to Azure IoT Hub using the cross-platform Azure CLI.
 author: SoniaLopezBravo
-
 ms.author: sonialopez
 ms.service: azure-iot-hub
-ms.topic: how-to
+ms.topic: include
 ms.date: 12/05/2024
 ms.custom: devx-track-azurecli
 ---
-
-# Configure IoT Hub file uploads using Azure CLI
-
-[!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
-
-This article shows you how to configure file uploads on your IoT hub using the Azure CLI. 
-
-To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.md), you must first associate an Azure storage account and blob container with your IoT hub. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files. In addition to the storage account and blob container, you can set the time-to-live for the SAS URI and the type of authentication that IoT Hub uses with Azure storage. You can also configure settings for the optional file upload notifications that IoT Hub can deliver to backend services.
 
 ## Prerequisites
 
@@ -27,8 +18,6 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 * An Azure Storage account with a blob container. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create a storage account](../storage/common/storage-account-create.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Sign in and set your Azure account
 
@@ -208,9 +197,3 @@ az iot hub update --name {your iot hub name} \
   --set properties.messagingEndpoints.fileNotifications.ttlAsIso8601=PT1H0M0S
 ```
 
-## Next steps
-
-* [Upload files from a device overview](iot-hub-devguide-file-upload.md)
-* [IoT Hub support for managed identities](./iot-hub-managed-identity.md)
-* [File upload how-to guides](./file-upload-dotnet.md)
-* Azure CLI [az iot hub update](/cli/azure/iot/hub#az-iot-hub-update), [az iot hub identity show](/cli/azure/iot/hub/identity#az-iot-hub-identity-show), and [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) commands

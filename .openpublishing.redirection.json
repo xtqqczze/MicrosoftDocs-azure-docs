@@ -7055,6 +7055,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-messaging.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-devguide-messages-construct",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide.md",
+      "redirect_url": "/azure/iot-hub",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/reliability/glossary.md",
       "redirect_url": "/azure/reliability/overview",
       "redirect_document_id": false

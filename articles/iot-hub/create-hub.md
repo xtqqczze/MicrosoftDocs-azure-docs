@@ -3,7 +3,6 @@ title: Create an Azure IoT hub
 titleSuffix: Azure IoT Hub
 description: How to create, manage, and delete Azure IoT hubs through the Azure portal, CLI, and PowerShell. Includes information about retrieving the service connection string.
 author: SoniaLopezBravo
-
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
@@ -16,6 +15,8 @@ ms.custom:
 # Create and manage Azure IoT hubs
 
 This article describes how to create and manage an IoT hub.
+
+[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
 ## Prerequisites
 

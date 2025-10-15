@@ -2,25 +2,15 @@
 title: Use Azure PowerShell to configure file upload
 description: How to use Azure PowerShell cmdlets to configure your IoT hub to enable file uploads from connected devices. Includes information about configuring the destination Azure storage account.
 author: SoniaLopezBravo
-
 ms.author: sonialopez 
 ms.service: azure-iot-hub
-ms.topic: how-to
+ms.topic: include
 ms.date: 07/20/2021
 ms.custom:
   - devx-track-azurepowershell
   - sfi-ropc-nochange
 ---
 
-# Configure IoT Hub file uploads using PowerShell
-
-[!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
-
-This article shows you how to configure file uploads on your IoT hub using PowerShell. 
-
-To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.md), you must first associate an Azure storage account and blob container with your IoT hub. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files. In addition to the storage account and blob container, you can set the time-to-live for the SAS URI and configure settings for the optional file upload notifications that IoT Hub can deliver to backend services.
-
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -134,10 +124,5 @@ Set-AzIotHub `
 ```
 
 > [!NOTE]
-> By default, IoT Hub authenticates with Azure Storage using the account key in the connection string. Authentication using either system-assigned or user-assigned managed identities is also available. Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. To learn more, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md). Currently, there are not parameters on the **Set-AzIotHub** command to set the authentication type. Instead, you can use either the [Azure portal](./iot-hub-configure-file-upload.md) or [Azure CLI](./iot-hub-configure-file-upload-cli.md). 
+> By default, IoT Hub authenticates with Azure Storage using the account key in the connection string. Authentication using either system-assigned or user-assigned managed identities is also available. Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. To learn more, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md). Currently, there are not parameters on the **Set-AzIotHub** command to set the authentication type.
 
-## Next steps
-
-* [Upload files from a device overview](iot-hub-devguide-file-upload.md)
-* [IoT Hub support for managed identities](./iot-hub-managed-identity.md)
-* [File upload how-to guides](./file-upload-dotnet.md)
