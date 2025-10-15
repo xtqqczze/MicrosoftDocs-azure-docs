@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-functions/functions-proxies.md",
+      "redirect_url": "/previous-versions/azure/azure-functions/functions-proxies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/legacy-proxies.md",
+      "redirect_url": "/previous-versions/azure/azure-functions/legacy-proxies",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-sql-edge/backup-restore.md",
       "redirect_url": "/previous-versions/azure/azure-sql-edge/backup-restore",
       "redirect_document_id": false
@@ -13,6 +23,11 @@
     {
       "source_path": "articles/azure-sql-edge/configure.md",
       "redirect_url": "/previous-versions/azure/azure-sql-edge/configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub-device-update/migration-public-preview-refresh-to-ga.md",
+      "redirect_url": "/azure/iot-hub-device-update/understand-device-update",
       "redirect_document_id": false
     },
     {
