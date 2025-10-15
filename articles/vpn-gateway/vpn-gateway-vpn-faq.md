@@ -244,7 +244,6 @@ Here is the anticipated timeline for the migration tool availability and Basic S
 
 
 > [!NOTE]
-> The timeline for the VPN Gateway using Azure Basic IP is subject to frequent updates.
 > For the latest migration timeline, please see [this page](/azure/vpn-gateway/whats-new#upcoming-projected-changes). 
 
 
