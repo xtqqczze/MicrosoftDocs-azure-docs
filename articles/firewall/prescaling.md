@@ -71,10 +71,10 @@ For reference, here’s an example configuration using a Bicep template where yo
 
 To determine the optimal minCapacity and maxCapacity values:
 
-1. **Set a reasonable minimum to avoid unnecessary scaling**: Start with a minimum capacity that handles your typical peak traffic comfortably so scaling events are rare under normal conditions.
-1. **Leave headroom with a higher maximum**: Set maxCapacity higher than your expected peak to handle unexpected surges. Azure Firewall autoscaling increases capacity up to your maxCapacity value.
-1. **Monitor the Observed Capacity metric** to see how often scaling occurs and adjust minimum and maximum values as needed. If scaling happens frequently, consider raising minCapacity.
-1. **Configure alerts** on the Observed Capacity metric to get notified when scaling events occur, so you can evaluate if adjustments are needed.
+-  **Set a reasonable minimum to avoid unnecessary scaling**: Start with a minimum capacity that handles your typical peak traffic comfortably so scaling events are rare under normal conditions.
+-  **Leave headroom with a higher maximum**: Set maxCapacity higher than your expected peak to handle unexpected surges. Azure Firewall autoscaling increases capacity up to your maxCapacity value.
+-  **Monitor the Observed Capacity metric** to see how often scaling occurs and adjust minimum and maximum values as needed. If scaling happens frequently, consider raising minCapacity.
+-  **Configure alerts** on the Observed Capacity metric to get notified when scaling events occur, so you can evaluate if adjustments are needed.
 
 ## Monitoring
 
