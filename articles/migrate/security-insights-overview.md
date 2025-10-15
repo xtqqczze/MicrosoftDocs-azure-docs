@@ -11,7 +11,7 @@ ms.custom: engagement-fy24
 # Customer intent: IT administrators and cloud architects use the Insights (preview) feature in Azure Migrate to identify and mitigate security risks in their datacenter during cloud migration planning. This helps them assess vulnerabilities, outdated software, and missing security tools to ensure a secure and efficient migration to Azure
 ---
 
-# Insights in Azure Migrate: Assess and mitigate datacenter risks before migration (Preview)
+# Insights in Azure Migrate (Preview)
 
 This article describes the **Insights** (preview) feature in Azure Migrate, which provides a security assessment of the infrastructure and software inventory discovered in your datacenter.
 
@@ -42,29 +42,29 @@ Azure Migrate identifies potential security risks in your datacenter using softw
 
 Security risks are derived through a series of following analyses:
 
-- **End-of-support software**:Azure Migrate checks the versions of discovered software against the publicly available [endoflife.date](https://endoflife.date/) repository. f a software is found to be end of support (meaning the vendor no longer provides security updates), it flags it as a security risk. Identifying unsupported software early helps you plan upgrades or mitigations as part of your cloud migration.
-
-    *Data is refreshed for every 30 days*.
+- **End-of-support software**:Azure Migrate checks the versions of discovered software against the publicly available [endoflife.date](https://endoflife.date/) repository. All end of life data is refreshed every 30 days. If a software is found to be end of support (meaning the vendor no longer provides security updates), it flags it as a security risk. Identifying unsupported software early helps you plan upgrades or mitigations as part of your cloud migration.
 
 - **Vulnerabilities**: Azure Migrate identifies installed software and operating system (OS) for each server. It maps the discovered software and OS to CPE nomenclature (Common Platform Enumeration), which provides a unique identification for each software version. It stores only software metadata and does not capture any organization-specific information. Azure Migrate correlates the CPE names with known CVE IDs (Common Vulnerabilities and Exposures). CVE IDs are unique identifiers assigned to publicly disclosed cybersecurity vulnerabilities and help organizations identify and track vulnerabilities in a standard way. Refer to [CVE](https://www.cve.org/) for more details. Information about CVE IDs and related software comes from the publicly available [National Vulnerability Database](https://nvd.nist.gov/) (NVD), managed by NIST. This helps identify vulnerabilities in the software. Each vulnerability is categorized by risk level (Critical, High, Medium, Low) based on the [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) score provided by NVD. This feature uses the NVD API for all CVE IDs but is not endorsed or certified by the NVD. All CVE ID data from NVD is refreshed every 30 days. 
 
-- **Pending Updates for servers**: Azure Migrate identifies machines that are not fully patched or updated based on Windows Update metadata for Windows servers and Linux package manager metadata for Linux servers. It also retrieves the classification of these updates (Critical, Security, Other updates) and shows them for further consideration. Azure Migrate refreshes data from Windows Updates and Linux package managers every 24 hours. This insight appears as Servers with pending security and critical updates, indicating that the server is not fully patched and should be updated before or immediately after migration.
+- **Pending Updates for servers**: Azure Migrate identifies machines that are not fully patched or updated based on Windows Update metadata for Windows servers and Linux package manager metadata for Linux servers. It also retrieves the classification of these updates (Critical, Security, Other updates) and shows them for further consideration. Azure Migrate refreshes data from Windows Updates and Linux package managers every 24 hours. This insight appears as Servers with pending security and critical updates, indicating that the server is not fully patched and should be updated.
 
-- **Missing security and Patch Management Software**: Azure Migrate also identifies unprotected machines by detecting the absence of software in Security & Compliance category.
+- **Missing Security and Patch Management Software**: Azure Migrate also identifies unprotected machines by detecting the absence of software in Security & Compliance category.
 For example, if the software inventory indicates that a server doesn't have applications in categories such as, antivirus, threat detection, SIEM, IAM, or patch management, the system highlights it as a potential security risk.
 
-Azure Migrate updates security insights whenever it refreshes discovery data. The platform updates insights when you run a new discovery or when the Azure Migrate appliance sends inventory updates. You usually run a full discovery at the start of a project and may do periodic re-scans before finalizing an assessment. Any system changes, such as, new patches or software reaching end-of-life, will reflect in the updated security insights.
+Azure Migrate updates security insights whenever it refreshes discovered software inventory data. The platform updates insights when you run a new discovery or when the Azure Migrate appliance sends inventory updates. You usually run a full discovery at the start of a project and may do periodic re-scans before finalizing an assessment. Any system changes, such as, new patches or software reaching end-of-life, will reflect in the updated security insights.
 
 >[!Note]
-> Security insights in Azure Migrate help guide and highlight potential security risks in the datacenter. They are not meant to be compared with specialized security tools. We recommend to adopt Azure services such as, [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md) for post migration comprehensive protection of you hybrid environment.
+> Security insights in Azure Migrate help guide and highlight potential security risks in the datacenter. They are not meant to be compared with specialized security tools. We recommend to adopt Azure services such as, [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md) for comprehensive protection of you hybrid environment.
 
 ## Prerequisites for reviewing Insights 
 
-Ensure the following for reviewing Insights:
+Ensure the following prerequisites are met for generating complete Insights:
 
-- Use [appliance-based discovery in Azure Migrate](how-to-review-discovered-inventory.md) to review Insights. [Import-based discovery](discovery-methods-modes.md) isn't supported.
+- Use [appliance-based discovery in Azure Migrate](how-to-review-discovered-inventory.md) to review Insights. It might take up to 24 hours after discovery to generate Insights.[Import-based discovery](discovery-methods-modes.md) isn't supported.
 - Use an existing project or create an [Azure Migrate project using portal](quickstart-create-project.md).
-- Ensure all servers are in an active state. Azure Migrate purges data for servers that show no activity in the last 30 days.
+- Ensure guest discovery features are enabled on the appliance(s).
+- Ensure there are no software discovery issues. Go to **Action Center** in Azure Migrate project to filter issues for software inventory. 
+- Ensure Software inventory is gathered actively for all servers at least once in last 30 days
 
 ## Review Insights 
 
@@ -76,7 +76,7 @@ To review insights in Azure Migrate:
     :::image type="content" source="./media/security-insights-overview/insights-preview.png" alt-text="Screenshot shows to select Insights." lightbox="./media/security-insights-overview/insights-preview.png":::
 
 1. In the left menu, select **Explore inventory** > **Insights (preview)** to review security insights for the selected project. This page provides a summary of security risks across discovered servers and software. 
-1. Select any insight to review detailed information. The summary highlights critical security risks in your datacenter that need immediate attention. It identifies:
+1. Select any insight to review detailed information. The **Summary card** highlights critical security risks in your datacenter that need immediate attention. It identifies:
     - Servers with critical vulnerabilities that benefit from enabling Microsoft Defender for Cloud after migration. 
     - Servers running end-of-support operating systems, recommending upgrades during migration.
     - The number of servers with pending critical and security updates, suggesting remediation using Azure Update Manager post-migration.
@@ -87,7 +87,7 @@ You can tag servers with critical risks to support effective planning and mitiga
 
 ### Review Server risk assessment
 
-The **Servers** shows a summary of all discovered servers with security risks. A server is considered at risk if it has at least one of the following issues:
+The **Servers card** shows a summary of all discovered servers with security risks. A server is considered at risk if it has at least one of the following issues:
 
   - End-of-support operating system
   - End-of-support software
@@ -100,20 +100,20 @@ The **Servers** shows a summary of all discovered servers with security risks. A
 
 ### Review Software risk assessment 
 
-The **Software** shows a summary of all discovered software with security risks. Software is flagged as at risk if it is either end-of-support or has known vulnerabilities (CVEs). The card displays the number of end-of-support software and software with vulnerabilities as fractions of the total at-risk software.
+The **Software Card** shows a summary of all discovered software with security risks. Software is flagged as at risk if it is either end-of-support or has known vulnerabilities (CVEs). The card displays the number of end-of-support software and software with vulnerabilities as fractions of the total software with security risks.
 
 :::image type="content" source="./media/security-insights-overview/software-card.png" alt-text="Screenshot provides aggregated view of all software with security risks out of total discovered software." lightbox="./media/security-insights-overview/software-card.png":::
 
-## Review detailed Security Insights for a server 
+## Review detailed Security Insights 
 
-The process of analyzing specific vulnerabilities, threats, or exposures identified within an environment, such as servers, software, or configurations.
+To review detailed security risks for Servers and Software, perform the following actions:
 
 ### Review Servers with security risks
 
-To review detailed security risks, follow these steps:
+To review detailed security risks for servers, follow these steps:
 
 1. Open the **Insights** (preview) pane.
-1. In the **Servers**, select the link that shows the number of servers with security risks.
+1. In the **Servers card**, select the link that shows the number of servers with security risks.
 
     :::image type="content" source="./media/security-insights-overview/servers-risk-type.png" alt-text="Screenshot shows the servers with security risks." lightbox="./media/security-insights-overview/servers-risk-type.png":::
 
@@ -121,15 +121,14 @@ To review detailed security risks, follow these steps:
 
     :::image type="content" source="./media/security-insights-overview/servers-with-security-risks.png" alt-text="Screenshot shows the detailed list of discovered servers." lightbox="./media/security-insights-overview/servers-with-security-risks.png":::
 
-### View impacted servers by security risk
+### View Servers by security risk
 
-To view servers specific security risks, go to the **Insights (preview)** pane. There, you see a detailed list of servers affected due to the following issues:
+To view servers with specific security risks, go to the **Insights (preview)** pane. On the **Servers card**, you see and select a detailed list of servers affected by the following issues:
 
  - End-of-support operating systems
  - End-of-support software
  - Known vulnerabilities (CVEs) in installed software or operating systems
  - Missing security or patch management tools
- - Pending critical and security updates
 
 :::image type="content" source="./media/security-insights-overview/servers-impacted.png" alt-text="Screenshot shows the detailed list of servers impacted by each security risk." lightbox="./media/security-insights-overview/servers-impacted.png":::
 
