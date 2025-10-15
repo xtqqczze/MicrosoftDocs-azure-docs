@@ -20,7 +20,7 @@ ms.custom:
 
 * An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](/powershell/module/az.storage/) to create one or use the portal to [Create a storage account](../articles/storage/common/storage-account-create.md).
 
-* Use the PowerShell environment in [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md).
+* Use the PowerShell environment in [Azure Cloud Shell](../articles/cloud-shell/quickstart-powershell.md).
 
    :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 

@@ -10,13 +10,13 @@
   items:
     - name: Azure Device Registry
       items: 
-        - name: Overview
+        - name: What is Azure Device Registry?
           href: iot-hub-device-registry-overview.md
         - name: Set up Azure Device Registry
           href: iot-hub-device-registry-setup.md
     - name: Certificate Management
       items:
-        - name: Overview
+        - name: What is Certificate Management?
           href: iot-hub-certificate-management-overview.md
         - name: Use certificate-based authentication
           href: iot-hub-certificate-management-authentication.md
@@ -99,6 +99,25 @@
               href: query-twins.md
             - name: Job queries
               href: query-jobs.md
+    - name: Manage devices
+      items: 
+        - name: Overview of device management
+          href: iot-hub-device-management-overview.md
+          displayName: device lifecycle, patterns, device updates
+        - name: Manage device identities
+          href: iot-hub-devguide-identity-registry.md
+          displayName: identity registry, import, export, device provisioning, device heartbeat, lifecycle notifications
+        - name: Get started with device management
+          href: how-to-device-management.md
+          displayName: device management, status updates, device maintenance windows
+        - name: Monitor device connection status
+          href: monitor-device-connection-state.md
+          displayName: heartbeat, Event Grid
+        - name: Automatic device management at scale
+          href: iot-hub-automatic-device-management.md
+          displayName: automatic device management, cli, Azure portal
+        - name: Device configuration best practices
+          href: iot-hub-configuration-best-practices.md
     - name: Monitor
       items: 
         - name: Monitor IoT Hub
@@ -154,25 +173,6 @@
           href: migrate-hub-arm.md
         - name: Bulk import and export IoT devices
           href: iot-hub-bulk-identity-mgmt.md
-- name: Device management
-  items: 
-    - name: Overview of device management
-      href: iot-hub-device-management-overview.md
-      displayName: device lifecycle, patterns, device updates
-    - name: Manage device identities
-      href: iot-hub-devguide-identity-registry.md
-      displayName: identity registry, import, export, device provisioning, device heartbeat, lifecycle notifications
-    - name: Get started with device management
-      href: how-to-device-management.md
-      displayName: device management, status updates, device maintenance windows
-    - name: Monitor device connection status
-      href: monitor-device-connection-state.md
-      displayName: heartbeat, Event Grid
-    - name: Automatic device management at scale
-      href: iot-hub-automatic-device-management.md
-      displayName: automatic device management, cli, Azure portal
-    - name: Device configuration best practices
-      href: iot-hub-configuration-best-practices.md
 - name: Device-to-cloud communications
   items:
     - name: Understand device-to-cloud guidance
@@ -295,7 +295,7 @@
     - name: Regenerate access keys
       href: regenerate-keys.md
       displayName: access keys, primary key, secondary key, rotate keys
-    - name: Third-partyX.509 certificates
+    - name: Third-party X.509 certificates
       href: authenticate-authorize-x509.md
       displayName: authenticate, authentication, auth, authn, authz
     - name: Create and upload certificates for testing

@@ -15,13 +15,16 @@ ms.custom:
   - sfi-image-nochange
 ---
 
-# Authenticate identities with X.509 certificates
+# Authenticate identities with third-party X.509 certificates
 
 IoT Hub uses X.509 certificates to authenticate devices. X.509 authentication allows authentication of an IoT device as part of the Transport Layer Security (TLS) standard connection establishment.
 
 An X.509 certificate authority (CA) certificate is a digital certificate that can sign other certificates. A digital certificate is considered an X.509 certificate if it conforms to the certificate formatting standard prescribed by IETF's RFC 5280 standard.
 
 The X.509 CA feature enables device authentication to IoT Hub using a certificate authority (CA). It simplifies the initial device enrollment process and supply chain logistics during device manufacturing.
+
+> [!NOTE]
+> If you want to use Microsoft-managed PKI with X.509 certificates, you need to use IoT Hub Gen 2. For more information, see [Use certificate-based authentication with Certificate Management](iot-hub-certificate-management-authentication.md).
 
 ## Authentication and authorization
 
