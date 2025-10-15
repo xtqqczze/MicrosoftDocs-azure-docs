@@ -48,7 +48,17 @@ The following steps describe how the expression works without casting or convers
 
 If you work with JSON data that doesn't use a `Content-Type` header, you can manually convert that data to JSON by using the [json() function](workflow-definition-language-functions-reference.md#json), for example:
   
-`@json(triggerBody())['client']['animal-type']`
+`json(triggerBody())['client']['animal-type']`
+
+1. The `triggerBody()` function gets the `body` object from the workflow's trigger output. This object is typically a JSON object.
+
+   The source for the `body` object originates from the inbound HTTP request or event received by the workflow trigger.
+
+1. The `json()` function explicitly parses the `body` object returned from the `triggerBody()` function as a JSON object.
+
+   This behavior is useful, for example, when the trigger body is a string that requires handling as JSON.
+
+The remaining expression behavior is similar to the previous example.
 
 ### Create tokens for JSON properties
 
