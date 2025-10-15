@@ -13,11 +13,14 @@ ms.date: 10/20/2025
 
 # Set up and manage devices with Azure Device Registry
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
-
 Azure Device Registry (ADR) enables the cloud and edge management of devices across multiple IoT solutions using namespaces. This article explains how to set up your IoT hub with Azure Device Registry through either a script or manual steps.
 
 For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
+
+[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+
+> [!NOTE]
+> Azure Device Registry is currently available with Azure IoT Operations and Azure IoT Hub Gen 2 (Preview) instances only.
 
 ## Prerequisites
 

@@ -23,6 +23,7 @@
     - name: Create an IoT hub
       href: create-hub.md
       displayName: create IoT Hub, delete IoT hub, portal, CLI
+  expanded: true
 - name: Quickstarts
   items:
     - name: Codeless quickstart using CLI

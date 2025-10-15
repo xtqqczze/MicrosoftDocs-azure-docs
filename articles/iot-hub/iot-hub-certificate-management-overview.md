@@ -26,7 +26,6 @@ PKI uses digital certificates to authenticate and encrypt data between devices a
 
 For more information, see [Microsoft PKI](/intune/intune-service/protect/microsoft-cloud-pki-overview).
 
-
 ## Authenticate with IoT Hub using X.509 certificates
 
 To onboard and connect devices to IoT Hub, Certificate Management requires using X.509 certificate-based authentication. Other Azure IoT services like IoT Central authenticate devices using X.509 certificates or SAS (shared access signature) keys. Certificate Management prioritizes X.509 certificates because of their enhanced security.

@@ -13,9 +13,9 @@ ms.date: 10/20/2025
 
 # What is Azure Device Registry?
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
-
 Azure Device Registry (ADR) is a backend service that enables the cloud and edge management of devices across multiple IoT solutions using namespaces. ADR is an ARM resource provider that​ registers devices as Azure resources in ARM, providing a single registry for all devices and enabling consistent policy, resource queries and control plane operations.
+
+[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
 > [!NOTE]
 > Azure Device Registry is currently available with Azure IoT Operations and Azure IoT Hub Gen 2 (Preview) instances only.
@@ -27,7 +27,9 @@ ADR uses *namespaces* to organize *namespace assets* and devices. Each IoT Hub i
 Namespaces are logical containers for grouping devices and namespace assets. A namespace asset is a digital representation of a physical or virtual asset, such as a device, module, or sensor. Namespace assets can include metadata and properties that describe the asset and its capabilities.
 Namespaces provide a way to organize and manage assets at scale. They enable you to group related assets together, apply policies and access controls, and manage the lifecycle of assets.
 
-ADR maps namespace assets from your edge environment to Azure resources in the cloud. It offers a unified registry so apps and services interacting with your assets connect to a single source. ADR syncs assets in the cloud with custom resources in Kubernetes on the edge.Enterprises can use Azure Resource Manager, Azure's deployment and management service, with namespace assets. Azure Resource Manager supports resource groups, tags, role-based access control (RBAC), policies, logging, and auditing.
+ADR maps namespace assets from your edge environment to Azure resources in the cloud. It offers a unified registry so apps and services interacting with your assets connect to a single source. ADR syncs assets in the cloud with custom resources in Kubernetes on the edge. 
+
+Enterprises can use Azure Resource Manager, Azure's deployment and management service, with namespace assets. Azure Resource Manager supports resource groups, tags, role-based access control (RBAC), policies, logging, and auditing.
 
 ## Supported regions
 
