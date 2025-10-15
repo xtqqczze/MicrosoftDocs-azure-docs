@@ -13,6 +13,8 @@ ms.date: 10/20/2025
 
 # Use certificate-based authentication with Certificate Management
 
+**Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 2
+
 Certificate Management is a built-in feature of IoT Hub Gen 2 that enables you to manage device certificates using Microsoft-managed PKI with X.509 certificates.
 
 For more information, see [What is Certificate Management?](iot-hub-certificate-management-overview.md).

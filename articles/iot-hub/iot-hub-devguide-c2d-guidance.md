@@ -2,7 +2,6 @@
 title: Azure IoT Hub cloud-to-device options
 description: This article provides guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages for cloud-to-device communications. 
 author: SoniaLopezBravo
-
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
@@ -11,6 +10,8 @@ ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Cloud-to-device communications guidance
+
+**Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 1 ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 2
 
 IoT Hub provides three options for device apps to expose functionality to a back-end app:
 
@@ -24,12 +25,14 @@ To learn how [Azure IoT Plug and Play](../iot/overview-iot-plug-and-play.md) use
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Here's a detailed comparison of the various cloud-to-device communication options.
+## Overview of cloud-to-device communication options
 
-| Categories | Direct methods | Device twin's desired properties | Cloud-to-device messages |
+The following table compares the various cloud-to-device communication options in IoT Hub based on common factors.
+
+| Factor | Direct methods | Device twin's desired properties | Cloud-to-device messages |
 | ---------- | -------------- | ------------------------- | ------------------------ |
 | Scenario | Commands that require immediate confirmation, such as turning on a fan. | Long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes. | One-way notifications to the device app. |
-| Data flow | Two-way. The device app can respond to the method right away. The solution back end receives the outcome contextually to the request. | One-way. The device app receives a notification with the property change. | One-way. The device app receives the message
+| Data flow | Two-way. The device app can respond to the method right away. The solution back end receives the outcome contextually to the request. | One-way. The device app receives a notification with the property change. | One-way. The device app receives the message. |
 | Durability | Disconnected devices aren't contacted. The solution back end is notified that the device isn't connected. | Property values are preserved in the device twin. Device will read it at next reconnection. Property values are retrievable with the [IoT Hub query language](iot-hub-devguide-query-language.md). | IoT Hub can retain messages for up to 48 hours. |
 | Targets | Single device using **deviceId**, or multiple devices using [jobs](iot-hub-devguide-jobs.md). | Single device using **deviceId**, or multiple devices using [jobs](iot-hub-devguide-jobs.md). | Single device by **deviceId**. |
 | Size | Maximum direct method payload size is 128 KB for the request and 128 KB for the response. | Maximum desired properties size is 32 KB. | Up to 64-KB messages. |
@@ -38,6 +41,6 @@ Here's a detailed comparison of the various cloud-to-device communication option
 
 Learn how to use direct methods, desired properties, and cloud-to-device messages in the following tutorials:
 
-* [Quickstart: Control a device connected to an IoT hub](quickstart-control-device.md)
-* [Tutorial: Configure your devices from a back-end service](tutorial-device-twins.md) 
+* [Control a device connected to an IoT hub](quickstart-control-device.md)
+* [Configure your devices from a back-end service](tutorial-device-twins.md) 
 * [Send and receive cloud-to-device messages](c2d-messaging-node.md)
