@@ -165,7 +165,9 @@ High priority items for Windows Operating System include:
 - Configure Windows Group Policy to clear last user name, on permit AD authenticated sign-in (mitigates against cloning attack) and disable legacy TLS and SMB protocols 
 
 Other links for Windows: 
+
 https://aka.ms/ws2025securitybook 
+
 [Windows Server Security documentation | Microsoft Learn](https://learn.microsoft.com/windows-server/security/security-and-assurance)
 
 ## 7.	Azure Infrastructure Platform Security 
@@ -230,14 +232,14 @@ It's possible to configure fully SEC 17a-4(f) Locked Immutable storage policies.
 It's recommended to review these steps and select the appropriate measures [Azure backup and restore plan to protect against ransomware | Microsoft Learn](https://learn.microsoft.com/azure/security/fundamentals/backup-plan-to-protect-against-ransomware#steps-to-take-before-an-attack)
 
 Further links: 
-> - [Concept of Immutable vault for Azure Backup - Azure Backup | Microsoft Learn](https://learn.microsoft.com/azure/backup/backup-azure-immutable-vault-concept?tabs=recovery-services-vault)
-> - [Azure security fundamentals documentation | Microsoft Learn](https://learn.microsoft.com/azure/security/fundamentals/)
-> - [Microsoft Digital Defense Report and Security Intelligence Insights](https://www.microsoft.com/security/business/security-intelligence-report?msockid=343d619786f36e041990740887e36ff0)
-> - Microsoft also offers support and consulting services for security related topics 
+- [Concept of Immutable vault for Azure Backup - Azure Backup | Microsoft Learn](https://learn.microsoft.com/azure/backup/backup-azure-immutable-vault-concept?tabs=recovery-services-vault)
+- [Azure security fundamentals documentation | Microsoft Learn](https://learn.microsoft.com/azure/security/fundamentals/)
+- [Microsoft Digital Defense Report and Security Intelligence Insights](https://www.microsoft.com/security/business/security-intelligence-report?msockid=343d619786f36e041990740887e36ff0)
+- Microsoft also offers support and consulting services for security related topics 
 [DART: the Microsoft cybersecurity team we hope you never meet | Microsoft Security Blog](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/)
-> - Microsoft provides tools to remove ransomware and other Malware from Windows [Microsoft Safety Scanner Download - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/defender-endpoint/safety-scanner-download) 
-> - [Windows Malicious Software Removal Tool 64-bit](https://www.microsoft.com/download/details.aspx?id=9905)
-> - [FAQ - Protect backups from Ransomware with Azure Backup - Azure Backup | Microsoft Learn](https://learn.microsoft.com/azure/backup/protect-backups-from-ransomware-faq)
+- Microsoft provides tools to remove ransomware and other Malware from Windows [Microsoft Safety Scanner Download - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/defender-endpoint/safety-scanner-download) 
+- [Windows Malicious Software Removal Tool 64-bit](https://www.microsoft.com/download/details.aspx?id=9905)
+- [FAQ - Protect backups from Ransomware with Azure Backup - Azure Backup | Microsoft Learn](https://learn.microsoft.com/azure/backup/protect-backups-from-ransomware-faq)
  
 Further recommendations for large organizations include segregation of duties. For example, the SAP Administrators and Server Administrators should only have Read Only access to the Backup Vault. Multiuser Authorization and Resource Guard can be implemented to protect against rouge administrators and ransomware [Configure Multi-user authorization using Resource Guard - Azure Backup | Microsoft Learn](https://learn.microsoft.com/azure/backup/multi-user-authorization?tabs=azure-portal&pivots=vaults-recovery-services-vault)
 
