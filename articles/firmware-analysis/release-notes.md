@@ -38,7 +38,7 @@ This article lists new features and feature enhancements in the firmware analysi
 
 - **Standalone and embedded experiences**: Firmware analysis now exists as a standalone service in Azure and continues to exist as a blade within Defender for IoT. You can easily reach firmware analysis by searching for "firmware analysis" in the Azure portal search bar.
 
-- **Free and Premium SKUs for Public Preview**: Firmware analysis is now in Public Preview as a standalone offering. While in Public Preview, all features and functionality will be free of charge, and we look forward to gathering your feedback. Looking toward GA, some feature sets will be bundled with new feature releases to be included in the paid Premium SKU. Pricing of these features will also be announced in GA.
+- **Free SKU for Public Preview**: Firmware analysis is now in Public Preview as a standalone offering. While in Public Preview, all features and functionality will be free of charge, and we look forward to gathering your feedback. In GA we will provide additional details on capacity limits and licensing.
 
 - **Faster analysis**: Firmware analysis service now can extract, analyze, and produce results up to 30% faster. This means that the time it takes from when you upload your firmware image to when the image is in the Ready state to review results is reduced by up to 30%.
 
