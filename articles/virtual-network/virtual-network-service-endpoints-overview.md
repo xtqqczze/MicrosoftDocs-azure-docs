@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 07/22/2025
 ms.author: allensu
+ms.custom: sfi-image-nochange
 # Customer intent: "As a network administrator, I want to configure service endpoints in Azure virtual networks, so that I can ensure secure, direct connectivity to Azure services and optimize routing while minimizing management complexity."
 ---
 
@@ -88,8 +89,6 @@ Service endpoints provide the following benefits:
   By default, Azure service resources secured to virtual networks aren't reachable from on-premises networks. If you want to allow traffic from on-premises, you must also allow public (typically, NAT) IP addresses from your on-premises or ExpressRoute. You can add these IP addresses through the IP firewall configuration for Azure service resources.
 
   ExpressRoute: If you're using [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for Microsoft peering from your premises, identify the NAT IP addresses that you're using. The NAT IP addresses are either customer provided or provided by the service provider. To allow access to your service resources, you must allow these public IP addresses in the resource IP firewall setting. For more information about NAT for ExpressRoute Microsoft peering, see [ExpressRoute NAT requirements](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-![Securing Azure services to virtual networks](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
 :::image type="content" source="./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png" alt-text="Screenshot of diagram showing virtual network service endpoints securing Azure services to virtual networks.":::
 
