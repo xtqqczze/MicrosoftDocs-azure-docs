@@ -6,7 +6,7 @@ manager: pmwongera
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 03/12/2025
+ms.date: 10/15/2025
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: sfi-image-nochange
@@ -281,5 +281,5 @@ The easiest way to convert the Service Administrator role assignment to the [Own
 ## Next steps
 
 - [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [Assign Azure roles using the Azure portal](../role-based-access-control//azure/role-based-access-control/role-assignments-portal)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Understand Microsoft Customer Agreement administrative roles in Azure](../cost-management-billing/manage/understand-mca-roles.md)

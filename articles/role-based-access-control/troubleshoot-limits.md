@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 10/15/2025
 ms.author: rolyon
 ms.custom: sfi-image-nochange
 ---
@@ -32,7 +32,7 @@ When you try to assign a role, you get the following error message:
 
 ### Cause
 
-Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. [Eligible role assignments](.//azure/role-based-access-control/role-assignments-portal#step-6-select-assignment-type) and role assignments scheduled in the future do not count towards this limit. You should try to reduce the number of role assignments in the subscription.
+Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. [Eligible role assignments](/azure/role-based-access-control/role-assignments-portal#step-6-select-assignment-type) and role assignments scheduled in the future do not count towards this limit. You should try to reduce the number of role assignments in the subscription.
 
 > [!NOTE]
 > The **4000** role assignments limit per subscription is fixed and cannot be increased.
