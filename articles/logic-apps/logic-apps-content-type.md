@@ -5,32 +5,53 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/12/2025
-#Customer intent: As an integration developer, I want to understand the content types available in Azure Logic Apps workflows.
+ms.date: 10/15/2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to understand how to handle the available content types in workflows.
 ---
 
 # Handle content types in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Various content types can flow through a logic app, for example, JSON, XML, flat files, and binary data. While Logic Apps supports all content types, some have native support. Those types don't require casting or conversion in your logic apps. Other types might require casting or conversion as necessary.
+Azure Logic Apps supports all content types like JSON, XML, flat files, and binary data. While some content types have native support, meaning they don't need casting or conversion, other content types need some work to give you the required format.
 
-This article describes how Logic Apps handles content types and how you can correctly cast or convert these types when necessary.
 
-To determine the appropriate way for handling content types, Logic Apps relies on the `Content-Type` header value in HTTP calls, for example:
+To help determine the best way to handle content or data in workflows, Azure Logic Apps uses the `Content-Type` header value in the HTTP requests that workflows get from external callers.
 
-- [application/json](#application-json) (native type)
-- [text/plain](#text-plain) (native type)
+The following list includes some example `Content-Type` values that a workflow can encounter:
+
+- [application/json (native type)](#application-json)
+- [text/plain (native type)](#text-plain)
 - [application/xml and application/octet-stream](#application-xml-octet-stream)
 - [Other content types](#other-content-types)
+This guide describes how Azure Logic Apps handles different content types and shows how to correctly cast or convert these types when necessary. 
 
 <a name="application-json"></a>
 
 ## application/json
 
-Logic Apps stores and handles any request with the *application/json* content type as a JavaScript Object Notation (JSON) object. By default, you can parse JSON content without any casting. To parse a request that has a header with the application/json content type, you can use an expression. This example returns the value `dog` from the `animal-type` array without casting: 
+For an HTTP request where the `Content-Type` header value is *application/json*, Azure Logic Apps stores and handles the content as a JavaScript Object Notation (JSON) object. By default, you can parse JSON content without any casting or conversion. You can also parse this content by using an *expression*.
+
+For example, the following expression uses the `body()` function with `My_action`, which is the JSON name for a predecessor action in the workflow:
+
+`body('My_action')['client']['animal-type'][0]`
+
+The following steps describe how the expression works without casting or conversion:
+
+1. The `body()` function gets the `body` output object from the `My_action` action.
+
+1. From the returned `body` object, the function accesses the `client` object.
+
+   The `client` object contains the `animal-type` property, which is set to an array, for example:
+
+   ```json
+   {
+      "client": {
+         "name": "Fido",
+         "animal-type": ["dog", "cat", "rabbit", "snake"]
+      }
+   }
  
-`@body('myAction')['client']['animal-type'][0]` 
   
   ```json
   {
