@@ -2,12 +2,12 @@
 title: Use Microsoft Entra External ID to grant access to the FHIR service in Azure Health Data Services
 description: Learn how to use Microsoft Entra External ID with the FHIR service to enable access to healthcare applications and users.
 services: healthcare-apis
-author: Mahesh
+author: maheshkopparthiwct
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 07/30/2025
-ms.author: Mahesh
+ms.author: v-kopparthim
 ---
 
 # Use Microsoft Entra External ID to grant access to the FHIR service
