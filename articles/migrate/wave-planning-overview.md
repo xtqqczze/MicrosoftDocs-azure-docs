@@ -26,42 +26,44 @@ Add Image 1.1 - Wave Planning Overview
 
 Wave Planning is a capability in Azure migration that enables end-to-end migration and modernization of all applications running in your infrastructure.
 
-### Key freatures 
+### Key features 
 
 Wave Planning offers a structured set of capabilities to simplify and manage the end-to-end migration and modernization of applications and infrastructure.
 
-- Distribute the applications or the underlying infrastructure such as servers and workloads (servers, databases, web apps) discovered through Azure Migrate into waves
+- Distribute the applications or the underlying infrastructure such as servers and workloads (servers, databases, web apps) discovered through Azure Migrate into waves.
 - Create a high-fidelity migration plan for each wave from their source (On-prem or other cloud) to the Azure destination leveraging azure recommendations through Assessments.
-- Visualize the execution plans across the waves through the timeline.
+- Visualize the execution plans across the waves using timeline.
 - Execute and track the migration of applications in waves
-- Monitor the progress, identify risks and actions as the execution proceeds through different stages of migration.
+- Monitor the progress, identify risks, and actions as the execution proceeds through different stages of migration.
 
-You can perform migrations using the migration tools of your choice including Azure Migrate – Server migration, DMS or others. Using Migration Waves extensible tracking capability, you can plug in your migration tooling for central tracking of your entire migration and modernization journey.
+You can perform migrations using the tools of your choice including Azure Migrate – Server Migration, DMS or others. With Migration Waves extensible tracking capability, you can integrate your migration tooling for centralized tracking of your entire migration and modernization journey.
 
-## Wave Planning Concepts
+## Wave Planning concepts
 
-Here are some of the concepts and terminology to help you leverage the Wave Planning in Azure Migrate:
+Here are some of the concepts and terminology to help you leverage the Wave Planning in Azure Migrate.
 
-### Wave Stages
+### Wave stages
 
-There are 2 broad stages as you proceed with them migration of waves:
+There are two broad stages as you proceed with them migration of waves:
 
-1. **Configuration**: This stage indicates that planning activities of the wave are in progress. The goal at this stage is to make the team and environment ready for migration and modernization of the wave and identify all that needs to be done during the migration and modernization progress. Typical activities in this stage include identifying the migration path, target configurations and tools, and setting up the migration tools. Once the wave configuration activities are completed, your wave is ready for execution.
+1. **Configuration**: This stage indicates that wave planning activities are in progress. The goal is to prepare the team and environment for migration and modernization, and to identify all required actions. Generally, activities include defining the migration path, selecting target configurations and tools, and setting up the migration environment. After configuration is complete, the wave is ready for execution.
 
-2. **Execution**: This stage of the wave indicates that migration of the application is in progress. All the migration and modernization activities identified in the configuration stage are performed at this stage. Internally users need to prepare the environment, migrate the workloads and applications and optimize the environment for an end-to-end migration/modernization. Once all the applications complete their migration/modernization, the wave execution is complete.
+1. **Execution**: This stage of the wave indicates the application migration is in progress. All migration and modernization activities identified during the configuration stage are executed here. Internally users prepare the environment, migrate workloads and applications, and optimize the set up of end-to-end migration or modernization. After all the applications complete their migration or modernization, the wave execution is considered complete.
 
-### Planned Start and End date
+### Set planned start and end dates for Azure Migrate Wave execution
 
-The planned start and end date of the wave plan defined when you intend to execute the migration or modernization. You can define both these dates based on your execution plan and track your migration and modernization journey against these timelines. When you create a new wave, the default planned start time is current date and the default planned completion time is planned start time + 3 weeks.
+The planned start and end dates of the wave defined when you intend to execute the migration or modernization. You can set these dates based on your execution plan and track your migration and modernization journey against the timelines. When you create a new wave, the default planned start date is current date, and the default planned completion date is 3 weeks later.
 
-### Wave Status
+### Wave status
 
-This defines the status of the wave migration against the defined plan. Using wave status, you can identify how well the migrations are going as per the defined timelines. These statuses are defined based on the current date, stage of the migration journey and the and planned migration start and end time. Here are the various statuses:                                                 |
+This section defines the status of the wave migration against the defined plan. Using wave status, you can assess how well the migrations are progressing. Statuses are determined based on the current date, the stage of the migration journey, and the planned start and end dates. Here are the available status types:     
+
+
 | **S. No** | **Wave status** | **Definition**                                                                           | **Recommendation**                                                                                                                        |
 | --------- | --------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | 1         | Not Started     | The execution has not started for this wave and there are more than <**N>** days for it. | Complete the planning activities and be ready for the execution.                                                                          |
 | 2         | Off Track       | The planned start or end time of execution has passed.                                   | Relook at the planned timelines and course corrective actions. Actions could be either changing the dates, moving the workloads or others |
-| 3         | On Track        | The execution are in progress and there are more than **<N>** days to complete them      |            Keep going                                                                                                                              |
+| 3         | On Track        | The execution are in progress and there are more than **N** days to complete them      |            Keep going                                                                                                                              |
 | 4         | At Risk         | The due date for the migration to start or complete has passed as per the planned dates  | Keep a close track of executions to ensure the migrations complete on time ad don’t go off track.                                         |
 | 5         | Completed       | The migration has been completed.                                                        |                                                                                                                                           |
 
