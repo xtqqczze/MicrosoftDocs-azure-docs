@@ -46,7 +46,7 @@ Select the subscriptions and/or resource groups you want to include in the works
 > [!NOTE]
 > - Ensure that the user or service principal deploying the workspace is granted at least **Reader** access to each specified root.
 > - Up to 100 resources - subscriptions and/or resource groups can be included in one workspace.
-> - The default limit of 100 resources per workspace can be increased. Please reach out [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Provide the tenantID, SubscriptionID where you would want this limit to be increased.
+> - The default limit of 100 resources per workspace can be increased. Reach out [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Provide the tenantID, SubscriptionID where you would want this limit to be increased.
 
 :::image source="media/create-workspace/workspace-roots-checks-sml.png" alt-text="Screenshot of the workspaceRoots."  lightbox="media/create-workspace/workspace-roots-checks.png":::
 
