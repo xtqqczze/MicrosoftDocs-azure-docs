@@ -9,6 +9,7 @@ ms.date: 08/20/2024
 ms.devlang: javascript
 ms.custom: devx-track-js, devx-track-azurecli, engagement
 #Customer intent: As a JavaScript developer, I want to know how to upload files to blob storage within an application, so that I can adopt this functionality into my own solution.
+# Customer intent: "As a JavaScript developer, I want to upload images to cloud storage and analyze them using serverless functions, so that I can automate the extraction and storage of data from images for further processing."
 ---
 # JavaScript Tutorial: Upload and analyze a file with Azure Functions and Blob Storage
 
@@ -35,7 +36,7 @@ In this tutorial, learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Visual Studio Code](https://code.visualstudio.com/) installed.
     - [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to deploy and configure the Function App.
     - [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)

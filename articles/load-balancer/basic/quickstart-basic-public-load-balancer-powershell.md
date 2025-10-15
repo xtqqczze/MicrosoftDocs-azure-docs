@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.service: azure-load-balancer
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
+# Customer intent: "As a cloud engineer, I want to create an internal load balancer with Azure PowerShell, so that I can efficiently distribute traffic among virtual machines in my network."
 ---
 
 # Quickstart: Create a basic internal load balancer to load balance VMs using Azure PowerShell
@@ -21,7 +22,7 @@ Get started with Azure Load Balancer by using Azure PowerShell to create a publi
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - Azure PowerShell installed locally or Azure Cloud Shell
 

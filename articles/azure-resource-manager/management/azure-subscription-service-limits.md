@@ -29,7 +29,7 @@ This document lists some of the most common Microsoft Azure limits, which are al
 > The terms *soft limit* and *hard limit* are often used informally to describe the current, adjustable limit (soft limit) and the maximum limit (hard limit). If a limit isn't adjustable, there won't be a soft limit but only a hard limit.
 >
 
-[Free Azure trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) aren't eligible for limit or quota increases. If you have this type of subscription, you can upgrade to a [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) one. For more information, see [Upgrade your Azure account](../../cost-management-billing/manage/upgrade-azure-subscription.md) and the overviews for [Try Azure for free or pay as you go](https://azure.microsoft.com/free/free-account-faq).
+[Free Azure trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) aren't eligible for limit or quota increases. If you have this type of subscription, you can upgrade to a [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) one. For more information, see [Upgrade your Azure account](../../cost-management-billing/manage/upgrade-azure-subscription.md) and the overviews for [Try Azure for free or pay as you go](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 Some limits are managed at a regional level. You decide what your quotas must be for your workload in any one region, and then request that amount for each region into which you want to deploy.
 
@@ -168,13 +168,13 @@ See [Limits in Azure Cosmos DB](/azure/cosmos-db/concepts-limits) for Azure Cosm
 
 [!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
-## Azure Database for MySQL
+## Azure Database for MySQL flexible server
 
-See [Limitations in Azure Database for MySQL](/azure/mysql/concepts-limits) for Azure Database for MySQL limits.
+See [Limitations in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-limitations) for Azure Database for MySQL - Flexible Server limits.
 
-## Azure Database for PostgreSQL
+## Azure Database for PostgreSQL flexible server
 
-See [Limitations in Azure Database for PostgreSQL](/azure/postgresql/concepts-limits) for Azure Database for PostgreSQL limits.
+See [Limits in Azure Database for PostgreSQL flexible server](/azure/postgresql/flexible-server/concepts-limits) for Azure Database for PostgreSQL flexible server limits.
 
 ## Azure Deployment Environments limits
 
@@ -204,13 +204,15 @@ See [Azure Functions hosting options](../../azure-functions/functions-scale.md) 
 
 [!INCLUDE [container-service-limits](~/reusable-content/ce-skilling/azure/includes/container-service-limits.md)]
 
+[!INCLUDE [container-quota-limits](~/reusable-content/ce-skilling/azure/includes/container-quota-limits.md)]
+
 ## Azure Lab Services
 
 [!INCLUDE [azure-lab-services-limits](../../../includes/azure-lab-services-limits.md)]
 
 ## Azure Load Testing limits
 
-See [Service limits in Azure Load Testing](../../load-testing/resource-limits-quotas-capacity.md) for Azure Load Testing limits. 
+See [Service limits in Azure Load Testing](../../app-testing/load-testing/resource-limits-quotas-capacity.md) for Azure Load Testing limits. 
 
 ## Azure Machine Learning limits
 
@@ -380,7 +382,11 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Azure Key Vault limits
 
-[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault-limits.md)]
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-service-limits.md)]
+
+## Azure Key Vault: Managed HSM limits
+
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault/managed-hsm-service-limits.md)]
 
 ## Azure Managed Identity limits
 

@@ -39,13 +39,13 @@ Below the essentials, you can navigate to other details about your resource by s
 
 ## Reconfigure rules for metrics and logs
 
-To change the configuration rules for logs, select **Metrics and logs** in the Resource menu on the left.
+To change the configuration rules for logs, select **Metrics and logs** in the service menu on the left.
 
 For more information, see [Configure metrics and logs](dynatrace-create.md#configure-metrics-and-logs).
 
 ## View monitored resources
 
-To view the list of resources emitting logs to Dynatrace, select **Dynatrace environment config > Monitored Resources** in the Resource menu.
+To view the list of resources emitting logs to Dynatrace, select **Dynatrace environment config > Monitored Resources** in the service menu.
 
 > [!TIP]
 > You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending logs and/or metrics. 
@@ -57,7 +57,7 @@ To view the list of resources emitting logs to Dynatrace, select **Dynatrace env
 
 You can install Dynatrace OneAgents on virtual machines, App Service extensions, and Azure Arc Machines.
 
-### Virtual Machines
+#### [Virtual machines](#tab/virtual-machines)
 
 To monitor resources for virtual machines, select **Dynatrace environment config > Virtual Machines** from the Resource pane.
 
@@ -68,28 +68,76 @@ To monitor resources for virtual machines, select **Dynatrace environment config
 
 [!INCLUDE [agent](../includes/agent.md)]
 
-### App Service
+#### [App Service](#tab/app-service)
 
 To monitor resources for App Service, select **Dynatrace environment config > App Service** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
  
-### Azure Arc Machines
+#### [Azure Arc Machines](#tab/azure-arc-machines)
 
 To monitor resources for Azure Arc Machines, select **Dynatrace environment config > Azure Arc Machines** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
 
+---
+
+## Monitor multiple subscriptions
+
+To monitor multiple subscriptions: 
+
+1. In the left pane, select **Dynatrace environment config** > **Monitored Subscriptions**. 
+
+1. Select **Add subscriptions** in the top menu. 
+
+   The **Add Subscriptions** pane opens. It shows the subscriptions for which you're assigned Owner and any Dynatrace resource created in those subscriptions that's already linked to the same Dynatrace environment as the current resource. 
+
+   If the subscription you want to monitor has a resource already linked to the same Dynatrace environment, delete the resource to avoid shipping duplicate data and incurring double charges. 
+
+1. Select the subscriptions you want to monitor via the Dynatrace resource, and then select **Add**. 
+
+> [!note]
+> You can link to as many as 20 subscriptions.
+
+> [!important]
+> Setting separate tag rules for different subscriptions isn't supported. 
+
+Diagnostics settings are automatically added to the subscription's resources that match the defined tag rules. 
+
+Select **Refresh** to view the subscriptions and their monitoring status. 
+
+After a subscription is added, the status changes to **Active**. 
+
+## Remove subscriptions 
+
+To unlink subscriptions from a Dynatrace resource: 
+
+1. Select **Dynatrace environment config** > **Monitored Subscriptions** in the left pane. 
+
+1. Select the subscription you want to remove. 
+
+1. Select **Remove subscriptions**. 
+
+To view the updated list of monitored subscriptions, select **Refresh** in the top menu. 
+
 ## Reconfigure single sign-on
 
 [!INCLUDE [reconfigure-sso](../includes/reconfigure-sso.md)]
 
-## Delete a Dynatarace resource
+## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
+
+## Get support
+
+Contact [Dynatrace](https://support.dynatrace.com/) for customer support. 
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
+
+Select **Support + Troubleshooting** from the service menu, then choose the link to [log a support request in the Dynatrace portal](https://support.dynatrace.com/).
+
 ## Related content
 
-- [Troubleshooting Dynatrace integration with Azure](dynatrace-troubleshoot.md).
 - [Get started with infrastructure monitoring](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring)
 

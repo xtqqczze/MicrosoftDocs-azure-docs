@@ -2,9 +2,11 @@
 title: Azure VM assessments in Azure Migrate 
 description: Learn about assessments in Azure Migrate 
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
+ms.reviewer: v-uhabiba
+# Customer intent: As an IT administrator, I want to evaluate the readiness of my on-premises servers for migration to Azure, so that I can determine the appropriate sizing recommendations and estimated costs for moving to cloud infrastructure.
 ---
 
 # Assessment overview (migrate to Azure VMs)

@@ -9,6 +9,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 01/08/2025
+# Customer intent: As a cloud administrator, I want to create a public IP address using a Resource Manager template, so that I can efficiently manage IP allocation and configurations for my cloud resources.
 ---
 
 # Quickstart: Create a public IP address using a Resource Manager template
@@ -21,7 +22,7 @@ For more information on resources this public IP can be associated to, see [Publ
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A resource group in your Azure subscription.
 * An Azure Resource Manager template for the public IP sections.
 

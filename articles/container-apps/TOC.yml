@@ -62,14 +62,6 @@
       href: application-lifecycle-management.md
     - name: Jobs
       href: jobs.md
-    - name: Dynamic sessions
-      items:
-      - name: Overview
-        href: sessions.md
-      - name: Usage
-        href: sessions-usage.md
-      - name: Session pools
-        href: session-pool.md
     - name: Microservices
       href: microservices.md
     - name: Planned maintenance
@@ -78,8 +70,6 @@
       href: https://youtu.be/OxmVds31qL8
     - name: Communicate between multiple apps
       href: connect-apps.md
-    - name: Reduce cold-start times
-      href: cold-start.md
 - name: Develop & deploy
   items:
     - name: Deployment options
@@ -94,11 +84,6 @@
       href: tutorial-update-from-code.md
     - name: Connect to apps & services
       items:
-        - name: Connect to services
-          items:
-            - name: Overview
-              href: services.md
-              displayName: Connecting to services overview
         - name: Communicate between multiple apps
           href: connect-apps.md
         - name: Connect to a cloud service using Service Connector
@@ -171,6 +156,8 @@
       items:
         - name: With a job
           href: tutorial-event-driven-jobs.md
+    - name: Workflow
+      href: workflows-overview.md
     - name: Troubleshooting
       items:
         - name: Overview
@@ -193,11 +180,43 @@
             href: troubleshoot-container-start-failures.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+- name: AI integration
+  items:
+    - name: AI integration
+      href: ai-integration.md
+    - name: GPUs
+      items:
+        - name: Serverless GPUs
+          href: gpu-serverless-overview.md
+        - name: GPU types
+          href: gpu-types.md
+        - name: Tutorials
+          items:
+          - name: Generate images with serverless GPUs
+            href: gpu-image-generation.md
+          - name: Deploy an NVIDIA Llama3 NIM
+            href: serverless-gpu-nim.md
+    - name: Dynamic sessions
+      items:
+      - name: Overview
+        href: sessions.md
+      - name: Usage
+        href: sessions-usage.md
+      - name: Session pools
+        href: session-pool.md
 - name: Observability
   items:
     - name: Overview
       href: observability.md
       displayName: Observability overview
+    - name: Troubleshoot and resolve issues with an agent
+      items:
+        - name: Overview
+          href: ../sre-agent/overview.md
+        - name: Use an SRE agent
+          href: ../sre-agent/usage.md
+        - name: Fix app issues with an SRE agent
+          href: ../sre-agent/troubleshoot-azure-container-apps.md
     - name: Application logging
       href: logging.md
     - name: Real time data
@@ -218,6 +237,8 @@
       href: alerts.md
     - name: OpenTelemetry agents
       href: opentelemetry-agents.md
+    - name: Grafana dashboards
+      href: grafana-dashboards.md
 - name: Scaling & performance
   items:
     - name: Overview
@@ -225,6 +246,8 @@
       displayName: Scale rules and performance overview
     - name: Scale a container app
       href: tutorial-scaling.md
+    - name: Reduce cold-start times
+      href: cold-start.md
 - name: Domains & certificates
   items:
   - name: Overview
@@ -260,6 +283,9 @@
           href: authentication-openid.md
 - name: Security
   items:
+    - name: Overview
+      href: security.md
+      displayName: Security overview
     - name: Manage secrets
       href: manage-secrets.md
     - name: Token store
@@ -290,18 +316,6 @@
           href: workload-profiles-manage-cli.md
         - name: Portal
           href: workload-profiles-manage-portal.md
-- name: GPUs
-  items:
-    - name: Serverless GPUs
-      href: gpu-serverless-overview.md
-    - name: GPU types
-      href: gpu-types.md
-    - name: Tutorials
-      items:
-      - name: Generate images with serverless GPUs
-        href: gpu-image-generation.md
-      - name: Deploy an NVIDIA Llama3 NIM
-        href: serverless-gpu-nim.md
 - name: Microservices
   items:
     - name: Developing with Dapr
@@ -315,7 +329,7 @@
           href: microservices-dapr.md
         - name: Deploy using ARM or Bicep
           href: microservices-dapr-azure-resource-manager.md
-        - name: Enable Dapr on an existing container app
+        - name: Configure Dapr on an existing container app
           href: enable-dapr.md
         - name: Deploy using the Dapr extension for Azure Functions
           href: dapr-functions-extension.md
@@ -343,18 +357,18 @@
           href: microservices-dapr-bindings.md
         - name: Microservices communication using Dapr Service Invocation
           href: microservices-dapr-service-invoke.md
-- name: Networking, ingress, and network security
+- name: Networking and ingress
   items:
-    - name: Architecture overview
+    - name: Overview
       href: networking.md
-    - name: Use a custom virtual network
-      href: vnet-custom.md
     - name: Ingress
       items:
         - name: Overview
           href: ingress-overview.md
           displayName: Ingress overview
-        - name: Configure ingress
+        - name: Environment-level configuration
+          href: ingress-environment-configuration.md
+        - name: Application-level configuration
           href: ingress-how-to.md
         - name: Configure IP restrictions
           href: ip-restrictions.md
@@ -370,8 +384,18 @@
         - name: CORS
           href: cors.md
           displayName: Cross origin resource sharing
-    - name: Security
+    - name: Virtual network configuration
+      href: custom-virtual-networks.md
+    - name: Managing outbound connections with Azure Firewall
+      href: use-azure-firewall.md
+    - name: Private endpoints and DNS
+      href: private-endpoints-with-dns.md
+    - name: Securing a custom VNET with an NSG
+      href: firewall-integration.md
+    - name: Tutorials
       items:
+        - name: Use a custom virtual network
+          href: vnet-custom.md
         - name: Configure WAF Application Gateway
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
@@ -380,10 +404,8 @@
           items:
           - name: Use rule-based routing
             href: rule-based-routing.md
-          - name: Configure a custom domain
+          - name: Use a custom domain with rule-based routing
             href: rule-based-routing-custom-domain.md
-        - name: Securing a custom VNET with an NSG
-          href: firewall-integration.md
         - name: Use a private endpoint
           href: how-to-use-private-endpoint.md
         - name: Use mTLS
@@ -498,12 +520,16 @@
       href: billing.md
     - name: Quotas
       href: quotas.md
+    - name: Make quota requests
+      href: quota-requests.md
 - name: Product updates
   items:
     - name: What's new
       href: whats-new.md
 - name: API docs & reference
   items:
+    - name: Azure Container Apps extension release notes
+      href: container-apps-extension-release-notes.md
     - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI

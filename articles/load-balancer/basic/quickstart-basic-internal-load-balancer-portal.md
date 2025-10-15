@@ -11,6 +11,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 ms.author: mbender
 ms.custom: mvc, mode-ui
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: "As a cloud architect, I want to create a basic internal load balancer using the Azure portal, so that I can effectively manage and distribute internal traffic to virtual machines."
 ---
 
 # Quickstart: Create a basic internal load balancer to load balance VMs using the Azure portal
@@ -22,7 +23,7 @@ Get started with Azure Load Balancer by using the Azure portal to create an inte
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Sign in to Azure
 
