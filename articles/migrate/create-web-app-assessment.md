@@ -56,8 +56,8 @@ To create an assessment, follow these steps.
 | **Setting**  | **Description**  | **Possible Values**  | 
     |----------|-------|---|
     | Default target location | Used to generate regional cost for Azure targets.   | All locations supported by Azure targets | 
-    | Default Environment  | Allows you to toggle between pay-as-you-go and pay-as-you-go Dev/Test offers.  | | Production <br> Dev/Test 
-    | Currency  | Generates the cost in the currency selected here.  | | All common currencies such as USD, INR, GBP, Euro
+    | Default Environment  | Allows you to toggle between pay-as-you-go and pay-as-you-go Dev/Test offers. | Production <br> Dev/Test |
+    | Currency  | Generates the cost in the currency selected here.  | All common currencies such as USD, INR, GBP, Euro |
     | Program/offer    | Allows you to toggle between [pay-as-you-go and Enterprise Agreement](https://azure.microsoft.com/support/legal/offer-details/) offers. | Pay-as-you-go <br> Enterprise Agreement |       
     | Default savings option | Select a savings option if you opted for Reserved Instances or Savings Plan. | 1 year reserved  <br>  3 years reserved <br> 1 year savings plan <br> 3 years savings plan  <br> None |
     | Discount Percentage         | Used to factor in any custom discount agreements with Microsoft. This setting is disabled if Savings options are selected.  | Numeric decimal value                             
@@ -80,7 +80,7 @@ To create an assessment, follow these steps.
     | Performance history |		Duration of performance history to generate assessment of the on-premises workloads | -	1 day (default)<br> - 1 week<br> -	1 month |
     | Percentile utilization |	Percentile value considered for the performance history of the on-premises workloads | - 50th<br> -	90th<br> -	95th (default)<br> - 99th |
     | Comfort factor |	Buffer added on top of utilization to account for scenarios like seasonal spikes in usage, insufficient performance data, likely increase in future usage, etc. As an example, normally, a 16-core VM with 20% utilization results in a 4-core VM. With a comfort factor of 2.0, it results in an 8-core VM as a match. | 	Multiple options. Default is 1. |
-    | Azure Hybrid benefit		|  Azure Hybrid Benefit allows Microsoft customers with Windows Server Software Assurance or Windows Server subscriptions to bring their licenses to Azure. [Learn more](https://azure.microsoft.com/en-us/pricing/offers/hybrid-benefit/) | Specify whether you already have a Windows Server license. This setting is enabled by default. |
+    | Azure Hybrid benefit		|  Azure Hybrid Benefit allows Microsoft customers with Windows Server Software Assurance or Windows Server subscriptions to bring their licenses to Azure. [Learn more](https://azure.microsoft.com/pricing/offers/hybrid-benefit/) | Specify whether you already have a Windows Server license. This setting is enabled by default. |
     | Microsoft Defender for Cloud | Includes Microsoft Defender for Cloud to protect your Web apps on Azure. | Specify whether you want to include Microsoft Defender for Cloud in the cost estimate. Microsoft Defender for App service or Microsoft Defender for Containers cost would be selected based on the target workload. This setting is enabled by default. |
 ::: moniker-end
  
