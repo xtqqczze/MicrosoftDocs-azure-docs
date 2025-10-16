@@ -310,7 +310,7 @@ Next, focus your search to include more results in a specific area within the de
 
 ### Search for an address
 
-This example demonstrates how to use the Get Geocode Autocomplete API to search for an address for Disneyland in southern California using partial input like "dis" using the `coordinates` parameter to focus the search to a specific area.
+The examples in this section demonstrate the difference between searching for a place and searching for an address using the `resultTypeGroups` parameter of the [Get Geocode Autocomplete] API, using examples that search for Disneyland in southern California using partial input like "dis" and the `coordinates` parameter to focus the search to a specific area.
 
 > [!IMPORTANT]
 > To geobias results to the relevant area for your users, always add as many location details as possible. For more information, see [Best Practices for Search].
@@ -322,7 +322,7 @@ This example demonstrates how to use the Get Geocode Autocomplete API to search 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
-    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=dis&coordinates=-117.920219,33.809570&resultTypeGroups=address&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=dis&coordinates=-117.920219,33.809570&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 1. Select the run button, then review the response body.
@@ -337,12 +337,12 @@ This example demonstrates how to use the Get Geocode Autocomplete API to search 
     | name             | Disney California Adventure Park         |
 
     > [!NOTE]
-    > The `type` property is most relavent when `resultTypeGroups=property`. For a list of what types are available, see the [Autocomplete ResultType Enum]. To specify what types to search for, include the `resultTypes` [URI parameter]. For an example, see the [Autocomplete API call to search for 'Muir Woods', filtered by park and populated place resultTypes, place resultTypeGroups] sample.
+    > The `type` property is most relevant when using `resultTypeGroups=property`. To view available types, refer to the [Autocomplete ResultType Enum]. To define which types to search, use the `resultTypes` [URI parameter]. For implementation details, see the [Autocomplete API call to search for 'Muir Woods', filtered by park and populated place resultTypes, place resultTypeGroups] example.
 
-1. The query inserted the value *place* for the `resultTypeGroups` parameter as the default value for this query since none was provided. To get 'address' information instead of 'place' information, include the `resultTypeGroups=address` parameter:
+1. Since no value was provided for the `resultTypeGroups` parameter, the query defaulted to *place*. To retrieve address-level information instead, include `resultTypeGroups=address` in your request:
 
     ```http
-    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=dis&coordinates=-117.920219,33.809570&subscription-key={Your-Azure-Maps-Subscription-key}&resultTypeGroups=address
+    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=dis&coordinates=-117.920219,33.809570&resultTypeGroups=address&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
     Notice that the response contains *address* values that include:
