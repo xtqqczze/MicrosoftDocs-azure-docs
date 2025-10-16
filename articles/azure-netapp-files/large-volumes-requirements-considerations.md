@@ -88,7 +88,7 @@ The following requirements and considerations apply to large volumes. For perfor
 
 #### Breakthrough mode with cool access (preview)
 
-* Breakthrough mode large volumes are supported with cool access. This feature is currently in preview. You must register for both the [breakthrough mode preview](#register-for-dedicated-capacity-large-volumes) and to use [the dedicated capacity with cool access preview](manage-cool-access.md#dedicated).
+* Breakthrough mode large volumes are supported with cool access. This feature is currently in preview. You must register for both the [breakthrough mode preview](#register-for-breakthrough-mode) and to use [the cool access preview](#register-for-breakthrough-mode-with-cool-access).
 * If you're using the Ultra or Premium service level, you must also [register to use those service levels with cool access](manage-cool-access.md#register-the-feature).
 * If you enable cool access on large volumes in breakthrough mode, the quota can increase to 7.2 PiB.
 * Breakthrough mode with cool access is supported on the Standard, Premium, and Ultra service levels. It's not supported on the Flexible service level. 

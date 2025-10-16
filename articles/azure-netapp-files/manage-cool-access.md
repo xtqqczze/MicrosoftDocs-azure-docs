@@ -34,9 +34,12 @@ There are several considerations to be aware of when using cool access.
 * Files moved to the cool tier remain there after you disable cool access on a volume. You must perform an I/O operation on _each_ file to return it to the warm tier. 
 * For the maximum number of volumes supported for cool access per subscription per region, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 * Flexible service level capacity pools with cool access maintain the user-configured throughput limits. Unlike Premium or Ultra pools, performance isn't reduced when cool access is enabled.
+
+### Considerations for large volumes
+
 * Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
-    * Cool access is also supported with dedicated capacity, enabling you to create volumes with quotas up to 7.2 PiB. You must be [registered to use large volumes breakthrough](large-volumes-requirements-considerations.md#register-for-breakthrough-mode) and to use [dedicated capacity with cool access](;arge-volumes-requirements-considerations.md#register-for-breakthrough-mode-with-cool-access). 
-    * Cool access with dedicated capacity is only available for newly created volumes. You must enable cool access and select **Large volume** and **Breakthough mode** when creating the volume. 
+* Cool access is also supported with dedicated capacity, enabling you to create volumes with quotas up to 7.2 PiB. You must be [registered to use large volumes breakthrough](large-volumes-requirements-considerations.md#register-for-breakthrough-mode) and to use [dedicated capacity with cool access](large-volumes-requirements-considerations.md#register-for-breakthrough-mode-with-cool-access). 
+* Cool access with dedicated capacity is only available for newly created volumes. You must enable cool access and select **Large volume** and **Breakthough mode** when creating the volume. 
 
 ### Considerations for cool access-enabled capacity pools 
 
@@ -158,25 +161,6 @@ You must register cool access with the Flexible service level before using it.
     You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
     
 ---
-
-### <a name="dedicated"></a> Register for dedicated capacity with cool access (preview)
-
-Cool access with dedicated capacity is currently in preview. Before using cool access with dedicated capacity, you must be registered to use both [dedicated capacity](large-volumes-requirements-considerations.md#register-for-dedicated-capacity-large-volumes). You must also register to use dedicated capacity with cool access: 
-
-1.  Register the feature:
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDedicatedCapacityCoolAccess
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** can stay in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDedicatedCapacityCoolAccess
-    ```
 
 ### Configure the capacity pool for cool access
 
