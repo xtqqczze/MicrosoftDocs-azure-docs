@@ -111,9 +111,9 @@ az containerapp env update \
     --enable-peer-to-peer-encryption
 ```
 
-Even after peer-to-peer encryption is enabled, communication between container apps within the same environment still uses HTTP by default. Traffic between apps is secured with TLS and managed automatically by Azure Container Apps.
+Once enabled, your application can continue using HTTP for internal calls. Azure Container Apps automatically secures inter-app traffic with TLS.
 
-If you want to use HTTPS for inter-app communication, update your code to handle certificate verification manually.
+If you prefer HTTPS for inter-app communication, update your code to handle certificate verification manually.
 
 For more information, see the [Peer-to-peer encryption](../../container-apps/ingress-environment-configuration.md#peer-to-peer-encryption) section of [Configure ingress in an Azure Container Apps environment](../../container-apps/ingress-environment-configuration.md).
 
