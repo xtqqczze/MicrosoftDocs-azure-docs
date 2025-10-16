@@ -19,14 +19,9 @@ ms.custom:
 
 **Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 1 
 
-IoT Hub uses X.509 certificates to authenticate devices. X.509 authentication allows authentication of an IoT device as part of the Transport Layer Security (TLS) standard connection establishment.
+IoT Hub uses X.509 certificates to authenticate devices. X.509 authentication allows authentication of an IoT device as part of the Transport Layer Security (TLS) standard connection establishment. 
 
-An X.509 certificate authority (CA) certificate is a digital certificate that can sign other certificates. A digital certificate is considered an X.509 certificate if it conforms to the certificate formatting standard prescribed by IETF's RFC 5280 standard.
-
-The X.509 CA feature enables device authentication to IoT Hub using a certificate authority (CA). It simplifies the initial device enrollment process and supply chain logistics during device manufacturing.
-
-> [!NOTE]
-> If you want to use Microsoft-managed PKI with X.509 certificates, you need to use IoT Hub Gen 2. For more information, see [Use certificate-based authentication with Certificate Management](iot-hub-certificate-management-authentication.md).
+This article describes how to use third-party managed X.509 CA certificates to authenticate devices connecting to IoT Hub. If you want to use Microsoft-managed PKI with X.509 certificates, you need to use IoT Hub Gen 2. For more information, see [Use certificate-based authentication with Certificate Management](iot-hub-certificate-management-authentication.md).
 
 ## Authentication and authorization
 
@@ -34,9 +29,26 @@ The X.509 CA feature enables device authentication to IoT Hub using a certificat
 
 *Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*.
 
-X.509 certificates are only used for authentication in IoT Hub, not authorization. Unlike with Microsoft Entra ID and shared access signatures, you can't customize permissions with X.509 certificates.
+X.509 certificates are only used for authentication in IoT Hub, not authorization. Unlike with [Microsoft Entra ID](authenticate-authorize-azure-ad.md) and [shared access signatures](authenticate-authorize-sas.md), you can't customize permissions with X.509 certificates.
+
+## Microsoft vs third-party PKI
+
+Public key infrastructure (PKI) uses digital certificates to authenticate and encrypt data between devices and services. PKI certificates secure scenarios like VPN, Wi-Fi, email, web, and device identity. Managing PKI certificates is challenging, costly, and complex, especially for organizations with many devices and users.
+
+IoT Hub supports two types of PKI providers for X.509 certificate authentication: 
+
+| PKI provider | Integration required | IoT Hub generation | 
+|--------------|----------------------|-------------------|
+| Microsoft-managed PKI | No. Configure certificate authorities directly in Azure Device Registry (ADR).| IoT Hub Gen 2  |
+| Third-party PKI (DigiCert, GlobalSign, etc.) | Yes. Manual integration required.  | IoT Hub Gen 1 |
+
+This article focuses on third-party PKI providers. For information about using Microsoft-managed PKI with Certificate Management, see [What is Certificate Management?](iot-hub-certificate-management-overview.md).
 
 ## Types of certificate authentication
+
+An X.509 certificate authority (CA) certificate is a digital certificate that can sign other certificates. A digital certificate is considered an X.509 certificate if it conforms to the certificate formatting standard prescribed by IETF's RFC 5280 standard.
+
+The X.509 CA feature enables device authentication to IoT Hub using a certificate authority (CA). It simplifies the initial device enrollment process and supply chain logistics during device manufacturing.
 
 You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to IoT Hub.
 

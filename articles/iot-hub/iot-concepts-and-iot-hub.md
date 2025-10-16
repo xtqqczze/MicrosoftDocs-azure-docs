@@ -39,7 +39,7 @@ Moving to Gen2 is essential to leverage the latest enhancements in device provis
 
 IoT Hub Gen 2 introduces two major innovations: Azure Device Registry (ADR) and Certificate Management. These features are designed to enhance security, simplify device management, and streamline operations for IoT deployments. 
 
-## Unified registry between cloud and edge with Azure Device Registry
+## Manage your devices in a unified registry with Azure Device Registry
 
 IoT Hub Gen 2 integrates directly with Azure Device Registry (ADR) to bring a consistent experience across cloud and edge workloads. ADR is a centralized device registry that allows you to manage devices across multiple IoT hubs using namespaces. You can create a link between an existing ADR namespace to your IoT Hub Gen 2 or create a new namespace and create the link. 
 
@@ -51,7 +51,7 @@ For more information, see [What is Azure Device Registry?](iot-hub-device-regist
 
 Similarly to IoT Hub Gen 1, in order to use certificate management, devices must be provisioned via [Device Provisioning Service (DPS)](../iot-dps/index.yml). The device must onboard and authenticate using one of the existing supported methods: including X.509 certificate (procured from a third-party CA) or symmetric keys. Once the device is successfully authenticated, it's provisioned to the appropriate IoT Hub and registered to the appropriate ADR namespace. As part of this provisioning call, the device also submits a Certificate Signing Request (CSR) to DPS, which it uses to request an X.509 operational certificate that IoT Hub recognizes.
 
-### X.509 credential management for IoT Devices
+### Manage your X.509 credentials with Certificate Management
 
 IoT Hub Gen 2 introduces built-in support for managing device certificates using Microsoft-managed PKI with X.509 certificates. X.509 certificates are undoubtedly the gold standard for IoT security. With IoT Hub Gen 2, you can use DPS to improve the security posture of your IoT devices by adopting X.509-based authentication. 
 
