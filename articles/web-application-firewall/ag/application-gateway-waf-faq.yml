@@ -44,7 +44,7 @@ sections:
       - question: |
           What rules are currently available for the WAF?
         answer: |
-          The WAF currently supports Default Rule Set (DRS) [2.1](application-gateway-crs-rulegroups-rules.md#drs-21), Core Rule Set (CRS) [3.2](application-gateway-crs-rulegroups-rules.md#owasp32), and [3.1](application-gateway-crs-rulegroups-rules.md#owasp31). These rules provide baseline security against most of the top 10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
+          The WAF currently supports Default Rule Set (DRS) [2.1](application-gateway-crs-rulegroups-rules.md#drs21), Core Rule Set (CRS) [3.2](application-gateway-crs-rulegroups-rules.md#owasp32), and [3.1](application-gateway-crs-rulegroups-rules.md#owasp31). These rules provide baseline security against most of the top 10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
           
           * Protection against SQL injection
           * Protection against cross-site scripting
