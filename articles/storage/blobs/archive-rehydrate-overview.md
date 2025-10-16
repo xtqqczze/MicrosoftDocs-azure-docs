@@ -20,7 +20,7 @@ While a blob is in the archive access tier, that blob is considered to be offlin
 
 > [!IMPORTANT]
 > Snapshots and previous versions cannot be rehydrated back to the Hot or Cool tiers once they are moved to the Archive tier.
-> To access data from an archived snapshot or previous version, you must copy it to a new blob in an online tier (Hot or Cool) using the [copy blob operation](https://learn.microsoft.com/en-us/rest/api/storageservices/copy-blob).
+> To access data from an archived snapshot or previous version, you must copy it to a new blob in an online tier (Hot or Cool) using the [copy blob operation](/rest/api/storageservices/copy-blob).
 > Direct rehydration of snapshots or previous versions is not supported.
 
 Rehydrating a blob from the archive tier can take several hours to complete. Microsoft recommends archiving larger blobs for optimal performance when rehydrating. Rehydrating a large number of small blobs might require extra time due to the processing overhead on each blob. A maximum of 10 GiB per storage account may be rehydrated per hour with priority retrieval.
