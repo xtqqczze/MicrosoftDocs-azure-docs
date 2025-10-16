@@ -21,7 +21,7 @@ This article provides troubleshooting details for error codes that appear when c
 
 **Error message**: Appropriate permissions to perform the operation are missing.
 
-**Recommended action**: Ensure that you [granted appropriate permissions](azure-data-lake-storage-configure-backup.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
+**Recommended action**: Ensure that you [granted appropriate permissions](azure-data-lake-storage-backup-tutorial.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
 
 ### UserErrorBackupRequestThrottled
 
