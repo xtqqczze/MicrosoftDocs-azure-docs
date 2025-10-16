@@ -83,6 +83,25 @@ To create an IPv6 address, modify the `--version` parameter to **IPv6**.
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+# [**Non-zonal**](#tab/create-public-ip-non-zonal)
+
+In this section, you create a non-zonal IP address, which is used for regions without availability zones.  If this is used in regions with availability zones, a zone-redundant IP address will be created.
+
+>[!NOTE]
+>The following command works for API version 2020-08-01 or later. For more information about the API version currently being used, see [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
+
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP-nozone** in **QuickStartCreateIP-rg**. 
+
+To create an IPv6 address, modify the `--version` parameter to **IPv6**.
+
+```azurecli-interactive
+  az network public-ip create \
+    --resource-group QuickStartCreateIP-rg \
+    --name myStandardPublicIP-nozone \
+    --version IPv4 \
+    --sku Standard
+```
+
 The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---

@@ -93,6 +93,29 @@ Template section to add:
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+## Non-zonal
+
+In this section, you create a non-zonal IP address, which is used for regions without availability zones.  If this is used in regions with availability zones, a zone-redundant IP address will be created.
+
+To create an IPv6 address, modify the **publicIPAddressVersion** parameter to **IPv6**.
+
+Template section to add:
+
+```JSON
+{
+  "apiVersion": "2020-08-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "myStandardPublicIP-nozone",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "Standard"
+  },
+  "properties": {
+    "publicIPAllocationMethod": "Static",
+    "publicIPAddressVersion": "IPv4"
+  }
+```
+
 ## Routing preference and tier
 
 Standard SKU static public IPv4 addresses support Routing Preference or the Global Tier feature.

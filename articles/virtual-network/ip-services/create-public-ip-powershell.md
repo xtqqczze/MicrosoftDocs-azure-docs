@@ -94,6 +94,30 @@ New-AzPublicIpAddress @ip
 >[!NOTE]
 >The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+# [**Non-zonal**](#tab/create-public-ip-non-zonal)
+
+In this section, you create a non-zonal IP address, which is used for regions without availability zones.  If this is used in regions with availability zones, a zone-redundant IP address will be created.
+
+>[!NOTE]
+>The following command works for `Az.Network` module version 4.5.0 or later. For more information about the PowerShell modules currently being used, see the [PowerShellGet documentation](/powershell/module/powershellget/).
+
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a standard public IPv4 address as a non-zonal resource named **myStandardPublicIP-nozone** in **QuickStartCreateIP-rg**. 
+
+To create an IPv6 address, modify the **`-IpAddressVersion`** parameter to **IPv6**.
+
+```azurepowershell-interactive
+$ip = @{
+    Name = 'myStandardPublicIP-nozone'
+    ResourceGroupName = 'QuickStartCreateIP-rg'
+    Location = 'westus'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+}
+New-AzPublicIpAddress @ip
+```
+The removal of the **`-Zone`** parameter in the command is valid in all regions. 
+
 The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
