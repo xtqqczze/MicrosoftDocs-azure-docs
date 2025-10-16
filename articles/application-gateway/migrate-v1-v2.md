@@ -47,7 +47,7 @@ This article primarily helps with the configuration migration. Client traffic mi
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Configuration migration
-This phase focuses on setting up the new V2 gateway with the settings from your existing V1 environment. We provide two Azure PowerShell scripts designed to facilitate the migration of configurations from V1 (Standard or WAF) to V2 (Standard_V2 or WAF_V2) gateways. These scripts help streamline the transition process by automating key deployment and configuration tasks.
+The configuration migration focuses on setting up the new V2 gateway with the settings from your existing V1 environment. We provide two Azure PowerShell scripts designed to facilitate the migration of configurations from V1 (Standard or WAF) to V2 (Standard_V2 or WAF_V2) gateways. These scripts help streamline the transition process by automating key deployment and configuration tasks.
 
 ## 1. Enhanced Cloning Script
 This is the new experience that offers an improved migration experience by:
@@ -310,12 +310,12 @@ Execute AzureAppGWClone.ps1 with the required parameters:
  ```
 AzureAppGWIPMigrate.ps1
  -v1resourceId <V1 application gateway Resource ID>
-  -v2resourceId <V2 application gateway Resource ID>
+ -v2resourceId <V2 application gateway Resource ID>
  ```
    **Example**
    ```azurepowershell
 ./AzureAppGWIPMigrate.ps1 `
-   -v1resourceId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
+-v1resourceId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
 -v2resourceId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv2appgateway `
   ```
  Once the IP swap is complete, customers should check control and data plane operations on the V2 gateway. All control plane actions except Delete will be disabled on the V1 gateway.,
