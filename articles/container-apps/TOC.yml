@@ -62,14 +62,6 @@
       href: application-lifecycle-management.md
     - name: Jobs
       href: jobs.md
-    - name: Dynamic sessions
-      items:
-      - name: Overview
-        href: sessions.md
-      - name: Usage
-        href: sessions-usage.md
-      - name: Session pools
-        href: session-pool.md
     - name: Microservices
       href: microservices.md
     - name: Planned maintenance
@@ -92,11 +84,6 @@
       href: tutorial-update-from-code.md
     - name: Connect to apps & services
       items:
-        - name: Connect to services
-          items:
-            - name: Overview
-              href: services.md
-              displayName: Connecting to services overview
         - name: Communicate between multiple apps
           href: connect-apps.md
         - name: Connect to a cloud service using Service Connector
@@ -193,6 +180,30 @@
             href: troubleshoot-container-start-failures.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+- name: AI integration
+  items:
+    - name: AI integration
+      href: ai-integration.md
+    - name: GPUs
+      items:
+        - name: Serverless GPUs
+          href: gpu-serverless-overview.md
+        - name: GPU types
+          href: gpu-types.md
+        - name: Tutorials
+          items:
+          - name: Generate images with serverless GPUs
+            href: gpu-image-generation.md
+          - name: Deploy an NVIDIA Llama3 NIM
+            href: serverless-gpu-nim.md
+    - name: Dynamic sessions
+      items:
+      - name: Overview
+        href: sessions.md
+      - name: Usage
+        href: sessions-usage.md
+      - name: Session pools
+        href: session-pool.md
 - name: Observability
   items:
     - name: Overview
@@ -226,6 +237,8 @@
       href: alerts.md
     - name: OpenTelemetry agents
       href: opentelemetry-agents.md
+    - name: Grafana dashboards
+      href: grafana-dashboards.md
 - name: Scaling & performance
   items:
     - name: Overview
@@ -303,18 +316,6 @@
           href: workload-profiles-manage-cli.md
         - name: Portal
           href: workload-profiles-manage-portal.md
-- name: GPUs
-  items:
-    - name: Serverless GPUs
-      href: gpu-serverless-overview.md
-    - name: GPU types
-      href: gpu-types.md
-    - name: Tutorials
-      items:
-      - name: Generate images with serverless GPUs
-        href: gpu-image-generation.md
-      - name: Deploy an NVIDIA Llama3 NIM
-        href: serverless-gpu-nim.md
 - name: Microservices
   items:
     - name: Developing with Dapr

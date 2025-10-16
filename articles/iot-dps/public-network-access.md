@@ -8,6 +8,7 @@ ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 08/12/2025
 ms.subservice: azure-iot-hub-dps
+ms.custom: sfi-image-nochange
 ---
 
 # Manage public network access for your IoT Device Provisioning Service

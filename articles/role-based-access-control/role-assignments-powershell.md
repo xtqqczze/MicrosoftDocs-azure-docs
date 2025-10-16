@@ -1,12 +1,12 @@
 ---
 title: Assign Azure roles using Azure PowerShell - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure PowerShell and Azure role-based access control (Azure RBAC).
-author: jenniferf-skc
+author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 03/30/2025
-ms.author: jfields
+ms.author: rolyon
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -380,6 +380,6 @@ CanDelegate        : False
 
 ## Next steps
 
-- [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.yml)
+- [List Azure role assignments using Azure PowerShell](/azure/role-based-access-control/role-assignments-list-powershell)
 - [Tutorial: Grant a group access to Azure resources using Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Manage resources with Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)
