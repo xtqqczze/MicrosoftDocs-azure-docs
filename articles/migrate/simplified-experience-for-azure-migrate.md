@@ -18,7 +18,7 @@ The simplified experience leverages an enhanced agent-based migration stack tail
 - **Modern replication appliance**: It utilizes Windows Server 2022 (WS2022) for the replication appliance, ensuring robust and up-to-date infrastructure.
 - **Unified OS support matrix**: This provides a consistent and streamlined approach to operating system support across migration workflows, simplifying planning and execution.
   
-Overall, the upgraded stack equips customers with powerful tools to efficiently migrate newer Linux distributions, leverage modern Windows Server platforms for replication, and benefit from a unified OS support framework—enhancing the entire migration journey to Azure.
+Overall, the upgraded stack equips customers with powerful tools to efficiently migrate newer Linux distributions, leverage modern Windows Server platform for replication, and benefit from a unified OS support framework, enhancing the entire migration journey to Azure.
 
 ## Key differences between classic and simplified experience
 
@@ -26,22 +26,22 @@ The key differences between the Classic and Simplified experience:
 
 | **Aspect** | **Classic experience** | **Simplified experience** |
 | --- | --- | --- | 
-| Upgrade and replacement | Old version with traditional interface | Upgraded version offering a more streamlined and user-friendly interface.
-| Enhanced compatibility | Limited support for newer Linux distributions | Supports newer Linux distributions and uses Windows Server 2022 as the replication appliance. |
+| Upgrade and replacement | Old version with traditional interface | Upgraded version offering a more streamlined and user-friendly interface
+| Enhanced support matrix | Limited support for newer Linux distributions | Supports newer Linux distributions and uses Windows Server 2022 as the replication appliance|
+| Easier Onboarding| Extensive number of steps and input for onboarding and setup | Easier onboarding of workloads with 50% fewer configuration steps|
+| Automatic updates| Manual upgrades should be performed for both mobility agent and configuration server components| Automatic upgrades are available for both mobility agent and replication appliance|
 | Improved performance and reliability | Standard performance and reliability | Leveraging latest technologies for better performance and reliability in physical and VMware agent-based migrations. |
 |Streamlined migration process| Traditional migration process	 | Provides a more seamless and efficient migration process, addressing multiple customer concerns. |
-| Deprecation of classic experience | Support for ongoing replications will remain active until September 2026, while support for initiating new replications will end on October 30, 2025 | NA |
+| Retirement of classic experience | Existing replication and migrations will be supported until **30 September 2026**. Plan your final migrations for these machines well ahead of the retirement date| Make the switch sooner to gain the richer benefits of simplified experience |
 
-## Action required
-- Classic experience is scheduled for deprecation on **30 September 2026**. We recommend using the **simplified experience** for initiating agent-based replication of any new VMware or physical servers.
-  >[!NOTE]
-  >Classic experience will not support starting replications on new servers after **October 30, 2025**.
-- If you have servers discovered through the replication appliance under the classic experience, ensure replication is initiated before **October 30, 2025**, and plan your subsequent migrations before the deprecation date **(September 30, 2026)**.
-- Existing VMware and physical machines can continue using the classic experience until **September 30, 2026**. After that date, any changes to replication configurations will require an upgrade to the new simplified experience. Plan your migrations for these machines before the deprecation date.
--  New features, enhancements, and mobility agent support for additional Linux distributions will only be made available in the simplified experience.
--  If you don’t migrate your machines by **September 30, 2026**, replication health may be affected. You won’t be able to view, manage, or perform operations on these machines through the Azure portal after this date.
+## Retirement of classic experience
+**Action required**
+- Classic experience is scheduled for retirement on **30 September 2026**. Your existing replications and migrations will be supported till the retirement date. We encourage you to make the switch sooner to gain the richer benefits of simplified experience.
+- Existing VMware and physical machines can continue using the classic experience until **September 30, 2026**. Plan your final migrations for these machines before the retirement date. **After September 2026**, continuing replications and triggering migrations will require a move to the new simplified experience.
+- You won’t be able to view, manage, or perform replication & migration related operations on these machines through the Azure portal after this retirement date.
+- New features, Security updates and enhancements, and mobility agent support for additional Linux distributions will only be made available in the simplified experience.
     
 ## Next steps
 
-- Learn more about the [Simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended).
+- Learn more about setting up the [Simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended).
   
