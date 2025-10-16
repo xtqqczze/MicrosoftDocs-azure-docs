@@ -1,5 +1,5 @@
 ---
-title: Migrate AWS Lambda Workloads to Azure Functions
+title: "Migrate AWS Lambda workloads to Azure Functions"
 description: Learn how to migrate workloads from AWS Lambda to Azure Functions. Compare functionality and optimize workloads on Azure.
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
@@ -7,7 +7,7 @@ ms.service: azure-functions
 ms.collection: 
  - migration
  - aws-to-azure
-ms.date: 03/18/2025
+ms.date: 10/16/2025
 ms.topic: conceptual
 #customer intent: As a developer, I want to learn how to migrate serverless applications from AWS Lambda to Azure Functions so that I can make the transition efficiently.
 ---
@@ -19,6 +19,9 @@ Migrating a serverless workload that uses Amazon Web Services (AWS) Lambda to Az
 - Perform a discovery process on your existing workload.
 - Learn how to perform key migration activities like premigration planning and workload assessment.
 - Evaluate and optimize a migrated workload.
+
+> [!TIP]
+> Azure Functions provides a custom chat mode in GitHub Copilot for Azure that helps you migrate your AWS Lambda app to Azure Functions. To access this targeted assistance in Visual Studio Code, run `@azure: Add Custom Chat modes` from the command palette, then search for and add **LambdaToFunctionMigration**. With this chat mode file in your project, select **LambdaToFunctionMigration** as your chat mode. For more information, see [Use chat modes in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes).
 
 ## Scope
 
