@@ -62,17 +62,17 @@ The new agentless dependency experience was released on Sep 30,2025. You need to
 1. Dependency analysis automatically runs on up to 1,000 servers discovered by each Azure Migrate appliance that passes the prerequisite checks. You don’t need to enable it manually anymore.
 2. The enhanced dependency visualization helps you **review additional information** about the servers, connections, and processes. You can filter the view by process type to analyze resolvable or relevant dependencies in the visualization.
 3. In the new visualization, after identifying key dependencies, you can **group servers into an application** by tagging them inline.
-4. Going to the **Explore application** menu, you can select dependency analyis to view dependencies gathered across all enabled servers, discovered in the project.
+4. Go to Explore Application menu, and then select Dependency Analysis to view dependencies gathered across all enabled servers discovered in the project.
 
 ## I am an existing user who had enabled agentless dependency analysis in Classic experience but in the new experience, why do I see a higher count for servers enabled?
 - In the new experience if you have upgraded to the new dependency capability for an appliance, Azure Migrate will automatically enable dependency analysis for servers where pre-validations have passed. 
-- The total no of servers enabled cannot exceed a limit of 1000 per appliance so the automatically enabled servers count will be 1000 minus those enabled manually by you previously.
-- It is recommended to use the new experiences in Azure Migrate to view the dependency visualization for enabled servers. 
-- Only if you have gathered dependency data previously for a long period, you can switch to the old experience to export that data.
+- The total number of servers enabled cannot exceed the limit of 1,000 per appliance. Therefore, the count of automatically enabled servers will be 1,000 minus the number of servers you had previously enabled manually.
+- We recommend using the new experiences in Azure Migrate to view the dependency visualization for enabled servers.
+- You switch to the old experience only if you have gathered dependency data over a long period and want to export it.
 
-## As an existing user of Classic experience, how to upgrade to the new dependency visualization?
+## As an existing user of the classic experience, how can I upgrade to the new dependency visualization?
 
-Refer to the documentation here on how to [switch to the new enhanced visualization](/azure/migrate/how-to-create-group-machine-dependencies-agentless?view=migrate#switch-to-new-visualization)
+For more information, see on how to [switch to the new enhanced visualization](/azure/migrate/how-to-create-group-machine-dependencies-agentless?view=migrate#switch-to-new-visualization)
 
 ## As an existing user of Classic experience, can I continue to view the previoulsy gathered server dependencies in the new experience as well?
 
@@ -80,25 +80,25 @@ Refer to the documentation here on how to [switch to the new enhanced visualizat
 - To view dependencies for previoulsy collected data, you can switch to the old visualization through the banner on top of the page.
 - You can also go to the Classic experience through a footer note on the **Overview** page where you can select **View Dependencies** for the servers you enabled.
 
-## As an existing user of Classic experience, is there a way for me to export the dependency data that I had gathered till date before the New experience was released?
+## As an existing user of the classic experience, is there a way to export the dependency data that was gathered before the new experience was released?
 
-- Yes, you can export the dependency data already gathered in the Classic experience by swicthing to the Classic experience through a footer note on the **Overview** page.
-- The **data retention period is 30 days** even in the old datastore so you can easily export the data by going to the Classic experience.
+- Yes, you can export the dependency data already gathered in the classic experience by switching to it through the footer note on the **Overview** page.
+- The **data retention period is 30 days**, even in the old datastore, so you can easily export the data by accessing the classic experience.
 
-## As an existing user of Classic experience, will I always be defaulted to the new experience and only shown the dependencies gathered after I upgraded the capability?
+## As an existing user of the classic experience, will I always land on the new experience and only see the dependencies gathered after I upgrade the capability?
 
 - If you are an existing user who has not upgraded to the new dependency capability, you can still switch to the old dependency visualization from the new experience. 
-- After you have upgraded to the new dependency capability, you will be directed to the new visualization by default but you can at any time, switch to the old visualization from the new experience and to export the data collected previously, you can switch to the Classic experience and download it from there.
+- After upgrading to the new dependency capability, you will be directed to the new visualization by default. However, you can switch to the old visualization at any time from the new experience. To export previously collected data, you can switch to the classic experience and download it from there.
 
 ## How to use the new Dependency view showing all dependencies across servers discovered in my project?
-Refer to the [documentation](https://learn.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies-agentless?view=migrate#visualize-dependencies-across-servers) on how to review the dependency view across enabled servers, discovered in the project.
+For more information, see, [how to review the dependency view across enabled servers, discovered in the project](https://learn.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies-agentless?view=migrate#visualize-dependencies-across-servers).
 
 ## As an existing user of agent-based dependency analysis, can I continue using the capability after the release of the new experience?
 - Agent-based dependency analysis is **not supported in the new Azure Migrate experience**. You can go to the Classic experience through a footer note on the **Overview** page of the project, where you can continue using the agent-based dependency analysis using the associated Log Analytics workspace.
 
 ## After the deprecation of MMA agent, how can I continue to use agent-based dependency anlaysis for Azure Migrate discovered servers?
 - The Log Analytics MMA agent was retired on August 31st 2024. To gather dependencies, you still need a separate Dependency Agent. 
-- Dependency Agent will need the new Azure Monitor Agent (AMA) to be deployed on the guest servers to gather the dependency data.
+- The Dependency agent requires the new Azure Monitor Agent (AMA) to be deployed on guest servers to gather dependency data.
 - After switching to AMA, the Dependency agent will push the dependency data to the same Log Analytics workspace (ID) that was previously associated with the Azure Migrate project for agent-based dependency analysis.
 
 ## After the deprecation of MMA agent, how can I transition to the new AMA agent to continue gathering the dependency data?
