@@ -65,7 +65,7 @@ New-AzFirewall `
   -MaxCapacity 10
 ```
 ### Bicep Example
-For reference, here’s an example configuration using a Bicep template where you can see the new autoscaleConfiguration property: [Azure Firewall Bicep template](https://learn.microsoft.com/azure/templates/microsoft.network/azurefirewalls?pivots=deployment-language-bicep)
+For reference, here’s an example configuration using a Bicep template where you can see the new autoscaleConfiguration property: [Azure Firewall Bicep template](azure/templates/microsoft.network/azurefirewalls?pivots=deployment-language-bicep)
 
 ## Choosing capacity values
 
