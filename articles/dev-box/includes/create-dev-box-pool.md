@@ -1,12 +1,15 @@
-
-
+---
+author: RoseHJM
+ms.author: rosemalcolm
+ms.date: 10/16/2025
+ms.topic: include
+ms.service: dev-box
+---
 
 The following steps show you how to create a dev box pool in a project. When creating a dev box pool, you can select a marketplace image, custom image, or dev box definition. Using images gives you the flexibility to choose the compute size and storage that best fits your needs.
 
 > [!TIP]
 > Use project policies to control the SKUs and images, or other resources such as networks that specific project teams can use. For more information, see [Control resource use with project policies in Microsoft Dev Box](../how-to-configure-project-policy.md).
-
-If you don't have an available dev center and project, follow the steps in [Quickstart: Configure Microsoft Dev Box](../quickstart-configure-dev-box-service.md) to create them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -25,7 +28,7 @@ If you don't have an available dev center and project, follow the steps in [Quic
    | Setting | Value |
    |---|---|
    | **Display name** | Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes. The name must be unique within a project. |
-   | **Definition** | Select a marketplace image, custom image, or existing dev box definition.  |
+   | **Definition** | Select a custom image, marketplace image, or existing dev box definition.  |
    | **Compute** | When you select an image, you can specify the VM size for the dev boxes in this pool. |
    | **Storage** | When you select an image, you can specify the storage size for the dev boxes in this pool. |
    | **Hibernation** | Shows whether hibernation is supported or not. |

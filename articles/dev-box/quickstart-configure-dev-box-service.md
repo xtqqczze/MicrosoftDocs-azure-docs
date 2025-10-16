@@ -48,8 +48,6 @@ Follow these steps to create a dev center and manage your dev box resources:
 
 [!INCLUDE [create-dev-center-steps](includes/create-dev-center-steps.md)]
 
-
-
 ## Create a project
 
 Dev box projects let you manage team-level settings. These settings include giving access to development teams so developers can create dev boxes. Each dev center needs at least one project.
@@ -103,24 +101,24 @@ To create and set up a project in a dev box:
 
 ## Create a dev box pool
 
-After you create a project in your dev center, create a dev box pool in the project. A dev box pool is a collection of dev boxes with the same settings, like the image, location, and network connection. You can select a marketplace image, custom image, image definition, or dev box definition for your pool. When using images, you have the flexibility to independently choose the compute size and storage. Developers who have access to the project can create a dev box from a dev box pool.
+After you create a project in your dev center, create a dev box pool in the project. A dev box pool is a collection of dev boxes with the same settings, like the image, location, and network connection. Developers who have access to the project can create a dev box from a dev box pool. You must associate at least one dev box pool with your project before users can create a dev box.
 
-### Understanding image and definition types
+When creating a dev box pool, you choose an image source. You can select an image definition, custom image, marketplace image, or dev box definition. Image definitions, custom images, and marketplace images offer greater customization opportunities and greater flexibility by letting you independently select compute size and storage.
 
-When creating a dev box pool, you can choose from four options:
+### Understand image and definition types
+
+When creating a dev box pool, you can choose from four image options. For greater customization, use image definitions, custom images, or marketplace images, which let you select compute size and storage separately. The table describes each option and when to use it.
 
 | Type | Description | When to use |
 |------|-------------|-------------|
-| **Marketplace image** | Pre-configured images available from Azure Marketplace, such as Windows 11 Enterprise or Visual Studio images. | For standard configurations with common development tools. Offers flexibility to select compute size and storage independently. |
-| **Custom image** | Your organization's custom images stored in Azure Compute Gallery. | For organization-specific configurations. Allows independent selection of compute size and storage. |
 | **Image definition** | YAML-based customization files that define a base image and apply team-specific customizations. Can be built into reusable images. | For team-specific environments with automated software installation and configuration. Best for standardized team setups. |
+| **Custom image** | Your organization's custom images stored in Azure Compute Gallery. | For organization-specific configurations. Allows independent selection of compute size and storage. |
+| **Marketplace image** | Preconfigured images available from Azure Marketplace, such as Windows 11 Enterprise or Visual Studio images. | For standard configurations with common development tools. Offers flexibility to select compute size and storage independently. |
 | **Dev box definition** | Legacy option that bundles a base image with a fixed VM size and storage configuration. | For backward compatibility with existing configurations. Consider migrating to marketplace or custom images for more flexibility. |
 
-> [!TIP]
-> We recommend using marketplace images, custom images, or image definitions instead of dev box definitions. These options provide more flexibility by allowing you to select compute size and storage independently.
+- **Azure Compute Gallery** is a service for managing and sharing custom images across your organization. Learn more at [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md).
+- **Marketplace images** are preconfigured VM images available from the Azure Marketplace. For details, see [Azure Marketplace images documentation](/azure/virtual-machines/marketplace-images-overview).
 
-> [!IMPORTANT]
-> Associate at least one dev box pool with your project before users can create a dev box.
 
 [!INCLUDE [create-dev-box-pool](includes/create-dev-box-pool.md)]
 
