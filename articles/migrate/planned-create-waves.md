@@ -1,13 +1,13 @@
 ---
-title: Plan and create new waves
-description: Add the description
+title: Create Migration Waves in Azure Migrate for Efficient Cloud Migration Planning
+description: Learn how to create migration waves in Azure Migrate to group workloads, sequence migrations, and reduce risk. Follow step-by-step guidance for efficient cloud migration planning.
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: concept-article
 ms.date: 10/15/2025
-# Customer intent: Understand concepts such as migration targets, prerequisites, and wave planning. Also, plan and execute a predictable migration and modernization process using Azure Migrate.
+# Customer intent: how to plan and execute cloud migration efficiently using Azure Migrate by creating migration waves that group workloads logically, sequence them based on priority, and optionally leverage assessments for optimized migration paths.
 ---
 
 # Create migration Waves in Azure Migrate for efficient planning (heading changed)
