@@ -2006,3 +2006,12 @@ groups:
     title: Business Critical
   - id: hyperscale
     title: Hyperscale
+# Owner: jodowns
+- id: virtual-network-gateway-types
+  title: Gateway type
+  prompt: Choose a virtual network gateway type
+  pivots:
+  - id: expressroute
+    title: ExpressRoute
+  - id: vpn
+    title: VPN
