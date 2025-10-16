@@ -20,8 +20,6 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 ## October 2025
 ### FHIR service
 
-**SMART Wildcard _include and _revinclude Scope Enforcement**: Previously, SMART searches using wildcards for _include and _revinclude could return resource types that aren't part of the current scope of the SMART user. This issue has been addressed, and proper responses are returned for _include and _revinclude SMART wildcard searches now.
-
 **Enhancement to _not-referenced search and delete**: Adds the ability to use not referenced search and delete to look for the lack of specific references. For example, to search for Patients without an Encounter listing them as a subject: /Patient?_not-referenced=Encounter:subject.
 
 #### Bug fixes:
@@ -34,11 +32,13 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 **Reindex fix**: Previously, after adding and reindexing a new search parameter, a warning would sometimes be returned "Search Parameter not recognized". This issue is fixed by improving background refresh and synchronization.
 
-**Bulk delete remove references bug fix**: Previously, when performing a bulk delete with "remove references", if a resource has a reference removed and another reference - whose ID contains the ID of the removed reference but doesn't exactly match it -  remains, the second reference was also removed unintentionally. This issue has been fixed by changing from "contains" check to "exact match" for ID checking. Then only the correct reference will be removed.
+**Bulk delete remove references bug fix**: Previously, during bulk delete query with “_remove-references” parameter, resources with IDs that partially matched another reference ID were incorrectly removed. The issue is now fixed by changing the ID check from a “contains” match to an “exact” match, ensuring only the intended reference is removed.
 
-**Conditional Create Latency Improvement via Optimized Profile Loading**: Improved latency on conditional create requests by changing the way profiles are loaded by the validator.
+**Conditional Create – Latency Improvement via Optimized Profile Loading**: Changed the way profiles are loaded by the validator to prevent long waits on locks when the cache isn’t expired. This update addresses intermittent delays reported by users during create operations, traced to validation. While the issue occurred only occasionally, this change aims to eliminate a potential source of latency.
 
-**Enhanced Reindex Orchestrator Logic for Increased Reliability**: Improvements and bug fixes to the reindex orchestrator logic in the FHIR server to increase reliability and performance.
+**Reindex Orchestrator – Reliability and Performance Improvements**: Enhanced the reindex orchestrator for better reliability, accuracy, and performance. Updates include optimized surrogate ID range handling, improved job completion tracking, refined polling intervals to reduce database load, and fixes for query and parameter handling to ensure accurate progress reporting.
+
+**SMART Wildcard _include and _revinclude Scope Enforcement**: Previously, SMART searches using wildcards for _include and _revinclude could return resource types that aren't part of the current scope of the SMART user. This issue has been addressed, and proper responses are returned for _include and _revinclude SMART wildcard searches now.
 
 ## September 2025
 ### FHIR service
