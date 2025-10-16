@@ -19,7 +19,7 @@ ms.custom:
 This article outlines how to use the copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline to copy data from QuickBooks Online. It builds on the [overview article about the copy activity](copy-activity-overview.md).
 
 > [!IMPORTANT]
-> The QuickBooks connector version 1.0 is at [Removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the QuickBooks connector](#quickbooks-connector-lifecycle-and-upgrade) from version 1.0 to 2.0.
+> The QuickBooks connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the QuickBooks connector](#quickbooks-connector-lifecycle-and-upgrade) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
