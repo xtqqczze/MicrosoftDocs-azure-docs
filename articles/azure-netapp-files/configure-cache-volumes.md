@@ -228,7 +228,7 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
 
 ## Create a LDAP enabled cache volume
 
-1.	Create a cache volume
+1.	Create a LDAP enabled cache volume
 
    ```
     curl -X 'PUT' \
