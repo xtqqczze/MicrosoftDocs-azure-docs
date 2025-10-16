@@ -82,6 +82,18 @@ In this case the maximum CPU utilization of the service will be 5%. This can be 
 
 ### Version 1.26.87 - April 2025
 
+#### New features 
+
+- Today our extension uses a maximum of 5% CPU. For cases where this needs to be configured, a configuration file "cpu_config.json" can be written under the path, /var/opt/azcmagent/. This file should contain the following configuration: 
+
+```json
+{
+    "PolicyAgentCpu": 5
+}
+```
+ 
+In this case the maximum CPU utilization of the service will be 5%. This can be configured per the needs of the required scenario. 
+
 #### Updated
 
 - Updated .NET from version 6 to 8
