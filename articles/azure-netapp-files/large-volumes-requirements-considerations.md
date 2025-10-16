@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: concept-article
-ms.date: 08/19/2025
+ms.date: 10/16/2025
 ms.author: anfdocs
 # Customer intent: As a storage administrator, I want to review the requirements and limitations of large volumes in Azure NetApp Files, so that I can effectively plan the deployment and management of storage solutions to meet my organization's data capacity and performance needs.
 ---
@@ -77,8 +77,6 @@ The following requirements and considerations apply to large volumes. For perfor
 
 Large volumes breakthrough mode are currently in preview and you must request the feature before using it for the first time. 
 
-* Breakthrough mode large volumes can scale up to 900,000 MiB/s. 
-<!-- check value -->
 * Breakthrough mode large volumes are supported at sizes between 2 TiB and 2 PiB. 
 * Breakthrough mode is supported on the Flexible, Standard, Premium, and Ultra service levels. 
   Cool access isn't currently supported for breakthrough mode. 
