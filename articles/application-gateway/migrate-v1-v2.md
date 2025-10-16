@@ -51,13 +51,13 @@ This phase focuses on setting up the new V2 gateway with the settings from your 
 
 ## 1. Enhanced Cloning Script
 This is the new experience that offers an improved migration experience by:
--Eliminating the need for manual input of frontend SSL certificates and backend trusted root certificates.
--Supporting the deployment of private-only V2 gateways.
+* Eliminating the need for manual input of frontend SSL certificates and backend trusted root certificates.
+* Supporting the deployment of private-only V2 gateways.
 
 You can **download** the Enhanced cloning script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWClone/1.0.0).
  
   **Parameters for the script:**
-This script takes below parameters([o] - optional, [m] - mandatory)
+This script takes below parameters:
 -	**AppGw V1 ResourceId -Required**: This parameter is the Azure Resource ID for your existing Standard V1 or WAF V1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
      You can also run the following Azure PowerShell commands to get the Resource ID:
      ```azurepowershell
@@ -122,9 +122,10 @@ have a network security group or user defined routes associated to the V2 gatewa
 
 ## 2. Legacy Cloning Script
 This is the older cloning script, which facilitates the transition by:
-*Creating a new Standard_V2 or WAF_V2 Application Gateway in a user-specified virtual network subnet.
-*Automatically copying the configuration from an existing Standard or WAF V1 gateway to the newly created V2 gateway.
-*Requires customer to provide SSL and auth certs as input and doesn't support private only V2 gateways 
+* Creating a new Standard_V2 or WAF_V2 Application Gateway in a user-specified virtual network subnet.
+* Automatically copying the configuration from an existing Standard or WAF V1 gateway to the newly created V2 gateway.
+* Requires customer to provide SSL and auth certs as input and doesn't support private only V2 gateways 
+
 You can **download** this cloning script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration)
 
 ### How to run the script
@@ -260,8 +261,11 @@ This command also installs the required Az modules.
 
 #### Install using the script directly
 
-If you have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
-For the older cloning script, Version 1.0.11 is the new version of the migration script which includes major bug fixes. It's recommended to use this stable version.
+If you have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. 
+
+The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
+
+For the legacy cloning script, Version 1.0.11 is the new version of the migration script which includes major bug fixes. Make sure to use the latest stable version from [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration)
 
 #### How to check the version of the downloaded script
 
@@ -276,7 +280,7 @@ To check the version of the downloaded script the steps are as follows:
 .COMPANYNAME Microsoft Corporation
 .COPYRIGHT Microsoft Corporation. All rights reserved.
 ```
-* Make sure to use the latest stable version from [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration)
+
 
 ## Traffic migration
 
@@ -297,8 +301,8 @@ You can **download** this Public IP retention script  from the  [PowerShell Gall
   **Parameters for the script:**
   
   This script requires the following mandatory parameters:
-* 1.	V1 ResourceId – The resource ID of the V1 Application Gateway whose Public IP will be reserved and associated with V2.
-* 2.	V2 ResourceId – The resource ID of the V2 Application Gateway to which the V1 Public IP will be assigned. The V2 gateway can be created either manually or using anyone of the cloning script. 
+* 	V1 ResourceId – The resource ID of the V1 Application Gateway whose Public IP will be reserved and associated with V2.
+* 	V2 ResourceId – The resource ID of the V2 Application Gateway to which the V1 Public IP will be assigned. The V2 gateway can be created either manually or using anyone of the cloning script. 
 
 After downloading and [installing the script](../application-gateway/migrate-v1-v2.md#installing-the-script)
 
