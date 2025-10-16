@@ -117,7 +117,7 @@ Choose from four image options for your dev box pool. For greater customization,
 | **Dev box definition** | Legacy option that bundles a base image with a fixed VM size and storage configuration. | For backward compatibility with existing configurations. Consider migrating to marketplace or custom images for more flexibility. |
 
 - **Azure Compute Gallery** is a service for managing and sharing custom images across your organization. Learn more at [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md).
-- **Marketplace images** are preconfigured VM images available from the Azure Marketplace. For details, see [Azure Marketplace images documentation](/azure/virtual-machines/marketplace-images-overview).
+- **Marketplace images** are preconfigured VM images available from the Azure Marketplace. They include common operating systems and development tools.
 
 
 [!INCLUDE [create-dev-box-pool](includes/create-dev-box-pool.md)]
