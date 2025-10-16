@@ -35,7 +35,7 @@ To review and update these settings in Azure Migrate's Wave planning, follow the
 For applications
 1. In **Target Setting** select **Link assessment** to review the link assessment. You can change assessment or link if none is currently linked.  
 
-        Linking an assessment to the application links the assessment to all workloads for that application across waves and reset the tasks.  
+Linking an assessment to the application links the assessment to all workloads for that application across waves and reset the tasks.  
 
 **<Image 4.2 - application target settings>**
 

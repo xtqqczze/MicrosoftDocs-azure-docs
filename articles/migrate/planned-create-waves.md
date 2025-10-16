@@ -18,7 +18,7 @@ To create migration waves, group your applicaitons and workloads into logical se
 - **Sequence waves**: Prioritize waves based on factors such as business criticality, complexity, and migration impact.
 - **Parallelize where safe:** Run independent waves in parallel to accelerate migration speed without introducing risk.
 
-For more information on grouping and sequencing, see, [Azure Cloud Adoption Framework – Migration Wave Planning](https://learn.microsoft.com/azure/cloud-adoption-framework/migrate/migration-wave-planning.)
+For more information on grouping and sequencing, see, [Azure Cloud Adoption Framework – Migration Wave Planning](../migrate/migration-wave-planning.md).
 
 ## Create Waves using Azure Portal
 
