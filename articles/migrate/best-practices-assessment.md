@@ -78,9 +78,9 @@ The storage engine used in AVS is vSAN. vSAN storage policies define storage req
 2 | RAID-6 (Erasure Coding) | 6 | A 100GB VM would consume 150GB.
 3 | RAID-1 (Mirroring) | 7 | A 100GB VM would consume 400GB.
 
-## Best practices for confidence ratings
+## Best practices for performance coverage
 
-When you run performance-based assessments, a confidence rating from 1-star (lowest) to 5-star (highest) is awarded to the assessment. To use confidence ratings effectively:
+When you run performance-based assessments, a performance coverage from 1-star (lowest) to 5-star (highest) is awarded to the assessment. To use performance coverage effectively:
 
 - Azure VM and AVS assessments need:
     - The CPU and memory utilization data for each of the servers
@@ -92,9 +92,9 @@ When you run performance-based assessments, a confidence rating from 1-star (low
     - The read/write IOPS/throughput data of data and Log files
     - The latency of IO operations
 
-Depending on the percentage of data points available for the selected duration, the confidence rating for an assessment is provided as summarized in the following table.
+Depending on the percentage of data points available for the selected duration, the performance coverage for an assessment is provided as summarized in the following table.
 
-   **Data point availability** | **Confidence rating**
+   **Data point availability** | **Performance coverage**
    --- | ---
    0%-20% | 1 Star
    21%-40% | 2 Star

@@ -139,7 +139,7 @@ items:
       href: cost-estimation.md   
     - name: Target right-sizing # help users understand how perf data is used in depth
       href: target-right-sizing.md
-    - name: Confidence rating
+    - name: Performance coverage
       href: confidence-ratings.md
     - name: Application assessment
       items:
