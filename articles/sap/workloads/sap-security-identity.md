@@ -110,14 +110,12 @@ The GSA client implements an [NDIS 6.0 lightweight filter (LWF) network driver](
 
 5.	SAP Products Approaching End of Life / Migration
 Several SAP security solution products are now end of life. Microsoft and SAP have collaborated to provide a migration path for customers 
-- Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn
+- [Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fentra%2Fid-governance%2Fscenarios%2Fmigrate-from-sap-idm&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933712915%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=8A2HrWopNUB3IhzaCavmW4lm0MLSZjtMlpNwXrifvFc%3D&reserved=0)
+SAP IDM 8.0 – End of Life December 2027.  More documentation on the migration path can be found here 
+- [Update on the SAP Identity Management migration to... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/update-on-the-sap-identity-management-migration-to-microsoft-entra/ba-p/13742820)
+- [Preparing for SAP Identity Management’s End-of-Mai... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101)
 
-- SAP IDM 8.0 – End of Life December 2027.  More documentation on the migration path can be found here 
-- Update on the SAP Identity Management migration to... - SAP Community
-- Preparing for SAP Identity Management’s End-of-Mai... - SAP Community
-
-SAP SSO Server (Java) – End of Life December 2027  
-SAP GUI MFA with Microsoft Entra (Part I): Integra... - SAP Community
+SAP SSO Server (Java) – SAP has announced the End of Life December 2027  [SAP GUI MFA with Microsoft Entra (Part I): Integra... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-i-integration-with-sap-secure-login/ba-p/13605383)
 
 
 Learn more about Microsoft Entra ID Governance: aka.ms/Entra/IdentityGovernance  
