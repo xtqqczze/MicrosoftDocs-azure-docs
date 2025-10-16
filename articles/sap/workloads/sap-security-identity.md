@@ -15,7 +15,7 @@ ms.author: cgardin
  
 
 # Identity Management 
-Provisioning and Single Sign-on, multifactor authentication & Global Secure Access SNC  
+This article provides a collection of links and general information on Identity Management, Provisioning and Single Sign-on, multifactor authentication & Global Secure Access SNC  
 
 There are too many complex scenarios covering Identity Management, Authentication, and Authorization and it isn't possible to document generalizable scenarios.     
 The links in this section are intended to be a starting point for developing the appropriate solution for a specific customer scenario.  
@@ -43,11 +43,13 @@ Additional information is available here
 - [How to Configure SSO for SAP GUI Including MFA - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/how-to-configure-sso-for-sap-gui-including-mfa/ba-p/14213388)
 
 ### iii.	Mobile Devices – X509 or SAML 
-SAP discontinued Fiori mobile app as of 2022 and now support native browsers
+SAP discontinued Fiori mobile app as of 2022 and now support native browsers.
+It is therefore recommended to use SAML or OIDC.  
 [Time for a Fresh-Up: Single sign-on for SAP on Mobile Devices](https://www.linkedin.com/pulse/time-fresh-up-single-sign-on-sap-mobile-devices-carsten-olt-qxwxe)
 
 
 ### iv.	Microsoft Power Platform and Microsoft AI 
+Authentication options for Microsoft Power Platform and Microsoft AI:
 - [Principal propagation in a multicloud solution be... - SAP Community](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcommunity.sap.com%2Ft5%2Ftechnology-blog-posts-by-members%2Fprincipal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and%2Fba-p%2F13519225&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933696887%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=l4FOZirBcOXwK9igLcg3FfD4%2BVMczTBra6%2Bp4D%2Bs24E%3D&reserved=0)
 - [Power Platform + SAP OData - single sign-on - Happy path](https://www.youtube.com/watch?v=NSE--fVLdUg)
 - [Power Platform + SAP OData - single sign-on - Step by Step](https://www.youtube.com/watch?v=AcM67FBIEB4)
@@ -57,7 +59,6 @@ SAP discontinued Fiori mobile app as of 2022 and now support native browsers
 
 ### v.	Other Client Technologies 
 NetWeaver Business Client, Concur, Fiori Mobile App, Business Explorer (BEx), Business Objects, and other non-SAP applications (such as a non-SAP Warehouse Management system) will be added to this documentation later.  Some of these technologies are now out of support.  
-
 
 For more information on how to configure single sign-on from Microsoft Entra ID, see the following documentation and tutorials.  
 
@@ -95,20 +96,20 @@ More information on the SAP BTP Cloud Identity Services (CIS) can be found here:
 - A good summary can be found here [Navigating SAP SSO: Choosing Between SAP single sign-on 3.0 and SAP Secure Login Service for SAP GUI](https://www.linkedin.com/pulse/navigating-sap-sso-choosing-between-single-sign-on-30-carsten-olt-jyrje/?trk=article-ssr-frontend-pulse_little-text-block)
 - https://learn.microsoft.com/entra/id-governance/sap 
 
-3.	Automatic Synchronization of Authorization Attributes 
+## 3.	Automatic Synchronization of Authorization Attributes 
 Authorization attributes can be replicated from Microsoft Entra to target SAP applications such as SAP BTP Role Collections. This is discussed in this link [Manage access to your SAP applications - Microsoft Entra ID Governance | Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/sap)
 
 There are some limited functionalities available to synchronize Authorization Roles and Profiles for NetWeaver and S/4 systems.  Additional information about S/4, SuccessFactors, Ariba, and Fieldglass Authorization attributes will be added to this documentation. 
 
 The diagram here depicts the architecture from an SAP centric point of view:  [SAP IAM integration with SAP Cloud Identity Services | SAP Architecture Center](https://architecture.learning.sap.com/docs/ref-arch/20c6b29b1e).   This diagram shows the concept with reference to Entra [Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/scenarios/migrate-from-sap-idm#overview-of-microsoft-entra-and-its-sap-product-integrations)
 
-4.	Global Secure Access GSA with SAPGUI SNC  
+## 4.	Global Secure Access GSA with SAPGUI SNC  
 The video embedded in the following blog is recommended for customers wanting to achieve Network Level Security similar to operating a VPN without the overhead of installing and maintaining a full VPN on client devices.  
 The GSA client implements an [NDIS 6.0 lightweight filter (LWF) network driver](https://learn.microsoft.com/en-us/windows-hardware/drivers/network/ndis-filter-drivers) to route any traffic to internal and external applications based on centrally defined access rules at the company's Entra ID tenant level.
   - [SAP GUI MFA with Microsoft Entra (Part II): Integr... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-ii-integration-with-microsoft-entra/ba-p/13691141)
   - [219 - The one with SSO to SAP GUI using Global Secure Access (Martin Raepple) | SAP on Azure Video](https://www.youtube.com/watch?v=42dj-lV-MDQ)
 
-5.	SAP Products Approaching End of Life / Migration
+## 5.	SAP Products Approaching End of Life / Migration
 Several SAP security solution products are now end of life. Microsoft and SAP have collaborated to provide a migration path for customers 
 - [Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fentra%2Fid-governance%2Fscenarios%2Fmigrate-from-sap-idm&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933712915%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=8A2HrWopNUB3IhzaCavmW4lm0MLSZjtMlpNwXrifvFc%3D&reserved=0)
 SAP IDM 8.0 – End of Life December 2027.  More documentation on the migration path can be found here 
