@@ -89,9 +89,10 @@ To create an assessment, follow these steps.
     :::image type="content" source="./media/create-web-app-assessment/edit-defaults.png" alt-text="Screenshot shows how to edit defaults to choose the preferred target." lightbox="./media/create-web-app-assessment/edit-defaults.png" :::
 
 ::: moniker range="migrate"
+
 **Infrastructure - Azure VM settings**
 
-    | **Setting** | **Description** | **Possible Values**  | 
+   | **Setting** | **Description** | **Possible Values**  | 
      |------------------|--------------------------|------------|
      | VM sizing | The Azure VM series that you want to consider for rightsizing. | All VM services are selected by default | 
      | Storage sizing | Specifies the type of target storage disk | - Premium managed disk<br> - Standard HDD managed disks<br> - Standard SSD managed disks<br> - Ultra disks |
@@ -100,7 +101,7 @@ To create an assessment, follow these steps.
 
    **AKS Settings**
    
-    | **Setting** | **Description** | **Possible Values**  | 
+   | **Setting** | **Description** | **Possible Values**  | 
     |------------------|--------------------------|------------|
     | Category         | Selecting a particular SKU category ensures we recommend the best AKS Node SKUs from that category. | - All <br> - Compute optimized <br> - General purpose <br> - GPU <br> - High performance compute  <br> - Isolated  <br> - Memory optimized <br> - Storage optimized |
     | Pricing tier | Pricing tier for AKS | Standard  | 
@@ -108,7 +109,7 @@ To create an assessment, follow these steps.
 
    **App Service Settings** 
     
-    | **Setting** | **Description** | **Possible Values** |
+   | **Setting** | **Description** | **Possible Values** |
     |--------------------|-----------------|-----------|
     | Isolation required | The Isolated plan allows you to run your apps in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard.| - No   <br> - Yes   |
 
@@ -123,7 +124,7 @@ Azure Migrate supports two types of target sizing for Web app assessments:
 
 #### Performance-based Sizing
 
-This method provides target size recommendations based on gathered performance and configuration data. 
+This method provides target size recommendations based on gathered performance data. 
 
 - For ASP.NET web apps, performance data is collected for the associated application pools.
     - When multiple web apps run under the same application pool, the percentage of resources allocated to every web app is a linear function of the number of apps in the application pool.
