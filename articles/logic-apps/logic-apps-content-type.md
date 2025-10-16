@@ -66,7 +66,7 @@ In Azure Logic Apps, you can generate user-friendly tokens that represent the pr
 
 The following list describes common workflow operations and the corresponding ways that you can generate tokens for properties in JSON content:
 
-- **Request** trigger named **When a HTTP request is received**
+- **Request** trigger named **When an HTTP request is received**
 
   When you work in the designer with the **Request** trigger, you can optionally provide a JSON schema that defines the JSON objects, properties, and the expected data types for each property value. If you don't have a JSON schema, you can provide an example payload to generate a JSON schema that you can use.
 
@@ -80,7 +80,7 @@ The following list describes common workflow operations and the corresponding wa
   
   1. In the **Enter or paste a sample JSON payload** box, enter a sample payload, then select **Done**.
 
-     :::image type="content" source="./media/logic-apps-content-type/request-trigger.png" alt-text="Screenshot shows the Request trigger named When a HTTP request is received plus a sample JSON payload." lightbox="./media/logic-apps-content-type/request-trigger.png":::
+     :::image type="content" source="./media/logic-apps-content-type/request-trigger.png" alt-text="Screenshot shows the Request trigger named When an HTTP request is received plus a sample JSON payload." lightbox="./media/logic-apps-content-type/request-trigger.png":::
 
      The generated schema now appears in your trigger.
 
