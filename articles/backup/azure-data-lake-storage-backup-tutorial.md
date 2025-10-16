@@ -1,0 +1,83 @@
+---
+title: Tutorial - Back up Azure Data Lake Storage using the Azure portal
+description: Learn how to back up Azure Data Lake Storage using  the Azure portal. 
+ms.custom:
+  - ignite-2025
+ms.topic: tutorial
+ms.date: 05/22/2025
+ms.service: azure-backup
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As an IT administrator, I want to back up Azure Data Lake Storage using the portal so that I can ensure data protection against accidental or malicious deletions without maintaining on-premises infrastructure.
+---
+
+#  Tutorial: Back up Azure Data Lake Storage using the Azure portal
+
+This tutorial describes how to back up Azure Data Lake Storage using  the Azure portal. 
+
+Learn about [Azure Data Lake Storage backup and restore](azure-data-lake-storage-backup-overview.md), and the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md).
+
+## Prerequisites
+
+Before you back up Azure Data Lake Storage, ensure the following prerequisites are met:
+
+- The storage account must be in a [supported region and of the required types](azure-data-lake-storage-backup-support-matrix.md).
+- The target account mustn't have containers with the  names same as the containers in a recovery point; otherwise, the restore operation fails.
+- Identify or [create a Backup vault](create-manage-backup-vault.md#create-backup-vault) in the same region as the Azure Data Lake Storage account.
+- [Create a backup policy for Azure Data Lake Storage](azure-data-lake-storage-backup-create-policy-quickstart.md?pivots=client-portal) to configure the backup schedule and retention.
+
+>[!Note]
+>- This feature is currently available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
+>- Vaulted backup restores are only possible to a different storage account.
+
+### Grant permissions to the Backup vault on storage accounts
+
+A Backup vault needs specific permissions on the storage account for backup operations. The **Storage Account Backup Contributor** role consolidates these permissions for easy assignment. We recommend you to grant this role to the Backup vault before configuring backup.
+
+>[!Note]
+>You can also perform the role assignment while configuring backup.
+
+To assign the required role for storage accounts that you want to protect, follow these steps:
+
+>[!Note]
+>You can also assign the roles to the vault at the Subscription or Resource Group levels according to your convenience.
+
+1. In the [Azure portal](https://portal.azure.com/), go to the storage account, and then select **Access Control (IAM)**.
+1. On the **Access Control (IAM)** pane, select **Add role assignments** to assign the required role.
+
+   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/add-role-assignments.png" alt-text="Screenshot shows how to start assigning roles to the Backup vault." lightbox="./media/azure-data-lake-storage-configure-backup/add-role-assignments.png":::
+
+1. On the **Add role assignment** pane, do the following steps:
+
+   1. **Role**: Select **Storage Account Backup Contributor**.
+   1. **Assign access to**: Select **User, group, or service principal**.
+   1. **Members**: Click **+ Select members** and search for the Backup vault you created, and then select it from the search result to back up blobs in the underlying storage account.
+
+1. Select **Save** to finish the role assignment.
+ 
+>[!Note]
+> The role assignment might take up to **30 minutes** to take effect.
+
+[!INCLUDE [How to configure backup for Azure Data Lake Storage](../../includes/azure-data-lake-storage-configure-backup.md)]
+
+## Monitor an Azure Data Lake Storage backup job
+
+The Azure Backup service creates a job for a scheduled backup or when you trigger an on-demand backup operation, allowing you to monitor the job progress.
+
+To check the backup job status, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault** > **Backup jobs**.
+
+   :::image type="content" source="./media/azure-data-lake-storage-backup-manage/monitor-backup-jobs.png" alt-text="Screenshot shows how to monitor the backup jobs." lightbox="./media/azure-data-lake-storage-backup-manage/monitor-backup-jobs.png":::
+
+1. On the **Backup jobs** pane, select the required time range and apply filters to narrow down the list of jobs.
+
+   The **Backup jobs** dashboard shows the operation and status for the past seven days.
+
+## Next steps
+
+- [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
+- [Manage backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
+ 
+
+

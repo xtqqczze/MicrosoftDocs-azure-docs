@@ -140,6 +140,8 @@
     href: tutorial-configure-backup-aks.md
   - name: Configure vaulted backup for Azure Blob
     href: blob-backup-configure-tutorial.md  
+  - name: Back up Azure Data Lake Storage 
+    href: azure-data-lake-storage-backup-tutorial.md  
   - name: Restore vaulted backups for AKS clusters in a secondary region
     href: tutorial-restore-aks-backups-across-regions.md
   - name: Back up Azure Files using Azure portal
