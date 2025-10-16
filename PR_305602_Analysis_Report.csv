@@ -1,0 +1,56 @@
+Status,File_Path,Extent of modifications,,,
+A,articles/sentinel/datalake/asset-data-tables.md,New,,,### __Most Significant Changes (50+ lines):__
+A,articles/sentinel/datalake/enable-data-connectors.md,New,,,
+A,articles/sentinel/datalake/sentinel-graph-overview.md,New,,,"1. __articles/sentinel/TOC.yml__ - __1,878 lines changed__ (massive restructuring)"
+A,articles/sentinel/datalake/sentinel-lake-onboard-defender.md,New,,,
+A,articles/sentinel/datalake/sentinel-mcp-agent-creation-tool.md,New,,,   - This is by far the largest change - complete table of contents reorganization
+A,articles/sentinel/datalake/sentinel-mcp-billing.md,New,,,
+A,articles/sentinel/datalake/sentinel-mcp-data-exploration-tool.md,New,,,2. __articles/sentinel/datalake/sentinel-lake-onboarding.md__ - __183 lines changed__
+A,articles/sentinel/datalake/sentinel-mcp-get-started.md,New,,,
+A,articles/sentinel/datalake/sentinel-mcp-overview.md,New,,,   - Major updates to data lake onboarding process
+A,articles/sentinel/datalake/sentinel-mcp-responsible-ai-faq.md,New,,,
+A,articles/sentinel/datalake/sentinel-mcp-tools-overview.md,New,,,3. __articles/sentinel/datalake/notebooks.md__ - __129 lines changed__
+A,articles/sentinel/datalake/troubleshoot-sentinel-mcp.md,New,,,
+A,articles/sentinel/manage-platform-solutions.md,New,,,   - Substantial updates to notebook documentation
+A,articles/sentinel/package-platform-solution.md,New,,,
+A,articles/sentinel/sentinel-overview.md,New,,,4. __articles/sentinel/sentinel-solution-quality-guidance.md__ - __104 lines changed__
+A,articles/sentinel/solution-setup-essentials.md,New,,,
+A,articles/sentinel/troubleshoot-sentinel-solutions.md,,,,   - Significant updates to solution quality guidelines
+M,articles/sentinel/basic-logs-use-cases.md,,,,
+M,articles/sentinel/best-practices.md,,,,5. __articles/sentinel/datalake/notebook-jobs.md__ - __96 lines changed__
+M,articles/sentinel/billing-monitor-costs.md,,,,
+M,articles/sentinel/billing-pre-purchase-plan.md,,,,   - Major changes to notebook jobs documentation
+M,articles/sentinel/billing-reduce-costs.md,,,,
+M,articles/sentinel/billing.md,,,,6. __articles/sentinel/log-plans.md__ - __69 lines changed__
+M,articles/sentinel/business-continuity-disaster-recovery.md,,,,
+M,articles/sentinel/configure-data-connector.md,,,,   - Substantial updates to log plans documentation
+M,articles/sentinel/datalake/auditing-lake-activities.md,,,,
+M,articles/sentinel/datalake/kql-jobs-summary-rules-search-jobs.md,,,,7. __articles/sentinel/datalake/kql-jobs.md__ - __66 lines changed__
+M,articles/sentinel/datalake/kql-jobs.md,,,,
+M,articles/sentinel/datalake/kql-manage-jobs.md,,,,   - Significant changes to KQL jobs documentation
+M,articles/sentinel/datalake/kql-overview.md,,,,
+M,articles/sentinel/datalake/kql-queries.md,,,,8. __articles/sentinel/billing-monitor-costs.md__ - __58 lines changed__
+M,articles/sentinel/datalake/kql-troubleshoot.md,,,,
+M,articles/sentinel/datalake/notebook-examples.md,,,,   - Major updates to billing and cost monitoring
+M,articles/sentinel/datalake/notebook-jobs.md,,,,
+M,articles/sentinel/datalake/notebooks-overview.md,,,,9. __articles/sentinel/whats-new.md__ - __52 lines changed__
+M,articles/sentinel/datalake/notebooks.md,,,,
+M,articles/sentinel/datalake/sentinel-lake-connectors.md,,,,   - Substantial updates to what's new content
+M,articles/sentinel/datalake/sentinel-lake-onboarding.md,,,,
+M,articles/sentinel/datalake/sentinel-lake-overview.md,,,,10. __articles/sentinel/datalake/kql-queries.md__ - __51 lines changed__
+M,articles/sentinel/datalake/sentinel-lake-service-limits.md,,,,
+M,articles/sentinel/datalake/sentinel-provider-class-reference.md,,,,    - Significant changes to KQL queries documentation
+M,articles/sentinel/enable-sentinel-features-content.md,,,,
+M,articles/sentinel/geographical-availability-data-residency.md,,,,### __Moderate Changes (20-49 lines):__
+M,articles/sentinel/log-plans.md,,,,
+M,articles/sentinel/manage-data-overview.md,,,,- __articles/sentinel/sentinel-integration-guide.md__ - 46 lines
+M,articles/sentinel/manage-table-tiers-retention.md,,,,- __articles/sentinel/manage-data-overview.md__ - 44 lines
+M,articles/sentinel/microsoft-sentinel-defender-portal.md,,,,- __articles/sentinel/overview.md__ - 43 lines
+M,articles/sentinel/overview.md,,,,- __articles/sentinel/partner-integrations.md__ - 42 lines
+M,articles/sentinel/partner-integrations.md,,,,- __articles/sentinel/billing.md__ - 40 lines
+M,articles/sentinel/roles.md,,,,- __articles/sentinel/datalake/kql-manage-jobs.md__ - 38 lines
+M,articles/sentinel/sentinel-integration-guide.md,,,,- __articles/sentinel/datalake/kql-overview.md__ - 33 lines
+M,articles/sentinel/sentinel-solution-quality-guidance.md,,,,- __articles/sentinel/geographical-availability-data-residency.md__ - 32 lines
+M,articles/sentinel/sentinel-solutions-post-publish-tracking.md,,,,- __articles/sentinel/datalake/sentinel-provider-class-reference.md__ - 26 lines
+M,articles/sentinel/whats-new.md,,,,- __articles/sentinel/datalake/auditing-lake-activities.md__ - 22 lines
+,,,,,- __articles/sentinel/datalake/sentinel-lake-overview.md__ - 21 lines
