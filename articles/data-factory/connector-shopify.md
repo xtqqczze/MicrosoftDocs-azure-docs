@@ -184,7 +184,7 @@ To copy data from Shopify, set the source type in the copy activity to **Shopify
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ShopifySource** | Yes |
-| query |For version 2.0, use the GraphQL query to read data. To learn more about this query, see this [article](https://shopify.dev/docs/api/usage/search-syntax). For version 1.0, use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | No (if "tableName" in dataset is specified) |
+| query |For version 2.0, use the GraphQL query to read data. To learn more about this query, see this [article](https://shopify.dev/docs/api/admin-graphql). Note that the pagination query is only supported for outer tables，and each table can retrieve a maximum of 250 rows. For version 1.0, use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -254,7 +254,7 @@ The following table shows the release stage and change logs for different versio
 
 1. In **Edit linked service** page, select 2.0 (Preview) for version. For more information, see [linked service version 2.0 (Preview) properties](#version-20).
 1. For version 2.0 (Preview), note that table and column names retain the Shopify GraphQL structure.
-1. If you use SQL query in the copy activity source or the lookup activity that refers to the version 1.0 linked service, you need to convert them to the GraphQL query. To learn more about this query, see this [article](https://shopify.dev/docs/api/usage/search-syntax).
+1. If you use SQL query in the copy activity source or the lookup activity that refers to the version 1.0 linked service, you need to convert them to the GraphQL query. To learn more about this query, see this [article](https://shopify.dev/docs/api/admin-graphql)
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
