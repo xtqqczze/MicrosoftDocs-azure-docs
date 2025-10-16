@@ -92,15 +92,6 @@ If you experience packet drops or connectivity issues:
 - **Review Observed Capacity** to assess capacity trends.
 - **Consider increasing minimum capacity** to provide more capacity support or if frequent upward scales occur.
 - **Use key telemetry metrics** such as Latency Probe, Throughput, and Observed Capacity to optimize scaling strategies.
- 
-## Billing information
-
-Prescaling introduces a **Capacity Unit Hour** billing meter. You pay based on the number of capacity units provisioned per hour.
-
-| SKU | Price per capacity unit |
-|-----|-------------------------|
-| Azure Firewall Standard | $0.07 per capacity unit hour |
-| Azure Firewall Premium | $0.11 per capacity unit hour |
 
 ## Limitations
 
