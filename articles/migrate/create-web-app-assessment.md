@@ -76,7 +76,7 @@ To create an assessment, follow these steps.
     | Discount Percentage          | Any subscription-specific discounts you receive on top of the Azure offer. This setting is disabled if Savings option is selected. | Numeric decimal value, Default is 0% |
     | Subscription              | Negotiated subscription ID for cost estimation | Only Negotiated subscription IDs are listed here |
     | Uptime | Time for which you expect the workloads to run |	Days per month and Hours per day |
-    | Sizing criteria	|	Criteria for target Web app right-sizing | - Performance based  (default) – Select this option if you want assessment based on resource utilization (CPU and memory) and configuration data<br> -	As on-premises - Select this option if you want assessment based on configuration data of the on-premises workloads |
+    | Sizing criteria	|	Criteria for target Web app right-sizing | - Performance based  (default) – Select this option if you want assessment based on resource utilization (CPU and memory) and configuration data<br> -	As on-premises - Select this option if you want assessment based on configuration data of the on-premises workloads<br> In case of unavailability of performance data due to errors, assessment would be generated with As on-premises target sizing. |
     | Performance history |		Duration of performance history to generate assessment of the on-premises workloads | -	1 day (default)<br> - 1 week<br> -	1 month |
     | Percentile utilization |	Percentile value considered for the performance history of the on-premises workloads | - 50th<br> -	90th<br> -	95th (default)<br> - 99th |
     | Comfort factor |	Buffer added on top of utilization to account for scenarios like seasonal spikes in usage, insufficient performance data, likely increase in future usage, etc. As an example, normally, a 16-core VM with 20% utilization results in a 4-core VM. With a comfort factor of 2.0, it results in an 8-core VM as a match. | 	Multiple options. Default is 1. |
@@ -84,13 +84,19 @@ To create an assessment, follow these steps.
     | Microsoft Defender for Cloud | Includes Microsoft Defender for Cloud to protect your Web apps on Azure. | Specify whether you want to include Microsoft Defender for Cloud in the cost estimate. Microsoft Defender for App service or Microsoft Defender for Containers cost would be selected based on the target workload. This setting is enabled by default. |
 ::: moniker-end
  
- 
-7. On the **Advanced settings** tab, select **Edit defaults** to choose the preferred Azure targets and target-specific settings. 
+ 7. On the **Advanced settings** tab, select **Edit defaults** to choose the preferred Azure targets and target-specific settings to meet your migration requirements. 
 
     :::image type="content" source="./media/create-web-app-assessment/edit-defaults.png" alt-text="Screenshot shows how to edit defaults to choose the preferred target." lightbox="./media/create-web-app-assessment/edit-defaults.png" :::
 
-   **AKS Settings**
+::: moniker range="migrate"
+**Infrastructure - Azure VM settings**
+    | **Setting** | **Description** | **Possible Values**  | 
+     | VM sizing | The Azure VM series that you want to consider for rightsizing. | All VM servies are selected by default | 
+     | Storage sizing | Specifies the type of target storage disk | - Premium managed disk<br> - Standard HDD managed disks<br> - Standard SSD managed disks<br> - Ultra disks |
+     | Security settings | Security type of the VM | - Standard<br> - Trusted launch VM |
+::: moniker-end
 
+   **AKS Settings**
     | **Setting** | **Description** | **Possible Values**  | 
     |------------------|--------------------------|------------|
     | Category         | Selecting a particular SKU category ensures we recommend the best AKS Node SKUs from that category. | - All <br> - Compute optimized <br> - General purpose <br> - GPU <br> - High performance compute  <br> - Isolated  <br> - Memory optimized <br> - Storage optimized |
@@ -98,7 +104,6 @@ To create an assessment, follow these steps.
     | Consolidation   | Maximize the number of web apps to be packed per node. | Full Consolidation(default) |
  
     **App Service Settings** 
-
     | **Setting** | **Description** | **Possible Values** |
     |--------------------|-----------------|-----------|
     | Isolation required | The Isolated plan allows you to run your apps in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard.| - No   <br> - Yes   |
@@ -114,7 +119,7 @@ Azure Migrate supports two types of target sizing for Web app assessments:
 
 #### Performance-based Sizing
 
-This method provides target size recommendations based on gathered performance and configuration data.
+This method provides target size recommendations based on gathered performance and configuration data. 
 
 - For ASP.NET web apps, performance data is collected for the associated application pools.
     - When multiple web apps run under the same application pool, the percentage of resources allocated to every web app is a linear function of the number of apps in the application pool.
@@ -129,7 +134,7 @@ This method provides target size recommendations based on gathered performance a
 > For private endpoint scenarios, data is stored in a user-managed Storage account set up during Azure Migrate project creation.
 
 #### As on-premises sizing: 
-This method is used when performance data isn't available. Following values are considered for CPU and memory utilization per web app:
+This method provides target size recommendations based on configuration data. Following values are considered for CPU and memory utilization per web app:
 - ASP.NET web app: 0.15 cores, 0.25 GB memory
 - Java web app: 0.15 cores, 0.15 GB memory. If static memory is configured for Tomcat server, it is considered instead of these values.
 
