@@ -32,28 +32,29 @@ To review and update these settings in Azure Migrate's Wave planning, follow the
 
 **<Image 4.1 -Overview with target settings click >**
 
-1. For applications
-    1. In **Target Setting** select **Link assessment** to review the link assessment. You can change assessment or link if none is currently linked.  
+For applications
+1. In **Target Setting** select **Link assessment** to review the link assessment. You can change assessment or link if none is currently linked.  
 
         Linking an assessment to the application links the assessment to all workloads for that application across waves and reset the tasks.  
 
 **<Image 4.2 - application target settings>**
 
-   1. Select **Add tasks** to add tasks you need to perform as part of migration beyond the workload migrations. These tasks are manual, so you can add, update and track manually.
+1. Select **Add tasks** to add tasks you need to perform as part of migration beyond the workload migrations. These tasks are manual, so you can add, update and track manually.
 
 **<Image 4.3 - Application tasks view>**   
 
-1. For workloads
-    1. Select **Configure target** to review and configure the Azure target. The system sets target by default when you select an assessment. 
-    1. Select **None** for workloads that are planned for retirement and not to be migrated.
-    1. Select the tool in **Migration tool** dropdown to define the migration path and tasks. 
-    1. Select **Other** for workloads that you want to migrate outside Azure Migrate.
+**For workloads**
+
+1. Select **Configure target** to review and configure the Azure target. The system sets target by default when you select an assessment. 
+1. Select **None** for workloads that are planned for retirement and not to be migrated.
+1. Select the tool in **Migration tool** dropdown to define the migration path and tasks. 
+1. Select **Other** for workloads that you want to migrate outside Azure Migrate.
    
 **<Image 4.4 - workload target setings - configure targets**      
  
-    1. Select **Save configuration**.
-    1. Review and add tasks using **Add tasks** that need to be performed and tracked for migrations.
-    1. Select **Save tasks** to save.
+1. Select **Save configuration**.
+1. Review and add tasks using **Add tasks** that need to be performed and tracked for migrations.
+1. Select **Save tasks** to save.
     
 Refer to the FAQ to learn about the supported tools and targets for the execute phase of migration and modernization [TBD].
 
