@@ -134,7 +134,7 @@ The following steps show how to set up OBO authorization after you select an OBO
 
 1. On the designer, in the agent, complete the following tasks:
 
-   1. Follow the [general steps](create-conversational-agent-workflows.md#create-tool-weather) to create an agent tool by selecting an OBO-supported managed connector action.
+   - Follow the [general steps](create-conversational-agent-workflows.md#create-tool-weather) to create an agent tool by selecting an OBO-supported managed connector action.
 
       This example uses the **Office 365 Outlook** action named **Get emails (V3)**.
 
