@@ -93,7 +93,7 @@ Leaf certificates used with [individual enrollment](./concepts-service.md#indivi
 
 For [enrollment groups](./concepts-service.md#enrollment-group), the subject common name (CN) sets the device ID that is registered with IoT Hub. The device ID is shown in the **Registration Records** for the authenticated device in the enrollment group. For individual enrollments, the device ID can be set in the enrollment entry. If it's not set in the enrollment entry, then the subject common name (CN) is used.
 
-To learn more, see [Authenticate devices signed with X.509 CA certificates](../iot-hub/authenticate-authorize-x509#authenticate-devices-signed-with-x509-ca-certificates).
+To learn more, see [Authenticate devices signed with X.509 CA certificates](../iot-hub/authenticate-authorize-x509.md#authenticate-devices-signed-with-x509-ca-certificates).
 
 ### DPS device chain requirements
 

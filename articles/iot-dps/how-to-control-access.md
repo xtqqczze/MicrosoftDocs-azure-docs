@@ -109,7 +109,7 @@ curl -L -i -X PUT -H 'Content-Type: application/json' -H 'Content-Encoding:  utf
 
 ```
 
-If using a symmetric key-based enrollment group, you need to first generate a `device symmetric` key using the enrollment group key. Use the enrollment group primary or secondary key to compute an HMAC-SHA256 of the registration ID for the device. The result is then converted into Base64 format to obtain the derived device key. To view code examples, see [Derive a device key](how-to-legacy-device-symm-key?tabs=linux&pivots=programming-language-java#derive-a-device-key). Once the device symmetric key is derived, you can register the device using the previous examples.
+If using a symmetric key-based enrollment group, you need to first generate a `device symmetric` key using the enrollment group key. Use the enrollment group primary or secondary key to compute an HMAC-SHA256 of the registration ID for the device. The result is then converted into Base64 format to obtain the derived device key. To view code examples, see [Derive a device key](how-to-legacy-device-symm-key.md?tabs=linux&pivots=programming-language-java#derive-a-device-key). Once the device symmetric key is derived, you can register the device using the previous examples.
 
 >[!WARNING]
 >To avoid including the group master key in your device code, the process of deriving device key should be done off the device.
