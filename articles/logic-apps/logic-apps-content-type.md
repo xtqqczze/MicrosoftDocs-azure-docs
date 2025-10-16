@@ -134,58 +134,65 @@ The following list describes common workflow operations and the corresponding wa
 
 ## text/plain
 
-When your logic app receives HTTP messages that have the `Content-Type` header set to `text/plain`, your logic app stores those messages in raw form. If you include these messages in subsequent actions without casting, requests go out with the `Content-Type` header set to `text/plain`. 
+If your workflow receives HTTP requests where the `Content-Type` header value is *text/plain*. Azure Logic Apps stores and handles the content in raw form. If you reference or use this content in subsequent workflow actions without casting or conversion, outbound requests also have the `Content-Type` header value set to `text/plain`. 
 
-For example, when you're working with a flat file, you might get an HTTP request with the `Content-Type` header set to `text/plain` content type:
+For example, suppose you're working with a flat file, and the inbound HTTP request has the `Content-Type` header value set to `text/plain`:
 
 `Date,Name,Address`</br>
 `Oct-1,Frank,123 Ave`
 
-If you then send this request on in a later action as the body for another request, for example, `@body('flatfile')`, that second request also has a `Content-Type` header that's set to `text/plain`. If you're working with data that is plain text but didn't specify a header, you can manually cast that data to text by using the [string() function](../logic-apps/workflow-definition-language-functions-reference.md#string) such as this expression: 
+If you send this request to a subsequent action that uses the request body to send another request, the second request also has the `Content-Type` header value set to `text/plain`. If you work with data in plain text but didn't specify a header, you can manually cast this data to text by using the [`string()` function](workflow-definition-language-functions-reference.md#string), for example:
 
-`@string(triggerBody())`
+`string(triggerBody())`
 
 <a name="application-xml-octet-stream"></a>
 
 ## application/xml and application/octet-stream
 
-Logic Apps always preserves the `Content-Type` in a received HTTP request or response. If your logic app receives content with `Content-Type` set to `application/octet-stream` and you include that content in a later action without casting, the outgoing request also has `Content-Type` set to `application/octet-stream`. That way, Logic Apps can be sure that data doesn't get lost while moving through the workflow. The action state, or inputs and outputs, is stored in a JSON object while the state moves through the workflow.
+Azure Logic Apps always preserves the `Content-Type` header value in an inbound HTTP request or response. If your workflow receives content with `Content-Type` set to *application/octet-stream*, and you include that content in a subsequent action without casting, the outbound request also sets `Content-Type` to `application/octet-stream`. This approach makes sure that data doesn't get lost while moving through the workflow. In stateful workflows, the subsequent action's state, inputs, and outputs are stored in a JSON object while the state moves through the workflow.
 
 ## Converter functions
 
-To preserve some data types, Logic Apps converts content to a binary base64-encoded string with appropriate metadata that preserves both the `$content` payload and the `$content-type`, which are automatically converted. 
+To preserve some data types, Azure Logic Apps converts content to a binary base64-encoded string. This string has the appropriate metadata that preserves both the `$content` payload and the `$content-type`, which are automatically converted. 
 
-This list describes how Logic Apps converts content when you use these [functions](../logic-apps/workflow-definition-language-functions-reference.md):
+The following list describes how Azure Logic Apps converts content when you use specific [functions](workflow-definition-language-functions-reference.md):
 
-- `json()`: Casts data to `application/json`
-- `xml()`: Casts data to `application/xml`
-- `binary()`: Casts data to `application/octet-stream`
-- `string()`: Casts data to `text/plain`
-- `base64()`: Converts content to a base64-encoded string
-- `base64toString()`: Converts a base64-encoded string to `text/plain`
-- `base64toBinary()`: Converts a base64-encoded string to `application/octet-stream`
-- `dataUri()`: Converts a string to a data URI
-- `dataUriToBinary()`: Converts a data URI to a binary string
-- `dataUriToString()`: Converts a data URI to a string
+- `json()`: Casts data to `application/json`.
+- `xml()`: Casts data to `application/xml`.
+- `binary()`: Casts data to `application/octet-stream`.
+- `string()`: Casts data to `text/plain`.
+- `base64()`: Converts content to a base64-encoded string.
+- `base64toString()`: Converts a base64-encoded string to `text/plain`.
+- `base64toBinary()`: Converts a base64-encoded string to `application/octet-stream`.
+- `dataUri()`: Converts a string to a data URI.
+- `dataUriToBinary()`: Converts a data URI to a binary string.
+- `dataUriToString()`: Converts a data URI to a string.
 
-For example, if you receive an HTTP request where `Content-Type` set to `application/xml`, such as this content:
+For example, suppose your workflow trigger receives an HTTP request where `Content-Type` set to `application/xml` where the content looks like the following sample:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomerName>Frank</CustomerName>
 ```
 
-You can cast this content by using the `@xml(triggerBody())` expression with the `xml()` and `triggerBody()` functions and then use this content later. Or, you can use the `@xpath(xml(triggerBody()), '/CustomerName')` expression with the `xpath()` and `xml()` functions. 
+You can cast this content by using the following expression, which uses the `xml()` and `triggerBody()` functions:
+
+`xml(triggerBody())`
+
+You can then use the resulting content with subsequent actions in the workflow. Or, you might use the following expression that uses the `xpath()` and `xml()` functions instead:
+
+`xpath(xml(triggerBody()), '/CustomerName')`
+
 
 ## Other content types
 
-Logic Apps works with and supports other content types, but might require that you manually get the message body by decoding the `$content` variable.
+Azure Logic Apps supports other content types but might require that you manually get the message body from an HTTP request by decoding the `$content` variable.
 
-For example, suppose your logic app gets triggered by a request with the `application/x-www-url-formencoded` content type. To preserve all the data, the `$content` variable in the request body has a payload that's encoded as a base64 string:
+For example, suppose your workflow receives an HTTP request where `Content-Type` is set to `application/x-www-url-formencoded`. To preserve all the data, the request body includes the `$content` variable where the payload is encoded as a base64 string:
 
 `CustomerName=Frank&Address=123+Avenue`
 
-Because the request isn't plain text or JSON, the request is stored in the action as follows:
+This content type isn't in plain text or JSON format, so Azure Logic Apps stores `CustomerName=Frank&Address=123+Avenue` using the following `$content-type` and `$content` variables:
 
 ```json
 "body": {
@@ -194,15 +201,15 @@ Because the request isn't plain text or JSON, the request is stored in the actio
 }
 ```
 
-Logic Apps provides native functions for handling form data, for example: 
+Azure Logic Apps also includes native functions to handle form data, for example:
 
-- [triggerFormDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue)
-- [triggerFormDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues)
-- [formDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) 
-- [formDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues)
+- [triggerFormDataValue()](workflow-definition-language-functions-reference.md#triggerFormDataValue)
+- [triggerFormDataMultiValues()](workflow-definition-language-functions-reference.md#triggerFormDataMultiValues)
+- [formDataValue()](workflow-definition-language-functions-reference.md#formDataValue) 
+- [formDataMultiValues()](workflow-definition-language-functions-reference.md#formDataMultiValues)
 
-Or, you can manually access the data by using an expression such as this example:
+Or, you can manually access the data by using an expression such as the following example:
 
-`@string(body('formdataAction'))` 
+`string(body('formdataAction'))` 
 
-If you wanted the outgoing request to have the same `application/x-www-url-formencoded` content type header, you can add the request to the action's body without any casting by using an expression such as `@body('formdataAction')`. This method only works when the body is the only parameter in the `body` input. If you try to use the `@body('formdataAction')` expression in an `application/json` request, you get a runtime error because the body is sent encoded.
+To make an outbound request use `application/x-www-url-formencoded` as the `Content-Type` header value, add the request content to the action body without any casting by using an expression such as `body('formdataAction')`. This method works only if the action body is the only parameter in the `body` inputs object. If you use the `body('formdataAction')` expression in a request where the content type is `application/json`, you get a runtime error because the body is sent encoded.
