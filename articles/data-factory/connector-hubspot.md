@@ -5,7 +5,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 08/19/2025
+ms.date: 10/16/2025
 ms.author: jianleishen
 ms.custom:
   - synapse
@@ -35,6 +35,48 @@ For a list of data stores that are supported as sources/sinks , see the [Support
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
 The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
+
+The connector version 2.0 support the following HubSpot tables:
+
+- Marketing.Campaigns
+- Marketing.Emails.Marketing_Emails
+- Marketing.Subscriptions
+- Conversations.Inbox___Messages
+- CMS.Authors
+- CMS.Blog_Settings
+- CMS.Content_Audit
+- CMS.Domains
+- CMS.Hubdb
+- CMS.Pages
+- CMS.Posts
+- CMS.Site_Search
+- CMS.Tags
+- CMS.Url_Redirects
+- CRM.Commerce.Carts
+- CRM.Commerce.Discounts
+- CRM.Commerce.Fees
+- CRM.Commerce.Invoices
+- CRM.Commerce.Orders
+- CRM.Commerce.Quotes
+- CRM.Commerce.Subscriptions
+- CRM.Commerce.Taxes
+- CRM.Engagements.Calls
+- CRM.Engagements.Communications
+- CRM.Engagements.Emails
+- CRM.Engagements.Meetings
+- CRM.Engagements.Notes
+- CRM.Engagements.Postal_Mail
+- CRM.Engagements.Tasks
+- CRM.Objects.Companies
+- CRM.Objects.Contacts
+- CRM.Objects.Deals
+- CRM.Objects.Feedback_Submissions
+- CRM.Objects.Goal_Targets
+- CRM.Objects.Leads
+- CRM.Objects.Line_Items
+- CRM.Objects.Products
+- CRM.Objects.Tickets
+- CRM.Owners
 
 ## Getting started
 
@@ -233,6 +275,7 @@ To copy data from HubSpot, set the source type in the copy activity to **Hubspot
     }
 ]
 ```
+
 ## Data type mapping for HubSpot
 
 When you copy data from HubSpot, the following mappings apply from HubSpot's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
