@@ -107,7 +107,7 @@ When creating a dev box pool, you choose an image source. You can select an imag
 
 ### Understand image and definition types
 
-When creating a dev box pool, you can choose from four image options. For greater customization, use image definitions, custom images, or marketplace images, which let you select compute size and storage separately. The table describes each option and when to use it.
+Choose from four image options for your dev box pool. For greater customization, use image definitions, custom images, or marketplace images, which let you select compute size and storage separately. The table describes each option and when to use it.
 
 | Type | Description | When to use |
 |------|-------------|-------------|

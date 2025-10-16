@@ -28,7 +28,7 @@ The following steps show you how to create a dev box pool in a project. When cre
    | Setting | Value |
    |---|---|
    | **Display name** | Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes. The name must be unique within a project. |
-   | **Definition** | Select a custom image, marketplace image, or existing dev box definition.  |
+   | **Definition** | Select an image definition, custom image, marketplace image, or existing dev box definition.  |
    | **Compute** | When you select an image, you can specify the VM size for the dev boxes in this pool. |
    | **Storage** | When you select an image, you can specify the storage size for the dev boxes in this pool. |
    | **Hibernation** | Shows whether hibernation is supported or not. |

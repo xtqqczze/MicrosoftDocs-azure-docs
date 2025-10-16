@@ -57,7 +57,7 @@ A dev box pool has the following properties:
 | Property | Description |
 |----------|-------------|
 | **Display name** | The name of the dev box pool. The pool name is visible to developers when they create dev boxes. The name must be unique within a project. |
-| **Definition** | Select an image for the dev boxes in this pool: </br>- **Image definition**: YAML-based customization files that define a base image and apply team-specific customizations. </br>- **Custom image**: Your organization's custom images from compute galleries attached to the dev center </br>-**Marketplace image**: Pre-configured images from Azure Marketplace </br>-  **Dev box definition**: Existing dev box definitions that define the base image and size. |
+| **Definition** | Select an image for the dev boxes in this pool: </br>- **Image definition**: YAML-based customization files that define a base image and apply team-specific customizations. </br>- **Custom image**: Your organization's custom images from compute galleries attached to the dev center </br>- **Marketplace image**: Pre-configured images from Azure Marketplace </br>-  **Dev box definition**: Existing dev box definitions that define the base image and size. |
 | **Compute** | Select the VM size (SKU) for the dev boxes in this pool. Available when using marketplace or custom images. |
 | **Storage** | Select the storage size for the dev boxes in this pool. Available when using marketplace or custom images. |
 | **Hibernation** |Hibernation is supported when the source image and compute size are both compatible. |
