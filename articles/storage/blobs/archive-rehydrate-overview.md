@@ -19,7 +19,7 @@ While a blob is in the archive access tier, that blob is considered to be offlin
 - [Change an archived blob's access tier to an online tier](#change-a-blobs-access-tier-to-an-online-tier): You can rehydrate an archived blob to the hot or cool tier by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 
 > [!IMPORTANT]
-> Snapshots and previous versions cannot be rehydrated back to the Hot or Cool tiers once they are moved to the Archive tier.
+> Snapshots and previous versions cannot be rehydrated back to the hot or cool tiers once they are moved to the archive tier.
 > To access data from an archived snapshot or previous version, you must copy it to a new blob in an online tier (Hot or Cool) using the [copy blob operation](/rest/api/storageservices/copy-blob).
 > Direct rehydration of snapshots or previous versions is not supported.
 
