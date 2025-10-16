@@ -78,6 +78,8 @@
       href: backup-blobs-storage-account-bicep.md
   - name: Create a backup policy for Azure Data Lake Storage vaulted backup
     href: azure-data-lake-storage-backup-create-policy-quickstart.md
+  - name: Configure Azure Data Lake Storage backup using ARM/ Bicep template
+    href: azure-data-lake-storage-backup-configure-quickstart-arm-bicep.md  
   - name: Install Backup extension in AKS cluster
     href: quick-install-backup-extension.md
   - name: Create a backup policy for Azure Files  
