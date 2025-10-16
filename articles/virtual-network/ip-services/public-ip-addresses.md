@@ -102,12 +102,13 @@ Static public IP addresses are commonly used in the following scenarios:
 
 Standard SKU Public IPs can be created as zonal or zone-redundant in [regions that support availability zones](../../reliability/availability-zones-region-support.md). Basic SKU Public IPs don't have any zones and are created as non-zonal. Once created, a public IP address can't change its availability zone.
 
+In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones will be made zone-redundant once the region is in general availability status with multiple availability zones.
+
 | Value | Behavior |
 | --- | --- |
-| Zonal  |	 A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. |
 | Zone-redundant	| A zone-redundant IP is created in all zones for a region and can survive any single zone failure. |
-
-In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones will be made zone-redundant once the region is in general availability status with multiple availability zones.
+| Zonal  |	 A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. |
+| Non-zonal	| Only valid in regions that do not support availability zones. |
 
 ## Domain Name Label
 
