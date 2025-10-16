@@ -65,7 +65,7 @@ landingContent:
             url: functions-reference-node.md?tabs=typescript
           - text: Other languages (Rust/Go)
             url: create-first-function-vs-code-other.md
-  - title: AI & intelligent apps
+  - title: Develop AI apps
     linkLists:
       - linkListType: concept
         links:
