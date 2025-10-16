@@ -114,7 +114,7 @@ To restore a database, use the [az restore restore-azurewl](/cli/azure/backup/re
 
 To restore a database to an alternate location, use **AlternateWorkloadRestore** as the restore mode. You must then choose the restore point, which could either be a previous point-in-time or any of the previous restore points.
 
-In this tutorial, you'll restore to a previous restore point. [View the list of restore points](#view-restore-points-for-a-backed-up-database) for the database and choose the point you want to restore to. This tutorial will use the restore point with the name *7660777527047692711*.
+In this tutorial, you'll restore to a previous restore point. [View the list of restore points](#view-restore-points-for-a-backed-up-sap-hana-database) for the database and choose the point you want to restore to. This tutorial will use the restore point with the name *7660777527047692711*.
 
 By using the above restore point name and the restore mode, let's create the recovery config object using the [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) cmdlet. Let's look at what each of the remaining parameters in this cmdlet mean:
 
