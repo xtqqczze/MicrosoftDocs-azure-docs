@@ -54,7 +54,7 @@ This is the new experience that offers an improved migration experience by:
 * Eliminating the need for manual input of frontend SSL certificates and backend trusted root certificates.
 * Supporting the deployment of private-only V2 gateways.
 
-You can **download** the Enhanced cloning script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWClone/1.0.0).
+You can **download** the Enhanced cloning script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWClone).
  
   **Parameters for the script:**
 This script takes below parameters:
@@ -280,8 +280,6 @@ To check the version of the downloaded script the steps are as follows:
 .COMPANYNAME Microsoft Corporation
 .COPYRIGHT Microsoft Corporation. All rights reserved.
 ```
-
-
 ## Traffic migration
 
 ### Prerequisites
@@ -296,7 +294,7 @@ We provide an Azure PowerShell script designed to **retain the Public IP address
 *	Expected Downtime: This IP swap operation typically results in a brief **downtime of approximately 1-5 minutes**. Plan accordingly.
 *	After a successful script run, the Public IP is moved from AppGw V1 to AppGw V2, with AppGw V1 receiving a new internal public IP. 
 
-You can **download** this Public IP retention script  from the  [PowerShell Gallery](https://www.powershellgallery.com/packages)
+You can **download** this Public IP retention script  from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWIPMigrate)
 
   **Parameters for the script:**
   
@@ -324,7 +322,9 @@ AzureAppGWIPMigrate.ps1
 
 > [!NOTE]
 > The public IP swap performed by this script is irreversible. Once initiated, it isn't possible to revert the IP back to the V1 gateway using the script.
+
 ### Traffic Migration recommendations
+
 The following are a few scenarios where your current application gateway (Standard) may receive client traffic, and our recommendations for each one:
 * **A custom DNS zone (for example, contoso.com) that points to the frontend IP address (using an A record) associated with your Standard V1 or WAF V1 gateway**.
     You can update your DNS record to point to the frontend IP or DNS label associated with your Standard_V2 application gateway. Depending on the TTL configured on your DNS record, it may take a while for all your client traffic to migrate to your new V2 gateway.
