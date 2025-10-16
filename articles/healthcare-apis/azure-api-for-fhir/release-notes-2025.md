@@ -26,7 +26,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 **Reindex fix**: Previously, after adding and reindexing a new search parameter, a warning would sometimes be returned "Search Parameter not recognized". This issue got fixed by improving background refresh and synchronization.
 
-**Bulk delete remove references bug fix**: Previously, when performing a bulk delete with "remove references," if a resource has a reference removed and another reference remains—whose ID contains the ID of the removed reference but doesn't exactly match it—that second reference will also be removed unintentionally. This issue has been fixed by changing from contains check to exact match for ID checking, and only the correct reference will be removed now.
+**Bulk delete remove references bug fix**: Previously, when performing a bulk delete with "remove references", if a resource has a reference removed and another reference - whose ID contains the ID of the removed reference but doesn't exactly match it -  remains, the second reference was also removed unintentionally. This issue has been fixed by changing from "contains" check to "exact match" for ID checking. Then only the correct reference will be removed.
 
 **Conditional Create Latency Improvement via Optimized Profile Loading**: Improved latency on conditional create requests by changing the way profiles are loaded by the validator.
 
