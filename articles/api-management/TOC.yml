@@ -157,7 +157,7 @@
   - name: Migration
     items:
     - name: Migrate Amazon API Gateway to Azure API Management
-      href: migrate-amazon-api-gateway-to-azure-api-management.md
+      href: migrate-amazon-api-gateway-to-api-management.md
 - name: Logs and monitoring
   items:
   - name: Observability
