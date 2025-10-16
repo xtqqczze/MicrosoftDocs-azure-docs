@@ -56,7 +56,7 @@ sections:
           
           For more information, see the [OWASP top 10 vulnerabilities](https://owasp.org/www-project-top-ten/).
 
-          CRS 2.2.9 and 3.0 are no longer supported for new WAF policies. We recommend that you upgrade to the latest CRS or DRS version. You can't use CRS 2.2.9 along with CRS 3.2/DRS 2.1 and later versions. 
+          CRS 2.2.9 and 3.0 are no longer supported for new WAF policies. We recommend that you [upgrade to the latest DRS version](/azure/web-application-firewall/ag/upgrade-ruleset-version). You can't use CRS 2.2.9 along with CRS 3.2/DRS 2.1 and later versions. 
           
       - question: |
           What content types does the WAF support?
