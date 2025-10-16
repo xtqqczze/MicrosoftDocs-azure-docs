@@ -14,9 +14,9 @@ ms.custom:
 
 # Create and manage Azure IoT hubs
 
-This article describes how to create and manage an IoT hub.
+**Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 1
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+This article describes how to create and manage an IoT hub.
 
 ## Prerequisites
 

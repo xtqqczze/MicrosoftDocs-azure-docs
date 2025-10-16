@@ -6,32 +6,26 @@
       href: iot-concepts-and-iot-hub.md
     - name: "FAQ: What is new in IoT Hub Gen 2?"
       href: iot-hub-faq.md
-- name: Get started with IoT Hub
+- name: Get started with IoT Hub Gen 2
   items:
-    - name: Azure Device Registry
-      items: 
-        - name: What is Azure Device Registry?
-          href: iot-hub-device-registry-overview.md
-        - name: Set up Azure Device Registry
-          href: iot-hub-device-registry-setup.md
-    - name: Certificate Management
-      items:
-        - name: What is Certificate Management?
-          href: iot-hub-certificate-management-overview.md
-        - name: Use certificate-based authentication
-          href: iot-hub-certificate-management-authentication.md
-    - name: Create an IoT hub
-      href: create-hub.md
-      displayName: create IoT Hub, delete IoT hub, portal, CLI
+    - name: What is Azure Device Registry?
+      href: iot-hub-device-registry-overview.md
+    - name: Manage your namespaces
+      href: iot-hub-device-registry-namespaces.md
+    - name: What is Certificate Management?
+      href: iot-hub-certificate-management-overview.md
+    - name: Create an IoT hub Gen 2
+      href: iot-hub-device-registry-setup.md
+
   expanded: true
 - name: Quickstarts
   items:
-    - name: Codeless quickstart using CLI
+    - name: Create an IoT hub
+      href: create-hub.md
+      displayName: create IoT Hub, delete IoT hub, portal, CLI
+    - name: Send telemetry using CLI
       href: quickstart-send-telemetry-cli.md
       displayName: Azure CLI
-    - name: Send telemetry using SDK
-      href: ../iot/tutorial-send-telemetry-iot-hub.md
-      displayName: IoT Plug and Play, Azure IoT Explorer
 - name: Concepts
   items: 
     - name: Understand IoT Hub endpoints
@@ -61,7 +55,7 @@
       href: iot-hub-compare-event-hubs.md
 - name: How-to guides
   items:
-    - name: Manage your hubs
+    - name: Plan and scale your IoT Hub
       items:
         - name: Choose the right IoT Hub tier
           href: iot-hub-scaling.md

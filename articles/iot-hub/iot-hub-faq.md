@@ -18,23 +18,27 @@ Azure IoT Hub Gen 2 introduces advanced capabilities to improve security and uni
 
 IoT Hub Gen 2 introduces two major innovations: Azure Device Registry (ADR) and Certificate Management. These features are designed to enhance security, simplify device management, and streamline operations for IoT deployments.
 
-- **Azure Device Registry**: A centralized device registry that allows you to manage devices across multiple IoT hubs using namespaces. You can create a link between an existing ADR namespace to your IoT Hub Gen 2 or create a new namespace and create the link. For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
+While ADR is required for IoT Hub Gen 2, Certificate Management is an optional feature. You can use ADR to manage devices across multiple IoT hubs without using Certificate Management.
 
-- **Certificate Management**: IoT Hub Gen 2 introduces built-in support for managing device certificates using Microsoft-managed PKI with X.509 certificates. These X.509 certificates are strictly operational certificates which the devices uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. For more information, see [What is Certificate Management?](iot-hub-certificate-management-overview.md).
+- **Azure Device Registry (ADR)**: A centralized device registry that allows you to manage devices across multiple IoT hubs using namespaces. You can create a link between an existing ADR namespace to your IoT Hub Gen 2 or create a new namespace and create the link. For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
+
+- **Certificate Management**: IoT Hub Gen 2 introduces built-in support for managing device certificates using Microsoft-managed PKI with X.509 certificates. These X.509 certificates are strictly operational certificates which the devices uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. Certificate Management is an optional feature. For more information, see [What is Certificate Management?](iot-hub-certificate-management-overview.md).
 
 ## What are the differences between IoT Hub Gen 1 and Gen 2?
+
+IoT Hub Gen 2 builds on the capabilities of IoT Hub Gen 1, so essentially, everything that works in IoT Hub Gen 1 continues to work in IoT Hub Gen 2. 
 
 The following table summarizes the key differences between IoT Hub Gen 1 and Gen 2:
 
 |Feature | IoT Hub Gen1 | IoT Hub Gen2 (Preview)|
 |--------|--------------|-------------|
-|Device Registry Architecture | Local registry per IoT Hub instance; devices managed individually. | Centralized Azure Device Registry (ADR) with namespace support; devices as ARM records. |
-|Certificate Management | Third-party PKI providers (e.g., DigiCert, GlobalSign); manual integration required. | Microsoft-managed PKI with X.509 certificates; configure certificate authorities directly in ADR. |
-|Namespace Integration | No namespace concept; visibility limited to individual hubs. | Supports namespaces for unified visibility and control across hubs. |
-|Device Provisioning Service | Use DPS for onboarding into individual hubs. | DPS continues and integrates with ADR namespaces for cross-hub provisioning. |
+|Azure Device Registry (ADR) | Not supported. Local registry per IoT Hub instance; devices managed individually. | Required |
+|Certificate Management | Not supported | Optional but requires ADR namespace creation and DPS integration. |
+|Namespace integration | No namespace concept; visibility limited to individual hubs. | Supports namespaces for unified visibility and control across hubs. |
+|Device Provisioning Service | Use DPS for onboarding into individual hubs. | DPS continues and it's required if you want to use Certificate Management. |
 |Migration and setup | Existing hubs remain functional; no changes are required. | Migration isn't supported. Requires new hub creation with ADR integration. |
 |Azure Device Update | Supported | Not supported |
-|Pricing Model | Based on number of messages and features used. | Similar pricing model with potential adjustments for new features. |
+|Pricing model | Based on number of messages and features used. | Free during preview period. |
 |Throttling limits | Limits based on tier (B1, B2, S1, S2, S3). | Only available in Free and S1 tiers. |
 
 ## Can I migrate my existing hubs to Gen 2?
@@ -49,12 +53,22 @@ No, namespaces and Azure Device Registry aren't available in IoT Hub Gen 1. You 
 
 No, Certificate Management isn't available in IoT Hub Gen 1. You must create a new IoT hub Gen 2 instance to use this feature. For more information, see [What is Certificate Management?](iot-hub-certificate-management-overview.md) and [Set up Azure Device Registry](iot-hub-device-registry-setup.md).
 
+## Can I use Azure Device Registry without Certificate Management?
+
+Yes. While ADR is required for IoT Hub Gen 2, Certificate Management is an optional feature. You can use ADR to manage devices across multiple IoT hubs and choose to use other authentication methods, such as symmetric keys or third-party X.509 certificates. For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
+
+## Can I use Certificate Management without Azure Device Registry?
+
+No. Certificate Management requires using Azure Device Registry (ADR) to manage device certificates. You must set up an ADR namespace and link it to your IoT Hub Gen 2 and DPS instance to use Certificate Management. For more information, see [What is Certificate Management?](iot-hub-certificate-management-overview.md) and [Set up Azure Device Registry](iot-hub-device-registry-setup.md).
+
+
 ## Can I use Device Update with IoT Hub Gen 2?
 
 [Azure Device Update](/azure/iot-hub-device-update/) isn't currently supported with IoT Hub Gen 2. You can continue to use Device Update with your existing IoT hub Gen 1 instances.
 
 ## Does the pricing model change in IoT Hub Gen 2?
 
+Yes, the pricing model for IoT Hub Gen 2 is different from Gen 1. During the preview period, IoT Hub Gen 2 is free to use. After the preview period, pricing details will be provided.
 
 ## What are the quotas and limits for IoT Hub Gen 2?
 
