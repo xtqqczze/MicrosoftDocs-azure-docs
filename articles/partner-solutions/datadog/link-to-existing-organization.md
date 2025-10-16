@@ -3,9 +3,11 @@ title: Link to existing Datadog
 description: This article describes how to use the Azure portal to link to an existing instance of Datadog.
 ms.topic: quickstart
 ms.date: 12/11/2024
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 
 
-ms.custom: references_regions
 ---
 
 # QuickStart: Link to existing Datadog organization
@@ -17,7 +19,7 @@ In this quickstart, you link to an existing organization of Datadog.
 
 ## Prerequisites
 
-[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+[!INCLUDE [create-prerequisites-owner](../includes/create-prerequisites-owner.md)]
 - You must [configure your environment](prerequisites.md).
 - You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 

@@ -5,10 +5,11 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 09/10/2024
+ms.date: 10/01/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, copilot-scenario-highlight
+# Customer intent: As a cost manager, I want to analyze and manage Azure Blob Storage costs, so that I can optimize our cloud spending and avoid unexpected charges.
 ---
 
 # Plan and manage costs for Azure Blob Storage
@@ -80,7 +81,9 @@ The price that appears beside an operation type isn't the price you pay for each
 
 #### Data transfer meter
 
-Any data that leaves the Azure region incurs data transfer and network bandwidth charges. These charges commonly appear in scenarios where an account is configured for geo-redundant storage or when an object replication policy is configured to copy data to an account in another region. However, these charges also apply to data that is downloaded to an on-premises client. The price of network bandwidth doesn't appear in the Azure Storage pricing pages. To find the price of network bandwidth, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
+Any data that leaves the Azure region incurs either a data transfer or network bandwidth charge. The data transfer meter appears when an account is configured for geo-redundant storage. 
+
+Network bandwidth fees apply when a workload or object replication policy copies data to an account in another region. Network bandwidth fees can also appear when data that is downloaded to an on-premises client. The price of network bandwidth doesn't appear in the Azure Storage pricing pages. To find the price of network bandwidth, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 #### Feature-related meters
 
@@ -146,12 +149,17 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 4. Modify the remaining options to see their effect on your estimate.
 
-   > [!TIP]
-   > See these in-depth guides to help you predict and forecast costs:
-   >
-   > - [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
-   > - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
-   > - [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
+### Guides and sample estimates
+
+See these in-depth guides to help you predict and forecast costs:
+
+- [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
+- [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md)
+- [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
+- [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
+- [Cost estimate: Move data out of archive storage](../blobs/cost-estimate-archive-retrieval-set-tier.md)
+- [Cost estimate: Retrieve data from archive storage for analysis](../blobs/cost-estimate-archive-retrieval-copy-blob.md)
+- [Cost estimate: Upload and access data from multiple regions](../blobs/cost-estimate-multi-region-access.md)
 
 ### Using Azure Prepayment with Azure Blob Storage
 
@@ -164,6 +172,9 @@ If you've been using Blob Storage for some time, you should periodically review 
 - [Tutorial: Analyze blob inventory reports](../blobs/storage-blob-inventory-report-analytics.md)
 - [Tutorial: Calculate container statistics by using Databricks](../blobs/storage-blob-calculate-container-statistics-databricks.md)
 - [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.yml)
+
+> [!TIP]
+> You can use Microsoft Copilot in Azure to get suggestions on reducing the cost of your storage account. For more information, see [Manage and troubleshoot storage accounts using Microsoft Copilot in Azure](/azure/copilot/improve-storage-accounts#reduce-storage-costs).
 
 If you can model future capacity requirements, you can save money with Azure Storage reserved capacity. Azure Storage reserved capacity is available for most access tiers and offers you a discount on capacity for block blobs and for Azure Data Lake Storage data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage data. To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 
@@ -218,6 +229,7 @@ Some actions, such as changing the default access tier of your account, can lead
 | Access tiers | Changing the default access tier setting | If your account contains a large number of blobs for which the access tier is inferred, then a change to this setting can incur a significant cost. <br><br>A change to the default access tier setting of a storage account applies to all blobs in the account for which an access tier hasn't been explicitly set. For example, if you toggle the default access tier setting from hot to cool in a general-purpose v2 account, then you're charged for write operations (per 10,000) for all blobs for which the access tier is inferred. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in a general-purpose v2 account. <br><br>For more information, see [Default account access tier setting](../blobs/access-tiers-overview.md#default-account-access-tier-setting). |
 | Access tiers | Rehydrating from archive  | High priority rehydration from archive can lead to higher than normal bills. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations. <br><br>For more information, see [Rehydration priority](../blobs/archive-rehydrate-overview.md#rehydration-priority).|
 | Access tiers | Deleting, overwriting, or moving a blob to another tier | Tools or applications that use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to update a blob will overwrite the blob. Blobs are subject to an early deletion penalty if they're deleted, overwritten, or moved to a different tier before the minimum number of days required by the tier have transpired.  |
+| Application development | Uploading to a stream in Blob Storage | You can incur significant transaction costs if you open a stream in Blob Storage and write to it frequently in cases where object replication is enabled on the account.<br> Each write to the stream creates a new version of the zip file, and each version is copied to the destination account. The same is true if Azure Blob vaulted backup is enabled because vaulted backup uses object replication. |
 | Data protection | Enabling blob soft delete | Overwriting blobs can lead to blob snapshots. Unlike the case where a blob is deleted, the creation of these snapshots isn't logged. This can lead to unexpected storage costs. Consider whether data that is frequently overwritten should be placed in an account that doesn't have soft delete enabled.<br><br>For more information, see [How overwrites are handled when soft delete is enabled](../blobs/soft-delete-blob-overview.md#how-overwrites-are-handled-when-soft-delete-is-enabled).|
 | Data protection | Enabling blob versioning | Every write operation on a blob creates a new version. As is the case with enabling blob soft delete, consider whether data that is frequently overwritten should be placed in an account that doesn't have versioning enabled. <br><br>For more information, see [Versioning on write operations](../blobs/versioning-overview.md#versioning-on-write-operations). |
 | Monitoring | Enabling Storage Analytics logs (classic logs)| Storage analytics logs can accumulate in your account over time if the retention policy isn't set. Make sure to set the retention policy to avoid log buildup which can lead to unexpected capacity charges.<br><br>For more information, see [Modify log data retention period](manage-storage-analytics-logs.md#modify-log-data-retention-period) |

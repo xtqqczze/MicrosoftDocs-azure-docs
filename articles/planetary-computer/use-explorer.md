@@ -3,7 +3,7 @@ title: Use the Explorer in Microsoft Planetary Computer Pro
 description: This quickstart provides guidance on how to interact with the Microsoft Planetary Computer Pro Explorer.
 author: beharris
 ms.author: brentharris
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: quickstart
 ms.date: 05/08/2025
 #customer intent: As a Microsoft Planetary Computer Pro user, I want to navigate through the Explorer so that I can visualize my SpatioTemporal Access Catalog (STAC) data.
@@ -17,7 +17,7 @@ In this Quickstart, you learn how to interact with the Microsoft Planetary Compu
 
 ## Prerequisites
 
-* An Azure account with an active subscription; [create an account for free.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+* An Azure account with an active subscription; [create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An [Azure Microsoft Planetary Computer Pro GeoCatalog](./deploy-geocatalog-resource.md)
 * A collection with:
   * Item assets defined in the collection's JSON. Learn how to [create a collection](./create-stac-collection.md).

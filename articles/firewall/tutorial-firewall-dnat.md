@@ -9,6 +9,7 @@ ms.date: 05/07/2025
 ms.author: varunkalyana
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound internet access to resources located in a subnet.
+# Customer intent: As a network administrator, I want to deploy and configure DNAT rules on Azure Firewall so that I can effectively manage and control inbound traffic to my network resources.
 ---
 
 # Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal
@@ -20,7 +21,7 @@ You can configure Azure Firewall Destination Network Address Translation (DNAT) 
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create a resource group
 

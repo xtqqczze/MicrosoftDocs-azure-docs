@@ -31,7 +31,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * A de-identification service with system-assigned managed identity. [Deploy the de-identification service](quickstart.md).
 
 ## Open Azure CLI
@@ -89,7 +89,7 @@ az storage account update --name $StorageAccountName --public-network-access Dis
 ```
 
 ## Use the python SDK
-The code below contains a sample from the [Azure Health Deidentification SDK for Python](https://learn.microsoft.com/python/api/overview/azure/health-deidentification?view=azure-python). 
+The code below contains a sample from the [Azure Health Deidentification SDK for Python](/python/api/overview/azure/health-deidentification). 
 
 ```Bash
 

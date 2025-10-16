@@ -12,7 +12,7 @@ The bulk delete capability allows you to delete resources from FHIR&reg; service
 FHIR service requires specific headers and roles enabled to use bulk delete capability
 
 ## Headers
-To perform bulk delete capability header parameters needed are:
+Bulk delete capability header parameters are:
   
 - **Accept**: application/fhir+json
 
@@ -161,7 +161,7 @@ Here's a list of error messages that might occur if the bulk delete operation fa
 
 - What are the steps for resolution if my bulk delete job seems to be stuck?<br/><br/>   To check if a bulk delete job is stuck, run a FHIR search with the same parameters as the bulk delete job and _summary=count. If the count of resources is going down, the job is working. You can also cancel the bulk delete job and try again. 
 
-- Will API interactions see any latency when a bulk delete operation job is executed concurrently?<br/><br/>When you run a bulk delete operation, you might see increased latency on concurrent calls to the service. To avoid a latency increase, we recommend that you cancel the bulk delete job, and then rerun it during a period of lower traffic.
+- Do API interactions see any latency when a bulk delete operation job is executed concurrently?<br/><br/>When you run a bulk delete operation, you might see increased latency on concurrent calls to the service. To avoid a latency increase, we recommend that you cancel the bulk delete job, and then rerun it during a period of lower traffic.
 
 > [!NOTE]
 > If you cancel and then restart a bulk delete job, the deletion process resumes from where it was stopped.

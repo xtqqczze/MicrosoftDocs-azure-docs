@@ -3,7 +3,7 @@ title: Creating collections via web interface in Microsoft Planetary Computer Pr
 description: Learn how to create collections in the Microsoft Planetary Computer Pro web interface. 
 author: beharris
 ms.author: brentharris
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: quickstart
 ms.date: 05/08/2025
 #customer intent: As a user of geospatial data, I want to create a STAC collection so that I can organize metadata for geospatial assets for later querying.
@@ -19,7 +19,7 @@ This quickstart explains how to create a collection in Microsoft Planetary Compu
 
 To complete this quickstart, you need:
 
-- An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active GeoCatalog instance. Use the link to [Create a GeoCatalog](./deploy-geocatalog-resource.md).
 
 ## Navigating the Microsoft Planetary Computer Pro web interface

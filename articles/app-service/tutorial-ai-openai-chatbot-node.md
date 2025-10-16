@@ -4,12 +4,14 @@ description: Learn how to build and deploy a Node.js web app to Azure App Servic
 author: jefmarti
 ms.author: jefmarti
 ms.date: 05/19/2025
+ms.update-cycle: 180-days
 ms.topic: tutorial
 ms.custom:
   - devx-track-node
   - linux-related-content
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Express.js)
@@ -28,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/) with an active subscription
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
 - A [GitHub account](https://github.com/join) for using GitHub Codespaces
 
 ## 1. Create an Azure OpenAI resource

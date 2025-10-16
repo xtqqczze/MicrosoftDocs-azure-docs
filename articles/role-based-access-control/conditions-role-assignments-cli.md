@@ -2,7 +2,7 @@
 title: Add or edit Azure role assignment conditions using Azure CLI - Azure ABAC
 description: Learn how to add, edit, list, or delete attribute-based access control (ABAC) conditions in Azure role assignments using Azure CLI and Azure role-based access control (Azure RBAC).
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
@@ -104,7 +104,7 @@ The following shows an example of the output:
 
 ## List a condition
 
-To list a role assignment condition, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). For more information, see [List Azure role assignments using Azure CLI](role-assignments-list-cli.yml).
+To list a role assignment condition, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). For more information, see [List Azure role assignments using Azure CLI](/azure/role-based-access-control/role-assignments-list-cli).
 
 ## Delete a condition
 

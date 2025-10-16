@@ -3,7 +3,7 @@ title: Application Authentication in Microsoft Planetary Computer Pro
 description: "This article provides guidance on setting up application authentication and access to Microsoft Planetary Computer Pro using Microsoft Entra ID and managed identities."
 author: prasadko
 ms.author: prasadkomma
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: how-to #Don't change
 ms.date: 04/23/2025
 
@@ -21,7 +21,7 @@ This article provides step-by-step guidance for developers and administrators to
 
 ## Prerequisites
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing [GeoCatalog resource](./deploy-geocatalog-resource.md).
 
 

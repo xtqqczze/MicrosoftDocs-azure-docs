@@ -9,6 +9,7 @@ ms.date: 05/07/2025
 ms.author: varunkalyana
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall policy DNAT so that I can control inbound Internet access to resources located in a subnet.
+# Customer intent: "As a network administrator, I want to deploy and configure a DNAT policy using Azure Firewall, so that I can manage and filter inbound traffic to my virtual network resources effectively."
 ---
 
 # Tutorial: Filter inbound Internet or intranet traffic with Azure Firewall policy DNAT using the Azure portal
@@ -26,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 
 
@@ -226,5 +227,6 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 
 ## Next steps
 
+For advanced DNAT scenarios involving overlapped networks or non-routable network access, see:
 > [!div class="nextstepaction"]
-> [Deploy and configure Azure Firewall Premium](premium-deploy.md)
+> [Deploy Azure Firewall private IP DNAT for overlapped and non-routable networks](tutorial-private-ip-dnat.md)

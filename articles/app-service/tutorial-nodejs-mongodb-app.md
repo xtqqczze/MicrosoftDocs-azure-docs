@@ -3,14 +3,23 @@ title: Deploy a Node.js + MongoDB app to Azure
 description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure. Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Azure Cosmos DB.
 ms.topic: tutorial
 ms.date: 04/17/2025
+ms.update-cycle: 180-days
 ms.service: azure-app-service
 ms.role: developer
 ms.devlang: javascript
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devdivchpfy22, AppServiceConnectivity, devx-track-extended-azdevcli
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
+ms.custom:
+  - scenarios:getting-started
+  - languages:javascript
+  - devx-track-js
+  - devdivchpfy22
+  - AppServiceConnectivity
+  - devx-track-extended-azdevcli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Deploy a Node.js + MongoDB web app to Azure
@@ -36,7 +45,7 @@ In this tutorial, you learn how to:
 
 ::: zone pivot="azure-portal"  
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java/).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * A GitHub account. you can also [get one for free](https://github.com/join).
 * Knowledge of Express.js development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
@@ -45,7 +54,7 @@ In this tutorial, you learn how to:
 
 ::: zone pivot="azure-developer-cli"
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
 * Knowledge of Express.js development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.

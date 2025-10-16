@@ -7,7 +7,8 @@ ms.author: karler
 ms.reviewer: guitarsheng
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 zone_pivot_groups: spring-apps-tier-selection
 ---
@@ -33,7 +34,7 @@ Spring Cloud Config Server provides server and client-side support for an extern
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ::: zone pivot="sc-standard"
 

@@ -5,16 +5,14 @@ description: This article describes how to provision for Teams Phone extensibili
 author: vac0224
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.date: 05/22/2025
+ms.date: 09/01/2025
 ms.topic: conceptual
 ms.author: henikaraa
-ms.custom: public_preview
+ms.custom: general_availability
 services: azure-communication-services
 ---
 
 # Provisioning and authorization
-
-[!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
 
 ## Provisioning
 
@@ -62,6 +60,6 @@ instantiate a calling agent to make and receive call.
 ## Related articles
 
 - [Teams Phone extensibility overview](./teams-phone-extensibility-overview.md)
-- [Teams Phone extensibility client capabilities](./teams-phone-extensibility-client-capabilities.md)
+- [Teams Phone extensibility capabilities](./teams-phone-extensibility-capabilities.md)
 - [Teams Phone extensibility FAQ](./teams-phone-extensibility-faq.md)
 - [Teams Phone extensibility troubleshooting](./teams-phone-extensibility-troubleshooting.md)

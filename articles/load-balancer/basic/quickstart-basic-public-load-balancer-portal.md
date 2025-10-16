@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 03/12/2024
 ROBOTS: NOINDEX, NOFOLLOW
 ms.custom: template-quickstart
+# Customer intent: As a cloud administrator, I want to create a basic public load balancer and virtual machines using the portal, so that I can efficiently distribute traffic and ensure high availability for my applications.
 ---
 
 # Quickstart: Create a basic public load balancer using the Azure portal
@@ -17,7 +18,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a basic
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about SKUs, see **[Azure Load Balancer SKUs](../skus.md)**.

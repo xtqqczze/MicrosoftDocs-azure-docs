@@ -56,7 +56,7 @@ If you plan to locally create and run workflows using only [built-in operations]
 
 These requirements include the following items:
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Access to the internet so that you can download the required extension, connect from Visual Studio Code to your Azure account, test workflows that include managed connector operations, and deploy to Azure from Visual Studio Code.
 
@@ -293,7 +293,7 @@ To create your workflow, start your workflow with a trigger, and then initially 
 
 1. In the **Add a trigger** pane, [follow these general steps to add the **Request** trigger named **When an HTTP request is received**](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger).
 
-   The following example selects the **Group by Connector** option and has **Runtime** set to **In-app** so only the built-in triggers appear:
+   The following example selects the **Built-in** option so that only the built-in triggers appear:
 
    :::image type="content" source="media/create-standard-workflows-visual-studio-code/add-request-trigger.png" alt-text="Screenshot shows workflow designer, Add a trigger pane, and selected trigger named When an HTTP request is received.":::
 
