@@ -19,9 +19,12 @@ Make sure to select your Durable Functions development language at the top of th
 
 ::: zone pivot="programming-language-python" 
 
-## Python v2 programming model
+Both versions of the [Python programming model for Azure Functions](../functions-reference-python.md) are supported by Durable Functions. Because Python v2 is the recommended version, examples in this article exclusively feature this version.  
 
-Durable Functions is supported in the [Python v2 programming model](../functions-reference-python.md?pivots=python-mode-decorators). To use the v2 model, you must install the Durable Functions SDK, which is the Python Package Index (PyPI) package `azure-functions-durable`, version `1.2.2` or a later version. You must also check *host.json* to make sure your app references [extension bundle](../extension-bundles.md) version 4.x. 
+## Prerequisites
+
+* Durable Functions SDK, which is the Python Package Index (PyPI) package `azure-functions-durable`, version `1.2.2` or a later version 
+* [Extension bundle](../extension-bundles.md) version 4.x (or a later version), which is set in the *host.json* project file
 
 You can provide feedback and suggestions in the [Durable Functions SDK for Python repository](https://github.com/Azure/azure-functions-durable-python/issues).
 ::: zone-end
