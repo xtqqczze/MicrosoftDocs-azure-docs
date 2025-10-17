@@ -30,7 +30,7 @@ To disassociate Data Collection Rule (DCR) from a VM, follow these steps:
 1. Select the specific VM for which you want to disable the DCR.
 1. Select **Delete**.
    
-   :::image type="content" source="media/manage-azure-change-tracking-inventory-monitoring-agent/disable-dcr-inline.png" alt-text="Screenshot of selecting a VM to dissociate the DCR from the VM." lightbox="media/manage-azure-change-tracking-inventory-monitoring-agent/disable-dcr-expanded.png":::
+   :::image type="content" source="media/manage-azure-change-tracking-monitoring-agent/disable-dcr-inline.png" alt-text="Screenshot of selecting a VM to dissociate the DCR from the VM." lightbox="media/manage-azure-change-tracking-monitoring-agent/disable-dcr-expanded.png":::
 
    A notification appears to confirm the disassociation of the DCR for the selected VM.
 
@@ -42,7 +42,7 @@ To uninstall change tracking extension, follow these steps:
 1. In the Virtual Machines page, under **Settings**, select **Extensions + applications**.
 1. In the **VM |Extensions + applications** page, under **Extensions** tab, select **MicrosoftAzureChangeTrackingAndInventoryChangeTracking-Windows/Linux**.
 
-   :::image type="content" source="media/manage-azure-change-tracking-inventory-monitoring-agent/uninstall-extensions-inline.png" alt-text="Screenshot of selecting the extension for a VM that is already disassociated from the DCR." lightbox="media/manage-azure-change-tracking-inventory-monitoring-agent/uninstall-extensions-expanded.png":::
+   :::image type="content" source="media/manage-azure-change-tracking-monitoring-agent/uninstall-extensions-inline.png" alt-text="Screenshot of selecting the extension for a VM that is already disassociated from the DCR." lightbox="media/manage-azure-change-tracking-monitoring-agent/uninstall-extensions-expanded.png":::
 
 1. Select **Uninstall**.
 
