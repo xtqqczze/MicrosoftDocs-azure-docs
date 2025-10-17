@@ -21,7 +21,7 @@ Access behavior, performance characteristics, and SLAs of the underlying residen
 - Smart tier is currently in Public Preview for account level tiering for zonal redundancies (ZRS, GZRS, and RA-GZRS) for both flat and hierarchical namespaces. 
 - Redundancy conversions to non-zonal accounts are not supported. 
 - After a failover of a GZRS account, the resulting LRS account needs to be converted to a zonal redundancy again within 60 days of failover for smart tier to remain supported. 
-- Smart tier characteristics might change during or after the Public Preview phase. 
+- Smart tier characteristics might change during or after the public preview phase. 
 - See the [Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) of Use for Microsoft Azure Previews for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Enabling smart tier
