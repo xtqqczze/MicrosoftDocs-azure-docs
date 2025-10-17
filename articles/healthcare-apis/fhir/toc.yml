@@ -45,6 +45,8 @@ items:
     - name: Customer-managed keys
       expanded: false
       items:
+      - name: US Core
+        href: uscore.md
       - name: Configure customer-managed keys
         href: configure-customer-managed-keys.md
       - name: Customer-managed keys best practices
