@@ -27,7 +27,7 @@ The Dependency Analysis feature in Azure Migrate helps customers visualize inter
 
 Azure Migrate supports two approaches for dependency analysis: agentless and agent-based. Agentless dependency analysis gathers TCP connection data from servers without installing any agents on the guest operating systems. The gathered dependencies can be visualized either at the project level (across all servers) or at the individual server level.
 
-Agent-based dependency analysis requires the installation of the https://learn.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview and the Dependency agent on each guest server to gather dependency data. This data can then be visualized in a Log Analytics workspace associated with the Azure Migrate project.
+Agent-based dependency analysis requires the installation of the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) and the Dependency agent on each guest server to gather dependency data. This data can then be visualized in a Log Analytics workspace associated with the Azure Migrate project.
 
 > [!NOTE]
 > Agent-based dependency analysis isn't available in Azure Government. It is currently supported only in the classic Azure Migrate experience.
@@ -72,7 +72,7 @@ The new agentless dependency experience was released on Sep 30,2025. You need to
 
 ## As an existing user of the classic experience, how can I upgrade to the new dependency visualization?
 
-For more information, see on how to [switch to the new enhanced visualization](/azure/migrate/how-to-create-group-machine-dependencies-agentless?view=migrate#switch-to-new-visualization)
+For more information, see on how to [switch to the new enhanced visualization](/azure/migrate/how-to-create-group-machine-dependencies-agentless#switch-to-new-visualization)
 
 ## As an existing user of Classic experience, can I continue to view the previoulsy gathered server dependencies in the new experience as well?
 
@@ -91,7 +91,7 @@ For more information, see on how to [switch to the new enhanced visualization](/
 - After upgrading to the new dependency capability, you will be directed to the new visualization by default. However, you can switch to the old visualization at any time from the new experience. To export previously collected data, you can switch to the classic experience and download it from there.
 
 ## How to use the new Dependency view showing all dependencies across servers discovered in my project?
-For more information, see, [how to review the dependency view across enabled servers, discovered in the project](https://learn.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies-agentless?view=migrate#visualize-dependencies-across-servers).
+For more information, see, [how to review the dependency view across enabled servers, discovered in the project](how-to-create-group-machine-dependencies-agentless#visualize-dependencies-across-servers).
 
 ## As an existing user of agent-based dependency analysis, can I continue using the capability after the release of the new experience?
 - Agent-based dependency analysis is **not supported in the new Azure Migrate experience**. You can go to the Classic experience through a footer note on the **Overview** page of the project, where you can continue using the agent-based dependency analysis using the associated Log Analytics workspace.
