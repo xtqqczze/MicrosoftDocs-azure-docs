@@ -86,7 +86,7 @@ The following table lists the Retention limits:
 | Maximum retention of daily recovery points             | 3,650 days|
 | Maximum retention of weekly recovery points             | 521 weeks|
 | Maximum retention of monthly recovery points             | 120 months|
-| Maximum retention of yearly recovery points             | 10 years|
+| Maximum retention of yearly recovery points             | 99 years|
 
 ## Restore method limits
 
