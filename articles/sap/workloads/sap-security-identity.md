@@ -28,7 +28,7 @@ https://aka.ms/MigrateFromSAPIDM
 It's recommended to use SSO and/or multifactor authentication for all SAP applications. Traditional User and Password for SAP applications isn't recommended. There are three typical options: User and Password (not recommended), Single Sign On (SSO) or SSO + MFA
 
 ### i.	Web Browser based Clients – SAML or OIDC (OpenID Connect)
-- [Configure SAP NetWeaver for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fentra%2Fidentity%2Fsaas-apps%2Fsap-netweaver-tutorial&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933681119%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=mfQW1rVPUl%2FULlP0QmPX0EAVrskxn9NvJOI%2F7wI4CNA%3D&reserved=0)
+[Configure SAP NetWeaver for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fentra%2Fidentity%2Fsaas-apps%2Fsap-netweaver-tutorial&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933681119%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=mfQW1rVPUl%2FULlP0QmPX0EAVrskxn9NvJOI%2F7wI4CNA%3D&reserved=0)
 SAML is a well established industry standard but OIDC is a newer solution. This article contains a good comparison between the two technologies [OIDC vs. SAML your hybrid SAP Landscape: What You ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/oidc-vs-saml-your-hybrid-sap-landscape-what-you-need-to-know/ba-p/13797204)
 
 
@@ -118,7 +118,7 @@ SAP SSO Server (Java) – SAP has announced the End of Life December 2027  [SAP 
 
 
 ## Links 
-- Learn more about Microsoft Entra ID Governance: aka.ms/Entra/IdentityGovernance  
+- Learn more about Microsoft Entra ID Governance: [aka.ms/Entra/IdentityGovernance](aka.ms/Entra/IdentityGovernance)  
 - View the Microsoft Mechanics video: [aka.ms/IDGovMechanics](aka.ms/IDGovMechanics)   
 - Walk-through the Interactive Guides: [aka.ms/EntraIDGovGuides](aka.ms/EntraIDGovGuides)
 - More documentation: [aka.ms/Entra/IDGovDocs](aka.ms/Entra/IDGovDocs)

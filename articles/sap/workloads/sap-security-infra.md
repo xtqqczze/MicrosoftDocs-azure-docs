@@ -161,7 +161,7 @@ High priority items for Windows Operating System include:
 - Minimize the installation of any 3rd party software 
 - Configure Windows Firewall with minimal open ports via Group Policy 
 - SMB Encryption enforced via Group Policy [Configure the SMB client to require encryption in Windows | Microsoft Learn](https://learn.microsoft.com/windows-server/storage/file-server/configure-smb-client-require-encryption?tabs=group-policy)
-- After installation, lock the <sid>adm username as per SAPService<SID> account denied interactive sign-in (default) and <sid>adm account disabled (but not deleted). Review [1837765 - Security policies for <SID>adm and SAPService<SID> on Windows](https://me.sap.com/notes/1837765/E)
+- After installation, it is supported to lock the <sid>adm username as described in SAP Note 1837765.  The service account SAPService<SID> should have "deny interactive login" (the default setting after installation).  The SAPService<SID> and <sid>adm account must not deleted. Review [1837765 - Security policies for <SID>adm and SAPService<SID> on Windows](https://me.sap.com/notes/1837765/E)
 - Configure Windows Group Policy to clear last user name, on permit AD authenticated sign-in (mitigates against cloning attack) and disable legacy TLS and SMB protocols 
 
 Other links for Windows: 
@@ -257,7 +257,7 @@ Entry point for [SAP Security Notes](https://support.sap.com/en/my-support/knowl
 Second Tuesday of every month [SAP release Security Notes](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html?anchorId=section_370125364) 
 Searchable [database of Security Notes](https://me.sap.com/app/securitynotes ) 
 
-## 11.	Links  
+## Links  
 
 - Microsoft Response Center [MSRC - Microsoft Security Response Center](https://www.microsoft.com/en-us/msrc?rtc=1&oneroute=true)
 - [3356389 - Antivirus or other security software affecting SAP operations](https://me.sap.com/notes/3356389/E)
