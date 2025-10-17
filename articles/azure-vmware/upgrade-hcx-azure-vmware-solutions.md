@@ -13,7 +13,7 @@ In this article, you learn how to upgrade Azure VMware Solution for HCX service 
 
 You can update HCX Connector and HCX Cloud systems during separate maintenance windows, but for optimal compatibility, we recommend you update both systems together. Apply service updates during a maintenance window where no new HCX operations are queued up.
 
-> [!CRITICAL]
+> [!CAUTION]
 > Broadcom has announced the end-of-support (EOS) for VMware HCX versions 4.11.0 - 4.11.2, effective February 20, 2026. To ensure supportability and proactiely address this change, Microsoft will soon begin communicating to all Azure VMware Solution customers to upgrade their HCX Cloud Manager to HCX version 4.11.3. HCX 4.11.3 formally deprecates the WAN Optimization feature and, as such, your HCX Cloud Manager will **not** be able to be upgraded if HCX WAN Optimization is still enabled. We advise you to look for alternatives before your upgrade window. Refer to [HCX 4.11.3 release notes](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/hcx-4-11-release-notes/vmware-hcx-411-release-notes.html) for more information on what’s new with HCX 4.11.3.
 
 > [!IMPORTANT]
