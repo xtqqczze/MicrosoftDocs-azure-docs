@@ -10,6 +10,7 @@ zone_pivot_groups: backup-client-portal-powershell-cli
 ms.date: 07/23/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
+ms.custom: references_regions
 # Customer intent: As a cloud administrator, I want to configure backup for Azure Data Lake Storage, so that I can ensure data protection and recovery capabilities are in place for my storage accounts.
 ---
 
