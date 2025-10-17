@@ -32,7 +32,10 @@ To review and update these settings in Azure Migrate's Wave planning, follow the
 
 **<Image 4.1 -Overview with target settings click >**
 
-For applications
+### Configure application targets and tasks
+
+Use the application target settings to link assessments and add migration tasks for your application.
+
 1. In **Target Setting** select **Link assessment** to review the link assessment. You can change assessment or link if none is currently linked.  
 
 Linking an assessment to the application links the assessment to all workloads for that application across waves and reset the tasks.  
@@ -43,7 +46,9 @@ Linking an assessment to the application links the assessment to all workloads f
 
 **<Image 4.3 - Application tasks view>**   
 
-**For workloads**
+### Configure Workload Targets and migration tasks
+
+Use workload target settings to configure Azure targets, select migration tools, and add tasks for your migration plan.
 
 1. Select **Configure target** to review and configure the Azure target. The system sets target by default when you select an assessment. 
 1. Select **None** for workloads that are planned for retirement and not to be migrated.

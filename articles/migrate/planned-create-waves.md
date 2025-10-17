@@ -12,7 +12,7 @@ ms.date: 10/15/2025
 
 # Create migration Waves in Azure Migrate for efficient planning (heading changed)
 
-To create migration waves, group your applicaitons and workloads into logical sets that you can migrated together. These groups called **waves** help you execute migrations in smaller, manageable batches, reduce risk and improving efficiency. The key planning actions include:
+To create migration waves, group your applications and workloads into logical sets that you can migrated together. These groups called **waves** help you execute migrations in smaller, manageable batches, reduce risk and improving efficiency. The key planning actions include:
 
 - **Distribute workloads into waves**: Group workloads and applications that share dependencies or business. This ensures they migrate together without breaking application functionality.
 - **Sequence waves**: Prioritize waves based on factors such as business criticality, complexity, and migration impact.
