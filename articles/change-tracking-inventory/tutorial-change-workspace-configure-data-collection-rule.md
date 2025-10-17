@@ -1,0 +1,154 @@
+---
+title: Tutorial - Change a workspace and configure data collection rule
+description: In this tutorial, learn how to  change a workspace and configure data collection rule.
+services: automation
+ms.custom: linux-related-content
+ms.date: 10/03/2025
+ms.topic: tutorial
+ms.service: azure-change-tracking-inventory
+ms.author: v-jasmineme
+author: jasminemehndir
+---
+
+# Tutorial: Change a workspace and configure data collection rule
+
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
+
+This article describes how you can change a workspace and configure data collection rule.
+
+## Prerequisites
+
+Before you change a workspace and configure data collection rule, ensure you meet this prerequisite:
+You've enabled Change Tracking and Inventory on your VMs. For detailed information on how you can enable, see [Enable change tracking and inventory from portal](enable-virtual-machines-monitoring-agent.md).
+
+In this tutorial you learn how to: 
+
+- Change a workspace 
+- Configure data collection rule 
+
+## Sign in to the Azure portal 
+
+Sign in to the [Azure portal](https://portal.azure.com). 
+
+## Configure Windows, Linux files, and Windows Registry using Data Collection Rules
+
+To configure Windows, Linux files, and Windows Registry using Data Collection Rules, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and select the virtual machine.
+1. Select a specific VM for which you would like to configure the Change tracking settings. 
+1. Under **Operations**, select **Change tracking**.
+   
+   :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/configure-file-settings.png" alt-text="Screenshot of selecting the change tracking to configure file settings." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/configure-file-settings.png":::
+
+1. Select **Settings** to view the **Data Collection Rule Configuration** (DCR) page. Here, you can do the following actions:
+   1. Configure changes on a VM at a granular level.  
+   1. Select the filter to configure the workspace.
+   1. Use the filter to view all the DCRs that are configured to the specific LA workspace level.
+
+   >[!NOTE]
+   >The settings that you configure apply to all virtual machines associated with the specified DCR. For more information about DCR, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview).
+
+1. Select **Add** to configure new file settings
+   
+   #### [Windows Files](#tab/windows)
+
+    In the **Add Windows File setting** pane, enter the information for the file or folder to track and select **Save**. The following table defines the properties that you can use for the information.
+
+    |**Property**|**Description**|
+    |---|---|
+    |Enabled | True if the setting is applied, and false otherwise.|
+    |Item Name | Friendly name of the file to be tracked. | 
+    |Group | A group name to group files logically| 
+    |Path | The path to check for the file, for example, **c:\temp\*.txt.** You can also use environment variables, such as %winDir%\System32\\\*.*. 
+    |Path Type | The type of path. Possible values are File and Folder.|
+    |Recursion | True if recursion is used when looking for the item to be tracked, and False otherwise. |
+
+   #### [Linux Files](#tab/linux)
+
+    In the **Add Linux File for Change Tracking** page, enter the information for the file or directory to 
+    track and then select **Save**. The following table defines the properties that you can use for the information. 
+    
+    |**Property**|**Description**|
+    |---|---|
+    |Enabled | True if the setting is applied, and false otherwise.|
+    |Item Name | Friendly name of the file to be tracked. | 
+    |Group | A group name to group files logically| 
+    |Path | The path to check for the file, for example, /etc/*.conf.  
+    |Path Type | The type of path. Possible values are File and Folder.|
+    |Recursion | True if recursion is used when looking for the item to be tracked, and False otherwise. |
+   
+---
+
+You can now view the virtual machines configured to the DCR.
+
+
+### Configure file content changes
+
+To configure file content changes, follow these steps:
+
+1. In your virtual machine, under **Operations**, select **Change tracking** > **Settings**.
+1. In the **Data Collection Rule Configuration (Preview)** page, select **File Content** > **Link** to link the storage account.
+
+    :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/file-content-inline.png" alt-text="Screenshot of selecting the link option to connect with the Storage account." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/file-content-expanded.png":::
+
+1. In **Content Location for Change Tracking** screen, select your **Subscription**, **Storage** and confirm if you are using **System Assigned Managed Identity**. 
+1. Select **Upload file content for all settings**, and then select **Save**. It ensures that the file content changes for all the files residing in this DCR will be tracked.
+
+#### [System Assigned Managed Identity](#tab/sa-mi)
+
+When the storage account is linked using the system assigned managed identity, a blob is created.
+
+1. From [Azure portal](https://portal.azure.com), go to **Storage accounts**, and select the storage account.
+1. In the storage account page, under **Data storage**, select **Containers** > **Changetracking blob** > **Access Control (IAM)**.
+1. In the **Changetrackingblob | Access Control (IAM)** page, select **Add** and then select **Add role assignment**.
+
+    :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/blob-add-role-inline.png" alt-text="Screenshot of selecting to add role." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/blob-add-role-expanded.png":::
+
+1. In the **Add role assignment** page, use the search for **Blob Data contributor** to assign a storage Blob contributor role for the specific VM. This permission provides access to read, write, and delete storage blob containers and data.
+
+    :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/blob-contributor-inline.png" alt-text="Screenshot of selecting the contributor role for storage blog." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/blob-contributor-expanded.png":::
+
+1. Select the role and assign it to your virtual machine.
+
+     :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/blob-add-role-virtual-machine-inline.png" alt-text="Screenshot of assigning the role to VM." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/blob-add-role-virtual-machine-expanded.png":::
+
+#### [User Assigned Managed Identity](#tab/ua-mi)
+
+For user-assigned managed identity, follow these steps to assign the user assigned managed identity to the VM and provide the permission.
+
+1. In the storage account page, under **Data storage**, select **Containers** > **Changetracking blob** > **Access Control (IAM)**.
+1. In **Changetrackingblob | Access Control (IAM)** page, select **Add** and then select **Add role assignment**.
+1. Search for **Storage Blob Data Contributor**, select the role and assign it to your user-assigned managed identity.
+
+     :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-add-role-inline.png" alt-text="Screenshot of adding the role to user-assigned managed identity." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-add-role-expanded.png":::
+
+1. Go to your virtual machine, under **Settings**, select **Identity**, under **User assigned** tab, select **+Add**.
+
+1. In the **Add user assigned managed identity**, select the **Subscription** and add the user-assigned managed identity.
+     :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-assign-role-inline.png" alt-text="Screenshot of assigning the role to user-assigned managed identity." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-assign-role-expanded.png":::
+---
+
+#### Upgrade the extension version for Windows and Linux
+
+> [!NOTE]
+> Ensure that ChangeTracking-Linux/ ChangeTracking-Windows extension version is upgraded to the current general release version: [GA Extension Version](../change-tracking-inventory/extension-version-details.md)
+
+Use the following command to upgrade the extension version:
+
+```azurecli-interactive
+az vm extension set -n {ExtensionName} --publisher Microsoft.Azure.ChangeTrackingAndInventory --ids {VirtualMachineResourceId} 
+```
+The extension for Windows is `Vms - ChangeTracking-Windows`and for Linux is `Vms - ChangeTracking-Linux`.
+
+### Configure using wildcards
+ 
+To configure the monitoring of files and folders using wildcards, do the following: 
+
+- Wildcards are required for tracking multiple files. 
+- Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/.conf* 
+- If an environment variable includes a path that is not valid, validation will succeed but the path will fail when inventory runs. 
+- When setting the path avoid general paths such as c:.** which will result in too many folders being traversed. 
+
+## Next steps
+
+* To manage tracking and inventory, see [Manage Change Tracking and Inventory with AMA](manage-change-tracking-monitoring-agent.md)

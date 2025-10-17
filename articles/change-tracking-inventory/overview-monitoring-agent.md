@@ -24,6 +24,9 @@ Azure Change Tracking & Inventory service enhances the auditing and governance f
     a. Monitors changes, including modifications to files, registry keys, software installations, and Windows services or Linux daemons.</br>
     b. Provides detailed logs of what and when the changes were made, enabling you to quickly detect configuration drifts or unauthorized changes. </br>
     Change Tracking metadata will get ingested into the ConfigurationChange table in the connected LA workspace. [Learn more](/azure/azure-monitor/reference/tables/configurationchange)
+
+    > [!NOTE]
+    > Data for both system and user level applications is logged. For user level applications, which appears when a user logs into a machine, if a user logs out from the machine then applications are tracked as 'Removed'.
     
 1. **Inventory**
 

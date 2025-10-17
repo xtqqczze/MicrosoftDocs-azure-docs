@@ -1,0 +1,51 @@
+---
+title: Manage change tracking and inventory in Azure using Azure Monitoring Agent
+description: Learn how to use change tracking and inventory to track software and Microsoft service changes in your environment using Azure Monitoring Agent.
+services: automation
+ms.custom: linux-related-content
+ms.date: 10/03/2025
+ms.topic: how-to
+ms.service: azure-change-tracking-inventory
+ms.author: v-jasmineme
+author: jasminemehndir
+---
+
+# Manage Change Tracking and Inventory with Azure Monitoring Agent (AMA)
+
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
+
+This article describes how to manage change tracking and inventory with AMA.
+
+## Disable Change Tracking from a virtual machine 
+
+To remove change tracking with Azure Monitoring Agent from a virtual machine, follow these steps:
+
+### Disassociate Data Collection Rule (DCR) from a VM
+
+To disassociate Data Collection Rule (DCR) from a VM, follow these steps:
+
+1. In Azure portal, select **Virtual Machines** and in the search, select the specific Virtual Machine. 
+1. In the Virtual Machine page, under **Operations**, select **Change tracking** or in the search, enter Change tracking and select it from the search result.
+1. Select **Settings** > **DCR** to view all the virtual machines associated with the DCR.
+1. Select the specific VM for which you want to disable the DCR.
+1. Select **Delete**.
+   
+   :::image type="content" source="media/manage-azure-change-tracking-monitoring-agent/disable-dcr-inline.png" alt-text="Screenshot of selecting a VM to dissociate the DCR from the VM." lightbox="media/manage-azure-change-tracking-monitoring-agent/disable-dcr-expanded.png":::
+
+   A notification appears to confirm the disassociation of the DCR for the selected VM.
+
+### Uninstall change tracking extension
+
+To uninstall change tracking extension, follow these steps:
+
+1. In the Azure portal, select **Virtual Machines** and in the search, select the specific VM for which you have already disassociated the DCR.
+1. In the Virtual Machines page, under **Settings**, select **Extensions + applications**.
+1. In the **VM |Extensions + applications** page, under **Extensions** tab, select **MicrosoftAzureChangeTrackingAndInventoryChangeTracking-Windows/Linux**.
+
+   :::image type="content" source="media/manage-azure-change-tracking-monitoring-agent/uninstall-extensions-inline.png" alt-text="Screenshot of selecting the extension for a VM that is already disassociated from the DCR." lightbox="media/manage-azure-change-tracking-monitoring-agent/uninstall-extensions-expanded.png":::
+
+1. Select **Uninstall**.
+
+## Next steps
+
+* To learn about alerts, see [Configuring alerts](../automation/change-tracking/configure-alerts.md).
