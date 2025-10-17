@@ -21,7 +21,7 @@ This feature is currently available only for premium storage accounts (SSD) usin
 
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
 |-|-|-|-|:-:|:-:|
-| Microsoft.FileShares | Provisioned v2 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Microsoft.FileShares | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -119,10 +119,10 @@ New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-
 
 ### Create a storage account in a self-selected zone
 
-To create a storage account and specify an availability zone, run the following command and specify zone 1, 2, or 3. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your desired values.
+To create a storage account and specify an availability zone, run the following command. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your desired values. For `<zone-number>`, specify zone 1, 2, or 3.
 
 ```azurepowershell
-New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName Premium_LRS -Kind FileStorage -Zone 1​
+New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName Premium_LRS -Kind FileStorage -Zone <zone-number>
 ```
 
 ### Create a regional storage account
