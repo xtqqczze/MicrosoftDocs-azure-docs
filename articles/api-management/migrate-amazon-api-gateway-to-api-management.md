@@ -19,7 +19,7 @@ You'll learn how to:
 - Plan and prepare the migration
 - Execute the transition while maintaining API availability and performance
 
-##  What you’ll accomplish
+##  What you'll accomplish
 
 By following this guide, you'll:
 
@@ -39,7 +39,7 @@ This architecture includes:
   
 - **User authentication** via Amazon Cognito with JWT tokens.
 
-- **Security filtering** through Amazon Web Application Firewall (WAF) before reaching Amazon API Gateway.
+- **Security filtering** of requests through Amazon Web Application Firewall (WAF) before reaching Amazon API Gateway.
 
 - **Amazon API Gateway** configured with a custom domain using a certificate stored in Certificate Manager
 
@@ -89,9 +89,9 @@ Both architectures provide comparable functionality, including:
 
 ### Production environment considerations
 
-- For customers requiring network isolation of both inbound and outbound traffic, the Azure API Management Premium tier is currently recommended. If the Premium tier is selected, the Developer tier (not supported with SLA) can be used for proof of concept migrations since it supports networking capabilities also available in the Premium tier.
-- Depending on your requirements for availability, performance, and network isolation, the Standard v2 tier can be considered because it supports outbound virtual network integration to backends. 
-- Currently, the Premium v2 tier with enterprise capabilities is in preview. You can consider using it for migrations depending on your implementation timelines in relation to the available information about Premium v2's release and migration paths.
+- For customers requiring network isolation of both inbound and outbound traffic, the Azure API Management Premium tier is currently recommended. If the Premium tier is selected, the Developer tier (not supported with SLA) can be used for proof of concept migrations since it supports networking capabilities also available in the Premium tier. The Developer tier should not be used for production.
+- Depending on your requirements for availability, performance, and network isolation, the Standard v2 tier can be considered because it supports integration to network-isolated backends. 
+- Currently, the Premium v2 tier with capabilities to isolate both inbound traffic is in preview. You can consider using it for migrations depending on your implementation timelines in relation to the available information about Premium v2's release and migration paths.
 
 ## Assessment - Capability comparison
 
@@ -107,12 +107,12 @@ Before you migrate from Amazon API Gateway to Azure API Management, assess the e
 | [Custom domains](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) | [Custom domains](configure-custom-domain.md?tabs=custom) | Utilize the same domain names and existing certificates with an external DNS cutover. If the migration uses different domain names, you need to obtain new certificates. |
 | [Edge-optimized endpoints](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-endpoint-types.html) | [Multi-region deployment](api-management-howto-deploy-multi-region.md) | Configure Azure API Management gateways in multiple regions depending on requirements for client access. |
 | [Availability zones by default](https://docs.aws.amazon.com/apigateway/latest/developerguide/disaster-recovery-resiliency.html) | [Availability zones by default](enable-availability-zone-support.md) (Premium tier) | Deploy Azure API Management instance in the Premium tier in a region that supports availability zones. Use the default automatic configuration of availability zones. |
-| [CloudWatch metrics](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html) | [Azure Monitor metrics](monitor-api-management.md) | Configure gateway request metrics |
+| [CloudWatch metrics](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html) | [Azure Monitor metrics](monitor-api-management.md) | Configure gateway request metrics. |
 | [CloudWatch logs](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html) and [CloudTrail logs](https://docs.aws.amazon.com/apigateway/latest/developerguide/cloudtrail.html) | [Azure Monitor logs](monitor-api-management.md) | Configure diagnostic settings to send Azure API Management logs to a Log Analytics workspace for built-in analytics and custom analysis. Consider deploying Application Insights or other [observability tools](observability.md) for added operational monitoring. |
 
 ### Capability mismatches
 
-- WAF integration in Amazon API Gateway isn’t directly matched in Azure API Management. In Amazon API Gateway, WAF rules are directly applied on REST API stages. In Azure API Management, configuration of WAF rules typically requires deployment of an upstream Application Gateway service and traffic forwarding and TLS termination through the application gateway. Alternatively, for multi-region scenarios, customers could use Azure Front Door in front of Azure API Management.
+- WAF integration in Amazon API Gateway isn't directly matched in Azure API Management. In Amazon API Gateway, WAF rules are directly applied on REST API stages. In Azure API Management, configuration of WAF rules typically requires deployment of an upstream Application Gateway service and traffic forwarding and TLS termination through the application gateway. Alternatively, for multi-region scenarios, customers could use Azure Front Door in front of Azure API Management.
 - Custom domains are supported on Azure API Management, but if using Application Gateway WAF in front, the custom domain and TLS certificate must also be configured at the Application Gateway layer.
 - Amazon API Gateway supports edge-optimized endpoints for geographically distributed clients. Similar capability in Azure API Management requires deployment of extra regional gateways at additional cost.
 
@@ -138,7 +138,7 @@ As part of assessment, consider whether existing services will be retained or re
 
 ## Assessment – API configuration
 
-The migration approach for API configurations must consider the scope of the configuration in Amazon API Gateway. At a high level, API scopes map as follows from Amazon API Gateway to Azure API Management:
+The migration approach for API configurations must consider the *scope* of the configuration in Amazon API Gateway. At a high level, API scopes map as follows from Amazon API Gateway to Azure API Management:
 
 | **Amazon API Gateway API scope** | **Azure API Management equivalent** |
 |----|----|
@@ -156,25 +156,25 @@ The following table assesses API configurations in Amazon API Gateway and equiva
 | [Usage plans and API keys](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) | [Products](api-management-howto-add-products.md?tabs=azure-portal&pivots=interactive) and [Subscriptions](api-management-subscriptions.md) | Document Amazon API Gateway configurations and recreate in Azure API Management |
 | [Throttling and quotas](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html) | [Rate limiting and quota policies](api-management-policies.md#rate-limiting-and-quotas) | Configure rate limiting and quota policies at the mapped scope (see preceding table) |
 | [CORS](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors-console.html) | [CORS policy](cors-policy.md) | Configure CORS policy with allowed headers and origins at the mapped scope (see preceding table) |
-| [Resource policies](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html)<br><br>[VPC endpoint policies](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html)<br><br>[Cognito user pools](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)<br><br>[mTLS authentication](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html) | [Authentication and authorization policies](api-management-policies.md#authentication-and-authorization)<br/><br/>[Credential manager](credentials-overview.md) | Manual mapping. Consider assistance using AI tools such as GitHub Copilot in Azure and [AWS documentation](https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server) and [Microsoft Learn](/training/support/mcp) MCP servers |
-| [Mapping templates](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html) | [Transformation policies](api-management-policies.md#transformation) | Manual mapping. Consider assistance using AI tools such as GitHub copilot and [AWS documentation](https://awslabs.github.io/mcp/servers/aws-documentation-mcp-server) and [Microsoft Learn](/training/support/mcp) MCP servers |
-| [API stages](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html) | [API versions](api-management-versions.md) | Create API versions in Azure API Management mapping |
+| [Resource policies](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html)<br><br>[VPC endpoint policies](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html)<br><br>[Cognito user pools](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)<br><br>[mTLS authentication](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html) | [Authentication and authorization policies](api-management-policies.md#authentication-and-authorization)<br/><br/>[Credential manager](credentials-overview.md) | Manual mapping. Consider using AI assistance with tools such as [Microsoft Copilot in Azure](/azure/copilot/author-api-management-policies). |
+| [Mapping templates](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html) | [Transformation policies](api-management-policies.md#transformation) | Manual mapping. Consider using AI assistance with tools such as [Microsoft Copilot in Azure](/azure/copilot/author-api-management-policies). |
+| [API stages](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html) | [API versions](api-management-versions.md) | Create API versions in Azure API Management. |
 
 ### Capability mismatches
 
-- Amazon API Gateway imposes certain quotas and throttling limits per AWS account. In Azure API Management, the highest scope is the “all APIs” scope per instance.
+- Amazon API Gateway imposes certain quotas and throttling limits per AWS account. In Azure API Management, the highest scope is the "all APIs" scope per instance.
 
-- Certain API authentication and authorization methods in Amazon API Gateway such as [IAM permissions](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html) and [Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html) don’t map directly to Azure API Management. Customers can evaluate alternative authentication and authorization methods such as using Microsoft Entra ID or an external identity provider.
+- Certain API authentication and authorization methods in Amazon API Gateway such as [IAM permissions](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html) and [Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html) don't map directly to Azure API Management. Customers can evaluate alternative authentication and authorization methods such as using Microsoft Entra ID or an external identity provider.
 
-- Amazon API Gateway cache-related metrics don’t map directly to Azure API Management metrics. Cache hits and misses can be counted in trace logs.
+- Amazon API Gateway cache-related metrics don't map directly to Azure API Management metrics. Cache hits and misses can be counted in trace logs.
 
 ## Assessment – Useful resources for migration
 
 - [Azure API Management landing zone accelerator](https://github.com/Azure/apim-landing-zone-accelerator/tree/main)
 
-- [Architecture Best Practices for Azure API Management - Microsoft Azure Well-Architected Framework](/azure/well-architected/service-guides/azure-api-management)
+- [Architecture best practices for Azure API Management](/azure/well-architected/service-guides/azure-api-management)
 
-- [API authentication and authorization - Overview - Azure API Management](authentication-authorization-overview.md)
+- [API authentication and authorization in Azure API Management](authentication-authorization-overview.md)
 
 - [Azure for AWS professionals](/azure/architecture/aws-professional/)
 
@@ -188,7 +188,7 @@ Also, for API workloads:
   
 - [Migrate AWS Lambda Workloads to Azure Functions](/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions)
 
-- [Migrate from Amazon Elastic Kubernetes Service to Azure Kubernetes Service - Azure Architecture Center](/azure/architecture/aws-professional/eks-to-aks/migrate)
+- [Migrate from Amazon Elastic Kubernetes Service to Azure Kubernetes Service](/azure/architecture/aws-professional/eks-to-aks/migrate)
 
 
 ## **Preparation**
@@ -197,7 +197,7 @@ Also, for API workloads:
 
   - If Amazon API Gateway is the first service you're migrating to Azure, design [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/#application-landing-zone-accelerators) from the ground up, including governance, identity, networking, and subscription hierarchy.
 
-  - Plan for ingress/egress, firewalls, network isolation, and integration with services like Application Gateway, Azure Front Door, or Traffic Manager.
+  - Plan for ingress/egress, firewalls, network isolation, and integration with network traffic entry points like Application Gateway, Azure Front Door, or Traffic Manager.
 
   - Understand the implications of private versus public exposure of the target Azure API Management system, especially around DNS and traceability.
 
@@ -233,7 +233,7 @@ Also, for API workloads:
 
 - **Phasing strategy** 
     
-    Planning for **phased migration** (API by API or domain by domain) is recommended: update one set of API endpoints to Azure API Management while others remain on AWS, then gradually move the rest. This may require your client applications to handle mixed endpoints or using a routing layer.
+    Planning for **phased migration** (API by API or domain by domain) is recommended: update one set of domains or API endpoints to Azure API Management while others remain on AWS, then gradually move the rest. This may require your client applications to handle mixed endpoints or using a routing layer.
 
 ## Process
 
@@ -243,18 +243,17 @@ Migration is expected to be a multiweek to multimonth process, depending on the 
 
     - If not already in place, build the Azure tenant and core infrastructure (core networking, ingress, security) before migrating Amazon API Gateway and APIs. You can set up the environment using an Azure landing zone architecture suitable for your migration.
     
-    - If suitable for your migration, implement an Azure API Management infrastructure-as-code [landing zone accelerator](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json) for your base Azure API Management deployment, including Application Gateway and internal virtual networking in Azure API Management. Although the landing zone accelerator uses the Premium tier of Azure API Management, we recommend adapting the templates to use the Developer tier for proof of concept environments for the migration.
+    - If suitable for your migration, implement an Azure API Management infrastructure-as-code [landing zone accelerator](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json) for your base Azure API Management deployment, including Application Gateway and internal virtual networking in Azure API Management. Although the landing zone accelerator uses the Premium tier of Azure API Management, we recommend adapting the templates to use the Developer tier for proof of concept migration.
     
-    - Create and assign RBAC roles so that only authorized admins can manage the Azure API Management instance and the APIs.
+    - Create and assign Azure RBAC roles so that only authorized administrators can manage the Azure API Management instance and the APIs.
     
 - **Configure Azure API Management platform settings**
 
-  In the new Azure API Management instance, set up global configurations similar to thosein Amazon API Gateway:
+  In the new Azure API Management instance, set up global configurations similar to those in Amazon API Gateway:
 
-    - **Custom hostname**: Add your custom domain to Azure API Management and upload the SSL certificate (or use Key Vault references). This can be done now or just before production cutover. When using Application Gateway (recommended), configure a listener with the custom domain and certificate, and point it to Azure API Management’s internal endpoint.
+    - **Custom hostname**: Add your custom domain to Azure API Management, upload the SSL certificate (or use Key Vault references), and perform validation. This can be done now or just before production cutover. When using Application Gateway (recommended), configure a listener with the custom domain and certificate, and point it to Azure API Management's internal endpoint. Configuring the listener simplifies configuration because it doesn't require domain validation.
     
-       
-    - **Establish networking and security**: Make sure Application Gateway (or other Azure entry point) is configured to forward requests to Azure API Management. Set up NSG rules* or firewall rules so that Azure API Management can reach backend services such as your Azure backends or even the source AWS backends if initially pointing to them.
+    - **Establish networking and security**: Make sure Application Gateway (or other Azure entry point) is configured to forward requests to Azure API Management. Set up NSG rules or firewall rules so that Azure API Management can reach backend services such as your Azure backends or even the source AWS backends if initially pointing to them.
     
     - Enable **managed identity** on Azure API Management to call Azure services securely (like Key Vault for certificates or function apps).
 
@@ -264,7 +263,7 @@ By the end of this phase, you should have a working shell of Azure API Managemen
 
     With the infrastructure ready, begin migrating the API definitions and configurations:
 
-    - **Start with small sample workload:** Use a representative API to validate basic gateway functionality in Azure API Management before recreating APIs from Amazon API Gateway.
+    - **Start with a minimal workload:** Use a representative API to validate basic gateway functionality in Azure API Management before recreating APIs from Amazon API Gateway.
       
     - **Import into Azure API Management:** Use Azure portal or scripts to import OpenAPI definitions from Amazon API Gateway or backends as new APIs in Azure API Management. During import, Azure API Management automatically creates the structure of APIs and operations. 
     
@@ -277,11 +276,11 @@ By the end of this phase, you should have a working shell of Azure API Managemen
 
 - **Set up authentication**
 
-  - **Set up subscriptions and products**: If your APIs required **API keys** in Amazon API Gateway (via `x-api-key` header), decide how to handle that in Azure API Management. One approach is to make those APIs only accessible to users with a subscription to a product. **Create initial products** in Azure API Management (you can have a one-to-one correspondence with AWS usage plans or reorganize logically).
+  - **Set up subscriptions and products**: If your APIs required API keys in Amazon API Gateway (via `x-api-key` header), decide how to handle that in Azure API Management. One approach is to make those APIs only accessible to users with a subscription to a product. Create initial products in Azure API Management, either corresponding one-to-one with AWS usage plans or reorganized logically.
 
   - **Create user groups** in Azure API Management to mirror how you share APIs with developers.
 
-  - **Named values**: Import any configuration values (like API keys for back-end services, endpoints, etc.) that were in Amazon API Gateway stage variables into Azure API Management named values. For sensitive values, use Azure Key Vault integration.
+  - **Named values**: Import any configuration values (like API keys for backend services, endpoints, and so on) that were in Amazon API Gateway stage variables into Azure API Management named values. For sensitive values, use Azure Key Vault integration.
   
   - **Token retrieval and validation** - Configure credential manager in Azure API Management for managing tokens to OAuth backends, or set up token retrieval logic using policies (see [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)).  
 
@@ -289,7 +288,7 @@ By the end of this phase, you should have a working shell of Azure API Managemen
 
 - **Feature parity checks:** Go through the list of features used by each API and ensure they are addressed.
 
-    - For example, test APIs that deal with binary payloads (images, files) or very large payloads. Ensure the Azure API Management is configured with adequate **timeout and size** settings for those scenarios.
+    - For example, test APIs that deal with binary payloads (images, files) or very large payloads. Ensure the Azure API Management is configured with adequate timeout, size, or content validation settings for those scenarios.
     
     - Configure API versions in Azure API Management that map to stages in Amazon API Gateway.
     
@@ -303,24 +302,24 @@ By the end of this phase, you should have a working shell of Azure API Managemen
 
   - Handle transformations (such as schema mapping, enrichment) case-by-case.
 
-  - AI tools such as Microsoft Copilot in Azure in the Azure portal, and MCP servers for AWS and Azure documentation, can assist with policy mapping or other transformation. However, expect some manual policy configuration and debugging in Azure API Management
+  - AI tools such as Microsoft Copilot in Azure in the Azure portal, and MCP servers for AWS and Azure documentation, can assist with policy mapping or other transformation. However, expect some manual policy configuration and debugging in Azure API Management.
 
 - **Observability**
 
-  - For initial monitoring, configure Azure Monitor to collect API metrics and logs.
+  - For initial monitoring, configure Azure Monitor to collect API metrics and logs. Additional monitoring or observability solutions such as Application Insights can be layered in later.
 
-  - **Iterative testing**
+- **Iterative testing**
 
     With the APIs configured in Azure API Management, thorough testing is critical. This phase is expected to be iterative.
 
-    - **Functional testing:** For each API, call the new Azure API Management endpoint (via the Azure portal’s test console or client tools) and compare responses to the Amazon API Gateway endpoint. Check for expected status codes, headers, and body. If differences are found, adjust Azure API Management policies or configuration accordingly.
+      - **Functional testing:** For each API, call the new Azure API Management endpoint (via the Azure portal's test console or client tools) and compare responses to the Amazon API Gateway endpoint. Check for expected status codes, headers, and body. If differences are found, adjust Azure API Management policies or configuration accordingly.
     
       > [!NOTE]
       > If the API Management instance is in an internal virtual network configuration, the test console won't work. You can test APIs with other client tools deployed in the network, or using the API Management developer portal, if you enable it for your instance.
     
-    - **Security testing:** Validate that API authentication and authorization are working. For instance, present a valid JWT or subscription key to Azure API Management and ensure it accepts the request, and that invalid credentials are rejected with proper error codes. If using subscription keys, test with and without the key.
+      - **Security testing:** Validate that API authentication and authorization are working. For instance, present a valid JWT or subscription key to Azure API Management and ensure it accepts the request, and that invalid credentials are rejected with proper error codes. If using subscription keys, test with and without the key.
     
-    - **Performance baseline:** Use a tool to simulate load on the Azure API Management endpoints and see that they can handle the expected throughput. Compare latency of calls via Azure API Management to latency via Amazon API Gateway. Azure API Management in the Developer tier is less performant than the Premium tier and single-instance, so heavy performance testing might wait until you have a Premium-tier Azure API Management instance deployed.
+      - **Performance baseline:** Use a tool to simulate load on the Azure API Management endpoints and see that they can handle the expected throughput. Compare latency of calls via Azure API Management to latency via Amazon API Gateway. Azure API Management in the Developer tier is less performant than the Premium tier and single-instance, so heavy performance testing might wait until you have a Premium-tier Azure API Management instance deployed.
     
 - **Iterate on feature gaps:** Some Amazon API Gateway features may not have a one-to-one mapping in Azure API Management and require workarounds (see capability mismatches in the Assessment section). For example:
 
@@ -332,15 +331,15 @@ By the end of this phase, you should have a working shell of Azure API Managemen
 
 - **Production rollout**
 
-  - Upgrade to Premium tier of Azure API Management in the production environment and repeat or migrate the API import and configuration settings created in pre-production environments. ApiOps processes can be used to publish APIs and manage API configurations across environments.
+  - Upgrade to Premium tier or other production-ready tier of Azure API Management in the production environment and repeat or migrate the API import and configuration settings created in pre-production environments. ApiOps processes can be used to publish APIs and manage API configurations across environments.
 
-  - Rehearse cutover in a lower environment (or with a subset of traffic). For instance, select one noncritical API and have one client application switch to using the Azure endpoint. This can reveal any client-side issues or help validate your DNS change process. If your API consumers are internal, you can simulate a change by editing host files or using a test DNS zone to point the domain to Azure API Management temporarily.
+  - Rehearse cutover in a lower environment (or with a subset of traffic). For instance, select one noncritical API and have one client application switch to using the Azure endpoint. This can reveal any client-side issues or help validate your DNS change process. If your API consumers are internal, you can simulate a change by editing hosts files or using a test DNS zone to point the domain to Azure API Management temporarily.
 
   - DNS switch: The most common approach is to switch the DNS entry of your custom Amazon API Gateway domain to point to the new Azure endpoint. For example, if your domain api.example.com was mapped to Amazon API Gateway, you would update its CNAME or A record to point to the Azure API Management hostname or to the front-end (like Application Gateway) domain.  
 
     TTL considerations: Lower the DNS TTL beforehand so that clients pick up changes quickly. When ready, change the DNS. It can take minutes to hours to propagate, during which time some traffic might still go to AWS and some to Azure. If an immediate cut is needed, you can use an alternate method such as a reverse-proxy approach.
 
-  - Alternative cutover methods: Sometimes, instead of DNS, organizations use a reverse proxy/gateway flip – for instance, keep the public DNS the same but initially have Application Gateway forward requests to Amazon API Gateway (via its URL), and when flipping, point it to Azure API Management internally. This is more complex but can achieve an instantaneous switch. Another method if using Azure Front Door or Traffic Manager is to reweight traffic from one backend (AWS) to another (Azure) gradually.
+  - Alternative cutover methods: Sometimes, instead of DNS, organizations use a reverse proxy/gateway flip – for example, keep the public DNS the same but initially have Application Gateway forward requests to Amazon API Gateway (via its URL), and when flipping, point it to Azure API Management internally. This approach, while more complex, can achieve an instantaneous switch. Another method if using Azure Front Door or Traffic Manager is to reweight traffic from one backend (AWS) to another (Azure) gradually.
 
   - Monitoring during cutover: As soon as the switch happens, closely monitor requests to both the Azure API Management instance and the Amazon API Gateway. Monitor Azure API Management metrics (requests, latency, CPU, capacity memory) in real-time via Azure portal or whatever dashboard you set up. Also use Azure Monitor to watch for spikes in errors such as 4XX/5XX responses.
 
@@ -356,7 +355,7 @@ Validation criteria include:
 
     - Network infrastructure is in place, configured properly, and documented.
     
-    - Ensure that Azure API Management is accessible only as intended (for example, if it’s injected in an internal virtual network, confirm that no public IPs are exposing it).
+    - Ensure that Azure API Management is accessible only as intended (for example, if it's injected in an internal virtual network, confirm that no public IPs are exposing it).
     
     - Verify that roles and RBAC in Azure are set so that only authorized admins can change the APIs. If you migrated to Microsoft Entra for authorization, verify all users are onboarded properly.
     
@@ -378,7 +377,7 @@ Validation criteria include:
 
   - Capacity – Review capacity metrics to ensure that Azure API Management instance is properly scaled.
 
-  - Monitoring – Confirm that dashboards for Azure Monitor and Application Insights (if configured) capture data for all API calls
+  - Monitoring – Confirm that dashboards for Azure Monitor and other observability tools (if configured) capture data for all API calls.
 
 ### Post-migration 
 
@@ -386,7 +385,7 @@ Validation criteria include:
 
 - Address Azure Advisor recommendations for your Azure API Management instance.
 
-- Layer in additional capabilities such as external caching, monitoring capabilities beyond Azure Monitor such as Application Insights or non-Microsoft solutions such as Datadog, or policies in Azure API Management that aren’t available in Amazon API Gateway.
+- Layer in additional capabilities such as external caching, monitoring capabilities beyond Azure Monitor such as Application Insights or non-Microsoft solutions such as Datadog, or policies in Azure API Management that aren't available in Amazon API Gateway.
 
 - Decommission Amazon API Gateway after a period when it receives zero traffic and the Azure API Management instance has met the validation criteria. Typically, you will run both in parallel (with Azure taking all traffic) through at least one full business cycle or peak traffic period to ensure the new system handles it.
 
