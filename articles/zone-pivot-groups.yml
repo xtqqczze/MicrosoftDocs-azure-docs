@@ -2012,6 +2012,6 @@ groups:
   prompt: Choose a virtual network gateway type
   pivots:
   - id: expressroute
-    title: ExpressRoute
+    title: Azure ExpressRoute
   - id: vpn
-    title: VPN
+    title: Azure VPN Gateway
