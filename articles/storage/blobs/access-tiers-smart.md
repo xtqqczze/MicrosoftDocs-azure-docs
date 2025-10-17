@@ -51,7 +51,7 @@ Storage account metrics can be leveraged to identify the distribution of smart t
 
 
 ## Client Tooling
-The Azure Portal supports the current smart tier public preview. Smart tier requires the following minimum versions of REST, SDKs, and tools
+The Azure Portal supports the current smart tier public preview. Smart tier requires the following minimum versions of REST, SDKs, and tools.
 
 | Environment | Minimum version |
 |---|---|
