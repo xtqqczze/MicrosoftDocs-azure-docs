@@ -300,7 +300,7 @@ After successfully migrating the configuration and thoroughly testing your new V
 We provide an Azure PowerShell script designed to **retain the Public IP address from V1**.
 * Swaps Public IP: This script reserves the Basic public IP from V1, converts it to Standard, and attaches it to the V2 gateway. This effectively redirects all incoming traffic to the V2 gateway.
 *	Expected Downtime: This IP swap operation typically results in a brief **downtime of approximately 1-5 minutes**. Plan accordingly.
-*	After a successful script run, the Public IP is moved from AppGw V1 to AppGw V2, with AppGw V1 receiving a new internal public IP. 
+*	After a successful script run, the Public IP is moved from Application Gateway V1 to Application Gateway V2, with Application Gateway V1 receiving a new public IP. 
 
 You can **download** this Public IP retention script  from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWIPMigrate)
 
