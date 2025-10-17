@@ -1,28 +1,29 @@
 ---
-title: About Azure Data Lake Storage Vaulted Backup
-description: Learn how the Azure Data Lake Storage vaulted backup works
+title: About Azure Data Lake Storage Backup
+description: Learn how the Azure Data Lake Storage backup works
 ms.topic: overview
 ms.date: 09/26/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24
-# Customer intent: As a data engineer, I want to understand the backup aspects before configuring vaulted backups for Azure Data Lake Storage, so that I can ensure reliable data protection and restore capabilities for my storage accounts.
+# Customer intent: As a data engineer, I want to understand the backup aspects before configuring backups for Azure Data Lake Storage, so that I can ensure reliable data protection and restore capabilities for my storage accounts.
 --- 
 
-# About Azure Data Lake Storage vaulted backup
+# About Azure Data Lake Storage backup
 
-[Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) vaulted backup is a streamlined, cloud-native solution to back up and restore general-purpose v2 storage accounts with a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace). It allows selective backup and restoration of containers, and store backups in a dedicated vault for granular control.
+[Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) backup is a streamlined, cloud-native solution to back up and restore general-purpose v2 storage accounts with a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace). It allows selective backup and restoration of containers, and store backups in a dedicated vault for granular control.
 
 Azure Backup now enables enhanced protection and recovery for Azure Data Lake Storage through vaulted backups that offer ransomware resilience, secure offsite storage, and long-term data retention. See the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/protect-azure-data-lake-storage-with-vaulted-backups/4410707).
 
 For more insights on Azure Backup’s support for vaulted backups in Azure Data Lake Storage that enables secure, long-term, and isolated data protection, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=488835).
 
 >[!Note]
+>- Azure Backup now supports operational and vaulted backups for Azure Data Lake Storage.
 >- This feature is currently available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
 
 ## How the backup process for Azure Data Lake Storage works
 
-Vaulted backup uses platform capabilities such as snapshots and object replication to copy data to the Backup vault. Object replication asynchronously copies block blobs from a source storage account to a destination backup storage account, including the blob's contents, versions, metadata, and properties.  
+Backup uses platform capabilities such as snapshots and object replication to copy data to the Backup vault. Object replication asynchronously copies block blobs from a source storage account to a destination backup storage account, including the blob's contents, versions, metadata, and properties.  
 
 When you configure protection, Azure Backup sets up a destination storage account within the Backup vault and applies an object replication policy at the container level for both source and destination accounts. During backup, Azure Backup places a recovery point marker on the source account and tracks its replication. After the marker is replicated to the destination, the recovery point is created. Backup may take a minimum of 30–40 minutes, as backups rely on snapshots, and are taken every 15 minutes and require two snapshots to detect changes before triggering the backup.
 
@@ -44,7 +45,7 @@ Azure Backup automatically runs scheduled jobs, replicating block blobs from the
 
 >[!Note]
 >- Backup can be enabled for multiple storage accounts in a single vault using one or multiple backup policies.
->- Vaulted backups support long-term retention for up to 10 years.
+>- Vaulted backups support long-term retention for up to 99 years.
 
 ### Backup management 
 
@@ -67,5 +68,5 @@ Azure Backup allows restoring data from any recovery point within the retention 
 
 ## Next steps
 
-- [Configure vaulted backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-configure-backup.md).
+- [Configure backup for Azure Data Lake Storage using Azure portal, PowerShell, or Azure CLI](azure-data-lake-storage-configure-backup.md).
 - [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
