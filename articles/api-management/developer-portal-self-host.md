@@ -72,33 +72,22 @@ To set up your local environment, you'll have to clone the repository, switch to
 > [!TIP]
 > Always use the [latest portal release](https://github.com/Azure/api-management-developer-portal/releases) and keep your forked portal up-to-date. The API Management development team uses the `master` branch of this repository for daily development purposes. It has unstable versions of the software.
 
-## Step 2: Configure JSON files, static website, and CORS settings
+## Step 2: Run editor locally
 
-The developer portal requires the API Management REST API to manage the content.
-
-### config.design.json file
-
-Go to the `src` folder and open the `config.design.json` file.
+The developer portal requires the API Management REST API to manage the content. 
+First open the `config.design.json` file in the `src` folder:
 
 ```json
 {
     "environment": "development",
-    "useHipCaptcha": false,
-    "integration": {
-        "googleFonts": {
-            "apiKey": "<Google API Key>"
-        }
-    },
-    "armEndpoint": "management.azure.com",
-    "subscriptionId":"<service subscription>",
-    "resourceGroupName":"<service resource group>",
-    "serviceName":"<service name>",
-    "clientId": "<Optional. The Client ID of the Microsoft Entra application that users will sign into>",
-    "tenantId": "<Optional. The Microsoft Entra tenant (directory) ID>"
+    "isArmAuthEnabled": true,
+    "subscriptionId": "< subscription ID >",
+    "resourceGroupName": "< resource group name >",
+    "serviceName": "< service name >"
 }
 ```
 
-Configure the file:
+To configure the file:
 
 1. In `subscriptionId`, `resourceGroupName`, and `serviceName`, enter values for the subscription, resource group, and service name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md) for the portal, use it instead for the value of `serviceName` (for example, `https://portal.contoso.com`). For example:
 
@@ -109,21 +98,146 @@ Configure the file:
     ...
     ```
 
-1. If you'd like to enable CAPTCHA in your developer portal, set `"useHipCaptcha": true`. Make sure to [configure CORS settings for developer portal backend](#configure-cors-settings-for-developer-portal-backend).
+1. Run `npm start`. You are prompted to authenticate via your browser. Select your Microsoft credentials to continue.
 
-1. In `integration`, under `googleFonts`, optionally set `apiKey` to a Google API key that allows access to the Web Fonts Developer API. This key is only needed if you want to add Google fonts in the Styles section of the developer portal editor. 
+1. After some time, the default browser automatically opens with your local developer portal instance. The default address is `http://localhost:8080`, but the port can change if `8080` is already occupied.
 
-    If you don't already have a key, you can configure one using the Google Cloud console. Follow these steps:
-    1. Open the [Google Cloud console](https://console.cloud.google.com/apis/dashboard).
-    1. Check whether the **Web Fonts Developer API** is enabled. If it isn't, [enable it](https://cloud.google.com/apis/docs/getting-started).
-    1. Select **Create credentials** > **API key**.
-    1. In the open dialog, copy the generated key and paste it as the value of `apiKey` in the `config.design.json` file. 
-    1. Select **Edit API key** to open the key editor.
-    1. In the editor, under **API restrictions**, select **Restrict key**. In the dropdown, select **Web Fonts Developer API**. 
-    1. Select **Save**.
-  
-1. Optionally, set `clientId` and `tenantId` to the client ID and tenant ID of the Microsoft Entra app that you configured for users to sign into. 
 
+## Configure the static website
+
+Configure the **Static website** feature in your storage account by providing routes to the index and error pages:
+
+1. In the Azure portal, bo to your storage account in the Azure portal.
+
+1. In the sidebar menu, select **Data management** > **Static website**.
+
+1. On the **Static website** page, select **Enabled**.
+
+1. In the **Index document name** field, enter *index.html*.
+
+1. In the **Error document path** field, enter *404/index.html*.
+
+1. Select **Save**.
+
+Take note of the **Primary endpoint** URL. You will configure it later to access your self-hosted portal.
+
+## Create an Entra ID application in your tenant
+
+1. [Register an application](/entra/identity-platform/quickstart-register-app) in your Microsoft Entra tenant. Take note of the Application (client) ID and the Directory (tenant) ID. You will configure them in a later step.
+
+1. Configure a Web **Redirect URI** (reply URL) in this application to point to the endpoint of the web app where the designer is hosted. For example, this can be simply the locaiton of the Blob storage-based website. Example: `https://<your-storage-account-name>z13.web.core.windows.net/`.
+
+
+## Host the website editor
+
+When making changes into website code, you may need to update the website editor code as well to be able to properly support editing of your modified widgets. In this case, besides hosting the portal, you may also want to host the editor application. For this you'll need to build it and configure to access your API Management service.
+
+1. Add `clientId` and `tenantId` fields to `config.design.json` file. These are parameters needed to authenticate against Azure Resource Manager APIs. You can get those values by registering your own Entra ID application in your tenant (here goes link to respective docs). The redirect URL (reply URL) in this application should point to root of the web app where the designer is hosted (this can be simply Blob storage-based website).
+
+1. Run `npm run build-designer` command to build designer.
+1. Go to generated `/dist/designer` folder.
+1. Create a file `config.json` with the following content: <!-- I found this file was created and configured as below. -->
+
+    ```json
+    {
+        "subscriptionId": "< subscription ID >",
+        "resourceGroupName": "< resource group name >",
+        "serviceName": "< APIM service name >",
+        "clientId": "< Entra ID app ID >",
+        "tenantId": "< Entra ID tenant ID >"
+    }
+    ```
+    Here, subscriptionId, resourceGroupName and serviceName - needed to connect to your APIM service using Azure Resource Manager (ARM) APIs.
+
+
+## Publish website locally
+
+First open the `config.publish.json` file in the `src` folder:
+
+```json
+{
+    "environment": "publishing",
+    "subscriptionId": "< subscription ID >",
+    "resourceGroupName": "< resource group name >",
+    "serviceName": "< service name >"
+}
+```
+
+To configure the file:
+
+1. In `subscriptionId`, `resourceGroupName`, and `serviceName`, enter values for the subscription, resource group, and service name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md) for the portal, use it instead for the value of `serviceName` (for example, `https://portal.contoso.com`). For example:
+
+    ```json
+    {
+    ...
+    "serviceName": "https://contoso-api.azure-api.net"
+    ...
+    ```
+
+1. Run `npm run publish`. You are prompted to authenticate via your browser. Select your Microsoft credentials to continue.
+
+1. After some time, the content is published to the `dist/website` folder.
+
+## Upload static files to a blob
+
+Use the Azure CLI to upload the locally generated static files to a blob, and make sure your visitors can get to them:
+
+1. Open Windows Command Prompt, PowerShell, or other command shell.
+
+1. Run the following `az storage blog upload-batch` command. Replace `<connection-string>` with a connection string for your storage account. You can get it from the **Security + networking** > **Access keys** section of your storage account.
+
+    ```azurecli    
+    az storage blob upload-batch --source dist/website \
+        --account-name <your-storage-account-name> \
+        --destination '$web' \
+        --connection-string "<connection-string>"
+    ```
+ 
+## Go to your website
+
+Your website is now live under the hostname specified in your Azure Storage properties. Go to **Primary endpoint** in **Data management** > **Static website**.
+
+## Publish portal in pipelines (GitHub Actions)
+
+The pipeline will also needs Entra ID application credentials to execute publishing (this can be the same Entra ID application as mentioned above). The `tenantId`, `clientId`, and especially `clientSecret` must be kept in respective key storage. See [Using secrets in GitHub Actions](https://docs.github.com/en/actions/security-guides/encrypted-secrets) for more details.
+
+Example of GitHub Actions pipeline YAML:
+
+```yml
+
+name: Portal-Publishing-Pipeline
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run publish command
+        run: npm run publish
+```
+
+------------------------------
+
+<!--
 ### config.publish.json file
 
 Go to the `src` folder and open the `config.publish.json` file.
@@ -316,7 +430,7 @@ Use the Azure CLI to upload the locally generated static files to a blob, and ma
         --account-key "<account-access-key>"
     ```
 
-
+-->
 ## Step 7: Go to your website
 
 Your website is now live under the hostname specified in your Azure Storage properties. Go to **Primary endpoint** in **Data management** > **Static website**.
