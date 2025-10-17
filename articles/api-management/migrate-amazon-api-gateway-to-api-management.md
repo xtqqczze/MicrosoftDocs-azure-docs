@@ -312,14 +312,14 @@ By the end of this phase, you should have a working shell of Azure API Managemen
 
     With the APIs configured in Azure API Management, thorough testing is critical. This phase is expected to be iterative.
 
-      - **Functional testing:** For each API, call the new Azure API Management endpoint (via the Azure portal's test console or client tools) and compare responses to the Amazon API Gateway endpoint. Check for expected status codes, headers, and body. If differences are found, adjust Azure API Management policies or configuration accordingly.
+    - **Functional testing:** For each API, call the new Azure API Management endpoint (via the Azure portal's test console or client tools) and compare responses to the Amazon API Gateway endpoint. Check for expected status codes, headers, and body. If differences are found, adjust Azure API Management policies or configuration accordingly.
     
-      > [!NOTE]
-      > If the API Management instance is in an internal virtual network configuration, the test console won't work. You can test APIs with other client tools deployed in the network, or using the API Management developer portal, if you enable it for your instance.
+    > [!NOTE]
+    > If the API Management instance is in an internal virtual network configuration, the test console won't work. You can test APIs with other client tools deployed in the network, or using the API Management developer portal, if you enable it for your instance.
     
-      - **Security testing:** Validate that API authentication and authorization are working. For instance, present a valid JWT or subscription key to Azure API Management and ensure it accepts the request, and that invalid credentials are rejected with proper error codes. If using subscription keys, test with and without the key.
+    - **Security testing:** Validate that API authentication and authorization are working. For instance, present a valid JWT or subscription key to Azure API Management and ensure it accepts the request, and that invalid credentials are rejected with proper error codes. If using subscription keys, test with and without the key.
     
-      - **Performance baseline:** Use a tool to simulate load on the Azure API Management endpoints and see that they can handle the expected throughput. Compare latency of calls via Azure API Management to latency via Amazon API Gateway. Azure API Management in the Developer tier is less performant than the Premium tier and single-instance, so heavy performance testing might wait until you have a Premium-tier Azure API Management instance deployed.
+    - **Performance baseline:** Use a tool to simulate load on the Azure API Management endpoints and see that they can handle the expected throughput. Compare latency of calls via Azure API Management to latency via Amazon API Gateway. Azure API Management in the Developer tier is less performant than the Premium tier and single-instance, so heavy performance testing might wait until you have a Premium-tier Azure API Management instance deployed.
     
 - **Iterate on feature gaps:** Some Amazon API Gateway features may not have a one-to-one mapping in Azure API Management and require workarounds (see capability mismatches in the Assessment section). For example:
 
