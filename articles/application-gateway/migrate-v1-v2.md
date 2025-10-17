@@ -125,10 +125,77 @@ This is the older cloning script, which facilitates the transition by:
 * Creating a new Standard_V2 or WAF_V2 Application Gateway in a user-specified virtual network subnet.
 * Automatically copying the configuration from an existing Standard or WAF V1 gateway to the newly created V2 gateway.
 * Requires customer to provide SSL and auth certs as input and doesn't support private only V2 gateways 
-
 You can **download** this cloning script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration)
 
+**Parameters for the script:**
+The legacy script takes below parameters:
+
+*  **resourceId: [String]: Required**: This parameter is the Azure Resource ID for your existing Standard V1 or WAF V1 gateway. To find this string value,  navigate to the Azure portal, select your  application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
+     You can also run the following Azure PowerShell commands to get the Resource ID:
+     ```azurepowershell
+     $appgw = Get-AzApplicationGateway -Name <V1 gateway name> -ResourceGroupName <resource group Name>
+     $appgw.Id
+     ```
+* **subnetAddressRange: [String]:  Required**: This parameter is the IP address space that you've allocated (or want to allocate) for a new subnet that contains your new V2 gateway. The address space must be specified in the CIDR notation. For example: 10.0.0.0/24. You don't need to create this subnet in advance but the CIDR needs to be part of the VNET address space. The script creates it for you if it doesn't exist and if it exists, it uses the existing one (make sure the subnet is either empty, contains only V2 Gateway if any, and has enough available IPs).
+* **appgwName: [String]: Optional**. This is a string you specify to use as the name for the new Standard_V2 or WAF_V2 gateway. If this parameter isn't supplied, the name of your existing V1 gateway is used with the suffix *_V2* appended.
+*  **AppGWResourceGroupName: [String]: Optional**. Name of resource group where you want V2 Application Gateway resources to be created (default value is `<V1-app-gw-rgname>`)
+
+> [!NOTE]
+> Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This rewrites the existing resources.
+
+  
+* **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the TLS/SSL certs from your V1 gateway must be uploaded to the new V2 gateway. For each of your TLS/SSL certs configured for your Standard V1 or WAF V1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your TLS/SSL Cert file and the password.
+
+  This parameter is only optional if you don't have HTTPS listeners configured for your V1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
+  ```azurepowershell
+       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
+       $mySslCert1 = New-AzApplicationGatewaySslCertificate -Name "Cert01" `
+      -CertificateFile <Cert-File-Path-1> `
+       Password $password
+       $mySslCert2 = New-AzApplicationGatewaySslCertificate -Name "Cert02" `
+      -CertificateFile <Cert-File-Path-2> `
+      -Password $password
+   ```
+  You can pass in `$mySslCert1, $mySslCert2` (comma-separated) in the previous example as values for this parameter in the script.
+
+ * **sslCertificates from Keyvault: Optional**. You can download the certificates stored in Azure Key Vault and pass it to migration script. To download the certificate as a PFX file, run following command.
+   These comma nds access SecretId, and then save the content as a PFX file.
+    ```azurepowershell
+        $vaultName = ConvertTo-SecureString <kv-name> -AsPlainText -Force
+        $certificateName = ConvertTo-SecureString <cert-name> -AsPlainText -Force
+        $password = ConvertTo-SecureString <password> -AsPlainText -Force
+        $pfxSecret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $certificateName -AsPlainText
+        $secretByte = [Convert]::FromBase64String($pfxSecret)
+        $x509Cert = New-Object Security.Cryptography.X509Certificates.X509Certificate2
+        $x509Cert.Import($secretByte, $null, [Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
+        $pfxFileByte = $x509Cert.Export([Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
+        # Write to a file
+        [IO.File]::WriteAllBytes("KeyVaultcertificate.pfx", $pfxFileByte)
+     ```
+   For each of the cert downloaded from the Keyvault, you can create a new PSApplicationGatewaySslCertificate object via the New-AzApplicationGatewaySslCertificate command shown here. You need the path to   your TLS/SSL Cert file and the password.
+   ```azurepowershell
+   //Convert the downloaded certificate to SSL object
+   $password = ConvertTo-SecureString  <password> -AsPlainText -Force 
+   $cert = New-AzApplicationGatewaySSLCertificate -Name <certname> -CertificateFile <Cert-File-Path-1> -Password $password 
+   ```
+* **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: Optional**. A comma-separated list of PSApplicationGatewayTrustedRootCertificate objects that you create to represent the [Trusted   Root certificates](ssl-overview.md) for authentication of your backend instances from your v2 gateway.
+  ```azurepowershell
+   $certFilePath = ".\rootCA.cer"
+   $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
+  ```
+   To create a list of PSApplicationGatewayTrustedRootCertificate objects, see [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate).
+ 
+* **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new V2 gateway.  This must be from the same VNet that you allocate for your new V2 gateway. If this isn't specified, the script allocates a private IP address for your V2 gateway.
+ 
+* **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new V2 gateway. If public Ip resource name is provided, ensure that it exists in succeeded state.
+  If this isn't specified, the script allocates a new public IP address in the same resource group. The name is the V2 gateway's name with *-IP* appended. If AppGWResourceGroupName is provided and a public IP address isn't provided, ensure that public IP resource with name AppGWV2Name-IP doesn’t exist in a resource group with the name AppGWResourceGroupName in the V1 subscription.
+ 
+ * **validateMigration: [switch]: Optional**. Use this parameter to enable the script to do some basic configuration comparison validations after the V2 gateway creation and the configuration copy. By default, no validation is done.
+ 
+* **enableAutoScale: [switch]: Optional**. Use this parameter to enable the script to enable autoscaling on the new V2 gateway after it's created. By default, autoscaling is disabled. You can always manually enable it later on the newly created V2 gateway.
+
 ### How to run the script
+
 To run the script:
 1. Use `Connect-AzAccount` to connect to Azure.
 2. Use `Import-Module Az` to import the Az modules.
@@ -138,67 +205,6 @@ To run the script:
    ```
 4. Install the script by following the steps-[Install Script](../application-gateway/migrate-v1-v2.md#installing-the-script)
 5. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
-
-**Parameters for the script:**
-
-The legacy script takes below parameters:
-
-*  **resourceId: [String]: Required**: This parameter is the Azure Resource ID for your existing Standard V1 or WAF V1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
-     You can also run the following Azure PowerShell commands to get the Resource ID:
-     ```azurepowershell
-     $appgw = Get-AzApplicationGateway -Name <V1 gateway name> -ResourceGroupName <resource group Name>
-     $appgw.Id
-     ```
-* **subnetAddressRange: [String]:  Required**: This parameter is the IP address space that you've allocated (or want to allocate) for a new subnet that contains your new V2 gateway. The address space must be specified in the CIDR notation. For example: 10.0.0.0/24. You don't need to create this subnet in advance but the CIDR needs to be part of the VNET address space. The script creates it for you if it doesn't exist and if it exists, it uses the existing one (make sure the subnet is either empty, contains only V2 Gateway if any, and has enough available IPs).
-* **appgwName: [String]: Optional**. This is a string you specify to use as the name for the new Standard_V2 or WAF_V2 gateway. If this parameter isn't supplied, the name of your existing V1 gateway is used with the suffix *_V2* appended.
-*  * **AppGWResourceGroupName: [String]: Optional**. Name of resource group where you want V2 Application Gateway resources to be created (default value is `<V1-app-gw-rgname>`)
-
- > [!NOTE]
-> Ensure that there's no existing Application gateway with the provided AppGW V2 Name and Resource group name in V1 subscription. This rewrites the existing resources.
-  
-* **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the TLS/SSL certs from your V1 gateway must be uploaded to the new V2 gateway. For each of your TLS/SSL certs configured for your Standard V1 or WAF V1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your TLS/SSL Cert file and the password.
-  This parameter is only optional if you don't have HTTPS listeners configured for your V1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
-   ```azurepowershell
-       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
-       $mySslCert1 = New-AzApplicationGatewaySslCertificate -Name "Cert01" `
-      -CertificateFile <Cert-File-Path-1> `
-       Password $password
-       $mySslCert2 = New-AzApplicationGatewaySslCertificate -Name "Cert02" `
-      -CertificateFile <Cert-File-Path-2> `
-      -Password $password
-    ```
-   You can pass in `$mySslCert1, $mySslCert2` (comma-separated) in the previous example as values for this parameter in the script.
-* **sslCertificates from Keyvault: Optional**. You can download the certificates stored in Azure Key Vault and pass it to migration script. To download the certificate as a PFX file, run following command. These commands access SecretId, and then save the content as a PFX file.
-   ```azurepowershell
-      $vaultName = ConvertTo-SecureString <kv-name> -AsPlainText -Force
-      $certificateName = ConvertTo-SecureString <cert-name> -AsPlainText -Force
-      $password = ConvertTo-SecureString <password> -AsPlainText -Force
-      $pfxSecret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $certificateName -AsPlainText
-      $secretByte = [Convert]::FromBase64String($pfxSecret)
-      $x509Cert = New-Object Security.Cryptography.X509Certificates.X509Certificate2
-      $x509Cert.Import($secretByte, $null, [Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
-      $pfxFileByte = $x509Cert.Export([Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
-      # Write to a file
-      [IO.File]::WriteAllBytes("KeyVaultcertificate.pfx", $pfxFileByte)
-     ```
-
-  For each of the cert downloaded from the Keyvault, you can create a new PSApplicationGatewaySslCertificate object via the New-AzApplicationGatewaySslCertificate command shown here. You need the path to your TLS/SSL Cert file and the password.
-       ```azurepowershell
-      //Convert the downloaded certificate to SSL object
-      $password = ConvertTo-SecureString  <password> -AsPlainText -Force 
-      $cert = New-AzApplicationGatewaySSLCertificate -Name <certname> -CertificateFile <Cert-File-Path-1> -Password $password 
-       ```
-* **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: Optional**. A comma-separated list of PSApplicationGatewayTrustedRootCertificate objects that you create to represent the [Trusted Root certificates](ssl-overview.md) for authentication of your backend instances from your v2 gateway.
-      ```azurepowershell
-      $certFilePath = ".\rootCA.cer"
-      $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
-      ```
-      To create a list of PSApplicationGatewayTrustedRootCertificate objects, see [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate).
-* **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new V2 gateway.  This must be from the same VNet that you allocate for your new V2 gateway. If this isn't specified, the script allocates a private IP address for your V2 gateway.
-* **publicIpResourceId: [String]: Optional**. The resourceId of existing public IP address (standard SKU) resource in your subscription that you want to allocate to the new V2 gateway. If public Ip resource name is provided, ensure that it exists in succeeded state.
-      If this isn't specified, the script allocates a new public IP address in the same resource group. The name is the V2 gateway's name with *-IP* appended. If AppGWResourceGroupName is provided and a public IP address isn't provided, ensure that public IP resource with name AppGWV2Name-IP doesn’t exist in a resource group with the name AppGWResourceGroupName in the V1 subscription.
-* **validateMigration: [switch]: Optional**. Use this parameter to enable the script to do some basic configuration comparison validations after the V2 gateway creation and the configuration copy. By default, no validation is done.
-* **enableAutoScale: [switch]: Optional**. Use this parameter to enable the script to enable autoscaling on the new V2 gateway after it's created. By default, autoscaling is disabled. You can always manually enable it later on the newly created V2 gateway.
 6. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
    ```
    AzureAppGWMigration.ps1
@@ -212,7 +218,6 @@ The legacy script takes below parameters:
     -publicIpResourceId <public IP name string>
     -validateMigration -enableAutoScale
    ```
-
    **Example**
    ```azurepowershell
       AzureAppGWMigration.ps1 `
