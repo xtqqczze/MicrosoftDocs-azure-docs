@@ -40,7 +40,7 @@ Objects on smart tier are not impacted by blob lifecycle management. Storage act
 
 
 ## Billing details
-Objects on smart tier are billed the capacity meters and connected prices of the underlying capacity tier (hot, cool, or cold tier). There is no smart tier specific capacity meter or price. All capacity under Smart Tier is billed at pay-as-you-go rates. There is no reserved capacity applicable.
+Objects on smart tier are billed the capacity meters and connected prices of the underlying capacity tier (hot, cool, or cold tier). There is no smart tier specific capacity meter or price. All capacity under smart tier is billed at pay-as-you-go rates. There is no reserved capacity applicable.
 Smart tier charges a monitoring operation for each set of 10,000 objects over 128KiB managed by smart tier.
 Objects in smart tier are not charged for tier transitions within smart tier, early deletion fees, or data retrieval operations.
 
