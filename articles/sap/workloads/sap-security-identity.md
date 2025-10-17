@@ -120,16 +120,16 @@ SAP SSO Server (Java) – SAP has announced the End of Life December 2027  [SAP 
 
 
 ## Links 
-Learn more about Microsoft Entra ID Governance: aka.ms/Entra/IdentityGovernance  
-View the Microsoft Mechanics video: [aka.ms/IDGovMechanics](aka.ms/IDGovMechanics)   
-Walk-through the Interactive Guides: [aka.ms/EntraIDGovGuides](aka.ms/EntraIDGovGuides)
-More documentation: [aka.ms/Entra/IDGovDocs](aka.ms/Entra/IDGovDocs)
-[1912264 - SAP NetWeaver single sign-on 1.0: Central Note](https://me.sap.com/notes/1912264)
-[2300234 - SAP single sign-on 3.0: Central Note](https://me.sap.com/notes/2300234)
-[single sign-on for SAP GUI | SAP Community](https://pages.community.sap.com/topics/single-sign-on)
-[1848999 - Central Note for CommonCryptoLib 8 (SAPCRYPTOLIB)](https://me.sap.com/notes/1848999/E)
-[510007 - Additional considerations about setting up SSL on Application Server ABAP](https://me.sap.com/notes/510007)
-[Single Sign On for SAP NetWeaver and Azure Active Directory - YouTube](https://www.youtube.com/watch?v=AGCZA8CCIYo)
+> Learn more about Microsoft Entra ID Governance: aka.ms/Entra/IdentityGovernance  
+> View the Microsoft Mechanics video: [aka.ms/IDGovMechanics](aka.ms/IDGovMechanics)   
+> Walk-through the Interactive Guides: [aka.ms/EntraIDGovGuides](aka.ms/EntraIDGovGuides)
+> More documentation: [aka.ms/Entra/IDGovDocs](aka.ms/Entra/IDGovDocs)
+> [1912264 - SAP NetWeaver single sign-on 1.0: Central Note](https://me.sap.com/notes/1912264)
+> [2300234 - SAP single sign-on 3.0: Central Note](https://me.sap.com/notes/2300234)
+> [single sign-on for SAP GUI | SAP Community](https://pages.community.sap.com/topics/single-sign-on)
+> [1848999 - Central Note for CommonCryptoLib 8 (SAPCRYPTOLIB)](https://me.sap.com/notes/1848999/E)
+> [510007 - Additional considerations about setting up SSL on Application Server ABAP](https://me.sap.com/notes/510007)
+> [Single Sign On for SAP NetWeaver and Azure Active Directory - YouTube](https://www.youtube.com/watch?v=AGCZA8CCIYo)
 
 
 
