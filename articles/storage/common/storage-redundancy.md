@@ -197,7 +197,7 @@ The following table shows the redundancy options supported by each Azure Storage
 <sup>1</sup> SSD file shares are supported on LRS and ZRS.<br/>
 <sup>2</sup> ZRS managed disks have certain limitations. See the [Limitations](/azure/virtual-machines/disks-redundancy#limitations) section of the redundancy options for managed disks article for details.<br/>
 > [!NOTE]
-> For blob storage accounts leveraging smart tier Public Preview, redundancy conversions and account failover scenarios have additional dependencies. These details are covered in [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
+> For storage accounts that leverage the smart tier public preview, redundancy conversions and account failover scenarios have additional dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
 
 ### Supported storage account types
 
