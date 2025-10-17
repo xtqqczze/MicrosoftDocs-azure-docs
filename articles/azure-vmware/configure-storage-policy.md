@@ -164,7 +164,7 @@ Run the `Update-StoragePolicyOfUnassociatedVsanObjects` cmdlet to modify curre
    | **Specify name for execution**  | Alphanumeric name. For example, *Update-StoragePolicyOfUnassociatedVsanObjects-Exec1*.  |
    | **Timeout**  |  The period after which a cmdlet exits if it's taking too long to finish.  |
 
-      :::image type="content" source="media/run-command/run-command-update-unassociated-storage-policy.png" alt-text="Screenshot that shows how to update unassociated storage policies.." lightbox="media/run-command/run-command-update-unassociated-storage-policy.png":::
+   :::image type="content" source="media/run-command/run-command-update-unassociated-storage-policy.png" alt-text="Screenshot that shows how to update unassociated storage policies." lightbox="media/run-command/run-command-update-unassociated-storage-policy.png":::
 
 
    1. Check **Notifications** to see the progress.
