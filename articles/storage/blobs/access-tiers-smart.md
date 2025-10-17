@@ -22,7 +22,6 @@ Access behavior, performance characteristics, and SLAs of the underlying residen
 - Redundancy conversions to non-zonal accounts are not supported. 
 - After a failover of a GZRS account, the resulting LRS account needs to be converted to a zonal redundancy again within 60 days of failover for smart tier to remain supported. 
 - Smart tier characteristics might change during or after the public preview phase. 
-- See the [Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) of Use for Microsoft Azure Previews for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Enabling smart tier
 Smart tier is configured on the [default account access tier](access-tiers-overview.md#default-account-access-tier-setting). [Legacy account types](storage-account-overview.md#legacy-storage-account-types) such as Standard general-purpose v1 (GPv2) are not supported by smart tier. After enabling smart tier on existing storage accounts, all blobs in the account for which an access tier hasn't been explicitly set, will be moved to smart tier. Blobs that have an explicit tier set, will not be moved to smart tier. A monitoring fee will be billed for each group of 10,000 objects managed by smart tier.
