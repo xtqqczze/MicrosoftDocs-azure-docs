@@ -64,11 +64,12 @@ Data protection controls ensure that configuration data, dashboard definitions, 
 
 Logging and monitoring capabilities provide visibility into Azure Managed Grafana usage patterns, authentication events, and system health for security analysis and compliance reporting.
 
+- **Enable diagnostic settings for audit logging**: Configure diagnostic settings to stream Grafana login events and other logs to Log Analytics, Storage Account, or Event Hub for centralized monitoring and security analysis. This provides visibility into user access patterns and system events. See [Monitor Azure Managed Grafana using diagnostic settings](/azure/managed-grafana/how-to-monitor-managed-grafana-workspace).
+
 - **Configure log retention policies**: Establish appropriate retention periods for diagnostic logs based on compliance requirements and security analysis needs. Store logs in secure, tamper-evident storage locations with proper access controls. See [Monitor Azure Managed Grafana using diagnostic settings](/azure/managed-grafana/how-to-monitor-managed-grafana-workspace).
 
 - **Monitor workspace metrics**: Use Azure Monitor metrics to track performance indicators and detect anomalous behavior that might indicate security issues or resource exhaustion attacks. Monitor metrics such as total requests and response times through Azure Monitor's metric charts. See [Monitor Azure Managed Grafana using Azure Monitor's metric chart](/azure/managed-grafana/how-to-monitor-managed-grafana-metrics).
 
-- **Set up alerting for security events**: Create alerts based on diagnostic logs to detect suspicious activity such as failed authentication attempts or unusual access patterns. Use the Grafana Login Events log category to monitor authentication activities and configure alerts in Azure Monitor based on these logs. See [Monitor Azure Managed Grafana using diagnostic settings](/azure/managed-grafana/how-to-monitor-managed-grafana-workspace).
 
 ## Compliance and governance
 
