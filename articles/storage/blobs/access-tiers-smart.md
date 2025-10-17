@@ -26,7 +26,7 @@ Access behavior, performance characteristics, and SLAs of the underlying residen
 ## Enabling smart tier
 Smart tier is configured on the [default account access tier](access-tiers-overview.md#default-account-access-tier-setting). [Legacy account types](storage-account-overview.md#legacy-storage-account-types) such as Standard general-purpose v1 (GPv2) are not supported by smart tier. After enabling smart tier on existing storage accounts, all blobs in the account for which an access tier hasn't been explicitly set, will be moved to smart tier. Blobs that have an explicit tier set, will not be moved to smart tier. A monitoring fee will be billed for each group of 10,000 objects managed by smart tier.
 Objects can be moved out of smart tier by explicitly setting a different online tier or changing the default account access tier setting to a different tier. Once moved to an explicit tier, objects cannot be tiered back to smart tier.
-To set the default access tier setting for a storage account, visit[ Set a blob's access tier - Azure Storage | Microsoft Learn](access-tiers-online-manage.md)
+To set the default access tier setting for a storage account, see [Set a blob's access tier](access-tiers-online-manage.md)
 
 
 ## Working with smart tier
