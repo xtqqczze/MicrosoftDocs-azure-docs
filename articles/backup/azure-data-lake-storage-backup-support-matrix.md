@@ -2,7 +2,7 @@
 title: Support matrix for Azure Data Lake Storage Backup
 description: Learn about the  regional availability, supported scenarios, and limitations for backups of Azure Data Lake Storage.
 ms.topic: reference
-ms.date: 09/26/2025
+ms.date: 09/27/2025
 ms.custom:
   - references_regions
   - engagement-fy24
