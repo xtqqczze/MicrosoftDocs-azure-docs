@@ -1,5 +1,5 @@
 ---
-title: Zonal Placement for Azure Files
+title: Zone Pinning for Classic Azure File Shares
 description: Learn to use zonal placement for Azure storage accounts so you can choose the specific availability zone for your SSD file shares.
 author: khdownie
 ms.service: azure-file-storage
@@ -19,9 +19,11 @@ This feature is currently available only for premium storage accounts (SSD) usin
 
 ## Applies to
 
+This article applies to classic Azure file shares only. It doesn't apply to file shares created with the Microsoft.FileShares resource provider (preview).
+
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
 |-|-|-|-|:-:|:-:|
-| Microsoft.FileShares | Provisioned v2 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.FileShares | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
