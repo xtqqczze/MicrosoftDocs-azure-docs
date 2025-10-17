@@ -599,7 +599,7 @@ items:
         items:
         - name: Best practices
           href: access-tiers-best-practices.md
-        - name: smart tiering
+        - name: Smart tiering
           href: access-tiers-smart.md
         - name: Change a blob's access tier
           href: access-tiers-online-manage.md
