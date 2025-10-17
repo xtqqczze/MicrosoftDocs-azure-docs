@@ -1,5 +1,5 @@
 ---
-title: Optimize costs with smart tier
+title: Optimize costs with smart tier (preview)
 description: Optimize your Azure Blob Storage costs with smart tier, automatically moving data between access tiers based on usage patterns.
 author: beber-msft
 ms.author: beber
