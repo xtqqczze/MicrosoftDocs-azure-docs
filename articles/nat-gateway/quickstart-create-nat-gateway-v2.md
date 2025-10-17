@@ -15,6 +15,10 @@ ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
 
 In this quickstart, learn how to create a Standard V2 Azure NAT Gateway by using the Azure portal, and PowerShell. The NAT Gateway service provides scalable outbound connectivity for virtual machines in Azure.
 
+> [!IMPORTANT]
+> Azure NAT Gateway V2 is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 > [!NOTE]
 > Azure CLI is currently unavailable. Use the Azure portal or Azure PowerShell to create a Standard V2 NAT Gateway.
 

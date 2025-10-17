@@ -15,6 +15,10 @@ This article provides an overview of all NAT gateway metrics and diagnostic capa
 
 All metrics are the same for Standard and StandardV2 NAT Gateway.  
 
+> [!IMPORTANT]
+> Azure NAT Gateway V2 is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.  
+
 Azure NAT Gateway provides the following diagnostic capabilities:  
 
 - Multi-dimensional metrics and alerts through Azure Monitor. You can use these metrics to monitor and manage your NAT gateway and to assist you in troubleshooting issues. 

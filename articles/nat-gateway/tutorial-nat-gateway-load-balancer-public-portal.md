@@ -19,6 +19,10 @@ By default, an Azure Standard Load Balancer is secure. Outbound connectivity is 
 
 The NAT gateway integration replaces the need for outbound rules for backend pool outbound SNAT. 
 
+> [!IMPORTANT]
+> Azure NAT Gateway V2 is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
+
 :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-nat-gateway-load-balancer-public-portal/resources-diagram.png":::
 
 In this tutorial, you learn how to:
