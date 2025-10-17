@@ -111,9 +111,9 @@ az containerapp env update \
     --enable-peer-to-peer-encryption
 ```
 
-Once enabled, Azure Container Apps automatically secures HTTP traffic through its built-in transparent proxying feature. Your application usually does not need to care whether the traffic is encrypted or not.
+Once enabled, Azure Container Apps automatically secures HTTP traffic through its built-in transparent proxying feature. Your application usually doesn't need to care whether the traffic is encrypted or not.
 
-If you want to use HTTPS for communication between apps internally, you must handle certificate verification. This is because the domain name might not match the certificate’s common name or subject alternative name.
+If you want to use HTTPS for communication between apps internally, you must handle certificate verification. This is because the domain name might not match the certificate's Common Name (CN) or Subject Alternative Name (SAN).
 
 For more information, see the [Peer-to-peer encryption](../../container-apps/ingress-environment-configuration.md#peer-to-peer-encryption) section of [Configure ingress in an Azure Container Apps environment](../../container-apps/ingress-environment-configuration.md).
 
