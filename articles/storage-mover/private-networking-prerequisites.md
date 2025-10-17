@@ -44,9 +44,9 @@ The following diagram illustrates an example of a resource topology for enabling
 
 :::image type="content" source="media/private-networking-prerequisites/private-networking-topology.png" alt-text="A diagram illustrating an example of a resource topology for enabling private connectivity to all endpoints that support it.":::
 
-<sup>*1</sup> Arc Private Link Scopes provide access to three Arc services as shown in the image. The *Extensions* Arc service isn't used by the Storage Mover Agent. It appears muted in the image to avoid confusion.<br>
-<sup>*2</sup> Arc Private Link Scopes and the three Arc services to which they connect can both be accessed directly over public endpoints. The Arc Private Link Scope can be configured to enable or disable public network access.<br>
-<sup>*</sup> The recommended best practice is to use multiple Azure Virtual Networks. Use the Azure VPN Gateway to connect to the "hub" Virtual Network. Use a second "spoke" virtual network, connected to the "hub" using virtual network peering, to contain the resources. For detailed guidance, see [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/).
+<sup>1</sup> Arc Private Link Scopes provide access to three Arc services as shown in the image. The *Extensions* Arc service isn't used by the Storage Mover Agent. It appears muted in the image to avoid confusion.<br>
+<sup>2</sup> Arc Private Link Scopes and the three Arc services to which they connect can both be accessed directly over public endpoints. The Arc Private Link Scope can be configured to enable or disable public network access.<br>
+<sup>3</sup> The recommended best practice is to use multiple Azure Virtual Networks. Use the Azure VPN Gateway to connect to the "hub" Virtual Network. Use a second "spoke" virtual network, connected to the "hub" using virtual network peering, to contain the resources. For detailed guidance, see [What is an Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/).
 
 ## Public Endpoint Dependencies
 
