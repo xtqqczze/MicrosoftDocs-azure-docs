@@ -93,10 +93,9 @@ The following table provides a summary of the required services, their endpoint 
 
 ---
 
-
 ## Arc-Enabled Server Considerations
 
-The Storage Mover Agent is an Arc-enabled server and requires connectivity to several Azure services. Since many Arc services don't support Azure Private Endpoint resources directly, the recommended approach is to configure an Azure Arc Private Link Scope. A Private Link Scope allows you to maintain private connectivity by facilitating data flow through between private endpoints and the Arc services required by the Storage Mover Agent. For more information about Arc Private Link Scopes, see [Use Azure Arc Private Link Scopes to connect to Azure Arc services privately](../arc/azure-arc-private-link-scopes.md).
+The Storage Mover Agent is an Arc-enabled server and requires connectivity to several Azure services. Since many Arc services don't support Azure Private Endpoint resources directly, the recommended approach is to configure an Azure Arc Private Link Scope. A Private Link Scope allows you to maintain private connectivity by facilitating data flow through between private endpoints and the Arc services required by the Storage Mover Agent. For more information about Arc Private Link Scopes, see [Use Azure Private Link to securely connect servers to Azure Arc](/azure/azure-arc/servers/private-link-security).
 
 > [!NOTE]
 > Azure Arc Private Link Scopes aren't required for Storage Accounts or Key Vaults.
