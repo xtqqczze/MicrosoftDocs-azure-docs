@@ -19,6 +19,10 @@ StandardV2 NAT Gateway offers enhanced data processing limits and high availabil
 In this article, we discuss guidance for how to migrate your subnets from Standard NAT Gateway to StandardV2 NAT Gateway manually. In place migration to StandardV2 NAT Gateway isn't available. 
 
 > [!IMPORTANT]
+> Azure NAT Gateway V2 is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
+
+> [!IMPORTANT]
 > Migration from Standard to StandardV2 NAT Gateway involves **downtime** and **impact to existing connections**. It also requires the use of new StandardV2 Public IPs. Existing Standard SKU Public IPs don't work with StandardV2 NAT Gateway. Plan accordingly. 
 
 ## Pre-migration steps
