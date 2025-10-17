@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create a backup policy for Azure Data Lake Storage vaulted backup
-description: Learn how to create a backup policy for Azure Data Lake Storage vaulted backup.
+title: Quickstart - Create a backup policy for Azure Data Lake Storage backup
+description: Learn how to create a backup policy for Azure Data Lake Storage backup.
 ms.custom:
   - ignite-2025
   - devx-track-azurepowershell-azurecli, devx-track-azurecli
@@ -13,11 +13,11 @@ ms.author: v-mallicka
 # Customer intent: As an IT administrator, I want to create a backup policy for Azure Data Lake Storage using the portal, PowerShell, or Azure CLI so that I can ensure data protection against accidental or malicious deletions without maintaining on-premises infrastructure.
 ---
 
-# Quickstart: Create a backup policy for Azure Data Lake Storage vaulted backup
+# Quickstart: Create a backup policy for Azure Data Lake Storage backup using Azure portal, PowerShell, or Azure
 
 ::: zone pivot="client-portal"
 
-This quickstart describes how to create a backup policy for [Azure Data Lake Storage vaulted backup](azure-data-lake-storage-backup-overview.md) from the Azure portal.
+This quickstart describes how to create a backup policy for [Azure Data Lake Storage backup](azure-data-lake-storage-backup-overview.md) from the Azure portal.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ To create a backup policy for Azure Data Lake Storage from the Backup vault, fol
 
    :::image type="content" source="./media/azure-data-lake-storage-configure-backup/create-policy.png" alt-text="Screenshot shows how to start creating a backup policy." lightbox="./media/azure-data-lake-storage-configure-backup/create-policy.png":::
 
-1. On the **Schedule + retention** tab, under the **Backup schedule** section, set the **Backup Frequency** as **Daily** or **Weekly** and the schedule for creating recovery points for vaulted backups.
+1. On the **Schedule + retention** tab, under the **Backup schedule** section, set the **Backup Frequency** as **Daily** or **Weekly** and the schedule for creating recovery points for backups.
 1. Under the **Add retention** section, edit the default retention rule or add new rules to specify the retention of recovery points.
 1. Select **Review + create**.
 1. After the review succeeds, select **Create**.
@@ -47,7 +47,7 @@ To create a backup policy for Azure Data Lake Storage from the Backup vault, fol
 
 ::: zone pivot="client-powershell"
 
-This quickstart describes how to create a backup policy for [Azure Data Lake Storage vaulted backup](azure-data-lake-storage-backup-overview.md) using PowerShell.
+This quickstart describes how to create a backup policy for [Azure Data Lake Storage backup](azure-data-lake-storage-backup-overview.md) using PowerShell.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ Before you create a backup policy for Azure Data Lake Storage, ensure that the f
 
 ## Create a backup policy for Azure Data Lake Storage using PowerShell
 
-To create a backup policy for Azure Data Lake Storage vaulted backup, run the following commands:
+To create a backup policy for Azure Data Lake Storage backup, run the following commands:
 
 1.	To retrieve the policy template, use the [`Get-AzDataProtectionPolicyTemplate`](/powershell/module/az.dataprotection/get-azdataprotectionpolicytemplate) cmdlet. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
@@ -67,7 +67,7 @@ To create a backup policy for Azure Data Lake Storage vaulted backup, run the fo
      $defaultPol = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureDataLakeStorage
      ```
 
-1.	To create a vaulted backup policy, define the schedule and retention for backups. The following cmdlets create a backup policy with backup frequency every week on Friday and Tuesday at 10 AM and retention of three months.
+1.	To create a backup policy, define the schedule and retention for backups. The following cmdlets create a backup policy with backup frequency every week on Friday and Tuesday at 10 AM and retention of three months.
 
    ```azurepowershell-interactive
    $schDates = @(
@@ -91,7 +91,7 @@ To create a backup policy for Azure Data Lake Storage vaulted backup, run the fo
 
 ::: zone pivot="client-cli"
 
-This quickstart describes how to create a backup policy for [Azure Data Lake Storage vaulted backup](azure-data-lake-storage-backup-overview.md) using Azure CLI.
+This quickstart describes how to create a backup policy for [Azure Data Lake Storage backup](azure-data-lake-storage-backup-overview.md) using Azure CLI.
 
 ## Prerequisites
 
@@ -102,7 +102,7 @@ Before you create a backup policy for Azure Data Lake Storage, ensure that the f
 
 ## Create a backup policy for Azure Data Lake Storage using Azure CLI
 
-To create a backup policy for Azure Date Lake Storage vaulted backup, run the following commands:
+To create a backup policy for Azure Date Lake Storage backup, run the following commands:
 
 1.	To understand the inner components of a Backup policy for Azure Data Lake Storage backup, retrieve the policy template using the `az dataprotection backup-policy get-default-policy-template` command. The following command returns a default policy template for a given datasource type that you can use to create a new policy.
 
@@ -190,6 +190,6 @@ To create a backup policy for Azure Date Lake Storage vaulted backup, run the fo
 
 ## Next steps
 
-[Configure vaulted backup for Azure Data Lake Storage](azure-data-lake-storage-configure-backup.md).
+[Configure backup for Azure Data Lake Storage using Azure portal, PowerShell, Azure CLI](azure-data-lake-storage-configure-backup.md).
 
 
