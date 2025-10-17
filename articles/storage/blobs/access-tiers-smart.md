@@ -36,7 +36,7 @@ All objects that are created or moved onto smart tier enabled accounts will be s
 The Get Blob and Put Blob operations are access operations and will update the last access time of an object. However, the Get Blob Properties, Get Blob Metadata, and Get Blob Tags aren't access operations. Those operations won't update the last access time of an object or impact the tiering behavior of smart tier objects. After 60 additional days of not accessing objects on smart tier, they will transition to the cold tier. No further transitions will occur unless the object is accessed. The data always stays on online tiers, delivering you the regular availability, scale and performance targets of Azure Blob storage. 
 
 Access operations against smart tier objects will reset the tier transition timer and immediately move the object to hot tier.
-Objects on smart tier are not impacted by Blob lifecycle management. Storage actions cannot be used to influence tiering operations for objects on smart tier. Soft deleted objects continue to transition to cooler tiers until their deletion expiry period is met.
+Objects on smart tier are not impacted by blob lifecycle management. Storage actions cannot be used to influence tiering operations for objects on smart tier. Soft deleted objects continue to transition to cooler tiers until their deletion expiry period is met.
 
 
 ## Billing details
