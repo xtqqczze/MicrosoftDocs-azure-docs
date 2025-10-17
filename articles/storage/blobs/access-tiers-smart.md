@@ -16,7 +16,7 @@ By default, new data is stored in the hot tier. Any object that isn't accessed f
 Access behavior, performance characteristics, and SLAs of the underlying residence tier do apply to objects in smart tier.
 
 
-## Prerequisites
+## Known issues and considerations
 
 - Smart tier is currently in Public Preview for account level tiering for zonal redundancies (ZRS, GZRS, and RA-GZRS) for both flat and hierarchical namespaces. 
 - Redundancy conversions to non-zonal accounts are not supported. 
