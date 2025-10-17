@@ -12,9 +12,9 @@ ms.date: 10/08/2025
 
 Azure Storage Mover is a service designed to facilitate seamless data migration to Azure Storage accounts. For organizations prioritizing security and compliance, integrating Storage Mover with Azure Private Networking ensures that sensitive data and credentials remain protected throughout the migration process. 
 
-Azure Storage Mover communicates over HTTPS, and in addition to operating over the public internet, it supports Azure-recommended private network configurations. These configurations typically begin with the creation of an Azure virtual network, which serves as the foundation for secure connectivity. For more information about Azure virtual networks, see [What is an Azure virtual network](../virtual-network/virtual-networks-overview.md).
+All Azure Storage Mover communication occurs over HTTPS. Data migrations can operate either over the public internet or Azure-recommended private network configurations. These configurations typically begin with the creation of an Azure virtual network, which serves as the foundation for secure connectivity. For more information about Azure virtual networks, see [What is an Azure virtual network](../virtual-network/virtual-networks-overview.md).
 
-To link on-premises infrastructure to Azure, organizations need to enable hybrid connectivity. This hybrid link can be created using a Site-to-Site VPN via Azure VPN Gateway, Azure ExpressRoute, or an Azure Virtual WAN. Each option establishes private tunnels that enable secure access to Azure resources. For more information about Azure VPN Gateway, ExpressRoute, or Virtual WAN, see [What is an Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md), [What is Azure ExpressRoute](../expressroute/expressroute-introduction.md), or [What is Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+To link on-premises infrastructure to Azure, organizations need to enable hybrid connectivity. This hybrid link can be created using a Site-to-Site VPN via Azure VPN Gateway or Azure ExpressRoute. Both options establish private tunnels that enable secure access to Azure resources. For more information about Azure VPN Gateway or ExpressRoute, see [What is an Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [What is Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
 Private Endpoints also play a critical role in this approach, allowing services such as Azure Storage Accounts and Azure Key Vaults to be accessed privately. These endpoints reside within a subnet of the virtual network and require domain name system (DNS) records to correctly resolve private IP addresses. During setup, users can configure a Private DNS Zone to manage these records. For more information about Private Endpoints, see [What is an Azure Private Endpoint](../private-link/private-endpoint-overview.md).
 
@@ -31,7 +31,7 @@ An Azure virtual network is an isolated network within Azure that provides the f
 - **VPN Gateway or ExpressRoute:**<br>
 You can use a VPN gateway or Azure ExpressRoute to link your on-premises network to your Azure virtual network. A VPN Gateway is used for Site-to-Site VPN connections between networks, while ExpressRoute provides a dedicated private connection. Both options enable secure communication between on-premises infrastructure and Azure resources. 
 - **Private Endpoints:**<br>
-Azure Private Endpoints securely connect Azure services using a private IP from your virtual network. Each resource, such as a Storage Account or Key Vault, is assigned as a private endpoint.
+Azure Private Endpoints are resources that can securely connect Azure services using a private IP from your virtual network. You can limit access to clients in your virtual network by creating a Private Endpoint resource and assigning it to another preexisting resource, such as a Storage Account or Key Vault.
 - **DNS Configuration:**<br>
 Proper DNS configuration is necessary to resolve the private endpoint IP addresses of your resource endpoints. Because you can create a Private DNS Zone and link it to your virtual network during Private Endpoint creation, this configuration can be accomplished during setup.
 
@@ -44,7 +44,7 @@ The following diagram illustrates an example of a resource topology for enabling
 
 :::image type="content" source="media/private-networking-prerequisites/private-networking-topology.png" alt-text="A diagram illustrating an example of a resource topology for enabling private connectivity to all endpoints that support it.":::
 
-<sup>*1</sup> Arc Private Link Scopes provide access to three Arc services as shown in the image. One of the Arc services, Extensions, isn't used by the Storage Mover Agent, and is shown as disabled to avoid confusion.<br>
+<sup>*1</sup> Arc Private Link Scopes provide access to three Arc services as shown in the image. The *Extensions* Arc service isn't used by the Storage Mover Agent. It appears muted in the image to avoid confusion.<br>
 <sup>*2</sup> Arc Private Link Scopes and the three Arc services to which they connect can both be accessed directly over public endpoints. The Arc Private Link Scope can be configured to enable or disable public network access.<br>
 <sup>*</sup> The recommended best practice is to use multiple Azure Virtual Networks. Use the Azure VPN Gateway to connect to the "hub" Virtual Network. Use a second "spoke" virtual network, connected to the "hub" using virtual network peering, to contain the resources. For detailed guidance, see [What is an Azure landing zone?](/azure/cloud-adoption-framework/ready/landing-zone/).
 
@@ -63,44 +63,40 @@ The following table provides a summary of the required services, their endpoint 
 
 # [Public Cloud](#tab/public)
 
-| Service                               | Needed For           | Private Access | FQDN                                              |
-|---------------------------------------|----------------------|----------------|---------------------------------------------------|
-| **MCR (mcr.microsoft.com)**           | Agent updates        | &#10060;       | `mcr.microsoft.com`                               |
-| **Storage Mover Service**             | Agent heartbeats     | &#10060;       | `<region>.agentgateway.prd.azsm.azure.com`        |
-| **Event Hubs**                        | Publishing copy logs | &#10060;       | `evhns-sm-ur-prd-<region>.servicebus.windows.net` |
-| **Azure Arc**                         | Registration         | &#9989; (via Arc Private Link Scope) | `*.his.arc.azure.com`       |
-| **Azure Arc**                         | Registration         | &#9989; (via Arc Private Link Scope) | `*.guestconfiguration.azure.com` |
-| **Entra ID**                          | Registration         | &#10060;       | `login.microsoftonline.com`                       |
-| **Entra ID**                          | Registration         | &#10060;       | `pas.windows.net`                                 |
-| **Azure Resource Manager**            | Registration         | &#10060;       | `management.azure.com`                            |
-| **Storage Account (Blob)**            | Job targets          | &#9989;        | `*.blob.core.windows.net`                         |
-| **Storage Account (DFS)**             | Job targets          | &#9989;        | `*.dfs.core.windows.net`                          |
-| **Storage Account (File)**            | Job targets          | &#9989;        | `*.file.core.windows.net`                         |
-| **Key Vault**                         | SMB credentials      | &#9989;        |  `*.vault.azure.net`                              |
+| Service                    | Needed For           | Supports Private Endpoints | FQDN                                               |
+|----------------------------|----------------------|----------------------------|----------------------------------------------------|
+| **MCR**                    | Agent updates        | &#10060;                   | `mcr.microsoft.com`                                |
+| **Storage Mover Service**  | Agent heartbeats and migration job assignments    | &#10060; | `<region>.agentgateway.prd.azsm.azure.com` |
+| **Event Hubs**             | Publishing copy logs | &#10060;                   | `evhns-sm-ur-prd-<region>.servicebus.windows.net`  |
+| **Azure Arc**              | Registration         | &#9989; (via Arc Private Link Scope)  | `*.guestconfiguration.azure.com`<br />`*.his.arc.azure.com` |
+| **Entra ID**               | Registration         | &#10060;                   | `login.microsoftonline.com`<br />`pas.windows.net` |
+| **Azure Resource Manager** | Registration         | &#10060;                   | `management.azure.com`                             |
+| **Storage Account (Standard Blob)** | Job targets | &#9989;                    | `*.blob.core.windows.net`                          |
+| **Storage Account (HNS Blob)**  | Job targets     | &#9989;                    | `*.dfs.core.windows.net`                           |
+| **Storage Account (File)** | Job targets          | &#9989;                    | `*.file.core.windows.net`                          |
+| **Key Vault**              | SMB credentials      | &#9989;                    |  `*.vault.azure.net`                               |
 
 # [Fairfax](#tab/fairfax)
 
-| Service                               | Needed For           | Private Access | FQDN                                                   |
-|---------------------------------------|----------------------|----------------|--------------------------------------------------------|
-| **MCR (mcr.microsoft.com)**           | Agent updates        | &#10060;       | `mcr.microsoft.com`                                    |
-| **Storage Mover Service**             | Agent heartbeats     | &#10060;       | `<region>.agentgateway.ff.azsm.azure.us`               |
-| **Event Hubs**                        | Publishing copy logs | &#10060;       | `evhns-sm-ur-ff-<region>.servicebus.usgovcloudapi.net` |
-| **Azure Arc**                         | Registration         | &#9989; (via Arc Private Link Scope) | `*.his.arc.azure.com`            |
-| **Azure Arc**                         | Registration         | &#9989; (via Arc Private Link Scope) | `*.guestconfiguration.azure.com` |
-| **Entra ID**                          | Registration         | &#10060;       | `login.microsoftonline.com`                            |
-| **Entra ID**                          | Registration         | &#10060;       | `pasff.usgovcloudapi.net`                              |
-| **Azure Resource Manager**            | Registration         | &#10060;       | `management.usgovcloudapi.net`                         |
-| **Storage Account (Blob)**            | Job targets          | &#9989;        | `*.blob.core.usgovcloudapi.net`                        |
-| **Storage Account (DFS)**             | Job targets          | &#9989;        | `*.dfs.core.usgovcloudapi.net`                         |
-| **Storage Account (File)**            | Job targets          | &#9989;        | `*.file.core.usgovcloudapi.net`                        |
-| **Key Vault**                         | SMB credentials      | &#9989;        |  `*.vault.usgovcloudapi.net`                           |
+| Service                    | Needed For           | Supports Private Endpoints | FQDN                                                   |
+|----------------------------|----------------------|----------------------------|--------------------------------------------------------|
+| **MCR**                    | Agent updates        | &#10060;                   | `mcr.microsoft.com`                                    |
+| **Storage Mover Service**  | Agent heartbeats and migration job assignments | &#10060; | `<region>.agentgateway.ff.azsm.azure.us`       |
+| **Event Hubs**             | Publishing copy logs | &#10060;                   | `evhns-sm-ur-ff-<region>.servicebus.usgovcloudapi.net` |
+| **Azure Arc**              | Registration         | &#9989; (via Arc Private Link Scope) | `*.guestconfiguration.azure.com`<br />`*.his.arc.azure.com` |
+| **Entra ID**               | Registration         | &#10060;                   | `login.microsoftonline.com`<br />`pasff.usgovcloudapi.net` |
+| **Azure Resource Manager** | Registration         | &#10060;                   | `management.usgovcloudapi.net`                         |
+| **Storage Account (Standard Blob)** | Job targets | &#9989;                    | `*.blob.core.usgovcloudapi.net`                        |
+| **Storage Account (HNS Blob)**  | Job targets     | &#9989;                    | `*.dfs.core.usgovcloudapi.net`                         |
+| **Storage Account (File)** | Job targets          | &#9989;                    | `*.file.core.usgovcloudapi.net`                        |
+| **Key Vault**              | SMB credentials      | &#9989;                    |  `*.vault.usgovcloudapi.net`                           |
 
 ---
 
 
 ## Arc-Enabled Server Considerations
 
-The Storage Mover Agent is an Arc-enabled server and requires connectivity to Azure Arc services. While some Arc services support private access, they don't directly support Azure Private Endpoint resources. Instead, users must configure an Arc Private Link Scope to enable private connectivity. Unlike data-plane services, Arc services reside in the control-plane, which means public access doesn't expose sensitive data.
+The Storage Mover Agent is an Arc-enabled server and requires connectivity to several Azure services. Since many Arc services don't support Azure Private Endpoint resources directly, the recommended approach is to configure an Azure Arc Private Link Scope. A Private Link Scope allows you to maintain private connectivity by facilitating data flow through between private endpoints and the Arc services required by the Storage Mover Agent. For more information about Arc Private Link Scopes, see [Use Azure Arc Private Link Scopes to connect to Azure Arc services privately](../arc/azure-arc-private-link-scopes.md).
 
 > [!NOTE]
 > Azure Arc Private Link Scopes aren't required for Storage Accounts or Key Vaults.
