@@ -1508,7 +1508,7 @@ hero:
       url: https://portal.azure.com
     - componentType: link
       text: Free account
-      url: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
+      url: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn-exp1
       color: primary
 getStarted:
   title: Get started with Azure
