@@ -135,9 +135,9 @@ The Azure Resource Manager (ARM) ID of the storage account is required to config
 
 TO fetch the ARM ID of the storage account, run the following command:
 
-    ```azurecli-interactive
-    "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/adlsrg/providers/Microsoft.Storage/storageAccounts/CLITestSA"
-    ```
+```azurecli-interactive
+"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/adlsrg/providers/Microsoft.Storage/storageAccounts/CLITestSA"
+```
 
 ### Grant permissions to the Backup vault on the storage account
 
