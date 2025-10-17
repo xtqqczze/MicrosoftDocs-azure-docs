@@ -93,6 +93,8 @@ Follow these steps to create a new zonal storage account using the Azure portal.
 
 1. Under **Performance**, select **Premium**.
 
+1. Under **File share billing**, select the desired option.
+
 1. Under **Redundancy**, select **Locally redundant storage (LRS)**.
 
 1. If the selected region supports zonal placement, a **Zone options** dropdown appears. It offers three choices:
@@ -107,30 +109,30 @@ Follow these steps to create a new zonal storage account using the Azure portal.
 
 # [PowerShell](#tab/azure-powershell)
 
-You can use Azure PowerShell to create zonal or regional storage accounts.
+You can use Azure PowerShell to create zonal or regional storage accounts. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your desired values. For `<SkuName>`, specify either `Premium_LRS` for pay-as-you-go file shares or `PremiumV2_LRS` to provision capacity, throughput, and IOPS individually (Provisioned v2).
 
 ### Create a storage account in an Azure-selected zone
 
-To create a storage account and have Azure automatically assign a zone, set `ZonePlacementPolicy` to **Any** by running the following command. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your desired values.
+To create a storage account and have Azure automatically assign a zone, set `ZonePlacementPolicy` to **Any** by running the following command:
 
 ```azurepowershell
-New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName Premium_LRS -Kind FileStorage -ZonePlacementPolicy Any​
+New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName <SkuName> -Kind FileStorage -ZonePlacementPolicy Any​
 ```
 
 ### Create a storage account in a self-selected zone
 
-To create a storage account and specify an availability zone, run the following command. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your desired values. For `<zone-number>`, specify zone 1, 2, or 3.
+To create a storage account and specify an availability zone, run the following command:
 
 ```azurepowershell
-New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName Premium_LRS -Kind FileStorage -Zone <zone-number>
+New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName <SkuName> -Kind FileStorage -Zone <zone-number>
 ```
 
 ### Create a regional storage account
 
-To create a regional (non-zonal) storage account, set `ZonePlacementPolicy` to **None** by running the following command. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your desired values.
+To create a regional (non-zonal) storage account, set `ZonePlacementPolicy` to **None** by running the following command:
 
 ```azurepowershell
-New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName Premium_LRS -Kind FileStorage -ZonePlacementPolicy None​
+New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName <SkuName> -Kind FileStorage -ZonePlacementPolicy None​
 ```
 
 ---
@@ -164,10 +166,10 @@ The storage account will now be pinned to the selected zone, as reflected in the
 
 # [PowerShell](#tab/azure-powershell)
 
-To pin an existing storage account to an Azure-selected zone using Azure PowerShell, run the following commands. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your values.
+To pin an existing storage account to an Azure-selected zone using Azure PowerShell, run the following commands. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your values. For `<SkuName>`, specify either `Premium_LRS` or `PremiumV2_LRS`.
 
 ```azurepowershell
-New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName Premium_LRS -Kind FileStorage -ZonePlacementPolicy None​
+New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName <SkuName> -Kind FileStorage -ZonePlacementPolicy None​
 Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -ZonePlacementPolicy Any​
 ```
 
@@ -196,14 +198,14 @@ Follow these steps to unpin a zonal storage account from a zone using the Azure 
 
 1. Consent to the prompt "I agree for Microsoft to create a system-managed identity," and then select **Apply**.
 
-The storage account will now be unpinned from the zone, as reflected in the **Availability** section on the **Overview** tab. If desired, you can now change the redundancy setting for the storage account from LRS to zone-redundant storage (ZRS).
+The storage account will now be unpinned from the zone, as reflected in the **Availability** section on the **Overview** tab. If desired, you can now change the redundancy setting for the storage account from LRS to zone-redundant storage (ZRS). For `<SkuName>`, specify either `Premium_LRS` or `PremiumV2_LRS`.
 
 # [PowerShell](#tab/azure-powershell)
 
 To unpin a zonal storage account from a zone using Azure PowerShell, run the following commands. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your values.
 
 ```azurepowershell
-New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName Premium_LRS -Kind FileStorage -ZonePlacementPolicy Any​
+New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName <SkuName> -Kind FileStorage -ZonePlacementPolicy Any​
 Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -ZonePlacementPolicy None​
 ```
 
