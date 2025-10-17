@@ -42,7 +42,7 @@ New-AzResourceGroup @rg
 
 ## Create a public IP address prefix
 
-In this section, you create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
+In this section, you create a zone redundant and zonal public IP prefix using Azure PowerShell. 
 
 The prefixes in the examples are:
 
