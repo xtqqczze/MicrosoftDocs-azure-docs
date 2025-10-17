@@ -128,6 +128,12 @@ To install and register  the MARRS agent, follow these steps:
     ![Screenshot shows how to set up internet access in the MARS wizard.](./media/backup-configure-vault/mars2.png)
 
 1. For **Installation**, review the prerequisites, and select **Install**.
+
+   >[!Note]
+   >Prerequisites for MARS agent are - Windows Powershell 5.0 and Microsoft .NET Framework 4.8 (previously 4.5). The update from .NET framework 4.5 to 4.8 may require user install.
+
+    ![Screenshot shows the prerequisites required to setup MARS wizard.](./media/backup-configure-vault/mars-prerequisite.png)
+   
 1. After the agent is installed, select **Proceed to Registration**.
 1. In **Register Server Wizard** > **Vault Identification**, browse to and select the credentials file that you downloaded. Then select **Next**.
 
