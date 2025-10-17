@@ -9,7 +9,7 @@ To delete a resource:
 
 1. On the command bar, select **Delete**.
 
-1. On the **Delete Resource** pane, select a reason for deleting the resource.
+1. On the **Delete Resource** pane, optionally select a reason for deleting the resource.
 
 1. In the **Enter resource name to confirm deletion** box, enter the name of the resource.
 
