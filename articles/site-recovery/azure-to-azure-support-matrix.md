@@ -433,9 +433,9 @@ Azure Storage firewalls for virtual networks  | Supported | If you want to restr
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
-Managed Shared Disk| Supported 
-Managed Premium SSD v2 Disk| Supported |Note: Since Block Blob storage accounts aren't supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks can't be supported. 
-Ultra Disks | Supported | Note: Since Block Blob storage accounts aren't supported in China North and China East regions, Azure Site Recovery for Ultra disks can't be supported.
+Managed Shared Disk| Supported | Premium SSDv2 and Ultra Disks are not supported.
+Managed Premium SSD v2 Disk| Supported |Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported. 
+Ultra Disks | Supported | Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Ultra disks cannot be supported.
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported
 Tags  | Supported | User-generated tags are replicated every 24 hours.
