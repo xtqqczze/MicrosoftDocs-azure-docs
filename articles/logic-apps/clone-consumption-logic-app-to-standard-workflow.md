@@ -68,7 +68,7 @@ You can now directly clone your Consumption logic app to a Standard logic app in
 
 1. In the [Azure portal](https://portal.azure.com), open the Consumption logic app resource to clone.
 
-1. On the resource sidebar, select **Overview**. On the page toolbar, select **Clone** **>** **Clone to Standard**.
+1. On the resource sidebar, select **Overview**. On the page toolbar, select **Clone to Standard**.
 
    :::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-start.png" alt-text="Screenshot shows the Azure portal, Consumption logic app, Overview toolbar, and selected Clone to Standard." lightbox="media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-start.png":::
 
