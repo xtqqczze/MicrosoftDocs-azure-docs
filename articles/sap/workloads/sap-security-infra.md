@@ -259,27 +259,15 @@ Searchable [database of Security Notes](https://me.sap.com/app/securitynotes )
 
 ## 11.	Links  
 
-Fix these links later   
-
-
-
-
-
-Azure security fundamentals documentation | Microsoft Learn
-MDE for SAP on Linux 
-MDE for SAP on Windows – Note DLP update
-Azure Encryption Comparison Overview of managed disk encryption options - Azure Virtual Machines | Microsoft Learn
-Microsoft Response Center MSRC - Microsoft Security Response Center
-3356389 - Antivirus or other security software affecting SAP operations - SAP for Me
-CVE: Common Vulnerabilities and Exposures
-Azure operational security checklist | Microsoft Learn
-Microsoft Purview classic data governance best practices for security - Microsoft Purview | Azure Docs
-Azure Bastion documentation | Microsoft Learn
-Runtime Encryption of Memory with Intel® Total Memory.
-https://learn.microsoft.com/azure/security/fundamentals/ 
-SAP HANA Database Encryption - SAP Community
-3345490 - Common Criteria Compliance FAQ - SAP for Me
-Microsoft Security Compliance Toolkit Guide | Microsoft Learn
-SQL Server database security for SAP on Azure - Cloud Adoption Framework | Microsoft Learn
-Firmware measured boot and host attestation - Azure Security | Microsoft Learn
-
+Microsoft Response Center [MSRC - Microsoft Security Response Center](https://www.microsoft.com/en-us/msrc?rtc=1&oneroute=true)
+[3356389 - Antivirus or other security software affecting SAP operations](https://me.sap.com/notes/3356389/E)
+[CVE: Common Vulnerabilities and Exposures](https://www.cve.org/)
+[Azure operational security checklist | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/operational-checklist)
+[Microsoft Purview classic data governance best practices for security - Microsoft Purview | Azure Docs](https://docs.azure.cn/en-us/purview/data-gov-classic-security-best-practices)
+[Azure Bastion documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/bastion/)
+[Azure security fundamentals documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/)  
+[SAP HANA Database Encryption - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-hana-database-encryption/ba-p/13555367)
+[3345490 - Common Criteria Compliance FAQ](https://me.sap.com/notes/3345490)
+[Microsoft Security Compliance Toolkit Guide | Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/security-compliance-toolkit-10)
+[SQL Server database security for SAP on Azure - Cloud Adoption Framework | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/sap/sap-lza-database-security)
+[Firmware measured boot and host attestation - Azure Security | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/measured-boot-host-attestation)

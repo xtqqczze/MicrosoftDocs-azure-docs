@@ -19,7 +19,7 @@ This article provides a collection of links and general information on Identity 
 
 There are too many complex scenarios covering Identity Management, Authentication, and Authorization and it isn't possible to document generalizable scenarios.     
 The links in this section are intended to be a starting point for developing the appropriate solution for a specific customer scenario.  
-## 1.	Identity Management 
+## 1.	Identity Management  
 Provision, Deprovision, Changes, and Workflows for User ID  lifecycle – Microsoft Entra for SAP 
 - [Identity and Access Management with Microsoft Entra - SAP Community (Part I)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcommunity.sap.com%2Ft5%2Ftechnology-blog-posts-by-members%2Fidentity-and-access-management-with-microsoft-entra-part-i-managing-access%2Fba-p%2F13873276&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933642486%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=jMwpMMSHzMWSM7KZSpRd31CAXI6V%2F8arkm2FlI%2BKdH4%3D&reserved=0)
 - [Identity and Access Management with Microsoft Entra - SAP Community (Part II)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcommunity.sap.com%2Ft5%2Ftechnology-blog-posts-by-members%2Fidentity-and-access-management-with-microsoft-entra-part-ii-provisioning-to%2Fba-p%2F13990927&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933659428%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=lMaF61kTk9bw8v0913vUDfBDlfhbRNcP6q6SbcXgIys%3D&reserved=0)
@@ -119,24 +119,19 @@ SAP IDM 8.0 – End of Life December 2027.  More documentation on the migration 
 SAP SSO Server (Java) – SAP has announced the End of Life December 2027  [SAP GUI MFA with Microsoft Entra (Part I): Integra... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-i-integration-with-sap-secure-login/ba-p/13605383)
 
 
+## Links 
 Learn more about Microsoft Entra ID Governance: aka.ms/Entra/IdentityGovernance  
-View the Microsoft Mechanics video:
-aka.ms/IDGovMechanics   
-Walk-through the Interactive Guides:
-aka.ms/EntraIDGovGuides
-Read documentation:
-aka.ms/Entra/IDGovDocs
-1912264 - SAP NetWeaver single sign-on 1.0: Central Note - SAP for Me
-2300234 - SAP single sign-on 3.0: Central Note - SAP for Me
-single sign-on for SAP GUI | SAP Community
-1848999 - Central Note for CommonCryptoLib 8 (SAPCRYPTOLIB) - SAP for Me
-510007 - Additional considerations about setting up SSL on Application Server ABAP - SAP for Me
-Single Sign On for SAP NetWeaver and Azure Active Directory - YouTube
+View the Microsoft Mechanics video: [aka.ms/IDGovMechanics](aka.ms/IDGovMechanics)   
+Walk-through the Interactive Guides: [aka.ms/EntraIDGovGuides](aka.ms/EntraIDGovGuides)
+More documentation: [aka.ms/Entra/IDGovDocs](aka.ms/Entra/IDGovDocs)
+[1912264 - SAP NetWeaver single sign-on 1.0: Central Note](https://me.sap.com/notes/1912264)
+[2300234 - SAP single sign-on 3.0: Central Note](https://me.sap.com/notes/2300234)
+[single sign-on for SAP GUI | SAP Community](https://pages.community.sap.com/topics/single-sign-on)
+[1848999 - Central Note for CommonCryptoLib 8 (SAPCRYPTOLIB)](https://me.sap.com/notes/1848999/E)
+[510007 - Additional considerations about setting up SSL on Application Server ABAP](https://me.sap.com/notes/510007)
+[Single Sign On for SAP NetWeaver and Azure Active Directory - YouTube](https://www.youtube.com/watch?v=AGCZA8CCIYo)
 
-https://learn.microsoft.com/en-us/power-platform/sap/connect/secure-network-communications
-https://learn.microsoft.com/en-us/power-platform/sap/connect/entra-id-kerberos
-https://learn.microsoft.com/en-us/power-platform/sap/connect/entra-id-certs
-https://learn.microsoft.com/en-us/power-platform/sap/connect/entra-id-using-successfactors
+
 
 
 
