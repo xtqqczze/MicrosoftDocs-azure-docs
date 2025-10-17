@@ -159,7 +159,7 @@ The legacy script takes below parameters:
   You can pass in `$mySslCert1, $mySslCert2` (comma-separated) in the previous example as values for this parameter in the script.
 
  * **sslCertificates from Keyvault: Optional**. You can download the certificates stored in Azure Key Vault and pass it to migration script. To download the certificate as a PFX file, run following command.
-   These comma nds access SecretId, and then save the content as a PFX file.
+   These commands access SecretId, and then save the content as a PFX file.
     ```azurepowershell
         $vaultName = ConvertTo-SecureString <kv-name> -AsPlainText -Force
         $certificateName = ConvertTo-SecureString <cert-name> -AsPlainText -Force
