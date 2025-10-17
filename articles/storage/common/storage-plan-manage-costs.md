@@ -180,7 +180,7 @@ If you can model future capacity requirements, you can save money with Azure Sto
 
 You can also reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the _hot_ tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the _cold_ or _archive_ tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. 
 
-Smart tier is a great option to choose when you are looking to store your data on standard online tiers but are not fully aware of the data access patterns or do not want to manage data transitions across online tiers. The automatic down tiering of inactive data can lead to cost savings over time. While charging a small monitoring fee, it provides additional simplification to the billing model by not charging tier transitions, early deletes or capacity rehydration.
+Smart tier is a great option to choose when you want to store your data on standard online tiers but are not fully aware of the data access patterns or do not want to manage data transitions across online tiers. The automatic movement of inactive data into a cooler tier can lead to cost savings over time. While charging a small monitoring fee, it provides additional simplification to the billing model by not charging tier transitions, early deletes or capacity rehydration.
 
 See any of these articles:
 
