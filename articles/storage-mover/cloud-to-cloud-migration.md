@@ -1,6 +1,6 @@
 ---
-title: Get started with cloud-to-cloud migration in Azure Storage Mover (Preview)
-description: The Cloud-to-Cloud Migration feature (preview) in Azure Storage mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage, utilizing Azure Arc for AWS (Amazon Web Services) to simplify authentication and resource management.
+title: Get started with cloud-to-cloud migration in Azure Storage Mover
+description: The Cloud-to-Cloud Migration feature in Azure Storage mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage, utilizing Azure Arc for AWS (Amazon Web Services) to simplify authentication and resource management.
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 07/01/2025
 ---
 
-# Get started with cloud-to-cloud migration in Azure Storage Mover (Preview)
+# Get started with cloud-to-cloud migration in Azure Storage Mover
 
 The Cloud-to-Cloud Migration feature in Azure Storage Mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage. 
 
