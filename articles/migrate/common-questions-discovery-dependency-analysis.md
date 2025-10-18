@@ -91,7 +91,7 @@ For more information, see on how to [switch to the new enhanced visualization](/
 - After upgrading to the new dependency capability, you will be directed to the new visualization by default. However, you can switch to the old visualization at any time from the new experience. To export previously collected data, you can switch to the classic experience and download it from there.
 
 ## How to use the new Dependency view showing all dependencies across servers discovered in my project?
-For more information, see, [how to review the dependency view across enabled servers, discovered in the project](how-to-create-group-machine-dependencies-agentless#visualize-dependencies).
+For more information, see, [how to review the dependency view across enabled servers, discovered in the project](/azure/migrate/how-to-create-group-machine-dependencies-agentless#visualize-dependencies).
 
 ## As an existing user of agent-based dependency analysis, can I continue using the capability after the release of the new experience?
 - Agent-based dependency analysis is **not supported in the new Azure Migrate experience**. You can go to the Classic experience through a footer note on the **Overview** page of the project, where you can continue using the agent-based dependency analysis using the associated Log Analytics workspace.
