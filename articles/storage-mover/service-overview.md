@@ -46,8 +46,6 @@ When you migrate data from a source endpoint using the SMB protocol, Storage Mov
 
 However, migrating data from a source endpoint using the NFS protocol might require "virtual" folders during the migration. Because Azure blob containers without HNS support don’t have a traditional file system, Storage Mover uses these folders to mimic a local file system. When files are found within folders on a source endpoint, Storage Mover prepends their paths to their names and places the file in a flat list within in the target blob container.
 
-:::image type="content" source="media/overview/source-to-target.png" alt-text="A screenshot illustrating a source NFS share migrated through an Azure Storage Mover agent VM to an Azure Storage blob container." lightbox="media/overview/source-to-target-lrg.png" :::
-
 ## Fully managed migrations
 
 You need only deploy one Storage Mover instance in your subscription to handle migrations from multiple source shares, even if they’re located in different parts of the world. The storage mover resource itself doesn't process your files and folders. Rather, you deploy a migration agent near your source share to send your data directly to the selected targets in Azure.
