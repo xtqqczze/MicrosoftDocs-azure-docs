@@ -77,8 +77,15 @@ There are many use cases that require preserving metadata values such as file an
 Using the NFS protocol, you can transfer files between computers running Windows and other non-Windows operating systems, such as Linux or UNIX. Azure Storage Mover release supports migrations from NFS shares on a NAS or server device within your network to an Azure blob container or Azure file shares.
 
 Unlike SMB, NFS doesn't utilize the ACL concept or user-based authentication. This difference allows NFS endpoints to be accessed without Azure Key Vault integration. 
+Any endpoint created programmatically requires you to make the following assignments manually:
 
-Storage Mover processes metadata differently for both NFS mount sources and their blob container target counterparts. The following table identifies outcomes for common metadata encountered during migration:
+|Role                                        |Resource                                                            |
+|--------------------------------------------|--------------------------------------------------------------------|
+|*Storage File Data Privileged Contributor*  | Your target file share resource                                    |
+
+Storage Mover processes metadata differently for both NFS mount sources and their Blob container or File share target counterparts. 
+
+For NFS mount source and Blob container targets, the following table identifies outcomes for common metadata encountered during migration:
 
 |Metadata property      |Outcome                                                                              |
 |-----------------------|-------------------------------------------------------------------------------------|
