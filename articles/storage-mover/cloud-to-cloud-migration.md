@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: quickstart
-ms.date: 07/01/2025
+ms.date: 10/17/2025
 ---
 
 # Get started with cloud-to-cloud migration in Azure Storage Mover
