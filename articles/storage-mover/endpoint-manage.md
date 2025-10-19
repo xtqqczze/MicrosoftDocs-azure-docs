@@ -108,7 +108,7 @@ For NFS mount sources and Azure File share targets, the following table identifi
 |Hard links             |Target file will be copied as regular file. Files on the source which are hard links will not be linked at the destination.  The destination will receive full copies despite hard link status at the source.|
 |Create timestamp       |The original create timestamp of the source file will be preserved on the target share.|
 |Change timestamp       |Not preserved. NFS semantics treat ctime as a read-only attribute.|
-|Modified timestamp     |The original modified timestamp of the source file will be preserved on the target share.In some cases where directory information is updated before the files are updated, the “Modified timestamp” on directory will be reflected correctly after first sync and not during the initial copy.|
+|Modified timestamp     |The original modified timestamp of the source file will be preserved on the target share. In some cases where directory information is updated before the files are updated, the “Modified timestamp” on directory will be reflected correctly after first sync and not during the initial copy.|
 |Last accessed timestamp|Not preserved. This last access timestamp is neither supported for a file nor a directory on the target share.|
 
 
