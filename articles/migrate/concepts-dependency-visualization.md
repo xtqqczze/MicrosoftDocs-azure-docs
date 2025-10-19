@@ -44,7 +44,7 @@ After discovery of dependency data begins, polling begins:
 - Polling gathers this data:
 
     - Name of processes that have active connections.
-    - Name of application that run processes that have active connections.
+    - Name of applications that run processes with active connections.
     - Destination port on the active connections.
 
 - The gathered data is processed on the Azure Migrate appliance, to deduce identity information, and is sent to Azure Migrate every six hours.
