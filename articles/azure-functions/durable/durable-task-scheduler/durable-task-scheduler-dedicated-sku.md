@@ -150,6 +150,10 @@ The Consumption (preview) SKU offers a pay-as-you-use model ideal for variable w
 
 ### Consumption SKU Examples
 
+To clarify the cost calculation, here are some capacity planning scenarios to demonstrate how to calculate and anticipate the costs for planning. 
+
+These examples are shown for demonstration purposes only. 
+
 #### Development environment example
 
 A development team is testing simple orchestrations, each with three actions (using the Hello City pattern), and runs 10,000 orchestrations per month.
