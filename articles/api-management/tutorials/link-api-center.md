@@ -15,8 +15,6 @@ ms.date: 10/20/2025
 
 This tutorial shows how to integrate an Azure API Management (APIM) instance with an Azure API Center. When linked, the APIM instance's APIs — and optional API definitions — are continuously synchronized into the API Center inventory.
 
-If you don't have an Azure subscription, create a free trial account before you begin. If you don't have an API Center, see the API Center quickstart.
-
 In this tutorial, you:
 
 > [!div class="checklist"]
@@ -26,7 +24,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-- An Azure subscription
+- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account).
 - An existing API Management service in the subscription and region where you want to manage APIs
 - Contributor (or Owner) permissions on the API Management resource and permission to create resources in a resource group
 
