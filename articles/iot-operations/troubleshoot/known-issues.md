@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 09/17/2025
+ms.date: 10/20/2025
 ---
 
 # Known issues: Azure IoT Operations
@@ -34,43 +34,40 @@ MQTT broker resources created in your cluster using Kubernetes aren't visible in
 
 There's currently no workaround for this issue.
 
-## Connector for OPC UA issues
 
-This section lists current known issues for the connector for OPC UA.
+## General connector issues
 
-### An OPC UA server modeled as a device can only have one inbound endpoint of type "Microsoft.OpcUa"
+This section lists current known issues that affect all connectors.
 
----
-
-Issue ID: 2411
+### Connector doesn't detect updates to device credentials in Azure Key Vault
 
 ---
 
-`2025-07-24T13:29:30.280Z aio-opc-supervisor-85b8c78df5-26tn5 - Maintaining the new asset test-opcua-asset | - | 1 is skipped because the endpoint profile test-opcua.opcplc-e2e-anon-000000 is not present`
+Issue ID: 6514
 
 ---
 
-When you create an OPC UA device, you can only have one inbound endpoint of type `Microsoft.OpcUa`. Currently, any other endpoints aren't used.
-
-Workaround: Create multiple devices with a single endpoint each if you want to use namespace assets.
-
-An OPC UA namespaced asset can only have a single dataset. Currently, any other datasets aren't used.
-
-Workaround: Create multiple namespace assets each with a single dataset.
-
-### Application error BadUnexpectedError
+N/A
 
 ---
 
-Issue ID: 9044
+The connector doesn't receive a notification when device credentials stored in Azure Key Vault are updated. As a result, the connector continues to use the old credentials until it's restarted.
+
+Workaround: Restart the connector to force it to retrieve the updated credentials from Azure Key Vault.
+
+### In the connector templates, the only supported authentication type is "artifact pull secrets"
 
 ---
 
-Log signature: `BadUnexpectedError`
+Issue ID: 4570
 
 ---
 
-In the process control sample application, if you call the `Switch` method on the demo asset `demo-method-call.asset.yaml` then currently you receive a `BadUnexpectedError` application error.
+Log signature: N/A
+
+---
+
+When deploying connectors using the provided connector templates, the only supported authentication type is "artifact pull secrets". Other authentication types, such as managed identities, aren't currently supported in the connector templates.
 
 ## Connector for media and connector for ONVIF issues
 
