@@ -46,7 +46,6 @@ In this tutorial, you:
 
 1. Select Create. 
 
-    - The API Center is created and the API Management service starts synchronizing APIs with the linked API Center.
     - When the operation finishes, you should see a *Request succeeded* message and a confirmation that your API Management service and API Center are synchronized.
 
 > [!NOTE]
