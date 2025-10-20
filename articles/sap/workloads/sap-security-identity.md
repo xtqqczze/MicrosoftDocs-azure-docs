@@ -66,7 +66,6 @@ For more information on how to configure single sign-on from Microsoft Entra ID,
 It's technically possible to integrate SAP SuccessFactors with the Entra ID directly as described [Configure SuccessFactors for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/saas-apps/successfactors-tutorial) however the preferred strategy is to use the SAP BTP Cloud Identity Services (CIS) 
 
 More information on Microsoft Entra SSO services for SAP solutions: 
-
 - [SAP Cloud Identity Services](https://learn.microsoft.com/en-us/entra/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial)
 - [SAP SuccessFactors](https://learn.microsoft.com/en-us/entra/identity/saas-apps/successfactors-tutorial)
 - [SAP Analytics Cloud](https://learn.microsoft.com/en-us/entra/identity/saas-apps/sapboc-tutorial)
@@ -86,7 +85,6 @@ Also see the following blog posts and SAP resources:
 - [Single sign on using Microsoft Entra Domain Services and Kerberos](https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/)
 
 More information on the SAP BTP Cloud Identity Services (CIS) can be found here: 
-
 - Identity Provisioning Service (BTP) and Identity Authentication Service (BTP)
 - [Getting Started with SAP Cloud Identity Service - ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/getting-started-with-sap-cloud-identity-service-authentication-admin-user/ba-p/13541902)
 - [What Is Identity Provisioning? | SAP Help Portal](https://help.sap.com/docs/identity-provisioning/identity-provisioning/what-is-identity-provisioning)
@@ -115,7 +113,6 @@ SAP IDM 8.0 – End of Life December 2027.  More documentation on the migration 
 - [Preparing for SAP Identity Management’s End-of-Mai... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101)
 
 SAP SSO Server (Java) – SAP has announced the End of Life December 2027  [SAP GUI MFA with Microsoft Entra (Part I): Integra... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-i-integration-with-sap-secure-login/ba-p/13605383)
-
 
 ## Links 
 - Learn more about Microsoft Entra ID Governance: [aka.ms/Entra/IdentityGovernance](aka.ms/Entra/IdentityGovernance)  

@@ -271,3 +271,4 @@ Searchable [database of Security Notes](https://me.sap.com/app/securitynotes )
 - [Microsoft Security Compliance Toolkit Guide | Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/security-compliance-toolkit-10)
 - [SQL Server database security for SAP on Azure - Cloud Adoption Framework | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/sap/sap-lza-database-security)
 - [Firmware measured boot and host attestation - Azure Security | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/measured-boot-host-attestation)
+
