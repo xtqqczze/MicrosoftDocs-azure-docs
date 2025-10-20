@@ -15,6 +15,10 @@ ms.date: 10/20/2025
 
 This tutorial shows how to integrate an Azure API Management (APIM) instance with an Azure API Center. When linked, the APIM instance's APIs — and optional API definitions — are continuously synchronized into the API Center inventory.
 
+> [!NOTE]
+> 
+> Only one API Center can be linked to a single API Management instance.
+
 In this tutorial, you:
 
 > [!div class="checklist"]
@@ -47,10 +51,6 @@ In this tutorial, you:
 1. Select Create. 
 
     - When the operation finishes, you should see a *Request succeeded* message and a confirmation that your API Management service and API Center are synchronized.
-
-> [!NOTE]
-> 
-> Only one API Center can be linked to a single API Management instance.
 
 ## Use an existing API Center
 
