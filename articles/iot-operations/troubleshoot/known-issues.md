@@ -80,20 +80,6 @@ An OPC UA namespaced asset can only have a single dataset. Currently, any other 
 
 Workaround: Create multiple namespace assets each with a single dataset.
 
-### Application error BadUnexpectedError
-
----
-
-Issue ID: 9044
-
----
-
-Log signature: `BadUnexpectedError`
-
----
-
-In the process control sample application, if you call the `Switch` method on the demo asset `demo-method-call.asset.yaml` then currently you receive a `BadUnexpectedError` application error.
-
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
