@@ -25,7 +25,7 @@ In this tutorial, you learn how to use the portal to:
 
 ## Prerequisites
 
-- An API center in your Azure subscription. To create one, see [Quickstart: Create your API center](set-up-api-center.md).
+- An API center in your Azure subscription. To create one, see [Quickstart: Create your API center](../set-up-api-center.md).
 - One or more APIs registered in your API center. If you don't have any registered APIs, see [Tutorial: Register APIs in your API inventory](register-apis.md). This tutorial uses the sample APIs you added from the previous tutorial.
 
 ## Add an environment
@@ -95,5 +95,5 @@ In this tutorial, you learned how to use the portal to:
 
 ## Related content
 
-- [Learn more about Azure API Center](key-concepts.md)
-- [Track API resource dependencies](track-resource-dependencies.md)
+- [Learn more about Azure API Center](../key-concepts.md)
+- [Track API resource dependencies](../track-resource-dependencies.md)

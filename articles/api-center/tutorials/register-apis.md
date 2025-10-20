@@ -22,7 +22,7 @@ In this tutorial, you learn how to use the Azure portal to:
 
 ## Prerequisites
 
-- An API center in your Azure subscription. To create one, see [Quickstart: Create your API center](set-up-api-center.md).
+- An API center in your Azure subscription. To create one, see [Quickstart: Create your API center](../set-up-api-center.md).
 
 - One or more APIs that you want to register in your API center. Here are two examples, with links to their OpenAPI definitions:
 
