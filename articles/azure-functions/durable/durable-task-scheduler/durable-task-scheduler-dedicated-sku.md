@@ -96,6 +96,8 @@ These examples are shown for demonstration purposes only.
 
 For orchestrations with five activities plus error handling, averaging 12 actions per orchestration (orchestrator invocations + activity invocations).
 
+Here is a scenario to demonstrate a cost calculation for example purposes only.
+
 Calculation running 20 million orchestrations per month:
 
 - Monthly actions: 20,000,000 × 12 = 240,000,000 actions- 
@@ -108,6 +110,8 @@ Calculation running 20 million orchestrations per month:
 
 A large enterprise running 500 million complex orchestrations monthly, with an average of 15 actions per orchestration (multiple activities with orchestrator coordination).
 
+Here is a scenario to demonstrate a cost calculation for example purposes only.
+
 Calculation:
 
 - Monthly actions: 500 million × 13 = 6.5 billion actions
@@ -119,6 +123,8 @@ Calculation:
 #### SaaS platform example
 
 A Software as a Service (SaaS) platform supporting 800 million orchestrations monthly, each with an average of 15 actions (for example, user interactions, background processing, and external API calls).
+
+Here is a scenario to demonstrate a cost calculation for example purposes only.
 
 Calculation:
 
@@ -158,6 +164,8 @@ These examples are shown for demonstration purposes only.
 
 A development team is testing simple orchestrations, each with three actions (using the Hello City pattern), and runs 10,000 orchestrations per month.
 
+Here is a scenario to demonstrate a cost calculation for example purposes only.
+
 Cost Calculation:
 
 - Monthly actions: 10,000 × 3 = 30,000 actions
@@ -167,6 +175,8 @@ Cost Calculation:
 #### Workloads with bursts example
 
 An e-commerce application experiences dynamic workload scaling during promotional sales events, especially on weekends. It uses an orchestration comprising seven total actions, which executes approximately 20,000 times per month.
+
+Here is a scenario to demonstrate a cost calculation for example purposes only.
 
 Cost Calculation:
 
