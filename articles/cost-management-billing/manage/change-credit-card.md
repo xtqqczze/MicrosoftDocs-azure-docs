@@ -286,11 +286,7 @@ To view pending charges:
 1. Under **Billing**, select **Invoices**.
 1. On the **Invoices** pane, check for charges that appear with a **Due on *date*** status. These items are pending charges.
 
-   :::image type="content"
-source="./media/change-credit-card/due-on.png"
-alt-text="Screenshot of invoices that have pending charges."
-lightbox="./media/change-credit-card/due-on.png"
-:::
+:::image type="content" source="./media/change-credit-card/due-on.png" alt-text="Screenshot of invoices that have pending charges." lightbox="./media/change-credit-card/due-on.png":::
    
 After you pay all pending charges, you can detach your payment method.
 
