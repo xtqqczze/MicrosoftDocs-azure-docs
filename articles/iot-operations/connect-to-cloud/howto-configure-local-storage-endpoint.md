@@ -158,7 +158,7 @@ The only supported serialization format is Parquet.
 
 ## Use Azure Container Storage enabled by Azure Arc (ACSA)
 
-You can use the local storage data flow endpoint together with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/release-notes) to store data locally or send data to a cloud destination.
+You can use the local storage data flow endpoint together with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes) to store data locally or send data to a cloud destination.
 
 ### Local shared volume
 
