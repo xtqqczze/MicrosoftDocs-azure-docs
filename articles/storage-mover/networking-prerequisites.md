@@ -15,7 +15,7 @@ Azure Storage Mover is a service designed to facilitate seamless data migration 
 All Azure Storage Mover communication occurs over HTTPS. Data migrations can operate either over the public internet or Azure-recommended private network configurations. These configurations typically begin with the creation of an Azure virtual network, which serves as the foundation for secure connectivity. For more information about Azure virtual networks, see [What is an Azure virtual network](../virtual-network/virtual-networks-overview.md).
 
 > [!NOTE]
-> Azure Storage Mover now supports both on-premise and multicloud data sources and targets. On-premises data sources are migrated to Azure storage using one or more agents, while multicloud data sources are migrated using the Storage Mover service directly. 
+> Azure Storage Mover supports both on-premise and multicloud data sources and targets. On-premises data sources are migrated to Azure storage using one or more agents, while multicloud data sources are migrated using the Storage Mover service directly. 
 >
 > This article focuses on the prerequisites for connecting on-premises infrastructure to Azure, and includes private networking considerations.
 
