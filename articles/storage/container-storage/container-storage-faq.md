@@ -22,7 +22,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 
 * <a id="azure-container-storage-vs-csi-drivers"></a>
   **What's the difference between Azure Container Storage and Azure CSI (Container Storage Interface) drivers?**  
-  Azure Container Storage provides support for backing storage options which other Azure CSI drivers do not support, such as Ephemeral Disk (Local NVMe). All of these drivers are designed to work seamlessly with AKS and are open-source. 
+  Azure Container Storage supports backing storage options that other Azure CSI drivers don't support, such as Ephemeral Disk (Local NVMe). All of these drivers are designed to work seamlessly with AKS and are open source. 
 
 * <a id="azure-container-storage-regions"></a>
   **In which Azure regions is Azure Container Storage available?**  
