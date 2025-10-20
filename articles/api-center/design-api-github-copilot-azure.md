@@ -17,7 +17,7 @@ ms.custom:
 The API Center plugin for [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) accelerates design and development of new APIs starting from natural language prompts. With AI assistance available through the API Center plugin combined with the API Center VS Code extension, simply describe your API and quickly generate an OpenAPI spec for API development that complies with your organization's standards. After you generate a compliant spec, you can register the API with your [API center](overview.md).
 
 [!INCLUDE [vscode-extension-basic-prerequisites](includes/vscode-extension-basic-prerequisites.md)]  
-* [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) - to generate OpenAPI specification files using the Azure API Center Plugin for [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction)    
+* [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) - to generate OpenAPI specification files using the Azure API Center Plugin for [GitHub Copilot for Azure](/https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)
    
 [!INCLUDE [vscode-extension-setup](includes/vscode-extension-setup.md)] 
 
@@ -77,5 +77,4 @@ After the API is registered, you can perform various tasks using the extension. 
 * [Discover and consume APIs with the Azure API Center extension for Visual Studio Code](discover-apis-vscode-extension.md)
 * [Govern APIs with the Azure API Center extension for Visual Studio Code](govern-apis-vscode-extension.md)
 * [Enable and view API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
-* [Overview of GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction)
-
+* [Overview of GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction.md)
