@@ -162,6 +162,9 @@ Next you create a container app with the NVIDIA GPU Cloud API key.
 
     This command returns the URL of your container app. Set this value aside in a text editor for use in a following command.
 
+> [!NOTE]
+> Some NIMs have longer startup times. To account for this, you can configure a [health probe](./health-probes.md) or set your container app's min-replica count with `--min-replicas 1` to keep a replica running at all times.
+
 ## Verify the application works
 
 You can verify a successful deployment by sending a request `POST` request to your application.
