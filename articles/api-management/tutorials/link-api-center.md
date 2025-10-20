@@ -3,7 +3,7 @@ title: Create or link an API Center from the Azure portal
 description: "How to create a new API Center or link an existing API Center to an API Management service from the Azure portal."
 author: ProfessorKendrick
 ms.author: kkendrick
-ms.service: API Management
+ms.service: api-management
 ms.topic: tutorial  
 ms.date: 10/20/2025
 
@@ -11,9 +11,11 @@ ms.date: 10/20/2025
 
 ---
 
-## Tutorial: Create or link an API Center to API Management
+# Tutorial: Create or link an API Center to API Management
 
-This tutorial shows how to create a new API Center or link an existing API Center to an API Management service from the Azure portal. After you create or link an API Center, APIs are synchronized so you can discover, reuse, and apply governance across linked services.
+This tutorial shows how to integrate an Azure API Management (APIM) instance with an Azure API Center. When linked, the APIM instance's APIs — and optional API definitions — are continuously synchronized into the API Center inventory.
+
+If you do not have an Azure subscription, create a free trial account before you begin. If you do not have an API Center, see the API Center quickstart.
 
 In this tutorial, you:
 
@@ -21,8 +23,6 @@ In this tutorial, you:
 > * Create a new API Center and link it to an API Management instance
 > * Link an existing API Center and synchronize APIs
 > * View synchronized APIs and remove the link if needed
-
-If you don't have an Azure subscription, create a free trial account before you begin.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ If you don't have an Azure subscription, create a free trial account before you 
     - The API Center is created and the API Management service starts synchronizing APIs with the linked API Center.
     - When the operation finishes, you should see a *Request succeeded* message and a confirmation that your API Management service and API Center are synchronized.
 
-Discover, reuse, or govern APIs in the linked API Center service: [View API Center](#view-api-center)
+Discover, reuse, or govern APIs in the linked API Center service.
 
 > [!NOTE]
 > 
