@@ -255,7 +255,9 @@ SAP release information about vulnerabilities in their products on the second Tu
 Vulnerabilities with a CVE score between 9.0 and 10 are severe and should be immediately mitigated.
 Entry point for [SAP Security Notes](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html)  
 Second Tuesday of every month [SAP release Security Notes](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html?anchorId=section_370125364) 
-Searchable [database of Security Notes](https://me.sap.com/app/securitynotes ) 
+Searchable [database of Security Notes](https://me.sap.com/app/securitynotes)
+
+Security Analysts and Forums have reported an increase in the exploitation of SAP specific vulnerabilities.  It is generally recommended to expedite the implementation of CVE Score 9.0 and above.  Vulnerabilities that do not require authentication should be expedited through the SAP landscape.  
 
 ## Links  
 

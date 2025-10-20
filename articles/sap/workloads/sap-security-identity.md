@@ -18,22 +18,21 @@ This article provides a collection of links and general information on Identity 
 There are too many complex scenarios covering Identity Management, Authentication, and Authorization and it isn't possible to document generalizable scenarios.     
 The links in this section are intended to be a starting point for developing the appropriate solution for a specific customer scenario.  
 ## 1.	Identity Management  
-Provision, Deprovision, Changes, and Workflows for User ID  lifecycle – Microsoft Entra for SAP 
+It is very common to use the approach documented in these two links to Provision, Deprovision, Maintain, and create Workflows for User ID lifecycle – Microsoft Entra for SAP 
 - [Identity and Access Management with Microsoft Entra - SAP Community (Part I)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcommunity.sap.com%2Ft5%2Ftechnology-blog-posts-by-members%2Fidentity-and-access-management-with-microsoft-entra-part-i-managing-access%2Fba-p%2F13873276&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933642486%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=jMwpMMSHzMWSM7KZSpRd31CAXI6V%2F8arkm2FlI%2BKdH4%3D&reserved=0)
 - [Identity and Access Management with Microsoft Entra - SAP Community (Part II)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcommunity.sap.com%2Ft5%2Ftechnology-blog-posts-by-members%2Fidentity-and-access-management-with-microsoft-entra-part-ii-provisioning-to%2Fba-p%2F13990927&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933659428%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=lMaF61kTk9bw8v0913vUDfBDlfhbRNcP6q6SbcXgIys%3D&reserved=0)
 
 https://aka.ms/MigrateFromSAPIDM 
 
 ## 2.	Authentication  
-It's recommended to use SSO and/or multifactor authentication for all SAP applications. Traditional User and Password for SAP applications isn't recommended. There are three typical options: User and Password (not recommended), Single Sign On (SSO) or SSO + MFA
+It's recommended to use SSO and/or multifactor authentication for all SAP applications. Traditional User and Password for SAP applications isn't recommended. There are three typical options: User and Password (not recommended), Single Sign On (SSO) or SSO + MFA.  Different SAP applications on different platforms have many options for Authentication: 
 
 ### i.	Web Browser based Clients – SAML or OIDC (OpenID Connect)
 [Configure SAP NetWeaver for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fentra%2Fidentity%2Fsaas-apps%2Fsap-netweaver-tutorial&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933681119%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=mfQW1rVPUl%2FULlP0QmPX0EAVrskxn9NvJOI%2F7wI4CNA%3D&reserved=0)
 SAML is a well established industry standard but OIDC is a newer solution. This article contains a good comparison between the two technologies [OIDC vs. SAML your hybrid SAP Landscape: What You ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/oidc-vs-saml-your-hybrid-sap-landscape-what-you-need-to-know/ba-p/13797204)
 
-
 ### ii.	SAPGUI – X.509 or Kerberos Tickets
-SAP Secure Login Client - SNC certificate X.509 and Kerberos Tickets are documented here [SNC X.509 Configuration | SAP Help Portal](https://help.sap.com/docs/SAP SECURE LOGIN SERVICE/c35917ca71e941c5a97a11d2c55dcacd/767e439cf7764fcaab165416a00e2a6f.html)   
+SAP Secure Login Client - SNC certificate X.509 and Kerberos Tickets are documented here [SNC X.509 Configuration | SAP Help Portal]('https://help.sap.com/docs/SAP SECURE LOGIN SERVICE/c35917ca71e941c5a97a11d2c55dcacd/767e439cf7764fcaab165416a00e2a6f.html')   
 
 Additional information is available here 
 - [Exploring SAP Secure Login Service for SAP GUI: A ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/exploring-sap-secure-login-service-for-sap-gui-a-comprehensive-review/ba-p/13573382)
