@@ -34,8 +34,9 @@ To set up a local development environment, you need to have:
 - An API Management service instance. If you don't have one, see [Quickstart - Create an Azure API Management instance](get-started-create-service-instance.md).
 
     If you created your instance in a v2 service tier, first enable the developer portal.
-      1. In the sidebar menu, under **Developer portal**, select **Portal settings**.
-      1. In the **Portal settings window**, select **Enabled**. Select **Save**.
+
+    1. In the sidebar menu, under **Developer portal**, select **Portal settings**.
+    1. In the **Portal settings window**, select **Enabled**. Select **Save**.
     It might take a few minutes to enable the developer portal.
 - An Azure blob storage account, which you'll use to enable the [static websites feature](../storage/blobs/storage-blob-static-website.md). See [Create a storage account](../storage/common/storage-account-create.md).
 - Git on your machine. Install it by following [this Git tutorial](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
