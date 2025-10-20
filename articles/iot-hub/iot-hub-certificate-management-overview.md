@@ -95,8 +95,8 @@ The following table lists the default limits and quotas for Certificate Manageme
 
 |Feature|Limit|
 |----------------------------------|-------------------------------|
-|Number of certificates issued by PKI (by a device DPS instance) during provisioning|500 per minute|
+|Number of certificates issued by PKI (by a device DPS instance) during provisioning|1000 per minute|
 |Number of certificate renewals|500 per minute|
-|Number of credential resources per tenant|3|
+|Number of credential resources per tenant|2|
 |Number of credential resources per ADR namespace|1|
-|Number of policies per credential resource|3|
+|Number of policies per credential resource|2|

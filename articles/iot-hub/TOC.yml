@@ -8,15 +8,14 @@
       href: iot-hub-faq.md
 - name: Get started with IoT Hub Gen 2
   items:
+    - name: Create an IoT hub Gen 2
+      href: iot-hub-device-registry-setup.md
     - name: What is Azure Device Registry?
       href: iot-hub-device-registry-overview.md
     - name: Manage your namespaces
       href: iot-hub-device-registry-namespaces.md
     - name: What is Certificate Management?
       href: iot-hub-certificate-management-overview.md
-    - name: Create an IoT hub Gen 2
-      href: iot-hub-device-registry-setup.md
-
   expanded: true
 - name: Quickstarts
   items:
