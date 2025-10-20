@@ -32,7 +32,8 @@ If you already uploaded or modified media files in the managed portal, see [Move
 To set up a local development environment, you need to have:
 
 - An API Management service instance. If you don't have one, see [Quickstart - Create an Azure API Management instance](get-started-create-service-instance.md).
-  If you created your instance in a v2 service tier, first enable the developer portal.
+
+    If you created your instance in a v2 service tier, first enable the developer portal.
       1. In the sidebar menu, under **Developer portal**, select **Portal settings**.
       1. In the **Portal settings window**, select **Enabled**. Select **Save**.
     It might take a few minutes to enable the developer portal.
@@ -90,16 +91,14 @@ Go to the `src` folder and open the `config.design.json` file.
 }
 ```
 
-To configure the file:
+In `subscriptionId`, `resourceGroupName`, and `serviceName`, enter values for the subscription, resource group, and service name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md) for the service, use it instead for the value of `serviceName`. For example:
 
-1. In `subscriptionId`, `resourceGroupName`, and `serviceName`, enter values for the subscription, resource group, and service name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md) for the service, use it instead for the value of `serviceName`. For example:
-
-    ```json
-    {
-    ...
-    "serviceName": "https://api.contoso.com"
-    ...
-    ```
+```json
+{
+...
+"serviceName": "https://api.contoso.com"
+...
+```
 
 
 ### Optional settings in config.design.json
@@ -108,36 +107,36 @@ Optionally, configure the following settings in the `config.design.json` file:
 
 1. If you'd like to enable CAPTCHA in your developer portal, set `"useHipCaptcha": true`. Make sure to [configure CORS settings for developer portal backend](#configure-cors-settings-for-developer-portal-backend).
 
-  ```json
-  {
-      ...
-      "useHipCaptcha": true
-      ...
-  }
-  ```
+    ```json
+    {
+        ...
+        "useHipCaptcha": true
+        ...
+    }
+    ```
 
 
 1. In `integration`, under `googleFonts`, optionally set `apiKey` to a Google API key that allows access to the Web Fonts Developer API. This key is only needed if you want to add Google fonts in the Styles section of the developer portal editor. 
-  ```json
-  {
-      ...
-      "integration": {
-          "googleFonts": {
-              "apiKey": "< your Google API key >"
-          }
-      }
-      ...
-  }
+    ```json
+    {
+        ...
+        "integration": {
+            "googleFonts": {
+                "apiKey": "< your Google API key >"
+            }
+        }
+        ...
+    }
 
 1. If you don't already have a key, you can configure one using the Google Cloud console. Follow these steps:
 
-  1. Open the [Google Cloud console](https://console.cloud.google.com/apis/dashboard).
-  1. Check whether the **Web Fonts Developer API** is enabled. If it isn't, [enable it](https://cloud.google.com/apis/docs/getting-started).
-  1. Select **Create credentials** > **API key**.
-  1. In the open dialog, copy the generated key and paste it as the value of `apiKey` in the `config.design.json` file. 
-  1. Select **Edit API key** to open the key editor.
-  1. In the editor, under **API restrictions**, select **Restrict key**. In the dropdown, select **Web Fonts Developer API**. 
-  1. Select **Save**.
+    1. Open the [Google Cloud console](https://console.cloud.google.com/apis/dashboard).
+    1. Check whether the **Web Fonts Developer API** is enabled. If it isn't, [enable it](https://cloud.google.com/apis/docs/getting-started).
+    1. Select **Create credentials** > **API key**.
+    1. In the open dialog, copy the generated key and paste it as the value of `apiKey` in the `config.design.json` file. 
+    1. Select **Edit API key** to open the key editor.
+    1. In the editor, under **API restrictions**, select **Restrict key**. In the dropdown, select **Web Fonts Developer API**. 
+    1. Select **Save**.
 
 ### config.publish.json file
 
@@ -165,7 +164,7 @@ Go to the `src` folder and open the `config.runtime.json` file.
 }
 ```
 
-Substitute `< service name >` with the name of your API Management instance used in the previous configuration files. 
+Substitute `< backendUrl >` with the name of your API Management instance used in the previous configuration files. 
 
 
 ### Configure the static website
