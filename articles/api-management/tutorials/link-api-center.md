@@ -51,8 +51,6 @@ In this tutorial, you:
     - The API Center is created and the API Management service starts synchronizing APIs with the linked API Center.
     - When the operation finishes, you should see a *Request succeeded* message and a confirmation that your API Management service and API Center are synchronized.
 
-Discover, reuse, or govern APIs in the linked API Center service.
-
 > [!NOTE]
 > 
 > Only one API Center can be linked to a single API Management instance.
