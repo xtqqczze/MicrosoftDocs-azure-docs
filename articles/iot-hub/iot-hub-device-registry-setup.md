@@ -41,18 +41,13 @@ For more information about how to create namespaces, policies, and credentials, 
 
 ## Prerequisites
 
-Access to the [Azure portal](https://portal.azure.com).
+Have an Azure account. If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/).
 
-## Create an IoT hub with ADR integration
+## Create an IoT hub in the portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
 1. On the Azure homepage, select the **+ Create a resource** button.
-
 1. From the **Categories** menu, select **Internet of Things**, and then select **IoT Hub**.
-
-### Basics tab
-
 1. On the **Basics** tab, complete the fields as follows:
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
@@ -87,12 +82,10 @@ Access to the [Azure portal](https://portal.azure.com).
         > [!NOTE]
         > The creation of the namespace with system-assigned managed identity might take up to 5 minutes.
 
-       1. Select **OK** to save your new ADR namespace and return to the Basics tab.
+    1. Select **OK** to save your new ADR namespace and return to the Basics tab.
 
 1. Once created, you can view and select your ADR namespace from the **ADR namespace** dropdown.
-
 1. Select **Next: Networking** to continue creating your hub.
-
 1. On the **Networking** tab, complete the fields as follows:
 
    | Property | Value |
@@ -100,10 +93,9 @@ Access to the [Azure portal](https://portal.azure.com).
    | **Connectivity configuration** | Choose the endpoints that devices can use to connect to your IoT hub. Accept the default setting, **Public access**, for this example. You can change this setting after the IoT hub is created. For more information, see [IoT Hub endpoints](/azure/iot-hub/iot-hub-devguide-endpoints). |
    | **Minimum TLS Version** | Select the minimum [TLS version](/azure/iot-hub/iot-hub-tls-support#tls-12-enforcement-available-in-select-regions) supported by your IoT hub. Once the IoT hub is created, this value can't be changed. Accept the default setting, **1.0**, for this example. |
 
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Screen capture that shows how to choose the endpoints that can connect to a new IoT hub.":::
+   :::image type="content" source="../../includes/media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Screen capture that shows how to choose the endpoints that can connect to a new IoT hub.":::
 
 1. Select **Next: Management** to continue creating your hub.
-
 1. On the **Management** tab, accept the default settings. If desired, you can modify any of the following fields:
 
    | Property | Value |
@@ -112,10 +104,9 @@ Access to the [Azure portal](https://portal.azure.com).
    | **Assign me** | You might need access to IoT Hub data APIs to manage elements within an instance. If you have access to role assignments, select **IoT Hub Data Contributor role** to grant yourself full access to the data APIs.<br><br>To assign Azure roles, you must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner). |
    | **Device-to-cloud partitions** | This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most IoT hubs need only four partitions. |
 
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Screen capture that shows how to set the role-based access control and scale for a new IoT hub.":::
+   :::image type="content" source="../../includes/media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Screen capture that shows how to set the role-based access control and scale for a new IoT hub.":::
 
 1. Select **Next: Add-ons** to continue to the next screen.
-
 1. On the **Add-ons** tab, accept the default settings. If desired, you can modify any of the following fields:
 
    | Property | Value |
@@ -123,7 +114,7 @@ Access to the [Azure portal](https://portal.azure.com).
    | **Enable Device Update for IoT Hub** | Turn on Device Update for IoT Hub to enable over-the-air updates for your devices. If you select this option, you're prompted to provide information to provision a Device Update for IoT Hub account and instance. For more information, see [What is Device Update for IoT Hub?](/azure/iot-hub-device-update/understand-device-update) |
    | **Enable Defender for IoT** | Turn Defender for IoT on to add an extra layer of protection to IoT and your devices. This option isn't available for hubs in the free tier. For more information, see [Security recommendations for IoT Hub](/azure/defender-for-iot/device-builders/concept-recommendations) in [Microsoft Defender for IoT](/azure/defender-for-iot/device-builders) documentation. |
 
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-add-ons.png" alt-text="Screen capture that shows how to set the optional add-ons for a new IoT hub.":::
+   :::image type="content" source="../../includes/media/iot-hub-include-create-hub/iot-hub-create-add-ons.png" alt-text="Screen capture that shows how to set the optional add-ons for a new IoT hub.":::
 
    > [!NOTE]
    > Prices shown are for example purposes only.
@@ -135,7 +126,6 @@ Access to the [Azure portal](https://portal.azure.com).
     :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Screen capture that shows how to assign tags for a new IoT hub.":::
 
 1. Select **Next: Review + create** to review your choices.
-
 1. Select **Create** to start the deployment of your new hub. Your deployment might progress for a few minutes while the hub is being created. Once the deployment is complete, select **Go to resource** to open the new hub.
 
 
@@ -143,6 +133,7 @@ Access to the [Azure portal](https://portal.azure.com).
 
 ## Prerequisites
 
+- Have an Azure account. If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/).
 - Install [Azure CLI](/cli/azure/install-azure-cli) in your environment, or run `az upgrade` to ensure you have the latest version.
 - Install the [IoT extension for Azure CLI](https://github.com/Azure/azure-cli).
 - Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).

@@ -73,7 +73,7 @@ The following image illustrates the X.509 certificate hierarchy used to authenti
 
 ### Device provisioning with Certificate Management
 
-After you set up your ADR namespace and create your credential resource, you need to start provisioning devices using [Device Provisioning Service (DPS)](../iot-dps/index.yml) with Certificate Management. When a device connects to DPS for provisioning, it authenticates using its onboarding credentials. Once authenticated, the device is provisioned to the appropriate IoT Hub and registered to the appropriate ADR namespace. As part of this provisioning call, the device also submits a Certificate Signing Request (CSR) to DPS, which it uses to request an X.509 operational certificate that IoT Hub recognizes. The CSR includes information about the device, such as its public key and other identifying information.
+Similarly to IoT Hub Gen 1, in order to use certificate management, devices must be provisioned via [Device Provisioning Service (DPS)](../iot-dps/index.yml) with Certificate Management. When a device connects to DPS for provisioning, it authenticates using its onboarding credentials. Once authenticated, the device is provisioned to the appropriate IoT Hub and registered to the appropriate ADR namespace. As part of this provisioning call, the device also submits a Certificate Signing Request (CSR) to DPS, which it uses to request an X.509 operational certificate that IoT Hub recognizes. The CSR includes information about the device, such as its public key and other identifying information.
 
 With Certificate Management, you control your resources in ADR, IoT Hub Gen 2, and DPS, while Microsoft manages the PKI infrastructure, including the root CA and ICAs.
 

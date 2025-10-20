@@ -35,9 +35,9 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 
 IoT Hub is available in two generations: Gen 1 and Gen 2 (Preview). IoT Hub Gen 2 is the next evolution of IoT Hub, designed to provide enhanced security, simplified device management, and unified operations across cloud and edge deployments.
 
-Moving to Gen2 is essential to leverage the latest enhancements in device provisioning, certificate management, and deeper integration with Azure Resource Manager. Upgrading an existing Hub to a Gen2 Hub is currently **not** supported. For more information, see the [FAQ: What is new in Azure IoT Hub Gen 2 (Preview)?](iot-hub-faq.md).
+Moving to Gen2 is essential to leverage the latest enhancements in device provisioning, certificate management, and deeper integration with Azure Resource Manager. For more information, see [Create an IoT hub Gen 2](iot-hub-device-registry-setup.md).
 
-IoT Hub Gen 2 introduces two major innovations: Azure Device Registry (ADR) and Certificate Management. These features are designed to enhance security, simplify device management, and streamline operations for IoT deployments. 
+IoT Hub Gen 2 introduces two major innovations: Azure Device Registry (ADR) and Certificate Management. These features are designed to enhance security, simplify device management, and streamline operations for IoT deployments.
 
 ## Manage your devices in a unified registry with Azure Device Registry
 
@@ -46,10 +46,6 @@ IoT Hub Gen 2 integrates directly with Azure Device Registry (ADR) to bring a co
 ADR is an ARM resource provider that​ registers devices as Azure resources in ARM, providing a single registry for all devices and enabling consistent policy, resource queries and control plane operations. 
 
 For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
-
-## Zero-Touch provisioning of IoT devices at scale
-
-Similarly to IoT Hub Gen 1, in order to use certificate management, devices must be provisioned via [Device Provisioning Service (DPS)](../iot-dps/index.yml). The device must onboard and authenticate using one of the existing supported methods: including X.509 certificate (procured from a third-party CA) or symmetric keys. Once the device is successfully authenticated, it's provisioned to the appropriate IoT Hub and registered to the appropriate ADR namespace. As part of this provisioning call, the device also submits a Certificate Signing Request (CSR) to DPS, which it uses to request an X.509 operational certificate that IoT Hub recognizes.
 
 ### Manage your X.509 credentials with Certificate Management
 

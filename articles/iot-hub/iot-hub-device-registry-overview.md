@@ -19,7 +19,18 @@ IoT Hub Gen 2 brings integration with Azure Device Registry (ADR) to provide a u
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
-## How Azure Device Registry works with IoT solutions?
+## Namespace and namespace assets
+
+ADR uses *namespaces* to organize *namespace assets* and devices. Each IoT Hub instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+
+Namespaces are logical containers for grouping devices and namespace assets. A namespace asset is a digital representation of a physical or virtual asset, such as a device, module, or sensor. Namespace assets can include metadata and properties that describe the asset and its capabilities.
+Namespaces provide a way to organize and manage assets at scale. They enable you to group related assets together, apply policies and access controls, and manage the lifecycle of assets.
+
+ADR maps namespace assets from your edge environment to Azure resources in the cloud. It offers a unified registry so apps and services interacting with your assets connect to a single source. ADR syncs assets in the cloud with custom resources in Kubernetes on the edge.Enterprises can use Azure Resource Manager, Azure's deployment and management service, with namespace assets. Azure Resource Manager supports resource groups, tags, role-based access control (RBAC), policies, logging, and auditing.
+
+For more information about namespaces, see [Create and manage namespaces](iot-hub-device-registry-namespaces.md).
+
+## How ADR works with IoT solutions?
 
 ADR provides a unified device registry for managing all your IoT devices. Azure Device Registry (ADR) is a backend service that enables the cloud and edge management of devices across multiple IoT solutions using namespaces. ADR is an ARM resource provider that​ registers devices as Azure resources in ARM, providing a single registry for all devices and enabling consistent policy, resource queries and control plane operations.
 
