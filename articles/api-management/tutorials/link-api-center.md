@@ -61,12 +61,13 @@ In this tutorial, you:
 ## View linked API Center and synchronized APIs
 
 1. In the [Azure portal](https://portal.azure.com), open the API Center resource.
-2. In the API Center left-hand menu, go to **Platforms** > **Integrations**. The state for the integration with API Management should say *Linked and syncing*. 
-3. To view synchronized APIs, go to **Assets** > **APIs**.
+2. In the API Center left-hand menu, go to **Platforms** > **Integrations**. 
+    The state for the integration with API Management should say *Linked and syncing*. 
+1. To view synchronized APIs, go to **Assets** > **APIs**.
 
 ## Remove a linked API Center
 
-1. In the API Center resource or from the API Management > API Center page, find the linked API Center.
+1. In the API Center resource or from the **API Management** > **API Center** page, find the linked API Center.
 2. Select the trash can icon to delete the link (or delete the API Center resource if you no longer need it).
 
 ## Clean up resources
