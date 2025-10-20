@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to self-host the developer portal for Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 10/17/2025
+ms.date: 10/20/2025
 ms.service: azure-api-management
 ms.topic: how-to
 ---
@@ -36,7 +36,7 @@ To set up a local development environment, you need to have:
       1. In the sidebar menu, under **Developer portal**, select **Portal settings**.
       1. In the **Portal settings window**, select **Enabled**. Select **Save**.
     It might take a few minutes to enable the developer portal.
-- An Azure blob storage account, which you will use to enable the [static websites feature](../storage/blobs/storage-blob-static-website.md). See [Create a storage account](../storage/common/storage-account-create.md).
+- An Azure blob storage account, which you'll use to enable the [static websites feature](../storage/blobs/storage-blob-static-website.md). See [Create a storage account](../storage/common/storage-account-create.md).
 - Git on your machine. Install it by following [this Git tutorial](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 - Node.js (Long Term Support (LTS) version, `v10.15.0` or later) and npm on your machine. See [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 - Azure CLI. Follow [the Azure CLI installation steps](/cli/azure/install-azure-cli).
@@ -78,7 +78,7 @@ To set up your local environment, clone the repository, switch to the latest rel
 
 ### config.design.json file
 
-Open the `config.design.json` file in the `src` folder:
+Go to the `src` folder and open the `config.design.json` file.
 
 ```json
 {
@@ -92,7 +92,7 @@ Open the `config.design.json` file in the `src` folder:
 
 To configure the file:
 
-1. In `subscriptionId`, `resourceGroupName`, and `serviceName`, enter values for the subscription, resource group, and service name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md) for the portal, use it instead for the value of `serviceName`. For example:
+1. In `subscriptionId`, `resourceGroupName`, and `serviceName`, enter values for the subscription, resource group, and service name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md) for the service, use it instead for the value of `serviceName`. For example:
 
     ```json
     {
@@ -104,7 +104,7 @@ To configure the file:
 
 ### Optional settings in config.design.json
 
-Optionally , you can configure the following settings in the `config.design.json` file:
+Optionally, configure the following settings in the `config.design.json` file:
 
 1. If you'd like to enable CAPTCHA in your developer portal, set `"useHipCaptcha": true`. Make sure to [configure CORS settings for developer portal backend](#configure-cors-settings-for-developer-portal-backend).
 
@@ -129,7 +129,7 @@ Optionally , you can configure the following settings in the `config.design.json
       ...
   }
 
-If you don't already have a key, you can configure one using the Google Cloud console. Follow these steps:
+1. If you don't already have a key, you can configure one using the Google Cloud console. Follow these steps:
 
   1. Open the [Google Cloud console](https://console.cloud.google.com/apis/dashboard).
   1. Check whether the **Web Fonts Developer API** is enabled. If it isn't, [enable it](https://cloud.google.com/apis/docs/getting-started).
@@ -148,18 +148,11 @@ Go to the `src` folder and open the `config.publish.json` file.
     "environment": "publishing",
     "subscriptionId":"<service subscription>",
     "resourceGroupName":"<service resource group>",
-    "serviceName":"<service name>",
-    "clientId": "<Optional. The Client ID of the Microsoft Entra application that users will sign into>",
-    "tenantId": "<Optional. The Microsoft Entra tenant (directory) ID>",
-    
+    "serviceName":"<service name>"
 }
 ```
 
-Configure the file:
-
-1. Copy and paste the `subscriptionId`, `resourceGroupName`, and `serviceName`values from the previous configuration file. 
-
-1. Optionally, set `clientId` and `tenantId` to the client ID and tenant ID of the Microsoft Entra app that you configured for users to sign into. 
+Copy and paste the `subscriptionId`, `resourceGroupName`, and `serviceName`values from the previous configuration file. 
 
 ### config.runtime.json file
 
@@ -172,14 +165,14 @@ Go to the `src` folder and open the `config.runtime.json` file.
 }
 ```
 
-Substitute `< service name >` with the name of your API Management instance. 
+Substitute `< service name >` with the name of your API Management instance used in the previous configuration files. 
 
 
 ### Configure the static website
 
 Configure the **Static website** feature in your storage account by providing routes to the index and error pages:
 
-1. In the Azure portal, bo to your storage account in the Azure portal.
+1. In the Azure portal, go to your storage account in the Azure portal.
 
 1. In the sidebar menu, select **Data management** > **Static website**.
 
@@ -191,45 +184,16 @@ Configure the **Static website** feature in your storage account by providing ro
 
 1. Select **Save**.
 
-Take note of the **Primary endpoint** URL. You will configure it later to access your self-hosted portal.
+Take note of the **Primary endpoint** URL. You'll configure it later to access your self-hosted portal.
 
 
 ### Configure CORS settings for storage account
 
-
-
-### Publish website locally
-
-First open the `config.publish.json` file in the `src` folder:
-
-```json
-{
-    "environment": "publishing",
-    "subscriptionId": "< subscription ID >",
-    "resourceGroupName": "< resource group name >",
-    "serviceName": "< service name >"
-}
-```
-
-To configure the file:
-
-1. In `subscriptionId`, `resourceGroupName`, and `serviceName`, enter values for the subscription, resource group, and service name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md) for the portal, use it instead for the value of `serviceName` (for example, `https://api.contoso.com`). For example:
-
-    ```json
-    {
-    ...
-    "serviceName": "https://api.contoso.com"
-    ...
-    ```
-
-
-### Configure CORS settings for storage account
-
-Configure the cross-origin resource sharing (CORS) settings for the storage account:
+To configure the cross-origin resource sharing (CORS) settings for the storage account:
 
 1. Go to your storage account in the Azure portal.
 
-1. From the menu on the left, under **Settings**, select **Resource sharing (CORS)**.
+1. From the sidebar menu, under **Settings**, select **Resource sharing (CORS)**.
 
 1. In the **Blob service** tab, configure the following rules:
 
@@ -246,9 +210,7 @@ Configure the cross-origin resource sharing (CORS) settings for the storage acco
 
 ### Configure CORS settings for developer portal backend
 
-<!-- Necessary for both backendUrl and directDataApi settings? -->
-
-Configure CORS settings for the developer portal backend to allow requests originating through your self-hosted developer portal. The self-hosted developer portal relies on the developer portal's backend endpoint (set in `backendUrl` in the portal configuration files) to enable several features, including: 
+Configure CORS settings for the developer portal backend to allow requests originating through your self-hosted developer portal. The self-hosted developer portal relies on the developer portal's backend endpoint (set in `backendUrl` in the portal `config.runtime.json` file) to enable several features, including: 
 
 * CAPTCHA verification
 * [OAuth 2.0 authorization](api-management-howto-oauth2.md) in the test console
@@ -256,9 +218,10 @@ Configure CORS settings for the developer portal backend to allow requests origi
 
 To add CORS settings:
 
-1. Go to your API Management instance in the Azure portal, and select **Developer portal** > **Portal settings** from the menu on the left.
+1. Go to your API Management instance in the Azure portal.
+1. In the sidebar menu, select **Developer portal** > **Settings**.
 1. On the **Self-hosted portal configuration** tab, add one or more **Origin** domain values. For example:
-    * The domain where the self-hosted portal is hosted, such as `https://www.contoso.com` 
+    * The domain where the self-hosted portal is hosted, such as `https://contoso.developer.azure-api.net` 
     * `localhost` for local development (if applicable), such as `http://localhost:8080` or `https://localhost:8080` 
 1. Select **Save**.
 
@@ -267,13 +230,14 @@ To add CORS settings:
 
 Now you can build and run a local portal instance in the development mode. In development mode, all the optimizations are turned off and the source maps are turned on.
 
-Run the following command:
+1. Run the following command:
 
-```console
-npm run start
-```
+    ```console
+    npm run start
+    ```
+2. You're prompted to authenticate via your browser. Select your Microsoft credentials to continue.
 
-After a short time, the default browser automatically opens with your local developer portal instance. The default address is `http://localhost:8080`, but the port can change if `8080` is already occupied. When you make changes to the codebase of the project, it triggers a rebuild and refreshes your browser window.
+3. After some time, the default browser automatically opens with your local developer portal instance. The default address is `http://localhost:8080`, but the port can change if `8080` is already occupied. When you make changes to the codebase of the project, it triggers a rebuild and refreshes your browser window.
 
 ## Step 4: Edit through the visual editor
 
@@ -287,21 +251,13 @@ Use the visual editor to carry out these tasks:
 See [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md). It covers the basics of the administrative user interface and lists recommended changes to the default content. Save all changes in the local environment, and press **Ctrl+C** to close it.
  
 
+## Step 5: Publish the portal locally
 
-## Publish the portal locally
-
-1. Run `npm run publish`. You are prompted to authenticate via your browser. Select your Microsoft credentials to continue.
+1. Run `npm run publish`. You're prompted to authenticate via your browser. Select your Microsoft credentials to continue.
 
 1. After some time, the content is published to the `dist/website` folder.
 
-Use the visual editor to carry out these tasks:
-
-- Customize your portal
-- Author content
-- Organize the structure of the website
-- Stylize its appearance
-
-## Upload static files to a blob
+## Step 6: Upload static files to a blob
 
 Use the Azure CLI to upload the locally generated static files to a blob, and make sure your visitors can get to them:
 
@@ -316,18 +272,22 @@ Use the Azure CLI to upload the locally generated static files to a blob, and ma
         --connection-string "<connection-string>"
     ```
 
-## Go to your website
+## Step 7: Go to your website
 
-Your website is now live under the hostname specified in your Azure Storage properties. Go to **Primary endpoint** in **Data management** > **Static website**.
+Your website is now live under the hostname specified in your Azure Storage properties. In the sidebar menu, go to **Data management** > **Static website**. The hostname is the value of **Primary endpoint**. 
 
 ## Host the website editor
 
-When making changes in website code, you may need to update the website editor code as well to be able to properly support editing of your modified widgets. In this case, besides hosting the portal, you may also want to host the editor application. For this you'll need to build it and configure to access your API Management service.
+When making changes in website code, you may need to update the website editor code as well to be able to properly support editing of your modified widgets. In this case, besides hosting the portal, you may also want to host the editor application. For this, you need to build it and configure to access your API Management service.
 
 For this, you need a Microsoft Entra ID application in your tenant:
 
-1. [Register an application](/entra/identity-platform/quickstart-register-app) in your Microsoft Entra ID tenant. Take note of the **Application (client) ID** and the **Directory (tenant) ID**. You will configure them in a later step.
+1. [Register an application](/entra/identity-platform/quickstart-register-app) in your Microsoft Entra ID tenant. Take note of the **Application (client) ID** and the **Directory (tenant) ID**. You configure them in a later step.
 1. Configure a Web **Redirect URI** (reply URL) in this application to point to the endpoint of the web app where the designer is hosted. This is typically the location of the blob storage-based website. Example: `https://<your-storage-account-name>z13.web.core.windows.net/`.
+1. If you want to publish the portal in pipelines (GitHub Actions), also create a client secret for this application. Take note of the generated secret value and store it in a safe location.
+
+Then, follow these steps to host the website editor:
+
 1. Add `clientId` and `tenantId` fields to the `config.design.json` file.
   ```json
   {
@@ -338,7 +298,9 @@ For this, you need a Microsoft Entra ID application in your tenant:
   }
   ```
 
-1. Go to generated `/dist/designer` folder, which contains a file `config.json` with the following content: 
+1. Run the `npm run build-designer` command to build designer.
+
+1. Go to the generated `/dist/designer` folder, which contains a file `config.json` with the following content: 
     ```json
     {
         "subscriptionId": "< subscription ID >",
@@ -348,13 +310,15 @@ For this, you need a Microsoft Entra ID application in your tenant:
         "tenantId": "< Entra ID tenant ID >"
     }
     ```
-    Here, subscriptionId, resourceGroupName and serviceName - needed to connect to your APIM service using Azure Resource Manager (ARM) APIs.
 
+1. Confirm the configuration of `subscriptionId`, `resourceGroupName` and `serviceName`, which are needed to connect to your API Management service using Azure Resource Manager APIs.
 
 
 ## Publish portal in pipelines (GitHub Actions)
 
-The pipeline will also needs Entra ID application credentials to execute publishing (this can be the same Entra ID application as mentioned above). The `tenantId`, `clientId`, and especially `clientSecret` must be kept in respective key storage. See [Using secrets in GitHub Actions](https://docs.github.com/en/actions/security-guides/encrypted-secrets) for more details.
+You can publish the self-hosted portal in a pipeline such as GitHub Actions.
+
+The pipeline also needs Entra ID application credentials to execute publishing using pipelines. You can use the same Entra ID application described in the previous steps. The `tenantId`, `clientId`, and especially `clientSecret` must be kept in respective key storage. See [Using secrets in GitHub Actions](https://docs.github.com/en/actions/security-guides/encrypted-secrets) for more details.
 
 Example of GitHub Actions pipeline YAML:
 
@@ -390,207 +354,7 @@ jobs:
         run: npm run publish
 ```
 
-------------------------------
-
-<!--
-### config.publish.json file
-
-Go to the `src` folder and open the `config.publish.json` file.
-    
-```json
-{
-    "environment": "publishing",
-    "armEndpoint": "management.azure.com",
-    "subscriptionId":"<service subscription>",
-    "resourceGroupName":"<service resource group>",
-    "serviceName":"<service name>",
-    "clientId": "<Optional. The Client ID of the Microsoft Entra application that users will sign into>",
-    "tenantId": "<Optional. The Microsoft Entra tenant (directory) ID>",
-    "useHipCaptcha": false
-}
-```
-
-Configure the file:
-
-1. Copy and paste the `subscriptionId`, `resourceGroupName`, and `serviceName`values from the previous configuration file. 
-
-1. Optionally, set `clientId` and `tenantId` to the client ID and tenant ID of the Microsoft Entra app that you configured for users to sign into. 
-
-### config.runtime.json file
-
-Go to the `src` folder and open the `config.runtime.json` file.
-
-```json
-{
-    "environment": "runtime",
-    "backendUrl": "https://<service-name>.developer.azure-api.net",
-    "featureFlags": {
-        "clientTelemetry": true
-    },
-
-    "directDataApi": false,
-    "dataApiUrl": "https://<service name>.data.azure-api.net"
-}
-```
-
-Configuration of this file differs depending on whether your API Management instance is created in one of the v2 tiers or in one of the classic tiers.
-
-#### [v2 tiers](#tab/v2-tiers)
-
-1. Configure settings for the direct data API: 
-    * Set `directDataApi` to true. 
-    * In the `dataApiUrl` value, replace `<service name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead (for example, `https://portal.contoso.com`).
-    
-        ```json
-        {
-        ...
-        "directDataApi": true,
-        "dataApiUrl": "https://contoso-api.data.azure-api.net"
-        ...
-        }
-        ```
-
-1. Optionally, in `featureFlags`, if you want to collect user session data from the developer portal, set `"clientTelemetry": true`.
-
-#### [Classic tiers](#tab/classic)
-
-1. You can configure either `backendUrl` or settings for the direct data API.  
-
-    > [!IMPORTANT]
-    > Remove the `backendUrl` setting if you set `directDataApi` to true. And conversely, remove direct data API settings if you configure the `backendUrl`.
-
-    * To set the `backendUrl` value, replace `<service-name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md) for your developer portal, use it instead (for example. `https://portal.contoso.com`).
-
-        ```json
-        {
-        ...
-        "backendUrl": "https://contoso-api.developer.azure-api.net"
-        ...
-        }
-        ```
-
-    * To use the direct data API, set `directDataApi` to true. In the `dataApiUrl` value, replace `<service name>` with the name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md), use it instead (for example, `https://portal.contoso.com`).
-    
-        ```json
-        {
-        ...
-        "directDataApi": true,
-        "dataApiUrl": "https://contoso-api.data.azure-api.net"
-        ...
-        }
-        ```
-
-1. Optionally, in `featureFlags`, if you want to collect user session data from the developer portal, set `"clientTelemetry": true`.
-
----
-
-### Configure the static website
-
-Configure the **Static website** feature in your storage account by providing routes to the index and error pages:
-
-1. Go to your storage account in the Azure portal and select **Data management** > **Static website** from the menu on the left.
-
-1. On the **Static website** page, select **Enabled**.
-
-1. In the **Index document name** field, enter *index.html*.
-
-1. In the **Error document path** field, enter *404/index.html*.
-
-1. Select **Save**.
-
-### Configure CORS settings for storage account
-
-Configure the cross-origin resource sharing (CORS) settings for the storage account:
-
-1. Go to your storage account in the Azure portal.
-
-1. From the menu on the left, under **Settings**, select **Resource sharing (CORS)**.
-
-1. In the **Blob service** tab, configure the following rules:
-
-    | Rule | Value |
-    | ---- | ----- |
-    | Allowed origins | * |
-    | Allowed methods | Select all the HTTP verbs. |
-    | Allowed headers | * |
-    | Exposed headers | * |
-    | Max age | 0 |
-
-1. Select **Save**.
-
-### Configure CORS settings for developer portal backend
-
-<!-- Necessary for both backendUrl and directDataApi settings? -->
-
-Configure CORS settings for the developer portal backend to allow requests originating through your self-hosted developer portal. The self-hosted developer portal relies on the developer portal's backend endpoint (set in `backendUrl` in the portal configuration files) to enable several features, including: 
-
-* CAPTCHA verification
-* [OAuth 2.0 authorization](api-management-howto-oauth2.md) in the test console
-* [Delegation](api-management-howto-setup-delegation.md) of user authentication and product subscription 
-
-To add CORS settings:
-
-1. Go to your API Management instance in the Azure portal, and select **Developer portal** > **Portal settings** from the menu on the left.
-1. On the **Self-hosted portal configuration** tab, add one or more **Origin** domain values. For example:
-    * The domain where the self-hosted portal is hosted, such as `https://www.contoso.com` 
-    * `localhost` for local development (if applicable), such as `http://localhost:8080` or `https://localhost:8080` 
-1. Select **Save**.
-
-
-## Step 3: Run the portal
-
-Now you can build and run a local portal instance in the development mode. In development mode, all the optimizations are turned off and the source maps are turned on.
-
-Run the following command:
-
-```console
-npm run start
-```
-
-After a short time, the default browser automatically opens with your local developer portal instance. The default address is `http://localhost:8080`, but the port can change if `8080` is already occupied. When you make changes to the codebase of the project, it triggers a rebuild and refreshes your browser window.
-
-## Step 4: Edit through the visual editor
-
-Use the visual editor to carry out these tasks:
-
-- Customize your portal
-- Author content
-- Organize the structure of the website
-- Stylize its appearance
-
-See [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md). It covers the basics of the administrative user interface and lists recommended changes to the default content. Save all changes in the local environment, and press **Ctrl+C** to close it.
-
-## Step 5: Publish locally
-
-The portal data originates in the form of strong-typed objects. The following command translates them into static files and places the output in the `./dist/website` directory:
-
-```console
-npm run publish-arm
-```
-
-## Step 6: Upload static files to a blob
-
-Use the Azure CLI to upload the locally generated static files to a blob, and make sure your visitors can get to them:
-
-1. Open Windows Command Prompt, PowerShell, or other command shell.
-
-1. Run the following Azure CLI command.
-   
-    Replace `<account-access-key>` with an access key your storage account. You can get it from the **Security + networking** > **Access keys** section of your storage account.
-
-    ```azurecli
-    az storage blob upload-batch --source dist/website \
-        --account-name <your-storage-account-name> \
-        --destination '$web' \
-        --account-key "<account-access-key>"
-    ```
-
--->
-## Step 7: Go to your website
-
-Your website is now live under the hostname specified in your Azure Storage properties. Go to **Primary endpoint** in **Data management** > **Static website**.
-
-## Step 8: Change API Management notification templates
+## Change API Management notification templates
 
 Replace the developer portal URL in the API Management notification templates so that it points to your self-hosted portal. See [How to configure notifications and email templates in Azure API Management](api-management-howto-configure-notifications.md).
 
@@ -750,13 +514,13 @@ Update the developer portal URL in any template that has a link in the footer:
 
 ## Move from managed to self-hosted developer portal
 
-Over time, your business requirements may change. You can end up in a situation where the managed version of the API Management developer portal no longer satisfies your needs. For example, a new requirement may force you to build a custom widget that integrates with a third-party data provider. Unlike the managed version, the self-hosted version of the portal offers you full flexibility and extensibility.
+Over time, your business requirements might change. You can end up in a situation where the managed version of the API Management developer portal no longer satisfies your needs. For example, a new requirement might force you to build a custom widget that integrates with a third-party data provider. Unlike the managed version, the self-hosted version of the portal offers you full flexibility and extensibility.
 
 ### Transition process
 
 You can transition from the managed version to a self-hosted version within the same API Management service instance. The process preserves the modifications that you carried out in the managed version of the portal. Make sure you back up the portal's content beforehand. You can find the backup script in the `scripts` folder of the API Management developer portal [GitHub repo](https://github.com/Azure/api-management-developer-portal).
 
-The conversion process is almost identical to setting up a generic self-hosted portal, as shown in previous steps in this article. There is one exception in the configuration step. The storage account in the `config.design.json` file needs to be the same as the storage account of the managed version of the portal. See [Tutorial: Use a Linux VM system-assigned identity to access Azure Storage via a SAS credential](../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-sas.md#get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls) for instructions on how to retrieve the SAS URL.
+The conversion process is almost identical to setting up a generic self-hosted portal, as shown in previous steps in this article. There's one exception in the configuration step. The storage account in the `config.design.json` file needs to be the same as the storage account of the managed version of the portal. See [Tutorial: Use a Linux VM system-assigned identity to access Azure Storage via a SAS credential](../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-sas.md#get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls) for instructions on how to retrieve the SAS URL.
 
 > [!TIP]
 > We recommend using a separate storage account in the `config.publish.json` file. This approach gives you more control and simplifies the management of the hosting service of your portal.
