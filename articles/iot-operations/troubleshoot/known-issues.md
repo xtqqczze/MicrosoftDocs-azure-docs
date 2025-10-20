@@ -55,31 +55,6 @@ The connector doesn't receive a notification when device credentials stored in A
 
 Workaround: Restart the connector to force it to retrieve the updated credentials from Azure Key Vault.
 
-
-### Connector for OPC UA issues
-
-This section lists current known issues for the connector for OPC UA.
-
-### An OPC UA server modeled as a device can only have one inbound endpoint of type "Microsoft.OpcUa"
-
----
-
-Issue ID: 2411
-
----
-
-`2025-07-24T13:29:30.280Z aio-opc-supervisor-85b8c78df5-26tn5 - Maintaining the new asset test-opcua-asset | - | 1 is skipped because the endpoint profile test-opcua.opcplc-e2e-anon-000000 is not present`
-
----
-
-When you create an OPC UA device, you can only have one inbound endpoint of type `Microsoft.OpcUa`. Currently, any other endpoints aren't used.
-
-Workaround: Create multiple devices with a single endpoint each if you want to use namespace assets.
-
-An OPC UA namespaced asset can only have a single dataset. Currently, any other datasets aren't used.
-
-Workaround: Create multiple namespace assets each with a single dataset.
-
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
