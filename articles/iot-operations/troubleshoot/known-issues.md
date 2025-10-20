@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 09/17/2025
+ms.date: 10/20/2025
 ---
 
 # Known issues: Azure IoT Operations
@@ -34,7 +34,29 @@ MQTT broker resources created in your cluster using Kubernetes aren't visible in
 
 There's currently no workaround for this issue.
 
-## Connector for OPC UA issues
+
+## General connector issues
+
+This section lists current known issues that affect all connectors.
+
+### Connector doesn't detect updates to device credentials in Azure Key Vault
+
+---
+
+Issue ID: 6514
+
+---
+
+N/A
+
+---
+
+The connector doesn't receive a notification when device credentials stored in Azure Key Vault are updated. As a result, the connector continues to use the old credentials until it's restarted.
+
+Workaround: Restart the connector to force it to retrieve the updated credentials from Azure Key Vault.
+
+
+### Connector for OPC UA issues
 
 This section lists current known issues for the connector for OPC UA.
 
