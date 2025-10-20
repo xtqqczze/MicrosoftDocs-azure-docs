@@ -79,6 +79,8 @@ To monitor resources for App Service, select **Dynatrace environment config > Ap
 To monitor resources for AKS, select Dynatrace environment config > Azure Kubernetes Services in the left pane. 
 
 [!INCLUDE [agent](../includes/agent.md)]
+
+If AKS installation or uninstallation is disabled, see the [FAQ](https://go.microsoft.com/fwlink/?linkid=2331926).
  
 #### [Azure Arc Machines](#tab/azure-arc-machines)
 
