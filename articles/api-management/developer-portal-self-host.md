@@ -164,7 +164,7 @@ Go to the `src` folder and open the `config.runtime.json` file.
 }
 ```
 
-Substitute `< backendUrl >` with the name of your API Management instance used in the previous configuration files. 
+Substitute `< service name >` with the name of your API Management instance used in the previous configuration files. 
 
 
 ### Configure the static website
@@ -288,14 +288,14 @@ For this, you need a Microsoft Entra ID application in your tenant:
 Then, follow these steps to host the website editor:
 
 1. Add `clientId` and `tenantId` fields to the `config.design.json` file.
-  ```json
-  {
-      ...
-      "clientId": "< Entra ID app ID >",
-      "tenantId": "< Entra ID tenant ID >"
-      ...
-  }
-  ```
+    ```json
+    {
+        ...
+        "clientId": "< Entra ID app ID >",
+        "tenantId": "< Entra ID tenant ID >"
+        ...
+    }
+    ```
 
 1. Run the `npm run build-designer` command to build designer.
 
