@@ -3,7 +3,7 @@ title: Configure a Storage Policy
 description:  Learn how to configure a storage policy for your Azure VMware Solution virtual machines.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 01/08/2025
+ms.date: 10/20/2025
 ms.custom:
   - engagement-fy23
   - build-2025
@@ -133,7 +133,7 @@ Run the `Get-UnassociatedVsanObjectsWithPolicy` cmdlet to list the unassociate
 
    :::image type="content" source="media/run-command/run-command-unassociated-storage-policy.png" alt-text="Screenshot that shows how to access the unassociated storage policy run command." lightbox="media/run-command/run-command-unassociated-storage-policy.png":::
 
-1. Provide the required values or change the default values according to the following table. Then select **Run**.
+2. Provide the required values or change the default values according to the following table. Then select **Run**.
 
 | Field | Value |
    | --- | --- |
@@ -145,7 +145,7 @@ Run the `Get-UnassociatedVsanObjectsWithPolicy` cmdlet to list the unassociate
 
    :::image type="content" source="media/run-command/run-command-get-unassociated-storage-policy.png" alt-text="Screenshot that shows how to list unassociated storage policies." lightbox="media/run-command/run-command-get-unassociated-storage-policy.png":::
 
-   1. Check **Notifications** to see the progress.
+   3. Check **Notifications** to see the progress.
 
 ## Set a storage policy for Unassociated vSAN objects 
  
@@ -167,7 +167,7 @@ Run the `Update-StoragePolicyOfUnassociatedVsanObjects` cmdlet to modify curre
    :::image type="content" source="media/run-command/run-command-update-unassociated-storage-policy.png" alt-text="Screenshot that shows how to update unassociated storage policies." lightbox="media/run-command/run-command-update-unassociated-storage-policy.png":::
 
 
-   1. Check **Notifications** to see the progress.
+   3. Check **Notifications** to see the progress.
 
 ## Specify a storage policy for a cluster
 
