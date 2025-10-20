@@ -55,6 +55,20 @@ The connector doesn't receive a notification when device credentials stored in A
 
 Workaround: Restart the connector to force it to retrieve the updated credentials from Azure Key Vault.
 
+### In the connector templates, the only supported authentication type is "artifact pull secrets"
+
+---
+
+Issue ID: 4570
+
+---
+
+Log signature: N/A
+
+---
+
+When deploying connectors using the provided connector templates, the only supported authentication type is "artifact pull secrets". Other authentication types, such as managed identities, aren't currently supported in the connector templates.
+
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
