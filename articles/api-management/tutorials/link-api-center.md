@@ -25,7 +25,7 @@ In this tutorial, you:
 ## Prerequisites
 
 - An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account).
-- An existing API Management service in the subscription and region where you want to manage APIs
+- An existing API Management service in the subscription where you want to manage APIs
 - Contributor (or Owner) permissions on the API Management resource and permission to create resources in a resource group
 
 ## Create a new API Center and link your APIs
