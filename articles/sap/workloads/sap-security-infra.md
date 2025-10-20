@@ -206,8 +206,9 @@ A comparison of Disk Encryption technologies can be found here [Overview of mana
 > [!Important]
 > Azure Disk Encryption isn't supported for SAP systems.  
 #### Virtual Network Encryption 
-Virtual Network Encryption doesn't support private endpoints currently. Virtual Network Encryption is currently used for specific high security scenarios.  
+Virtual Network Encryption can be considered for high security deployments and gateways. There are some [feature restrictions](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations). Virtual Network Encryption is currently used for specific high security scenarios.  
 [What is Azure Virtual Network encryption? - Azure Virtual Network | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-network-encryption-overview)
+
 #### Intel Total Memory Encryption (TME)
 Modern Azure VMs automatically use the TME-MK feature built into modern CPUs. High security customers should use modern VMs and contact Microsoft directly for confirmation that all VM types supported TME.  For more information [Runtime Encryption of Memory with Intel® Total Memory](https://www.intel.com/content/www/us/en/developer/articles/news/runtime-encryption-of-memory-with-intel-tme-mk.html) 
 #### Azure Automation account for Azure Site Recovery Agent updates.  
