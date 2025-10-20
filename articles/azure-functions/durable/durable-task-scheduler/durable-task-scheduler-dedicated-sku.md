@@ -88,7 +88,9 @@ For high availability and zone redundancy, a minimum of three CUs is required 
 
 ### Capacity Unit Planning Examples
 
-Here are three capacity planning examples that progress from small to large.
+To clarify the cost calculation, here are three capacity planning scenarios to demonstrate how to calculate and anticipate the costs for planning. 
+
+These examples are shown for demonstration purposes only. 
 
 #### Five activities example
 
@@ -172,7 +174,7 @@ Cost Calculation:
 
 | Feature         | Consumption SKU                 | Dedicated SKU                     |
 |-----------------|---------------------------------|-----------------------------------|
-| Infrastructure  | Multi-tenant                    | Dedicated Infrastructure          |
+| Infrastructure  | Multitenant                    | Dedicated Infrastructure          |
 | Pricing Model   | Pay-per-action                  | Fixed monthly CU cost             |
 | Cost per Action | \$0.003                         | Varies by CU utilization          |
 | Max Throughput  | 500 actions/second              | 2,000 actions/second per CU       |
