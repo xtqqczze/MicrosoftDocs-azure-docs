@@ -49,7 +49,7 @@ This tutorial uses a premium instance of Azure Container Registry to improve col
     GPU_TYPE="Consumption-GPU-NC24-A100"
     CONTAINER_APP_NAME="llama3-nim"
     CONTAINER_AND_TAG="meta/llama-3.1-8b-instruct:latest"
-    NGC_SECRET=<[Your NVIDIA NGC API Key](https://org.ngc.nvidia.com/setup/api-key)>
+    NGC_SECRET=<Your NVIDIA NGC API Key>
     ```
 
 [!INCLUDE [container-apps-create-resource-group.md](../../includes/container-apps-create-resource-group.md)]
