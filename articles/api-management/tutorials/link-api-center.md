@@ -41,10 +41,10 @@ In this tutorial, you:
 | Field | Details |
 |---|---|
 | Resource group | Select an existing resource group or create a new one. |
-| Instance details — Location | Choose a region. Regions available for API Center may differ from the region of your API Management instance. |
-| Instance details — Name | Provide a unique name for the API Center instance. |
-| Instance details — Pricing plan | Select a plan. |
-| API details — Lifecycle | Select the lifecycle state to associate with APIs when they are synchronized. This metadata can be changed later. |
+| Location | Choose a region. Regions available for API Center may differ from the region of your API Management instance. |
+| Name | Provide a unique name for the API Center instance. |
+| Pricing plan | Select a plan. |
+| Lifecycle | Select the lifecycle state to associate with APIs when they are synchronized. This metadata can be changed later. |
 
 1. Select Create. 
 
