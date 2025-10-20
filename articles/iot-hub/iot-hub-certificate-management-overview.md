@@ -57,7 +57,9 @@ Certificate-based authentication offers these benefits over less secure methods 
 
 Certificate Management uses [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) to manage device certificates. ADR is a service that provides secure device identity and authentication for IoT solutions. It integrates with IoT Hub Gen 2 and Device Provisioning Service (DPS) to provide a seamless experience for managing device identities and certificates.
 
-When you set up your [ADR namespace](iot-hub-device-registry-setup.md#set-up-an-adr-namespace), you can create a credential resource that configures a Microsoft-managed PKI and root CA on behalf of that ADR namespace. Within the namespace, you also configure one or more policies. Each policy coincides with an intermediate certificate authority (ICA) that is signed by the root CA of that namespace. Each ICA can only issue leaf certificates for devices registered within that ADR namespace and with Hubs linked to the namespace. In this policy, you can also define the lifespan for your operational leaf certificates, also known as your device certificates.
+When you set up your [ADR namespace](iot-hub-device-registry-namespaces.md#create-a-new-namespace), you can create a credential resource that configures a Microsoft-managed PKI and root CA on behalf of that ADR namespace. Within the namespace, you also configure one or more policies. Each policy coincides with an intermediate certificate authority (ICA) that is signed by the root CA of that namespace. Each ICA can only issue leaf certificates for devices registered within that ADR namespace and with Hubs linked to the namespace. In this policy, you can also define the lifespan for your operational leaf certificates, also known as your device certificates.
+
+For more information about how to create namespaces, policies, and credentials, see [Create and manage namespaces](iot-hub-device-registry-namespaces.md).
 
 The ADR namespace and its credential resource are then linked to your IoT Hub Gen 2 instance and DPS. This linkage enables IoT Hub to trust the device certificates issued by the ICAs configured in the ADR namespace.
 

@@ -11,7 +11,7 @@ ms.date: 10/20/2025
 #Customer intent: As a developer new to IoT, I want to understand what Azure Device Registry is and how it can help me manage my IoT devices.
 ---
 
-# Create a new IoT hub with Azure Device Registry
+# Create IoT hubs with Azure Device Registry integration
 
 **Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 2
 
@@ -35,20 +35,113 @@ The setup process includes the following steps:
 1. Sync your credential and policies to ADR namespace.
 1. Create an enrollment group and link to your policy to enable device onboarding.
 
+For more information about how to create namespaces, policies, and credentials, see [Create and manage namespaces](iot-hub-device-registry-namespaces.md).
+
 ## [Azure portal](#tab/portal)
 
-### Prerequisites
+## Prerequisites
 
 Access to the [Azure portal](https://portal.azure.com).
 
-### Create an IoT hub with ADR integration
+## Create an IoT hub with ADR integration
 
-[TO DO]
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. On the Azure homepage, select the **+ Create a resource** button.
+
+1. From the **Categories** menu, select **Internet of Things**, and then select **IoT Hub**.
+
+### Basics tab
+
+1. On the **Basics** tab, complete the fields as follows:
+
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
+   | Property | Value |
+   | ----- | ----- |
+   | **Subscription** | Select the subscription to use for your hub. |
+   | **Resource group** | Select a resource group or create a new one. To create a new one, select **Create new** and fill in the name you want to use.|
+   | **IoT hub name** | Enter a name for your hub. This name must be globally unique, with a length between 3 and 50 alphanumeric characters. The name can also include the dash (`'-'`) character.|
+   | **Region** | IoT Hub Gen 2 is in **preview** and only available in [certain regions](iot-hub-faq.md#what-are-the-supported-regions-for-iot-hub-gen-2). Select the region, closest to you, where you want your hub to be located.|
+   | **Tier** | Select the **Gen 2** tier. To compare the features available to each tier, select **Compare tiers**.|
+   | **ADR namespace** | Select an existing ADR namespace or create a new one. To create a new one, select **Create new** and fill in the name you want to use.|
+   | **Daily message limit** | Select the maximum daily quota of messages for your hub. The available options depend on the tier you select for your hub. To see the available messaging and pricing options, select **See all options** and select the option that best matches the needs of your hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling).|
+
+   :::image type="content" source="./media/iot-hub-create-hub/iot-hub-gen-2-basics.png" alt-text="Screen capture that shows how to create an IoT hub in the Azure portal.":::
+
+   > [!NOTE]
+   > Prices shown are for example purposes only.
+
+    1. If you select **Create new** for the ADR namespace, a new pane appears. Fill in the fields to create a new namespace as follows:
+
+        | Property | Value |
+        | ----- | ----- |
+        | **Subscription** | Select the subscription to use for your ADR namespace. |
+        | **Resource group** | Select the resource group you used for your IoT hub. |
+        |**Label**| Enter a name for your ADR namespace. Your namespace name can only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, the name "msft-namespace" is valid. |
+        | **Identity**| Select **Enabled** or **Disabled** to enable or disable a system-assigned managed identity for the ADR namespace. It's recommended to enable the managed identity to allow secure access to other Azure resources.|
+        |**Tags**| (Optional) Add tags to organize your ADR namespace. When you create a tag, you define a name, a value, and a resource for it. You can use tags to filter and group your resources in the Azure portal.|
+
+       :::image type="content" source="./media/iot-hub-create-hub/iot-hub-gen-2-adr-namespace.png" alt-text="Screen capture that shows how to create an ADR namespace when creating an IoT hub in the Azure portal.":::
+
+        > [!NOTE]
+        > The creation of the namespace with system-assigned managed identity might take up to 5 minutes.
+
+       1. Select **OK** to save your new ADR namespace and return to the Basics tab.
+
+1. Once created, you can view and select your ADR namespace from the **ADR namespace** dropdown.
+
+1. Select **Next: Networking** to continue creating your hub.
+
+1. On the **Networking** tab, complete the fields as follows:
+
+   | Property | Value |
+   | ----- | ----- |
+   | **Connectivity configuration** | Choose the endpoints that devices can use to connect to your IoT hub. Accept the default setting, **Public access**, for this example. You can change this setting after the IoT hub is created. For more information, see [IoT Hub endpoints](/azure/iot-hub/iot-hub-devguide-endpoints). |
+   | **Minimum TLS Version** | Select the minimum [TLS version](/azure/iot-hub/iot-hub-tls-support#tls-12-enforcement-available-in-select-regions) supported by your IoT hub. Once the IoT hub is created, this value can't be changed. Accept the default setting, **1.0**, for this example. |
+
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Screen capture that shows how to choose the endpoints that can connect to a new IoT hub.":::
+
+1. Select **Next: Management** to continue creating your hub.
+
+1. On the **Management** tab, accept the default settings. If desired, you can modify any of the following fields:
+
+   | Property | Value |
+   | ----- | ----- |
+   | **Permission model** | Part of role-based access control, this property decides how you *manage access* to your IoT hub. Allow shared access policies or choose only role-based access control. For more information, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/iot-hub-dev-guide-azure-ad-rbac). |
+   | **Assign me** | You might need access to IoT Hub data APIs to manage elements within an instance. If you have access to role assignments, select **IoT Hub Data Contributor role** to grant yourself full access to the data APIs.<br><br>To assign Azure roles, you must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner). |
+   | **Device-to-cloud partitions** | This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most IoT hubs need only four partitions. |
+
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Screen capture that shows how to set the role-based access control and scale for a new IoT hub.":::
+
+1. Select **Next: Add-ons** to continue to the next screen.
+
+1. On the **Add-ons** tab, accept the default settings. If desired, you can modify any of the following fields:
+
+   | Property | Value |
+   | -------- | ----- |
+   | **Enable Device Update for IoT Hub** | Turn on Device Update for IoT Hub to enable over-the-air updates for your devices. If you select this option, you're prompted to provide information to provision a Device Update for IoT Hub account and instance. For more information, see [What is Device Update for IoT Hub?](/azure/iot-hub-device-update/understand-device-update) |
+   | **Enable Defender for IoT** | Turn Defender for IoT on to add an extra layer of protection to IoT and your devices. This option isn't available for hubs in the free tier. For more information, see [Security recommendations for IoT Hub](/azure/defender-for-iot/device-builders/concept-recommendations) in [Microsoft Defender for IoT](/azure/defender-for-iot/device-builders) documentation. |
+
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-add-ons.png" alt-text="Screen capture that shows how to set the optional add-ons for a new IoT hub.":::
+
+   > [!NOTE]
+   > Prices shown are for example purposes only.
+
+1. Select **Next: Tags** to continue to the next screen.
+
+    Tags are name/value pairs. You can assign the same tag to multiple resources and resource groups to categorize resources and consolidate billing. In this document, you don't add any tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources).
+
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Screen capture that shows how to assign tags for a new IoT hub.":::
+
+1. Select **Next: Review + create** to review your choices.
+
+1. Select **Create** to start the deployment of your new hub. Your deployment might progress for a few minutes while the hub is being created. Once the deployment is complete, select **Go to resource** to open the new hub.
 
 
 ## [Azure CLI](#tab/cli)
 
-### Prerequisites
+## Prerequisites
 
 - Install [Azure CLI](/cli/azure/install-azure-cli) in your environment, or run `az upgrade` to ensure you have the latest version.
 - Install the [IoT extension for Azure CLI](https://github.com/Azure/azure-cli).
@@ -59,7 +152,7 @@ Access to the [Azure portal](https://portal.azure.com).
   az group create --name <RESOURCE_GROUP_NAME> --location <REGION>
   ```
 
-### Prepare your environment
+## Prepare your environment
 
 To prepare your environment to use Azure Device Registry, complete the following steps:
 
@@ -77,7 +170,7 @@ To prepare your environment to use Azure Device Registry, complete the following
     - The `id` GUID. You use this value to provide your Subscription ID.
     - The `tenantId` GUID. You use this value to update your permissions using Tenant ID.
 
-### Set up the environment variables
+## Set up the environment variables
 
 To simplify the process of creating and managing resources, set up the following environment variables in your terminal session. Replace the placeholder values with your own values.
 
@@ -101,13 +194,15 @@ To simplify the process of creating and managing resources, set up the following
     ENROLLMENT_ID="your-enrollment-name"
     ```
 
+    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 1. Verify that the environment variables are set correctly by running the following command:
 
     ```bash
     echo $HUB_NAME
     ```
 
-### Configure your group, role, and permissions
+## Configure your group, role, and permissions
 
 To create a resource group, role, and permissions for your IoT solution, complete the following steps:
 
@@ -163,18 +258,18 @@ To create a resource group, role, and permissions for your IoT solution, complet
     UAMI_RESOURCE_ID=$(az identity show --name "$USER_IDENTITY" --resource-group "$RESOURCE_GROUP" --query id -o tsv)
     ```
 
-### Set up an ADR namespace
+## Set up an ADR namespace
 
 Set up a new ADR namespace with a system-assigned managed identity. Creating this namespace also creates a credential, known as root CA, and a default policy, known as intermediate CA.
 
-1. Create a new ADR namespace. Your namespace `name` may only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, the name "msft-namespace" is valid. 
+1. Create a new ADR namespace. Your namespace `name` can only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, the name "msft-namespace" is valid. 
 
     ```bash
     az iot adr ns create --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP" --location "$LOCATION"
     ```
 
     > [!NOTE]
-    > The creation of the namespace with credentials may take up to 5 minutes.
+    > The creation of the namespace with system-assigned managed identity might take up to 5 minutes.
 
 1. Verify that the namespace with a system-assigned managed identity, or principal ID, is created.
 
@@ -207,7 +302,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating thi
     az role assignment create --assignee "$UAMI_PRINCIPAL_ID" --role "$CUSTOM_ROLE_NAME" --scope "$NAMESPACE_RESOURCE_ID"
     ```
 
-### Create an IoT hub with ADR namespace integration
+## Create an IoT hub with ADR namespace integration
 
 1. Create a new IoT Hub Gen 2 instance linked to the ADR namespace and with the User-Assigned Identity.
 
@@ -245,7 +340,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating thi
     >  az role assignment create --assignee "$ADR_PRINCIPAL_ID" --role "IoT Hub Registry Contributor" --scope "$HUB_RESOURCE_ID"
     >  ```
 
-### Create a Device Provisioning Service with ADR namespace integration
+## Create a Device Provisioning Service with ADR namespace integration
 
 1. Create a new Device Provisioning Service (DPS) instance linked to the ADR namespace with the User-Assigned Identity. Your DPS must be located in the same region as your ADR namespace.
 
@@ -259,7 +354,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating thi
     az iot dps show --name "$DPS_NAME" --resource-group "$RESOURCE_GROUP" --query identity --output json
     ```
 
-### Link IoT Hub to the Device Provisioning Service
+## Link IoT Hub to the Device Provisioning Service
 
 1. Link the IoT hub to DPS.
 
@@ -273,7 +368,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating thi
     az iot dps linked-hub list --dps-name "$DPS_NAME" --resource-group "$RESOURCE_GROUP"
     ```
 
-### Run ADR credential synchronization
+## Run ADR credential synchronization
 
 To enable IoT Hub to register the CA certificates and trust any issued leaf certificates, sync your credential and all its child policies to the ADR namespace.
 
@@ -281,7 +376,7 @@ To enable IoT Hub to register the CA certificates and trust any issued leaf cert
 az iot adr ns credential sync --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
 ```
 
-### Validate Hub Certificate
+## Validate Hub Certificate
 
 Validate that your IoT hub has registered its CA certificate.
 
@@ -289,7 +384,7 @@ Validate that your IoT hub has registered its CA certificate.
 az iot hub certificate list --hub-name "$HUB_NAME" --resource-group "$RESOURCE_GROUP"
 ```
 
-### Create an enrollment group in DPS
+## Create an enrollment group in DPS
 
 To provision devices with leaf certificates, you need to create an enrollment group and assign it to the appropriate policy. The allocation-policy defines the onboarding authentication mechanism DPS uses before issuing a leaf certificate. The default attestation mechanism is a symmetric key.
 
@@ -300,10 +395,9 @@ To provision devices with leaf certificates, you need to create an enrollment gr
 az iot dps enrollment-group create --dps-name "$DPS_NAME" --resource-group "$RESOURCE_GROUP" --enrollment-id "$ENROLLMENT_ID" --credential-policy default
 ```
 
-
 ## [Script](#tab/script)
 
-### Prerequisites
+## Prerequisites
 
 - Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 - A resource group to hold your resources. You can create a new resource group or use an existing one. If you want to create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command:
@@ -317,12 +411,12 @@ az iot dps enrollment-group create --dps-name "$DPS_NAME" --resource-group "$RES
    az iot dps create --name <DPS_NAME> --resource-group <RESOURCE_GROUP_NAME> --location "<REGION>"
    ```
 
-### Prepare Your Environment
+## Prepare Your Environment
 
 1. Navigate to the [GitHub repository](https://github.com/Azure/hubgen2-certmgmt/tree/main/Scripts) and download the entire folder, Scripts, which contains the script file (.ps1) and the role template (.json).
 1. Place the script, role template, and the .whl files in your working folder and confirm they are accessible. Your working folder is the directory that holds all of your files.
 
-### Customize the script variables
+## Customize the script variables
 
 Set values for the following variables in the variables section
 
@@ -336,7 +430,9 @@ Set values for the following variables in the variables section
 - `UserIdentity`: The user-assigned managed identity for your resources.
 - `WorkingFolder`: The local folder where your scripts and templates are located.
 
-### Run the script interactively
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
+## Run the script interactively
 
 1. Run the script in **PowerShell 7+** by navigating to the folder and running `.\cmsSetupCli.ps1`.
 1. If you run into an execution policy issue, try running `powershell -ExecutionPolicy Bypass -File .\cmsSetupCli.ps1`.
@@ -349,7 +445,7 @@ Set values for the following variables in the variables section
 > [!NOTE]
 > The creation of your ADR Namespace, IoT Hub, DPS, and other resources may take up to 5 minutes each.
 
-### Monitor execution and validate the resources
+## Monitor execution and validate the resources
 
 1. The script continues execution when warnings are encountered and only stops if a command returns a non-zero exit code. Monitor the console for red **ERROR** messages, which indicate issues that require attention.
 1. Once the script completes, validate the creation of your resources:

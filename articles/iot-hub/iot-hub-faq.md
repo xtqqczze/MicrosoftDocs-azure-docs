@@ -37,7 +37,6 @@ The following table summarizes the key differences between IoT Hub Gen 1 and Gen
 |Namespace integration | No namespace concept; visibility limited to individual hubs. | Supports namespaces for unified visibility and control across hubs. |
 |Device Provisioning Service | Use DPS for onboarding into individual hubs. | DPS continues and it's required if you want to use Certificate Management. |
 |Migration and setup | Existing hubs remain functional; no changes are required. | Migration isn't supported. Requires new hub creation with ADR integration. |
-|Azure Device Update | Supported | Not supported |
 |Pricing model | Based on number of messages and features used. | Free during preview period. |
 |Throttling limits | Limits based on tier (B1, B2, S1, S2, S3). | Only available in Free and S1 tiers. |
 

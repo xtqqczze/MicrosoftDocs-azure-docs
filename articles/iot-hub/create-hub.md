@@ -16,7 +16,7 @@ ms.custom:
 
 **Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 1
 
-This article describes how to create and manage an IoT hub.
+This article describes how to create and manage an IoT hub without integration with Azure Device Registry (ADR), also known as IoT Hub Gen 1. If you want to create an IoT hub with ADR integration (IoT Hub Gen 2), see [Create IoT hubs with ADR integration](iot-hub-device-registry-setup.md).
 
 ## Prerequisites
 

@@ -11,7 +11,6 @@ zone_pivot_groups: service-portal-azcli-powershell
 
 # Configure IoT Hub file uploads using the Azure portal
 
-**Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 1 ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 2
 
 Configuring file uploads in your IoT hub enables your connected devices to upload files to an Azure storage account. This article shows you how to configure file uploads on your IoT hub using the Azure portal, Azure CLI, and Azure PowerShell.
 
