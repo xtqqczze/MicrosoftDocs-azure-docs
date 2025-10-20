@@ -38,13 +38,13 @@ In this tutorial, you:
 1. On the Create API Center page, select Create new link.
 1. Provide values for the following fields:
 
-| Field | Details |
-|---|---|
-| Resource group | Select an existing resource group or create a new one. |
-| Location | Choose a region. Regions available for API Center may differ from the region of your API Management instance. |
-| Name | Provide a unique name for the API Center instance. |
-| Pricing plan | Select a plan. |
-| Lifecycle | Select the lifecycle state to associate with APIs when they're synchronized. This metadata can be changed later. |
+    | Field | Details |
+    |---|---|
+    | Resource group | Select an existing resource group or create a new one. |
+    | Location | Choose a region. Regions available for API Center may differ from the region of your API Management instance. |
+    | Name | Provide a unique name for the API Center instance. |
+    | Pricing plan | Select a plan. |
+    | Lifecycle | Select the lifecycle state to associate with APIs when they're synchronized. This metadata can be changed later. |
 
 1. Select Create. 
 
@@ -55,7 +55,7 @@ Discover, reuse, or govern APIs in the linked API Center service.
 
 > [!NOTE]
 > 
-> A 1:1 relationship exists — only one API Center can be linked to a single API Management instance.
+> Only one API Center can be linked to a single API Management instance.
 
 ## Use an existing API Center
 
@@ -77,6 +77,4 @@ Discover, reuse, or govern APIs in the linked API Center service.
 ## Clean up resources
 
 If you created an API Center for this tutorial and no longer need it, delete the API Center resource and any resource group you created to avoid charges.
-
-## Next steps
 
