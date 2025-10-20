@@ -22,7 +22,7 @@ ms.author: danlep
 
 ## Register the Microsoft.ApiCenter provider
 
-If you haven't already, you need to register the **Microsoft.ApiCenter** resource provider in your subscription. You only need to register the resource provider once.
+If you haven't already, register the **Microsoft.ApiCenter** resource provider in your subscription. You only register the resource provider once.
 
 To register the resource provider in your subscription by using the Azure CLI, run the following [`az provider register`](/cli/azure/provider#az-provider-register) command:
 
