@@ -168,7 +168,7 @@ Then, when configuring your local storage data flow endpoint, input the PVC name
 
 ### Cloud ingest
 
-To write your data to the cloud, follow the instructions in [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/release-notes) to create a PVC and attach a subvolume for your desired cloud destination.
+To write your data to the cloud, follow the instructions in [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes) to create a PVC and attach a subvolume for your desired cloud destination.
 
 > [!IMPORTANT]
 > Don't forget to create the subvolume after creating the PVC, or else the data flow fails to start and the logs show a "read-only file system" error.
