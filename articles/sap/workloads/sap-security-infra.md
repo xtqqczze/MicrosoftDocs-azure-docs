@@ -250,7 +250,7 @@ Azure Disk Encryption (ADE) isn't supported for SAP solutions. RHEL and SLES Lin
 > [!Important]
 > Azure Disk Encryption is now a deprecated feature [Azure updates | Microsoft Azure](https://azure.microsoft.com/updates?id=493779)
 
-## 10.	SAP Security Notes 
+## 10.	SAP Security Notes
 SAP release information about vulnerabilities in their products on the second Tuesday of every month.  
 Vulnerabilities with a CVE score between 9.0 and 10 are severe and should be immediately mitigated.
 Entry point for [SAP Security Notes](https://support.sap.com/en/my-support/knowledge-base/security-notes-news.html)  

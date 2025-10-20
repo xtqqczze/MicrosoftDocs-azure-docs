@@ -18,14 +18,14 @@ This article provides a collection of links and general information on Identity 
 There are too many complex scenarios covering Identity Management, Authentication, and Authorization and it isn't possible to document generalizable scenarios.     
 The links in this section are intended to be a starting point for developing the appropriate solution for a specific customer scenario.  
 ## 1.	Identity Management  
-It is very common to use the approach documented in these two links to Provision, Deprovision, Maintain, and create Workflows for User ID lifecycle – Microsoft Entra for SAP 
+It's common to use the approach documented in these two links to Provision, Deprovision, Maintain, and create Workflows for User ID lifecycle – Microsoft Entra for SAP 
 - [Identity and Access Management with Microsoft Entra - SAP Community (Part I)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcommunity.sap.com%2Ft5%2Ftechnology-blog-posts-by-members%2Fidentity-and-access-management-with-microsoft-entra-part-i-managing-access%2Fba-p%2F13873276&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933642486%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=jMwpMMSHzMWSM7KZSpRd31CAXI6V%2F8arkm2FlI%2BKdH4%3D&reserved=0)
 - [Identity and Access Management with Microsoft Entra - SAP Community (Part II)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcommunity.sap.com%2Ft5%2Ftechnology-blog-posts-by-members%2Fidentity-and-access-management-with-microsoft-entra-part-ii-provisioning-to%2Fba-p%2F13990927&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933659428%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=lMaF61kTk9bw8v0913vUDfBDlfhbRNcP6q6SbcXgIys%3D&reserved=0)
 
 https://aka.ms/MigrateFromSAPIDM 
 
 ## 2.	Authentication  
-It's recommended to use SSO and/or multifactor authentication for all SAP applications. Traditional User and Password for SAP applications isn't recommended. There are three typical options: User and Password (not recommended), Single Sign On (SSO) or SSO + MFA.  Different SAP applications on different platforms have many options for Authentication: 
+It's recommended to use SSO and/or multifactor authentication for all SAP applications. Traditional User and Password for SAP applications isn't recommended. There are three typical options: User and Password (not recommended), Single Sign On (SSO) or SSO + MFA. Different SAP applications on different platforms have many options for Authentication: 
 
 ### i.	Web Browser based Clients – SAML or OIDC (OpenID Connect)
 [Configure SAP NetWeaver for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fentra%2Fidentity%2Fsaas-apps%2Fsap-netweaver-tutorial&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933681119%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=mfQW1rVPUl%2FULlP0QmPX0EAVrskxn9NvJOI%2F7wI4CNA%3D&reserved=0)
@@ -36,12 +36,12 @@ SAP Secure Login Client - SNC certificate X.509 and Kerberos Tickets are documen
 
 Additional information is available here 
 - [Exploring SAP Secure Login Service for SAP GUI: A ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/exploring-sap-secure-login-service-for-sap-gui-a-comprehensive-review/ba-p/13573382)
-- [SAP GUI MFA with Microsoft Entra (Part I): Integra... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-i-integration-with-sap-secure-login/ba-p/13605383)
+- [SAP GUI MFA with Microsoft Entra (Part I): Integratrion - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-i-integration-with-sap-secure-login/ba-p/13605383)
 - [How to Configure SSO for SAP GUI Including MFA - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/how-to-configure-sso-for-sap-gui-including-mfa/ba-p/14213388)
 
 ### iii.	Mobile Devices – X509 or SAML 
 SAP discontinued Fiori mobile app as of 2022 and now support native browsers.
-It is therefore recommended to use SAML or OIDC.  
+It's therefore recommended to use SAML or OIDC.  
 [Time for a Fresh-Up: Single sign-on for SAP on Mobile Devices](https://www.linkedin.com/pulse/time-fresh-up-single-sign-on-sap-mobile-devices-carsten-olt-qxwxe)
 
 
@@ -55,7 +55,7 @@ Authentication options for Microsoft Power Platform and Microsoft AI:
 - [183 - The one with SAP GUI MFA mit Entra ID (Martin Raepple & Christan Cohrs) | SAP on Azure Video](https://www.youtube.com/watch?v=RHuEUUmLPtM)
 
 ### v.	Other Client Technologies 
-NetWeaver Business Client, Concur, Fiori Mobile App, Business Explorer (BEx), Business Objects, and other non-SAP applications (such as a non-SAP Warehouse Management system) will be added to this documentation later.  Some of these technologies are now out of support.  
+NetWeaver Business Client, Concur, Fiori Mobile App, Business Explorer (BEx), Business Objects, and other non-SAP applications (such as a non-SAP Warehouse Management system) will be added to this documentation later. Some of these technologies are now out of support.  
 
 For more information on how to configure single sign-on from Microsoft Entra ID, see the following documentation and tutorials.  
 
@@ -94,12 +94,12 @@ More information on the SAP BTP Cloud Identity Services (CIS) can be found here:
 ## 3.	Automatic Synchronization of Authorization Attributes 
 Authorization attributes can be replicated from Microsoft Entra to target SAP applications such as SAP BTP Role Collections. This is discussed in this link [Manage access to your SAP applications - Microsoft Entra ID Governance | Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/sap)
 
-There are some limited functionalities available to synchronize Authorization Roles and Profiles for NetWeaver and S/4 systems.  Additional information about S/4, SuccessFactors, Ariba, and Fieldglass Authorization attributes will be added to this documentation. 
+There are some limited functionalities available to synchronize Authorization Roles and Profiles for NetWeaver and S/4 systems. Additional information about S/4, SuccessFactors, Ariba, and Fieldglass Authorization attributes will be added to this documentation. 
 
 The diagram here depicts the architecture from an SAP centric point of view:  [SAP IAM integration with SAP Cloud Identity Services | SAP Architecture Center](https://architecture.learning.sap.com/docs/ref-arch/20c6b29b1e).   This diagram shows the concept with reference to Entra [Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/scenarios/migrate-from-sap-idm#overview-of-microsoft-entra-and-its-sap-product-integrations)
 
 ## 4.	Global Secure Access GSA with SAPGUI SNC  
-The video embedded in the following blog is recommended for customers wanting to achieve Network Level Security similar to operating a VPN without the overhead of installing and maintaining a full VPN on client devices.  
+The video embedded in the following blog is recommended for customers wanting to achieve Network Level Security. The outocme is similar to operating a VPN without the overhead of installing and maintaining a full VPN on client devices.  
 The GSA client implements an [NDIS 6.0 lightweight filter (LWF) network driver](https://learn.microsoft.com/en-us/windows-hardware/drivers/network/ndis-filter-drivers) to route any traffic to internal and external applications based on centrally defined access rules at the company's Entra ID tenant level.
   - [SAP GUI MFA with Microsoft Entra (Part II): Integr... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-ii-integration-with-microsoft-entra/ba-p/13691141)
   - [219 - The one with SSO to SAP GUI using Global Secure Access (Martin Raepple) | SAP on Azure Video](https://www.youtube.com/watch?v=42dj-lV-MDQ)
