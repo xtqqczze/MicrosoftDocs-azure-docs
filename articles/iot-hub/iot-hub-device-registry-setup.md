@@ -232,7 +232,13 @@ To create a resource group, role, and permissions for your IoT solution, complet
         "Microsoft.DeviceRegistry/namespaces/read",
         "Microsoft.DeviceRegistry/namespaces/write",
         "Microsoft.DeviceRegistry/namespaces/credentials/read",
-        "Microsoft.DeviceRegistry/namespaces/credentials/policies/read"
+        "Microsoft.DeviceRegistry/namespaces/credentials/policies/read",
+        "Microsoft.Devices/iothubs/certificates/*",
+        "Microsoft.Devices/iothubs/read"
+      ],
+      "dataActions": [
+        "Microsoft.DeviceRegistry/namespaces/credentials/policies/issueCertificate/action",
+        "Microsoft.Devices/iothubs/devices/*"
       ],
       "AssignableScopes": ["/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP"]
     }'
@@ -394,6 +400,30 @@ To provision devices with leaf certificates, you need to create an enrollment gr
 ```bash
 az iot dps enrollment-group create --dps-name "$DPS_NAME" --resource-group "$RESOURCE_GROUP" --enrollment-id "$ENROLLMENT_ID" --credential-policy default
 ```
+
+## Delete an IoT hub
+
+To delete an IoT hub in your Azure subscription, run the following command:
+
+```bash
+az iot hub delete --name $HUB_NAME --resource-group $RESOURCE_GROUP
+```
+
+## Disable a device 
+
+To disable a device in your IoT hub, run the following commands:
+
+1. List all devices in your IoT hub to find the device ID you want to disable.
+
+    ```bash
+    # List all devices
+    az iot hub device-identity list --hub-name $HUB_NAME --resource-group $RESOURCE_GROUP
+    ```
+1. Disable a device. Make sure to use the correct device id.
+
+    ```bash
+    az iot hub device-identity update --hub-name $HUB_NAME --resource-group $RESOURCE_GROUP -d <mydevice1> --status disabled
+    ```
 
 ## [Script](#tab/script)
 

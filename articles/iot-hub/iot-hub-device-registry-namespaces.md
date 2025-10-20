@@ -58,7 +58,6 @@ Azure IoT Operations and IoT Hub uses namespaces to organize assets and devices.
 1. Select **Next: Review + create** to review your settings.
 1. Select **Create** to create the namespace.
 
-
 ## Connect an existing IoT hub to your namespace
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
