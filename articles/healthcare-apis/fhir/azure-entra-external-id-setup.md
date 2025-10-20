@@ -102,7 +102,7 @@ You need a test user in your Microsoft Entra External ID tenant to associate wit
 #### Link an Entra External ID user with the `fhirUser` custom user attribute
 
 The `fhirUser` custom user attribute is used to link a user in Microsoft Entra External ID with a corresponding patient resource in the FHIR service. In this example, a user named **Test Patient1** is created in the Entra External ID tenant. In a later step, a [patient](https://www.hl7.org/fhir/patient.html) resource is created in the FHIR service. The **Test Patient1** user is associated with the patient resource by setting the `fhirUser` attribute to the patient's FHIR resource identifier. For more information about custom attributes in Microsoft Entra External ID, see  
-[User flow custom attributes in Entra External ID.](/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
+[User flow custom attributes in Entra External ID](/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
 
 1. Search for **External Identities** 
 
@@ -515,6 +515,7 @@ Follow the steps in the [Get the FHIR patient data](using-rest-client.md#get-fhi
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
        
+
 
 
 
