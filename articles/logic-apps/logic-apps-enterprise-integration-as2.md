@@ -1,26 +1,26 @@
 ---
-title: Exchange AS2 messages in B2B workflows
-description: Learn how to exchange AS2 messages between partners by creating workflows with Azure Logic Apps and Enterprise Integration Pack.
+title: Exchange AS2 Messages in B2B Workflows
+description: Learn to exchange AS2 messages between partners in workflows for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.custom: sfi-image-nochange
-ms.date: 09/16/2025
-#Customer intent: As an integration developer, I want to use Azure Logic Apps workflows to manage B2B workflows that use AS2 messages.
+ms.date: 10/20/2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to exchange AS2 messages between trading partners in B2B workflows.
 ---
 
-# Exchange AS2 messages using workflows in Azure Logic Apps
+# Exchange AS2 messages in B2B workflows using Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To send and receive AS2 messages in workflows that you create using Azure Logic Apps, you can use the *AS2 (v2)* connector. This connector provides actions that support and manage AS2 communication. If you need tracking capabilities, the original *AS2* connector is still available, but is being deprecated.
+To send and receive AS2 messages in workflows that you create using Azure Logic Apps, use the *AS2 (v2)* connector. This connector provides actions that support and manage AS2 communication. If you need tracking capabilities, the original *AS2* connector is still available, but is being deprecated.
 
 Except for tracking capabilities, the AS2 (v2) connector provides the same capabilities as the original AS2 connector. The AS2 (v2) connector runs natively with the Azure Logic Apps runtime and offers significant performance improvements in message size, throughput, and latency. Unlike the original AS2 connector, the AS2 (v2) connector doesn't require that you create a connection to your integration account. Instead, as described in the prerequisites, link your integration account to the logic app resource where you plan to use the connector.
 
-This how-to guide shows how to add the AS2 encoding and decoding actions to an existing logic app workflow. The AS2 (v2) connector doesn't include any triggers. You can use any trigger to start your workflow. The examples in this guide use the [Request trigger](../connectors/connectors-native-reqres.md).
+This guide shows how to add the encoding and decoding actions for AS2 (v2) and AS2 to an existing logic app workflow. The AS2 (v2) connector doesn't provide any triggers, so you can use any trigger to start your workflow. The examples in this guide use the [Request trigger](../connectors/connectors-native-reqres.md).
 
 ## Connector technical reference
 
@@ -28,8 +28,8 @@ The AS2 connector has different versions, based on [logic app type and host envi
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multitenant Azure Logic Apps | AS2 (v2) and AS2 managed connectors (Standard class). The AS2 (v2) connector provides only actions. You can use any trigger that works for your scenario. For more information, see: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [AS2 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | AS2 (v2) built-in connector and AS2 managed connector. The built-in version differs in the following ways: <br><br>- The built-in version provides only actions, but you can use any trigger that works for your scenario. <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, see: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) built-in connector operations](#as2-v2-operations) <br>- [AS2 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
+| **Consumption** | Multitenant Azure Logic Apps | AS2 (v2) and AS2 managed connectors, which appear in the connector gallery under **Shared**. The AS2 connector has one trigger and multiple actions. The AS2 (v2) connector provides only actions. You can use any trigger that works for your scenario. For more information, see: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) managed connector operations](#as2-v2-operations) <br>- [AS2 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
+| **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), and hybrid deployment | AS2 (v2) built-in connector, which appears in the connector gallery under **Built-in**, and AS2 managed connector, which appears in the connector gallery under **Shared**. The AS2 connector has one trigger and multiple actions. The AS2 (v2) connector provides only actions. You can use any trigger that works for your scenario. <br><br>The built-in version differs in the following ways: <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, see: <br><br>- [AS2 managed connector reference](/connectors/as2/) <br>- [AS2 (v2) built-in connector operations](#as2-v2-operations) <br>- [AS2 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 
 <a name="as-v2-operations"></a>
 
@@ -65,23 +65,23 @@ The AS2 (v2) connector has no triggers. The following table describes the action
 
 - If you use [Azure Key Vault](/azure/key-vault/general/overview) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
 
-  1. In the [Azure portal](https://portal.azure.com), open your key vault. On the key vault menu, under **Settings**, select **Keys**.
+  1. In the [Azure portal](https://portal.azure.com), open your key vault resource. On the resource sidebar, under **Objects**, select **Keys**.
 
-  1. On the **Keys** pane, select your key. On the **Versions** pane, select the key version that you're using.
+  1. On the **Keys** page, select your key. On the **Versions** page, select the key version that you're using.
 
-  1. On the **Key Version** pane, under **Permitted operations**, confirm that the **Encrypt** and **Decrypt** operations are selected.
+  1. On the **Key Version** page, under **Permitted operations**, confirm that **Encrypt** and **Decrypt** are selected.
 
-     :::image type="content" source="media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png" alt-text="Screenshot shows the Azure portal with the key vault, key, and key version panes open, highlighting Encrypt and Decrypt operations.":::
+     :::image type="content" source="media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png" alt-text="Screenshot shows the Azure portal and key vault resource with the key and key version pages open and the selected Encrypt and Decrypt operations.":::
 
 <a name="encode"></a>
 
 ## Encode AS2 messages
 
-Encode messages using the AS2 (v2) connector or the AS2 connector.
+To encode messages with the AS2 (v2) connector or the AS2 connector, follow the corresponding steps.
 
 ### AS2 v2 connector
 
-To use the AS2 (v2) connector, follow these steps:
+To encode messages with the AS2 (v2) connector, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -91,17 +91,17 @@ To use the AS2 (v2) connector, follow these steps:
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **Message to encode** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **Message to encode** box and then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
+   | **Message to encode** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Select inside the **Message to encode** box, then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the list, select **Body**. |
    | **AS2 from** | Yes | The business identifier for the message sender as specified by your AS2 agreement, for example, **Fabrikam**. |
    | **AS2 to** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
 
    For example, the message payload is the **Body** content output from the Request trigger:
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-as2/encode-details.png" alt-text="Screenshot shows the Standard workflow designer and AS2 Encode action with the message encoding properties." lightbox="./media/logic-apps-enterprise-integration-as2/encode-details.png":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-as2/encode-details.png" alt-text="Screenshot shows the workflow designer and AS2 Encode action with the message encoding properties." lightbox="./media/logic-apps-enterprise-integration-as2/encode-details.png":::
 
 ### AS2 connector
 
-To use the AS2 (v2) connector, follow these steps:
+To encode messages with the AS2 connector, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -111,9 +111,9 @@ To use the AS2 (v2) connector, follow these steps:
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **Connection Name** | Yes | A name for the connection |
-   | **Integration Account ID** | Yes | Your integration account ID |
-   | **Integration Account SAS URL** | Yes | Your integration account SAS URL |
+   | **Connection Name** | Yes | A name for the connection. |
+   | **Integration Account ID** | Yes | The name for your integration account. |
+   | **Integration Account SAS URL** | Yes | The callback URL for your integration account. |
 
    For example:
 
@@ -127,7 +127,7 @@ To use the AS2 (v2) connector, follow these steps:
    |-----------|----------|-------------|
    | **AS2-From** | Yes | The business identifier for the message sender as specified by your AS2 agreement, for example, **Fabrikam**. |
    | **AS2-To** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
-   | **body** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **body** box and then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
+   | **body** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Select inside the **body** box, then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the list, select **Body**. |
 
    :::image type="content" source="./media/logic-apps-enterprise-integration-as2/encode-message-details.png" alt-text="Screenshot shows the Encode to AS2 message action with the message encoding properties." lightbox="./media/logic-apps-enterprise-integration-as2/encode-message-details.png":::
 
@@ -135,11 +135,11 @@ To use the AS2 (v2) connector, follow these steps:
 
 ## Decode AS2 messages
 
-Decode messages using the AS2 (v2) connector or the AS2 connector.
+To decode messages with the AS2 (v2) connector or the AS2 connector, follow the corresponding steps.
 
-#### AS2 v2 connector
+### AS2 v2 connector
 
-To use the AS2 (v2) connector, follow these steps:
+To decode messages with the AS2 (v2) connector, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -149,8 +149,8 @@ To use the AS2 (v2) connector, follow these steps:
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **Message to decode** | Yes | The message payload to decode, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **Message to decode** box and then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
-   | **Message headers** | Yes | The headers for the message to decode, for example, the **Headers** output from the Request trigger. <br><br>1. Put your cursor in the **Message headers** box  and then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Headers**. |
+   | **Message to decode** | Yes | The message payload to decode, for example, the **Body** output from the Request trigger. <br><br>1. Select inside the **Message to decode** box, then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the list, select **Body**. |
+   | **Message headers** | Yes | The headers for the message to decode, for example, the **Headers** output from the Request trigger. <br><br>1. Select inside the **Message headers** box, then select the function icon to open the expression editor. <br>2. In the editor box, enter the following expression: <br><br>`triggerOutputs()?['headers']` <br><br>3. When you're done, select **Add**. |
 
    For example:
 
@@ -158,7 +158,7 @@ To use the AS2 (v2) connector, follow these steps:
 
 #### AS2 connector
 
-To use the AS2 connector, follow these steps:
+To decode messages with the AS2 connector, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -168,9 +168,9 @@ To use the AS2 connector, follow these steps:
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **Connection name** | Yes | A name for the connection |
-   | **Integration Account ID** | Yes | Your integration account ID |
-   | **Integration Account SAS URL** | Yes | Your integration account SAS URL |
+   | **Connection Name** | Yes | A name for the connection. |
+   | **Integration Account ID** | Yes | The name for your integration account. |
+   | **Integration Account SAS URL** | Yes | The callback URL for your integration account. |
 
    For example:
 
@@ -182,8 +182,8 @@ To use the AS2 connector, follow these steps:
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **body** | Yes | The message payload, for example, the **Body** output from the Request trigger. <br><br>1. Put your cursor in the **body** box and then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Body**. |
-   | **Headers** | Yes | The headers for the message to decode, for example, the **Headers** output from the Request trigger. <br><br>1. Put your cursor in the **Headers** box and then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the outputs list, select **Headers**. |
+   | **body** | Yes | The message payload, for example, the **Body** output from the Request trigger. <br><br>1. Select inside the **body** box, then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the list, select **Body**. |
+   | **Headers** | Yes | The headers for the message to decode, for example, the **Headers** output from the Request trigger. <br><br>1. Select inside the **Headers** box, then select the function icon to open the expression editor. <br><br>2. In the editor box, enter the following expression: <br><br>`triggerOutputs()?['headers']` <br><br>3. When you're done, select **Add**. |
 
    For example:
 
@@ -191,7 +191,7 @@ To use the AS2 connector, follow these steps:
 
 ## Sample
 
-To try deploying a fully operational logic app and sample AS2 (v2) scenario, review the [AS2 (v2) logic app template and scenario](https://azure.microsoft.com/resources/templates/logic-app-as2-send-receive/).
+To deploy a fully functioning logic app workflow and sample AS2 (v2) scenario, see the [AS2 (v2) logic app template and scenario](https://azure.microsoft.com/resources/templates/logic-app-as2-send-receive/).
 
 ## Troubleshoot problems
 
@@ -199,6 +199,6 @@ To try deploying a fully operational logic app and sample AS2 (v2) scenario, rev
 
   Consider trying different SHA256 algorithm formats. The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
-## Next step
+## Related content
 
 - [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
