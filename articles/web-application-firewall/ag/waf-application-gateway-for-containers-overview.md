@@ -10,16 +10,13 @@ ms.date: 07/22/2025
 #CustomerIntent: As a developer, I want to secure my containerized applications so that I can protect them from web vulnerabilities.
 ---
 
-# What is Azure Web Application Firewall on Application Gateway for Containers (preview)?
+# What is Azure Web Application Firewall on Application Gateway for Containers?
 
 Azure Web Application Firewall on [Azure Application Gateway for Containers](../../application-gateway/for-containers/overview.md) provides comprehensive protection for your Kubernetes workloads against common web vulnerabilities and attacks. For example, it addresses SQL injection, cross-site scripting (XSS), and other Open Web Application Security Project (OWASP) top 10 threats.
 
 Application Gateway for Containers is an application-layer (Layer 7) solution for [load balancing](/azure/architecture/guide/technology-choices/load-balancing-overview) and dynamic traffic management. It's designed specifically for workloads running in Kubernetes clusters. It represents the evolution of the [Application Gateway Ingress Controller (AGIC)](../../application-gateway/ingress-controller-overview.md).
 
 Azure Web Application Firewall provides real-time protection for these application-layer workloads through a set of proprietary managed rule sets and a framework for the creation of user-generated custom rules. All of these protections exist as part of a web application firewall (WAF) policy that's attached to your Application Gateway for Containers deployment via a `SecurityPolicy` resource. You can apply these protections at the listener or route path level.
-
-> [!IMPORTANT]
-> Azure Web Application Firewall on Application Gateway for Containers is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Configuration
 
@@ -53,8 +50,12 @@ The following functionality isn't supported on a WAF policy that's associated wi
 - **Cross-region, cross-subscription policy**: Your WAF policy must be in the same subscription and region as your Application Gateway for Containers resource.
 - **Core Rule Set (CRS) managed rules**: An Application Gateway for Containers WAF supports only Default Rule Set (DRS) managed rule sets.
 - **Legacy Bot Manager Rule Set**: Bot Manager Rule Set 0.1 isn't supported, but all newer Bot Manager Rule Set versions are supported.
-- **JavaScript challenge actions on Bot Manager rules**: You can't set the action on a Bot Manager rule to JavaScript challenge during the preview.
-- **Microsoft Security Copilot**: This offering isn't supported during the preview.
+- **JavaScript challenge actions on Bot Manager rules**: You can't set the action on a Bot Manager rule to JavaScript challenge.
+- **Microsoft Security Copilot**: This offering isn't supported.
+
+## Pricing
+
+For more information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## Related content
 
