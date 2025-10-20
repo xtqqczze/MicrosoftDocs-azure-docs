@@ -76,7 +76,7 @@ To monitor resources for App Service, select **Dynatrace environment config > Ap
 
 #### [AKS](#tab/aks)
 
-To monitor resources for AKS, select Dynatrace environment config > Azure Kubernetes Services in the left pane. 
+To monitor resources for AKS, select **Dynatrace environment config** > **Azure Kubernetes Services** in the left pane. 
 
 [!INCLUDE [agent](../includes/agent.md)]
 
