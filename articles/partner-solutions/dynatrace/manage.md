@@ -3,7 +3,7 @@ title: Manage settings for your Dynatrace resource via Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Dynatrace resource via Azure portal.
 
 ms.topic: how-to
-ms.date: 3/13/2025
+ms.date: 10/21/2025
 
 ---
 
@@ -55,7 +55,7 @@ To view the list of resources emitting logs to Dynatrace, select **Dynatrace env
 
 ## Monitor resources using Dynatrace OneAgent
 
-You can install Dynatrace OneAgents on virtual machines, App Service extensions, and Azure Arc Machines.
+You can install Dynatrace OneAgents on virtual machines, App Service extensions, Azure Kubernetes Services (AKS), and Azure Arc Machines.
 
 #### [Virtual machines](#tab/virtual-machines)
 
@@ -71,6 +71,12 @@ To monitor resources for virtual machines, select **Dynatrace environment config
 #### [App Service](#tab/app-service)
 
 To monitor resources for App Service, select **Dynatrace environment config > App Service** from the Resource pane.
+
+[!INCLUDE [agent](../includes/agent.md)]
+
+#### [AKS](#tab/aks)
+
+To monitor resources for AKS, select Dynatrace environment config > Azure Kubernetes Services in the left pane. 
 
 [!INCLUDE [agent](../includes/agent.md)]
  
