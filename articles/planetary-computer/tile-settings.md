@@ -1,8 +1,8 @@
 ---
 title: Tile settings configuration in Microsoft Planetary Computer Pro
 description: This article provides an overview of the tile settings for Microsoft Planetary Computer Pro. It explains how to configure mosaic behavior, such as default location and zoom levels, using JSON settings.
-author: prasadkomma
-ms.author: prasadko
+author: prasadko
+ms.author: prasadkomma
 ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 04/09/2025
