@@ -38,10 +38,7 @@ Purchase Copilot Credit pre-purchase plans in the [Azure portal reservations](ht
 1. Go to the [Azure portal](https://portal.azure.com)
 2. Navigate to the **Reservations** service.
 3. On the **Purchase reservations page**, select **Copilot Credit Pre-Purchase Plan**.  
-   
-   ![Screenshot showing Copilot Credit pre-purchase plan](media/copilot-credit/copilot-credit.png)
-   
-   :::image type="content" source="media/copilot-credit/copilot-credit.png" alt-text="Screenshot showing Copilot Credit pre-purchase plan." lightbox="media/copilot-credit/copilot-credit.png":::
+   :::image type="content" source="./media/copilot-credit/copilot-credit.png" alt-text="Screenshot showing Copilot Credit pre-purchase plan." lightbox="./media/copilot-credit/copilot-credit.png":::
 4. On the **Select the product you want to purchase** page, select a subscription. Use the **Subscription** list to select the subscription used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges **not** are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
 5. Select a scope.
    - **Single resource group scope** - Applies the reservation discount to the matching resources in the selected resource group only.
@@ -50,7 +47,7 @@ Purchase Copilot Credit pre-purchase plans in the [Azure portal reservations](ht
    - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 6. Select how many Copilot Credit commit units you want to purchase.
 
-   :::image type="content" source="media/copilot-credit/copilot-credit-discount.png" alt-text="Screenshot showing Copilot Credit pre-purchase plan discount tiers and their term lengths." lightbox="media/copilot-credit/copilot-credit-discount.png":::
+   :::image type="content" source="./media/copilot-credit/copilot-credit-discount.png" alt-text="Screenshot showing Copilot Credit pre-purchase plan discount tiers and their term lengths." lightbox="./media/copilot-credit/copilot-credit-discount.png":::
 
 7. Choose to automatically renew the pre-purchase reservation. *The setting is configured to renew automatically by default*. For more information, see [Renew a reservation](../cost-management-billing/reservations/reservation-renew.md).
 
