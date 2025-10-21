@@ -17,11 +17,11 @@ By following a structured approach, starting with configuration checks, progress
 
 These native diagnostic tools can be used with standard network troubleshooting tools and techniques.
 
-This article outlines available methods for troubleshooting agent network issues, including configuration checks, connectivity tests, endpoint diagnostics, and support tools.
+This article outlines available methods for troubleshooting agent network issues. Troubleshooting steps might include configuration checks, connectivity tests, endpoint diagnostics, and the use of support tools.
 
 ## Network Configuration Overview
 
-The recommended first step in diagnosing network issues is to inspect the agent’s network configuration. This inspection can be done via the **Show network configuration** tool located in **Network Configuration** group of the agent's menu. 
+The recommended first step in diagnosing network issues is to inspect the agent's network configuration. This inspection can be done via the **Show network configuration** tool located in **Network Configuration** group of the agent's menu. 
 
 The **Show Network Configuration** tool displays critical information such as:
 
@@ -50,7 +50,7 @@ eth0:
   Routes (The rules that determine the paths network traffic will take from your device to reach their destination):
     default via 192.168.1.1 proto dhcp src 192.168.1.10 metric 100
     192.168.1.0/24 dev eth0 proto kernel scope link src 192.168.1.10 metric 100
-    169.254.169.254/32 proto dhcp scope link src 192.168.1.10 metric 100
+    169.254.0.0/24 proto dhcp scope link src 192.168.1.10 metric 100
 Global DNS (The Domain Name System servers that are used by all devices on your network): 192.168.1.1
 Default Gateway (The device that routes your network traffic to other networks or the internet): 192.168.1.1
 Proxy (A server that acts as an intermediary for requests from clients seeking resources from other servers): No proxy
@@ -71,7 +71,7 @@ For general connectivity testing, select the **Test Network Connectivity** optio
 
 - HTTPS reachability
 - DNS resolution status
-- IP type (private/public)
+- IP type, either private or public
 - Proxy usage
 
 > [!NOTE]
@@ -91,45 +91,38 @@ The `Test single endpoint connectivity` option allows you to test the connectivi
 
 ## Service and Job Status Checks
 
-`3) Service and job Status`
+Within the `Service and job Status` menu, two tools are available for assessing the health of the agent's connection to the Storage Mover Service and the status of job executions. These tools, the **Service Communication Status** and **Job Summary, Details, and Copy logs**, help assess the Agent's registration status and job execution health.
 
-These tools help assess the Agent’s registration status and job execution health.
-
-Service Communication Status: Verifies the Agent’s connection to the Storage Mover Service.
-Job Summary, Details, and Copy logs: Provide insights into job performance, including transfer rates and potential network errors such as SSL interception.
-
+- **Service Communication Status**: Verifies the agent's connection to the Storage Mover Service.
+- **Job Summary, Details, and Copy logs**: Provide insights into job performance, including transfer rates and potential network errors such as SSL interception.
 
 ## Restricted Shell Tools
 
-`8) Open restricted shell`
-
-The restricted shell allows execution of basic network commands:
+The `Open restricted shell` option allows execution of the following basic network commands. These commands are useful for manual diagnostics and troubleshooting source share connectivity issues:
 
 - `nslookup` and `ping` for endpoint testing.
 - `mount`, `showmount`, and `umount` for SMB/NFS share diagnostics.
 
-These tools are useful for troubleshooting source share connectivity.
-
 ## SMB Diagnostics
 
-`9) Troubleshooting > 1) SMB Troubleshooting`
-
-This menu collects SMB logs for inclusion in the support bundle. It's essential for diagnosing issues with SMB source shares.
+Within the `Troubleshooting` group, the `SMB Troubleshooting` option collects SMB logs for inclusion in the support bundle. It's essential for diagnosing issues with SMB source shares. These logs provide insights into authentication problems, permission issues, and connectivity errors related to SMB shares.
 
 ## Support Bundle Collection
 
-`5) Collect support bundle`
-
-The support bundle aggregates logs from all diagnostic tools (except restricted shell) and can be shared with Microsoft Support via SFTP. It's the most comprehensive resource for in-depth troubleshooting.
+The `Collect support bundle` option aggregates logs from all diagnostic tools except for the restricted shell tools. It can be shared with Microsoft Support via SFTP, and is the most comprehensive resource for in-depth troubleshooting.
 
 ## Common Networking Issues and Resolutions
 
-The document outlines several common issues and how to resolve them:
+The following list outlines several common issues and their resolutions:
 
-DNS Resolution Failures: Use nslookup, endpoint testing, and network configuration tools to verify DNS settings.
-HTTPS Connectivity Failures: Check firewall/proxy settings, validate IP addresses, and inspect verbose curl output.
-Arc Private Link Scope Misconfiguration: Ensure correct responses during network checks and validate endpoint IP types.
-SSL Interception Errors: Look for “x509: certificate signed by unknown authority” in verbose logs or copy logs. allowlisting endpoints might be necessary.
+- **DNS Resolution Failures**<br />
+When you encounter issues involving DNS resolution, use the `nslookup` tool, endpoint testing, and network configuration tools to verify DNS settings.
+- **HTTPS Connectivity Failures**<br />
+HTTPS connectivity failures can often be resolved by checking firewall/proxy settings, validating IP addresses, and inspecting verbose curl output.
+- **Arc Private Link Scope Misconfiguration**<br />
+Misconfigurations are frequently the cause of most Private Link Scope issues. To resolve these issues, ensure that you obtain correct responses during network checks and validate required endpoint IP types.
+- **SSL Interception Errors**<br />
+Look for "x509: certificate signed by unknown authority" in verbose logs or copy logs. Allowlisting endpoints might be necessary.
 
 ## Next steps
 

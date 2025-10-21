@@ -127,4 +127,4 @@ The Storage Mover Agent supports external HTTP and HTTPS proxies. Configuration 
 :::image type="content" source="media/networking-prerequisites/proxy-configuration.png" alt-text="A screenshot showing the proxy configuration screen in the Storage Mover Agent.":::
 
 ### SSL Inspection
-If your network performs SSL interception, the agent might fail to recognize modified certificates. Currently, adding custom certificates to the agent isn't supported. To avoid issues, allowlist required endpoints to bypass SSL inspection.
+If your network performs SSL interception, the agent might fail to recognize modified certificates. Currently, adding custom certificates to the agent isn't supported. To avoid issues, add required endpoints to the allowlist to bypass SSL inspection. These endpoints are available in the [Storage Mover networking overview](#storage-mover-networking-overview) section.
