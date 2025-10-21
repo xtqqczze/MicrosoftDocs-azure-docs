@@ -10,21 +10,20 @@ items:
   expanded: true
 - name: Concepts
   items: 
-  
   - name: Resource hierarchy
     href: resource-hierarchy.md
   - name: Migration costs
     href: billing.md
-  - name: Performance targets
-    href: performance-targets.md
 - name: How-To
   items: 
   - name: Planning
     items:
     - name: Planning for a deployment
       href: deployment-planning.md
-    - name: Network requirements
-      href: network-requirements.md
+    - name: Networking prerequisites
+      href: networking-prerequisites.md
+    - name: Performance targets
+      href: performance-targets.md
   - name: Deploy and execute
     items:
     - name: Create a storage mover resource

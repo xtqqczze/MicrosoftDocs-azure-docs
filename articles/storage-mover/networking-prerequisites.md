@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/08/2025
 ---
 
-# Storage Mover Networking Requirements
+# Storage Mover networking prerequisites
 
 Azure Storage Mover is a service designed to facilitate seamless data migration to Azure Storage accounts. For organizations prioritizing security and compliance, integrating Storage Mover with Azure Private Networking ensures that sensitive data and credentials remain protected throughout the migration process. 
 
@@ -25,7 +25,7 @@ Private Endpoints also play a critical role in this approach, allowing services 
 
 This article outlines the key requirements and configuration steps necessary to deploy Azure Storage Mover in a private network environment.
 
-## Storage Mover networking overview
+## Networking overview
 
 When Azure Storage Mover is deployed in a private networking environment, several components must be configured to ensure secure and efficient operation. The Storage Mover Agent, which performs the actual data migration tasks, needs to connect to various Azure services. Some of these services support private endpoints, while others require public endpoint access. 
 
@@ -65,7 +65,7 @@ The following table provides a summary of the required services, their endpoint 
 
 The following sections detail the required components, public endpoint dependencies, and networking considerations for deploying Storage Mover in a private network.
 
-## Required components for private networking
+## Private networking requirements
 
 Within the Storage Mover hierarchy, a storage mover resource is the top-level service resource that you deploy in your Azure subscription. All aspects of the service and of your migration are controlled from this resource. However, Storage Mover Agents perform most of the migration's work. Storage Mover agents are virtual machines within your network that are used to facilitate migrations by performing the data transfer.
 
@@ -127,4 +127,4 @@ The Storage Mover Agent supports external HTTP and HTTPS proxies. Configuration 
 :::image type="content" source="media/networking-prerequisites/proxy-configuration.png" alt-text="A screenshot showing the proxy configuration screen in the Storage Mover Agent.":::
 
 ### SSL Inspection
-If your network performs SSL interception, the agent might fail to recognize modified certificates. Currently, adding custom certificates to the agent isn't supported. To avoid issues, add required endpoints to the allowlist to bypass SSL inspection. These endpoints are available in the [Storage Mover networking overview](#storage-mover-networking-overview) section.
+If your network performs SSL interception, the agent might fail to recognize modified certificates. Currently, adding custom certificates to the agent isn't supported. To avoid issues, add required endpoints to the allowlist to bypass SSL inspection. These endpoints are available in the [Networking overview](#networking-overview) section.
