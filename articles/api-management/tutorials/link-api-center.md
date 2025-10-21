@@ -37,7 +37,7 @@ In this tutorial, you:
 1. From the [Azure portal](https://portal.azure.com), open your API Management service.
 1. In the left-hand menu, go to **APIs** > **API Center**.
 1. In the center pane, under *Use API Center for API discovery, reuse, and governance*, select **Create new**.
-1. On the *Create* API Center* page, select **Create new link**.
+1. On the **Create API Center** page, select **Create new link**.
 1. Provide values for the following fields:
 
     | Field | Details |
