@@ -125,6 +125,10 @@ Once you expand, QGIS will redirect you to a web browser to authenticate with Mi
 
 [![QGIS Browser panel displaying Planetary Computer Pro collections tree.](./media/stac-catalog-in-qgis.png)](./media/stac-catalog-in-qgis.png#lightbox)
 
+
+> [!TIP]
+> If your GeoCatalog has zero STAC Collections, you see a `Host requires authentication` error. To resolve this error, create a [STAC Collection](./create-collection-web-interface.md). 
+
 Continue to expand the collections until you locate a STAC Item. To visualize this item, select the item and drag it to the map view. If the data is a Cloud Optimized GeoTIFF (COG) or Cloud Optimized Point Cloud (COPC), it automatically imports and projects onto the map. 
 
 [![Map view displaying a STAC item added to QGIS.](./media/add-data-to-map.png)](./media/add-data-to-map.png#lightbox)
