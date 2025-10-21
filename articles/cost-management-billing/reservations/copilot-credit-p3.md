@@ -20,7 +20,7 @@ Your Copilot Credit pre-purchase plan automatically uses your CCCUs to pay for e
 
 To buy a pre-purchase plan, you must have one of the following Azure subscriptions and roles:
 - For an Azure subscription, the owner role or reservation purchaser role is required.
-- For an Enterprise Agreement (EA) subscription, the [**Reserved Instances** policy option](../cost-management-billing/manage/direct-ea-administration.md#view-and-manage-enrollment-policies) must be enabled. To enable that policy option, you must be an EA administrator of the subscription.
+- For an Enterprise Agreement (EA) subscription, the [**Reserved Instances** policy option](../manage/direct-ea-administration.md#view-and-manage-enrollment-policies) must be enabled. To enable that policy option, you must be an EA administrator of the subscription.
 - For a Cloud Solution Provider (CSP) subscription, follow one of these articles:
    - [Buy Azure reservations on behalf of a customer](/partner-center/customers/azure-reservations-buying)
    - [Allow the customer to buy their own reservations](/partner-center/customers/give-customers-permission)
