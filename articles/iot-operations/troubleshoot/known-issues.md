@@ -1,14 +1,14 @@
 ---
-title: "Known issues: Azure IoT Operations"
+title: Known Issues 
 description: Known issues for the MQTT broker, connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
 ms.date: 10/21/2025
+---
 
-
-# Known issues: Azure IoT Operations
+# Known issues for Azure IoT Operations
 
 This article lists the current known issues you might encounter when using Azure IoT Operations. The guidance helps you identify these issues and provides workarounds where available.
 
