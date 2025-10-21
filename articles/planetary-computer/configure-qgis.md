@@ -110,7 +110,7 @@ Create the STAC connection inside QGIS by following these steps:
 
 	- A name for the authentication settings
     - GeoCatalog URL
-    - [Application and Directory ID](#reviewing-the-application-and-directory-id)
+    - [Application and Directory ID](#reviewing-the-application-and-directory-ids)
 
 
 [![Screenshot of the completed STAC authentication settings with client and tenant IDs populated.](./media/authorization-configuration.png)](./media/authorization-configuration.png#lightbox)
