@@ -2,7 +2,7 @@
 title: MCP tool trigger for Azure Functions
 description: Learn how you can use a trigger endpoint to expose functions as a model content protocol (MCP) server tools in Azure Functions.
 ms.topic: reference
-ms.date: 05/06/2025
+ms.date: 08/29/2025
 ms.update-cycle: 180-days
 ms.custom: 
   - build-2025
@@ -14,9 +14,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # MCP tool trigger for Azure Functions
 
-Use the MCP tool trigger to define tool endpoints in a [Model Content Protocol (MCP)](https://github.com/modelcontextprotocol) server that are accessed by client language models and agents to do specific tasks, such as storing or accessing code snippets. MCP clients can also subscribe to your function app to receive notifications about changes to the exposed tools. 
-
-[!INCLUDE [functions-mcp-extension-preview-note](../../includes/functions-mcp-extension-preview-note.md)]
+Use the MCP tool trigger to define tool endpoints in a [Model Content Protocol (MCP)](https://github.com/modelcontextprotocol) server. Client language models and agents can use tools to perform specific tasks, such as storing or accessing code snippets.
 
 For information on setup and configuration details, see the [overview](functions-bindings-mcp.md).
 
@@ -36,9 +34,9 @@ private const string BlobPath = "snippets/{mcptoolargs.snippetname}.json";
 public string SaveSnippet(
     [McpToolTrigger("save_snippet", "Saves a code snippet into your snippet collection.")]
         ToolInvocationContext context,
-    [McpToolProperty("snippetname", "string", "The name of the snippet.")]
+    [McpToolProperty("snippetname", "The name of the snippet.", isRequired: true)]
         string name,
-    [McpToolProperty("snippet", "string", "The code snippet.")]
+    [McpToolProperty("snippet", "The code snippet.", isRequired: true)]
         string snippet
 )
 {
@@ -73,11 +71,9 @@ builder.Services
     .AddApplicationInsightsTelemetryWorkerService()
     .ConfigureFunctionsApplicationInsights();
 
-builder.EnableMcpToolMetadata();
-
 builder
     .ConfigureMcpTool("get_snippets")
-    .WithProperty("snippetname", "string", "The name of the snippet.");
+    .WithProperty("snippetname", "string", "The name of the snippet.", required: true);
 
 builder.Build().Run();
 ```
@@ -187,7 +183,7 @@ app.mcpTool("saveSnippet", {
 });
 ```
 
-This is the code that handles the `savesnippet` trigger:
+This code handles the `savesnippet` trigger:
 
 ```typescript
 export async function saveSnippet(
@@ -239,7 +235,7 @@ app.mcpTool("getSnippet", {
 });
 ```
 
-This is the code that handles the `getsnippet` trigger:
+This code handles the `getsnippet` trigger:
 
 ```typescript
 export async function getSnippet(
@@ -396,7 +392,7 @@ The trigger supports these binding options, which are defined in your code:
 | **extraOutputs** | When defined, sends function output to another binding.  |
 | **handler** | The method that contains the actual function code. | 
 
-::: zone-end   
+::: zone-end
 
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-javascript,programming-language-typescript"
 
@@ -406,31 +402,41 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
+::: zone pivot="programming-language-csharp"  
+
+The MCP tool trigger can bind to the following types:
+
+| Type | Description |
+| --- | --- |
+| [ToolInvocationContext] | An object representing the tool call, including the tool name and arguments for the call. |
+| JSON serializable types | Functions attempts to deserialize the tool arguments into a plain-old CLR object (POCO) type. This type is also used to [define tool properties](#tool-properties).<br/><br/>When binding to a JSON serializable type, you can optionally also include a parameter of type [ToolInvocationContext] to access the tool call information. |
+
+[ToolInvocationContext]: https://github.com/Azure/azure-functions-mcp-extension/blob/main/src/Microsoft.Azure.Functions.Worker.Extensions.Mcp/ToolInvocationContext.cs
+
+::: zone-end
+
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-javascript,programming-language-typescript"
 
+### Tool properties
+
 MCP clients invoke tools with arguments to provide data and context for the tool's operation. The clients know how to collect and pass these arguments based on properties that the tool advertises as part of the protocol. You therefore need to define properties of the tool in your function code.
+
+When you define a tool property, it's optional by default, and the client can omit it when invoking the tool. You need to explicitly mark properties as required if the tool can't operate without them.
+
+> [!NOTE]
+> Earlier versions of the MCP extension preview made all tool properties required by default. This behavior changed as of version `1.0.0-preview.7`, and now you must explicitly mark properties as required.
 
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"  
 
-In C#, you can define properties of your tools as either input parameters using the `McpToolProperty` attribute to your trigger function code or by using the `FunctionsApplicationBuilder` when the app starts.
+In C#, you can define properties for your tools in several ways. Which approach you use is a matter of code style preference. The options are:
 
-In both cases, you must include a call to `builder.EnableMcpToolMetadata()` in your `Program.cs`:
+- Your function takes input parameters using the `McpToolProperty` attribute.
+- You define a custom type with the properties, and the function binds to that type.
+- You use the `FunctionsApplicationBuilder` to define properties in your `Program.cs` file.
 
-```csharp
-var builder = FunctionsApplication.CreateBuilder(args);
-
-builder.ConfigureFunctionsWebApplication();
-
-builder.EnableMcpToolMetadata();
-
-// other configuration
-
-builder.Build().Run();
-```
-
-### [`McpToolProperty` attribute](#tab/attribute)
+#### [`McpToolProperty` attribute](#tab/attribute)
 
 You can define one or more tool properties by applying the `McpToolProperty` attribute to input binding-style parameters in your function.  
 
@@ -439,12 +445,43 @@ The `McpToolPropertyAttribute` type supports these properties:
 | Property | Description |
 | ---- | ----- |
 | **PropertyName** | Name of the tool property that gets exposed to clients.  |
-| **PropertyType** | The data type of the tool property, such as `string`.  |
-| **Description** | (Optional) Description of what the tool property does.  |
+| **Description** | Description of what the tool property does.  |
+| **IsRequired** | (Optional) If set to `true`, the tool property is required as an argument for tool calls. Defaults to `false`. |
+
+The property type is inferred from the type of the parameter to which you apply the attribute. For example `[McpToolProperty("snippetname", "The name of the snippet.", true)] string name` defines a required tool property named `snippetname` of type `string` in MCP messages.
 
 You can see these attributes used in the `SaveSnippet` tool in the [Examples](#example).
 
-### [`FunctionsApplicationBuilder`](#tab/builder)
+#### [Bind to custom type](#tab/poco)
+
+You can define one or more tool properties by binding to a plain-old CLR object (POCO) type that you define. Properties of that type are automatically exposed as tool properties. You can use the [Description] attribute to provide a description for each property. You can indicate that a property is required using the `required` keyword. The class property type in the informs type used in MCP messages.
+
+This example uses a custom type to define tool properties for the `SaveSnippet` tool:
+
+```csharp
+public class SaveSnippetRequest
+{
+    [Description("The name of the snippet.")]
+    public required string SnippetName { get; set; }
+
+    [Description("The code snippet.")]
+    public required string Snippet { get; set; }            
+}
+
+private const string BlobPath = "snippets/{mcptoolargs.snippetname}.json";
+
+[Function(nameof(SaveSnippet))]
+[BlobOutput(BlobPath)]
+public string SaveSnippet(
+    [McpToolTrigger("save_snippet", "Saves a code snippet into your snippet collection.")] SaveSnippetRequest request,
+        ToolInvocationContext context
+)
+{
+    return request.Snippet;
+}
+```
+
+#### [`FunctionsApplicationBuilder`](#tab/builder)
 
 You can define one or more tool properties in your entry point (`Program.cs`) file by using an `McpToolBuilder` returned by the `ConfigureMcpTool()` method on `FunctionsApplicationBuilder`. This example calls the `WithProperty` method on the builder for the `GetSnippet` tool to set the properties of the tool:
 
@@ -453,18 +490,16 @@ var builder = FunctionsApplication.CreateBuilder(args);
 
 builder.ConfigureFunctionsWebApplication();
 
-builder.EnableMcpToolMetadata();
-
 builder
     .ConfigureMcpTool("get_snippets")
-    .WithProperty("snippetname", "string", "The name of the snippet.");
+    .WithProperty("snippetname", "string", "The name of the snippet.", required: true);
 
 // other configuration
 
 builder.Build().Run();
 ```
 
-You can call the `WithProperty()` method multiple times to define multiple properties for the tool.
+You can call the `WithProperty()` method multiple times to define multiple properties for the tool. Each call to `WithProperty()` includes a string representation of the MCP property type, which may not directly correspond to a CLR type. For example, use `"boolean"` to define a boolean property, even though the corresponding CLR type is `bool`. Valid types are: `"string"`, `"number"`, `"integer"`, `"boolean"`, `"object"`.
 
 For the complete example, see the [`Program.cs` file](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/blob/main/src/Program.cs).
 
@@ -472,7 +507,7 @@ For the complete example, see the [`Program.cs` file](https://github.com/Azure-S
 
 ::: zone-end
 ::: zone pivot="programming-language-java,programming-language-python,programming-language-javascript,programming-language-typescript"  
-Properties of a tool exposed by your remote MCP server are defined using tool properties. These properties are returned by the `toolProperties` field, which is a string representation of an array of `ToolProperty` objects. 
+You can configure tool properties in the trigger definition's `toolProperties` field, which is a string representation of an array of `ToolProperty` objects. 
 
 A `ToolProperty` object has this structure:
 
@@ -481,8 +516,21 @@ A `ToolProperty` object has this structure:
     "propertyName": "Name of the property",
     "propertyType": "Type of the property",
     "description": "Optional property description",
+    "isRequired": true|false,
+    "isArray": true|false
 }
 ``` 
+
+The fields of a `ToolProperty` object are:
+
+| Property | Description |
+| ---- | ----- |
+| **propertyName** | Name of the tool property that gets exposed to clients. |
+| **propertyType** | Type of the tool property. Valid types are: `string`, `number`, `integer`, `boolean`, `object`. See `isArray` for array types. |
+| **description** | Description of what the tool property does. |
+| **isRequired** | (Optional) If set to `true`, the tool property is required as an argument for tool calls. Defaults to `false`. |
+| **isArray** | (Optional) If set to `true`, the tool property is an array of the specified property type. Defaults to `false`. |
+
 ::: zone-end  
 
 For more information, see [Examples](#example).
