@@ -1,0 +1,80 @@
+---
+title: About SAP Testing Automation Framework
+description: Overview of the framework and tooling for SAP Testing Automation Framework.
+author: devanshjain
+ms.author: devanshjain
+ms.reviewer: devanshjain
+ms.date: 11/02/2025
+ms.service: sap-on-azure
+ms.subservice: sap-automation
+ms.topic: conceptual
+---
+# SAP Testing Automation Framework Overview
+
+The [SAP Testing Automation Framework](https://github.com/Azure/sap-automation-qa) is an open-source orchestration tool designed to validate SAP deployments on Microsoft Azure. It enables you to assess overall system and infrastructure configurations against SAP on Azure best practices and guidelines. Additionally, the framework facilitates automation for various testing scenarios, including High Availability (HA) functional testing.
+
+## Overview
+
+The SAP Testing Automation Framework started as an addition to the [SAP Deployment Automation Framework (SDAF)](./deployment-framework.md) to provide a comprehensive testing solution for SAP systems on Azure. The framework is designed to validate the configurations and behavior of SAP systems under a wide array of scenarios, bringing confidence and assurance by simulating real-world conditions.
+
+## Key Features
+
+### Configuration Checks
+
+The framework performs comprehensive configuration checks to ensure that the SAP system and its components are set up according to SAP on Azure best practices. This includes validating infrastructure settings, operating system parameter configurations, and network settings, in addition to the cluster configuration, to identify any deviations that could impact system performance or reliability.
+
+  - **Infrastructure Validation** - This includes validating the underlying infrastructure components, such as virtual machines, load balancer, and other resource configurations, to ensure they meet the requirements for running SAP workloads on Azure.
+
+  - **Storage Configuration Checks** - It validates settings of disks, storage accounts, Azure NetApp Files, including throughput, performance, and stripe size.
+
+  - **Operating System and SAP Parameter Validation** - The framework checks critical operating system parameters and SAP kernel settings to ensure they align with recommended configurations.
+
+  - **Cluster Configuration Validation** - This framework ensures that the high availability cluster resource settings adhere to best practices for high availability and failover scenarios.
+  
+### High Availability Testing
+
+In the SAP Testing Automation Framework, thorough validation of the SAP HANA scale-up and SAP Central Services failover mechanism in a two node pacemaker cluster can be performed, ensuring the system operates correctly across various scenarios.
+
+  - **High Availability Configuration Validation** - The framework helps to ensure that SAP HANA scale-up and SAP Central Services configurations and load balancer settings are compliant.
+
+  - **Functional Testing** - The framework executes series of real-world scenarios on the SAP HANA and SAP Central Services high availability setup to identify potential issues, whether during a new system deployment or before implementing cluster changes in a production environment.
+
+
+### Detailed Reporting
+
+The framework generates comprehensive reports, highlighting configuration mismatch or deviations from recommended best practices. The reports include failover test outcomes, any failures encountered, and logs with insights to aid in troubleshooting identified issues.
+
+## Why Use the SAP Testing Automation Framework?
+
+Testing is crucial for keeping SAP systems running smoothly, especially for critical business operations. This framework helps by addressing key challenges:
+
+- **Risk Prevention** - The high availability testing helps simulate system failures like node crashes, network issues, and storage failures to check if recovery mechanisms work properly, helping to catch problems before they affect real operations.
+
+- **Compliance Requirements** - Many businesses need to prove their SAP systems are reliable. This framework provides detailed reports and logs that help with audits and ensure compliance with internal and regulatory standards.
+
+- **Quality Assurance** - The framework runs automated tests to verify whether the failover behavior of SAP components functions as expected on Azure across various test scenarios. It also ensures that the cluster and resource configurations are set up correctly, helping to maintain system reliability.
+
+- **Test Automation** - Manually validating overall SAP systems' configurations and high availability (HA) setup is slow and error-prone. This framework automates the process—from setup to reporting—saving time and ensuring more accurate and consistent results.
+
+## Get Started
+
+There are two primary ways to get started with the SAP Testing Automation Framework. You can choose the path that best fits your current environment and objectives:
+
+### Option 1: Integration with SAP Deployment Automation Framework (SDAF)
+
+If you already have an [SAP Deployment Automation Framework](./deployment-framework.md) environment set up, integrating the SAP Testing Automation Framework is a natural extension that allows you to apply existing deployment pipelines and configurations.
+
+### Option 2: Getting Started with High Availability Testing (Standalone)
+
+For users focused solely on validating SAP functionality and configurations, the standalone approach offers a streamlined process to test critical SAP components without the complexity of full deployment integration.
+
+## Architecture and Components
+
+To learn how the framework works, refer to the [architecture and components](./testing-framework-architecture.md) documentation.
+
+## Next steps
+
+- [Learn about the testing framework architecture](testing-framework-architecture.md)
+- [Review supported platforms and features](testing-framework-supportability.md)
+- [Get started with High Availability testing](testing-framework-high-availability.md)
+- [Understand configuration checks](testing-framework-configuration-checks.md)
