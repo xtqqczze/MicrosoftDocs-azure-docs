@@ -67,7 +67,8 @@ In this tutorial, you:
 
 ## Remove a linked API Center
 
-1. In the API Center resource or from the **API Management** > **API Center** page, find the linked API Center.
+1. In the API Center resource, find the linked API Management instance.
+1. In the left-hand menu, go to **Platforms** > **Integrations**.
 2. Select the trash can icon to delete the link.
 
 ## Clean up resources
