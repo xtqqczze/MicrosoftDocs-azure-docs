@@ -101,19 +101,14 @@ FastPath supports Private Link connectivity for ExpressRoute Direct circuits (10
 - Australia East
 - Central Korea
 - East Asia
-- East US
-- East US 2
+- East US / East US 2
 - Japan East
-- North Central US
-- North Europe
-- South Central US
+- North Central US / South Central US
+- North Europe / West Europe
 - South East Asia
 - UK South
 - West Central US
-- West Europe
-- West US
-- West US 2
-- West US 3
+- West US / West US 2 / West US 3
 
 #### Supported services
 
