@@ -56,12 +56,12 @@ The AS2 (v2) connector has no triggers. The following table describes the action
 
   - Defines an [AS2 agreement](logic-apps-enterprise-integration-agreements.md) between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner. The content in the messages between you and the other partner must match the agreement type. For information about agreement settings to use when receiving and sending messages, see [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md).
 
-- Based on whether you're working on a Consumption or Standard logic app workflow, your logic app resource might require a link to your integration account:
+- Before you start working with AS2 (v2) or AS2 operations, you must [link your Consumption logic app](enterprise-integration/create-integration-account.md?tabs=consumption#link-account) or [link your Standard logic app](enterprise-integration/create-integration-account.md?tabs=standard#link-account) to an integration account. When you add an AS2 (v2) or AS2 operation, you might also have to create a connection to the integration account:
 
   | Logic app workflow | Link required? |
   |--------------------|----------------|
-  | Consumption | - AS2 (v2) connector: Connection required, but no link required <br>- AS2 connector: [Link required](./enterprise-integration/create-integration-account.md?tabs=consumption#link-account), but no connection required |
-  | Standard | - AS2 (v2) connector: [Link required](./enterprise-integration/create-integration-account.md?tabs=standard#link-account), but no connection required <br>- AS2 connector: Connection required, but no link required |
+  | Consumption | - AS2 (v2) connector: No connection required <br>- AS2 connector: Connection required |
+  | Standard | - AS2 (v2) connector: No connection required <br>- AS2 connector: Connection required |
 
 - If you use [Azure Key Vault](/azure/key-vault/general/overview) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
 
