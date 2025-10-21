@@ -13,7 +13,7 @@ ms.date: 10/20/2025
 
 # Tutorial: Create or link an API Center to API Management
 
-This tutorial shows how to integrate an Azure API Management (APIM) instance with an Azure API Center. When linked, the APIM instance's APIs — and optional API definitions — are continuously synchronized into the API Center inventory.
+This tutorial shows how to integrate an Azure API Management (APIM) instance with an Azure API Center. When linked, the APIM instance's APIs — and optional API definitions — are continuously synchronized into the API Center inventory. API Center is a central catalog and governance hub for APIs and related artifacts, and APIM customers use it to discover and reuse APIs, share definitions across teams, and apply consistent governance and lifecycle policies.
 
 > [!NOTE]
 > 
