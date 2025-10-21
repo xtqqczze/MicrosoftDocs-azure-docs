@@ -72,7 +72,7 @@ For detailed troubleshooting errors and best practices, see [Troubleshooting Gat
 
 ### How do I add a second prefix to the GatewaySubnet?
 
-Adding multiple prefixes to the GatewaySubnet is currently in Public Preview and supported only via PowerShell. For instructions, see [Create multiple prefixes for a subnet](../virtual-network/virtual-network-manage-subnet.md).
+Adding multiple prefixes to the GatewaySubnet is currently in Public Preview and supported only via PowerShell. When you add an additional prefix, both prefixes will be used by the migrated gateway, do not delete the old prefix. For instructions, see [Create multiple prefixes for a subnet](../virtual-network/virtual-network-manage-subnet.md).
 
 ### How do I monitor the health of the new gateway?
 
