@@ -23,6 +23,9 @@ This article describes:
 
 The `opc-ua-commander` service in the Azure IoT Operations cluster connects to your OPC UA server and performs write operations on your behalf. The `opc-ua-commander` service uses the [RPC protocol](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/rpc-protocol.md) over MQTT to receive write requests and send responses. The message must include the required system and user [message metadata](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/message-metadata.md).
 
+> [!IMPORTANT]
+> The tag name `_ErrorMessage` is reserved and should not be used.
+
 The commander service can perform the following types of write operations:
 
 ### Simple write using a dataset
