@@ -8,7 +8,7 @@ ms.author: divswa
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.custom: sfi-image-nochange
-ms.date: 10/20/2025
+ms.date: 10/21/2025
 #Customer intent: As an integration developer who works with Azure Logic Apps, I want to exchange AS2 messages between trading partners in B2B workflows.
 ---
 
@@ -91,7 +91,7 @@ To encode messages with the AS2 (v2) connector, follow these steps:
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **Message to encode** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Select inside the **Message to encode** box, then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the list, select **Body**. |
+   | **Message to encode** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Select inside the **Message to encode** box, then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When an HTTP request is received**, select **See more**. <br>3. From the list, select **Body**. |
    | **AS2 from** | Yes | The business identifier for the message sender as specified by your AS2 agreement, for example, **Fabrikam**. |
    | **AS2 to** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
 
@@ -127,7 +127,7 @@ To encode messages with the AS2 connector, follow these steps:
    |-----------|----------|-------------|
    | **AS2-From** | Yes | The business identifier for the message sender as specified by your AS2 agreement, for example, **Fabrikam**. |
    | **AS2-To** | Yes | The business identifier for the message receiver as specified by your AS2 agreement, for example, **Contoso**. |
-   | **body** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Select inside the **body** box, then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the list, select **Body**. |
+   | **body** | Yes | The message payload to encode, for example, the **Body** output from the Request trigger. <br><br>1. Select inside the **body** box, then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When an HTTP request is received**, select **See more**. <br>3. From the list, select **Body**. |
 
    :::image type="content" source="./media/logic-apps-enterprise-integration-as2/encode-message-details.png" alt-text="Screenshot shows the Encode to AS2 message action with the message encoding properties." lightbox="./media/logic-apps-enterprise-integration-as2/encode-message-details.png":::
 
@@ -149,7 +149,7 @@ To decode messages with the AS2 (v2) connector, follow these steps:
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **Message to decode** | Yes | The message payload to decode, for example, the **Body** output from the Request trigger. <br><br>1. Select inside the **Message to decode** box, then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the list, select **Body**. |
+   | **Message to decode** | Yes | The message payload to decode, for example, the **Body** output from the Request trigger. <br><br>1. Select inside the **Message to decode** box, then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When an HTTP request is received**, select **See more**. <br>3. From the list, select **Body**. |
    | **Message headers** | Yes | The headers for the message to decode, for example, the **Headers** output from the Request trigger. <br><br>1. Select inside the **Message headers** box, then select the function icon to open the expression editor. <br>2. In the editor box, enter the following expression: <br><br>`triggerOutputs()?['headers']` <br><br>3. When you're done, select **Add**. |
 
    For example:
@@ -182,7 +182,7 @@ To decode messages with the AS2 connector, follow these steps:
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **body** | Yes | The message payload, for example, the **Body** output from the Request trigger. <br><br>1. Select inside the **body** box, then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When a HTTP request is received**, select **See more**. <br>3. From the list, select **Body**. |
+   | **body** | Yes | The message payload, for example, the **Body** output from the Request trigger. <br><br>1. Select inside the **body** box, then select the lightning icon to open the dynamic content list. <br>2. Next to the section name **When an HTTP request is received**, select **See more**. <br>3. From the list, select **Body**. |
    | **Headers** | Yes | The headers for the message to decode, for example, the **Headers** output from the Request trigger. <br><br>1. Select inside the **Headers** box, then select the function icon to open the expression editor. <br><br>2. In the editor box, enter the following expression: <br><br>`triggerOutputs()?['headers']` <br><br>3. When you're done, select **Add**. |
 
    For example:
