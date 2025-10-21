@@ -13,11 +13,11 @@ ms.author: v-mallicka
 ---
 # What is Resiliency?
  
-Resiliency in Azure is a cloud-native unified business continuity and disaster recovery (BCDR) management platform that enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities.
+Resiliency in Azure is a cloud-native unified business continuity and disaster recovery (BCDR) management platform that enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your resiliency estate for better discoverability with the ability to do core activities.
 
 ## Expanded scope and capabilities of Resiliency in Azure
 
-Azure Business Continuity Center (ABCC) is now Resiliency in Azure , indicating a broader scope and expanded capabilities. The platform, originally focused on backup and disaster recovery, now includes built-in resiliency experiences that integrate Zonal Resiliency & High Availability , Backup & Disaster Recovery , and Ransomware Protection within a single solution.
+Azure Business Continuity Center (ABCC) is now Resiliency in Azure, indicating a broader scope and expanded capabilities. The platform, originally focused on backup and disaster recovery, now includes built-in resiliency experiences that integrate Zonal Resiliency and High Availability, Backup & Disaster Recovery, and Ransomware Protection within a single solution.
 
 Resiliency in Azure consolidates all aspects of resiliency into one platform:
 
@@ -25,9 +25,9 @@ Resiliency in Azure consolidates all aspects of resiliency into one platform:
 - **Data Resiliency**: Ensure backup and disaster recovery meet Recovery Point Objective (RPO)/Recovery Time Objective (RTO).
 - **Cyber Resiliency**: Secure backups and enable at-scale recovery during cyberattacks.
 
-Existing Azure Business Continuity Center capabilities continue to be available. Resiliency in Azure can be used to manage backup and disaster recovery at scale from a single interface across environments and solutions. It allows configuration of backups and replication, defining protection policies, monitoring operations, and reviewing configurations. Security features include immutability , soft delete , Multi-user authorization, Private endpoint , Customer Managed keys (CMK) , and the Threat Detection for VMs to help protect workloads from  ransomware.
+Existing Azure Business Continuity Center capabilities continue to be available. Resiliency in Azure can be used to manage backup and disaster recovery at scale from a single interface across environments and solutions. It allows configuration of backups and replication, defining protection policies, monitoring operations, and reviewing configurations. Security features include immutability, soft delete, Multi-user authorization, Private endpoint, Customer Managed keys (CMK), and the Threat Detection for Virtual Machines (VMs) to help protect workloads from ransomware.
 
-To enrol for the Zonal Resiliency feature, fill out the form to sign up.
+To enroll for the Zonal Resiliency feature, fill out the form to sign up.
 
 ## Why should I use Resiliency?
 
@@ -37,7 +37,7 @@ Some of the key benefits you get with Resiliency include:
 
 - **Action center**: Resiliency provides at scale views for your protection across Azure, Hybrid, and Edge environments along with the ability to perform the core actions across the solutions. 
 
-- **At-scale and unified monitoring capabilities**: Resiliencyprovides at-scale unified monitoring capabilities across the solutions that help you to view [jobs](tutorial-monitor-operate.md), [alerts](tutorial-monitor-alerts-metrics.md), and [reports](tutorial-reporting-for-data-insights.md) across all vaults and manage them across subscriptions, resource groups, and regions from a single view.
+- **At-scale and unified monitoring capabilities**: Resiliency provides at-scale unified monitoring capabilities across the solutions that help you to view [jobs](tutorial-monitor-operate.md), [alerts](tutorial-monitor-alerts-metrics.md), and [reports](tutorial-reporting-for-data-insights.md) across all vaults and manage them across subscriptions, resource groups, and regions from a single view.
 
 - **BCDR protection posture**: Resiliency evaluates your current configuration and proactively notifies you of any gap in it with respect to Security configurations (currently applicable to Azure Backup). 
 
