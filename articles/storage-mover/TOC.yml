@@ -28,7 +28,7 @@ items:
     items:
     - name: Create a storage mover resource
       href: storage-mover-create.md
-    - name: Migrate from AWS to Azure
+    - name: Migrate from Amazon S3 to Azure
       href: cloud-to-cloud-migration.md
     - name: Deploy a storage mover agent
       href: agent-deploy.md
