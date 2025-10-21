@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Business Continuity Center documentation
-summary: The Azure Business Continuity Center is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions. Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
+title: Resiliency documentation
+summary: Resiliency in Azure (formerly Azure Business Continuity Center) unifies all aspects of resiliency into one platform, combining Zonal Resiliency & High Availability, Backup & Disaster Recovery, and Ransomware Protection. The platform offers expanded capabilities to protect infrastructure, data, and workloads at scale.
 
 metadata:
-  title: Azure Business Continuity Center Documentation
-  description: The Azure Business Continuity Center is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions. Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
+  title: Resiliency Documentation
+  description: Resiliency in Azure (formerly Azure Business Continuity Center) unifies all aspects of resiliency into one platform, combining Zonal Resiliency & High Availability, Backup & Disaster Recovery, and Ransomware Protection. The platform offers expanded capabilities to protect infrastructure, data, and workloads at scale.
   ms.service: azure-business-continuity-center
   ms.custom:
     - ignite-2023
@@ -20,15 +20,15 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: Learn about Azure Business Continuity center
+  - title: Learn about Resiliency in Azure
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Business Continuity center?
+          - text: What is Resiliency?
             url: business-continuity-center-overview.md
       - linkListType: concept
         links:
-          - text: Azure Business Continuity center support matrix
+          - text: Resiliency support matrix
             url: business-continuity-center-support-matrix.md
           
   # Card (optional)
@@ -58,7 +58,7 @@ landingContent:
             url: tutorial-monitor-protection-summary.md
 
   # Card (optional)
-  - title: Azure Business Continuity Center Copilot
+  - title: Resiliency Copilot
     linkLists:
       - linkListType: tutorial
         links:
