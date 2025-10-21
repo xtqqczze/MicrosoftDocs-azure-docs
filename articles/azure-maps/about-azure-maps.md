@@ -36,7 +36,7 @@ The following video explains Azure Maps in depth:
 
 Maps (preview) in [Microsoft Fabric] is a powerful geospatial visualization tool within Real-Time Intelligence that turns static and real-time spatial data into actionable insights by uncovering patterns and trends often missed in traditional charts. With an intuitive interface, you can create interactive maps featuring multiple layers, dynamic filtering, and rich customization options. Seamlessly integrated with other Fabric experiences and powered by Azure Maps services, it delivers accurate, scalable, and secure mapping for enterprise scenarios. Whether monitoring IoT devices, tracking assets, or analyzing regional trends, Maps helps you make sense of spatial data in real time. For more information, see [Create a map].
 
-:::image type="content" source="./media/about-azure-maps/intro_fabric-maps.png" lightbox="./media/about-azure-maps/intro_fabric-maps.png" alt-text="A screenshot showing Maps in Microsoft Fabric.":::
+:::image type="content" source="./media/about-azure-maps/intro-fabric-maps.png" lightbox="./media/about-azure-maps/intro-fabric-maps.png" alt-text="A screenshot showing Maps in Microsoft Fabric.":::
 
 ## Map controls
 
