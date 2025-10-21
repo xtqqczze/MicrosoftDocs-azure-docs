@@ -49,16 +49,16 @@ Purchase Copilot Credit pre-purchase plans in the [Azure portal reservations](ht
 
    :::image type="content" source="./media/copilot-credit/copilot-credit-discount.png" alt-text="Screenshot showing Copilot Credit pre-purchase plan discount tiers and their term lengths." lightbox="./media/copilot-credit/copilot-credit-discount.png":::
 
-7. Choose to automatically renew the pre-purchase reservation. *The setting is configured to renew automatically by default*. For more information, see [Renew a reservation](../cost-management-billing/reservations/reservation-renew.md).
+7. Choose to automatically renew the pre-purchase reservation. *The setting is configured to renew automatically by default*. For more information, see [Renew a reservation](reservation-renew.md).
 
 ## Change scope and ownership
 
 You can make the following types of changes to a reservation after purchase:
 
 - Update reservation scope
-- Update who can view or manage the reservation. For more information, see [Who can manage a reservation by default](../cost-management-billing/reservations/manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
+- Update who can view or manage the reservation. For more information, see [Who can manage a reservation by default](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
-You can't split or merge a **Copilot Credit Pre-Purchase Plan**. For more information about managing reservations, see [Manage reservations after purchase](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
+You can't split or merge a **Copilot Credit Pre-Purchase Plan**. For more information about managing reservations, see [Manage reservations after purchase](manage-reserved-vm-instance.md).
 
 ## Cancellations and exchanges
 
@@ -67,7 +67,8 @@ Cancel and exchange operations aren't supported for **Copilot Credit Pre-Purchas
 ## Related content
 
 To learn more about Azure Reservations, see the following articles:
-- [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Manage Reservations for Azure resources](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [What are Azure Reservations?](save-compute-costs-reservations.md)
+- [Manage Reservations for Azure resources](manage-reserved-vm-instance.md)
 
-To learn more about Microsoft Sentinel costs, see [Plan costs and understand Microsoft Sentinel pricing and billing](billing.md).
+To learn more about Copilot Credit costs, see [Plan costs and understand Copilot Credit pricing and billing](https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management).
+
