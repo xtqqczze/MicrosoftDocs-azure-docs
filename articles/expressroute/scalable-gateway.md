@@ -54,9 +54,14 @@ ErGwScale is available in most regions except the following regions:
 * Japan East
 * Qatar Central
 
-### Pricing
 
-ErGwScale is free of charge during the preview. For information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
+## Pricing
+
+| SKU                | Price per hour per scale unit |
+|-------------------------|------------------------------|
+| **ErGwScale**   | **$0.21**                    |
+
+For more information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
 
 
 ## Next steps
