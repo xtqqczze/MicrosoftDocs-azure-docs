@@ -48,14 +48,14 @@ Register QGIS as an application in Microsoft Entra ID and grant it delegated per
 
 In the Azure portal, go to Microsoft Entra ID > App registrations > New registration:
 
-[![App registrations page with New registration button highlighted.](./media/app-registration.png)](./media/app-registration.png#lightbox)
+[![Screenshot of the App registrations page with the New registration button highlighted.](./media/app-registration.png)](./media/app-registration.png#lightbox)
 
 ### Register the application
 1. Enter a descriptive name for the application.  
 2. For supported account types, select the tenant option your organization uses (single tenant or multitenant only).  
 3. Under Redirect URI, choose Public client/native (mobile & desktop) and set the URI to `http://localhost:7070`.  
 4. Select Register.  
-[![New app registration form with name, account type, and redirect URI fields populated.](./media/qgis-registration.png)](./media/qgis-registration.png#lightbox)
+[![Screenshot of the New app registration form with the name, account type, and redirect URI fields populated.](./media/qgis-registration.png)](./media/qgis-registration.png#lightbox)
 
 ### Configure API permissions
 
@@ -63,21 +63,21 @@ Configure delegated API permissions:
 
 1. In the app registration, select **API permissions** > **Add a permission**.
 
-	[![API permissions blade listing current delegated permissions.](./media/qgis-api-permissions.png)](./media/qgis-api-permissions.png#lightbox)
+	[![Screenshot of the API permissions blade listing current delegated permissions.](./media/qgis-api-permissions.png)](./media/qgis-api-permissions.png#lightbox)
 
 2. Select **APIs my organization uses**, search for `Azure Orbital Spatio`, and pick the service to open the permission dialog.
 
-	[![Permission selection dialog with Azure Orbital Spatio API highlighted.](./media/add-azure-orbital-spatio.png)](./media/add-azure-orbital-spatio.png#lightbox)
+	[![Screenshot of the permission selection dialog with the Azure Orbital Spatio API highlighted.](./media/add-azure-orbital-spatio.png)](./media/add-azure-orbital-spatio.png#lightbox)
 
 3. In **Request API permissions**, select **Delegated permissions**, check **user_impersonation**, and then select **Add permissions** to grant the scope.
 
-	[![Request API permissions dialog with user_impersonation delegated scope selected.](./media/configure-api-permissions.png)](./media/configure-api-permissions.png#lightbox)
+	[![Screenshot of the Request API permissions dialog with the user_impersonation delegated scope selected.](./media/configure-api-permissions.png)](./media/configure-api-permissions.png#lightbox)
 
-### Reviewing the Application and Directory ID
+### Reviewing the Application and Directory IDs
 
 Return to **Overview** and record the **Application (client) ID** and **Directory (tenant) ID**. You need to enter them in QGIS later to configure the STAC connection.
 
-[![Overview page displaying Application (client) ID and Directory (tenant) ID values.](./media/qgis-client-id.png)](./media/qgis-client-id.png#lightbox)
+[![Screenshot of the Overview page displaying the Application (client) ID and Directory (tenant) ID values.](./media/qgis-client-id.png)](./media/qgis-client-id.png#lightbox)
 
 ## Configure QGIS for GeoCatalog access
 
@@ -89,22 +89,22 @@ Create the STAC connection inside QGIS by following these steps:
 
 1. In the **Browser** panel, expand **STAC** to view the connection menu.
 2. Right-click **STAC** and select **New STAC Connection** to open the configuration dialog.
-	[![QGIS Browser panel context menu with New STAC Connection selected.](./media/qgis-add-stac-catalog.png)](./media/qgis-add-stac-catalog.png#lightbox)
+	[![Screenshot of the QGIS Browser panel context menu with New STAC Connection selected.](./media/qgis-add-stac-catalog.png)](./media/qgis-add-stac-catalog.png#lightbox)
 
 ### Configure STAC connection authentication
 
 1. In the "Name" field, name this connection.
 2. Enter the URL of your GeoCatalog and add the STAC API path by appending `/stac` to the URL. 
 3. Select the **plus (+)** button to configure the authentication.
-[![STAC connection dialog showing URL field and authentication button.](./media/qgis-stac-connection-configuration.png)](./media/qgis-stac-connection-configuration.png#lightbox)
+[![Screenshot of the STAC connection dialog showing the URL field and authentication button.](./media/qgis-stac-connection-configuration.png)](./media/qgis-stac-connection-configuration.png#lightbox)
 
 ### STAC connection authentication configuration
 
 1. From Authentication, select **Microsoft Planetary Computer**. 
-[![Authentication profile list with Microsoft Planetary Computer selected.](./media/select-microsoft-planetary-computer.png)](./media/select-microsoft-planetary-computer.png#lightbox)
+[![Screenshot of the authentication profile list with Microsoft Planetary Computer selected.](./media/select-microsoft-planetary-computer.png)](./media/select-microsoft-planetary-computer.png#lightbox)
 
 2. Select **Planetary Computer Pro** from the "Server type" drop-down. 
-[![Authentication server type list with Planetary Computer Pro selected.](./media/select-microsoft-planetary-computer-pro.png)](./media/select-microsoft-planetary-computer-pro.png#lightbox)
+[![Screenshot of the authentication server type list with Planetary Computer Pro selected.](./media/select-microsoft-planetary-computer-pro.png)](./media/select-microsoft-planetary-computer-pro.png#lightbox)
 
 3. Enter the following information into the text boxes:
 
@@ -113,7 +113,7 @@ Create the STAC connection inside QGIS by following these steps:
     - [Application and Directory ID](#reviewing-the-application-and-directory-id)
 
 
-[![Completed STAC authentication settings with client and tenant IDs populated.](./media/authorization-configuration.png)](./media/authorization-configuration.png#lightbox)
+[![Screenshot of the completed STAC authentication settings with client and tenant IDs populated.](./media/authorization-configuration.png)](./media/authorization-configuration.png#lightbox)
 
 Once these settings are complete, your GeoCatalog is configured for access through the QGIS STAC connection. 
 
@@ -123,7 +123,7 @@ To browse the collections, select your GeoCatalog in the data layer browser, and
 
 Once you expand, QGIS will redirect you to a web browser to authenticate with Microsoft Entra. Complete the authentication process for your organization to continue. 
 
-[![QGIS Browser panel displaying Planetary Computer Pro collections tree.](./media/stac-catalog-in-qgis.png)](./media/stac-catalog-in-qgis.png#lightbox)
+[![Screenshot of the QGIS Browser panel displaying the Planetary Computer Pro collections tree.](./media/stac-catalog-in-qgis.png)](./media/stac-catalog-in-qgis.png#lightbox)
 
 
 > [!TIP]
@@ -131,25 +131,25 @@ Once you expand, QGIS will redirect you to a web browser to authenticate with Mi
 
 Continue to expand the collections until you locate a STAC Item. To visualize this item, select the item and drag it to the map view. If the data is a Cloud Optimized GeoTIFF (COG) or Cloud Optimized Point Cloud (COPC), it automatically imports and projects onto the map. 
 
-[![Map view displaying a STAC item added to QGIS.](./media/add-data-to-map.png)](./media/add-data-to-map.png#lightbox)
+[![Screenshot of the map view displaying a STAC item added to QGIS.](./media/add-data-to-map.png)](./media/add-data-to-map.png#lightbox)
 
 
 
-### STAC Search and Filtering
+### STAC search and filtering
 
 If you want to search for data or run a STAC filter in your catalog, the STAC API is exposed through the Layer manager. 
 
 1. On the **Layer** menu, select **Add Layer** > **Add Layer from STAC Catalog**.
-[![Add Layer from STAC Catalog dialog opened in QGIS.](./media/add-stac-catalog-layer.png)](./media/add-stac-catalog-layer.png#lightbox)
+[![Screenshot of the Add Layer from STAC Catalog dialog opened in QGIS.](./media/add-stac-catalog-layer.png)](./media/add-stac-catalog-layer.png#lightbox)
 
 1. Select your STAC connection to the GeoCatalog, and then select **Connect**. 
-[![Data Source Manager showing configured STAC connection before querying.](./media/data-source-manager.png)](./media/data-source-manager.png#lightbox)
+[![Screenshot of the Data Source Manager showing the configured STAC connection before querying.](./media/data-source-manager.png)](./media/data-source-manager.png#lightbox)
 
 1. Choose the index you want to filter on. You can filter on spatial, temporal, or collection extent. 
-[![STAC query dialog with spatial extent filter applied.](./media/filter-spatial-extent.png)](./media/filter-spatial-extent.png#lightbox)
+[![Screenshot of the STAC query dialog with a spatial extent filter applied.](./media/filter-spatial-extent.png)](./media/filter-spatial-extent.png#lightbox)
 
 1. Select the item to add it to the map extent or download the assets directly to your local machine. If you hover over the item, the spatial extent previews on the map canvas in red. 
-[![COG asset selection ready to add as a layer in QGIS.](./media/add-cog-to-map.png)](./media/add-cog-to-map.png#lightbox)
+[![Screenshot of the COG asset selection ready to add as a layer in QGIS.](./media/add-cog-to-map.png)](./media/add-cog-to-map.png#lightbox)
 
 ## Related content
 
