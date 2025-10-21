@@ -1,5 +1,5 @@
 ---
-title: How to use the connector for ONVIF (preview)
+title: How to use the connector for ONVIF
 description: Use the operations experience web UI to discover and configure assets and devices to use media streams from ONVIF compliant cameras.
 author: dominicbetts
 ms.author: dobett
@@ -10,15 +10,15 @@ ms.date: 07/23/2025
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can discover and use media streams from an ONVIF compliant camera.
 ---
 
-# Configure the connector for ONVIF (preview)
+# Configure the connector for ONVIF
 
-In Azure IoT Operations, the connector for ONVIF (preview) enables you to discover and use an ONVIF compliant camera that's connected to your Azure IoT Operations cluster.
+In Azure IoT Operations, the connector for ONVIF enables you to discover and use an ONVIF compliant camera that's connected to your Azure IoT Operations cluster.
 
 [!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
 
 [!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
 
-The connector for ONVIF (preview) for Azure IoT Operations discovers [ONVIF conformant](https://www.onvif.org/profiles-add-ons-specifications/) cameras connected to your Azure IoT Operations instance and registers them in the Azure Device Registry. After the camera is registered, examples of management operations include:
+The connector for ONVIF for Azure IoT Operations discovers [ONVIF conformant](https://www.onvif.org/profiles-add-ons-specifications/) cameras connected to your Azure IoT Operations instance and registers them in the Azure Device Registry. After the camera is registered, examples of management operations include:
 
 - Retrieving and updating the configuration of the camera to adjust the output image configuration.
 - Controlling the camera pan, tilt, and zoom (PTZ).
@@ -75,7 +75,7 @@ The connector enables support for the following capabilities:
 
 ## Deploy the connector for ONVIF
 
-[!INCLUDE [deploy-preview-media-connectors-simple](../includes/deploy-preview-media-connectors-simple.md)]
+[!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
 
 ## Create a device with an ONVIF endpoint
 

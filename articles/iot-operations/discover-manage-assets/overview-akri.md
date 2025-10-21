@@ -1,5 +1,5 @@
 ---
-title: Learn about Akri services (preview)
+title: Learn about Akri services
 description: Understand how the Akri services enable you to dynamically configure and deploy Akri connectors to connect a broad variety of assets and devices to the Azure IoT Operations cluster, ingest telemetry from them, and use command and control.
 author: dominicbetts
 ms.author: dobett
@@ -12,7 +12,7 @@ ms.date: 09/08/2025
 # CustomerIntent: As an industrial edge IT or operations user, I want to to understand how the Akri services enable me to discover devices and assets at the edge, and expose them as resources on a Kubernetes cluster.
 ---
 
-# What are Akri services (preview)
+# What are Akri services
 
 The Microsoft Akri framework lets you perform the following tasks in Azure IoT Operations:
 
@@ -86,7 +86,7 @@ Akri services build on the capabilities of the open-source Akri project and prov
 
 ## Next steps
 
-- [Configure the connector for ONVIF (preview)](howto-use-onvif-connector.md)
-- [Configure the media connector (preview)](howto-use-media-connector.md)
+- [Configure the connector for ONVIF](howto-use-onvif-connector.md)
+- [Configure the media connector](howto-use-media-connector.md)
 - [Configure the connector for OPC UA](howto-configure-opc-ua.md)
-- [Configure the connector for HTTP/REST (preview)](howto-use-http-connector.md)
+- [Configure the connector for HTTP/REST](howto-use-http-connector.md)

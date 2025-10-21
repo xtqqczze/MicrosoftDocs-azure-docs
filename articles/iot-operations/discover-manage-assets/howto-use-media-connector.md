@@ -1,5 +1,5 @@
 ---
-title: How to use the media connector (preview)
+title: How to use the media connector
 description: Use the operations experience web UI to configure assets and devices for connections to media sources.
 author: dominicbetts
 ms.author: dobett
@@ -10,9 +10,9 @@ ms.date: 07/23/2025
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access snapshots and videos from a media source such as a IP video camera.
 ---
 
-# Configure the media connector (preview)
+# Configure the media connector
 
-In Azure IoT Operations, the media connector (preview) enables access to media from media sources such as edge-attached cameras.
+In Azure IoT Operations, the media connector enables access to media from media sources such as edge-attached cameras.
 
 [!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
 
@@ -27,7 +27,7 @@ This article explains how to use the media connector to perform tasks such as:
 
 ## Prerequisites
 
-To configure devices and assets, you need a running preview instance of Azure IoT Operations.
+To configure devices and assets, you need a running instance of Azure IoT Operations.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -69,7 +69,7 @@ Example uses of the media connector include:
 
 ## Deploy the media connector
 
-[!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
+[!INCLUDE [deploy-connectors](../includes/deploy-connectors.md)]
 
 ## Create a device with a media endpoint
 

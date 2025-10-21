@@ -1,5 +1,5 @@
 ---
-title: How to use the connector for SSE (preview)
+title: How to use the connector for SSE
 description: Use the operations experience web UI or the Azure CLI to configure assets and devices for connections to server-sent event (SSE) endpoints.
 author: dominicbetts
 ms.author: dobett
@@ -10,9 +10,9 @@ ms.date: 09/23/2025
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from SSE endpoints.
 ---
 
-# Configure the connector for SSE (preview)
+# Configure the connector for SSE
 
-In Azure IoT Operations, the connector for server-sent events (SSE) (preview) enables access to data from SSE endpoints exposed by HTTP services.
+In Azure IoT Operations, the connector for server-sent events (SSE) enables access to data from SSE endpoints exposed by HTTP services.
 
 [!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
 
@@ -44,7 +44,7 @@ This article explains how to use the connector for SSE to perform tasks such as:
 
 ## Prerequisites
 
-To configure devices and assets, you need a running preview instance of Azure IoT Operations.
+To configure devices and assets, you need a running instance of Azure IoT Operations.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -54,7 +54,7 @@ You need any credentials required to access the SSE source. If the SSE source re
 
 ## Deploy the connector for SSE
 
-[!INCLUDE [deploy-preview-media-connectors-simple](../includes/deploy-preview-media-connectors-simple.md)]
+[!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
 
 ## Create a device
 

@@ -28,7 +28,7 @@ ms.date: 09/04/2025
  -->
 
 > [!IMPORTANT]
-> Devices (preview) are new in version 1.2.x of Azure IoT Operations. To view the asset endpoint documentation, go to [Asset management overview](/previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets) on the previous versions site.
+> Devices are new in version 1.2.x of Azure IoT Operations. To view the asset endpoint documentation, go to [Asset management overview](/previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets) on the previous versions site.
 
 [!INCLUDE [assets-devices-logical-entities](../includes/assets-devices-logical-entities.md)]
 
