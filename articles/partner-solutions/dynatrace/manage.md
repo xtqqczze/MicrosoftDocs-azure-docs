@@ -80,7 +80,7 @@ To monitor resources for AKS, select **Dynatrace environment config** > **Azur
 
 [!INCLUDE [agent](../includes/agent.md)]
 
-If AKS installation or uninstallation is disabled, see the [FAQ](https://go.microsoft.com/fwlink/?linkid=2331926).
+If AKS installation or uninstallation is disabled, see [AKS agent installation/uninstallation not available](https://go.microsoft.com/fwlink/?linkid=2331926).
  
 #### [Azure Arc Machines](#tab/azure-arc-machines)
 
