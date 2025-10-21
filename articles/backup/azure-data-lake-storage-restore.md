@@ -67,6 +67,11 @@ To  restore Azure Data Lake Storage from backups, follow these steps:
 
 You can track the progress of restore under **Backup Jobs**. 
  
+## Next steps
+
+- [Manage backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
+- [Troubleshoot Azure Data Lake Storage backup](azure-data-lake-storage-backup-troubleshoot.md). 
+
 ## Related content
 
 - [Overview of Azure Blob backup](blob-backup-overview.md).

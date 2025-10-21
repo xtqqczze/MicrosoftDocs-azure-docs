@@ -190,6 +190,13 @@ To create a backup policy for Azure Date Lake Storage backup, run the following 
 
 ## Next steps
 
-[Configure backup for Azure Data Lake Storage using Azure portal, PowerShell, Azure CLI](azure-data-lake-storage-configure-backup.md).
+- [Configure backup for Azure Data Lake Storage using Azure portal, PowerShell, Azure CLI](azure-data-lake-storage-configure-backup.md).
+- [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
+- [Manage backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
+- [Troubleshoot Azure Data Lake Storage backup](azure-data-lake-storage-backup-troubleshoot.md). 
+ 
+
+
+
 
 

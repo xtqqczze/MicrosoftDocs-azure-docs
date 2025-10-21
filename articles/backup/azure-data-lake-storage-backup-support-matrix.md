@@ -19,7 +19,7 @@ This article summarizes the regional availability, supported scenarios, and limi
 Azure Backup now enables enhanced protection and recovery for Azure Data Lake Storage through backups that offer ransomware resilience, secure offsite storage, and long-term data retention. See the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/protect-azure-data-lake-storage-with-vaulted-backups/4410707).
 
 >[!Note]
->Azure Backup now supports operational and vaulted backups for Azure Data Lake Storage.
+>Azure Backup now supports operational and vaulted backups for Azure Data Lake Storage. Operational backups provide short-term data protection within the same storage account, while vaulted backups offer long-term retention and isolated storage in a dedicated Backup vault.
 
 For more insights on Azure Backup’s support for backups in Azure Data Lake Storage that enables secure, long-term, and isolated data protection, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=488835).
 

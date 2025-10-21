@@ -76,7 +76,7 @@
       href: backup-blobs-storage-account-arm-template.md  
     - name: Using Bicep
       href: backup-blobs-storage-account-bicep.md
-  - name: Create a backup policy for Azure Data Lake Storage vaulted backup
+  - name: Create a backup policy for Azure Data Lake Storage backup using Azure portal/ PowerShell/ Azure CLI
     href: azure-data-lake-storage-backup-create-policy-quickstart.md
   - name: Configure Azure Data Lake Storage backup using ARM/ Bicep template
     href: azure-data-lake-storage-backup-configure-quickstart-arm-bicep.md  
