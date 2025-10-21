@@ -38,11 +38,11 @@ The following table provides a summary of the required services, their endpoint 
 | **MCR**                    | Agent updates        | &#10060;                   | `mcr.microsoft.com`                                |
 | **Storage Mover Service**  | Agent heartbeats and migration job assignments    | &#10060; | `<region>.agentgateway.prd.azsm.azure.com` |
 | **Event Hubs**             | Publishing copy logs | &#10060;                   | `evhns-sm-ur-prd-<region>.servicebus.windows.net`  |
-| **Azure Arc**              | Registration         | &#9989; (via Arc Private Link Scope)  | `*.guestconfiguration.azure.com`<br />`*.his.arc.azure.com` |
-| **Entra ID**               | Registration         | &#10060;                   | `login.microsoftonline.com`<br />`pas.windows.net` |
+| **Azure Arc**              | Registration         | &#9989; (via Arc Private Link Scope)  | `*.guestconfiguration.azure.com` and<br />`*.his.arc.azure.com` |
+| **Entra ID**               | Registration         | &#10060;                   | `login.microsoftonline.com` and<br />`pas.windows.net` |
 | **Azure Resource Manager** | Registration         | &#10060;                   | `management.azure.com`                             |
 | **Storage Account (Flat Blob)** | Job targets     | &#9989;                    | `*.blob.core.windows.net`                          |
-| **Storage Account (HNS Blob)**  | Job targets     | &#9989;                    | `*.blob.core.windows.net`<br />`*.dfs.core.windows.net` |
+| **Storage Account (HNS Blob)**  | Job targets     | &#9989;                    | `*.blob.core.windows.net` and<br />`*.dfs.core.windows.net` |
 | **Storage Account (File)** | Job targets          | &#9989;                    | `*.file.core.windows.net`                          |
 | **Key Vault**              | SMB credentials      | &#9989;                    |  `*.vault.azure.net`                               |
 
@@ -53,11 +53,11 @@ The following table provides a summary of the required services, their endpoint 
 | **MCR**                    | Agent updates        | &#10060;                   | `mcr.microsoft.com`                                    |
 | **Storage Mover Service**  | Agent heartbeats and migration job assignments | &#10060; | `<region>.agentgateway.ff.azsm.azure.us`       |
 | **Event Hubs**             | Publishing copy logs | &#10060;                   | `evhns-sm-ur-ff-<region>.servicebus.usgovcloudapi.net` |
-| **Azure Arc**              | Registration         | &#9989; (via Arc Private Link Scope) | `*.guestconfiguration.azure.com`<br />`*.his.arc.azure.com` |
-| **Entra ID**               | Registration         | &#10060;                   | `login.microsoftonline.com`<br />`pasff.usgovcloudapi.net` |
+| **Azure Arc**              | Registration         | &#9989; (via Arc Private Link Scope) | `*.guestconfiguration.azure.com` and<br />`*.his.arc.azure.com` |
+| **Entra ID**               | Registration         | &#10060;                   | `login.microsoftonline.com` and<br />`pasff.usgovcloudapi.net` |
 | **Azure Resource Manager** | Registration         | &#10060;                   | `management.usgovcloudapi.net`                         |
 | **Storage Account (Flat Blob)** | Job targets     | &#9989;                    | `*.blob.core.usgovcloudapi.net`                        |
-| **Storage Account (HNS Blob)**  | Job targets     | &#9989;                    | `*.blob.core.windows.net`<br />`*.dfs.core.usgovcloudapi.net` |
+| **Storage Account (HNS Blob)**  | Job targets     | &#9989;                    | `*.blob.core.windows.net` and<br />`*.dfs.core.usgovcloudapi.net` |
 | **Storage Account (File)** | Job targets          | &#9989;                    | `*.file.core.usgovcloudapi.net`                        |
 | **Key Vault**              | SMB credentials      | &#9989;                    |  `*.vault.usgovcloudapi.net`                           |
 
