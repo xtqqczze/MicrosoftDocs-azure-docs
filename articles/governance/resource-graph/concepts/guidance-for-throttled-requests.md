@@ -235,7 +235,7 @@ Number of 'read' requests for subscription '{1}' actor '{2}' exceeded. Please tr
 </value>
 ```
 
-Please raise a [0support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) for throttling requests related to ARM. 
+Please raise a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) for throttling requests related to ARM. 
 
 ## ARG GET/LIST API  
 
