@@ -11,7 +11,7 @@ ms.custom: references_regions
 # Customer intent: As a network administrator, I want to understand the features of ExpressRoute FastPath so that I can determine if it meets my organization's performance needs.
 ---
 
-# About ExpressRoute FastPath
+# Azure ExpressRoute FastPath: Features, availability, and limitations
 
 Your ExpressRoute virtual network gateway exchanges network routes and directs traffic between your on-premises network and Azure virtual networks. When you enable FastPath, network traffic bypasses the gateway and goes directly to virtual machines in your virtual network, improving data path performance.
 
