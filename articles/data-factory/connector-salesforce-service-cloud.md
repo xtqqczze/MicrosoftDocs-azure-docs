@@ -333,7 +333,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage           | Change log |
 | :------- | :---------------------- |:---------- |
-| Salesforce Service Cloud V1 | End of support announced | / |
+| Salesforce Service Cloud V1 | Removed | Not applicable. |
 | Salesforce Service Cloud V2 | GA version available | • Support OAuth2ClientCredentials authentication instead of the basic authentication. <br><br> • Support SOQL query only.<br><br>• Support report by selecting a report ID.<br><br>• Support `partitionOption` in the copy activity source. <br><br>• `readBehavior` is replaced with `includeDeletedObjects` in the copy activity source or the lookup activity.|
 
 ### <a name="upgrade-the-salesforce-service-cloud-linked-service"></a> Upgrade the Salesforce Service Cloud connector
