@@ -32,6 +32,12 @@ The following video explains Azure Maps in depth:
 
 > [!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny]
 
+## Maps in Microsoft Fabric
+
+Maps (preview) in [Microsoft Fabric] is a powerful geospatial visualization tool within Real-Time Intelligence that turns static and real-time spatial data into actionable insights by uncovering patterns and trends often missed in traditional charts. With an intuitive interface, you can create interactive maps featuring multiple layers, dynamic filtering, and rich customization options. Seamlessly integrated with other Fabric experiences and powered by Azure Maps services, it delivers accurate, scalable, and secure mapping for enterprise scenarios. Whether monitoring IoT devices, tracking assets, or analyzing regional trends, Maps helps you make sense of spatial data in real time. For more information, see [Create a map].
+
+:::image type="content" source="./media/about-azure-maps/intro_fabric-maps.png" lightbox="./media/about-azure-maps/intro_fabric-maps.png" alt-text="A screenshot showing Maps in Microsoft Fabric.":::
+
 ## Map controls
 
 ### Web SDK
@@ -142,7 +148,7 @@ For more information, see [Traffic] in the Azure Maps REST API documentation.
 
 ### Weather service
 
-The Weather service offers API to retrieve weather information for a particular location. This information includes observation date and time, weather conditions, precipitation indicator flags, temperature, and wind speed information. Other details such as RealFeel™ Temperature and UV index are also returned.
+The Weather service offers API to retrieve weather information for a particular location. This information includes observation date and time, weather conditions, precipitation indicator flags, temperature, and wind speed information. Other details such as RealFeel&trade; Temperature and UV index are also returned.
 
 Developers can use the [Get Weather along route API] to retrieve weather information along a particular route. Also, the service supports the generation of weather notifications for waypoints affected by weather hazards, such as flooding or heavy rain.
 
@@ -211,8 +217,14 @@ Stay up to date on Azure Maps:
 [TilesetID]: /rest/api/maps/render/get-map-tile#tilesetid
 [Timezone]: /rest/api/maps/timezone
 [Traffic]: /rest/api/maps/traffic
+
 <!---------   JavaScript API Links     --------------->
 [JavaScript map control]: /javascript/api/azure-maps-control
+
+<!---------   Microsoft Fabric Maps Links     --------------->
+[Create a map]: /fabric/real-time-intelligence/map/create-map
+[Microsoft Fabric]: /fabric/fundamentals/microsoft-fabric-overview
+
 <!---------   External Links     --------------->
 [Azure Maps account]: https://azure.microsoft.com/services/azure-maps/
 [Azure Maps blog]: https://azure.microsoft.com/blog/topics/azure-maps/
