@@ -62,8 +62,8 @@ The VMware vSphere hypervisor requirements are:
     **Provisioning** - Allow read-only disk access | Allow read-only disk access: Allow opening a disk on a VM to read the disk using the VDDK. | Virtual machines | VirtualMachine.Provisioning.DiskRandomRead
     **Provisioning** - Allow disk access | Allow opening a disk on a VM to read the disk using the VDDK. | Virtual machines | VirtualMachine.Provisioning.DiskRandomAccess
     **Provisioning** - Allow virtual machine download | Allow virtual machine download: Allows read operations on files associated with a VM to download the logs and troubleshoot if failure occurs. | Root host or vCenter Server | VirtualMachine.Provisioning.GetVmFiles
-    **Snapshot management** | Allow Discovery, Software Inventory, and Dependency Mapping on VMs. | Virtual machines | VirtualMachine.State.*
-    **Guest operations** | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.GuestOperations.*
+    **Snapshot management** | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.GuestOperations.* 
+    **Guest operations** | Allow Discovery, Software Inventory, and Dependency Mapping on VMs. | Virtual machines | VirtualMachine.State.*
     **Interaction Power Off** | Allow the VM to be powered off during migration to Azure. | Virtual machines | VirtualMachine.Interact.PowerOff
 
 ### VM requirements (agentless)
@@ -193,13 +193,14 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 
 
 ### Appliance requirements (agent-based)
+The Azure Site Recovery Replication appliance is used to replicate machines to Azure in agent-based migration. [Learn more](../site-recovery/physical-server-azure-architecture-modernized.md).
 
-When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
+Set up the replication appliance using the OVA template for VMware agent-based migration. We recommend using this approach as it ensures all prerequisite configurations are handled by the template. The OVA template creates a machine with the required specifications. If your organization has restrictions, you can manually set up the replication appliance using PowerShell.
+ 
+Ensure you meet all the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. [Learn more](../migrate/tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance-using-the-ova-template-for-vmware-agent-based-migration) on how to set up the appliance.
 
-- Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements) for VMware vSphere.
-- Install MySQL on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
-- Learn about URLs that the replication appliance needs to access in [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
-- Review the [ports](migrate-replication-appliance.md#port-access) the replication appliance needs to access.
+> [!NOTE]
+> The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before.
 
 ### Port requirements (agent-based)
 

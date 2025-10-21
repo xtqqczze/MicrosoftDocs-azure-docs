@@ -37,6 +37,7 @@ Number of cores | `vm.Config.Hardware.NumCPU`
 Memory (MB) | `vm.Config.Hardware.MemoryMB`
 Number of disks | `vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk).count`
 Disk size list | `vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk)`
+Storage Utilization | sum of `vm.guest.disk.capacity` - sum of `vm.guest.disk.freeSpace`
 Network adapters list | `vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualEthernet).count`
 CPU utilization | `cpu.usage.average`
 Memory utilization | `mem.usage.average`
@@ -294,6 +295,9 @@ Update ID | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 Updated Software version | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 Classification/Severity | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
 Published date | `apt-get -s dist-upgrade, yum -q check-update, zypper list-updates`
+
+> [!NOTE]
+> If your Red Hat Enterprise Linux (RHEL) servers use `yum` and aren't patched regularly, pending updates data can consume storage in the cache under `var\tmp\yum\-<username>`. To manage disk space, it is recommended to clear the cache regularly.
 
 ## SQL Server instance and database data
 
