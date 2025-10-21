@@ -20,6 +20,9 @@ This article outlines how to use the copy activity in an Azure Data Factory or A
 
 This article also describes how to upgrade the QuickBooks connector from version 1.0 to 2.0. Version 2.0 provides improved native QuickBooks support.
 
+> [!IMPORTANT]
+> The QuickBooks connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the QuickBooks connector](#quickbooks-connector-lifecycle-and-upgrade) from version 1.0 to 2.0.
+
 ## Supported capabilities
 
 The QuickBooks connector is supported for the following capabilities:
@@ -265,7 +268,7 @@ The following table summarizes information about the versions of the QuickBooks 
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| 1.0 | End of support announced | Not applicable. |  
+| 1.0 | Removed | Not applicable. |  
 | 2.0 | General availability |QuickBooks native query is supported, with limitations. `GROUP BY` clauses, `JOIN` clauses, and aggregate functions (`Avg`, `Max`, `Sum`) aren't supported. For more information, see [Query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries) on the Intuit Developer site. <br><br>The `tableName` value specified in the query must match the `tableName` value in the dataset. <br><br>The SQL-92 query is not supported. <br><br>The `useEncryptedEndpoints` property is not supported.  |
 
 ### Upgrade the Quickbooks connector from version 1.0 to version 2.0
