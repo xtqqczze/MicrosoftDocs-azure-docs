@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure Data Lake Storage backup using Azure Backup
+title: Troubleshoot Azure Data Lake Storage backup using Azure Backup
 description: Learn to troubleshoot Azure Data Lake Storage backup using Azure Backup.
 ms.topic: troubleshooting
 ms.date: 05/27/2025
@@ -71,3 +71,4 @@ This article provides troubleshooting details for error codes that appear when c
 
 - [Configure vaulted backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-configure-backup.md).
 - [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
+- [Manage backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).

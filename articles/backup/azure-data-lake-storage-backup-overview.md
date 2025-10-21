@@ -18,7 +18,7 @@ Azure Backup now enables enhanced protection and recovery for Azure Data Lake St
 For more insights on Azure Backup’s support for vaulted backups in Azure Data Lake Storage that enables secure, long-term, and isolated data protection, see the [Microsoft Community Hub blog](https://azure.microsoft.com/updates?id=488835).
 
 >[!Note]
->- Azure Backup now supports operational and vaulted backups for Azure Data Lake Storage.
+>- Azure Backup now supports operational and vaulted backups for Azure Data Lake Storage. Operational backups provide short-term data protection within the same storage account, while vaulted backups offer long-term retention and isolated storage in a dedicated Backup vault.
 >- This feature is currently available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
 
 ## How the backup process for Azure Data Lake Storage works
@@ -70,3 +70,5 @@ Azure Backup allows restoring data from any recovery point within the retention 
 
 - [Configure backup for Azure Data Lake Storage using Azure portal, PowerShell, or Azure CLI](azure-data-lake-storage-configure-backup.md).
 - [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
+- [Manage backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
+- [Troubleshoot Azure Data Lake Storage backup](azure-data-lake-storage-backup-troubleshoot.md).

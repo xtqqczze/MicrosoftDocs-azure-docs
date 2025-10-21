@@ -78,6 +78,6 @@ To check the backup job status, follow these steps:
 
 - [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
 - [Manage backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
- 
+- [Troubleshoot Azure Data Lake Storage backup](azure-data-lake-storage-backup-troubleshoot.md). 
 
 

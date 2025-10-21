@@ -216,6 +216,7 @@ After all the relevant permissions are set, configure Azure Date Lake Storage ba
 
 - [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
 - [Manage backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
+- [Troubleshoot Azure Data Lake Storage backup](azure-data-lake-storage-backup-troubleshoot.md). 
  
 
 
