@@ -16,7 +16,7 @@ items:
     href: billing.md
 - name: How-To
   items: 
-  - name: Planning
+  - name: Plan
     items:
     - name: Planning for a deployment
       href: deployment-planning.md
