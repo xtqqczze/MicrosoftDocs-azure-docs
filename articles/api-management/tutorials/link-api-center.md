@@ -41,7 +41,7 @@ These steps show how to create a new API Center and link it to an API Management
 1. From the [Azure portal](https://portal.azure.com), open your API Management service.
 1. In the left-hand menu, go to **APIs** > **API Center**.
 1. In the center pane, under *Use API Center for API discovery, reuse, and governance*, select **Create new**.
-1. On the *Create* API Center* page, select **Create new link**.
+1. On the **Create API Center** page, select **Create new link**.
 1. Provide values for the following fields:
 
     | Field | Details |
@@ -78,8 +78,9 @@ Use this section to verify the integration state and to view APIs that synchroni
 
 Follow these steps to remove the link between API Management and the API Center or to delete the API Center resource.
 
-1. In the API Center resource or from the **API Management** > **API Center** page, find the linked API Center.
-2. Select the trash can icon to delete the link (or delete the API Center resource if you no longer need it).
+1. In the API Center resource, find the linked API Management instance.
+1. In the left-hand menu, go to **Platforms** > **Integrations**.
+2. Select the trash can icon to delete the link.
 
 ## Clean up resources
 
