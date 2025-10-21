@@ -145,7 +145,7 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 
 Aggregation type: *Max*
 
-This metric shows the number of FastPath routes configured on a circuit. Set an alert for when the number of FastPath routes on a circuit goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-limits). 
+This metric shows the number of FastPath routes configured on a circuit. Set an alert for when the number of FastPath routes on a circuit goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-capacity). 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-circuit.png" alt-text="Screenshot of FastPath routes count at circuit level metric.":::
 
@@ -319,7 +319,7 @@ Aggregation type: *Max*
 
 This metric shows the number of FastPath routes configured on an ExpressRoute Direct port. 
 
-*Guidance:* Set an alert for when the number of FastPath routes on the port goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-limits).
+*Guidance:* Set an alert for when the number of FastPath routes on the port goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-capacity).
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-port.png" alt-text="Screenshot of FastPath routes count at port level metric.":::
 
