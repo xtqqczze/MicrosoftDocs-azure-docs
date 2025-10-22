@@ -20,6 +20,8 @@ items:
     items:
     - name: Planning for a deployment
       href: deployment-planning.md
+    - name: Service prerequisites
+      href: service-prerequisites.md
     - name: Networking prerequisites
       href: networking-prerequisites.md
     - name: Performance targets
