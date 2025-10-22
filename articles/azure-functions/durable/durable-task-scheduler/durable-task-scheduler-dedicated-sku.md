@@ -9,8 +9,8 @@ ms.author: franlanglois
 
 The Durable Task Scheduler offers two pricing models to accommodate different workload requirements, usage patterns, and preferred billing models:
 
-- [Dedicated](#dedicated-sku)
-- [Consumption (preview)](#consumption-sku)
+- Dedicated
+- Consumption (preview)
 
 In this article, you learn about actions, the available SKU options, and their pricing structures.
 
@@ -65,7 +65,7 @@ In the previous example, the total calculation would be:
 Durable Task Scheduler offers two SKU options: Dedicated and Consumption (preview).
 
 |                 | Consumption SKU (preview)       | Dedicated SKU                     |
-|-----------------|---------------------------------|-----------------------------------|
+| - | ------------------------------- | --------------------------------- |
 | Infrastructure  | Multitenant                     | Dedicated Infrastructure          |
 | Pricing Model   | Pay-per-action                  | Fixed monthly CU cost             |
 | Cost per Action | \$0.003                         | Varies by CU utilization          |
@@ -78,8 +78,6 @@ Durable Task Scheduler offers two SKU options: Dedicated and Consumption (previe
 > Currently, the Consumption SKU is in preview. Use the Dedicated SKU in production.
 
 #### [Dedicated SKU](#tab/dedicated)
-
-### Dedicated SKU
 
 The Dedicated SKU provides predictable performance and pricing through preallocated Compute Units (CUs). You can purchase up to three CUs. 
 
@@ -145,8 +143,6 @@ Calculation:
 - Required CUs: 4,567 ÷ 2,000 = 2.28, or **3 CUs sufficient**
 
 #### [Consumption SKU](#tab/consumption)
-
-### Consumption SKU
 
 The Consumption SKU offers a pay-as-you-use model, ideal for variable workloads and development scenarios.
 
