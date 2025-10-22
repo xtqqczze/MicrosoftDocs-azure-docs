@@ -20,14 +20,30 @@ Azure IoT Operations and IoT Hub uses namespaces to organize assets and devices.
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
-## [Azure portal](#tab/portal)
-
 ## Prerequisites
+
+### [Azure portal](#tab/portal)
 
 - Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 - A resource group to hold your resources. You can create a new resource group or use an existing one. 
 
+### [Azure CLI](#tab/cli)
+
+- Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+- Install [Azure CLI](/cli/azure/install-azure-cli) in your environment, or run `az upgrade` to ensure you have the latest version.
+- Install the [IoT extension for Azure CLI](https://github.com/Azure/azure-cli).
+- Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+- A resource group in your Azure subscription. If you want to create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command:
+
+  ```azurecli
+  az group create --name <RESOURCE_GROUP_NAME> --location <REGION>
+  ```
+
+***
+
 ## Create a new namespace
+
+### [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
 1. Go to the **Namespaces** page.
@@ -58,19 +74,19 @@ Azure IoT Operations and IoT Hub uses namespaces to organize assets and devices.
 1. Select **Next: Review + create** to review your settings.
 1. Select **Create** to create the namespace.
 
-## Connect an existing IoT hub to your namespace
+### [Azure CLI](#tab/cli)
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
-1. Go to the **Namespaces** page.
-1. Select the namespace you want to link to an existing IoT hub.
-1. In the namespace page, under **Resources**, select **IoT hubs**.
-1. In the **IoT hubs** page, you filter the list of IoT hubs by subscription and resource group. 
-1. Select the IoT hub you want to link to your namespace.
-1. Select **Connect hub**.
+Run the `az iot ops ns create` command to create an Azure Device Registry namespace. Replace `<my namespace name>` with a unique name for your namespace.
 
-    :::image type="content" source="media/device-registry/link-existing-hub.png" alt-text="Screenshot of the namespaces page in the Azure portal that shows how to connect an existing IoT hub to a namespace." lightbox="media/device-registry/link-existing-hub.png":::
+```bash    
+az iot ops ns create -n <my namespace name> -g $RESOURCE_GROUP
+```
+
+***
 
 ## Manage your namespaces
+
+### [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
 1. Go to the **Overview** page to view the number of assets, schema registries and namespaces in your subscription:
@@ -84,17 +100,32 @@ Azure IoT Operations and IoT Hub uses namespaces to organize assets and devices.
 
     :::image type="content" source="media/device-registry/azure-device-registry-assets.png" alt-text="Screenshot of Azure Device Registry assets page in the Azure portal." lightbox="media/device-registry/azure-device-registry-assets.png":::
 
-## Enable a credential resource for your namespace
 
-Credential resources allow you to manage device authentication and authorization for devices connecting to your namespace. When you enable a credential resource, you can set up policies to control how certificates are issued and managed for your devices. 
+### [Azure CLI](#tab/cli)
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
-1. Go to the **Namespaces** page.
-1. Select the namespace you want to enable a credential resource for.
-1. In the namespace page, under **Settings**, select **Credentials**.
-1. In the **Credentials** page, select **Enable**.
+1. List all the ADR namespaces in your subscription:
 
-## Create a new policy
+    ```bash
+    az iot adr ns list --resource-group "$RESOURCE_GROUP"
+    ```
+
+1. Show the details of a specific ADR namespace:
+
+    ```bash
+    az iot adr ns show --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
+    ```
+
+1. Show the credentials associated with a specific ADR namespace, if applicable:
+
+    ```bash
+    az iot adr ns credential show --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
+    ```
+
+***
+
+## Create a custom policy
+
+### [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
 1. Go to the **Namespaces** page.
@@ -116,70 +147,15 @@ Credential resources allow you to manage device authentication and authorization
 > [!NOTE]
 > Editing or disabling a policy isn't supported in public preview.
 
-## Sync policies to IoT hubs
+### [Azure CLI](#tab/cli)
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
-1. Go to the **Namespaces** page.
-1. Select the namespace you want to sync policies for.
-1. In the namespace page, under **Resources**, select **Policies**.
-1. In the **Policies** page, you can view your policies, validity periods, intervals, and status.
-1. Select the policies you want to sync. You can sync more than one policy at a time.
-1. Select **Sync policies**.
-
-    > [!NOTE]
-    > If you select to sync more than one policy, policies are synced to their respective IoT hubs.
-
-1. In the **Sync policies** pane, review the policies to be synced and select **Sync**.
-
-
-## [Azure CLI](#tab/cli)
-
-## Prerequisites
-
-- Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-- Install [Azure CLI](/cli/azure/install-azure-cli) in your environment, or run `az upgrade` to ensure you have the latest version.
-- Install the [IoT extension for Azure CLI](https://github.com/Azure/azure-cli).
-- A resource group to hold your resources. You can create a new resource group or use an existing one. If you want to create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command:
-
-   ```azurecli
-   az group create --name <RESOURCE_GROUP_NAME> --location "<REGION>"
-   ```
-
-## Create a new namespace
-
-Run the `az iot ops ns create` command to create an Azure Device Registry namespace. Replace `<my namespace name>` with a unique name for your namespace.
-
-```bash    
-az iot ops ns create -n <my namespace name> -g $RESOURCE_GROUP
-```
-
-## Manage your namespaces
-
-1. List all the ADR namespaces in your subscription:
-
-    ```bash
-    az iot adr ns list --resource-group "$RESOURCE_GROUP"
-    ```
-
-1. Show the details of a specific ADR namespace:
-
-    ```bash
-    az iot adr ns show --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
-    ```
-
-1. Show the credentials associated with a specific ADR namespace, if applicable:
-
-    ```bash
-    az iot adr ns credential show --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
-    ```
-
-1. List all policies associated with a specific ADR namespace, if applicable:
+1. List all policies associated with a specific ADR namespace:
 
     ```bash
     az iot adr ns policy list --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
     ```
 
-1. Show the details of a specific policy associated with a specific ADR namespace, if applicable:
+1. Show the details of a specific policy associated with a specific ADR namespace:
 
     ```bash
     az iot adr ns policy show --name "policy-name" --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
@@ -200,19 +176,31 @@ az iot ops ns create -n <my namespace name> -g $RESOURCE_GROUP
     az iot adr ns policy create --name "custom-policy" --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP" --cert-subject "CN=TestDevice" --cert-validity-days "30"
     ```
 
-## Delete namespace and related resources
+***
 
-When you no longer need the ADR namespace and its related resources, you can delete them to avoid incurring unnecessary costs. To delete your namespace, you must also delete the IoT hub Gen 2 and DPS instances linked to the namespace.
+## Delete a namespace
+
+When you no longer need the ADR namespace and its related resources, you can delete them to avoid incurring unnecessary costs.
+
+### [Azure portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
+1. Go to the **Namespaces** page.
+1. Select the namespace you want to delete.
+1. In the namespace page, select **Delete**.
+
+    :::image type="content" source="media/device-registry/namespace-delete.png" alt-text="Screenshot of the namespace page in Azure portal that shows the delete option." lightbox="media/device-registry/namespace-delete.png":::
+
+
+### [Azure CLI](#tab/cli)
+
+Run the `az iot adr ns delete` command to delete an Azure Device Registry namespace. Replace `$NAMESPACE_NAME` with the name of your namespace.
 
 ```bash
-# Delete hub
-az iot hub delete --name "$HUB_NAME" --resource-group "$RESOURCE_GROUP"
-# Delete namespace
 az iot adr ns delete --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
-# Delete DPS 
-az iot dps delete --name "$DPS_NAME" --resource-group "$RESOURCE_GROUP"
-# Delete user assigned identity
-az identity delete --name "$USER_IDENTITY" --resource-group "$RESOURCE_GROUP"
 ```
-
 ***
+
+
+
+

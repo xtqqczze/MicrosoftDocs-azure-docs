@@ -37,13 +37,43 @@ The setup process includes the following steps:
 
 For more information about how to create namespaces, policies, and credentials, see [Create and manage namespaces](iot-hub-device-registry-namespaces.md).
 
-## [Azure portal](#tab/portal)
-
 ## Prerequisites
+
+### [Azure portal](#tab/portal)
 
 Have an Azure account. If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/).
 
-## Create an IoT hub in the portal
+### [Azure CLI](#tab/cli)
+
+- Have an Azure account. If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/).
+- Install [Azure CLI](/cli/azure/install-azure-cli) in your environment, or run `az upgrade` to ensure you have the latest version.
+- Install the [IoT extension for Azure CLI](https://github.com/Azure/azure-cli).
+- Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+- A resource group in your Azure subscription. If you want to create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command:
+
+  ```azurecli
+  az group create --name <RESOURCE_GROUP_NAME> --location <REGION>
+  ```
+
+### [Script](#tab/script)
+
+- Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+- A resource group to hold your resources. You can create a new resource group or use an existing one. If you want to create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command:
+
+   ```azurecli
+   az group create --name <RESOURCE_GROUP_NAME> --location "<REGION>"
+   ```
+- A Device Provisioning Service (DPS) instance. If you don't have a DPS instance, use the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command to create one:
+
+   ```azurecli
+   az iot dps create --name <DPS_NAME> --resource-group <RESOURCE_GROUP_NAME> --location "<REGION>"
+   ```
+
+***
+
+## Create an IoT hub 
+
+### [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the Azure homepage, select the **+ Create a resource** button.
@@ -128,22 +158,9 @@ Have an Azure account. If you don't have an Azure account, create a [free accoun
 1. Select **Next: Review + create** to review your choices.
 1. Select **Create** to start the deployment of your new hub. Your deployment might progress for a few minutes while the hub is being created. Once the deployment is complete, select **Go to resource** to open the new hub.
 
+### [Azure CLI](#tab/cli)
 
-## [Azure CLI](#tab/cli)
-
-## Prerequisites
-
-- Have an Azure account. If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/).
-- Install [Azure CLI](/cli/azure/install-azure-cli) in your environment, or run `az upgrade` to ensure you have the latest version.
-- Install the [IoT extension for Azure CLI](https://github.com/Azure/azure-cli).
-- Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-- A resource group in your Azure subscription. If you want to create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command:
-
-  ```azurecli
-  az group create --name <RESOURCE_GROUP_NAME> --location <REGION>
-  ```
-
-## Prepare your environment
+### Prepare your environment
 
 To prepare your environment to use Azure Device Registry, complete the following steps:
 
@@ -161,7 +178,7 @@ To prepare your environment to use Azure Device Registry, complete the following
     - The `id` GUID. You use this value to provide your Subscription ID.
     - The `tenantId` GUID. You use this value to update your permissions using Tenant ID.
 
-## Set up the environment variables
+### Set up the environment variables
 
 To simplify the process of creating and managing resources, set up the following environment variables in your terminal session. Replace the placeholder values with your own values.
 
@@ -193,7 +210,7 @@ To simplify the process of creating and managing resources, set up the following
     echo $HUB_NAME
     ```
 
-## Configure your group, role, and permissions
+### Configure your group, role, and permissions
 
 To create a resource group, role, and permissions for your IoT solution, complete the following steps:
 
@@ -255,7 +272,7 @@ To create a resource group, role, and permissions for your IoT solution, complet
     UAMI_RESOURCE_ID=$(az identity show --name "$USER_IDENTITY" --resource-group "$RESOURCE_GROUP" --query id -o tsv)
     ```
 
-## Set up an ADR namespace
+### Set up an ADR namespace
 
 Set up a new ADR namespace with a system-assigned managed identity. Creating this namespace also creates a credential, known as root CA, and a default policy, known as intermediate CA.
 
@@ -274,7 +291,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating thi
     az iot adr ns show --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
     ```
 
-1. Verify that a credential named "default" and policy named "default" are created.
+1. Verify that a credential named "default" and policy named "default" are created. You can also create a custom policy using the `az iot adr ns policy create` command. For more information, see [Create and manage namespaces](iot-hub-device-registry-namespaces.md#create-a-custom-policy).
 
     ```bash
     az iot adr ns credential show --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
@@ -299,7 +316,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating thi
     az role assignment create --assignee "$UAMI_PRINCIPAL_ID" --role "$CUSTOM_ROLE_NAME" --scope "$NAMESPACE_RESOURCE_ID"
     ```
 
-## Create an IoT hub with ADR namespace integration
+### Create an IoT hub with ADR namespace integration
 
 1. Create a new IoT Hub Gen 2 instance linked to the ADR namespace and with the User-Assigned Identity.
 
@@ -337,7 +354,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating thi
     >  az role assignment create --assignee "$ADR_PRINCIPAL_ID" --role "IoT Hub Registry Contributor" --scope "$HUB_RESOURCE_ID"
     >  ```
 
-## Create a Device Provisioning Service with ADR namespace integration
+### Create a Device Provisioning Service with ADR namespace integration
 
 1. Create a new Device Provisioning Service (DPS) instance linked to the ADR namespace with the User-Assigned Identity. Your DPS must be located in the same region as your ADR namespace.
 
@@ -351,7 +368,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating thi
     az iot dps show --name "$DPS_NAME" --resource-group "$RESOURCE_GROUP" --query identity --output json
     ```
 
-## Link IoT Hub to the Device Provisioning Service
+### Link IoT Hub to the Device Provisioning Service
 
 1. Link the IoT hub to DPS.
 
@@ -365,7 +382,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating thi
     az iot dps linked-hub list --dps-name "$DPS_NAME" --resource-group "$RESOURCE_GROUP"
     ```
 
-## Run ADR credential synchronization
+### Run ADR credential synchronization
 
 To enable IoT Hub to register the CA certificates and trust any issued leaf certificates, sync your credential and all its child policies to the ADR namespace.
 
@@ -373,7 +390,7 @@ To enable IoT Hub to register the CA certificates and trust any issued leaf cert
 az iot adr ns credential sync --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
 ```
 
-## Validate Hub Certificate
+### Validate Hub Certificate
 
 Validate that your IoT hub has registered its CA certificate.
 
@@ -381,7 +398,7 @@ Validate that your IoT hub has registered its CA certificate.
 az iot hub certificate list --hub-name "$HUB_NAME" --resource-group "$RESOURCE_GROUP"
 ```
 
-## Create an enrollment group in DPS
+### Create an enrollment group in DPS
 
 To provision devices with leaf certificates, you need to create an enrollment group and assign it to the appropriate policy. The allocation-policy defines the onboarding authentication mechanism DPS uses before issuing a leaf certificate. The default attestation mechanism is a symmetric key.
 
@@ -392,7 +409,7 @@ To provision devices with leaf certificates, you need to create an enrollment gr
 az iot dps enrollment-group create --dps-name "$DPS_NAME" --resource-group "$RESOURCE_GROUP" --enrollment-id "$ENROLLMENT_ID" --credential-policy default
 ```
 
-## Delete an IoT hub
+### Delete an IoT hub
 
 To delete an IoT hub in your Azure subscription, run the following command:
 
@@ -400,7 +417,7 @@ To delete an IoT hub in your Azure subscription, run the following command:
 az iot hub delete --name $HUB_NAME --resource-group $RESOURCE_GROUP
 ```
 
-## Disable a device 
+### Disable a device 
 
 To disable a device in your IoT hub, run the following commands:
 
@@ -416,28 +433,14 @@ To disable a device in your IoT hub, run the following commands:
     az iot hub device-identity update --hub-name $HUB_NAME --resource-group $RESOURCE_GROUP -d <mydevice1> --status disabled
     ```
 
-## [Script](#tab/script)
+### [Script](#tab/script)
 
-## Prerequisites
-
-- Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-- A resource group to hold your resources. You can create a new resource group or use an existing one. If you want to create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command:
-
-   ```azurecli
-   az group create --name <RESOURCE_GROUP_NAME> --location "<REGION>"
-   ```
-- A Device Provisioning Service (DPS) instance. If you don't have a DPS instance, use the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command to create one:
-
-   ```azurecli
-   az iot dps create --name <DPS_NAME> --resource-group <RESOURCE_GROUP_NAME> --location "<REGION>"
-   ```
-
-## Prepare Your Environment
+### Prepare Your Environment
 
 1. Navigate to the [GitHub repository](https://github.com/Azure/hubgen2-certmgmt/tree/main/Scripts) and download the entire folder, Scripts, which contains the script file (.ps1) and the role template (.json).
 1. Place the script, role template, and the .whl files in your working folder and confirm they are accessible. Your working folder is the directory that holds all of your files.
 
-## Customize the script variables
+### Customize the script variables
 
 Set values for the following variables in the variables section
 
@@ -453,7 +456,7 @@ Set values for the following variables in the variables section
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-## Run the script interactively
+### Run the script interactively
 
 1. Run the script in **PowerShell 7+** by navigating to the folder and running `.\cmsSetupCli.ps1`.
 1. If you run into an execution policy issue, try running `powershell -ExecutionPolicy Bypass -File .\cmsSetupCli.ps1`.
@@ -466,7 +469,7 @@ Set values for the following variables in the variables section
 > [!NOTE]
 > The creation of your ADR Namespace, IoT Hub, DPS, and other resources may take up to 5 minutes each.
 
-## Monitor execution and validate the resources
+### Monitor execution and validate the resources
 
 1. The script continues execution when warnings are encountered and only stops if a command returns a non-zero exit code. Monitor the console for red **ERROR** messages, which indicate issues that require attention.
 1. Once the script completes, validate the creation of your resources:

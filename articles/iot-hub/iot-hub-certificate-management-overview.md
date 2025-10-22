@@ -89,6 +89,16 @@ The following diagram illustrates the end-to-end process of device provisioning 
 
 :::image type="content" source="media/certificate-management/operational-diagram.png" alt-text="Diagram showing how Azure Device Registry integrates with IoT Hub and DPS for certificate management during provisioning." lightbox="media/certificate-management/operational-diagram.png":::
 
+## Renewal of certificates
+
+Due to the wide variety of IoT devices, each device is responsible for monitoring the expiration date of its operational certificate and determining when renewal is required. The certificate includes its **expiration date**, which the device can track to identify when rotation is needed. 
+
+When renewal is necessary, the device initiates another provisioning call to DPS, submitting a new Certificate Signing Request (CSR) signed by its private key. The CSR is sent to the appropriate intermediate certificate authority (ICA) to request a new leaf certificate. Once approved, the new operational certificate is returned to the device for continued secure authentication with IoT Hub.
+
+## Disable a device
+
+Certificate Management doesn't support certificate revocation during public preview. To remove the connection of a device that uses an X.509 operational certificate, you can disable the device in the IoT hub registry.
+
 ## Limits and quotas
 
 The following table lists the default limits and quotas for Certificate Management:
