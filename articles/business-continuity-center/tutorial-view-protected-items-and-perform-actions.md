@@ -74,20 +74,22 @@ To view protected items, follow these steps to view your protected items:
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/learn-more-guidance.png" alt-text="Screenshot shows learn more guidance blade." lightbox="./media/tutorial-view-protected-items-and-perform-actions/learn-more-guidance.png":::
 
 10.	On **Protected items**, the **Protected items details** table shows the protection status for each protected item in the primary and secondary regions.
+
     - **Resource name**: Lists the underlying resource that is protected.
     - **Protected item**: Shows the name of the protected resource.
     - **Configured solutions**: Shows the number of solutions protecting the resource.
     - **Protection status**: Protected items should be recoverable in both the primary and secondary regions. Protection status in the primary region refers to the region in which datasource is hosted. Protection status in secondary region refers to the paired or target region in which datasource can be recovered if the primary region isn't accessible.
     
-The protection status can be Pending protection (protection is triggered and in progress), Protection disabled (protection is turned off, for example, in a soft-deleted state for Azure Backup), Protection paused (protection is stopped but data is retained as per the solution provider), or Protected.
-If the datasource is protected by multiple solutions (two or more), the protection status is determined in the following order:
+    The protection status can be Pending protection (protection is triggered and in progress), Protection disabled (protection is turned off, for example, in a soft-deleted state for Azure Backup), Protection paused (protection is stopped but data is retained as per the solution provider), or Protected.
 
-       - When one or more solutions indicate that the protection status is disabled, then the protected item status is shown as **Protection disabled**.
-       - When one or more solutions indicate that the protection status is paused, then the protected item status is shown as **Protection paused**.
-       - When one or more solutions indicate that the protection status is pending, then the protected item status is shown as **Pending protection**.
-       - When all the configured solutions indicate that the protection status is protected, then the protected item status is shown as **Protected**.
-       - If there's no protection for a datasource in primary or secondary region, then the protected item status for that region is shown as **Not protected**.
-       - For example, if a resource is protected by both Azure Backup (with status **Protection paused**) and Azure Site Recovery (with status **Protected**), then the protection status for the region displays **Protection paused**.
+    If the datasource is protected by multiple solutions (two or more), the protection status is determined in the following order:
+
+    -  When one or more solutions indicate that the protection status is disabled, then the protected item status is shown as **Protection disabled**.
+    - When one or more solutions indicate that the protection status is paused, then the protected item status is shown as **Protection paused**.
+    - When one or more solutions indicate that the protection status is pending, then the protected item status is shown as **Pending protection**.
+    - When all the configured solutions indicate that the protection status is protected, then the protected item status is shown as **Protected**.
+    - If there's no protection for a datasource in primary or secondary region, then the protected item status for that region is shown as **Not protected**.
+    - For example, if a resource is protected by both Azure Backup (with status **Protection paused**) and Azure Site Recovery (with status **Protected**), then the protection status for the region displays **Protection paused**.
 
 11.	Under **Scope**, when you choose the retention details, the view loads the retention information for the protected items. The Protected items retention table shows the retention details for each protected item in the primary and secondary regions.
     - **Resource name**: Lists the underlying resource that is protected.
