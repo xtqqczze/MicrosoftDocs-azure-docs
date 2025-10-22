@@ -252,7 +252,7 @@ items:
     items:
     - name: Migrate VMware servers 
       items:
-        - name: Assess VMWare servers  
+        - name: Assess VMware servers  
           href: tutorial-assess-vmware-azure-vm.md
         - name: Migrate to Azure Cloud
           href: tutorial-migrate-vmware.md
