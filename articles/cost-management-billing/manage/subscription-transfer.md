@@ -7,8 +7,7 @@ ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 09/15/2025
-# customer intent: As a billing administrator, I want to learn about transferring subscriptions so that I can transfer one.
+ms.date: 10/21/2025
 ---
 
 # Azure product transfer hub
