@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/03/2025
+ms.date: 10/22/2025
 ms.author: anfdocs
 ---
 # Configure advanced ransomware protection for Azure NetApp Files volumes (preview)
@@ -24,6 +24,7 @@ Advanced ransomware protections alert mechanisms enable you to stay vigilant in 
 
 ## Considerations 
 
+* Advanced ransomware protection is only available for newly created volumes. You must enable protection when you create the volume. 
 * Attack reports are retained for 30 days.  
 * Ransomware threat notifications are sent in the Azure Activity log.  
 * It’s recommended that you enable no more than five volumes per Azure region with advanced ransomware protection to mitigate performance issues. 
@@ -33,7 +34,7 @@ Advanced ransomware protections alert mechanisms enable you to stay vigilant in 
 
 Advanced ransomware protection is currently in preview. You must register the feature before using it for the first time. 
 
-1.  Register the feature
+1.  Register the feature:
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAntiRansomware
@@ -50,20 +51,22 @@ Advanced ransomware protection is currently in preview. You must register the fe
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-## Enable advanced ransomware protection
+## Enable advanced ransomware protection on a new volume
 
-
-<!-- tabs for new and existing -->
+1. Follow the workflow to create a new [NFS](azure-netapp-files-create-volumes.md), [SMB](azure-netapp-files-create-volumes-smb.md), or [dual-protocol](create-volumes-dual-protocol.md) volume.
+1. In the **Advanced Ransomware Protection** field of the Basics tab, select **Enabled**.
+1. After you create the volume, you can confirm your settings in the volume overview. If you've enabled ransomware protection, the **Advanced Ransomware Protection** shows as enabled. 
 
 ## Respond to ransomware threats  
 
 1. Select **Advanced Ransomware Protection** under the **Storage services** menu in the sidebar. 
 1. Suspected attacks are displayed under **Active threats**. Expand each threat to view the suspect files.  
 
-<!-- image -->
+    :::image type="content" source="./media/ransomware-configure/ransomware-threat.png" alt-text="Screenshot of ransomware threats." lightbox="./media/ransomware-configure/ransomware-threat.png":::
 
 1. If you know the files are **not** an active threat, mark the files as a **False positive**. 
-    If you believe the files are a threat, select **Threat**. You can then [revert the volume](snapshots-revert-volume.md) based on the last snapshot before the threat.
+
+    If you believe the files are a threat, select **Threat**. You can then [revert the volume](snapshots-revert-volume.md) based on the last snapshot captured before the threat.
 1. Once you've resolved the threat, you can view archived ransomware reports in the same page. Reports are archived for 30 days. 
 
 ## Pause ransomware protection  
