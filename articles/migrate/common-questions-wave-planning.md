@@ -26,22 +26,24 @@ Create, edit, delete and other wave operations can take time depending on the si
 1. Ensure deployments for each operation are complete. 
 1. Refresh the page using the Refresh action.
 
-## Explain why am I unable to add applications into the waves?
+## Explain why can't I add an application to a wave?
 
-Each workload in a migration wave can have only a unique  migration plan and be a part of only one wave. So if any workload of the application is part of another wave, then you will not be able to add the application as a whole to another wave. 
+Each workload in a migration wave can have only unique  migration plan and be part of only one wave. If any workload of an application is part of another wave, you can add the entire application to a different wave. 
 
-You can alternatively, switch to workload selection view, filter by the application name and add remianing workloads of the application to the wave.  
+Alternatively, switch to workload selection view, filter by the application name, and add the remianing workloads to the wave.  
 
-## Explain why workloads and application count added to the wave are different from what I selected in the creation flow?
+## Explain why workloads the application count added to the wave are different from what I selected in the creation flow?
+
 Followign are hte reasons why the workloads/apps selected for the wave may vary from the count which is actually added to the wave:
 
-1. The workload are not supported in Migration Waves. The workload would be omitted from the wave. Unsupported list includes:  
-    - PostGre SQL
-1. The workload is part of multiple applications. In this case migrating the workload will migrate a part of various applications and therefor the compelte list of applications are visible in the wave.
-1. The application contains unsupported workload. In this case, the application is split into workloads and the reamining of the worklaods are added to the wave. 
+1. The workloads aren't supported in migration Waves. Unsupported workloads are omited from the wave. Unsupported list includes: PostGre SQL.
+1. The workload is part of multiple applications. Migrating this workload moves parts of various applications, so the compelet list of applications appears in the wave.
+1. The application contains an unsupported workload. This application is split into multiple workloads, and the reamining ofworklaods are added to the wave. 
 
-## Which migrations executions are supported through Waves?
+## Which migration executions are supported through Waves?
 
-There are 2 cateogy of tracking supported in Azure Migrate: 
-1. **Automated tracking**: In scenarios where the Migration and modernization tool and approach is supported in Azure Migrate (such as Server Migration), you can perform migration and modernization actions through Waves and the status gets automatically updated
-1. **Manually tracking**: In scenarios where the Migration Tooling is not supported natively in Azure Migrate, (DMS, Others), you can manually udpate the status if the tasks (Mark as complete etc.). This way the waves status is kept latest to reflect hte stage in the migration nd modernization journey.
+There are two types of cateogy tracking in Azure Migrate: 
+
+1. **Automated tracking**: When Azure Migrate supports the migration tool and approach (for example, Server Migration), you can perform migration and modernization tasks through Waves, and the status updates automatically.
+
+1. **Manually tracking**: When Azure Migrate doesn't natively support migration tooling (for example, DMS or other tools), you manually update task status (for example, select **Mark as complete**). This keeps Waves status up to date and reflects the current stage in the migration and modernization journey.
