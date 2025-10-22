@@ -102,6 +102,7 @@ You can tag servers with critical risks to support effective planning and mitiga
 The **Servers card** shows a summary of all discovered servers with security risks. A server is considered at risk if it has at least one of the following issues:
 
   - End-of-support operating system
+  - 
   - End-of-support software
   - Known vulnerabilities (CVEs) in installed software or OS
   - Missing security or patch management software
