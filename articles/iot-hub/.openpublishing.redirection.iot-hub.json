@@ -391,6 +391,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-preview-mode.md",
+      "redirect_url": "/azure/iot-hub/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/includes/iot-hub-include-x509-ca-signed-support-note.md",
+      "redirect_url": "/azure/iot-hub/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-gateway-kit-c-get-started.md",
       "redirect_url": "/azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc",
       "redirect_document_id": false
