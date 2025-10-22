@@ -182,6 +182,8 @@
       href: howto-chat-completion-config.md
     - name: .NET
       href: quickstart-chat-completion-dotnet.md
+    - name: Go
+      href: quickstart-chat-completion-go.md
 - name: Feature management
   items:
   - name: Overview
@@ -399,6 +401,8 @@
     - name: Python
       items:
       - name: Feature reference
+        href: ./reference-python-provider.md
+      - name: Pypi
         href: https://pypi.org/project/azure-appconfiguration-provider/
       - name: Azure SDK for Python
         href: https://go.microsoft.com/fwlink/?linkid=2103727

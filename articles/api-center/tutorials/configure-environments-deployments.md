@@ -4,7 +4,7 @@ description: Augment the API inventory in your API center by adding information 
 author: dlepow
 ms.service: azure-api-center
 ms.topic: tutorial
-ms.date: 08/27/2025
+ms.date: 10/20/2025
 ms.author: danlep 
 #customer intent: As the owner of an Azure API center, I want a step by step introduction to adding API environments and deployments to my inventory.
 ---
@@ -13,28 +13,26 @@ ms.author: danlep
 
 This tutorial explains how to augment the inventory in your API center by adding information about API environments and deployments. 
 
-* An *environment* represents a location where an API runtime could be deployed, for example, an API management platform. 
+- An *environment* represents a location where an API runtime could be deployed, for example, an API management platform.
+- A *deployment* is a location, or address, where users can access an API.
 
-* A *deployment* is a location, or address, where users can access an API.
-
-For more information about APIs, deployments, and other entities that you can inventory in Azure API Center, see [Key concepts](key-concepts.md).
+For more information about APIs, deployments, and other entities that you can inventory in Azure API Center, see [Key concepts](../key-concepts.md).
 
 In this tutorial, you learn how to use the portal to:
 > [!div class="checklist"]
-> * Add information about API environments 
-> * Add information about API deployments
+> - Add information about API environments 
+> - Add information about API deployments
 
 ## Prerequisites
 
-* An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
-
-* One or more APIs registered in your API center. If you haven't registered any APIs already, see [Tutorial: Register APIs in your API inventory](register-apis.md). This tutorial uses the sample APIs you added from the previous tutorial.
+- An API center in your Azure subscription. To create one, see [Quickstart: Create your API center](../set-up-api-center.md).
+- One or more APIs registered in your API center. If you don't have any registered APIs, see [Tutorial: Register APIs in your API inventory](register-apis.md). This tutorial uses the sample APIs you added from the previous tutorial.
 
 ## Add an environment
 
 Use your API center to keep track of your real-world API environments. For example, you might use Azure API Management or another solution to distribute, secure, and monitor some of your APIs. Or you might directly serve some APIs using a compute service or a Kubernetes cluster. 
 
-Here you add information about a fictitious Azure API Management environment to your API center. If you prefer, add information about one of your existing environments. You'll configure both built-in metadata and any custom metadata that you defined in a [previous tutorial](add-metadata-properties.md).
+Here you add information about a fictitious Azure API Management environment to your API center. If you prefer, add information about one of your existing environments. Configure both your built-in metadata and any custom metadata that you defined in a [previous tutorial](add-metadata-properties.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com), then navigate to your API center.
 
@@ -56,7 +54,7 @@ Here you add information about a fictitious Azure API Management environment to 
     | **Instructions** | Optionally, select **Edit** and enter onboarding instructions in standard Markdown. | Instructions to onboard to APIs from the environment |
     | **Line of business** | If you added this custom metadata, optionally make a selection from the dropdown, such as **IT**. | Custom metadata that identifies the business unit that manages the environment |
 
-    :::image type="content" source="media/configure-environments-deployments/create-environment.png" alt-text="Screenshot of adding an API environment in the portal.":::
+    :::image type="content" source="./media/configure-environments-deployments/create-environment.png" alt-text="Screenshot of adding an API environment in the portal.":::
 
 1. Select **Create**. The environment appears on the list of environments.
 
@@ -74,7 +72,7 @@ Here you add a deployment by associating one of your APIs with the environment y
 
 1. On the **Conference API** page, under **Details**, select **Deployments** > **+ Add deployment**.
 
-1. In the **Add deployment** page, add the following information. If you previously defined the custom *Line of business* metadata or other metadata assigned to environments, you'll see them at the bottom of the page.
+1. In the **Add deployment** page, add the following information. If you previously defined the custom *Line of business* metadata or other metadata assigned to environments, you can see them at the bottom of the page.
 
     |Setting|Value|Description|
     |-------|-----|-----------|
@@ -86,16 +84,16 @@ Here you add a deployment by associating one of your APIs with the environment y
     | **Runtime URL** | Enter a base URL, for example, `https://api.contoso.com`. | Base runtime URL for the API in the environment  |
     | **Line of business** | If you added this custom metadata, optionally make a selection from the dropdown, such as **IT**. | Custom metadata that identifies the business unit that manages APIs in the environment |
 
-    :::image type="content" source="media/configure-environments-deployments/add-deployment.png" alt-text="Screenshot of adding an API deployment in the portal.":::
+    :::image type="content" source="./media/configure-environments-deployments/add-deployment.png" alt-text="Screenshot of adding an API deployment in the portal.":::
 
 1. Select **Create**. The deployment appears on the list of deployments.
 
 In this tutorial, you learned how to use the portal to:
 > [!div class="checklist"]
-> * Add information about API environments 
-> * Add information about API deployments
+> - Add information about API environments 
+> - Add information about API deployments
 
 ## Related content
 
-* [Learn more about Azure API Center](key-concepts.md)
-* [Track API resource dependencies](track-resource-dependencies.md)
+- [Learn more about Azure API Center](../key-concepts.md)
+- [Track API resource dependencies](../track-resource-dependencies.md)
