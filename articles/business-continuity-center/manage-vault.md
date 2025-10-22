@@ -19,7 +19,7 @@ By using the Resiliency in Azure, you can centrally manage the lifecycle of your
 
 ## Prerequisites
 
-Before you start managing your vaults using Resiliency, ensure you have the required resource permissions to view them  as part of the resiliency experiences.
+Before you start managing your vaults using Resiliency, ensure you have the required resource permissions to view them  as part of the Resiliency experiences.
 
 ## View vaults using Resiliency in Azure
 
