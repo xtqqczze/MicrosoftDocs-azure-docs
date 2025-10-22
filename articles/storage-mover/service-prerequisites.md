@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Mover Prerequisites
+title: Azure Storage Mover service prerequisites
 description: Learn about the prerequisites for using Azure Storage Mover, including the implementation of private networking.
 author: stevenmatthew
 ms.author: shaas
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/21/2025
 ---
 
-# Storage Mover prerequisites
+# Azure Storage Mover service prerequisites
 
 Azure Storage Mover is a fully managed service that facilitates the migration of data between either on-premises or cloud locations. Data within your various workloads, such as an applications or file shares, can be stored either on-premises or in another cloud environment. Examples of such data sources include on-premises file servers, Network Attached Storage (NAS) devices, or cloud storage services such as Amazon Web Services (AWS) Simple Storage Service (S3) buckets.
 
