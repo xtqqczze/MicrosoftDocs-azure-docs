@@ -287,34 +287,7 @@ Content-Length: 72\r\n\r\n{"jsonrpc": "2.0", "id": 0, "method": "bicep/version",
 
 The following methods are available through the JSON-RPC interface:
 
-- **bicep/version**
-
-  Returns the version of the Bicep CLI.
-  
-  * The request:
-  
-    ```json
-    {
-      "jsonrpc": "2.0",
-      "id": 0,
-      "method": "bicep/version",
-      "params": {}
-    }
-    ```
-    
-  * The response:
-  
-    ```json
-    {
-      "jsonrpc": "2.0",
-      "id": 0,
-      "result": {
-        "version": "0.24.211"
-      }
-    }
-    ```
-  
-- **bicep/format**
+* **bicep/format**
 
   Formats a Bicep file.
   
@@ -345,6 +318,33 @@ The following methods are available through the JSON-RPC interface:
     }
     ```
 
+* **bicep/version**
+
+  Returns the version of the Bicep CLI.
+  
+  * The request:
+  
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 0,
+      "method": "bicep/version",
+      "params": {}
+    }
+    ```
+
+  * The response:
+  
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 0,
+      "result": {
+        "version": "0.24.211"
+      }
+    }
+    ```
+
 For the available methods & request/response bodies, see [`ICliJsonRpcProtocol.cs`](https://github.com/Azure/bicep/blob/main/src/Bicep.Cli/Rpc/ICliJsonRpcProtocol.cs).
 For an example establishing a JSONRPC connection and interacting with Bicep files programmatically using Node, see [`jsonrpc.test.ts`](https://github.com/Azure/bicep/blob/main/src/Bicep.Cli.E2eTests/src/local/jsonrpc.test.ts).
 
@@ -366,7 +366,7 @@ N/A
 
 ---
 
-To connect to a named pipe on OSX/Linux :
+To connect to a named pipe on OSX/Linux:
 
 # [Bicep CLI](#tab/bicep-cli)
 
@@ -380,7 +380,7 @@ N/A
 
 ---
 
-To connect to a named pipe on Windows :
+To connect to a named pipe on Windows:
 
 # [Bicep CLI](#tab/bicep-cli)
 
