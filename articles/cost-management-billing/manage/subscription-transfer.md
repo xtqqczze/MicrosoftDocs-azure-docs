@@ -114,7 +114,7 @@ Some product transfers require you to manually move Azure resources between subs
 
 Microsoft doesn't provide a tool to automatically move resources between subscriptions. When needed, you must manually move Azure resources between subscriptions. For details, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Extra time and planning are needed when you have a large number of resources to move.
 
-### Other planning considerations
+## Other planning considerations
 
 ## Cost Management Considerations
 
