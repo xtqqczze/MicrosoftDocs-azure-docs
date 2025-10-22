@@ -6,7 +6,7 @@ ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/13/2025
+ms.date: 10/21/2025
 ms.author: nicholak
 ms.custom: sfi-image-nochange
 ---
