@@ -88,10 +88,9 @@ To create an assessment, follow these steps:
  
 7. On the **Advanced settings** tab, select **Edit defaults** to choose the preferred Azure targets and target-specific settings to meet your migration requirements. 
 
-    :::image type="content" source="./media/create-web-app-assessment/edit-defaults.png" alt-text="Screenshot shows how to edit defaults to choose the preferred target." lightbox="./media/create-web-app-assessment/edit-defaults.png" :::
+   :::image type="content" source="./media/create-web-app-assessment/edit-defaults.png" alt-text="Screenshot shows how to edit defaults to choose the preferred target." lightbox="./media/create-web-app-assessment/edit-defaults.png" :::
 
-::: moniker range="migrate"
-
+   ::: moniker range="migrate"
    **Infrastructure - Azure VM settings**
 
    :::image type="content" source="./media/create-web-app-assessment/infrastructure-azure-vm-settings-section.png" alt-text="Screenshot shows possible values for Azure VM settings." lightbox="./media/create-web-app-assessment/infrastructure-azure-vm-settings-section.png" :::
@@ -101,7 +100,7 @@ To create an assessment, follow these steps:
    | VM sizing | The Azure VM series that you want to consider for rightsizing. | All VM services are selected by default | 
    | Storage sizing | Specifies the type of target storage disk | - Premium managed disk<br> - Standard HDD managed disks<br> - Standard SSD managed disks<br> - Ultra disks |
    | Security settings | Security type of the VM | - Standard<br> - Trusted launch VM |
-::: moniker-end
+   ::: moniker-end
 
    **AKS settings**
 
@@ -160,6 +159,5 @@ Besides the values estimated for performance-based and as on-premises sizing, fo
 
 - Understand the [assessment insights](https://microsoftapc.sharepoint.com/:w:/t/AzureCoreIDC/EQ8jF5QuAeJDqoYwJ8Y_k1IBOH8E2zjyGIChYANVLUxRdw?e=WIsw26) to make data-driven decisions for web app modernization. 
 - [Optimize](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) Windows Dockerfiles. 
-- Review and implement [best practices](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) to build and manage apps on AKS. 
-:::moniker-end
+- Review and implement [best practices](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) to build and manage apps on AKS.
  
