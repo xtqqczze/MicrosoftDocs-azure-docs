@@ -33,8 +33,7 @@ By following this guide, you'll:
 
 A health services organization uses Amazon API Gateway for accessing a multi-backend health records system. This example scenario features a common configuration of Amazon API Gateway in an Amazon Web Services (AWS) environment, showing typical integrations with related Amazon services sand several common API backends including proxied Lambda functions and HTTP or REST APIs.  
   
-:::image type="complex" source="media/migrate-amazon-api-gateway-to-api-management/example-api-gateway-architecture.png" alt-text="API Gateway architecture where a user request flows through Cognito, WAF, and API Gateway to VPC endpoints hosting Lambda, EC2, and EKS.
-" lightbox="media/migrate-amazon-api-gateway-to-api-management/example-api-gateway-architecture.png":::
+:::image type="complex" source="media/migrate-amazon-api-gateway-to-api-management/example-api-gateway-architecture.png" alt-text="Amazon API Gateway architecture where a user request flows through Cognito, WAF, and API Gateway to VPC endpoints hosting Lambda, EC2, and EKS." lightbox="media/migrate-amazon-api-gateway-to-api-management/example-api-gateway-architecture.png":::
 "The diagram shows an Amazon API Gateway architecture integrated with multiple AWS services. On the far left, a user sends a request with a JWT and authenticates through Cognito. The flow moves right into Amazon WAF, then to API Gateway, which connects upward to a custom domain and downward to Certificate Manager for storing certificates and CloudWatch for monitoring. From API Gateway, three VPC endpoints branch out to the right, each leading into a VPC box containing private subnets. The top subnet hosts a Lambda function, the middle subnet contains an Application Load Balancer connected to an EC2 instance, and the bottom subnet has another Application Load Balancer connected to an EKS cluster. Arrows indicate sequential flow from the user through authentication and API Gateway to these backend components inside the VPC."
 	:::image-end:::  
 
@@ -54,7 +53,7 @@ This architecture includes:
 
 Here's an example architecture of the workload, migrated to Azure. In this scenario, Azure API Management is deployed in the Premium tier.  
   
-:::image type="complex" source="media/migrate-amazon-api-gateway-to-api-management/example-migrated-api-management-architecture.png" alt-text="Diagram of example architecture migrated to Azure API Management." lightbox="media/migrate-amazon-api-gateway-to-api-management/example-migrated-api-management-architecture.png":::
+:::image type="complex" source="media/migrate-amazon-api-gateway-to-api-management/example-migrated-api-management-architecture.png" alt-text="Azure API Management architecture where a user request flows through Microsoft Entra ID, Application Gateway, and API Management to Azure Functions, Azure Kubernetes Service, and Azure AI Foundry backends." lightbox="media/migrate-amazon-api-gateway-to-api-management/example-migrated-api-management-architecture.png":::
 "The diagram illustrates an Azure API Management architecture within a virtual network. On the far left, a user sends a request with a JWT and authenticates through Microsoft Entra ID. The flow enters an Application Gateway with WAF, which forwards traffic to API Management integrated with Entra ID. API Management validates the JWT and interacts with several components: it uses Redis cache for caching, stores certificates in Azure Key Vault, and monitors via Azure Monitor. Above API Management, a custom domain is linked to Azure DNS Zone, and Entra ID is shown as part of authentication. To the right, API Management connects to a Function App, which includes a function key, and also routes traffic through an Internal Load Balancer to a Kubernetes cluster. Additionally, Azure AI Foundry is shown as a connected service. Dashed arrows indicate relationships such as validation, monitoring, and certificate storage, while solid arrows represent the main request flow from the user through Application Gateway and API Management to backend services."
   :::image-end:::
 
@@ -254,11 +253,11 @@ Migration is expected to be a multiweek to multimonth process, depending on the 
 
   In the new Azure API Management instance, set up global configurations similar to those in Amazon API Gateway:
 
-    - **Custom hostname**: Add your custom domain to Azure API Management, upload the SSL certificate (or use Key Vault references), and perform validation. This can be done now or just before production cutover. When using Application Gateway (recommended), configure a listener with the custom domain and certificate, and point it to Azure API Management's internal endpoint. Configuring the listener simplifies configuration because it doesn't require domain validation.
-    
-    - **Networking and security**: Make sure Application Gateway (or other Azure entry point) is configured to forward requests to Azure API Management. Set up NSG rules or firewall rules so that Azure API Management can reach backend services such as your Azure backends or even the source AWS backends if initially pointing to them.
-    
-    - Enable **managed identity** on Azure API Management to call Azure services securely (like Key Vault for certificates or function apps).
+  - **Custom hostname**: Add your custom domain to Azure API Management, upload the SSL certificate (or use Key Vault references), and perform validation. This can be done now or just before production cutover. When using Application Gateway (recommended), configure a listener with the custom domain and certificate, and point it to Azure API Management's internal endpoint. Configuring the listener simplifies configuration because it doesn't require domain validation.
+  
+  - **Networking and security**: Make sure Application Gateway (or other Azure entry point) is configured to forward requests to Azure API Management. Set up NSG rules or firewall rules so that Azure API Management can reach backend services such as your Azure backends or even the source AWS backends if initially pointing to them.
+  
+  - Enable **managed identity** on Azure API Management to call Azure services securely (like Key Vault for certificates or function apps).
 
 By the end of this phase, you should have a working shell of Azure API Management in Azure with connectivity and the basic framework ready to start importing APIs.
 
@@ -340,7 +339,7 @@ By the end of this phase, you should have a working shell of Azure API Managemen
 
     **DNS switch:** The most common approach is to switch the DNS entry of your custom Amazon API Gateway domain to point to the new Azure endpoint. For example, if your domain api.example.com was mapped to Amazon API Gateway, you would update its CNAME or A record to point to the Azure API Management hostname or to the front-end (like Application Gateway) domain.  
 
-        TTL considerations: Lower the DNS TTL beforehand so that clients pick up changes quickly. When ready, change the DNS. It can take minutes to hours to propagate, during which time some traffic might still go to AWS and some to Azure. If an immediate cut is needed, you can use an alternate method such as a reverse-proxy approach.
+      TTL considerations: Lower the DNS TTL beforehand so that clients pick up changes quickly. When ready, change the DNS. It can take minutes to hours to propagate, during which time some traffic might still go to AWS and some to Azure. If an immediate cut is needed, you can use an alternate method such as a reverse-proxy approach.
 
     **Alternative cutover methods**: Sometimes, instead of DNS, organizations use a reverse proxy/gateway flip – for example, keep the public DNS the same but initially have Application Gateway forward requests to Amazon API Gateway (via its URL), and when flipping, point it to Azure API Management internally. This approach, while more complex, can achieve an instantaneous switch. Another method if using Azure Front Door or Traffic Manager is to reweight traffic from one backend (AWS) to another (Azure) gradually.
 
