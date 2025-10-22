@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 10/21/2025
+ms.date: 10/22/2025
 ---
 
 # Azure Storage Mover service prerequisites

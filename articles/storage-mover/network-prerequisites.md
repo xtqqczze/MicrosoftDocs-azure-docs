@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 10/08/2025
+ms.date: 10/22/2025
 ---
 
 # Storage Mover networking prerequisites
@@ -27,7 +27,19 @@ This article outlines the key requirements and configuration steps necessary to 
 
 ## Networking overview
 
-When Azure Storage Mover is deployed in a private networking environment, several components must be configured to ensure secure and efficient operation. The Storage Mover Agent, which performs the actual data migration tasks, needs to connect to various Azure services. Some of these services support private endpoints, while others require public endpoint access. 
+When Azure Storage Mover is deployed in a private networking environment, several components must be configured to ensure secure and efficient operation. The Storage Mover Agent, which performs the actual data migration tasks, needs to connect to various Azure services. Some of these services support private endpoints, while others require public endpoint access.
+
+### Required ports
+
+A storage mover agent supports both SMB and NFS clients. The following list of ports must be enabled between a Storage Mover Agent VM, a storage VM, and an Azure Fileshare. 
+
+| Service                   | Port and Protocol | Source VM | Target VM        |
+|---------------------------|-------------------|-----------|------------------|
+| SMB                       | 445/TCP           | Agent VM  | Storage VM       |
+| NFS                       | 2049/TCP          | Agent VM  | Storage VM       |
+| Blob or File Share target | 443/HTTPS         | Agent VM  | Azure File Share |
+
+### Required services and endpoints
 
 The following table provides a summary of the required services, their endpoint types, and whether private access is supported. Because your network settings must allow the Storage Mover Agent to connect over HTTPS to the service's endpoints, the Fully Qualified Domain Name (FQDN) is also included.
 
