@@ -214,15 +214,15 @@ def home():
 
 1. Open your browser and navigate to the address displayed in your terminal (by default, http://127.0.0.1:5000). You should see the default view of the app.
 
-    :::image type="content" source="media/howto-targetingfilter-python/beta-disabled.png" alt-text="Screenshot of the app, showing the default greeting message.":::
+    :::image type="content" source="media/how-to-targeting-filter-python/beta-disabled.png" alt-text="Screenshot of the app, showing the default greeting message.":::
 
 1. Add `userId` as a query parameter in the URL to specify the user ID. Visit `localhost:5000/?userId=test@contoso.com`. You see the beta page, because `test@contoso.com` is specified as a targeted user.
 
-    :::image type="content" source="media/howto-targetingfilter-python/beta-enabled.png" alt-text="Screenshot of the app, showing the beta page.":::
+    :::image type="content" source="media/how-to-targeting-filter-python/beta-enabled.png" alt-text="Screenshot of the app, showing the beta page.":::
 
 1. Visit `localhost:5000/?userId=testuser@contoso.com`. You cannot see the beta page, because `testuser@contoso.com` is specified as an excluded user.
 
-    :::image type="content" source="media/howto-targetingfilter-python/beta-not-targeted.png" alt-text="Screenshot of the app, showing the default content.":::
+    :::image type="content" source="media/how-to-targeting-filter-python/beta-not-targeted.png" alt-text="Screenshot of the app, showing the default content.":::
 
 ## Next steps
 

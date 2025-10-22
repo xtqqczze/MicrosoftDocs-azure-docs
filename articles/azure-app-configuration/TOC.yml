@@ -225,7 +225,7 @@
     - name: Go Gin
       href: howto-targetingfilter-go.md
     - name: Python
-      href: howto-targetingfilter-python.md
+      href: how-to-targeting-filter-python.md
   - name: Use variant feature flags
     items:
     - name: Overview
