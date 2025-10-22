@@ -6,24 +6,24 @@ ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
   - ignite-2024
-ms.date: 11/19/2024
+ms.date: 11/01/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ---
 
 # Tutorial: Review security posture
 
-This tutorial describes how to review and modify the security level for protected items in Azure Business Continuity Center.
+This tutorial describes how to review and modify the security level for protected items in Resiliency in Azure.
 
-Azure Backup provides security features at the vault level to safeguard the backup data stored in it. These security measures encompass the settings associated with the Azure Backup solution for the vault and apply to the protected data sources contained within the vault.
+Azure Backup provides security features at the vault level to safeguard the backup data stored in it. The vault security measures encompass the settings associated with the Azure Backup solution for the vault and apply to the protected data sources contained within the vault.
 
-Azure Business Continuity Center allows you to view the security level for each protected item from the security posture view.
+Resiliency in Azure allows you to view the security level for each protected item from the security posture view.
 
 ## View security level
 
 To view the security level for protected items, follow these steps:
 
-1. On **Business Continuity Center**, go to **Security + Threat management** > **Security posture**.
+1. On **Resiliency**, go to **Security + Threat management** > **Security posture**.
 
     :::image type="content" source="./media/tutorial-review-security-posture/select-security-posture.png" alt-text="Screenshot shows the security posture selection.":::
 
@@ -33,18 +33,18 @@ To view the security level for protected items, follow these steps:
 
    To effectively look for specific items, use the filters, such as subscriptions, resource groups, location, resource type, and so on. 
 
-3.	To change the default view in Azure Business Continuity Center using the **scope picker** from **Currently showing: Protection status details of Azure managed Active resources**, select **Change**.
+3.	To change the default view in Resiliency using the **scope picker** from **Currently showing: Protection status details of Azure managed Active resources**, select **Change**.
 
     :::image type="content" source="./media/tutorial-review-security-posture/select-active-under-change-scope.png" alt-text="Screenshot shows the change scope view." lightbox="./media/tutorial-review-security-posture/select-active-under-change-scope.png":::
 
 4. On the **Change scope** blade, to change the scope for **Security posture** view from the scope picker, select the following options, and select **Update**.
     - **Resource status**: 
-        - **Active resources** - Resources that are currently active, which are not deleted.
+        - **Active resources** - Resources that are currently active, which aren't deleted.
         - **Deprovisioned resources** - Describes resources that no longer exist, yet their backup and recovery points are retained.
 
-   The BCDR Security assessment score shows the percentage and count of the protected items having adequate or maximum security.
+   The resiliency Security assessment score shows the percentage and count of the protected items having adequate or maximum security.
 
-   :::image type="content" source="./media/tutorial-review-security-posture/bcdr-security-assessment.png" alt-text="Screenshot shows bcdr security assessment selection view." lightbox="./media/tutorial-review-security-posture/bcdr-security-assessment.png":::
+   :::image type="content" source="./media/tutorial-review-security-posture/bcdr-security-assessment.png" alt-text="Screenshot shows resiliency security assessment selection view." lightbox="./media/tutorial-review-security-posture/bcdr-security-assessment.png":::
 
 5. On **Security posture**, the summary cards display an aggregated count for each security level, considering the applied filters. Select these cards to refine the filtering of the Protected items table.
 
@@ -64,9 +64,9 @@ To view the security level for protected items, follow these steps:
 
    :::image type="content" source="./media/tutorial-review-security-posture/select-view-details.png" alt-text="Screenshot shows the view details selection." lightbox="./media/tutorial-review-security-posture/select-view-details.png":::
 
-9.	Azure Business Continuity Center provides in-built help to learn more about these security levels. Select **learn more** to access it.
+9.	Resiliency in Azure provides built-in help to learn more about these security levels. Select **learn more** to access it.
 
-    :::image type="content" source="./media/tutorial-review-security-posture/select-learn-more.png" alt-text="Screenshot shows learn more selection." lightbox="./media/tutorial-review-security-posture/select-learn-more.png":::
+    :::image type="content" source="./media/tutorial-review-security-posture/select-learn-more.png" alt-text="Screenshot shows learn more selections." lightbox="./media/tutorial-review-security-posture/select-learn-more.png":::
 
      On the **Security level details** blade, the help provides guidance on the various security levels and the settings that are required to meet each level. 
 
@@ -74,11 +74,11 @@ To view the security level for protected items, follow these steps:
 
 ## Modify security level
 
-In Azure Business Continuity Center, you can change the security level for a protected item. 
+In Resiliency in Azure, you can change the security level for a protected item. 
 
 To modify the security level for an item, follow these steps:
 
-1. On **Business Continuity Center**, go to **Security + Threat management** > **Security posture**, and then select an **item name** for a datasource. 
+1. On **Resiliency**, go to **Security + Threat management** > **Security posture**, and then select an **item name** for a datasource. 
 
     :::image type="content" source="./media/tutorial-review-security-posture/select-item-name.png" alt-text="Screenshot shows the item name selection for a datasource." lightbox="./media/tutorial-review-security-posture/select-item-name.png":::
 
@@ -90,7 +90,7 @@ To modify the security level for an item, follow these steps:
 
     :::image type="content" source="./media/tutorial-review-security-posture/modify-security-settings.png" alt-text="Screenshot shows the modify-security settings option on properties page.":::
 
-     It might take a while to get the security level settings implemented in Azure Business Continuity Center.
+     It might take a while to get the security level settings implemented in Resiliency.
 
      When you modify the security setting for a vault, it gets applied to all the protected datasources by Azure Backup in that vault.
 

@@ -1,8 +1,8 @@
 ---
 title: Tutorial - View protectable resources
-description: In this tutorial, learn how to view your resources that are currently not protected by any solution using Azure Business Continuity Center.
+description: In this tutorial, learn how to view your resources that are currently not protected by any solution using Resiliency in Azure.
 ms.topic: tutorial
-ms.date: 08/20/2025
+ms.date: 11/01/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -13,34 +13,32 @@ ms.author: v-mallicka
 
 # Tutorial: View protectable resources 
 
-This tutorial shows you how to view your resources that are currently not protected by any solution, using Azure Business Continuity (ABC) center. 
-
-For more context and examples on ABCC’s inventory capabilities for unprotected resources and available protection solutions, see this [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/business-continuity-with-abcc-part-2-understand-your-protectable-resources-inven/4009914).
+This tutorial describes how to view your resources that are currently not protected by any solution, using Resiliency in Azure. 
 
 ## Prerequisites
 
-Before you start this tutorial:
+Before you start viewing protectable resources, ensure the following prerequisites are met:
 
-- Review [supported regions for ABC Center](business-continuity-center-support-matrix.md#supported-regions).
-- Ensure you have the required resource permissions to view them in the ABC center.
+- Review [supported regions for Resiliency in Azure](business-continuity-center-support-matrix.md#supported-regions).
+- Ensure you have the required resource permissions to view them in the Resiliency.
 
 ## View protectable resources
 
-As a business continuity and disaster recovery admin, the first stage in the journey is to identify your critical resources that do not have backup or replication configured.  In case of any outage, malicious attack, or operational failures, these resources can’t be recovered in primary or secondary region, which can then lead to data loss. 
+As a resiliency admin, the first stage in the journey is to identify your critical resources that don't have backup or replication configured. During any outage, malicious attack, or operational failures, these resources can’t be recovered in primary or secondary region, which can then lead to data loss. 
 
 To view the protectable resources, follow these steps:
 
-1. Go to the Azure Business Continuity Center from the Azure portal.
+1. Go to the Resiliency from the Azure portal.
 1. Select **Protectable resources** under the **Protection inventory** section. 
 
     :::image type="content" source="./media/tutorial-view-protectable-resources/protection-inventory.png" alt-text="Screenshot showing **Protectable resources** option." lightbox="./media/tutorial-view-protectable-resources/protection-inventory.png":::
  
-In this view, you can see a list of all the resources which are not protected by any solution across subscription, resource groups, location, type, and more along with their properties. To view further details for each resource, you can select any resource name, subscription, or resource group from the list.
+In this view, you can see a list of all the resources, which aren't protected by any solution across subscription, resource groups, location, type, and more along with their properties. To view further details for each resource, you can select any resource name, subscription, or resource group from the list.
 
 > [!NOTE]
 > Currently, you can only view the unprotected Azure resources under **Protectable resources**.
 
-You can also query information on your protectable Azure resources at no additional cost using Azure Resource Graph (ARG). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions. 
+You can also query information on your protectable Azure resources at no extra cost using Azure Resource Graph (ARG). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions. 
 
 To get started with querying your protectable Azure resources using ARG, you can use the sample query provided by selecting **Open query**.
 
@@ -58,4 +56,4 @@ By default, only Azure Virtual machines are shown in the **Protectable resources
 
 ## Next steps
 
-[Configure protection from ABC center](./tutorial-configure-protection-datasource.md).
+[Configure protection from Resiliency in Azure](./tutorial-configure-protection-datasource.md).
