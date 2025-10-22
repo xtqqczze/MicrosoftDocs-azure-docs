@@ -1,6 +1,6 @@
 ---
-title: Execute and Track Migration Waves in Azure Migrate
-description: Learn how to execute and track migration waves in Azure Migrate. Understand supported and manual execution flows, update statuses, and monitor migration progress efficiently.
+title: Execute and Track Waves in Azure Migrate
+description: Learn how to execute and track waves in Azure Migrate. Understand supported and manual execution flows, update statuses, and monitor migration progress efficiently.
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
@@ -10,13 +10,13 @@ ms.date: 10/15/2025
 # Customer intent: To understand how to execute and track migration waves in Azure Migrate, including supported and manual execution flows, and learn how to monitor migration progress and update statuses during the migration phase.
 ---
 
-# Execute and track migration Waves in Azure Migrate (heading changed)
+# Execute and track Waves in Azure Migrate
 
-This phase begins when you reach the planned migration start time and perform migration and modernization activities within the scheduled time window.
+This phase begins when you reach the planned start time and perform migration and modernization activities within the scheduled time window.
 
 Azure Migrate provides two types of execution and tracking flows, based on whether the workload migration from source to target is supported:
 
-1. **Azure Migreate supports execution activities**: When Azure Migrate supports execution, Wave Planning enables automated execution and tracking. You can start migration and modernization flows through wave execution, take actions, and track statuses. For example, you can perform server migration tasks such as replication, test migration, and cutover, and monitor progress automatically.
+1. **Azure Migrate supports execution activities**: When Azure Migrate supports execution, Wave Planning enables automated execution and tracking. You can start migration and modernization flows through wave execution, take actions, and track statuses. For example, you can perform server migration tasks such as replication, test migration, and cutover, and monitor progress automatically.
 1. **Azure Migrate doesn't support these execution activities**: Azure Migrate doesn’t support several workload and application migration or modernization activities. In such cases, you plan and track the activities in Azure Migrate and manually update their status for centralized tracking. Execute these activities outside Azure Migrate.
 
 ## Executing Waves
@@ -65,4 +65,4 @@ To view detailed workload status, follow the steps:
 
 ## Next steps
 
-Add next steps
+Learn more about [Optimize work loads](/azure/cloud-adoption-framework/modernize/optimize-after-cloud-modernization)

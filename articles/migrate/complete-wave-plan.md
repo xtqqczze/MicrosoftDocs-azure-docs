@@ -1,6 +1,6 @@
 ---
-title: High-Fidelity Azure Migration Planning for Modernization
-description: Learn how to plan Azure migrations with high fidelity. Identify targets, tools, tasks, and prerequisites to ensure predictable modernization without delays.
+title: High-Fidelity Azure Execution Planning for Modernization
+description: Learn how to plan Azure execution with high fidelity. Identify targets, tools, tasks, and prerequisites to ensure predictable modernization without delays.
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
@@ -10,7 +10,7 @@ ms.date: 10/15/2025
 # Customer intent: Understand concepts such as migration targets, prerequisites, and wave planning. Also, plan and execute a predictable migration and modernization process using Azure Migrate.
 ---
 
-# High-fidelity migration planning for predictable modernization (changed the heading)
+# High-fidelity execution planning for predictable migration and modernization 
 
 Creating a high-fidelity plan including all the migration details is essential for ensuring predictable migration and modernization without deviations and plans and outcomes. The primary details include:
 
@@ -19,7 +19,7 @@ Creating a high-fidelity plan including all the migration details is essential f
 1. Activities to be performed during migration and modernization.
 1.  Timeline and prerequisites to prepare for migration.
 
-## Assess Azure migration targets before moving workloads - (Changed the heading)
+## Identify Azure migration targets before moving workloads - (Changed the heading)
 
 Before migrating workloads and applications, you should identify the Azure destination and determine the appropriate method for moving them. The assessment provides recommendations and details about migration targets in Azure.
 
@@ -84,10 +84,8 @@ After you identify all tasks and activities, review and update the planned start
 
 After you identify the migration and modernization activities, configure the target settings, and complete the prerequisites, the wave transitions to the Ready for Execution stage.
 
-**<Image 4.7 Wave Ready for Execution>>**  
-
 You can perform the wave planning for multiple waves in a similar way.
 
 ## Next steps
 
-Add next steps
+- Learn more about [execute your wave using Azure Migrate](execute-track-waves.md).
