@@ -65,7 +65,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
 
 ## Feature flag declaration
 
-Each feature flag has two parts: a name and a list of one or more filters that are used to evaluate if a feature's state is *on* (that is, when its value is `True`). A filter defines a use case for when a feature should be turned on.
+Each feature flag has two parts: an id and a list of one or more filters that are used to evaluate if a feature's state is *on* (that is, when its value is `True`). A filter defines a use case for when a feature should be turned on.
 
 When a feature flag has multiple filters, the filter list is traversed in order until one of the filters determines the feature should be enabled. At that point, the feature flag is *on*, and any remaining filter results are skipped. If no filter indicates the feature should be enabled, the feature flag is *off*.
 
@@ -74,11 +74,11 @@ The feature manager supports *application.yml* as a configuration source for fea
 ```yml
 feature-management:
   feature_flags:
-  - name: feature-a
+  - id: feature-a
     enabled: true
-  - name: feature-b
+  - id: feature-b
     enabled: false
-  - name: feature-c
+  - id: feature-c
     enabled: true
     conditions:
       client_filters:
