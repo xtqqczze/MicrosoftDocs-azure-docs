@@ -15,7 +15,7 @@ This function doesn't exist in the Azure Resource Manager template runtime. The 
 > [!NOTE]
 > To help resolve type errors, let us know when missing or incorrect types required you to use the `any()` function. Add your details to the [missing type validation/inaccuracies](https://github.com/Azure/bicep/issues/784) GitHub issue.
 
-## Syntax for the any() function
+## Syntax for the Bicep any() function
 
 `any(value)`
 
