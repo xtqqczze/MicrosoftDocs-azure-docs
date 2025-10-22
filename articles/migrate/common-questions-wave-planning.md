@@ -17,14 +17,14 @@ This article answers common questions about Wave Planning in Azure Migrate.
 
 ## Is wave planning mandatory for migrations?
 
-No, wave planning is not a mandatory step for performing migrations using Azure migrate. However, wave planning provides a guided step by step flow for planning and executing timely migrations helping through perform timely large scale migrations. 
+No, wave planning isn't a mandatory to migrate with Azure Migrate. It's a guided, step by step process that helps you plan and execute large scale migrations on time. 
 
 ## How do I ensure waves shows latest data? 
 
-Create, edit, delete and other wave operations may take time depending on the size of the wave. To ensure that you are viewing hte latest data, ensure that
+Create, edit, delete and other wave operations can take time depending on the size of the wave. To see the latest data,do the following
 
-1. The deployments for each operation is complete. 
-1. You refresh the page using the Refresh action
+1. Ensure deployments for each operation are complete. 
+1. Refresh the page using the Refresh action.
 
 ## Explain why am I unable to add applications into the waves?
 
