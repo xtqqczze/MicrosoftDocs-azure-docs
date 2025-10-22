@@ -361,6 +361,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-no-sdk.md",
+      "redirect_url": "/azure/iot-hub/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-echo-csharp.md",
       "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
       "redirect_document_id": false
