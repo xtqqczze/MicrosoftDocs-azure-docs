@@ -55,7 +55,7 @@ az k8s-extension create --cluster-name
 
 `--cluster-type -t`
 
-* Specify Azure Arc clusters, Azure Kubernetes Service (AKS) managed clusters, Azure Arc appliances, or provisioned clusters.
+* Specify Azure Arc clusters, Azure Kubernetes Service (AKS) managed clusters, Azure Arc appliances, or `provisionedClusters`.
 * Accepted values: `connectedClusters`.
 
 `--extension-type`
@@ -108,7 +108,7 @@ az k8s-extension create --cluster-name
 `--config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=`
 
 * This configuration is an optional parameter. It comes into play only when container network functions (CNFs) are installed in the corresponding release namespace.  
-* This configuration configures more granular control on top of rules and `namespaceSelectors`.
+* This configuration sets more granular control on top of rules and `namespaceSelectors`.
 * Default value:
 
   ```bash
@@ -118,7 +118,7 @@ az k8s-extension create --cluster-name
   The referenced match condition implies that the pods getting accepted in the `kube-system` namespace are mutated only if they have at least one of the following labels: `app == "commissioning"`, `app == "descheduler"`, or `name == "cert-exporter"`. Otherwise, they aren't mutated and continue to be pulled from the original source in accordance with the Helm chart of the CNF, component, or application.  
 * Accepted value: Any valid Common Expression Language (CEL) expression.
 * You can set or update this parameter during installation or update of the NFO extension.  
-* This condition comes into play only when the CNF, component, or application is being installed into the namespace in accordance with the rules and `namespaceSelectors`. If you create more pods in that namespace, this condition is applied.
+* This condition comes into play only when you're installing the CNF, component, or application into the namespace in accordance with the rules and `namespaceSelectors`. If you create more pods in that namespace, this condition is applied.
 
 #### Cluster registry
 
@@ -187,14 +187,14 @@ az k8s-extension create --cluster-name
 `--config global.networkfunctionextension.clusterRegistry.storageSize=`
 
 * You must provide this configuration when `global.networkfunctionextension.enableClusterRegistry=true`.
-* This configuration configures the size that we reserve for the cluster registry.
+* This configuration sets the size that we reserve for the cluster registry.
 * This configuration uses units as Gi and Ti for sizing.
 * Default value: `100Gi`
 
 `--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence=`
 
 * You must provide this configuration as a schedule in standard Unix Crontab format.
-* This configuration specified as an empty string disables the scheduled job, allowing customers to opt out of running garbage collection.
+* This configuration, specified as an empty string, disables the scheduled job so that you can opt out of running garbage collection.
 * Default value: `0 0 * * *`. Runs the job once every day.
 
 `--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold=`

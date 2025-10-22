@@ -19,7 +19,7 @@ Azure Operator Service Manager caters to large-scale operator environments. It a
 
 Managing a complex network service lifecycle efficiently and reliably can be a challenge. Azure Operator Service Manager offers a unique approach that introduces curated experiences for publishers, designers, and operators.
 
-The publisher role first onboards the network function to create a network function description (NFD). The designer role then onboards the network service to create a network service design (NSD) and configuration group schema (CGS). The operator role deploys a site network service to provide the site and runtime configuration group values (CGVs). These personas deploy a complete service stack that stretches across platforms, software, and configuration requirements, as illustrated in the following workflows.
+The publisher role first onboards the network function (NF) to create a network function description (NFD). The designer role then onboards the network service to create a network service design (NSD) and configuration group schema (CGS). The operator role deploys a site network service to provide configuration group values (CGVs) for the site and runtime. These personas deploy a complete service stack that stretches across platforms, software, and configuration requirements, as illustrated in the following workflows.
 
 :::image type="content" source="media/overview-deployment-workflows.png" alt-text="Diagram that shows Azure Operator Service Manager deployment workflows." lightbox="media/overview-deployment-workflows-lightbox.png":::
 
@@ -27,9 +27,9 @@ The publisher role first onboards the network function to create a network funct
 
 ### Orchestration of service platforms
 
-The deep integration of Azure Operator Service Manager with Azure Operator Nexus helps ensure comprehensive coverage of infrastructure operations required for any network function type.
+The deep integration of Azure Operator Service Manager with Azure Operator Nexus helps ensure comprehensive coverage of infrastructure operations that any NF type requires.
 
-For virtual network functions (VNFs), create L2/L3 isolation domains, network resources, the trunk, and content service network (CSN) resources. For container network functions (CNFs), create the initial Nexus Azure Kubernetes Service (NAKS) cluster, finalize the cluster, and then test the cluster for standards/security compliance.
+For virtual network functions (VNFs), create Layer 2 and Layer 3 isolation domains, network resources, the trunk, and content service network (CSN) resources. For container network functions (CNFs), create the initial Nexus Azure Kubernetes Service (NAKS) cluster, finalize the cluster, and then test the cluster for standards/security compliance.
 
 ### Flexible service composition
 
@@ -73,7 +73,7 @@ Services installed on the customer edge cluster undergo rigorous security testin
 
 ### Automation and AI
 
-Achieve continuous integration and delivery by combining Azure Operator Service Manager with Azure DevOps. Pull new software releases directly from the latest repository, deploy by using Azure safe practices, and scale from one site to thousands of sites.
+Achieve continuous integration and continuous delivery (CI/CD) by combining Azure Operator Service Manager with Azure DevOps. Pull new software releases directly from the latest repository, deploy by using Azure safe practices, and scale from one site to thousands of sites.
 
 Go further by influencing workflow decisions with data-driven insights and actions. Integrate with any Azure analytics or AI services, including Microsoft Fabric, Azure Data Explorer, Azure Logic Apps, and Microsoft Copilot.
 

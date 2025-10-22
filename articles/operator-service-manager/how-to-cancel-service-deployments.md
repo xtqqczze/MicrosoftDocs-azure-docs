@@ -14,7 +14,7 @@ This article describes a method to interrupt a site network service (SNS) deploy
 
 ## Why interrupt a service deployment operation
 
-Azure Operator Service Manager deploys complex CNF workloads, which consist of many individual components (Helm charts). When you start an SNS deployment, each component is processed sequentially, in the order defined in the network function design (NFD). Depending on how many components are touched in a deployment, the SNS operation can take an extended time to finish.
+Azure Operator Service Manager deploys complex CNF workloads, which consist of many individual components (Helm charts). When you start an SNS deployment, each component is processed sequentially, in the order that the network function design (NFD) defines. Depending on how many components are touched in a deployment, the SNS operation can take an extended time to finish.
 
 As an example, consider a scenario where a CNF has 30 components. Each component takes 5 minutes to deploy. The total run time of this operation would exceed 2 hours. Now, consider operational issues with long-running deployment operations:
 
@@ -22,7 +22,7 @@ As an example, consider a scenario where a CNF has 30 components. Each component
 * Users might realize, after starting the operation, that an error exists in a component configuration.
 * The operation might create an unexpected negative impact on a customer-facing service.
 
-In such cases, an ability to interrupt the operation is desirable. Before the introduction of this interruption capability, the only option was to wait for the defective component to fail. With this interruption capability, you can proactively interrupt long-running deployments before they reach the defective component. This capability minimizes delays and improves operational agility.
+In such cases, an ability to interrupt the operation is desirable. Before the introduction of this interruption capability, the only option was to wait for the defective component to fail. With this interruption capability, you can proactively interrupt long-running deployments before they reach the defective component. This interruption minimizes delays and improves operational agility.
 
 ## Overview of service deployment operations
 
