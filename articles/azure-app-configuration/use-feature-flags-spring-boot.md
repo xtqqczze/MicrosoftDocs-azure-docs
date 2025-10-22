@@ -84,7 +84,7 @@ feature-management:
       client_filters:
       - name: PercentageFilter
         parameters:
-            Value: 50
+          Value: 50
 ```
 
 By convention, the `feature-management` section of this YML document is used for feature flag settings. The prior example shows three feature flags with their filters defined in the `EnabledFor` property:
