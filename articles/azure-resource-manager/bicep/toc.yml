@@ -492,6 +492,8 @@ items:
                 displayName: linter
               - name: No deployments resources
                 href: linter-rule-no-deployments-resources.md
+              - name: No explicit Any
+                href: linter-rule-no-explicit-any.md
                 displayName: linter
               - name: No hardcoded environment URLs
                 href: linter-rule-no-hardcoded-environment-urls.md
