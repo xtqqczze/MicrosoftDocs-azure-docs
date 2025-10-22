@@ -1141,7 +1141,7 @@
         "articles/avere-vfxt/**/*.yml": "wwilliams, jushiman",
         "articles/azure-boost/**/*.yml": "wwilliams, jushiman",
         "articles/azure-compute-fleet/**/*.yml": "jushiman",
-        "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "azfuncdf, jiayma",
+        "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "azfuncdf",
         "articles/azure-large-instances/**/*.yml": "jacobjaygbay",
         "articles/azure-netapp-files/**/*.yml": "padmalathas",
         "articles/azure-vmware/**/*.yml": "jacobjaygbay",

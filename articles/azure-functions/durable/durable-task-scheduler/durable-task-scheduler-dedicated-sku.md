@@ -20,13 +20,13 @@ An action is one of the fundamental billing units in the Durable Task Scheduler,
 
 The following functions are each triggered by one action:
 
-- Starting an orchestration or sub-orchestration  
+- Starting an orchestration or suborchestration  
 - Starting an activity 
 - Completing a timer 
 - Triggering an external event
 - Executing an entity operation 
 - Suspending, resuming, or terminating an orchestration
-- Processing the result of an activity, entity call, entity lock, or sub-orchestration 
+- Processing the result of an activity, entity call, entity lock, or suborchestration 
 
 ### Actions breakdown
 
@@ -36,14 +36,14 @@ Let's say you have an orchestration that calls three different activities.
 
 In this example, you can see how Durable Task Scheduler processes each action:
 
-- Orchestrator start (`RunOrchestrator`) uses 1 action
-- Activity 1 (`(nameof(SayHello), "Tokyo")`) uses 2 actions:
+- Orchestrator start (`RunOrchestrator`) uses one action
+- Activity 1 (`(nameof(SayHello), "Tokyo")`) uses two actions:
    - Scheduling the activity
    - Processing the result
-- Activity 2 (`(nameof(SayHello), "Seattle")`) uses 2 actions:
+- Activity 2 (`(nameof(SayHello), "Seattle")`) uses two actions:
    - Scheduling the activity
    - Processing the result
-- Activity 3 (`(nameof(SayHello), "London")`) uses 2 actions:
+- Activity 3 (`(nameof(SayHello), "London")`) uses two actions:
    - Scheduling the activity
    - Processing the result
 
@@ -53,7 +53,7 @@ You can use a formula to calculate the number of actions per orchestration:
 
 > (Activity Count \* 2) + 1 = Total Number of Actions Per Orchestration
 
-In the example above, the total calculation would be: 
+In the previous example, the total calculation would be: 
 
 > 1 (orchestration) + Activity 1 + Activity 2 + Activity 3 = 7 actions
 
@@ -62,7 +62,7 @@ In the example above, the total calculation would be:
 
 ## Available SKUs
 
-Durable Task Scheduler offers two SKU options.
+Durable Task Scheduler offers two SKU options: Dedicated and Consumption (preview).
 
 |                 | Consumption SKU (preview)       | Dedicated SKU                     |
 |-----------------|---------------------------------|-----------------------------------|
@@ -75,15 +75,17 @@ Durable Task Scheduler offers two SKU options.
 | Best For        | Variable workloads, development | Predictable workloads, enterprise |
 
 > [!NOTE]
-> Currently, the Consumption SKU is in preview. It's recommended to use the Dedicated SKU in production.
+> Currently, the Consumption SKU is in preview. Use the Dedicated SKU in production.
+
+#### [Dedicated SKU](#tab/dedicated)
 
 ### Dedicated SKU
 
-The Dedicated SKU provides predictable performance and pricing through preallocated Compute Units (CUs). You can purchase up to 3 CUs. 
+The Dedicated SKU provides predictable performance and pricing through preallocated Compute Units (CUs). You can purchase up to three CUs. 
 
 #### Key features
 
-|  |  |  
+| Feature | Description |  
 | - | - |
 | Dedicated infrastructure | Runs on dedicated compute resources |
 | Predictable performance | Guaranteed throughput and consistent latency |
@@ -93,7 +95,7 @@ The Dedicated SKU provides predictable performance and pricing through prealloca
 
 #### Pricing and limits
 
-|  |  |  
+| Pricing | Description |  
 | - | - |
 | Base cost | Fixed monthly cost per Compute Unit (CU) (regional pricing) |
 | Capacity | Each CU supports up to **2,000 actions** per second |
@@ -102,7 +104,7 @@ The Dedicated SKU provides predictable performance and pricing through prealloca
 
 #### High availability and zone redundancy
 
-For high availability and zone redundancy, a minimum of 3 CUs is required to distribute workloads across multiple scheduler instances.
+For high availability and zone redundancy, a minimum of three CUs is required to distribute workloads across multiple scheduler instances.
 
 #### Capacity Unit planning examples
 
@@ -142,16 +144,15 @@ Calculation:
 
 - Required CUs: 4,567 ÷ 2,000 = 2.28, or **3 CUs sufficient**
 
-### Consumption SKU
+#### [Consumption SKU](#tab/consumption)
 
-> [!NOTE]
-> The Consumption SKU is currently in preview.
+### Consumption SKU
 
 The Consumption SKU offers a pay-as-you-use model, ideal for variable workloads and development scenarios.
 
 #### Key Features
 
-|  |  |  
+| Feature | Description |  
 | - | - |
 | Pay-Per-Use | Only pay for actions dispatched |
 | No upfront costs | No minimum commitments or base fees |
@@ -160,7 +161,7 @@ The Consumption SKU offers a pay-as-you-use model, ideal for variable workloads 
 
 #### Pricing and Limits
 
-|  |  |  
+| Pricing | Description |  
 | - | - |
 | Cost | $0.03 per action dispatched |
 | Throughput | Up to 500 actions per second |
@@ -171,7 +172,7 @@ Learn more about the cost calculation with the following capacity planning scena
 
 ##### Development environment example
 
-A development team is testing simple orchestrations, each with 3 actions (using the "Hello City" pattern), and runs 10,000 orchestrations per month.
+A development team is testing simple orchestrations, each with three actions (using the "Hello City" pattern), and runs 10,000 orchestrations per month.
 
 Calculation:
 
@@ -183,9 +184,7 @@ Calculation:
 
 An e-commerce application experiences dynamic workload scaling during promotional sales events, especially on weekends. It uses an orchestration comprising seven total actions, which executes approximately 20,000 times per month.
 
-Here is a scenario to demonstrate a cost calculation for example purposes only.
-
-Cost Calculation:
+Calculation:
 
 - Monthly actions: 20,000  × 7 = 140,000 actions
 
