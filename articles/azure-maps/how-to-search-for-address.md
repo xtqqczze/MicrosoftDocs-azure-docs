@@ -333,13 +333,12 @@ The examples in this section demonstrate the difference between searching for a 
     |------------------|------------------------------------------|
     | typeGroup        | Place                                    |
     | type             | AmusementPark                            |
-    | formattedAddress | Disney California Adventure Park, Calif. |
     | name             | Disney California Adventure Park         |
 
-    > [!NOTE]
-    > The `type` property is most relevant when using `resultTypeGroups=property`. To view available types, refer to the [Autocomplete ResultType Enum]. To define which types to search, use the `resultTypes` [URI parameter]. For implementation details, see the [Autocomplete API call to search for 'Muir Woods', filtered by park and populated place resultTypes, place resultTypeGroups] example.
+    > [!TIP]
+    > The `type` property is most relevant when using `resultTypeGroups=place`. To view available types, refer to the [Autocomplete ResultType Enum]. To define which types to search, use the `resultTypes` [URI parameter]. For implementation details, see the [Autocomplete API call to search for 'Muir Woods', filtered by park and populated place resultTypes, place resultTypeGroups] example.
 
-1. Since no value was provided for the `resultTypeGroups` parameter, the query defaulted to *place*. To retrieve address-level information instead, include `resultTypeGroups=address` in your request:
+1. When no values are provided for the `resultTypeGroups` parameter, queries can return both place and address values. If your only interested in searching for addresses, include `resultTypeGroups=address` in your request:
 
     ```http
     https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=dis&coordinates=-117.920219,33.809570&resultTypeGroups=address&subscription-key={Your-Azure-Maps-Subscription-key}
