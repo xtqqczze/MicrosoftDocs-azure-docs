@@ -6,37 +6,37 @@ ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
   - ignite-2024
-ms.date: 03/30/2025
+ms.date: 11/01/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ---
 
 # Tutorial: View protected items and perform actions
 
-This tutorial describes how to view your datasources that are protected by one or more solutions and perform actions on them from Azure Business Continuity (ABC) Center.
+This tutorial describes how to view your datasources that are protected by one or more solutions and perform actions on them from Resiliency in Azure.
 
 ## Prerequisites
 
-Before you start this tutorial:
+Before you start viewing protected items and take necessary actions, ensure you have the following prerequisites:
 
-- [Review supported regions for ABC Center](business-continuity-center-support-matrix.md).
-- You need to have permission on the resources to view them in ABC Center.
+- [Review supported regions for Resiliency in Azure](business-continuity-center-support-matrix.md).
+- You need to have permission on the resources to view them in Resiliency.
 
 ## View protected items
 
-As a business continuity and disaster recovery (BCDR) admin, identify and configure protection for critical resources that don't have backup or replication configured. You can also view their protection details.
+As a resiliency admin, identify and configure protection for critical resources that don't have backup or replication configured. You can also view their protection details.
   
-Azure Business Continuity center provides you with a centralized and at scale view for overseeing your protection landscape, offering a unified perspective across various solutions. 
+Resiliency in Azure provides you with centralized and at scale views for overseeing your protection landscape, offering a unified perspective across various solutions. 
 
 To view protected items, follow these steps to view your protected items:
 
-1.	On **Business Continuity Center**, go to **Protection inventory** > **Protected items**.
+1.	On **Resiliency**, go to **Protection inventory** > **Protected items**.
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/select-protected-items.png" alt-text="Screenshot shows the selection of protected items.":::
 
 2.	On **Protected items**, you can see a list of all the protected items across the supported solution across the subscription, resource groups, location, type, and so on, along with their protection status.
 
-   Azure Business Continuity Center allows you to change the default view using a scope picker. Select the **Change** corresponding to the **Currently showing: Protection details of Azure managed Active resources**.
+   Resiliency in Azure allows you to change the default view using a scope picker. Select the **Change** corresponding to the **Currently showing: Protection details of Azure managed Active resources**.
 
    :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/change-scope.png" alt-text="Screenshot shows the selection of change scope from scope picker." lightbox="./media/tutorial-view-protected-items-and-perform-actions/change-scope.png":::
 
@@ -45,7 +45,7 @@ To view protected items, follow these steps to view your protected items:
         - **Azure resource**: resources managed by Azure
         - **Non-Azure resources**: resources not managed by Azure
     - **Resource status**: 
-        - **Active resources**: Resources that are currently active, which are not deleted.
+        - **Active resources**: Resources that are currently active, which aren't deleted.
         - **Deprovisioned resources** - Describes resources that no longer exist, yet their backup and recovery points are retained.
     - **Protected item details**:  
         - **Protection status** - protection status of protected item in primary and secondary regions
@@ -65,7 +65,7 @@ To view protected items, follow these steps to view your protected items:
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/select-columns-from-menu.png" alt-text="Screenshot shows the select columns selection on the menu." lightbox="./media/tutorial-view-protected-items-and-perform-actions/select-columns-from-menu.png":::
 
-8.	Azure Business Continuity center provides in-built help to learn more about the protected item view and guidance on protection. On **Protected items**, select **Learn more about the importance of protection in both regions and status evaluation** to access it. 
+8.	Resiliency in Azure provides built-in help to learn more about the protected item view and guidance on protection. On **Protected items**, select **Learn more about the importance of protection in both regions and status evaluation** to access it. 
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/learn-more-about-protected-item.png" alt-text="Screenshot shows learn more protected item view and guidance on protection selection." lightbox="./media/tutorial-view-protected-items-and-perform-actions/learn-more-about-protected-item.png":::
 
@@ -77,9 +77,10 @@ To view protected items, follow these steps to view your protected items:
     - **Resource name**: Lists the underlying resource that is protected.
     - **Protected item**: Shows the name of the protected resource.
     - **Configured solutions**: Shows the number of solutions protecting the resource.
-    - **Protection status**: Protected items should be recoverable in both the primary and secondary regions. Protection status in the primary region refers to the region in which datasource is hosted, and Protection status in secondary region refers to the paired or target region in which datasource can be recovered in case the primary region isn't accessible.
+    - **Protection status**: Protected items should be recoverable in both the primary and secondary regions. Protection status in the primary region refers to the region in which datasource is hosted. Protection status in secondary region refers to the paired or target region in which datasource can be recovered if the primary region isn't accessible.
     
-        The protection status values can be Pending protection (protection is triggered and is in-progress), Protection disabled (protection has been disabled, for example, protection is in soft-deleted state like in the case of Azure Backup) or Protection paused (protection is stopped; however, the protection data will be retained as per solution provider), or Protected. When the datasource is protected by multiple solutions (that is, Configured solutions >= 2), the Protection Status for an item is computed in the following order:
+The protection status can be Pending protection (protection is triggered and in progress), Protection disabled (protection is turned off, for example, in a soft-deleted state for Azure Backup), Protection paused (protection is stopped but data is retained as per the solution provider), or Protected.
+If the datasource is protected by multiple solutions (two or more), the protection status is determined in the following order:
 
        - When one or more solutions indicate that the protection status is disabled, then the protected item status is shown as **Protection disabled**.
        - When one or more solutions indicate that the protection status is paused, then the protected item status is shown as **Protection paused**.
@@ -97,7 +98,7 @@ To view protected items, follow these steps to view your protected items:
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/protected-items-retention-table.png" alt-text="Screenshot shows the protected items in the retention table." lightbox="./media/tutorial-view-protected-items-and-perform-actions/protected-items-retention-table.png":::
 
-You can also query information on protection for your resources at no additional cost using Azure Resource Graph (ARG). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions. 
+You can also query information on protection for your resources at no extra cost using Azure Resource Graph (ARG). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions. 
 
 To get started with querying information on protection for your resources using ARG, you can use the sample query provided, by selecting **Open query**.
 
@@ -105,9 +106,9 @@ To get started with querying information on protection for your resources using 
 
 ## View Protected item details
 
-To view additional details for a specific protected item, follow these steps:
+To view more details for a specific protected item, follow these steps:
 
-1.	On **Business Continuity center**, go to **Protection inventory** > **Protected items**.
+1.	On **Resiliency**, go to **Protection inventory** > **Protected items**.
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/select-protected-items.png" alt-text="Screenshot showing the selection of protected items.":::
 
@@ -155,5 +156,4 @@ With the protected items view, you can choose to perform actions from:
 
 ## Next steps
 
-- For more information about Azure Business Continuity center and how it works, check out [Configure protection from ABC Center](./tutorial-configure-protection-datasource.md).
-- [Cloud-Adoption Framework for business continuity and disaster recovery of SAP migration](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery#backup-and-restore).
+For more information about Resiliency and how it works, check out [Configure protection from Resiliency](./tutorial-configure-protection-datasource.md).

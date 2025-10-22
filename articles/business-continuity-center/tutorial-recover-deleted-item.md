@@ -2,7 +2,7 @@
 title: Recover deleted item
 description: Learn how to recover deleted item
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 11/01/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.service: azure-business-continuity-center
@@ -13,23 +13,23 @@ ms.custom:
 
 # Tutorial: Recover deleted item
 
-This tutorial describes the process to recover deleted items from the vault to ensure business continuity.
+This tutorial describes the process to recover deleted items from the vault to ensure resiliency.
 
-Azure Business Continuity Center allows you to recover protected items, that is, restore backup or failover or test failover etc., for the replication of the datasources from various views such as Overview, protected items, and so on.
+Resiliency in Azure allows you to recover protected items (restore backup, failover, test failover, and more), for the replication of the datasources from various views such as Overview, protected items, and so on.
 
 ## Prerequisites
 
-Before you start this tutorial:
+Before you start the recovery process, ensure that the following prerequisites are met:
 
 - [Review the supported regions](business-continuity-center-support-matrix.md).
 - [Review the supported actions](business-continuity-center-support-matrix.md).
-- You need to have permission on the resources to view them in ABC Center and recover them. 
+- You need to have permission on the resources to view them in Resiliency and recover them.
 
 ## Initiate recovery for Azure VM
 
-To initiate the recovery for Azure VMs, follow these steps:
+To initiate the recovery for an Azure Virtual Machine (VM), follow these steps:
 
-1. From **Business Continuity center**, go to **Protection inventory** > **Protected items**, and then select **Recover**.
+1. On **Resiliency**, go to **Protection inventory** > **Protected items**, and then select **Recover**.
 
     :::image type="content" source="./media/tutorial-recover-deleted-item/select-recover-from-menu.png" alt-text="Screenshot shows the selection of Recover option." lightbox="./media/tutorial-recover-deleted-item/select-recover-from-menu.png":::
 

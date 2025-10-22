@@ -1,8 +1,8 @@
 ---
-title: Tutorial - Reconfigure backup for data sources in an alternate vault using Azure Business Continuity Center
+title: Tutorial - Reconfigure backup for data sources in an alternate vault using Resiliency
 description: Learn how to reconfigure backup in an alternate vault for your datasources - Azure Virtual Machine (VM), Azure Files, SQL databases in Azure VM, SAP HANA database in Azure VM.
 ms.topic: tutorial
-ms.date: 10/06/2025
+ms.date: 11/01/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 # Tutorial: Reconfigure backup for data sources in an alternate vault
 
-Azure Business Continuity Center allows you to suspend backup for a datasource in one vault and reconfigure in another without losing existing recovery points. This flexibility helps in the following scenarios:
+Resiliency in Azure allows you to suspend backup for a datasource in one vault and reconfigure in another without losing existing recovery points. This flexibility helps in the following scenarios:
 
 - Change the backup policy or vault redundancy without impacting the old recovery points.
 - Modify the backup policy and retention for immutable vaults.
@@ -41,7 +41,7 @@ Before you start reconfiguring backup for data sources in an alternate vault, en
 
 To suspend the active backup for a datasource on Recovery Services vault, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Protection inventory** > **Protected items**.
+1. Go to **Resiliency**, and then select **Protection inventory** > **Protected items**.
 
    :::image type="content" source="./media/tutorial-reconfigure-backup-alternate-vault/view-protected-items.png" alt-text="Screenshot shows how to view the protected items." lightbox="./media/tutorial-reconfigure-backup-alternate-vault/view-protected-items.png":::
 
@@ -84,7 +84,7 @@ To unregister the underlying storage accounts for the protected Mercury datasour
 
 To reconfigure backup in an alternate Recovery Services vault, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **+ Configure protection**.
+1. Go to **Resiliency**, and then select **+ Configure protection**.
 
    :::image type="content" source="./media/tutorial-reconfigure-backup-alternate-vault/start-configure-protection.png" alt-text="Screenshot shows how to start configuring protection." lightbox="./media/tutorial-reconfigure-backup-alternate-vault/start-configure-protection.png":::
 
