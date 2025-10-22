@@ -115,7 +115,26 @@ Some product transfers require you to manually move Azure resources between subs
 
 Microsoft doesn't provide a tool to automatically move resources between subscriptions. When needed, you must manually move Azure resources between subscriptions. For details, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Extra time and planning are needed when you have a large number of resources to move.
 
-## Other planning considerations
+## Cost Management Considerations
+
+When you transfer your subscriptions between different agreement types, you may need to update role-based access control (RBAC) assignments to ensure that you and other users can view cost information.
+
+The table below outlines the requirements for successfully visualizing cost data after a subscription transfer.
+
+
+> [!Note] 
+> For detailed instructions and additional scenarios, see the Cost Management documentation in the [Related content](/azure/cost-management-billing/manage/subscription-transfer?branch=main#related-content) section of this article.
+
+Cost Management Data Access Requirements After Subscription Transfer
+
+| Scenario | Prerequisites to Access Cost Data | Possible Scopes | Required RBAC Roles |
+|----------|-----------------------------------|------------------|---------------------|
+| **Subscription transferred from one Partner to another** |• Partner to enable Cost visibility policy for the customer<br>• Customer to have correct RBAC |1. Customer (Partner Led)<br>2. MPA/MCA Billing Account<br>3. MCA Billing Profile<br>4. MCA Invoice Section<br>5. Subscription/Resource group |1. Admin Agent, Billing admin<br>2. Owner, Contributor, Reader<br>3. Owner, Contributor, Reader, Invoice Manager<br>4. Owner, Contributor, Reader<br>5. Owner, Contributor, Reader, Cost Management Contributor, Cost Management Reader |
+| **Subscription transferred to MCA** |• Partner to enable Cost visibility policy for the customer<br>• Customer to have correct RBAC |1. Customer (Partner Led)<br>2. MPA/MCA Billing Account<br>3. MCA Billing Profile<br>4. MCA Invoice Section<br>5. Subscription/Resource group |1. Admin Agent, Billing admin<br>2. Owner, Contributor, Reader<br>3. Owner, Contributor, Reader, Invoice Manager<br>4. Owner, Contributor, Reader<br>5. Owner, Contributor, Reader, Cost Management Contributor, Cost Management Reader |
+| **Subscription transferred to MPA** |• Partner to enable Cost visibility policy for the customer<br>• Customer to have correct RBAC |1. Customer (Partner Led)<br>2. MPA/MCA Billing Account<br>3. MCA Billing Profile<br>4. MCA Invoice Section<br>5. Subscription/Resource group |1. Admin Agent, Billing admin<br>2. Owner, Contributor, Reader<br>3. Owner, Contributor, Reader, Invoice Manager<br>4. Owner, Contributor, Reader<br>5. Owner, Contributor, Reader, Cost Management Contributor, Cost Management Reader |
+| **Subscription moved to Enterprise Agreement (EA)** |• Customer to have correct RBAC<br>• Select the new Billing Account<br>• View charges policy is enabled (Account Owners/Department Admins)<br>• Markup is published by the Partner (Indirect EA) |1. EA Billing Account<br>2. Management Group<br>3. Subscription/Resource group |1. Enterprise Admin (Non Read-Only or Read-Only), Department Admin (Non Read-Only or Read-Only), Account Owner<br>2. Owner, Contributor, Reader, Cost Management Contributor, Cost Management Reader<br>3. Owner, Contributor, Reader, Cost Management Contributor, Cost Management Reader |
+
+Other planning considerations
 
 Read the following sections to learn more about other considerations before you start a product transfer.
 
@@ -245,4 +264,6 @@ SaaS products don't transfer with the subscriptions. Ask the user to [Contact Az
 
 ## Related content
 
-- [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
+- [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Assing access to Cost Management data](/azure/cost-management-billing/costs/assign-access-acm-data)
+- [Get started with partners in Cost Management](/azure/cost-management-billing/costs/get-started-partners)
