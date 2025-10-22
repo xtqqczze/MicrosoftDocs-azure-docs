@@ -62,7 +62,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Select **Advanced Ransomware Protection** under the **Storage services** menu in the sidebar. 
 1. Suspected attacks are displayed under **Active threats**. Expand each threat to view the suspect files.  
 
-    :::image type="content" source="./media/ransomware-configure/ransomware-threat.png" alt-text="Screenshot of ransomware threats." lightbox="./media/ransomware-configure/ransomware-threat.png":::
+    :::image type="content" source="./media/ransomware-configure/ransomware-threats.png" alt-text="Screenshot of ransomware threats." lightbox="./media/ransomware-configure/ransomware-threats.png":::
 
 1. If you know the files are **not** an active threat, mark the files as a **False positive**. 
 
