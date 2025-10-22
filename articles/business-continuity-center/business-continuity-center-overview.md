@@ -3,7 +3,7 @@ title: What is Resiliency?
 description: Resiliency is a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure that enables you to manage your protection estate across solutions and environments.
 ms.topic: overview
 ms.service: azure-business-continuity-center
-ms.date: 09/01/2025
+ms.date: 11/01/2025
 ms.custom:
   - mvc
   - ignite-2023
@@ -13,7 +13,7 @@ ms.author: v-mallicka
 ---
 # What is Resiliency?
  
-Resiliency in Azure is a cloud-native unified business continuity and disaster recovery (BCDR) management platform that enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your resiliency estate for better discoverability with the ability to do core activities.
+Resiliency in Azure is a cloud-native unified experience for resiliency posture management that enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your resiliency estate for better discoverability with the ability to do core activities.
 
 ## Expanded scope and capabilities of Resiliency in Azure
 
@@ -29,28 +29,26 @@ Existing Azure Business Continuity Center capabilities continue to be available.
 
 To enroll for the Zonal Resiliency feature, fill out the form to sign up.
 
-## Why should I use Resiliency?
+## Why should I use Resiliency in Azure?
 
 Some of the key benefits you get with Resiliency include:
 
-- **Single pane of glass to manage BCDR protection**: Resiliency is designed to function well across a large and distributed, Azure, and Hybrid environment. You can use Resiliency to efficiently manage backup and replication spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](/azure/lighthouse/overview) tenants. It enables you to identify gaps in your current protection estate and fix it. You can also understand your protection settings across multiple protection policies.
+- **Single pane of glass to manage BCDR protection**: Resiliency experiences are designed to function well across a large and distributed, Azure, and Hybrid environment. You can use Resiliency to efficiently manage backup and replication spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](/azure/lighthouse/overview) tenants. It enables you to identify gaps in your current protection estate and fix it. You can also understand your protection settings across multiple protection policies.
 
-- **Action center**: Resiliency provides at scale views for your protection across Azure, Hybrid, and Edge environments along with the ability to perform the core actions across the solutions. 
+- **Action center**: Resiliency in Azure provides at scale views for your protection across Azure, Hybrid, and Edge environments along with the ability to perform the core actions across the solutions. 
 
-- **At-scale and unified monitoring capabilities**: Resiliency provides at-scale unified monitoring capabilities across the solutions that help you to view [jobs](tutorial-monitor-operate.md), [alerts](tutorial-monitor-alerts-metrics.md), and [reports](tutorial-reporting-for-data-insights.md) across all vaults and manage them across subscriptions, resource groups, and regions from a single view.
+- **At-scale and unified monitoring capabilities**: Resiliency in Azure provides at-scale unified monitoring capabilities across the solutions that help you to view [jobs](tutorial-monitor-operate.md), [alerts](tutorial-monitor-alerts-metrics.md), and [reports](tutorial-reporting-for-data-insights.md) across all vaults and manage them across subscriptions, resource groups, and regions from a single view.
 
-- **BCDR protection posture**: Resiliency evaluates your current configuration and proactively notifies you of any gap in it with respect to Security configurations (currently applicable to Azure Backup). 
+- **BCDR protection posture**: Resiliency in Azure evaluates your current configuration and proactively notifies you of any gap in it with respect to Security configurations (currently applicable to Azure Backup). 
 
-- **Audit Compliance**: With Resiliency, you can view and use built-in [Azure  Policies](/azure/governance/policy/overview) available for your BCDR management at scale and view compliance against the applied policies. You can also create custom Azure Policies for BCDR management and view compliance in Resiliency.
+- **Audit Compliance**: With Resiliency in Azure, you can view and use built-in [Azure  Policies](/azure/governance/policy/overview) available for your BCDR management at scale and view compliance against the applied policies. You can also create custom Azure Policies for BCDR management and view compliance in Resiliency.
 
 ## What can I manage with Resiliency? 
 
-Resiliency allows you to manage data sources protected across the solutions. You can manage these resources from different environments, such as Azure and on-premises. Learn about the [supported scenarios and limitations](business-continuity-center-support-matrix.md).
+Resiliency in Azure allows you to manage data sources protected across the solutions. You can manage these resources from different environments, such as Azure and on-premises. Learn about the [supported scenarios and limitations](business-continuity-center-support-matrix.md).
 
 
 ## Get started
-
-
 
 To get started with using Resiliency, follow these steps:
 

@@ -1,8 +1,8 @@
 ---
-title: Azure Business Continuity Center support matrix
-description: Provides a summary of support settings and limitations for the Azure Business Continuity center service.
+title: Resiliency support matrix
+description: Provides a summary of support settings and limitations for the Resiliency in Azure service.
 ms.topic: reference
-ms.date: 04/04/2025
+ms.date: 11/01/2025
 ms.custom:
   - references_regions
   - ignite-2023
@@ -12,15 +12,15 @@ author: AbhishekMallick-MS
 ms.author: v-mallicka
 ---
 
-# Support matrix for Azure Business Continuity Center
+# Support matrix for Resiliency
 
 This article describes supportable scenarios and limitations.
 
-You can use [Azure Business Continuity Center](business-continuity-center-overview.md), a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure to manage your protection estate across solutions and environments. This feature helps enterprises to govern, monitor, operate, and analyze backups and replication at scale. This article summarizes the solutions and scenarios that Azure Business Continuity Center supports for each workload type.
+You can use [Resiliency](business-continuity-center-overview.md), a cloud-native unified experience for resiliency management platform in Azure to manage your protection estate across solutions and environments. This feature helps enterprises to govern, monitor, operate, and analyze backups and replication at scale. This article summarizes the solutions and scenarios that Resiliency in Azure supports for each workload type.
 
 ## Supported regions
 
-Azure Business Continuity Center supports all Azure regions, except Azure Sovereign Clouds (Azure China Cloud and Azure US Government).
+Resiliency in Azure supports all Azure regions, except Azure Sovereign Clouds (Azure China Cloud and Azure US Government).
 
 ## Supported solutions and datasources
 
@@ -28,7 +28,7 @@ The following table lists all supported scenarios:
 
 | Solution | Resource/datasource type |
 | --- | --- |
-| [Azure Backup](/azure/backup/) | - Azure VM backup <br> - SQL in Azure VM backup <br> - SAP HANA on Azure VM backup <br> - Azure Files backup <br> - Azure Blobs backup <br> - Azure Managed Disks backup <br> - Azure Database for PostgreSQL Server backup <br> - Azure Kubernetes services |
+| [Azure Backup](/azure/backup/) | - Azure Virtual Machine (VM) backup <br> - SQL in Azure VM backup <br> - SAP HANA on Azure VM backup <br> - Azure Files backup <br> - Azure Blobs backup <br> - Azure Managed Disks backup <br> - Azure Database for PostgreSQL Server backup <br> - Azure Kubernetes services |
 | [Azure Site Recovery](/azure/site-recovery/) | - Azure to Azure disaster recovery <br> - VMware and Physical to Azure disaster recovery |
 
 ## Supported scenarios
@@ -66,11 +66,11 @@ Action | Restore. | Only for Azure Backup supported datasources given in [this s
 
 ## Unsupported scenarios
 
-This table lists the solutions and scenarios that are unsupported in Azure Business Continuity Center for each workload type:
+This table lists the solutions and scenarios that are unsupported in Resiliency for each workload type:
 
 | Category | Scenario |
 | --- | --- |
-| Monitor | Azure Site Recovery replication and failover health aren't yet available in Azure Business Continuity Center. You can continue to access these views via the individual vault pane. |
+| Monitor | Azure Site Recovery replication and failover health aren't yet available in Resiliency. You can continue to access these views via the individual vault pane. |
 | Monitor | Metrics view isn't yet supported for Azure Database for Azure Backup protected items of Azure Disks, Azure Database for PostgreSQL and for Azure Site Recovery protected items. |
 | Reporting | Azure Backup: <br><br> - Azure Kubernetes Service <br> - Azure Database for PostgreSQL Flexible Server <br> - Azure Database for MySQL Flexible Server  |
 | Govern | Protectable resources view currently only shows Azure resources. It doesn't show hosted items in Azure resources like SQL databases in Azure Virtual machines, SAP HANA databases in Azure Virtual machines, Blobs, and files in Azure Storage accounts. |
@@ -78,11 +78,11 @@ This table lists the solutions and scenarios that are unsupported in Azure Busin
 | Actions | Backup Now, change policy, and resume backup actions aren't available for Azure Backup protected items of Blobs (Azure Storage account), Azure Disks, Kubernetes Services, and Azure Database for PostgreSQL. |
 | Actions | Configuring vault settings at scale is currently not supported from Backup center |
 | Actions | Reprotect action isn't available for Azure Site Recovery replicated items of Azure Virtual machine. |
-| Actions | Move, delete isn't available for vaults in Azure Business Continuity Center and can only be performed directly from individual vault pane. |
+| Actions | Move, delete isn't available for vaults in Resiliency and can only be performed directly from individual vault pane. |
 
 >[!Note]
->Protection details for Azure Classic Virtual Machines and Azure Classic storage account protected by Azure Backup are currently not included in the Azure Business Continuity.
+>Protection details for Azure Classic Virtual Machines and Azure Classic storage account protected by Azure Backup are currently not included in the Resiliency.
 
 ## Next steps
 
-- [About Azure Business Continuity Center](business-continuity-center-overview.md).
+- [About Resiliency](business-continuity-center-overview.md).

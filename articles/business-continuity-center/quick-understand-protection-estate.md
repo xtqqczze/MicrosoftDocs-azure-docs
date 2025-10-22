@@ -1,22 +1,23 @@
 ---
-title: Quickstart - Understand the protection estate in Azure Business Continuity Center
-description: Learn how to identify the resources with no protection and the ones which are protected in Azure Business Continuity Center.
+title: Quickstart - Understand the protection estate in Resiliency
+description: Learn how to identify the resources with no protection and the ones, which are protected in Resiliency.
 ms.topic: quickstart
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2024
-ms.date: 11/19/2024
+ms.date: 11/01/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ---
 
 # Quickstart: Understand the protection estate
 
-This quickstart describes how to identify the protected and unprotected resources/items in Azure Business Continuity Center.
+This quickstart describes how to identify the protected and unprotected resources/items in Resiliency.
 
-As a Business Continuity and Disaster Recovery (BCDR) administrator, safeguarding your critical resources is a crucial step in your business continuity journey. In the event of an outage, malicious attack, or operational failure, it's essential that these resources can be recovered in either the primary or secondary region to prevent data loss.
+As a resiliency administrator, safeguarding your critical resources is a crucial step in your resiliency journey. If an outage, malicious attack, or operational failure occurs, you can recover these resources. Recovery can be done in either the primary or secondary region to avoid data loss.
 
-Azure Business Continuity Center provides the following two key views to help you manage your protection details:
+
+Resiliency in Azure provides the following two key views to help you manage your protection details:
 
 - **Protectable resources**: Lists the resources that are currently not protected. You can configure protection for them.
 - **Protected items**: Shows the resources that are already protected. Allows you to perform actions such as recovery and failover.
@@ -26,7 +27,7 @@ Azure Business Continuity Center provides the following two key views to help yo
 
 To identify the resources that are currently not protected, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), go to the **Business Continuity Center** > **Protection inventory** > **Protectable resources**.
+1. In the [Azure portal](https://portal.azure.com/), go to the **Resiliency** > **Protection inventory** > **Protectable resources**.
 
    :::image type="content" source="./media/quick-understand-protection-estate/select-protectable-resources.png" alt-text="Screenshot shows the selection of Protectable resources." lightbox="./media/quick-understand-protection-estate/select-protectable-resources.png":::
 
@@ -43,7 +44,7 @@ To identify the resources that are currently not protected, follow these steps:
 
 ## Identify protected items
 
-To view the protected items, go to **Business Continuity Center** > **Protection inventory** > **Protected items**.
+To view the protected items, go to **Resiliency** > **Protection inventory** > **Protected items**.
 
 :::image type="content" source="./media/quick-understand-protection-estate/view-protected-items.png" alt-text="Screenshot shows how to view protected items." lightbox="./media/quick-understand-protection-estate/view-protected-items.png":::
 
