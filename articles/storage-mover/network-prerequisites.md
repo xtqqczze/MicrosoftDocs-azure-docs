@@ -101,7 +101,7 @@ The following diagram illustrates an example of a resource topology for enabling
 > [!NOTE]
 > This configuration is one of many possible setups for a private network and doesn't encompass all components involved in network configuration, such as DNS, proxies, and virtual network peering.
 
-:::image type="content" source="media/networking-prerequisites/networking-topology.png" alt-text="A diagram illustrating an example of a resource topology for enabling private connectivity to all endpoints that support it.":::
+:::image type="content" source="media/network-prerequisites/networking-topology.png" alt-text="A diagram illustrating an example of a resource topology for enabling private connectivity to all endpoints that support it.":::
 
 <sup>1</sup> Arc Private Link Scopes provide access to three Arc services as shown in the image. The *Extensions* Arc service isn't used by the Storage Mover Agent. It appears muted in the image to avoid confusion.<br>
 <sup>2</sup> Arc Private Link Scopes and the three Arc services to which they connect can both be accessed directly over public endpoints. The Arc Private Link Scope can be configured to enable or disable public network access.<br>
@@ -136,7 +136,7 @@ Beyond the core components, there are networking considerations that can be conf
 
 The Storage Mover Agent supports external HTTP and HTTPS proxies. Configuration is done via the agent's shell within the **Network Configuration** section's **Update network configuration** menu. When prompted, select **Proxy** and enter the Fully Qualified Domain Name (FQDN) or IP address of the proxy. Include the port number if necessary. The following example illustrates the configuration steps:
 
-:::image type="content" source="media/networking-prerequisites/proxy-configuration.png" alt-text="A screenshot showing the proxy configuration screen in the Storage Mover Agent.":::
+:::image type="content" source="media/network-prerequisites/proxy-configuration.png" alt-text="A screenshot showing the proxy configuration screen in the Storage Mover Agent.":::
 
 ### SSL Inspection
 If your network performs SSL interception, the agent might fail to recognize modified certificates. Currently, adding custom certificates to the agent isn't supported. To avoid issues, add required endpoints to the allowlist to bypass SSL inspection. These endpoints are available in the [Networking overview](#networking-overview) section.

@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 10/08/2025
+ms.date: 10/22/2025
 ms.custom: template-how-to
 ---
 
@@ -19,7 +19,7 @@ These native diagnostic tools can be used with standard network troubleshooting 
 
 This article outlines available methods for troubleshooting agent network issues. Troubleshooting steps might include configuration checks, connectivity tests, endpoint diagnostics, and the use of support tools.
 
-## Network Configuration Overview
+## Network configuration overview
 
 The recommended first step in diagnosing network issues is to inspect the agent's network configuration. This inspection can be done via the **Show network configuration** tool located in **Network Configuration** group of the agent's menu. 
 
@@ -59,13 +59,13 @@ NTP Server(s) (Network Time Protocol servers - these servers provide time synchr
 
 When an agent's network configuration is inspected, any fields containing blank or incorrect values indicate a potential misconfiguration of the hypervisor's network adapter settings or the agent's interface settings. For example, an empty `IP address` value or a `Link` or `Operstate` status other than `up` suggests that the agent might not be properly connected to the network. In such cases, administrators should verify the hypervisor's network adapter settings or reconfigure the agent's interface settings.
 
-## Connectivity Testing
+## Connectivity testing
 
 After the network configuration is verified, the next step is to test the connectivity to the agent's essential Azure endpoints. The agent provides several tools for this purpose, and allows you to choose the level of detail required for your troubleshooting needs. You can choose from general connectivity tests, verbose output for deeper analysis, or single endpoint testing for targeted diagnostics. All three options provide valuable insights into the agent's network connectivity and can help identify potential issues.
 
 Connectivity testing tools are located in the **Network Configuration** group of the agent's menu.
 
-### General Network Checks
+### General network checks
 
 For general connectivity testing, select the **Test Network Connectivity** option. This tool verifies HTTPS connectivity to essential Azure endpoints, including the endpoints required for agent registration and operations. The tool uses the `azcmagent check` command to test Azure Arc endpoints, and then checks Storage Mover-specific endpoints. The results of these tests include:
 
@@ -77,11 +77,11 @@ For general connectivity testing, select the **Test Network Connectivity** optio
 > [!NOTE]
 > Note: This test doesn't include Storage Account or Key Vault endpoints used during job execution.
 
-### Verbose Network Checks
+### Verbose network checks
 
 The `Test network connectivity verbosely` option provides a more detailed analysis of network connectivity issues. This enhanced version of the General Network Check provides detailed output from `azcmagent` and `curl`, including HTTP response codes and TLS packet data. It's useful for diagnosing SSL-related issues or inspecting specific error messages.
 
-### Single Endpoint Testing
+### Single endpoint testing
 
 The `Test single endpoint connectivity` option allows you to test the connectivity of a specific endpoint. In addition to testing Storage Account and Key Vault endpoints that aren't covered by the general network check, this tool allows targeted testing of a specific endpoint using:
 
@@ -89,29 +89,29 @@ The `Test single endpoint connectivity` option allows you to test the connectivi
 - `traceroute` for path analysis
 - `curl` for HTTPS connectivity
 
-## Service and Job Status Checks
+## Service and job status checks
 
 Within the `Service and job Status` menu, two tools are available for assessing the health of the agent's connection to the Storage Mover Service and the status of job executions. These tools, the **Service Communication Status** and **Job Summary, Details, and Copy logs**, help assess the Agent's registration status and job execution health.
 
 - **Service Communication Status**: Verifies the agent's connection to the Storage Mover Service.
 - **Job Summary, Details, and Copy logs**: Provide insights into job performance, including transfer rates and potential network errors such as SSL interception.
 
-## Restricted Shell Tools
+## Restricted shell tools
 
 The `Open restricted shell` option allows execution of the following basic network commands. These commands are useful for manual diagnostics and troubleshooting source share connectivity issues:
 
 - `nslookup` and `ping` for endpoint testing.
 - `mount`, `showmount`, and `umount` for SMB/NFS share diagnostics.
 
-## SMB Diagnostics
+## SMB diagnostics
 
 Within the `Troubleshooting` group, the `SMB Troubleshooting` option collects SMB logs for inclusion in the support bundle. It's essential for diagnosing issues with SMB source shares. These logs provide insights into authentication problems, permission issues, and connectivity errors related to SMB shares.
 
-## Support Bundle Collection
+## Support bundle collection
 
 The `Collect support bundle` option aggregates logs from all diagnostic tools except for the restricted shell tools. It can be shared with Microsoft Support via SFTP, and is the most comprehensive resource for in-depth troubleshooting.
 
-## Common Networking Issues and Resolutions
+## Common network issues and resolutions
 
 The following list outlines several common issues and their resolutions:
 
