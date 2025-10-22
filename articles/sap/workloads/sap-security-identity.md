@@ -21,6 +21,7 @@ The links in this section are intended to be a starting point for developing the
 It's common to use the approach documented in these two links to Provision, Deprovision, Maintain, and create Workflows for User ID lifecycle – Microsoft Entra for SAP 
 - [Identity and Access Management with Microsoft Entra - SAP Community (Part I)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcommunity.sap.com%2Ft5%2Ftechnology-blog-posts-by-members%2Fidentity-and-access-management-with-microsoft-entra-part-i-managing-access%2Fba-p%2F13873276&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933642486%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=jMwpMMSHzMWSM7KZSpRd31CAXI6V%2F8arkm2FlI%2BKdH4%3D&reserved=0)
 - [Identity and Access Management with Microsoft Entra - SAP Community (Part II)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcommunity.sap.com%2Ft5%2Ftechnology-blog-posts-by-members%2Fidentity-and-access-management-with-microsoft-entra-part-ii-provisioning-to%2Fba-p%2F13990927&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933659428%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=lMaF61kTk9bw8v0913vUDfBDlfhbRNcP6q6SbcXgIys%3D&reserved=0)
+- [Identity and Access Management with Microsoft Entra - SAP Community (Part III)](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-iii-successfactors/ba-p/14233747)
 
 https://aka.ms/MigrateFromSAPIDM 
 
@@ -94,7 +95,10 @@ More information on the SAP BTP Cloud Identity Services (CIS) can be found here:
 ## 3.	Automatic Synchronization of Authorization Attributes 
 Authorization attributes can be replicated from Microsoft Entra to target SAP applications such as SAP BTP Role Collections. This is discussed in this link [Manage access to your SAP applications - Microsoft Entra ID Governance | Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/sap)
 
-There are some limited functionalities available to synchronize Authorization Roles and Profiles for NetWeaver and S/4 systems. Additional information about S/4, SuccessFactors, Ariba, and Fieldglass Authorization attributes will be added to this documentation. 
+  > [!NOTE]
+  > Microsoft has released new Entra functionality to synchronize both Users and Groups from Entra to SAP ABAP systems. This functionality can be added free of charge in the Entra Portal.  
+
+The process to setup and synchronize Authorization Roles and Profiles for NetWeaver and S/4 systems is documented in detail [Identity and Access Management with Microsoft Entra - SAP Community (Part III)](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-iii-successfactors/ba-p/14233747). Additional information for BTP applications, SuccessFactors, Ariba, and Fieldglass Authorization attributes will be added to this documentation. 
 
 The diagram here depicts the architecture from an SAP centric point of view:  [SAP IAM integration with SAP Cloud Identity Services | SAP Architecture Center](https://architecture.learning.sap.com/docs/ref-arch/20c6b29b1e).   This diagram shows the concept with reference to Entra [Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/scenarios/migrate-from-sap-idm#overview-of-microsoft-entra-and-its-sap-product-integrations)
 
@@ -107,7 +111,7 @@ The GSA client implements an [NDIS 6.0 lightweight filter (LWF) network driver](
 ## 5.	SAP Products Approaching End of Life / Migration
 Several SAP security solution products are now end of life. Microsoft and SAP have collaborated to provide a migration path for customers 
 - [Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fentra%2Fid-governance%2Fscenarios%2Fmigrate-from-sap-idm&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933712915%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=8A2HrWopNUB3IhzaCavmW4lm0MLSZjtMlpNwXrifvFc%3D&reserved=0)
-SAP IDM 8.0 – End of Life December 2027.  More documentation on the migration path can be found here 
+SAP IDM 8.0 – End of Life December 2027. Documentation on the migration path can be found here 
 - [Update on the SAP Identity Management migration to... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/update-on-the-sap-identity-management-migration-to-microsoft-entra/ba-p/13742820)
 - [Preparing for SAP Identity Management’s End-of-Mai... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101)
 
@@ -116,8 +120,8 @@ SAP SSO Server (Java) – SAP has announced the End of Life December 2027  [SAP 
 ## Links 
 - Learn more about Microsoft Entra ID Governance: [aka.ms/Entra/IdentityGovernance](aka.ms/Entra/IdentityGovernance)  
 - View the Microsoft Mechanics video: [aka.ms/IDGovMechanics](aka.ms/IDGovMechanics)   
-- Walk-through the Interactive Guides: [aka.ms/EntraIDGovGuides](aka.ms/EntraIDGovGuides)
-- More documentation: [aka.ms/Entra/IDGovDocs](aka.ms/Entra/IDGovDocs)
+- Walk through the Interactive Guides: [aka.ms/EntraIDGovGuides](aka.ms/EntraIDGovGuides)
+- Documentation: [aka.ms/Entra/IDGovDocs](aka.ms/Entra/IDGovDocs)
 - [1912264 - SAP NetWeaver single sign-on 1.0: Central Note](https://me.sap.com/notes/1912264)
 - [2300234 - SAP single sign-on 3.0: Central Note](https://me.sap.com/notes/2300234)
 - [single sign-on for SAP GUI | SAP Community](https://pages.community.sap.com/topics/single-sign-on)
