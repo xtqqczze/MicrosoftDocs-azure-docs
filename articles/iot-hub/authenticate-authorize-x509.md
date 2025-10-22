@@ -58,8 +58,6 @@ You can use any X.509 certificate to authenticate a device with IoT Hub by uploa
 
   If your device has a self-signed X.509 certificate, then you give IoT Hub a version of the certificate for authentication. When you register a device, you upload a certificate *thumbprint*, which is a hash of the device's X.509 certificate. When the device connects, it presents its certificate and the IoT hub can validate it against the hash it knows.
 
-[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
-
 ## Enforce X.509 authentication
 
 For extra security, an IoT hub can be configured to not allow SAS authentication for devices and modules, leaving X.509 as the only accepted authentication option. Currently, this feature isn't available in Azure portal. To configure, set `disableDeviceSAS` and `disableModuleSAS` to `true` on the IoT Hub resource properties:
