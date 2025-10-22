@@ -2,7 +2,7 @@
 title: Bicep CLI commands 
 description: Learn about the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
 ms.topic: reference
-ms.date: 09/09/2025
+ms.date: 10/22/2025
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ---
 
@@ -285,30 +285,65 @@ For example:
 Content-Length: 72\r\n\r\n{"jsonrpc": "2.0", "id": 0, "method": "bicep/version", "params": {}}\r\n\r\n
 ```
 
-The following message shows an example for Bicep version.
+The following methods are available through the JSON-RPC interface:
 
-* The input:
+- **bicep/version**
 
-  ```json
-  {
-    "jsonrpc": "2.0",
-    "id": 0,
-    "method": "bicep/version",
-    "params": {}
-  }
-  ```
+  Returns the version of the Bicep CLI.
   
-* The output:
-
-  ```json
-  {
-    "jsonrpc": "2.0",
-    "id": 0,
-    "result": {
-      "version": "0.24.211"
+  * The request:
+  
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 0,
+      "method": "bicep/version",
+      "params": {}
     }
-  }
-  ```
+    ```
+    
+  * The response:
+  
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 0,
+      "result": {
+        "version": "0.24.211"
+      }
+    }
+    ```
+  
+- **bicep/format**
+
+  Formats a Bicep file.
+  
+  * The request:
+  
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "bicep/format",
+      "params": {
+        "path": "/path/to/file.bicep"
+      }
+    }
+    ```
+  
+  * The response:
+  
+    ```json
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "success": true,
+        "diagnostics": [],
+        "contents": "param foo string\n\nresource storage 'Microsoft.Storage/storageAccounts@2025-01-01' = {\n  name: 'mystorageaccount'\n  location: 'East US'\n}\n"
+      }
+    }
+    ```
 
 For the available methods & request/response bodies, see [`ICliJsonRpcProtocol.cs`](https://github.com/Azure/bicep/blob/main/src/Bicep.Cli/Rpc/ICliJsonRpcProtocol.cs).
 For an example establishing a JSONRPC connection and interacting with Bicep files programmatically using Node, see [`jsonrpc.test.ts`](https://github.com/Azure/bicep/blob/main/src/Bicep.Cli.E2eTests/src/local/jsonrpc.test.ts).
