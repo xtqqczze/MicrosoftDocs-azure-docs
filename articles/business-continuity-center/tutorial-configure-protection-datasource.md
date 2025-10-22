@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Configure protection for data sources
-description: Learn how to configure protection for your data sources which are currently not protected by any solution using Azure Business Continuity Center.
+description: Learn how to configure protection for your datasources, which are currently not protected by any solution using Resiliency in Azure.
 ms.topic: tutorial
-ms.date: 08/20/2025
+ms.date: 11/01/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -13,36 +13,32 @@ ms.author: v-mallicka
 
 # Tutorial: Configure protection for data sources 
 
-This tutorial guides you to configure protection for your data sources that are currently not protected by any solution using Azure Business Continuity Center. 
+This tutorial guides you to configure protection for your data sources that are currently not protected by any solution using Resiliency in Azure. 
 
 The key principle of data protection is to safeguard and make data or application available under all circumstances.
 
-For more context and examples on ABCC’s inventory capabilities for unprotected resources and available protection solutions, see this [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/business-continuity-with-abcc-part-2-understand-your-protectable-resources-inven/4009914).
-
 ## Prerequisites
 
-Before you start this tutorial:
-
-- Ensure you have the required resource permissions to view them in the ABC Center.
+Before you configure protection for datasources, ensure you have the required resource permissions to view them in the Resiliency.
 
 ## Protect your data and applications
 
-To determine how often to back up data and where to store backups, you consider the cost of downtime and impact of access loss to data and applications for any duration, as well as the cost of replacing or recreating the lost data. To determine the backup frequency and availability decisions, determine recovery time objectives (RTOs) and recovery point objectives (RPOs) for each data source and application to guide frequency.
+To decide backup frequency and storage location, assess the cost of downtime and the impact of losing access to data and applications. Also, consider the expense of replacing or recreating lost data. To determine the backup frequency and availability decisions, determine recovery time objectives (RTOs) and recovery point objectives (RPOs) for each data source and application to guide frequency.
 
-- **Recovery Point Objective (RPO)**: The amount of data the organization can afford to lose. This helps to determine how frequently you must back up your data to avoid losing more.
-- **Recovery Time Objective (RTO)**:  The maximum amount of time the business can afford to be without access to the data or application i.e., being offline or how quickly you must recover the data and application. This helps in developing your recovery strategy.
+- **Recovery Point Objective (RPO)**: The amount of data the organization can afford to lose. This feature helps to determine how frequently you must back up your data to avoid losing more.
+- **Recovery Time Objective (RTO)**:  The maximum amount of time the business can afford to be without access to the data or application, that is, being offline or how quickly you must recover the data and application. This helps in developing your recovery strategy.
 
 RTOs and RPOs might vary depending on the business and the individual applications data. Mission-critical applications mostly require microscopic RTOs and RPOs since, downtime could cost millions per minute.
 
-A datasource is an Azure resource or an item hosted in Azure resource (e.g. SQL database in Azure VM, SAP Hana database in Azure Virtual Machine, and etc.). A datasource belonging to a critical business application should be recoverable in both primary and secondary region in case of any malicious attack or operational disruptions. 
+A datasource is an Azure resource or an item hosted in Azure resource (for example SQL database in Azure Virtual Machine (VM), SAP Hana database in Azure Virtual Machine, and etc.). A datasource belonging to a critical business application should be recoverable in both primary and secondary region during any malicious attack or operational disruptions. 
 
 - **Primary region**: Region in which datasource is hosted.
-- **Secondary region**: Paired or target region in which datasource can be recovered in case primary region is not accessible.
+- **Secondary region**: Paired or target region in which datasource can be recovered if primary region isn't accessible.
 
 
 ## Get started
 
-Azure Business Continuity Center helps you configure protection, enabling backup or replication of the datasources from various views and options like overview, protectable resources, protected items, and more options. You can choose from the following options to configure protection:
+Resiliency in Azure helps you configure protection, enabling backup or replication of the datasources from various views and options like overview, protectable resources, protected items, and more options. You can choose from the following options to configure protection:
 
 - **Option 1: Multiple datasources**: To configure protection for multiple datasources, you can use the **Configure protection** option available through the menu on the left or the top menu, like **Overview**, **Protectable resources**, **Protected items**, and etc. 
     :::image type="content" source="./media/tutorial-configure-protection-datasource/configure-multiple-resources.png" alt-text="Screenshot showing configure protection for multiple resources." lightbox="./media/tutorial-configure-protection-datasource/configure-multiple-resources.png":::
@@ -65,7 +61,7 @@ To configure protection for Azure VMs, follow these steps:
     :::image type="content" source="./media/tutorial-configure-protection-datasource/configure-protection.png" alt-text="Screenshot showing **Configure protection** page." lightbox="./media/tutorial-configure-protection-datasource/configure-protection.png":::
 
 > [!NOTE]
-> Ensure you have a *Recovery services* vault created to proceed with the flow for [Azure Backup](../backup/backup-overview.md) or [Azure Site recovery](../site-recovery/site-recovery-overview.md). You can create a vault from Vaults view in ABC Center: <br>
+> Ensure you have a *Recovery services* vault created to proceed with the flow for [Azure Backup](../backup/backup-overview.md) or [Azure Site Recovery](../site-recovery/site-recovery-overview.md). You can create a vault from Vaults view in Resiliency: <br>
 >       :::image type="content" source="./media/tutorial-configure-protection-datasource/create-vault.png" alt-text="Screenshot showing the create vault option." lightbox="./media/tutorial-configure-protection-datasource/create-vault.png":::
 
  
@@ -76,5 +72,5 @@ To configure protection for Azure VMs, follow these steps:
  
 ## Next steps
 
-- [Review protected items from ABC Center](./tutorial-view-protectable-resources.md).
+- [Review protected items from Resiliency in Azure](./tutorial-view-protectable-resources.md).
 - [Monitor progress of configure protection](./tutorial-monitor-protection-summary.md).
