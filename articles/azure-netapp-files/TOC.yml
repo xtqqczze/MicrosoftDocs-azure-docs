@@ -333,11 +333,9 @@
       items:
       - name: Create a dual-protocol volume 
         href: create-volumes-dual-protocol.md
-    - name: Configure a cache volume  
-      href: configure-cache-volumes.md
-    - name: Manage object REST API access
+    - name: Manage object REST API 
       items:
-      - name: Configure object REST API access
+      - name: Configure object REST API
         href: object-rest-api-access-configure.md
       - name: Connect to Azure Databricks 
         href: object-rest-api-databricks.md
@@ -347,6 +345,8 @@
         href: object-rest-api-browser.md
     - name: Migrate volumes to Azure NetApp Files
       href: migrate-volumes.md
+    - name: Configure a cache volume  
+      href: configure-cache-volumes.md
     - name: Manage volume access and encryption 
       items:
       - name: Configure export policy for NFS or dual protocol
