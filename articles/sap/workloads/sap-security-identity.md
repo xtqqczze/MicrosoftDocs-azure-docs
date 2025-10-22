@@ -96,7 +96,7 @@ More information on the SAP BTP Cloud Identity Services (CIS) can be found here:
 Authorization attributes can be replicated from Microsoft Entra to target SAP applications such as SAP BTP Role Collections. This is discussed in this link [Manage access to your SAP applications - Microsoft Entra ID Governance | Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/sap)
 
   > [!NOTE]
-  > Microsoft has released new Entra functionality to synchronize both Users and Groups from Entra to SAP ABAP systems. This functionality can be added free of charge in the Entra Portal.  
+  > Microsoft has released new Entra functionality to synchronize both Users and Groups from Entra to SAP ABAP systems. This functionality can be added free of charge in the Entra Admin Center.  
 
 The process to setup and synchronize Authorization Roles and Profiles for NetWeaver and S/4 systems is documented in detail [Identity and Access Management with Microsoft Entra - SAP Community (Part III)](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-iii-successfactors/ba-p/14233747). Additional information for BTP applications, SuccessFactors, Ariba, and Fieldglass Authorization attributes will be added to this documentation. 
 
