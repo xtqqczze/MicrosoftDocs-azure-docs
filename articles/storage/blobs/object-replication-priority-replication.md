@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 10/05/2025
+ms.date: 10/22/2025
 ms.author: shaas
 
 # Customer intent: As a cloud storage administrator, I want to implement priority object replication for block blobs, so that I can improve data availability, reduce read latency, and optimize cost-efficiency across multiple regions.
