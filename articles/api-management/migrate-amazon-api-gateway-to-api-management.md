@@ -192,7 +192,6 @@ Also, for API workloads:
 
 - [Migrate from Amazon Elastic Kubernetes Service to Azure Kubernetes Service](/azure/architecture/aws-professional/eks-to-aks/migrate)
 
-
 ## **Preparation**
 
 1. **Plan for infrastructure setup**
@@ -205,13 +204,13 @@ Also, for API workloads:
   
 1. **Plan for test and production API Management instances**
 
-  Choose appropriate Azure API Management service tiers for test and production environments. 
+    Choose appropriate Azure API Management service tiers for test and production environments. 
 
-  - For customers requiring network isolation of both inbound and outbound traffic and traffic entry through Azure Front Door or Application Gateway, the Azure API Management Premium tier is currently recommended. If the Premium tier is selected, the Developer tier (not supported with SLA) can be used for proof of concept migrations since it supports networking capabilities also available in the Premium tier. The Developer tier should not be used for production.
+    - For customers requiring network isolation of both inbound and outbound traffic and traffic entry through Azure Front Door or Application Gateway, the Azure API Management Premium tier is currently recommended. If the Premium tier is selected, the Developer tier (not supported with SLA) can be used for proof of concept migrations since it supports networking capabilities also available in the Premium tier. The Developer tier should not be used for production.
 
-  - Depending on your requirements for availability, performance, and network isolation, the Standard v2 tier can be considered because it supports integration to network-isolated backends. 
+    - Depending on your requirements for availability, performance, and network isolation, the Standard v2 tier can be considered because it supports integration to network-isolated backends. 
 
-  - Currently, the Premium v2 tier with capabilities to isolate both inbound traffic is in preview. You can consider using it for migrations depending on your implementation timelines in relation to the available information about Premium v2's release and migration paths.
+    - Currently, the Premium v2 tier with capabilities to isolate both inbound traffic is in preview. You can consider using it for migrations depending on your implementation timelines in relation to the available information about Premium v2's release and migration paths.
 
 1. **Understand and document the source APIs under management**
 
