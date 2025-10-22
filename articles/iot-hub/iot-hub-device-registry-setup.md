@@ -274,12 +274,15 @@ To create a resource group, role, and permissions for your IoT solution, complet
 
 ### Set up an ADR namespace
 
-Set up a new ADR namespace with a system-assigned managed identity. Creating this namespace also creates a credential, known as root CA, and a default policy, known as intermediate CA.
+Set up a new ADR namespace with a system-assigned managed identity. Creating namespace with system-assigned managed identity also creates a credential, known as root CA, and a default policy, known as intermediate CA. [Certificate Management](iot-hub-certificate-management.md) uses these credentials and policies to onboard devices to the namespace.
 
-1. Create a new ADR namespace. Your namespace `name` can only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, the name "msft-namespace" is valid. 
+> [!NOTE]
+> Credentials are optional. You can also create a namespace without a managed identity by omitting the `--enable-credential-policy` and `--policy-name` flags.
+
+1. Create a new ADR namespace. Your namespace `name` can only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, the name "msft-namespace" is valid. If you want to enable a system-assigned managed identity for the ADR namespace, add the `--enable-credential-policy` flag to the command and the policy name using the `--policy-name` flag.
 
     ```bash
-    az iot adr ns create --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP" --location "$LOCATION"
+    az iot adr ns create --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP" --location "$LOCATION" --enable-credential-policy true --policy-name "PolicyName"
     ```
 
     > [!NOTE]
@@ -291,12 +294,12 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating thi
     az iot adr ns show --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
     ```
 
-1. Verify that a credential named "default" and policy named "default" are created. You can also create a custom policy using the `az iot adr ns policy create` command. For more information, see [Create and manage namespaces](iot-hub-device-registry-namespaces.md#create-a-custom-policy).
-
+1. Verify that a credential named "default" and policy named "PolicyName" are created. You can also create a custom policy using the `az iot adr ns policy create` command. For more information, see [Create and manage namespaces](iot-hub-device-registry-namespaces.md#create-a-custom-policy).
+    
     ```bash
     az iot adr ns credential show --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
-    az iot adr ns policy show --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP" --name "default"
-    ```    
+    az iot adr ns policy show --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP" --name "PolicyName"
+    ```
 
 1. Retrieve the principal ID of the User-Assigned Managed Identity. This ID is needed to assign roles to the identity.
     
