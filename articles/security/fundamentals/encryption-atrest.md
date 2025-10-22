@@ -108,7 +108,7 @@ Microsoft Azure Services each support one or more of the encryption at rest mode
 
 ### Azure VM disk encryption
 
-Any customer using Azure Infrastructure as a Service (IaaS) features can achieve encryption at rest for their IaaS VM disks through encryption at host. For more information, see [Encryption at host - End-to-end encryption for your VM](/azure/virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+Any customer using Azure Infrastructure as a Service (IaaS) features can achieve encryption at rest for their IaaS VM disks through encryption at host. For more information, see [Encryption at host - End-to-end encryption for your VM](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 #### Azure storage
 
