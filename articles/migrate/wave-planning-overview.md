@@ -20,7 +20,7 @@ Azure Migrate – Wave Planning helps cloud architects and migration leads to:
 - Minimize risks and disruptions by grouping dependent systems and enabling iterative planning
 - Improves business continuity and migration fidelity through continuous monitoring and feedback.
 
-Add Image 1.1 - Wave Planning Overview
+    :::image type="content" source="./media/wave-planning-overview/wave-overview.png" alt-text="The screenshot shows the overview of the wave planning." lightbox="./media/wave-planning-overview/wave-overview.png":::
 
 ## Azure Migrate – Wave Planning
 
