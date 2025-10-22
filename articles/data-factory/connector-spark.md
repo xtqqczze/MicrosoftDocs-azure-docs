@@ -16,7 +16,7 @@ ms.date: 08/19/2025
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Spark. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The Spark connector version 2.0 provides improved native Spark support. If you are using Spark connector version 1.0 in your solution, please [upgrade the Spark connector](#upgrade-the-spark-connector) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](#differences-between-spark-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Spark connector version 2.0 provides improved native Spark support. If you are using Spark connector version 1.0 in your solution, please [upgrade the Spark connector](#upgrade-the-spark-connector) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **October 31, 2025** if not upgraded. Refer to this [section](#differences-between-spark-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 

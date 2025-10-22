@@ -18,7 +18,7 @@ ms.custom:
 This article outlines how to use Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Impala. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!IMPORTANT]
-> The Impala connector version 2.0 provides improved native Impala support. If you are using Impala connector version 1.0 in your solution, please [upgrade the Impala connector](#upgrade-the-impala-connector) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](#differences-between-impala-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Impala connector version 2.0 provides improved native Impala support. If you are using Impala connector version 1.0 in your solution, please [upgrade the Impala connector](#upgrade-the-impala-connector) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **October 31, 2025** if not upgraded. Refer to this [section](#differences-between-impala-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 

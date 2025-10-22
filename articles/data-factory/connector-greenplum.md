@@ -18,7 +18,7 @@ ms.custom:
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Greenplum. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The Greenplum connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Greenplum connector](#differences-between-greenplum-version-20-and-version-10) from version 1.0 to 2.0.
+> The Greenplum connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Greenplum connector](#upgrade-the-greenplum-connector) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
