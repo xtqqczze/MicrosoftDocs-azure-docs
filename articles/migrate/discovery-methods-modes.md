@@ -6,7 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.manager: molir
 ms.service: azure-migrate
-ms.date: 05/28/2025
+ms.date: 10/21/2025
 ms.custom: engagement-fy24
 ---
 
@@ -47,14 +47,31 @@ Import-based discovery is a simpler and faster alternative, relying on manual up
 - Supports VMware inventory exported from RVTools XLSX file. 
 - Build a quick business case using the servers discovered via import. 
 
+## Arc-based discovery (Preview)
+If you have already Arc-enabled your servers, Arc-based discovery provides a simple alternative that doesn't require any additional on-premises deployments. To use Arc-based discovery, you must create a new Azure Migrate project from Arc Center. 
+
+### Key features
+
+- Native service integration between Azure Migrate and Azure Arc. Requires no additional on-premises deployments to get started.
+- Scope Arc resources by subscription into the project
+- Default business case and assessments are automatically generated. Takes less than an hour to get to a business case and full estate assessment.
+- Collect additional information (utilization history) using the new Azure Migrate Collector VM extension. 
+
+
 ## Supported workloads for discovery 
 
 Ensure that software inventory is enabled before initiating workload discovery. Azure Migrate supports the following workloads: 
 
-- Discovery of SQL Server instances and databases. 
-- Discovery of ASP.NET web apps. 
-- Discovery of MySQL database instances. 
-- Discovery of PostgreSQL instances and databases.
+
+| Capability | Appliance-based discovery | Import-based Discovery | Arc-based discovery (Preview) |
+|------------|---------------------------|------------------------|---------------------|
+| Right-sized assessments | Supported. Ensure VM credentials are provided. | Supported. Provide aggregate values in the CSV file. | Supported. Ensure Azure Migrate Collector VM extension in installed. |
+| Software Inventory |  Supported. Ensure VM credentials are provided. | Not supported | Not supported | 
+| Dependency mapping | Supported. Ensure VM credentials are provided. | Not supported | Not supported | 
+| Discovery of SQL Server instances and databases. | Supported. Ensure SQL credentials are provided. | Not supported | Supported |
+| Discovery of ASP.NET web apps. | Supported. Ensure VM credentials are provided.| Not supported | Not supported|
+| Discovery of MySQL database instances | Supported. Ensure MySQL credentials are provided. | Not supported | Not supported |
+| Discovery of PostgreSQL instances and databases | Supported. Ensure PostgreSQL credentials are provided. | Not supported | Not supported | 
 
 ## Next steps
 
