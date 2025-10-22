@@ -16,7 +16,7 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
-### [3.7.1] (CDN: October 20, 2025, npm: TBA)
+### [3.7.1] (CDN: October 20, 2025, npm: October 22, 2025)
 
 #### New features
 - Add support for zoom level 0, allowing users to view the entire globe within a small map canvas.
