@@ -10,7 +10,7 @@ ms.author: anfdocs
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to create a cache volume in Azure NetApp Files, so that I can leverage scalable storage solutions and reduce cost.
 ---
-# Configure a cache volume for Azure NetApp Files (Preview)
+# Configure a cache volume for Azure NetApp Files (preview)
 
 The purpose of this article is to provide users of Azure NetApp Files with cache volumes that simplify file distribution, reduce WAN latency, and lower WAN/ExpressRoute bandwidth costs. Azure NetApp Files cache volumes are currently designed to be peered with external sources--origin volumes in on-premises ONTAP, Cloud Volumes ONTAP, or Amazon FSx for NetApp.
 
@@ -54,6 +54,7 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * You can't move a cache volume to another capacity pool.
 * You should ensure that the protocol type is the same for the cache volume and origin volume. The security style and the Unix permissions are inherited from the origin volume. For example, creating a cache volume with NFSv3 or NFSv4 when origin is UNIX, and SMB when the origin is NTFS.
 * You should enable encryption on the origin volume.
+* You should configure an Active Directory (AD) or LDAP connection within the NetApp account to create an LDAP-enabled cache volume.
 * You can only modify specific fields of a cache volume, including `is-cifs-change-notify-enabled`, `is-writeback-enabled`, and `is-global-file-locking-enabled`.
 
 ## Supported regions
@@ -76,11 +77,8 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * Israel Central
 * Italy North
 * Japan East
-* Japan West
 * Korea Central
 * Korea South
-* Malaysia West
-* New Zealand North
 * North Central US
 * North Europe
 * Norway East
@@ -207,6 +205,99 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
         "cifsChangeNotifications": "Disabled",
         "globalFileLocking": "Disabled",
         "writeBack": "Disabled"
+    }
+    }'
+```
+
+2. Ensure the cache state is available in cluster peering or Vserver peering:
+
+    ```
+    GET all flexcache volumes:
+    curl -X 'GET' \
+    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches?api-version=2025-07-01-preview' \
+    -H 'accept: application/json'
+    ```
+
+3.	Generate the passphrase to enable cluster peering and Vserver peering:
+
+    ```
+    listPeeringPassphrases:
+    curl -X 'POST' \
+    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1/listPeeringPassphrases?api-version=2025-07-01-preview' \
+    -H 'accept: application/json' \
+    -d ''
+    ```
+
+## Create a LDAP enabled cache volume
+
+1.	Create a LDAP enabled cache volume
+
+   ```
+    curl -X 'PUT' \
+    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1?api-version=2025-07-01-preview' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{
+    "tags": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+    },
+    "location": "string",
+    "zones": [
+        "1"
+    ],
+    "properties": {
+        "filepath": "some-amazing-filepath",
+        "size": 53687091200,
+        "exportPolicy": {
+        "rules": [
+            {
+            "ruleIndex": 0,
+            "unixReadOnly": true,
+            "unixReadWrite": true,
+            "kerberos5ReadOnly": false,
+            "kerberos5ReadWrite": false,
+            "kerberos5iReadOnly": false,
+            "kerberos5iReadWrite": false,
+            "kerberos5pReadOnly": false,
+            "kerberos5pReadWrite": false,
+            "cifs": true,
+            "nfsv3": true,
+            "nfsv41": true,
+            "allowedClients": "string",
+            "hasRootAccess": true,
+            "chownMode": "Restricted"
+            }
+        ]
+        },
+        "protocolTypes": [
+        "NFSv3"
+        ],
+        "cacheSubnetResourceId": "string",
+        "peeringSubnetResourceId": "string",
+        "kerberos": "Disabled",
+        "smbSettings": {
+        "smbEncryption": "Disabled",
+        "smbAccessBasedEnumeration": "Enabled",
+        "smbNonBrowsable": "Enabled"
+        },
+        "throughputMibps": 128.223,
+        "encryptionKeySource": "Microsoft.NetApp",
+        "keyVaultPrivateEndpointResourceId": "string",
+        "language": "c.utf-8",
+        "originClusterInformation": {
+        "peerClusterName": "cluster1",
+        "peerAddresses": [
+            "10.10.10.10",
+            "10.10.10.11"
+        ],
+        "peerVserverName": "vserver1",
+        "peerVolumeName": "originvol1"
+        },
+        "cifsChangeNotifications": "Disabled",
+        "globalFileLocking": "Disabled",
+        "writeBack": "Disabled"
         "ldap": "Enabled", 
         "ldapServerType": "OpenLDAP"
     }
@@ -231,7 +322,8 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     -H 'accept: application/json' \
     -d ''
     ```
-    
+
+
 ## Delete a cache volume
 
 You can delete a cache volume if it's no longer required. Before deleting a cache volume, you must ensure that the cache volume's status is disconnected, and the write-back property of the cache volume is disabled.
