@@ -1,8 +1,8 @@
 ---
 title: Create protection policy for resources
-description: In this article, you'll learn how to create backup and replication policies to protect your resources.
+description: In this article, you learn how to create backup and replication policies to protect your resources.
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 11/01/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 # Create backup and replication policies for your resources
 
-This article describes how to create a backup and replication policy that can be used for backups with Azure Backup and replication with Azure Site Recovery. 
+This article describes how to create a backup and replication policy. The policy works for backups with Azure Backup and replication with Azure Site Recovery. 
 
 A backup policy defines when backups are taken, and how long they're retained. [Learn more](../backup/guidance-best-practices.md#backup-policy-considerations) on the guidelines when creating a backup policy. 
 
@@ -27,7 +27,7 @@ Before you create a backup policy, [review](../backup/guidance-best-practices.md
 
 To create a policy, follow these steps:
 
-1. On **Business Continuity Center**, go to **Manage** > **Protection Policies**.
+1. On **Resiliency**, go to **Manage** > **Protection Policies**.
     :::image type="content" source="./media/backup-protection-policy/protection-policies.png" alt-text="Screenshot showing **Protection Policies** page." lightbox="./media/backup-protection-policy/protection-policies.png":::
 
 1. On **Protection polices**, select **+Create policy**.  
@@ -41,7 +41,7 @@ To create a policy, follow these steps:
 1. Select **Continue** and navigate to the specific configuration page based on the selected policy type and complete the workflow.
     >[!NOTE]
     > It can take a while to create the vault. Monitor the status notifications in the **Notifications** pane at the top of the page.
-1. After the vault is created, it appears in the list of vaults in the ABC center. If the vault doesn't appear, select **Refresh**.
+1. After the vault is created, it appears in the list of vaults as part of the Resiliency experiences. If the vault doesn't appear, select **Refresh**.
 
 
 ## Next steps 
