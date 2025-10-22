@@ -148,6 +148,9 @@ To add an asset in the operations experience:
 
 ### Add individual tags to an asset
 
+> [!IMPORTANT]
+> The tag name `_ErrorMessage` is reserved and should not be used.
+
 Now you can define the tags associated with the asset. To add OPC UA tags:
 
 1. Select **Add tag**.
