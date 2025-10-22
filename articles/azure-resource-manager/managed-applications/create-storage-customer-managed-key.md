@@ -73,7 +73,7 @@ After a successful deployment, select **Go to resource**.
 
 ## Create role assignments
 
-You need to create two role assignments for your key vault. For details, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+You need to create two role assignments for your key vault. For details, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ### Grant key permission on key vault to the managed identity
 
