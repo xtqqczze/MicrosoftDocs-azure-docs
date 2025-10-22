@@ -98,7 +98,7 @@ Images for agent VMs are hosted on the Microsoft Download Center as a `zip` file
 
 ### Agent network connectivity
 
-The agent VM must have network connectivity to various Azure services to function correctly. Some of these services support private endpoints, while others require public endpoint access. For detailed information about the required network connectivity, see the [Networking prerequisites for Storage Mover](networking-prerequisites.md) article.
+The agent VM must have network connectivity to various Azure services to function correctly. Some of these services support private endpoints, while others require public endpoint access. For detailed information about the required network connectivity, see the [Networking prerequisites for Storage Mover](network-prerequisites.md) article.
 
 ## Storage Mover Endpoint
 
