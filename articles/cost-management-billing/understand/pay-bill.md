@@ -8,7 +8,7 @@ ms.reviewer: drjones
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/01/2025
+ms.date: 10/21/2025
 ---
 
 # Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program bill
