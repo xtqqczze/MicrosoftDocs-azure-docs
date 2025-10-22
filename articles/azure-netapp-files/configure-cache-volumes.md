@@ -23,6 +23,7 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * Cache volumes are currently only supported with the REST API. 
 The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: 6 for cluster peering and 1 for data access to one or more cache volumes. Ensure that the delegated subnet address space is sized appropriately to accommodate another Azure NetApp Files network interfaces. Review the guidelines for Azure NetApp Files network planning to ensure you meet the requirements for delegated subnet sizing.
 * When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created volumes in the subscription. This is done to try to reduce the number of NICs/IPs consumed in the delegated subnet. If this isn't possible, another 6+1 NICs are consumed.
+* You can't use the same source cluster for multiple subscriptions for creating cache volumes in the same region or availability zone.
 * If enabling write-back on the external origin volume, consider these key points
     * You must be running ONTAP 9.15.1P5 or later on the system hosting the external origin volume. 
     * Each external origin system node has at least 128GB of RAM and 20 CPUs to absorb the write-back messages that are initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it requires more CPUs and RAM.
@@ -139,7 +140,7 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
 
    ```
     curl -X 'PUT' \
-    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1?api-version=2025-07-01-preview' \
+    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1?api-version=2025-09-01-preview' \
     -H 'accept: application/json' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -212,7 +213,7 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
     ```
     GET all flexcache volumes:
     curl -X 'GET' \
-    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches?api-version=2025-07-01-preview' \
+    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches?api-version=2025-09-01-preview' \
     -H 'accept: application/json'
     ```
 
@@ -221,7 +222,7 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
     ```
     listPeeringPassphrases:
     curl -X 'POST' \
-    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1/listPeeringPassphrases?api-version=2025-07-01-preview' \
+    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1/listPeeringPassphrases?api-version=2025-09-01-preview' \
     -H 'accept: application/json' \
     -d ''
     ```
@@ -232,7 +233,7 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
 
    ```
     curl -X 'PUT' \
-    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1?api-version=2025-07-01-preview' \
+    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1?api-version=2025-09-01-preview' \
     -H 'accept: application/json' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -307,7 +308,7 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
     ```
     GET all flexcache volumes:
     curl -X 'GET' \
-    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches?api-version=2025-07-01-preview' \
+    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches?api-version=2025-09-01-preview' \
     -H 'accept: application/json'
     ```
 
@@ -316,7 +317,7 @@ The network connectivity must be in place for all ‘intercluster’ (IC) LIFs o
     ```
     listPeeringPassphrases:
     curl -X 'POST' \
-    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1/listPeeringPassphrases?api-version=2025-07-01-preview' \
+    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1/listPeeringPassphrases?api-version=2025-09-01-preview' \
     -H 'accept: application/json' \
     -d ''
     ```
@@ -330,6 +331,6 @@ You can delete a cache volume if it's no longer required. Before deleting a cach
 
     ```rest
     curl -X 'DELETE' \
-    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1?api-version=2025-07-01-preview' \
+    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1?api-version=2025-09-01-preview' \
     -H 'accept: application/json'
     ```
