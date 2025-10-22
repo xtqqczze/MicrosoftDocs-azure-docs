@@ -93,11 +93,6 @@ Both architectures provide comparable functionality, including:
 
 - **API authentication and authorization** – Gateways support multiple access methods including keys, OAuth token-based access, and API-based policies.
 
-### Production environment considerations
-
-- For customers requiring network isolation of both inbound and outbound traffic, the Azure API Management Premium tier is currently recommended. If the Premium tier is selected, the Developer tier (not supported with SLA) can be used for proof of concept migrations since it supports networking capabilities also available in the Premium tier. The Developer tier should not be used for production.
-- Depending on your requirements for availability, performance, and network isolation, the Standard v2 tier can be considered because it supports integration to network-isolated backends. 
-- Currently, the Premium v2 tier with capabilities to isolate both inbound traffic is in preview. You can consider using it for migrations depending on your implementation timelines in relation to the available information about Premium v2's release and migration paths.
 
 ## Assessment - Capability comparison
 
@@ -208,8 +203,17 @@ Also, for API workloads:
 
     A basic scenario that can be used for initial migration and build-out in Azure is [Secure baseline with a sample workload](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function).
   
+1. **Plan for test and production API Management instances**
 
-2. **Understand and document the source APIs under management**
+  Choose appropriate Azure API Management service tiers for test and production environments. 
+
+  - For customers requiring network isolation of both inbound and outbound traffic and traffic entry through Azure Front Door or Application Gateway, the Azure API Management Premium tier is currently recommended. If the Premium tier is selected, the Developer tier (not supported with SLA) can be used for proof of concept migrations since it supports networking capabilities also available in the Premium tier. The Developer tier should not be used for production.
+
+  - Depending on your requirements for availability, performance, and network isolation, the Standard v2 tier can be considered because it supports integration to network-isolated backends. 
+
+  - Currently, the Premium v2 tier with capabilities to isolate both inbound traffic is in preview. You can consider using it for migrations depending on your implementation timelines in relation to the available information about Premium v2's release and migration paths.
+
+1. **Understand and document the source APIs under management**
 
     Capture API configurations including authentication and authorization flows, transformation, and caching mechanisms.
 
@@ -325,11 +329,11 @@ Migration is expected to be a multiweek to multimonth process, depending on the 
     
     - **Iterate on feature gaps:** Some Amazon API Gateway features may not have a one-to-one mapping in Azure API Management and require workarounds (see capability mismatches in the Assessment section). For example:
 
-          - **Web Application Firewall (WAF)**: Azure API Management doesn't automatically block bad payloads that AWS WAF would have. If you set up Azure WAF, make sure Azure API Management is only accessible through the WAF and that WAF rules replicate AWS WAF restrictions.
+      - **Web Application Firewall (WAF)**: Azure API Management doesn't automatically block bad payloads that AWS WAF would have. If you set up Azure WAF, make sure Azure API Management is only accessible through the WAF and that WAF rules replicate AWS WAF restrictions.
           
-          - **Event streams**: If CloudWatch alarms or events were tied to Amazon API Gateway (for example, on certain error patterns), set up equivalent alerts in Azure Monitor for Azure API Management (for example, an alert on Azure API Management 5XX rate).
+      - **Event streams**: If CloudWatch alarms or events were tied to Amazon API Gateway (for example, on certain error patterns), set up equivalent alerts in Azure Monitor for Azure API Management (for example, an alert on Azure API Management 5XX rate).
           
-          - **Automation**: If you have CI/CD pipelines, integrate Azure API Management into them. For example, you might store your Azure API Management configurations (APIs and policies) in source control using infrastructure as code approaches like ARM/Bicep/Terraform templates or an [APIOps methodology](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops). This ensures that future changes to the APIs can be deployed consistently and version-controlled.
+      - **Automation**: If you have CI/CD pipelines, integrate Azure API Management into them. For example, you might store your Azure API Management configurations (APIs and policies) in source control using infrastructure as code approaches like ARM/Bicep/Terraform templates or an [APIOps methodology](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops). This ensures that future changes to the APIs can be deployed consistently and version-controlled.
 
 1. **Begin production rollout**
 
