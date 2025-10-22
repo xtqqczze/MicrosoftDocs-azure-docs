@@ -12,16 +12,18 @@ ms.custom: references_regions
 
 # Quickstart: Use Azure Container Storage with Azure Kubernetes Service
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to connect to a Linux-based [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This quickstart shows you how to connect to a Linux-based [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage.
+
+If you prefer the open-source version of Azure Container Storage, visit the [local-csi-driver](https://github.com/Azure/local-csi-driver) repository for alternate installation instructions.
 
 > [!IMPORTANT]
 > This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md). If you already have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-- This article requires the latest version (2.77.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). Don't use Azure Cloud Shell, because `az upgrade` isn't available in Cloud Shell. Be sure to run the commands in this article with administrative privileges.
+- This article requires the latest version (2.77.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). Don't use Azure Cloud Shell, because `az upgrade` isn't available in Cloud Shell. Be sure to run the commands in this article with administrative privileges. Some Azure CLI extensions, such as `aks-preview`, can conflict with required command flags. Disable them if you encounter issues.
 
 - You'll need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
 
@@ -70,9 +72,9 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`.
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION
-    aks-nodepool1-34832848-vmss000000   Ready    agent   80m   v1.32.6
-    aks-nodepool1-34832848-vmss000001   Ready    agent   80m   v1.32.6
-    aks-nodepool1-34832848-vmss000002   Ready    agent   80m   v1.32.6
+    aks-nodepool1-34832848-vmss000000   Ready    agent   80m   v1.32.6
+    aks-nodepool1-34832848-vmss000001   Ready    agent   80m   v1.32.6
+    aks-nodepool1-34832848-vmss000002   Ready    agent   80m   v1.32.6
     ```
 
 ## Ensure VM type for your cluster meets the following criteria

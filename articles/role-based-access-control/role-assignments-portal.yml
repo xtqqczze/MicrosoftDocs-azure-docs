@@ -12,8 +12,9 @@ metadata:
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:
-    - subject-rbac-steps
+    - sfi-image-nochange
     - ge-structured-content-pilot
+    - subject-rbac-steps
 title: |
   Assign Azure roles using the Azure portal
 introduction: |
@@ -259,7 +260,7 @@ procedureSection:
 
 relatedContent:
   - text: Assign a user as an administrator of an Azure subscription
-    url: role-assignments-portal-subscription-admin.yml
+    url: /azure/role-based-access-control/role-assignments-portal-subscription-admin
   - text: Remove Azure role assignments
     url: role-assignments-remove.yml
   - text: Troubleshoot Azure RBAC
