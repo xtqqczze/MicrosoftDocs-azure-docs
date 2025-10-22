@@ -53,7 +53,7 @@ items:
   - name: Troubleshoot
     items: 
     - name: Troubleshoot network issues
-      href: troubleshooting-network.md
+      href: network-troubleshooting.md
     - name: Job run error codes
       href: status-code.md
     - name: Collect a support bundle
