@@ -219,7 +219,54 @@ To copy data from Xero, set the type property of the dataset to **XeroObject**. 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **XeroObject** | Yes |
-| tableName | Name of the table. For version 2.0, table names use the object name, for example: `accounts`. For version 1.0, table names use simplified names with prefix, for example, `"Global"."Accounts"`. | Yes for version 2.0.<br>No for version 1.0 (if "query" in activity source is specified) |
+| tableName | Name of the table. For version 2.0, table names use the object name, for example: `Accounts`. For version 1.0, table names use simplified names with prefix, for example, `"Global"."Accounts"`. | Yes for version 2.0.<br>No for version 1.0 (if "query" in activity source is specified) |
+
+The connector version 2.0 support the following Xero tables:
+
+- Accounts
+- AssetSettings
+- AssetTypes
+- Bank_Transaction_Line_Items
+- Bank_Transfers
+- BatchPayments
+- Branding_Themes
+- Budgets
+- BudgetsFieldLines
+- BudgetsTracking
+- Credit_Note_Line_Items
+- Credit_Notes
+- Credit_Notes_Allocations
+- Currencies
+- Employees
+- Expense_Claim_Payments
+- Expense_Claim_Receipts
+- Expense_Claims
+- Files
+- Folders
+- Invoice_Line_Items
+- Invoices
+- Items
+- Journal_Line_Tracking_Categories
+- Journal_Lines
+- Journals
+- Manual_Journal_Lines
+- Manual_Journals
+- OrganisationActions
+- Organisation_Addresses
+- Organisation_Phones
+- Organisations
+- Payments
+- Purchase_Order_Line_Items
+- Purchase_Orders
+- Receipt_Line_Items
+- Receipt_Validation_Errors
+- Receipts
+- Repeating_Invoice_Line_Items
+- Repeating_Invoices
+- Tax_Rates
+- Tracking_Categories
+- Tracking_Category_Options
+- Users
 
 **Example**
 
@@ -348,7 +395,7 @@ When you copy data from Xero, the following mappings apply from Xero's data type
 |-------------------|-------------------------------------------|---------------------------------------------|
 | String            | String                                    | String                                      |
 | Date              | String                                    | Date                                        |
-| DateTime          | String                                    | DateTime                                    |
+| DateTime          | String                                    | String                                    |
 | Boolean           | Boolean                                   | Boolean                                     |
 | Number (standard) | Int32                                     | Int32                                       |
 | Number (large)    | Int64                                     | Int64                                       |
@@ -364,7 +411,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 | GA version available |• The `tableName` value is `<Object Name>`, for example: `accounts`. <br><br>• Date and DateTime are read as String data type. <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. |
+| Version 2.0 | GA version available |• The `tableName` value is `<Object Name>`, for example: `Accounts`. <br><br>• Date is read as String data type. <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. |
 
 ### Upgrade the Xero connector from version 1.0 to version 2.0
 
