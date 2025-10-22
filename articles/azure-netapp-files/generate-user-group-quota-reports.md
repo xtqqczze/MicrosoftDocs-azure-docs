@@ -62,22 +62,28 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     The Quota Report slide out will automatically retrieve the quota report in the background, stay on the page until the quota report has been successfully retrieved. Retrieval takes on average 5 seconds, but can take longer. The quota report lists one entry per user. The following are the fields available in the page.
 
     * **Quota Type**      
+
         Indicates which type of quota rule caused this user or group entry in the report; possible types are default or individual quotas for users or groups.
 
     * **Derived Quota**
+
         If user or group is subject to an explicit quota rule, this field shows "No". Conversely, if user or group is implicitly subject to a quota rule, like a default user or group quota rule, this field shows "Yes".
 
     * **Quota Target**
+
         UID/SID/GID for user/group
 
     * **Quota Used**
+
         Total disk limit used by the user/group
 
     * **Quota Limit**
+
         Total disk limit allocated by the user/group in kilobyte
 
     * **% Used**
-        How much % of the total quota limit has been used by user/group
+    
+        Displays information with quota usage equal to greater than the % used
 
 3. You can apply filters for “Quota Target”. “Quota Type”, and “%Used” to view the specific quota report.
 
