@@ -248,8 +248,8 @@ items:
     items:
     - name: Migrate VMware servers 
       items:
-        - name: Assess VMWare servers  
-          href: ../azure-vmware/tutorial-access-private-cloud.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json  
+        - name: Assess VMware servers  
+          href: tutorial-assess-vmware-azure-vm.md
         - name: Migrate to Azure Cloud
           href: tutorial-migrate-vmware.md
         - name: Migrate to Azure Local 
