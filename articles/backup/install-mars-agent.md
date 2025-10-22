@@ -130,7 +130,7 @@ To install and register  the MARRS agent, follow these steps:
 1. For **Installation**, review the prerequisites, and select **Install**.
 
    >[!Note]
-   >Prerequisites for MARS agent are - Windows Powershell 5.0 and Microsoft .NET Framework 4.8 (previously 4.5). The update from .NET framework 4.5 to 4.8 may require user install.
+   >MARS agent installation requires Windows Powershell 5.0 and Microsoft .NET Framework 4.8 (previously 4.5). You might need to install the .NET Framework 4.8 manually when upgrading from version 4.5.
 
     ![Screenshot shows the prerequisites required to setup MARS wizard.](./media/backup-configure-vault/mars-prerequisite.png)
    
