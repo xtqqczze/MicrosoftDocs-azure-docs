@@ -318,7 +318,9 @@ The following methods are available through the JSON-RPC interface:
     }
     ```
 
-* **bicep/version**
+    On success, `"success": true` is returned, with contents holding the formatted Bicep source. On failure, `"success": false` with `diagnostics` describing the failure.
+
+  * **bicep/version**
 
   Returns the version of the Bicep CLI.
   
