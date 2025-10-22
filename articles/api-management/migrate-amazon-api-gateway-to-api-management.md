@@ -235,7 +235,7 @@ Also, for API workloads:
 
 1. **Plan phasing strategy** 
     
-  Planning for **phased migration** (API by API or domain by domain) is recommended: update one set of domains or API endpoints to Azure API Management while others remain on AWS, then gradually move the rest. This might require your client applications to handle mixed endpoints or using a routing layer.
+    Planning for **phased migration** (API by API or domain by domain) is recommended: update one set of domains or API endpoints to Azure API Management while others remain on AWS, then gradually move the rest. This might require your client applications to handle mixed endpoints or using a routing layer.
 
 ## Process
 
@@ -251,15 +251,15 @@ Migration is expected to be a multiweek to multimonth process, depending on the 
     
 1. **Configure Azure API Management platform settings**
 
-  In the new Azure API Management instance, set up global configurations similar to those in Amazon API Gateway:
-
-  - **Custom hostname**: Add your custom domain to Azure API Management, upload the SSL certificate (or use Key Vault references), and perform validation. This can be done now or just before production cutover. When using Application Gateway (recommended), configure a listener with the custom domain and certificate, and point it to Azure API Management's internal endpoint. Configuring the listener simplifies configuration because it doesn't require domain validation.
+    In the new Azure API Management instance, set up global configurations similar to those in Amazon API Gateway:
   
-  - **Networking and security**: Make sure Application Gateway (or other Azure entry point) is configured to forward requests to Azure API Management. Set up NSG rules or firewall rules so that Azure API Management can reach backend services such as your Azure backends or even the source AWS backends if initially pointing to them.
+    - **Custom hostname**: Add your custom domain to Azure API Management, upload the SSL certificate (or use Key Vault references), and perform validation. This can be done now or just before production cutover. When using Application Gateway (recommended), configure a listener with the custom domain and certificate, and point it to Azure API Management's internal endpoint. Configuring the listener simplifies configuration because it doesn't require domain validation.
+    
+    - **Networking and security**: Make sure Application Gateway (or other Azure entry point) is configured to forward requests to Azure API Management. Set up NSG rules or firewall rules so that Azure API Management can reach backend services such as your Azure backends or even the source AWS backends if initially pointing to them.
+    
+    - Enable **managed identity** on Azure API Management to call Azure services securely (like Key Vault for certificates or function apps).
   
-  - Enable **managed identity** on Azure API Management to call Azure services securely (like Key Vault for certificates or function apps).
-
-By the end of this phase, you should have a working shell of Azure API Management in Azure with connectivity and the basic framework ready to start importing APIs.
+    By the end of this phase, you should have a working shell of Azure API Management in Azure with connectivity and the basic framework ready to start importing APIs.
 
 1. **Import and recreate APIs in Azure API Management**
 
@@ -278,23 +278,23 @@ By the end of this phase, you should have a working shell of Azure API Managemen
 
 1. **Set up authentication and authorization**
 
-  - **Subscriptions and products**: If your APIs required API keys in Amazon API Gateway (via `x-api-key` header), decide how to handle that in Azure API Management. One approach is to make those APIs only accessible to users with a subscription to a product. Create initial products in Azure API Management, either corresponding one-to-one with AWS usage plans or reorganized logically.
-
-  - **Create user groups** in Azure API Management to mirror how you share APIs with developers.
-
-  - **Named values**: Import any configuration values (like API keys for backend services, endpoints, and so on) that were in Amazon API Gateway stage variables into Azure API Management named values. For sensitive values, use Azure Key Vault integration.
+    - **Subscriptions and products**: If your APIs required API keys in Amazon API Gateway (via `x-api-key` header), decide how to handle that in Azure API Management. One approach is to make those APIs only accessible to users with a subscription to a product. Create initial products in Azure API Management, either corresponding one-to-one with AWS usage plans or reorganized logically.
   
-  - **Token retrieval and validation** - For JWT validation of API requests, configure validation policies in Azure API Management that authorize API access. You can initially use your existing identity provider (such as AWS Cognito) and consider migration over time to Microsoft Entra ID.
+    - **Create user groups** in Azure API Management to mirror how you share APIs with developers.
   
-    Configure credential manager in Azure API Management for managing tokens to OAuth backends, or set up token retrieval logic using policies (see [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)). 
-
-  - **Configure backends in Azure API Management** to register each backend service (with its URL, credentials, etc.). This provides a central place to update if the backend URL changes. For example, if you initially point to an AWS endpoint but later switch to an Azure backend, you can simply update the Azure API Management backend configuration.
-
-  - **Feature parity checks:** Go through the list of features used by each API and ensure they're addressed.
-
-    For example, test APIs that deal with binary payloads (images, files) or large payloads. Ensure the Azure API Management is configured with adequate timeout, size, or content validation settings for those scenarios.
+    - **Named values**: Import any configuration values (like API keys for backend services, endpoints, and so on) that were in Amazon API Gateway stage variables into Azure API Management named values. For sensitive values, use Azure Key Vault integration.
     
-    Azure API Management treats all imported APIs fairly uniformly, so that Amazon API Gateway "HTTP APIs" (the newer lightweight type) versus "REST APIs" (the classic) are managed consistently in Azure API Management. Differences like the lack of usage plans in HTTP APIs are moot once in Azure API Management, but ensure any Amazon API Gateway-specific constraints are addressed.
+    - **Token retrieval and validation** - For JWT validation of API requests, configure validation policies in Azure API Management that authorize API access. You can initially use your existing identity provider (such as AWS Cognito) and consider migration over time to Microsoft Entra ID.
+    
+      Configure credential manager in Azure API Management for managing tokens to OAuth backends, or set up token retrieval logic using policies (see [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)). 
+  
+    - **Configure backends in Azure API Management** to register each backend service (with its URL, credentials, etc.). This provides a central place to update if the backend URL changes. For example, if you initially point to an AWS endpoint but later switch to an Azure backend, you can simply update the Azure API Management backend configuration.
+  
+    - **Feature parity checks:** Go through the list of features used by each API and ensure they're addressed.
+  
+      For example, test APIs that deal with binary payloads (images, files) or large payloads. Ensure the Azure API Management is configured with adequate timeout, size, or content validation settings for those scenarios.
+      
+      Azure API Management treats all imported APIs fairly uniformly, so that Amazon API Gateway "HTTP APIs" (the newer lightweight type) versus "REST APIs" (the classic) are managed consistently in Azure API Management. Differences like the lack of usage plans in HTTP APIs are moot once in Azure API Management, but ensure any Amazon API Gateway-specific constraints are addressed.
 
 1. **Transformation and policy mapping**
 
@@ -323,13 +323,13 @@ By the end of this phase, you should have a working shell of Azure API Managemen
     
     - **Performance baseline:** Use a tool to simulate load on the Azure API Management endpoints and see that they can handle the expected throughput. Compare latency of calls via Azure API Management to latency via Amazon API Gateway. Azure API Management in the Developer tier is less performant than the Premium tier and single-instance, so heavy performance testing might wait until you have a Premium-tier Azure API Management instance deployed.
     
-- **Iterate on feature gaps:** Some Amazon API Gateway features may not have a one-to-one mapping in Azure API Management and require workarounds (see capability mismatches in the Assessment section). For example:
+    - **Iterate on feature gaps:** Some Amazon API Gateway features may not have a one-to-one mapping in Azure API Management and require workarounds (see capability mismatches in the Assessment section). For example:
 
-    - **Web Application Firewall (WAF)**: Azure API Management doesn't automatically block bad payloads that AWS WAF would have. If you set up Azure WAF, make sure Azure API Management is only accessible through the WAF and that WAF rules replicate AWS WAF restrictions.
-    
-    - **Event streams**: If CloudWatch alarms or events were tied to Amazon API Gateway (for example, on certain error patterns), set up equivalent alerts in Azure Monitor for Azure API Management (for example, an alert on Azure API Management 5XX rate).
-    
-    - **Automation**: If you have CI/CD pipelines, integrate Azure API Management into them. For example, you might store your Azure API Management configurations (APIs and policies) in source control using infrastructure as code approaches like ARM/Bicep/Terraform templates or an [APIOps methodology](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops). This ensures that future changes to the APIs can be deployed consistently and version-controlled.
+          - **Web Application Firewall (WAF)**: Azure API Management doesn't automatically block bad payloads that AWS WAF would have. If you set up Azure WAF, make sure Azure API Management is only accessible through the WAF and that WAF rules replicate AWS WAF restrictions.
+          
+          - **Event streams**: If CloudWatch alarms or events were tied to Amazon API Gateway (for example, on certain error patterns), set up equivalent alerts in Azure Monitor for Azure API Management (for example, an alert on Azure API Management 5XX rate).
+          
+          - **Automation**: If you have CI/CD pipelines, integrate Azure API Management into them. For example, you might store your Azure API Management configurations (APIs and policies) in source control using infrastructure as code approaches like ARM/Bicep/Terraform templates or an [APIOps methodology](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops). This ensures that future changes to the APIs can be deployed consistently and version-controlled.
 
 1. **Begin production rollout**
 
@@ -337,15 +337,15 @@ By the end of this phase, you should have a working shell of Azure API Managemen
 
     Rehearse cutover in a lower environment (or with a subset of traffic). For instance, select one noncritical API and have one client application switch to using the Azure endpoint. This can reveal any client-side issues or help validate your DNS change process. If your API consumers are internal, you can simulate a change by editing hosts files or using a test DNS zone to point the domain to Azure API Management temporarily.
 
-    **DNS switch:** The most common approach is to switch the DNS entry of your custom Amazon API Gateway domain to point to the new Azure endpoint. For example, if your domain api.example.com was mapped to Amazon API Gateway, you would update its CNAME or A record to point to the Azure API Management hostname or to the front-end (like Application Gateway) domain.  
+    - **DNS switch:** The most common approach is to switch the DNS entry of your custom Amazon API Gateway domain to point to the new Azure endpoint. For example, if your domain api.example.com was mapped to Amazon API Gateway, you would update its CNAME or A record to point to the Azure API Management hostname or to the front-end (like Application Gateway) domain.  
 
-      TTL considerations: Lower the DNS TTL beforehand so that clients pick up changes quickly. When ready, change the DNS. It can take minutes to hours to propagate, during which time some traffic might still go to AWS and some to Azure. If an immediate cut is needed, you can use an alternate method such as a reverse-proxy approach.
+    - **TTL considerations**: Lower the DNS TTL beforehand so that clients pick up changes quickly. When ready, change the DNS. It can take minutes to hours to propagate, during which time some traffic might still go to AWS and some to Azure. If an immediate cut is needed, you can use an alternate method such as a reverse-proxy approach.
 
-    **Alternative cutover methods**: Sometimes, instead of DNS, organizations use a reverse proxy/gateway flip – for example, keep the public DNS the same but initially have Application Gateway forward requests to Amazon API Gateway (via its URL), and when flipping, point it to Azure API Management internally. This approach, while more complex, can achieve an instantaneous switch. Another method if using Azure Front Door or Traffic Manager is to reweight traffic from one backend (AWS) to another (Azure) gradually.
+    - **Alternative cutover methods**: Sometimes, instead of DNS, organizations use a reverse proxy/gateway flip – for example, keep the public DNS the same but initially have Application Gateway forward requests to Amazon API Gateway (via its URL), and when flipping, point it to Azure API Management internally. This approach, while more complex, can achieve an instantaneous switch. Another method if using Azure Front Door or Traffic Manager is to reweight traffic from one backend (AWS) to another (Azure) gradually.
 
-    **Monitoring during cutover**: As soon as the switch happens, closely monitor requests to both the Azure API Management instance and the Amazon API Gateway. Monitor Azure API Management metrics (requests, latency, CPU, capacity memory) in real-time via Azure portal or whatever dashboard you set up. Also use Azure Monitor to watch for spikes in errors such as 4XX/5XX responses.
+    - **Monitoring during cutover**: As soon as the switch happens, closely monitor requests to both the Azure API Management instance and the Amazon API Gateway. Monitor Azure API Management metrics (requests, latency, CPU, capacity memory) in real-time via Azure portal or whatever dashboard you set up. Also use Azure Monitor to watch for spikes in errors such as 4XX/5XX responses.
 
-    **Rollback plan**: Decide on what triggers a rollback. For example, if error rate exceeds X% or a critical functionality is broken, you might revert within 30 minutes. A rollback means undoing whatever switch you did; for example, if DNS, revert the DNS record to point back to Amazon API Gateway. Because of DNS propagation, rollback might take some time (hence the importance of low TTL and possibly keeping both systems running). If you used a reverse proxy, flip it back to AWS.
+    - **Rollback plan**: Decide on what triggers a rollback. For example, if error rate exceeds X% or a critical functionality is broken, you might revert within 30 minutes. A rollback means undoing whatever switch you did; for example, if DNS, revert the DNS record to point back to Amazon API Gateway. Because of DNS propagation, rollback might take some time (hence the importance of low TTL and possibly keeping both systems running). If you used a reverse proxy, flip it back to AWS.
 
 ## Validation
 
@@ -365,7 +365,7 @@ Validation criteria include:
 
   - Rate limits and quotas are configured at the appropriate scope.
 
-- **Validate operational metrics**: Monitor performance using dashboards or other observability tools under production load. Review metrics such as average latency and throughput and compare to historical data from API gateway. Review capacity metrics to ensure that Azure API Management instance is properly scaled.
+- **Validate operational metrics**: Monitor performance using dashboards or other observability tools under production load. Review metrics such as average latency and throughput and compare to historical data from Amazon API Gateway. Review capacity metrics to ensure that Azure API Management instance is properly scaled.
 
 ### Post-migration 
 
