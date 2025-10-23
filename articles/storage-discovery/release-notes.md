@@ -21,7 +21,7 @@ Improvements:
 
 - Storage Discovery workspaces can show insights from Azure Storage resources located in any Azure public region.
 - Discovery integration with the Azure Copilot can now cover complex prompts. These improvements enable you to recombine data pivots, resulting in insights that aren't available anywhere else. The [blog post on Azure.com](https://azure.microsoft.com/blog/from-queries-to-conversations-unlock-insights-about-your-data-using-azure-storage-discovery-now-generally-available) and the [*Discover insights* article](/azure/copilot/discover-storage-estate-insights?toc=%2Fazure%2Fstorage-discovery%2Ftoc.json) have many examples and best practices.
-- Storage account resources can be filtered by performance type premium and standard.
+- Filter storage account resources by performance type: premium and standard.
 - An Azure Storage Discovery workspace resource can now be moved across resource groups or subscriptions. The [*Move resources to other locations* article](resource-move.md) has details.
 
 Limitations:
