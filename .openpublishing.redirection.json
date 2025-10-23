@@ -7928,7 +7928,43 @@
       "source_path": "articles/iot-hub-device-update/device-update-azure-real-time-operating-system.md",
       "redirect_url": "/azure/iot-hub-device-update/",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/role-based-access-control/role-assignments-list-cli.yml",
+      "redirect_url": "/azure/role-based-access-control/role-assignments-list-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/role-based-access-control/role-assignments-list-portal.yml",
+      "redirect_url": "/azure/role-based-access-control/role-assignments-list-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/role-based-access-control/role-assignments-list-powershell.yml",
+      "redirect_url": "/azure/role-based-access-control/role-assignments-list-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/role-based-access-control/role-assignments-portal-managed-identity.yml",
+      "redirect_url": "/azure/role-based-access-control/role-assignments-portal-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/role-based-access-control/role-assignments-portal-subscription-admin.yml",
+      "redirect_url": "/azure/role-based-access-control/role-assignments-portal-subscription-admin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/role-based-access-control/role-assignments-remove.yml",
+      "redirect_url": "/azure/role-based-access-control/role-assignments-remove",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/role-based-access-control/role-definitions-list.yml",
+      "redirect_url": "/azure/role-based-access-control/role-definitions-list",
+      "redirect_document_id": false
+    },
+
 
 
 

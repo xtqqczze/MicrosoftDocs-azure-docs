@@ -4,7 +4,7 @@ description: Learn how to list Azure built-in and custom roles using Azure porta
 author: rolyon
 ms.author: rolyon
 manager: pmwongera
-ms.date: 01/07/2025
+ms.date: 10/23/2025
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom:
@@ -361,7 +361,7 @@ To list role definitions in a tenant, use the [Role Definitions - List](/rest/ap
                     "type": "CustomRole",
                     "description": "Read billing data and download invoices",
                     "assignableScopes": [
-                        "/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15"
+                        "/subscriptions/eeee4e4e-ff5f-aa6a-bb7b-cccccc8c8c8c"
                     ],
                     "permissions": [
                         {
@@ -478,7 +478,7 @@ To list role definitions, use the [Role Definitions - List](/rest/api/authorizat
                    "type": "CustomRole",
                    "description": "Read billing data and download invoices",
                    "assignableScopes": [
-                       "/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15"
+                       "/subscriptions/eeee4e4e-ff5f-aa6a-bb7b-cccccc8c8c8c"
                    ],
                    "permissions": [
                        {

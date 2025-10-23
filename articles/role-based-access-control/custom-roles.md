@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 02/26/2025
+ms.date: 10/23/2025
 ms.author: rolyon
 ---
 
@@ -155,7 +155,7 @@ Permission strings are case-insensitive. When you create your custom roles, the 
 
 ## Wildcard permissions
 
-`Actions`, `NotActions`, `DataActions`, and `NotDataActions` support wildcards (`*`) to define permissions. A wildcard (`*`) extends a permission to everything that matches the action string you provide. For example, suppose that you wanted to add all the permissions related to Azure Cost Management and exports. You could add all of these action strings:
+`Actions`, `NotActions`, `DataActions`, and `NotDataActions` support wildcards (`*`) to define permissions. A wildcard (`*`) extends a permission to everything that matches the action string you provide. For example, suppose that you wanted to add all the permissions related to Microsoft Cost Management and exports. You could add all of these action strings:
 
 ```
 Microsoft.CostManagement/exports/action

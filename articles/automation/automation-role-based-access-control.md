@@ -180,7 +180,7 @@ A Log Analytics Contributor can read all monitoring data and edit monitoring set
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Storage/storageAccounts/listKeys/action|List storage account keys.|
 |Microsoft.Support/*|Create and manage support tickets.|
-|Microsoft.HybridCompute/machines/extensions/write| Installs or Updates an Azure Arc extensions.|
+|Microsoft.HybridCompute/machines/extensions/write| Installs or Updates Azure Arc extensions.|
 
 ### Log Analytics Reader
 

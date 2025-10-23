@@ -4,7 +4,7 @@ description: Learn how to make a user an administrator of an Azure subscription 
 author: rolyon
 ms.author: rolyon
 manager: pmwongera
-ms.date: 03/30/2025
+ms.date: 10/23/2025
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom:
@@ -33,7 +33,7 @@ This article describes how to assign a user as an administrator of an Azure subs
 
    The following shows an example subscription.
 
-   ![Screenshot of Subscriptions overview](./media/shared/sub-overview.png)
+   ![Screenshot of Subscriptions overview.](./media/shared/sub-overview.png)
 
 ## Step 2: Open the Add role assignment page
 
