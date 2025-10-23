@@ -11,7 +11,7 @@ items:
 - name: Azure Center for SAP solutions
   href: center-sap-solutions/toc.yml
 
-- name: SAP on Azure deployment automation framework
+- name: SAP on Azure automation framework
   href: automation/toc.yml
 
 - name: Azure Monitor for SAP solutions

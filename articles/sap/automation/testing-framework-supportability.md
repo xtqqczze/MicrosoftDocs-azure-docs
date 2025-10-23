@@ -4,16 +4,26 @@ description: Learn about the supported platforms, operating systems, and feature
 author: devanshjain
 ms.author: devanshjain
 ms.reviewer: devanshjain
-ms.date: 11/02/2025
+ms.date: 10/22/2025
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.topic: conceptual
 ---
+
 # SAP Testing Automation Framework Supported Platforms and Features
 
 This document outlines the supported platforms, operating systems, and features for the SAP Testing Automation Framework.
 
-## Supported Configurations
+## Supported Distributions for Management Server
+
+The SAP Testing Automation Framework requires a management server or controller. Below are the list of supported operating systems.
+
+- Operating system: Ubuntu 22.04 LTS, SUSE Linux Enterprise Server 15 SP4 or above, Red Hat Enterprise Linux 9.4 or above.
+- The management server must be deployed on Azure.
+
+## Supported SAP System Configurations
+
+Azure offers various deployment options for SAP workloads on different operating system distributions. The SAP Testing Automation Framework executes its test scenarios on the SAP system configurations listed below.
 
 ### Linux Distributions
 
@@ -39,7 +49,7 @@ The framework supports testing of various high availability configurations for S
 
 The framework validates both ENSA1 (Enqueue Server 1) and ENSA2 (Enqueue Server 2) architectures for SAP Central Services, providing comprehensive testing coverage for different SAP NetWeaver implementations. For SAP HANA databases, the framework focuses on scale-up configurations with System Replication (HSR) for high availability scenarios.
 
-### SAP Configuration Checks
+### SAP Configuration Checks (Preview)
 
 The framework supports configuration checks across different SAP system topologies and database combinations. These configurations cover both single server and high availability deployment scenarios for comprehensive validation.
 

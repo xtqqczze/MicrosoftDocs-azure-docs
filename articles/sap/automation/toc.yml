@@ -101,13 +101,13 @@ items:
     items:
       - name: Overview
         href: testing-framework.md
-      - Concepts:
+      - name: Concepts
         items:
         - name: Testing framework architecture
           href: testing-framework-architecture.md
         - name: Supported platforms and features
           href: testing-framework-supportability.md
-        - name: High Availability testing
+        - name: High availability testing
           href: testing-framework-high-availability.md
-        - name: Configuration Checks
+        - name: Configuration checks
           href: testing-framework-configuration-checks.md

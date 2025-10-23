@@ -9,9 +9,10 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.topic: conceptual
 ---
+
 # SAP Testing Automation Framework Architecture
 
-The document provides a comprehensive overview of the SAP Testing Automation Framework architecture and its key components. The framework uses a distributed architecture with centralized management to orchestrate testing operations across multiple SAP environments and systems.
+The SAP Testing Automation Framework uses a distributed architecture with centralized management to orchestrate testing operations across multiple SAP systems.
 
 ## Key Components
 
@@ -31,7 +32,7 @@ The SAP Testing Automation Framework is built on several core components that wo
 
 ### High-Level Framework Structure
 
-The SAP Testing Automation Framework uses a centralized management server architecture that orchestrates all testing activities across multiple SAP systems and environments. This orchestrator architecture provides centralized control and efficient resource utilization while maintaining the flexibility to support multiple deployment scenarios.
+The SAP Testing Automation Framework uses a centralized management server architecture that orchestrates all testing scenarios across multiple SAP systems. This orchestrator architecture provides centralized control and efficient resource utilization while maintaining the flexibility to support multiple deployment scenarios.
 
 The framework operates on a hub-and-spoke model where the management server acts as the central hub. It coordinates with multiple SAP systems (spokes) to execute tests, collect results, and generate comprehensive reports. Key functions include:
 
@@ -40,7 +41,6 @@ The framework operates on a hub-and-spoke model where the management server acts
 **Configuration Management**: The system maintains directories of configuration templates, system inventories, and customization parameters. These can be applied across different environments while ensuring consistency and reducing configuration drift.
 
 **Communication Hub**: The server handles secure connections, authentication, and data exchange with target SAP systems, providing a unified interface for all testing operations.
-
 
 ## Next Steps
 
