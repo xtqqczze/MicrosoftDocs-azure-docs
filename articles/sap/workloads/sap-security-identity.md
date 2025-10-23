@@ -61,7 +61,7 @@ NetWeaver Business Client, Concur, Fiori Mobile App, Business Explorer (BEx), Bu
 For more information on how to configure single sign-on from Microsoft Entra ID, see the following documentation and tutorials.  
 
   > [!NOTE]
-  > Note the preferred strategy is to use the SAP BTP Cloud Identity Services (CIS) where possible.  
+  > Note the preferred strategy is to use the SAP Cloud Identity Services (CIS) where possible.  
 
 It's technically possible to integrate SAP SuccessFactors with Entra ID or SAP Cloud Identity Service (CIS). However, the preferred strategy is to use inbound provisioning from SuccessFactors to Entra as described in [Configure SuccessFactors for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/saas-apps/successfactors-tutorial) For outbound provisioning to SuccessFactors, such as assigning a new HR admin role to a user in SuccessFactors, SuccessFactors would be configured as a target system in CIS as described in [SAP SuccessFactors | SAP Help Portal](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-sap-successfactors).
 
