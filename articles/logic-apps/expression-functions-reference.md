@@ -4966,9 +4966,11 @@ And returns this result XML:
   <city>Seattle</city>
 <person>
 ```
+
 *Example 4*
 
-The xml() function does not accept a raw array as input. If your data is a JSON string, you can wrap it with the json() function to convert it into an object before passing it to xml().
+The xml() function expects either an object or a string containing valid XML. It does not accept a raw array as input. 
+If your data is a JSON string, you can wrap it with the json() function to convert it into an object before passing it to xml().
 
 ```
 xml(
