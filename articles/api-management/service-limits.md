@@ -29,8 +29,7 @@ Resource limits are interrelated and tuned to work together. They prevent any si
 
 Starting March 2026, Azure API Management will apply updated limits to instances in the Classic tiers (Developer, Basic, Standard, and Premium) and the Consumption tier. These updates align with each tier’s capabilities and help customers choose the right option for their needs.
 
-Current limits for Classic tiers are published [here](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-classic-tiers) and may be adjusted before March 2026.
-
+Current limits for Classic tiers are published [here](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-classic-tiers). By March 2026, the scope of entities with limits could be reduced.
 
 ### What's changing
 
