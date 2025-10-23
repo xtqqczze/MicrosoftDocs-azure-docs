@@ -46,30 +46,31 @@ A storage mover agent supports both SMB and NFS clients. The following list of p
 
 The following table provides a summary of the required services, their endpoint types, and whether private access is supported. Because your network settings must allow the Storage Mover Agent to connect over HTTPS to the service's endpoints, the Fully Qualified Domain Name (FQDN) is also included.
 
-# [Public Cloud](#tab/public)
+<!--# [Public Cloud](#tab/public)-->
 
 | Service                    | Needed For           | Supports Private Endpoints | FQDN                                               |
 |----------------------------|----------------------|----------------------------|----------------------------------------------------|
-| **MCR**                    | Agent updates        | &#10060;                   | `mcr.microsoft.com`                                |
+| **Microsoft Artifact Registry** | Agent updates   | &#10060;                   | `mcr.microsoft.com`                                |
 | **Storage Mover Service**  | Agent heartbeats and migration job assignments    | &#10060; | `<region>.agentgateway.prd.azsm.azure.com` |
 | **Event Hubs**             | Publishing copy logs | &#10060;                   | `evhns-sm-ur-prd-<region>.servicebus.windows.net`  |
-| **Azure Arc**              | Registration         | &#9989; (via Arc Private Link Scope)  | `*.guestconfiguration.azure.com` and<br />`*.his.arc.azure.com` |
-| **Entra ID**               | Registration         | &#10060;                   | `login.microsoftonline.com` and<br />`pas.windows.net` |
+| **Azure Arc**              | Registration         | &#9989; (via Arc Private Link Scope) | `*.guestconfiguration.azure.com` and<br />`*.his.arc.azure.com` |
+| **Microsoft Entra ID**     | Registration         | &#10060;                   | `login.microsoftonline.com` and<br />`pas.windows.net` |
 | **Azure Resource Manager** | Registration         | &#10060;                   | `management.azure.com`                             |
 | **Storage Account (Flat Blob)** | Job targets     | &#9989;                    | `*.blob.core.windows.net`                          |
 | **Storage Account (HNS Blob)**  | Job targets     | &#9989;                    | `*.blob.core.windows.net` and<br />`*.dfs.core.windows.net` |
 | **Storage Account (File)** | Job targets          | &#9989;                    | `*.file.core.windows.net`                          |
 | **Key Vault**              | SMB credentials      | &#9989;                    |  `*.vault.azure.net`                               |
 
+<!--
 # [Fairfax](#tab/fairfax)
 
 | Service                    | Needed For           | Supports Private Endpoints | FQDN                                                   |
 |----------------------------|----------------------|----------------------------|--------------------------------------------------------|
-| **MCR**                    | Agent updates        | &#10060;                   | `mcr.microsoft.com`                                    |
+| **Microsoft Artifact Registry** | Agent updates   | &#10060;                   | `mcr.microsoft.com`                                    |
 | **Storage Mover Service**  | Agent heartbeats and migration job assignments | &#10060; | `<region>.agentgateway.ff.azsm.azure.us`       |
 | **Event Hubs**             | Publishing copy logs | &#10060;                   | `evhns-sm-ur-ff-<region>.servicebus.usgovcloudapi.net` |
 | **Azure Arc**              | Registration         | &#9989; (via Arc Private Link Scope) | `*.guestconfiguration.azure.com` and<br />`*.his.arc.azure.com` |
-| **Entra ID**               | Registration         | &#10060;                   | `login.microsoftonline.com` and<br />`pasff.usgovcloudapi.net` |
+| **Microsoft Entra ID**     | Registration         | &#10060;                   | `login.microsoftonline.com` and<br />`pasff.usgovcloudapi.net` |
 | **Azure Resource Manager** | Registration         | &#10060;                   | `management.usgovcloudapi.net`                         |
 | **Storage Account (Flat Blob)** | Job targets     | &#9989;                    | `*.blob.core.usgovcloudapi.net`                        |
 | **Storage Account (HNS Blob)**  | Job targets     | &#9989;                    | `*.blob.core.windows.net` and<br />`*.dfs.core.usgovcloudapi.net` |
@@ -77,6 +78,7 @@ The following table provides a summary of the required services, their endpoint 
 | **Key Vault**              | SMB credentials      | &#9989;                    |  `*.vault.usgovcloudapi.net`                           |
 
 ---
+-->
 
 The following sections detail the required components, public endpoint dependencies, and networking considerations for deploying Storage Mover in a private network.
 
@@ -104,7 +106,7 @@ The following diagram illustrates an example of a resource topology for enabling
 > [!NOTE]
 > This configuration is one of many possible setups for a private network and doesn't encompass all components involved in network configuration, such as DNS, proxies, and virtual network peering.
 
-:::image type="content" source="media/network-prerequisites/networking-topology.png" alt-text="A diagram illustrating an example of a resource topology for enabling private connectivity to all endpoints that support it.":::
+:::image border="false" type="content" source="media/network-prerequisites/networking-topology-sml.png" alt-text="A diagram illustrating an example of a resource topology for enabling private connectivity to all endpoints that support it." lightbox="media/network-prerequisites/networking-topology-lrg.png":::
 
 <sup>1</sup> Arc Private Link Scopes provide access to three Arc services as shown in the image. The *Extensions* Arc service isn't used by the Storage Mover Agent. It appears muted in the image to avoid confusion.<br>
 <sup>2</sup> Arc Private Link Scopes and the three Arc services to which they connect can both be accessed directly over public endpoints. The Arc Private Link Scope can be configured to enable or disable public network access.<br>
@@ -116,10 +118,10 @@ Despite the emphasis on private networking, certain required Storage Mover servi
 
 The following endpoints *must* be accessible over public endpoints for the Storage Mover Agent to function correctly:
 
-- **MCR** for automated agent updates.
+- **Microsoft Artifact Registry** for automated agent updates.
 - **The Storage Mover Service** for agent heartbeats and job coordination.
-- **Event Hub** for publishing copy logs.
-- **AAD/Entra ID** for registration and identity management.
+- **Event Hubs** for publishing copy logs.
+- **Azure AD/Microsoft Entra ID** for registration and identity management.
 - **Azure Resource Manager** for registration and resource management.
 
 ## Arc-enabled server considerations
@@ -135,11 +137,11 @@ A Private Link Scope allows you to maintain private connectivity by facilitating
 
 Beyond the core components, there are networking considerations that can be configured to enhance the security and functionality of the Storage Mover Agent. However, these configurations are optional, depend on your specific network requirements, and might affect networking performance - especially if misconfigured.
 
-### Proxy Support
+### Proxy support
 
 The Storage Mover Agent supports external HTTP and HTTPS proxies. Configuration is done via the agent's shell within the **Network Configuration** section's **Update network configuration** menu. When prompted, select **Proxy** and enter the Fully Qualified Domain Name (FQDN) or IP address of the proxy. Include the port number if necessary. The following example illustrates the configuration steps:
 
-:::image type="content" source="media/network-prerequisites/proxy-configuration.png" alt-text="A screenshot showing the proxy configuration screen in the Storage Mover Agent.":::
+:::image type="content" source="media/network-prerequisites/proxy-configuration-sml.png" alt-text="A screenshot showing the proxy configuration screen in the Storage Mover Agent." lightbox="media/network-prerequisites/proxy-configuration-lrg.png":::
 
-### SSL Inspection
+### SSL inspection
 If your network performs SSL interception, the agent might fail to recognize modified certificates. Currently, adding custom certificates to the agent isn't supported. To avoid issues, add required endpoints to the allowlist to bypass SSL inspection. These endpoints are available in the [Networking overview](#networking-overview) section.
