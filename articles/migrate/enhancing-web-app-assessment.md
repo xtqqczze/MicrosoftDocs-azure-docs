@@ -1,33 +1,33 @@
 ---
 title: Enhancing Web App Assessment by Adding Code Scan Report
-description: Learn how to Enhancing Web App Assessment by Adding Code Scan Report
+description: Learn how to install AppCat and run the quickstart to assess and migrate .NET and Java applications using Azure Migrate. Step-by-step guide included
 ms.topic: how-to
-author: Vikram1988
-ms.author: vibansa
+author: sudesai
+ms.author: SujayJDesai
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 10/23/2025
 ms.custom: engagement-fy24
-# Customer intent: "As a cloud administrator, I want to deploy an Azure Migrate appliance using a PowerShell script, so that I can facilitate discovery, assessment, and replication of servers in my VMware or Hyper-V environment efficiently."
+# Customer intent: As a cloud administrator, I want to upload AppCAT scan results as a zip to a web app assessment so that the assessment includes code-based migration insights.
 ---
 
 
 # Enhancing Web app assessment by adding code scan report 
 
-This article describes how to improve web app assessments by including code scan reports when modernising applications for Azure Kubernetes Service (AKS) or Azure App Service. By adding code scan reports, you can better assess migration readiness and receive recommendations for appropriate migration strategies, based on the code changes identified during the scan.
+This article describes how to improve web app assessments by including code scan reports when modernising applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code scan reports helps you better assess migration readiness and receive recommendations for appropriate migration strategies based on the code changes identified during the scan.
 
 There are two ways to add code scan report to web app assessment. 
 
-- Upload code scan report manually generate using Azure Migrate application and code assessment tool (AppCAT)
-- Connect your GitHub repo where the code scan reports will be uploaded using GitHub Copilot app modernization extension. 
+- Upload a code scan report manually, generate using Azure Migrate application and code assessment tool (AppCAT)
+- Connect your GitHub repo where the code scan reports are uploaded using GitHub Copilot app modernization extension. 
 
 In this article, you’ll learn how to:
-- How to import code scan reports to Web app assessments
-- Methods to generate the code scan report. 
+- Import code scan reports to Web app assessments
+- Generate the code scan report using supported methods. 
 - Calculate assessment to see updated reports.
 - View updated assessment along with code insights. 
 
-Method 1: Upload code scan report manually
+##  Method 1: Upload code scan report manually
 
 With this approach, you are required to generate the code scan report using AppCAT and then manually upload the reports to Web Apps as a ZIP file. 
 
@@ -163,7 +163,7 @@ To generate code scan report follow below steps.
 1. To generate code scan report for .Net follow these steps [Assess and migrate a .NET project with GitHub Copilot app modernization for .NET](/dotnet/azure/migration/appmod/quickstart). 
 1. To generate code scan report for Java, follow these steps [Assess a Java project using GitHub Copilot app modernization]. 
 1. Once the report is available, upload the report to Github issue using below prompt in GitHub Copilot. 
-1. upload assessment report to <GitHub Issue URL>   
+1. upload assessment report to [GitHub Issue URL]  
 
 ### View code insights after adding code scan reports. 
 
