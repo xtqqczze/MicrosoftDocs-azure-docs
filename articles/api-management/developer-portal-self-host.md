@@ -509,7 +509,7 @@ Over time, your business requirements might change. You can end up in a situatio
 
 ### Transition process
 
-You can transition from the managed version to a self-hosted version within the same API Management service instance. The process preserves the modifications that you carried out in the managed version of the portal. Make sure you back up the portal's content beforehand. You can find the backup script in the `scripts` folder of the API Management developer portal [GitHub repo](https://github.com/Azure/api-management-developer-portal).
+You can transition from the managed version to a self-hosted version within the same API Management service instance. The process preserves the modifications that you carried out in the managed version of the portal. Make sure you back up the portal's content beforehand. You can find the backup script in the `scripts.v3` folder of the API Management developer portal [GitHub repo](https://github.com/Azure/api-management-developer-portal).
 
 The conversion process is almost identical to setting up a generic self-hosted portal, as shown in previous steps in this article. There's one exception in the configuration step. The storage account in the `config.design.json` file needs to be the same as the storage account of the managed version of the portal. See [Tutorial: Use a Linux VM system-assigned identity to access Azure Storage via a SAS credential](../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-storage-sas.md#get-a-sas-credential-from-azure-resource-manager-to-make-storage-calls) for instructions on how to retrieve the SAS URL.
 
