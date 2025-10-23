@@ -39,7 +39,7 @@ In the example depicted, Application Gateway for Containers and Application Gate
 
 ## Feature dependencies and mappings
 
-Prior to migration, it is important to identify any dependencies on Application Gateway Ingress Controller that may not yet be available in Application Gateway for Containers. Workloads with dependency on these features should be prioritized later in your migration strategy until such capabilities are unblocked in Application Gateway for Containers.
+Prior to migration, it's important to identify any dependencies on Application Gateway Ingress Controller that may not yet be available in Application Gateway for Containers. Workloads with dependency on these features should be prioritized later in your migration strategy until such capabilities are unblocked in Application Gateway for Containers.
 
 Such dependencies include:
 
@@ -112,7 +112,7 @@ Once you've completed end-to-end testing, direct traffic to Application Gateway 
 >
 > - Prior to migration, identify the time to live (TTL) value of the DNS record currently serving traffic to the frontend of Application Gateway. Ensure the same amount of time and time configured in Application Gateway for connection draining to pass to ensure all clients have resolved the new DNS record to Application Gateway for Containers prior to retiring the Ingress / Gateway configuration to AGIC.
 > - Consider migration during a time of low-peak traffic to validate
-> - In the event migration does not behavior the way you anticipated, revert the DNS record to point back to the Application Gateway frontend and repeat the process.
+> - In the event the migration didn't behave the way you anticipated, revert the DNS record to point back to the Application Gateway frontend and repeat the process.
 
 ### Step 5: Deprecate Application Gateway Ingress Controller
 
@@ -120,7 +120,7 @@ Once all services have been migrated, you may deprecate Application Gateway Ingr
 
 #### Remove Ingress resources
 
-Remove each Ingress resource that is referencing the Application Gateway Ingress Controller with the `kubernetes.io/ingress.class: azure/application-gateway` annotation or defines an `ingressClassName` of `azure-application-gateway`.
+Remove each Ingress resource that's referencing the Application Gateway Ingress Controller with the `kubernetes.io/ingress.class: azure/application-gateway` annotation or defines an `ingressClassName` of `azure-application-gateway`.
 
 ```bash
 kubectl delete ingress your-ingress-name -n your-ingress-namespace
@@ -144,7 +144,7 @@ helm uninstall ingress-azure
 
 ### Clean-up Azure resources
 
-After the ingress controller is removed, you will need to delete the Application Gateway resource.
+After the ingress controller is removed, you'll need to delete the Application Gateway resource.
 
 >[!Note]
 >If the aks add-on was provisioned in the context of referencing a previously deployed Application Gateway in Azure, you will need to delete the Application Gateway resource manually.
@@ -223,7 +223,7 @@ AGIC annotation
 
 Application Gateway for Containers implementation
 
-Direct certificate upload and reference to a certificate in Azure Key Vault is not available.
+Direct certificate upload and reference to a certificate in Azure Key Vault isn't available.
 
 Secrets should be stored in [AKS Secret Store](/azure/aks/concepts-security#kubernetes-secrets) and referenced by name.
 

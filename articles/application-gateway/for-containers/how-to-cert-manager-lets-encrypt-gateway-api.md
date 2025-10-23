@@ -362,9 +362,9 @@ EOF
 
 ---
 
-### Create a HTTPRoute that listens for your hostname
+### Create an HTTPRoute that listens for your hostname
 
-Create a HTTPRoute to handle requests received by the `https-listener` listener.
+Create an HTTPRoute to handle requests received by the `https-listener` listener.
 
 >[!IMPORTANT]
 >Ensure you replace `contoso.com` with the domain name you are expecting the certificate to be issued to.
@@ -431,7 +431,7 @@ status:
 Now we're ready to send some traffic to our sample application, via the hostname used for your certificate.
 
 >[!IMPORTANT]
->Ensure you replace `contoso.com` with the domain name you are expecting the certificate to be issued to.
+>Ensure you replace `contoso.com` with the domain name you're expecting the certificate to be issued to.
 
 ```bash
 curl https://contoso.com/ -v 2>&1 | grep issuer

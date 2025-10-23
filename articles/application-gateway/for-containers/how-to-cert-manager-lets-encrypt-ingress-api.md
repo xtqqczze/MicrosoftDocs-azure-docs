@@ -326,7 +326,7 @@ cert-backend   True    cert-backend   1m
 The environment is now configured to route traffic to the sample application using the hostname associated with your certificate.
 
 >[!IMPORTANT]
->Ensure you replace `contoso.com` with the domain name you are expecting the certificate to be issued to.
+>Ensure you replace `contoso.com` with the domain name you're expecting the certificate to be issued to.
 
 ```bash
 curl https://backend-v1.contoso.com -v 2>&1 | grep issuer
