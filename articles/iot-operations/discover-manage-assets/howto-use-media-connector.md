@@ -54,8 +54,16 @@ The media connector supports the following task types:
 | snapshot-to-mqtt | Captures a snapshot from a media source and publishes it to an MQTT topic. |
 | clip-to-fs | Saves a video clip from a media source to the file system. |
 | snapshot-to-fs | Saves a snapshot from a media source to the file system. |
-| stream-to-rtsp | Proxies a live video stream from a media source to an RTSP endpoint. |
-| stream-to-rtsps | Proxies a live video stream from a media source to an RTSPs endpoint. |
+| stream-to-rtsp | Proxies a live video stream from a media source to RTSP endpoints. |
+| stream-to-rtsps | Proxies a live video stream from a media source to RTSPs endpoints. |
+
+### RTSP endpoint authentication
+
+The connector supports username/password authentication when it proxies live video streams to RTSP or RTSPs endpoints. The connector also supports certificate-based authentication when it proxies live video streams to RTSPs endpoints.
+
+Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault, project them into Kubernetes cluster, and reference them from your `stream-to-rtsp` and `stream-to-rtsps` asset configurations.
+
+Follow the steps in [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications) to add secrets for certificates in Azure Key Vault, project them into Kubernetes cluster, and reference them from your `stream-to-rtsps` asset configurations.
 
 ## Example uses
 
@@ -85,8 +93,6 @@ To configure the media connector, first create a device that defines the connect
 
     :::image type="content" source="media/howto-use-media-connector/add-media-connector-endpoint.png" alt-text="Screenshot that shows how to add a media connector endpoint." lightbox="media/howto-use-media-connector/add-media-connector-endpoint.png":::
 
-    To learn how to configure **Username password** authentication, see [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md).
-
     Select **Apply** to save the endpoint.
 
 1. On the **Device details** page, select **Next** to continue.
@@ -110,6 +116,22 @@ az iot ops ns device endpoint inbound add media --device media-connector-cli -g 
 ```
 
 To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
+
+---
+
+### Configure a device to use a username and password
+
+The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password.
+
+To use the `Username password` authentication mode, complete the following steps:
+
+# [Operations experience](#tab/portal)
+
+[!INCLUDE [connector-username-password-portal](../includes/connector-username-password-portal.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [connector-username-password-cli](../includes/connector-username-password-cli.md)]
 
 ---
 

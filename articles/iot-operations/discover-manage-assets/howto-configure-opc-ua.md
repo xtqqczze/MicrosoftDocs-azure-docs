@@ -25,6 +25,8 @@ This article describes how to use the operations experience web UI and the Azure
 
 These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data flows.
 
+The connector can use `anonymous` or `username password` authentication when it connects to an OPC UA server.
+
 ## Prerequisites
 
 To configure devices and assets, you need an instance of Azure IoT Operations.
@@ -90,25 +92,23 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 
 # [Operations experience](#tab/portal)
 
-1. Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
-2. In the operations experience, select **Username password** for the **User authentication** field to configure the device endpoint to use these secrets. Then enter the following values for the **Username reference** and **Password reference** fields:
-
-| Field | Value |
-| --- | --- |
-| Username reference | `aio-opc-ua-broker-user-authentication/username` |
-| Password reference | `aio-opc-ua-broker-user-authentication/password` |
+[!INCLUDE [connector-username-password-portal](../includes/connector-username-password-portal.md)]
 
 # [Azure CLI](#tab/cli)
 
-1. Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
-
-1. Use a command like the following example to create a device endpoint that uses the username and password authentication mode:
-
-    ```azurecli
-    az iot ops ns device endpoint inbound add opcua --device opc-ua-connector-cli -g {your resource group name} -i {your instance name} --name opc-ua-connector-0 --endpoint-address "opc.tcp://opcplc-000000:50000"  --user-ref "aio-opc-ua-broker-user-authentication/username" --pass-ref "aio-opc-ua-broker-user-authentication/password"
-    ```
+[!INCLUDE [connector-username-password-cli](../includes/connector-username-password-cli.md)]
 
 ---
+
+### Other security options
+
+When you create the inbound endpoint you can also select:
+
+| Option | Type | Description |
+| ------ | ---- | ----------- |
+| **Auto accept untrusted server certificate** | Yes/No | Automatically accept untrusted server certificates |
+| **Security policy** | Dropdown | Security policy used to establish secure channel with the OPC UA server |
+| **Security mode** | Dropdown | Security mode used to communicate within secure channel with the OPC UA server |
 
 ## Add an asset, tags, and events
 

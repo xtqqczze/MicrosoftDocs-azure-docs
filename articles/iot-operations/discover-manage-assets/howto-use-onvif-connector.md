@@ -115,6 +115,32 @@ To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 
 ---
 
+### Configure a device to use a username and password
+
+The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password.
+
+To use the `Username password` authentication mode, complete the following steps:
+
+# [Operations experience](#tab/portal)
+
+[!INCLUDE [connector-username-password-portal](../includes/connector-username-password-portal.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [connector-username-password-cli](../includes/connector-username-password-cli.md)]
+
+---
+
+### Other security options
+
+When you create the inbound endpoint you can also select:
+
+| Option | Type | Description |
+| ------ | ---- | ----------- |
+| **Accept invalid hostnames** | Yes/No | Accept invalid hostnames in certificates for the ONVIF connection, defaults to **No** |
+| **Accept invalid certificates** | Yes/No | Accept invalid certificates for the ONVIF connection, defaults to **No** |
+| **Fallback to username token auth** | Yes/No | Fallback to **UsernameToken** authentication if digest authentication fails for the ONVIF connection, defaults to **No** |
+
 ## View the discovered assets and devices
 
 After you create a device with an ONVIF endpoint, the connector for ONVIF automatically discovers the assets and devices that are available at the endpoint. To view the discovered assets and devices in the operations experience web UI, select **Discovery** from the left navigation pane:
