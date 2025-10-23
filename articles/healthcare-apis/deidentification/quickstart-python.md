@@ -184,7 +184,7 @@ pwsh DemoDeidentificationService.ps1
 
 #### cURL command 
 
-The examples below cover the TAG, REDACT and SURROGATE operations. To set the language in which the de-identification service needs to operate, set the following line [based on the list of supported language-locale pairs](articles/healthcare-apis/deidentification/Languages-supported)
+The examples below cover the TAG, REDACT and SURROGATE operations. To set the language in which the de-identification service needs to operate, set the following line [based on the list of supported language-locale pairs](articles/healthcare-apis/deidentification/languages-supported)
 
 Example:
 ```Bash
