@@ -12,7 +12,7 @@ This article describes the data types that are supported in [Bicep](./overview.m
 
 ## Any
 
-The `any` type in Bicep is a permissive type that disables compile-time type checking for the associated symbol. A value of type `any` can hold data of any type, including `string`, `int`, `bool`, `array`, `object`, or complex expressions.
+With Bicep version v0.38.3 and later, the `any` type in Bicep is a permissive type that disables compile-time type checking for the associated symbol. A value of type `any` can hold data of any type, including `string`, `int`, `bool`, `array`, `object`, or complex expressions.
 
 ```bicep
 param foo any
