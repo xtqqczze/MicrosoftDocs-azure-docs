@@ -69,6 +69,24 @@ Log signature: N/A
 
 When deploying connectors using the provided connector templates, the only supported authentication type is "artifact pull secrets". Other authentication types, such as managed identities, aren't currently supported in the connector templates.
 
+## Connector for OPC UA issues
+
+This section lists current known issues for the connector for OPC UA.
+
+### Can't use special characters in event names
+
+---
+
+Issue ID: 1532
+
+---
+
+Log signature: `2025-10-22T14:51:59.338Z aio-opc-opc.tcp-1-68ff6d4c59-nj2s4 - Updated schema information for Boiler#1Notifier skipped!`
+
+---
+
+Schema generation fails if event names contain special characters such as `#`, `%`, or `&`. Avoid using these characters in event names to prevent schema generation issues.
+
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
