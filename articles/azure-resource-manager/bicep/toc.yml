@@ -259,7 +259,7 @@ items:
         displayName: parameters,variables,resources,outputs,condition,syntax
       - name: Data types
         href: data-types.md
-        displayName: supported types,arrays,booleans,integers,objects,strings,secure,interpolation
+        displayName: any,supported types,arrays,booleans,integers,objects,strings,secure,interpolation
       - name: Parameters (param)
         href: parameters.md
         displayName: decorators,secure,objects,constraints

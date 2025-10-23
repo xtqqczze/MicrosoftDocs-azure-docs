@@ -3,7 +3,7 @@ title: Linter rule - no explicit any
 description: Linter rule - no explicit any
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/22/2025
+ms.date: 10/23/2025
 ---
 
 # Linter rule - no explicit any
@@ -18,7 +18,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-Using `any` disables type checking and removes the benefits of Bicep’s strong typing system. This can lead to runtime deployment errors that could have been caught earlier by the compiler. Instead of `any`, specify a more precise type such as `string`, `int`, `bool`, `array`, `object`, and so on. This helps ensure your templates are predictable and maintainable.
+Using `any` disables type checking and removes the benefits of Bicep's strong typing system. This can lead to runtime deployment errors that could have been caught earlier by the compiler. Instead of `any`, specify a more precise type such as `string`, `int`, `bool`, `array`, `object`, and so on. This helps ensure your templates are predictable and maintainable. For more information about Bicep types, see [Data types in Bicep](../language/data-types.md).
 
 The following example **fails** this rule:
 
