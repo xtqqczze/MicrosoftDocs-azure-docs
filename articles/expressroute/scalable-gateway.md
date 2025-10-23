@@ -47,17 +47,22 @@ The virtual network gateway infrastructure autoscales between the minimum and ma
 
 ErGwScale is available in most regions except the following regions:
 
-* Asia South East
 * Belgium Central
-* Europe West
-* India West
 * Japan East
 * Qatar Central
-* US West 2
+* Southeast Asia
+* West Europe
+* West India
+* West US 2
 
-### Pricing
 
-ErGwScale is free of charge during the preview. For information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
+## Pricing
+
+| SKU                | Price per hour per scale unit |
+|-------------------------|------------------------------|
+| **ErGwScale**   | **$0.21**                    |
+
+For more information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
 
 
 ## Next steps
