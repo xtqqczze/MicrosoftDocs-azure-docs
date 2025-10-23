@@ -27,7 +27,7 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 
 | ALB Controller Version | Gateway API Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.8.9 | v1.2.1 | v1.27 | [Slow start load balancing algorithm](api-specification-kubernetes#alb.networking.azure.io/v1.BackendLoadBalancingPolicy), Image updated to use [Azure Linux 3.0](https://github.com/microsoft/azurelinux), [nodeSelector fix](https://github.com/Azure/AKS/issues/5302), misc bug fixes and enhancements |
+| 1.8.9 | v1.2.1 | v1.27 | [Slow start load balancing algorithm](api-specification-kubernetes.md#alb.networking.azure.io/v1.BackendLoadBalancingPolicy), Image updated to use [Azure Linux 3.0](https://github.com/microsoft/azurelinux), [nodeSelector fix](https://github.com/Azure/AKS/issues/5302), misc bug fixes and enhancements |
 
 ## Release history
 
