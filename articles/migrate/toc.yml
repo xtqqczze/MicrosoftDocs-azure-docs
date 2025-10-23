@@ -101,8 +101,8 @@ items:
       href: how-to-review-discovered-inventory.md
     - name: Tags 
       href: resource-tagging.md
-    - name: Security insights
-      href: security-insights-overview.md  
+    - name: Insights
+      href: insights-overview.md  
 - name: Create Business case
   items:
   - name: Business case overview

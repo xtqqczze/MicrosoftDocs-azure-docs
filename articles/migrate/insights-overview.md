@@ -30,20 +30,8 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 
 | Resource | Security Insight | Details | 
 | --- | --- | --- | 
-| Servers | With security risks </br> </br> OS end of support | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates </br> </br> Servers with end of support Operating system
-|     | --- | --- | 
-| --- | --- | --- |
-| --- | --- | --- |
-| --- | --- | --- |
-
-
-
-
-
-| Resource | Security Insight | Details | 
-| --- | --- | --- | 
-| Servers  | With security risks </br> </br> OS end of support  </br> </br> Software end of support </br> </br> With vulnerabilities </br> </br> Missing security software </br> </br> Missing patch management software  </br> </br> Pending updates  | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates. </br> </br> Servers with end of support Operating system </br> </br> Servers with end of support Software discovered in Azure Migrate. </br> </br> Servers with known vulnerability (CVE) in OS and discovered software. </br> </br> Servers without any discovered software belonging to Security software category. </br> </br> Servers without any discovered patch management software </br></br> Servers with pending updates or patches.    | 
-| Software  | With security risks </br> </br> End of support. </br> </br> With vulnerabilities.  | Software with at least one of the security risks – end of support, vulnerabilities. </br></br> Software declared end of support by vendor. </br> </br> Software with known vulnerability (CVE).   | 
+| Servers | With security risks </br> </br> OS end of support </br> </br> Software end of support </br> </br> With vulnerabilities. </br> </br> Missing security software. </br> </br> Missing patch management software. </br></br> Pending updates    | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates </br> </br> Servers with end of support Operating system. </br> </br> Servers with end of support Software discovered in Azure Migrate. </br> </br> Servers with known vulnerability (CVE) in OS and discovered Software.</br> </br> Servers without any discovered software belonging to Security software category.  </br> </br> Servers without any discovered patch management software. </br> </br> Servers with pending updates or patches.|
+|  Software    | With security risks </br> </br> End of support </br> </br> With vulnerabilities  | Software with at least one of the security risks – end of support, vulnerabilities. </br> </br> Software declared end of support by vendor. </br> </br> Software with known vulnerability (CVE)  | 
 
 ### How are Insights derived
 
@@ -91,11 +79,10 @@ To review insights in Azure Migrate:
 1. Select any insight to review detailed information. The **Summary card** highlights critical security risks in your datacenter that need immediate attention. It identifies:
     - Servers with critical vulnerabilities that benefit from enabling Microsoft Defender for Cloud after migration. 
     - Servers running end-of-support operating systems, recommending upgrades during migration.
-    - The number of servers with pending critical and security updates, suggesting remediation using Azure Update Manager post-migration.
+    - The number of servers with pending critical and security updates, suggesting remediation using Azure Update Manager post-migration. 
+    You can tag servers with critical risks to support effective planning and mitigation during modernization to Azure.
 
-You can tag servers with critical risks to support effective planning and mitigation during modernization to Azure.
-
-:::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
+    :::image type="content" source="./media/security-insights-overview/summary-card.png" alt-text="Screenshot shows the summary of critical security risks in the datacenter that needs attention." lightbox="./media/security-insights-overview/summary-card.png":::
 
 ### Review Server risk assessment
 
@@ -109,7 +96,6 @@ The **Servers card** shows a summary of all discovered servers with security ris
   - Pending critical or security updates
 
     :::image type="content" source="./media/security-insights-overview/servers-card.png" alt-text="Screenshot shows the summarized view of all servers with security risks out of total discovered servers." lightbox="./media/security-insights-overview/servers-card.png":::
-
 
 ### Review Software risk assessment 
 
@@ -170,9 +156,9 @@ To review software with identified security risks, follow these steps:
 
     :::image type="content" source="./media/security-insights-overview/software-impacted.png" alt-text="Screenshot shows detailed list of software impacted by each security risk." lightbox="./media/security-insights-overview/software-impacted.png":::
 
-Alternatively, you can filter end-of-support software and software with known vulnerabilities from the **Explore inventory** > **Software** pane.
+    Alternatively, you can filter end-of-support software and software with known vulnerabilities from the **Explore inventory** > **Software** pane.
 
-:::image type="content" source="./media/security-insights-overview/software-with-vulnerabilities.png" alt-text="Screenshot shows how to filter end of support software with vulnerabilities." lightbox="./media/security-insights-overview/software-with-vulnerabilities.png":::
+    :::image type="content" source="./media/security-insights-overview/software-with-vulnerabilities.png" alt-text="Screenshot shows how to filter end of support software with vulnerabilities." lightbox="./media/security-insights-overview/software-with-vulnerabilities.png":::
 
 ### Review detailed Security Insights for a server 
 
@@ -180,22 +166,19 @@ To view detailed security insights for a specific server:
 
 1. Go to the **Infrastructure** pane from the left menu and select the server you want to review.
 1. Select the **Insights** (preview) tab.
+    The tab displays security insights for the selected server, including: 
+    - Operating system support status
+    - Presence of security and patch management software
+    - Pending critical and security updates
+    - End-of-support software
+    - Software with known vulnerabilities (CVEs)
+    The summary of the top five pending updates and top five vulnerabilities is provided to help prioritize remediation.
 
-The tab displays security insights for the selected server, including:
-
-  - Operating system support status
-  - Presence of security and patch management software
-  - Pending critical and security updates
-  - End-of-support software
-  - Software with known vulnerabilities (CVEs)
-
-The summary of the top five pending updates and top five vulnerabilities is provided to help prioritize remediation.
-
-:::image type="content" source="./media/security-insights-overview/pending-updates.png" alt-text="Screenshot shows the top five pending updates." lightbox="./media/security-insights-overview/pending-updates.png":::
+    :::image type="content" source="./media/security-insights-overview/pending-updates.png" alt-text="Screenshot shows the top five pending updates." lightbox="./media/security-insights-overview/pending-updates.png":::
 
 ## Manage permissions for Security Insights 
 
-Security insights are enabled by default for all users. To manage access, create [custom roles](azure/role-based-access-control/custom-roles-portal#step-3-basics) and remove the following permissions:
+Security insights are enabled by default for all users. To manage access, create [custom roles](/azure/role-based-access-control/custom-roles-portal#step-3-basics) and remove the following permissions:
 
 | Resource | Permissions | Description | 
 | --- | --- | --- | 
