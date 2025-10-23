@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 09/16/2025
 # Customer intent: As a cloud storage administrator, I want to generate  user and group quota reports for Azure NetApp Files volumes.
 ---
-# Generate user and group quota reports for a volume (Preview)
+# Generate user and group quota reports for a volume (preview)
 
 This article explains the considerations and steps for generating user and group quota reports on Azure NetApp Files volumes. To help with capacity management on volumes shared among multiple users, individual user and group quotas in Azure NetApp Files provide a way to restrict capacity usage on NFS, SMB, and dual-protocol volumes. Checking actual usage against the defined user and group quotas on a given volume has previously required using host-based methods. The addition of quota reporting in Azure NetApp Files allows administrators to generate usage reports for an existing volume with quota rules independent of host-based tooling, without having to mount the volume.
 
