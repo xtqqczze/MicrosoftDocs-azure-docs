@@ -101,7 +101,7 @@ The following example provides sample output from the tool:
  
 Choice: 5
 This option tests connectivity to one endpoint with your current network setup using tools like nslookup, traceroute, curl, etc.
-Provide an Azure endpoint (URL or FQDN) to test: https://mydemoaccount.blob.core.windows.net/demo-nfs4-file-share
+Provide an Azure endpoint (URL or FQDN) to test: https://mydemoaccount.blob.core.windows.net/demo-container
 Run in verbose mode? [y/N] n
 +----------------------------------------------------------+
 | Checking domain name resolution with nslookup... |
