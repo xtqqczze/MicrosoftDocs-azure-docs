@@ -40,6 +40,7 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 > - SUSE (SLES 15)
 > - Oracle Linux
 > - Alma Linux
+> - Azure Linux
 
 ## Supported regions
 
@@ -128,13 +129,13 @@ sudo yum update
 sudo yum install -y aznfs
 ```
  
-### [Azure Linux](#tab/Azure Linux) 
+### [Azure Linux](#tab/AzureLinux) 
 ```bash
 curl -sSL -O https://packages.microsoft.com/config/rhel/9/packages-microsoft-prod.rpm
 sudo rpm -i packages-microsoft-prod.rpm
 rm packages-microsoft-prod.rpm
 sudo dnf -y check-update --refresh
-Sudo dnf install aznfs
+sudo dnf install aznfs
 ```
 ---
 
@@ -212,6 +213,7 @@ If mounting issues continue, check the log files for more troubleshooting detail
 ## See also
  
 - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption)
+
 
 
 
