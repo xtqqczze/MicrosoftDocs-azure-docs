@@ -74,87 +74,94 @@ This method connects Azure Migrate to a GitHub repository using provided connect
 - Provide information about the GitHub repository required for integration with Azure Migrate to allow automatic requests and synchronization of code scan reports. 
 - Provide GitHub application details that grant permission to create issues and read comments on issues within the target repository. 
 
+## Create new GitHub App 
+
+Create a new **GitHub App** by following these steps:
+
 1. In the top right corner of **GitHub** page, select your **profile picture**. 
 1. Navigate to your account settings. 
     
 Personal account:
+
  1. Select **Settings**.
  1. Select **Your organization** and then **Settings** from right of the organization. 
 Enterprise account:
  1. If you use **Enterprise Managed Users**, select **Your enterprise** to go directly to the enterprise account settings. 
  1. If you use personal accounts, select **Your enterprises** and then to the right of the enterprise, select **Settings**. 
  1. Navigate to the **GitHub App** settings. 
-
-1. For an app owned by a personal account or organization:  In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**. 
-1. For an app owned by an enterprise: In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
+    1. For an app owned by a personal account or organization:  In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**. 
+    1. For an app owned by an enterprise: In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
     [Add screen]
 
-1. Provide details for the new app.  
-    1. Under **GitHub App name**, enter a name for your app.  
-    1. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and is not used in this process. 
+Provide the following details to set up your new GitHub App: 
+
+  1. Under **GitHub App name**, enter a name for your app.  
+  1. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and is not used in this process. 
        [Add screen]
-    1.  Deselect **Active** under **Webhook** 
+  1.  Deselect **Active** under **Webhook** 
     [Add screen]
-    1. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
-    
-      | Issues  | Read and write  | 
-      | --- | --- | 
-      | Metadata  | Read-only  |
-      | Webhook   | Read and write  |
+  1. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
+  
+    | Issues  | Read and write  | 
+    | --- | --- | 
+    | Metadata  | Read-only  |
+    | Webhook   | Read and write  |
 
-    1. Under **Where can this GitHub App be installed?**, select **Only on this account** or **Any account**. 
+  1. Under **Where can this GitHub App be installed?**, select **Only on this account** or **Any account**. 
     [Add screen]
-
-    1. Select **Create GitHub App**. 
+  1. Select **Create GitHub App**. 
 
 ### Install GitHub App on the repository
 
-1. Navigate to the GitHub App you created. 
-1. Select Install App 
-1. Choose an account to install the app and click on Install. This should be account where repository present for creating issue and uploading code scan report.  
+Follow these steps to install GitHub App on your repository:
+
+1. Navigate to the **GitHub App** you created. 
+1. Select **Install App** 
+1. Select an account to install the app, and then select **Install**.Use the account that contains the repository for creating issues and uploading code scan reports. 
 [Add screen]
 
-1. Select Only select repositories and in select appropriate repositories by clicking on Select repositories. You can select multiple repositories. Once done click on Install.  
+1. Select **Only select repositories**, then select the appropriate repositories by selecting **Select repositories**. You can select multiple repositories. When finished, select **Install**.
 
 [Add screen]
 
-1. Once the installation is complete, note down the browser URL which has the installation ID. For example, `https://github.com/settings/installations/<installationID>`
+1. After the installation completes, note the browser URL that contains the installation ID. For example: `https://github.com/settings/installations/<installationID>`
 
-### GitHub App details and Private key to create GitHub connection
+### GitHub App details and private key to configure Azure GitHub connection
 
-**Note** following details of the app to create GitHub connection in Azure Migrate.  
+Collate the following GitHub App details and private key to create a GitHub connection in Azure Migrate.
 
-1. Navigate to the GitHub App you created. Select Edit. 
-1. Under General, About find the App ID and note down. 
-1. For private key scroll down to Private keys. Click on Generate a private key. 
-1. New private key file will be automatically downloaded on your machine. 
-1. For Installation ID, navigate to Install App and select setting in front of the account where the app is installed.  
-1. From the installation details page note down the browser URL which has the installation ID. For example, `https://github.com/settings/installations/<installationID>`
+1. Navigate to the GitHub App you created and select **Edit**. 
+1. Under **General** > **About**, find the **App ID** and note it. 
+1. Scroll down to **Private keys** and select **Generate a private key**. 
+    The new private key file downloads automatically to your machine. 
+1. To find the **Installation ID**, navigate to **Install App** and select **Settings** next to  the account where the app is installed.  
+1. After the installation completes, note the browser URL that contains the installation ID. For example, `https://github.com/settings/installations/<installationID>`
 
-### Request code scan report to web app assessment using GitHub 
+### Request code scan report for web app assessment using GitHub connection
 
-1. On the Azure Migrate project Overview page, under Decide and Plan, select Assessments. 
-1. Search for the assessment using the Workloads filter and select it. 
-1. On the assessment Overview page, select the Recommended path tab or View details in the recommended path report.  
-1. This screen displays the distribution of the web apps across the Azure targets. Select a line item to drill down further. 
-1. Under Add code insights select Using AppCAT reports. 
-1. In the Add code insights page, select Create GitHub connection. 
-1. In the Create new GitHub connection page provide following details 
+1. Select **Assessments** on the Azure Migrate project **Overview** page under **Decide and Plan**.
+1. Search for the assessment with the **Workloads** filter and select it. 
+1. . On the assessment **Overview** page, select the **Recommended path** tab or **View details** in the recommended path report.  
+    This screen displays the distribution of web apps across Azure targets. Select a line item to drill down further.  
+1. Under **Add code insights** select Using AppCAT reports. 
+1. In the **Add code insights** page, select **Create GitHub** connection. 
+1. In the **Create new GitHub** connection page, provide the following details: 
 
 | Field  | Details  | 
 | --- | --- | 
-| Connection name  | Provide the name for the connection. This connection name will appear in the list when adding report to the web app.  |    
-| GitHub repository URL   | Specific the GitHub repository designated for creating an issue to request a Code scan report. The code scan report need be uploaded to this issue via GitHub Copilot.  </br> </br> Note: This repository is intended solely for the purpose of GitHub issue creation and read the code scan report from the issue. The application code does not need to be present within this repository.   | 
-| App ID  | Enter the App ID of the GitHub App you created for allowing access to Azure Migrate. | 
-| Private Key  | Copy the all the contents of the private key file that you generate for your GitHub app  |
-| Installation ID  | Enter the Installation ID of the GitHub App installed on the repository provided above.  |
+| Connection name  | Provide a name for the connection. This name appears in the list when you add report to the web app.  |    
+| GitHub repository URL   |Specify the GitHub repository for creating an issue to request a code scan report. Upload the code scan report to this issue using GitHub Copilot.  </br> </br> > [!Note] Use this repository only to create GitHub issues and read code scan reports from those issues. You do not need to include application code in this repository.  | 
+| App ID  | Enter the App ID of the GitHub App you created to allow Azure Migrate access. | 
+| Private Key  | Copy all the contents of the private key file you generated for your GitHub App.  |
+| Installation ID  | Enter the Installation ID of the GitHub App installed on the repository you specified above.  |
 
-1. Once you add the details click on Create connection. Wait for the connection creation to be successful.  
-1. Post the to request the code scan report for each web app from the list, select Request report via GitHub. In the Request report via GitHub page select the appropriate connection name and click on Request.  
-1. This will create GitHub issue in the repository available in the connection details. 
-1. When the code scan report has been uploaded to the GitHub issue, Azure Migrate will automatically attach the report to the web app. 
+1. After you add the details, select **Create** connection. Wait until the connection is successfully created.  
+1. To request the code scan report for each web app in the list, select **Request report via GitHub**. 
+1. In the **Request report via GitHub** page, select the appropriate connection name and then select **Request**.  
+1. Azure Migrate creates GitHub issue in the repository specified in the connection details. 
+1. When the code scan report is uploaded to the GitHub issue, Azure Migrate automatically attaches the report to the web app. 
 1. Adding the code scan report to Web App marks the assessment as outdated. 
-1. Recalculate the assessment to see enhanced results with code insights. 
+1. Recalculate the assessment to view enhanced results with code insights. 
 
 ### Generate code scan report using GitHub Copilot app modernization extension
 
