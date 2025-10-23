@@ -95,7 +95,8 @@ If you experience packet drops or connectivity issues:
 
 ## Billing information
 
-Prescaling introduces a **Capacity Unit Hour** billing meter. You pay based on the number of capacity units provisioned per hour.
+Prescaling introduces a **Capacity Unit Hour** billing meter that is **charged in addition to** the regular Azure Firewall fees, calculated per provisioned capacity unit per hour.
+Note that the instance count used for this calculation excludes the two default running instances—so if 10 instances are provisioned, the billable count is 8.
 
 | SKU | Price per capacity unit |
 |-----|-------------------------|
