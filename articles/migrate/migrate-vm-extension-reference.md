@@ -1,0 +1,320 @@
+---
+title: Azure Migrate Collector VM extension reference
+description: Technical reference for the Azure Migrate Collector VM extension including settings schema, regional endpoints, and configuration options.
+author: snehithm
+ms.author: snehithm
+ms.service: azure-migrate
+ms.topic: reference
+ms.date: 10/23/2025
+ms.custom: engagement-fy25
+---
+
+# Azure Migrate Collector VM extension reference
+
+This article provides technical reference information for the Azure Migrate Collector VM extension used with Arc-enabled servers.
+
+## Overview
+
+The Azure Migrate Collector VM extension is an optional component that collects additional data from Arc-enabled servers to enhance Azure Migrate assessments and business case recommendations. The extension is available for both Windows and Linux operating systems.
+
+## Extension properties
+
+### Windows extension
+
+| Property | Value |
+|----------|-------|
+| **Publisher** | Microsoft.Azure.Migrate |
+| **Type** | AzureMigrateCollectorForWindows |
+| **Version** | Latest (auto-upgrade enabled by default) |
+| **Supported OS** | Windows Server 2012 and later |
+
+### Linux extension
+
+| Property | Value |
+|----------|-------|
+| **Publisher** | Microsoft.Azure.Migrate |
+| **Type** | AzureMigrateCollectorForLinux |
+| **Version** | Latest (auto-upgrade enabled by default) |
+| **Supported OS** | Ubuntu 18.04+, RHEL 7+, CentOS 7+, SLES 12+, Debian 9+ |
+
+## Extension settings schema
+
+The extension requires configuration through the `settings` parameter:
+
+```json
+{
+  "migrateProjects": [
+    {
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Migrate/migrateProjects/{project-name}",
+      "location": "{project-region}"
+    }
+  ]
+}
+```
+
+### Settings parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `migrateProjects` | Array | Yes | Array of Azure Migrate project configurations |
+| `migrateProjects[].id` | String | Yes | Full Azure Resource Manager ID of the Azure Migrate project |
+| `migrateProjects[].location` | String | Yes | Azure region where the Azure Migrate project is located |
+
+### Example configuration
+
+**Single project:**
+
+```json
+{
+  "migrateProjects": [
+    {
+      "id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/MigrateRG/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject",
+      "location": "eastus"
+    }
+  ]
+}
+```
+
+**Multiple projects:**
+
+```json
+{
+  "migrateProjects": [
+    {
+      "id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/MigrateRG/providers/Microsoft.Migrate/migrateProjects/Project1",
+      "location": "eastus"
+    },
+    {
+      "id": "/subscriptions/87654321-4321-4321-4321-210987654321/resourceGroups/MigrateRG2/providers/Microsoft.Migrate/migrateProjects/Project2",
+      "location": "westeurope"
+    }
+  ]
+}
+```
+
+## Data collected
+
+The extension collects the following performance metrics at regular intervals:
+
+| Data type | Details | Collection frequency |
+|-----------|---------|---------------------|
+| CPU utilization | Percentage of CPU usage per core and aggregate | Every 5 minutes |
+| Memory utilization | Percentage of memory usage | Every 5 minutes |
+| Disk IOPS | Read and write operations per second per disk | Every 5 minutes |
+| Disk throughput | MB/s read and write per disk | Every 5 minutes |
+| Network utilization | Bytes sent and received per network adapter | Every 5 minutes |
+
+## Regional endpoints
+
+The extension communicates with Azure Migrate services through regional endpoints. Ensure the following URL is accessible from your Arc-enabled servers based on your Azure Migrate project region.
+
+### Endpoint URL format
+
+```
+https://discoverysrv.{region-code}.prod.migration.windowsazure.com
+```
+
+### Regional endpoint mappings
+
+| Geography | Azure Migrate project region | Region code | Endpoint URL |
+|-----------|------------------------------|-------------|--------------|
+| Africa | South Africa North | san | `https://discoverysrv.san.prod.migration.windowsazure.com` |
+| Asia Pacific | East Asia | ea | `https://discoverysrv.ea.prod.migration.windowsazure.com` |
+| Asia Pacific | Southeast Asia | sea | `https://discoverysrv.sea.prod.migration.windowsazure.com` |
+| Australia | Australia East | ae | `https://discoverysrv.ae.prod.migration.windowsazure.com` |
+| Australia | Australia Southeast | ause | `https://discoverysrv.ause.prod.migration.windowsazure.com` |
+| Brazil | Brazil South | brs | `https://discoverysrv.brs.prod.migration.windowsazure.com` |
+| Canada | Canada Central | cc | `https://discoverysrv.cc.prod.migration.windowsazure.com` |
+| Europe | North Europe | ne | `https://discoverysrv.ne.prod.migration.windowsazure.com` |
+| Europe | West Europe | we | `https://discoverysrv.we.prod.migration.windowsazure.com` |
+| France | France Central | frc | `https://discoverysrv.frc.prod.migration.windowsazure.com` |
+| Germany | Germany West Central | gwc | `https://discoverysrv.gwc.prod.migration.windowsazure.com` |
+| India | Central India | inc | `https://discoverysrv.inc.prod.migration.windowsazure.com` |
+| India | Jio India West | jiow | `https://discoverysrv.jiow.prod.migration.windowsazure.com` |
+| India | South India | ins | `https://discoverysrv.ins.prod.migration.windowsazure.com` |
+| Israel | Israel Central | isc | `https://discoverysrv.isc.prod.migration.windowsazure.com` |
+| Italy | Italy North | itn | `https://discoverysrv.itn.prod.migration.windowsazure.com` |
+| Japan | Japan East | je | `https://discoverysrv.je.prod.migration.windowsazure.com` |
+| Japan | Japan West | jw | `https://discoverysrv.jw.prod.migration.windowsazure.com` |
+| Korea | Korea Central | koc | `https://discoverysrv.koc.prod.migration.windowsazure.com` |
+| Korea | Korea South | kos | `https://discoverysrv.kos.prod.migration.windowsazure.com` |
+| Mexico | Mexico Central | mxc | `https://discoverysrv.mxc.prod.migration.windowsazure.com` |
+| New Zealand | New Zealand North | nzn | `https://discoverysrv.nzn.prod.migration.windowsazure.com` |
+| Norway | Norway East | noe | `https://discoverysrv.noe.prod.migration.windowsazure.com` |
+| Poland | Poland Central | plc | `https://discoverysrv.plc.prod.migration.windowsazure.com` |
+| Qatar | Qatar Central | qrc | `https://discoverysrv.qrc.prod.migration.windowsazure.com` |
+| Spain | Spain Central | spc | `https://discoverysrv.spc.prod.migration.windowsazure.com` |
+| Sweden | Sweden Central | swc | `https://discoverysrv.swc.prod.migration.windowsazure.com` |
+| Switzerland | Switzerland North | szn | `https://discoverysrv.szn.prod.migration.windowsazure.com` |
+| Switzerland | Switzerland West | szw | `https://discoverysrv.szw.prod.migration.windowsazure.com` |
+| Taiwan | Taiwan North | twn | `https://discoverysrv.twn.prod.migration.windowsazure.com` |
+| United Arab Emirates | UAE North | uaen | `https://discoverysrv.uaen.prod.migration.windowsazure.com` |
+| United Kingdom | UK South | uks | `https://discoverysrv.uks.prod.migration.windowsazure.com` |
+| United Kingdom | UK West | ukw | `https://discoverysrv.ukw.prod.migration.windowsazure.com` |
+| United States | Central US | cus | `https://discoverysrv.cus.prod.migration.windowsazure.com` |
+| United States | East US | eus | `https://discoverysrv.eus.prod.migration.windowsazure.com` |
+| United States | East US 2 | eus2 | `https://discoverysrv.eus2.prod.migration.windowsazure.com` |
+| United States | North Central US | ncus | `https://discoverysrv.ncus.prod.migration.windowsazure.com` |
+| United States | South Central US | scus | `https://discoverysrv.scus.prod.migration.windowsazure.com` |
+| United States | West US | wus | `https://discoverysrv.wus.prod.migration.windowsazure.com` |
+| United States | West US 2 | wus2 | `https://discoverysrv.wus2.prod.migration.windowsazure.com` |
+| United States | West US 3 | wus3 | `https://discoverysrv.wus3.prod.migration.windowsazure.com` |
+
+### Network requirements
+
+- **Protocol**: HTTPS (TLS 1.2 or higher)
+- **Port**: 443
+- **Direction**: Outbound from Arc-enabled server
+- **Proxy support**: Honors Arc-enabled server proxy configuration
+
+## Installation using Azure CLI
+
+### Windows servers
+
+```azurecli
+az connectedmachine extension create \
+  --resource-group "{resource-group}" \
+  --machine-name "{machine-name}" \
+  --location "{location}" \
+  --name "AzureMigrateCollectorForWindows" \
+  --publisher "Microsoft.Azure.Migrate" \
+  --type "AzureMigrateCollectorForWindows" \
+  --settings '{"migrateProjects":[{"id":"/subscriptions/{subscription-id}/resourceGroups/{migrate-rg}/providers/Microsoft.Migrate/migrateProjects/{project-name}","location":"{project-region}"}]}'
+```
+
+### Linux servers
+
+```azurecli
+az connectedmachine extension create \
+  --resource-group "{resource-group}" \
+  --machine-name "{machine-name}" \
+  --location "{location}" \
+  --name "AzureMigrateCollectorForLinux" \
+  --publisher "Microsoft.Azure.Migrate" \
+  --type "AzureMigrateCollectorForLinux" \
+  --settings '{"migrateProjects":[{"id":"/subscriptions/{subscription-id}/resourceGroups/{migrate-rg}/providers/Microsoft.Migrate/migrateProjects/{project-name}","location":"{project-region}"}]}'
+```
+
+## Installation using Azure PowerShell
+
+### Windows servers
+
+```azurepowershell
+New-AzConnectedMachineExtension `
+  -ResourceGroupName "{resource-group}" `
+  -MachineName "{machine-name}" `
+  -Location "{location}" `
+  -Name "AzureMigrateCollectorForWindows" `
+  -Publisher "Microsoft.Azure.Migrate" `
+  -ExtensionType "AzureMigrateCollectorForWindows" `
+  -Settings @{"migrateProjects" = @(@{"id"="/subscriptions/{subscription-id}/resourceGroups/{migrate-rg}/providers/Microsoft.Migrate/migrateProjects/{project-name}";"location"="{project-region}"})}
+```
+
+### Linux servers
+
+```azurepowershell
+New-AzConnectedMachineExtension `
+  -ResourceGroupName "{resource-group}" `
+  -MachineName "{machine-name}" `
+  -Location "{location}" `
+  -Name "AzureMigrateCollectorForLinux" `
+  -Publisher "Microsoft.Azure.Migrate" `
+  -ExtensionType "AzureMigrateCollectorForLinux" `
+  -Settings @{"migrateProjects" = @(@{"id"="/subscriptions/{subscription-id}/resourceGroups/{migrate-rg}/providers/Microsoft.Migrate/migrateProjects/{project-name}";"location"="{project-region}"})}
+```
+
+## Required permissions
+
+### To install the extension
+
+- **Hybrid Server Resource Administrator** role on the Arc-enabled server resource
+
+### For the extension to function
+
+The extension uses the Arc-enabled server's managed identity to authenticate with Azure Migrate. No additional permissions are required on the Azure Migrate project; the project automatically accepts data from Arc-enabled servers within its configured scope.
+
+## Extension status and health
+
+### View extension status
+
+**Azure portal:**
+1. Navigate to the Arc-enabled server
+2. Select **Extensions** under **Settings**
+3. Check the status of the Azure Migrate Collector extension
+
+**Azure CLI:**
+
+```azurecli
+az connectedmachine extension show \
+  --resource-group "{resource-group}" \
+  --machine-name "{machine-name}" \
+  --name "AzureMigrateCollectorForWindows"
+```
+
+### Status values
+
+| Status | Description |
+|--------|-------------|
+| Succeeded | Extension installed and running successfully |
+| Failed | Extension installation or operation failed |
+| Creating | Extension installation in progress |
+| Updating | Extension update in progress |
+| Deleting | Extension removal in progress |
+
+## Troubleshooting
+
+### Check extension logs
+
+**Windows:**
+- Extension logs: `C:\ProgramData\GuestConfig\extension_logs\Microsoft.Azure.Migrate.AzureMigrateCollectorForWindows\`
+- Agent logs: `C:\ProgramData\AzureConnectedMachineAgent\Log\`
+
+**Linux:**
+- Extension logs: `/var/lib/GuestConfig/extension_logs/Microsoft.Azure.Migrate.AzureMigrateCollectorForLinux/`
+- Agent logs: `/var/opt/azcmagent/log/`
+
+### Common issues
+
+| Issue | Possible cause | Resolution |
+|-------|----------------|------------|
+| Extension installation fails | Insufficient permissions | Verify you have Hybrid Server Resource Administrator role |
+| Extension shows Failed status | Arc agent version too old | Upgrade Arc agent to version 1.46 or higher |
+| No data collected | Network connectivity issue | Verify connectivity to regional endpoint |
+| Extension installed but data not appearing | Project configuration incorrect | Verify project ID and region in extension settings |
+
+## Update and removal
+
+### Update extension
+
+The extension automatically updates to the latest version. To manually trigger an update:
+
+```azurecli
+az connectedmachine extension update \
+  --resource-group "{resource-group}" \
+  --machine-name "{machine-name}" \
+  --name "AzureMigrateCollectorForWindows"
+```
+
+### Remove extension
+
+```azurecli
+az connectedmachine extension delete \
+  --resource-group "{resource-group}" \
+  --machine-name "{machine-name}" \
+  --name "AzureMigrateCollectorForWindows"
+```
+
+## Data retention and privacy
+
+- Performance data is retained in your Azure Migrate project for the duration of the project lifecycle
+- Data is stored in the Azure region where your Azure Migrate project is located
+- All data transmission is encrypted using TLS 1.2 or higher
+- No business data or file contents are collected
+- You can request data deletion by removing servers from your Azure Migrate project
+
+## Next steps
+
+- [Enable additional data collection for Arc-enabled servers](how-to-enable-additional-data-collection-for-arc-servers.md)
+- [Create a migrate project for Arc resources](quickstart-create-migrate-project-for-arc-resources.md)
+- [Sync and manage Arc resources](how-to-manage-arc-resource-sync.md)
+- [Create assessments](how-to-create-assessment.md)

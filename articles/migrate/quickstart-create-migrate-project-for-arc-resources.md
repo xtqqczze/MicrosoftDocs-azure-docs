@@ -21,7 +21,7 @@ An Azure Migrate project is used to store discovery, assessment, and migration m
 
 ## Pre-requisites
 
-- You **Contributor** or **Owner** role on at least one resource group where you will create the Migrate project. 
+- You have **Contributor** or **Owner** role on at least one resource group where you will create the Migrate project. 
     - Ensure *Microsoft.OffAzure* and *Microsoft.Migrate* resource providers are registered on the subscription. Follow [this guide to register resource providers](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
 - You have **Migrate Arc Discovery Reader - Preview** role or a custom role with equivalent permissions on the subscriptions with Arc resources. 
     - Ensure subscriptions with Arc resources that you want to include in the project also have *Microsoft.OffAzure* resource provider registered. 
@@ -99,7 +99,7 @@ To create a custom business case:
 
 3. Select **Business case**
 
-4. Follow the steps in [Build a business case in Microsoft Learn](https://learn.microsoft.com/en-us/azure/migrate/how-to-build-a-business-case?view=migrate) to create a custom business case.
+4. Follow the steps in [Build a business case](https://learn.microsoft.com/en-us/azure/migrate/how-to-build-a-business-case?view=migrate) to create a custom business case.
 
 
 To create a custom assessment:
