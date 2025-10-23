@@ -32,7 +32,7 @@ flowchart TD
     C --> D
 ```
 **Upgrade options**
-- If you have an existing gateway using the ErGw1, ErGw2, or ErGw3 SKU, you can [upgrade](expressroute-howto-add-gateway-portal-resource-manager#upgrade-the-gateway-sku) directly to the Scalable Gateway SKU. No migration tool is required.
+- If you have an existing gateway using the ErGw1, ErGw2, or ErGw3 SKU, you can [upgrade](expressroute-howto-add-gateway-portal-resource-manager.md#upgrade-the-gateway-sku) directly to the Scalable Gateway SKU. No migration tool is required.
 - Upgrades can be performed through the Azure portal or by using PowerShell.
 
 This process may take up to 2 hours to complete. During this time, the gateway remains available and does not experience downtime.
