@@ -2,7 +2,7 @@
 title: About Azure Data Lake Storage Backup
 description: Learn how the Azure Data Lake Storage backup works
 ms.topic: overview
-ms.date: 09/26/2025
+ms.date: 11/18/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24

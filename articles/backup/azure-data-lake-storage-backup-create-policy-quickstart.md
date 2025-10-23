@@ -6,7 +6,7 @@ ms.custom:
   - devx-track-azurepowershell-azurecli, devx-track-azurecli
 zone_pivot_groups: backup-client-portal-powershell-cli
 ms.topic: tutorial
-ms.date: 05/22/2025
+ms.date: 11/18/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
