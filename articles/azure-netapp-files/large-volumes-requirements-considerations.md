@@ -79,8 +79,10 @@ Large volumes breakthrough mode are currently in preview and you must request th
 
 * Breakthrough mode large volumes are supported at sizes between 2,400 GiB up to 2,400 TiB (4,096 GiB).
 * With breakthrough mode, you can achieve up 50 GiB/s throughput depending on your workload's characteristics and system placement.
+* The [migration assistant](migrate-volumes.md) isn't supported for large volumes with breakthrough mode. 
 * Breakthrough mode is supported on the Flexible, Standard, Premium, and Ultra service levels. 
-  Cool access isn't currently supported for breakthrough mode. 
+* Cool access can only be enabled on large volumes in breakthrough mode _after_ the volume has been created.
+
 
 ## About 64-bit file IDs
 
