@@ -1,9 +1,9 @@
 ---
 title: Enhancing Web App Assessment by Adding Code Scan Report
-description: Learn how to install AppCat and run the quickstart to assess and migrate .NET and Java applications using Azure Migrate. Step-by-step guide included
+description: Learn how to install AppCat and run the quickstart to assess and migrate .NET and Java applications using Azure Migrate. Step-by-step guide included.
 ms.topic: how-to
 author: sudesai
-ms.author:sudesai
+ms.author: sudesai
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 10/23/2025
