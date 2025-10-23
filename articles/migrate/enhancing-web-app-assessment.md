@@ -27,85 +27,85 @@ In this article, you’ll learn how to:
 - Calculate assessment to see updated reports.
 - View updated assessment along with code insights. 
 
-##  Method 1: Upload code scan report manually
+##  Upload code scan report manually using AppCAT
 
-With this approach, you are required to generate the code scan report using AppCAT and then manually upload the reports to Web Apps as a ZIP file. 
+With this approach, you must generate the code scan report using AppCAT and then manually upload the reports to Web Apps as a ZIP file. 
 
-## Prerequisites 
+### Prerequisites 
 
-- Ensure a web app assessment exists for each required web app, as code scan reports can only be added to from an existing assessment.
-- You have the code scan reports for web apps that you want to add the code scan reports.
+- Ensure a web app assessment exists for each required web app because code scan reports can only be added from an existing assessment.
+- Have the code scan reports ready for web apps you want to update.
 
-### Generate the code scan report please follow below steps.  
+#### Generate the code scan report
 
-1. Install the AppCAT using below steps: 
+To generate a code scan report, complete the following steps:
 
-    - For .NET you can use below command. You can find additional details [here](/dotnet/azure/migration/appcat/install#install-the-net-global-tool) dotnet tool install -g dotnet-appcat.
-    - For Java follow the steps [document](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#download-and-install).
+1. Install the AppCAT using:
+
+    - For .NET you can use below command. For more inforamtion, see, [Install the .NET global tool](/dotnet/azure/migration/appcat/install#install-the-net-global-tool).
+    - For more information on Java, see [Assess a Java project using AppCAT 7](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#download-and-install).
 1. Generate the AppCAT report for all your web app that you have assessed.  
-    - For .NET follow the steps in this document [Analyze applications with the .NET CLI](/dotnet/azure/migration/appcat/dotnet-cli). 
-    - For Java follow the steps in this document [Run AppCAT against a sample Java project](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#run-appcat-against-a-sample-java-project).
+    - For more information on .NET follow, see, [Analyze applications with the .NET CLI](/dotnet/azure/migration/appcat/dotnet-cli). 
+    - For more information on Java, see, [Run AppCAT against a sample Java project](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#run-appcat-against-a-sample-java-project).
 1. Create a zip file for all the reports that you want to add to assessment. 
 
 ### Upload code scan report to web app assessment using zip file 
 
-1. On the Azure Migrate project Overview page, under Decide and Plan, select Assessments. 
-1. Search for the assessment using the Workloads filter and select it. 
-1. On the assessment Overview page, select the Recommended path tab or View details in the recommended path report.  
-1. This screen displays the distribution of the web apps across the Azure targets. Select a line item to drill down further. 
-1. Under Add code insights select Using AppCAT reports. 
-1. In the Add code insights page, select Upload a zip file.  
-1. Click on Browse and select the location where you have stored the zip file containing AppCAT reports that you want to import. Click on upload and wait for upload and validation to complete. 
-1. In the Web app list under AppCAT report dropdown, you should see the list of uploaded report under heading Uploaded from zip file. 
-1. Select the appropriate report to map to the respective web app. Repeat this steps for all the required web app.  
-1. Once the mapping is complete, click on Add. Wait for the mapping to complete. 
-1. Once the mapping is complete, click on notification and follow the steps to recalculate the assessment.
-1. Once the recalculation of assessment is complete review the code insights.  
+1. Select **Assessments** on the Azure Migrate project **Overview** page under **Decide and Plan**.
+1. Search for the assessment with the **Workloads** filter and select it. 
+1. On the assessment **Overview** page, select the **Recommended path** tab or **View details** in the recommended path report.  
+    This screen displays the distribution of web apps across Azure targets. Select a line item to drill down further. 
+1. Under **Add code insights** select Using AppCAT reports. 
+1. In the Add code insights page, select **Upload a zip file**.  
+1. Select **Browse**, choose the location of the ZIP file containing AppCAT reports you want to import, and then select **Upload**. Wait for the upload and validation to complete.
+1. In the Web app list, under the AppCAT report dropdown, view the uploaded reports under **Uploaded from zip file**. 
+1. Select the appropriate report to map to the respective web app. Repeat these steps for all required web app.  
+1. After mapping, select **Add** and wait for the process to complete. 
+1. When mapping is complete, open notification and follow the steps to recalculate the assessment.
+1. After recalculation, review the updated code insights.  
 
-### Method 2: Add code scan report using GitHub Copilot app modernization extension
+### Add code scan reports to Web App assessments using GitHub Copilot extension
 
-In this method, Azure Migrate connects to a GitHub repository using provided connection details and automatically creates an issue in that repository. By using the GitHub Copilot app modernization extension, you can scan your code and upload the reports directly to the related GitHub issue. After updating the issue, Azure Migrate will automatically attach the code scan reports to the associated web applications. This approach allows cloud administrators and developers to collaborate while maintaining application code security boundaries. 
+This method connects Azure Migrate to a GitHub repository using provided connection details and automatically creates an issue in that repository. By using the GitHub Copilot app modernization extension, you can scan your code and upload the reports directly to the related GitHub issue. After updating the issue, Azure Migrate automatically attachs the code scan reports to the associated web applications. This approach allows cloud administrators and developers to collaborate while maintaining application code security boundaries. 
 
 ## Prerquisites
 
-- Ensure a web app assessment exists for each required web app, as code scan reports can only be added to from an existing assessment. 
-- Information about the GitHub repository required for integration with Azure Migrate, allowing automatic requests and synchronization of code scan reports. 
-- A GitHub Application details which has permission to create issue and read comments on issues within the target repository. 
+- Ensure a web app assessment exists for each required web app because code scan reports can only be added from an existing assessment. 
+- Provide information about the GitHub repository required for integration with Azure Migrate to allow automatic requests and synchronization of code scan reports. 
+- Provide GitHub application details that grant permission to create issues and read comments on issues within the target repository. 
 
-    1. In the upper-right corner of any page on GitHub, click your profile picture. 
-    1. Navigate to your account settings. 
-- For an app owned by a personal account, click Settings. 
-        - Click Your organizations. 
-        - To the right of the organization, click Settings. 
-- For an app owned by an enterprise:  
-    1. If you use Enterprise Managed Users, click Your enterprise to go directly to the enterprise account settings. 
-        - If you use personal accounts, click Your enterprises and then to the right of the enterprise, click Settings. 
-    1. Navigate to the GitHub App settings. 
-- For an app owned by a personal account or organization:  
-    1. In the left sidebar, click <> Developer settings, then click GitHub Apps. 
-- For an app owned by an enterprise:  
-        - In the left sidebar, under "Settings", click GitHub Apps. 
-    1. Click New GitHub App. 
+1. In the top right corner of **GitHub** page, select your **profile picture**. 
+1. Navigate to your account settings. 
+    
+Personal account:
+ 1. Select **Settings**.
+ 1. Select **Your organization** and then **Settings** from right of the organization. 
+Enterprise account:
+ 1. If you use **Enterprise Managed Users**, select **Your enterprise** to go directly to the enterprise account settings. 
+ 1. If you use personal accounts, select **Your enterprises** and then to the right of the enterprise, select **Settings**. 
+ 1. Navigate to the **GitHub App** settings. 
+
+1. For an app owned by a personal account or organization:  In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**. 
+1. For an app owned by an enterprise: In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
     [Add screen]
 
-    1. Provide details for the new app.  
+1. Provide details for the new app.  
+    1. Under **GitHub App name**, enter a name for your app.  
+    1. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and is not used in this process. 
+       [Add screen]
+    1.  Deselect **Active** under **Webhook** 
+    [Add screen]
+    1. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
+    
+      | Issues  | Read and write  | 
+      | --- | --- | 
+      | Metadata  | Read-only  |
+      | Webhook   | Read and write  |
 
-        - Under GitHub App name, enter a name for your app.  
-        - Under Homepage URL, provide the full URL. This serves as a placeholder and is not utilized in this process. 
-         [Add screen]
-        - Deselect Active under Webhook 
-        [Add screen]
-        -  Under Permissions, click on Repository permissions choose following permissions for the app. 
-            
-        | Issues  | Read and write  | 
-        | --- | --- | 
-        | Metadata  | Read-only  |
-        | Webhook   | Read and write  |
+    1. Under **Where can this GitHub App be installed?**, select **Only on this account** or **Any account**. 
+    [Add screen]
 
-    - Under Where can this GitHub App be installed?, select Only on this account or Any account. 
-        [Add screen]
-
-    1. Click Create GitHub App. 
+    1. Select **Create GitHub App**. 
 
 ### Install GitHub App on the repository
 
