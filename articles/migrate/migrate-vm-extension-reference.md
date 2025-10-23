@@ -25,8 +25,7 @@ The Azure Migrate Collector VM extension is an optional component that collects 
 |----------|-------|
 | **Publisher** | Microsoft.Azure.Migrate |
 | **Type** | AzureMigrateCollectorForWindows |
-| **Version** | Latest (auto-upgrade enabled by default) |
-| **Supported OS** | Windows Server 2012 and later |
+| **Supported OS** | All Windows OSes supported by Arc-enabled Servers |
 
 ### Linux extension
 
@@ -34,8 +33,7 @@ The Azure Migrate Collector VM extension is an optional component that collects 
 |----------|-------|
 | **Publisher** | Microsoft.Azure.Migrate |
 | **Type** | AzureMigrateCollectorForLinux |
-| **Version** | Latest (auto-upgrade enabled by default) |
-| **Supported OS** | Ubuntu 18.04+, RHEL 7+, CentOS 7+, SLES 12+, Debian 9+ |
+| **Supported OS** | All Linux OSes supported by Arc-enabled Servers |
 
 ## Extension settings schema
 
@@ -92,18 +90,6 @@ The extension requires configuration through the `settings` parameter:
 }
 ```
 
-## Data collected
-
-The extension collects the following performance metrics at regular intervals:
-
-| Data type | Details | Collection frequency |
-|-----------|---------|---------------------|
-| CPU utilization | Percentage of CPU usage per core and aggregate | Every 5 minutes |
-| Memory utilization | Percentage of memory usage | Every 5 minutes |
-| Disk IOPS | Read and write operations per second per disk | Every 5 minutes |
-| Disk throughput | MB/s read and write per disk | Every 5 minutes |
-| Network utilization | Bytes sent and received per network adapter | Every 5 minutes |
-
 ## Regional endpoints
 
 The extension communicates with Azure Migrate services through regional endpoints. Ensure the following URL is accessible from your Arc-enabled servers based on your Azure Migrate project region.
@@ -111,12 +97,12 @@ The extension communicates with Azure Migrate services through regional endpoint
 ### Endpoint URL format
 
 ```
-https://discoverysrv.{region-code}.prod.migration.windowsazure.com
+https://discoverysrv.{migrate-region-code}.prod.migration.windowsazure.com
 ```
 
 ### Regional endpoint mappings
 
-| Geography | Azure Migrate project region | Region code | Endpoint URL |
+| Geography | Azure Migrate project region | Migrate Region code | Endpoint URL |
 |-----------|------------------------------|-------------|--------------|
 | Africa | South Africa North | san | `https://discoverysrv.san.prod.migration.windowsazure.com` |
 | Asia Pacific | East Asia | ea | `https://discoverysrv.ea.prod.migration.windowsazure.com` |
@@ -304,17 +290,10 @@ az connectedmachine extension delete \
   --name "AzureMigrateCollectorForWindows"
 ```
 
-## Data retention and privacy
-
-- Performance data is retained in your Azure Migrate project for the duration of the project lifecycle
-- Data is stored in the Azure region where your Azure Migrate project is located
-- All data transmission is encrypted using TLS 1.2 or higher
-- No business data or file contents are collected
-- You can request data deletion by removing servers from your Azure Migrate project
 
 ## Next steps
 
 - [Enable additional data collection for Arc-enabled servers](how-to-enable-additional-data-collection-for-arc-servers.md)
-- [Create a migrate project for Arc resources](quickstart-create-migrate-project-for-arc-resources.md)
-- [Sync and manage Arc resources](how-to-manage-arc-resource-sync.md)
+- [Create a migrate project for Arc resources](quickstart-evaluate-readiness-savings-for-arc-resources.md)
+- [Manage sync of Arc resources to Azure Migrate project](how-to-manage-arc-resource-sync.md)
 - [Create assessments](how-to-create-assessment.md)

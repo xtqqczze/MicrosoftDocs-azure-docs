@@ -27,11 +27,12 @@ The Azure Migrate Collector VM extension enhances your migration assessments by 
   - Disk throughput (MB/s read and write)
   - Network utilization
 
-### Coming soon
+### Preview limitations
+Currently the following data is not collected 
 - **Software inventory**: Installed applications, packages, and versions
-- **Web applications**: IIS, Apache, and other web server configurations
-- **Dependencies**: Network connections and service dependencies
-- **Database details**: Enhanced SQL Server instance information
+- **Web applications**: Information about .NET and Java web apps
+- **Dependencies**: Network connections and service dependencies between servers
+- **Databases**: Information about MySQL and PostgreSQL databases.
 
 > [!NOTE]
 > This article focuses on currently available data collection capabilities. As additional features become available, this documentation will be updated.
@@ -42,13 +43,12 @@ Enabling additional data collection provides:
 
 - **Right-sized recommendations**: Azure VM SKU recommendations based on actual resource utilization rather than just current configuration
 - **Accurate cost estimates**: Cost projections based on real-world usage patterns
-- **Cost optimization opportunities**: Identify over-provisioned resources that can be downsized
 - **Improved business case**: More accurate savings calculations for migration planning
-- **Parity with appliance discovery**: Assessment quality comparable to Azure Migrate appliance-based discovery methods
+
 
 ## Prerequisites
 
-- An existing Azure Migrate project created for Arc resources. If you don't have one, see [Create a migrate project for Arc resources](quickstart-create-migrate-project-for-arc-resources.md).
+- An existing Azure Migrate project created for Arc resources. If you don't have one, see [Create a migrate project for Arc resources](quickstart-evaluate-readiness-savings-for-arc-resources.md).
 - Arc-enabled servers running connected machine agent version [1.46 (September 2024 release)](../azure-arc/servers/agent-release-notes-archive.md#version-146---september-2024) or higher.
 - **Hybrid Server Resource Administrator** role on the Arc-enabled server resources where you want to enable data collection.
 - Network connectivity from Arc-enabled servers to the Azure Migrate regional endpoint. See [Regional endpoints](#regional-endpoints).
@@ -57,13 +57,10 @@ Enabling additional data collection provides:
 
 Additional data collection is enabled through the Azure Migrate Collector VM extension:
 
-1. **Extension deployment**: The VM extension is installed on Arc-enabled servers (Windows or Linux)
-2. **Configuration**: The extension is configured with your Azure Migrate project information
-3. **Data collection**: The extension collects performance metrics and other data at regular intervals
-4. **Data transmission**: Collected data is securely transmitted to your Azure Migrate project
-5. **Assessment enhancement**: Azure Migrate uses the additional data to provide enhanced recommendations
-
-The extension runs continuously in the background without impacting server performance. All data transmission is encrypted and follows Azure security standards.
+1. **Extension deployment and configuration**: The VM extension is installed on Arc-enabled servers (Windows or Linux). To install the extension, it must be configured with your Azure Migrate project information. 
+2. **Data collection**: The extension collects performance metrics and other data at regular intervals
+3. **Data transmission**: Collected data is securely transmitted to your Azure Migrate project
+4. **Assessment enhancement**: Azure Migrate uses the additional data to provide enhanced recommendations
 
 ## Enable additional data collection
 
@@ -156,7 +153,6 @@ To enable additional data collection across multiple Arc-enabled servers, use Az
 
 > [!IMPORTANT]
 > - You must have **Owner** role on all subscriptions with Arc resources that you included in the Azure Migrate project scope.
-> - We recommend testing this on non-production subscriptions first before deploying to production environments.
 
 #### Step 1: Create custom policy for Linux machines
 
@@ -509,52 +505,8 @@ The Azure Migrate Collector VM extension requires network connectivity to region
 https://discoverysrv.<region-code>.prod.migration.windowsazure.com
 ```
 
-For the complete list of regional endpoints, see [Regional endpoints for Azure Migrate Collector VM extension](arc-collector-extension-reference.md#regional-endpoints).
+For the complete list of regional endpoints, see [Regional endpoints for Azure Migrate Collector VM extension](migrate-vm-extension-reference.md#regional-endpoints).
 
-## Data privacy and security
-
-Additional data collection follows Azure security and privacy standards:
-
-- All data is encrypted in transit using TLS 1.2 or higher
-- Data is stored securely within your Azure Migrate project region
-- Only metadata and performance metrics are collected; no business data or file contents are transmitted
-- You maintain full control and can disable data collection at any time by removing the extension
-- Data collection complies with Azure compliance certifications and regional data residency requirements
-
-## Troubleshooting
-
-### Extension installation fails
-
-**Possible causes and solutions:**
-
-- **Insufficient permissions**: Ensure you have the **Hybrid Server Resource Administrator** role on the Arc-enabled server.
-- **Arc agent version**: Verify the Arc agent is version 1.46 or higher. Upgrade if necessary.
-- **Network connectivity**: Ensure the server can reach the Azure Migrate regional endpoint for your project region.
-
-### Extension installed but no additional data appears in assessments
-
-**Possible causes and solutions:**
-
-- **Insufficient data collection time**: Performance data collection requires 15-30 minutes initially. For comprehensive trends, wait 24-48 hours.
-- **Assessment configuration**: Ensure your assessment uses **Performance-based** sizing criteria, not **As on-premises**.
-- **Regional endpoint connectivity**: Verify network connectivity to the correct regional endpoint.
-- **Project configuration**: Ensure the extension settings include the correct Azure Migrate project ID and region.
-
-### Policy assignment shows non-compliant servers
-
-**Possible causes and solutions:**
-
-- **Remediation task not created**: Ensure you selected **Create a remediation task** when assigning the policy.
-- **Policy evaluation in progress**: Wait up to 30 minutes for policy evaluation to complete.
-- **Extension already installed with different settings**: If the extension exists with different configuration, you may need to remove and reinstall it.
-
-### Data collection stopped unexpectedly
-
-**Possible causes and solutions:**
-
-- **Extension removed or disabled**: Check if the extension is still installed and enabled on the server.
-- **Network connectivity issues**: Verify the server can still reach the regional endpoint.
-- **Arc agent issues**: Ensure the Arc agent is running and connected. Check agent status in the Azure portal.
 
 ## Disable additional data collection
 
@@ -573,7 +525,7 @@ To stop collecting additional data from specific servers:
 
 ## Next steps
 
-- [Sync and manage Arc resources](how-to-manage-arc-resource-sync.md)
+- [Manage sync of Arc resources to Azure Migrate project](how-to-manage-arc-resource-sync.md)
 - [Create performance-based assessments](how-to-create-assessment.md)
 - [View business case reports](how-to-view-a-business-case.md)
 - [Azure Migrate Collector extension reference](arc-collector-extension-reference.md)

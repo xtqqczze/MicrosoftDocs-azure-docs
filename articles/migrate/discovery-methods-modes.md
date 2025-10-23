@@ -36,6 +36,15 @@ The appliance-based discovery method involves deploying a virtual appliance that
 
 **Physical & public Cloud servers**: To discover and assess physical servers and servers running in any public cloud, we recommend setting up a [physical stack of appliance](tutorial-discover-physical.md). To migrate physical servers, install a secondary [replication appliance](tutorial-migrate-physical-virtual-machines.md).
 
+## Supported workloads for appliance-based discovery 
+
+Ensure that software inventory is enabled before initiating workload discovery. Azure Migrate supports the following workloads with appliance-based discovery:
+
+- Discovery of SQL Server instances and databases.
+- Discovery of ASP.NET web apps.
+- Discovery of MySQL database instances.
+- Discovery of PostgreSQL instances and databases.
+
 ## Import-based discovery 
 
 Import-based discovery is a simpler and faster alternative, relying on manual upload of inventory data in a structured format.  
@@ -49,7 +58,7 @@ Import-based discovery is a simpler and faster alternative, relying on manual up
 
 ## Arc-based discovery (Preview)
 
-If you have already Arc-enabled your servers, Arc-based discovery provides a simple alternative that doesn't require any additional on-premises deployments. To use Arc-based discovery, you must create a new Azure Migrate project from Arc Center. 
+If you have already Arc-enabled your servers and SQL Server instances, Arc-based discovery provides a simple alternative that doesn't require any additional on-premises deployments. To use Arc-based discovery, you must create a new Azure Migrate project from Arc Center. 
 
 ### Key features
 
@@ -58,24 +67,10 @@ If you have already Arc-enabled your servers, Arc-based discovery provides a sim
 - Default business case and assessments are automatically generated. Takes less than an hour to get to a business case and full estate assessment.
 - Collect additional information (utilization history) using the Azure Migrate Collector VM extension. 
 
-Learn more about [creating a migrate project for Arc resources](quickstart-create-migrate-project-for-arc-resources.md).
-
-## Supported workloads for discovery 
-
-Ensure that software inventory is enabled before initiating workload discovery. Azure Migrate supports the following workloads: 
-
-| Capability | Appliance-based discovery | Import-based Discovery | Arc-based discovery (Preview) |
-|------------|---------------------------|------------------------|---------------------|
-| Right-sized assessments | Supported. Ensure VM credentials are provided. | Supported. Provide aggregate values in the CSV file. | Supported. Ensure Azure Migrate Collector VM extension is installed. |
-| Software Inventory |  Supported. Ensure VM credentials are provided. | Not supported | Not supported | 
-| Dependency mapping | Supported. Ensure VM credentials are provided. | Not supported | Not supported | 
-| Discovery of SQL Server instances and databases. | Supported. Ensure SQL credentials are provided. | Not supported | Supported |
-| Discovery of ASP.NET web apps. | Supported. Ensure VM credentials are provided.| Not supported | Not supported|
-| Discovery of MySQL database instances | Supported. Ensure MySQL credentials are provided. | Not supported | Not supported |
-| Discovery of PostgreSQL instances and databases | Supported. Ensure PostgreSQL credentials are provided. | Not supported | Not supported | 
+Learn more about [Arc-based discovery (Preview)](concepts-arc-resource-discovery.md).
 
 ## Next steps
 
 - Learn more about [Appliance requirements](migrate-appliance.md).  
 - Learn more about creating a [business case using import](tutorial-discover-import.md).
-- Learn more about [Arc-based discovery for migration](concepts-arc-resource-migration.md).
+- Learn more about [Arc-based discovery for migration](concepts-arc-resource-discovery.md).
