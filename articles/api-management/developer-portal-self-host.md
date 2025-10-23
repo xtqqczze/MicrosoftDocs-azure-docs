@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to self-host the developer portal for Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 10/20/2025
+ms.date: 10/22/2025
 ms.service: azure-api-management
 ms.topic: how-to
 ---
@@ -85,22 +85,13 @@ Go to the `src` folder and open the `config.design.json` file.
 ```json
 {
     "environment": "development",
-    "isArmAuthEnabled": true,
     "subscriptionId": "< subscription ID >",
     "resourceGroupName": "< resource group name >",
     "serviceName": "< API Management service name >"
 }
 ```
 
-In `subscriptionId`, `resourceGroupName`, and `serviceName`, enter values for the subscription, resource group, and service name of your API Management instance. If you configured a [custom domain](configure-custom-domain.md) for the service, use it instead for the value of `serviceName`. For example:
-
-```json
-{
-...
-"serviceName": "https://api.contoso.com"
-...
-```
-
+In `subscriptionId`, `resourceGroupName`, and `serviceName`, enter values for the subscription, resource group, and service name of your API Management instance. I
 
 ### Optional settings in config.design.json
 
@@ -152,7 +143,7 @@ Go to the `src` folder and open the `config.publish.json` file.
 }
 ```
 
-Copy and paste the `subscriptionId`, `resourceGroupName`, and `serviceName`values from the previous configuration file. 
+Copy and paste the `subscriptionId`, `resourceGroupName`, and `serviceName` values from the previous configuration file. 
 
 ### config.runtime.json file
 
