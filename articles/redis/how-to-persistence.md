@@ -43,7 +43,7 @@ To generate any backups of data that can be added to a new cache, you can write 
 Persistence features are intended to be used to restore data to the same cache after data loss.
 
 - RDB/AOF persisted data files can't be imported to a new cache or the existing cache. Use the [Import/Export](how-to-import-export-data.md) feature instead.
-- Persistence requires you to enable High Availability on a new cache [active geo-replication](how-to-active-geo-replication.md).
+- Data Persistence requires a cache to have **High availability** enabled. The Data persistence feature isn't supported when you use [active geo-replication](how-to-active-geo-replication.md).
 - The managed disk holding persisted data files is encrypted using Microsoft managed keys (MMK) by default, but customer managed keys (CMK) can also be used. For more information, see [managing data encryption](#managing-data-encryption).
 
 ## How to set up data persistence using the Azure portal
