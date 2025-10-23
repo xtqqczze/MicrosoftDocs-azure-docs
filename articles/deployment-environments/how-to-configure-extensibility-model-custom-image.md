@@ -31,7 +31,7 @@ In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deplo
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure Deployment Environments set up in your Azure subscription. 
   - To set up ADE, follow the [Quickstart: Configure Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
 
@@ -503,6 +503,10 @@ In this configuration, ADE uses the Managed Identity for the PET, whether system
 
 > [!Tip]
 > This role assignment has to be made for every project environment type. It can be automated through the Azure CLI.
+
+> [!Tip]
+> If your ACR uses Microsoft Entra attribute-based access control (ABAC) for repository permissions, you may need to make additional role assignments like `Container Registry Repository Reader` to the PET identity. For more information, see [Microsoft Entra ABAC for repository permissions](/azure/container-registry/container-registry-rbac-abac-repository-permissions).
+
 
 When you're ready to push your image to your registry, run the following command:
 

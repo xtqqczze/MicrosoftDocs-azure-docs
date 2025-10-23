@@ -19,6 +19,17 @@ ms.author: kesheth
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## October 2025
+### FHIR service
+
+#### Bug fixes:
+
+**Reindex fix**: Previously, after adding and reindexing a new search parameter, a warning would sometimes be returned "Search Parameter not recognized". This issue got fixed by improving background refresh and synchronization.
+
+**Conditional Create – Latency Improvement via Optimized Profile Loading**: Changed the way profiles are loaded by the validator to prevent long waits on locks when the cache isn’t expired. This update addresses intermittent delays reported by users during create operations, traced to validation. While the issue occurred only occasionally, this change aims to eliminate a potential source of latency.
+
+**Reindex Orchestrator – Reliability and Performance Improvements**: Enhanced the reindex orchestrator for better reliability, accuracy, and performance. Updates include optimized surrogate ID range handling, improved job completion tracking, refined polling intervals to reduce database load, and fixes for query and parameter handling to ensure accurate progress reporting.
+
 ## September 2025
 ### FHIR service
 

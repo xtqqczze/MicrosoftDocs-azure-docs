@@ -9,6 +9,7 @@ ms.topic: overview
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ms.date: 09/11/2025
+#customer intent: As an integration developer, I want a high-level overview of Azure Logic Apps capabilities so that I can decide when to use Logic Apps for workflow automation.
 ---
 
 # What is Azure Logic Apps?
@@ -192,7 +193,7 @@ All these services help you connect and bring together disparate systems. Each s
 
 ## Get started
 
-Before you can start trying out Azure Logic Apps, you need an Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Before you can start trying out Azure Logic Apps, you need an Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 When you're ready, get started with one or more of the following how-to guides for Azure Logic Apps:
 

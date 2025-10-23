@@ -31,7 +31,7 @@ After you complete this tutorial, you should complete the follow-on tutorial tha
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Why use identity?
 
@@ -296,7 +296,7 @@ Next you update your function app to use its system-assigned identity when it us
 > [!IMPORTANT]
 > The `AzureWebJobsStorage` configuration is used by some triggers and bindings, and those extensions must be able to use identity-based connections, too. Apps that use blob triggers or event hub triggers may need to update those extensions. Because no functions have been defined for this app, there isn't a concern yet. To learn more about this requirement, see [Connecting to host storage with an identity](./functions-reference.md#connecting-to-host-storage-with-an-identity).
 >
-> Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption. When you enable identity-based connections for `AzureWebJobsStorage` in Linux Consumption, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
+> Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption. When you enable identity-based connections for `AzureWebJobsStorage` in Linux Consumption, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md). 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
 
