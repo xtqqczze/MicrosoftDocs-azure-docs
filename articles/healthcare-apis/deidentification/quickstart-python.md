@@ -28,7 +28,6 @@ In this quickstart, you deploy an instance of the de-identification service in y
 - [Using the multilingual model (French, Spanish, German)](#using-the-multilingual-model-french-spanish-german)
   - [Get an access token](#get-an-access-token)
   - [Run the multilingual service](#run-the-multilingual-service)
-  - [Multilingual code examples](#multilingual-code-examples)
 - [Clean up resources](#clean-up-resources)
 - [Next steps](#next-steps)
 
@@ -167,28 +166,29 @@ echo "<token>" > token.txt
 
 You can use one of two methods:
 
-1. PowerShell script 
+#### PowerShell script 
 
-1.1. Using powershell in terminal, run the file  
+1. Using powershell in terminal, run the file  
 
 ```Bash
 DemoDeidentificationService.ps1 
 ``` 
 
-1.2. Edit the text (line ~121) to insert your own text.  
+2. Edit the text (line ~121) to insert your own text.  
 
-1.3. In terminal, run:  
+3. In terminal, run:  
 
 ```Bash
 pwsh DemoDeidentificationService.ps1
 ```
 
-2. cURL command 
+#### cURL command 
 
-The examples below cover the TAG, REDACT and SURROGATE operations. To set the language in which the de-identification service needs to operate, set the following line:
+The examples below cover the TAG, REDACT and SURROGATE operations. To set the language in which the de-identification service needs to operate, set the following line [based on the list of supported language-locale pairs](articles/healthcare-apis/deidentification/Languages-supported)
 
+Example:
 ```Bash
-"InputLocale": "[see full list of supported language-locale pairs](articles/healthcare-apis/deidentification/Languages-supported)"
+"InputLocale": "fr-CA"
 ```
 
 **Note:** Replace <your-service-url> with your actual service URL and <token> with your access token in the examples below.
