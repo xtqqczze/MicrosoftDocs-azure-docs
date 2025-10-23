@@ -1,8 +1,8 @@
 ---
 title: Azure Change Tracking and Inventory overview using Azure Monitoring Agent
-description: Learn how to the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
+description: Learn about Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
-ms.date: 10/03/2025
+ms.date: 10/23/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
@@ -12,12 +12,14 @@ ms.custom: sfi-image-nochange
 
 # About Azure Change Tracking and Inventory
 
+This article provides an overview of Azure Change Tracking and Inventory using Azure Monitoring Agent (AMA). It describes the key features, benefits, supported operating systems, and limitations of the service.
+
+## What is Change Tracking and Inventory
+
+Azure Change Tracking and Inventory service enhances the auditing and governance for in-guest operations by monitoring changes and providing detailed inventory logs for servers across Azure, on-premises, and other cloud environments.
+
 > [!IMPORTANT]
-> - It is recommended that you use Azure Change Tracking and Inventory with the Change tracking extension version 2.20.0.0 (or above).
-
-## What is Change Tracking & Inventory
-
-Azure Change Tracking & Inventory service enhances the auditing and governance for in-guest operations by monitoring changes and providing detailed inventory logs for servers across Azure, on-premises, and other cloud environments.
+> - We recommend that you use Azure Change Tracking and Inventory with the Change tracking extension version 2.20.0.0 (or above).
 
 1. **Change Tracking**
 
@@ -77,9 +79,9 @@ You can enable Change Tracking and Inventory in the following ways:
 
 - Manually for non-Azure Arc-enabled machines, Refer to the Initiative *Enable Change Tracking and Inventory for Arc-enabled virtual machines* in **Policy > Definitions > Select Category = ChangeTrackingAndInventory**. To enable Change Tracking and Inventory at scale, use the **DINE Policy** based solution. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent (Preview)](enable-virtual-machines-monitoring-agent.md).
 
-- For a single Azure VM from the [Virtual machine page](../automation/change-tracking/enable-vms-monitoring-agent.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
+- For a single Azure VM from the [Virtual machine pane](../automation/change-tracking/enable-vms-monitoring-agent.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
 
-- For [multiple Azure VMs](enable-virtual-machines-monitoring-agent.md) by selecting them from the Virtual machines page in the Azure portal.
+- For [multiple Azure VMs](enable-virtual-machines-monitoring-agent.md) by selecting them from the Virtual machines pane in the Azure portal.
 
 ## Tracking file changes
 
@@ -228,4 +230,4 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 
 ## Next steps
 
-- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking-inventory/enable-virtual-machines-monitoring-agent.md).
+- To enable CTI from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking-inventory/enable-virtual-machines-monitoring-agent.md).
