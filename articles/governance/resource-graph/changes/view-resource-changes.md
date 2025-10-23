@@ -1,14 +1,14 @@
 ---
-title: View resource changes in the Azure portal (preview)
+title: View resource changes in the Azure portal
 description: View resource changes with Azure Resource Graph Change Analysis in the Azure portal.
 author: iancarter-msft
 ms.author: daphnema
-ms.date: 06/14/2024
+ms.date: 10/23/2025
 ms.topic: how-to
 ms.custom: sfi-image-nochange
 ---
 
-# View resource changes in the Azure portal (preview)
+# View resource changes in the Azure portal
 
 [!INCLUDE [preview](../../includes/resource-graph/preview/change-analysis.md)]
 
