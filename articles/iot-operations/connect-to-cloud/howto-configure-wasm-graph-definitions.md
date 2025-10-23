@@ -75,7 +75,7 @@ moduleRequirements:
 
 ## Example 1: Simple graph definition
 
-The [simple graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/rust/graph-simple.yaml) demonstrates a basic three-stage pipeline that converts temperature data from Fahrenheit to Celsius:
+The [simple graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/graph-simple.yaml) demonstrates a basic three-stage pipeline that converts temperature data from Fahrenheit to Celsius:
 
 :::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/rust/graph-simple.yaml":::
 
@@ -103,7 +103,7 @@ The [temperature module](https://github.com/Azure-Samples/explore-iot-operations
 
 ## Example 2: Complex graph definition
 
-The [complex graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/rust/graph-complex.yaml) demonstrates a sophisticated multi-sensor processing workflow that handles temperature, humidity, and image data with advanced analytics:
+The [complex graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/graph-complex.yaml) demonstrates a sophisticated multi-sensor processing workflow that handles temperature, humidity, and image data with advanced analytics:
 
 :::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/rust/graph-complex.yaml":::
 
