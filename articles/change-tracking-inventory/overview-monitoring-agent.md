@@ -44,7 +44,7 @@ Azure Change Tracking and Inventory service enhances the auditing and governance
 |Resource types | Azure VMs </br> Azure Arc-enabled VMs </br> Virtual machines scale set|
 |Data types | Windows registry </br> Windows services </br> Linux Daemons </br> Files </br> Software
 
-## Key benefits
+## Key benefits of Azure Change Tracking and Inventory
 
 - **Compatibility with the unified monitoring agent** - Compatible with the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) that enhances security, reliability, and facilitates multi-homing experience to store data.
 - **Compatibility with tracking tool**- Compatible with the Change tracking (CT) extension deployed through the Azure Policy on the client's virtual machine. You can switch to Azure Monitor Agent (AMA), and then the CT extension pushes the software, files, and registry to AMA.
@@ -187,8 +187,7 @@ To enable tracking of Windows Services data, you must upgrade CT extension and u
 
 #### Configure frequency
 
-The default collection frequency for Windows services is 30 minutes. To configure the frequency,
-- under **Edit** Settings, use a slider on the **Windows services** tab.
+The default collection frequency for Windows services is 30 minutes. To configure the frequency, under **Edit** Settings, use a slider on the **Windows services** tab.
 
 :::image type="content" source="media/overview-monitoring-agent/frequency-slider-inline.png" alt-text="Screenshot of frequency slider." lightbox="media/overview-monitoring-agent/frequency-slider-expanded.png":::
 

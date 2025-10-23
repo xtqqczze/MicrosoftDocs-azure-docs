@@ -20,6 +20,8 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 
 ## Prerequisites
 
+Before you enable Azure CTI, ensure you meet these prerequisites:
+
 - An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A [virtual machine](/azure/virtual-machines/windows/quick-create-portal) configured in the specified region.
 
@@ -33,27 +35,30 @@ This section provides detailed procedure on how you can enable change tracking o
 
 #### [Single Azure VM -portal](#tab/singlevm)
 
+To enable Azure CTI from single Azure VM – portal, follow these steps:
+
 1. Sign in to [Azure portal](https://portal.azure.com) and go to **Virtual machines**.
 
    :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-virtual-machine-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-virtual-machine-portal-expanded.png":::
 
 1. Select the virtual machine for which you want to enable Change Tracking.
 
-1. In the search, enter **Change tracking** to view the change tracking and inventory pane.
+1. In the search, enter **Change tracking**. Select **Change tracking** to view the change tracking and inventory pane.
 
    :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-change-tracking-virtual-machine-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-change-tracking-virtual-machine-expanded.png":::
 
-1. In the **Stay up-to-date with all changes** layout, select **Enable using AMA agent (Recommended)** option and **Enable**. 
+1. In the **Stay up-to-date with all changes** screen, select **Enable using AMA agent (Recommended)** option and **Enable**. 
 
    It will initiate the deployment and the notification appears on the top right corner of the screen.
    
    :::image type="content" source="media/enable-virtual-machines-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-virtual-machines-monitoring-agent/deployment-success-expanded.png":::
     
 > [!NOTE]
-> - When you enable Change Tracking in the Azure portal using the Azure Monitoring Agent, the process automatically creates a Data Collection Rule (DCR). This rule will appear in the resource group with a name in the format ct-dcr-aaaaaaaaa. After the rule is created, add the required resources.
 > - It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM.
 
 #### [Single Azure Arc VM - portal](#tab/singlearcvm)
+
+To enable Azure CTI from single Azure Arc VM – portal, follow these steps:
 
 1. Sign in to [Azure portal](https://portal.azure.com). Search for and select **Machines-Azure Arc**.
 
@@ -78,6 +83,8 @@ This section provides detailed procedure on how you can enable change tracking o
 This section provides detailed procedure on how you can enable change tracking and inventory on multiple Azure VMs and Azure Arc-enabled VMs.
 
 #### [Multiple Azure VMs - portal](#tab/multiplevms)
+
+To enable Azure CTI from multiple Azure VMs – portal, follow these steps:
 
 1. Sign in to [Azure portal](https://portal.azure.com) and go to **Virtual machines**.
 
@@ -112,7 +119,7 @@ To associate the data collection rule to the Arc-enabled VMs, follow these steps
       
    :::image type="content" source="media/enable-virtual-machines-monitoring-agent/monitor-menu-data-collection-rules.png" alt-text="Screenshot showing the menu option to access data collection rules from Azure Monitor." lightbox="media/enable-virtual-machines-monitoring-agent/monitor-menu-data-collection-rules.png":::
 
-1. Select the data collection rule that you have created in Step 1 from the listing pane.
+1. Select the data collection rule from the listing pane.
 1. In the data collection rule pane, under **Configurations**, select **Resources** and then select **Add**.
     
    :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-resources.png" alt-text="Screenshot showing the menu option to select resources from the data collection rule pane." lightbox="media/enable-virtual-machines-monitoring-agent/select-resources.png":::

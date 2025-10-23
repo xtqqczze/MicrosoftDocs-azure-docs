@@ -92,7 +92,7 @@ To configure file content changes, follow these steps:
 
 #### [System Assigned Managed Identity](#tab/sa-mi)
 
-When the storage account is linked using the system assigned managed identity, a blob is created.
+When the storage account is linked using the system assigned managed identity, a blob is created. For system-assigned managed identity, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), go to **Storage accounts**, and, select the storage account.
 1. On the **Storage accounts** pane, under **Data storage**, select **Containers** > **Changetracking blob** > **Access Control (IAM)**.

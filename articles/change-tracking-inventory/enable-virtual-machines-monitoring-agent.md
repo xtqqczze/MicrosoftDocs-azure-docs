@@ -12,11 +12,13 @@ ms.custom: sfi-image-nochange
 
 # Enable Change Tracking and Inventory from Azure portal
 
+When you enable Change Tracking in the Azure portal using the Azure Monitoring Agent, the process automatically creates a Data Collection Rule (DCR). This rule will appear in the resource group with a name in the format ct-dcr-aaaaaaaaa. After the rule is created, add the required resources.
+
 To enable Azure Change Tracking and Inventory from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](/azure/change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory?branch=pr-en-us-307064).
 
 ## Create data collection rule
 
-To know what data is collected from VMs, create a Data Collection Rule (DCR).
+A DCR defines what data to collect from sources, how to transform it, and where to send it (like Log Analytics).
 
 To create a DCR, follow these steps:
 
