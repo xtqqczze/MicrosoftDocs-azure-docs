@@ -236,7 +236,7 @@ curl -X PUT \
   "<your Service URL>/jobs/<unique-job-name>?api-version=2024-12-15-preview"
 ```
 
-**Note:** This example uses the French Canada language-locale pair. See the full list our service supports [here.](articles/healthcare-apis/deidentification/Languages-supported)
+**Note:** This example uses the French Canada language-locale pair. See the full list our service supports [here.](articles/healthcare-apis/deidentification/languages-supported)
 
 3. Get job status
 ```Bash
