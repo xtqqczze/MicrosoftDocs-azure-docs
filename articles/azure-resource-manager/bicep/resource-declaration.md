@@ -106,6 +106,18 @@ By default, when a Bicep deployment runs, Azure Resource Manager (ARM) creates t
 
 With Bicep version v0.38.3 or later, the `@onlyIfNotExists()` decorator instructs ARM to create the resource only if it doesn’t already exist. If the resource is found, ARM skips creation and leaves it unchanged.
 
+```bicep
+@onlyIfNotExists()
+resource example 'Microsoft.Storage/storageAccounts@2025-01-01' = {
+  name: 'mystorageacct'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+```
+
 ## Resource name
 
 Each resource has a name. When setting the resource name, pay attention to the [rules and restrictions for resource names](../management/resource-name-rules.md).
