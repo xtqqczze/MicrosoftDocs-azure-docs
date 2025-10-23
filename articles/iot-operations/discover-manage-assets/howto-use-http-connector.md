@@ -95,6 +95,26 @@ To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 
 ---
 
+### Configure a device to use a username and password
+
+The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password.
+
+To use the `Username password` authentication mode, complete the following steps:
+
+# [Operations experience](#tab/portal)
+
+[!INCLUDE [connector-username-password-portal](../includes/connector-username-password-portal.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [connector-username-password-cli](../includes/connector-username-password-cli.md)]
+
+---
+
+### Configure a device to use an X.509 certificate
+
+[!INCLUDE [connector-certificate](../includes/connector-certificate.md)]
+
 ## Create a namespace asset
 
 To define a namespace asset that publishes data points from the HTTP endpoint, follow these steps:
