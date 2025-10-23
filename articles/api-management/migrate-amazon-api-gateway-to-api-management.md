@@ -6,7 +6,7 @@ author: dlepow
 ms.author: danlep
 ms.reviewer: 
 ms.service: azure-api-management
-ms.date: 10/22/2025
+ms.date: 10/23/2025
 ms.topic: upgrade-and-migration-article
 ---
 # Migrate Amazon API Gateway to Azure API Management
@@ -34,8 +34,8 @@ By following this guide, you'll:
 A health services organization uses Amazon API Gateway for accessing a multi-backend health records system. This example scenario features a common configuration of Amazon API Gateway in an Amazon Web Services (AWS) environment, showing typical integrations with related Amazon services sand several common API backends including proxied Lambda functions and HTTP or REST APIs.  
   
 :::image type="complex" source="media/migrate-amazon-api-gateway-to-api-management/example-api-gateway-architecture.png" alt-text="Amazon API Gateway architecture where a user request flows through Cognito, WAF, and API Gateway to VPC endpoints hosting Lambda, EC2, and EKS." lightbox="media/migrate-amazon-api-gateway-to-api-management/example-api-gateway-architecture.png":::
-"The diagram shows an Amazon API Gateway architecture integrated with multiple AWS services. On the far left, a user sends a request with a JWT and authenticates through Cognito. The flow moves right into Amazon WAF, then to API Gateway, which connects upward to a custom domain and downward to Certificate Manager for storing certificates and CloudWatch for monitoring. From API Gateway, three VPC endpoints branch out to the right, each leading into a VPC box containing private subnets. The top subnet hosts a Lambda function, the middle subnet contains an Application Load Balancer connected to an EC2 instance, and the bottom subnet has another Application Load Balancer connected to an EKS cluster. Arrows indicate sequential flow from the user through authentication and API Gateway to these backend components inside the VPC."
-	:::image-end:::  
+  The diagram shows an Amazon API Gateway architecture integrated with multiple AWS services. On the far left, a user sends a request with a JWT and authenticates through Cognito. The flow moves right into Amazon WAF, then to API Gateway, which connects upward to a custom domain and downward to Certificate Manager for storing certificates and CloudWatch for monitoring. From API Gateway, three VPC endpoints branch out to the right, each leading into a VPC box containing private subnets. The top subnet hosts a Lambda function, the middle subnet contains an Application Load Balancer connected to an EC2 instance, and the bottom subnet has another Application Load Balancer connected to an EKS cluster. Arrows indicate sequential flow from the user through authentication and API Gateway to these backend components inside the VPC.
+:::image-end:::  
 
 This architecture includes:
   
@@ -54,8 +54,8 @@ This architecture includes:
 Here's an example architecture of the workload, migrated to Azure. In this scenario, Azure API Management is deployed in the Premium tier.  
   
 :::image type="complex" source="media/migrate-amazon-api-gateway-to-api-management/example-migrated-api-management-architecture.png" alt-text="Azure API Management architecture where a user request flows through Microsoft Entra ID, Application Gateway, and API Management to Azure Functions, Azure Kubernetes Service, and Azure AI Foundry backends." lightbox="media/migrate-amazon-api-gateway-to-api-management/example-migrated-api-management-architecture.png":::
-"The diagram illustrates an Azure API Management architecture within a virtual network. On the far left, a user sends a request with a JWT and authenticates through Microsoft Entra ID. The flow enters an Application Gateway with WAF, which forwards traffic to API Management integrated with Entra ID. API Management validates the JWT and interacts with several components: it uses Redis cache for caching, stores certificates in Azure Key Vault, and monitors via Azure Monitor. Above API Management, a custom domain is linked to Azure DNS Zone, and Entra ID is shown as part of authentication. To the right, API Management connects to a Function App, which includes a function key, and also routes traffic through an Internal Load Balancer to a Kubernetes cluster. Additionally, Azure AI Foundry is shown as a connected service. Dashed arrows indicate relationships such as validation, monitoring, and certificate storage, while solid arrows represent the main request flow from the user through Application Gateway and API Management to backend services."
-  :::image-end:::
+  The diagram illustrates an Azure API Management architecture within a virtual network. On the far left, a user sends a request with a JWT and authenticates through Microsoft Entra ID. The flow enters an Application Gateway with WAF, which forwards traffic to API Management integrated with Entra ID. API Management validates the JWT and interacts with several components: it uses Redis cache for caching, stores certificates in Azure Key Vault, and monitors via Azure Monitor. Above API Management, a custom domain is linked to Azure DNS Zone, and Entra ID is shown as part of authentication. To the right, API Management connects to a Function App, which includes a function key, and also routes traffic through an Internal Load Balancer to a Kubernetes cluster. Additionally, Azure AI Foundry is shown as a connected service. Dashed arrows indicate relationships such as validation, monitoring, and certificate storage, while solid arrows represent the main request flow from the user through Application Gateway and API Management to backend services.
+:::image-end:::
 
 This architecture includes:
 
@@ -112,7 +112,7 @@ Before you migrate from Amazon API Gateway to Azure API Management, assess the e
 | [CloudWatch logs](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html) and [CloudTrail logs](https://docs.aws.amazon.com/apigateway/latest/developerguide/cloudtrail.html) | [Azure Monitor logs](monitor-api-management.md) | Configure diagnostic settings to send Azure API Management logs to a Log Analytics workspace for built-in analytics and custom analysis. Consider deploying Application Insights or other [observability tools](observability.md) for added operational monitoring. |
 
 > [!NOTE]
-> Establish baseline metrics from the Amazon API Gateway before migration. Use these baselines to compare Azure API Management performance after migration and confirm it meets or exceeds expectations. 
+> Establish baseline metrics from the Amazon API Gateway before migration. Use these baselines to compare Azure API Management performance after migration and confirm it meets or exceeds expectations.
 
 ### Capability mismatches
 
@@ -140,7 +140,7 @@ As part of assessment, consider whether existing services will be retained or re
   - Azure API Management supports gRPC APIs on Kubernetes clusters accessed only through the self-hosted gateway.
   - Use of gRPC prevents use of Application Gateway as a WAF. 
 
-## Assessment – API configuration
+## Assessment – API configuration comparison
 
 The migration approach for API configurations must consider the *scope* of the configuration in Amazon API Gateway. At a high level, API scopes map as follows from Amazon API Gateway to Azure API Management:
 
