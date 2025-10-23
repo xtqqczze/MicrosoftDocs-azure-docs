@@ -188,7 +188,7 @@ pwsh DemoDeidentificationService.ps1
 The examples below cover the TAG, REDACT and SURROGATE operations. To set the language in which the de-identification service needs to operate, set the following line:
 
 ```Bash
-"InputLocale": "[see full list of supported language-locale pairs](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview&preserve-view=true)"
+"InputLocale": "[see full list of supported language-locale pairs](articles/healthcare-apis/deidentification/Languages-supported)"
 ```
 
 **Note:** Replace <your-service-url> with your actual service URL and <token> with your access token in the examples below.
