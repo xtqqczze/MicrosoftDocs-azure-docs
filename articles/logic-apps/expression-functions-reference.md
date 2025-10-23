@@ -5006,7 +5006,7 @@ and then create XML from the JSON object.
 xml(outputs('Compose2'))
 ```
 
-Option2: Using concat()
+Option 2: Using concat()
 
 ```
 xml(
