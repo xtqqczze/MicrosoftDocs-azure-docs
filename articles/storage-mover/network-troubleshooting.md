@@ -122,28 +122,28 @@ Address: 203.60.14.164
   Testing 'mydemoaccount.blob.core.windows.net' port 443 over TCP...
  
 traceroute to mydemoaccount.blob.core.windows.net (10.60.14.164), 30 hops max, 60 byte packets
-1  cgbslon66ca901-Te0-0-0-16-2620.network.microsoft.com (10.126.12.2)  0.401 ms  0.440 ms  0.507 ms
-2  musmtvsvcanrl1-Eth23-1.network.microsoft.com (10.10.80.2)  0.279 ms musmtvsvcanrl2-Eth23-1.network.microsoft.com (10.10.80.6)  0.267 ms musmtvsvcanrl1-Eth23-1.network.microsoft.com (10.10.80.2)  0.305 ms
-3  musmtvsvcanrb1-Eth25-1.network.microsoft.com (10.126.137.144)  0.303 ms musmtvsvcanrb3-Eth33-1.network.microsoft.com (10.126.137.156)  0.230 ms musmtvsvcanrb2-Eth25-1.network.microsoft.com (10.126.137.146)  0.279 ms
-4  musmtv005anrs2-ethernet31-1.clouddatahub.net (10.126.137.139)  0.274 ms  0.262 ms musmtvsvcanrs2-Eth30-1.network.microsoft.com (10.126.137.141)  0.250 ms
+1  demosrva901.network.microsoft.com (10.126.12.2)  0.401 ms  0.440 ms  0.507 ms
+2  demosrvl1.network.microsoft.com (10.10.80.2)  0.279 ms demosrvl2.network.microsoft.com (10.10.80.6)  0.267 ms demosrvl1.network.microsoft.com (10.10.80.2)  0.305 ms
+3  demosrvb1.network.microsoft.com (10.126.137.144)  0.303 ms demosrvb3.network.microsoft.com (10.126.137.156)  0.230 ms demosrvb2.network.microsoft.com (10.126.137.146)  0.279 ms
+4  musmtv005anrs2.clouddatahub.net (10.126.137.139)  0.274 ms  0.262 ms demosrvs2.network.microsoft.com (10.126.137.141)  0.250 ms
 5  10.161.128.7 (10.161.128.7)  0.123 ms 10.161.128.21 (10.161.128.21)  0.216 ms 10.161.128.7 (10.161.128.7)  0.218 ms
-6  musmtvsvcanrs1-Eth15-1-22.network.microsoft.com (10.161.128.4)  0.323 ms  0.337 ms  0.273 ms
-7  musmtvsvcanrb3-Eth29-1.network.microsoft.com (10.126.137.4)  0.329 ms musmtvsvcanrb4-Eth29-1.network.microsoft.com (10.126.137.6)  0.553 ms musmtvsvcanrb2-Eth29-1.network.microsoft.com (10.126.137.2)  0.306 ms
-8  musmtvsvcanrc2-Eth5-1.network.microsoft.com (10.126.137.9)  0.393 ms  0.326 ms musmtvsvcanrc1-Eth5-1.network.microsoft.com (10.126.137.1)  0.382 ms
-9  cusmtvsvcca901-Bu12.network.microsoft.com (10.37.12.118)  0.800 ms 10.37.12.120 (10.37.12.120)  0.870 ms  0.814 ms
+6  demosrvs1.network.microsoft.com (10.161.128.4)  0.323 ms  0.337 ms  0.273 ms
+7  demosrvb3.network.microsoft.com (10.126.137.4)  0.329 ms demosrvb4.network.microsoft.com (10.126.137.6)  0.553 ms demosrvb2.network.microsoft.com (10.126.137.2)  0.306 ms
+8  demosrvc2.network.network.microsoft.com (10.126.137.9)  0.393 ms  0.326 ms demosrvc1.network.network.microsoft.com (10.126.137.1)  0.382 ms
+9  democussrvca901.network.microsoft.com (10.37.12.118)  0.800 ms 10.37.12.120 (10.37.12.120)  0.870 ms  0.814 ms
 10  * * *
 11  * * *
 12  * * *
-13  cussclb21ca940-Hu0-0-0-0.network.microsoft.com (10.37.12.104)  2.850 ms cussclb21ca940-Hu0-0-0-1.network.microsoft.com (10.37.12.106)  2.126 ms cussclb21ca940-Hu0-0-0-0.network.microsoft.com (10.37.12.104)  2.560 ms
-14  cussclb21an7k1-Po92-11.network.microsoft.com (10.37.171.33)  0.787 ms  0.826 ms  0.814 ms
+13  democussrvb21ca940.network.microsoft.com (10.37.12.104)  2.850 ms democussrvb21ca940.network.microsoft.com (10.37.12.106)  2.126 ms democussrvb21ca940.network.microsoft.com (10.37.12.104)  2.560 ms
+14  democussrvb21an7k1.network.microsoft.com (10.37.171.33)  0.787 ms  0.826 ms  0.814 ms
 15  10.37.171.70 (10.37.171.70)  1.077 ms  1.056 ms  1.040 ms
-16  dussclb21an7k1-Po21-11.network.microsoft.com (10.37.168.4)  1.221 ms  1.295 ms  1.212 ms
-17  dussclb21a7201-Po7.network.microsoft.com (169.220.17.1)  1.168 ms  1.351 ms  1.340 ms
-18  ae60-0.car01.region.ntwk.msn.net (203.44.15.46)  2.153 ms  1.319 ms  1.306 ms
-19  ae22-0.icr01.region.ntwk.msn.net (203.44.232.202)  1.382 ms ae24-0.icr02.region.ntwk.msn.net (203.44.232.204)  1.370 ms  1.717 ms
-20  be-120-0.ibr03.region.ntwk.msn.net (203.44.22.167)  17.054 ms * *
-21  be-2-0.ibr04.region.ntwk.msn.net (203.44.17.23)  16.926 ms * be-2-0.ibr03.region.ntwk.msn.net (203.44.17.21)  17.911 ms
-22  * be-5-0.ibr02.region.ntwk.msn.net (203.44.17.71)  116.530 ms  116.798 ms
+16  democussrvlb21an7k1.microsoft.com (10.37.168.4)  1.221 ms  1.295 ms  1.212 ms
+17  democussrvlb21a7201.network.microsoft.com (169.220.17.1)  1.168 ms  1.351 ms  1.340 ms
+18  ae60-0.region.ntwk.msn.net (203.44.15.46)  2.153 ms  1.319 ms  1.306 ms
+19  ae22-0.region.ntwk.msn.net (203.44.232.202)  1.382 ms ae24-0.region.ntwk.msn.net (203.44.232.204)  1.370 ms  1.717 ms
+20  be-120-0.region.ntwk.msn.net (203.44.22.167)  17.054 ms * *
+21  be-2-0.region.ntwk.msn.net (203.44.17.23)  16.926 ms * be-2-0.region.ntwk.msn.net (203.44.17.21)  17.911 ms
+22  * be-5-0.region.ntwk.msn.net (203.44.17.71)  116.530 ms  116.798 ms
 23  169.10.19.29 (169.10.19.29)  18.540 ms  18.096 ms *
 24  * 169.10.6.142 (169.10.6.142)  18.161 ms 169.10.11.182 (169.10.11.182)  18.559 ms
 25  169.10.11.174 (169.10.11.174)  17.550 ms 169.10.11.170 (169.10.11.170)  17.132 ms *

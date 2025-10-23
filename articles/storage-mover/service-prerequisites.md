@@ -10,7 +10,7 @@ ms.date: 10/22/2025
 
 # Azure Storage Mover service prerequisites
 
-Azure Storage Mover is a fully managed service that facilitates the migration of data between either on-premises or cloud locations. Data within your various workloads, such as an applications or file shares, can be stored either on-premises or in another cloud environment. Examples of such data sources include on-premises file servers, Network Attached Storage (NAS) devices, or cloud storage services such as Amazon Web Services (AWS) Simple Storage Service (S3) buckets.
+Azure Storage Mover is a fully managed service that facilitates the migration of data from on-premises or cloud locations to Azure Storage. Data within your various workloads, such as an applications or file shares, can be stored either on-premises or in another cloud environment. Examples of such data sources include on-premises file servers, Network Attached Storage (NAS) devices, or cloud storage services such as Amazon Web Services (AWS) Simple Storage Service (S3) buckets.
 
 While migrating on-premises data, Azure Storage Mover uses agents installed on your on-premises infrastructure. Cloud data sources are migrated directly via the Storage Mover service itself, without the need for on-premises agents. In both cases, Storage Mover quickly and efficiently transfer large volumes of data from these various sources, to Azure Storage.
 
