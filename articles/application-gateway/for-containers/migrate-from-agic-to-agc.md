@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 7/22/2025
+ms.date: 10/23/2025
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to migrate services from Application Gateway Ingress Controller to Application Gateway for Containers, so that I can leverage improved performance, seamless scaling, and modern API compatibility without experiencing downtime during the transition.
 ---
@@ -45,7 +45,6 @@ Such dependencies include:
 
 - Private IP
 - Ports other than 80 and 443
-- Configurable request timeout values
 
 Here's a summarized list of AGIC annotations and whether Application Gateway for Containers has translated such capabilities to either Gateway or Ingress API.
 
@@ -61,7 +60,7 @@ Here's a summarized list of AGIC annotations and whether Application Gateway for
 | [Connection draining](migrate-from-agic-to-agc.md#connection-draining) | appgw.ingress.kubernetes.io/connection-draining | Non-configurable | Non-configurable |
 | [Connection draining](migrate-from-agic-to-agc.md#connection-draining) | appgw.ingress.kubernetes.io/connection-draining-timeout | Non-configurable | Non-configurable |
 | [Session Affinity / Sticky Sessions](migrate-from-agic-to-agc.md#session-affinity) | appgw.ingress.kubernetes.io/cookie-based-affinity | [Session affinity in Gateway API](migrate-from-agic-to-agc.md#session-affinity-in-gateway-api) | [Session affinity in Ingress API](migrate-from-agic-to-agc.md#session-affinity-in-ingress-api) |
-| [Request timeout](migrate-from-agic-to-agc.md#request-timeout) | appgw.ingress.kubernetes.io/request-timeout | Non-configurable | Non-configurable |
+| [Request timeout](migrate-from-agic-to-agc.md#request-timeout) | appgw.ingress.kubernetes.io/request-timeout | [RoutePolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.RouteTimeouts) | [IngressBackendSettings](api-specification-kubernetes.md#alb.networking.azure.io/v1.IngressTimeouts) |
 | [Frontend port other than 80 and 443](migrate-from-agic-to-agc.md#frontend-port-override) | appgw.ingress.kubernetes.io/override-frontend-port | Not supported | Not supported |
 | [Private frontend](migrate-from-agic-to-agc.md#private-frontend) | appgw.ingress.kubernetes.io/use-private-ip | Not supported | Not supported |
 | [Web Application Firewall (WAF)](migrate-from-agic-to-agc.md#waf) | appgw.ingress.kubernetes.io/waf-policy-for-path | [Web Application Firewall (WAF) (Preview)](web-application-firewall.md) | Not supported |

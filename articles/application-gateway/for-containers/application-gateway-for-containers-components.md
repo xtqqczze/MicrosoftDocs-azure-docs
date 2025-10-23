@@ -123,3 +123,6 @@ Application Gateway for Containers enforces the following timeouts as requests a
 | HTTP Idle Timeout | 5 minutes | idle timeout before closing an HTTP connection. |
 | Stream Idle Timeout | 5 minutes | idle timeout before closing an individual stream carried by an HTTP connection. |
 | Upstream Connect Timeout | 5 seconds | time for establishing a connection to the backend target. |
+
+>[!Note]
+>Request timeout strictly enforces the request to complete in the defined time irrespective if data is actively streaming or the request has started to idle. For example, if you are serving large file downloads and you expect tranfers to take greater than 60 seconds due to size or slow transfer rates, consider increasing the request timeout value or setting it to 0.

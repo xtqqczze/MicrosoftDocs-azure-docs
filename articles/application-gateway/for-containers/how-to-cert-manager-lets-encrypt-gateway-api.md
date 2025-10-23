@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 3/21/2025
+ms.date: 10/23/2025
 ms.author: mbender
 # Customer intent: "As a cloud infrastructure engineer, I want to configure an Application Gateway for Containers with automated SSL/TLS certificates using cert-manager and Let's Encrypt, so that I can ensure secure communication for my deployed applications in a Kubernetes environment."
 ---
@@ -171,12 +171,11 @@ status:
 Install cert-manager using Helm:
 
 ```bash
-helm repo add jetstack https://charts.jetstack.io --force-update
 helm install \
-  cert-manager jetstack/cert-manager \
+  cert-manager oci://quay.io/jetstack/charts/cert-manager \
+  --version v1.19.1 \
   --namespace cert-manager \
   --create-namespace \
-  --version v1.17.1 \
   --set config.enableGatewayAPI=true \
   --set crds.enabled=true
 ```
