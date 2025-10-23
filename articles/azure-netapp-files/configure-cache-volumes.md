@@ -44,17 +44,18 @@ Write-back allows the write to be committed to stable storage at the cache and a
     * Supported features:
         * NFS, SMB, and dual protocols
         * Lightweight Directory Access Protocol (LDAP)
+        * Kerberos
         * Availability zone volume placement
         * Customer-managed keys
-        * SMB continuous availability shares
 * The Azure NetApp Files cache volume must be deployed in an availability zone. To populate a new or existing volume in an availability zone, see [Manage availability zones in Azure NetApp Files](manage-availability-zone-volume-placement.md). 
 * Cache volumes only support Standard network features. Basic network features can't be configured on cache volumes. 
 * When creating a cache volume, ensure that there's sufficient space in the capacity pool to accommodate the new cache volume.
 * You can't move a cache volume to another capacity pool.
+* You can't transition non-customer managed key cache volumes to customer managed key (CMK).
 * You should ensure that the protocol type is the same for the cache volume and origin volume. The security style and the Unix permissions are inherited from the origin volume. For example, creating a cache volume with NFSv3 or NFSv4 when origin is UNIX, and SMB when the origin is NTFS.
 * You should enable encryption on the origin volume.
 * You should configure an Active Directory (AD) or LDAP connection within the NetApp account to create an LDAP-enabled cache volume.
-* You can only modify specific fields of a cache volume, including `is-cifs-change-notify-enabled`, `is-writeback-enabled`, and `is-global-file-locking-enabled`.
+* You can only modify specific fields of a cache volume, including `is-cifs-change-notify-enabled` and `is-writeback-enabled`.
 * The `is-global-file-locking-enabled` parameter value must be the same on all cache volumes that share the same origin volume. Global file locking should be enabled when creating the first cache volume by `setting global_file_locking_enabled` to true. The subsequent cache volumes from the same origin volume must have this setting set to true. To change the global file locking setting on existing cache volumes, you must update the origin volume first and then the change will propagate to all the cache volumes associated with that origin volume. The `volume flexcache origin config modify -is-global-file-locking-enabled` command should be executed on the source cluster to change the setting on the origin volume.
 
 ## Supported regions
@@ -128,10 +129,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 You must create Express Route or VPN resources to ensure network connectivity from the external NetApp ONTAP cluster to the target Azure NetApp Files cluster. The connectivity can be accomplished in many ways with the goal being that the source cluster has connectivity to the Azure NetApp Files delegated subnet. Connectivity includes this set of firewall rules (bidirectional for all):
 
-    * ICMP
-    * TCP 11104 
-    * TCP 11105 
-    * HTTPS
+* ICMP
+* TCP 11104 
+* TCP 11105 
+* HTTPS
+  
 
 The network connectivity must be in place for all intercluster (IC) LIFs on the source cluster to all IC LIFs on the Azure NetApp Files endpoint.
 
@@ -140,20 +142,20 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 1.	Initiate the cache volume creation using the PUT caches API call:
 
     ```
-    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version={api-version}
+    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview
     ```
 
 2.  Monitor if the cache state is available for cluster peering using the GET caches API call:
 
     ```
-    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version={api-version}
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview
 
     ```
 
     When the cacheState = ClusterPeeringOfferSent, execute the POST listPeeringPassphrases call to obtain the command and passphrase necessary to complete the cluster peering.
 
     ```
-    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/listPeeringPassphrases?{api-version}
+    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/listPeeringPassphrases?{2025-09-01-preview}
     ```
 
     Example listPeeringPassphrases output:
@@ -171,7 +173,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     > The user will have 30 minutes after the cacheState transitions to “ClusterPeeringOfferSent” to complete execution of the clusterPeeringCommand.  If 30 minutes is exceeded, then cache creation will fail and the user will need to delete the cache volume and initiate a new PUT call.
 
     > [!NOTE]
-    > Replace <IP-SPACE-NAME> with the ipspace that the IC LIFs use on the external origin volume’s ONTAP system.
+    > Replace "IP-SPACE-NAME" with the ipspace that the IC LIFs use on the external origin volume’s ONTAP system.
 
     > [!NOTE]
     > Do not execute the vserverPeeringCommand at this time.  This will be executed in the next step.
