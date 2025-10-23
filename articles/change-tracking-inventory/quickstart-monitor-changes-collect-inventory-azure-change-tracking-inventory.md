@@ -23,7 +23,7 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 - An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A [virtual machine](/azure/virtual-machines/windows/quick-create-portal) configured in the specified region.
 
-## Enable Change Tracking and Inventory
+## Enable Azure CTI
 
 ::: zone pivot="single-portal"
 
@@ -107,7 +107,7 @@ To enable the Change Tracking and Inventory on Arc-enabled servers, ensure that 
 
 To associate the data collection rule to the Arc-enabled VMs, follow these steps:
 
-1. [Create Change Tracking Data collection rule](#create-data-collection-rule).
+1. [Create Change Tracking Data collection rule](/azure/automation/change-tracking/enable-vms-monitoring-agent?tabs=singlevm%2Cmultiplevms&pivots=single-portal&branch=pr-en-us-307064#create-data-collection-rule).
 1. Sign in to [Azure portal](https://portal.azure.com) and go to **Monitor** and under **Settings**, select **Data Collection Rules**.
       
    :::image type="content" source="media/enable-virtual-machines-monitoring-agent/monitor-menu-data-collection-rules.png" alt-text="Screenshot showing the menu option to access data collection rules from Azure Monitor." lightbox="media/enable-virtual-machines-monitoring-agent/monitor-menu-data-collection-rules.png":::
@@ -137,20 +137,8 @@ To associate the data collection rule to the Arc-enabled VMs, follow these steps
 --- 
 :::zone-end
 
-## Enable Change Tracking and Inventory
-
-Enable Azure CTI [for multiple VMs using Azure portal and Azure CLI](../automation/change-tracking/enable-vms-monitoring-agent?tabs=singlevm%2Cmultiplevms&pivots=multiple-portal-cli#enable-change-tracking-and-inventory-for-multiple-vms-using-azure-portal-and-azure-cli).
-
-You can enable Azure CTI in the following ways:
-
-- Manually for non-Azure Arc-enabled machines, Refer to the Initiative *Enable Change Tracking and Inventory for Arc-enabled virtual machines* in **Policy > Definitions > Select Category = ChangeTrackingAndInventory**. To enable Change Tracking and Inventory at scale, use the **DINE Policy** based solution. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent (Preview)](enable-virtual-machines-monitoring-agent.md).
-
-- For a single Azure VM from the [Virtual machine pane](../automation/change-tracking/enable-vms-monitoring-agent.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
-
-- For [multiple Azure VMs](enable-virtual-machines-monitoring-agent.md) by selecting them from the Virtual machines pane in the Azure portal.
-
 ## Next steps
 
 * To create data collection rule (DCR), see [Create data collection rule](/azure/automation/change-tracking/enable-vms-monitoring-agent?tabs=singlevm%2Cmultiplevms&pivots=single-portal&branch=pr-en-us-307064#create-data-collection-rule)
 
-* To track changes on both Windows and Linux, see [About Change Tracking and Inventory](../automation/change-tracking/overview-monitoring-agent?tabs=win-az-vm)."
+* To track changes on both Windows and Linux, see [About Change Tracking and Inventory](/azure/change-tracking-inventory/overview-monitoring-agent)."
