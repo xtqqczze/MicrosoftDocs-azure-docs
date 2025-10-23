@@ -3,7 +3,7 @@ title: Enhancing Web App Assessment by Adding Code Scan Report
 description: Learn how to install AppCat and run the quickstart to assess and migrate .NET and Java applications using Azure Migrate. Step-by-step guide included
 ms.topic: how-to
 author: sudesai
-ms.author: SujayJDesai
+ms.author:sudesai
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 10/23/2025
@@ -102,10 +102,10 @@ Provide the following details to set up your new GitHub App:
     [Add screen]
   1. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
   
-    | Issues  | Read and write  | 
-    | --- | --- | 
-    | Metadata  | Read-only  |
-    | Webhook   | Read and write  |
+| Issues  | Read and write  | 
+| --- | --- | 
+| Metadata  | Read-only  |
+| Webhook   | Read and write  |
 
   1. Under **Where can this GitHub App be installed?**, select **Only on this account** or **Any account**. 
     [Add screen]
