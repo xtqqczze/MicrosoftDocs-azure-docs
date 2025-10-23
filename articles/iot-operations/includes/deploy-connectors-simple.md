@@ -17,7 +17,7 @@ To add a connector template instance to your Azure IoT Operations instance:
 
     :::image type="content" source="media/deploy-connectors-simple/portal-add-connector-template.png" alt-text="Screenshot of Azure portal that shows how to add a connector template instance." lightbox="media/deploy-connectors-simple/portal-add-connector-template.png":::
 
-1. On the first page of the **Add an Akri connector template** wizard, select the type of connector template you want to add, such as **ONVIF**, **Media**, or **HTTP REST**. Then select **Metadata**.
+1. On the first page of the **Add an Akri connector template** wizard, select the type and version of connector template you want to add, such as **ONVIF**, **Media**, **HTTP/REST**, **SSE**, or **MQTT**. Then select **Metadata**.
 
     :::image type="content" source="media/deploy-connectors-simple/select-connector-template-type.png" alt-text="Screenshot of Azure portal that shows how to select the connector template instance type." lightbox="media/deploy-connectors-simple/select-connector-template-type.png":::
 
