@@ -4966,6 +4966,78 @@ And returns this result XML:
   <city>Seattle</city>
 <person>
 ```
+*Example 4*
+
+The xml() function does not accept a raw array as input. If your data is a JSON string, you can wrap it with the json() function to convert it into an object before passing it to xml().
+
+```
+xml(
+  json('{"root":{"array":[
+    { "ID": 1, "Name": "James" },
+    { "ID": 2, "Name": "John" },
+    { "ID": 3, "Name": "Sam" }
+  ]}}')
+)
+```
+
+Suppose you have the JSON array and store in Compose1 action.
+
+```json
+[
+  { "ID": 1, "Name": "John" },
+  { "ID": 2, "Name": "James" },
+  { "ID": 3, "Name": "Sam" }
+]
+```
+
+Option 1: Using a JSON object in Compose2
+
+```
+{
+  "root": {
+    "array": @{outputs('Compose1')}
+  }
+}
+```
+
+and then create XML from the JSON object.
+
+```
+xml(outputs('Compose2'))
+```
+
+Option2: Using concat()
+
+```
+xml(
+  json(
+    concat(
+      '{"root":{"array":',
+      outputs('Compose1'),
+      '}}'
+    )
+  )
+)
+```
+
+Options 1 and 2, along with the JSON string data, return this result:
+
+```xml
+<root>
+  <array>
+    <ID>1</ID>
+    <Name>James</Name>
+  </array>
+  <array>
+    <ID>2</ID>
+    <Name>John</Name>
+  </array>
+  <array>
+    <ID>3</ID>
+    <Name>Sam</Name>
+  </array>
+</root>
+```
 
 <a name="xpath"></a>
 
