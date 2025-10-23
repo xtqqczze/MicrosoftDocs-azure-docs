@@ -63,7 +63,7 @@ For more information on how to configure single sign-on from Microsoft Entra ID,
   > [!NOTE]
   > Note the preferred strategy is to use the SAP BTP Cloud Identity Services (CIS) where possible.  
 
-It's technically possible to integrate SAP SuccessFactors with the Entra ID directly as described [Configure SuccessFactors for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/saas-apps/successfactors-tutorial) however the preferred strategy is to use the SAP BTP Cloud Identity Services (CIS) 
+It's technically possible to integrate SAP SuccessFactors with Entra ID or SAP Cloud Identity Service (CIS). However, the preferred strategy is to use inbound provisioning from SuccessFactors to Entra as described in [Configure SuccessFactors for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/saas-apps/successfactors-tutorial) For outbound provisioning to SuccessFactors, such as assigning a new HR admin role to a user in SuccessFactors, SuccessFactors would be configured as a target system in CIS as described in [SAP SuccessFactors | SAP Help Portal](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-sap-successfactors).
 
 More information on Microsoft Entra SSO services for SAP solutions: 
 - [SAP Cloud Identity Services](https://learn.microsoft.com/en-us/entra/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial)
@@ -84,7 +84,7 @@ Also see the following blog posts and SAP resources:
 - [Azure Application Gateway setup of SAML Single Sign On for Public and Internal SAP URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls/)
 - [Single sign on using Microsoft Entra Domain Services and Kerberos](https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/)
 
-More information on the SAP BTP Cloud Identity Services (CIS) can be found here: 
+More information on the SAP Cloud Identity Services (CIS) can be found here: 
 - Identity Provisioning Service (BTP) and Identity Authentication Service (BTP)
 - [Getting Started with SAP Cloud Identity Service - ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/getting-started-with-sap-cloud-identity-service-authentication-admin-user/ba-p/13541902)
 - [What Is Identity Provisioning? | SAP Help Portal](https://help.sap.com/docs/identity-provisioning/identity-provisioning/what-is-identity-provisioning)
@@ -96,7 +96,7 @@ More information on the SAP BTP Cloud Identity Services (CIS) can be found here:
 Authorization attributes can be replicated from Microsoft Entra to target SAP applications such as SAP BTP Role Collections. This is discussed in this link [Manage access to your SAP applications - Microsoft Entra ID Governance | Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/sap)
 
   > [!NOTE]
-  > Microsoft has released new Entra functionality to synchronize both Users and Groups from Entra to SAP ABAP systems. This functionality can be added free of charge in the Entra Admin Center.  
+  > Microsoft has released new Entra functionality to synchronize both Users and Groups from Entra to SAP CIS. This functionality can be added free of charge in the Entra Admin Center. 
 
 The process to setup and synchronize Authorization Roles and Profiles for NetWeaver and S/4 systems is documented in detail [Identity and Access Management with Microsoft Entra - SAP Community (Part III)](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-iii-successfactors/ba-p/14233747). Additional information for BTP applications, SuccessFactors, Ariba, and Fieldglass Authorization attributes will be added to this documentation. 
 
