@@ -1,8 +1,8 @@
 ---
-title: Tutorial - Manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
-description: In this tutorial, learn how to manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
+title: Tutorial - Manage your resiliency estate efficiently using Resiliency in Azure Copilot
+description: In this tutorial, learn how to manage your resiliency estate efficiently using Resiliency Copilot
 ms.topic: how-to
-ms.date: 09/17/2025
+ms.date: 11/01/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2024
@@ -10,20 +10,20 @@ author: AbhishekMallick-MS
 ms.author: v-mallicka
 ---
 
-# Tutorial: Manage the Business Continuity and Disaster Recovery estate using Copilot
+# Tutorial: Manage the resiliency estate using Copilot
 
-This article describes how to use Azure Business Continuity Center Copilot to make your business continuity journey seamless. 
+This article describes how to use Resiliency in Azure Copilot to make your resiliency journey seamless. 
 
-## What is Azure Business Continuity Center Copilot? 
+## What is Resiliency Copilot? 
 
-The Azure Business Continuity Center Copilot feature assists you to protect and recover your resources. The key use cases for the Azure Business Continuity Center Copilot are prioritized by the four Business Continuity and Disaster Recovery (BCDR) pillars:
+The Resiliency Copilot feature assists you to protect and recover your resources. The key use cases for the Resiliency Copilot are prioritized by the four resiliency pillars:
 
 - Protection management 
 - Ransomware protection 
 - Monitoring and reporting 
 - Learn and get help on capabilities
 
-With Azure Business Continuity Center Copilot, you can check for the protection status of your Azure resources in the Azure portal using natural language directly. The Copilot retrieves information about your resources and their protection status and guides you through the relevant processes.
+With Resiliency Copilot, you can check for the protection status of your Azure resources in the Azure portal using natural language directly. The Copilot retrieves information about your resources and their protection status and guides you through the relevant processes.
 
 ## Sample prompts 
 
@@ -32,18 +32,18 @@ The following table lists the supported prompts:
 | Category | Prompts |
 | --- | --- |
 | **Security** | - How many vaults are in poor security level? <br> - Show security level of all the vaults. <br> - How can I increase the security level of a vault?  |
-| **Management** | - Show the BCDR real estate across all the subscriptions. <br> - Show the datasources that aren't protected in `XXX` regions. <br> - Show me a list of all datasources that are protected using Azure Site Recovery only. |
+| **Management** | - Show the resiliency real estate across all the subscriptions. <br> - Show the datasources that aren't protected in `XXX` regions. <br> - Show me a list of all datasources that are protected using Azure Site Recovery only. |
 | **Monitoring** | - Which data sources don't have Recovery Points (RP) in the last seven days? <br> - How many backup jobs failed in the last 12 hours? <br> - Retrigger backup for all failed backup jobs in the last 24 hours. |
 
-## View the BCDR real estate across all the subscriptions
+## View the resiliency real estate across all the subscriptions
 
-Ask Copilot for Azure Business Continuity Center to get information on your resource protection with prompts such as **Show the BCDR real estate across all the subscriptions.**
+Ask Copilot for Resiliency in Azure to get information on your resource protection with prompts such as **Show the resiliency real estate across all the subscriptions.**
 
 Copilot provides a summary of resources based on the protection status and generates an Azure Resource Graph (ARG) query that you can run directly to fetch granular information. Additionally, you can export the data as a CSV file from the ARG Query Explorer page.
 
 :::image type="content" source="./media/tutorial-manage-data-using-copilot/show-business-continuity-disaster-recovery-real-estate-prompt.png" alt-text="Screenshot shows the Copilot prompt." lightbox="./media/tutorial-manage-data-using-copilot/show-business-continuity-disaster-recovery-real-estate-prompt.png":::
 
-:::image type="content" source="./media/tutorial-manage-data-using-copilot/show-business-continuity-disaster-recovery-real-estate-result.png" alt-text="Screenshot shows the Copilot Business Continuity and Disaster Recovery estate result." lightbox="./media/tutorial-manage-data-using-copilot/show-business-continuity-disaster-recovery-real-estate-result.png":::
+:::image type="content" source="./media/tutorial-manage-data-using-copilot/show-business-continuity-disaster-recovery-real-estate-result.png" alt-text="Screenshot shows the Copilot resiliency estate result." lightbox="./media/tutorial-manage-data-using-copilot/show-business-continuity-disaster-recovery-real-estate-result.png":::
 
 ## Enhance protection for the resources
 
@@ -124,7 +124,7 @@ To trigger an on-demand backup for resources, follow these steps:
 
      :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-recovery-point.png" alt-text="Screenshot shows the items with no recovery points." lightbox="./media/tutorial-manage-data-using-copilot/view-recovery-point.png":::
 
-2. Azure Business Continuity Center Copilot also provides a PowerShell script for download from the Azure portal to trigger backups on all such resources.
+2. Resiliency Copilot also provides a PowerShell script for download from the Azure portal to trigger backups on all such resources.
 
    To trigger an on-demand backup, select **Yes** on the further prompt.
 
@@ -142,7 +142,7 @@ To trigger an on-demand backup for resources, follow these steps:
 
 ## Increase security level of Recovery Service vault and Backup vault
 
-Azure Business Continuity Center Copilot provides the option to enhance the security level of the vault. You can find this option on the vault pane.
+Resiliency in Azure Copilot provides the option to enhance the security level of the vault. You can find this option on the vault pane.
 
 To increase the vault's security level, follow these steps:
 
@@ -168,7 +168,7 @@ To increase the vault's security level, follow these steps:
 
 ## Analyze job failures for Recovery Service vault and Backup vault
 
-The vault page also provides the Azure Business Continuity Center Copilot feature to analyze the job failures for the selected vault. 
+The vault page also provides the Resiliency in Azure Copilot feature to analyze the job failures for the selected vault. 
 
 To check the failed jobs, follow these steps:
 
@@ -194,7 +194,7 @@ To check the failed jobs, follow these steps:
 
 ## Configure protection for resources in Recovery Services vault and Backup vault
 
-Azure Business Continuity Center Copilot allows you to seamlessly configure protection for unprotected resources in a supported Backup or Recovery Services vault.
+Resiliency in Azure Copilot allows you to seamlessly configure protection for unprotected resources in a supported Backup or Recovery Services vault.
 
 To configure protection for resources in a vault, follow these steps:
 
@@ -214,13 +214,13 @@ To configure protection for resources in a vault, follow these steps:
 1. On the **Datasources** tab, select the **Snapshot resource group**, and then select **validate**.
 1. On the **Review + configure** tab, review the configuration details, and then select **Configure Backup**.
 
-## Create a  backup vault using Azure Business Continuity Center Copilot
+## Create a  backup vault using Resiliency Copilot
 
-Azure Business Continuity Center Copilot enables you to make informed decisions when setting up backup vaults. During vault creation, Copilot recommends enabling Cross Region Restore and Immutability, the essential features for ensuring resiliency and protecting against ransomware threats. The “Create Backup Vault” prompt provides intelligent defaults based on your most-used subscriptions and regions, helping maintain backup availability across regions while safeguarding data from deletion or modification. Additionally, Copilot simplifies vault configuration by suggesting frequently used values for subscription, resource group, and region, which you can easily adjust to meet your requirements.
+Resiliency Copilot enables you to make informed decisions when setting up backup vaults. During vault creation, Copilot recommends enabling Cross Region Restore and Immutability, the essential features for ensuring resiliency and protecting against ransomware threats. The “Create Backup Vault” prompt provides intelligent defaults based on your most-used subscriptions and regions, helping maintain backup availability across regions while safeguarding data from deletion or modification. Additionally, Copilot simplifies vault configuration by suggesting frequently used values for subscription, resource group, and region, which you can easily adjust to meet your requirements.
 
-To create a Backup vault using Azure Business Continuity Center Copilot, follow these steps:
+To create a Backup vault using Resiliency Copilot, follow these steps:
 
-1. Go to **Business Continuity Center** > **Manage** > **Vaults**.
+1. Go to **Resiliency** > **Manage** > **Vaults**.
 
 1. On the **Vaults** pane, select **+ Vault**.
 
@@ -261,13 +261,13 @@ To create a Backup vault using Azure Business Continuity Center Copilot, follow 
 
 1. On the **Review + create** tab, select **Create** to start creating the vault.
 
-## Copy a Backup vault to another region using Azure Business Continuity Center Copilot
+## Copy a Backup vault to another region using Resiliency Copilot
 
-Azure Business Continuity Center now enables you to easily copy vault configurations across regions. With the integrated Copilot solution, this process is streamlined and automated, providing greater simplicity, consistency, and reliability when managing Backup vaults; thus eliminates the need for manual reconfiguration in the target region.
+Resiliency in Azure now enables you to easily copy vault configurations across regions. With the integrated Copilot solution, this process is streamlined and automated, providing greater simplicity, consistency, and reliability when managing Backup vaults; thus eliminates the need for manual reconfiguration in the target region.
 
 To copy a Backup vault to another region, follow these steps:
 
-1. Go to **Business Continuity Center** > **Manage** > **Vaults**.
+1. Go to **Resiliency** > **Manage** > **Vaults**.
 
 1. On the **Vaults** pane, select **+ Vault**.
 
@@ -295,7 +295,7 @@ To copy a Backup vault to another region, follow these steps:
 
 ## Delete Recovery Services vault and Backup vault using Copilot 
 
-Azure Business Continuity Center Copilot allows you to initiate and automate vault deletion operation from the **delete vault** page.
+Resiliency Copilot allows you to initiate and automate vault deletion operation from the **delete vault** page.
 
 To delete a vault using Copilot, follow these steps:
 
