@@ -161,16 +161,14 @@ az iot ops ns create -n <my namespace name> -g $RESOURCE_GROUP
     az iot adr ns policy show --name "policy-name" --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
     ```
 
-1. Create a custom policy. You can set the certificate subject and validity period for the policy. The following example creates a policy named "custom-policy" with a subject of "CN=TestDevice" and a validity period of 30 days.
+1. Create a custom policy. Set the name, certificate subject, and validity period for the policy following these rules:
 
-     > [!NOTE]
-     > The policy name must be unique within the namespace. If you try to create a policy with a name that already exists, you receive an error message.
+    - The policy `name` value must be unique within the namespace. If you try to create a policy with a name that already exists, you receive an error message.
+    - The certificate subject `cert-subject` value must be unique across all policies in the namespace. If you try to create a policy with a subject that already exists, you receive an error message.
 
-     > [!NOTE]
-     > The `cert-subject` value must be unique across all policies in the namespace. If you try to create a policy with a subject that already exists, you receive an error message.
-
-     > [!NOTE]
-     > The `cert-validity-days` value must be between 1 and 3650 days (10 years). If you try to create a policy with a validity period outside this range, you receive an error message.
+    - The validity period `cert-validity-days` value must be between 1 and 3650 days (10 years). If you try to create a policy with a validity period outside this range, you receive an error message.
+    
+    The following example creates a policy named "custom-policy" with a subject of "CN=TestDevice" and a validity period of 30 days. 
 
     ```bash
     az iot adr ns policy create --name "custom-policy" --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP" --cert-subject "CN=TestDevice" --cert-validity-days "30"

@@ -21,15 +21,7 @@ Several messaging patterns are supported, including device-to-cloud messages, up
 
 IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads.
 
-You can integrate IoT Hub with other Azure services to build complete, end-to-end solutions. For example, use:
-
-- [Azure Event Grid](../event-grid/index.yml) to enable your business to react quickly to critical events.
-- [Azure Logic Apps](../logic-apps/index.yml) to automate business processes.
-- [Azure Machine Learning](/azure/machine-learning/) to add machine learning and AI models to your solution.
-- [Azure Stream Analytics](../stream-analytics/index.yml) to run real-time analytic computations on the data streaming from your devices.
-
-
-## What is new in IoT Hub Gen 2 (Preview)?
+## Get started with IoT Hub Gen 2 (Preview)
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
@@ -39,7 +31,7 @@ Moving to Gen2 is essential to leverage the latest enhancements in device provis
 
 IoT Hub Gen 2 introduces two major innovations: Azure Device Registry (ADR) and Certificate Management. These features are designed to enhance security, simplify device management, and streamline operations for IoT deployments.
 
-## Manage your devices in a unified registry with Azure Device Registry
+### Manage your devices in a unified registry with Azure Device Registry
 
 IoT Hub Gen 2 integrates directly with Azure Device Registry (ADR) to bring a consistent experience across cloud and edge workloads. ADR is a centralized device registry that allows you to manage devices across multiple IoT hubs using namespaces. You can create a link between an existing ADR namespace to your IoT Hub Gen 2 or create a new namespace and create the link. 
 
@@ -55,7 +47,7 @@ These X.509 certificates are strictly **operational certificates** which the dev
 
 For more information, see [What is Certificate Management?](iot-hub-certificate-management-overview.md).
 
-## What is an IoT device?
+## Understand IoT devices
 
 IoT devices differ from other clients such as browsers and mobile apps in several ways:
 
@@ -66,7 +58,7 @@ IoT devices differ from other clients such as browsers and mobile apps in severa
 - They might have intermittent, slow, or expensive network connectivity, such as a device connected over a cellular network.
 - They might need to use proprietary, custom, or industry-specific application protocols, such as MQTT or AMQP.
 
-## How do devices connect and authenticate with IoT Hub?
+## Connect and authenticate devices
 
 Every IoT hub has an identity registry that stores information about the devices and modules permitted to connect to it. Before a device or module can connect, there must be an entry for that device or module in the IoT hub's identity registry. A device or module authenticates with the IoT hub based on credentials stored in the identity registry.
 
@@ -79,7 +71,7 @@ You can set up and provision many devices at a time using the [IoT Hub Device Pr
 
 For more information, see [Device management and control](../iot/iot-overview-device-management.md).
 
-## How do devices communicate with IoT Hub?
+## Device communication patterns
 
 The internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports TLS 1.2, 1.1, and 1.0 (for backward compatibility). Check [TLS support in IoT Hub](iot-hub-tls-support.md) to see how to configure your hub to use TLS 1.2, which provides the most security.
 
@@ -107,7 +99,9 @@ You can enable properties in IoT Hub using [Device twins](iot-hub-devguide-devic
 
 IoT Hub implements commands by allowing you to invoke direct methods on devices. An example of a command is rebooting a device. [Direct methods](iot-hub-devguide-direct-methods.md) represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified time-out). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond.
 
-## How does IoT Hub handle device data?
+## Handle device data
+
+Devices send data to IoT Hub, which acts as a central message hub for bi-directional communication between your IoT application and the devices it manages. Once the data reaches IoT Hub, it can be processed and routed to other services for further analysis and action.
 
 IoT Hub gives you the ability to unlock the value of your device data with other Azure services so you can shift to predictive problem-solving rather than reactive management. Connect your IoT hub with other Azure services to do machine learning, analytics, and AI to act on real-time data, optimize processing, and gain deeper insights.
 
@@ -133,6 +127,15 @@ Data can also be routed to different services for further processing. As the IoT
 IoT Hub supports setting up custom endpoints for Azure services including Storage containers, Event Hubs, Service Bus queues, Service Bus topics, and Cosmos DB. Once the endpoint is set up, you can route your IoT data to any of these endpoints to perform downstream data operations.
 
 IoT Hub also integrates with Event Grid, which enables you to fan out data to multiple subscribers. Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Event Grid simplifies building event-driven applications and serverless architectures. For more information, see [Compare message routing and Event Grid for IoT Hub](iot-hub-event-grid-routing-comparison.md).
+
+## Integrate with other Azure services
+
+You can integrate IoT Hub with other Azure services to build complete, end-to-end solutions. For example, use:
+
+- [Azure Event Grid](../event-grid/index.yml) to enable your business to react quickly to critical events.
+- [Azure Logic Apps](../logic-apps/index.yml) to automate business processes.
+- [Azure Machine Learning](/azure/machine-learning/) to add machine learning and AI models to your solution.
+- [Azure Stream Analytics](../stream-analytics/index.yml) to run real-time analytic computations on the data streaming from your devices.
 
 ## Next steps
 
