@@ -104,7 +104,7 @@ Markdown-formatted text can be used for the description text.
 
 By default, when a Bicep deployment runs, Azure Resource Manager (ARM) creates the resource if it doesn’t exist or updates it if it does. If an existing resource has properties that differ from your template, ARM might attempt to update it—or fail if updates aren’t permitted.
 
-The `@onlyIfNotExists()` decorator instructs ARM to create the resource only if it doesn’t already exist. If the resource is found, ARM skips creation and leaves it unchanged.
+With Bicep version v0.38.3 or later, the `@onlyIfNotExists()` decorator instructs ARM to create the resource only if it doesn’t already exist. If the resource is found, ARM skips creation and leaves it unchanged.
 
 ## Resource name
 
