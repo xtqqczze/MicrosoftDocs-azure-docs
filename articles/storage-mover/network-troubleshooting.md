@@ -17,7 +17,7 @@ By following a structured approach, starting with configuration checks, progress
 
 These native diagnostic tools can be used with standard network troubleshooting tools and techniques.
 
-This article outlines available methods for troubleshooting agent network issues. Troubleshooting steps might include configuration checks, connectivity tests, endpoint diagnostics, and the use of support tools.
+This article outlines available methods for troubleshooting agent network issues. Recommended troubleshooting steps include configuration checks, connectivity tests, endpoint diagnostics, and the use of support tools.
 
 ## Network configuration overview
 
@@ -110,6 +110,8 @@ Within the `Troubleshooting` group, the `SMB Troubleshooting` option collects SM
 ## Support bundle collection
 
 The `Collect support bundle` option aggregates logs from all diagnostic tools except for the restricted shell tools. It can be shared with Microsoft Support via SFTP, and is the most comprehensive resource for in-depth troubleshooting.
+
+For more help with collecting an agent's support bundle, refer to the [Create, retrieve, and view the support bundle](troubleshooting.md) article.
 
 ## Common network issues and resolutions
 

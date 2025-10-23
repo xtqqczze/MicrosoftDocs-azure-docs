@@ -12,12 +12,15 @@ ms.date: 10/22/2025
 
 Azure Storage Mover is a service designed to facilitate seamless data migration to Azure Storage accounts. For organizations prioritizing security and compliance, integrating Storage Mover with Azure Private Networking ensures that sensitive data and credentials remain protected throughout the migration process. 
 
-All Azure Storage Mover communication occurs over HTTPS. Data migrations can operate either over the public internet or Azure-recommended private network configurations. These configurations typically begin with the creation of an Azure virtual network, which serves as the foundation for secure connectivity. For more information about Azure virtual networks, see [What is an Azure virtual network](../virtual-network/virtual-networks-overview.md).
-
 > [!NOTE]
-> Azure Storage Mover supports both on-premise and multicloud data sources and targets. On-premises data sources are migrated to Azure storage using one or more agents, while multicloud data sources are migrated using the Storage Mover service directly. 
+> Azure Storage Mover supports both on-premises and cloud data sources and targets. On-premises data sources are migrated to Azure storage using one or more agents, while multicloud data sources are migrated using the Storage Mover service directly. 
 >
 > This article focuses on the prerequisites for connecting on-premises infrastructure to Azure, and includes private networking considerations.
+
+Azure Storage Mover communication occurs over HTTPS. This encrypted communication makes migrations over the public internet sufficiently secure for many organizations. These organizations might not, for example, require private network access to their storage account and key vault. For organizations prioritizing security and compliance, integrating Storage Mover with Azure Private Networking ensures that sensitive data and credentials remain protected throughout the migration process. These configurations typically begin with the creation of an Azure virtual network, which serves as the foundation for secure connectivity. For more information about Azure virtual networks, see [What is an Azure virtual network](../virtual-network/virtual-networks-overview.md).
+
+> [!IMPORTANT]
+> Currently, Storage Mover can be configured to route migration data from the agent to the destination storage account over Private Link. Hybrid Compute heartbeats and certificates can also be routed to a private Azure Arc service endpoint in your virtual network (VNet). Some Storage Mover traffic can't be routed through Private Link and is routed over the public endpoint of a storage mover resource. This data includes control messages, progress telemetry, and copy logs.
 
 To link on-premises infrastructure to Azure, organizations need to enable hybrid connectivity. This hybrid link can be created using a Site-to-Site VPN via Azure VPN Gateway or Azure ExpressRoute. Both options establish private tunnels that enable secure access to Azure resources. For more information about Azure VPN Gateway or ExpressRoute, see [What is an Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [What is Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
