@@ -4986,8 +4986,8 @@ Suppose you have the JSON array and store in Compose1 action.
 
 ```json
 [
-  { "ID": 1, "Name": "John" },
-  { "ID": 2, "Name": "James" },
+  { "ID": 1, "Name": "James" },
+  { "ID": 2, "Name": "John" },
   { "ID": 3, "Name": "Sam" }
 ]
 ```
