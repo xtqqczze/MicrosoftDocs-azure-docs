@@ -64,7 +64,7 @@ In the previous example, the total calculation would be:
 
 Durable Task Scheduler offers two SKU options: Dedicated and Consumption (preview).
 
-|                 | Consumption SKU (preview)       | Dedicated SKU                     |
+|   | Consumption SKU (preview)       | Dedicated SKU                     |
 | - | ------------------------------- | --------------------------------- |
 | Infrastructure  | Multitenant                     | Dedicated Infrastructure          |
 | Pricing Model   | Pay-per-action                  | Fixed monthly CU cost             |
