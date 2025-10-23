@@ -370,11 +370,11 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 * *Volume cool tier data write size*   
     Data tiered out using `PUT` per volume. 
 
-## Cache volume metrics
+## Cache volume metrics (preview)
 
 * *Cache miss blocks*      
 
-    This metric counts missed blocks in the caching process. If this value exceeds client requested blocks, you may need to adjust throughput.
+    This metric counts missed blocks in the caching process. During steady-state, after warming of cache, if this value exceeds client requested blocks, this is indicative of a less than ideal workload type.
 
 * *Client requested blocks*
 

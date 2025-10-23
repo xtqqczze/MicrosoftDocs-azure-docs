@@ -22,9 +22,9 @@ Write-back allows the write to be committed to stable storage at the cache and a
 
 * Cache volumes are currently only supported with the REST API. 
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for data access to one or more cache volumes.
-    * Ensure that the delegated subnet address space is sized appropriately to accommodate another Azure NetApp Files network interfaces. Review the [guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.
-* When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created volumes in the subscription. This is done to try to reduce the number of NICs/IPs consumed in the delegated subnet. If this isn't possible, another 6+1 NICs are consumed.
-* You can't use the same source cluster for multiple subscriptions for creating cache volumes in the same region or availability zone. 
+    * Ensure that the delegated subnet address space is sized appropriately to accommodate the Azure NetApp Files network interfaces. Review the [guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.
+* When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created cache volumes in the subscription. This is done to try to reduce the number of NICs/IPs consumed in the delegated subnet. If this isn't possible, another 6+1 NICs are consumed.
+* You can't use the same source cluster for multiple subscriptions for creating cache volumes in the same availability zone in the same region. 
 * If enabling write-back on the external origin volume:
     * You must be running ONTAP 9.15.1P5 or later on the system hosting the external origin volume. 
     * Each external origin system node has at least 128GB of RAM and 20 CPUs to absorb the write-back messages that are initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it requires more CPUs and RAM.
@@ -41,9 +41,8 @@ Write-back allows the write to be committed to stable storage at the cache and a
         * Cross-region, cross-zone, and cross-zone-region replication
         * Snapshot policies
         * Application Volume Groups
-        * Any other Azure NetApp Files feature not included as supported
     * Supported features:
-        * NFS and SMB
+        * NFS, SMB, and dual protocols
         * Lightweight Directory Access Protocol (LDAP)
         * Availability zone volume placement
         * Customer-managed keys
@@ -56,6 +55,7 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * You should enable encryption on the origin volume.
 * You should configure an Active Directory (AD) or LDAP connection within the NetApp account to create an LDAP-enabled cache volume.
 * You can only modify specific fields of a cache volume, including `is-cifs-change-notify-enabled`, `is-writeback-enabled`, and `is-global-file-locking-enabled`.
+* The `is-global-file-locking-enabled` parameter value must be the same on all cache volumes that share the same origin volume. Global file locking should be enabled when creating the first cache volume by `setting global_file_locking_enabled` to true. The subsequent cache volumes from the same origin volume must have this setting set to true. To change the global file locking setting on existing cache volumes, you must update the origin volume first and then the change will propagate to all the cache volumes associated with that origin volume. The `volume flexcache origin config modify -is-global-file-locking-enabled` command should be executed on the source cluster to change the setting on the origin volume.
 
 ## Supported regions
 
@@ -161,11 +161,11 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     ```
     {
     "clusterPeeringCommand": "cluster peer create -ipspace <IP-SPACE-NAME> -encryption-protocol-proposed tls-psk -peer-addrs 10.0.0.14,10.0.0.17,10.0.0.15,10.0.0.12,10.0.0.16,10.0.0.13",
-    "clusterPeeringPassphrase": "fQYceobl9G1JTaPKqrqSTj+7",
+    "cachePeeringPassphraseExample": "fQYceobl9G1JTaPKqrqSTj+7",
     "vserverPeeringCommand": "vserver peer accept -vserver vserver1 -peer-vserver svm_99a7da11111d11ed82a30aef36222176_f9ad333a"
     }
     ```
-    Execute the clusterPeeringCommand on the ONTAP system that contains the external origin volume.  
+    Execute the clusterPeeringCommand on the ONTAP system that contains the external origin volume and when prompted, enter the clusterPeeringPassphrase.  
 
     > [!NOTE]
     > The user will have 30 minutes after the cacheState transitions to “ClusterPeeringOfferSent” to complete execution of the clusterPeeringCommand.  If 30 minutes is exceeded, then cache creation will fail and the user will need to delete the cache volume and initiate a new PUT call.
