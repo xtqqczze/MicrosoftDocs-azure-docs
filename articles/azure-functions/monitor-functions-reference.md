@@ -41,8 +41,8 @@ These metrics are used to monitor the performance and scaling behavior of your f
 | Metric | Description |
 | ------ | ----------- |
 | **Automatic Scaling Instance Count** | The number of instances on which this app is running. Note that this is emitted every 30 seconds, and given Flex Consumption scales out and in fast, the number will be an aggregate of all new instances the app used in this time period. Make sure to change the aggregation to the minimum possible in the graph and the aggregation to "count". |
-| **Memory working set** | The current amount of memory used by the app, in MiB. Can be further filtered for each instance of the app. |
-| **Average memory working set** | The average amount of memory used by the app, in megabytes (MiB). Can be further filtered for each instance of the app. |
+| **Memory working set** | The current amount of memory used by the app, in MB. Can be further filtered for each instance of the app. |
+| **Average memory working set** | The average amount of memory used by the app, in megabytes (MB). Can be further filtered for each instance of the app. |
 | **CPU Percentage** | The average percentage of CPU being used. Can be further filtered for each instance of the app. This is currently rolling out and might not be available for apps in all regions yet. |
 
 These performance metrics help you understand resource utilization and scaling patterns in your Flex Consumption function app. The instance count metric is particularly useful for monitoring the dynamic scaling behavior, while memory and CPU metrics provide insights into resource consumption patterns.
