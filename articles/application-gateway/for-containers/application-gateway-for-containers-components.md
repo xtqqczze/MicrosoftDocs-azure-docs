@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 7/21/2025
+ms.date: 10/23/2025
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand the components of Application Gateway for Containers, so that I can effectively configure and manage traffic routing to backend services in my cloud deployment."
 ---
@@ -25,16 +25,16 @@ This article provides detailed descriptions and requirements for components of A
 
 - An Application Gateway for Containers frontend resource is an Azure child resource of the Application Gateway for Containers parent resource.
 - An Application Gateway for Containers frontend defines the entry point client traffic should be received by a given Application Gateway for Containers.
-  - A frontend can't be associated to multiple Application Gateway for Containers.
+  - A frontend can't be associated to more than one Application Gateway for Containers.
   - Each frontend provides a unique FQDN that can be referenced by a customer's CNAME record.
   - Private IP addresses are currently unsupported.
-- A single Application Gateway for Containers can support multiple frontends.
+- A single Application Gateway for Containers can support more than one frontends.
 
 ### Application Gateway for Containers associations
 
 - An Application Gateway for Containers association resource is an Azure child resource of the Application Gateway for Containers parent resource.
 - An Application Gateway for Containers association defines a connection point into a virtual network. An association is a 1:1 mapping of an association resource to an Azure Subnet that has been delegated.
-- Application Gateway for Containers is designed to allow for multiple associations.
+- Application Gateway for Containers is designed to allow for more than one associations.
   - At this time, the current number of associations is currently limited to 1.
 - During creation of an association, the underlying data plane is provisioned and connected to a subnet within the defined virtual network's subnet.
 - Each association should assume at least 256 addresses are available in the subnet at time of provisioning.
@@ -53,7 +53,7 @@ This article provides detailed descriptions and requirements for components of A
 ### Application Gateway for Containers security policy
 
 - An Application Gateway for Containers security policy defines security configurations, such as WAF, for the ALB Controller to consume.
-- Multiple security policies can be referred by a single Application Gateway for Containers resource.
+- More than one security policy may be referred by a single Application Gateway for Containers resource.
 - At this time, the only security policy type offered is `waf` for web application firewall capabilities.
 - The `waf` security policy is a one-to-one mapping between the security policy resource and a Web Application Firewall policy.
   - Only one web application firewall policy may be referenced in any number of security policies for a defined Application Gateway for Containers resource.
