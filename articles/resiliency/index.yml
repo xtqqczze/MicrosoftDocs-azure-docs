@@ -25,11 +25,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Resiliency?
-            url: business-continuity-center-overview.md
+            url: resiliency-overview.md
       - linkListType: concept
         links:
           - text: Resiliency support matrix
-            url: business-continuity-center-support-matrix.md
+            url: resiliency-support-matrix.md
           
   # Card (optional)
   - title: Manage data protection

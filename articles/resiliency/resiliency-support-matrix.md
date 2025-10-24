@@ -16,7 +16,7 @@ ms.author: v-mallicka
 
 This article describes supportable scenarios and limitations.
 
-You can use [Resiliency](business-continuity-center-overview.md), a cloud-native unified experience for resiliency management platform in Azure to manage your protection estate across solutions and environments. This feature helps enterprises to govern, monitor, operate, and analyze backups and replication at scale. This article summarizes the solutions and scenarios that Resiliency in Azure supports for each workload type.
+You can use [Resiliency](resiliency-overview.md), a cloud-native unified experience for resiliency management platform in Azure to manage your protection estate across solutions and environments. This feature helps enterprises to govern, monitor, operate, and analyze backups and replication at scale. This article summarizes the solutions and scenarios that Resiliency in Azure supports for each workload type.
 
 ## Supported regions
 
@@ -85,4 +85,4 @@ This table lists the solutions and scenarios that are unsupported in Resiliency 
 
 ## Next steps
 
-- [About Resiliency](business-continuity-center-overview.md).
+- [About Resiliency](resiliency-overview.md).

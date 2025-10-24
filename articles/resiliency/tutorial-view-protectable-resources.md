@@ -19,7 +19,7 @@ This tutorial describes how to view your resources that are currently not protec
 
 Before you start viewing protectable resources, ensure the following prerequisites are met:
 
-- Review [supported regions for Resiliency in Azure](business-continuity-center-support-matrix.md#supported-regions).
+- Review [supported regions for Resiliency in Azure](resiliency-support-matrix.md#supported-regions).
 - Ensure you have the required resource permissions to view them in the Resiliency.
 
 ## View protectable resources

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/business-continuity-center/index.yml",
+      "redirect_url": "/azure/resiliency/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/business-continuity-center/manage-protection-policy.md",
       "redirect_url": "/azure/resiliency/manage-protection-policy",
       "redirect_document_id": false
