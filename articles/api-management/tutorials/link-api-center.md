@@ -72,7 +72,7 @@ Use this section to verify the integration state and to view APIs that synchroni
 1. In the [Azure portal](https://portal.azure.com), open the API Center resource.
 2. In the API Center left-hand menu, go to **Platforms** > **Integrations**. 
     The state for the integration with API Management should say *Linked and syncing*. 
-1. To view synchronized APIs, go to **Assets** > **APIs**.
+1. To view synchronized APIs, go to **Assets** > **APIs**.<br />
     An icon appears indicating that the APIs are linked.
     :::image type="content" source="media/link-api-center/api-center-menu.png" alt-text="An API Center instance in Azure portal with APIs emphasized in the left-hand menu and link icons emphasized in the main panel":::
 
