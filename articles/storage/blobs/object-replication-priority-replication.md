@@ -14,7 +14,7 @@ ms.author: shaas
 
 # Priority Replication for Azure Storage Object Replication
 
-Object replication currently copies all operations from a source storage account to one or more destination accounts asynchronously, with no guaranteed completion time. However, with the introduction of object replication priority replication, users can now choose to prioritize the replication of the operations in their replication policy. 
+Object replication (OR) currently copies all operations from a source storage account to one or more destination accounts asynchronously, with no guaranteed completion time. However, with the introduction of object replication priority replication, users can now choose to prioritize the replication of the operations in their replication policy. 
 
 Priority replication comes with a Service Level Agreement (SLA) guarantee if your policy's source and destination account are located within the same continent. The SLA ensures 99.0% of operations replicate from the source account to the destination account within 15 minutes during a billing month. Refer to the official [SLA terms] for a comprehensive list of eligibility requirements.
 
@@ -33,14 +33,13 @@ Priority replication comes with a Service Level Agreement (SLA) guarantee if you
 > - Switzerland North
 > - UAE North
 >
-> To gain access to the Azure Portal experience of Object Replication priority replication, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowPriorityObjectReplicationInPortal as the feature name. The provider name for this preview feature is Microsoft.Storage.
+> To gain access to the Azure portal experience of Object Replication priority replication, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowPriorityObjectReplicationInPortal as the feature name. The provider name for this preview feature is Microsoft.Storage.
 
 ## Benefits of priority replication
 
-Priority replication significantly improves the performance and observability for Azure Object Replication (OR). Moreover, priority replication comes with a Service Level Agreement (SLA) that provides users with a performance guarantee provided the source and destination storage accounts are located within the same continent. The SLA guarantees that 99.0% of operations are replicated from the source storage account to the destination storage account within 15 minutes during a billing month. This level of assurance is especially valuable for scenarios involving disaster recovery, business continuity, and high-availability architectures.
+Priority replication significantly improves the performance and observability for Azure Object Replication (OR). Moreover, priority replication comes with a Service Level Agreement (SLA) that provides users with a performance guarantee provided the source and destination storage accounts are located within the same continent. The SLA guarantees that 99.0% of operations are replicated from the source to the destination storage account within 15 minutes during a billing month. This level of assurance is especially valuable for scenarios involving disaster recovery, business continuity, and high-availability architectures.
 
-In addition to performance guarantees, priority replication automatically enables OR metrics, which enhances visibility into replication progress. These metrics allow users to monitor the number of operations and bytes pending replication, segmented into time buckets such as 0–5 minutes, 5–10 minutes, and beyond. This detailed insight helps teams proactively manage replication health and identify potential delays. To learn more about OR metrics view, [replication metrics](https://learn.microsoft.com/azure/storage/blobs/object-replication-overview#replication-metrics).
-
+In addition to performance guarantees, priority replication automatically enables OR metrics, which enhances visibility into replication progress. These metrics allow users to monitor the number of operations and bytes pending replication, segmented into time buckets such as 0–5 minutes, 5–10 minutes, and beyond. This detailed insight helps teams proactively manage replication health and identify potential delays. To learn more about OR metrics, see the [replication metrics](object-replication-overview.md#replication-metrics) article.
 
 ## SLA Eligibility and Exclusions
 
@@ -48,26 +47,25 @@ When Object Replication Priority Replication is enabled, users benefit from prio
 
 1. Objects larger than 5 gigabytes (GB), 
 1. Objects that are modified more than 10 times per second,
-1. Object Replication Policies where the Source Storage Account and Destination Storage Account are not within the same continent, 
+1. Object Replication Policies where the Source Storage Account and Destination Storage Account aren't within the same continent, 
 1. Storage accounts that are:
     - Larger than 5 petabytes (PB) or 
     - Have more than 10 billion blobs and 
 1. During time periods where:
     - Your storage account or Replication Policy data transfer rate exceeds 1 gigabit per second (Gbps) and the resulting back log of writes are being replicated, 
     - Your storage account or Replication Policy exceeds 1,000 PUT or DELETE operations per second and the resulting back log of writes are being replicated, and 
-    - Existing blob replication is pending following a recent Replication Policy creation or update. Existing blob replication is estimated to progress at 100 TB per day on average but may experience reduced velocity when blobs with many versions are present.
+    - Existing blob replication is pending following a recent Replication Policy creation or update. Existing blob replication is estimated to progress at 100 TB per day on average but might experience reduced velocity when blobs with many versions are present.
   
 Refer to the official [SLA terms] for a comprehensive list of eligibility requirements.
 
 > [!IMPORTANT]
 > Although a storage account can have up to two object replication policies, priority replication can only be enabled on one object replication policy per storage account. Users should plan accordingly when deciding to opt out of Priority replication, especially if the feature was enabled for critical workloads.
 
-
 ## Feature Pricing
 
-Rewrite, add link: https://review.learn.microsoft.com/en-us/azure/storage/blobs/object-replication-overview?branch=pr-en-us-306513#billing
+For an overview of Object Replication, see [object-replication-overview](object-replication-overview.md#billing).
 
-After enabling OR priority replication, new data ingress charges at $0.015 per GB. All new data written to object replication policy with OR priority repication enabled is charged at this rate.
+After OR priority replication is enabled, new data ingress charges at $0.015 per GB. All new data written to object replication policy with OR priority replication enabled is charged at this rate.
 
 While Priority replication itself incurs a charge, the associated OR metrics are free of cost. [However, enabling metrics might lead to increased change feed reads, which could result in extra charges depending on usage.]
 
@@ -76,23 +74,22 @@ Standard costs for read and write transactions, and for network egress still app
 > [!IMPORTANT]
 > Customers have the flexibility to disable priority replication at any time. However, it's important to note that billing for the feature will continue for 30 days after being disabled.
 
-
 ## How to monitor SLA compliance for OR priority replication
 
-To ensure transparency and empower customers to track the performance of OR priority replication, Azure provides a two monitoring tools integrated directly into Azure Portal, Powersbell and Azure CLI. When enabling OR priority replication Replication Metrics for Object Replication is automatically enabled as well. These metrics empower users to troubleshoot replication delays and help users monitor their SLA compliance. Metrics now supported are: 
+To ensure transparency and empower customers to track the performance of OR priority replication, Azure provides a two monitoring tools integrated directly into Azure portal, PowerShell and Azure CLI. When OR priority replication is enabled, Replication Metrics for Object Replication is automatically enabled as well. These metrics empower users to troubleshoot replication delays and help users monitor their SLA compliance. Metrics now supported are: 
 
 - **Operations pending for replication**: Total number of operations pending replication from source to destination storage account emitted per the time buckets
 - **Bytes pending for replication**: Sum of bytes pending replication from source to destination storage accounts emitted per the time buckets
 
-Each of the metrics above can be viewed with the dimension of time buckets including 0-5 minutes, 10-15 minutes and > 24 hours. Users with OR priority replication that would like to ensure all their operations are replicating within 15 minutes; can monitor the larger time buckets (ex: 30 mins – 2hours or 8-24 hours) and ensure they are at zero or near zero throughout the billing month. 
+Each of the metrics previously mentioned can be viewed with the dimension of time buckets including 0-5 minutes, 10-15 minutes and > 24 hours. Users with OR priority replication that would like to ensure all their operations are replicating within 15 minutes; can monitor the larger time buckets (ex: 30 mins – 2 hours or 8-24 hours) and ensure they are at zero or near zero throughout the billing month. 
 
-For more information about OR metrics, see [replication metrics](https://learn.microsoft.com/azure/storage/blobs/object-replication-overview#replication-metrics).
+For more information about OR metrics, see [replication metrics](object-replication-overview.md#replication-metrics).
 
-Users also have other options such as checking the replication status of their source blob. Users can check the replication status of a source blob to determine whether replication to the destination has completed. Once the replication status is marked as “Completed,” the user can guarantee the blob is available in the destination account. For more information view, [Check the replication status of a blob](https://learn.microsoft.com/azure/storage/blobs/object-replication-configure?tabs=portal#check-the-replication-status-of-a-blob).
+Users also have other options such as checking the replication status of their source blob. Users can check the replication status of a source blob to determine whether replication to the destination is complete. Once the replication status is marked as `Completed`, the user can guarantee the blob is available in the destination account. For more information view, [Check the replication status of a blob](object-replication-configure.md?tabs=portal#check-the-replication-status-of-a-blob).
 
 ## Enabling object replication priority replication
 
-Users can enable OR priority replication on both new and exisiting OR policies using Azure portal, REST, PowerShell, or the Azure CLI. It can be enabled for existing OR policies, or during the process of creating new a new OR policy.
+Users can enable OR priority replication on both new and existing OR policies using Azure portal, REST, PowerShell, or the Azure CLI. It can be enabled for existing OR policies, or during the process of creating new a new OR policy.
 
 ### Enabling priority replication during new policy creation
 
@@ -118,6 +115,3 @@ Content for CLI...
 Content for REST API...
 
 ---
-
-
-
