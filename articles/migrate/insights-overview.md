@@ -1,5 +1,5 @@
 ---
-title: Insights In Azure Migrate - Assess, Risk, Plan Cloud Migration
+title: Insights In Azure Migrate - Assess, risk, plan Cloud migration
 description: Discover how Azure Migrate's Insights (preview) feature helps identify vulnerabilities, end-of-support software, and missing security tools in your datacenter. Plan secure and efficient cloud migrations with early risk visibility and actionable insights.
 author: habibaum
 ms.author: v-uhabiba
@@ -61,7 +61,7 @@ Security risks are derived through a series of following analyses:
 
 Azure Migrate updates security insights whenever it refreshes discovered software inventory data. The platform updates insights when you run a new discovery or when the Azure Migrate appliance sends inventory updates. You usually run a full discovery at the start of a project and may do periodic re-scans before finalizing an assessment. Any system changes, such as, new patches or software reached end-of-life, will reflect in the updated security insights.
 
-### Calculate security risk score
+### Calculate number of security risks
 
 Use the following formula to calculate the security risk score for a server: 
 
@@ -72,7 +72,7 @@ OS end-of-support flag + Software end-of-support flag + Number of vulnerabilitie
    - **Number of vulnerabilities** = Count of CVEs identified for the server.
    - **Number of pending critical and security updates** = Pending updates for Windows and Linux servers that are classified as Critical or Security.
    - **Security software flag** = 1 if no software belonging to the Security category was discovered on the server; otherwise, 0.
-   - **Patch management software flag** = 1 if no software belonging to the Patch Management category was discovered on the server; otherwise, 0. 
+   - **Patch management software flag** = 1 if no software belonging to the Patch Management sub category was discovered on the server; otherwise, 0. 
  
 >[!Note]
 > Security insights in Azure Migrate help guide and highlight potential security risks in the datacenter. They are not meant to be compared with specialized security tools. We recommend to adopt Azure services such as, [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md) for comprehensive protection of your hybrid environment.
