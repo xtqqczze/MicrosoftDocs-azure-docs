@@ -22,13 +22,13 @@ Before developers can create dev boxes in the developer portal, you set up a dev
 
 :::image type="content" source="media/concept-dev-box-architecture/dev-box-concepts-overview.png" alt-text="Diagram that gives an overview of the relationship between the different components in Microsoft Dev Box." lightbox="media/concept-dev-box-architecture/dev-box-concepts-overview.png":::
 
-A *dev center* is the top-level resource for Microsoft Dev Box. A dev center contains the collection of projects and the shared resources for these projects, such as dev box definitions and network connections. There's no limit on the number of dev centers that you can create, but most organizations need only one.
+A *dev center* is the top-level resource for Microsoft Dev Box. A dev center contains the collection of projects and the shared resources for these projects, such as image definitions, and network connections. There's no limit on the number of dev centers that you can create, but most organizations need only one.
 
 A *project* is the point of access for development teams. You assign the Dev Box User role to a developer for a project, which grants the developer permissions to create dev boxes. You can create one or more projects in a dev center.
 
-A *dev box definition* specifies the configuration of the dev boxes, such as the virtual machine image and compute resources for the dev box. You can either choose a virtual machine image from Azure Marketplace, or use an Azure compute gallery to use custom virtual machine images.
+A project contains the collection of dev box pools. A *dev box pool* specifies the configuration for dev boxes, including the image source (image definition, custom image, marketplace image, or legacy dev box definition), compute size, storage, network connection, and other settings. All dev boxes that are created from a dev box pool share the same configuration.
 
-A project contains the collection of dev box pools. A *dev box pool* specifies the configuration for dev boxes, such as the dev box definition, the network connection, and other settings. All dev boxes that are created from a dev box pool share the same configuration.
+*Image definitions* are YAML-based customization files that define a base image and apply team-specific customizations, offering greater flexibility by allowing independent selection of compute size and storage. *Dev box definitions* are a legacy option that bundles a base image with fixed VM size and storage configuration.
 
 The network connection that's associated with a dev box pool determines where the dev box is hosted. You can use a Microsoft-hosted network connection, or bring your own Azure network connection. You might use an Azure network connection if you need control over the virtual network, if you require access to corporate resources, or to authenticate to a dev box with an Active Directory account.
 

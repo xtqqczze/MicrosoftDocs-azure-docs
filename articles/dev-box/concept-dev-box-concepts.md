@@ -46,7 +46,7 @@ To learn how to create Dev Box customizations, see [Microsoft Dev Box customizat
 
 In Dev Box, a project represents a team or business function within the organization. Each project is a collection of [pools](#dev-box-pool), and each pool represents a region or workload. When you associate a project with a dev center, all the settings at the dev center level are applied to the project automatically.
 
-Each project can be associated with only one dev center. Dev managers can configure the dev boxes available for a project by specifying the dev box definitions that are appropriate for their workloads.
+Each project can be associated with only one dev center. Dev managers configure the dev boxes available for a project by creating dev box pools that specify image definitions, custom images, marketplace images, or legacy dev box definitions.
 
 To enable developers to create their own dev boxes, you must [provide access to projects for developers](how-to-dev-box-user.md) by assigning the Dev Box User role.
 
@@ -56,9 +56,20 @@ You can configure projects for [Deployment Environments](../deployment-environme
 
 A project policy in Microsoft Dev Box defines which resources—such as images, networks, and SKUs—are available to a project, enforcing governance and compliance. It ensures that development teams can only use approved resources, helping organizations control and streamline resource usage.
 
-## Dev box definition
+## Image definitions
 
-A dev box definition specifies a source image and size, including compute size and storage size. Select a source image from Azure Marketplace or a custom image from your own [Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md) instance. Dev Box supports client editions of Windows 10 and Windows 11. You can use dev box definitions across multiple projects in a dev center.
+Image definitions are YAML-based customization files that define a base image and apply team-specific customizations. They can be built into reusable images to optimize dev box creation time. Image definitions offer greater flexibility by allowing you to independently select compute size and storage when creating dev box pools.
+
+To learn more about creating and using image definitions, see [Configure team customizations](how-to-configure-team-customizations.md).
+
+## Dev box definition (Legacy)
+
+> [!NOTE]
+> Dev box definitions are a legacy option. We recommend using image definitions, custom images, or marketplace images for greater flexibility in selecting compute size and storage.
+
+A dev box definition specifies a source image and size, including compute size and storage size bundled together. Select a source image from Azure Marketplace or a custom image from your own [Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md) instance. Dev Box supports client editions of Windows 10 and Windows 11. You can use dev box definitions across multiple projects in a dev center.
+
+For new deployments, consider using marketplace images or custom images directly in your dev box pools, which allow independent selection of compute and storage configurations.
 
 ## Network connection
 
