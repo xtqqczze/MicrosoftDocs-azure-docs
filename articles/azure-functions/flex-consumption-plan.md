@@ -45,11 +45,21 @@ For a complete comparison of the Flex Consumption plan against the Consumption p
 
 Flex Consumption expands on the traditional benefits of Consumption plan by adding support for [virtual network integration](./functions-networking-options.md#virtual-network-integration). When your apps run in a Flex Consumption plan, they can connect to other Azure services secured inside a virtual network. All while still allowing you to take advantage of serverless billing and scale, together with the scale and throughput benefits of the Flex Consumption plan. For more information, see [Enable virtual network integration](./flex-consumption-how-to.md#enable-virtual-network-integration).
 
-## Instance memory
+## Instance sizes
 
 When you create your function app in a Flex Consumption plan, you can select the memory size of the instances on which your app runs. See [Billing](#billing) to learn how instance memory sizes affect the costs of your function app. 
 
-Currently, Flex Consumption offers these instance memory size options: 512 MB, 2,048 MB, and 4,096 MB.
+Currently, Flex Consumption offers these instance memory size options:
+
+| Instance Memory | CPU Cores |
+|-----------------|-----------|
+| 512 MB          | 0.25      |
+| 2,048 MB        | 1         |
+| 4,096 MB        | 2         |
+
+
+> [!NOTE]
+> The CPU core values shown are typical allocations for instances with the specified memory size. However, initial instances may receive slightly different core allocations for performance improvements.
 
 When deciding on which instance memory size to use with your apps, here are some things to consider:
 
@@ -122,9 +132,9 @@ This table shows the language stack versions that are currently supported for Fl
 
 ## Regional subscription memory quotas
 
-The Flex Consumption plan has a memory-based quota that limits how much compute all your Flex Consumption apps can use at the same time in a specific region and subscription. Imagine you have a bucket of memory measured in GB for your entire subscription in a region. All your Flex Consumption apps in that region share this bucket. If your Flex Consumption apps try to use more than the quota allows, some executions may be delayed or throttled from scaling, but you won’t be blocked from creating or deploying apps.
+The Flex Consumption plan has a memory-based quota that limits how much compute all your Flex Consumption apps can use at the same time in a specific region and subscription. Imagine you have a bucket of memory measured in GB or CPU cores for your entire subscription in a region. All your Flex Consumption apps in that region share this bucket. If your Flex Consumption apps try to use more than the quota allows, some executions may be delayed or throttled from scaling, but you won’t be blocked from creating or deploying apps.
 
-Currently, each region in a given subscription has a default memory limit quota of `512,000 MB` for all instances of apps running on Flex Consumption plans. This quota means that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limit. For example, each the following examples would mean the quota is reached and the apps would stop scaling:
+Currently, each region in a given subscription has a default quota of `512,000 MB` or 250 cores for all instances of apps running on Flex Consumption plans. This quota means that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limit. For example, each the following examples would mean the quota is reached and the apps would stop scaling:
 
 + You have one 512-MB app scaled to 250 instances and a second 512-MB app scaled to 750 instances. 
 + You have one 512-MB app scaled to 1,000 instances.
