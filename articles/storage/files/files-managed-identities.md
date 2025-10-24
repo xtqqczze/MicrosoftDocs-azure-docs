@@ -81,7 +81,7 @@ In order to authenticate a managed identity, you must configure the SMB OAuth pr
 
 Download this script to create or configure the storage account. Save it as `SBD_PREP.ps1`. 
 
-Open a PowerShell window as administrator and use the downloaded script to create or modify a storage account and create a file share. Replace <subscription-ID>, <resource-group>, <region-name>, <storage-account-name>, and <file-share-name> with your own values.
+Open a PowerShell window as administrator and use the downloaded script to create or modify a storage account and create a file share. Replace `<subscription-ID>`, `<resource-group>`, `<region-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
 
 ```powershell
 .\SBD_PREP.ps1 -subscription <subscription-ID> -resourceGroup <resource-group> -location <region-name> -accountName <storage-account-name> -shareName <file-share-name>
