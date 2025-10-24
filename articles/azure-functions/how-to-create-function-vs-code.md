@@ -217,7 +217,7 @@ You can customize your prompt to add specifics as needed, then run the app again
 >
 > When running in **Agent** mode, the results of this customization depend on the specific tools available to your agent.
  
-When you are satistfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
+When you are satisfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
