@@ -1,29 +1,29 @@
 ---
-title: Enable semantic caching for Azure OpenAI APIs in Azure API Management
+title: Enable Semantic Caching for LLM APIs in Azure API Management
 description: Prerequisites and configuration steps to enable semantic caching for Azure OpenAI APIs in Azure API Management.
 author: dlepow
 ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 01/13/2025
+ms.date: 10/24/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Enable semantic caching for Azure OpenAI APIs in Azure API Management
+# Enable semantic caching for LLM APIs in Azure API Management
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Enable semantic caching of responses to Azure OpenAI API requests to reduce bandwidth and processing requirements imposed on the backend APIs and lower latency perceived by API consumers. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't the same. For background, see [Tutorial: Use Azure Cache for Redis as a semantic cache](../redis/tutorial-semantic-cache.md).
+Enable semantic caching of responses to LLM API requests to reduce bandwidth and processing requirements imposed on the backend APIs and lower latency perceived by API consumers. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't the same. For background, see [Tutorial: Use Azure Managed Redis as a semantic cache](../redis/tutorial-semantic-cache.md).
 
 > [!NOTE]
-> The configuration steps in this article enable semantic caching for Azure OpenAI APIs. These steps can be generalized to enable semantic caching for corresponding large language model (LLM) APIs available through the [Azure AI Model Inference API](/rest/api/aifoundry/modelinference/) or with OpenAI-compatible models served through third-party inference providers. 
+> The configuration steps in this article show how to semantic caching for APIs added to API Management from Azure OpenAI in Azure AI Foundry models. These steps can be generalized to enable semantic caching for corresponding large language model (LLM) APIs available through the [Azure AI Model Inference API](/rest/api/aifoundry/modelinference/) or with OpenAI-compatible models served through third-party inference providers. 
 
 ## Prerequisites
 
-* One or more Azure OpenAI in Foundry Models APIs must be added to your API Management instance. For more information, see [Add an Azure OpenAI API to Azure API Management](azure-openai-api-from-specification.md).
+* One or more Azure OpenAI in Azure AI Foundry model deployments must be added as APIs to your API Management instance. For more information, see [Add an Azure OpenAI API to Azure API Management](azure-openai-api-from-specification.md).
 * The Azure OpenAI instance must have deployments for the following:
 
     * Chat Completion API - Deployment used for API consumer calls 
@@ -31,7 +31,7 @@ Enable semantic caching of responses to Azure OpenAI API requests to reduce band
 * The API Management instance must be configured to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to Azure OpenAI APIs using Azure API Management ](api-management-authenticate-authorize-azure-openai.md#authenticate-with-managed-identity).
 * An [Azure Managed Redis](../redis/quickstart-create-managed-redis.md) instance. The **RediSearch** module must be enabled on the Redis cache.
     > [!NOTE]
-    > You can only enable the **RediSearch** module when creating a new Azure Redis Enterprise or Azure Managed Redis cache. You can't add a module to an existing cache. [Learn more](../redis/redis-modules.md)
+    > You can only enable the **RediSearch** module when creating a new     Azure Managed Redis cache. You can't add a module to an existing cache. [Learn more](../redis/redis-modules.md)
 * External cache configured in the Azure API Management instance. For steps, see [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md).
 
 
@@ -62,7 +62,7 @@ Configure a [backend](backends.md) resource for the embeddings API deployment wi
 * **Runtime URL** - The URL of the embeddings API deployment in Azure OpenAI, similar to: `https://my-aoai.openai.azure.com/openai/deployments/embeddings-deployment/embeddings`
 
 * **Authorization credentials** - Go to **Managed Identity** tab.
-  * **Client identity** - Select *System assigned identity* or type in a User assigned managed identity client ID.
+  * **Client identity** - Select *System assigned identity* or enter a user-assigned managed identity client ID.
   * **Resource ID** - Enter `https://cognitiveservices.azure.com/` for Azure OpenAI.
 
 ### Test backend 
@@ -160,5 +160,5 @@ For example, if the cache was used, the **Output** section includes entries simi
 ## Related content
 
 * [Caching policies](api-management-policies.md#caching)
-* [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md)
+* [Azure Managed Redis](../redis/overview.md)
 * [AI gateway capabilities](genai-gateway-capabilities.md) in Azure API Management
