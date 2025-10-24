@@ -1,6 +1,6 @@
 ---
 title: Languages supported by the De-identification service
-description: "Understand on which languages the De-identification service can tag, redact and surrogate PHI"
+description: "Understand on which languages the De-identification service can TAG, REDACT, and SURROGATE PHI"
 author: leakass
 ms.author: leakass
 ms.service: azure-health-data-services
@@ -14,7 +14,7 @@ ms.date: 10/23/2025
 # Languages supported by the De-identification service
 
 
-The following table lists the languages the De-identification service can TAG, REDACT and SURROGATE PHI on for unstructured textual data:
+The following table lists the languages the De-identification service can TAG, REDACT, and SURROGATE PHI on for unstructured textual data:
 
 |Language| Locale | Language-locale pair| State |
 |:-----|:----:|:-----|:----:|
