@@ -115,8 +115,10 @@ items:
       href: native-network-design-consideration.md
   - name: Security
     items:
-    - name: Enable first-party application service principal for Gen 2 
+    - name: Enable first-party application service principal
       href: native-first-party-principle-security.md
+    - name: Configure identities role assignments manually 
+      href: native-role-assignment.md
   - name: Networking
     items:
     - name: Connectivity to an Azure Virtual Network
@@ -304,7 +306,7 @@ items:
       href: restore-guest-files-folders.md  
   - name: Configure Pure Cloud Block Store
     href: configure-pure-cloud-block-store.md
-  - name: Configure Azure Native Pure Storage Cloud (preview)
+  - name: Configure Azure Native Pure Storage Cloud
     href: configure-azure-native-pure-storage-cloud.md
 - name: Backup and recovery
   items:

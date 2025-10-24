@@ -10,6 +10,7 @@ ms.custom:
   - ignite-2024
   - build-2025
 zone_pivot_groups: python-mode-functions
+#customer intent: As a Python developer, I want to reference the supported features, syntax, and limitations for developing Azure Functions so that I can build and deploy Python serverless apps effectively.
 ---
 
 # Azure Functions Python developer guide
@@ -49,6 +50,8 @@ As a Python developer, you might also be interested in these articles:
 ::: zone-end
 
 ## [Hosting options](#tab/hosting)
+
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
 + [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. 
 + [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](../container-apps/functions-overview.md).
