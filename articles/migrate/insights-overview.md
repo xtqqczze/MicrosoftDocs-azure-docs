@@ -30,7 +30,19 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 
 | Resource | Security Insight | Details | 
 | --- | --- | --- | 
-| Servers | With security risks </br> </br> </br> </br> OS end of support </br> </br> Software end of support </br> </br> With vulnerabilities </br> </br> </br> </br> Missing security software. </br> </br> </br> </br> Missing patch management software. </br></br>  </br> </br> Pending updates    | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates </br> </br> Servers with end of support Operating system. </br> </br> Servers with end of support Software discovered in Azure Migrate. </br> </br> </br> </br> Servers with known vulnerability (CVE) in OS and discovered Software. </br> </br> </br> Servers without any discovered software belonging to Security software category. </br> </br> </br> </br> Servers without any discovered patch management software. </br> </br> </br> </br> Servers with pending updates or patches.|
+| Servers | With security risks | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates | 
+|  | OS end of support | Servers with end of support Operating system. | 
+|  | Software end of support | Servers with end of support Software discovered in Azure Migrate. | 
+|  | With vulnerabilities | Servers with known vulnerability (CVE) in OS and discovered Software. | 
+|  | Missing security software. | Servers without any discovered software belonging to Security software category. | 
+|  | Missing patch management software. | Servers without any discovered patch management software. | 
+|  | Pending updates | Servers with pending updates or patches. | 
+| Software | With security risks | Software with at least one of the security risks – end of support, vulnerabilities. | 
+|  | End of support | Software declared end of support by vendor. | 
+|  | With vulnerabilities| Software with known vulnerability (CVE). | 
+
+
+| Servers | With security risks </br> </br> OS end of support </br> </br> Software end of support </br> </br> With vulnerabilities </br> </br> </br> </br> Missing security software. </br> </br> </br> </br> Missing patch management software. </br></br>  </br> </br> Pending updates  | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates </br> </br> Servers with end of support Operating system. </br> </br> Servers with end of support Software discovered in Azure Migrate. </br> </br> </br> </br> Servers with known vulnerability (CVE) in OS and discovered Software. </br> </br> </br> Servers without any discovered software belonging to Security software category. </br> </br> </br> </br> Servers without any discovered patch management software. </br> </br> </br> </br> Servers with pending updates or patches.|
 |  Software    | With security risks </br> </br> End of support </br> </br> With vulnerabilities  | Software with at least one of the security risks – end of support, vulnerabilities. </br> </br> Software declared end of support by vendor. </br> </br> Software with known vulnerability (CVE)  | 
 
 ### How are Insights derived
@@ -193,8 +205,17 @@ Security insights are enabled by default for all users. To manage access, create
 
 | Resource | Permissions | Description | 
 | --- | --- | --- | 
-| Pending updates |`Microsoft.OffAzure/hypervSites/machines/inventoryinsights/pendingupdates/* ` </br> </br> </br> </br>`Microsoft.OffAzure/serverSites/machines/inventoryinsights/pendingupdates/*` </br> </br> </br> </br>`Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/pendingupdates/*`   | Read pending updates of Hyper-V site </br> </br> Read pending updates of physical server site  </br> </br> Read pending updates of VMware machine  | 
-| Vulnerabilities| `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/vulnerabilities/* `</br> </br> </br> </br>`Microsoft.OffAzure/serverSites/machines/inventoryinsights/vulnerabilities/*` </br> </br> </br> </br>`Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*` |  Read vulnerabilities of Hyper-V site </br> </br> Read vulnerabilities of physical server site </br> </br> Read vulnerabilities of VMware machine   | 
+| Resource	Permissions	Description
+Pending updates | `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/pendingupdates/*`
+ | Read pending updates of Hyper-V site | 
+|  | `Microsoft.OffAzure/serverSites/machines/inventoryinsights/pendingupdates/*` | Read pending updates of physical server site | 
+|  | `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/pendingupdates/*` | Read pending updates of VMware machine | 
+| Vulnerabilities | `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/vulnerabilities/*` | Read vulnerabilities of Hyper-V site |
+|  | `Microsoft.OffAzure/serverSites/machines/inventoryinsights/vulnerabilities/*` | Read vulnerabilities of physical server site |
+|  | `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*` | Read vulnerabilities of VMware machine |
+
+| Pending updates |`Microsoft.OffAzure/hypervSites/machines/inventoryinsights/pendingupdates/* ` </br> </br> </br> </br>`Microsoft.OffAzure/serverSites/machines/inventoryinsights/pendingupdates/*` </br> </br> `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/pendingupdates/*`   | Read pending updates of Hyper-V site </br> </br> Read pending updates of physical server site  </br> </br> Read pending updates of VMware machine  | 
+| Vulnerabilities| `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/vulnerabilities/* `</br> </br> </br> </br>`Microsoft.OffAzure/serverSites/machines/inventoryinsights/vulnerabilities/*` </br> </br> `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*` |  Read vulnerabilities of Hyper-V site </br> </br> Read vulnerabilities of physical server site </br> </br> Read vulnerabilities of VMware machine   | 
 
 
 :::image type="content" source="./media/security-insights-overview/permissions.png" alt-text="Screenshot shows that you don't have permissions to view." lightbox="./media/security-insights-overview/permissions.png":::
