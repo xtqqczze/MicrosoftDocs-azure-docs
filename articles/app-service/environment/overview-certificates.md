@@ -34,7 +34,7 @@ You can [configure the TLS setting](../configure-ssl-bindings.md#enforce-tls-ver
 A common use case is to configure your app as a client in a client-server model. If you secure your server with a private CA certificate, you need to upload the client certificate (*.cer* file) to your app. The following instructions load certificates to the trust store of the workers that your app is running on. You only need to upload the certificate once to use it with apps that are in the same App Service plan.
 
 >[!NOTE]
-> Private client certificates are only supported from custom code in Windows code apps. Private client certificates are not supported outside the app. This limits usage in scenarios such as pulling the app container image from a registry using a private certificate and TLS validating through the front-end servers using a private certificate.
+> Private client certificates are only supported from custom code in Windows code apps. Private client certificates aren't supported outside the app. This limits usage in scenarios such as pulling the app container image from a registry using a private certificate and TLS validating through the front-end servers using a private certificate.
 
 Follow these steps to upload the certificate (*.cer* file) to your app in your App Service Environment. The *.cer* file can be exported from your certificate. For testing purposes, there's a PowerShell example at the end to generate a temporary self-signed certificate:
 
@@ -139,7 +139,7 @@ resource rootCertificate 'Microsoft.Web/hostingEnvironments/publicCertificates@2
 
 #### [Terraform](#tab/terraform)
 
-To create a root certificate resource in your Terraform configuration, add the following to your template. Note that you must include `schema_validation_enabled = false` for the resource to be created successfully.
+To create a root certificate resource in your Terraform configuration, add the following to your template. You must include `schema_validation_enabled = false` for the resource to be created successfully.
 
 ```hcl
 resource "azapi_resource" "{certificateName}" {
@@ -272,7 +272,7 @@ az webapp start --name {appName} --resource-group {resourceGroupName}
 If your app acts as a server in a client-server model, either behind a reverse proxy or directly with private client and you're using a private CA certificate, you need to upload the server certificate (*.pfx* file) with the full certificate chain to your app and bind the certificate to the custom domain. Because the infrastructure is dedicated to your App Service Environment, the full certificate chain is added to the trust store of the servers. You only need to upload the certificate once to use it with apps that are in the same App Service Environment.
 
 >[!NOTE]
-> If you uploaded your certificate prior to October 1, 2023, you need to reupload and rebind the certificate for the full certificate chain to be added to the servers.
+> If you uploaded your certificate before October 1, 2023, you need to reupload and rebind the certificate for the full certificate chain to be added to the servers.
 
 Follow the [secure custom domain with TLS/SSL](../configure-ssl-bindings.md) tutorial to upload/bind your private CA rooted certificate to the app in your App Service Environment.
 
