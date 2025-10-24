@@ -82,7 +82,7 @@ This capability is available for both Windows and Linux-based apps in App Servic
 
 To add a root certificate to your App Service Environment, use one of the following methods:
 
-# [REST API](#tab/rest-api)
+### [REST API](#tab/rest-api)
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01
@@ -98,7 +98,7 @@ Content-Type: application/json
 }
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az rest --method put \
@@ -106,7 +106,7 @@ az rest --method put \
   --body "{'location': '{location}', 'properties': {'blob': '{raw certificate blob}', 'isRoot': true}}"
 ```
 
-# [ARM Template](#tab/arm-template)
+### [ARM Template](#tab/arm-template)
 
 To create a root certificate resource in your ARM template, add the following JSON:
 
@@ -123,7 +123,7 @@ To create a root certificate resource in your ARM template, add the following JS
 }
 ```
 
-# [Bicep](#tab/bicep)
+### [Bicep](#tab/bicep)
 
 ```bicep
 resource rootCertificate 'Microsoft.Web/hostingEnvironments/publicCertificates@2024-04-01' = {
@@ -137,7 +137,7 @@ resource rootCertificate 'Microsoft.Web/hostingEnvironments/publicCertificates@2
 }
 ```
 
-# [Terraform](#tab/terraform)
+### [Terraform](#tab/terraform)
 
 To create a root certificate resource in your Terraform configuration, add the following to your template. You must include `schema_validation_enabled = false` for the resource to be created successfully.
 
@@ -173,13 +173,13 @@ Replace the following placeholders:
 
 To remove a root certificate from your App Service Environment:
 
-# [REST API](#tab/rest-api)
+### [REST API](#tab/rest-api)
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az rest --method delete \
@@ -194,13 +194,13 @@ You can retrieve root certificates from your App Service Environment using the f
 
 #### Retrieve a specific certificate
 
-# [REST API](#tab/rest-api)
+### [REST API](#tab/rest-api)
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az rest --method get \
@@ -211,13 +211,13 @@ az rest --method get \
 
 #### Retrieve all public certificates
 
-# [REST API](#tab/rest-api)
+### [REST API](#tab/rest-api)
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates?api-version=2024-04-01
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az rest --method get \
@@ -230,14 +230,14 @@ az rest --method get \
 
 After adding a root certificate to an App Service Environment with existing apps, you must stop and start each app to update the certificate store.
 
-# [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 1. Navigate to your app in the Azure portal.
 1. Select **Stop** from the overview page.
 1. Wait for the app to stop completely.
 1. Select **Start** to restart the app.
 
-# [REST API](#tab/rest-api-app)
+### [REST API](#tab/rest-api-app)
 
 Stop the app:
 
@@ -251,7 +251,7 @@ Start the app:
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{appName}/start?api-version=2024-04-01
 ```
 
-# [Azure CLI](#tab/azure-cli-app)
+### [Azure CLI](#tab/azure-cli-app)
 
 Stop the app:
 
