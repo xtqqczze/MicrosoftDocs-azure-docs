@@ -3,7 +3,7 @@ title: Declare resources in Bicep
 description: Describes how to declare resources to deploy in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/23/2025
+ms.date: 10/24/2025
 ---
 
 # Resource declaration in Bicep
@@ -104,7 +104,7 @@ Markdown-formatted text can be used for the description text.
 
 By default, when a Bicep deployment runs, Azure Resource Manager (ARM) creates the resource if it doesn’t exist or updates it if it does. If an existing resource has properties that differ from your template, ARM might attempt to update it—or fail if updates aren’t permitted.
 
-With Bicep version v0.38.3 or later, the `@onlyIfNotExists()` decorator instructs ARM to create the resource only if it doesn’t already exist. If the resource is found, ARM skips creation and leaves it unchanged.
+Starting with Bicep version v0.38.3, the `@onlyIfNotExists()` decorator instructs ARM to create the resource only if it does not already exist. If a resource with the resource ID is found, ARM skips creation and leaves the existing resource unchanged.
 
 ```bicep
 @onlyIfNotExists()
