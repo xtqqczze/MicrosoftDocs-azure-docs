@@ -15,7 +15,7 @@ ms.date: 10/23/2025
 # De-identify multiple documents with the asynchronous de-identification service
 
 The Azure Health Data Services de-identification service can de-identify documents in Azure Storage via an asynchronous job. If you have many documents that you would like
-to de-identify, using a job is a good option. Jobs also provide consistent surrogation, meaning that surrogate values in the de-identified output will match across
+to de-identify, using a job is a good option. Jobs also provide consistent surrogation, meaning that surrogate values in the de-identified output match across
 all documents. For more information about de-identification, including consistent surrogation, see [What is the de-identification service?](overview.md)
 
 When you choose to store documents in Azure Blob Storage, you're charged based on Azure Storage pricing. This cost isn't included in the de-identification service pricing. [Explore Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs).
@@ -102,7 +102,7 @@ az storage blob upload --data $DocumentContent --account-name $StorageAccountNam
 
 In this step, you grant the de-identification service's system-assigned managed identity role-based access to the container. 
 
-You grant the **Storage Blob Data Contributor** role because the de-identification service will both read the original document and write de-identified output documents. 
+You grant the **Storage Blob Data Contributor** role because the de-identification service reads the original document and writes the de-identified output documents. 
 
 Substitute the name of your de-identification service for the `<deid_service_name>` placeholder:
 ```powershell
@@ -110,7 +110,7 @@ $DeidServicePrincipalId=$(az resource show -n <deid_service_name> -g $ResourceGr
 az role assignment create --assignee $DeidServicePrincipalId --role "Storage Blob Data Contributor" --scope $StorageAccountId
 ```
 
-**Note:** To verify that the de-identification service has access to the storage account, you can check on the Azure portal under **storage accounts**. Under the **Storage center** and **Resources** tab, click your storage account name. Select **Access control (IAM)** and in the search bar, search for the name of your de-identification service ($ResourceGroup).
+**Note:** To verify that the de-identification service has access to the storage account, you can check on the Azure Portal under **storage accounts**. Under the **Storage center** and **Resources** tab, click your storage account name. Select **Access control (IAM)**. In the search bar, search for the name of your de-identification service ($ResourceGroup).
 
 ## Configure network isolation on the storage account
 
@@ -131,7 +131,7 @@ You can run the de-identification service in two ways:
 - Using CURL for French, German and Spanish data
 
 ### Use the python SDK for English data
-The code below contains a sample from the [Azure Health Deidentification SDK for Python](https://learn.microsoft.com/python/api/overview/azure/health-deidentification?view=azure-python). 
+The following code contains a sample from the [Azure Health Deidentification SDK for Python](https://learn.microsoft.com/python/api/overview/azure/health-deidentification?view=azure-python). 
 
 ```Bash
 
