@@ -45,7 +45,7 @@ Some of the key benefits you get with Resiliency include:
 
 ## What can I manage with Resiliency? 
 
-Resiliency in Azure allows you to manage data sources protected across the solutions. You can manage these resources from different environments, such as Azure and on-premises. Learn about the [supported scenarios and limitations](business-continuity-center-support-matrix.md).
+Resiliency in Azure allows you to manage data sources protected across the solutions. You can manage these resources from different environments, such as Azure and on-premises. Learn about the [supported scenarios and limitations](resiliency-support-matrix.md).
 
 
 ## Get started

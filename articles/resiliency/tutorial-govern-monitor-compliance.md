@@ -26,7 +26,7 @@ Some of the governance capabilities of Resiliency include:
 
 ## Supported scenarios 
 
-Learn more the [supported and unsupported scenarios](business-continuity-center-support-matrix.md). 
+Learn more the [supported and unsupported scenarios](resiliency-support-matrix.md). 
 
 ## Azure Policies for protection 
 

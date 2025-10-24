@@ -19,7 +19,7 @@ This tutorial describes how to view your datasources that are protected by one o
 
 Before you start viewing protected items and take necessary actions, ensure you have the following prerequisites:
 
-- [Review supported regions for Resiliency in Azure](business-continuity-center-support-matrix.md).
+- [Review supported regions for Resiliency in Azure](resiliency-support-matrix.md).
 - You need to have permission on the resources to view them in Resiliency.
 
 ## View protected items

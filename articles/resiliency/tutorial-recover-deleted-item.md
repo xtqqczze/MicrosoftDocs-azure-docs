@@ -21,8 +21,8 @@ Resiliency in Azure allows you to recover protected items (restore backup, failo
 
 Before you start the recovery process, ensure that the following prerequisites are met:
 
-- [Review the supported regions](business-continuity-center-support-matrix.md).
-- [Review the supported actions](business-continuity-center-support-matrix.md).
+- [Review the supported regions](resiliency-support-matrix.md).
+- [Review the supported actions](resiliency-support-matrix.md).
 - You need to have permission on the resources to view them in Resiliency and recover them.
 
 ## Initiate recovery for Azure VM
