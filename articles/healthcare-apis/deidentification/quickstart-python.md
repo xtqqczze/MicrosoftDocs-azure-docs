@@ -39,7 +39,7 @@ In this quickstart, you deploy an instance of the de-identification service in y
 - An Azure subscription with **write permissions**
 - Access to the [Azure portal](https://portal.azure.com/).
 - Python 3.8 or later (for the English language model)
-- cURL (for the French, German and Spanish language model)
+- cURL (for the French, German, and Spanish language model)
 - The Azure azure-health-deidentification [Python package](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview&preserve-view=true)
 - Basic familiarity with Azure CLI or terminal.
 
@@ -73,7 +73,7 @@ After you complete the configuration, you can deploy the de-identification servi
 
 3. Select **Next: Review + create** to review your choices.
 4. Select **Create** to start the deployment of your de-identification service. Deployment may take a few minutes. After the deployment is complete, select **Go to resource** to view your service.
-5. After the deployment completes, note your **Subscription**, **Subscription ID** and **Service URL**.
+5. After the deployment completes, note your **Subscription**, **Subscription ID**, and **Service URL**.
    
 ## Set role-based access control (RBAC)
 
@@ -82,16 +82,16 @@ Now that the resource is deployed, you need to assign yourself the following per
 1. On the left panel, select **Access control (IAM).** 
 2. Click **Add** and **Add role assignment.** 
 3. Select **DeID Data Owner** and **DeID Realtime Data User**, then select **Members** on the top panel. 
-4. Select **+ Select members,** and a panel will appear. Search for your own name and press **Select.** 
+4. Select **+ Select members,** and a panel appears. Search for your own name and press **Select.** 
 5. Back in the **Members** panel, select **Review + assign** at the bottom left.
 
- **Tip:** If you want to use both the synchronous and asynchronous (batch) APIs, you will need to aslo assign yourself the **DeID Batch Data Owner**.
+ **Tip:** If you want to use both the synchronous and asynchronous (batch) APIs, you need to also assign yourself the **DeID Batch Data Owner**.
 
 ## Using the English model (Python)
 
 ### Install the package (Python only)
 
-The following steps apply if you are looking to de-identify data in English with the Python SDK.
+The following steps apply if you're looking to de-identify data in English with the Python SDK.
 Skip to [Using the multilingual model (French, Spanish, German)](#using-the-multilingual-model-french-spanish-german) for non-English data.
 
 Install the Azure Health Deidentification client library for Python. More information is available [here.](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview&preserve-view=true)
@@ -101,8 +101,8 @@ python -m pip install azure-health-deidentification
 ```
 
 ### Test the service
-In terminal, [log in to Microsoft azure.](/cli/azure/authenticate-azure-cli) 
-Now, write “python” to open a python shell and paste the following code. 
+In terminal, [log in to Microsoft Azure.](/cli/azure/authenticate-azure-cli) 
+Now, write "python" to open a python shell and paste the following code. 
 Be sure to replace your Service URL with the URL you noted when creating a resource. 
 You can also change the operation type between REDACT, TAG, or SURROGATE.
 
@@ -144,9 +144,9 @@ else:
 
 ## Using the multilingual model (French, Spanish, German)
 
-The following steps apply if you are looking to de-identify data in French, Spanish, and German using curl or PowerShell.
+The following steps apply if you're looking to de-identify data in French, Spanish, and German using curl or PowerShell.
 
-**Note:** SDKs for multilingual support are not yet available. Use REST API calls with cURL or PowerShell instead.
+**Note:** SDKs for multilingual support aren't yet available. Use REST API calls with cURL or PowerShell instead.
 
 ### Get an access token
 
@@ -168,13 +168,13 @@ You can use one of two methods:
 
 #### PowerShell script 
 
-1. Using powershell in terminal, run the file  
+1. Using PowerShell in terminal, run the file  
 
 ```Bash
 DemoDeidentificationService.ps1 
 ``` 
 
-2. Edit the text (line ~121) to insert your own text.  
+2. Edit the text in the line ~121 by inserting the text you want to de-identify.  
 
 3. In terminal, run:  
 
@@ -184,14 +184,14 @@ pwsh DemoDeidentificationService.ps1
 
 #### cURL command 
 
-The examples below cover the TAG, REDACT and SURROGATE operations. To set the language in which the de-identification service needs to operate, set the following line [based on the list of supported language-locale pairs](articles/healthcare-apis/deidentification/languages-supported)
+These examples cover the TAG, REDACT, and SURROGATE operations. To set the language in which the de-identification service needs to operate, set the following line [based on the list of supported language-locale pairs](articles/healthcare-apis/deidentification/languages-supported)
 
 Example:
 ```Bash
 "InputLocale": "fr-CA"
 ```
 
-**Note:** Replace <your-service-url> with your actual service URL and <token> with your access token in the examples below.
+**Note:** Replace <your-service-url> with your actual service URL and <token> with your access token in these examples.
 
 **TAG**
 ```Bash
