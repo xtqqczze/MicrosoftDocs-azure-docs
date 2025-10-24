@@ -185,6 +185,5 @@ Users begin paying for Geo priority replication feature as soon as they enable t
 > When you disable Geo Priority Replication, the account is billed for 30 days beyond the date on which the feature was disabled.
 
 ## Next steps
-
-- [Manage Geo Priority Replication](storage-redundancy-priority-replication-manage.md)
+- [Understand Azure Storage redundancy options](storage-redundancy-overview.md)
 - [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/)
