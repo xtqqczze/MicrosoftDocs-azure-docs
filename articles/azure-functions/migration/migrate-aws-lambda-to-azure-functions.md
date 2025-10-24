@@ -22,6 +22,16 @@ Migrating a serverless workload that uses Amazon Web Services (AWS) Lambda to Az
 - Learn how to perform key migration activities like premigration planning and workload assessment.
 - Evaluate and optimize a migrated workload.
 
+## Scope
+
+This article describes the migration of an AWS Lambda instance to Azure Functions.
+
+This article doesn't address:
+
+- Migration to your own container hosting solution, such as through Azure Container Apps.
+- Hosting AWS Lambda containers in Azure.
+- Fundamental Azure adoption approaches by your organization, such as [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/) or other topics addressed in the Cloud Adoption Framework [migrate methodology](/azure/cloud-adoption-framework/migrate/).
+
 ## Migration custom chat mode
 
 To make it easier to migrate your AWS Lambda apps to Azure using Visual Studio Code, Azure Functions provides a [custom chat mode](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes) in GitHub Copilot. Use these steps to add the `LambdaToFunctionMigration` custom chat mode to your project in Visual Studio Code:
@@ -37,16 +47,6 @@ To make it easier to migrate your AWS Lambda apps to Azure using Visual Studio C
 1. When prompted in the notification area, select **Install** to add the `LambdaToFunctionMigration` custom chat mode to your project.
    
 You can now use guided prompts defined in this custom chat for each stage of your migration. Start typing `/LambdaMigration` in chat to see the complete list of available commands.
-
-## Scope
-
-This article describes the migration of an AWS Lambda instance to Azure Functions.
-
-This article doesn't address:
-
-- Migration to your own container hosting solution, such as through Azure Container Apps.
-- Hosting AWS Lambda containers in Azure.
-- Fundamental Azure adoption approaches by your organization, such as [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/) or other topics addressed in the Cloud Adoption Framework [migrate methodology](/azure/cloud-adoption-framework/migrate/).
 
 ### Compare functionality
 
@@ -260,12 +260,12 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 1. Test iteratively and gather feedback.
 
-  > [!TIP]
-  > Use this custom chat mode prompt to check the current status of the migration process at any time:
-  > 
-  > ```copilot-prompt
-  > `/getstatus`
-  > ```
+   > [!TIP]
+   > Use this custom chat mode prompt to check the current status of the migration process at any time:
+   > 
+   > ```copilot-prompt
+   > `/getstatus`
+   > ```
 
    Use the proof of concept to gather feedback, identify gaps, and fine-tune the process before you scale to larger workloads. This iterative approach ensures that by the time you move to full-scale migration, you address potential challenges and refine the process.
 
@@ -274,12 +274,12 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 This step is a transitional development phase. During this phase, you build source code, infrastructure as code (IaC) templates, and deployment pipelines to represent the workload in Azure. You must adapt function code for compatibility and best practices before you can perform the migration.
 
 - [Adapt function code, configuration files, and infrastructure as code files](#adapt-function-code-configuration-files-and-infrastructure-as-code-files)
-  > [!TIP]
-  > Use this custom chat mode prompt to start the code migration process:
-  > 
-  > ```copilot-prompt
-  > `/phase2-migratelambdacode`
-  > ```
+   > [!TIP]
+   > Use this custom chat mode prompt to start the code migration process:
+   > 
+   > ```copilot-prompt
+   > `/phase2-migratelambdacode`
+   > ```
 - [Adjust configuration settings](#adjust-configuration-settings)
 - [Generate IaC files](#generate-iac-files)
 - [Use tools for refactoring](#use-tools-for-refactoring)
@@ -612,12 +612,12 @@ Deployments follow a single path. After you build your project code and zip it i
 
 - Use tools like Bicep, Azure Resource Manager templates, or Terraform to create IaC files to deploy Azure resources.
 
- > [!TIP]
- > Use this custom chat mode prompt to generate infrastructure as code (IaC) files for Azure Functions:
- > 
- > ```copilot-prompt
- > `/phase3-generatefunctionsinfra`
- > ```
+   > [!TIP]
+   > Use this custom chat mode prompt to generate infrastructure as code (IaC) files for Azure Functions:
+   > 
+   > ```copilot-prompt
+   > `/phase3-generatefunctionsinfra`
+   > ```
 
 - Define resources such as Azure Functions, storage accounts, and networking components in your IaC files.
 
@@ -645,12 +645,12 @@ Develop failover and failback strategies for your migration and thoroughly test 
 
    - Test each function thoroughly to ensure that it works as expected. These tests should include input/output, event triggers, and bindings verification.
 
-     > [!TIP]
-     > Use this custom chat mode prompt to validate the migrated Azure Functions code:
-     > 
-     > ```copilot-prompt
-     > `/phase4-validatecode`
-     > ```
+      > [!TIP]
+      > Use this custom chat mode prompt to validate the migrated Azure Functions code:
+      > 
+      > ```copilot-prompt
+      > `/phase4-validatecode`
+      > ```
 
    - Use tools like curl or [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extensions on VS Code to send HTTP requests for HTTP-triggered functions.
 
@@ -661,13 +661,13 @@ Develop failover and failback strategies for your migration and thoroughly test 
    - Conduct performance testing to compare the new Azure Functions deployment with the previous AWS Lambda deployment.
 
    - Monitor metrics like response time, run time, and resource consumption.
-
-     > [!TIP]
-     > Use this custom chat mode prompt to validate the infrastructure configuration:
-     > 
-     > ```copilot-prompt
-     > `/phase5-validateinfra`
-     > ```
+ 
+      > [!TIP]
+      > Use this custom chat mode prompt to validate the infrastructure configuration:
+      > 
+      > ```copilot-prompt
+      > `/phase5-validateinfra`
+      > ```
 
    - Use Application Insights for [monitoring, log analysis, and troubleshooting](/azure/azure-functions/functions-monitoring) during the testing phase.
 
