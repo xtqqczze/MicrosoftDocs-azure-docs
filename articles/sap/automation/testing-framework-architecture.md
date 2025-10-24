@@ -3,7 +3,7 @@ title: SAP Testing Automation Framework Architecture
 description: Learn about the architecture and components of the SAP Testing Automation Framework
 author: devanshjain
 ms.author: devanshjain
-ms.reviewer: devanshjain
+ms.reviewer: depadia
 ms.date: 11/02/2025
 ms.service: sap-on-azure
 ms.subservice: sap-automation
