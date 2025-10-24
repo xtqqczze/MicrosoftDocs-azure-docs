@@ -88,4 +88,4 @@ You can perform the wave planning for multiple waves in a similar way.
 
 ## Next steps
 
-- Learn more about [execute your wave using Azure Migrate](execute-track-waves.md).
+- Learn more about [execute your wave using Azure Migrate](how-to-execute-and-track-waves.md).

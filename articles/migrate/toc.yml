@@ -178,11 +178,11 @@ items:
     - name: Overview
       href: wave-planning-overview.md
     - name: Plan and create waves
-      href: how-to-plan-and-create-waves.md
+      href: how-to-plan-create-waves.md
     - name: Complete a wave Plan
-      href: how-to-complete-a-wave-plan.md  
+      href: how-to-complete-wave-plan.md  
     - name: Execute and track waves
-      href: how-to-execute-and-track-waves.md    
+      href: how-to-execute-track-waves.md    
 #     - name: AVS assessment
 #       items:
 #       - name: Create an AVS assessment
