@@ -132,7 +132,7 @@ To enable Geo Priority Replication for an existing storage account, complete the
 
 You can disable Geo Priority Replication at any time by clearing the checkbox and saving the settings as shown in the following screen capture.
 
-    :::image type="content" source="media/storage-redundancy-priority-replication/replication-disable-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for disabling the feature." lightbox="media/storage-redundancy-priority-replication/replication-disable-lrg.png":::
+:::image type="content" source="media/storage-redundancy-priority-replication/replication-disable-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for disabling the feature." lightbox="media/storage-redundancy-priority-replication/replication-disable-lrg.png":::
 
 # [Azure PowerShell](#tab/powershell)
 

@@ -34,7 +34,7 @@ To enable Geo Priority Replication when creating a new storage account, complete
 1. Navigate to the Azure portal and create a new storage account.
 1. In the **Basics** tab, select the checkbox for **Geo priority replication** as shown in the following screenshot.
 
-    :::image type="content" source="media/storage-redundancy-priority-replication/replication-new-accounts.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for a new storage account.":::
+    :::image type="content" source="media/storage-redundancy-priority-replication/replication-new-accounts-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for a new storage account." lightbox="media/storage-redundancy-priority-replication/replication-new-accounts-lrg.png":::
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -60,7 +60,7 @@ To enable Geo Priority Replication for an existing storage account, complete the
 1. In the **Data Management** group, select **Redundancy** to display the redundancy options for the storage account.
 1. Select the **Geo priority replication (Blob only)** checkbox to enable the feature as shown in the following screenshot.
 
-    :::image type="content" source="media/storage-redundancy-priority-replication/replication-existing-accounts.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for existing accounts.":::
+    :::image type="content" source="media/storage-redundancy-priority-replication/replication-existing-accounts-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for existing accounts." lightbox="media/storage-redundancy-priority-replication/replication-existing-accounts-lrg.png":::
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -86,7 +86,7 @@ One metric, **Geo Blob Lag**, allows you to monitor the lag, or the number of se
 
 The following screenshot shows an example of geo blob lag over a 30-day period. In this example, the geo blob lag remains consistently below the 15-minute threshold, indicating compliance with the SLA.
 
-:::image type="content" source="media/storage-redundancy-priority-replication/replication-enabled.png" alt-text="Screenshot showing a storage account with geo priority replication enabled.":::
+:::image type="content" source="media/storage-redundancy-priority-replication/replication-enabled-sml.png" alt-text="Screenshot showing a storage account with geo priority replication enabled." lightbox="media/storage-redundancy-priority-replication/replication-enabled-lrg.png":::
 
 <!--
 ## Claiming service credits
