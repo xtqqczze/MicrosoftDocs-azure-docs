@@ -4,10 +4,12 @@ description: Learn how to migrate workloads from AWS Lambda to Azure Functions. 
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
 ms.service: azure-functions
+ms.custom:	
+ - copilot-scenario-highlight
 ms.collection: 
  - migration
  - aws-to-azure
-ms.date: 10/16/2025
+ms.date: 10/23/2025
 ms.topic: conceptual
 #customer intent: As a developer, I want to learn how to migrate serverless applications from AWS Lambda to Azure Functions so that I can make the transition efficiently.
 ---
@@ -20,8 +22,21 @@ Migrating a serverless workload that uses Amazon Web Services (AWS) Lambda to Az
 - Learn how to perform key migration activities like premigration planning and workload assessment.
 - Evaluate and optimize a migrated workload.
 
-> [!TIP]
-> Azure Functions provides a custom chat mode in GitHub Copilot for Azure that helps you migrate your AWS Lambda apps to Azure Functions. To access this targeted assistance in Visual Studio Code, run `@azure: Add Custom Chat modes` from the command palette, then search for and add **LambdaToFunctionMigration**. With this chat mode file in your project, select **LambdaToFunctionMigration** as your chat mode. For more information, see [Use chat modes in Visual Studio Code](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes).
+## Custom chat mode
+
+To make it easier to migrate your AWS Lambda apps to Azure, Azure Functions provides a [custom chat mode](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes) in GitHub Copilot. Use these steps to add the `LambdaToFunctionMigration` custom chat mode to your project in Visual Studio Code:
+
+1. If you don't already have the [GitHub Copilot for Azure extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot), install it now.
+
+1. Run this prompt in **Agent** mode in GitHub Copilot:
+
+   ```copilot-prompt
+   Help me migrate my Lambda app to Azure
+   ```
+
+1. When prompted in the notification area, select **Install** to add the `LambdaToFunctionMigration` custom chat mode to your project.
+   
+You can now use guided prompts defined in this custom chat for each stage of your migration.
 
 ## Scope
 
@@ -59,6 +74,13 @@ The first step is to conduct a detailed discovery process to evaluate your exist
 - Reliability objectives and current reliability status
 - Cost of ownership
 - Performance targets and current performance
+
+> [!TIP]
+> Use this custom chat mode prompt to generate an assessment report for your AWS Lambda setup:
+> 
+> ```copilot-prompt
+> `/phase1-assesslambdaproject`
+> ```
 
 ## Perform premigration planning
 
@@ -239,6 +261,13 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 1. Test iteratively and gather feedback.
 
    Use the proof of concept to gather feedback, identify gaps, and fine-tune the process before you scale to larger workloads. This iterative approach ensures that by the time you move to full-scale migration, you address potential challenges and refine the process.
+
+> [!TIP]
+> Use this custom chat mode prompt to start the code migration process:
+> 
+> ```copilot-prompt
+> `/phase2-migratelambdacode`
+> ```
 
 ## Build the migration assets
 
@@ -581,6 +610,13 @@ Deployments follow a single path. After you build your project code and zip it i
 
 - Use this [IaC samples repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC) for samples that use Azure Functions recommendations and best practices.
 
+> [!TIP]
+> Use this custom chat mode prompt to generate infrastructure as code (IaC) files for Azure Functions:
+> 
+> ```copilot-prompt
+> `/phase3-generatefunctionsinfra`
+> ```
+
 ### Use tools for refactoring
 
 Use tools like GitHub Copilot in VS Code for help with code refactoring, manual refactoring for specific changes, or other migration aids.
@@ -633,7 +669,14 @@ Deploy workloads by using the [VS Code](/azure/azure-functions/functions-develop
 
 - Continuous integration and continuous deployment (CI/CD) pipelines: Set up a CI/CD pipeline by using services like GitHub Actions, Azure DevOps, or another CI/CD tool.
 
-   For more information, see [Continuous delivery by using GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) or [Continuous delivery with Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops).
+For more information, see [Continuous delivery by using GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) or [Continuous delivery with Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops).
+
+> [!TIP]
+> Use this custom chat mode prompt to generate infrastructure as code (IaC) files for Azure Functions:
+> 
+> ```copilot-prompt
+> `/phase6-deploytoazure`
+> ```
 
 ## Explore sample migration scenarios
 
