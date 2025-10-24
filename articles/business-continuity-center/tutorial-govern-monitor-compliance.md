@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Govern and view compliance
-description: This tutorial describes how to configure protection for your data sources which are currently not protected by any solution using Azure Business Continuity center.
+description: This tutorial describes how to configure protection for your datasources, which are currently not protected by any solution using Resiliency in Azure.
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 11/01/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -14,15 +14,15 @@ ms.author: v-mallicka
 
 # Tutorial – Govern and view compliance
 
-This tutorial describes how to govern and view the compliance state for your Azure environment in Azure Business Continuity Center.
+This tutorial describes how to govern and view the compliance state for your Azure environment in Resiliency in Azure.
 
-Azure Business Continuity center helps you govern your Azure environment to ensure that all your resources are compliant from a backup and replication perspective. 
+Resiliency in Azure helps you govern your Azure environment to ensure that all your resources are compliant from a backup and replication perspective. 
 
-These are some of the governance capabilities of Azure Business Continuity center: 
+Some of the governance capabilities of Resiliency include: 
 
 - View and assign Azure Policies for protection 
 - View compliance of your resources on all the built-in Azure Policies for protection. 
-- View all datasources that haven't been configured for protection. 
+- View all datasources that aren't configured for protection. 
 
 ## Supported scenarios 
 
@@ -38,11 +38,11 @@ Selecting any of the definitions allows you to assign the policy to a scope.
 
 ## Protection compliance 
 
-To view the compliance of your resources based on the various built-in policies that you've assigned to your Azure environment, go to **Governance** > **Protection compliance**. You can view the percentage of resources that are compliant on all policies, as well as the policies that have one or more non-compliant resources. 
+To view the compliance of your resources based on the various built-in policies that you assigned to your Azure environment, go to **Governance** > **Protection compliance**. You can view the percentage of resources that are compliant on all policies, and the policies that have one or more noncompliant resources. 
 
    :::image type="content" source="./media/tutorial-govern-monitor-compliance/protection-compliance.png" alt-text="Screenshot shows protection compliance page for backup." lightbox="./media/tutorial-govern-monitor-compliance/protection-compliance.png":::
 
-Selecting **Protection inventory** > **Protectable resource** allows you to view all your resources that haven't been configured for backup and replication.  
+Selecting **Protection inventory** > **Protectable resource** allows you to view all your resources that aren't configured for backup and replication.  
 
 ## Next steps 
 
