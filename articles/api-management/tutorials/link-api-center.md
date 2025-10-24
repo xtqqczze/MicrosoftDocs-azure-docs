@@ -40,6 +40,7 @@ These steps show how to create a new API Center and link it to an API Management
 
 1. From the [Azure portal](https://portal.azure.com), open your API Management service.
 1. In the left-hand menu, go to **APIs** > **API Center**.
+    :::image type="content" source="media/link-api-center/api-management-menu.png" alt-text="The API Management instance in Azure portal with API Center emphasized in the left-hand menu.":::
 1. In the center pane, under *Use API Center for API discovery, reuse, and governance*, select **Create new**.
 1. On the **Create API Center** page, select **Create new link**.
 1. Provide values for the following fields:
@@ -73,6 +74,7 @@ Use this section to verify the integration state and to view APIs that synchroni
     The state for the integration with API Management should say *Linked and syncing*. 
 1. To view synchronized APIs, go to **Assets** > **APIs**.
     An icon appears indicating that the APIs are linked.
+    :::image type="content" source="media/link-api-center/api-center-menu.png" alt-text="An API Center instance in Azure portal with APIs emphasized in the left-hand menu and link icons emphasized in the main panel":::
 
 ## Remove link to API Center
 
