@@ -211,7 +211,7 @@ The resource providers for management services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.Advisor | [Azure Advisor](https://learn.microsoft.com/azure/advisor/advisor-overview) |
+| Microsoft.Advisor | [Azure Advisor](/azure/advisor/advisor-overview) |
 | Microsoft.Authorization - [registered by default](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
 | Microsoft.Billing - [registered by default](#registration) | [Cost Management and Billing](../../cost-management-billing/index.yml) |
@@ -225,13 +225,13 @@ The resource providers for management services are:
 | Microsoft.DynamicsLcs | [Lifecycle Services](https://lcs.dynamics.com/Logon/Index) |
 | Microsoft.Features - [registered by default](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.ManagedServices | [Azure Lighthouse](https://learn.microsoft.com/azure/lighthouse/overview) |
+| Microsoft.ManagedServices | [Azure Lighthouse](/azure/lighthouse/overview) |
 | Microsoft.Management | [Management Groups](../../governance/management-groups/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.Portal - [registered by default](#registration) | [Azure portal](https://learn.microsoft.com/azure/azure-portal/azure-portal-overview) |
+| Microsoft.Portal - [registered by default](#registration) | [Azure portal](/azure/azure-portal/azure-portal-overview) |
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.ResourceGraph - [registered by default](#registration) | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
-| Microsoft.ResourceHealth | [Azure Service Health](https://learn.microsoft.com/azure/service-health/overview) |
+| Microsoft.ResourceHealth | [Azure Service Health](/azure/service-health/overview) |
 | Microsoft.ResourceNotification - [registered by default](#registration) | [Azure Resource Notifications](../../event-grid/event-schema-resource-notifications.md) |
 | Microsoft.Resources - [registered by default](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
