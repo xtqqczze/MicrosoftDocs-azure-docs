@@ -20,76 +20,77 @@
 - name: Quickstarts
   displayName: quickstart, get started
   items:
-    - name: Scenario-based
-      expanded: true
-      displayName: Azure Developer CLI, azd
+  - name: Scenarios
+    expanded: true
+    displayName: Azure Developer CLI, azd
+    items:
+    - name: Scalable web API
+      displayName: Flex Consumption plan
+      href: create-first-function-azure-developer-cli.md
+    - name: Respond to database changes
       items:
-        - name: Scalable web API
-          displayName: Flex Consumption plan
-          href: create-first-function-azure-developer-cli.md
-        - name: Respond to database changes
-          items:
-          - name: Azure Cosmos DB (NoSQL)
-            displayName: data validation, database
-            href: scenario-database-changes-azure-cosmosdb.md
-          - name: Azure SQL
-            displayName: data validation, database
-            href: scenario-database-changes-azure-sqldb.md
-    - name: Developer tools
-      expanded: true
-      items:
-          - name: Azure Developer CLI
-            displayName: Flex Consumption plan
-            href: create-first-function-azure-developer-cli.md
-          - name: Command line
-            displayName: quickstart, get started
-            href: how-to-create-function-azure-cli.md
-          - name: Visual Studio Code
-            href: how-to-create-function-vs-code.md
-          - name: Visual Studio
-            href: functions-create-your-first-function-visual-studio.md
-          - name: Eclipse
-            href: functions-create-maven-eclipse.md
-          - name: Gradle 
-            href: functions-create-first-java-gradle.md
-          - name: IntelliJ IDEA
-            href: functions-create-maven-intellij.md
-          - name: Quarkus
-            href: functions-create-first-quarkus.md
-          - name: Spring Cloud
-            href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json
-    - name: Resource Manager
-      items:
-      - name: Bicep
-        displayName: ARM, Resource Manager, Template
-        href: functions-create-first-function-bicep.md
-      - name: ARM template
-        displayName: Resource Manager
-        href: functions-create-first-function-resource-manager.md
-      - name: Terraform
-        displayName: Terraform, quickstart, get started
-        href: functions-create-first-function-terraform.md
+      - name: Azure Cosmos DB (NoSQL)
+        displayName: data validation, database
+        href: scenario-database-changes-azure-cosmosdb.md
+      - name: Azure SQL
+        displayName: data validation, database
+        href: scenario-database-changes-azure-sqldb.md
+  - name: Developer tools
+    items:
+    - name: Azure Developer CLI
+      displayName: Flex Consumption plan
+      href: create-first-function-azure-developer-cli.md
+    - name: Command line
+      displayName: quickstart, get started
+      href: how-to-create-function-azure-cli.md
+    - name: Visual Studio Code
+      href: how-to-create-function-vs-code.md
+    - name: Visual Studio
+      href: functions-create-your-first-function-visual-studio.md
+    - name: Other
+      items:  
+      - name: Eclipse
+        href: functions-create-maven-eclipse.md
+      - name: Gradle 
+        href: functions-create-first-java-gradle.md
+      - name: IntelliJ IDEA
+        href: functions-create-maven-intellij.md
+      - name: Quarkus
+        href: functions-create-first-quarkus.md
+      - name: Spring Cloud
+        href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json
+  - name: Resource Manager
+    items:
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: functions-create-first-function-bicep.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: functions-create-first-function-resource-manager.md
+    - name: Terraform
+      displayName: Terraform, quickstart, get started
+      href: functions-create-first-function-terraform.md
     - name: Custom handlers (Go/Rust)
       href: create-first-function-vs-code-other.md
-    - name: Connect to services  
+  - name: Connect to services  
+    items:
+    - name: Storage
       items:
-      - name: Storage
-        items:
-          - name: Visual Studio
-            href: functions-add-output-binding-storage-queue-vs.md
-          - name: Visual Studio Code
-            href: functions-add-output-binding-storage-queue-vs-code.md
-          - name: Command line
-            href: functions-add-output-binding-storage-queue-cli.md
-      - name: Databases
-        items:
-        - name: Azure Cosmos DB
-          href: functions-add-output-binding-cosmos-db-vs-code.md
-        - name: Azure SQL Database
-          href: functions-add-output-binding-azure-sql-vs-code.md
-      - name: OpenAI
-        displayName: Connect to OpenAI, text completion
-        href: functions-add-openai-text-completion.md
+        - name: Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
+        - name: Visual Studio Code
+          href: functions-add-output-binding-storage-queue-vs-code.md
+        - name: Command line
+          href: functions-add-output-binding-storage-queue-cli.md
+    - name: Databases
+      items:
+      - name: Azure Cosmos DB
+        href: functions-add-output-binding-cosmos-db-vs-code.md
+      - name: Azure SQL Database
+        href: functions-add-output-binding-azure-sql-vs-code.md
+    - name: OpenAI
+      displayName: Connect to OpenAI, text completion
+      href: functions-add-openai-text-completion.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
