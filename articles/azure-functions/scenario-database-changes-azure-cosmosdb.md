@@ -185,7 +185,7 @@ After you review and verify your function code locally, it's time to publish the
 
 You can run the `azd deploy` command from Visual Studio Code to deploy the project code to your already provisioned resources in Azure.
 
-1. Press <kbd>F1</kbd> to open the command palette, search for and run the command `Azure Developer CLI (azd): Deploy to Azure (deploy)`. 
+- Press <kbd>F1</kbd> to open the command palette, search for and run the command `Azure Developer CLI (azd): Deploy to Azure (deploy)`. 
     
     The `azd deploy` command packages and deploys your code to the deployment container. The app is then started and runs in the deployed package. 
 
