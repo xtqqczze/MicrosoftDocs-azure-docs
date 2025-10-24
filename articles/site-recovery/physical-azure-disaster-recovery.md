@@ -4,8 +4,8 @@ description: Learn how to set up disaster recovery to Azure for on-premises Wind
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 07/08/2024
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -55,7 +55,7 @@ Get a Microsoft [Azure account](https://azure.microsoft.com/).
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml) permissions.
+- Verify and modify [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal) permissions.
 
 
 

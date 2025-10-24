@@ -19,7 +19,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ::: zone pivot="front-door-portal"
 
@@ -334,6 +334,8 @@ The following are common mistakes when configuring an Azure Application Gateway 
 3. Providing an incorrect Azure Application Gateway frontend IP configuration name as the value for `private-link-sub-resource-type`.
 
 ::: zone-end
+
+4. The combined length of the Application Gateway name and Private Link configuration name must not exceed 70 characters to avoid deployment failures.
 
 ## Next step
 
