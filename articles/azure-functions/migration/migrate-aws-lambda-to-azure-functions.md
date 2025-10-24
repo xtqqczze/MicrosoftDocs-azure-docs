@@ -260,20 +260,26 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 1. Test iteratively and gather feedback.
 
-   Use the proof of concept to gather feedback, identify gaps, and fine-tune the process before you scale to larger workloads. This iterative approach ensures that by the time you move to full-scale migration, you address potential challenges and refine the process.
+  > [!TIP]
+  > Use this custom chat mode prompt to check the current status of the migration process at any time:
+  > 
+  > ```copilot-prompt
+  > `/getstatus`
+  > ```
 
-> [!TIP]
-> Use this custom chat mode prompt to start the code migration process:
-> 
-> ```copilot-prompt
-> `/phase2-migratelambdacode`
-> ```
+   Use the proof of concept to gather feedback, identify gaps, and fine-tune the process before you scale to larger workloads. This iterative approach ensures that by the time you move to full-scale migration, you address potential challenges and refine the process.
 
 ## Build the migration assets
 
 This step is a transitional development phase. During this phase, you build source code, infrastructure as code (IaC) templates, and deployment pipelines to represent the workload in Azure. You must adapt function code for compatibility and best practices before you can perform the migration.
 
 - [Adapt function code, configuration files, and infrastructure as code files](#adapt-function-code-configuration-files-and-infrastructure-as-code-files)
+  > [!TIP]
+  > Use this custom chat mode prompt to start the code migration process:
+  > 
+  > ```copilot-prompt
+  > `/phase2-migratelambdacode`
+  > ```
 - [Adjust configuration settings](#adjust-configuration-settings)
 - [Generate IaC files](#generate-iac-files)
 - [Use tools for refactoring](#use-tools-for-refactoring)
@@ -606,16 +612,16 @@ Deployments follow a single path. After you build your project code and zip it i
 
 - Use tools like Bicep, Azure Resource Manager templates, or Terraform to create IaC files to deploy Azure resources.
 
+ > [!TIP]
+ > Use this custom chat mode prompt to generate infrastructure as code (IaC) files for Azure Functions:
+ > 
+ > ```copilot-prompt
+ > `/phase3-generatefunctionsinfra`
+ > ```
+
 - Define resources such as Azure Functions, storage accounts, and networking components in your IaC files.
 
 - Use this [IaC samples repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC) for samples that use Azure Functions recommendations and best practices.
-
-> [!TIP]
-> Use this custom chat mode prompt to generate infrastructure as code (IaC) files for Azure Functions:
-> 
-> ```copilot-prompt
-> `/phase3-generatefunctionsinfra`
-> ```
 
 ### Use tools for refactoring
 
@@ -639,6 +645,13 @@ Develop failover and failback strategies for your migration and thoroughly test 
 
    - Test each function thoroughly to ensure that it works as expected. These tests should include input/output, event triggers, and bindings verification.
 
+     > [!TIP]
+     > Use this custom chat mode prompt to validate the migrated Azure Functions code:
+     > 
+     > ```copilot-prompt
+     > `/phase4-validatecode`
+     > ```
+
    - Use tools like curl or [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extensions on VS Code to send HTTP requests for HTTP-triggered functions.
 
    - For other triggers, such as timers or queues, ensure that the triggers fire correctly and the functions run as expected.
@@ -648,6 +661,13 @@ Develop failover and failback strategies for your migration and thoroughly test 
    - Conduct performance testing to compare the new Azure Functions deployment with the previous AWS Lambda deployment.
 
    - Monitor metrics like response time, run time, and resource consumption.
+
+     > [!TIP]
+     > Use this custom chat mode prompt to validate the infrastructure configuration:
+     > 
+     > ```copilot-prompt
+     > `/phase5-validateinfra`
+     > ```
 
    - Use Application Insights for [monitoring, log analysis, and troubleshooting](/azure/azure-functions/functions-monitoring) during the testing phase.
 
@@ -663,6 +683,13 @@ Deploy and test functions to validate their performance and correctness.
 
 ### Deploy to Azure
 
+> [!TIP]
+> Use this custom chat mode prompt to deploy the validated project to Azure:
+> 
+> ```copilot-prompt
+> `/phase6-deploytoazure`
+> ```
+
 Deploy workloads by using the [VS Code](/azure/azure-functions/functions-develop-vs-code#publish-to-azure) publish feature. You can also deploy workloads from the command line by using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). [Azure DevOps](/azure/azure-functions/functions-how-to-azure-devops#deploy-your-app) and [GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) also use One Deploy.
 
 - Azure Functions Core Tools: [Deploy your function app](/azure/azure-functions/flex-consumption-how-to#deploy-your-code-project) by using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) with the `func azure functionapp publish <FunctionAppName>` command.
@@ -670,13 +697,6 @@ Deploy workloads by using the [VS Code](/azure/azure-functions/functions-develop
 - Continuous integration and continuous deployment (CI/CD) pipelines: Set up a CI/CD pipeline by using services like GitHub Actions, Azure DevOps, or another CI/CD tool.
 
 For more information, see [Continuous delivery by using GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) or [Continuous delivery with Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops).
-
-> [!TIP]
-> Use this custom chat mode prompt to generate infrastructure as code (IaC) files for Azure Functions:
-> 
-> ```copilot-prompt
-> `/phase6-deploytoazure`
-> ```
 
 ## Explore sample migration scenarios
 
