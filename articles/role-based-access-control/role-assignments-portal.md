@@ -194,7 +194,7 @@ This capability is being deployed in stages, so it might not be available yet in
 
 1. (Optional) Use **Configure PIM Policy** to configure expiration options, role activation requirements (approval, multifactor authentication, or Conditional Access authentication context), and other settings.
 
-   When you select the **Update PIM policy** link, a PIM page is displayed. Select **Settings** to configure PIM policy for for roles. For more information, see [Configure Azure resource role settings in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-configure-role-settings).
+   When you select the **Update PIM policy** link, a PIM page is displayed. Select **Settings** to configure PIM policy for roles. For more information, see [Configure Azure resource role settings in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-configure-role-settings).
 
 1. Click **Next**.
 
