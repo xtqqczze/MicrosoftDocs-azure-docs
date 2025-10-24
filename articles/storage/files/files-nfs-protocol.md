@@ -132,5 +132,5 @@ NFS has been validated to work well with workloads such as SAP application layer
 
 ## Next steps
 
-- [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
+- [Create an NFS file share](create-classic-file-share.md)
 - [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](../common/nfs-comparison.md?toc=/azure/storage/files/toc.json)
