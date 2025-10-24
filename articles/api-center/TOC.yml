@@ -35,7 +35,6 @@
       href: ./tutorials/configure-environments-deployments.md
     - name: 4 - Link an API Management instance
       href: ../api-management/tutorials/link-api-center.md
-
   expanded: true
 - name: API inventory
   items:
