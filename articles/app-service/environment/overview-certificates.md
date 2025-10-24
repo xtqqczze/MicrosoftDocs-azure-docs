@@ -158,7 +158,7 @@ resource "azapi_resource" "{certificateName}" {
 }
 ```
 
----
+-----
 
 Replace the following placeholders:
 
@@ -173,20 +173,20 @@ Replace the following placeholders:
 
 To remove a root certificate from your App Service Environment:
 
-### [REST API](#tab/rest-api)
+### [REST API](#tab/rest-api-remove)
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01
 ```
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-remove)
 
 ```azurecli-interactive
 az rest --method delete \
   --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01
 ```
 
----
+-----
 
 ### Check root certificates
 
@@ -194,37 +194,37 @@ You can retrieve root certificates from your App Service Environment using the f
 
 #### Retrieve a specific certificate
 
-### [REST API](#tab/rest-api)
+### [REST API](#tab/rest-api-get-specific)
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01
 ```
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-get-specific)
 
 ```azurecli-interactive
 az rest --method get \
   --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates/{certificateName}?api-version=2024-04-01
 ```
 
----
+-----
 
 #### Retrieve all public certificates
 
-### [REST API](#tab/rest-api)
+### [REST API](#tab/rest-api-get-all)
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates?api-version=2024-04-01
 ```
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-get-all)
 
 ```azurecli-interactive
 az rest --method get \
   --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/publicCertificates?api-version=2024-04-01
 ```
 
----
+-----
 
 ### Stop and start apps
 
