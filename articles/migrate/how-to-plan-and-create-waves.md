@@ -5,12 +5,12 @@ author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
-ms.topic: concept-article
+ms.topic: how-to
 ms.date: 10/15/2025
 # Customer intent: how to plan and execute cloud migration efficiently using Azure Migrate by creating migration waves that group workloads logically, sequence them based on priority, and optionally leverage assessments for optimized migration paths.
 ---
 
-# Create migration Waves in Azure Migrate for efficient planning (heading changed)
+# Create migration Waves in Azure Migrate for efficient planning
 
 To create migration waves, group your applications and workloads into logical sets that you can migrated together. These groups called **waves** help you execute migrations in smaller, manageable batches, reduce risk and improving efficiency. The key planning actions include:
 

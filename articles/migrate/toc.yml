@@ -173,6 +173,16 @@ items:
           href: create-web-app-assessment.md
         - name: Review assessment report
           href: review-web-app-assessment.md
+  - name: Wave planning
+    items:
+    - name: Overview
+      href: wave-planning-overview.md
+    - name: Plan and create waves
+      href: how-to-plan-and-create-waves.md
+    - name: Complete a wave Plan
+      href: how-to-complete-a-wave-plan.md  
+    - name: Execute and track waves
+      href: how-to-execute-and-track-waves.md    
 #     - name: AVS assessment
 #       items:
 #       - name: Create an AVS assessment

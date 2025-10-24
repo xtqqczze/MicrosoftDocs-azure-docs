@@ -19,7 +19,7 @@ Creating a high-fidelity plan including all the migration details is essential f
 1. Activities to be performed during migration and modernization.
 1.  Timeline and prerequisites to prepare for migration.
 
-## Identify Azure migration targets before moving workloads - (Changed the heading)
+## Identify Azure migration targets before moving workloads 
 
 Before migrating workloads and applications, you should identify the Azure destination and determine the appropriate method for moving them. The assessment provides recommendations and details about migration targets in Azure.
 
@@ -61,9 +61,9 @@ Use workload target settings to configure Azure targets, select migration tools,
 1. Review and add tasks using **Add tasks** that need to be performed and tracked for migrations.
 1. Select **Save tasks** to save.
     
-Refer to the FAQ to learn about the supported tools and targets for the execute phase of migration and modernization [TBD].
+Refer to the [FAQ](common-questions-wave-planning.md) to learn about the supported tools and targets for the execute phase of migration and modernization.
 
-## Prepare your Wave for migration: Key prerequisites (heading changed)
+## Prepare your Wave for migration: Key prerequisites
 
 Azure Migrate identifies the prerequisites you need to complete before starting migration, based on the migration targets, tools, and tasks you define. To review and add additional prerequisites for tracking and to make the wave ready for migration, do the following:
 
