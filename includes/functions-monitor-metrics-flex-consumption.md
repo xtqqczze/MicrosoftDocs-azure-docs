@@ -28,7 +28,7 @@ Use [Azure Monitor metrics explorer](/azure/azure-monitor/essentials/metrics-get
 
 The resulting chart contains the totals for all the Flex Consumption execution metrics in the chosen time range, which in this example is a custom time range.
 
-![Graph of function execution counts and execution units](./media/functions-monitor-metrics-consumption/monitor-billing-metrics-flex-consumption.png)
+![Graph of On Demand Function Execution Counts and On Demand Function Execution Units](./media/functions-monitor-metrics-consumption/monitor-billing-metrics-flex-consumption.png)
 
 As the number of On Demand Function Execution Units is so much greater than On Demand Function Execution Count, and there were no [always ready instances](../articles/azure-functions/flex-consumption-plan.md#always-ready-instances) on the app, the chart just shows On Demand Function Execution Units.
 
