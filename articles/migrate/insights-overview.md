@@ -42,7 +42,7 @@ Azure Migrate identifies potential security risks in your datacenter using softw
 
 Security risks are derived through a series of following analyses:
 
-- **End-of-support software**:Azure Migrate checks the versions of discovered software against the publicly available [endoflife.date](https://endoflife.date/) repository. All end of life data is refreshed every 7 days. If a software is found to be end of support (meaning the vendor no longer provides security updates), it flags it as a security risk. Identifying unsupported software early helps you plan upgrades or mitigations as part of your cloud migration.
+- **End-of-support software**: Azure Migrate checks the versions of discovered software against the publicly available [endoflife.date](https://endoflife.date/) repository. All end of life data is refreshed every 7 days. If software is found to be end of support (meaning the vendor no longer provides security updates), it flags it as a security risk. Identifying unsupported software early helps you plan upgrades or mitigations as part of your cloud migration.
 
 - **Vulnerabilities**: Azure Migrate identifies installed software and operating system (OS) for each server. It maps the discovered software and OS to CPE nomenclature (Common Platform Enumeration) using AI model, which provides a unique identification for each software version. It stores only software metadata (name, publisher, version) and doesn't capture any organization-specific information. Azure Migrate correlates the CPE names with known CVE IDs (Common Vulnerabilities and Exposures). CVE IDs are unique identifiers assigned to publicly disclosed cybersecurity vulnerabilities and help organizations identify and track vulnerabilities in a standard way. Refer to [CVE](https://www.cve.org/) for more details. Information about CVE IDs and related software comes from the publicly available [National Vulnerability Database](https://nvd.nist.gov/) (NVD), managed by NIST. This helps identify vulnerabilities in the software. Each vulnerability is categorized by risk level (Critical, High, Medium, Low) based on the [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) score provided by NVD. This feature uses the NVD API for all CVE IDs but is not endorsed or certified by the NVD. All CVE data from NVD is refreshed every 7 days. 
 
@@ -86,7 +86,7 @@ To review insights in Azure Migrate:
 1. Select your project from **All Projects**.
 1. In the left menu, select **Explore inventory** > **Insights (preview)** to review security insights for the selected project. This page provides a summary of security risks across discovered servers and software. 
 
-    :::image type="content" source="./media/security-insights-overview/insights-preview.png" alt-text="Screenshot shows to select Insights." lightbox="./media/security-insights-overview/insights-preview.png":::
+    :::image type="content" source="./media/security-insights-overview/insights-preview.png" alt-text="Screenshot shows the security risks across discovered servers and software." lightbox="./media/security-insights-overview/insights-preview.png":::
 
 1. Select any insight to review detailed information. The **Summary card** highlights critical security risks in your datacenter that need immediate attention. It identifies:
     - Servers with critical vulnerabilities that benefit from enabling Microsoft Defender for Cloud after migration. 
@@ -160,7 +160,7 @@ To review software with identified security risks, follow these steps:
     :::image type="content" source="./media/security-insights-overview/metadata-export-view.png" alt-text="Screenshot shows detailed list of discovered software and its metadata." lightbox="./media/security-insights-overview/metadata-export-view.png":::
 
 
-1. To view software with specific security risks, go to the **Insights** (preview) pane. here, you see a detailed list of softwares affected due to the following issues:
+1. To view software with specific security risks, go to the **Insights** (preview) pane. here, you see a detailed list of software affected due to the following issues:
 
     - End-of-support status
     - Known vulnerabilities (CVEs)
@@ -185,7 +185,7 @@ To view detailed security insights for a specific server:
     - Software with known vulnerabilities (CVEs)
     The summary of the top five pending updates and top five vulnerabilities is provided to help prioritize remediation.
 
-    :::image type="content" source="./media/security-insights-overview/pending-updates.png" alt-text="Screenshot shows the top five pending updates." lightbox="./media/security-insights-overview/pending-updates.png":::
+    :::image type="content" source="./media/security-insights-overview/pending-updates.png" alt-text="Screenshot shows the pending updates and vulnerabilities." lightbox="./media/security-insights-overview/pending-updates.png":::
 
 ## Manage permissions for Security Insights 
 
@@ -197,7 +197,7 @@ Security insights are enabled by default for all users. To manage access, create
 | Vulnerabilities| `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/vulnerabilities/* `</br> </br> </br> </br>`Microsoft.OffAzure/serverSites/machines/inventoryinsights/vulnerabilities/*` </br> </br> </br> </br>`Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*` |  Read vulnerabilities of Hyper-V site </br> </br> Read vulnerabilities of physical server site </br> </br> Read vulnerabilities of VMware machine   | 
 
 
-:::image type="content" source="./media/security-insights-overview/permissions.png" alt-text="Screenshot shows how the permisions." lightbox="./media/security-insights-overview/permissions.png":::
+:::image type="content" source="./media/security-insights-overview/permissions.png" alt-text="Screenshot shows that you don't have permissions to view." lightbox="./media/security-insights-overview/permissions.png":::
 
 >[!Note]
 > Support status for operating systems and software is a machine-level property. User access to this information is determined by the permissions assigned at the machine level.
