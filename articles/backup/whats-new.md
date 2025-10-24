@@ -63,9 +63,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Backup support for Azure Data Lake storage is now generally available 
 
-Azure Backup allows you to create operational and vaulted backups for [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md)-enabled storage accounts, protecting your data from ransomware attacks and malicious or accidental deletions. You can define backup schedules to generate recovery points and set retention policies to keep backups in the vault for up to **99 years**.
+Azure Backup allows you to create operational and vaulted backups for [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md)-enabled storage accounts, which protect your data from ransomware attacks and malicious or accidental deletions. You can define backup schedules to generate recovery points and set retention policies to keep backups in the vault for up to **99 years**.
 
-The backup data is stored in the [Backup vault](backup-vault-overview.md), giving you an offsite copy for long-term protection. If the source account loses data, you can restore it to an alternate account and regain access quickly. You can also manage backups at scale using [Resiliency](../business-continuity-center/business-continuity-center-overview.md) and monitor them using Azure Backup’s advanced alerting and reporting capabilities.
+The backup data is stored in the [Backup vault](backup-vault-overview.md) that gives you an offsite copy for long-term protection. If the source account loses data, you can restore it to an alternate account and regain access quickly. You can also manage backups at scale using [Resiliency](../business-continuity-center/business-continuity-center-overview.md) and monitor them using Azure Backup’s advanced alerting and reporting capabilities.
 
 For more information, see [Overview of Azure Data Lake Storage backup](azure-data-lake-storage-backup-overview.md).
 

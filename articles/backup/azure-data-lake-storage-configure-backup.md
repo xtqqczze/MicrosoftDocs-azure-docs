@@ -1,6 +1,6 @@
 ---
-title: Configure Backup for Azure Data Lake Storage using Azure portal
-description: Learn how to configure backup for Azure Data Lake Storage using Azure portal.
+title: Configure Backup for Azure Data Lake Storage using Azure portal, PowerShell, or Azure CLI
+description: Learn how to configure backup for Azure Data Lake Storage using Azure portal, PowerShell, or Azure CLI.
 ms.topic: how-to
 ms.service: azure-backup
 ms.custom:
@@ -13,11 +13,11 @@ ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to configure backup for Azure Data Lake Storage, so that I can ensure data protection and recovery capabilities are in place for my storage accounts.
 ---
 
-# Configure backup for Azure Data Lake Storage using Azure portal, PowerShell, or Azure CLI
+# Configure backup for Azure Data Lake Storage
 
 ::: zone pivot="client-portal"
 
-This article describes how to configure backup (operational and vaulted) for Azure Data Lake Storage using Azure portal.
+This article describes how to configure operational and vaulted backups for Azure Data Lake Storage using Azure portal.
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ Learn how to [monitor backup jobs](azure-data-lake-storage-backup-tutorial.md#mo
 
 ::: zone pivot="client-powershell"
 
-This article describes how to configure backup (operational and vaulted) for Azure Data Lake Storage using PowerShell.
+This article describes how to configure operational and vaulted backups for Azure Data Lake Storage using PowerShell.
 
 ## Prerequisites
 
@@ -67,9 +67,9 @@ After the vault and backup policy are created, configure backup for Azure Data L
 
 ### Fetch the ARM ID of the storage account containing the Data Lake Storage to be protected
 
-The Azure Resource Manager (ARM) ID of the storage account is required to configure backup for Azure Data Lake Storage. This ID identifies the storage account that contains the Data Lake Storage you want to protect. For example, use the storage account `PSTestSA` in the resource group `adlsrg` in a different subscription.
+The Azure Resource Manager (ARM) ID of the storage account is required to configure backup for Azure Data Lake Storage. This ID identifies the storage account that contains the Data Lake Storage you want to protect. For example, use the storage account *`PSTestSA`* in the resource group `adlsrg` in a different subscription.
 
-TO fetch the ARM ID of the storage account, run the following cmdlet:
+To fetch the ARM ID of the storage account, run the following cmdlet:
 
 ```azurepowershell-interactive
 $SAId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/adlsrg/providers/Microsoft.Storage/storageAccounts/PSTestSA"
@@ -89,7 +89,7 @@ After all the relevant permissions are set, configure Azure Date Lake Storage ba
 
 1. Create a new backup configuration object to specify the set of containers you want to back up. 
 
-   To back up all containers, pass the `-IncludeAllContainer` parameter. For specific containers, pass the list of containers to the `-VaultedBackupContainer` parameter.
+   To back up all containers, pass the *`-IncludeAllContainer`* parameter. For specific containers, pass the list of containers to the *`-VaultedBackupContainer`* parameter.
     ```azurepowershell-interactive
     $backupConfig=New-AzDataProtectionBackupConfigurationClientObject -DatasourceType AzureDataLakeStorage -IncludeAllContainer -StorageAccountResourceGroupName "StorageRG" -StorageAccountName "testpscmd"
     ```
@@ -111,7 +111,7 @@ After all the relevant permissions are set, configure Azure Date Lake Storage ba
 
 ::: zone pivot="client-cli"
 
-This article describes how to configure backup (operational and vaulted) for Azure Data Lake Storage using Azure CLI.
+This article describes how to configure operational and vaulted backups for Azure Data Lake Storage using Azure CLI.
 
 ## Prerequisites
 
@@ -129,9 +129,12 @@ After the vault and backup policy are created, configure backup for Azure Data L
 1. Grant permissions to the Backup vault
 1. Trigger the request for backup configuration
 
+>[!Important]
+>After a storage account is configured for Data Lake Storage  backup, a few capabilities, such as **change feed** and **delete lock** are affected. [Learn more](blob-backup-configure-manage.md?tabs=vaulted-backup#effects-on-backed-up-storage-accounts).
+
 ### Fetch the ARM ID of the storage account containing the Data Lake Storage to be protected
 
-The Azure Resource Manager (ARM) ID of the storage account is required to configure backup for Azure Data Lake Storage. This ID identifies the storage account that contains the Data Lake Storage you want to protect. For example, use the storage account `CLITestSA` in the resource group `adlsrg` in a different subscription present in the `Southeast Asia` region.
+The Azure Resource Manager (ARM) ID of the storage account is required to configure backup for Azure Data Lake Storage. This ID identifies the storage account that contains the Data Lake Storage you want to protect. For example, use the storage account *`CLITestSA`* in the resource group `adlsrg` in a different subscription present in the `Southeast Asia` region.
 
 TO fetch the ARM ID of the storage account, run the following command:
 
@@ -205,9 +208,6 @@ After all the relevant permissions are set, configure Azure Date Lake Storage ba
     }
 
     ```
-
->[!Important]
->After a storage account is configured for Data Lake Storage  backup, a few capabilities, such as **change feed** and **delete lock** are affected. [Learn more](blob-backup-configure-manage.md?tabs=vaulted-backup#effects-on-backed-up-storage-accounts).
 
 ::: zone-end
 

@@ -2,7 +2,7 @@
 author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
-ms.date: 10/16/2025
+ms.date: 11/18/2025
 ms.author: v-mallicka
 ---
 
@@ -35,7 +35,7 @@ To configure backup, follow these steps:
 
    :::image type="content" source="./media/azure-data-lake-storage-configure-backup/role-assign-message-success.png" alt-text="Screenshot shows the success message for role assignments." lightbox="./media/azure-data-lake-storage-configure-backup/role-assign-message-success.png":::
 
-   If access permissions are missing, error messages appear. See the [prerequisites](#prerequisites).
+   Error messages appear when access permissions are missing. See the [Grant permissions section](../articles/backup/azure-data-lake-storage-backup-tutorial.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
 
    Validation errors appear if the selected storage accounts don't have the **Storage Account Backup Contributor** role. Review the error messages and take necessary actions.
 

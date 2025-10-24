@@ -15,24 +15,23 @@ ms.author: v-mallicka
 
 This tutorial describes how to back up Azure Data Lake Storage using  the Azure portal. 
 
-Learn about [Azure Data Lake Storage backup and restore](azure-data-lake-storage-backup-overview.md), and the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md).
+Azure Backup provides a simple, secure, and cost-effective solution to back up your Azure Data Lake Storage accounts without the need to deploy and manage backup infrastructure. You can back up your data to a Backup vault in Azure, and restore it when needed. Learn about [Azure Data Lake Storage backup and restore](azure-data-lake-storage-backup-overview.md), and the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md).
 
 ## Prerequisites
 
 Before you back up Azure Data Lake Storage, ensure the following prerequisites are met:
 
-- The storage account must be in a [supported region and of the required types](azure-data-lake-storage-backup-support-matrix.md).
+- The storage account must be of the required types and located in a supported region; this feature is currently available only in specific regions. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md).
 - The target account mustn't have containers with the  names same as the containers in a recovery point; otherwise, the restore operation fails.
 - Identify or [create a Backup vault](create-manage-backup-vault.md#create-backup-vault) in the same region as the Azure Data Lake Storage account.
 - [Create a backup policy for Azure Data Lake Storage](azure-data-lake-storage-backup-create-policy-quickstart.md?pivots=client-portal) to configure the backup schedule and retention.
 
 >[!Note]
->- This feature is currently available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
->- Vaulted backup restores are only possible to a different storage account.
+>Vaulted backup restores are only possible to a different storage account.
 
 ### Grant permissions to the Backup vault on storage accounts
 
-A Backup vault needs specific permissions on the storage account for backup operations. The **Storage Account Backup Contributor** role consolidates these permissions for easy assignment. We recommend you to grant this role to the Backup vault before configuring backup.
+A Backup vault needs specific permissions on the storage account for backup operations. The **Storage Account Backup Contributor** role consolidates these permissions for easy assignment. We recommend you grant this role to the Backup vault before configuring backup.
 
 >[!Note]
 >You can also perform the role assignment while configuring backup.

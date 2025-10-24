@@ -13,7 +13,7 @@ ms.author: v-mallicka
 # Customer intent: As an IT administrator, I want to configure backup for Azure Data Lake Storage using the ARM or Bicep template so that I can ensure data protection against accidental or malicious deletions without maintaining on-premises infrastructure.
 ---
 
-# Quickstart: Configure backup for Azure Data Lake Storage using ARM or Bicep template
+# Quickstart: Configure backup for Azure Data Lake Storage
 
 ::: zone pivot="client-template-arm"
 
