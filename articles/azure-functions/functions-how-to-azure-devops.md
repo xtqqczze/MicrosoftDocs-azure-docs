@@ -190,6 +190,38 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     artifactName: 'drop'
 ```
+#### [Java](#tab/java)
+
+You can use the following sample to create a YAML file to build a .NET app:
+
+```yaml
+pool:
+  vmImage: 'ubuntu-latest'
+steps:
+  - task: UseJavaVersion@1
+    displayName: 'Install Java 17'
+    inputs:
+      version: '17'
+      architecture: 'x64'
+  - task: Maven@3
+    displayName: 'Build with Maven'
+    inputs:
+      mavenPomFile: 'pom.xml'
+      goals: 'clean package'
+      options: '-DskipTests=true'
+      publishJUnitResults: false
+  - task: ArchiveFiles@2
+    displayName: "Archive files"
+    inputs:
+      rootFolderOrFile: "$(System.DefaultWorkingDirectory)/target"
+      includeRootFolder: false
+      archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+      artifactName: 'drop'
+```
+
 ---
 
 ::: zone-end  
@@ -324,6 +356,36 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     artifactName: 'drop'
 ```
+#### [Java](#tab/java)
+
+```yaml
+pool:
+  vmImage: 'ubuntu-latest'
+steps:
+  - task: UseJavaVersion@1
+    displayName: 'Install Java 17'
+    inputs:
+      version: '17'
+      architecture: 'x64'
+  - task: Maven@3
+    displayName: 'Build with Maven'
+    inputs:
+      mavenPomFile: 'pom.xml'
+      goals: 'clean package'
+      options: '-DskipTests=true'
+      publishJUnitResults: false
+  - task: ArchiveFiles@2
+    displayName: "Archive files"
+    inputs:
+      rootFolderOrFile: "$(System.DefaultWorkingDirectory)/target"
+      includeRootFolder: false
+      archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+      artifactName: 'drop'
+```
+
 ---
 
 ::: zone-end
