@@ -22,7 +22,7 @@ Migrating a serverless workload that uses Amazon Web Services (AWS) Lambda to Az
 - Learn how to perform key migration activities like premigration planning and workload assessment.
 - Evaluate and optimize a migrated workload.
 
-## Migraton custom chat mode
+## Migration custom chat mode
 
 To make it easier to migrate your AWS Lambda apps to Azure using Visual Studio Code, Azure Functions provides a [custom chat mode](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes) in GitHub Copilot. Use these steps to add the `LambdaToFunctionMigration` custom chat mode to your project in Visual Studio Code:
 
