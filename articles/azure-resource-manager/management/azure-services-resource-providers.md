@@ -216,7 +216,7 @@ The resource providers for management services are:
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
 | Microsoft.Billing - [registered by default](#registration) | [Cost Management and Billing](../../cost-management-billing/index.yml) |
 | Microsoft.Blueprint | [Azure Blueprints](../../governance/blueprints/index.yml) |
-| Microsoft.ChangeSafety - [registered by default](#registration) | Safety checks that help Microsoft reduce risk and improve reliability in service deployment |
+| Microsoft.ChangeSafety - [registered by default](#registration) | Safety checks that help Microsoft reduce risk and improve reliability in Microsoft service deployment |
 | Microsoft.ClassicSubscription - [registered by default](#registration) | Classic deployment model |
 | Microsoft.Consumption - [registered by default](#registration) | [Cost Management](../../cost-management-billing/index.yml) |
 | Microsoft.CostManagement - [registered by default](#registration) | [Cost Management](../../cost-management-billing/index.yml) |
