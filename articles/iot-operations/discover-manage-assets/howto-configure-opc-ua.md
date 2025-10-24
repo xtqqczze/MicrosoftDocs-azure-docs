@@ -102,6 +102,8 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 
 ### Other security options
 
+To manage the trusted certificates list for the connector for OPC UA, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
+
 When you create the inbound endpoint you can also select:
 
 | Option | Type | Description |

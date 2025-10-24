@@ -28,7 +28,7 @@ The connector for HTTP/REST supports the following features:
   - Username/password basic HTTP authentication
   - x509 client certificates
   - Anonymous access for testing purposes
-  - Certificate trust bundle to specify additional certificate authorities
+  - Certificate trust list
 
 For each configured dataset, the connector for HTTP/REST:
 
@@ -114,6 +114,10 @@ To use the `Username password` authentication mode, complete the following steps
 ### Configure a device to use an X.509 certificate
 
 [!INCLUDE [connector-certificate](../includes/connector-certificate.md)]
+
+### Configure a certificate trust list for a device to use
+
+To manage the trusted certificates list for the connector for HTTP/REST, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
 
 ## Create a namespace asset
 
