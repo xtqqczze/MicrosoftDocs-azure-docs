@@ -188,11 +188,9 @@ az rest --method delete \
 
 -----
 
-### Check root certificates
+### Retrieve a specific certificate
 
-You can retrieve root certificates from your App Service Environment using the following methods:
-
-#### Retrieve a specific certificate
+To retrieve a specific root certificate from your App Service Environment:
 
 ### [REST API](#tab/rest-api-get-specific)
 
@@ -209,7 +207,9 @@ az rest --method get \
 
 -----
 
-#### Retrieve all public certificates
+### Retrieve all public certificates
+
+To retrieve all public certificates from your App Service Environment:
 
 ### [REST API](#tab/rest-api-get-all)
 
