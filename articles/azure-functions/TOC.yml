@@ -383,8 +383,6 @@
         - name: Linux container (Premium)
           displayName: container, Docker, custom
           href: functions-deploy-container.md
-      - name: Azure Cosmos DB trigger
-        href: functions-create-cosmos-db-triggered-function.md
       - name: Blob storage trigger
         href: functions-create-storage-blob-triggered-function.md
       - name: Queue storage trigger
@@ -563,8 +561,6 @@
         href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json
       - name: Work with Event Grid
         href: event-grid-how-tos.md
-    - name: Connect to SQL Database
-      href: functions-scenario-database-table-cleanup.md
     - name: Connect to a virtual Network
       href: ./functions-create-vnet.md
     - name: Create OpenAPI definitions
