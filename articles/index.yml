@@ -1479,28 +1479,28 @@ getStarted:
   blocks:
     - componentType: icon-card
       title: What's new
-      summary: Latest releases and documentation updates for Azure OpenAI.
+      summary: Latest releases and documentation updates for Azure OpenAI
       url: /azure/ai-foundry/openai/whats-new
       icon:
         componentType: image
         src: '/media/hubs/azure/whats-new.svg'
     - componentType: icon-card
       title: Overview
-      summary: Learn how to navigate and find resources in the Azure portal.
+      summary: Learn how to navigate and find resources in the Azure portal
       url: /azure/azure-portal/azure-portal-overview
       icon:
         componentType: image
         src: '/media/hubs/azure/overview.svg'
     - componentType: icon-card
       title: For developers
-      summary: Introduction for developers new to Azure.
+      summary: Introduction for developers new to Azure
       url: /azure/developer/intro/azure-developer-overview
       icon:
         componentType: image
         src: '/media/hubs/azure/for-developers.svg'
     - componentType: icon-card
       title: Troubleshooting
-      summary: Troubleshoot common issues in Azure.
+      summary: Troubleshoot common issues in Azure
       url: /troubleshoot/azure/
       icon:
         componentType: image
@@ -1510,28 +1510,28 @@ recommendedContent:
   blocks:
     - componentType: icon-card
       title: Azure architectures
-      summary: Find architecture diagrams and real world examples of cloud solutions.
+      summary: Find architecture diagrams and real world examples of cloud solutions
       url: /azure/architecture/browse/
       icon:
         componentType: image
         src: '/media/hubs/azure/azure-architectures.svg'
     - componentType: icon-card
       title: All Azure training
-      summary: Grow your skills to build and manage applications in the cloud.
+      summary: Grow your skills to build and manage applications in the cloud
       url: /training/browse/?products=azure
       icon:
         componentType: image
         src: '/media/hubs/azure/all-azure-training.svg'
     - componentType: icon-card
       title: Migrate to Azure
-      summary: Discover essential steps, best practices, and technical resources. 
+      summary: Discover essential steps, best practices, and technical resources 
       url: /azure/migration/migrate-to-azure
       icon:
         componentType: image
         src: '/media/hubs/azure/azure-concepts.svg'
     - componentType: icon-card
       title: Your career path
-      summary: Receive training based on your career path.
+      summary: Receive training based on your career path
       url: /training/career-paths/
       icon:
         componentType: image
