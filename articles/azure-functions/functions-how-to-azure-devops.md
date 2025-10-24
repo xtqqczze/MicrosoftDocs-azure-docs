@@ -196,7 +196,7 @@ steps:
 ```
 #### [Java](#tab/java)
 
-You can use the following sample to create a YAML file to build a .NET app:
+You can use the following sample to create a YAML file to build a Java app:
 
 ```yaml
 pool:
