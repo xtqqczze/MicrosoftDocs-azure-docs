@@ -25,7 +25,7 @@ Hosting plans that allow your apps to scale dynamically support extra Functions-
 
 #### [Flex Consumption plan](#tab/flex-consumption-plan)
 
-These metrics are used to estimate the costs associated with _on demand_ and _always ready_ meters used for billing in a [Flex Consumption plan]:
+These metrics are used to estimate the costs associated with _on demand_ and _always ready_ meters used for billing in a [Flex Consumption plan](./flex-consumption-plan.md):
 
 | Metric | Description | Meter calculation |
 | ------ | ---------- | ----------------- |

@@ -731,14 +731,26 @@ When your app is connected to Application Insights, you can better analyze your 
  
    + Use "Performance" to analyze response times and dependencies
    + Use "Failures" to identify any errors occurring after migration
-   + Create custom queries in "Logs" to analyze function behavior:
+   + Create custom queries in "Logs" to analyze function behavior. For example:
 
+   Compare success rates by instance:
      ```kusto
-     // Compare success rates by instance
      requests
      | where timestamp > ago(7d)
      | summarize successCount=countif(success == true), failureCount=countif(success == false) by bin(timestamp, 1h), cloud_RoleName
      | render timechart
+     ```
+
+   Analyze the number of instances that were actively processing your function:
+     ```kusto
+    let _startTime = ago(20m); //Adjust start time as needed
+    let _endTime = now(); //Adjust end time as needed
+    let bins = 1s; //Adjust bin as needed - this will give per second results
+    requests 
+    | where operation_Name == 'EventHubsTrigger' //Replace with the name of the function in the function app that you are analyzing
+    | where timestamp between(_startTime .. _endTime)
+    | make-series dcount(cloud_RoleInstance) default=0 on timestamp from _startTime to _endTime step bins
+    | render columnchart
      ```
 
 ### View costs
