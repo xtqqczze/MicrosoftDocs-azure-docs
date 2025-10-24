@@ -1487,7 +1487,7 @@ getStarted:
     - componentType: icon-card
       title: Overview
       summary: Learn how to navigate and find resources in the Azure portal.
-      url: /azure-portal/azure-portal-overview
+      url: /azure/azure-portal/azure-portal-overview
       icon:
         componentType: image
         src: '/media/hubs/azure/overview.svg'
@@ -1500,7 +1500,7 @@ getStarted:
         src: '/media/hubs/azure/for-developers.svg'
     - componentType: icon-card
       title: Troubleshooting
-      summary: Troubleshoot common issues in Azure
+      summary: Troubleshoot common issues in Azure.
       url: /troubleshoot/azure/
       icon:
         componentType: image
