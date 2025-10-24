@@ -44,7 +44,7 @@ Security risks are derived through a series of following analyses:
 
 - **End-of-support software**:Azure Migrate checks the versions of discovered software against the publicly available [endoflife.date](https://endoflife.date/) repository. All end of life data is refreshed every 7 days. If a software is found to be end of support (meaning the vendor no longer provides security updates), it flags it as a security risk. Identifying unsupported software early helps you plan upgrades or mitigations as part of your cloud migration.
 
-- **Vulnerabilities**: Azure Migrate identifies installed software and operating system (OS) for each server. It maps the discovered software and OS to CPE nomenclature (Common Platform Enumeration) using AI model, which provides a unique identification for each software version. It stores only software metadata (name, publisher, version) and doesn't capture any organization-specific information. Azure Migrate correlates the CPE names with known CVE IDs (Common Vulnerabilities and Exposures). CVE IDs are unique identifiers assigned to publicly disclosed cybersecurity vulnerabilities and help organizations identify and track vulnerabilities in a standard way. Refer to [CVE](https://www.cve.org/) for more details. Information about CVE IDs and related software comes from the publicly available [National Vulnerability Database](https://nvd.nist.gov/) (NVD), managed by NIST. This helps identify vulnerabilities in the software. Each vulnerability is categorized by risk level (Critical, High, Medium, Low) based on the [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) score provided by NVD. This feature uses the NVD API for all CVE IDs but is not endorsed or certified by the NVD. All CVE ID data from NVD is refreshed every 7 days. 
+- **Vulnerabilities**: Azure Migrate identifies installed software and operating system (OS) for each server. It maps the discovered software and OS to CPE nomenclature (Common Platform Enumeration) using AI model, which provides a unique identification for each software version. It stores only software metadata (name, publisher, version) and doesn't capture any organization-specific information. Azure Migrate correlates the CPE names with known CVE IDs (Common Vulnerabilities and Exposures). CVE IDs are unique identifiers assigned to publicly disclosed cybersecurity vulnerabilities and help organizations identify and track vulnerabilities in a standard way. Refer to [CVE](https://www.cve.org/) for more details. Information about CVE IDs and related software comes from the publicly available [National Vulnerability Database](https://nvd.nist.gov/) (NVD), managed by NIST. This helps identify vulnerabilities in the software. Each vulnerability is categorized by risk level (Critical, High, Medium, Low) based on the [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) score provided by NVD. This feature uses the NVD API for all CVE IDs but is not endorsed or certified by the NVD. All CVE data from NVD is refreshed every 7 days. 
 
 - **Pending Updates for servers**: Azure Migrate identifies machines that are not fully patched or updated based on Windows Update metadata for Windows servers and Linux package manager metadata for Linux servers. It also retrieves the classification of these updates (Critical, Security, Other updates) and shows them for further consideration. Azure Migrate refreshes data from Windows Updates and Linux package managers every 24 hours. This insight appears as Servers with pending security and critical updates, indicating that the server is not fully patched and should be updated.
 
@@ -55,6 +55,18 @@ Azure Migrate updates security insights whenever it refreshes discovered softwar
 
 >[!Note]
 > Security insights in Azure Migrate help guide and highlight potential security risks in the datacenter. They are not meant to be compared with specialized security tools. We recommend to adopt Azure services such as, [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md) for comprehensive protection of your hybrid environment.
+
+- **Determine security risk for a server**:  A server is considered at security risk if it meets any of the following conditions.
+- **Calculate security risk score**: The security risk score for a server is calculated as: 
+    OS end-of-support flag + Software end-of-support flag + Number of vulnerabilities + Number of pending critical and security updates + Security software flag + Patch management software flag.
+
+    - **OS end-of-support flag** = 1 if the server operating system is at end of support; otherwise, 0.
+    - **Software end-of-support flag** = 1 if the software is at end of support; otherwise, 0.
+    - **Number of vulnerabilities** = Count of CVEs identified for the server.
+    - **Number of pending critical and security updates** = Pending updates for Windows and Linux servers that are classified as Critical or Security.
+    - **Security software flag** = 1 if no software belonging to the Security category was discovered on the server; otherwise, 0.
+    - **Patch management software flag** = 1 if no software belonging to the Patch Management category was discovered on the server; otherwise, 0. 
+ 
 
 ## Prerequisites for reviewing Insights 
 
@@ -89,7 +101,6 @@ To review insights in Azure Migrate:
 The **Servers card** shows a summary of all discovered servers with security risks. A server is considered at risk if it has at least one of the following issues:
 
   - End-of-support operating system
-  - 
   - End-of-support software
   - Known vulnerabilities (CVEs) in installed software or OS
   - Missing security or patch management software
@@ -182,8 +193,8 @@ Security insights are enabled by default for all users. To manage access, create
 
 | Resource | Permissions | Description | 
 | --- | --- | --- | 
-| Pending updates |`Microsoft.OffAzure/hypervSites/machines/inventoryinsights/pendingupdates/* ` </br> </br> `Microsoft.OffAzure/serverSites/machines/inventoryinsights/pendingupdates/*` </br> </br> `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/pendingupdates/*`   | Read pending updates of Hyper-V site </br> </br> Read pending updates of physical server site  </br> </br> Read pending updates of VMware machine  | 
-| Vulnerabilities| `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/vulnerabilities/* `</br> </br> `Microsoft.OffAzure/serverSites/machines/inventoryinsights/vulnerabilities/*` </br> </br> `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*` |  Read vulnerabilities of Hyper-V site </br> </br> Read vulnerabilities of physical server site </br> </br> Read vulnerabilities of VMware machine   | 
+| Pending updates |`Microsoft.OffAzure/hypervSites/machines/inventoryinsights/pendingupdates/* ` </br> </br> </br> </br>`Microsoft.OffAzure/serverSites/machines/inventoryinsights/pendingupdates/*` </br> </br> </br> </br>`Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/pendingupdates/*`   | Read pending updates of Hyper-V site </br> </br> Read pending updates of physical server site  </br> </br> Read pending updates of VMware machine  | 
+| Vulnerabilities| `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/vulnerabilities/* `</br> </br> </br> </br>`Microsoft.OffAzure/serverSites/machines/inventoryinsights/vulnerabilities/*` </br> </br> </br> </br>`Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*` |  Read vulnerabilities of Hyper-V site </br> </br> Read vulnerabilities of physical server site </br> </br> Read vulnerabilities of VMware machine   | 
 
 
 :::image type="content" source="./media/security-insights-overview/permissions.png" alt-text="Screenshot shows how the permisions." lightbox="./media/security-insights-overview/permissions.png":::
