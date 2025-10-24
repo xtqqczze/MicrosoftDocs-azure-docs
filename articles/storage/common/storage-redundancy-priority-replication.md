@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 09/17/2025
+ms.date: 10/23/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
@@ -21,18 +21,32 @@ Current: 99 (975/1)
 
 # Azure Storage Geo Priority Replication
 
-Azure Blob Storage Geo Priority Replication is designed to meet the stringent compliance and business continuity requirements of Azure Blob users. The feature prioritizes the replication traffic of Blob data for storage accounts with geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) enabled. This prioritization accelerates data replication between the primary and secondary regions of these geo-redundant accounts. 
+Azure Blob Storage Geo Priority Replication is designed to meet the stringent compliance and business continuity requirements of Azure Blob users. The feature prioritizes the replication traffic of Block Blob data for storage accounts with geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) enabled. This prioritization accelerates data replication between the primary and secondary regions of these geo-redundant accounts. 
 
-A Service Level Agreement (SLA) backs geo priority replication, and applies to any account that has Geo priority replication enabled. It guarantees that the Last Sync Time (LST) for your account's Blob data is 15 minutes or less for 99.0% of the time. In addition to prioritized replication traffic, the feature includes enhanced monitoring and detailed telemetry, with the assurance of service credits if the SLA isn't met.
+A Service Level Agreement (SLA) backs geo priority replication, and applies to any account that has Geo priority replication enabled. It guarantees that the Last Sync Time (LST) for your account's Block Blob data remains lagged 15 minutes or less for 99.0% of the billing month. In addition to prioritized replication traffic, the feature includes enhanced monitoring and detailed telemetry.
 
-You can monitor your geo lag via Azure portal's **Insights** and **Metrics** panes. If the SLA is breached, you might be eligible for service credits based on the degree of nonconformance.
+You can monitor your geo lag via Azure portal's **Insights** and **Metrics** panes.
+
+> [!IMPORTANT]
+> This feature is generally available but is currently only offered in a limited number of regions.
+>
+> Priority replication is available only within the following regions:
+> - East US 2
+> - West US 2
+> - North Europe
+> - West Europe
+> - Japan East
+> - Japan West
+> - Central India
+> - Switzerland North
+> - UAE North
 
 ## Benefits of geo priority replication
 
 While there are many benefits to using geo priority replication, it's especially beneficial, for example, in the following scenarios:
 
-- Meeting compliance regulations that require a strict Recovery Point Objective (RPO) for storage accounts.
-- Recovering from a storage related outage in the primary region where initiating an [unplanned failover](storage-failover-customer-managed-unplanned.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) is required. Users can guarantee that all their Blob and Azure Data Lake Storage (ADLS) data is replicated to their secondary region within 15 minutes or less. As a result, any Blob or ADLS data written within 15 minutes of an unplanned failover can be fully recovered after the unplanned failover is completed.
+- Meeting compliance regulations that require a strict Recovery Point Objective (RPO) for storage data.
+- Recovering from a storage related outage in the primary region where initiating an [unplanned failover](storage-failover-customer-managed-unplanned.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) is required. Users can guarantee that all their Block Blob data is replicated to their secondary region within 15 minutes or less. As a result, any Block Blob data written within 15 minutes of an unplanned failover can be fully recovered after the unplanned failover is completed.
 - Strengthening your disaster recovery planning to meet both compliance and business requirements. Users with business-critical data and a need for high availability and disaster recovery receive a significant benefit.
 
 <!--
@@ -53,25 +67,99 @@ The following list specifies the credit tiers that apply if this guarantee isn't
 
 ## SLA eligibility and exclusions
 
-While Geo Priority Replication introduces an SLA-backed capability for Azure Blob Storage, it comes with several important limitations. First and foremost, the SLA applies exclusively to block blob data. Other blob types, such as page blobs and append blobs, aren't supported under this SLA. If these unsupported blob types contribute to geo lag, the affected time window is excluded from SLA eligibility. 
+While Geo Priority Replication introduces an SLA-backed capability for Azure Blob Storage, it comes with several important exclusions. Users benefit from prioritized replication along with the improved visibility into their Blob Geo Lag while Geo priority replication is enabled. However, there are workloads and time periods where users aren't eligible for the Service Level Agreement for Geo priority replication. These limitations include:
 
-Additionally, the SLA is contingent on the storage account remaining within specific operational thresholds, known as guardrails. These guardrails include:
+1.  Other blob types, such as page blobs and append blobs. The SLA applies exclusively to Block Blob data. If these unsupported blob types contribute to geo lag, the affected time window is excluded from SLA eligibility,
+1. Storage accounts where Append or Page Blob API calls were made within the last 30 days,
+1. Storage accounts with a Last Sync Time greater than 15 minutes lagged during the enablement of Geo priority replication. Data replication prioritization begins immediately after enabling the feature, but the SLA might not apply during this initial sync period. If the account's Last Sync Time exceeds 15 minutes during this time, the SLA doesn't apply until the Last Sync Time is consistently at or below 15 minutes lagged. Customers can [monitor their LST](last-sync-time-get.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) and replication status through Azure's provided metrics and dashboards.
+1. During time periods where:
+    - Your storage account data transfer rate exceeds 1 gigabit per second (Gbps) and the resulting back log of writes are being replicated, or
+    - Your storage account exceeds 100 CopyBlob requests per second and the resulting back log of writes are being replicated
+    
+These limitations are critical to understanding how and when the SLA applies, and Azure provides detailed telemetry and metrics to help customers monitor their eligibility throughout the billing month. During these intervals, although replication of the data remains prioritized, the account is temporarily excluded from SLA eligibility. Refer to the official [SLA terms] for a comprehensive list of eligibility requirements. 
 
-- Account ingress rate must remain below 1 Gbps
-- Less than 100 CopyBlob requests per second
-- No Append or Page Blob API calls were made within the last 30 days
+> [!IMPORTANT]
+> Certain operational scenarios can also disrupt SLA coverage. For example, an unplanned failover will automatically disable Geo Priority Replication, requiring you to re-enable the feature manually after geo-redundancy is restored. By comparison, planned failovers and account conversions between GRS and geo zone redundant storage (GZRS) don't affect SLA eligibility, provided the account remains within guardrails.
 
-During these intervals, although replication of the data  remains prioritized, the account is temporarily excluded from SLA eligibility.
 
-Another consideration is the initial synchronization period, which is the period immediately following the enabling of the Geo Priority Replication feature. Data replication prioritization begins immediately after enabling the feature, but the SLA might not apply during this initial sync period. If the account's Last Sync Time exceeds 15 minutes during this time, the SLA doesn't apply and service credits aren't available until the Last Sync Time is consistently at or below 15 minutes. Customers can [monitor their LST](last-sync-time-get.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) and replication status through Azure's provided metrics and dashboards. 
+## Enabling Geo-Redundant Storage replication
+Enabling Geo Priority Replication is straightforward and can be completed via the Azure portal, PowerShell, or the Azure CLI. It can be enabled for existing accounts, or during the process of creating a new account.
 
-Certain operational scenarios can also disrupt SLA coverage. For example, an unplanned failover will automatically disable Geo Priority Replication, requiring you to re-enable the feature manually after geo-redundancy is restored. By comparison, planned failovers and account conversions between GRS and geo zone redundant storage (GZRS) don't affect SLA eligibility, provided the account remains within guardrails.
+### Enabling replication during new account creation
 
-These limitations are critical to understanding how and when the SLA applies, and Azure provides detailed telemetry and metrics to help customers monitor their eligibility throughout the billing cycle. 
+To enable Geo Priority Replication when creating a new storage account, complete the following steps:
+
+# [Azure portal](#tab/portal)
+
+1. Navigate to the Azure portal and create a new storage account.
+1. In the **Basics** tab, select the checkbox for **Geo priority replication** as shown in the following screenshot.
+
+    :::image type="content" source="media/storage-redundancy-priority-replication/replication-new-accounts-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for a new storage account." lightbox="media/storage-redundancy-priority-replication/replication-new-accounts-lrg.png":::
+
+# [Azure PowerShell](#tab/powershell)
+
+```powershell
+
+## Create storage account with Geo priority replication enabled
+New-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $newAccountName -SkuName Standard_GRS -Location {regionname} -EnableBlobGeoPriorityReplication $true #-debug
+
+```
+# [Azure CLI](#tab/cli)
+
+Content for CLI...
+
+# [REST API](#tab/rest)
+
+Content for REST API...
+
+---
+
+### Enabling replication for preexisting accounts
+
+To enable Geo Priority Replication for an existing storage account, complete the following steps:
+
+# [Azure portal](#tab/portal)
+
+1. Navigate to the Azure portal and select a storage account. 
+1. In the **Data Management** group, select **Redundancy** to display the redundancy options for the storage account.
+1. Select the **Geo priority replication (Blob only)** checkbox to enable the feature as shown in the following screenshot, and then select **Save**.
+
+    :::image type="content" source="media/storage-redundancy-priority-replication/replication-existing-accounts-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for existing accounts." lightbox="media/storage-redundancy-priority-replication/replication-existing-accounts-lrg.png":::
+
+1. Ensure that the setting is saved successfully. Validate that the **Geo priority replication** status is set to **Enabled**, and the **View metrics** link is available and enabled as shown in the following screenshot.
+
+    :::image type="content" source="media/storage-redundancy-priority-replication/replication-enabled-sml.png" alt-text="Screenshot showing the geo priority replication enabled status for existing accounts." lightbox="media/storage-redundancy-priority-replication/replication-enabled-lrg.png":::
+
+# [Azure PowerShell](#tab/powershell)
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $newAccountName -EnableBlobGeoPriorityReplication $true
+```
+
+# [Azure CLI](#tab/cli)
+
+Content for CLI...
+
+# [REST API](#tab/rest)
+
+Content for REST API...
+
+---
+
+## Monitoring compliance
+
+> [!IMPORTANT]
+> Geo Blob Lag metrics are currently in PREVIEW and available in all regions where Geo priority replication is supported.
+> To opt in to the preview, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowGeoPriorityReplicationMetricsInPortal as the feature name. The provider name for this preview feature is Microsoft.Storage.
+> 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+To ensure transparency and empower customers to track the performance of Geo priority replication, Azure provides a new monitoring tool integrated directly into Azure Monitor Metrics. After geo priority replication is enabled, you have the ability to view the new **Geo Blob Lag metric (preview)** for Blob data on a per-account basis. You can check your "Geo blob lag" performance throughout the month via the **Redundancy** and **Metrics** panes. The **Geo Blob Lag metric (preview)** allows you to monitor the lag, or the number of seconds since the last full data copy between the primary and secondary regions, of your block blob data. Geo blob lag can be viewed over the course of a specified time range, up to 12 months. This metric allows you to assess the performance trends and identify potential SLA breaches for your account. 
+
 
 ## Feature pricing
 
-Users begin paying for Geo priority replication feature as soon as they enable the feature. Prioritization of the Block blob backlog and new writes are also prioritized after the feature is enabled. 
+Users begin paying for Geo priority replication feature as soon as they enable the feature. Prioritization of the backlog and new writes are also prioritized after the feature is enabled. 
 
 Here's an example pricing breakdown:
 
