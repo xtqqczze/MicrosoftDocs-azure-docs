@@ -20,7 +20,7 @@ You can use [Resiliency](business-continuity-center-overview.md), a cloud-native
 
 ## Supported regions
 
-Resiliency in Azure supports all Azure regions, except Azure Sovereign Clouds (Azure China Cloud and Azure US Government).
+Resiliency in Azure supports all Azure regions, except Azure Sovereign Clouds (Azure operated by 21Vianet and Azure US Government).
 
 ## Supported solutions and datasources
 
