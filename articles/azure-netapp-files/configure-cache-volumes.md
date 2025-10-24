@@ -27,7 +27,7 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * You can't use the same source cluster for multiple subscriptions for creating cache volumes in the same availability zone in the same region. 
 * If enabling write-back on the external origin volume:
     * You must be running ONTAP 9.15.1P5 or later on the system hosting the external origin volume. 
-    * Each external origin system node has at least 128GB of RAM and 20 CPUs to absorb the write-back messages that are initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it requires more CPUs and RAM.
+    * Each external origin system node has at least 128GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it requires more CPUs and RAM.
     * Testing is executed for files smaller than 100GB and WAN round-trip times between the cache and origin not exceeding 100 ms. Any workloads outside of these limits might result in unexpected performance characteristics.
     * The external origin must remain less than 80% full. Cache volumes aren't granted exclusive lock delegations if there isn't at least 20% space remaining in the origin volume. Calls to a write-back-enabled cache are forwarded to the origin in this situation. This helps prevent running out of space at the origin, which would result in leaving dirty data orphaned at a write-back-enabled cache.
     * You shouldn't configure qtree, user, or group quotas at an origin volume with write-back enabled cache volumes. This may incur a significant latency increase.
@@ -51,7 +51,7 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * Cache volumes only support Standard network features. Basic network features can't be configured on cache volumes. 
 * When creating a cache volume, ensure that there's sufficient space in the capacity pool to accommodate the new cache volume.
 * You can't move a cache volume to another capacity pool.
-* You can't transition non-customer managed key cache volumes to customer managed key (CMK).
+* You can't transition noncustomer managed key cache volumes to customer managed key (CMK).
 * You should ensure that the protocol type is the same for the cache volume and origin volume. The security style and the Unix permissions are inherited from the origin volume. For example, creating a cache volume with NFSv3 or NFSv4 when origin is UNIX, and SMB when the origin is NTFS.
 * You should enable encryption on the origin volume.
 * You should configure an Active Directory (AD) or LDAP connection within the NetApp account to create an LDAP-enabled cache volume.
@@ -170,32 +170,32 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     Execute the clusterPeeringCommand on the ONTAP system that contains the external origin volume and when prompted, enter the clusterPeeringPassphrase.  
 
     > [!NOTE]
-    > The user will have 30 minutes after the cacheState transitions to “ClusterPeeringOfferSent” to complete execution of the clusterPeeringCommand.  If 30 minutes is exceeded, then cache creation will fail and the user will need to delete the cache volume and initiate a new PUT call.
+    > The user will have 30 minutes after the cacheState transitions to "ClusterPeeringOfferSent" to complete execution of the clusterPeeringCommand.  If 30 minutes is exceeded, then cache creation fails and the user will need to delete the cache volume and initiate a new PUT call.
 
     > [!NOTE]
     > Replace "IP-SPACE-NAME" with the ipspace that the IC LIFs use on the external origin volume’s ONTAP system.
 
     > [!NOTE]
-    > Do not execute the vserverPeeringCommand at this time.  This will be executed in the next step.
+    > Don't execute the vserverPeeringCommand at this time.  This will be executed in the next step.
 
     > [!NOTE]
-    > If cache volumes have been created already using this ONTAP system, then the existing cluster peer will normally be reused (there can be situations where a different Azure NetApp Files cluster may be used which would require a new cluster peer).
+    > If cache volumes are already created using this ONTAP system, then the existing cluster peer will be reused. There can be situations where a different Azure NetApp Files cluster may be used which would require a new cluster peer.
 
 3.	Monitor if the cache state is available for Vserver peering using the GET caches API call.
 
-    When the cacheState = VserverPeeringOfferSent, go to the ONTAP system that contains the external origin volume and execute a “vserver peer show” command until an entry appears where the Remote Vserver = <value of the -peer-vserver in the vserverPeeringCommand>.  The Peer State will show “pending”.
+    When the cacheState = VserverPeeringOfferSent, go to the ONTAP system that contains the external origin volume and execute the “vserver peer show” command until an entry appears where the Remote Vserver = <value of the -peer-vserver in the vserverPeeringCommand>. The Peer State shows "pending".
 
-    Execute the vserverPeeringCommand on the ONTAP system that contains the external origin volume.  The Peer State should transition to “peered”.
+    Execute the vserverPeeringCommand on the ONTAP system that contains the external origin volume.  The Peer State should transition to "peered".
 
     > [!NOTE]
-    > The user has 12 minutes after the cacheState transitions to “VserverPeeringOfferSent” to complete execution of the vserverPeeringCommand. If 12 minutes is exceeded, then cache creation will fail, and the user will need to delete the cache volume and initiate a new PUT call.
+    > The user has 12 minutes after the cacheState transitions to "VserverPeeringOfferSent" to complete execution of the vserverPeeringCommand. If 12 minutes is exceeded, then cache creation fails, and the user will need to delete the cache volume and initiate a new PUT call.
 
     > [!NOTE]
     > If cache volumes have been created already using this ONTAP system and the cluster peer was reused, then the existing vserver peer may be reused. If that happens, then step 3 will be skipped and the next step will be executed.
 
 4.	Complete the cache volume creation.
 
-    Once the peering has been completed, the cache volume will be created. Monitor the cacheState and provisioningState of the cache volume using the GET caches API call.  When the cacheState and provisioningState transition to “Succeeded”, the cache volume is ready for use.
+    Once the peering has been completed, the cache volume is created. Monitor the cacheState and provisioningState of the cache volume using the GET caches API call. When the cacheState and provisioningState transition to "Succeeded," the cache volume is ready for use.
 
 ## Examples of API calls
 
@@ -343,7 +343,7 @@ PATCH https://management.azure.com/subscriptions/11111111-1111-1111-1111-1111111
 
 ## Delete a cache volume
 
-You can delete a cache volume if it is no longer required using the delete cache API call.
+You can delete a cache volume if it's no longer required using the delete cache API call.
 
 If the cache volume has writeBack enabled, then a patch call needs to be made first to disable writeBack, then the delete call can be made.
 
