@@ -54,13 +54,6 @@ In this article, you learn how to use premium ingress with Azure Container Apps.
     az extension add --name containerapp --upgrade
     ```
 
-    > [!NOTE]
-    > Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](whats-new.md), install the Container Apps extension with `--allow-preview true`.
-    >
-    > ```azurecli
-    > az extension add --name containerapp --upgrade --allow-preview true
-    > ```
-
 1. Now that the current extension or module is installed, register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces.
 
     ```azurecli
@@ -81,14 +74,14 @@ In this article, you learn how to use premium ingress with Azure Container Apps.
     az containerapp env create \
       --name my-container-apps-env \
       --resource-group my-resource-group \
-      --location eastus
+      --location centralus
     ```
 1. Configure a workload profile for the environment if none exist.
     ```azurecli
     az containerapp env workload-profile add \
       --resource-group my-resource-group \
       --name my-container-apps-env \
-      --workload-profile-name my-workload-profile \
+      --workload-profile-name Ingress-D4 \
       --workload-profile-type D4 \
       --min-nodes 2 \
       --max-nodes 4
@@ -102,9 +95,7 @@ Your workload profile must have at least two nodes to use premium ingress.
         az containerapp env premium-ingress add
         --resource-group my-resource-group 
         --name my-container-apps-env 
-        --workload-profile-name my-workload-profile 
-        --min-replicas 2 
-        --max-replicas 10
+        --workload-profile-name Ingress-D4 
         --termination-grace-period 500
         --request-idle-timeout 4
         --header-count-limit 100
@@ -126,18 +117,16 @@ Once configured you will see an output of the settings you just applied.
   "headerCountLimit": 100,
   "requestIdleTimeout": 4,
   "terminationGracePeriodSeconds": 500,
-  "workloadProfileName": "my-workload-profile"
+  "workloadProfileName": "Ingress-D4"
 }
 ```
 
 1. Update the premium ingress settings for the environment.
      ```azurecli
         az containerapp env premium-ingress update
-        --resource-group my-resource-group 
-        --name my-container-apps-env 
-        --workload-profile-name my-workload-profile 
-        --min-replicas 2 
-        --max-replicas 10
+        --resource-group my-resource-group
+        --name my-container-apps-env
+        --workload-profile-name Ingress-D4
         --termination-grace-period 500
         --request-idle-timeout 4
         --header-count-limit 100
@@ -169,14 +158,14 @@ Once configured you will see an output of the settings you just applied.
       properties: {
 	    workloadProfiles: [
 		    {
-			    name: 'ingresswp'
+			    name: 'Ingress-D4'
 			    workloadProfileType: 'D4'
 			    minimumCount: 2
 			    maximumCount: 4
 		    }
 	    ]
 	    ingressConfiguration: {
-		    workloadProfileName: 'ingresswp'
+		    workloadProfileName: 'Ingress-D4'
 		    terminationGracePeriodSeconds: 600
 		    headerCountLimit: 101
 		    requestIdleTimeout: 5
