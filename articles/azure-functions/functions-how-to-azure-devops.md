@@ -56,6 +56,9 @@ Choose your task version at the top of the article.
 
     [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-powershell)
 
+    ### [Java](#tab/java)
+
+    [Quickstart: Create a Java function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-java)
     ---
     
     Remember to upload the local code project to your GitHub or Azure Repos repository after you publish it to your function app. 
@@ -74,6 +77,7 @@ Choose your task version at the top of the article.
 ### Example YAML build pipelines
 
 The following language-specific pipelines can be used for building apps. 
+
 #### [C\#](#tab/csharp)
 
 You can use the following sample to create a YAML file to build a .NET app:
