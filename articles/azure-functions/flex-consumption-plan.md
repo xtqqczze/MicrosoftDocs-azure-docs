@@ -26,7 +26,7 @@ The Flex Consumption plan builds on the strengths of the serverless Consumption 
 + **Virtual network support**: [Virtual network integration](#virtual-network-integration) enables your serverless app to run in a virtual network.
 + **Per-Function Scaling**: Each function in your app [scales independently based on its workload](#per-function-scaling), potentially resulting in more efficient resource allocation.
 + **Improved Concurrency Handling**: Better handling of concurrent executions with configurable concurrency settings per function.
-+ **Flexible Memory Configuration**: Flex Consumption offers multiple [instance memory](#instance-memory) size options, allowing you to optimize for your specific workload requirements.
++ **Flexible Memory Configuration**: Flex Consumption offers multiple [instance sizes](#instance-sizes) size options, allowing you to optimize for your specific workload requirements.
 
 This table helps you directly compare the features of Flex Consumption with the Consumption hosting plan:
 

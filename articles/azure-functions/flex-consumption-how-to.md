@@ -291,7 +291,7 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 
 1. (Optional) Customize the Flex Consumption plan in your Maven deployment by also including these elements in the `<plugin>.<configuration>` section:             .
 
-    + `<instanceSize>` - sets the [instance memory](./flex-consumption-plan.md#instance-memory) size for the function app. The default value is `2048`.  
+    + `<instanceSize>` - sets the [instance memory](./flex-consumption-plan.md#instance-sizes) size for the function app. The default value is `2048`.  
     + `<maximumInstances>` - sets the highest value for the maximum instances count of the function app.  
     + `<alwaysReadyInstances>` - sets the [always ready instance counts](flex-consumption-plan.md#always-ready-instances) with child elements for HTTP trigger groups (`<http>`), Durable Functions groups (`<durable>`), and other specific triggers (`<my_function>`). When you set any instance count greater than zero, you're charged for these instances whether your functions execute or not. For more information, see [Billing](flex-consumption-plan.md#billing).  
 
@@ -494,7 +494,7 @@ You can't currently configure deployment storage for your app in Azure using Vis
 
 ## Configure instance memory
 
-The instance memory size used by your Flex Consumption plan can be explicitly set when you create your app. For more information about supported sizes, see [Instance memory](flex-consumption-plan.md#instance-memory).  
+The instance memory size used by your Flex Consumption plan can be explicitly set when you create your app. For more information about supported sizes, see [Instance sizes](flex-consumption-plan.md#instance-sizes).  
 
 To set an instance memory size that's different from the default when creating your app:
 
@@ -757,7 +757,7 @@ To view the current costs:
 
 ## Fine-tune your app
 
-The Flex Consumption plan provides several settings that you can tune to refine the performance of your app. Actual performance and costs can vary based on your app-specific workload patterns and configuration. For example, higher [memory instance sizes](./flex-consumption-plan.md#instance-memory) can improve performance for memory-intensive operations but at a higher cost per active period. 
+The Flex Consumption plan provides several settings that you can tune to refine the performance of your app. Actual performance and costs can vary based on your app-specific workload patterns and configuration. For example, higher [memory instance sizes](./flex-consumption-plan.md#instance-sizes) can improve performance for memory-intensive operations but at a higher cost per active period. 
 
 Here are some adjustments you can make to fine-tune performance versus cost:
  
