@@ -60,6 +60,7 @@ Choose your task version at the top of the article.
     ### [Java](#tab/java)
 
     [Quickstart: Create a Java function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-java)
+
     ---
     
 Remember to upload the local code project to your GitHub or Azure Repos repository after you publish it to your function app. 
