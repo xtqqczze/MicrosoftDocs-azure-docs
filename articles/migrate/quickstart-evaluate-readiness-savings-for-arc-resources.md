@@ -27,7 +27,7 @@ An Azure Migrate project is used to store discovery, assessment, and migration m
     - Ensure `Microsoft.OffAzure` and `Microsoft.Migrate` resource providers are registered on the subscription. Learn how to [register resource providers](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
 - You have **Migrate Arc Discovery Reader - Preview** role or a custom role with equivalent permissions on the subscriptions with Arc resources. 
     - Ensure subscriptions with Arc resources that you want to include in the project also have `Microsoft.OffAzure` resource provider registered. 
-- Your Arc-enabled Server machines are running connected machine agents of version [1.46 (September 2024 release)](https://learn.microsoft.com/azure/azure-arc/servers/agent-release-notes-archive#version-146---september-2024) or newer. Machines with older agent versions are excluded from the project as they don’t include all the necessary information for migration assessments.
+- Your Arc-enabled Server machines are running connected machine agents of version [1.46 (September 2024 release)](/azure/azure-arc/servers/agent-release-notes-archive#version-146---september-2024) or newer. Machines with older agent versions are excluded from the project as they don’t include all the necessary information for migration assessments.
 
 
 ## Create a migrate project with your Arc resources
@@ -101,7 +101,7 @@ To create a custom business case:
 
 3. Select **Business case**
 
-4. Follow the steps in [Build a business case](https://learn.microsoft.com/en-us/azure/migrate/how-to-build-a-business-case?view=migrate)
+4. Follow the steps in [Build a business case](how-to-build-a-business-case.md)
 
 
 To create a custom assessment:

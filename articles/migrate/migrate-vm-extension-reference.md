@@ -2,7 +2,7 @@
 title: Azure Migrate Collector VM extension reference
 description: Technical reference for the Azure Migrate Collector VM extension including settings schema, regional endpoints, and configuration options.
 author: snehithm
-ms.author: snehithm
+ms.author: snmuvva
 ms.service: azure-migrate
 ms.topic: reference
 ms.date: 10/23/2025
@@ -263,16 +263,15 @@ az connectedmachine extension show \
 
 | Issue | Possible cause | Resolution |
 |-------|----------------|------------|
-| Extension installation fails | Insufficient permissions | Verify you have Hybrid Server Resource Administrator role |
-| Extension shows Failed status | Arc agent version too old | Upgrade Arc agent to version 1.46 or higher |
-| No data collected | Network connectivity issue | Verify connectivity to regional endpoint |
-| Extension installed but data not appearing | Project configuration incorrect | Verify project ID and region in extension settings |
+| Extension installation fails | Insufficient permissions | Verify you have **Hybrid Server Resource Administrator** role |
+| Extension shows Failed status | Network connectivity issue | Verify connectivity to regional endpoint |
+| Extension installed but data not appearing in project | Project configuration incorrect | Verify project ID and region in extension settings |
 
 ## Update and removal
 
 ### Update extension
 
-The extension automatically updates to the latest version. To manually trigger an update:
+The extension support [automatic upgrades](azure/azure-arc/servers/manage-automatic-vm-extension-upgrade) to the latest minor version. To manually trigger an update:
 
 ```azurecli
 az connectedmachine extension update \

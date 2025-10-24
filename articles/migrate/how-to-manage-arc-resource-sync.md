@@ -2,7 +2,7 @@
 title: Manage sync of Arc resources to Azure Migrate project
 description: Learn how to sync Arc-enabled resources, manage project scope, and configure automatic synchronization in Azure Migrate.
 author: snehithm
-ms.author: snehithm
+ms.author: snmuvva
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/23/2025
@@ -39,8 +39,6 @@ Use manual sync when:
 2. Under **Migration**, select **Savings and Readiness (Preview)**.
 
 3. On the toolbar, select **Sync Arc data**.
-
-    :::image type="content" source="./media/how-to-manage-arc-resource-syncs/sync-arc-data-button.png" alt-text="Screenshot showing the Sync Arc data button in the Savings and Readiness page.":::
 
 4. The sync process begins. Depending on the number of Arc resources in your subscriptions, this may take several minutes.
 
@@ -220,8 +218,7 @@ To add or remove subscriptions from your project scope:
 > - The subscription must have the `Microsoft.OffAzure` resource provider registered
 > - If using automatic sync, ensure the managed identity has the same **Migrate Arc Discovery Reader - Preview** role on the new subscriptions. 
 
-> [NOTE]
-> When you edit scope, an recalculation of default business cases and assessments is also triggered, if you have the appropriate permissions on the migrate project.
+
 
 
 ## Next steps
@@ -229,5 +226,4 @@ To add or remove subscriptions from your project scope:
 - [View and review discovered inventory](how-to-review-discovered-inventory.md)
 - [Build a business case](how-to-build-a-business-case.md)
 - [Create an application assessment](create-application-assessment.md)
-- [Enable additional data collection for Arc-enabled servers](how-to-enable-additional-data-collection-for-arc-servers)
-- [Troubleshoot Arc resources](troubleshoot-arc-resources-migration.md)
+- [Enable additional data collection for Arc-enabled servers](how-to-enable-additional-data-collection-for-arc-servers.md)

@@ -2,7 +2,7 @@
 title: Enable additional data collection for Arc-enabled servers
 description: Learn how to enable additional data collection on Arc-enabled servers using the Azure Migrate Collector VM extension for right-sized assessments and comprehensive migration planning.
 author: snehithm
-ms.author: snehithm
+ms.author: snmuvva
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/23/2025
@@ -49,7 +49,7 @@ Enabling additional data collection provides:
 ## Prerequisites
 
 - An existing Azure Migrate project created for Arc resources. If you don't have one, see [Create a migrate project for Arc resources](quickstart-evaluate-readiness-savings-for-arc-resources.md).
-- Arc-enabled servers running connected machine agent version [1.46 (September 2024 release)](../azure-arc/servers/agent-release-notes-archive.md#version-146---september-2024) or higher.
+- Arc-enabled servers running connected machine agent version [1.46 (September 2024 release)](/azure/azure-arc/servers/agent-release-notes-archive#version-146---september-2024) or higher.
 - **Hybrid Server Resource Administrator** role on the Arc-enabled server resources where you want to enable data collection.
 - Network connectivity from Arc-enabled servers to the Azure Migrate regional endpoint. See [Regional endpoints](#regional-endpoints).
 
@@ -528,4 +528,4 @@ To stop collecting additional data from specific servers:
 - [Manage sync of Arc resources to Azure Migrate project](how-to-manage-arc-resource-sync.md)
 - [Create performance-based assessments](how-to-create-assessment.md)
 - [View business case reports](how-to-view-a-business-case.md)
-- [Azure Migrate Collector extension reference](arc-collector-extension-reference.md)
+- [Azure Migrate Collector extension reference](migrate-vm-extension-reference.md)

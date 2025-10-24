@@ -2,7 +2,7 @@
 title: Overview of Arc-based discovery (Preview)
 description: Learn how Azure Migrate discovers Azure Arc resources to simplify migration planning for Arc customers.
 author: snehithm
-ms.author: snehithm
+ms.author: snmuvva
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 10/23/2025
@@ -11,7 +11,7 @@ ms.custom: engagement-fy25
 
 # Overview of Arc-based discovery (Preview)
 
-This article provides an overview of how Azure Migrate works with [Azure Arc-enabled servers](https://learn.microsoft.com/azure/azure-arc/servers/overview) and [SQL Server enabled by Azure Arc](https://learn.microsoft.com/sql/sql-server/azure-arc/overview) to assess your on-premises resources for migration to Azure.
+This article provides an overview of how Azure Migrate works with [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) and [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview) to assess your on-premises resources for migration to Azure.
 
 If you Arc-enabled your on-premises servers and SQL Server instances, Azure Migrate can use this existing infrastructure to discover, assess, and build a business case for migration without requiring any other on-premises deployments.
 
@@ -146,7 +146,7 @@ To enable performance-based sizing:
 > [!NOTE]
 > The default assessment and business cases are always created with performance-based sizing. This is to ensure once you start performance data collection, you only need to recalculate them.
 
-Learn more about [installing the Azure Migrate Collector VM extension](how-to-enable-additional-data-collection-for-arc-servers).
+Learn more about [installing the Azure Migrate Collector VM extension](how-to-enable-additional-data-collection-for-arc-servers.md).
 
 ## Azure Migrate Collector VM extension
 
@@ -167,7 +167,7 @@ The Azure Migrate Collector VM extension is an optional component that provides 
 - **Hybrid Server Resource Administrator** role on Arc-enabled server resources to install the extension
 - Network connectivity to a regional Azure Migrate endpoints
 
-For detailed installation instructions and regional endpoints, see [Install Azure Migrate Collector VM extension](how-to-enable-additional-data-collection-for-arc-servers) and [Extension reference](migrate-vm-extension-reference.md).
+For detailed installation instructions and regional endpoints, see [Install Azure Migrate Collector VM extension](how-to-enable-additional-data-collection-for-arc-servers.md) and [Extension reference](migrate-vm-extension-reference.md).
 
 ## Current limitations
 
@@ -182,7 +182,7 @@ During the preview, the following limitations apply:
 ## Next steps
 
 - [Evaluate readiness and identify savings of migrating your Arc enabled servers to Azure](quickstart-evaluate-readiness-savings-for-arc-resources.md)
-- [Enable additional data collection for more accurate migration planning](how-to-enable-additional-data-collection-for-arc-servers)
-- [Manage the sync of Arc resource data into Azure Migrate project](how-to-manage-arc-resource-syncs.md)
+- [Enable additional data collection for more accurate migration planning](how-to-enable-additional-data-collection-for-arc-servers.md)
+- [Manage the sync of Arc resource data into Azure Migrate project](how-to-manage-arc-resource-sync.md)
 - [Build a business case](how-to-build-a-business-case.md)
 - [Create an application assessment](create-application-assessment.md)
