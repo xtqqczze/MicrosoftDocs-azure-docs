@@ -42,9 +42,6 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 |  | With vulnerabilities| Software with known vulnerability (CVE). | 
 
 
-| Servers | With security risks </br> </br> OS end of support </br> </br> Software end of support </br> </br> With vulnerabilities </br> </br> </br> </br> Missing security software. </br> </br> </br> </br> Missing patch management software. </br></br>  </br> </br> Pending updates  | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates </br> </br> Servers with end of support Operating system. </br> </br> Servers with end of support Software discovered in Azure Migrate. </br> </br> </br> </br> Servers with known vulnerability (CVE) in OS and discovered Software. </br> </br> </br> Servers without any discovered software belonging to Security software category. </br> </br> </br> </br> Servers without any discovered patch management software. </br> </br> </br> </br> Servers with pending updates or patches.|
-|  Software    | With security risks </br> </br> End of support </br> </br> With vulnerabilities  | Software with at least one of the security risks – end of support, vulnerabilities. </br> </br> Software declared end of support by vendor. </br> </br> Software with known vulnerability (CVE)  | 
-
 ### How are Insights derived
 
 Azure Migrate identifies potential security risks in your datacenter using software inventory data collected through the [Azure Migrate appliance discovery process](how-to-review-discovered-inventory.md#deploy-and-configure-the-azure-migrate-appliance). When you run a discovery of your on-premises environment, you usually provide guest credentials for your Windows and Linux servers. This allows the tool to collect information about installed software, operating system configuration, and pending updates. Azure Migrate processes this data to generate key security insights without needing additional credentials or permissions.
@@ -205,17 +202,13 @@ Security insights are enabled by default for all users. To manage access, create
 
 | Resource | Permissions | Description | 
 | --- | --- | --- | 
-| Resource	Permissions	Description
-Pending updates | `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/pendingupdates/*`
- | Read pending updates of Hyper-V site | 
-|  | `Microsoft.OffAzure/serverSites/machines/inventoryinsights/pendingupdates/*` | Read pending updates of physical server site | 
-|  | `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/pendingupdates/*` | Read pending updates of VMware machine | 
+| Pending updates | `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/pendingupdates/*` | Read pending updates of Hyper-V site |
+|  | `Microsoft.OffAzure/serverSites/machines/inventoryinsights/pendingupdates/*` | 	
+Read pending updates of physical server site |
+|  | `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/pendingupdates/*` | Read pending updates of VMware machine |
 | Vulnerabilities | `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/vulnerabilities/*` | Read vulnerabilities of Hyper-V site |
 |  | `Microsoft.OffAzure/serverSites/machines/inventoryinsights/vulnerabilities/*` | Read vulnerabilities of physical server site |
 |  | `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*` | Read vulnerabilities of VMware machine |
-
-| Pending updates |`Microsoft.OffAzure/hypervSites/machines/inventoryinsights/pendingupdates/* ` </br> </br> </br> </br>`Microsoft.OffAzure/serverSites/machines/inventoryinsights/pendingupdates/*` </br> </br> `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/pendingupdates/*`   | Read pending updates of Hyper-V site </br> </br> Read pending updates of physical server site  </br> </br> Read pending updates of VMware machine  | 
-| Vulnerabilities| `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/vulnerabilities/* `</br> </br> </br> </br>`Microsoft.OffAzure/serverSites/machines/inventoryinsights/vulnerabilities/*` </br> </br> `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*` |  Read vulnerabilities of Hyper-V site </br> </br> Read vulnerabilities of physical server site </br> </br> Read vulnerabilities of VMware machine   | 
 
 
 :::image type="content" source="./media/security-insights-overview/permissions.png" alt-text="Screenshot shows that you don't have permissions to view." lightbox="./media/security-insights-overview/permissions.png":::
