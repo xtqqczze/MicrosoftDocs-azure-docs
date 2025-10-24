@@ -1,6 +1,6 @@
 ---
 title: Build a scalable web API using Azure Functions
-description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a local a scalable web API project to a Flex Consumption plan on Azure."
+description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a scalable web API project to a Flex Consumption plan on Azure."
 ms.date: 08/02/2025
 ms.topic: quickstart
 ms.custom:
