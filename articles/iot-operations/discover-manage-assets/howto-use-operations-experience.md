@@ -27,7 +27,6 @@ To learn how to use the operations experience to manage namespace assets and dev
 - [Configure the connector for HTTP/REST (preview)](howto-use-http-connector.md)
 - [Configure the connector for SSE (preview)](howto-use-sse-connector.md)
 - [Configure the connector for MQTT (preview)](howto-use-mqtt-connector.md)
-- 
 To learn how to use the operations experience to manage data flows, see [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
 
 ## Prerequisites
