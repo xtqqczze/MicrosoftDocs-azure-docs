@@ -56,7 +56,7 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * You should enable encryption on the origin volume.
 * You should configure an Active Directory (AD) or LDAP connection within the NetApp account to create an LDAP-enabled cache volume.
 * You can only modify specific fields of a cache volume, including `is-cifs-change-notify-enabled` and `is-writeback-enabled`.
-* The `is-global-file-locking-enabled` parameter value must be the same on all cache volumes that share the same origin volume. Global file locking should be enabled when creating the first cache volume by `setting global_file_locking_enabled` to true. The subsequent cache volumes from the same origin volume must have this setting set to true. To change the global file locking setting on existing cache volumes, you must update the origin volume first and then the change will propagate to all the cache volumes associated with that origin volume. The `volume flexcache origin config modify -is-global-file-locking-enabled` command should be executed on the source cluster to change the setting on the origin volume.
+* The `globalFileLocking` parameter value must be the same on all cache volumes that share the same origin volume. Global file locking should be enabled when creating the first cache volume by setting `globalFileLocking` to true. The subsequent cache volumes from the same origin volume must have this setting set to true. To change the global file locking setting on existing cache volumes, you must update the origin volume first and then the change will propagate to all the cache volumes associated with that origin volume. The `volume flexcache origin config modify -is-global-file-locking-enabled` command should be executed on the source cluster to change the setting on the origin volume.
 
 ## Supported regions
 
@@ -142,29 +142,29 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 1.	Initiate the cache volume creation using the PUT caches API call:
 
     ```
-    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview
+    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview
     ```
 
 2.  Monitor if the cache state is available for cluster peering using the GET caches API call:
 
     ```
-    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview
+    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview
 
     ```
 
     When the cacheState = ClusterPeeringOfferSent, execute the POST listPeeringPassphrases call to obtain the command and passphrase necessary to complete the cluster peering.
 
     ```
-    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/listPeeringPassphrases?{2025-09-01-preview}
+    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/listPeeringPassphrases?{2025-09-01-preview}
     ```
 
     Example listPeeringPassphrases output:
 
     ```
     {
-    "clusterPeeringCommand": "cluster peer create -ipspace <IP-SPACE-NAME> -encryption-protocol-proposed tls-psk -peer-addrs 10.0.0.14,10.0.0.17,10.0.0.15,10.0.0.12,10.0.0.16,10.0.0.13",
-    "cachePeeringPassphraseExample": "fQYceobl9G1JTaPKqrqSTj+7",
-    "vserverPeeringCommand": "vserver peer accept -vserver vserver1 -peer-vserver svm_99a7da11111d11ed82a30aef36222176_f9ad333a"
+    "clusterPeeringCommand": "cluster peer create -ipspace <IP-SPACE-NAME> -encryption-protocol-proposed tls-psk -peer-addrs 1.1.1.1,1.1.1.2,1.1.1.3,1.1.1.4,1.1.1.5,1.1.1.6",
+    "cachePeeringPassphraseExample": "AUniquePassphrase",
+    "vserverPeeringCommand": "vserver peer accept -vserver vserver1 -peer-vserver cache_volume_svm"
     }
     ```
     Execute the clusterPeeringCommand on the ONTAP system that contains the external origin volume and when prompted, enter the clusterPeeringPassphrase.  
@@ -197,115 +197,137 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
     Once the peering has been completed, the cache volume will be created. Monitor the cacheState and provisioningState of the cache volume using the GET caches API call.  When the cacheState and provisioningState transition to “Succeeded”, the cache volume is ready for use.
 
+## Examples of API calls
 
+# [NFS](#tab/NFS)
 
-## Create a LDAP enabled cache volume
-
-1.	Create a LDAP enabled cache volume
-
-    ```
-    curl -X 'PUT' \
-    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1?api-version=2025-09-01-preview' \
-    -H 'accept: application/json' \
-    -H 'Content-Type: application/json' \
-    -d '{
-    "tags": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
-    },
-    "location": "string",
-    "zones": [
-        "1"
+{
+  "location": "westus",
+  "zones": [
+    "1"
+  ],
+  "properties": {
+    "filepath": "cache1",
+    "size": 53687091200,
+    "protocolTypes": [
+      "NFSv4"
     ],
-    "properties": {
-        "filepath": "some-amazing-filepath",
-        "size": 53687091200,
-        "exportPolicy": {
-        "rules": [
-            {
-            "ruleIndex": 0,
-            "unixReadOnly": true,
-            "unixReadWrite": true,
-            "kerberos5ReadOnly": false,
-            "kerberos5ReadWrite": false,
-            "kerberos5iReadOnly": false,
-            "kerberos5iReadWrite": false,
-            "kerberos5pReadOnly": false,
-            "kerberos5pReadWrite": false,
-            "cifs": true,
-            "nfsv3": true,
-            "nfsv41": true,
-            "allowedClients": "string",
-            "hasRootAccess": true,
-            "chownMode": "Restricted"
-            }
-        ]
-        },
-        "protocolTypes": [
-        "NFSv3"
-        ],
-        "cacheSubnetResourceId": "string",
-        "peeringSubnetResourceId": "string",
-        "kerberos": "Disabled",
-        "smbSettings": {
-        "smbEncryption": "Disabled",
-        "smbAccessBasedEnumeration": "Enabled",
-        "smbNonBrowsable": "Enabled"
-        },
-        "throughputMibps": 128.223,
-        "encryptionKeySource": "Microsoft.NetApp",
-        "keyVaultPrivateEndpointResourceId": "string",
-        "language": "c.utf-8",
-        "originClusterInformation": {
-        "peerClusterName": "cluster1",
-        "peerAddresses": [
-            "10.10.10.10",
-            "10.10.10.11"
-        ],
-        "peerVserverName": "vserver1",
-        "peerVolumeName": "originvol1"
-        },
-        "cifsChangeNotifications": "Disabled",
-        "globalFileLocking": "Disabled",
-        "writeBack": "Disabled"
-        "ldap": "Enabled", 
-        "ldapServerType": "OpenLDAP"
+    "cacheSubnetResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    "peeringSubnetResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    "encryptionKeySource": "Microsoft.NetApp",
+    "originClusterInformation": {
+      "peerClusterName": "origin_cluster",
+      "peerAddresses": [
+        "1.2.3.4"
+      ],
+      "peerVserverName": "origin_svm",
+      "peerVolumeName": "origin_volume"
+    },
+    "exportPolicy": {
+      "rules": [
+        {
+          "ruleIndex": 1,
+          "unixReadOnly": "true",
+          "unixReadWrite": "false",
+          "kerberos5ReadOnly": "false",
+          "kerberos5ReadWrite": "false",
+          "kerberos5iReadOnly": "false",
+          "kerberos5iReadWrite": "false",
+          "kerberos5pReadOnly": "false",
+          "kerberos5pReadWrite": "false",
+          "nfsv3": "false",
+          "nfsv41": "true",
+          "allowedClients": "0.0.0.0/0"
+        }
+      ]
     }
-    }'
-    
-    ```
+  }
+}
 
-2. Ensure the cache state is available in cluster peering or storage VM peering:
+# [SMB](#tab/SMB)
 
-    ```
-    GET all flexcache volumes:
-    curl -X 'GET' \
-    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches?api-version=2025-09-01-preview' \
-    -H 'accept: application/json'
-    ```
+{
+  "zones": [
+    "2"
+  ],
+  "location": "southcentralus",
+  "properties": {
+    "filepath": "smb-cache",
+    "cacheSubnetResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    "peeringSubnetResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    "size": 53687091200,
+    "protocolTypes": [
+      "SMB"
+    ],
+    "encryptionKeySource": "Microsoft.NetApp",
+    "originClusterInformation": {
+      "peerClusterName": "origin_cluster",
+      "peerAddresses": [
+        "1.2.3.4"
+      ],
+      "peerVserverName": "origin_svm",
+      "peerVolumeName": "origin_volume"
+    }
+  }
+}
 
-3. Generate the passphrase to enable cluster peering and storage VM peering:
+# [Dual Protocol](#tab/DualProtocol)
 
-    ```
-    listPeeringPassphrases:
-    curl -X 'POST' \
-    'https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1/listPeeringPassphrases?api-version=2025-09-01-preview' \
-    -H 'accept: application/json' \
-    -d ''
-    ```
+
+# [LDAP](#tab/LDAP)
+
+{
+  "location": "westus",
+  "zones": [
+    "1"
+  ],
+  "properties": {
+    "filepath": "cache1",
+    "size": 53687091200,
+    "protocolTypes": [
+      "NFSv4"
+    ],
+    "cacheSubnetResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    "peeringSubnetResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    "encryptionKeySource": "Microsoft.NetApp",
+    "originClusterInformation": {
+      "peerClusterName": "origin_cluster",
+      "peerAddresses": [
+        "1.2.3.4"
+      ],
+      "peerVserverName": "origin_svm",
+      "peerVolumeName": "origin_volume"
+    },
+    "ldap": "Enabled", 
+    "ldapServerType": "OpenLDAP",
+    "exportPolicy": {
+      "rules": [
+        {
+          "ruleIndex": 1,
+          "unixReadOnly": "true",
+          "unixReadWrite": "false",
+          "kerberos5ReadOnly": "false",
+          "kerberos5ReadWrite": "false",
+          "kerberos5iReadOnly": "false",
+          "kerberos5iReadWrite": "false",
+          "kerberos5pReadOnly": "false",
+          "kerberos5pReadWrite": "false",
+          "nfsv3": "false",
+          "nfsv41": "true",
+          "allowedClients": "0.0.0.0/0"
+        }
+      ]
+    }
+  }
+}
+
+---
 
 ## Update a cache volume
 
-The PUT or PATCH caches API call can be used to update a cache volume.
+You can update a cache volume.
 
-## Delete a cache volume
-
-You can delete a cache volume if it is no longer required using the DELETE cache API call.
-
-If the cache volume has writeBack enabled, then a PATCH call needs to be made first to disable writeBack, then the DELETE call can be made.
-
-Example PATCH call to disable writeBack:
+Example patch call to update a cache volume:
 
 ```
 PATCH https://management.azure.com/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-example/providers/Microsoft.NetApp/netAppAccounts/customer1/capacityPools/pool1/caches/cache1?api-version=2025-09-01-preview
@@ -318,3 +340,10 @@ PATCH https://management.azure.com/subscriptions/11111111-1111-1111-1111-1111111
   }
 }
 ```
+
+## Delete a cache volume
+
+You can delete a cache volume if it is no longer required using the delete cache API call.
+
+If the cache volume has writeBack enabled, then a patch call needs to be made first to disable writeBack, then the delete call can be made.
+
