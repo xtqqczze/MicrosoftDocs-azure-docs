@@ -29,13 +29,23 @@ These metrics are used to estimate the costs associated with _on demand_ and _al
 
 | Metric | Description | Meter calculation |
 | ------ | ---------- | ----------------- |
-| **OnDemandFunctionExecutionCount**    | Total number of function executions in on demand instances.  | `OnDemandFunctionExecutionCount / 10` is the **On Demand Total Executions** meter, for which the unit of measurement is in tens.  |
-| **AlwaysReadyFunctionExecutionCount** | Total number of function executions in always ready instances. | `AlwaysReadyFunctionExecutionCount / 10` is the **Always Ready Total Executions** meter, for which the unit of measurement is in tens. |
-| **OnDemandFunctionExecutionUnits**  | Total MB-milliseconds from on demand instances while actively executing functions. | `OnDemandFunctionExecutionUnits / 1,024,000` is the On Demand Execution Time meter, in GB-seconds. |
-| **AlwaysReadyFunctionExecutionUnits** | Total MB-milliseconds from always ready instances while actively executing functions. | `AlwaysReadyFunctionExecutionUnits / 1,024,000` is the Always Ready Execution Time meter, in GB-seconds. |
-| **AlwaysReadyUnits** | The total MB-milliseconds of always ready instances assigned to the app, whether or not functions are actively executing. | `AlwaysReadyUnits / 1,024,000` is the Always Ready Baseline meter, in GB-seconds. |
+| **On Demand Function Execution Count**    | Total number of function executions in on demand instances.  | `OnDemandFunctionExecutionCount / 10` is the **On Demand Total Executions** meter, for which the unit of measurement is in tens.  |
+| **Always Ready Function Execution Count** | Total number of function executions in always ready instances. | `AlwaysReadyFunctionExecutionCount / 10` is the **Always Ready Total Executions** meter, for which the unit of measurement is in tens. |
+| **On Demand Function Execution Units**  | Total MB-milliseconds from on demand instances while actively executing functions. | `OnDemandFunctionExecutionUnits / 1,024,000` is the On Demand Execution Time meter, in GB-seconds. |
+| **Always Ready Function Execution Units** | Total MB-milliseconds from always ready instances while actively executing functions. | `AlwaysReadyFunctionExecutionUnits / 1,024,000` is the Always Ready Execution Time meter, in GB-seconds. |
+| **Always Ready Units** | The total MB-milliseconds of always ready instances assigned to the app, whether or not functions are actively executing. | `AlwaysReadyUnits / 1,024,000` is the Always Ready Baseline meter, in GB-seconds. |
 
 In this table, all execution units are calculated by multipling the fixed instance memory size, such as 512 MB or 2,048 MB, by total execution times, in milliseconds.
+These metrics are used to monitor the performance and scaling behavior of your function app in a Flex Consumption plan:
+
+| Metric | Description |
+| ------ | ----------- |
+| **Automatic Scaling Instance Count** | The number of instances on which this app is running. Note that this is emitted every 30 seconds, and given Flex Consumption scales out and in fast, the number will be an aggregate of all new instances the app used in this time period. Make sure to change the aggregation to the minimum possible in the graph and the aggregation to "count". |
+| **Memory working set** | The current amount of memory used by the app, in MiB. Can be further filtered for each instance of the app. |
+| **Average memory working set** | The average amount of memory used by the app, in megabytes (MiB). Can be further filtered for each instance of the app. |
+| **CPU Percentage** | The average percentage of CPU being used. Can be further filtered for each instance of the app. This is currently rolling out and might not be available for apps in all regions yet. |
+
+These performance metrics help you understand resource utilization and scaling patterns in your Flex Consumption function app. The instance count metric is particularly useful for monitoring the dynamic scaling behavior, while memory and CPU metrics provide insights into resource consumption patterns.
 
 #### [Consumption plan](#tab/consumption-plan)
 
