@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 04/29/2025
+ms.date: 10/28/2025
 
 # Customer intent: "As a web application developer, I want to implement CAPTCHA through the Web Application Firewall, so that I can protect my application from automated attacks while ensuring a seamless user experience for legitimate users."
 ---
@@ -19,7 +19,7 @@ CAPTCHA on Azure WAF is useful in login and sign-up flows where human authentica
 Incorporating CAPTCHA into Azure WAF not only enhances security but also minimizes friction for legitimate users. This balance strengthens the overall protection of web applications against sophisticated automated threats.
 
 > [!NOTE]
-> The CAPTCHA feature incurs additional usage-based charges. For detailed information on pricing, please refer to the official Azure Front Door [pricing page](https://azure.microsoft.com/pricing/details/frontdoor/).
+> The CAPTCHA feature incurs additional usage-based charges. For detailed information on pricing, see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ## How it works
 
@@ -41,9 +41,13 @@ The WAF **Policy settings** define the CAPTCHA challenge cookie validity lifetim
 
 - **AJAX and API calls aren't supported**: CAPTCHA verification doesn't apply to AJAX and API requests.
 
-- **POST body size restriction**:  The first request that triggers a CAPTCHA challenge is blocked if its POST body exceeds 64 KB on Azure Front Door.
+- **POST body size restriction**: The first request that triggers a CAPTCHA challenge is blocked if its POST body exceeds 64 KB on Azure Front Door.
 
 - **Non-HTML embedded resources**: CAPTCHA is designed for HTML resources. Placing CAPTCHA in front of non-HTML resources, such as images, CSS, or JavaScript files, may likely result in issues with content loading and rendering.
 
 - **Browser compatibility**: CAPTCHA isn't supported on Microsoft Internet Explorer. It's compatible with the latest versions of Microsoft Edge, Chrome, Firefox, and Safari.
 
+## Related content
+
+- [Web Application Firewall JavaScript challenge](/azure/web-application-firewall/waf-javascript-challenge)
+- [Configure a custom response for Front Door WAF](./afds/waf-front-door-configure-custom-response-code.md)
