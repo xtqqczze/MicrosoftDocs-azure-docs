@@ -59,17 +59,23 @@ Storage Mover utilizes one or more migration agents to facilitate on-premises mi
 
 The agent itself is responsible for performing the data transfer tasks during a migration. It connects to various Azure services to receive job assignments, report progress, and send logs. The agent also connects to your on-premises data sources to read the data that needs to be migrated.
 
-An agent is deployed by registering it with your storage mover resource. The registration process involves downloading a preconfigured virtual machine image, deploying it within your virtualization environment, and then connecting it to your storage mover resource. Therefore, there are two sets of prerequisites to consider: those related to the agent VM itself, and those related to the registration process.
+Keep in mind, there are two main sets of prerequisites: those for setting up the agent VM itself, and those for completing the registration process.
 
-In addition, all prerequisites related to the top-level Storage Mover resource and the Azure Subscription must be met.
+### Agent deployment
+ 
+To begin deploying an agent, you need to create a virtual machine (VM) on your on-premises hypervisor, such as Hyper-V or VMware. Next, download the Agent VM image from [https://aka.ms/StorageMover/agent](https://aka.ms/StorageMover/agent) and follow the setup instructions within the [How to deploy an Azure Storage Mover agent](agent-deploy.md) article.
+ 
+After your agent VM is created and running, you can register it with your Storage Mover resource and ARC services using the Agent VM's shell menu.
 
-### Agent registration prerequisites
+### Agent registration
 
 To register an agent with your storage mover resource, the following prerequisites must be met:
 
 - You need to have an Azure Storage Mover resource deployed in your Azure subscription.
 - You must have the necessary permissions to register an agent, as outlined in the [Permissions](#permissions) section.
 - You need to deploy the agent VM within your network using the provided agent image. The VM must meet the compute, memory, and storage requirements outlined in the next section.
+
+The registration process typically involves you connecting to the Agent over SSH, choosing the "Register" option, and providing the necessary inputs when prompted. For more detailed instructions, see the [How to register an Azure Storage Mover agent](agent-register.md) article.
  
 ### Agent VM compute and memory resources 
 
@@ -107,4 +113,3 @@ A Storage Mover Endpoint is a resource that represents a connection to a specifi
 In order to create Target Endpoints in Azure, it's necessary to have at least one Azure storage account available as a target. For storing Azure Blob data, a target container within the storage account is also required. For Azure File data, a target file share within the storage account is needed. 
 
 Azure storage accounts with an enabled firewall must be configured to permit traffic from the agent. When using an SMB source, configure Azure KeyVaults with an enabled firewall to permit traffic from the agent.
-
