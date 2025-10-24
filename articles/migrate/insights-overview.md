@@ -42,7 +42,7 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 |  | With vulnerabilities| Software with known vulnerability (CVE). | 
 
 
-### How are Insights derived
+## How are Insights derived
 
 Azure Migrate identifies potential security risks in your datacenter using software inventory data collected through the [Azure Migrate appliance discovery process](how-to-review-discovered-inventory.md#deploy-and-configure-the-azure-migrate-appliance). When you run a discovery of your on-premises environment, you usually provide guest credentials for your Windows and Linux servers. This allows the tool to collect information about installed software, operating system configuration, and pending updates. Azure Migrate processes this data to generate key security insights without needing additional credentials or permissions.
 
@@ -57,25 +57,25 @@ Security risks are derived through a series of following analyses:
 
 - **Pending Updates for servers**: Azure Migrate identifies machines that are not fully patched or updated based on Windows Update metadata for Windows servers and Linux package manager metadata for Linux servers. It also retrieves the classification of these updates (Critical, Security, Other updates) and shows them for further consideration. Azure Migrate refreshes data from Windows Updates and Linux package managers every 24 hours. This insight appears as Servers with pending security and critical updates, indicating that the server is not fully patched and should be updated.
 
-- **Missing Security and Patch Management Software**: Azure Migrate also identifies unprotected machines by detecting the absence of software in Security & Compliance category.
-For example, if the software inventory indicates that a server doesn't have software in categories such as, antivirus, threat detection, SIEM, IAM, or patch management, the system highlights it as a potential security risk.
+- **Missing Security and Patch Management Software**: Azure Migrate classifies software by processing its name and publisher into predefined categories and sub categories. It identifies unprotected servers that lack *Security & Compliance* software identified through software inventory. For example, if the software inventory indicates a server without software in categories such as, antivirus, threat detection, SIEM, IAM, or patch management, Azure Migrate flags the server as a potential security risk.
 
 Azure Migrate updates security insights whenever it refreshes discovered software inventory data. The platform updates insights when you run a new discovery or when the Azure Migrate appliance sends inventory updates. You usually run a full discovery at the start of a project and may do periodic re-scans before finalizing an assessment. Any system changes, such as, new patches or software reached end-of-life, will reflect in the updated security insights.
 
+### Calculate security risk score
+
+Use the following formula to calculate the security risk score for a server: 
+
+OS end-of-support flag + Software end-of-support flag + Number of vulnerabilities + Number of pending critical and security updates + Security software flag + Patch management software flag.
+
+   - **OS end-of-support flag** = 1 if the server operating system is at end of support; otherwise, 0.
+   - **Software end-of-support flag** = 1 if the software is at end of support; otherwise, 0.
+   - **Number of vulnerabilities** = Count of CVEs identified for the server.
+   - **Number of pending critical and security updates** = Pending updates for Windows and Linux servers that are classified as Critical or Security.
+   - **Security software flag** = 1 if no software belonging to the Security category was discovered on the server; otherwise, 0.
+   - **Patch management software flag** = 1 if no software belonging to the Patch Management category was discovered on the server; otherwise, 0. 
+ 
 >[!Note]
 > Security insights in Azure Migrate help guide and highlight potential security risks in the datacenter. They are not meant to be compared with specialized security tools. We recommend to adopt Azure services such as, [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md) for comprehensive protection of your hybrid environment.
-
-- **Determine security risk for a server**:  A server is considered at security risk if it meets any of the following conditions.
-- **Calculate security risk score**: The security risk score for a server is calculated as: 
-    OS end-of-support flag + Software end-of-support flag + Number of vulnerabilities + Number of pending critical and security updates + Security software flag + Patch management software flag.
-
-    - **OS end-of-support flag** = 1 if the server operating system is at end of support; otherwise, 0.
-    - **Software end-of-support flag** = 1 if the software is at end of support; otherwise, 0.
-    - **Number of vulnerabilities** = Count of CVEs identified for the server.
-    - **Number of pending critical and security updates** = Pending updates for Windows and Linux servers that are classified as Critical or Security.
-    - **Security software flag** = 1 if no software belonging to the Security category was discovered on the server; otherwise, 0.
-    - **Patch management software flag** = 1 if no software belonging to the Patch Management category was discovered on the server; otherwise, 0. 
- 
 
 ## Prerequisites for reviewing Insights 
 
@@ -203,8 +203,7 @@ Security insights are enabled by default for all users. To manage access, create
 | Resource | Permissions | Description | 
 | --- | --- | --- | 
 | Pending updates | `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/pendingupdates/*` | Read pending updates of Hyper-V site |
-|  | `Microsoft.OffAzure/serverSites/machines/inventoryinsights/pendingupdates/*` | 	
-Read pending updates of physical server site |
+|  | `Microsoft.OffAzure/serverSites/machines/inventoryinsights/pendingupdates/*`| Read pending updates of physical server site |
 |  | `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/pendingupdates/*` | Read pending updates of VMware machine |
 | Vulnerabilities | `Microsoft.OffAzure/hypervSites/machines/inventoryinsights/vulnerabilities/*` | Read vulnerabilities of Hyper-V site |
 |  | `Microsoft.OffAzure/serverSites/machines/inventoryinsights/vulnerabilities/*` | Read vulnerabilities of physical server site |
