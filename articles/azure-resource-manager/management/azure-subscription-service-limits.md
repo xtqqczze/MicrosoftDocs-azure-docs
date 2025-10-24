@@ -4,6 +4,7 @@ description: Understand common Azure subscription and service limits, quotas, an
 ms.topic: conceptual
 ms.date: 01/23/2025
 ms.custom: ignite-2024
+#customer intent: As a subscription owner or cloud operator, I want an authoritative list of subscription and service limits and guidance for requesting increases so that I can plan capacity and avoid service interruptions.
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -58,6 +59,8 @@ The following limits apply to [Azure management groups](../../governance/managem
 The following limits apply when you use Azure Resource Manager and Azure resource groups.
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-subscription-limits-azure-resource-manager.md)]
+
+Note that subscription IDs must be non-empty GUIDs.
 
 ### Azure resource group limits
 
