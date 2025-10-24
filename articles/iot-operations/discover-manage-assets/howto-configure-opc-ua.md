@@ -248,6 +248,59 @@ Now you can define the events associated with the asset. To add OPC UA events:
     - **Publishing interval (milliseconds)**: The rate at which OPC UA server should publish data.
     - **Queue size**: The depth of the queue to hold the sampling data before publishing it.
 
+### Event filters
+
+Define event filters to customize the information that's included in event notifications from the server. By default, the server sends a selection of standard fields in event notifications. The exact selection is determined by the server for the event type. For example:
+
+```json
+{
+    "EventId":"OkaXYhfr20yUoj1QBbzcIg==",
+    "EventType":"i=2130",
+    "SourceNode":"i=2253",
+    "SourceName":"WestTank",
+    "Time":"2025-10-10T15:09:13.3946878Z",
+    "ReceiveTime":"2025-10-10T15:09:13.3946881Z",
+    "Message":"Raising Events",
+    "Severity":500
+}
+```
+
+Use an event filter to:
+
+- Include additional fields in event notifications.
+- Exclude fields from event notifications.
+- Modify field names in event notifications.
+
+The following screenshot shows an example event filter:
+
+:::image type="content" source="media/howto-configure-opc-ua/event-filter.png" alt-text="A screenshot that shows how to configure an event filter for an OPC UA asset." lightbox="media/howto-configure-opc-ua/event-filter.png":::
+
+The complete event filter shown in the previous screenshot defines four output fields:
+
+| Browse path | Type definition ID | Field ID |
+| --- | --- | --- |
+| `EventId` | `ns=0;i=2041` | `myEventId` |
+| `EventType` | `ns=0;i=2041` | blank |
+| `SourceName` | blank | `mySourceName` |
+| `Severity` | blank | blank |
+
+The three properties for a filter row are:
+
+- _Browse path_. Required value that identifies the source filed to include in the forwarded event notification.
+- _Type definition ID_. Optional value that specifies the OPC UA type definition of the source field.
+- _Field ID_. Optional value that specifies the name to use for the field in the forwarded event notification. If you don't specify a field ID, the original field name is used.
+
+The resulting message forwarded by the connector now looks like the following:
+
+```json
+{
+    "myEventId":"OkaXYhfr20yUoj1QBbzcIg==",
+    "EventType":"i=2130",
+    "mySourceName":"WestTank",
+    "Severity":500
+}
+```
+
 ### Review your changes
 
 Review your asset and OPC UA tag and event details and make any adjustments you need:
