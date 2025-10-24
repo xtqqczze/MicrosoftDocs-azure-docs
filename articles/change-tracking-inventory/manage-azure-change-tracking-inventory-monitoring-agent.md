@@ -48,4 +48,4 @@ To uninstall change tracking extension, follow these steps:
 
 ## Next steps
 
-* To learn about alerts, see [Configuring alerts](../automation/change-tracking/configure-alerts.md).
+* To learn about alerts, see [Configure alerts](../automation/change-tracking/configure-alerts.md).

@@ -8,6 +8,14 @@
       href: extension-version-details.md
     - name: Supported regions and mappings
       href: region-mappings-monitoring-agent.md
+- name: Quickstarts
+  items:
+    - name: Enable Azure Change Tracking and Inventory
+      href: quickstarts/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md
+- name: Tutorials
+  items:
+    - name: Change a workspace and configure DTR
+      href: learn/tutorial-change-workspace-configure-data-collection-rule.md
 - name: Enable Change Tracking and Inventory
   items:
     - name: Enable from machines pane
