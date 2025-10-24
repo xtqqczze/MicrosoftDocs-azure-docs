@@ -174,6 +174,7 @@ To manage certificates for external communications, follow these steps:
 
         - View the certificate details once uploaded, to ensure you have the correct certificate before adding to Azure Key Vault and synchronizing to the cluster.
         - Use an intuitive name so that you can recognize which secret represents your secret in the future.
+        - Select the appropriate certificate store for the connector that uses the certificate. For example, **OPC UA trust list**.
 
         :::image type="content" source="media/howto-manage-certificates/upload-certificate.png" lightbox="media/howto-manage-certificates/upload-certificate.png" alt-text="Screenshot that shows the Upload certificate option when adding a new certificate to the devices page.":::
 

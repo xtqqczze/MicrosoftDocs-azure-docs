@@ -39,6 +39,11 @@ This article describes how to use the operations experience web UI to:
 - Create a device that represents the media endpoints exposed by the ONVIF camera.
 - Create an asset that captures snapshots from the media endpoint and publishes them to the MQTT broker.
 
+The connector for ONVIF supports the following authentication methods:
+  - Username/password authentication
+  - Anonymous access for testing purposes
+  - Certificate trust list
+
 ## Prerequisites
 
 To configure devices and assets, you need a running instance of Azure IoT Operations.
@@ -132,6 +137,8 @@ To use the `Username password` authentication mode, complete the following steps
 ---
 
 ### Other security options
+
+To manage the trusted certificates list for the connector for ONVIF, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
 
 When you create the inbound endpoint you can also select:
 
