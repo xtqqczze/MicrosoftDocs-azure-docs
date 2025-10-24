@@ -92,12 +92,12 @@ Your workload profile must have at least two nodes to use premium ingress.
 1. Configure the premium ingress settings for the environment.
 
     ```azurecli
-        az containerapp env premium-ingress add
-        --resource-group my-resource-group 
-        --name my-container-apps-env 
-        --workload-profile-name Ingress-D4 
-        --termination-grace-period 500
-        --request-idle-timeout 4
+        az containerapp env premium-ingress add \
+        --resource-group my-resource-group \
+        --name my-container-apps-env \
+        --workload-profile-name Ingress-D4 \
+        --termination-grace-period 500 \
+        --request-idle-timeout 4 \
         --header-count-limit 100
     ```
     Below is a description of the parameters you can set when configuring premium ingress settings for your Container Apps environment.
@@ -123,26 +123,34 @@ Once configured you will see an output of the settings you just applied.
 
 1. Update the premium ingress settings for the environment.
      ```azurecli
-        az containerapp env premium-ingress update
-        --resource-group my-resource-group
-        --name my-container-apps-env
-        --workload-profile-name Ingress-D4
-        --termination-grace-period 500
-        --request-idle-timeout 4
+        az containerapp env premium-ingress update \
+        --resource-group my-resource-group \
+        --name my-container-apps-env \
+        --workload-profile-name Ingress-D4 \
+        --termination-grace-period 500 \
+        --request-idle-timeout 4 \
         --header-count-limit 100
     ```
 1. Show the premium ingress settings for the environment.
     ```azurecli
-    az containerapp env premium-ingress show `
-        --resource-group my-resource-group `   
+    az containerapp env premium-ingress show \
+        --resource-group my-resource-group \   
         --name my-container-apps-env 
       
     ```
 1. Remove the premium ingress settings for the environment.
     ```azurecli
-    az containerapp env premium-ingress remove `
-        --resource-group my-resource-group `   
+    az containerapp env premium-ingress remove \
+        --resource-group my-resource-group \   
         --name my-container-apps-env 
+    ```
+1. Remove the workload profile from the environment.
+
+    ```azurecli
+    az containerapp env workload-profile remove \
+        --resource-group my-resource-group \
+        --name my-container-apps-env \
+        --workload-profile-name Ingress-D4
     ```
 ::: zone-end
 
@@ -151,7 +159,7 @@ Once configured you will see an output of the settings you just applied.
 1. Create the following Bicep file and save as `ingress.bicep`.
 
     ```bicep
-    resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2025-02-02-preview' = {
+    resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2025-07-01-preview' = {
       name: 'my-container-app-env'
       location: 'eastus'
       tags: tags
@@ -214,6 +222,29 @@ azd down
 azd logs
 ```
 
+
+::: zone-end
+
+::: zone pivot="portal"
+
+You can configure the ingress for your environment after you create it.
+
+1. Browse to your environment in the Azure portal.
+1. Select **Networking** under **Settings**.
+1. Select the **Ingress settings** tab.
+1. Configure your ingress settings as follows.
+
+    | Setting | Value |
+    |---|---|
+    | Ingress Mode| Select [**Premium**](#premium-ingress-mode). |
+    | Workload profile size | Select a size from [**D4** to **D32**](#workload-profile). |
+    | Minimum node instances | Enter the [minimum workload profile node instances](#workload-profile). |
+    | Maximum node instances | Enter the [maximum workload profile node instances](#workload-profile). |
+    | Termination grace period |Enter the [termination grace period in minutes](#advanced-ingress-settings). |
+    | Idle request timeout| Enter the [idle request time-out in minutes](#advanced-ingress-settings). |
+    | Request header count | Enter the [request header count](#advanced-ingress-settings). |
+
+1. Select **Apply**.
 
 ::: zone-end
 
