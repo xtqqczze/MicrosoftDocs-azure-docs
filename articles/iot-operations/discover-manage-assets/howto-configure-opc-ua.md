@@ -248,7 +248,7 @@ Now you can define the events associated with the asset. To add OPC UA events:
 
 ### Event filters
 
-Define event filters to customize the information that's included in event notifications from the server. By default, the the server sends a selection of standard fields in event notifications. The exact selection is determined by the server for the event type. For example:
+Define event filters to customize the information that's included in event notifications from the server. By default, the server sends a selection of standard fields in event notifications. The exact selection is determined by the server for the event type. For example:
 
 ```json
 {
