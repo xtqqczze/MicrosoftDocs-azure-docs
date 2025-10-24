@@ -17,6 +17,8 @@ Azure IoT Operations uses TLS to encrypt communication between all components. T
 
 - To manage certificates for external communications, you need an Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
+- To create secrets in Azure Key Vault, you need **Secrets officer** permissions at the resource level. For information about assigning roles to users, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
+
 ## Manage certificates for internal communications
 
 All communications within Azure IoT Operations are encrypted using TLS. To help you get started, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. You can use the default setup for development and testing purposes. For a production deployment, we recommend [using your own CA issuer](#bring-your-own-issuer) and an enterprise PKI solution.

@@ -92,6 +92,13 @@ For help resolving this issue, please see https://go.microsoft.com/fwlink/?linki
 
 This error occurs when Azure IoT Operations tries to synchronize a secret from Azure Key Vault that doesn't exist. To resolve this issue, add the secret in Azure Key Vault before you create resources such as a secret provider class.
 
+## Troubleshoot permissions errors adding secrets or certificates
+
+When you use the operations experience to add secrets or certificates, you might see permissions-related error messages if your Microsoft Entra ID account doesn't have the required permissions.
+
+When you use the operations experience to add secrets or certificates, it adds them as secrets in your Azure Key Vault. Your Microsoft Entra ID account needs **Secrets officer** permissions at the resource level for the Azure Key Vault used by your Azure IoT Operations instance. For information about assigning roles to users, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
+
+
 ## Troubleshoot OPC UA server connections
 
 An OPC UA server connection fails with a `BadSecurityModeRejected` error if the connector tries to connect to a server that only exposes endpoints with no security. There are two options to resolve this issue:
@@ -119,7 +126,7 @@ To work around this issue, update the device inbound endpoint in the operations 
 
 :::image type="content" source="media/troubleshoot/auto-accept-certificate.png" alt-text="Screenshot that shows the option in the operations experience to automatically accept untrusted certificates.":::
 
-You can use the the `az iot ops ns device endpoint inbound add opcua` to add endpoints to the device that automatically accept untrusted server certificates.
+You can use the `az iot ops ns device endpoint inbound add opcua` to add endpoints to the device that automatically accept untrusted server certificates.
 
 > [!CAUTION]
 > Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
@@ -140,4 +147,4 @@ Verify your Microsoft Entra ID account meets the requirements in the [prerequisi
 
 ### You see a "Global error: AllBrokersDown" error message
 
-If you see a `Global error: AllBrokersDown` error message in the data flow logs this means that the data flow hasn't processed any messages for about four or five minutes. Check that the data flow source is correctly configured and sending messages. For example, check that you're using the correct topic name from the MQTT broker.
+If you see a `Global error: AllBrokersDown` error message in the data flow logs, this means that the data flow hasn't processed any messages for about four or five minutes. Check that the data flow source is correctly configured and sending messages. For example, check that you're using the correct topic name from the MQTT broker.
