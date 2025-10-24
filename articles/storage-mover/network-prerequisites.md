@@ -13,7 +13,7 @@ ms.date: 10/22/2025
 Azure Storage Mover is a service designed to facilitate seamless data migration to Azure Storage accounts. For organizations prioritizing security and compliance, integrating Storage Mover with Azure Private Networking ensures that sensitive data and credentials remain protected throughout the migration process. 
 
 > [!NOTE]
-> Azure Storage Mover supports both on-premises and cloud data sources and targets. On-premises data sources are migrated to Azure storage using one or more agents, while multicloud data sources are migrated using the Storage Mover service directly. 
+> Azure Storage Mover supports both on-premises and cloud data sources and targets. On-premises data sources are migrated to Azure storage using one or more agents, while cloud data sources are migrated using the Storage Mover service directly. 
 >
 > This article focuses on the prerequisites for connecting on-premises infrastructure to Azure, and includes private networking considerations.
 
@@ -36,11 +36,11 @@ When Azure Storage Mover is deployed in a private networking environment, severa
 
 A storage mover agent supports both SMB and NFS clients. The following list of ports must be enabled between a Storage Mover Agent VM, a storage VM, and an Azure Fileshare. 
 
-| Service                   | Port and Protocol | Source VM | Target VM        |
-|---------------------------|-------------------|-----------|------------------|
-| SMB                       | 445/TCP           | Agent VM  | Storage VM       |
-| NFS                       | 2049/TCP          | Agent VM  | Storage VM       |
-| Blob or File Share target | 443/HTTPS         | Agent VM  | Azure File Share |
+| Service                   | Port and Protocol | Source VM | Target                              |
+|---------------------------|-------------------|-----------|-------------------------------------|
+| SMB                       | 445/TCP           | Agent VM  | On-premises SMB share server        |
+| NFS                       | 2049/TCP          | Agent VM  | On-premises NFS share server        |
+| Blob or File Share target | 443/HTTPS         | Agent VM  | Azure File Share                    |
 
 ### Required services and endpoints
 
@@ -59,7 +59,7 @@ The following table provides a summary of the required services, their endpoint 
 | **Storage Account (Flat Blob)** | Job targets     | &#9989;                    | `*.blob.core.windows.net`                          |
 | **Storage Account (HNS Blob)**  | Job targets     | &#9989;                    | `*.blob.core.windows.net` and<br />`*.dfs.core.windows.net` |
 | **Storage Account (File)** | Job targets          | &#9989;                    | `*.file.core.windows.net`                          |
-| **Key Vault**              | SMB credentials      | &#9989;                    |  `*.vault.azure.net`                               |
+| **Key Vault**              | Data source endpoint access credentials, as needed | &#9989; |  `*.vault.azure.net`                    |
 
 <!--
 # [Fairfax](#tab/fairfax)
