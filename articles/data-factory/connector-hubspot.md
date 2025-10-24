@@ -36,48 +36,6 @@ The service provides a built-in driver to enable connectivity, therefore you don
 
 The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
-The connector version 2.0 support the following HubSpot tables:
-
-- Marketing.Campaigns
-- Marketing.Emails.Marketing_Emails
-- Marketing.Subscriptions
-- Conversations.Inbox___Messages
-- CMS.Authors
-- CMS.Blog_Settings
-- CMS.Content_Audit
-- CMS.Domains
-- CMS.Hubdb
-- CMS.Pages
-- CMS.Posts
-- CMS.Site_Search
-- CMS.Tags
-- CMS.Url_Redirects
-- CRM.Commerce.Carts
-- CRM.Commerce.Discounts
-- CRM.Commerce.Fees
-- CRM.Commerce.Invoices
-- CRM.Commerce.Orders
-- CRM.Commerce.Quotes
-- CRM.Commerce.Subscriptions
-- CRM.Commerce.Taxes
-- CRM.Engagements.Calls
-- CRM.Engagements.Communications
-- CRM.Engagements.Emails
-- CRM.Engagements.Meetings
-- CRM.Engagements.Notes
-- CRM.Engagements.Postal_Mail
-- CRM.Engagements.Tasks
-- CRM.Objects.Companies
-- CRM.Objects.Contacts
-- CRM.Objects.Deals
-- CRM.Objects.Feedback_Submissions
-- CRM.Objects.Goal_Targets
-- CRM.Objects.Leads
-- CRM.Objects.Line_Items
-- CRM.Objects.Products
-- CRM.Objects.Tickets
-- CRM.Owners
-
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
@@ -227,6 +185,48 @@ To copy data from HubSpot, set the type property of the dataset to **HubspotObje
     }
 }
 ```
+
+The connector version 2.0 support the following HubSpot tables:
+
+- Marketing.Campaigns
+- Marketing.Emails.Marketing_Emails
+- Marketing.Subscriptions
+- Conversations.Inbox___Messages
+- CMS.Authors
+- CMS.Blog_Settings
+- CMS.Content_Audit
+- CMS.Domains
+- CMS.Hubdb
+- CMS.Pages
+- CMS.Posts
+- CMS.Site_Search
+- CMS.Tags
+- CMS.Url_Redirects
+- CRM.Commerce.Carts
+- CRM.Commerce.Discounts
+- CRM.Commerce.Fees
+- CRM.Commerce.Invoices
+- CRM.Commerce.Orders
+- CRM.Commerce.Quotes
+- CRM.Commerce.Subscriptions
+- CRM.Commerce.Taxes
+- CRM.Engagements.Calls
+- CRM.Engagements.Communications
+- CRM.Engagements.Emails
+- CRM.Engagements.Meetings
+- CRM.Engagements.Notes
+- CRM.Engagements.Postal_Mail
+- CRM.Engagements.Tasks
+- CRM.Objects.Companies
+- CRM.Objects.Contacts
+- CRM.Objects.Deals
+- CRM.Objects.Feedback_Submissions
+- CRM.Objects.Goal_Targets
+- CRM.Objects.Leads
+- CRM.Objects.Line_Items
+- CRM.Objects.Products
+- CRM.Objects.Tickets
+- CRM.Owners
 
 ## Copy activity properties
 
