@@ -179,7 +179,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     > Don't execute the vserverPeeringCommand at this time.  This will be executed in the next step.
 
     > [!NOTE]
-    > If cache volumes are already created using this ONTAP system, then the existing cluster peer will be reused. There can be situations where a different Azure NetApp Files cluster may be used which would require a new cluster peer.
+    > If cache volumes are already created using this ONTAP system, then the existing cluster peer is reused. There can be situations where a different Azure NetApp Files cluster may be used which would require a new cluster peer.
 
 3.	Monitor if the cache state is available for Vserver peering using the GET caches API call.
 
@@ -191,16 +191,17 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     > The user has 12 minutes after the cacheState transitions to "VserverPeeringOfferSent" to complete execution of the vserverPeeringCommand. If 12 minutes is exceeded, then cache creation fails, and the user will need to delete the cache volume and initiate a new PUT call.
 
     > [!NOTE]
-    > If cache volumes have been created already using this ONTAP system and the cluster peer was reused, then the existing vserver peer may be reused. If that happens, then step 3 will be skipped and the next step will be executed.
+    > If cache volumes are already created using this ONTAP system and the cluster peer was reused, then the existing vserver peer may be reused. If that happens, then step 3 will be skipped and the next step will be executed.
 
 4.	Complete the cache volume creation.
 
-    Once the peering has been completed, the cache volume is created. Monitor the cacheState and provisioningState of the cache volume using the GET caches API call. When the cacheState and provisioningState transition to "Succeeded," the cache volume is ready for use.
+    Once the peering is complete, the cache volume is created. Monitor the cacheState and provisioningState of the cache volume using the GET caches API call. When the cacheState and provisioningState transition to "Succeeded," the cache volume is ready for use.
 
 ## Examples of API calls
 
 # [NFS](#tab/NFS)
 
+```
 {
   "location": "westus",
   "zones": [
@@ -243,9 +244,11 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     }
   }
 }
+```
 
 # [SMB](#tab/SMB)
 
+```
 {
   "zones": [
     "2"
@@ -270,12 +273,14 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     }
   }
 }
+```
 
 # [Dual Protocol](#tab/DualProtocol)
 
 
 # [LDAP](#tab/LDAP)
 
+```
 {
   "location": "westus",
   "zones": [
@@ -320,7 +325,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     }
   }
 }
-
+```
 ---
 
 ## Update a cache volume
