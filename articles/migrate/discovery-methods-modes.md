@@ -58,7 +58,7 @@ Import-based discovery is a simpler and faster alternative, relying on manual up
 
 ## Arc-based discovery (Preview)
 
-If you have already Arc-enabled your servers and SQL Server instances, Arc-based discovery provides a simple alternative that doesn't require any additional on-premises deployments. To use Arc-based discovery, you must create a new Azure Migrate project from Arc Center. 
+If you have already Arc-enabled your servers and SQL Server instances, Arc-based discovery provides a simple alternative that doesn't require any additional on-premises deployments. To use Arc-based discovery, you must [create a new Azure Migrate project from Arc Center](quickstart-evaluate-readiness-savings-for-arc-resources.md). 
 
 ### Key features
 

@@ -271,7 +271,7 @@ az connectedmachine extension show \
 
 ### Update extension
 
-The extension support [automatic upgrades](azure/azure-arc/servers/manage-automatic-vm-extension-upgrade) to the latest minor version. To manually trigger an update:
+The extension support [automatic upgrades](/azure/azure-arc/servers/manage-automatic-vm-extension-upgrade) to the latest minor version. To manually trigger an update:
 
 ```azurecli
 az connectedmachine extension update \
