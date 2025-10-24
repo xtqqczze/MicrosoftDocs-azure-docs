@@ -114,4 +114,4 @@ Start using Microsoft Dev Box:
 Learn more about Microsoft Dev Box:
 
 - [Microsoft Dev Box architecture overview](./concept-dev-box-architecture.md)
-- [Key concepts in Microsoft Dev Box](./concept-dev-box-concepts.md)
+- [Microsoft Dev Box architecture and key concepts](./concept-dev-box-architecture.md)
