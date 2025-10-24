@@ -38,7 +38,7 @@ The final workflow consists of these steps:
 1. Decide your special delegation endpoint's URL and enter it in the **Delegation service endpoint** field. 
 1. In **Delegation keys**:
     * Generate the **Primary validation key** or **Secondary validation key** (or both) to be used by your delegation service to validate requests from API Management. Select the ellipsis (**...**) next to either key and then select **Regenerate**.
-    * Copy the keys to a secure location, and use them when configuring your delegation service. Select the ellipsis (**...**) next to either key and then select **Copy**.
+    * Select the ellipsis (**...**) next to either key and then select **Copy**. Copy the keys to a secure location, and use them when configuring your delegation service. 
 1. Click **Save**.
 
 > [!TIP]
