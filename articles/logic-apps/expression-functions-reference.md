@@ -4983,7 +4983,7 @@ xml(
 )
 ```
 
-Suppose you have the JSON array and store in Compose1 action.
+If you have a JSON array, like the following example, you have two options.
 
 ```json
 [
