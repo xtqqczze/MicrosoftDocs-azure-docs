@@ -4971,7 +4971,7 @@ And returns this result XML:
 
 The `xml()` function expects either an object or a string containing valid XML. The function doesn't accept a raw array as input.
 
-If your data is a JSON string, you can wrap it with the json() function to convert it into an object before passing it to xml().
+If your data is a JSON string, you can use the `json()` function to convert the string to a JSON object before you pass the result to the `xml()` function, for example:
 
 ```
 xml(
