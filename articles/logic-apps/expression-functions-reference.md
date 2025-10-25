@@ -5009,7 +5009,7 @@ Store the returned JSON object in another action named **Compose2**. You can the
 xml(outputs('Compose2'))
 ```
 
-Option 2: Using concat()
+Option 2: Store the JSON array in a **Compose** action named **Compose1**. Then use the `outputs()`, `concat()`, `json()`, and `xml()` functions to create XML from the JSON object output, for example: 
 
 ```
 xml(
