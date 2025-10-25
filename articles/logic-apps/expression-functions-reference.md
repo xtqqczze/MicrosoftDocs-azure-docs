@@ -4993,7 +4993,7 @@ If you have a JSON array, like the following example, you have two options.
 ]
 ```
 
-Option 1: Using a JSON object in Compose2
+Option 1: Store the JSON array in a **Compose** action named **Compose1**. Then use the `outputs()` function to return a JSON object from **Compose1**.
 
 ```
 {
