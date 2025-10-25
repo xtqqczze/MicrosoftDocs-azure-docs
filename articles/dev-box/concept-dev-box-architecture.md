@@ -22,9 +22,7 @@ Watch this video to learn more about Microsoft Dev Box:
 
 ## Key components and relationships
 
-Before developers can create dev boxes in the developer portal, you set up a dev center and project in Microsoft Dev Box. The following diagram shows the key components of Dev Box and how they relate to each other.
-
-:::image type="content" source="media/concept-dev-box-architecture/dev-box-concepts-overview.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-dev-box-architecture/dev-box-concepts-overview.png":::
+Before developers can create dev boxes in the developer portal, you set up a dev center and project in Microsoft Dev Box. 
 
 The core workflow involves:
 1. Setting up a **dev center** with shared resources
@@ -36,19 +34,15 @@ Once a dev box is running, developers can [remotely connect](#user-connectivity)
 
 ## Dev center
 
-A dev center is the top-level resource and collection of [projects](#project) that require similar settings. Dev centers enable platform engineers to:
+A dev center is the top-level resource and collection of [projects](#project) that require similar settings. There's no limit on the number of dev centers that you can create, but most organizations need only one.
 
-- Manage the images and SKUs available to the projects by using image definitions, custom images, and legacy dev box definitions
-- Configure the networks that the development teams consume by using network connections
-- Attach catalogs containing customization tasks and image definitions
+Dev centers enable platform engineers to configure the networks that the development teams consume by using network connections.
 
 [Azure Deployment Environments](../deployment-environments/concept-environments-key-concepts.md#dev-centers) also uses dev centers to organize resources. An organization can use the same dev center for both services.
 
-There's no limit on the number of dev centers that you can create, but most organizations need only one.
-
 ## Catalogs
 
-The Dev Box catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. Microsoft provides a [*quick start catalog*](https://github.com/microsoft/devcenter-catalog) that contains a set of sample tasks. You can attach the quick start catalog to a dev center to make these tasks available to all the projects associated with the dev center. You can modify the sample tasks to suit your needs, and you can create your own catalog of tasks.
+Catalogs in Dev Box are collections of tasks and scripts that automate the configuration of dev boxes during provisioning. By attaching a catalog to a dev center, you make its tasks available to all projects within that dev center. Alternatively, you can attach a catalog directly to a project to limit task availability to that specific project. You can customize the provided sample tasks or create your own catalogs to meet your team's requirements.
 
 Catalogs also contain image definition files for team-specific customizations.
 
@@ -64,7 +58,7 @@ To enable developers to create their own dev boxes, you must [provide access to 
 
 You can configure projects for [Deployment Environments](../deployment-environments/concept-environments-key-concepts.md#projects) and projects for Dev Box resources in the same dev center.
 
-## Project policies
+### Project policies
 
 A project policy in Microsoft Dev Box defines which resources—such as images, networks, and SKUs—are available to a project, enforcing governance and compliance. It ensures that development teams can only use approved resources, helping organizations control and streamline resource usage.
 
@@ -80,7 +74,7 @@ Image definitions are YAML-based customization files that define a base image an
 
 To learn more about creating and using image definitions, see [Configure team customizations](how-to-configure-team-customizations.md).
 
-## Dev box definition (Legacy)
+## Dev box definition
 
 > [!NOTE]
 > Dev box definitions are a legacy option. We recommend using image definitions, custom images, or marketplace images for greater flexibility in selecting compute size and storage.
