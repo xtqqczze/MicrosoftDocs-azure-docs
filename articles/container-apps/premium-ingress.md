@@ -104,8 +104,6 @@ Your workload profile must have at least two nodes to use premium ingress.
 
 | Parameter                     | Description                                                                                 |
 |-----------------------------|---------------------------------------------------------------------------------------------|
-| min-replicas             | The minimum number of replicas for the workload profile.                                    |
-| max-replicas               | The maximum number of replicas for the workload profile.                                    |
 | termination-grace-period | The time (in seconds) to allow active connections to close before terminating the ingress.   |
 | request-idle-limit           | The time (in seconds) a request can remain idle before being disconnected.                                      |
 | header-count-limit         | The maximum number of HTTP headers allowed per request.                   |
