@@ -5003,7 +5003,7 @@ Option 1: Store the JSON array in a **Compose** action named **Compose1**. Then 
 }
 ```
 
-and then create XML from the JSON object.
+Store the returned JSON object in another action named **Compose2**. You can then use the `xml()` and `outputs()` functions to create XML from the JSON object output from **Compose2**, for example: 
 
 ```
 xml(outputs('Compose2'))
