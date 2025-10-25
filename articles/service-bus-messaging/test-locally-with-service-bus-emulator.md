@@ -8,24 +8,31 @@ ms.date: 11/18/2024
 
 # Test locally by using the Azure Service Bus emulator
 
-This article summarizes the steps to develop and test locally by using the Azure Service Bus emulator.
+This article summarizes the steps to develop and test locally by using the Azure Service Bus emulator. The emulator runs as a Docker container on your local machine, providing a local Service Bus environment for development and testing. You can set up the emulator by using either an automated script (for quick setup) or by manually configuring Docker containers (for more control).
 
 ## Prerequisites
 
-- [Docker desktop](https://docs.docker.com/desktop/install/windows-install/#:~:text=Install%20Docker%20Desktop%20on%20Windows%201%20Download%20the,on%20your%20choice%20of%20backend.%20...%20More%20items)
 - Minimum hardware requirements:
   - 2 GB of RAM
   - 5 GB of disk space
+- [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/#:~:text=Install%20Docker%20Desktop%20on%20Windows%201%20Download%20the,on%20your%20choice%20of%20backend.%20...%20More%20items)
+    > [!NOTE]
+    > Even the automated script approach uses Docker containers behind the scenes to run the Service Bus emulator.
 - Windows Subsystem for Linux (WSL) configuration (only for Windows):
   - [Install WSL](/windows/wsl/install)
   - [Configure Docker to use WSL](https://docs.docker.com/desktop/wsl/#:~:text=Turn%20on%20Docker%20Desktop%20WSL%202%201%20Download,engine%20..%20...%206%20Select%20Apply%20%26%20Restart)
 
 > [!NOTE]
-> Before you continue with the steps in this article, make sure Docker Desktop is operational in the background.
+> Before you continue with the steps in this article, make sure Docker Desktop is running in the background.
 
 ## Run the emulator
 
-To run the Service Bus emulator, you can use an automated script or a Linux container:
+To run the Service Bus emulator, you can use an automated script or manually configure Docker containers. Both approaches result in the same containerized emulator running locally:
+
+- **Automated script**: Uses prebuilt scripts to automatically set up and run the emulator containers with default configuration
+- **Docker container**: Provides full control by letting you manually configure the emulator through Docker Compose files
+
+Choose the approach that best fits your needs:
 
 ### [Automated script](#tab/automated-script)
 
@@ -35,7 +42,7 @@ Before you run an automated script, clone the emulator's [GitHub installer repos
 
 Use the following steps to run the Service Bus emulator locally on Windows:
 
-1. **Open PowerShell** and navigate to the directory where the [common](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/ServiceBus-Emulator/Scripts/Common) scripts folder is cloned using `cd`:
+1. **Open PowerShell** and navigate to the directory where you cloned the [common](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/ServiceBus-Emulator/Scripts/Common) scripts folder by using `cd`:
    ```powershell
    cd <path to your common scripts folder> # Update this path
       
@@ -242,7 +249,7 @@ networks:
 3. Create .env file to declare the environment variables for Service Bus emulator and ensure all of the following environment variables are set.
 
 ```
-# Environment file for user defined variables in docker-compose.yml
+# Environment file for user-defined variables in docker-compose.yml
 
 # 1. CONFIG_PATH: Path to Config.json file
 # Ex: CONFIG_PATH="C:\\Config\\Config.json"
@@ -259,7 +266,7 @@ MSSQL_SA_PASSWORD=""
 
 > [!IMPORTANT]
 > 
-> - By passing the value "Y" to the environment variable "ACCEPT_EULA", you are acknowledging and accepting the terms and conditions of the End User License Agreement (EULA) for both [Azure Service Bus emulator](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/EMULATOR_EULA.txt) and [SQL Server Linux](/sql/linux/sql-server-linux-docker-container-deployment).
+> - By passing the value "Y" to the environment variable `ACCEPT_EULA`, you're acknowledging and accepting the terms and conditions of the End User License Agreement (EULA) for both [Azure Service Bus emulator](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/EMULATOR_EULA.txt) and [SQL Server Linux](/sql/linux/sql-server-linux-docker-container-deployment).
 > 
 >  - Ensure to place .env file in same directory to docker-compose.yaml file.
 >
@@ -275,11 +282,20 @@ MSSQL_SA_PASSWORD=""
 
 ```
 
----
-
 After the steps are successful, you can find the containers running in Docker.
 
 :::image type="content" source="./media/test-locally-with-service-bus-emulator/test-locally-with-service-bus-emulator.png" alt-text="Screenshot that shows the Service Bus emulator running in a container.":::
+
+---
+
+## Verify emulator is running
+
+Regardless of which setup method you chose, the result is the same: the Service Bus emulator running in Docker containers on your local machine. The emulator consists of two containers:
+
+- **Service Bus emulator container**: The main emulator service that provides Service Bus functionality
+- **SQL Server Linux container**: A dependency that provides the backend storage for the emulator
+
+You can verify the containers are running by checking Docker Desktop or using the command `docker ps` in a terminal.
 
 ## Interact with the emulator
 
@@ -288,21 +304,28 @@ By default, emulator uses [config.json](https://github.com/Azure/azure-service-b
 You can use the following connection string to connect to the Service Bus emulator:
 
  - When the emulator container and interacting application are running natively on local machine, use following connection string:
-```
-"Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
-```
+
+    ```
+    "Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+    ```
+
   - Applications (Containerized/Non-containerized) on the different machine and same local network can interact with Emulator using the IPv4 address of the machine. Use following connection string:
-```
-"Endpoint=sb://192.168.y.z;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
-```
+
+    ```
+    "Endpoint=sb://192.168.y.z;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+    ```
+
   - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes the name of Emulator container is "servicebus-emulator":
-```
-"Endpoint=sb://servicebus-emulator;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
-```
+
+    ```
+    "Endpoint=sb://servicebus-emulator;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+    ```
+
   - Application containers on the different bridge network can interact with Emulator using the "host.docker.internal" as host. Use following connection string:
-```
-"Endpoint=sb://host.docker.internal;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
-```
+
+    ```
+    "Endpoint=sb://host.docker.internal;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+    ```
 
 You can use the latest client SDKs to interact with the Service Bus emulator across various programming languages. To get started, refer to the [Service Bus emulator samples on GitHub](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/Sample-Code-Snippets/NET/ServiceBus.Emulator.Console.Sample).
 
