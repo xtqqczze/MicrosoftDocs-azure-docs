@@ -2,7 +2,7 @@
 title: Discover software inventory on on-premises servers with Azure Migrate 
 description: Learn how to discover software inventory on on-premises servers with Azure Migrate Discovery and assessment.
 author: vikram1988
-ms.author: vikrambansal
+ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
@@ -148,8 +148,8 @@ The table below shows different categories and subcategories in which the discov
 | 
 
 
-    > [!NOTE]
-    > You can also find two more categories- **Miscellaneous** which contains all the supporting components that are installed as part of a software package and **Unclassified** which contains software that are yet to be processed for classification. You may notice a difference in count of Unclassified software as the classification is performed periodically.
+> [!NOTE]
+> You can also find two more categories- **Miscellaneous** which contains all the supporting components that are installed as part of a software package and **Unclassified** which contains software that are yet to be processed for classification. You may notice a difference in count of Unclassified software as the classification is performed periodically.
 
 ### Review software at server level
 
@@ -157,7 +157,7 @@ In addition to reviewing software at project level, you can also review them at 
 
 1. Go to you Azure Migrate project and from the left menu, select **Infrastructure** under **Explore inventory** to review software discovered from each server.
    
-   :::image type="content" source="./media/how-to-discover-applications/software-inventory-infra-view.png" alt-text="Software inventory view at a project level":::
+   :::image type="content" source="./media/how-to-discover-applications/software-inventory-infra-view.png" alt-text="Software inventory view at a server level":::
 
 2. You can select the count of **software** for any server to get to a tab which shows all software discovered from this server.
 3. In this tab, you can review each software metadata like **Name**, **Publisher**, **Version** and additional insights like **Category**, **Subcategory**, **Support Status** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
