@@ -5,7 +5,7 @@ ms.custom:
   - devx-track-arm-template
   - build-2025
 ms.topic: conceptual
-ms.date: 09/26/2025
+ms.date: 10/27/2025
 ---
 
 # Use deployment scripts in Azure Resource Manager templates
