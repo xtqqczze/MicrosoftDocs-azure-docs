@@ -66,7 +66,7 @@ In this article, you learn how to use premium ingress with Azure Container Apps.
 
 1. Create a resource group with the following command:
     ```azurecli
-    az group create --name my-container-apps --location eastus
+    az group create --name my-container-apps --location centralus
     ```
 1. Create the container apps environment.
 
@@ -159,9 +159,9 @@ Once configured you will see an output of the settings you just applied.
 1. Create the following Bicep file and save as `ingress.bicep`.
 
     ```bicep
-    resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2025-07-01-preview' = {
+    resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2025-07-01' = {
       name: 'my-container-app-env'
-      location: 'eastus'
+      location: 'centralus'
       tags: tags
       properties: {
 	    workloadProfiles: [
