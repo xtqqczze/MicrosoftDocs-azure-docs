@@ -1399,7 +1399,7 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > [!NOTE]
 > **Azure Front Door Standard/Premium** resources are provided under the **Microsoft.Cdn** resource provider (see the **Microsoft.Cdn** section below). These **support moves between resource groups and subscriptions**.  
 > If you’re using **Front Door (classic)** (`Microsoft.Network/frontdoors`), **migrate to Standard or Premium first**, then perform the move.  
-> See: [Front Door FAQ — move support](https://learn.microsoft.com/azure/frontdoor/front-door-faq#can-i-move-front-door-and-cdn-profiles-between-resource-groups-or-subscriptions-without-any-downtime-) and [Migrate Front Door (classic) to Standard/Premium](https://learn.microsoft.com/azure/frontdoor/migrate-tier).
+> See: [Front Door FAQ — move support](../../frontdoor/front-door-faq.yml#can-i-move-front-door-and-cdn-profiles-between-resource-groups-or-subscriptions-without-any-downtime-) and [Migrate Front Door (classic) to Standard/Premium](../../frontdoor/migrate-tier.md).
 
 ## Microsoft.NotificationHubs
 
