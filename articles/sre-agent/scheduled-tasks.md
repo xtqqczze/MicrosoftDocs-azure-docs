@@ -59,10 +59,12 @@ The following examples demonstrate a few sample sets of custom instructions you 
 
 This task is an automated health check that runs every minute for up to 30 times after the database restarts. It verifies that the PostgreSQL database is alive, connections are working, and both API and web services have no errors and acceptable response times. If any check fails, it collects logs, sends a notification, and escalates if the database is down. If all checks pass, it records a summary. At the end, it produces a PDF report with metrics, logs, and a pass/fail summary.
 
-```text
-This task runs autonomously every 1 minute for up to 30 executions to validate post-recovery health after DB startup.
+```Text
+This task runs autonomously every 1 minute for up to 30 
+executions to validate post-recovery health after DB startup.
 
-Goal: confirm <APP_NAME> services remain healthy and that listings are served. Resources & scope:
+Goal: confirm <APP_NAME> services remain healthy and that 
+listings are served. Resources & scope:
 
 - Container Apps: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/containerapps/<APP_NAME>
 
@@ -72,7 +74,8 @@ Goal: confirm <APP_NAME> services remain healthy and that listings are served. R
 
 Time window and data range:
 
-Analyze ONLY the last 60 seconds of metrics/logs on each run (do NOT scan full history).
+Analyze ONLY the last 60 seconds of metrics/logs on each 
+run (do NOT scan full history).
 
 Checks (success criteria):
 
@@ -85,33 +88,57 @@ Checks (success criteria):
 
 On-breach actions (any check fails):
 
-- Immediately capture last 50 console log lines from the impacted container app (web or api) and last 200 lines from postgres server diagnostic logs (if available).
+- Immediately capture last 50 console log lines from 
+the impacted container app (web or api) and last 200 
+lines from postgres server diagnostic logs (if available).
 
-- Send a notification summary containing the failing metric, its current value, and attached logs.
+- Send a notification summary containing the failing 
+metric, its current value, and attached logs.
 
-- If the DB shows connections_failed 0 and is_db_alive == 0, escalate by creating an incident note (write a short JSON blob) and keep running the task until max executions.
+- If the DB shows connections_failed 0 and is_db_alive == 0, 
+escalate by creating an incident note (write a short JSON blob) 
+and keep running the task until max executions.
 
 On-success actions (all checks pass for the run):
-- Record a short summary (timestamp, metric snapshot) to the run report.
+
+- Record a short summary (timestamp, metric snapshot) to the 
+run report.
 
 Idempotence & safety:
+
 - Do not make any destructive changes.
-- Avoid duplicate notifications: aggregate consecutive identical breach events and only notify again if condition persists for 3 consecutive runs.
-- Rate limits: limit API calls to Azure Monitor and Container Apps logs to once per run per resource.
+
+- Avoid duplicate notifications: aggregate consecutive identical
+breach events and only notify again if condition persists for 3 
+consecutive runs.
+
+- Rate limits: limit API calls to Azure Monitor and Container Apps
+logs to once per run per resource.
 
 Output expectations (per run):
 
 - Small JSON summary: {timestampUTC, is_db_alive, connections_failed, connections_succeeded, api_5xx_count, api_p95_ms, web_5xx_count, actions_taken}
-- On completion (after maxExecutions or duration): one PDF report (compiled metrics charts and collected logs) and a final pass/fail matrix. Escalation hint:
-- If breaches persist for >3 consecutive runs, include recommended immediate actions: check DB firewall, confirm Key Vault DB credentials, and consider restart of backend if DB is healthy but errors persist.
+
+- On completion (after maxExecutions or duration): one PDF 
+report (compiled metrics charts and collected logs) and a 
+final pass/fail matrix.
+
+Escalation hint:
+
+- If breaches persist for >3 consecutive runs, include 
+recommended immediate actions: check DB firewall, confirm 
+Key Vault DB credentials, and consider restart of backend 
+if DB is healthy but errors persist.
 
 Stop conditions:
 
 - Stop after maxExecutions reached (30) or manual cancel.
 
-Notifications: Send notifications to the user via this chat with summarized results and attach the PDF at the end.
+Notifications: Send notifications to the user via this 
+chat with summarized results and attach the PDF at the end.
 
-Constraints: Keep each run under 30s execution to avoid overlapping runs. Use minimal data pull to meet this requirement.
+Constraints: Keep each run under 30s execution to avoid 
+overlapping runs. Use minimal data pull to meet this requirement.
 ```
 
 # [Security analysis](#tab/security-analysis)
