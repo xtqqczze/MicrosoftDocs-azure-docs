@@ -71,7 +71,7 @@ When you create a new App Service plan with zone redundancy enabled, it's deploy
 
 To use zone redundancy for your existing non-zone redundant app, you must create a new App Service plan with zone redundancy enabled in a new resource group, and then redeploy your app to the new plan.
 
-For more information about zone redundancy requirements and scale units, see [Reliability in Azure App Service](../../reliability/reliability-app-service#availability-zone-support).
+For more information about zone redundancy requirements and scale units, see [Reliability in Azure App Service](/azure/reliability/reliability-app-service#availability-zone-support).
 
 ## Move support
 
