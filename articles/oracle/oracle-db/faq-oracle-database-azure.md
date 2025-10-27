@@ -48,7 +48,7 @@ Latency between Azure resources and Oracle Database@Azure is within the Azure re
 
 ### Does Oracle Database@Azure support deploying Oracle Base Database, or do I need to migrate to the Autonomous Database service?
 
-Yes, Oracle Base Database Service is now generally available on Azure. Customers can now run any Oracle Database service—with version flexibility (19c or 23ai).
+Yes, Oracle Base Database service is now generally available on Azure. You can now run any Oracle Database service with version flexibility (19c or 23ai).
 
 ### For the Oracle Database@Azure service, does automated disaster recovery use the Azure backbone or the OCI backbone?
 
