@@ -11,7 +11,7 @@
 - name: Quickstarts
   items:
     - name: Enable Azure Change Tracking and Inventory
-      href: quickstarts/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md
+      href: quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md
 - name: Tutorials
   items:
     - name: Change a workspace and configure DTR
@@ -27,4 +27,4 @@
 - name: Manage Change Tracking and Inventory
   items:
     - name: Manage Change Tracking and Inventory
-      href: manage-change-tracking-monitoring-agent.md
+      href: manage-azure-change-tracking-monitoring-agent.md

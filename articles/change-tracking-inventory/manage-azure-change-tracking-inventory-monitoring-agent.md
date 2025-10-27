@@ -30,7 +30,7 @@ To disassociate DCR from a VM, follow these steps:
 1. Select the specific VM for which you want to disable the DCR.
 1. Select **Delete**.
    
-   :::image type="content" source="media/manage-azure-change-tracking-monitoring-agent/disable-dcr-inline.png" alt-text="Screenshot of selecting a VM to dissociate the DCR from the VM." lightbox="media/manage-azure-change-tracking-monitoring-agent/disable-dcr-expanded.png":::
+   :::image type="content" source="media/manage-azure-change-tracking-monitoring-agent/disable-data-collection-rule-inline.png" alt-text="Screenshot of selecting a VM to dissociate the DCR from the VM." lightbox="media/manage-azure-change-tracking-monitoring-agent/disable-data-collection-rule-expanded.png":::
 
    A notification appears to confirm the disassociation of the DCR for the selected VM.
 

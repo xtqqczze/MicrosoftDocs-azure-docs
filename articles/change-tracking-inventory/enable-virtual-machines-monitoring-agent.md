@@ -14,7 +14,7 @@ ms.custom: sfi-image-nochange
 
 When you enable Change Tracking in the Azure portal using the Azure Monitoring Agent (AMA), the process automatically creates a Data Collection Rule (DCR). This rule will appear in the resource group with a name in the format ct-dcr-aaaaaaaaa. After the rule is created, add the required resources.
 
-To enable Azure Change Tracking and Inventory from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](/azure/change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory?branch=pr-en-us-307064).
+To enable Azure Change Tracking and Inventory from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](/azure/change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory).
 
 ## Create data collection rule
 
@@ -46,5 +46,5 @@ To create a DCR, follow these steps:
 
 ## Next steps
 
-- For details of working with the feature, see [Manage Change Tracking and Inventory](../change-tracking-inventory/manage-change-tracking-monitoring-agent.md).
+- For details of working with the feature, see [Manage Change Tracking and Inventory](../change-tracking-inventory/manage-azure-change-tracking-monitoring-agent.md).
 - To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](../automation/troubleshoot/change-tracking.md).
