@@ -392,6 +392,21 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
    
     The maximum file size in bytes.
 
+### Ways to access cache volume metrics
+
+Azure NetApp Files metrics are natively integrated into Azure monitor. From within the Azure portal, you can find metrics for Azure NetApp Files cache volumes.
+
+1. In **Select a scope**, enter the full resource ID for the cache volume in the **Search to filter** items box.  
+
+    :::image type="content" source="./media/azure-netapp-files-metrics/access-cache-volumes-metrics.png" alt-text="Screenshot that shows how to access Azure NetApp Files metrics for cache volumes." lightbox="./media/azure-netapp-files-metrics/access-cache-volumes-metrics.png":::
+
+1. Select the volume and apply the scope.   
+
+    :::image type="content" source="./media/azure-netapp-files-metrics/select-cache-volumes-metrics.png" alt-text="Snapshot that shows how to select cache volumes metrics pull-down." lightbox="./media/azure-netapp-files-metrics/select-cache-volumes-metrics.png":::
+
+    Cache-specific metrics along with general volume metrics can be selected from the **Metric** drop down. 
+
+
  
 ## Next steps
 
