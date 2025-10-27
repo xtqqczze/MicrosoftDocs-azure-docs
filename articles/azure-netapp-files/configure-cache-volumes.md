@@ -55,7 +55,6 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * You should ensure that the protocol type is the same for the cache volume and origin volume. The security style and the Unix permissions are inherited from the origin volume. For example, creating a cache volume with NFSv3 or NFSv4 when origin is UNIX, and SMB when the origin is NTFS.
 * You should enable encryption on the origin volume.
 * You should configure an Active Directory (AD) or LDAP connection within the NetApp account to create an LDAP-enabled cache volume.
-* You can only modify specific fields of a cache volume, including `is-cifs-change-notify-enabled` and `is-writeback-enabled`.
 * The `globalFileLocking` parameter value must be the same on all cache volumes that share the same origin volume. Global file locking should be enabled when creating the first cache volume by setting `globalFileLocking` to true. The subsequent cache volumes from the same origin volume must have this setting set to true. To change the global file locking setting on existing cache volumes, you must update the origin volume first and then the change will propagate to all the cache volumes associated with that origin volume. The `volume flexcache origin config modify -is-global-file-locking-enabled` command should be executed on the source cluster to change the setting on the origin volume.
 
 ## Supported regions
@@ -139,24 +138,11 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 ## Create a cache volume
 
-1.	Initiate the cache volume creation using the PUT caches API call:
+1.	Initiate the cache volume creation using the PUT caches API call.
 
-    ```
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview
-    ```
-
-2.  Monitor if the cache state is available for cluster peering using the GET caches API call:
-
-    ```
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview
-
-    ```
+2.  Monitor if the cache state is available for cluster peering using the GET caches API call.
 
     When the cacheState = ClusterPeeringOfferSent, execute the POST listPeeringPassphrases call to obtain the command and passphrase necessary to complete the cluster peering.
-
-    ```
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/listPeeringPassphrases?{2025-09-01-preview}
-    ```
 
     Example listPeeringPassphrases output:
 
@@ -197,7 +183,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
     Once the peering is complete, the cache volume is created. Monitor the cacheState and provisioningState of the cache volume using the GET caches API call. When the cacheState and provisioningState transition to "Succeeded," the cache volume is ready for use.
 
-## Examples of API calls
+## Cache creation request body examples
 
 # [NFS](#tab/NFS)
 
@@ -277,6 +263,50 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 # [Dual Protocol](#tab/DualProtocol)
 
+```
+{
+"zones": ["2"],
+"location": "southcentralus",
+"properties": {
+"filepath": "dual-cache2",
+"cacheSubnetResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+"peeringSubnetResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+"size": 53687091200,
+"encryptionKeySource": "Microsoft.NetApp",
+"writeBack": "Enabled",
+"protocolTypes": [
+"SMB",
+"NFSv3"
+],
+"exportPolicy": {
+"rules": [
+{
+"ruleIndex": 1,
+"unixReadOnly": "true",
+"unixReadWrite": "false",
+"kerberos5ReadOnly": "false",
+"kerberos5ReadWrite": "false",
+"kerberos5iReadOnly": "false",
+"kerberos5iReadWrite": "false",
+"kerberos5pReadOnly": "false",
+"kerberos5pReadWrite": "false",
+"nfsv3": "false",
+"nfsv41": "true",
+"allowedClients": "0.0.0.0/0"
+}
+]
+},
+"originClusterInformation": {
+"peerClusterName": "origin_cluster",
+"peerAddresses": [
+"1.2.3.4"
+],
+"peerVserverName": "origin_svm",
+"peerVolumeName": "origin_volume"
+}
+}
+}
+```
 
 # [LDAP](#tab/LDAP)
 
@@ -329,8 +359,6 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 ---
 
 ## Update a cache volume
-
-You can update a cache volume.
 
 Example patch call to update a cache volume:
 
