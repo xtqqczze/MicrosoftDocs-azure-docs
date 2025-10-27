@@ -32,7 +32,7 @@ Use the `llm-semantic-cache-lookup` policy to perform cache lookup of responses 
 
 ```xml
 <llm-semantic-cache-lookup
-    score-threshold="similarity score threshold"
+    score-threshold="score threshold to return cached response"
     embeddings-backend-id ="backend entity ID for embeddings API"
     embeddings-backend-auth ="system-assigned"             
     ignore-system-messages="true | false"      
@@ -45,7 +45,7 @@ Use the `llm-semantic-cache-lookup` policy to perform cache lookup of responses 
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| score-threshold	| Similarity score threshold used to determine whether to return a cached response to a prompt. Value is a decimal between 0.0 and 1.0. Smaller values represent greater semantic similarity. [Learn more](../redis/tutorial-semantic-cache.md#change-the-similarity-threshold). | Yes |	N/A |
+| score-threshold	| Score threshold used to determine whether to return a cached response to a prompt. Value is a decimal between 0.0 and 1.0. Smaller values represent greater semantic similarity. [Learn more](../redis/tutorial-semantic-cache.md#change-the-similarity-threshold). | Yes |	N/A |
 | embeddings-backend-id | [Backend](backends.md) ID for embeddings API call. |	Yes |	N/A |
 | embeddings-backend-auth | Authentication used for embeddings API backend. | Yes. Must be set to `system-assigned`. | N/A |
 | ignore-system-messages | Boolean. When set to `true` (recommended), removes system messages from a chat completion prompt before assessing cache similarity. | No | false |
