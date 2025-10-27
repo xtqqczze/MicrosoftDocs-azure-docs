@@ -65,7 +65,6 @@ To view detailed workload status, follow the steps:
 
     :::image type="content" source="./media/how-to-execute-track-waves/app-tracking-view.png" alt-text="The screenshot shows the app tracking details." lightbox="./media/how-to-execute-track-waves/app-tracking-view.png"::: 
 
-
 ## Next steps
 
 Learn more about [Optimize work loads](/azure/cloud-adoption-framework/modernize/optimize-after-cloud-modernization)
