@@ -1,13 +1,13 @@
 ---
-title: Create Standard workflows with Visual Studio Code
-description: Create Standard logic app workflows that run in single-tenant Azure Logic Apps with Visual Studio Code.
+title: Create Standard Workflows with Visual Studio Code
+description: Learn to create Standard logic app workflows that run in single-tenant Azure Logic Apps with Visual Studio Code.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 03/17/2025
+ms.date: 10/27/2025
 ms.custom: devx-track-dotnet
-# Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
+# Customer intent: As an integration developer working with Azure Logic Apps, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
 
 # Create Standard logic app workflows with Visual Studio Code
@@ -656,8 +656,8 @@ To test your workflow, follow these steps to run a debugging session and find th
 
 1. In Visual Studio Code, return to your workflow's overview page. Under **Run history**, check the status for the workflow run.
 
-   > [!TIP]
-   >
+   > [!NOTE]
+   > 
    > If the run status doesn't appear, try refreshing the overview page by selecting **Refresh**. 
    > A run doesn't happen for a trigger that's skipped due to unmet criteria or finding no data.
 
@@ -689,6 +689,8 @@ To test your workflow, follow these steps to run a debugging session and find th
 
    > [!NOTE]
    >
+   > If no workflow run history data appears, make sure that the logic app *resource* is still running and not stopped.
+   > 
    > If a run failed and a step in run details view shows the **400 Bad Request** error, this problem might 
    > result from a longer trigger name or action name that causes the underlying Uniform Resource Identifier (URI) 
    > to exceed the default character limit. For more information, see ["400 Bad Request"](#400-bad-request).
