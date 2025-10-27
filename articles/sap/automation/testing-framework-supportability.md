@@ -16,18 +16,18 @@ This document outlines the supported platforms, operating systems, and features 
 
 ## Supported Distributions for Management Server
 
-The SAP Testing Automation Framework requires a management server or controller. Below are the list of supported operating systems.
+The SAP Testing Automation Framework requires a management server or controller. Following are the list of supported operating systems.
 
 - Operating system
   - Ubuntu 22.04 LTS
-  - SUSE Linux Enterprise Server 15 SP4 or above
-  - Red Hat Enterprise Linux 9.4 or above.
+  - SUSE Linux Enterprise Server 15 SP4 or higher.
+  - Red Hat Enterprise Linux 9.4 or higher.
 
 - The management server must be deployed on Azure.
 
 ## Supported SAP System Configurations
 
-Azure offers various deployment options for SAP workloads on different operating system distributions. The SAP Testing Automation Framework executes its test scenarios on the SAP system configurations listed below.
+Azure offers various deployment options for SAP workloads on different operating system distributions. The SAP Testing Automation Framework executes its test scenarios on the following SAP system configurations.
 
 ### Linux Distributions
 

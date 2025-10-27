@@ -24,7 +24,7 @@ The SAP Testing Automation Framework is built on several core components that wo
 
 - **Test Scripts**: Helper utilities for test case management and execution. These scripts handle specific testing operations such as critical service failure simulation, network partitioning, and database failover. They're written to be environment and operating system agnostic and can be customized for specific testing requirements.
 
-- **Workspaces**: System-specific configuration and credentials management component. Each workspace contains the necessary configuration files, connection parameters, and authentication details for a specific SAP system or environment. This allows the framework to manage multiple systems simultaneously while maintaining isolation.
+- **Workspaces**: System-specific configuration and credentials management component. Each workspace contains the necessary configuration files, connection parameters, and authentication details for a specific SAP system or environment. This structure enables the framework to manage multiple systems concurrently while maintaining isolation between environments.
 
 - **Reporting Engine**: Generates detailed HTML test reports with comprehensive results, logs, and diagnostic information. The reporting engine provides structured output. It includes test execution summaries, pass/fail status for individual test cases, performance metrics, and detailed error logs for troubleshooting purposes.
 
@@ -36,12 +36,11 @@ The SAP Testing Automation Framework uses a centralized management server archit
 
 :::image type="content" source="./media/testing-framework/testing-framework-architecture.png" alt-text="Diagram that shows the SAP Testing Automation Framework architecture.":::
 
-
 The framework operates on a hub-and-spoke model where the management server acts as the central hub. It coordinates with multiple SAP systems (spokes) to execute tests, collect results, and generate comprehensive reports. Key functions include:
 
 **Test Orchestration**: The management server coordinates test suite execution, and ensures proper sequencing of tests across multiple SAP environments.
 
-**Configuration Management**: The system maintains directories of configuration templates, system inventories, and customization parameters. These can be applied across different environments while ensuring consistency and reducing configuration drift.
+**Configuration Management**: The system maintains directories of configuration templates, system inventories, and customization parameters. These configurations can be applied across environments to ensure uniformity and minimize configuration drift.
 
 **Communication Hub**: The server handles secure connections, authentication, and data exchange with target SAP systems, providing a unified interface for all testing operations.
 
