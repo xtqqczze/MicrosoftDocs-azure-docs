@@ -26,23 +26,23 @@ To create Migration Waves manually using Azure Migrate portal, follow these step
 
 1. Select your project from **All Projects** in Azure portal.
 
-<Image 3.1 - Project Listing Page>
+     :::image type="content" source="./media/how-to-plan-create-waves/project-listing-page.png" alt-text="The screenshot shows the project listing page." lightbox="./media/how-to-plan-create-waves/project-listing-page.png":::
 
 1. In **Overview** pane, select **Create Wave**
 
-<Image 3.2 - Project Overview>
+    :::image type="content" source="./media/how-to-plan-create-waves/project-overview.png" alt-text="The screenshot shows the overview of the project." lightbox="./media/how-to-plan-create-waves/project-overview.png":::
 
 1. Enter a unique name in **Wave name** for execution and tracking purposes.
 1. Enter the planned start date for the wave migration in **Planned start date**.
 1. *Optional* Select an **Assessment** to get recommendations on the Azure targets and workload configurations. Use an assessment to accelerate wave planning.  
 1. Select the **Migration path** of the assessment based on your business strategy. If the assessment includes only single path, this option isn't available.
 
-<Image 3.3 - Wave create screen>
+     :::image type="content" source="./media/how-to-plan-create-waves/wave-create.png" alt-text="The screenshot shows how to create wave." lightbox="./media/how-to-plan-create-waves/wave-create.png":::
 
 1. Review, add, and remove workloads and applications that you want to include in the wave. You can use filters to refine the selection.  
     If you select an assessment, the workloads and applications are limited to the scope of that assessment. You can add more workloads and applications later.
 
-<Image 3.3 - Compelted Wave create screen>
+:::image type="content" source="./media/how-to-plan-create-waves/wave-create-completion.png" alt-text="The screenshot shows the completion of the wave creation." lightbox="./media/how-to-plan-create-waves/wave-create-completion.png":::
 
 1. After you finalized the wave components, select **Create Wave**
 
@@ -51,3 +51,5 @@ In a few seconds, Azure Migrate creates the wave project. To view it, select **V
 The created wave includes the workloads and applications you selected. If you selected an assessment, the workloads and applications default to the migration targets and configurations defined in that assessment.
 
 ## Next steps
+
+Learn more about [complete your wave planning in Azure Migrate](how-to-complete-wave-plan.md).

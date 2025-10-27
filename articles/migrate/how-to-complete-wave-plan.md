@@ -30,7 +30,7 @@ To review and update these settings in Azure Migrate's Wave planning, follow the
 
 1. Go to Azure Targets page and select **Configure** in the **Target Settings** tile.
 
-**<Image 4.1 -Overview with target settings click >**
+    :::image type="content" source="./media/wave-planning-overview/wave-overview.png" alt-text="The screenshot shows the overview of the wave planning." lightbox="./media/wave-planning-overview/wave-overview.png":::
 
 ### Configure application targets and tasks
 
@@ -40,11 +40,12 @@ Use the application target settings to link assessments and add migration tasks 
 
 Linking an assessment to the application links the assessment to all workloads for that application across waves and reset the tasks.  
 
-**<Image 4.2 - application target settings>**
+:::image type="content" source="./media/how-to-complete-wave-plan/application-target-settings.png" alt-text="The screenshot shows how to select link assessment in target settings page." lightbox="./media/how-to-complete-wave-plan/application-target-settings.png"::: 
 
 1. Select **Add tasks** to add tasks you need to perform as part of migration beyond the workload migrations. These tasks are manual, so you can add, update and track manually.
 
-**<Image 4.3 - Application tasks view>**   
+:::image type="content" source="./media/how-to-complete-wave-plan/application-tasks.png" alt-text="The screenshot shows how to select tasks that you need to perfrom." lightbox="./media/how-to-complete-wave-plan/application-tasks.png"::: 
+
 
 ### Configure Workload Targets and migration tasks
 
@@ -55,7 +56,7 @@ Use workload target settings to configure Azure targets, select migration tools,
 1. Select the tool in **Migration tool** dropdown to define the migration path and tasks. 
 1. Select **Other** for workloads that you want to migrate outside Azure Migrate.
    
-**<Image 4.4 - workload target setings - configure targets**      
+:::image type="content" source="./media/how-to-complete-wave-plan/workload-target-settings.png" alt-text="The screenshot shows how to review and configure." lightbox="./media/how-to-complete-wave-plan/workload-target-settings.png":::      
  
 1. Select **Save configuration**.
 1. Review and add tasks using **Add tasks** that need to be performed and tracked for migrations.
@@ -69,7 +70,7 @@ Azure Migrate identifies the prerequisites you need to complete before starting 
 
 1. Select **View details** in the Wave settings tile.  
 
-**<Image 4.5 - Wave settings >**  
+:::image type="content" source="./media/how-to-complete-wave-plan/wave-settings.png" alt-text="The screenshot shows how to view details in the wave settings tile." lightbox="./media/how-to-complete-wave-plan/wave-settings.png":::   
 
 1. Review the pre-requisites and select **Add Task**  
 

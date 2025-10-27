@@ -96,4 +96,4 @@ Migration and modernization tasks are a set of activities you need to complete a
 
 ## Next steps
 
-Add the next steps
+- Learn more about [creating waves in Azure Migrate](how-to-plan-create-waves.md).
