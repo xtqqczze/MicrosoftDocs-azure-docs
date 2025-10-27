@@ -85,6 +85,7 @@ The following table helps describe some of the features supported by tier:
 | [Network isolation](private-link.md)                                                       | Yes                    | Yes                    | Yes                    | Yes                    |
 | [Microsoft Entra ID based authentication](entra-for-authentication.md)                     | Yes                    | Yes                    | Yes                    | Yes                    |
 | [Scaling](how-to-scale.md)                                                                 | Yes                    | Yes                    | Yes                    | Yes                    |
+| High availability                                                                          | \*Yes                  | \*Yes                  | \*Yes                  | \*Yes                  |
 | [Data persistence](how-to-persistence.md)                                                  | Yes                    | Yes                    | Yes                    | Yes                    |
 | [Geo-replication](how-to-active-geo-replication.md)                                        | Yes (Active)           | Yes (Active)           | Yes (Active)           | No                     |
 | Non-clustered instances                                                                    | Yes                    | Yes                    | Yes                    | No                     |
@@ -95,7 +96,9 @@ The following table helps describe some of the features supported by tier:
 | [Time Series database capability (that is, Redis TimeSeries)](redis-modules.md)            | Yes                    | Yes                    | Yes                    | Yes                    |
 | [Import/Export](how-to-import-export-data.md)                                              | Yes                    | Yes                    | Yes                    | Yes                    |
 
- When you use High Availability (HA), an Azure Managed Redis instance is deployed with primary and replica shards across two nodes. In regions without Availability Zones, the primary and replica shards are deployed across two nodes in the same zone.
+\* When **High availability** is enabled, Azure Managed Redis is zone redundant in regions with multiple Availability Zones. 
+
+When you use High availability (HA), an Azure Managed Redis instance is deployed with primary and replica shards across two nodes. In regions without Availability Zones, the primary and replica shards are deployed across two nodes in the same zone.
 
 > [!IMPORTANT]
 > The Balanced B0 and B1 SKU options don't support active geo-replication.
