@@ -323,7 +323,7 @@ Alma Linux 9.0 <br> Alma Linux 9.1 |9.64 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14
 
 Multipath software isn't supported.
 
-## <a name = "replicated-machines--compute-settings"></a>Replicated machines: Compute settings
+## <a name = "replicated-machines---compute-settings"></a>Replicated machines: Compute settings
 
 Setting | Support | Details
 --- | --- | ---
