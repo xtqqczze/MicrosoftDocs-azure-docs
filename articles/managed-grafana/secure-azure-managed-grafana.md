@@ -1,6 +1,6 @@
 ---
-title: Secure your Azure Managed Grafana deployment
-description: Learn how to secure Azure Managed Grafana, with best practices for protecting your deployment.
+title: Secure Azure Managed Grafana
+description: Learn how to secure Azure Managed Grafana, with best practices for protecting your resource.
 author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
@@ -10,7 +10,7 @@ ms.date: 10/16/2025
 ai-usage: ai-assisted
 ---
 
-# Secure your Azure Managed Grafana deployment
+# Secure Azure Managed Grafana
 
 Azure Managed Grafana provides capabilities to visualize and monitor data from multiple sources with comprehensive dashboard and alerting functionality. When deploying this service, it's important to follow security best practices to protect data, configurations, and infrastructure.
 
