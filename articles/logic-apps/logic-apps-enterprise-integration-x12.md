@@ -29,8 +29,6 @@ The X12 connector has different versions, based on [logic app type and host envi
 | **Consumption** | Multitenant Azure Logic Apps | X12 managed connector, which appears in the connector gallery under **Shared**. The X12 connector has one trigger and multiple actions. You can use any trigger that works for your scenario. For more information, see: <br><br>- [X12 managed connector reference](/connectors/x12/) <br>- [X12 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 | **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), and hybrid deployment | X12 built-in connector, which appears in the connector gallery under **Built-in**, and X12 managed connector, which appears in the connector gallery under **Shared**. The X12 managed connector has one trigger and multiple actions. The X12 built-in connector provides only actions. You can use any trigger that works for your scenario. <br><br>The built-in version differs in the following ways: <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway. <br><br>- The built-in version provides higher throughput and lower latency. <br><br>For more information, see: <br><br>- [X12 managed connector reference](/connectors/x12/) <br>- [X12 built-in connector operations](#x12-operations) <br>- [X12 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 
-
-
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
@@ -63,13 +61,6 @@ The X12 connector has different versions, based on [logic app type and host envi
 - Before you start working with X12 operations, you must [link your Consumption logic app](enterprise-integration/create-integration-account.md?tabs=consumption#link-account) or [link your Standard logic app](enterprise-integration/create-integration-account.md?tabs=standard#link-account) to an integration account.
 
   When you add an X12 operation, you must also create a connection to the integration account. You can create the connection when you add the X12 operation to your workflow.
-
-  | Logic app workflow | Link required? |
-  |--------------------|----------------|
-
-
-
-
 
 <a name="encode"></a>
 
