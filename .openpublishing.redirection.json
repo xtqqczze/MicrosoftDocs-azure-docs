@@ -26,6 +26,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-hub-device-update/migration-public-preview-refresh-to-ga.md",
+      "redirect_url": "/azure/iot-hub-device-update/understand-device-update",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-sql-edge/connect.md",
       "redirect_url": "/previous-versions/azure/azure-sql-edge/connect",
       "redirect_document_id": false
@@ -3205,6 +3210,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/api-management/api-management-key-concepts-experiment.md",
+      "redirect_url": "/azure/api-management/api-management-key-concepts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-cross-premises-options.md",
       "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings",
       "redirect_document_id": false
@@ -6055,9 +6065,9 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/reliability/reliability-postgre-flexible.md",
-      "redirect_url": "/azure/reliability/reliability-postgresql-flexible-server",
-      "redirect_document_id": false
+      "source_path_from_root": "/articles/reliability/reliability-postgresql-flexible-server.md",
+      "redirect_url": "/azure/reliability/reliability-azure-database-postgresql",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/remote-rendering/tutorials/unity/changing-environment-and-materials.md",
@@ -7910,13 +7920,26 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/reliability/reliability-event-hubs.md",
-      "redirect_url": "/azure/event-hubs/event-hubs-business-continuity-outages-disasters",
+      "source_path": "articles/event-hubs/event-hubs-business-continuity-outages-disasters.md",
+      "redirect_url": "/azure/reliability/reliability-event-hubs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/reliability-spring-apps.md",
+      "redirect_url": "/azure/reliability/overview-reliability-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub-device-update/device-update-simulator.md",
+      "redirect_url": "/azure/iot-hub-device-update/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub-device-update/device-update-azure-real-time-operating-system.md",
+      "redirect_url": "/azure/iot-hub-device-update/",
       "redirect_document_id": false
     }
+ 
 
-
-
-    
   ]
 }
