@@ -27,9 +27,19 @@ Before you enable threat detection for Azure VM backups, ensure the following pr
 - Enable bi-directional alert synchronization in Microsoft Sentinel to accurately identify backup recovery points.
 - Mark alerts as resolved in Microsoft Defender for Cloud when using any third-party incident management solution alongside Defender.
 
-## Enable threat detection for Azure VM backups using Resiliency
+
+## Enable threat detection for Azure VM backups
 
 You can configure source-scan at-scale at the vault level, which allows Azure Backup to performn Malware scans using Microsoft Defender at the source virtual machine, and Azure Backup assesses the health of recovery points when snapshots are taken.
+
+You can enable threat detection for Azure VM backups using one of the methods - Resiliency or Vault properties.
+
+>[!Important]
+>With the required Microsoft Defender for Cloud (MDC) plans, you can enable source-scan integration. This feature can't be disabled.
+
+
+### Option 1: Configure threat detection using Resiliency
+
 
 To enable threat detection for Azure VM backups, follow these steps:
 
@@ -54,17 +64,17 @@ To enable threat detection for Azure VM backups, follow these steps:
 
 9.  All the new RPs created for the VM backups in the vault will start getting the scan status configured.
 
-**Enable threat detection from vault properties:**
+### Option 2: Configure threat detection from vault properties
 
-1.  Navigate to “Properties” under Recovery Services Vault settings.
+To enable threat detection for Azure VM backups from the Recovery Services Vault properties, follow these steps:
 
-:::image type="content" source="media/threat-detection/image2.png" alt-text="A screenshot of a computer AI-generated content may be incorrect.":::
+1. Go to the **Recovery Services vault**, and then select **Properties**.
+1. On the **Properties** pane, under **Security Settings** > **Threat detection (Preview)**, select **Update**.
 
-2.  Navigate to “Threat detection” under security settings
+:::image type="content" source="./media/threat-detection-configure-monitor-tutorial/enable-threat-detection-vault.png" alt-text="Screenshot shows the enable threat detection option in the vault properties." lightbox"./media/threat-detection-configure-monitor-tutorial/enable-threat-detection-vault.png":::
 
-3.  If you have the required MDC plans, you can enable source-scan integration, and the feature is currently irreversible.
-
-4.  Select Update and threat detection will be enabled.
+1. On the **Threat Detection (Preview)** pane, turn on **Enable source-scan integration**, accept the terms by selecting the checkbox.
+1. Select **Update**.
 
 **View Health of RPs:**
 
@@ -86,8 +96,7 @@ To enable threat detection for Azure VM backups, follow these steps:
 
 6.  After resolving all alerts and marking them as “resolved” in MDC, backup items will be marked as “No Threats Reported”.
 
-**Restoring a VM:**
 
-At the time of restore, you will also be able to view the scan status of each RP which will help you in selecting the appropriate restore point for ransomware recovery.
+You can also view the scan status of each recovery point during Azure VM restore, which helps you to select the appropriate restore point for ransomware recovery.
 
 :::image type="content" source="media/threat-detection/image6.png" alt-text="A screenshot of a computer AI-generated content may be incorrect.":::
