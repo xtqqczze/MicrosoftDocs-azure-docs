@@ -416,7 +416,7 @@ Secure transfer option | Supported.
 Write accelerator enabled disks | Not supported.
 Tags  | Supported. | User-generated tags replicate every 24 hours.
 Soft delete | Not supported. | Soft delete isn't supported because after soft delete is enabled on a storage account, it increases cost. Site Recovery performs frequent creates/deletes of log files. Replicating causes costs to increase.
-iSCSI disks | Not supported. | You can use Site Recovery to migrate or failover iSCSI disks into Azure. However, iSCSI disks aren't supported for Azure-to-Azure replication and failover/failback.
+iSCSI disks | Not supported. | You can use Site Recovery to migrate or fail over iSCSI disks into Azure. However, iSCSI disks aren't supported for Azure-to-Azure replication and failover/failback.
 Storage Replica | Not supported.
 
 >[!IMPORTANT]
@@ -455,7 +455,7 @@ NSG on subnet | Supported | Associate the NSG with the subnet by using an Azure 
 Application security group (ASG) | Unsupported | Site Recovery doesn't support ASGs.
 Reserved (static) IP address | Supported | If the NIC on the source VM has a static IP address, and the target subnet has the same IP address available, the NIC is assigned to the failed-over VM.<br/><br/> If the target subnet doesn't have the same IP address available, one of the available IP addresses in the subnet is reserved for the VM.<br/><br/> You can also specify a fixed IP address and subnet in **Replicated items** > **Settings** > **Network** > **Network interfaces**.
 Dynamic IP address | Supported | If the NIC on the source has dynamic IP addressing, the NIC on the failed-over VM is also dynamic by default.<br/><br/> You can modify to a fixed IP address if necessary.
-Multiple IP addresses | Supported | When you fail over a VM that has a NIC with multiple IP addresses, only the primary IP address of the NIC in the source region is kept by default. To failover secondary IP configurations, go to the **Network** pane and configure them.<br><br/> Supported only for region replication. Zone-to-zone replication isn't supported.
+Multiple IP addresses | Supported | When you fail over a VM that has a NIC with multiple IP addresses, only the primary IP address of the NIC in the source region is kept by default. To fail over secondary IP configurations, go to the **Network** pane and configure them.<br><br/> Supported only for region replication. Zone-to-zone replication isn't supported.
 Azure Traffic Manager     | Supported | You can preconfigure Traffic Manager so that traffic is regularly routed to the endpoint in the source region. You can also route traffic to the endpoint in the target region if there was failover.
 Azure DNS | Supported |
 Custom DNS    | Supported |
