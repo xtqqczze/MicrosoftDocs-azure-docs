@@ -75,7 +75,8 @@ public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = Blo
 + [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-powershell)
 ::: zone-end
 
-::: zone pivot="programming-language-typescript" 
+::: zone pivot="programming-language-typescript"
++ [Blob trigger with the Event Grid source type quickstart sample)](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-eventgrid-blob)
 + [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-typescript)
 ::: zone-end
 
