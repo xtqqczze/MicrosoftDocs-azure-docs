@@ -663,6 +663,10 @@ To test your workflow, follow these steps to run a debugging session and find th
 
    :::image type="content" source="media/create-standard-workflows-visual-studio-code/post-trigger-call.png" alt-text="Screenshot that shows the workflow's overview page with run status and history.":::
 
+   > [!IMPORTANT]
+   >
+   > Under **Run history**, no workflow run history data appears if the logic app is stopped. Make sure the logic app is still running to view the workflow run history data.
+
    The following table shows the possible final statuses that each workflow run can have and show in Visual Studio Code:
 
    | Run status | Description |
@@ -689,8 +693,6 @@ To test your workflow, follow these steps to run a debugging session and find th
 
    > [!NOTE]
    >
-   > If no workflow run history data appears, make sure that the logic app *resource* is still running and not stopped.
-   > 
    > If a run failed and a step in run details view shows the **400 Bad Request** error, this problem might 
    > result from a longer trigger name or action name that causes the underlying Uniform Resource Identifier (URI) 
    > to exceed the default character limit. For more information, see ["400 Bad Request"](#400-bad-request).
