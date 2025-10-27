@@ -6,7 +6,7 @@ ms.custom: linux-related-content
 author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/21/2025
-ms.topic: overview
+ms.topic: concept-article
 # Customer intent: "As an IT administrator who manages Azure VMs and Azure Arc-enabled servers, I want to automate the process of assessing and applying updates so that I can keep my systems secure and compliant without manual intervention."
 ---
 
@@ -123,10 +123,10 @@ Update Manager installs patches in the following manner:
 
 ## Related content
 
-- [Prerequisites of Update Manager](prerequisites.md)
-- [Check update compliance with Update Manager](view-updates.md)
-- [Deploy updates now and track results with Update Manager](deploy-updates.md)
+- [Prerequisites for Azure Update Manager](prerequisites.md)
+- [Check update compliance with Azure Update Manager](view-updates.md)
+- [Deploy updates now and track results with Azure Update Manager](deploy-updates.md)
 - [Automate assessment at scale by using Azure Policy](https://aka.ms/aum-policy-support)
 - [Schedule recurring updates for machines by using the Azure portal and Azure Policy](scheduled-patching.md)
 - [Manage update configuration settings](manage-update-settings.md)
-- [Manage multiple machines with Update Manager](manage-multiple-machines.md)
+- [Manage multiple machines with Azure Update Manager](manage-multiple-machines.md)

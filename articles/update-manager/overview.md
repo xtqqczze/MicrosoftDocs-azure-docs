@@ -77,11 +77,11 @@ Here are some of the benefits of Update Manager:
 ## Related content
 
 - [How Update Manager works](workflow-update-manager.md)
-- [Prerequisites of Update Manager](prerequisites.md)
-- [Check update compliance with Update Manager](view-updates.md)
-- [Deploy updates now and track results with Update Manager](deploy-updates.md)
+- [Prerequisites for Azure Update Manager](prerequisites.md)
+- [Check update compliance with Azure Update Manager](view-updates.md)
+- [Deploy updates now and track results with Azure Update Manager](deploy-updates.md)
 - [Automate assessment at scale by using Azure Policy](https://aka.ms/aum-policy-support)
 - [Schedule recurring updates for machines by using the Azure portal and Azure Policy](scheduled-patching.md)
 - [Manage update configuration settings](manage-update-settings.md)
-- [Manage multiple machines with Update Manager](manage-multiple-machines.md)
+- [Manage multiple machines with Azure Update Manager](manage-multiple-machines.md)
 - [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus#azure-update-manager)

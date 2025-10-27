@@ -19,99 +19,101 @@ This article answers commonly asked questions about Azure Update Manager. If you
 
 ### What are the benefits of using Update Manager?
 
-Update Manager provides a software as a service (SaaS) solution to manage and govern software updates to Windows and Linux machines across Azure, on-premises, and multiple-cloud environments.
+Update Manager provides a software as a service (SaaS) solution to manage and govern software updates to Windows and Linux machines.
 
 Following are the benefits of using Update Manager:
 
-- Oversee update compliance for your entire fleet of machines in Azure (Azure VMs), on premises, and multiple-cloud environments (Azure Arc-enabled Servers).
-- View and deploy pending updates to secure your machines [instantly](updates-maintenance-schedules.md#update-nowone-time-update).
-- Manage [extended security updates (ESUs)](/azure/azure-arc/servers/prepare-extended-security-updates) for your Azure Arc-enabled Windows Server 2012/2012 R2 machines. Get consistent experience for deployment of ESUs and other updates.
-- Define recurring time windows during which your machines receive updates and might undergo reboots using [scheduled patching](scheduled-patching.md). Enforce machines grouped together based on standard Azure constructs (Subscriptions, Location, Resource Group, Tags etc.) to have common patch schedules using [dynamic scoping](dynamic-scope-overview.md). Sync patch schedules for Windows machines in relation to patch Tuesday, the unofficial term for month.
-- Enable incremental rollout of updates to Azure VMs in off-peak hours using [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) and reduce reboots by enabling [hotpatching](updates-maintenance-schedules.md#hotpatching).
-- [assess](assessment-options.md#periodic-assessment) automatically the machines for pending updates every 24 hours, and flag machines that are out of compliance. Enforce enabling periodic assessments on multiple machines at scale using [Azure Policy](periodic-assessment-at-scale.md).
-- Create [custom reports](workbooks.md) for deeper understanding of the updates data of the environment.
-- Granular access management to Azure resources with Azure roles and identity, to control who can perform update operations and edit schedules.
+- Oversee update compliance for your entire fleet of Azure virtual machines (VMs), on-premises machines, and machines in multiple-cloud environments (Azure Arc-enabled servers).
+- View and deploy pending updates to help secure your machines [instantly](updates-maintenance-schedules.md#update-nowone-time-update).
+- Manage [Extended Security Updates (ESUs)](/azure/azure-arc/servers/prepare-extended-security-updates) for your Azure Arc-enabled Windows Server 2012 and Windows Server 2012 R2 machines. Get consistent experience for deployment of ESUs and other updates.
+- Define recurring time windows during which your machines receive updates and might undergo reboots by using [scheduled patching](scheduled-patching.md). Enforce machines grouped together based on standard Azure constructs (for example, subscriptions, location, resource group, and tags) to have common patch schedules by using [dynamic scoping](dynamic-scope-overview.md). Sync patch schedules for Windows machines in relation to *patch Tuesday*, the unofficial term for Microsoft's scheduled release of security fixes on the second Tuesday of each month.
+- Enable incremental rollout of updates to Azure VMs in off-peak hours by using [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching), and reduce reboots by enabling [hotpatching](updates-maintenance-schedules.md#hotpatching).
+- [Assess](assessment-options.md#periodic-assessment) automatically the machines for pending updates every 24 hours, and flag machines that are out of compliance. Enforce enabling periodic assessments on multiple machines at scale by using [Azure Policy](periodic-assessment-at-scale.md).
+- Create [custom reports](workbooks.md) for deeper understanding of the update data in the environment.
+- Take advantage of granular access management to Azure resources by using Azure roles and identities, to control who can perform update operations and edit schedules.
 
-### How does the new Update Manager work on machines?
+### How does Update Manager work on machines?
 
-Whenever you trigger any Update Manager operation on your machine, it pushes an extension on your machine. It interacts with the VM agent (for Azure machine) or Azure Arc agent (for Azure Arc-enabled machines) to fetch and install updates.
+Whenever you trigger any Update Manager operation on your machine, it pushes an extension on your machine. It interacts with the VM agent (for an Azure machine) or Azure Arc agent (for Azure Arc-enabled machines) to fetch and install updates.
 
 ### Is enabling Azure Arc mandatory for patch management for machines not running on Azure?
 
-Yes, machines that aren't running on Azure must be enabled for Azure Arc, for management using Update Manager.
+Yes, machines that aren't running on Azure must be enabled for Azure Arc if you want to manage them by using Update Manager.
 
-### Is the new Update Manager dependent on Azure Automation and Log Analytics?
+### Is Update Manager dependent on Azure Automation and Log Analytics?
 
 No, it's a native capability on a virtual machine.
 
-### Where is updates data stored in Update Manager?
+### Where is update data stored in Update Manager?
 
-All Update Manager data is stored in Azure Resource Graph (ARG). Custom reports can be generated on the updates data for deeper understanding and patterns using Azure Workbooks [Learn more](query-logs.md).
+All Update Manager data is stored in Azure Resource Graph. You can generate custom reports on the update data for deeper understanding and patterns by using Azure workbooks. [Learn more](query-logs.md).
 
 ### Are there programmatic ways to interact with Update Manager?
 
-Yes, Update Manager supports REST API, CLI, and PowerShell for [Azure machines](manage-vms-programmatically.md) and [Azure Arc-enabled machines](manage-arc-enabled-servers-programmatically.md).
+Yes. Update Manager supports the REST API, the Azure CLI, and Azure PowerShell for [Azure VMs](manage-vms-programmatically.md) and [Azure Arc-enabled machines](manage-arc-enabled-servers-programmatically.md).
 
-### Do I need MMA or AMA for using Update Manager to manage my machines?
+### Do I need the Azure Monitor Agent to manage my machines by using Update Manager?
 
-No, it's a native capability on a virtual machine and doesn't rely either on MMA or AMA.
+No. It's a native capability on a virtual machine and doesn't rely on the Azure Monitor Agent.
 
-### Which operating systems are supported by Update Manager?
+### Which operating systems does Update Manager support?
 
-For more information, see [Update Manager OS support](support-matrix.md).
+See [Supported update sources, types, Microsoft application updates, and third-party updates](support-matrix.md).
 
-### Does Update Manager support Windows 10, 11?
+### Does Update Manager support Windows 10 and Windows 11?
 
-Automation Update Management didn't provide support for patching Windows 10 and 11. The same is true for Update Manager. We recommend that you use Microsoft Intune as the solution for keeping Windows 10 and 11 devices up to date.
+Automation Update Management didn't provide support for patching Windows 10 and Windows 11. The same is true for Update Manager. We recommend that you use Microsoft Intune as the solution for keeping Windows 10 and Windows 11 devices up to date.
 
 ## Pricing
 
 ### What is the pricing for Update Manager?
 
-Update Manager is available at no extra charge for managing Azure VMs and [Azure Arc-enabled Azure Local VMs](/azure/azure-local/manage/azure-arc-vm-management-overview) (must be created through Azure Arc Resource Bridge on Azure Local). For all other Azure Arc-enabled servers, the price is $5 per server per month (assuming 31 days of usage).
+Update Manager is available at no extra charge for managing Azure VMs and [Azure Arc-enabled Azure Local VMs](/azure/azure-local/manage/azure-arc-vm-management-overview). The latter VMs must be created through an Azure Arc resource bridge on Azure Local. For all other Azure Arc-enabled servers, see [Azure Update Manager pricing](https://azure.microsoft.com/pricing/details/azure-update-management-center/).
 
-### How is Update Manager price calculated for Azure Arc-enabled servers?
+### How is the Update Manager price calculated for Azure Arc-enabled servers?
 
-For Azure Arc-enabled servers, Update Manager is charged $5/server/month (assuming 31 days of connected usage). It's charged at a daily prorated value of 0.16/server/day. An Azure Arc-enabled machine would only be charged for the days when it's connected and managed by Update Manager.
+For Azure Arc-enabled servers, Update Manager is charged per server on a monthly basis (assuming 31 days of connected usage). It's charged at a daily prorated value. An Azure Arc-enabled machine is charged only for the days when it's connected and managed by Update Manager. For more information, see see [Azure Update Manager pricing](https://azure.microsoft.com/pricing/details/azure-update-management-center/).
 
 ### When is an Azure Arc-enabled server considered managed by Update Manager?
 
-An Azure Arc-enabled server is considered managed by Update Manager for days on which the machine fulfills **both** the following conditions:
+An Azure Arc-enabled server is considered managed by Update Manager for days on which the machine fulfills *both* of these conditions:
 
-- *Connected* status for Azure Arc at any time during the day.
+- The status for Azure Arc at any time during the day is **Connected**.
 - An update operation (patched on demand or through a scheduled job, assessed on demand or through periodic assessment) is triggered on it, or it's associated with a schedule.
 
-### Are there scenarios in which Azure Arc-enabled server isn't charged for Update Manager?
+### Are there scenarios in which an Azure Arc-enabled server isn't charged for Update Manager?
 
-An Azure Arc-enabled server managed with Update Manager isn't charged in following scenarios:
+An Azure Arc-enabled server managed through Update Manager isn't charged in following scenarios:
 
-- If the machine is enabled for delivery of Extended Security Updates (ESUs) enabled by Azure Arc.
-- Microsoft Defender for Servers Plan 2 is enabled for the subscription hosting the Azure Arc-enabled server. However, if customer is using Defender using Security connector, they'll be charged.
-- Windows Server licenses that have active Software Assurances or Windows Server licenses that are active subscription licenses, and Windows Server pay-as-you-go enabled by Azure Arc. For more information, see [Windows Server Management enabled by Azure Arc](/azure/azure-arc/servers/windows-server-management-overview).
+- The machine is enabled for delivery of Extended Security Updates enabled by Azure Arc.
+- Microsoft Defender for Servers Plan 2 is enabled for the subscription that hosts the Azure Arc-enabled server. However, if you're using Defender through a security connector, you're charged.
+- Your Windows Server licenses have active Software Assurance or Windows Server subscription licenses, or Windows Server pay-as-you-go enabled by Azure Arc. For more information, see [Windows Server Management enabled by Azure Arc](/azure/azure-arc/servers/windows-server-management-overview).
 
 ### Will I be charged if I move from Automation Update Management to Update Manager?
 
-Customers won't be charged for already existing Azure Arc-enabled servers which were using Automation Update Management for free as of September 1, 2023. Any new Azure Arc-enabled machines which are onboarded to Update Manager in the same subscription will also be exempted from charge. This exception is provided till LA agent retires. Post that date, these customers are charged.
+You won't be charged for existing Azure Arc-enabled servers that used Automation Update Management for free as of September 1, 2023. You're charged for any new Azure Arc-enabled machines that you onboard to Update Manager in the same subscription.
 
-### I'm a Defender for Server customer and use update recommendations powered by Update Manager namely "periodic assessment should be enabled on your machines" and "system updates should be installed on your machines". Would I be charged for Update Manager?
+### I'm a Defender for Servers customer and use update recommendations from Update Manager. Will I be charged for Update Manager?
 
-If you have purchased a Defender for Servers Plan 2, then you won't have to pay to remediate the unhealthy resources for the above two recommendations. But if you're using any other Defender for server plan for your Azure Arc machines, then you would be charged for those machines at the daily prorated $0.16/server by Update Manager.
+If you purchased Defender for Servers Plan 2, you don't have to pay to remediate unhealthy resources for the these recommendations: "Periodic assessment should be enabled on your machines" and "System updates should be installed on your machines".
+
+If you're using any other Defender for Servers plan for your Azure Arc-enabled machines, you're charged for those machines at the daily prorated rate per server by Update Manager.
 
 ### Is Update Manager chargeable on Azure Local?
 
 Update Manager isn't charged for:
 
-- Management of Azure Local instances via **Azure Local** and [Update Manager on Azure Local](/azure/azure-local/update/azure-update-manager-23h2)
-- [Azure Arc-enabled Azure Local VMs](/azure/azure-local/manage/azure-arc-vm-management-overview) created via the Azure Arc Resource Bridge. For example *Machine-Azure Arc (Azure Local)* resource.
+- Management of Azure Local instances via Azure Local and [Update Manager on Azure Local](/azure/azure-local/update/azure-update-manager-23h2).
+- [Azure Arc-enabled Azure Local VMs](/azure/azure-local/manage/azure-arc-vm-management-overview) created via an Azure Arc resource bridge. An example is the **Machine-Azure Arc (Azure Local)** resource.
 
-All other resources including, but not limited to the following will be charged.
+All other resources, including (but not limited to) the following, are charged:
 
-- Management of individual Azure Local machines. For example, *Machine - Azure Arc* resource or *Update Manager - Machines*.
-- All VMs on Azure Local that is not created by Azure Arc resource bridge - VMs projected as Azure Arc-enabled servers and/or VMs on Azure Local managed by Azure Arc-enabled System Center Virtual Machine Manager.
+- Management of individual Azure Local machines. Examples include **Machine - Azure Arc** or **Update Manager - Machines** resources.
+- All VMs on Azure Local that you don't create by using an Azure Arc resource bridge. Examples are VMs projected as Azure Arc-enabled servers and VMs on Azure Local managed by Azure Arc-enabled System Center Virtual Machine Manager.
 
-### Is there any additional cost associated with Update Manager for any data transfers?
+### Is there any additional cost associated with Update Manager for data transfers?
 
-No, there is no extra cost for data transfer when using Update Manager for patch management operations.
+There's no extra cost for data transfers when you use Update Manager for patch management operations.
 
 ## Support and integration
 
@@ -121,29 +123,29 @@ Update Manager doesn't currently support Azure Lighthouse integration.
 
 ### Does Update Manager support Azure Policy?
 
-Yes, Update Manager supports update features via policies. For more information, see [how to enable periodic assessment at scale using policy](periodic-assessment-at-scale.md) and [how to enable schedules on your machines at scale using Azure Policy](scheduled-patching.md#onboard-to-schedule-by-using-azure-policy).
+Yes, Update Manager supports update features via policies. For more information, see [Automate assessment at scale by using Azure Policy](periodic-assessment-at-scale.md) and [Onboard to schedule by using Azure Policy](scheduled-patching.md#onboard-to-schedule-by-using-azure-policy).
 
 ### I have machines across multiple subscriptions in Automation Update Management. Is this scenario supported in Update Manager?
 
-Yes, Update Manager supports multi-subscription scenarios.
+Yes, Update Manager supports multiple-subscription scenarios.
 
-### Is there guidance available to move VMs and schedules from SCCM to Update Manager?
+### Is guidance available for moving VMs and schedules from System Center Configuration Manager to Update Manager?
 
-Customers can follow this [guide](guidance-migration-azure.md) to move update configurations from SCCM to Update Manager.
+To move update configurations from System Center Configuration Manager to Update Manager, you can follow [this guide](guidance-migration-azure.md).
 
 ## Miscellaneous
 
-### Can I configure my machines to fetch updates from WSUS (Windows) and private repository (Linux)?
+### Can I configure my machines to fetch updates from WSUS (Windows) and private repositories (Linux)?
 
-By default, Update Manager relies on Windows Update (WU) client running on your machine to fetch updates. You can configure WU client to fetch updates from Microsoft Update/WSUS repository and manage patch schedules using Update Manager.
+By default, Update Manager relies on a Windows Update client running on your machine to fetch updates. You can configure a Windows Update client to fetch updates from Microsoft Update or a Windows Server Update Services (WSUS) repository and then manage patch schedules by using Update Manager.
 
-Similarly for Linux, you can fetch updates by pointing your machine to a public repository or clone a private repository that regularly pulls updates from the upstream.
+For Linux, you can fetch updates by pointing your machine to a public repository or clone a private repository that regularly pulls updates from upstream.
 
 Update Manager honors machine settings and installs updates accordingly.
 
 ### Does Update Manager store customer data?
 
-Update Manager doesn't move or store customer data out of the region it's deployed in.
+Update Manager doesn't move or store customer data out of the region where it's deployed.
 
 ## Related content
 

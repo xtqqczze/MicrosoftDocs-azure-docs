@@ -2,7 +2,7 @@
 title: What's New in Azure Update Manager
 description: Learn about what's new and recent updates in the Azure Update Manager service.
 ms.service: azure-update-manager
-ms.topic: overview
+ms.topic: whats-new
 author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/21/2025
@@ -71,7 +71,7 @@ Update Manager Preview is now supported in US Government and Microsoft Azure ope
 
 ### Billing enabled for Azure Arc-enabled severs
 
-Billing is enabled for Azure Arc-enabled servers. Update Manager is charged $5/server/month (assuming 31 days of connected usage). It's charged at a daily prorated value. Refer to the [FAQs for pricing](update-manager-faq.md#pricing).
+Billing is enabled for Azure Arc-enabled servers. Update Manager is charged per server on a monthly basis (assuming 31 days of connected usage). It's charged at a daily prorated value. Refer to the [FAQs for pricing](update-manager-faq.md#pricing).
 
 ### Migration scripts to move machines and schedules from Automation Update Management to Update Manager Preview
 
