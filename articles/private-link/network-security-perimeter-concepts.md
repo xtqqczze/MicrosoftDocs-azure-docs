@@ -128,6 +128,8 @@ Network security perimeter supports the following access rule types:
 | Inbound | IP based rules (check respective onboarded private link resources for v6 support)| 
 | Outbound | FQDN based rules |
 
+Note: Intra perimeter traffic and inbound access rules that are subscription based will not work with SAS Token. 
+
 ## Limitations of a network security perimeter
 
 ### Logging limitations
