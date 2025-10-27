@@ -27,7 +27,7 @@ To add a connector template instance to your Azure IoT Operations instance:
 
 1. On the **Diagnostics configurations** page, accept the defaults, and then select **Runtime configuration**.
 
-1. On the **Runtime configuration** page,  accept the defaults, and then select **Review**:
+1. On the **Runtime configuration** page,  accept the defaults, and then select **Review**.
 
 1. On the **Review** page, review the details of the connector template instance, and then select **Create** to create the connector template instance.
 
