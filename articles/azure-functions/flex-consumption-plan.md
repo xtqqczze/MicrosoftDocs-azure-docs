@@ -51,11 +51,11 @@ When you create your function app in a Flex Consumption plan, you can select the
 
 Currently, Flex Consumption offers these instance memory size options:
 
-| Instance Memory | CPU Cores |
+| Instance Memory (MB) | CPU Cores |
 |-----------------|-----------|
-| 512 MB          | 0.25      |
-| 2,048 MB        | 1         |
-| 4,096 MB        | 2         |
+| 512           | 0.25      |
+| 2048         | 1         |
+| 4096        | 2         |
 
 
 > [!NOTE]
