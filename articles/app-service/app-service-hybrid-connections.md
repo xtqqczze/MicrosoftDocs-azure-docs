@@ -35,7 +35,7 @@ When your app makes a DNS request that matches a configured Hybrid Connection en
 > This fact means that you should try to always use a DNS name for your Hybrid Connection. Some client software doesn't do a DNS lookup if the endpoint uses an IP address instead.
 
 > [!IMPORTANT]
-> As of October 20, 2025, [Azure Service Bus no longer supports TLS 1.0 and TLS 1.1](../service-bus-messaging/transport-layer-security-configure-minimum-version). The minimum TLS version is now 1.2 for all Service Bus deployments. **You must update to the new version of the Hybrid Connection Manager as soon as possible to prevent service disruption if you're still using the legacy version.** Older versions of the Hybrid Connection Manager don't support TLS 1.2 and will be unable to connect to Azure Relay. See [Hybrid Connection Manager](#hybrid-connection-manager) for download and installation instructions.
+> As of October 20, 2025, [Azure Service Bus no longer supports TLS 1.0 and TLS 1.1](../service-bus-messaging/transport-layer-security-configure-minimum-version). The minimum TLS version is now 1.2 for all Service Bus deployments. Hybrid Connections use Service Bus for connectivity. **You must update to the new version of the Hybrid Connection Manager as soon as possible to prevent service disruption if you're still using the legacy version.** Older versions of the Hybrid Connection Manager don't support TLS 1.2 and will be unable to connect to Azure Relay. See [Hybrid Connection Manager](#hybrid-connection-manager) for download and installation instructions.
 
 ### App Service Hybrid Connection benefits
 
