@@ -1,48 +1,58 @@
 ---
-title: Exchange X12 messages in B2B workflows
-description: Learn how to exchange X12 messages between partners by creating workflows with Azure Logic Apps and Enterprise Integration Pack.
+title: Exchange X12 Messages in B2B Workflows
+description: Learn to exchange X12 messages between partners in workflows for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.custom: sfi-image-nochange
-ms.date: 09/16/2025
-#Customer intent: As an integration developer, I want to use Azure Logic Apps workflows to manage B2B workflows that use X12 messages.
+ms.date: 10/24/2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to exchange X12 messages between trading partners in B2B workflows.
 ---
 
-# Exchange X12 messages using workflows in Azure Logic Apps
+# Exchange X12 messages in B2B workflows using Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To send and receive X12 messages in workflows that you create using Azure Logic Apps, use the *X12* connector. This connector provides operations that support and manage X12 communication.
 
-This guide shows how to add the X12 encoding and decoding actions to an existing logic app workflow. The X12 connector doesn't include any triggers. You can use any trigger to start your workflow. The examples in this guide use the [Request trigger](../connectors/connectors-native-reqres.md).
+This guide shows how to add the encoding and decoding actions for X12 to an existing logic app workflow. The X12 connector doesn't provide any triggers, so you can use any trigger to start your workflow. The examples in this guide use the [Request trigger](../connectors/connectors-native-reqres.md).
 
 ## Connector technical reference
 
-The X12 connector has one version across workflows in [multitenant Azure Logic Apps and single-tenant Azure Logic Apps](logic-apps-overview.md#resource-environment-differences). For more information, see:
+The X12 connector has different versions, based on [logic app type and host environment](logic-apps-overview.md#resource-environment-differences).
 
-- [Connector reference page](/connectors/x12/), which describes the triggers, actions, and limits as documented by the connector's Swagger file
+| Logic app | Environment | Connector version |
+|-----------|-------------|-------------------|
+| **Consumption** | Multitenant Azure Logic Apps | X12 managed connector, which appears in the connector gallery under **Shared**. The X12 connector has one trigger and multiple actions. You can use any trigger that works for your scenario. For more information, see: <br><br>- [X12 managed connector reference](/connectors/x12/) <br>- [X12 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
+| **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), and hybrid deployment | X12 built-in connector, which appears in the connector gallery under **Built-in**, and X12 managed connector, which appears in the connector gallery under **Shared**. The X12 managed connector has one trigger and multiple actions. The X12 built-in connector provides only actions. You can use any trigger that works for your scenario. <br><br>The built-in version differs in the following ways: <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway. <br><br>- The built-in version provides higher throughput and lower latency. <br><br>For more information, see: <br><br>- [X12 managed connector reference](/connectors/x12/) <br>- [X12 built-in connector operations](#x12-operations) <br>- [X12 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 
-- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits)
+
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, and certificates, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
+- The logic app resource and workflow where you want to use the X12 operations.
+
+  For more information, see:
+
+  - [Create a Consumption logic app workflow in Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+  - [Create a Standard logic app workflow in Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
+
+- An [integration account resource](./enterprise-integration/create-integration-account.md) to define and store artifacts for use in enterprise integration and B2B workflows.
 
   - Both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
 
-  - Defines at least two [trading partners](logic-apps-enterprise-integration-partners.md) that participate in the **X12** operation used in your workflow. The definitions for both partners must use the same X12 business identity qualifier.
+  - Defines at least two [trading partners](logic-apps-enterprise-integration-partners.md) that participate in the **X12** operation used in your workflow. The definitions for both partners must use the same X12 *business identity* qualifier.
 
   - Defines an [X12 agreement](logic-apps-enterprise-integration-agreements.md) between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner. The content in the messages between you and the other partner must match the agreement type. For information about agreement settings to use when receiving and sending messages, see [X12 message settings](logic-apps-enterprise-integration-x12-message-settings.md).
 
     > [!IMPORTANT]
     >
-    > If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, you have to add a `schemaReferences` section to your agreement. For more information, see [HIPAA schemas and message types](logic-apps-enterprise-integration-x12-message-settings.md#hipaa-schemas).
+    > If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, you must add a `schemaReferences` section to your agreement. For more information, see [HIPAA schemas and message types](logic-apps-enterprise-integration-x12-message-settings.md#hipaa-schemas).
 
   - Defines the [schemas](logic-apps-enterprise-integration-schemas.md) to use for XML validation.
 
@@ -50,20 +60,16 @@ The X12 connector has one version across workflows in [multitenant Azure Logic A
     >
     > If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, make sure to review [HIPAA schemas and message types](logic-apps-enterprise-integration-x12-message-settings.md#hipaa-schemas).
 
-- Based on whether you're working on a Consumption or Standard logic app workflow, your logic app resource might require a link to your integration account:
+- Before you start working with X12 operations, you must [link your Consumption logic app](enterprise-integration/create-integration-account.md?tabs=consumption#link-account) or [link your Standard logic app](enterprise-integration/create-integration-account.md?tabs=standard#link-account) to an integration account.
+
+  When you add an X12 operation, you must also create a connection to the integration account. You can create the connection when you add the X12 operation to your workflow.
 
   | Logic app workflow | Link required? |
   |--------------------|----------------|
-  | Consumption | Connection and [link to integration account](enterprise-integration/create-integration-account.md?tabs=azure-portal%2Cconsumption#link-to-logic-app) are required. You can create the connection when you add the X12 operation to your workflow. |
-  | Standard | Connection to integration account required, but no link required. You can create the connection when you add the X12 operation to your workflow. |
 
-- The logic app resource and workflow where you want to use the X12 operations.
 
-  For more information, see:
 
-  - [Create a Consumption logic app workflow in Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
 
-  - [Create a Standard logic app workflow in Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
 <a name="encode"></a>
 
@@ -92,7 +98,7 @@ The *Encode to X12 message* operation performs the following tasks:
   - Generates a Technical Acknowledgment as a result of header validation. The technical acknowledgment reports the status of the processing of an interchange header and trailer by the address receiver.
   - Generates a Functional Acknowledgment as a result of body validation. The functional acknowledgment reports each error encountered while processing the received document.
 
-To use Encode to X12 message operation in your workflow, follow these steps:
+To encode messages with the X12 connector, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -100,34 +106,38 @@ To use Encode to X12 message operation in your workflow, follow these steps:
 
    > [!NOTE]
    >
-   > If you want to use **Encode to X12 message by identities** action instead, you later have to provide different values, such as the **Sender identifier** and **Receiver identifier** that's specified by your X12 agreement.
-   >
-   > You also have to specify the **XML message to encode**, which can be the output from the trigger or a preceding action.
+   > To use the **Encode to X12 message by identities** action instead, you must later provide different parameter values, such as the **Sender identifier** and **Receiver identifier** that's specified by your X12 agreement. You must also specify the **XML message to encode** value, which you can select as the output from the trigger or a preceding action.
 
-1. When prompted, provide the following connection information for your integration account:
+1. When you're prompted to create a connection to your integration account, provide the following information:
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **Connection Name** | Yes | A name for the connection |
-   | **Integration Account ID** | Yes | The resource ID for your integration account, which has the following format: <br><br>**`/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>`** <br><br>For example: <br>`/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/integrationAccount-RG/providers/Microsoft.Logic/integrationAccounts/myIntegrationAccount` <br><br>To find this resource ID, follow these steps:  <br><br>1. In the Azure portal, open your integration account. <br>2. On the integration account menu, select **Overview**. <br>3. On the **Overview** page, select **JSON View**. <br>4. From the **Resource ID** property, copy the value. |
-   | **Integration Account SAS URL** | Yes | The request endpoint URL that uses shared access signature (SAS) authentication to provide access to your integration account. This callback URL has the following format: <br><br>**`https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`** <br><br>For example: <br>`https://prod-04.west-us.logic-azure.com:443/integrationAccounts/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2015-08-1-preview&sp=XXXXXXXXX&sv=1.0&sig=aB1cD2eF-3gH4iJ5kL6-mN7oP8qR` <br><br>To find this URL, follow these steps: <br><br>1. In the Azure portal, open your integration account. <br>2. On the integration account menu, under **Settings**, select **Callback URL**. <br>3. From the **Generated Callback URL** property, copy the value. |
-   | **Size of Control Number Block** | No | The block size of control numbers to reserve from an agreement for high throughput scenarios |
+   | **Connection Name** | Yes | A name for the connection. |
+   | **Integration Account ID** | Yes | The resource ID for your integration account, which has the following format: <br><br>**`/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>`** <br><br>For example: <br>`/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/integrationAccount-RG/providers/Microsoft.Logic/integrationAccounts/myIntegrationAccount` <br><br>To find this resource ID, follow these steps:  <br><br>1. In the Azure portal, open your integration account. <br>2. On the integration account sidebar, select **Overview**. <br>3. On the **Overview** page, select **JSON View**. <br>4. From the **Resource ID** property, copy the value. |
+   | **Integration Account SAS URL** | Yes | The request endpoint URL that uses shared access signature (SAS) authentication to provide access to your integration account. This callback URL has the following format: <br><br>**`https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`** <br><br>For example: <br>`https://prod-04.west-us.logic-azure.com:443/integrationAccounts/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2015-08-1-preview&sp=XXXXXXXXX&sv=1.0&sig=aB1cD2eF-3gH4iJ5kL6-mN7oP8qR` <br><br>To find this URL, follow these steps: <br><br>1. In the Azure portal, open your integration account. <br>2. On the integration account sidebar, under **Settings**, select **Callback URL**. <br>3. From the **Generated Callback URL** property, copy the value. |
+   | **Size of Control Number Block** | No | The block size of control numbers to reserve from an agreement for high throughput scenarios. |
 
    For example:
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-x12/create-encode-connection.png" alt-text="Screenshot shows a workflow with connection information for an action named Encode to X12 message by agreement name." lightbox="./media/logic-apps-enterprise-integration-x12/create-encode-connection.png":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-x12/create-encode-connection.png" alt-text="Screenshot shows the Azure portal, workflow with action named Encode to X12 message by agreement name, and action connection information." lightbox="./media/logic-apps-enterprise-integration-x12/create-encode-connection.png":::
    
 1. When you're done, select **Create new**.
 
-1. In the X12 action information box, provide the following values:
+1. In the X12 action information pane, provide the following values:
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **Name Of X12 Agreement** | Yes | The X12 agreement to use. |
-   | **XML Message To Encode** | Yes | The XML message to encode. |
-   | **Advanced parameters** | No | This operation includes the following other parameters: <br><br>- **Data element separator** <br>- **Component separator** <br>- **Replacement character** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Control Version Number** <br>- **Application Sender Identifier/Code GS02** <br>- **Application Receiver Identifier/Code GS03** <br><br>For more information, review [X12 message settings](logic-apps-enterprise-integration-x12-message-settings.md). |
+   | **Name of X12 agreement** | Yes | The X12 agreement to use. |
+   | **XML message to encode** | Yes | The XML message to encode. |
+   | **Advanced parameters** | No | More parameters that you can select: <br><br>- **Data element separator** <br>- **Component separator** <br>- **Replacement character** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Control Version Number (ISA12)** <br>- **Application Sender Identifier/Code GS02** <br>- **Application Receiver Identifier/Code GS03** <br><br>For more information, see [X12 message settings](logic-apps-enterprise-integration-x12-message-settings.md). |
 
-   For example, you can use the **Body** content output from the Request trigger as the XML message payload. Select in the box, then select the lightning icon to open the dynamic content list.
+   For example, you can use the **Body** content output from the Request trigger as the XML message payload.
+   
+   To find and select this output, follow these steps:
+   
+   1. Select inside **XML message to encode** box, then select the lightning icon to open the dynamic content list.
+
+   1. From the list, under **When an HTTP message is received**, select **Body**.
 
    :::image type="content" source="./media/logic-apps-enterprise-integration-x12/encode-message-agreement.png" alt-text="Screenshot shows an action named Encode to X12 message by agreement name with parameters specified." lightbox="./media/logic-apps-enterprise-integration-x12/encode-message-agreement.png":::
 
@@ -168,35 +178,47 @@ The **Decode X12 message** operation performs the following tasks:
   - Generates a Technical Acknowledgment as a result of header validation. The technical acknowledgment reports the status of the processing of an interchange header and trailer by the address receiver.
   - Generates a Functional Acknowledgment as a result of body validation. The functional acknowledgment reports each error encountered while processing the received document.
 
-To use the **Decode X12 message** operation in your workflow, follow these steps: 
+To decode X12 messages in your workflow with the X12 connector, follow these steps: 
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
 1. In the designer, follow these [general steps](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to add the X12 action named **Decode X12 message** to your workflow.
 
-1. When prompted, provide the following connection information for your integration account:
+1. When you're prompted to create a connection to your integration account, provide the following information:
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **Connection Name** | Yes | A name for the connection |
-   | **Integration Account ID** | Yes | The resource ID for your integration account, which has the following format: <br><br>**`/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>`** <br><br>For example: <br>`/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/integrationAccount-RG/providers/Microsoft.Logic/integrationAccounts/myIntegrationAccount` <br><br>To find this resource ID, follow these steps:  <br><br>1. In the Azure portal, open your integration account. <br>2. On the integration account menu, select **Overview**. <br>3. On the **Overview** page, select **JSON View**. <br>4. From the **Resource ID** property, copy the value. |
-   | **Integration Account SAS URL** | Yes | The request endpoint URL that uses shared access signature (SAS) authentication to provide access to your integration account. This callback URL has the following format: <br><br>**`https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`** <br><br>For example: <br>`https://prod-04.west-us.logic-azure.com:443/integrationAccounts/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2015-08-1-preview&sp=XXXXXXXXX&sv=1.0&sig=aB1cD2eF-3gH4iJ5kL6-mN7oP8qR` <br><br>To find this URL, follow these steps: <br><br>1. In the Azure portal, open your integration account. <br>2. On the integration account menu, under **Settings**, select **Callback URL**. <br>3. From the **Generated Callback URL** property, copy the value. |
-   | **Size of Control Number Block** | No | The block size of control numbers to reserve from an agreement for high throughput scenarios |
+   | **Connection Name** | Yes | A name for the connection. |
+   | **Integration Account ID** | Yes | The resource ID for your integration account, which has the following format: <br><br>**`/subscriptions/<Azure-subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>`** <br><br>For example: <br>`/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/integrationAccount-RG/providers/Microsoft.Logic/integrationAccounts/myIntegrationAccount` <br><br>To find this resource ID, follow these steps:  <br><br>1. In the Azure portal, open your integration account. <br>2. On the integration account sidebar, select **Overview**. <br>3. On the **Overview** page, select **JSON View**. <br>4. From the **Resource ID** property, copy the value. |
+   | **Integration Account SAS URL** | Yes | The request endpoint URL that uses shared access signature (SAS) authentication to provide access to your integration account. This callback URL has the following format: <br><br>**`https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`** <br><br>For example: <br>`https://prod-04.west-us.logic-azure.com:443/integrationAccounts/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2015-08-1-preview&sp=XXXXXXXXX&sv=1.0&sig=aB1cD2eF-3gH4iJ5kL6-mN7oP8qR` <br><br>To find this URL, follow these steps: <br><br>1. In the Azure portal, open your integration account. <br>2. On the integration account sidebar, under **Settings**, select **Callback URL**. <br>3. From the **Generated Callback URL** property, copy the value. |
+   | **Size of Control Number Block** | No | The block size of control numbers to reserve from an agreement for high throughput scenarios. |
 
    For example:
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-x12/create-decode-connection.png" alt-text="Screenshot shows a workflow with connection information for an action named Decode X12 message." lightbox="./media/logic-apps-enterprise-integration-x12/create-decode-connection.png":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-x12/create-decode-connection.png" alt-text="Screenshot shows the Azure portal, workflow with action named Decode X12 message, and action connection information." lightbox="./media/logic-apps-enterprise-integration-x12/create-decode-connection.png":::
 
-1. When you're done, select **Create**.
+1. When you're done, select **Create new**.
 
 1. In the X12 action information box, provide the following values:
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **X12 Flat File Message To Decode** | Yes | The X12 message in flat file format to decode <br><br>**Note**: The XML message payload or content for the message array, good or bad, is base64 encoded. So, you must use an expression that processes this content. For example, the following expression processes the message content as XML: <br><br>**`xml(base64ToBinary(item()?['Body']))`** |
-   | **Advanced parameters** | No | This operation includes the following other parameters: <br><br>- **Preserve Interchange** <br>- **Suspend Interchange on Error** <br><br>For more information, review [X12 message settings](logic-apps-enterprise-integration-x12-message-settings.md). |
+   | **X12 flat file message to decode** | Yes | The X12 message in flat file format to decode <br><br>**Note**: The XML message payload or content in a message array is base64 encoded. You must use an expression that processes this content. For example, the following expression processes the content in a message array as XML using the `xml()`, `base64ToBinary()`, and `item()` functions: <br><br>**`xml(base64ToBinary(item()?['Body']))`** |
+   | **Advanced parameters** | No | This operation includes the following other parameters: <br><br>- **Preserve Interchange** <br>- **Suspend Interchange on Error** <br><br>For more information, see [X12 message settings](logic-apps-enterprise-integration-x12-message-settings.md). |
 
-   For example, you can use the **Body** content output from the Request trigger as the XML message payload. First preprocess this content using an expression. Select in the box to open the expression editor.
+   For example, you can use the **Body** content output from the Request trigger as the XML message payload, but you must first process this content as shown in the following expression:
+
+   `xml(base64ToBinary(item()?['Body']))`
+   
+   To complete this task, follow these steps:
+
+   1. Select inside **X12 flat file message to decode** box, then select the function icon to open the expression editor.
+
+   1. In the expression editor box, enter the following expression, which references the **Body** output from the Request trigger:
+
+      `xml(base64ToBinary(string(triggerBody())))`
+
+   1. When you're done, select **Add**.   
 
    :::image type="content" source="./media/logic-apps-enterprise-integration-x12/decode-message.png" alt-text="Screenshot shows an action named Decode X12 message with parameters specified." lightbox="./media/logic-apps-enterprise-integration-x12/decode-message.png":::
 
