@@ -11,7 +11,12 @@ ms.date: 10/17/2025
 ---
 # Optimize costs with smart tier (preview)
 
+> [!IMPORTANT]
+> Smart tier is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 Smart tier automatically moves your data between the hot, cool, and cold access tiers based on usage patterns, optimizing your costs for these access tiers without setting up additional rulesets or policies. Smart tier is the ideal tier to choose when you are looking to store your data on standard online tiers but are not fully aware of the data access patterns or do not want to manage data transitions across online tiers.
+
 By default, new data is stored in the hot tier. Any object that isn't accessed for 30 days is moved to the cool tier; after 90 days of inactivity, it transitions to the cold tier. If any of those objects are later accessed, they are transitioned back to the hot tier automatically and restart their tiering cycle. The automatic movement of inactive data to cooler tiers can lead to large cost savings over time.
 Access behavior, performance characteristics, and SLAs of the underlying residence tier do apply to objects in smart tier.
 
