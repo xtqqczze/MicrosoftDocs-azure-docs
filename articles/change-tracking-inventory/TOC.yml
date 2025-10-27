@@ -15,7 +15,7 @@
 - name: Tutorials
   items:
     - name: Change a workspace and configure DTR
-      href: learn/tutorial-change-workspace-configure-data-collection-rule.md
+      href: tutorial-change-workspace-configure-data-collection-rule.md
 - name: Enable Change Tracking and Inventory
   items:
     - name: Enable from machines pane
@@ -27,4 +27,4 @@
 - name: Manage Change Tracking and Inventory
   items:
     - name: Manage Change Tracking and Inventory
-      href: manage-azure-change-tracking-monitoring-agent.md
+      href: manage-azure-change-tracking-inventory-monitoring-agent.md

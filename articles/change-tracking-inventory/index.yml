@@ -43,4 +43,4 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Manage Change Tracking and Inventory
-            url: manage-azure-change-tracking-monitoring-agent.md
+            url: manage-azure-change-tracking-inventory-monitoring-agent.md

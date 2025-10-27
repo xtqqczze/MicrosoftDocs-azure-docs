@@ -148,4 +148,4 @@ To configure the monitoring of files and folders using wildcards, do the followi
 
 ## Next steps
 
-* To manage tracking and inventory, see [Manage Change Tracking and Inventory with AMA](manage-azure-change-tracking-monitoring-agent.md).
+* To manage tracking and inventory, see [Manage Change Tracking and Inventory with AMA](manage-azure-change-tracking-inventory-monitoring-agent.md).

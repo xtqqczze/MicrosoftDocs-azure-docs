@@ -46,5 +46,5 @@ To create a DCR, follow these steps:
 
 ## Next steps
 
-- For details of working with the feature, see [Manage Change Tracking and Inventory](../change-tracking-inventory/manage-azure-change-tracking-monitoring-agent.md).
+- For details of working with the feature, see [Manage Change Tracking and Inventory](../change-tracking-inventory/manage-azure-change-tracking-inventory-monitoring-agent.md).
 - To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](../automation/troubleshoot/change-tracking.md).
