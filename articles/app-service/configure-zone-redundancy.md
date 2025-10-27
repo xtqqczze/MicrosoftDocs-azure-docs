@@ -62,7 +62,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
 ## Set zone redundancy for an existing App Service plan
 
 1. To enable zone redundancy on an existing App Service plan, [check for zone redundancy support](#check-for-zone-redundancy-support-on-an-app-service-plan).
-1. If your App Service plan supports zone redundancy, use the Azure portal, the Azure CLI, or Bicep and Azure Resource Manager to enable or disable it.
+1. **If your App Service plan supports zone redundancy,** use the Azure portal, the Azure CLI, or Bicep and Azure Resource Manager to enable or disable it.
     
     # [Azure portal](#tab/portal)
     
@@ -122,6 +122,12 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
     - To *disable zone redundancy*, set the `zoneRedundant` property to `false`.
 
     ---
+
+1. **If your App Service plan is on a scale unit that doesn't support zone redundancy,** you can't enable zone redundancy on your plan. Instead, you need to:
+
+  1. Create a new App Service plan in a new resource group. When you create a new App Service plan with zone redundancy enabled in a different resource group, it's deployed to a different scale unit.
+  
+  1. Redeploy your apps to the new plan. When you create a new plan that's on a different scale unit, you need to redeploy your apps. You can't move apps between plans that are on different scale units.
 
 ## Check for zone redundancy support on an App Service plan
 
