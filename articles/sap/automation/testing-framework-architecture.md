@@ -34,6 +34,9 @@ The SAP Testing Automation Framework is built on several core components that wo
 
 The SAP Testing Automation Framework uses a centralized management server architecture that orchestrates all testing scenarios across multiple SAP systems. This orchestrator architecture provides centralized control and efficient resource utilization while maintaining the flexibility to support multiple deployment scenarios.
 
+:::image type="content" source="./media/testing-framework/testing-framework-architecture.png" alt-text="Diagram that shows the SAP Testing Automation Framework architecture.":::
+
+
 The framework operates on a hub-and-spoke model where the management server acts as the central hub. It coordinates with multiple SAP systems (spokes) to execute tests, collect results, and generate comprehensive reports. Key functions include:
 
 **Test Orchestration**: The management server coordinates test suite execution, and ensures proper sequencing of tests across multiple SAP environments.

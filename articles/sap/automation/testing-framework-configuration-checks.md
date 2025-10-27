@@ -21,21 +21,39 @@ Configuration validation is a critical component of the testing framework that p
 
 These checks are designed to be nonintrusive, meaning they don't modify the system or require downtime. Instead, they analyze existing configurations and provide detailed reports highlighting any deviations from recommended practices.
 
-> [!NOTE]
->
-> The configuration checks in SAP Testing Automation Framework is currently in public preview.
+> **NOTE**: The configuration checks in SAP Testing Automation Framework is currently in public preview.
 
 ### Configuration Validation Checks
 
-Configuration validation acts as a quality gate in the SAP deployment lifecycle by:
+The configuration validation checks within the SAP Testing Automation Framework are systematically organized into distinct logical groupings that provide flexibility in execution. Each group can be executed independently on a standalone basis, or alternatively, all groups can be executed together in a validation run. The primary categories of configuration validation checks are structured as follows:
 
-- **Validating Azure Infrastructure:** Confirms compute, storage, and network settings align with SAP on Azure best practices.
-- **Verifying SAP Parameters:** Checks key SAP HANA and application server parameters for correctness.
-- **Assessing Cluster Health:** Validates Pacemaker configuration, fencing, and resource constraints.
-- **Ensuring Compliance:** Confirms alignment with SAP and organizational security policies.
+1. **Infrastructure**
+
+    - While not a separate execution category, infrastructure checks are performed as part of the other categories.
+    - **Azure Compute**: VM SKU, Accelerated Networking, Availability Set/Zone, Proximity Placement Group.
+    - **Storage**: Use of Premium SSD/Ultra Disk, Write Accelerator, disk caching policies, and redundancy settings.
+
+2. **Database**
+
+    - Validates SAP HANA or IBM DB2 specific settings.
+    - **SAP HANA**: Checks memory allocation, system replication parameters, and Pacemaker cluster configurations (resource agents, fencing, constraints).
+    - **IBM DB2**: Verifies hardware requirements, system language, and OS tuning parameters.
+
+3. **Central Services**
+
+    - Validates the configuration of ASCS (ABAP SAP Central Services) and ERS (Enqueue Replication Server) instances.
+
+    - Checks for virtual hostname configuration, file system mount options, and service startup ordering.
+
+
+3. **Application Servers**
+    - Validates the configuration of the application server instances.
+
+
+> **Note**: High Availability (HA) configuration checks and functional tests are currently supported only for SAP HANA databases. For IBM DB2 databases, only non-HA configuration checks are available.
 
 ## Next Steps
 
-- [Learn about High Availability testing](testing-framework-high-availability.md)
+- [Get started with configuration validation](https://github.com/Azure/sap-automation-qa/tree/main/docs/CONFIGURATION_CHECKS.md)
 - [Review the framework architecture](testing-framework-architecture.md)
 - [Understand supported platforms](testing-framework-supportability.md)
