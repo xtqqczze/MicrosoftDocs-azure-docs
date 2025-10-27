@@ -10,15 +10,16 @@ ms.service: azure-sre-agent
 
 # Scheduled tasks in Azure SRE Agent (Preview)
 
-Use Azure SRE Agent to automate routine monitoring, maintenance, and security tasks in your Azure environment with tasks that run on a schedule you define. You can create a task manually, you can ask the agent to create one during a chat, or the agent could autonomously create one for you as the result of an [incident response](incident-response-plan.md).
+Use Azure SRE Agent to automate routine monitoring, maintenance, and security tasks in your Azure environment with tasks that run on a schedule you define. You can either create a task manually, ask the agent to create one during a chat, or the agent could autonomously create one for you as the result of an [incident response](incident-response-plan.md).
 
 The following scenarios show you some common use cases for using scheduled tasks:
+
+> [!NOTE]
+> This list isn't meant to be comprehensive, but it describes different ways you can use scheduled tasks in your environment.
 
 - **Custom monitoring**: Monitor resource health where alerts aren't configured.
 - **Security best practices**: Run vulnerability scans and compliance checks on applications.
 - **Post-incident health checks**: Validate database recovery and API health after mitigation.
-
-While this list isn't meant to be comprehensive, it shows you a few different ways you can use scheduled tasks in your environment.
 
 ## Create a scheduled task
 
@@ -158,7 +159,8 @@ Perform security analysis of the my application focusing on:
 * Infrastructure security posture and network exposure
 * Dependency vulnerabilities and supply chain security
 
-Generate prioritized findings with remediation recommendations (including code changes if required), emphasizing migration to secure authentication patterns.
+Generate prioritized findings with remediation recommendations 
+(including code changes if required), emphasizing migration to secure authentication patterns.
 
 Create GitHub issues for critical/high findings with actionable implementation steps.
 
