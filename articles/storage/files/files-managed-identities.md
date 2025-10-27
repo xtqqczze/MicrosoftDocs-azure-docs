@@ -1,10 +1,10 @@
 ---
-title: How to Use Managed Identities with Azure Files
+title: Use Managed Identities with Azure Files (preview)
 description: This article explains how you can authenticate managed identities to allow applications and virtual machines to access SMB Azure file shares using identity-based authentication with Microsoft Entra ID.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/24/2025
+ms.date: 10/27/2025
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
