@@ -160,7 +160,8 @@ Perform security analysis of the my application focusing on:
 * Dependency vulnerabilities and supply chain security
 
 Generate prioritized findings with remediation recommendations 
-(including code changes if required), emphasizing migration to secure authentication patterns.
+(including code changes if required), emphasizing migration to secure 
+authentication patterns.
 
 Create GitHub issues for critical/high findings with actionable implementation steps.
 
