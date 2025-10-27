@@ -14,7 +14,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-Delegation enables your website to own the user data and perform custom validation for users of the developer portal. With delegation, you can handle developer sign-in/sign-up (and related account management operations) and product subscription using your existing website, instead of the developer portal's built-in functionality. 
+Delegation enables your website to own the user data and perform custom validation for users of the developer portal. With delegation, you can handle developer sign-in and sign-up (and related account management operations) and product subscription by using your existing website, instead of the developer portal's built-in functionality.  
 
 ## Delegating developer sign-in and sign-up
 
@@ -27,26 +27,26 @@ The final workflow consists of these steps:
 1. Delegation endpoint in return redirects user to or presents user with sign-in/sign-up or account management UI. 
 1. After the operation completes, user is redirected back to the API Management developer portal at the location they left.
 
-### Set up API Management to route requests via delegation endpoint
+### Set up API Management to route requests through a delegation endpoint
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the [Azure portal](https://portal.azure.com), go to your API Management instance.
 1. In the sidebar menu, under **Developer portal**, select **Delegation**. 
 1. Select the checkbox to enable **Delegate sign-in & sign-up**.
 
     :::image type="content" source="media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png" alt-text="Screenshot showing delegation of sign-in and sign-up in the portal.":::
 
-1. Decide your special delegation endpoint's URL and enter it in the **Delegation service endpoint** field. 
+1. Choose the URL for your special delegation endpoint and enter it in the **Delegation service endpoint** field. 
 1. In **Delegation keys**:
-    * Generate the **Primary validation key** or **Secondary validation key** (or both) to be used by your delegation service to validate requests from API Management. Select the ellipsis (**...**) next to either key and then select **Regenerate**.
+    * Generate the **Primary validation key** or **Secondary validation key** (or both) to use by your delegation service to validate requests from API Management. Select the ellipsis (**...**) next to either key and then select **Regenerate**.
     * Select the ellipsis (**...**) next to either key and then select **Copy**. Copy the keys to a secure location, and use them when configuring your delegation service. 
-1. Click **Save**.
+1. Select **Save**.
 
 > [!TIP]
 > You can rotate and regenerate the delegation validation keys at any time. Rotation replaces the primary key with the secondary key, and regenerates the secondary key. After saving the keys, make sure to update your delegation service to use the new keys.
 
 ### Create your delegation endpoint 
 
-Recommended steps for creating a new delegation endpoint to implement on your site:
+To create a new delegation endpoint to implement on your site, follow these steps:
 
 1. Receive a request in the following form, depending on the operation:
    
@@ -102,9 +102,9 @@ Recommended steps for creating a new delegation endpoint to implement on your si
 
 Delegating product subscriptions works similarly to delegating user sign-in/sign-up. The final workflow consists of these steps:
 
-1. Developer selects a product in the API Management developer portal and clicks the **Subscribe** button.
+1. Developer selects a product in the API Management developer portal and selects the **Subscribe** button.
 1. Browser redirects to the delegation endpoint.
-1. Delegation endpoint performs required product subscription steps, which you design. They could include: 
+1. Delegation endpoint performs required product subscription steps, which you design. These steps could include: 
    * Redirecting to another page to request billing information.
    * Asking additional questions.
    * Storing the information and not requiring any user action.
@@ -115,7 +115,7 @@ On the **Delegation** page, click **Delegate product subscription**.
 
 ### Create your delegation endpoint
 
-The following are recommended steps for creating a new delegation endpoint to implement on your site:
+To create a new delegation endpoint for your site, follow these steps:
 
 1. Receive a request in the following form, depending on the operation.
    
@@ -130,14 +130,14 @@ The following are recommended steps for creating a new delegation endpoint to im
 
    | Parameter | Description |
    | --------- | ----------- |
-   | **operation** | Identifies the delegation request type. Valid product subscription requests options are: <ul><li>**Subscribe**: a request to subscribe the user to a given product with provided ID (see below).</li><li>**Unsubscribe**: a request to unsubscribe a user from a product</li></ul> |
+   | **operation** | Identifies the delegation request type. Valid product subscription request options are: <ul><li>**Subscribe**: a request to subscribe the user to a given product with provided ID (see below).</li><li>**Unsubscribe**: a request to unsubscribe a user from a product</li></ul> |
    | **productId** | On *Subscribe*, the product ID that the user requested subscription. |
    | **userId** | On *Subscribe*, the requesting user's ID. |
    | **subscriptionId** | On *Unsubscribe*, the product subscription ID. |
    | **salt** | A special salt string used for computing a security hash. |
    | **sig** | A computed security hash used for comparison to your own computed hash. |
 
-1. Verify that the request is coming from Azure API Management (optional, but highly recommended for security).
+1. Verify that the request comes from Azure API Management (optional, but highly recommended for security).
    
    * Compute an HMAC-SHA512 of a string based on the **productId** and **userId** (or **subscriptionId**) and **salt** query parameters:
    
@@ -159,8 +159,8 @@ The following are recommended steps for creating a new delegation endpoint to im
 
 These code samples show how to generate the hash of the `returnUrl` query parameter when delegating user sign-in or sign-up. The `returnUrl` is the URL of the page where the user clicked the sign-in or sign-up link.
 
-* Take the *delegation validation key*, which is set in the **Delegation** screen of the Azure portal.
-* Create an HMAC, which validates the signature, proving the validity of the passed returnUrl.
+* Take the *delegation validation key*, which you set in the **Delegation** screen of the Azure portal.
+* Create an HMAC, which validates the signature and proves the validity of the passed `returnUrl`.
 
 With slight modification, you can use the same code to calculate other hashes, such as with `productId` and `userId` when delegating product subscription.
 
@@ -202,8 +202,8 @@ var signature = digest.toString('base64');
 > You need to [republish the developer portal](developer-portal-overview.md#publish-the-portal) for the delegation changes to take effect.
 
 ## Related content
-- [Learn more about the developer portal.](api-management-howto-developer-portal.md)
-- [Authenticate using Microsoft Entra ID](api-management-howto-aad.md) or with [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam).
+- [Learn more about the developer portal](api-management-howto-developer-portal.md)
+- [Authenticate using Microsoft Entra ID](api-management-howto-aad.md) or with [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam)
 - More developer portal questions? [Find answers in our FAQ](developer-portal-faq.md).
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
