@@ -34,7 +34,7 @@ The benefits of deployment script:
 The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability). Currently, deployment script only uses public networking.
 
 > [!IMPORTANT]
-> The deployment script service requires two supporting resources for script execution and troubleshooting: a storage account and a container instance. You can specify an existing storage account, otherwise the script service creates one for you. The two automatically-created supporting resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the supporting resources until they are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
+> The deployment script service requires two supporting resources for script execution and troubleshooting: a storage account and a container instance. You can specify an existing storage account, otherwise the script service creates one for you. The two automatically created supporting resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the supporting resources until they are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
 
 > [!NOTE]
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
@@ -79,7 +79,7 @@ For deployment script API version 2020-10-01 or later, there are two principals 
 - **Deployment script principal**: This principal is only required if the deployment script needs to authenticate to Azure and call the Azure CLI or Azure PowerShell. There are two ways to specify the deployment script principal:
 
   - Specify a user-assigned managed identity in the `identity` property (see [Sample templates](#sample-templates)). When specified, the script service calls `Connect-AzAccount -Identity` before invoking the deployment script. The managed identity must have the required access to complete the operation in the script. Currently, only user-assigned managed identity is supported for the `identity` property. To log in with a different identity, use the second method in this list.
-  - Pass the service principal credentials as secure environment variables, and then can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index#az-login) in the deployment script.
+  - Pass the service principal credentials as secure environment variables, and then call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index#az-login) in the deployment script.
 
   If a managed identity is used, the deployment principal needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource.
 
@@ -166,7 +166,7 @@ Property value details:
   See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   > [!IMPORTANT]
-  > Deployment script uses the available CLI images from Microsoft Container Registry (MCR). It typically takes approximatedly one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If an unsupported version is used, the error message lists the supported versions.
+  > Deployment script uses the available CLI images from Microsoft Container Registry (MCR). It typically takes approximately one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If an unsupported version is used, the error message lists the supported versions.
 
 - `arguments`: Specify the parameter values. The values are separated by spaces.
 
