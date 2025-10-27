@@ -64,9 +64,6 @@ After software inventory has completed, you can review the inventory in the Azur
 
 ### Review software at project level
 1. Go to you Azure Migrate project and from the left menu, select **Software** under **Explore inventory** to review software discovered from all servers in the project.
-   
-   :::image type="content" source="./media/how-to-discover-applications/software-inventory-view.png" alt-text="Software inventory view at a project level":::
-   
 2. You can see some software **category cards** available on top of the view for quick access to some category of software.
 3. By default, **All software** card is selected but you can select from **Security & compliance**, **Databases & Data platforms**, **Web hosting**, **Business applications**, **Others** to review discovered software that have been classified in that category.
 4. You can view the aggregated insights for the software inventory to review **Servers with discovery issues**- selecting **View issues** takes you to the Action Center view which is prefiltered to show all servers with issues in gathering software inventory. You can either review the errors at per server level or switch to **View by issues** to review issues aggregated by Error codes and take the suggested remedial action to resolve the issues.
@@ -81,7 +78,7 @@ After software inventory has completed, you can review the inventory in the Azur
 10. You can select the **Vulnerabilities** count against each software to view the identified CVE (Common Vulneabilities and Exposures) IDs for that software version along with other details such as CVSS (Common Vulnerabilities Scoring System), Risk Level, Age and date the CVE was published on. You can use this view to **Export** the vulnerabilities information for a particular software.
 
     > [!NOTE]
-    > Vulnerabilities are sourced from National Vulnerability Database [NVD](https://www.nist.gov/itl/nvd) and mapped to discovered software. [Learn more](security-insights-overview#how-are-insights-derived) on how Insights (preview) are generated and for complete list of vulnerabilities, use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
+    > Vulnerabilities are sourced from National Vulnerability Database [NVD](https://www.nist.gov/itl/nvd) and mapped to discovered software. For complete list of vulnerabilities, use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
 
 11. You can also review the list of **Potential Targets** that have been suggested to plan the migration of your software to the Azure First Party(1P) services or Third Party (3P) Independent Software Vendor (ISV) services available as [Azure Native integrations](/azure/partner-solutions/partners) through Azure Marketplace.
 12. The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, **Servers count** and **Vulnerabilities**.
@@ -156,9 +153,6 @@ The table below shows different categories and subcategories in which the discov
 In addition to reviewing software at project level, you can also review them at per server level by following these steps:
 
 1. Go to you Azure Migrate project and from the left menu, select **Infrastructure** under **Explore inventory** to review software discovered from each server.
-   
-   :::image type="content" source="./media/how-to-discover-applications/software-inventory-infra-view.png" alt-text="Software inventory view at a server level":::
-
 2. You can select the count of **software** for any server to get to a tab which shows all software discovered from this server.
 3. In this tab, you can review each software metadata like **Name**, **Publisher**, **Version** and additional insights like **Category**, **Subcategory**, **Support Status** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
 4.  The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, and **Vulnerabilities**.
