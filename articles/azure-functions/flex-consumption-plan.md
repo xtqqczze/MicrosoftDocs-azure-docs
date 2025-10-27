@@ -59,7 +59,7 @@ Currently, Flex Consumption offers these instance size options:
 
 
 > [!NOTE]
-> The CPU core values shown are typical allocations for instances with the specified memory size. However, initial instances may receive slightly different core allocations for performance improvements.
+> The CPU core values shown are typical allocations for instances with the specified memory size. However, initial instances might be granted slightly different core allocations to improve performance.
 
 When deciding on which instance memory size to use with your apps, here are some things to consider:
 
