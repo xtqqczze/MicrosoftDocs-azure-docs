@@ -32,14 +32,6 @@ If any of these utilization numbers isn't available, the size recommendations mi
 
 This table shows the assessment performance coverage ratings, which depend on the percentage of available data points: 
 
-**Availability of data points** | **Performance coverage rating** 
---- | --- 
-0-20% | One star 
-21-40% | Two stars 
-41-60% | Three stars 
-61-80% | Four stars 
-81-100% | Five stars 
-
 ## Low performance coverage ratings 
 
 Here are a few reasons why an assessment could get a low performance coverage rating: 
@@ -57,7 +49,7 @@ Here are a few reasons why an assessment could get a low performance coverage ra
 - Some servers were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some servers were created only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the performance coverage rating would be low. 
 
 >[!Note]
->If the performance coverage rating of any assessment is less than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable. In that case, we recommend that you switch the assessment to on-premises sizing. 
+>If the performance coverage rating of any assessment is less than 80%, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable. In that case, we recommend that you switch the assessment to on-premises sizing. 
 
 ## Next steps 
 

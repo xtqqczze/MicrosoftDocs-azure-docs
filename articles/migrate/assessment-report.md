@@ -57,7 +57,7 @@ After right-sizing target candidates are selected, and if more than one suitable
 
 ### Performance coverage (performance-based)
 
-Each performance-based Azure VM assessment in Azure Migrate is associated with a performance coverage. The coverage ranges from one (lowest) to five (highest) stars. The performance coverage helps you estimate the reliability of the size recommendations Azure Migrate provides.
+Each performance-based Azure VM assessment in Azure Migrate is associated with a performance coverage. The coverage ranges from 0-100%. The performance coverage helps you estimate the reliability of the size recommendations Azure Migrate provides.
 
 - The performance coverage is assigned to an assessment. The coverage is based on the availability of data points that are needed to compute the assessment.
 
@@ -78,13 +78,6 @@ If any of these utilization numbers isn't available, the size recommendations mi
 
 The table below shows the performance coverage for assessment, which depend on the percentage of available data points:
 
-**Availability of data points** | **Performance coverage**
---- | ---
-0-20% | One star
-21-40% | Two stars
-41-60% | Three stars
-61-80% | Four stars
-81-100% | Five stars
 
 ### Low performance coverage
 
@@ -105,7 +98,7 @@ Here are a few reasons why an assessment could get a low performance coverage:
 - Some servers were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some servers were created only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the performance coverage would be low. 
 
 >[!Note]
->If the performance coverage of any assessment is less than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable. In that case, we recommend that you switch the assessment to on-premises sizing. 
+>If the performance coverage of any assessment is less than 80%, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable. In that case, we recommend that you switch the assessment to on-premises sizing. 
 
 ## Next steps 
 

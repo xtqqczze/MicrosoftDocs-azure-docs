@@ -145,14 +145,6 @@ Each MySQL assessment is associated with a performance coverage. The coverage ra
   - Read-write ratio
 - If any of these utilization numbers aren't available, the size recommendations might be unreliable. This table shows the assessment performance coverage, which depend on the percentage of available data points:
 
-    **Data point availability** | **Performance coverage**
-    --- | ---
-    0%-20% | One star
-    21%-40% | Two stars
-    41%-60% | Three stars
-    61%-80% | Four stars
-    81%-100% | Five stars
-
 ### Low performance coverage
 
 Here are a few reasons why an assessment could get a low performance coverage:
@@ -176,7 +168,7 @@ Here are a few reasons why an assessment could have a high performance coverage:
  **Recalculate** the assessment to reflect the latest changes in performance coverage.
 
 > [!NOTE]
-> As MySQL assessments are performance-based assessments, if the performance coverage of any assessment is fewer than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable.
+> As MySQL assessments are performance-based assessments, if the performance coverage of any assessment is fewer than 80%, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable.
 
 ## Calculate monthly costs
 Once the sizing recommendations are complete, MySQL assessment calculates the compute, storage, and IO costs for the recommended Azure Database for MySQL configurations using an internal pricing API. It aggregates these costs across all the instances to determine the total monthly cost.
