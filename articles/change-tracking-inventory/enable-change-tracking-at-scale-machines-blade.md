@@ -1,19 +1,19 @@
 ---
-title: Enable Change Tracking and Inventory at Scale with Azure portal - Machines Blade
-description: This article describes how to enable change tracking and inventory at scale for Windows and Linux VMs using the Machines blade in the Azure portal.
+title: Enable Change Tracking and Inventory at Scale with Azure portal - Machines pane
+description: This article describes how to enable change tracking and inventory at scale for Windows and Linux VMs using the Machines pane in the Azure portal.
 services: automation
-ms.date: 10/03/2025
+ms.date: 10/27/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 author: jasminemehndir
 ms.author: v-jasmineme
 ---
 
-# Enable Change Tracking and Inventory at scale using Azure portal - Machines blade
+# Enable Change Tracking and Inventory at scale using Azure portal - Machines pane
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
-This article provides detailed procedure on how you can enable change tracking and inventory at scale using Azure portal - Machines blade.
+This article provides detailed procedure on how you can enable change tracking and inventory at scale using Azure portal - Machines pane.
 
 ## At scale deployment
 
@@ -23,9 +23,9 @@ This article provides detailed procedure on how you can enable change tracking a
 
 1. As per the selected subscription, the machines are listed which will confirm if they are enabled for Change Tracking and Inventory under the **Enabled** column.
 
-     :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/select-subscription.png" alt-text="Screenshot showing the selection of Machines blade and subscription." lightbox="media/enable-change-tracking-at-scale-machines-blade/select-subscription.png":::
+     :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/select-subscription.png" alt-text="Screenshot showing the selection of Machines pane and subscription." lightbox="media/enable-change-tracking-at-scale-machines-blade/select-subscription.png":::
 
-    On the top of the page, you will also see a banner which displays the total number of machines in the selected subscription that are enabled for Change Tracking and Inventory.
+    On the top of the pane, you will also see a banner which displays the total number of machines in the selected subscription that are enabled for Change Tracking and Inventory.
 
 1. In the filters, select **Enabled** to view the options. 
    - Select Yes to view the machines enabled with Change Tracking and Inventory.
@@ -46,4 +46,4 @@ This article provides detailed procedure on how you can enable change tracking a
 
 ## Next steps
 
-Learn on [how to enable Change Tracking at scale using policy](enable-change-tracking-at-scale-policy.md).
+Learn [how to enable Change Tracking and Inventory at scale using Azure policy](enable-change-tracking-at-scale-policy.md).

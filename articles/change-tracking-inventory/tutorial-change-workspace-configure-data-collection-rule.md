@@ -3,7 +3,7 @@ title: Tutorial - Change a workspace and configure data collection rule
 description: In this tutorial, learn how to change a workspace and configure data collection rule.
 services: automation
 ms.custom: linux-related-content
-ms.date: 10/23/2025
+ms.date: 10/27/2025
 ms.topic: tutorial
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
@@ -20,7 +20,8 @@ This tutorial describes how to change a workspace and configure data collection 
 ## Prerequisites
 
 Before you change a workspace for your virtual machine and configure data collection rule, ensure you meet this prerequisite:
-You've enabled Change Tracking and Inventory on your VM. For detailed information on how you can enable, see [Enable change tracking and inventory from portal](enable-virtual-machines-monitoring-agent.md).
+
+You've enabled Change Tracking and Inventory on your VM. For detailed information on how you can enable, see [Enable Change Tracking and Inventory from portal](enable-virtual-machines-monitoring-agent.md).
 
 In this tutorial you learn how to: 
 
@@ -94,7 +95,7 @@ To configure file content changes, follow these steps:
 
 When the storage account is linked using the system assigned managed identity, a blob is created. For system-assigned managed identity, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), go to **Storage accounts**, and, select the storage account.
+1. Sign in to [Azure portal](https://portal.azure.com), go to **Storage accounts**, and select the storage account.
 1. On the **Storage accounts** pane, under **Data storage**, select **Containers** > **Changetracking blob** > **Access Control (IAM)**.
 1. On the **Changetrackingblob | Access Control (IAM)** pane, select **Add** and, then select **Add role assignment**.
 
@@ -118,7 +119,7 @@ For user-assigned managed identity, follow these steps to assign the user assign
 
      :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-add-role-inline.png" alt-text="Screenshot of adding the role to user-assigned managed identity." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-add-role-expanded.png":::
 
-1. Go to your virtual machine, under **Settings**, select **Identity**, under **User assigned** tab, select **+ Add**.
+1. Go to your virtual machine, under **Settings**, select **Identity**. Under the **User assigned** tab, select **+ Add**.
 
 1. In the **Add user assigned managed identity**, select the **Subscription** and add the user-assigned managed identity.
      :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-assign-role-inline.png" alt-text="Screenshot of assigning the role to user-assigned managed identity." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-assign-role-expanded.png":::

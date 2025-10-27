@@ -2,7 +2,7 @@
 title: Quickstart - Enable Azure Change Tracking and Inventory for single and multiple machines from the portal
 description: In this quickstart, learn how to enable Azure Change Tracking and Inventory.
 services: automation
-ms.date: 10/23/2025
+ms.date: 10/27/2025
 ms.topic: quickstart
 #Customer intent: As a customer, I want to enable Azure Change Tracking and Inventory so that I can further use the CTI services.
 ms.service: azure-change-tracking-inventory
@@ -29,11 +29,11 @@ Before you enable Azure CTI, ensure you meet these prerequisites:
 
 ::: zone pivot="single-portal"
 
-### Enable change tracking and inventory for single VM from Azure portal
+### Enable Change Tracking and Inventory for single VM from Azure portal
 
 This section provides detailed procedure on how you can enable change tracking on a single Azure VM and Arc-enabled VM.
 
-#### [Single Azure VM -portal](#tab/singlevm)
+#### Enable Azure CTI from Single Azure VM - portal
 
 To enable Azure CTI from single Azure VM – portal, follow these steps:
 
@@ -43,7 +43,7 @@ To enable Azure CTI from single Azure VM – portal, follow these steps:
 
 1. Select the virtual machine for which you want to enable Change Tracking.
 
-1. In the search, enter **Change tracking**. Select **Change tracking** to view the change tracking and inventory pane.
+1. In the search bar, enter **Change tracking**. Select **Change tracking** to view the **Change Tracking and Inventory** pane.
 
    :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-change-tracking-virtual-machine-inline.png" alt-text="Screenshot showing to select change tracking option for a single virtual machine from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-change-tracking-virtual-machine-expanded.png":::
 
@@ -56,7 +56,7 @@ To enable Azure CTI from single Azure VM – portal, follow these steps:
 > [!NOTE]
 > - It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM.
 
-#### [Single Azure Arc VM - portal](#tab/singlearcvm)
+#### Enable Azure CTI from Single Azure Arc VM - portal
 
 To enable Azure CTI from single Azure Arc VM – portal, follow these steps:
 
@@ -65,24 +65,22 @@ To enable Azure CTI from single Azure Arc VM – portal, follow these steps:
    :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-arc-machines-portal.png" alt-text="Screenshot showing how to select Azure Arc machines from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-arc-machines-portal.png":::
 
 1. Select the Azure-Arc machine for which you want to enable Change Tracking.
-1. Under **Operations**, select **Change tracking** to view the change tracking and inventory pane.
-1. In the **Stay up-to-date with all changes** layout, select **Enable using AMA agent (Recommended)** option and **Enable**. 
+1. Under **Operations**, select **Change tracking** to view the **Change Tracking and Inventory** pane.
+1. In the **Stay up-to-date with all changes** screen, select **Enable using AMA agent (Recommended)** option and **Enable**. 
 
    :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-change-tracking-arc-virtual-machine.png" alt-text="Screenshot showing to select change tracking option for a single Azure arc virtual machine from the portal." lightbox="media/enable-virtual-machines-monitoring-agent/select-change-tracking-arc-virtual-machine.png":::
 
    It will initiate the deployment and the notification appears on the top right corner of the screen.
 
----
-
 :::zone-end
 
 ::: zone pivot="multiple-portal-cli"
 
-### Enable change tracking and inventory for multiple VMs using Azure portal and Azure CLI
+### Enable Change Tracking and Inventory for multiple VMs using Azure portal and Azure CLI
 
 This section provides detailed procedure on how you can enable change tracking and inventory on multiple Azure VMs and Azure Arc-enabled VMs.
 
-#### [Multiple Azure VMs - portal](#tab/multiplevms)
+#### Enable Azure CTI from Multiple Azure VMs - portal
 
 To enable Azure CTI from multiple Azure VMs – portal, follow these steps:
 
@@ -108,7 +106,7 @@ To enable Azure CTI from multiple Azure VMs – portal, follow these steps:
 1. Select **Enable** to initiate the deployment.
 1. A notification appears on the top right corner of the screen indicating the status of deployment.
 
-#### [Arc-enabled VMs - portal/CLI](#tab/arcvms)
+#### Enable Azure CTI from Arc-enabled VMs - portal/CLI
 
 To enable the Change Tracking and Inventory on Arc-enabled servers, ensure that the custom Change Tracking Data collection rule is associated to the Arc-enabled VMs. 
 
@@ -120,11 +118,11 @@ To associate the data collection rule to the Arc-enabled VMs, follow these steps
    :::image type="content" source="media/enable-virtual-machines-monitoring-agent/monitor-menu-data-collection-rules.png" alt-text="Screenshot showing the menu option to access data collection rules from Azure Monitor." lightbox="media/enable-virtual-machines-monitoring-agent/monitor-menu-data-collection-rules.png":::
 
 1. Select the data collection rule from the listing pane.
-1. In the data collection rule pane, under **Configurations**, select **Resources** and then select **Add**.
+1. On the **Data Collection Rules** pane, under **Configurations**, select **Resources** and then select **+ Add**.
     
    :::image type="content" source="media/enable-virtual-machines-monitoring-agent/select-resources.png" alt-text="Screenshot showing the menu option to select resources from the data collection rule pane." lightbox="media/enable-virtual-machines-monitoring-agent/select-resources.png":::
     
-1. In the **Select a scope**, from **Resource types**, select *Machines-Azure Arc* that is connected to the subscription and then select **Apply** to associate the *ctdcr* created in Step 1 to the Arc-enabled machine and it will also install the Azure Monitoring Agent extension.
+1. On the **Select a scope**, from **Resource types**, select *Machines-Azure Arc* that is connected to the subscription and then select **Apply** to associate the *ctdcr* created in Step 1 to the Arc-enabled machine and it will also install the Azure Monitoring Agent extension.
     
    :::image type="content" source="media/enable-virtual-machines-monitoring-agent/scope-select-arc-machines.png" alt-text="Screenshot showing the selection of Arc-enabled machines from the scope." lightbox="media/enable-virtual-machines-monitoring-agent/scope-select-arc-machines.png":::
     
@@ -141,7 +139,7 @@ To associate the data collection rule to the Arc-enabled VMs, follow these steps
    ```azurecli
    az connectedmachine extension create  --name ChangeTracking-Windows  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
    ```   
---- 
+ 
 :::zone-end
 
 ## Next steps
