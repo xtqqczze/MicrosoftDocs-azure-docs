@@ -25,7 +25,7 @@ When the wave is ready, follow these steps to execute it:
 
 1. Select **Execute wave** from **Wave Planning**.
 
- :::image type="content" source="./media/how-to-execute-track-waves/execute-waves.png" alt-text="The screenshot shows the overview of the execute wave details." lightbox="./media/how-to-execute-track-waves/execute-waves.png"::: 
+:::image type="content" source="./media/how-to-execute-track-waves/execute-waves.png" alt-text="The screenshot shows the overview of the execute wave details." lightbox="./media/how-to-execute-track-waves/execute-waves.png"::: 
 
 
 ### Execute application migration tasks
@@ -40,7 +40,7 @@ Use the application migration settings to review workloads, execute migration fl
 1. If the application has tracked tasks, select the number under **Tasks**.
 1. After you complete the task out of band, select **Mark as Complete**.
 
-    :::image type="content" source="./media/how-to-execute-track-waves/application-tasks.png" alt-text="The screenshot shows the application task marked as complete." lightbox="./media/how-to-execute-track-waves/application-tasks.png"::: 
+:::image type="content" source="./media/how-to-execute-track-waves/application-tasks.png" alt-text="The screenshot shows the application task marked as complete." lightbox="./media/how-to-execute-track-waves/application-tasks.png"::: 
 
 ### Execute Workload migration flows
 
@@ -54,15 +54,13 @@ Use workload migration settings to review source-to-target combinations, execute
 
 Use the Migrations view in the Wave to track the migration execution of applications and workloads.
 
-    
 :::image type="content" source="./media/how-to-execute-track-waves/workload-tracking-view.png" alt-text="The screenshot shows the workload tracking view." lightbox="./media/how-to-execute-track-waves/workload-tracking-view.png"::: 
 
 To view detailed workload status, follow the steps:
 
 1. Select **Execution Stage** and review the tasks in each migration and modernization stage. You can also perform activities and update the migration status here.
 
-    :::image type="content" source="./media/how-to-execute-track-waves/workload-task-tracking-view.png" alt-text="The screenshot shows the vertical task view in migration." lightbox="./media/how-to-execute-track-waves/workload-task-tracking-view.png"::: 
-
+:::image type="content" source="./media/how-to-execute-track-waves/workload-task-tracking-view.png" alt-text="The screenshot shows the workload task view in migration." lightbox="./media/how-to-execute-track-waves/workload-task-tracking-view.png"::: 
     
 :::image type="content" source="./media/how-to-execute-track-waves/app-tracking-view.png" alt-text="The screenshot shows the app tracking details." lightbox="./media/how-to-execute-track-waves/app-tracking-view.png"::: 
 
