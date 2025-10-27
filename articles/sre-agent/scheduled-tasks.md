@@ -57,7 +57,11 @@ The following examples demonstrate a few sample sets of custom instructions you 
 
 # [Health check](#tab/health-check)
 
-This task is an automated health check that runs every minute for up to 30 times after the database restarts. It verifies that the PostgreSQL database is alive, connections are working, and both API and web services have no errors and acceptable response times. If any check fails, it collects logs, sends a notification, and escalates if the database is down. If all checks pass, it records a summary. At the end, it produces a PDF report with metrics, logs, and a pass/fail summary.
+This task runs every minute (up to 30 times) after a database restart to check that PostgreSQL is healthy, connections succeed, and API/web services have no errors or slow responses.
+
+- On failure, it collects logs, notifies you, and escalates if the database is down.
+- On success, it records a summary.
+- At completion, it generates a PDF report with metrics, logs, and a pass/fail summary.
 
 ```Text
 This task runs autonomously every 1 minute for up to 30 
@@ -67,9 +71,7 @@ Goal: confirm <APP_NAME> services remain healthy and that
 listings are served. Resources & scope:
 
 - Container Apps: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/containerapps/<APP_NAME>
-
 - Container Apps: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/containerapps/<APP_NAME>
-
 - PostgreSQL Flexible Server: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.DBforPostgreSQL/flexibleServers/<DATABASE_NAME>
 
 Time window and data range:
@@ -117,7 +119,9 @@ logs to once per run per resource.
 
 Output expectations (per run):
 
-- Small JSON summary: {timestampUTC, is_db_alive, connections_failed, connections_succeeded, api_5xx_count, api_p95_ms, web_5xx_count, actions_taken}
+- Small JSON summary: {timestampUTC, is_db_alive, 
+connections_failed, connections_succeeded, api_5xx_count, 
+api_p95_ms, web_5xx_count, actions_taken}
 
 - On completion (after maxExecutions or duration): one PDF 
 report (compiled metrics charts and collected logs) and a 
@@ -142,6 +146,8 @@ overlapping runs. Use minimal data pull to meet this requirement.
 ```
 
 # [Security analysis](#tab/security-analysis)
+
+This task automates a scheduled security review of your application, focusing on authentication, secrets, access controls, infrastructure, and dependencies.
 
 ```text
 Perform security analysis of the my application focusing on:
