@@ -4,7 +4,7 @@ description: Overview of the framework and tooling for SAP Testing Automation Fr
 author: devanshjain
 ms.author: devanshjain
 ms.reviewer: depadia
-ms.date: 11/02/2025
+ms.date: 10/27/2025
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.topic: conceptual
@@ -30,7 +30,7 @@ In the SAP Testing Automation Framework, thorough validation of high availabilit
 
 ### Configuration Checks (Preview)
 
-The framework performs comprehensive configuration checks to ensure that the SAP system and its components are set up according to [SAP on Azure best practice](https://learn.microsoft.com/azure/sap/). This includes validating infrastructure settings, operating system parameter configurations, and network settings, in addition to the cluster configuration, to identify any deviations that could impact system performance or reliability.
+The framework performs comprehensive configuration checks to ensure that the SAP system and its components are set up according to [SAP on Azure best practice](../../sap/). This includes validating infrastructure settings, operating system parameter configurations, and network settings, in addition to the cluster configuration, to identify any deviations that could impact system performance or reliability.
 
 - **Infrastructure Validation:** This includes validating the underlying infrastructure components, such as virtual machines, load balancer, and other resource configurations, to ensure they meet the requirements for running SAP workloads on Azure.
 
@@ -41,6 +41,10 @@ The framework performs comprehensive configuration checks to ensure that the SAP
 - **Cluster Configuration Validation:** This framework ensures that the high availability cluster resource settings adhere to best practices for high availability and failover scenarios.
 
 The framework generates comprehensive reports, highlighting configuration mismatch or deviations from recommended best practices. For high availability scenarios, the report includes failover test outcomes, any failures encountered, and logs with insights to aid in troubleshooting identified issues.
+
+> [!NOTE]
+>
+> The configuration checks scenarios in SAP Testing Automation Framework is in public preview, while the high availability testing scenario is generally available (GA).
 
 ## Why Use the SAP Testing Automation Framework?
 
@@ -56,12 +60,12 @@ Testing is crucial for keeping SAP systems running smoothly, especially for crit
 
 ## Considerations
 
-Before running HA tests, review these guidelines to ensure smooth execution -
+Before running the scenarios, review these guidelines to ensure smooth execution -
 
-1. On new deployment you can execute the framework to validate that HA is configured according to SAP on Azure best practices and to observe how the cluster system behaves under various scenarios. 
-2. Full end-to-end tests typically takes around 90 minutes on new HANA setups with small databases. Runtime may extend for larger database. Internal validation has been performed on HANA database of size 3.5 TiB. For central services, the end-to-end execution time is around 90 minutes.
+1. On new deployment you can execute the scenarios to validate that the system is configured according to SAP on Azure best practices and to observe how the cluster system behaves under various test cases. 
+2. Full end-to-end high availability test typically takes around 90 minutes on new HANA setups with small databases and for SAP Central services. For larger database, the run time may extend. Internal validation has been performed on HANA database of size 3.5 TiB. 
 3. For large HANA databases, test first in a non-production environment matching production scale. You may need to adjust certain retry logic parameters as operations like stop, start, and registration takes more time on large database.
-4. For production SAP systems, run the framework during maintenance window with no active business operations.
+4. For production SAP systems, run the high availability scenarios only during maintenance window with no active business operations.
 5. The framework does not install packages or modify any configuration on cluster nodes. The generated HTML report simply reflects the configuration values and observed behavior of your current setup.
 
 ## Architecture and Components
@@ -72,17 +76,19 @@ To learn how the framework works, refer to the [architecture and components](./t
 
 There are two primary ways to get started with the SAP Testing Automation Framework. You can choose the path that best fits your current environment and objectives:
 
-### Option 1: Integration with SAP Deployment Automation Framework (SDAF)
+### Option 1: Standalone Setup of SAP Testing Automation Framework
+
+For users focused solely on validating SAP functionality and configurations, the standalone approach offers a streamlined process to test critical SAP components without the complexity of full deployment integration. For more details on the setup, see following documents to get started -
+
+- Configure management server following the document [Setup Guide for SAP Testing Automation Framework](https://github.com/Azure/sap-automation-qa/blob/main/docs/SETUP.MD).
+  - For high availability testing scenarios, see [High Availability documentation](https://github.com/Azure/sap-automation-qa/blob/main/docs/HIGH_AVAILABILITY.md).
+  - For Configuration Checks and Testing details, see the [Configuration Checks documentation](https://github.com/Azure/sap-automation-qa/blob/main/docs/CONFIGURATION_CHECKS.md).
+
+### Option 2: Integration with SAP Deployment Automation Framework (SDAF)
 
 If you already have an [SAP Deployment Automation Framework](./deployment-framework.md) environment set up, integrating the SAP Testing Automation Framework is a natural extension that allows you to apply existing deployment pipelines and configurations. For more details on the setup, see [Setup Guide for SAP Testing Automation Framework with SDAF](https://github.com/Azure/sap-automation-qa/blob/main/docs/SDAF_INTEGRATION.md)
 
-### Option 2: Standalone Setup of SAP Testing Automation Framework
-
-For users focused solely on validating SAP functionality and configurations, the standalone approach offers a streamlined process to test critical SAP components without the complexity of full deployment integration. For more details on the setup, see [Setup Guide for SAP Testing Automation Framework](https://github.com/Azure/sap-automation-qa/blob/main/docs/SETUP.MD)
-
 ## Next steps
 
-- [Learn about the testing framework architecture](testing-framework-architecture.md)
-- [Review supported platforms and features](testing-framework-supportability.md)
-- [Get started with High Availability testing](testing-framework-high-availability.md)
-- [Get started with configuration checks](testing-framework-configuration-checks.md)
+- To understand the architecture of SAP Testing Automation Framework, see [Review the framework architecture](testing-framework-architecture.md).
+- For SAP Testing Automation Framework support matrix, see [Understand supported platforms](testing-framework-supportability.md).

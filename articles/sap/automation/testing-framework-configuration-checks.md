@@ -7,7 +7,7 @@ ms.reviewer: depadia
 ms.topic: reference
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.date: 10/19/2025
+ms.date: 10/27/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
@@ -45,15 +45,15 @@ The configuration validation checks within the SAP Testing Automation Framework 
 
     - Checks for virtual hostname configuration, file system mount options, and service startup ordering.
 
-
-3. **Application Servers**
+4. **Application Servers**
     - Validates the configuration of the application server instances.
 
-
-> **Note**: High Availability (HA) configuration checks and functional tests are currently supported only for SAP HANA databases. For IBM DB2 databases, only non-HA configuration checks are available.
+> [!NOTE]
+> High Availability (HA) configuration checks and functional tests are currently supported only for SAP HANA databases. For IBM DB2 databases, only non-HA configuration checks are available.
 
 ## Next Steps
 
-- [Get started with configuration validation](https://github.com/Azure/sap-automation-qa/tree/main/docs/CONFIGURATION_CHECKS.md)
-- [Review the framework architecture](testing-framework-architecture.md)
-- [Understand supported platforms](testing-framework-supportability.md)
+- To get started on SAP Testing Automation Framework setup, follow the guide [Setup Guide for SAP Testing Automation Framework](https://github.com/Azure/sap-automation-qa/blob/main/docs/SETUP.MD).
+- For running the configuration checks, see [Get started with configuration validation](https://github.com/Azure/sap-automation-qa/tree/main/docs/CONFIGURATION_CHECKS.md).
+- To understand the architecture of SAP Testing Automation Framework, see [Review the framework architecture](testing-framework-architecture.md).
+- For SAP Testing Automation Framework support matrix, see [Understand supported platforms](testing-framework-supportability.md).

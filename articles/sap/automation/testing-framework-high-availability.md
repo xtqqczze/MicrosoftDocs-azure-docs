@@ -7,7 +7,7 @@ ms.reviewer: depadia
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.date: 10/23/2025
+ms.date: 10/27/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
@@ -20,6 +20,10 @@ The framework uses Ansible to coordinate test execution, collect telemetry, capt
 ## SAP HANA Scale-Up High Availability
 
 Validates the failover mechanism of SAP HANA Database in a scale-up configuration, ensuring that the database can recover from node failures without data loss or significant downtime. The following test cases are available to validate SAP HANA high availability:
+
+> [!NOTE]
+>
+> Entries with a specified value in "Applicable" column applies only when the corresponding criteria are met. If the field is empty, the entry is considered applicable to all supported configuration patterns.
 
 | Test Case | Description | Applicable |
 |-----------|-------------|-------------|
@@ -41,6 +45,10 @@ Validates the failover mechanism of SAP HANA Database in a scale-up configuratio
 
 Validates the failover mechanism of SAP Central Services, ensuring that the system can recover from node failures without impacting the availability of critical services. The following test cases are available to validate SAP Central Services high availability:
 
+> [!NOTE]
+>
+> Entries with a specified value in "Applicable" column applies only when the corresponding criteria are met. If the field is empty, the entry is considered applicable to all supported configuration patterns.
+
 | Test Case | Description | Applicable |
 |-----------|-------------|-------------|
 | **High Availability Parameters Validation** | The high availability parameter validation test validates HA configuration including Corosync settings, Pacemaker resources, SBD device configuration, and SCS system replication setup. |  |
@@ -58,7 +66,7 @@ Validates the failover mechanism of SAP Central Services, ensuring that the syst
 
 ## Offline Validation of High Availability Configuration
 
-Offline validation is a mode of the SAP Testing Automation Framework that validates SAP HANA and SAP Central Services high availability cluster configurations without establishing a live SSH connection to the production cluster. Instead, it analyzes captured cluster information base (CIB) XML files exported from each cluster node. This approach enables repeatable and non-intrusive assessment of HA configuration, ideal for compliance audits, pre change reviews, and air-gapped analysis. For more details on how to run offline validation, see [high availability configuration offline validation]([sap-automation-qa/docs/HA_OFFLINE_VALIDATION.md at main · Azure/sap-automation-qa](https://github.com/Azure/sap-automation-qa/blob/main/docs/HA_OFFLINE_VALIDATION.md)).
+Offline validation is a mode of the SAP Testing Automation Framework that validates SAP HANA and SAP Central Services high availability cluster configurations without establishing a live SSH connection to the production cluster. Instead, it analyzes captured cluster information base (CIB) XML files exported from each cluster node. This approach enables repeatable and non-intrusive assessment of HA configuration, ideal for compliance audits, pre change reviews, and air-gapped analysis. For more details on how to run offline validation, see [high availability configuration offline validation](https://github.com/Azure/sap-automation-qa/blob/main/docs/HA_OFFLINE_VALIDATION.md).
 
 > [!NOTE]
 >
@@ -66,7 +74,7 @@ Offline validation is a mode of the SAP Testing Automation Framework that valida
 
 ## Next Steps
 
-- [Get started with high availability testing](https://github.com/Azure/sap-automation-qa/tree/main/docs/HIGH_AVAILABILITY.md)
-- [Get started with offline high availability testing](https://github.com/Azure/sap-automation-qa/tree/main/docs/HA_OFFLINE_VALIDATION.md)
-- [Review the framework architecture](testing-framework-architecture.md)
-- [Learn about supported platforms](testing-framework-supportability.md)
+- For running the high availability testing, see [Get started with High Availability testing](testing-framework-high-availability.md).
+- For running the offline high availability configuration validation, see [Get started with offline high availability testing](https://github.com/Azure/sap-automation-qa/tree/main/docs/HA_OFFLINE_VALIDATION.md)
+- To understand the architecture of SAP Testing Automation Framework, see [Review the framework architecture](testing-framework-architecture.md).
+- For SAP Testing Automation Framework support matrix, see [Understand supported platforms](testing-framework-supportability.md).

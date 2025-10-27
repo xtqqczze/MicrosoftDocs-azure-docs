@@ -4,7 +4,7 @@ description: Learn about the supported platforms, operating systems, and feature
 author: devanshjain
 ms.author: devanshjain
 ms.reviewer: depadia
-ms.date: 10/22/2025
+ms.date: 10/27/2025
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.topic: conceptual
@@ -18,7 +18,11 @@ This document outlines the supported platforms, operating systems, and features 
 
 The SAP Testing Automation Framework requires a management server or controller. Below are the list of supported operating systems.
 
-- Operating system: Ubuntu 22.04 LTS, SUSE Linux Enterprise Server 15 SP4 or above, Red Hat Enterprise Linux 9.4 or above.
+- Operating system
+  - Ubuntu 22.04 LTS
+  - SUSE Linux Enterprise Server 15 SP4 or above
+  - Red Hat Enterprise Linux 9.4 or above.
+
 - The management server must be deployed on Azure.
 
 ## Supported SAP System Configurations
@@ -47,7 +51,9 @@ The framework supports testing of various high availability configurations for S
 | SAP HANA Database | Scale-up | iSCSI (SBD device) | Azure Managed Disks or Azure NetApp Files |
 | SAP HANA Database | Scale-up | Azure Shared Disks (SBD device) | Azure Managed Disks or Azure NetApp Files |
 
-The framework validates both ENSA1 (Enqueue Server 1) and ENSA2 (Enqueue Server 2) architectures for SAP Central Services, providing comprehensive testing coverage for different SAP NetWeaver implementations. For SAP HANA databases, the framework focuses on scale-up configurations with System Replication (HSR) for high availability scenarios.
+The framework validates both Enqueue Server 1 (ENSA1) and Enqueue Server 2 (ENSA2) architectures for SAP Central Services, providing comprehensive testing coverage for different SAP NetWeaver implementations. For SAP HANA databases, the framework focuses on scale-up configurations with System Replication (HSR) for high availability scenarios.
+
+For SAP Central Services on SLES, both the simple mount approach and the classic method are supported.
 
 ### SAP Configuration Checks (Preview)
 
@@ -70,6 +76,7 @@ The framework validates configuration checks for both HANA and Db2 database back
 
 ## Next Steps
 
-- [Learn about High Availability testing](testing-framework-high-availability.md)
-- [Understand configuration checks](testing-framework-configuration-checks.md)
-- [Review the framework architecture](testing-framework-architecture.md)
+- To get started on SAP Testing Automation Framework setup, follow the guide [Setup Guide for SAP Testing Automation Framework](https://github.com/Azure/sap-automation-qa/blob/main/docs/SETUP.MD).
+- For running the high availability testing, see [Get started with High Availability testing](testing-framework-high-availability.md).
+- For running the configuration checks, see [Get started with configuration validation](https://github.com/Azure/sap-automation-qa/tree/main/docs/CONFIGURATION_CHECKS.md).
+- To understand the architecture of SAP Testing Automation Framework, see [Review the framework architecture](testing-framework-architecture.md).

@@ -4,7 +4,7 @@ description: Learn about the architecture and components of the SAP Testing Auto
 author: devanshjain
 ms.author: devanshjain
 ms.reviewer: depadia
-ms.date: 11/02/2025
+ms.date: 10/27/2025
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.topic: conceptual
@@ -49,6 +49,7 @@ The framework operates on a hub-and-spoke model where the management server acts
 
 To learn more about specific aspects of the framework:
 
-- [Review supported platforms and features](testing-framework-supportability.md)
-- [Get started with High Availability testing](testing-framework-high-availability.md)
-- [Understand configuration validation](testing-framework-configuration-checks.md)
+- For SAP Testing Automation Framework support matrix, see [Understand supported platforms](testing-framework-supportability.md).
+- To get started on SAP Testing Automation Framework setup, follow the guide [Setup Guide for SAP Testing Automation Framework](https://github.com/Azure/sap-automation-qa/blob/main/docs/SETUP.MD).
+- For running the high availability testing, see [Get started with High Availability testing](testing-framework-high-availability.md).
+- For running the configuration checks, see [Get started with configuration validation](https://github.com/Azure/sap-automation-qa/tree/main/docs/CONFIGURATION_CHECKS.md).
