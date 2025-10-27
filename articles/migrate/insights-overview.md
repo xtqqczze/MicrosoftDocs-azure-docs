@@ -11,7 +11,7 @@ ms.custom: engagement-fy24
 # Customer intent: IT administrators and cloud architects use the Insights (preview) feature in Azure Migrate to identify and mitigate security risks in their datacenter during cloud migration planning. This helps them assess vulnerabilities, outdated software, and missing security tools to ensure a secure and efficient migration to Azure
 ---
 
-# Insights in Azure Migrate (Preview)
+# Insights in Azure Migrate (preview)
 
 This article describes the **Insights** (preview) feature in Azure Migrate, which provides a security assessment of the infrastructure and software inventory discovered in your datacenter.
 
