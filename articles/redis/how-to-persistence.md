@@ -52,7 +52,7 @@ Persistence features are intended to be used to restore data to the same cache a
 
 1. When you reach the **Advanced** tab, select either _RDB_ or _AOF_ options in the **Data Persistence** section.
 
-    :::image type="content" source="media/how-to-persistence/managed-redis-advanced-persistence.png" alt-text="Screenshot that shows a new Azure Managed Redis cache with Advanced tab and Data persistence is highlighted with a red box.":::
+    :::image type="content" source="media/how-to-persistence/managed-redis-advanced-persistence.png" alt-text="Screenshot that shows a new Azure Managed Redis cache with Advanced tab and Data persistence highlighted with a red box." lightbox="media/how-to-persistence/managed-redis-advanced-persistence.png":::
 
 1. To enable RDB persistence, select **RDB** and configure the settings.
 
