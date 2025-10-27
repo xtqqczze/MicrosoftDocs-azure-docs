@@ -16,11 +16,13 @@ ms.custom:
 
 **Applies to:** :heavy_check_mark: SMB Azure file shares
 
-This article explains how you can authenticate managed identities to allow applications and virtual machines (VMs) to access SMB Azure file shares using identity-based authentication with Microsoft Entra ID (preview). It covers role assignments, storage account setup, VM preparation, package installation, and client configuration. By the end of this guide, you'll have a storage account and VM configured with a managed identity. Then you'll mount a file share without using a storage account key.
+This article explains how you can use [managed identities](/entra/identity/managed-identities-azure-resources/overview) to allow applications and virtual machines (VMs) to access SMB Azure file shares using identity-based authentication with Microsoft Entra ID (preview). A managed identity is an identity in Microsoft Entra ID that is automatically managed by Azure. You typically use managed identities when developing cloud applications to manage the credentials for authenticating to Azure services. 
+
+By the end of this guide, you'll have a storage account and VM configured with a managed identity. Then you'll mount a file share without using a storage account key.
 
 ## Why authenticate using a managed identity?
 
-For security reasons, using storage account keys to access a file share isn't recommended. When you assign a managed identity to a VM, you can use that identity to authenticate the VM with Azure Files
+For security reasons, using storage account keys to access a file share isn't recommended. When you assign a managed identity to a VM, you can use that identity to authenticate the VM.
 
 Benefits include:
 
@@ -31,6 +33,8 @@ Benefits include:
 - **Fine-grained access control:** Role-based access at the identity level
 
 - **Automation friendly:** Easy to integrate with CI/CD pipelines and applications
+
+- **Cost effective:** Managed identities can be used at no extra cost
 
 ## Prerequisites
 
@@ -95,10 +99,37 @@ Once the script completes, you should have a storage account and file share read
 
 ## Prepare your VM and assign roles
 
-The enablement steps are different for Azure VMs versus non-Azure VMs.
+The enablement steps are different for Azure VMs versus non-Azure VMs. Once enabled, all necessary permissions can be granted via Azure RBAC.
 
-> [!NOTE]
-> If the VM has both system and user assigned identities, Azure defaults to system assigned. Assign only one for best results. 
+### Azure VM enablement
+
+If you want to authenticate an Azure VM, follow these steps.
+
+1. Create a VM in Azure. Your VM must be running Windows Server 2019 or higher for server SKUs, or any Windows client SKU. See [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
+
+1. Enable a managed identity on the VM. It can be either [system-assigned or user-assigned](/entra/identity/managed-identities-azure-resources/overview#differences-between-system-assigned-and-user-assigned-managed-identities). If the VM has both system- and user-assigned identities, Azure defaults to system assigned. Assign only one for best results. You can enable a system-assigned managed identity during VM creation on the **Management** tab.
+
+    :::image type="content" source="media/files-managed-identities/enable-system-assigned-managed-identity.png" alt-text="Screenshot showing how to enable system assigned managed identity when creating a new VM using the Azure portal." border="true":::
+
+1. Assign the built-in Azure RBAC role **Storage File Data SMB MI Admin** role to the managed identity at the desired scope. See [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps).
+
+### Non-Azure Windows device enablement  
+
+For non-Azure Windows machines (on-prem or other cloud), follow these steps. 
+
+1. [Onboard them to Azure Arc and assign a managed identity](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management).
+
+1. Assign the built-in Azure RBAC role **Storage File Data SMB MI Admin** role to the managed identity at the desired scope. See [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps).
+
+## Mount a file share on a Windows VM
+
+Now that your storage account and permissions are configured, follow these steps to mount the file share using managed identity authentication.
+
+
+
+> [!TIP]
+> To view complete usage information and examples, run the executable without any parameters: `AzFilesSmbMIClient.exe`
+
 
 ## See also
  
