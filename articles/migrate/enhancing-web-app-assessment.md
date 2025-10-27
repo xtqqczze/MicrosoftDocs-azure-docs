@@ -174,14 +174,15 @@ To generate code scan report follow below steps.
 
 ### View code insights after adding code scan reports. 
 
-1. On the Azure Migrate project Overview page, under Decide and Plan, select Assessments. 
-1. Search for the assessment using the Workloads filter and select it. 
-1. On the assessment Overview page, select the Recommended path tab or View details in the recommended path report.  
+1. Select **Assessments** on the Azure Migrate project **Overview** page under **Decide and Plan**.
+1. Search for the assessment with the **Workloads** filter and select it. 
+1. On the assessment **Overview** page, select the **Recommended path** tab or **View details** in the recommended path report.  
+    This screen displays the distribution of web apps across Azure targets. Select a line item to drill down further.  
 1. This screen displays the distribution of the web apps across the Azure targets. Select a line item to drill down further. 
-1. Click on View code changes under Code insights.  
-1. Check the code change by selecting the relevant tab. Issues, Warning, or Information. This is summarized view of code changes across the web apps in respective assessment.  
-1. View individual web app changes, by clicking on the number under Code changes column against respective web app.  
+1. Select **View code** changes under **Code** insights.
+Review the code changes by selecting the relevant tab: **Issues, Warnings**, or **Information**. These tabs provide a summarized view of code changes across the web apps in the assessment.
+1. Select the number in the **Code** changes column for the respective web app to view its changes. 
 
-After adding the code scan reports, the readiness and migration strategy for the relevant web app may change according to the identified code changes. If the code changes required are significant, the readiness of the web app may update from Ready to Ready with conditions.  
+After you add code scan reports, the readiness and migration strategy for the relevant web app might change based on the identified code changes. If the required code changes required are significant, the webapp's readiness might update from **Ready** to **Ready with conditions**.  
 
 ## Troubleshooting 
