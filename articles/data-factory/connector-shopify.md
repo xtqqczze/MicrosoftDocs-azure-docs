@@ -151,7 +151,7 @@ To copy data from Shopify, set the type property of the dataset to **ShopifyObje
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **ShopifyObject** | Yes |
-| tableName | Name of the table. For version 2.0 (Preview), table names retain the Shopify GraphQL structure, for example `customers`. For version 1.0, table names use simplified names with prefixes, for example, `"Shopify"."Customers"`.| No (if "query" in activity source is specified) |
+| tableName | Name of the table. <br><br>For version 2.0 (Preview), table names retain the Shopify GraphQL structure, for example `customers`. <br><br>For version 1.0, table names use simplified names with prefixes, for example, `"Shopify"."Customers"`.| No (if "query" in activity source is specified) |
 
 > [!NOTE]
 > *tags* column can not be read when you specify `tableName` in the dataset. To read this column, [use `query`](#shopify-as-source).
@@ -184,7 +184,7 @@ To copy data from Shopify, set the source type in the copy activity to **Shopify
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ShopifySource** | Yes |
-| query |For version 2.0, use the GraphQL query to read data. To learn more about this query, see this [article](https://shopify.dev/docs/api/admin-graphql). Note that the pagination query is only supported for outer tables, and each record in the outer table can include up to 250 inner table records. For version 1.0, use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | No (if "tableName" in dataset is specified) |
+| query |For version 2.0, use the GraphQL query to read data. To learn more about this query, see this [article](https://shopify.dev/docs/api/admin-graphql). Note that the pagination query is only supported for outer tables, and each record in the outer table can include up to 250 inner table records. <br><br>For version 1.0, use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
