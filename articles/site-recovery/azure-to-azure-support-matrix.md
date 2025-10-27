@@ -60,7 +60,7 @@ Setting | Support | Details
 General-purpose V2 (GPv2) storage accounts (hot and cool tiers) | Supported | We recommend using GPv2 because GPv1 doesn't support zone-redundant storage (ZRS).
 Premium storage | Supported | Use Premium block blob storage accounts to get high-churn support. For more information, see [Azure VM disaster recovery: High-churn support](./concepts-azure-to-azure-high-churn-support.md).
 Region |  Same region as VM  | Cache storage account should be in the same region as the VM being protected.
-Subscription  | Can be different from source VMs | Cache storage account must be in the same subscription as the source VMs. <br> To use cache storage from the target subscription, use Azure PowerShell.
+Subscription  | Can be different from source VMs | Cache storage account must be in the same subscription as the source VMs. To use cache storage from the target subscription, use Azure PowerShell.
 Azure Storage firewalls for virtual networks  | Supported | If you use a firewall-enabled cache storage account or a target storage account, ensure that you [allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions).<br></br>Ensure that you allow access to at least one subnet of the source virtual network.<br></br>If you use user-assigned managed identity (UAMI) created on an Azure Recovery Services vault, don't restrict virtual network access to your storage accounts that are used for Site Recovery. Allow access from all networks if you use vault UAMI.
 Soft delete | Not supported | Soft delete isn't supported because after soft delete is enabled on a cache storage account, it increases cost. Site Recovery performs frequent creates/deletes of log files. Replicating causes costs to increase.
 Encryption at rest | Supported | You can configure storage account encryption with customer-managed keys (CMKs).
@@ -106,25 +106,25 @@ Mobility service versions 9.58 and 9.59 aren't released for Azure-to-Azure Site 
 
 Operating system | Details
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609/), [8.3](https://support.microsoft.com/help/4597409/), [8.4](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-305.30.1.el8_4.x86_64 or higher), [8.5](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-348.5.1.el8_5.x86_64 or higher), [8.6](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) (4.18.0-348.5.1.el8_5.x86_64 or higher), 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, and 9.6. <br> RHEL 9.x is supported for the [following kernel versions](#supported-kernel-versions-for-red-hat-enterprise-linux-for-azure-virtual-machines).
-Ubuntu 14.04 LTS Server | The long-term support (LTS) server includes support for all 14.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-virtual-machines).
-Ubuntu 16.04 LTS Server | Includes support for all 16.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-virtual-machines).<br/><br/> Ubuntu servers using password-based authentication and sign-in, and the `cloud-init` package to configure cloud VMs, might have password-based sign-in disabled on failover (depending on the `cloud-init` configuration). To re-enable password-based sign-in on the VM, reset the password from the **Support** > **Troubleshooting** > **Settings** menu of the failed-over VM in the Azure portal.
-Ubuntu 18.04 LTS Server | Includes support for all 18.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-virtual-machines).<br/><br/> Ubuntu servers using password-based authentication and sign-in, and the `cloud-init` package to configure cloud VMs, might have password-based sign-in disabled on failover (depending on the `cloud-init` configuration). To re-enable password-based sign-in on the VM, reset the password from the **Support** > **Troubleshooting** > **Settings** menu of the failed-over VM in the Azure portal.
-Ubuntu 20.04 LTS Server | Includes support for all 20.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-virtual-machines).
-Ubuntu 22.04 LTS Server | Includes support for all 22.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-virtual-machines).
-Debian 7 | Includes support for all 7.*x* versions. [Supported kernel versions](#supported-debian-kernel-versions-for-azure-virtual-machines).
-Debian 8 | Includes support for all 8.*x* versions. [Supported kernel versions](#supported-debian-kernel-versions-for-azure-virtual-machines).
-Debian 9 | Includes support for 9.1 to 9.13. Debian 9.0 isn't supported. [Supported kernel versions](#supported-debian-kernel-versions-for-azure-virtual-machines).
-Debian 10 | [Supported kernel versions](#supported-debian-kernel-versions-for-azure-virtual-machines).
-Debian 11 | [Supported kernel versions](#supported-debian-kernel-versions-for-azure-virtual-machines).
-Debian 12 | [Supported kernel versions](#supported-debian-kernel-versions-for-azure-virtual-machines).
-SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5, and SP6.  [Supported kernel versions](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines).
-SUSE Linux Enterprise Server 15 | 15, SP1, SP2, SP3, SP4, SP5, and SP6. [Supported kernel versions](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines).
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609/), [8.3](https://support.microsoft.com/help/4597409/), [8.4](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-305.30.1.el8_4.x86_64 or higher), [8.5](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-348.5.1.el8_5.x86_64 or higher), [8.6](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) (4.18.0-348.5.1.el8_5.x86_64 or higher), 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, and 9.6. <br> RHEL 9.x is supported for the [following kernel versions](#supported-kernel-versions-for-red-hat-enterprise-linux-for-azure-vms).
+Ubuntu 14.04 LTS Server | The long-term support (LTS) server includes support for all 14.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-vms).
+Ubuntu 16.04 LTS Server | Includes support for all 16.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-vms).<br/><br/> Ubuntu servers using password-based authentication and sign-in, and the `cloud-init` package to configure cloud VMs, might have password-based sign-in disabled on failover (depending on the `cloud-init` configuration). To re-enable password-based sign-in on the VM, reset the password from the **Support** > **Troubleshooting** > **Settings** menu of the failed-over VM in the Azure portal.
+Ubuntu 18.04 LTS Server | Includes support for all 18.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-vms).<br/><br/> Ubuntu servers using password-based authentication and sign-in, and the `cloud-init` package to configure cloud VMs, might have password-based sign-in disabled on failover (depending on the `cloud-init` configuration). To re-enable password-based sign-in on the VM, reset the password from the **Support** > **Troubleshooting** > **Settings** menu of the failed-over VM in the Azure portal.
+Ubuntu 20.04 LTS Server | Includes support for all 20.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-vms).
+Ubuntu 22.04 LTS Server | Includes support for all 22.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-vms).
+Debian 7 | Includes support for all 7.*x* versions. [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
+Debian 8 | Includes support for all 8.*x* versions. [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
+Debian 9 | Includes support for 9.1 to 9.13. Debian 9.0 isn't supported. [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
+Debian 10 | [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
+Debian 11 | [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
+Debian 12 | [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
+SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5, and SP6.  [Supported kernel versions](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-vms).
+SUSE Linux Enterprise Server 15 | 15, SP1, SP2, SP3, SP4, SP5, and SP6. [Supported kernel versions](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-vms).
 SUSE Linux Enterprise Server 11 | SP3.<br/><br/> Upgrade of replicating machines from SP3 to SP4 isn't supported. If a replicated machine was upgraded, disable replication and re-enable replication after the upgrade.
 SUSE Linux Enterprise Server 11 | SP4.
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), and [8.3](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) (running the Red Hat-compatible kernel or Unbreakable Enterprise Kernel (UEK) Release 3, 4, 5, and 6 (UEK3, UEK4, UEK5, and UEK6), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, and 9.5).  <br/><br/>Unbreakable Enterprise Kernel Release 7 (UEK7) is supported from 8.7.<br/><br/>8.1 (running on all UEK kernels) and Red Hat kernel <=3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/). Support for the rest of the Red Hat kernels is available in [9.36](https://support.microsoft.com/help/4578241/). <br><br/> Oracle Linux 9.x is supported for the [following kernel versions](#supported-red-hat-linux-kernel-versions-for-oracle-linux-on-azure-virtual-machines).
-Rocky Linux | [See supported versions](#supported-rocky-linux-kernel-versions-for-azure-virtual-machines).
-Alma Linux | [See supported versions](#supported-alma-linux-kernel-versions-for-azure-virtual-machines).
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), and [8.3](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) (running the Red Hat-compatible kernel or Unbreakable Enterprise Kernel (UEK) Release 3, 4, 5, and 6 (UEK3, UEK4, UEK5, and UEK6), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, and 9.5).  <br/><br/>Unbreakable Enterprise Kernel Release 7 (UEK7) is supported from 8.7.<br/><br/>8.1 (running on all UEK kernels) and Red Hat kernel <=3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/). Support for the rest of the Red Hat kernels is available in [9.36](https://support.microsoft.com/help/4578241/). <br><br/> Oracle Linux 9.x is supported for the [following kernel versions](#supported-red-hat-linux-kernel-versions-for-oracle-linux-on-azure-vms).
+Rocky Linux | [See supported versions](#supported-rocky-linux-kernel-versions-for-azure-vms).
+Alma Linux | [See supported versions](#supported-alma-linux-kernel-versions-for-azure-vms).
 
 For Linux versions, Site Recovery doesn't support custom OS kernels. Only the stock kernels that are part of the distribution minor version release/update are supported.
 
@@ -316,14 +316,14 @@ Release | Mobility service version | Red Hat kernel version |
 Alma Linux 9.0 <br> Alma Linux 9.1 <br> Alma Linux 9.2 <br> Alma Linux 9.3 <br> Alma Linux 9.4 <br> Alma Linux 9.5 |9.65 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
 Alma Linux 9.0 <br> Alma Linux 9.1 |9.64 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
 
-## Replicated machines: Linux file system/guest storage
+## <a name = "Replicated machines - Linux file system/guest storage"></a>Replicated machines: Linux file system/guest storage
 
 * **File systems**: ext3, ext4, XFS, and BTRFS
 * **Volume manager**: LVM2
 
 Multipath software isn't supported.
 
-## Replicated machines: Compute settings
+## <a name = "Replicated machines - Compute settings"></a>Replicated machines: Compute settings
 
 Setting | Support | Details
 --- | --- | ---
@@ -352,7 +352,7 @@ Add a disk to a replicated VM. | Supported.
 Offline changes to protected disks. | Disconnecting disks and making offline modifications to them require triggering a full resync.
 Disk caching. | Disk caching isn't supported for disks 4 TB and larger. If multiple disks are attached to your VM, each disk that's smaller than 4 TB supports caching. Changing the cache setting of an Azure disk detaches and reattaches the target disk. If it's the operating system disk, the VM is restarted. Before you change the disk cache setting, stop all applications or services that this disruption might affect. Not following the recommendations could lead to data corruption.
 
-## Replicated machines: Storage
+## <a name = "Replicated machines - Storage"></a>Replicated machines: Storage
 
 > [!NOTE]
 > Site Recovery supports storage accounts with page blobs for unmanaged disk replication.
@@ -442,7 +442,7 @@ Premium SSD with disk size 512 GiB or more  | 16 KB or greater |20 MB/s | 1,684 
 
 High-churn support is now available in Site Recovery where churn limit per VM increased up to 100 MB/s. For more information, see [Azure VM disaster recovery: High-churn support](./concepts-azure-to-azure-high-churn-support.md).
 
-## Replicated machines: Networking
+## <a name = "Replicated machines - Networking"></a>Replicated machines: Networking
 
 Setting | Support | Details
 --- | --- | ---
