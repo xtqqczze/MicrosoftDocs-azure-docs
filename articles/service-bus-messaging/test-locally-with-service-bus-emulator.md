@@ -210,50 +210,50 @@ When you use Docker, the service bus is fetched from the [Microsoft Container Re
     }
     ```
 
-2.To spin up containers for Service Bus emulator, save the following .yaml file as _docker-compose.yaml_
+2.To spin up containers for Azure Service Bus emulator, save the following .yaml file as _docker-compose.yaml_
 
   > [!NOTE]
-  > Service Bus Emulator uses the port 5672 by default. If you customized the configuration to use a different port, update the ports setting in the YAML file. 
+  > Azure Service Bus emulator uses the port 5672 by default. If you customized the configuration to use a different port, update the `ports` setting in the YAML file.
 
-    ```
-    name: microsoft-azure-servicebus-emulator
-    services:
-      emulator:
-        container_name: "servicebus-emulator"
-        image: mcr.microsoft.com/azure-messaging/servicebus-emulator:latest
-        pull_policy: always
-        volumes:
-          - "${CONFIG_PATH}:/ServiceBus_Emulator/ConfigFiles/Config.json"
-        ports:
-          - "5672:5672"
-          - "5300:5300"
-        environment:
-          SQL_SERVER: mssql
-          MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}"  # Password should be same as what is set for SQL Server Linux 
-          ACCEPT_EULA: ${ACCEPT_EULA}
-          SQL_WAIT_INTERVAL: ${SQL_WAIT_INTERVAL} # Optional: Time in seconds to wait for SQL to be ready (default is 15 seconds)
-        depends_on:
-          - mssql
-        networks:
-          sb-emulator:
-            aliases:
-              - "sb-emulator"
-      mssql:
-            container_name: "mssql"
-            image: "mcr.microsoft.com/mssql/server:2022-latest"
-            networks:
-              sb-emulator:
-                aliases:
-                  - "mssql"
-            environment:
-              ACCEPT_EULA: ${ACCEPT_EULA}
-              MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}" # To be filled by user as per policy : https://learn.microsoft.com/en-us/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
-    
-    networks:
-      sb-emulator:
-    ```
+  ```
+  name: microsoft-azure-servicebus-emulator
+  services:
+    emulator:
+      container_name: "servicebus-emulator"
+      image: mcr.microsoft.com/azure-messaging/servicebus-emulator:latest
+      pull_policy: always
+      volumes:
+        - "${CONFIG_PATH}:/ServiceBus_Emulator/ConfigFiles/Config.json"
+      ports:
+        - "5672:5672"
+        - "5300:5300"
+      environment:
+        SQL_SERVER: mssql
+        MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}"  # Password should be same as what is set for SQL Server Linux 
+        ACCEPT_EULA: ${ACCEPT_EULA}
+        SQL_WAIT_INTERVAL: ${SQL_WAIT_INTERVAL} # Optional: Time in seconds to wait for SQL to be ready (default is 15 seconds)
+      depends_on:
+        - mssql
+      networks:
+        sb-emulator:
+          aliases:
+            - "sb-emulator"
+    mssql:
+          container_name: "mssql"
+          image: "mcr.microsoft.com/mssql/server:2022-latest"
+          networks:
+            sb-emulator:
+              aliases:
+                - "mssql"
+          environment:
+            ACCEPT_EULA: ${ACCEPT_EULA}
+            MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}" # To be filled by user as per policy : https://learn.microsoft.com/en-us/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
+  
+  networks:
+    sb-emulator:
+  ```
 
-3. Create .env file to declare the environment variables for Service Bus emulator and ensure all of the following environment variables are set.
+3. Create a `.env` file to declare the environment variables for Service Bus emulator and ensure all of the following environment variables are set.
 
     ```
     # Environment file for user-defined variables in docker-compose.yml
@@ -262,7 +262,7 @@ When you use Docker, the service bus is fetched from the [Microsoft Container Re
     # Ex: CONFIG_PATH="C:\\Config\\Config.json"
     CONFIG_PATH="<Replace with path to Config.json file>"
     
-    # 2. ACCEPT_EULA: Pass 'Y' to accept license terms for SQL Server Linux and Azure Service Bus emulator.
+    # 2. ACCEPT_EULA: Pass 'Y' to accept license terms for SQL Server Linux and Service Bus emulator.
     # Service Bus emulator EULA : https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/EMULATOR_EULA.txt
     # SQL Server Linux EULA : https://go.microsoft.com/fwlink/?LinkId=746388
     ACCEPT_EULA="N"
