@@ -11,7 +11,7 @@ ms.date: 09/07/2025
 ms.author: chbenne
 ---
 
-# Billing and Tenant Relationship
+# Billing and tenant relationship
 
 :::image type="content" source="./media/understand-billing-tenant-relationship/azure-billing-tenant-relationship.png" alt-text="Diagram that shows the relationship between a billing contract and associated tenant and subsequent subscriptions." border="false":::
 
@@ -39,17 +39,19 @@ Both EA and MCA provide Customers with roles, that can manage certain aspects of
 
 To manage billing roles, customers must associate exactly one Entra ID tenant with the contract, this action must be completed at the time the contract is setup. Identities within this Tenant can be assigned to billing roles within the contract.
 
-Example
+### Example
 
 User Dirk from the contoso.com tenant can be assigned to the EA admin role in Contoso’s EA contract.
 
 In MCA, this tenant is called the primary billing tenant. Only users from this tenant can be assigned to billing roles within the MCA contract.
 
-CAUTION: The tenant global administrator role is above the billing account administrator. Global administrators in a Microsoft Entra ID tenant can add or remove themselves as billing account administrators at any time to the Microsoft Customer Agreement.
+⚠️ **Warning**
+The tenant global administrator role is above the billing account administrator. Global administrators in a Microsoft Entra ID tenant can add or remove themselves as billing account administrators at any time to the Microsoft Customer Agreement.
 
 If you want to assign identities from tenants other than the primary billing tenant, you can add associated billing tenants.
 
-NOTE: Even though customers should strive for a single tenant, there is no restriction in how many tenants a customer can create within a contract.
+ℹ️ **Information**
+Even though customers should strive for a single tenant, there is no restriction in how many tenants a customer can create within a contract.
 
 ## Contract to subscription
 
@@ -57,7 +59,8 @@ An Azure subscription is a logical container used to provision and manage Azure 
 
 Every contract can manage 5000 subscriptions by default.
 
-NOTE: The billing relationship determines the prices for the consumed resources within the subscription. If you have a subscription that is associated with a contract that uses Azure retail prices you pay the retail price. If the associated contract has customer specific prices (for example, by signing a MACC with applicable discounts), the resources within this subscription are charged at these prices.
+ℹ️ **Information**
+The billing relationship determines the prices for the consumed resources within the subscription. If you have a subscription that is associated with a contract that uses Azure retail prices you pay the retail price. If the associated contract has customer specific prices (for example, by signing a MACC with applicable discounts), the resources within this subscription are charged at these prices.
 
 ## Subscription to tenant
 
