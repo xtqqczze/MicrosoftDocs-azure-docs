@@ -5023,7 +5023,7 @@ xml(
 )
 ```
 
-All three examples, which include the JSON string data example, Option 1, and Option 2, return the following XML result:
+All three examples, which include the JSON string data example, option 1, and option 2, return the following XML result:
 
 ```xml
 <root>
