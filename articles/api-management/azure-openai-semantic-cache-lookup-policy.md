@@ -9,7 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 04/29/2025
+ms.date: 10/27/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ---
@@ -22,8 +22,7 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 
 > [!NOTE]
 > * This policy must have a corresponding [Cache responses to Azure OpenAI API requests](azure-openai-semantic-cache-store-policy.md) policy. 
-> * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for Azure OpenAI APIs in Azure API Management](azure-openai-enable-semantic-caching.md).
-
+> * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for LLM APIs in Azure API Management](azure-openai-enable-semantic-caching.md).
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -70,6 +69,9 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 - This policy can only be used once in a policy section.
 - Fine-tune the value of `score-threshold` based on your application to ensure that the right sensitivity is used when determining which queries to cache. Start with a low value such as 0.05 and adjust to optimize the ratio of cache hits to misses.
 - The embeddings model should have enough capacity and sufficient context size to accommodate the prompt volume and prompts.
+- Score threshold above 0.2 may lead to cache mismatch. Consider using lower value for sensitive use cases.
+- Control cross-user access to cache entries by specifying `vary-by` with specific user or user-group identifiers.
+- Consider adding [llm-content-safety](./llm-content-safety-policy.md) policy with prompt shield to protect from prompt attacks.
 - [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
 
 
