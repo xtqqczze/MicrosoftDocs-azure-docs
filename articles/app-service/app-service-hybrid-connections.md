@@ -4,7 +4,7 @@ description: Learn how to create and use hybrid connections in Azure App Service
 author: seligj95
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: how-to
-ms.date: 10/15/2025
+ms.date: 10/27/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 #customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
@@ -33,6 +33,9 @@ When your app makes a DNS request that matches a configured Hybrid Connection en
 
 > [!NOTE]
 > This fact means that you should try to always use a DNS name for your Hybrid Connection. Some client software doesn't do a DNS lookup if the endpoint uses an IP address instead.
+
+> [!IMPORTANT]
+> As of October 20, 2025, [Azure Service Bus no longer supports TLS 1.0 and TLS 1.1](../service-bus-messaging/transport-layer-security-configure-minimum-version). The minimum TLS version is now 1.2 for all Service Bus deployments. **You must update to the new version of the Hybrid Connection Manager as soon as possible to prevent service disruption if you're still using the legacy version.** Older versions of the Hybrid Connection Manager don't support TLS 1.2 and will be unable to connect to Azure Relay. See [Hybrid Connection Manager](#hybrid-connection-manager) for download and installation instructions.
 
 ### App Service Hybrid Connection benefits
 
@@ -139,6 +142,9 @@ In addition to there being an App Service plan SKU requirement, there's an extra
 The Hybrid Connections feature requires a relay agent in the network that hosts your Hybrid Connection endpoint. That relay agent is called the Hybrid Connection Manager (HCM). To download the Hybrid Connection Manager, follow the instructions for your client.
 
 This tool runs on both Windows and Linux. On Windows, the Hybrid Connection Manager requires Windows Server 2012 and later. The Hybrid Connection Manager runs as a service and connects outbound to Azure Relay on port 443.
+
+> [!IMPORTANT]
+> As of October 20, 2025, [Azure Service Bus no longer supports TLS 1.0 and TLS 1.1](../service-bus-messaging/transport-layer-security-configure-minimum-version). You must upgrade to the new version of the Hybrid Connection Manager immediately to ensure continued connectivity. The legacy Hybrid Connection Manager doesn't support TLS 1.2 and will fail to connect to Azure Relay, causing service disruption. Download the latest version below or follow the installation instructions to upgrade.
 
 ### Installation instructions
 
