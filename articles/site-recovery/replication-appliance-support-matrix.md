@@ -23,7 +23,7 @@ You deploy an on-premises replication appliance when you use [Site Recovery](sit
 - The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
 - To learn more about the Site Recovery replication appliance components and processes, see [VMware to Azure disaster recovery architecture - Modernized](vmware-azure-architecture-modernized.md).
 
-## <a name = "pre---requisites"></a>Prerequisites
+## Prerequisites
 
 ### Hardware requirements
 
