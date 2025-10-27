@@ -316,14 +316,14 @@ Release | Mobility service version | Red Hat kernel version |
 Alma Linux 9.0 <br> Alma Linux 9.1 <br> Alma Linux 9.2 <br> Alma Linux 9.3 <br> Alma Linux 9.4 <br> Alma Linux 9.5 |9.65 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
 Alma Linux 9.0 <br> Alma Linux 9.1 |9.64 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
 
-## <a name = "Replicated machines - Linux file system/guest storage"></a>Replicated machines: Linux file system/guest storage
+## <a name = "replicated-machines---linux-file-systemguest-storage"></a>Replicated machines: Linux file system/guest storage
 
 * **File systems**: ext3, ext4, XFS, and BTRFS
 * **Volume manager**: LVM2
 
 Multipath software isn't supported.
 
-## <a name = "Replicated machines - Compute settings"></a>Replicated machines: Compute settings
+## <a name = "replicated-machines--compute-settings"></a>Replicated machines: Compute settings
 
 Setting | Support | Details
 --- | --- | ---
@@ -352,7 +352,7 @@ Add a disk to a replicated VM. | Supported.
 Offline changes to protected disks. | Disconnecting disks and making offline modifications to them require triggering a full resync.
 Disk caching. | Disk caching isn't supported for disks 4 TB and larger. If multiple disks are attached to your VM, each disk that's smaller than 4 TB supports caching. Changing the cache setting of an Azure disk detaches and reattaches the target disk. If it's the operating system disk, the VM is restarted. Before you change the disk cache setting, stop all applications or services that this disruption might affect. Not following the recommendations could lead to data corruption.
 
-## <a name = "Replicated machines - Storage"></a>Replicated machines: Storage
+## <a name = "replicated-machines---storage"></a>Replicated machines: Storage
 
 > [!NOTE]
 > Site Recovery supports storage accounts with page blobs for unmanaged disk replication.
@@ -442,7 +442,7 @@ Premium SSD with disk size 512 GiB or more  | 16 KB or greater |20 MB/s | 1,684 
 
 High-churn support is now available in Site Recovery where churn limit per VM increased up to 100 MB/s. For more information, see [Azure VM disaster recovery: High-churn support](./concepts-azure-to-azure-high-churn-support.md).
 
-## <a name = "Replicated machines - Networking"></a>Replicated machines: Networking
+## <a name = "replicated-machines---networking"></a>Replicated machines: Networking
 
 Setting | Support | Details
 --- | --- | ---
