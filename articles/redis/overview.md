@@ -86,7 +86,7 @@ The following table helps describe some of the features supported by tier:
 | [Microsoft Entra ID based authentication](entra-for-authentication.md)                     | Yes                    | Yes                    | Yes                    | Yes                    |
 | [Scaling](how-to-scale.md)                                                                 | Yes                    | Yes                    | Yes                    | Yes                    |
 | [Data persistence](how-to-persistence.md)                                                  | Yes                    | Yes                    | Yes                    | Yes                    |
-| [High availability - Geo-replication](how-to-active-geo-replication.md)                    | Yes (Active)           | Yes (Active)           | Yes (Active)           | No                     |
+| [Geo-replication](how-to-active-geo-replication.md)                                        | Yes (Active)           | Yes (Active)           | Yes (Active)           | No                     |
 | Non-clustered instances                                                                    | Yes                    | Yes                    | Yes                    | No                     |
 | [Connection audit logs](monitor-diagnostic-settings.md)                                    | Yes (Event-based)      | Yes (Event-based)      | Yes (Event-based)      | Yes (Event-based)      |
 | [JSON data structures(that is, Redis JSON)](redis-modules.md)                              | Yes                    | Yes                    | Yes                    | Yes                    |
