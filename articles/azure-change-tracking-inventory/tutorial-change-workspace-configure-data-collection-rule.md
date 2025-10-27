@@ -21,12 +21,7 @@ This tutorial describes how to change a workspace and configure data collection 
 
 Before you change a workspace for your virtual machine and configure data collection rule, ensure you meet this prerequisite:
 
-You've enabled Change Tracking and Inventory on your VM. For detailed information on how you can enable, see [Enable Change Tracking and Inventory from portal](enable-virtual-machines-monitoring-agent.md).
-
-In this tutorial you learn how to: 
-
-- Change a workspace for your VM
-- Configure data collection rule 
+You've enabled Change Tracking and Inventory on your VM. For detailed information on how you can create a Data Collection Rule (DCR), see [Create DCR](create-data-collection-rule.md).
 
 ## Configure Windows, Linux files, and Windows Registry using Data Collection Rules
 
@@ -88,7 +83,7 @@ To configure file content changes, follow these steps:
 
     :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/file-content-inline.png" alt-text="Screenshot of selecting the link option to connect with the Storage account." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/file-content-expanded.png":::
 
-1. In **Content Location for Change Tracking** screen, select your **Subscription**, **Storage** and confirm if you are using **System Assigned Managed Identity**. 
+1. In **Content Location for Change Tracking** pane, select your **Subscription**, **Storage** and confirm if you are using **System Assigned Managed Identity**. 
 1. Select **Upload file content for all settings**, and then select **Save**. It ensures that the file content changes for all the files residing in this DCR will be tracked.
 
 #### [System Assigned Managed Identity](#tab/sa-mi)
@@ -128,7 +123,7 @@ For user-assigned managed identity, follow these steps to assign the user assign
 #### Upgrade the extension version for Windows and Linux
 
 > [!NOTE]
-> Ensure that ChangeTracking-Linux/ ChangeTracking-Windows extension version is upgraded to the current general release version: [GA Extension Version](../change-tracking-inventory/extension-version-details.md)
+> Ensure that ChangeTracking-Linux/ ChangeTracking-Windows extension version is upgraded to the current general release version: [GA Extension Version](../azure-change-tracking-inventory/extension-version-details.md)
 
 Use the following command to upgrade the extension version:
 
@@ -139,7 +134,7 @@ The extension for Windows is `Vms - ChangeTracking-Windows`and for Linux is `Vms
 
 ### Configure using wildcards
  
-To configure the monitoring of files and folders using wildcards, do the following: 
+To configure the monitoring of files and folders using wildcards, consider the following: 
 
 - Wildcards are required for tracking multiple files. 
 - Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/.conf* 

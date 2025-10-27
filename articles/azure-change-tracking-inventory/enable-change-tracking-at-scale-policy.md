@@ -9,17 +9,17 @@ author: jasminemehndir
 ms.author: v-jasmineme
 ---
 
-# Enable Change Tracking and Inventory at scale using policy
+# Enable Change Tracking and Inventory at scale using Azure policy
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
-This article provides detailed procedure on how you can enable Change Tracking and Inventory at scale using Azure policy.
+This article provides detailed procedure on how you can enable Azure Change Tracking and Inventory (CTI) at scale using Azure policy.
 
 ## Prerequisite
 
 Before you enable CTI, ensure you meet this prerequisite:
 
-- You must [create the data collection rule](enable-virtual-machines-monitoring-agent.md#create-data-collection-rule).
+- You must [create the data collection rule](create-data-collection-rule.md).
 
 ## Enable Azure Change Tracking and Inventory
 
@@ -36,24 +36,24 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 
 1. On the **Change Tracking and Inventory Center | Policy** pane, under the filter **Definition Type**, select **Initiative** and in **Category** filter, select **Change Tracking and Inventory**. You'll see a list of three policies:
 
-    #### [Arc-enabled virtual machines](#tab/arcvm)
+    #### Arc-enabled virtual machines
 
      - Select *Enable Change Tracking and Inventory for Arc-enabled virtual machines*.
  
-       :::image type="content" source="media/enable-virtual-machines-monitoring-agent/enable-for-arc-virtual-machine-manager-inline.png" alt-text="Screenshot showing the selection of Arc-enabled virtual machines." lightbox="media/enable-virtual-machines-monitoring-agent/enable-for-arc-virtual-machine-manager-expanded.png":::
+       :::image type="content" source="media/create-data-collection-rule/enable-for-arc-virtual-machine-manager-inline.png" alt-text="Screenshot showing the selection of Arc-enabled virtual machines." lightbox="media/create-data-collection-rule/enable-for-arc-virtual-machine-manager-expanded.png":::
 
-    #### [Virtual Machines Scale Sets](#tab/vmss)
+    #### Virtual Machines Scale Sets
 
      - Select *[Preview]: Enable Change Tracking and Inventory for Virtual Machine Scale Sets*.
      
-       :::image type="content" source="media/enable-virtual-machines-monitoring-agent/enable-for-virtual-machine-scale-set-inline.png" alt-text="Screenshot showing the selection of virtual machines scale sets." lightbox="media/enable-virtual-machines-monitoring-agent/enable-for-virtual-machine-scale-set-expanded.png":::
+       :::image type="content" source="media/create-data-collection-rule/enable-for-virtual-machine-scale-set-inline.png" alt-text="Screenshot showing the selection of virtual machines scale sets." lightbox="media/create-data-collection-rule/enable-for-virtual-machine-scale-set-expanded.png":::
 
-    #### [Virtual machines](#tab/vm)
+    #### Virtual machines
 
      - Select *Enable Change Tracking and Inventory for virtual machines*.
- 
-       :::image type="content" source="media/enable-virtual-machines-monitoring-agent/enable-for-virtual-machine-inline.png" alt-text="Screenshot showing the selection of virtual machines." lightbox="media/enable-virtual-machines-monitoring-agent/enable-for-virtual-machine-expanded.png"::: 
-    
+
+       :::image type="content" source="media/create-data-collection-rule/enable-for-virtual-machine-inline.png" alt-text="Screenshot showing the selection of virtual machines." lightbox="media/create-data-collection-rule/enable-for-virtual-machine-expanded.png":::
+
 
 1. Select *Enable Change Tracking and Inventory for virtual machines* to enable the change tracking on Azure virtual machines.
    This initiative consists of three policies:
@@ -62,7 +62,7 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
    - Configure ChangeTracking Extension for Windows virtual machines
    - Configure ChangeTracking Extension for Linux virtual machines
 
-     :::image type="content" source="media/enable-virtual-machines-monitoring-agent/enable-change-tracking-virtual-machines-inline.png" alt-text="Screenshot showing the selection of three policies." lightbox="media/enable-virtual-machines-monitoring-agent/enable-change-tracking-virtual-machines-expanded.png":::
+     :::image type="content" source="media/create-data-collection-rule/enable-change-tracking-virtual-machines-inline.png" alt-text="Screenshot showing the selection of three policies." lightbox="media/create-data-collection-rule/enable-change-tracking-virtual-machines-expanded.png":::
 
 1. Select **Assign** to assign the policy to a resource group. For example, *Assign Built in User-Assigned Managed identity to virtual machines*.
 
@@ -72,9 +72,9 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 1. On the **Enable Change Tracking and Inventory for virtual machines** pane, enter the following options:
    1. On the **Basics** tab, you can define the scope. Select the three dots to configure a scope. On the **Scope** pane, provide the **Subscription** and **Resource group**.
    1. In **Parameters**, select the option in the **Bring your own user assigned managed identity**.
-   1. Provide the **Data Collection Rule Resource Id**. Learn more on [how to obtain the Data Collection Rule Resource ID after you create the Data collection rule](enable-virtual-machines-monitoring-agent.md#create-data-collection-rule).
+   1. Provide the **Data Collection Rule Resource Id**. Learn more on [how to obtain the Data Collection Rule Resource ID after you create the Data collection rule](create-data-collection-rule.md).
    1. Select **Review + create**.
 
 ## Next steps
 
-* Learn more on [how to enable Change Tracking and Inventory at scale using Azure portal - Machines pane](enable-change-tracking-at-scale-machines-blade.md).
+* Learn more on [how to enable Azure CTI at scale using Azure portal - Machines pane](enable-change-tracking-at-scale-machines-blade.md).

@@ -34,8 +34,8 @@ landingContent:
             url: enable-change-tracking-at-scale-machines-blade.md
           - text: Enable using Azure policy
             url: enable-change-tracking-at-scale-policy.md
-          - text: Enable from Azure portal
-            url: enable-virtual-machines-monitoring-agent.md
+          - text: Create DCR
+            url: create-data-collection-rule.md
 
   # Card  
   - title: Manage Change Tracking and Inventory

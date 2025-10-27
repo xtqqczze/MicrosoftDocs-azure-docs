@@ -2,7 +2,7 @@
 title: Azure Change Tracking extension version details and known issues
 description: This article describes the Change Tracking extension version details and the known issues.
 services: automation
-ms.date: 10/03/2025
+ms.date: 10/27/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
@@ -50,7 +50,7 @@ After you migrate from FIM based on AMA to ChangeTracking based on AMA, the memo
 
 #### Known issues
 
-- The SvcName or SoftwareName are displayed as garbled string for Japanese or Chinese lang vms. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
+- The SvcName or SoftwareName are displayed as garbled string for Japanese or Chinese language VMs. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
 - For Windows, SvcDescription field is coming as base64 encoded string. As a workaround for now you must use base64_decode_tostring() kql function.
 
 **Windows** - None
@@ -61,7 +61,7 @@ After you migrate from FIM based on AMA to ChangeTracking based on AMA, the memo
 
 ### Known issues
 
-- SvcName or SoftwareName are displayed as garbled string for Japanese, or Chinese lang vms. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
+- SvcName or SoftwareName are displayed as garbled string for Japanese or Chinese language VMs. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
 For Windows SvcDescription is coming as base64 encoded string. As a workaround for now you must use base64_decode_tostring() kql function.
 
 **Windows** - The Fix Windows services data isn't getting uploaded for machines in some languages (Japanese, Chinese).
@@ -71,4 +71,4 @@ For Windows SvcDescription is coming as base64 encoded string. As a workaround f
 
 ## Next steps
 
-- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking-inventory/enable-virtual-machines-monitoring-agent.md).
+- Review [support matrix](../azure-change-tracking-inventory/change-tracking-inventory-support-matrix.md) for Azure Change Tracking and Inventory.
