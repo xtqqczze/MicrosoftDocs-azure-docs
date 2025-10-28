@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.reviewer: prwilk, chkittel
 ms.date: 10/03/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure
 ms.collection:
  - migration
