@@ -62,6 +62,7 @@ After the server discovery is complete, appliance initiates the discovery of ins
 ## Review the software inventory
 
 ::: moniker range="migrate-classic"
+
 After software inventory has completed, you can review and export the inventory in the Azure portal.
  
 1. In **Azure Migrate - Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the displayed count to open the **Discovered servers** page.
@@ -73,9 +74,11 @@ After software inventory has completed, you can review and export the inventory 
 4. To export the inventory, in **Discovered Servers**, select **Export software inventory**.
  
 The software inventory is exported and downloaded in Excel format. The **Software Inventory** sheet displays all the apps discovered across all the servers.
+
 ::: moniker-end
 
 ::: moniker range="migrate"
+
 After software inventory has completed, you can review the inventory in the Azure portal at the project level or per server level.
 
 ### Review software at project level
@@ -94,7 +97,7 @@ After software inventory has completed, you can review the inventory in the Azur
 10. You can select the **Vulnerabilities** count against each software to view the identified CVE (Common Vulnerabilities and Exposures) IDs for that software version along with other details such as CVSS (Common Vulnerability Scoring System), Risk Level, Age and date the CVE was published on. You can use this view to **Export** the vulnerabilities information for a particular software.
 
     > [!NOTE]
-    > Vulnerabilities are sourced from National Vulnerability Database [NVD](https://www.nist.gov/itl/nvd) and mapped to discovered software. [Learn more](/azure/migrate/insights-overview.md#how-are-insights-derived) on how Insights (preview) are generated and and for complete list of vulnerabilities, use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
+    > Vulnerabilities are sourced from National Vulnerability Database [NVD](https://www.nist.gov/itl/nvd) and mapped to discovered software. [Learn more](insights-overview.md#how-are-insights-derived) on how Insights (preview) are generated and and for complete list of vulnerabilities, use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
 
 11. You can also review the list of **Potential Targets** that have been suggested to plan the migration of your software to the Azure First Party(1P) services or Third Party (3P) Independent Software Vendor (ISV) services available as [Azure Native integrations](/azure/partner-solutions/partners) through Azure Marketplace.
 12. The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, **Servers count** and **Vulnerabilities**.
@@ -173,6 +176,7 @@ In addition to reviewing software at project level, you can also review them at 
 3. In this tab, you can review each software metadata like **Name**, **Publisher**, **Version** and additional insights like **Category**, **Subcategory**, **Support Status** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
 4.  The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, and **Vulnerabilities**.
 5.  In addition to the software, you can select the **Roles and features** tab to view the roles and features installed on Windows servers.
+
 ::: moniker-end
 
 ## Discover SQL Server instances and databases
