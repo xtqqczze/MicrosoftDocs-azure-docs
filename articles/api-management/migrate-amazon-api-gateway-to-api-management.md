@@ -6,7 +6,7 @@ author: dlepow
 ms.author: danlep
 ms.reviewer: 
 ms.service: azure-api-management
-ms.date: 10/23/2025
+ms.date: 10/28/2025
 ms.topic: upgrade-and-migration-article
 ---
 # Migrate Amazon API Gateway to Azure API Management
@@ -94,7 +94,7 @@ Both architectures provide comparable functionality, including:
 - **API authentication and authorization** – Gateways support multiple access methods including keys, OAuth token-based access, and API-based policies.
 
 
-## Assessment - Capability comparison
+## Step 1: Assessment
 
 Before you migrate from Amazon API Gateway to Azure API Management, assess the existing architecture and identify capabilities to map or replace. This assessment helps ensure a smooth migration and maintains your applications' functionality.  
   
@@ -114,7 +114,7 @@ Before you migrate from Amazon API Gateway to Azure API Management, assess the e
 > [!NOTE]
 > Establish baseline metrics from the Amazon API Gateway before migration. Use these baselines to compare Azure API Management performance after migration and confirm it meets or exceeds expectations.
 
-### Capability mismatches
+### Capability mismatches and strategies
 
 - **WAF integration** in Amazon API Gateway isn't directly matched in Azure API Management. In Amazon API Gateway, WAF rules are directly applied on REST API stages. In Azure API Management, configuration of WAF rules typically requires deployment of an upstream Application Gateway service and traffic forwarding and TLS termination through the application gateway. Alternatively, for active-active, multi-region scenarios, customers should use Azure Front Door in front of Azure API Management.
 - **Custom domains** are supported on Azure API Management, but if using Application Gateway WAF in front, the custom domain and TLS certificate must also be configured at the Application Gateway layer.
@@ -131,7 +131,7 @@ As part of assessment, consider whether existing services will be retained or re
 | [WebSocket APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) | [WebSocket API type](websocket-api.md?tabs=portal) | Manually access API configuration in Amazon API Gateway and recreate in Azure API Management |
 
 
-### Capability mismatches
+### Capability mismatches and strategies
 
 - **Lambda backends** are supported natively in Amazon API Gateway as HTTP APIs. Azure API Management doesn't provide native integration with the comparable Azure Function apps; Azure API Management must call function apps over HTTP with a function key or managed identity.
 - **OpenAPI specifications** exported from an Amazon API Gateway REST API contain details specific to the front-end implementation in Amazon API Gateway, not the backend service. You'll need to remove AWS-specific tags and configure details in the specification such as the backend service URL before import to Azure API Management or during the migration process. 
@@ -164,7 +164,7 @@ The following table assesses API configurations in Amazon API Gateway and equiva
 | [Mapping templates](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html) | [Transformation policies](api-management-policies.md#transformation) | Manual mapping. Consider using AI assistance with tools such as [Microsoft Copilot in Azure](/azure/copilot/author-api-management-policies). |
 | [API stages](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html) | [API versions](api-management-versions.md) | Create API versions in Azure API Management. |
 
-### Capability mismatches
+### Capability mismatches and strategies
 
 - **Quota and throttling limits** are imposed by Amazon API Gateway per AWS account. In Azure API Management, the highest scope is the "all APIs" scope per instance.
 
