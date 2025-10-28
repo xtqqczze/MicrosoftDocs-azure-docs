@@ -1,13 +1,13 @@
 ---
 title: Block Connector Usage
-description: Learn how to use Azure Policy to block creating and using specific API connections in Azure Logic Apps.
+description: Learn to prevent creating or using API connections for workflows in Azure Logic Apps by using Azure Policty.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.custom: sfi-image-nochange
-ms.date: 09/15/2025
-#Customer intent: As an integration developer, I want to use Azure Policy to block certain connections for use in my Azure Logic Apps workflows.
+ms.date: 10/28/2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to block specific connections for workflows in Azure Logic Apps by using Azure Policy.
 ---
 
 # Block connector usage in Azure Logic Apps
@@ -16,25 +16,25 @@ ms.date: 09/15/2025
 
 If your organization doesn't permit connecting to restricted or unapproved resources using their [managed connectors](../connectors/managed.md) in Azure Logic Apps, you can block the capability to create and use those connections in logic app workflows. With Azure Policy, you can define and enforce [policies](../governance/policy/overview.md#policy-definition) that prevent creating or using connections for connectors that you want to block. For example, for security reasons, you might want to block connections to specific social media platforms or other services and systems.
 
-This article shows you how to set up a policy that blocks specific connections by using the Azure portal. You can also create policy definitions in other ways. For example, you can use the Azure REST API, Azure PowerShell, Azure CLI, and Azure Resource Manager templates. For more information, see [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
+This guide shows you how to set up a policy that blocks specific connections by using the Azure portal. You can also create policy definitions in other ways. For example, you can use the Azure REST API, Azure PowerShell, Azure CLI, or Azure Resource Manager templates. For more information, see [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have a subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- The reference ID for the connector that you want to block. This article describes how to find the reference ID.
+- The reference ID for the connector that you want to block. This guide shows how to find this reference ID.
 
 <a name="connector-reference-ID"></a>
 
 ## Find connector reference ID
 
-If you already have a logic app with the connection that you want to block, skip the next section. Otherwise, follow these steps to review the connector reference:
+If you already have a logic app workflow with the connection that you want to block, skip this section. Otherwise, follow these steps to find the connector reference ID:
 
 <a name="connector-ID-doc-reference"></a>
 
-### Connector reference doc
+### Find the ID using the connector reference doc
 
-1. Review the [List of all Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
+1. Review the [list of all Azure Logic Apps managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 1. Find the reference page for the connector that you want to block.
 
@@ -50,17 +50,17 @@ If you already have a logic app with the connection that you want to block, skip
 
 <a name="connector-ID-portal"></a>
 
-### Use the Azure portal
+### Find the ID using the Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), find and open your logic app workflow.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-1. On the logic app menu, select one of the following options:
+1. On the resource sidebar, select one of the following options:
    
    - Consumption logic app: Under **Development Tools**, select **API connections**.
 
    - Standard logic app: Under **Workflows**, select **Connections**. On the **Connections** pane, select **API Connections** if not already selected.
 
-1. On the API connections pane, select the connection. When the connection pane opens, in the upper right corner, select **JSON View**.
+1. On the **API connections** page, select the connection. After the connection page opens, in the upper right corner, select **JSON View**.
 
 1. Find the `api` object, which contains an `id` property and value that has the following format: 
 
@@ -70,7 +70,7 @@ If you already have a logic app with the connection that you want to block, skip
 
    `"id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Web/locations/westus/managedApis/instagram"`
 
-1. From the `id` property value, copy and save the connector reference ID at the end, for example, `instagram`.
+1. From the `id` property value, copy and save the connector reference ID, which appears at the end, for example, `instagram`.
 
    Later, when you create your policy definition, you use this ID in the definition's condition statement, for example:
 
@@ -80,7 +80,7 @@ If you already have a logic app with the connection that you want to block, skip
 
 ## Block creating connections
 
-To block creating a connection altogether in a logic app workflow, follow these steps:
+To block creating a connection in a workflow, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter *policy*, and select **Policy**.
 
@@ -90,16 +90,16 @@ To block creating a connection altogether in a logic app workflow, follow these 
 
    :::image type="content" source="./media/block-connections-connectors/add-new-policy-definition.png" alt-text="Screenshot shows the Definitions page with Policy definition highlighted.":::
 
-1. On the **Policy definition** pane, provide the information for your policy definition, based on the properties described after the image:
+1. On the **Policy definition** page, provide the information for your policy definition, based on the properties in the table that follow the image:
 
    :::image type="content" source="./media/block-connections-connectors/policy-definition-create-connection.png" alt-text="Screenshot shows the policy definition values for blocking Instagram.":::
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
    | **Definition location** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for the policy definition <br><br>1. To find your subscription, select the ellipses (**...**). <br>2. From the **Subscription** list, find and select your subscription. <br>3. When you're done, select **Select**. |
-   | **Name** | Yes | <*policy-definition-name*> | The name to use for the policy definition |
-   | **Description** | No | <*policy-definition-name*> | A description for the policy definition |
-   | **Category** | Yes | **Logic apps** | The name for an existing category or new category for the policy definition |
+   | **Name** | Yes | <*policy-definition-name*> | The name to use for the policy definition. |
+   | **Description** | No | <*policy-definition-name*> | A description for the policy definition. |
+   | **Category** | Yes | **Logic apps** | The name for an existing category or new category for the policy definition. |
 
 1. Under **POLICY RULE**, the JSON edit box is prepopulated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the following table and using this syntax:
 
@@ -200,24 +200,24 @@ For more information about Azure Policy definitions, see:
 
 ## Block associating connections with logic apps
    
-When you create a connection in a logic app workflow, this connection exists as separate Azure resource. If you delete only the logic app workflow, the connection resource isn't automatically deleted and continues to exist until deleted. You might have a scenario where the connection resource already exists or where you have to create the connection resource for use outside the logic app.
+When you create a connection in a workflow, this connection exists as separate Azure resource. If you delete only the workflow or logic app resource, the connection resource isn't automatically deleted and continues to exist until deleted. You might have a scenario where the connection resource already exists or where you have to create the connection resource for use outside the logic app resource.
 
-You can still block the capability to associate the connection with a different logic app workflow by creating a policy that prevents saving logic app workflows that try to use the restricted or unapproved connection. This policy affects only logic app workflows that don't already use the connection.
+You can still block the capability to associate the connection with a different logic app resource by creating a policy that prevents saving workflows that try to use the restricted or unapproved connection. This policy affects only workflows that don't already use the connection.
    
 1. In the [Azure portal](https://portal.azure.com) search box, enter *policy*, and select **Policy**.
 
    :::image type="content" source="./media/block-connections-connectors/find-select-azure-policy.png" alt-text="Screenshot shows the Azure portal search box with policy entered and Policy highlighted.":::
 
-1. On the **Policy** menu, under **Authoring**, select **Definitions**. On the **Definitions** pane toolbar, select **Policy definition**.
+1. On the **Policy** menu, under **Authoring**, select **Definitions**. On the **Definitions** page toolbar, select **Policy definition**.
 
    :::image type="content" source="./media/block-connections-connectors/add-new-policy-definition.png" alt-text="Screenshot shows the Definitions page with Policy definition highlighted.":::
 
-1. Under **Policy definition**, provide the information for your policy definition, based on the properties described after the image. It continues to use Instagram as the example.
+1. Under **Policy definition**, provide the information for your policy definition, based on the properties in the table that follows the image. The example continues to use Instagram.
 
    :::image type="content" source="./media/block-connections-connectors/policy-definition-use-connection.png" alt-text="Screenshot shows policy definition values for saving Instagram connections.":::
 
    | Parameter | Required | Value | Description |
-   |----------|----------|-------|-------------|
+   |-----------|----------|-------|-------------|
    | **Definition location** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for the policy definition <br><br>1. To find your subscription, select the ellipses (**...**) button. <br>2. From the **Subscription** list, find and select your subscription. <br>3. When you're done, select **Select**. |
    | **Name** | Yes | <*policy-definition-name*> | The name to use for the policy definition |
    | **Description** | No | <*policy-definition-name*> | A description for the policy definition |
@@ -276,7 +276,7 @@ You can still block the capability to associate the connection with a different 
 
    After you save the policy definition, Azure Policy generates and adds more property values to the policy definition.
 
-To assign the policy definition where you want to enforce the policy, create a policy assignment, as described later in this article.
+To assign the policy definition where you want to enforce the policy, create a policy assignment, as described later in this guide.
 
 For more information about Azure Policy definitions, see:
 
@@ -288,7 +288,7 @@ For more information about Azure Policy definitions, see:
 
 ## Create policy assignment
 
-You need to assign the policy definition where you want to enforce the policy. You might assign it to a single resource group, multiple resource groups, a Microsoft Entra tenant, or an Azure subscription. For this task, follow these steps to create a policy assignment:
+You need to assign the policy definition where you want to enforce the policy. For example, you might assign the policy defintion to a single resource group, multiple resource groups, a Microsoft Entra tenant, or an Azure subscription. For this task, follow these steps to create a policy assignment:
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter *policy*, and select **Policy**.
 
@@ -307,9 +307,9 @@ You need to assign the policy definition where you want to enforce the policy. Y
    | **Resource selectors** | No | |
    | **Policy definition** | Yes | The name for the policy definition that you want to assign and enforce. This example continues with the example Instagram policy, *Block Instagram connections*. <br><br>1. Next to the **Policy definition** box, select the ellipses (**...**) button. <br>2. Find and select the policy definition by using the **Type** filter or **Search** box. <br>3. When you're done, select **Select**. |
    | **Overrides** | No | |
-   | **Assignment name** | Yes | The name to use for the policy assignment, if different from the policy definition |
-   | **Description** | No | A description for the policy assignment |
-   | **Policy enforcement** | Yes | The setting that enables or disables the policy assignment |
+   | **Assignment name** | Yes | The name to use for the policy assignment, if different from the policy definition. |
+   | **Description** | No | A description for the policy assignment. |
+   | **Policy enforcement** | Yes | The setting that enables or disables the policy assignment. |
 
    For example, to assign the policy to an Azure resource group by using the Instagram example:
 
@@ -327,7 +327,7 @@ For more information, see [Quickstart: Create a policy assignment to identify no
 
 ## Test the policy
 
-To try your policy, start creating a connection by using the now restricted connector in the workflow designer. Continuing with the Instagram example, when you sign in to Instagram, you get an error that your logic app failed to create the connection.
+To try your policy, start creating a connection by using the now restricted connector in the workflow designer. Continuing with the Instagram example, when you sign in to Instagram, you get an error that your workflow failed to create the connection.
 
 The error message includes this information:
 
@@ -338,6 +338,6 @@ The error message includes this information:
 | Assignment ID | `"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyLogicApp-RG/providers/Microsoft.Authorization/policyAssignments/4231890fc3bd4352acb0b673"` |
 | Policy definition ID | `"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/policyDefinitions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"` |
 
-## Next step
+## Related content
 
 - Learn more about [Azure Policy](../governance/policy/overview.md)
