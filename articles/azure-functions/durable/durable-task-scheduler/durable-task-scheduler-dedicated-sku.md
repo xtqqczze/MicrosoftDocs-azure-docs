@@ -68,14 +68,20 @@ Durable Task Scheduler offers two SKU options: Dedicated and Consumption (previe
 | - | ------------------------------- | --------------------------------- |
 | Infrastructure  | Multitenant                     | Dedicated Infrastructure          |
 | Pricing Model   | Pay-per-action                  | Fixed monthly CU cost             |
-| Cost per Action | \$0.003                         | Varies by CU utilization          |
+| Cost per Action | $0.003                         | Varies by CU utilization          |
 | Max Throughput  | 500 actions/second              | 2,000 actions/second per CU       |
 | SLA             | 99.9%                           | 99.95%                            |
 | Data Retention  | Up to 30 days                   | Up to 90 days                     |
 | Best For        | Variable workloads, development | Predictable workloads, enterprise |
 
-> [!NOTE]
-> Currently, the Consumption SKU is in preview. Use the Dedicated SKU in production.
+### SKU support
+
+Since the Consumption SKU is currently in preview, use the following table to understand what is supported. 
+
+| Experience | Language | Dedicated SKU | Consumption SKU |
+| ---------- | -------- | ------------- | --------------- |
+| Durable Task Scheduler for Durable Functions | C#<br>Python<br>JavaScript<br>PowerShell<br>Java| Generally available<br>Generally available<br>Generally available<br>Generally available<br>Generally available | Preview<br>Preview<br>Preview<br>Preview<br>Preview |
+| Durable Task SDKs | C#<br>Python<br>Java| Generally available<br>Preview<br>Preview | Preview<br>Preview<br>Preview |
 
 #### [Dedicated SKU](#tab/dedicated)
 
