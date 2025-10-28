@@ -62,7 +62,7 @@ See [Supported update sources, types, Microsoft application updates, and third-p
 
 ### Does Update Manager support Windows 10 and Windows 11?
 
-Automation Update Management didn't provide support for patching Windows 10 and Windows 11. The same is true for Update Manager. We recommend that you use Microsoft Intune as the solution for keeping Windows 10 and Windows 11 devices up to date.
+Azure Automation Update Management didn't provide support for patching Windows 10 and Windows 11. The same is true for Update Manager. We recommend that you use Microsoft Intune as the solution for keeping Windows 10 and Windows 11 devices up to date.
 
 ## Pricing
 

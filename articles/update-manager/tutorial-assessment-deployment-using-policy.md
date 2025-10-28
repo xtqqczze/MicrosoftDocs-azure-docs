@@ -1,6 +1,6 @@
 ---
 title: Enable Periodic Assessment and Scheduled Patching Using a Policy
-description: In this tutorial, you learn how to enable periodic assessment or scheduled patching for virtual machines by using a policy.
+description: In this tutorial, you learn how to enable periodic assessment and scheduled patching for virtual machines by using a policy.
 ms.service: azure-update-manager
 ms.date: 08/21/2025
 ms.topic: tutorial 
@@ -15,9 +15,9 @@ ms.author: v-uhabiba
 
 This tutorial explains how to enable periodic assessment and scheduled patching on your Azure virtual machines (VMs) at scale by using a policy. You can use a policy to assign standards and assess compliance at scale. [Learn more](../governance/policy/overview.md).
 
-*Periodic assessment* is a setting on your machine that displays the latest updates available for your machines. It removes the hassle of performing an assessment manually every time you need to check the update status. After you enable this setting, Azure Update Manager fetches updates on your machine once every 24 hours.
+*Periodic assessment* is the display of the latest updates available for your machines. It removes the hassle of performing an assessment manually every time you need to check the update status. After you enable this setting, Azure Update Manager fetches updates on your machine once every 24 hours.
 
-*Scheduled patching* is a setting to target a group of machines for update deployment via Azure Policy. The grouping keeps you from having to edit your deployment to update machines. You can use a subscription, a resource group, tags, or regions to define the scope and use this feature for the built-in policies. You can customize the built-in policies according to your use case.
+*Scheduled patching* is the ability to target a group of machines for update deployment via Azure Policy. The grouping keeps you from having to edit your deployment to update machines. You can use a subscription, a resource group, tags, or regions to define the scope and use this feature for the built-in policies. You can customize the built-in policies according to your use case.
 
 In this tutorial, you:
 
@@ -48,11 +48,11 @@ In this tutorial, you:
 
 1. On the **Remediation** tab, select **Create a remediation task** so that periodic assessment is enabled on your machines. Then select **Next**.
 
-1. On the **Non-compliance** tab, provide the message that you want to see in case of noncompliance. For example: **Your machine doesn't have periodic assessment enabled.** Then select **Review + Create**.
+1. On the **Non-compliance** tab, provide the message that you want to appear if a machine is out of compliance. For example: **Your machine doesn't have periodic assessment enabled.** Then select **Review + Create**.
 
 1. On the **Review + Create** tab, select **Create**. This action triggers creation of an assignment and remediation task, which can take a minute or so.
 
-On the **Policy** home page, you can monitor the compliance of resources under **Compliance** and the remediation status under **Remediation**.
+On the **Policy** home page, you can monitor the compliance of resources under **Compliance** and monitor the remediation status under **Remediation**.
 
 ## Enable scheduled patching
 
@@ -74,7 +74,7 @@ On the **Policy** home page, you can monitor the compliance of resources under *
    - **Maintenance Configuration ARM ID**: This mandatory parameter denotes the Azure Resource Manager ID of the schedule that you want to assign to the machines.
    - **Resource groups**: You can specify a resource group if you want to scope down to a resource group. By default, all resource groups within the subscription are selected.
    - **Operating System types**: You can select **Windows** or **Linux**. By default, both are selected.
-   - **Machines locations**: You can optionally specify the regions that you want to select. By default, all are selected.
+   - **Machines locations**: You can optionally specify regions for the machines. By default, all regions are selected.
    - **Tags on machines**: You can use tags to scope down further. By default, all are selected.
    - **Tags operator**: If you selected multiple tags, you can specify if you want the scope to be machines that have all the tags or machines that have any of those tags.
 
