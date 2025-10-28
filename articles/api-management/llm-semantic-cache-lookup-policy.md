@@ -18,7 +18,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Use the `llm-semantic-cache-lookup` policy to perform cache lookup of responses to large language model (LLM) API requests from a configured external cache, based on vector proximity of the prompt to previous requests and a specified similarity score threshold. Response caching reduces bandwidth and processing requirements imposed on the backend LLM API and lowers latency perceived by API consumers.
+Use the `llm-semantic-cache-lookup` policy to perform cache lookup of responses to large language model (LLM) API requests from a configured external cache, based on vector proximity of the prompt to previous requests and a specified score threshold. Response caching reduces bandwidth and processing requirements imposed on the backend LLM API and lowers latency perceived by API consumers.
 
 > [!NOTE]
 > * This policy must have a corresponding [Cache responses to large language model API requests](llm-semantic-cache-store-policy.md) policy. 
@@ -41,39 +41,7 @@ Use the `llm-semantic-cache-lookup` policy to perform cache lookup of responses 
 </llm-semantic-cache-lookup>
 ```
 
-## Attributes
-
-| Attribute         | Description                                            | Required | Default |
-| ----------------- | ------------------------------------------------------ | -------- | ------- |
-| score-threshold	| Score threshold used to determine whether to return a cached response to a prompt. Value is a decimal between 0.0 and 1.0. Smaller values represent greater semantic similarity. [Learn more](../redis/tutorial-semantic-cache.md#change-the-similarity-threshold). | Yes |	N/A |
-| embeddings-backend-id | [Backend](backends.md) ID for embeddings API call. |	Yes |	N/A |
-| embeddings-backend-auth | Authentication used for embeddings API backend. | Yes. Must be set to `system-assigned`. | N/A |
-| ignore-system-messages | Boolean. When set to `true` (recommended), removes system messages from a chat completion prompt before assessing cache similarity. | No | false |
-| max-message-count | If specified, number of remaining dialog messages after which caching is skipped. | No | N/A |
-                                             
-## Elements
-
-|Name|Description|Required|
-|----------|-----------------|--------------|
-|vary-by| A custom expression determined at runtime whose value partitions caching. If multiple `vary-by` elements are added, values are concatenated to create a unique combination. | No |
-
-## Usage
-
-
-- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
-
-### Usage notes
-
-- This policy can only be used once in a policy section.
-- Fine-tune the value of `score-threshold` based on your application to ensure that the right sensitivity is used when determining which queries to cache. Start with a low value such as 0.05 and adjust to optimize the ratio of cache hits to misses.
-- The embeddings model should have enough capacity and sufficient context size to accommodate the prompt volume and prompts.
-- Score threshold above 0.2 may lead to cache mismatch. Consider using lower value for sensitive use cases.
-- Control cross-user access to cache entries by specifying `vary-by` with specific user or user-group identifiers.
-- Consider adding [llm-content-safety](./llm-content-safety-policy.md) policy with prompt shield to protect from prompt attacks.
-- [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
-
+[!INCLUDE [api-management-semantic-cache-policy-details](../../includes/api-management-semantic-cache-policy-details.md)]
 
 ## Examples
 

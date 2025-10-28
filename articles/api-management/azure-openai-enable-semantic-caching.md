@@ -6,7 +6,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 10/24/2025
+ms.date: 10/28/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
@@ -16,7 +16,7 @@ ms.collection: ce-skilling-ai-copilot
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Enable semantic caching of responses to LLM API requests to reduce bandwidth and processing requirements imposed on the backend APIs and lower latency perceived by API consumers. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't the same. For background, see [Tutorial: Use Azure Managed Redis as a semantic cache](../redis/tutorial-semantic-cache.md).
+Enable semantic caching of responses to LLM API requests to reduce bandwidth and processing requirements imposed on the backend APIs and lower latency perceived by API consumers. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't identical. For background, see [Tutorial: Use Azure Managed Redis as a semantic cache](../redis/tutorial-semantic-cache.md).
 
 > [!NOTE]
 > The configuration steps in this article show how to enable semantic caching for APIs added to API Management from Azure OpenAI in Azure AI Foundry models. You can apply these steps to enable semantic caching for corresponding large language model (LLM) APIs available through the [Azure AI Model Inference API](/rest/api/aifoundry/modelinference/) or with OpenAI-compatible models served through third-party inference providers. 
@@ -125,7 +125,7 @@ To enable semantic caching for Azure OpenAI APIs in Azure API Management, apply 
 
     ```xml
     <azure-openai-semantic-cache-lookup
-        score-threshold="0.1"
+        score-threshold="0.15"
         embeddings-backend-id="embeddings-backend"
         embeddings-backend-auth="system-assigned"
         ignore-system-messages="true"
@@ -153,7 +153,7 @@ To enable semantic caching for Azure OpenAI APIs in Azure API Management, apply 
 
 To confirm that semantic caching works as expected, trace a test Completion or Chat Completion operation by using the test console in the portal. Confirm that the cache is used on subsequent tries by inspecting the trace. [Learn more about tracing API calls in Azure API Management](api-management-howto-api-inspector.md). 
 
-Adjust the `score-threshold` attribute in the lookup policy to control how similar the prompts must be to return cached responses. A lower score threshold means that higher semantic similarity is required to return cached responses.
+Adjust the `score-threshold` attribute in the lookup policy to control how similar the prompts must be to return cached responses. A lower score threshold means that prompts must have higher semantic similarity to return cached responses.
 
 For example, if the cache is used, the **Output** section includes entries similar to the following screenshot:
 
