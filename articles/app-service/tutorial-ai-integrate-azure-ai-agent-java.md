@@ -133,7 +133,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 1. In the **Define schema** page, paste the schema that you copied earlier. Review and save the action.
 
 > [!TIP]
-> In this tutorial, the OpenAPI tool is configured to call your app anonymously without authentication. For production scenarios, you should secure the tool with managed identity authentication. For step-by-step instructions, see [Secure OpenAPI endpoints for Azure AI Foundry Agent Service](configure-authentication-ai-foundry-openapi.md).
+> In this tutorial, the OpenAPI tool is configured to call your app anonymously without authentication. For production scenarios, you should secure the tool with managed identity authentication. For step-by-step instructions, see [Secure OpenAPI endpoints for Azure AI Foundry Agent Service](configure-authentication-ai-foundry-openapi-tool.md).
 
 ## Test the agent
 
@@ -153,7 +153,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 When exposing APIs via OpenAPI in Azure App Service, follow these security best practices:
 
-- **Authentication and Authorization**: Protect your OpenAPI endpoints with Microsoft Entra authentication. For step-by-step instructions, see [Secure OpenAPI endpoints for Azure AI Foundry Agent Service](configure-authentication-provider-aad-ai-foundry-openapi.md). You can also protect your endpoints behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
+- **Authentication and Authorization**: Protect your OpenAPI endpoints with Microsoft Entra authentication. For step-by-step instructions, see [Secure OpenAPI endpoints for Azure AI Foundry Agent Service](configure-authentication-ai-foundry-openapi-tool.md). You can also protect your endpoints behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
 - **Validate and sanitize input data:** The example code in this tutorial omits input validation and sanitization for simplicity and clarity. In production scenarios, always implement proper validation and sanitization to protect your application. For Spring, see [Spring: Validating Form Input](https://spring.io/guides/gs/validating-form-input).
 - **Use HTTPS:** The sample relies on Azure App Service, which enforces HTTPS by default and provides free TLS/SSL certificates to encrypt data in transit.
 - **Limit CORS:** Restrict Cross-Origin Resource Sharing (CORS) to trusted domains only. For more information, see [Enable CORS](app-service-web-tutorial-rest-api.md#enable-cors).
