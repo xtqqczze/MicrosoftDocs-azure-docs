@@ -28,7 +28,7 @@ This chart shows a total of 3.54 billion `On Demand Function Execution Units` co
 
 To calculate the On Demand Total Executions cost, take the On Demand Function Execution Count sum for the same time period by the current price, `2,100` executions in the example above, and convert to millions, so `0.0021` million executions. Then multiply by the On Demand Total Executions price on the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). You can use this same calculation using the Always Ready Function Execution Count metric and use the Always Ready Total Executions billing meter to find out the cost for executions handled by always ready instance.
 
-#### [Azure CLI](#tab/azurecli/flex-consumption-plan)
+#### [Azure CLI](#tab/azure-cli/flex-consumption-plan)
 
 The [Azure CLI](/cli/azure/) has commands for retrieving metrics. You can use the CLI from a local command environment or directly from the portal using [Azure Cloud Shell](../articles/cloud-shell/overview.md). For example, the following [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command returns hourly data over same time period used before.
 
@@ -272,7 +272,7 @@ As the number of execution units is so much greater than the execution count, th
 
 This chart shows a total of 1.11 billion `Function Execution Units` consumed in a two-hour period, measured in MB-milliseconds. To convert to GB-seconds, divide by 1024000. In this example, the function app consumed `1110000000 / 1024000 = 1083.98` GB-seconds. You can take this value and multiply by the current price of execution time on the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/), which gives you the cost of these two hours, assuming you've already used any free grants of execution time. 
 
-#### [Azure CLI](#tab/azurecli/consumption-plan)
+#### [Azure CLI](#tab/azure-cli/consumption-plan)
 
 The [Azure CLI](/cli/azure/) has commands for retrieving metrics. You can use the CLI from a local command environment or directly from the portal using [Azure Cloud Shell](../articles/cloud-shell/overview.md). For example, the following [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command returns hourly data over same time period used before.
 
