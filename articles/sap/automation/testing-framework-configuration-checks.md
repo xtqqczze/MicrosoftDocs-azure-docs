@@ -21,23 +21,29 @@ Configuration validation is a critical component of the testing framework that p
 
 These checks are designed to be nonintrusive, meaning they don't modify the system or require downtime. Instead, they analyze existing configurations and provide detailed reports highlighting any deviations from recommended practices.
 
-> **NOTE**: The configuration checks in SAP Testing Automation Framework is currently in public preview.
+> [!NOTE]
+> The configuration checks in SAP Testing Automation Framework is currently in public preview.
 
 ### Configuration Validation Checks
 
-The configuration validation checks within the SAP Testing Automation Framework are systematically organized into distinct logical groupings that provide flexibility in execution. Each group can be executed independently on a standalone basis, or alternatively, all groups can be executed together in a validation run. The primary categories of configuration validation checks are structured as follows:
+The configuration validation checks within the SAP Testing Automation Framework are systematically organized into distinct logical groupings that provide flexibility in execution. Each group can be executed independently on a standalone basis, or alternatively, all groups can be executed together in a comprehensive validation run. 
+
+The primary categories of configuration validation checks include the following. Examples of checks in each category are provided below to illustrate the nature and scope of validations performed:
+
+> [!TIP]
+> For the complete and up-to-date list of all configuration checks, refer to the [Configuration Checks documentation](https://github.com/Azure/sap-automation-qa/blob/main/docs/CONFIGURATION_CHECKS.md) on GitHub.
 
 1. **Infrastructure**
 
-    - While not a separate execution category, infrastructure checks are performed as part of the other categories.
-    - **Azure Compute**: VM SKU, Accelerated Networking, Availability Set/Zone, Proximity Placement Group.
-    - **Storage**: Use of Premium SSD/Ultra Disk, Write Accelerator, disk caching policies, and redundancy settings.
+    - While not a separate execution category, infrastructure checks are integrated as an essential component within the other categories.
+    - **Azure Compute**: Validation of Virtual Machine SKU, Accelerated Networking enablement, Availability Set/Zone configuration, and Proximity Placement Group settings.
+    - **Storage**: Verification of Premium SSD/Ultra Disk usage, Write Accelerator configuration, disk caching policies, and redundancy settings.
 
 2. **Database**
 
     - Validates SAP HANA or IBM DB2 specific settings.
-    - **SAP HANA**: Checks memory allocation, system replication parameters, and Pacemaker cluster configurations (resource agents, fencing, constraints).
-    - **IBM DB2**: Verifies hardware requirements, system language, and OS tuning parameters.
+    - **SAP HANA**: Checks for memory allocation, system replication parameters, and Pacemaker cluster configurations (resource agents, fencing mechanisms, and constraints).
+    - **IBM DB2**: Verification of hardware requirements, system language settings, and operating system tuning parameters.
 
 3. **Central Services**
 

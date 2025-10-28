@@ -16,7 +16,7 @@ This document outlines the supported platforms, operating systems, and features 
 
 ## Supported Distributions for Management Server
 
-The SAP Testing Automation Framework requires a management server or controller. Following are the list of supported operating systems.
+The SAP Testing Automation Framework requires a management server that acts as an orchestrator. These are the list of supported operating systems for the management server.
 
 - Operating system
   - Ubuntu 22.04 LTS
@@ -42,7 +42,7 @@ The SAP Testing Automation Framework is currently supported on the following Lin
 
 The framework supports testing of various high availability configurations for SAP components. These configurations represent the most common deployment patterns for SAP systems on Azure, ensuring comprehensive validation across different architectural approaches.
 
-| Component | Type | Cluster Type | Storage Options |
+| Component | Type | Fencing Type | Storage Options |
 |-----------|------|--------------|-----------------|
 | SAP Central Services | ENSA1 or ENSA2 | Azure Fencing Agent | Azure Files or Azure NetApp Files |
 | SAP Central Services | ENSA1 or ENSA2 | iSCSI (SBD device) | Azure Files or Azure NetApp Files |
