@@ -8,7 +8,6 @@ ms.date: 10/27/2025
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
-  - references_regions
 # Customer intent: As a cloud administrator, I want to improve security by authenticating managed identities to allow applications and virtual machines to access SMB Azure Files shares using identity-based authentication with Microsoft Entra ID instead of using a storage account key.
 ---
 
@@ -110,7 +109,7 @@ New-AzStorageShare -Name <file-share-name> -Context $storageAccount.Context
 
 You should now have a storage account and file share ready for SMB OAuth authentication. Verify in the Azure portal that your storage account and file share were created.
 
-## Prepare your VM and assign roles
+## Prepare your VM and assign RBAC role
 
 The enablement steps are different for Azure VMs versus non-Azure VMs. Once enabled, all necessary permissions can be granted via Azure RBAC.
 
@@ -134,36 +133,95 @@ For non-Azure Windows machines (on-prem or other cloud), follow these steps.
 
 1. Assign the built-in Azure RBAC role **Storage File Data SMB MI Admin** role to the managed identity at the desired scope. See [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps).
 
-## Mount a file share on a Windows VM
+## Mount a file share using a managed identity
 
 Now that your storage account and permissions are configured, follow these steps to mount the file share using managed identity authentication.
 
 ### Prepare your client
 
-Log into your VM or device that has the managed identity assigned and open a PowerShell window as administrator. You'll need either PowerShell 5.1+ or PowerShell 7+.
+To prepare your client VM or Windows device to authenticate using a managed identity, follow these steps.
 
-Install the Azure Files SMB Managed Identity Client PowerShell module and import it:
+1. Log into your VM or device that has the managed identity assigned and open a PowerShell window as administrator. You'll need either PowerShell 5.1+ or PowerShell 7+.
+
+1. Install the [Azure Files SMB Managed Identity Client](https://www.powershellgallery.com/packages/AzFilesSmbMIClient/1.0.4) PowerShell module and import it:
+
+   ```powershell
+   Install-Module AzFilesSMBMIClient 
+   Import-Module AzFilesSMBMIClient 
+   ```
+
+1. Check your current Powershell execution policy by running the following command:
+
+   ```powershell
+   Get-ExecutionPolicy -List 
+   ```
+
+   If the execution policy on CurrentUser is **Restricted** or **Undefined**, change it to **RemoteSigned**. If the execution policy is **RemoteSigned**, **Default**, **AllSigned**, **Bypass**, or **Unrestricted**, you can skip this step. 
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser 
+   ```
+
+### Refresh the authentication credentials
+
+Before you can mount the file share using the managed identity, you must refresh the authentication credentials and specify your storage account endpoint. To copy your storage account URI, navigate to the storage account in the Azure portal and then select **Settings** > **Endpoints** from the service menu. Be sure to copy the entire URI including the trailing slash: `https://<storage-account-name>.file.core.windows.net/`
 
 ```powershell
-Install-Module AzFilesSMBMIClient 
-Import-Module AzFilesSMBMIClient 
+AzFilesSMBMIClient.exe refresh --uri https://<storage-account-name>.file.core.windows.net/
 ```
 
-Check your current Powershell execution policy by running the following command:
+This will get an OAuth token and insert it in the Kerberos cache, and will auto-refresh when the token is close to expiration. Optionally, you can omit the `refresh`.
+
+If your VM has both user-assigned and system-assigned managed identities configured, you can use the following command to specify the user-assigned managed identity:
 
 ```powershell
-Get-ExecutionPolicy -List 
-```
-
-If the execution policy on CurrentUser is **Restricted** or **Undefined**, change it to **RemoteSigned**. If the execution policy is **RemoteSigned**, **Default**, **AllSigned**, **Bypass**, or **Unrestricted**, you can skip this step. 
-
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser 
+AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.windows.net/ --clientId <ClientId> 
 ```
 
 > [!TIP]
 > To view complete usage information and examples, run the executable without any parameters: `AzFilesSmbMIClient.exe`
 
+### Mount the share
+
+You should now be able to [mount the file share](storage-how-to-use-files-windows) without using a storage account key.
+
+You can directly access your Azure file share using the UNC path by entering the following into File Explorer. Be sure to replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name:
+
+`\\<storage-account-name>.file.core.windows.net\<file-share-name>`
+
+## Client library installation and integration options 
+
+For developers who need to integrate this functionality into their applications, multiple implementation approaches are available depending on your application architecture and requirements.
+
+### Managed assembly integration: NuGet package
+
+For .NET applications, the [Microsoft.Azure.AzFilesSmbMI](https://msazure.pkgs.visualstudio.com/_packaging/Official/nuget/v3/index.json) NuGet package includes a managed assembly (Microsoft.Azure.AzFilesSmbMI.dll) that provides direct access to the SMB OAuth authentication functionality. This approach is recommended for C# and other .NET-based applications.
+
+Installation: `Install-Package Microsoft.Azure.AzFilesSmbMI -version 1.2.3168.94`
+
+### Native DLL integration
+
+For native applications requiring direct API access, AzFilesSmbMIClient is available as a [native DLL](https://github.com/Azure/AzFilesSmbMIClient). This is particularly useful for C/C++ applications or systems requiring lower-level integration. See the [Windows implementation](https://github.com/Azure/AzFilesSmbMIClient/tree/main/Windows) and [API reference](https://github.com/Azure/AzFilesSmbMIClient/blob/main/Windows/dll/src/AzFilesSmbMI.h) (native header file).
+
+#### Native API methods
+
+The native DLL exports the following core methods for credential management:
+
+```cpp
+extern "C" AZFILESSMBMI_API HRESULT SmbSetCredential( 
+    _In_  PCWSTR pwszFileEndpointUri, 
+    _In_  PCWSTR pwszOauthToken, 
+    _In_  PCWSTR pwszClientID, 
+    _Out_ PDWORD pdwCredentialExpiresInSeconds 
+); 
+extern "C" AZFILESSMBMI_API HRESULT SmbRefreshCredential( 
+    _In_ PCWSTR pwszFileEndpointUri, 
+    _In_ PCWSTR pwszClientID 
+); 
+extern "C" AZFILESSMBMI_API HRESULT SmbClearCredential( 
+    _In_ PCWSTR pwszFileEndpointUri 
+); 
+```
 
 ## See also
  
