@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
 
-To get started using Azure Container Storage, see [Use Azure Container Storage with Azure Kubernetes Service](container-storage-aks-quickstart.md).
+To get started using Azure Container Storage, see [Install Azure Container Storage for use with Azure Kubernetes Service](install-container-storage-aks.md).
 
 > [!IMPORTANT]
 > This article covers features and capabilities available in Azure Container Storage (version 2.x.x), which currently only supports local NVMe disk as backing storage. For details about earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md).
@@ -35,7 +35,7 @@ Azure Container Storage works with Azure Kubernetes Service and self-managed Kub
 
 - **Kubernetes-native volume orchestration:** Seamlessly create storage classes and persistent volumes, manage the full lifecycle of volumes—including provisioning, expansion, deletion, and perform operations such as capturing snapshots, all using familiar `kubectl` commands. This unified approach eliminates the need to switch between different tools or interfaces, streamlining storage management within your Kubernetes environment.
 
-- **Open source and community-driven:** Azure Container Storage is developed as an open-source project. It can be installed either through an AKS extension, as described in the [quickstart guides](container-storage-aks-quickstart.md), or via Helm using the [local-csi-driver](https://github.com/Azure/local-csi-driver) repository. This open approach enables users to contribute, customize, and integrate with existing Kubernetes workflows and patterns.
+- **Open source and community-driven:** Azure Container Storage is developed as an open-source project. It can be installed either through an AKS extension, as described in the [tutorial](install-container-storage-aks.md), or via Helm using the [local-csi-driver](https://github.com/Azure/local-csi-driver) repository. This open approach enables users to contribute, customize, and integrate with existing Kubernetes workflows and patterns.
 
 ## Supported storage types
 
@@ -113,7 +113,7 @@ To better navigate Azure Container Storage and Kubernetes concepts, familiarize 
 
 ## Next steps
 
-- [Install Azure Container Storage for use with AKS](container-storage-aks-quickstart.md)
+- [Install Azure Container Storage for use with AKS](install-container-storage-aks.md)
 - [Azure Container Storage pricing](https://aka.ms/AzureContainerStoragePricingPage)
 - [Azure Container Storage (version 1.x.x)](container-storage-introduction-version-1.md)
 - [Overview of deploying a highly available PostgreSQL database on Azure Kubernetes Service (AKS)](/azure/aks/postgresql-ha-overview#storage-considerations)
