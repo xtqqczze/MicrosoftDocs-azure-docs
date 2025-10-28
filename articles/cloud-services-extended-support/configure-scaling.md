@@ -2,7 +2,7 @@
 title: Configure scaling for Azure Cloud Services (extended support)
 description: How to enable scaling options for Azure Cloud Services (extended support)
 ms.topic: how-to
-ms.service: azure-cloud-services-extended-support
+ms.service: virtual-machines
 ms.subservice: autoscale
 author: gachandw
 ms.author: gachandw

@@ -2,7 +2,7 @@
 title: Deploy Azure Cloud Services (extended support) - SDK
 description: Deploy Azure Cloud Services (extended support) by using the Azure SDK.
 ms.topic: quickstart
-ms.service: azure-cloud-services-extended-support
+ms.service: virtual-machines
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
