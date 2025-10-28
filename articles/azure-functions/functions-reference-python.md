@@ -1081,7 +1081,7 @@ Azure Functions supports the following Python versions:
 
 | Python<sup>1</sup> versions | Support level |
 | ----- | ----- |
-| 3.13 | GA<sup>2</sup> |
+| 3.13 | Generally available (GA)<sup>2</sup> |
 | 3.12 | GA |
 | 3.11 | GA | 
 | 3.10 | GA |
