@@ -114,7 +114,7 @@ If your source Consumption workflow has any managed API connections, copies of t
 
 1. Expand each connection that has an error (red dot), and then select **Open Connection** to go to the connection and reconfigure its properties, including any authentication properties.
 
-   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/connection-error.png" alt-text="Screenshot shows the workflow designer toolbar with connection errors." lightbox="media/clone-consumption-logic-app-to-standard-workflow/connection-error.png":::
+   :::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/connection-error.png" alt-text="Screenshot shows the workflow designer toolbar with connection errors." lightbox="media/clone-consumption-logic-app-to-standard-workflow/connection-error.png":::
 
 ### Configure networking
 
