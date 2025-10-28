@@ -55,7 +55,7 @@ To generate a code scan report, complete the following steps:
 1. Search for the assessment with the **Workloads** filter and select it. 
 1. On the assessment **Overview** page, select the **Recommended path** tab or **View details** in the recommended path report.  
     This screen displays the distribution of web apps across Azure targets. Select a line item to drill down further. 
-1. Under **Add code insights** select Using AppCAT reports. 
+1. Under **Add code insights** select Using GitHub Copilot assessment. 
 1. In the Add code insights page, select **Upload a zip file**.  
 1. Select **Browse**, choose the location of the ZIP file containing AppCAT reports you want to import, and then select **Upload**. Wait for the upload and validation to complete.
 1. In the Web app list, under the AppCAT report dropdown, view the uploaded reports under **Uploaded from zip file**. 
@@ -133,7 +133,11 @@ Collate the following GitHub App details and private key to create a GitHub conn
 1. Navigate to the GitHub App you created and select **Edit**. 
 1. Under **General** > **About**, find the **App ID** and note it. 
 1. Scroll down to **Private keys** and select **Generate a private key**. 
-    The new private key file downloads automatically to your machine. 
+ 
+ >[!Note]
+ > Rotate the private key every 90 days for security. If you generate a new private key, you must recreate the connection because updating the key isn’t currently supported.
+
+1. The new private key file downloads automatically to your machine. 
 1. To find the **Installation ID**, navigate to **Install App** and select **Settings** next to  the account where the app is installed.  
 1. After the installation completes, note the browser URL that contains the installation ID. For example, `https://github.com/settings/installations/<installationID>`
 
@@ -143,7 +147,7 @@ Collate the following GitHub App details and private key to create a GitHub conn
 1. Search for the assessment with the **Workloads** filter and select it. 
 1. . On the assessment **Overview** page, select the **Recommended path** tab or **View details** in the recommended path report.  
     This screen displays the distribution of web apps across Azure targets. Select a line item to drill down further.  
-1. Under **Add code insights** select Using AppCAT reports. 
+1. Under **Add code insights** select Using GitHub Copilot Assessment. 
 1. In the **Add code insights** page, select **Create GitHub** connection. 
 1. In the **Create new GitHub** connection page, provide the following details: 
 
