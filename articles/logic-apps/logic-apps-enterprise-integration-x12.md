@@ -18,7 +18,7 @@ ms.date: 10/24/2025
 
 To send and receive X12 messages in workflows that you create using Azure Logic Apps, use the *X12* connector. This connector provides operations that support and manage X12 communication.
 
-This guide shows how to add the encoding and decoding actions for X12 to an existing logic app workflow. The X12 connector doesn't provide any triggers, so you can use any trigger to start your workflow. The examples in this guide use the [Request trigger](../connectors/connectors-native-reqres.md).
+This guide shows how to add the encoding and decoding actions for X12 to an existing logic app workflow. You can use any trigger with the X12 actions. The examples in this guide use the [Request trigger](../connectors/connectors-native-reqres.md).
 
 ## Connector technical reference
 
@@ -35,6 +35,7 @@ The following sections describe the X12 built-in connector operations and their 
 
 #### Decode X12
 Operation ID: x12Decode
+
 Decodes an X12 message by converting flat file to XML format.
 
 ##### Parameters
@@ -46,6 +47,7 @@ Decodes an X12 message by converting flat file to XML format.
 
 #### Encode X12
 Operation ID: x12Encode
+
 Encodes an X12 message by converting XML to flat file format.
 
 ##### Parameters
@@ -62,6 +64,7 @@ Encodes an X12 message by converting XML to flat file format.
 
 #### Encode X12 batch
 Operation ID: x12BatchEncode
+
 Encodes an X12 message batch by converting XML to flat file format.
 
 ##### Parameters
