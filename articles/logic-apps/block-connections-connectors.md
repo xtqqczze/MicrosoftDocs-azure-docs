@@ -1,6 +1,6 @@
 ---
 title: Block Connector Usage
-description: Learn to prevent creating or using API connections for workflows in Azure Logic Apps by using Azure Policty.
+description: Learn to prevent creating or using API connections for workflows in Azure Logic Apps by using Azure Policy.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
@@ -288,7 +288,7 @@ For more information about Azure Policy definitions, see:
 
 ## Create policy assignment
 
-You need to assign the policy definition where you want to enforce the policy. For example, you might assign the policy defintion to a single resource group, multiple resource groups, a Microsoft Entra tenant, or an Azure subscription. For this task, follow these steps to create a policy assignment:
+You need to assign the policy definition where you want to enforce the policy. For example, you might assign the policy definition to a single resource group, multiple resource groups, a Microsoft Entra tenant, or an Azure subscription. For this task, follow these steps to create a policy assignment:
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter *policy*, and select **Policy**.
 
