@@ -213,6 +213,9 @@ spec:
 EOF
 ```
 
+>[!Note]
+>Modifying the `Host` header is not supported with a `requestHeaderModifier` rule. To override the `Host` value specified to the backend target, use a [URLRewrite](how-to-url-rewrite-gateway-api.md#deploy-the-required-gateway-api-resources) filter.
+
 Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
 
 ```bash
