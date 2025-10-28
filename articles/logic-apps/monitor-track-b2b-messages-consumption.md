@@ -55,7 +55,7 @@ For more information, see:
 
   Your workflow sends logging information to a Log Analytics workspace or another destination that you want.
 
-- An integration account that's [linked to your logic app resource](enterprise-integration/logic-apps-enterprise-integration-create-integration-account.md?tabs=azure-portal%2Cconsumption#link-to-logic-app).
+- An integration account that's [linked to your logic app resource](enterprise-integration/create-integration-account.md?tabs=azure-portal%2Cconsumption#link-to-logic-app).
 
 <a name="install-b2b-solution"></a>
 
