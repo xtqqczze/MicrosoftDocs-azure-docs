@@ -186,7 +186,7 @@ To copy data from HubSpot, set the type property of the dataset to **HubspotObje
 }
 ```
 
-The connector version 2.0 support the following HubSpot tables:
+The connector version 2.0 supports the following HubSpot tables:
 
 - Marketing.Campaigns
 - Marketing.Emails.Marketing_Emails
