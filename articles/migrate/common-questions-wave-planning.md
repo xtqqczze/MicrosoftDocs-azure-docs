@@ -39,13 +39,13 @@ Alternatively, switch to workload selection view, filter by the application name
 
 Following are the reasons why the workloads/apps selected for the wave may vary from the count, which is added to the wave:
 
-1. The workloads aren't supported in migration Waves. Unsupported workloads are omitted from the wave. Unsupported list includes: PostGre SQL.
+1. The workloads aren't supported in migration Waves. Unsupported workloads are omitted from the wave. Unsupported list includes: Postgre SQL.
 1. The workload is part of multiple applications. Migrating this workload moves parts of various applications, so the complete list of applications appears in the wave.
-1. The application contains an unsupported workload. This application is split into multiple workloads, and the remaining of worklaods are added to the wave. 
+1. The application contains an unsupported workload. This application is split into multiple workloads, and the remaining of workloads are added to the wave. 
 
 ## Which migration executions are supported through Waves?
 
-There are two types of cateogy tracking in Azure Migrate: 
+There are two types of category tracking in Azure Migrate: 
 
 1. **Automated tracking**: When Azure Migrate supports the migration tool and approach (for example, Server Migration), you can perform migration and modernization tasks through Waves, and the status updates automatically.
 

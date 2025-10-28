@@ -16,7 +16,7 @@ This phase begins when you reach the planned start time and perform migration an
 
 Azure Migrate provides two types of execution and tracking flows, based on whether the workload migration from source to target is supported:
 
-1. **Azure Migrate supports execution activities**: When Azure Migrate supports execution, Wave Planning enables automated execution and tracking. You can start migration and modernization flows through wave execution, take actions, and track statuses. For example, you can perform server migration tasks such as replication, test migration, and cutover, and monitor progress automatically.
+1. **Azure Migrate supports execution activities**: When Azure Migrate supports execution, Wave Planning enables automated execution and tracking. You can start migration, and modernization flows through wave execution, take actions, and track statuses. For example, you can perform server migration tasks such as replication, test migration, and cutover, and monitor progress automatically.
 1. **Azure Migrate doesn't support these execution activities**: Azure Migrate doesn’t support several workload and application migration or modernization activities. In such cases, you plan and track the activities in Azure Migrate and manually update their status for centralized tracking. Execute these activities outside Azure Migrate.
 
 ## Executing Waves
@@ -47,7 +47,7 @@ Use the application migration settings to review workloads, execute migration fl
 Use workload migration settings to review source-to-target combinations, execute supported migrations, and update tasks for unsupported flows.
 
 1. For each source target combination select **Review and Execute.**  If supported, Azure Migrate starts the workload execution flow.
-1. For unsupported executions, update the tasks by seleting **View Execution Details**.    
+1. For unsupported executions, update the tasks by selecting **View Execution Details**.    
 1. For supported executions, select **Execute** migrations for all to start the execution flow.
   
 ## Tracking wave executions
