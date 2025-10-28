@@ -121,10 +121,6 @@ Microsoft Dev Box and [Azure Deployment Environments](../deployment-environments
 
 When you configure Dev Box, you might see Deployment Environments resources and components. You might even see informational messages regarding Deployment Environments features. If you're not configuring any Deployment Environments features, you can safely ignore these messages.
 
-For example, as you create a project, you might see this informational message about catalogs: 
-
-:::image type="content" source="media/overview-what-is-microsoft-dev-box/project-catalog-message.png" alt-text="Screenshot showing an informational message that reads The dev center that contains this project does not have a catalog assigned." lightbox="media/overview-what-is-microsoft-dev-box/project-catalog-message.png":::
-
 ## Related content
 
 Start using Microsoft Dev Box:
