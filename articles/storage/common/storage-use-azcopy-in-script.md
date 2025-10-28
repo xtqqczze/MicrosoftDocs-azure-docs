@@ -4,7 +4,7 @@ description: Learn how to obtain a static link to a specific AzCopy version and 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/01/2025
+ms.date: 10/27/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
@@ -22,61 +22,10 @@ Over time, the AzCopy [download link](storage-use-azcopy-v10.md#download-a-porta
 
 To avoid these issues, obtain a static (unchanging) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
 
+To obtain a static link, open the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases). Then, scroll through the page until you locate the desired release. In the list of assets for that release, right-click the desired asset. In the context menu, select **Copy link**. You can then use that URL in your script to download and extract the AzCopy binary.
+
 > [!NOTE]
 > The static link to AzCopy binaries is subject to change over time due to our content delivery infrastructure. If you must use a specific version of AzCopy for any reason, we recommend using AzCopy with an operating system that leverages the [Linux published package](storage-use-azcopy-install-linux-package.md). This method ensures that you can reliably install and maintain the desired version of AzCopy.
-
-### [Linux](#tab/linux)
-
-To obtain the link, run this command:
-
-```bash
-curl -s -D- https://aka.ms/downloadazcopy-v10-linux \| grep ^Location
-```
-
-The URL appears in the output of this command. Your script can then download AzCopy by using that URL.
-
-You can also use the `--strip-components=1` on the `tar` command to remove the top-level folder that contains the version name, and instead extract the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
-
-```bash
-wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1
-```
-
-### [Windows](#tab/windows)
-
-To obtain the link, run the following command:
-
-```powershell
-(Invoke-WebRequest -Uri https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction SilentlyContinue).headers.location
-```
-
-For PowerShell 6.1+, run this command:
-
-```powershell
-(Invoke-WebRequest -Uri https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction SilentlyContinue -SkipHttpErrorCheck).headers.location
-```
-
-The URL appears in the output of this command. Your script can then download AzCopy by using that URL.
-
-For Windows PowerShell run this command,To obtain the link, run this command:
-
-```PowerShell
-Invoke-WebRequest -Uri <URL from the previous command> -OutFile 'azcopyv10.zip'
-Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\'
-$AzCopy = (Get-ChildItem -path '.\' -Recurse -File -Filter 'azcopy.exe').FullName
-# Invoke AzCopy 
-& $AzCopy
-```
-
-For PowerShell 6.1+, run this command:
-
-```PowerShell
-Invoke-WebRequest -Uri <URL from the previous command> -OutFile 'azcopyv10.zip'
-$AzCopy = (Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\' -PassThru | where-object {$_.Name -eq 'azcopy.exe'}).FullName
-# Invoke AzCopy
-& $AzCopy
-```
-
----
 
 ## Create a scheduled task
 

@@ -4,7 +4,7 @@ description: You can provide authorization credentials for AzCopy operations by 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 02/26/2025
+ms.date: 10/25/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -13,9 +13,9 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Authorize access for AzCopy with a user identity
 
-User identity authentication provides a straightforward way to authorize [AzCopy](storage-use-azcopy-v10.md) operations using your personal Microsoft Entra ID credentials. This authentication method is ideal for interactive scenarios where you're manually running AzCopy commands or working in development environments.
+User identity authentication provides a straightforward way to authorize [AzCopy](storage-use-azcopy-v10.md) operations by using your personal Microsoft Entra ID credentials. This authentication method is ideal for interactive scenarios where you manually run AzCopy commands or work in development environments.
 
-This article shows you how to authenticate AzCopy using your user identity by using environment variables, the interactive AzCopy login command, or by leveraging existing Azure CLI or Azure PowerShell sessions.
+This article shows you how to authenticate AzCopy by using your user identity with environment variables, the interactive AzCopy login command, or by leveraging existing Azure CLI or Azure PowerShell sessions.
 
 To learn about other ways to authorize access to AzCopy, see [Authorize AzCopy](storage-use-azcopy-v10.md#authorize-azcopy).
 
@@ -36,7 +36,7 @@ If you're transferring blobs in an account that has a hierarchical namespace, yo
 
 ## Authorize with environment variables
 
-To authorize access, you'll set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory. AzCopy retrieves the OAuth token by using the credentials that you provide.
+To authorize access, set in-memory environment variables. Then run any AzCopy command. AzCopy retrieves the authentication token required to complete the operation. After the operation completes, the token disappears from memory. AzCopy retrieves the OAuth token by using the credentials that you provide.
 
 After you've verified that your user identity has been given the necessary authorization level, type the following command, and then press the ENTER key.
 
@@ -54,21 +54,21 @@ $Env:AZCOPY_AUTO_LOGIN_TYPE="DEVICE"
 
 ---
 
-Then, run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
+Then, run any azcopy command (for example: `azcopy list https://contoso.blob.core.windows.net`).
 
-This command returns an authentication code and the URL of a website. Open the website, provide the code, and then choose the **Next** button.
+This command returns an authentication code and the URL of a website. Open the website, provide the code, and then select the **Next** button.
 
 ![Create a container](media/storage-use-azcopy-v10/azcopy-login.png)
 
-A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, the operation can complete.
+A sign-in window appears. In that window, sign in to your Azure account by using your Azure account credentials. After you successfully sign in, the operation completes.
 
 ## Authorize with the AzCopy login command
 
 As an alternative to using in-memory variables, you authorize access by using the azcopy login command.
 
-The azcopy login command retrieves an OAuth token and then places that token into a secret store on your system. If your operating system doesn't have a secret store such as a Linux keyring, the azcopy login command won't work because there is nowhere to place the token.
+The `azcopy login` command retrieves an OAuth token and then places that token into a secret store on your system. If your operating system doesn't have a secret store such as a Linux keyring, the `azcopy login` command doesn't work because there's nowhere to place the token.
 
-After you've verified that your user identity has been given the necessary authorization level, open a command prompt, type the following command, and then press the ENTER key.
+After you verify that your user identity has the necessary authorization level, open a command prompt, type the following command, and then press the ENTER key.
 
 ```azcopy
 azcopy login
@@ -82,11 +82,11 @@ azcopy login --tenant-id=<tenant-id>
 
 Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Tenant properties > Tenant ID** in the Azure portal.
 
-This command returns an authentication code and the URL of a website. Open the website, provide the code, and then choose the **Next** button.
+This command returns an authentication code and the URL of a website. Open the website, provide the code, and then select the **Next** button.
 
 ![Create a container](media/storage-use-azcopy-v10/azcopy-login.png)
 
-A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
+A sign-in window appears. In that window, sign into your Azure account by using your Azure account credentials. After you successfully sign in, you can close the browser window and begin using AzCopy.
 
 ## Authorize with Azure CLI
 
@@ -123,10 +123,10 @@ $Env:AZCOPY_AUTO_LOGIN_TYPE="PSCRED"
 $Env:AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-For more information about how to sign in with the Azure PowerShell, see [Sign in to Azure PowerShell interactively](/powershell/azure/authenticate-interactive).
+For more information about how to sign in with Azure PowerShell, see [Sign in to Azure PowerShell interactively](/powershell/azure/authenticate-interactive).
 
 ## Next steps
 
-- For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-v10.md)
+- For more information about AzCopy, see [Get started with AzCopy](storage-use-azcopy-v10.md).
 
 - If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy) page.

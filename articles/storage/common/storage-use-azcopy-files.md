@@ -732,7 +732,9 @@ AzCopy uses the `--from-to` parameter to explicitly define the source and destin
 | `FileBlobFS`           | Copy from Azure File Storage to Azure Data Lake Gen2 (BlobFS)                         |
 | `FileSMBFileSMB`       | Copy between two SMB shares in Azure File Storage                                     |
 | `FileNFSFileNFS`       | Copy between two NFS shares in Azure File Storage                                     |
-| `FileSMBFileSMB`       | Copy between SMB shares (duplicate of above for completeness)                         |
+| `FileNFSFileSMB`       | Copy from Azure File Storage NFS to Azure Files Storage SMB                           |
+| `FileSMBFileNFS`       | Copy from Azure File Storage SMB to Azure Files Storage NFS                           |
+
 
 <a id="copyaccountsnapshottoaccount"></a>
 
