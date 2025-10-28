@@ -23,9 +23,9 @@ To get started using Azure Container Storage, see [Use Azure Container Storage w
 
 Azure Container Storage gives your container workloads access to high-performance storage that was previously only available to virtual machines. It supports fast local NVMe disks, which are ideal for latency-sensitive workloads like PostgreSQL, and compute-intensive AI and ML frameworks like Ray and Kubeflow.
 
-You can create and manage storage volumes using standard Kubernetes tools. You don’t need to switch between different portals or set up CSI drivers on your own. This makes storage tasks easier and helps teams stay focused on running their apps.
+You can create and manage storage volumes using standard Kubernetes tools. You don’t need to switch between different portals or set up CSI drivers on your own. This simplicity makes storage tasks easier and helps teams stay focused on running their apps.
 
-Azure Container Storage works with Azure Kubernetes Service and self-managed Kubernetes clusters. Because it uses open-source components, it supports deployments across Azure and other clouds. This gives you flexibility for hybrid and multicloud setups.
+Azure Container Storage works with Azure Kubernetes Service and self-managed Kubernetes clusters. Because it uses open-source components, it supports deployments across Azure and other clouds, providing flexibility for hybrid and multicloud setups.
 
 ## Key benefits
 
