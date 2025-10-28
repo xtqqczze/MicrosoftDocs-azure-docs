@@ -18,7 +18,7 @@ In this article, you learn about actions, the available SKU options, and their p
 
 ## What is an action?
 
-An action is one of the fundamental billing units in the Durable Task Scheduler, representing a function invocation triggered by the Durable Task Scheduler. Each time a function runs, an action from the Durable Task Scheduler told it to.
+An action is one of the fundamental billing units, representing a function invocation triggered by the Durable Task Scheduler. Each time a function runs, an action from the scheduler told it to.
 
 The following functions are each triggered by one action:
 
@@ -59,6 +59,8 @@ In the previous example, the total calculation would be:
 
 > 1 (orchestration) + Activity 1 + Activity 2 + Activity 3 = 7 actions
 
+:::image type="content" source="media/durable-task-scheduler-dedicated-sku/actions-calculation.png" alt-text="Diagram of actions calculation.":::
+
 > [!NOTE]
 > _Timers_ and _Events Raised_ are also considered activities.
 
@@ -80,10 +82,18 @@ Durable Task Scheduler offers two SKU options: Dedicated and Consumption (previe
 
 Since the Consumption SKU is currently in preview, use the following table to understand what is supported. 
 
-| Experience | Language | Dedicated SKU | Consumption SKU |
-| ---------- | -------- | ------------- | --------------- |
-| Durable Task Scheduler for Durable Functions | C#<br>Python<br>JavaScript<br>PowerShell<br>Java| Generally available<br>Generally available<br>Generally available<br>Generally available<br>Generally available | Preview<br>Preview<br>Preview<br>Preview<br>Preview |
-| Durable Task SDKs | C#<br>Python<br>Java| Generally available<br>Preview<br>Preview | Preview<br>Preview<br>Preview |
+| Experience | Dedicated SKU | Consumption SKU |
+| ---------- | ------------- | --------------- |
+| Durable Functions extension: .NET | Generally available | Preview |
+| Durable Functions extension: Python | Generally available | Preview |
+| Durable Functions extension: JavaScript | Generally available | Preview |
+| Durable Functions extension: PowerShell | Generally available | Preview |
+| Durable Functions extension: Java | Generally available | Preview |
+| Durable Task .NET SDK | Generally available | Preview |
+| Durable Task Python SDK | Preview | Preview |
+| Durable Task Java SDK | Preview | Preview |
+
+Select one of the tabs below to more about each available SKU. 
 
 #### [Dedicated SKU](#tab/dedicated)
 
