@@ -2,7 +2,7 @@
 title: Azure PowerShell samples - Reset Azure Cloud Services (extended support)
 description: Sample scripts for resetting an Azure Cloud Service (extended support) deployment
 ms.topic: sample
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt

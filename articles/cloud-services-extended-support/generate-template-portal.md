@@ -2,7 +2,7 @@
 title: Generate ARM Template for Cloud Services (extended support) using the Azure portal
 description: Generate and download ARM Template and parameter file for Cloud Services (extended support) using the Azure portal
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw

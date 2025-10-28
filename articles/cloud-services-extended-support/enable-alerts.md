@@ -2,7 +2,7 @@
 title: Enable Monitoring in Cloud Services (extended support) using the Azure portal
 description: Enable monitoring for Cloud Services (extended support) instances using the Azure portal
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
