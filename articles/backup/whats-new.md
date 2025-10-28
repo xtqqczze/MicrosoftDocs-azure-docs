@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 09/22/2025
+ms.date: 11/01/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -19,6 +19,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- November 2025
+  - [Threat detection support for Azure VM Backups using Microsoft Defender for Cloud (preview)](#threat-detection-support-for-azure-vm-backups-using-microsoft-defender-for-cloud-preview)
 - September 2025
   - [Vaulted backup support for Azure Files (Premium) is now generally available](#vaulted-backup-support-for-azure-files-premium-is-now-generally-available)
 - July 2025
@@ -58,6 +60,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 
+
+## Threat detection support for Azure VM Backups using Microsoft Defender for Cloud (preview)
+
+Azure Backup now integrates with Microsoft Defender for Cloud to deliver advanced threat detection for Azure Virtual Machine backups. This feature proactively identifies compromised restore points, validates snapshot health using Defender scans, and helps you recover faster by locating clean restore points. The feature works seamlessly with [Microsoft Defender for Servers Plan 1 and Plan 2](/azure/defender-for-cloud/defender-for-servers-overview).
+
+For more information, see [About Threat Detection for Azure VM Backups (preview)](threat-detection-overview.md).
 
 ## Vaulted backup support for Azure Files (Premium) is now generally available
 
