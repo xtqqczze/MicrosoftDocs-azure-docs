@@ -39,6 +39,28 @@ Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-pow
 
 For enhanced reliability and high availability, we recommend migrating to an Az-enabled SKU.
 
+### Migrate to ErGwScale (Scalable Gateway)
+The ExpressRoute Scalable Gateway (ErGwScale) is a new virtual network gateway SKU that provides flexible, high-bandwidth connectivity for your Azure virtual networks.
+
+> [!IMPORTANT]
+>The minimum scale unit must be 1, when the maximum scale unit is 1.
+
+
+You can configure the gateway's scaling, as per requirements, by setting the minimum and maximum scale units:
+- To configure a fixed-size gateway, set both the **minimum** and **maximum** scale units to the same value (for example, set both to **1**, set both to **20**, set both to **40**).
+- To enable autoscaling, set the **minimum scale unit** to **2** or higher, and specify the desired **maximum scale unit** (up to 40).
+
+This allows the gateway to automatically scale based on your workload requirements.
+
+For more information, see [About Scalable Gateway](scalable-gateway.md).
+
+| Scenario              | Minimum Scale Unit | Maximum Scale Unit | Autoscaling Enabled? |
+|-----------------------|-------------------|-------------------|---------------------|
+| Fixed scaling         | 1                 | 1                 | No                  |
+| Fixed scaling         | 20                | 20                | No                  |  
+| Fixed scaling         | 40                | 40                | No                  |  
+| Autoscaling           | 2 or higher       | Up to 40          | Yes                 |
+
 ## Steps to migrate to a new gateway
 
 1. **Validate**: Check that all resources are in a succeeded state. If any prerequisites aren't met, validation fails and migration can't proceed.
