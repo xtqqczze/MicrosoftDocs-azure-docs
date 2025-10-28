@@ -221,7 +221,24 @@ To copy data from Xero, set the type property of the dataset to **XeroObject**. 
 | type | The type property of the dataset must be set to: **XeroObject** | Yes |
 | tableName | Name of the table. For version 2.0, table names use the object name, for example: `Accounts`. For version 1.0, table names use simplified names with prefix, for example, `"Global"."Accounts"`. | Yes for version 2.0.<br>No for version 1.0 (if "query" in activity source is specified) |
 
-The connector version 2.0 support the following Xero tables:
+**Example**
+
+```json
+{
+    "name": "XeroDataset",
+    "properties": {
+        "type": "XeroObject",
+        "typeProperties": {},
+        "schema": [],
+        "linkedServiceName": {
+            "referenceName": "<Xero linked service name>",
+            "type": "LinkedServiceReference"
+        }
+    }
+}
+```
+
+The connector version 2.0 supports the following Xero tables:
 
 - Accounts
 - Bank_Transactions
@@ -264,23 +281,6 @@ The connector version 2.0 support the following Xero tables:
 - Tracking_Categories
 - Tracking_Categories_Options
 - Users
-
-**Example**
-
-```json
-{
-    "name": "XeroDataset",
-    "properties": {
-        "type": "XeroObject",
-        "typeProperties": {},
-        "schema": [],
-        "linkedServiceName": {
-            "referenceName": "<Xero linked service name>",
-            "type": "LinkedServiceReference"
-        }
-    }
-}
-```
 
 ## Copy activity properties
 
@@ -408,7 +408,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 | GA version available |• The `tableName` value is `<Object Name>`, for example: `Accounts`. <br><br>• Date is read as String data type. <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. |
+| Version 2.0 | GA version available |• The `tableName` value is `<Object Name>`, for example: `Accounts`. <br><br>• Date is read as String data type. <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. <br><br> • Support specific Xero tables. For the supported table list, go to [Dataset properties](#dataset-properties).|
 
 ### Upgrade the Xero connector from version 1.0 to version 2.0
 
@@ -417,6 +417,8 @@ The following table shows the release stage and change logs for different versio
 1. The data type mapping for the Xero linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Xero](#data-type-mapping-for-xero).
 
 1. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0.
+
+1. Note that version 2.0 supports specific Xero tables. For the supported table list, go to [Dataset properties](#dataset-properties).
 
 ## Related content
 For a list of supported data stores by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
