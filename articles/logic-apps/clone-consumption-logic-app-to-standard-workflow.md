@@ -124,7 +124,7 @@ If your source Consumption logic app connects to a system using a firewall, you 
 
 1. On the resource sidebar, under **Settings**, select **Properties**.
 
-   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/standard-settings-properties.png" alt-text="Screenshot shows Standard logic app resource sidebar with Properties selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/standard-settings-properties.png":::
+   :::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/standard-settings-properties.png" alt-text="Screenshot shows Standard logic app resource sidebar with Properties selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/standard-settings-properties.png":::
 
 1. Under **Outbound IP addresses**, find the outbound IPs list:
 
