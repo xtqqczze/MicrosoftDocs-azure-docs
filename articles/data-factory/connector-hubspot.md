@@ -306,7 +306,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 (Preview)| Public Preview |• The `tableName` value is `<HubSpot Category>.<Sub Category>.<Object Name>`, for example: `CRM.Commerce.Discounts`. <br><br>• date is read as DateTime data type. <br><br>• object is read as String data type.<br><br>•`useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. |
+| Version 2.0 (Preview)| Public Preview |• The `tableName` value is `<HubSpot Category>.<Sub Category>.<Object Name>`, for example: `CRM.Commerce.Discounts`. <br><br>• date is read as DateTime data type. <br><br>• object is read as String data type.<br><br>•`useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>• Support specific HubSpot tables. For the supported table list, go to [Dataset properties](#dataset-properties).|
 
 ### <a name="upgrade-the-hubspot-connector-from-version-10-to-version-20"></a> Upgrade the HubSpot connector from version 1.0 to version 2.0 (Preview)
 
@@ -315,6 +315,7 @@ The following table shows the release stage and change logs for different versio
 2. The data type mapping for the HubSpot linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for HubSpot](#data-type-mapping-for-hubspot).
 
 3. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0 (Preview).
+4. Note that version 2.0 supports specific HubSpot tables. For the supported table list, go to [Dataset properties](#dataset-properties).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
