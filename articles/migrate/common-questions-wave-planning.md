@@ -17,7 +17,7 @@ This article answers common questions about Wave Planning in Azure Migrate.
 
 ## Is wave planning mandatory for migrations?
 
-No, wave planning isn't a mandatory to migrate with Azure Migrate. It's a guided, step by step process that helps you plan and execute large scale migrations on time. 
+No, wave planning isn't a mandatory to migrate with Azure Migrate. It's a guided, step-by-step process that helps you plan and execute large scale migrations on time. 
 
 ## How do I ensure waves show latest data? 
 
@@ -35,7 +35,7 @@ Each workload in a migration wave can have only unique  migration plan and be pa
 
 Alternatively, switch to workload selection view, filter by the application name, and add the remaining workloads to the wave.  
 
-## Explain why workloads the application count added to the wave are different from what I selected in the creation flow?
+## Why does the number of workloads or apps in a wave differ from the count added to the wave?
 
 Following are the reasons why the workloads/apps selected for the wave may vary from the count, which is added to the wave:
 
@@ -47,14 +47,13 @@ Following are the reasons why the workloads/apps selected for the wave may vary 
 
 There are two types of category tracking in Azure Migrate: 
 
-1. **Automated tracking**: When Azure Migrate supports the migration tool and approach (for example, Server Migration), you can perform migration and modernization tasks through Waves, and the status updates automatically.
+1. **Automated tracking**: When Azure Migrate supports the migration tool and approach (for example, Server Migration), you can perform migration and modernization tasks through Waves, and the status gets updated automatically.
 
 1. **Manually tracking**: When Azure Migrate doesn't natively support migration tooling (for example, DMS or other tools), you manually update task status (for example, select **Mark as complete**). This keeps Waves status up to date and reflects the current stage in the migration and modernization journey.
 
-
 ## How can I export the Wave? 
 
-All Azure Migrate data, including waves, is available in Azure Resource Graph (ARG). The following tables include wave planning data:
+All Azure Migrate data, including waves, is available in Azure Resource Graph (ARG). It includes the following wave planning data:
 
  - Wave: `microsoft.migrate/migrateprojects/waves`
  - Workload in wave: `microsoft.migrate/migrateprojects/migrationentities`
