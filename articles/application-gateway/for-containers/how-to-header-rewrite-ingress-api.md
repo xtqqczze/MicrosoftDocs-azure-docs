@@ -197,6 +197,9 @@ spec:
 EOF
 ```
 
+>[!Note]
+>Modifying the `Host` header is not supported with a `requestHeaderModifier` rule. To override the `Host` value specified to the backend target, use a [URLRewrite](how-to-url-rewrite-ingress-api.md#deploy-the-required-ingress-api-resources) filter.
+
 Once the IngressExtension resource is created, ensure the resource returns _No validation errors_ and is valid.
 
 ```bash
