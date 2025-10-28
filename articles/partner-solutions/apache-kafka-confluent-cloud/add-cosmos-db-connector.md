@@ -119,4 +119,4 @@ Select **Review + create** to continue.
 Review your settings for the connector to ensure that the details are accurate and complete. Then select **Create** to begin the connector deployment. In the upper-right corner of the Azure portal, a notification displays the deployment status. When it shows that the connector is created, refresh the **Confluent Connectors (Preview)** pane and check for the new connector tile. 
 
 ## Related content
-manage 
+- [Manage confluent connectors](manage-confluent-connectors.md) 
