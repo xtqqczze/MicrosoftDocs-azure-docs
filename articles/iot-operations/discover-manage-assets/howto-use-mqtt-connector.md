@@ -34,7 +34,7 @@ This article explains how to use the connector for MQTT to perform tasks such as
 
 ## Prerequisites
 
-To configure devices and assets, you need a running instance of Azure IoT Operations.
+[!INCLUDE [enable-resource-sync-rules](../includes/enable-resource-sync-rules.md)]
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -102,7 +102,10 @@ To create a namespace asset from the detected asset, follow these steps:
 
 1. In the operations experience, select the detected asset from the list and then select **Import and create asset**.
 
-1. On the **Asset details** page, the inbound endpoint is already selected from the device. Enter a name for the asset, add a description, and any custom properties you want to associate with the asset. Then select **Next** to continue.
+1. On the **Asset details** page, the inbound endpoint is already selected from the device. Use the name of the discovered asset as the name of the asset, add a description, and any custom properties you want to associate with the asset. Then select **Next** to continue.
+
+    > [!IMPORTANT]
+    > The name of the asset you create must match the name of the discovered asset.
 
 1. On the **Datasets** page, there's a dataset that was created automatically from the detected asset using the topic filter and asset name:
 

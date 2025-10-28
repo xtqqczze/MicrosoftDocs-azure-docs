@@ -22,50 +22,9 @@ To learn more, see [What is asset discovery?](overview-akri.md).
 
 ## Prerequisites
 
-- **Enable resource sync.** A deployed instance of Azure IoT Operations with resource sync enabled.
+[!INCLUDE [enable-resource-sync-rules](../includes/enable-resource-sync-rules.md)]
 
-- **Set permissions on your custom location.** The custom location in the resource group where you deployed Azure IoT Operations must have the **Azure Kubernetes Service Arc Contributor Role** role enabled with **K8 Bridge** as a member: For example:
-
-    # [Azure portal](#tab/portal)
-
-    1. Go to the custom location for your Azure IoT Operations instance in the Azure portal.
-
-    1. Select **Access control (IAM)**.
-
-    1. Select **Add > Add role assignment**.
-
-    1. Search for and select the **Azure Kubernetes Service Arc Contributor Role** role. Then click **Next**.
-
-    1. Select **Select members**. Search for and select **K8 Bridge**. Then click **Review + Assign**.
-
-    1. To finish adding the role assignment, select **Review + assign** again.
-
-    # [Azure CLI](#tab/cli)
-
-    Run `enable-rsync` to enable resource sync on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
-
-    ```bash
-    az iot ops enable-rsync -n <my instance> -g <my resource group>
-    ```
-
-    If the signed-in CLI user doesn't have permission to look up the object ID (OID) of the K8 Bridge service principal, you can provide it explicitly using the `--k8-bridge-sp-oid` parameter:
-
-    ```bash
-    az iot ops enable-rsync --k8-bridge-sp-oid <k8 bridge service principal object ID>
-    ```
-
-    > [!NOTE]
-    > You can manually look up the OID by a signed-in CLI principal that has MS Graph app read permissions. Run the following command to get the OID:
-    > 
-    > ```bash
-    > az ad sp list --display-name "K8 Bridge" --query "[0].appId" -o tsv
-    > ```
-
-    > [!NOTE]
-    > The `az iot ops rsync enable` command is deprecated. Use `az iot ops enable-rsync` instead.
-
-
-    ---
+[!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
 ## Create a device
 
