@@ -30,7 +30,8 @@ The final workflow consists of these steps:
 ### Set up API Management to route requests through a delegation endpoint
 
 1. In the [Azure portal](https://portal.azure.com), go to your API Management instance.
-1. In the sidebar menu, under **Developer portal**, select **Delegation**. 
+1. In the sidebar menu, under **Developer portal**, select **Delegation**.
+1. Select the checkbox to **Enable delegation**.
 1. Select the checkbox to enable **Delegate sign-in & sign-up**.
 
     :::image type="content" source="media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png" alt-text="Screenshot showing delegation of sign-in and sign-up in the portal.":::
@@ -106,12 +107,12 @@ Delegating product subscriptions works similarly to delegating user sign-in/sign
 1. Browser redirects to the delegation endpoint.
 1. Delegation endpoint performs required product subscription steps, which you design. These steps could include: 
    * Redirecting to another page to request billing information.
-   * Asking additional questions.
+   * Asking further questions.
    * Storing the information and not requiring any user action.
 
 ### Enable the API Management functionality
 
-On the **Delegation** page, click **Delegate product subscription**.
+On the **Delegation** page, select the checkbox to **Enable delegation**, and then enable **Delegate product subscription**.
 
 ### Create your delegation endpoint
 
