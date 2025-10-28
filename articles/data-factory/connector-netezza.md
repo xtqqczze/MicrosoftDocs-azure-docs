@@ -54,7 +54,7 @@ For more information about the network security mechanisms and options supported
 
 ### For version 1.0
 
-If your data store is a managed cloud data service, you can use the Azure Integration Runtime. If the access is restricted to IPs that are approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allow list. 
+If your data store is a managed cloud data service, you can use the Azure Integration Runtime. If the access is restricted to IPs that are approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allowlist. 
 
 You can also use the [managed virtual network integration runtime](tutorial-managed-virtual-network-on-premise-sql-server.md) feature in Azure Data Factory to access the on-premises network without installing and configuring a self-hosted integration runtime.
 
@@ -111,7 +111,7 @@ The Netezza linked service supports the following properties when apply version 
 | server | The hostname or the IP address of the Netezza server. | Yes |
 | port | The port number of the server listener. | Yes |
 | database | Name of the Netezza database. | Yes |
-| uid | The user id used to connect to the database. | Yes |
+| uid | The user ID used to connect to the database. | Yes |
 | pwd | The password used to connect to the database. | Yes |
 | SecurityLevel | The level of security that the driver uses for the connection to the data store. <br>Example: `SecurityLevel=preferredUnSecured`. Supported values are:<br/>- **Only unsecured** (**onlyUnSecured**): The driver doesn't use SSL.<br/>- **Preferred unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver doesn't use SSL.  | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. You can only use the self-hosted integration runtime. |No |

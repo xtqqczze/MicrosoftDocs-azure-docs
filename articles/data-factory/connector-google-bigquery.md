@@ -78,7 +78,7 @@ The following properties are supported for the Google BigQuery linked service.
 | type | The type property must be set to **GoogleBigQueryV2**. | Yes |
 | version |The version that you specify. Recommend upgrading to the latest version to take advantage of the newest enhancements. | Yes for version 1.1 |
 | projectId | The project ID of the default BigQuery project to query against.  | Yes |
-| authenticationType | The OAuth 2.0 authentication mechanism used for authentication.</br>Allowed values are **UserAuthentication** and **ServiceAuthentication**. Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
+| authenticationType | The OAuth 2.0 authentication mechanism used for authentication.</br> Allowed values are **UserAuthentication** and **ServiceAuthentication**. Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
 
 ### Using user authentication
 
