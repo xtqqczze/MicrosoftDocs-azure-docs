@@ -54,9 +54,22 @@ Azure Functions also offers the ability to collect more than Azure Monitor resou
 
 ### Analyze metrics for Azure Functions
 
-The following examples use Azure Monitor metrics to help estimate the cost of running your function app on a Consumption plan. To learn more about estimating Consumption plan costs, see [Estimating Consumption plan costs](functions-consumption-costs.md).
+Functions provides these two dynamic scale plans that support serverless hosting:
+
+#### [Flex Consumption plan](#tab/flex-consumtion-plan)
+
+Provides fast horizontal scaling, with flexible compute options, virtual network integration, and full support for connections using Microsoft Entra ID authentication. In this plan, instances dynamically scale out based on configured per-instance concurrency, incoming events, and per-function workloads for optimal efficiency. Flex Consumption is the recommmended plan for serverless hosting. For more information, see [Azure Functions Flex Consumption plan hosting](flex-consumption-plan.md).
+
+#### [Consumption plan](#tab/consumption-plan)
+
+Provides dynamic scale and serverless hosting when your app must run on Windows, on version 1.x of the Functions runtime, on the full .NET Framework, or with full support for PowerShell. You should use the Flex Consumption plan for hosting new apps, unless your app requires these specialized hosting conditions. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md). 
+
+---
+
+These examples use Azure Monitor metrics to help estimate the cost of running your function app on either if these consumption plans. To learn more about estimating costs for these plans, see [Estimating consumption plan costs](functions-consumption-costs.md).
 
 [!INCLUDE [functions-monitor-metrics-consumption](../../includes/functions-monitor-metrics-consumption.md)]  
+
 
 ### Analyze logs for Azure Functions
 
