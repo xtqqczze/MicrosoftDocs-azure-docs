@@ -2,7 +2,7 @@
 title: Azure Functions Durable Task Scheduler in Durable Functions (preview)
 description: Learn how to develop with the Azure Functions Durable Task Scheduler for Durable Functions.
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.date: 10/28/2025
 ---
 
 # Durable Task Scheduler in Durable Functions (preview)
@@ -19,8 +19,7 @@ Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#f
 ## Create a scheduler and task hub
 You can create a scheduler and a task hub as part of the Function app creation on Azure portal. This creation approach automatically configures identity-based authentication for the app to access the task hub. 
 
-> [!NOTE]
-> Durable Task Scheduler currently supports apps hosted in the **App Service** and **Functions Premium** plans, so this experience is available only when either of these plan types is picked. 
+While you can use any of the Functions hosting options, this guide uses the **App Service** plan.
 
 [!INCLUDE [function-app-integrated-creation](./includes/function-app-integrated-creation.md)]
 

@@ -2,7 +2,7 @@
 title: Choosing an orchestration framework
 description: Learn which orchestration framework works for your scenario.
 ms.topic: conceptual
-ms.date: 05/06/2025
+ms.date: 10/28/2025
 ---
 
 # Choosing an orchestration framework
@@ -45,7 +45,18 @@ You can implement an AI agent for each task, and then write an orchestration tha
 
 ## Orchestration framework options  
 
-Both Durable Functions and Durable Task SDK are available in multiple languages but there are some differences in how they can be used. The important differences and use case for each framework option are described in the following sections. 
+Both Durable Functions and Durable Task SDK are available in multiple languages but there are some differences in how they can be used. 
+
+Need text
+
+| Experience | Dedicated SKU | Consumption SKU |
+| ---------- | ------------- | --------------- |
+| Durable Functions extension in all languages | Generally available | Preview |
+| Durable Task .NET SDK | Generally available | Preview |
+| Durable Task Python SDK | Preview | Preview |
+| Durable Task Java SDK | Preview | Preview |
+
+The important differences and use case for each framework option are described in the following sections. 
 
 ### Durable Functions
  
