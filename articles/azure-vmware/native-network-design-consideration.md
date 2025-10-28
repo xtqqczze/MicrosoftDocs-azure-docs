@@ -23,12 +23,12 @@ The following functionality is limited during this time. These limitations will 
 
 1. You cannot delete your **Resource Group**, which contains your private cloud. You must delete the private cloud first before deleting the resource group.  
 2. You can only deploy **1 private cloud per Azure virtual network**.  
-3. You can only create **1 private cloud per Resource Group**. Multiple private clouds in a single Resource Group are not supported.  
+1. You can only create **1 private cloud per Resource Group**. Multiple private clouds in a single Resource Group are not supported. 
+
 4. Your private cloud and virtual network for your private cloud must be in the ***same*** Resource Group.  
 5. You cannot ***move*** your private cloud from one Resource Group to another after the private cloud is created.  
 6. You cannot ***move*** your private cloud from one tenant to another after the private cloud is created.  
-7. **Service Endpoints** direct connectivity from Azure VMware Solution workloads isn't supported.  
-8. Only host-level mounts of Azure NetApp Files are supported. **Mounting directly from Azure VMware Solution virtual machines** is not supported.  
+1. **Service Endpoints** direct connectivity from Azure VMware Solution workloads isn't supported.  
 9. **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints isn't supported.  
 10. **vSAN Stretched Clusters** isn't supported.  
 11. **Public IP down to the VMware NSX Microsoft Edge** for configuring internet will not be supported. You can find what internet options are supported in [Internet connectivity options](native-internet-connectivity-design-considerations.md).  
@@ -38,13 +38,12 @@ The following functionality is limited during this time. These limitations will 
     - To maintain your cross-resource group reference, create a role assignment from your cross-resource group and give the “AzS VIS Prod App” the "AVS on Fleet VIS Role". The role assignment allows you to use reference and have your reference correctly applied for your Azure VMware Solution private cloud.  
 15. Gen 2 private cloud **deployments may fail if Azure policies that enforce strict rules for Network Security Groups or route tables (for example, specific naming conventions)**. These policy constraints can block required Azure VMware Solution Network Security Group and route table creation during deployment. You must remove these policies from the Azure VMware Solution virtual network before deploying your private cloud. Once your private cloud is deployed, these policies can be added back to your Azure VMware Solution private cloud.  
 16. If you are using **Private DNS** for your Azure VMware Solution Gen 2 private cloud, using **Custom DNS** on the virtual network where an Azure VMware Solution Gen 2 private cloud is deployed is unsupported. Custom DNS breaks lifecycle operations such as scaling, upgrades, and patching.  
-17. If you are deleting your private cloud and some Azure VMware Solution created resources are not removed, you can retry the deletion of the Azure VMware Solution private cloud using the Azure CLI.  
-        
+1. If you are **deleting** your private cloud and some Azure VMware Solution created resources are not removed, you can retry the deletion of the Azure VMware Solution private cloud using the Azure CLI.  
+
 ## Unsupported integrations
 
 The following 1st-party and 3rd-party integrations aren't available:
 - **Zerto DR**
-- **JetStream DR**
 
 ## Routing and subnet considerations
 
