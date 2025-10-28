@@ -133,15 +133,24 @@ To define a namespace asset that publishes data points from the HTTP endpoint, f
 
 1. Add any custom properties you want to associate with the asset. For example, you might add a property to indicate the manufacturer of the camera. Select **Next** to continue.
 
-1. On the **Data points** page, select **Add data point** to add a data point for the asset. For example:
+A dataset defines where the connector sends the data it collects from a collection of data points. An HTTP/REST asset can have multiple datasets. To create a dataset:
+
+1. Select **Create dataset**.
+
+1. Enter the details for the dataset such as its name, data source, and destination. For HTTP/REST assets, the data source is the path on the REST endpoint. For HTTP/REST assets, the destination is either an MQTT topic or a [broker state store](../develop-edge-apps/overview-state-store.md) key. For example:
+
+    :::image type="content" source="media/howto-use-http-connector/create-dataset.png" alt-text="Screenshot that shows how to create a dataset in the operations experience." lightbox="media/howto-use-http-connector/create-dataset.png":::
+
+1. Select **Create and next** to create the dataset.
+
+> [!TIP]
+> Use the **Manage default settings** option to configure default dataset settings such as the sampling interval.
+
+1. On the **Data points** page, select **Add data point** to add a data point for the dataset. For example:
 
     :::image type="content" source="media/howto-use-http-connector/add-data-point.png" alt-text="Screenshot that shows how to add a data point for HTTP source." lightbox="media/howto-use-http-connector/add-data-point.png":::
 
     Add details for each data point to publish to the MQTT broker.
-
-1. To configure the destination for the data, select **Manage default dataset**. Choose either **MQTT broker** or **Broker state store** as the destination. If you choose **MQTT broker**, you can enter the name of the topic to publish to. If you choose **Broker state store**, you can enter the key of the entry in the state store to use.
-
-    :::image type="content" source="media/howto-use-http-connector/configure-dataset.png" alt-text="Screenshot that shows how to configure the dataset for HTTP source." lightbox="media/howto-use-http-connector/configure-dataset.png":::
 
     Select **Next** to continue.
 
