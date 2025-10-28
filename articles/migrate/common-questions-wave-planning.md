@@ -24,6 +24,9 @@ No, wave planning isn't a mandatory to migrate with Azure Migrate. It's a guided
 Create, edit, delete, and other wave operations can take time depending on the size of the wave. To see the latest data, do the following
 
 1. Ensure deployments for each operation are complete. 
+
+:::image type="content" source="./media/common-questions-wave-planning/notifications.png" alt-text="The screenshot shows the notifications." lightbox="./media/common-questions-wave-planning/notifications.png":::
+
 1. Refresh the page using the Refresh action.
 
 ## Explain why can't I add an application to a wave?
@@ -47,3 +50,14 @@ There are two types of cateogy tracking in Azure Migrate:
 1. **Automated tracking**: When Azure Migrate supports the migration tool and approach (for example, Server Migration), you can perform migration and modernization tasks through Waves, and the status updates automatically.
 
 1. **Manually tracking**: When Azure Migrate doesn't natively support migration tooling (for example, DMS or other tools), you manually update task status (for example, select **Mark as complete**). This keeps Waves status up to date and reflects the current stage in the migration and modernization journey.
+
+
+## How can I export the Wave? 
+
+All Azure Migrate data, including waves, is available in Azure Resource Graph (ARG). The following tables include wave planning data:
+
+ - Wave: `microsoft.migrate/migrateprojects/waves`
+ - Workload in wave: `microsoft.migrate/migrateprojects/migrationentities`
+ - Application in wave: `microsoft.migrate/migrateprojects/migrationentitygroups`
+
+You can build queries as needed by using the Azure portal, Azure CLI, PowerShell, REST APIs, or the Power BI connector to generate reports.
