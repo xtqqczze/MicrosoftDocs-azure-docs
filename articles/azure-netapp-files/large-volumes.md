@@ -32,6 +32,18 @@ Large volumes have the following limits:
 | File count | 15,938,355,048 |
 | Performance | The large volume performance limit is 12,800 MiB/s on all service levels. |
 
+If you enable cool access, you can also create _extra-large volumes_, which scale to 7.2 PiB. Extra-large volumes have the following limits: 
+
+| Limit type | Values | 
+| - | - | 
+| Capacity | <ul><li>2,400 GiB minimum</li><li>7.2 PiB maximum</li></ul> |
+| File count | 15,938,355,048 |
+| Performance | The large volume performance limit is XYZ MiB/s on all service levels. |
+
+>[!NOTE]
+>You must enable cool access on the volume and select **Extra-large volume** as the volume type when you create the volume. 
+
+<!-- performance and file count -->
 
 ## Large volumes effect on performance 
 
@@ -56,7 +68,7 @@ Large volumes allow workloads to extend beyond the current limitations of regula
 | Volume type | Primary use cases | 
 | - | --- |
 | Regular volumes | <ul><li>General file shares</li><li>SAP HANA and databases (Oracle, SQL Server, Db2, and others)</li><li>VDI/Azure VMware Service</li><li>Capacities less than 50 TiB</li></ul> |
-| Large volumes | <ul><li>General file shares</li><li>High file count or high metadata workloads (such as electronic design automation, software development, financial services)</li><li>High capacity workloads (such as AI/ML/LLP, oil & gas, media, healthcare images, backup, and archives)</li><li>Large-scale workloads (many client connections such as FSLogix profiles)</li><li>High performance workloads</li><li>Capacity quotas between 50 TiB and 1 PiB</li></ul> |
+| Large volumes | <ul><li>General file shares</li><li>High file count or high metadata workloads (such as electronic design automation, software development, financial services)</li><li>High capacity workloads (such as AI/ML/LLP, oil & gas, media, healthcare images, backup, and archives)</li><li>Large-scale workloads (many client connections such as FSLogix profiles)</li><li>High performance workloads</li><li>Capacity quotas between 50 TiB and 1 PiB, or with cool access enabled 2,400 GiB and 7.2 PiB</li></ul> |
 
 ## More information
 

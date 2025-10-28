@@ -20,8 +20,6 @@ Regular volumes quotas are between 50 GiB and 100 TiB. Large volume quotas range
 >
 >Regular volumes cannot be converted to large volumes. Large volumes can't be resized to less than 50 TiB. To understand the requirements and considerations of large volumes, see [Requirements and considerations for large volumes](../large-volumes-requirements-considerations.md). For other limits, see [Resource limits](../azure-netapp-files-resource-limits.md#resource-limits).
 
-* **Breakthrough mode**
+* **Large volume type**
 
-    If you're using breakthrough mode to increase throughput, select the box.
-
-    You must first be registered to use breakthrough mode. For registration and other considerations, see [breakthrough mode](../large-volumes-requirements-considerations.md#register-for-breakthrough-mode).
+    Select **Large volume** to create the volume at a size between 50 TiB and 2 PiB. If you plan to enable cool access and want to scale to 7.2 PiB, select **Extra-large volume 7.2 PiB**. Ensure you meet the [requirements for extra large volumes](large-volumes-requirements-considerations.md#requirements-and-considerations-for-extra-large-volumes).

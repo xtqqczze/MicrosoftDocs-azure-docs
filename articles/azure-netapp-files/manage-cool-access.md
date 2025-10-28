@@ -38,8 +38,8 @@ There are several considerations to be aware of when using cool access.
 ### Considerations for large volumes
 
 * Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
-* Cool access is also supported with dedicated capacity, enabling you to create volumes with quotas up to 7.2 PiB. You must be [registered to use large volumes breakthrough](large-volumes-requirements-considerations.md#register-for-breakthrough-mode) and to use [dedicated capacity with cool access](large-volumes-requirements-considerations.md#register-for-breakthrough-mode-with-cool-access). 
-* Cool access with dedicated capacity is only available for newly created volumes. You must enable cool access and select **Large volume** and **Breakthough mode** when creating the volume. 
+* With cool access enabled, you can create extra-large volumes at sizes between 2,400 GiB and 7.2 PiB. You must be [registered to use extra-large volumes](large-volumes-requirements-considerations.md#register-for-extra-large-models).
+    * Extra-large volumes are designed for volumes with the major of the data on the cool tier. 90% of the data must reside on the cool tier; the remaining 10% can reside on the hot tier. 
 
 ### Considerations for cool access-enabled capacity pools 
 
@@ -194,8 +194,6 @@ You can enable Azure NetApp Files storage with cool access during the creation o
 1. On the **Create a volume** page, on the **Basics** tab, set the following options to enable the volume for cool access:
 
     [!INCLUDE [Cool access configuration settings](includes/cool-access-options.md)]
-
-    * If you're using breakthrough mode, select the box for **Breakthrough mode**. 
 
     :::image type="content" source="./media/manage-cool-access/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a volume page. On the Basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="./media/manage-cool-access/cool-access-new-volume.png"::: 
 
