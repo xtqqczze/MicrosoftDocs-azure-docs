@@ -27,7 +27,58 @@ The X12 connector has different versions, based on [logic app type and host envi
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
 | **Consumption** | Multitenant Azure Logic Apps | X12 managed connector, which appears in the connector gallery under **Shared**. The X12 connector has one trigger and multiple actions. You can use any trigger that works for your scenario. For more information, see: <br><br>- [X12 managed connector reference](/connectors/x12/) <br>- [X12 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
-| **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), and hybrid deployment | X12 built-in connector, which appears in the connector gallery under **Built-in**, and X12 managed connector, which appears in the connector gallery under **Shared**. The X12 managed connector has one trigger and multiple actions. The X12 built-in connector provides only actions. You can use any trigger that works for your scenario. <br><br>The built-in version differs in the following ways: <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway. <br><br>- The built-in version provides higher throughput and lower latency. <br><br>For more information, see: <br><br>- [X12 managed connector reference](/connectors/x12/) <br>- [X12 built-in connector operations](#x12-operations) <br>- [X12 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
+| **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), and hybrid deployment | X12 built-in connector, which appears in the connector gallery under **Built-in**, and X12 managed connector, which appears in the connector gallery under **Shared**. The X12 managed connector has one trigger and multiple actions. The X12 built-in connector provides only actions. You can use any trigger that works for your scenario. <br><br>The built-in version differs in the following ways: <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway. <br><br>- The built-in version provides higher throughput and lower latency. <br><br>For more information, see: <br><br>- [X12 managed connector reference](/connectors/x12/) <br>- [X12 built-in connector operations](#x12-built-in-operations) <br>- [X12 message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
+
+### X12 built-in operations
+
+The following sections describe the X12 built-in connector operations and their parameters:
+
+#### Decode X12
+Operation ID: x12Decode
+Decodes an X12 message by converting flat file to XML format.
+
+##### Parameters
+
+| Display name | JSON name | Required | Type | Description |
+|--------------|-----------|----------|------|-------------|
+| **Message to decode** | `messageToDecode` | Yes | String | The X12 message to decode. |
+| **B2B tracking Id** | `b2bTrackingId` | No | String | The B2B tracking ID. |
+
+#### Encode X12
+Operation ID: x12Encode
+Encodes an X12 message by converting XML to flat file format.
+
+##### Parameters
+
+| Display name | JSON name | Required | Type | Description |
+|--------------|-----------|----------|------|-------------|
+| **Message to encode** | `messageToEncode` | Yes | String | The X12 message to encode. |
+| **Sender identity Sender qualifier** | `senderIdentity.qualifier` | No | String | The sender qualifier. |
+| **Sender identity Sender identifier** | `senderIdentity.value` | No | String | The sender identifier. |
+| **Receiver identity Receiver qualifier** | `receiverIdentity.qualifier` | No | String | The receiver qualifier. |
+| **Receiver identity Receiver identifier** | `receiverIdentity.value` | No | String | The receiver identifier. |
+| **Name of X12 agreement** | `agreementName` | No | String | The name of the X12 agreement. |
+| **B2B tracking Id** | `b2bTrackingId` | No | String | The B2B tracking ID. |
+
+#### Encode X12 batch
+Operation ID: x12BatchEncode
+Encodes an X12 message batch by converting XML to flat file format.
+
+##### Parameters
+
+| Display name | JSON name | Required | Type | Description |
+|--------------|-----------|----------|------|-------------|
+| **Batch messages** | `batchMessage.items` | Yes | Array | The X12 message to encode. |
+| **Message ID** | `batchMessage.items.messageId` | Yes | String | The unique ID of the batch item. |
+| **Content** | `batchMessage.items.content` | Yes | String | The batch item content. |
+| **Batch name** | `batchMessage.batchName` | No | String | The batch name. |
+| **Partition name** | `batchMessage.partitionName` | No | String | The partition name. |
+| **Sender identity Sender qualifier** | `senderIdentity.qualifier` | No | String | The sender qualifier. |
+| **Sender identity Sender identifier** | `senderIdentity.value` | No | String | The sender identifier. |
+| **Receiver identity Receiver qualifier** | `receiverIdentity.qualifier` | No | String | The receiver qualifier. |
+| **Receiver identity Receiver identifier** | `receiverIdentity.value` | No | String | The receiver identifier. |
+| **Name of X12 agreement** | `agreementName` | No | String | The name of the X12 agreement. |
+| **B2B tracking Id** | `b2bTrackingId` | No | String | The B2B tracking ID. |
 
 ## Prerequisites
 
