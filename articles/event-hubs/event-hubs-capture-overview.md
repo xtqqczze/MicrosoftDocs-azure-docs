@@ -29,7 +29,7 @@ Event Hubs serves as a time-retention durable buffer for telemetry ingress, simi
 
 Event Hubs Capture enables you to specify a Blob Storage account and container, or a Data Lake Storage account, to store captured data. These accounts can reside in the same region as your event hub or in another region, which adds flexibility.
 
-Event Hubs Capture writes captured data in [Apache Avro][Apache Avro] format, which is a compact, fast, binary format that provides rich data structures with inline schema. The Hadoop ecosystem, Azure Stream Analytics, and Azure Data Factory use this format. Later sections in this article provide more information about working with Avro.
+Event Hubs Capture writes captured data in [Apache Avro](https://avro.apache.org/) format, which is a compact, fast, binary format that provides rich data structures with inline schema. The Hadoop ecosystem, Azure Stream Analytics, and Azure Data Factory use this format. Later sections in this article provide more information about working with Avro.
 
 > [!NOTE]
 > - When you use the no-code editor in the Azure portal, you can capture streaming data in Event Hubs to a Data Lake Storage account in the Parquet format. For more information, see [Capture data from Event Hubs in Parquet format](../stream-analytics/capture-event-hub-data-parquet.md) and [Capture Event Hubs data in Parquet format and analyze it by using Azure Synapse Analytics](../stream-analytics/event-hubs-parquet-capture-tutorial.md).
@@ -120,18 +120,3 @@ To enable this feature, use the Azure portal or an ARM template:
 - [Use an ARM template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
 For more information about data redundancy options for your Capture destination storage account, see [Reliability in Blob Storage](../reliability/reliability-storage-blob.md).
-
-[Apache Avro]: https://avro.apache.org/
-[Apache Drill]: https://drill.apache.org/
-[Apache Spark]: https://spark.apache.org/
-[support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[Azure Storage Explorer]: https://github.com/microsoft/AzureStorageExplorer/releases
-[3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
-[Avro Tools]: https://downloads.apache.org/avro/stable/java/
-[Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
-[Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
-[Event Hubs overview]: ./event-hubs-about.md
-[HDInsight: Address files in Azure storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
-[Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
-[Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
-[Streaming at Scale: Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture
