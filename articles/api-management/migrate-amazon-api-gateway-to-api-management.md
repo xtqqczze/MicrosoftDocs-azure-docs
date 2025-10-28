@@ -200,6 +200,8 @@ Also, for API workloads:
 
 ## Step 2: Preparation
 
+In the preparation phase, plan your Azure infrastructure, select appropriate API Management tiers for test and production, and thoroughly document your source APIs and integrated services. Export relevant AWS configurations and design a phased migration strategy to ensure a smooth transition.
+
 ### Plan for infrastructure setup
     
 Plan for ingress and egress, firewalls, network isolation, and integration with network traffic entry points like Application Gateway, Azure Front Door, or Traffic Manager. Understand the implications of private versus public exposure of the target Azure API Management system, especially around DNS and traceability.
@@ -375,6 +377,7 @@ Decommission Amazon API Gateway after a period when it receives zero traffic and
 
 ## Iterative optimization
 
+After migration, focus on optimizing the API Management configuration iteratively by closing feature gaps and implementing best practices. This iterative improvement process ensures that the migrated workload meets all success criteria established during the assessment step and follows the [Architecture best practices for API Management](/azure/well-architected/service-guides/azure-api-management).
 
 ### Iterate on feature gaps
 
