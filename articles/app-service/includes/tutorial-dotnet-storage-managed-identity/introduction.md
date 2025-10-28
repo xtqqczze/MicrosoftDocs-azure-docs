@@ -1,11 +1,10 @@
 ---
 services: storage, app-service-web
-author: rwike77
-manager: CelesteDG
+author: msangapu-msft
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 02/16/2022
-ms.author: ryanwi
+ms.author: msangapu
 ms.reviewer: stsoneff
 ms.devlang: azurecli
 ms.custom:
