@@ -12,6 +12,8 @@ The Durable Task Scheduler offers two pricing models to accommodate different wo
 - Dedicated
 - Consumption (preview)
 
+You can also use the Durable Task Scheduler with [any of the Functions SKUs](../../functions-scale.md).
+
 In this article, you learn about actions, the available SKU options, and their pricing structures.
 
 ## What is an action?
