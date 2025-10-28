@@ -71,7 +71,7 @@ To enable threat detection for Azure VM backups from the Recovery Services Vault
 1. Go to the **Recovery Services vault**, and then select **Properties**.
 1. On the **Properties** pane, under **Security Settings** > **Threat detection (Preview)**, select **Update**.
 
-   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/enable-threat-detection-vault.png" alt-text="Screenshot shows the enable threat detection option in the vault properties." lightbox"./media/threat-detection-configure-monitor-tutorial/enable-threat-detection-vault.png":::
+   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/enable-threat-detection-vault.png" alt-text="Screenshot shows the enable threat detection option in the vault properties." lightbox="./media/threat-detection-configure-monitor-tutorial/enable-threat-detection-vault.png":::
 
 1. On the **Threat Detection (Preview)** pane, turn on **Enable source-scan integration**, accept the terms by selecting the checkbox.
 1. Select **Update**.
