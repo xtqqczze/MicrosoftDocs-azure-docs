@@ -7,7 +7,7 @@ ms.service: azure-migrate
 ms.topic: how-to 
 ms.date: 09/19/2025
 ms.custom: engagement-fy24 
-::: moniker range="migrate"
+monikerRange: migrate
 # Customer intent: IT administrators and cloud architects use the Insights (preview) feature in Azure Migrate to identify and mitigate security risks in their datacenter during cloud migration planning. This helps them assess vulnerabilities, outdated software, and missing security tools to ensure a secure and efficient migration to Azure
 ---
 
@@ -22,7 +22,6 @@ This article describes the **Insights** (preview) feature in Azure Migrate, whic
 - Identify and plan upgrade of Windows and Linux servers with end of support operating system, end of support software and pending updates. 
 - Detect vulnerabilities in discovered software and take action to remediate risks.
 - Identify servers without security or patch management software, and plan to configure [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md).
-
 
 ## Security Insights data
 
@@ -41,7 +40,6 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 |  | End of support | Software declared end of support by vendor. | 
 |  | With vulnerabilities| Software with known vulnerability (CVE). | 
 
-
 ## How are Insights derived
 
 Azure Migrate identifies potential security risks in your datacenter using software inventory data collected through the [Azure Migrate appliance discovery process](how-to-review-discovered-inventory.md#deploy-and-configure-the-azure-migrate-appliance). When you run a discovery of your on-premises environment, you usually provide guest credentials for your Windows and Linux servers. This allows the tool to collect information about installed software, operating system configuration, and pending updates. Azure Migrate processes this data to generate key security insights without needing additional credentials or permissions.
@@ -55,9 +53,9 @@ Security risks are derived through a series of following analyses:
 
 - **Vulnerabilities**: Azure Migrate identifies installed software and operating system (OS) for each server. It maps the discovered software and OS to CPE nomenclature (Common Platform Enumeration) using AI model, which provides a unique identification for each software version. It stores only software metadata (name, publisher, version) and doesn't capture any organization-specific information. Azure Migrate correlates the CPE names with known CVE IDs (Common Vulnerabilities and Exposures). CVE IDs are unique identifiers assigned to publicly disclosed cybersecurity vulnerabilities and help organizations identify and track vulnerabilities in a standard way. Refer to [CVE](https://www.cve.org/) for more details. Information about CVE IDs and related software comes from the publicly available [National Vulnerability Database](https://nvd.nist.gov/) (NVD), managed by NIST. This helps identify vulnerabilities in the software. Each vulnerability is categorized by risk level (Critical, High, Medium, Low) based on the [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) score provided by NVD. This feature uses the NVD API for all CVE IDs but is not endorsed or certified by the NVD. All CVE data from NVD is refreshed every 7 days. 
 
-- **Pending Updates for servers**: Azure Migrate identifies machines that are not fully patched or updated based on Windows Update metadata for Windows servers and Linux package manager metadata for Linux servers. It also retrieves the classification of these updates (Critical, Security, Other updates) and shows them for further consideration. Azure Migrate refreshes data from Windows Updates and Linux package managers every 24 hours. This insight appears as Servers with pending security and critical updates, indicating that the server is not fully patched and should be updated.
+- **Pending updates for servers**: Azure Migrate identifies machines that are not fully patched or updated based on Windows Update metadata for Windows servers and Linux package manager metadata for Linux servers. It also retrieves the classification of these updates (Critical, Security, Other updates) and shows them for further consideration. Azure Migrate refreshes data from Windows Updates and Linux package managers every 24 hours. This insight appears as Servers with pending security and critical updates, indicating that the server is not fully patched and should be updated.
 
-- **Missing Security and Patch Management Software**: Azure Migrate classifies software by processing its name and publisher into predefined categories and sub categories. It identifies unprotected servers that lack *Security & Compliance* software identified through software inventory. For example, if the software inventory indicates a server without software in categories such as, antivirus, threat detection, SIEM, IAM, or patch management, Azure Migrate flags the server as a potential security risk.
+- **Missing security and patch management software**: Azure Migrate classifies software by processing its name and publisher into predefined categories and sub categories. It identifies unprotected servers that lack *Security & Compliance* software identified through software inventory. For example, if the software inventory indicates a server without software in categories such as, antivirus, threat detection, SIEM, IAM, or patch management, Azure Migrate flags the server as a potential security risk.
 
 Azure Migrate updates security insights whenever it refreshes discovered software inventory data. The platform updates insights when you run a new discovery or when the Azure Migrate appliance sends inventory updates. You usually run a full discovery at the start of a project and may do periodic re-scans before finalizing an assessment. Any system changes, such as, new patches or software reached end-of-life, will reflect in the updated security insights.
 
@@ -167,7 +165,6 @@ To review software with identified security risks, follow these steps:
 1. You can view the detailed list of discovered software, examine associated metadata, and export the data as a .csv file.
 
     :::image type="content" source="./media/security-insights-overview/metadata-export-view.png" alt-text="Screenshot shows detailed list of discovered software and its metadata." lightbox="./media/security-insights-overview/metadata-export-view.png":::
-
 
 1. To view software with specific security risks, go to the **Insights** (preview) pane. here, you see a detailed list of software affected due to the following issues:
 
