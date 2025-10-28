@@ -5,7 +5,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 04/28/2025
+ms.date: 10/28/2025
+
 # Customer intent: As a web application administrator, I want to configure and manage the Default Rule Set (DRS) for the Web Application Firewall, so that I can effectively protect my applications from various vulnerabilities and security threats.
 ---
 
@@ -71,19 +72,19 @@ The version of the DRS that you use also determines which content types are supp
 
 ## Paranoia level
 
-Each rule is assigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they're expected to trigger false positives which should be fine-tuned.
+Each rule is assigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they're expected to trigger false positives, which should be fine-tuned.
 
 By default, DRS 2.2 is configured at Paranoia Level 1 (PL1), and all PL2 rules are disabled. To run WAF at PL2, you can manually enable any or all PL2 rules.
 For earlier rule sets, DRS 2.1 and CRS 3.2 include rules defined for Paranoia Level 2, which covers both PL1 and PL2 rules. If you prefer to operate strictly at PL1, you can disable specific PL2 rules or set their action to Log.
 
-Paranoia Levels 3 and 4 are not currently supported in Azure WAF.
+Paranoia Levels 3 and 4 aren't currently supported in Azure WAF.
 
 ### Upgrading or changing ruleset version
 
 If you're upgrading, or assigning a new ruleset version, and would like to preserve existing rule overrides and exclusions, it's recommended to use PowerShell, CLI, REST API, or a template to make ruleset version changes. A new version of a ruleset can have newer rules, additional rule groups, and may have updates to existing signatures to enforce better security and reduce false positives. It's recommended to validate changes in a test environment, fine tune if necessary, and then deploy in a production environment.
 
 > [!NOTE]
-> If you're using the Azure portal to assign a new managed ruleset to a WAF policy, all the previous customizations from the existing managed ruleset such as rule state, rule actions, and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, or policy settings will remain unaffected during the new ruleset assignment. You'll need to redefine rule overrides and validate changes before deploying in a production environment.
+> If you're using the Azure portal to assign a new managed ruleset to a WAF policy, all the previous customizations from the existing managed ruleset such as rule state, rule actions, and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, or policy settings will remain unaffected during the new ruleset assignment. You need to redefine rule overrides and validate changes before deploying in a production environment.
 
 ### DRS 2.2
 
@@ -95,7 +96,7 @@ DRS 2.2 includes 18 rule groups, as shown in the following table. Each group con
 DRS 2.2 rules configured in Paranoia Level 2 are disabled by default. You can leave their state as disabled if you wish to keep your WAF policy configured in Paranoia Level 1. If you wish to increase the policy's paranoia level, you can safely change these rules' state to enabled and their action to log mode. Analyze the log, make the required fine tuning and enable the rules accordingly. For more information, see [Tuning Web Application Firewall (WAF) for Azure Front Door](waf-front-door-tuning.md) and [Paranoia level](#paranoia-level).
 
 
-Some OWASP rules are superseded by Microsoft-authored replacements. The original rules are disabled by default and their descriptions end with “(replaced by …)”.
+Some OWASP rules are superseded by Microsoft-authored replacements. The original rules are disabled by default and their descriptions end with "(replaced by …)".
 
 |Rule group|ruleGroupName|Description|
 |---|---|---|
@@ -264,7 +265,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 ### <a name="drs911-22"></a> Method enforcement
 |Rule ID|Anomaly score severity|Paranoia Level|Description|
 |---|---|--|--|
-|911100|Critical - 5|1|Method is not allowed by policy|
+|911100|Critical - 5|1|Method isn't allowed by policy|
 
 
 ### <a name="drs920-22"></a> Protocol enforcement
@@ -273,7 +274,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |920100|Notice - 2|1|Invalid HTTP Request Line|
 |920120|Critical - 5|1|Attempted multipart/form-data bypass|
 |920121|Critical - 5|2|Attempted multipart/form-data bypass|
-|920160|Critical - 5|1|Content-Length HTTP header is not numeric.|
+|920160|Critical - 5|1|Content-Length HTTP header isn't numeric.|
 |920170|Critical - 5|1|GET or HEAD Request with Body Content.|
 |920171|Critical - 5|1|GET or HEAD Request with Transfer-Encoding.|
 |920180|Notice - 2|1|POST without Content-Length or Transfer-Encoding headers.|
@@ -1184,7 +1185,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942270|Looking for basic SQL injection. Common attack string for MySQL, Oracle, and others|
 |942280|Detects Postgres pg_sleep injection, wait for delay attacks and database shutdown attempts|
 |942290|Finds basic MongoDB SQL injection attempts|
-|942300|Detects MySQL comments, conditions and ch(a)r injections|
+|942300|Detects MySQL comments, conditions, and ch(a)r injections|
 |942310|Detects chained SQL injection attempts 2/2|
 |942320|Detects MySQL and PostgreSQL stored procedure/function injections|
 |942330|Detects classic SQL injection probings 1/3|
@@ -1489,4 +1490,5 @@ Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header
 ## Related content
 
 - [Custom rules for Azure Web Application Firewall on Azure Front Door](waf-front-door-custom-rules.md)
+- [Policy settings for Web Application Firewall in Azure Front Door](/azure/web-application-firewall/afds/waf-front-door-policy-settings)
 - [Learn more about Azure network security](../../networking/security/index.yml)
