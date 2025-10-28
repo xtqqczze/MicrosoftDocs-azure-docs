@@ -16,11 +16,11 @@ ms.service: azure-functions
 
 ### Application Insights
 
-Azure Functions offers built-in integration with Application Insights to monitor functions executions. For detailed information about how to integrate, configure, and use Application Insights to monitor Azure Functions, see the following articles:
+Azure Functions has built-in integration with Application Insights to monitor function executions. For detailed information about how to integrate, configure, and use Application Insights to monitor Azure Functions, see the following articles:
 
 - [Monitor executions in Azure Functions](functions-monitoring.md)
 - [Configure monitoring for Azure Functions](configure-monitoring.md)
-- [Analyze Azure Functions telemetry in Application Insights](analyze-telemetry-data.md).
+- [Analyze Azure Functions telemetry in Application Insights](analyze-telemetry-data.md)
 - [Monitor Azure Functions with Application Insights](/azure/azure-monitor/app/monitor-functions)
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
@@ -58,18 +58,17 @@ Functions provides these two dynamic scale plans that support serverless hosting
 
 #### [Flex Consumption plan](#tab/flex-consumption-plan)
 
-Provides fast horizontal scaling, with flexible compute options, virtual network integration, and full support for connections using Microsoft Entra ID authentication. In this plan, instances dynamically scale out based on configured per-instance concurrency, incoming events, and per-function workloads for optimal efficiency. Flex Consumption is the recommmended plan for serverless hosting. For more information, see [Azure Functions Flex Consumption plan hosting](flex-consumption-plan.md).
+Provides fast horizontal scaling, with flexible compute options, virtual network integration, and full support for connections using Microsoft Entra ID authentication. In this plan, instances dynamically scale out based on configured per-instance concurrency, incoming events, and per-function workloads for optimal efficiency. Flex Consumption is the recommended plan for serverless hosting. For more information, see [Azure Functions Flex Consumption plan hosting](flex-consumption-plan.md).
 
 #### [Consumption plan](#tab/consumption-plan)
 
-Provides dynamic scale and serverless hosting when your app must run on Windows, on version 1.x of the Functions runtime, on the full .NET Framework, or with full support for PowerShell. You should use the Flex Consumption plan for hosting new apps, unless your app requires these specialized hosting conditions. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md). 
+Provides dynamic scale and serverless hosting when your app must run on Windows, on version 1.x of the Functions runtime, on the full .NET Framework, or with full support for PowerShell. Use the Flex Consumption plan for hosting new apps, unless your app requires these specialized hosting conditions. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md). 
 
 ---
 
-These examples use Azure Monitor metrics to help estimate the cost of running your function app on either if these consumption plans. To learn more about estimating costs for these plans, see [Estimating consumption plan costs](functions-consumption-costs.md).
+These examples use Azure Monitor metrics to help estimate the cost of running your function app on your chosen consumption plan. To learn more about estimating costs for these plans, see [Estimating consumption plan costs](functions-consumption-costs.md).
 
 [!INCLUDE [functions-monitor-metrics-consumption](../../includes/functions-monitor-metrics-consumption.md)]  
-
 
 ### Analyze logs for Azure Functions
 
@@ -126,7 +125,7 @@ FunctionAppLogs
 [!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
 
 ### Azure Functions alert rules
-The following table lists common and recommended alert rules for Azure Functions. These are just recommended alerts. You can set alerts for any metric, log entry, or activity log entry listed in the [Monitoring data reference for Azure Functions](monitor-functions-reference.md).
+The following table lists common and recommended alert rules for Azure Functions. These alerts are just recommendations. You can set alerts for any metric, log entry, or activity log entry listed in the [Monitoring data reference for Azure Functions](monitor-functions-reference.md).
 
 
 | Alert type | Condition | Description  |
