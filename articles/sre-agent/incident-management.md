@@ -3,7 +3,7 @@ title: Incident Management in Azure SRE Agent Preview
 description: Learn how the incident management capabilities in Azure SRE Agent help reduce manual intervention and accelerate resolution times for your Azure resources.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/23/2025
+ms.date: 10/28/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -25,6 +25,16 @@ After being notified of an issue, SRE Agent reviews logs, health probes, and oth
 When SRE Agent receives an alert from the management platform, the agent brings the incident into its context, analyzes the situation, and determines the next steps. This process mimics how a human site-reliability engineer would acknowledge and investigate an incident.
 
 The agent reviews logs, health probes, and other data to assess the incident. During the assessment step, the agent summarizes findings, determines if the alert is a false positive, and decides whether action is needed.
+
+## Dashboard
+
+Under the **Incident management** tab, you find a dashboard that provides a centralized view of all incidents managed by the SRE Agent. The dashboard displays key metrics such as incidents reviewed, assisted, and mitigated by the agent, along with incidents pending human actions. These categories give you insight into how the agent is processing incidents. By offering aggregated visualizations and AI-generated root cause analysis, the dashboard allows you to identify trends, optimize response plans, and uncover gaps in incident handling.
+
+The only activity reported through the dashboard are incidents handled by your incident response plans.
+
+The following image shows how a dashboard the reporting the status of a series of issues.
+
+:::image type="content" source="media/incident-management/sre-agent-incident-dashboard.png" alt-text="Screenshot of the Azure SRE Agent incident management dashboard." lightbox="media/incident-management/sre-agent-incident-dashboard.png":::
 
 ## Agent responses
 
