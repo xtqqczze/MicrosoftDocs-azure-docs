@@ -131,7 +131,7 @@ Follow these steps to install GitHub App on your repository:
 
 1. Select **Only select repositories**, then select the appropriate repositories by selecting **Select repositories**. You can select multiple repositories. When finished, select **Install**.
 
-[Add screen]
+:::image type="content" source="./media/enhancing-web-app-assessment/install.png" alt-text="The screenshot shows how to install the selected repository." lightbox="./media/enhancing-web-app-assessment/install.png":::
 
 1. After the installation completes, note the browser URL that contains the installation ID. For example: `https://github.com/settings/installations/<installationID>`
 
