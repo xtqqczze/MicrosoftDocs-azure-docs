@@ -108,7 +108,7 @@ If your source Consumption workflow has any managed API connections, copies of t
 
 1. On the workflow designer toolbar, select **Connections** to find any connection errors:
 
-   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/designer-connections-review.png" alt-text="Screenshot shows the workflow designer toolbar with Connections selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/designer-connections-review.png":::
+   :::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/designer-connections-review.png" alt-text="Screenshot shows the workflow designer toolbar with Connections selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/designer-connections-review.png":::
 
    The **Connections** pane opens so that you can review each connection.
 
