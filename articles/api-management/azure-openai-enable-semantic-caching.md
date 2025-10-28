@@ -153,7 +153,7 @@ To enable semantic caching for Azure OpenAI APIs in Azure API Management, apply 
 
 To confirm that semantic caching works as expected, trace a test Completion or Chat Completion operation by using the test console in the portal. Confirm that the cache is used on subsequent tries by inspecting the trace. [Learn more about tracing API calls in Azure API Management](api-management-howto-api-inspector.md). 
 
-Adjust the `score-threshold` attribute in the lookup policy to control how similar the prompts must be to return cached responses. Lower values indicate greater semantic similarity is required to return cached responses.
+Adjust the `score-threshold` attribute in the lookup policy to control how similar the prompts must be to return cached responses. A lower score threshold means that higher semantic similarity is required to return cached responses.
 
 For example, if the cache is used, the **Output** section includes entries similar to the following screenshot:
 
