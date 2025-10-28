@@ -122,3 +122,4 @@ To better navigate Azure Container Storage and Kubernetes concepts, familiarize 
 - [Install Azure Container Storage for use with AKS](container-storage-aks-quickstart.md)
 - [Azure Container Storage pricing](https://aka.ms/AzureContainerStoragePricingPage)
 - [Azure Container Storage (version 1.x.x)](container-storage-introduction-version-1.md)
+- [Overview of deploying a highly available PostgreSQL database on Azure Kubernetes Service (AKS)](/azure/aks/postgresql-ha-overview#storage-considerations)
