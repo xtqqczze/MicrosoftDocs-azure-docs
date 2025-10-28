@@ -34,7 +34,7 @@ The final workflow consists of these steps:
 1. Select the checkbox to **Enable delegation**.
 1. Select the checkbox to enable **Delegate sign-in & sign-up**.
 
-    :::image type="content" source="media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png" alt-text="Screenshot showing delegation of sign-in and sign-up in the portal.":::
+    :::image type="content" source="media/api-management-howto-setup-delegation/api-management-delegation-sign-in-up.png" alt-text="Screenshot showing delegation of sign-in and sign-up in the portal.":::
 
 1. Choose the URL for your special delegation endpoint and enter it in the **Delegation service endpoint** field. 
 1. In **Delegation keys**:
