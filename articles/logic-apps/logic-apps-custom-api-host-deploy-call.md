@@ -25,7 +25,6 @@ For more information, see:
 - [Create and deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md)
 - [Create host a RESTful API with CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md)
 
-
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have a subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
@@ -51,7 +50,6 @@ Before you can call your API from a workflow, you must first deploy the API as a
    `https://<website-name>app-name>/swagger/docs/v1`
 
    :::image type="content" source="./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png" alt-text="Screenshot shows the Azure portal, web app's API definition pane, and the URL for your API's Swagger document.":::
-
 
 1. When you're done, select **Save**.
 
