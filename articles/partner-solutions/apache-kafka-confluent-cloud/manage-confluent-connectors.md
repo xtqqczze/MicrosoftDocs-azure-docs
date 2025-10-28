@@ -1,3 +1,14 @@
+---
+title: Manage Azure Confluent Connectors (Preview)
+description: Learn how to manage Confluent Connectors in Azure (preview).
+ms.topic: how-to
+ms.date: 10/30/2025
+ms.author: malev
+author: maud-lv
+
+#customer intent: As a developer, I want learn how to manage a Confulent Connector.
+---
+
 # Manage Azure Confluent Connectors (preview)
 
 1. In the Azure portal, go to your Confluent organization.
