@@ -1,136 +1,165 @@
 ---
-title: Clone Consumption Logic Apps to Standard Workflows
-description: Learn to clone a Consumption logic app to a Standard logic app using the Azure portal.
+title: Clone Consumption to Standard Workflows
+description: Learn to clone a Consumption logic app workflow to a Standard logic app workflow using the Azure portal.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, wsilveiranz, azla
 ms.topic: how-to
 ms.date: 10/20/2025
 #Customer intent: As an integration developer working with Azure Logic Apps, I want to migrate a Consumption logic app to a Standard logic app by cloning resources.
 ---
 
-# Clone Consumption logic apps to Standard workflows (Preview)
+# Clone Consumption workflows to Standard workflows (Preview)
 
 > [!IMPORTANT]
 > 
 > This capability is in preview and is subject to the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Standard logic app workflows, which run in single-tenant Azure Logic Apps, offer many new and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with App Services Environment hosting, local development and debugging using Visual Studio Code, low latency with stateless workflows, and more.
+[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
-If you want the benefits from Standard workflows, but your workflows run in multitenant Azure Logic Apps, you can now clone your Consumption workflows to single-tenant Azure Logic Apps. This operation makes sense in scenarios that require some of the Standard capabilities such as isolation and network integration, lower latency, or better predictability of costs.
+Compared to Consumption logic app workflows, Standard logic app workflows run in single-tenant Azure Logic Apps and offer many different and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with App Services Environment hosting, local development and debugging using Visual Studio Code, low latency with stateless workflows, and more.
 
-You can now clone your Consumption logic apps to a Standard logic app directly from the Azure portal, replicating your logic app as stateful workflows in a Standard logic app resource.
+If you want the benefits from Standard workflows, but you have Consumption workflows that run in multitenant Azure Logic Apps, you can now clone your Consumption workflows to single-tenant Azure Logic Apps. This operation is useful when you require some Standard capabilities, such as isolation and network integration, lower latency, or better cost predictability.
+
+You can now directly clone your Consumption logic app to a Standard logic app in the Azure portal, replicating your logic app as stateful workflows in a Standard logic app resource.
 
 > [!NOTE]
 > 
-> The clone capability doesn't migrate your Consumption logic apps. Instead, this tool replicates artifacts, such as workflow definitions, connections, and others. Your source logic app resource stays operation and your workflow, trigger history, run history, and other data stay intact.
+> The clone capability doesn't migrate your Consumption logic apps. Instead, this capability replicates artifacts, such as workflow definitions, connections, and others. Your source logic app resource remains operational, and your workflow, trigger history, run history, and other data stay intact.
 > 
-> You control the cloning process and your migration journey. You can test and validate your cloned workflows to your satisfaction with the destination environment. You choose when to disable or delete your source logic apps. Notice that regular billing charges are applied to your source logic app while it stays enabled.
+> You control the cloning process and your migration journey. You can test and validate your cloned workflows to your satisfaction with the destination environment. You choose when to disable or delete your source logic app. Regular billing charges still apply to your source logic app when still enabled.
 
 ## Known issues and limitations
 
--   The clone feature doesn't export any infrastructure information, such as integration account settings.
--   By default, connection configuration, including credential details,  isn’t cloned from source logic app workflows. You have to reconfigure these connections, before your destination logic app workflows can run.
--   Action and workflow parameters using secure string or secure object aren't cloned to the destination. Placeholders are created for those parameters with **sanitized** as the value. You have to reconfigure those parameters with secure content from KeyVault before running your workflows. 
--   By default, all connectors are cloned as Azure Connectors, even when a built-in option is available.
--   Workflows with the following actions aren't supported for cloning:
-    - Integration account references
-      - Transform XML
-      - XML Validation
-      - Flat File Encoding/Decoding
-      - Edifact actions
-      - X12 actions
-    - Nested workflow.
-    - Call Azure function.
+- The clone capability doesn't export any infrastructure information, such as integration account settings.
+
+- By default, connection configuration, including credential details, isn't cloned from source logic app workflows. You must reconfigure these connections before your destination logic app workflows can run.
+
+- Action and workflow parameters using secure string or secure object aren't cloned to the destination. Placeholders are created for those parameters with **sanitized** as the value. You have to reconfigure those parameters with secure content from KeyVault before running your workflows. 
+
+- By default, all connectors are cloned as managed, shared connectors, even when built-in connector versions are available.
+
+- Cloning doesn't support workflows with the following items and actions:
+
+  - Integration account references
+
+    - Transform XML
+    - XML Validation
+    - Flat file encoding and decoding
+    - EDIFACT actions
+    - X12 actions
+
+  - Nested workflows
+  - Choose or call an Azure function
 
 ## Prerequisites
 
--   A destination Standard logic apps application where the Consumption logic apps are cloned.
--   Azure Logic Apps Standard contributor resource group-level access to create the cloned connections.
--   Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Walkthrough
+- A Standard logic app resource as the destination for cloning your Consumption logic app.
 
-1.  Sign in to Azure portal and navigate to the Consumption logic app you want to clone.
-2.  In the Overview page, select **Clone to Standard** on the toolbar.
+  For more information, see [Create a Standard logic app workflow in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
-![A screenshot of the Azure portal showing the Clone to Standard button.](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-start.png)
+- To update cloned connections, you need the [**Logic Apps Standard Contributor** built-in role](../role-based-access-control/built-in-roles/integration#logic-apps-standard-contributor-preview), which gives you resource group-level access.
 
-3.  Define the clone destination, selecting the subscription, resource group, and Standard logic app resource, then select **Next**.
+- Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
-![A screenshot of the Clone to Standard wizard showing the configuration step.](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-configure.png)
+## Clone Consumption to Standard
 
-> [!NOTE]
-> 
-> You can rename the workflow name to a name that matches your naming convention if necessary. The interface verifies if the name is valid and that it doesn’t clash with an existing workflow in the destination Standard logic app, avoiding overwriting of the destination workflow.
+1. In the [Azure portal](https://portal.azure.com), open the Consumption logic app resource to clone.
 
-4.  After reviewing your clone settings, start the process by selecting on **Clone** .
+1. On the resource sidebar, select **Overview**. On the page toolbar, select **Clone to Standard**.
 
-![A screenshot of the Clone to Standard wizard showing the review and clone step.](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-review-clone.png)
+   :::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-start.png" alt-text="Screenshot shows the Azure portal, Consumption logic app, Overview toolbar, and selected Clone to Standard." lightbox="media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-start.png":::
 
-Once the clone process completes, navigate to the cloned workflow by selecting on **Go to workflow**.
+1. Provide information about destination logic app, such as the subscription, resource group, and Standard logic app resource name.
 
-![A screenshot of the Clone to Standard wizard showing the operation success and the go to workflow button](media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-success.png)
+   > [!NOTE]
+   > 
+   > You can rename the workflow to match your naming convention, if necessary. The Azure portal checks whether the name is valid and that it doesn't conflict with an existing workflow in the destination Standard logic app to avoid overwriting the destination workflow.
 
-> [!NOTE]
->
-> The new workflow is created in a disabled state, so it doesn’t clash with the existing workflow or generate execution errors before you complete the configuration.
+   :::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-configure.png" alt-text="Screenshot shows configuration information for Clone to Standard." lightbox="media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-configure.png":::
 
-## Reviewing the new workflow configuration
+1. When you're done, select **Next**.
 
-You must review the following areas before enabling your workflow:
+1. Confirm the logic app destination settings, and then select **Clone**.
 
-### Connection configuration
+   :::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-review-clone.png" alt-text="Screenshot shows Clone to Standard wizard with clone settings and Clone button selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-review-clone.png":::
 
-If your workflow has any API connections, a copy of that connection is created in the same resource group of your Logic Apps Standard application. When you navigate to the workflow, you can select on the **Connection** button to verify connection any connection errors:
+1. After the cloning process completes, select **Go to workflow** to open the new workflow.
 
-![A screenshot of the logic apps designer showing the connections button.](media/clone-consumption-logic-app-to-standard-workflow/designer-connections-review.png)
+   :::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-success.png" alt-text="Screenshot shows Clone to Standard wizard with success message and Go to workflow button selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/clone-wizard-success.png":::
 
-This action opens the Connections side pane, where you can review each connection.
+   > [!NOTE]
+   >
+   > The new workflow is created in a disabled state to avoid conflicts with any existing workflows or execution errors before you complete the configuration.
 
-Expand each connection marked with an error (red dot) and select on **Open Connection** button to navigate to the connection and reconfigure its property, including any authentication properties.
+## Review the new workflow configuration
 
-![A screenshot of the logic apps designer showing a connection in error and the open connection button.](media/clone-consumption-logic-app-to-standard-workflow/connection-error.png)
+Before you enable your workflow, you must review and complete any required actions for the following workflow areas:
 
-### Networking configuration
+### Configure connections
 
-If your source Consumption logic app connects to a system via a firewall, you might need to reconfigure the firewall rules with a new set of outbound IPs to include in the allowlist.
+If your source Consumption workflow has any managed API connections, copies of these connections are created in the same resource group as your Standard logic app resource. 
 
-You can find the outbound IPs for your Logic Apps Standard application selecting on **Properties** on the application blade.
+1. In the Azure portal, open your Standard logic app resource.
 
-![A screenshot of the logic apps standard properties button on the side blade.](media/clone-consumption-logic-app-to-standard-workflow/la-standard-settings-properties.png)
+1. On the resource sidebar, under **Workflows**, select **Workflows**. Select the new workflow.
 
-You can find the list of Outbound IPs under **Outbound IP Addresses**:
+1. On the workflow designer toolbar, select **Connections** to find any connection errors:
 
-![A screenshot of the logic apps standard oubound ip addresses property.](media/clone-consumption-logic-app-to-standard-workflow/properties-outbound-ip-addresses.png)
+   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/designer-connections-review.png" alt-text="Screenshot shows the workflow designer toolbar with Connections selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/designer-connections-review.png":::
 
-> [!NOTE]
-> 
-> If your Standard logic app connects to an Azure virtual network, use Virtual Network Integration instead. This approach gives you more control over traffic. It separates communication between your logic app and your resources inside the virtual network. For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+   The **Connections** pane opens so that you can review each connection.
 
-## Enabling your cloned workflow
+1. Expand each connection that has an error (red dot), and then select **Open Connection** to go to the connection and reconfigure its properties, including any authentication properties.
 
-Once you complete the configuration of your cloned workflow and are ready to test, you must first enable your cloned workflow.
+   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/connection-error.png" alt-text="Screenshot shows the workflow designer toolbar with connection errors." lightbox="media/clone-consumption-logic-app-to-standard-workflow/connection-error.png":::
 
-To enable your workflow:
+### Configure networking
 
-1.  Navigate the workflow list
-    1.  Select the workflow you want to enable
-    2.  select on the **Enable** button on the Toolbar.
+If your source Consumption logic app connects to a system using a firewall, you might have to update the firewall rules with new outbound IPs. To find the outbound IPs for your Standard logic app, follow these steps:
 
-![A screenshot of workflows list with the enable button.](media/clone-consumption-logic-app-to-standard-workflow/workflow-enable.png)
+1. In the Azure portal, open your Standard logic app resource.
 
-> Important
-> 
-> If your workflow uses a polling or event based trigger and your new API connections are pointing to the same resource of the source Consumption logic apps, you should disable your source logic apps before enabling the cloned workflow, to avoid concurrency between the source and cloned workflows.
-> 
-> To find the source Consumption Logic Apps:
-> 
-> 1.  Navigate to the cloned workflow
-> 2.  select on **Properties** on the workflow side panel
-> 
-> ![A screenshot of the workflow properties button on the side blade.](media/clone-consumption-logic-app-to-standard-workflow/workflow-configuration-properties.png)
-> 
-> You'll find the source Consumption logic app reference under **Source workflow:**
-> 
-> ![A screenshot of the source workflow property.](media/clone-consumption-logic-app-to-standard-workflow/workflow-properties-source-workflow.png)
+1. On the resource sidebar, under **Settings**, select **Properties**.
+
+   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/standard-settings-properties.png" alt-text="Screenshot shows Standard logic app resource sidebar with Properties selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/standard-settings-properties.png":::
+
+1. Under **Outbound IP addresses**, find the outbound IPs list:
+
+   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/properties-outbound-ip-addresses.png" alt-text="Screenshot shows Standard logic app resource with outbound PI addresses." lightbox="media/clone-consumption-logic-app-to-standard-workflow/properties-outbound-ip-addresses.png":::
+
+If your Standard logic app connects to an Azure virtual network, use Virtual Network Integration instead. This approach gives you more control over traffic and separates the communication between your logic app and resources inside the virtual network. For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+
+## Disable the source Consumption logic app
+
+If your Standard workflow uses a polling or event-based trigger, and your new API connections point to the same resource as the source Consumption workflow, disable your source logic app before you enable your Standard workflow. This action prevents concurrency between the source and clone workflows.
+
+To find the source Consumption logic app, follow these steps:
+
+1. On the Standard logic app resource sidebar, under **Workflows**, select **Workflows**.
+
+1. On the **Workflows** page, select the new workflow. 
+
+1. On the workflow sidebar, under **Configuration**, select **Properties**.
+
+   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/workflow-configuration-properties.png" alt-text="Screenshot shows workflow sidebar with Properties selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/workflow-configuration-properties.png":::
+
+1. Under **Source workflow**, find the source Consumption logic app.
+
+   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/workflow-properties-source-workflow.png" alt-text="Screenshot shows workflow property named Source workflow." lightbox="media/clone-consumption-logic-app-to-standard-workflow/workflow-properties-source-workflow.png":::
+
+## Enable your new workflow clone
+
+After you finish workflow setup and are ready to test, you must enable your workflow clone by following these steps:
+
+1. On the Standard logic app resource sidebar, under **Workflows**, select **Workflows**.
+
+1. On the **Workflows** page, select the checkbox for the new workflow. On the page toolbar, select **Enable**.
+
+   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/workflow-enable.png" alt-text="Screenshot shows workflows with selected workflow checkbox and the toolbar with Enable selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/workflow-enable.png":::
+
+## Related content
+
+- [Export Consumption workflows to a Standard logic app using Visual Studio Code](export-from-consumption-to-standard-logic-app.md)
