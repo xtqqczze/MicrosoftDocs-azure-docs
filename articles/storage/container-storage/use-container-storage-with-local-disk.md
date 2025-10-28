@@ -19,12 +19,17 @@ ms.custom: references_regions
 
 ## What is local NVMe?
 
-When your application needs sub-millisecond storage latency and extremely high throughput, you can use local NVMe with Azure Container Storage to meet your performance requirements. Ephemeral means that the disks are deployed on the local virtual machine (VM) hosting the AKS cluster and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM. By default, Azure Container Storage creates *generic ephemeral volumes* when using local NVMe disks. For use cases that require *persistent volume claims*, you can add the annotation `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"` in your persistent volume claim template.
+When your application needs sub-millisecond storage latency and extremely high throughput, you can use local NVMe with Azure Container Storage to meet your performance requirements. Ephemeral means that the disks are deployed on the local virtual machine (VM) hosting the AKS cluster and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM. Local NVMe disks are offered on select Azure VM families such as [storage-optimized](/azure/virtual-machines/sizes/overview#storage-optimized) VMs.
 
-Local NVMe disks are offered on select Azure VM families such as [storage-optimized](/azure/virtual-machines/sizes/overview#storage-optimized) VMs. To maximize performance, Azure Container Storage automatically stripes data across all available local NVMe disks on a per-VM basis. Striping is a technique where data is divided into small chunks and evenly written across multiple disks simultaneously, which increases throughput and improves overall I/O performance. This behavior is enabled by default and cannot be disabled.
+By default, Azure Container Storage creates *generic ephemeral volumes* when using local NVMe disks. For use cases that require *persistent volume claims*, you can add the annotation `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"` in your persistent volume claim template.
 
-> [!TIP]
-> Because performance aggregates across those striped devices, larger VM sizes that expose more NVMe drives can unlock substantially higher IOPS and bandwidth. For example, the [Lsv3 series](/azure/virtual-machines/sizes/storage-optimized/lsv3-series?tabs=sizestoragelocal) scales from a single 1.92-TB NVMe drive on Standard_L8s_v3 (around 400,000 IOPS and 2,000 MB/s) up to 10 NVMe drives on Standard_L80s_v3 (about 3.8 million IOPS and 20,000 MB/s). Selecting a bigger VM family member lets your workloads benefit from that additional aggregate throughput without extra configuration.
+### Data striping
+
+To maximize performance, Azure Container Storage automatically stripes data across all available local NVMe disks on a per-VM basis. Striping is a technique where data is divided into small chunks and evenly written across multiple disks simultaneously, which increases throughput and improves overall I/O performance. This behavior is enabled by default and cannot be disabled.
+
+Because performance aggregates across those striped devices, larger VM sizes that expose more NVMe drives can unlock substantially higher IOPS and bandwidth. Selecting a bigger VM family member lets your workloads benefit from that additional aggregate throughput without extra configuration.
+
+For example, the [Lsv3 series](/azure/virtual-machines/sizes/storage-optimized/lsv3-series?tabs=sizestoragelocal) scales from a single 1.92-TB NVMe drive on Standard_L8s_v3 (around 400,000 IOPS and 2,000 MB/s) up to 10 NVMe drives on Standard_L80s_v3 (about 3.8 million IOPS and 20,000 MB/s). 
 
 ## Prerequisites
 
