@@ -56,15 +56,7 @@ Azure Functions also offers the ability to collect more than Azure Monitor resou
 
 Functions provides these two dynamic scale plans that support serverless hosting:
 
-#### [Flex Consumption plan](#tab/flex-consumption-plan)
-
-Provides fast horizontal scaling, with flexible compute options, virtual network integration, and full support for connections using Microsoft Entra ID authentication. In this plan, instances dynamically scale out based on configured per-instance concurrency, incoming events, and per-function workloads for optimal efficiency. Flex Consumption is the recommended plan for serverless hosting. For more information, see [Azure Functions Flex Consumption plan hosting](flex-consumption-plan.md).
-
-#### [Consumption plan](#tab/consumption-plan)
-
-Provides dynamic scale and serverless hosting when your app must run on Windows, on version 1.x of the Functions runtime, on the full .NET Framework, or with full support for PowerShell. Use the Flex Consumption plan for hosting new apps, unless your app requires these specialized hosting conditions. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md). 
-
----
+[!INCLUDE [functions-consumption-plans-compare-tabs](../../includes/functions-consumption-plans-compare-tabs.md)]
 
 These examples use Azure Monitor metrics to help estimate the cost of running your function app on your chosen consumption plan. To learn more about estimating costs for these plans, see [Estimating consumption plan costs](functions-consumption-costs.md).
 

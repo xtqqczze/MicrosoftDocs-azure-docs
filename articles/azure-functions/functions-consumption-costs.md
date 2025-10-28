@@ -12,21 +12,13 @@ ms.custom:
 
 # Estimating consumption-based costs
 
-This article shows you how to estimate plan costs for the Flex Consumption and Consumption hosting plans. 
-
-Azure Functions currently offers these different hosting options for your function apps, with each option having its own hosting plan pricing model: 
-
-| Plan | Description |
-| ---- | ----------- |
-| [**Flex Consumption plan**](flex-consumption-plan.md)| You pay for execution time on the instances on which your functions are running, plus any _always ready_ instances. Instances are dynamically added and removed based on the number of incoming events. This is the recommended dynamic scale plan, which also supports virtual network integration. |
-| [**Premium**](functions-premium-plan.md) | Provides you with the same features and scaling mechanism as the Consumption plan, but with enhanced performance and virtual network integration. Cost is based on your chosen pricing tier. To learn more, see [Azure Functions Premium plan](functions-premium-plan.md). |
-| [**Dedicated (App Service)**](dedicated-plan.md) <br/>(basic tier or higher) | When you need to run in dedicated VMs or in isolation, use custom images, or want to use your excess App Service plan capacity. Uses [regular App Service plan billing](https://azure.microsoft.com/pricing/details/app-service/). Cost is based on your chosen pricing tier.|
-| [**Container Apps**](../container-apps/functions-overview.md) | Create and deploy containerized function apps in a fully managed environment hosted by Azure Container Apps, which lets you run your functions alongside other microservices, APIs, websites, and workflows as container-hosted programs. |  
-| [**Consumption**](consumption-plan.md) | You're only charged for the time that your function app runs. This plan includes a [free grant][pricing page] on a per subscription basis.|
+This article shows you how to estimate plan costs for both the [Flex Consumption plan](flex-consumption-plan.md) and the legacy [Consumption plan](consumption-plan.md). 
 
 You should always choose the option that best supports the feature, performance, and cost requirements for your function executions. To learn more, see [Azure Functions scale and hosting](functions-scale.md).
 
-This article focuses on Flex Consumption and Consumption plans because in these plans billing depends on active periods of executions inside each instance. 
+This article focuses on the two consumption plans because in these plans billing depends on active periods of executions inside each instance. 
+
+[!INCLUDE [functions-consumption-plans-compare-tabs](../../includes/functions-consumption-plans-compare-tabs.md)]
 
 Durable Functions can also run in both of these plans. To learn more about the cost considerations when using Durable Functions, see [Durable Functions billing](./durable/durable-functions-billing.md).
 
