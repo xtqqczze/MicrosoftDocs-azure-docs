@@ -63,7 +63,7 @@ You can't move a free App Service managed certificate. Instead, delete the manag
 
 If your free App Service managed certificate gets created in an unexpected resource group, try moving the app service plan back to its original resource group. Then, recreate the free managed certificate. This change fixes the issue.
 
-## Moving apps between plans and zone redundancy
+## Scale units and zone redundancy
 
 Apps can only move between App Service plans that are in the same scale unit. Zone redundancy is a property of the scale unit where the App Service plan is deployed. If your current App Service plan is in a scale unit that doesn't support zone redundancy, you can't enable zone redundancy on that plan.
 
