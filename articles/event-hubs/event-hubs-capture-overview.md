@@ -10,7 +10,7 @@ ms.date: 05/20/2025
 
 The Azure Event Hubs Capture feature automatically captures streaming data that flows through Event Hubs to an [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) account. To control when Event Hubs stores the data, you can specify a time or a size interval. You can quickly enable or set up the Event Hubs Capture feature. It doesn't require administrative costs to run, and it scales automatically with Event Hubs capacity.
 
-The Standard tier uses [throughput units](event-hubs-scalability.md#throughput-units), and the Premium tier uses [processing units](event-hubs-scalability.md#processing-units). Event Hubs Capture provides the easiest way to load streaming data into Azure and enables you to focus on data processing rather than data capture.
+The Standard tier uses [throughput units](event-hubs-scalability.md#throughput-units), and the Premium tier uses [processing units](event-hubs-scalability.md#processing-units). Event Hubs Capture simplifies the process of loading streaming data into Azure and enables you to focus on data processing rather than data capture.
 
 :::image type="content" source="./media/event-hubs-features/capture.png" alt-text="Diagram that shows a process that captures Event Hubs data into Blob Storage or Data Lake Storage." border="false":::
 
@@ -25,7 +25,7 @@ Use Event Hubs Capture to process real-time and batch-based pipelines on the sam
 
 ## How Event Hubs Capture works
 
-Event Hubs serves as a time-retention durable buffer for telemetry ingress, similar to a distributed log. The [partitioned consumer model](event-hubs-scalability.md#partitions) enables scalability. Each partition is an independent segment of data and is consumed independently. This data ages off based on the configurable retention period, so the event hub never gets *too full*.
+Event Hubs serves as a time-retention durable buffer for telemetry ingress, similar to a distributed log. The [partitioned consumer model](event-hubs-scalability.md#partitions) enables scalability. Each partition is an independent segment of data and is consumed independently. This data is deleted after the configurable retention period, so the event hub never gets *too full*.
 
 Event Hubs Capture enables you to specify a Blob Storage account and container, or a Data Lake Storage account, to store captured data. These accounts can reside in the same region as your event hub or in another region, which adds flexibility.
 
@@ -40,7 +40,7 @@ Event Hubs Capture writes captured data in [Apache Avro][Apache Avro] format, wh
 
 ### Capture windowing
 
-To control capturing, use Event Hubs Capture to set up a window that uses a minimum size and time configuration. The system applies a *first wins* policy, which means that the first condition met—either size or time—triggers the capture. For example, if you have a fifteen-minute, 100-MB capture window and send 1 MB per second, the size window triggers before the time window.
+To control capturing, use Event Hubs Capture to set up a window that uses a minimum size and time configuration. The system applies a *first wins* policy, which means that the first condition met—either size or time—triggers the capture. For example, if you have a fifteen-minute, 100-megabyte (MB) capture window and send 1 MB per second, the size window triggers before the time window.
 
 Each partition captures data independently and writes a completed block blob at the time of capture. The blob name reflects the time when the capture interval was encountered.
 
@@ -112,7 +112,7 @@ To resolve this problem, add the user account or the service principal to the [S
 
 ## Related content
 
-Event Hubs Capture provides the easiest way to ingest data into Azure. With Data Lake Storage, Azure Data Factory, and Azure HDInsight, you can perform batch processing and other analytics by using familiar tools and platforms at any scale.
+Event Hubs Capture provides a straightforward way to ingest data into Azure. With Data Lake Storage, Azure Data Factory, and Azure HDInsight, you can perform batch processing and analytics by using familiar tools and platforms at any scale.
 
 To enable this feature, use the Azure portal or an ARM template:
 
