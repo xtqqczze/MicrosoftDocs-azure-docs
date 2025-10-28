@@ -186,3 +186,35 @@ Review the code changes by selecting the relevant tab: **Issues, Warnings**, or 
 After you add code scan reports, the readiness and migration strategy for the relevant web app might change based on the identified code changes. If the required code changes required are significant, the webapp's readiness might update from **Ready** to **Ready with conditions**.  
 
 ## Troubleshooting 
+
+This section helps resolve issues related to importing paths or uploading zip files that don’t meet the required constraints.
+
+### Import path
+
+Follow these guidelines to successfully import paths and upload zip files without errors.
+
+1. **Unable to Upload Zip**: Upload only zip files that meet these requirements:
+
+ - Include only JSON files.
+ - File size is 50 MB or less. 
+ - Contains no more than 100 files. 
+ - Uncompressed size is 500 MB or less.
+ - Doesn't include nested zip files.
+
+You might see errors if the uploaded zip file doesn’t meet the required constraints. Here are some examples:
+ 
+ - The uploaded blob content type '%Value;' is not supported. - Occurs when the uploaded file is not a zip file. 
+ - Zip contains too many files (%FileCount;). Limit is %MaxFileCount;. - Occurs when the zip file contains more than 100 files. 
+ - Total uncompressed size %UncompressedSize;MB of uploaded zip file exceeds limit of %MaxUncompressedSize;MB. - Occurs when the uncompressed size of the zip file exceeds 500 MB.
+ - Zip entry '%EntryName;' is invalid (possible path traversal). - Occurs when a file name in the zip contains path traversal characters such as ../../.  
+ - The uploaded zip file is empty and contains no valid files. - Occurs when the zip file does not contain any files.
+
+If you see any of these errors, remove the invalid or extra files and recreate the zip file before uploading it again.
+
+1. **Partial files or No files accepted for report generation**: Even if the zip file meets all guidelines and is processed, you might not see reports for every file in the zip. This can happen due to issues such as JSON schema incompatibility or unsupported targets in the report file.
+When this occurs, Azure Migrate uses content from valid files to generate the report. Files that fail validation return errors like:
+
+ - The report content is invalid or not in the expected JSON format. - Occurs when the JSON report schema is invalid or incompatible. 
+ - The report does not contain supported targets for the specified framework. - Occurs when the report includes targets that Azure Migrate does not support. AppCAT supports many targets, but Azure Migrate only supports a subset.
+
+When you encounter these errors, regenerate the report with the correct configuration and upload it again using a separate import flow.
