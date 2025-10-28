@@ -7940,8 +7940,8 @@
       "redirect_document_id": false
     },
     {
-      "redirect_url": "articles/storage/container-storage/container-storage-aks-quickstart.md",
-      "source_path": "/azure/storage/container-storage/install-container-storage-aks.md",
+      "source_path": "articles/storage/container-storage/container-storage-aks-quickstart.md",
+      "redirect_url": "/azure/storage/container-storage/install-container-storage-aks.md",
       "redirect_document_id": false
     }
   ]
