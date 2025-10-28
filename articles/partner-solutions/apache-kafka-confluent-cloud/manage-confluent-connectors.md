@@ -11,6 +11,8 @@ author: maud-lv
 
 # Manage Azure Confluent Connectors (preview)
 
+This article describes now to manage Azure Confluent Connectors (preview) in the Azure portal. 
+
 1. In the Azure portal, go to your Confluent organization.
 1. In the left pane, select **Confluent** > **Confluent Connectors**.
 1. Select your environment and cluster.
