@@ -45,7 +45,7 @@ For example, the [Lsv3 series](/azure/virtual-machines/sizes/storage-optimized/l
 
 ## Choose a VM type that supports local NVMe
 
-Local NVMe disks are only available in certain types of VMs, for example, [storage-optimized VM sizes](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM sizes](/azure/virtual-machines/sizes/overview#gpu-accelerated). If you plan to use local NVMe capacity, choose one of these VM sizes.
+Local NVMe disks are only available in certain types of VMs, for example, [storage-optimized VMs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VMs](/azure/virtual-machines/sizes/overview#gpu-accelerated). If you plan to use local NVMe capacity, choose one of these VM sizes.
 
 Run the following command to get the VM type that's used with your node pool. Replace `<resource group>` and `<cluster name>` with your own values. You don't need to supply values for `PoolName` or `VmSize`, so keep the query as shown here.
 
