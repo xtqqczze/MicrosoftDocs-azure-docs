@@ -190,7 +190,7 @@ Here's an example:
 }
 ```
 
-The connector version 2.0 support the following QuickBooks tables:
+The connector version 2.0 supports the following QuickBooks tables:
 
 - Account
 - Attachable
