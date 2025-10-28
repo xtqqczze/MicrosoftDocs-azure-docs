@@ -21,11 +21,11 @@ To get started using Azure Container Storage, see [Use Azure Container Storage w
 
 ## Why Azure Container Storage is useful
 
-Azure Container Storage lets you use the same fast and powerful storage options that were once exclusive to virtual machines, bringing low-latency and high-performance capabilities such as local NVMe disks directly into your containerized environments. This makes it possible to confidently run data-intensive applications like PostgreSQL, Ray, and Kubeflow in containers without worrying that storage performance will hold them back.
+Azure Container Storage gives your container workloads access to high-performance storage that was previously only available to virtual machines. It supports fast local NVMe disks, which are ideal for latency-sensitive workloads like PostgreSQL, and compute-intensive AI and ML frameworks like Ray and Kubeflow.
 
-It also allows storage volumes to be provisioned, managed, and monitored entirely through Kubernetes-native tools and workflows. There’s no need to bounce between different interfaces or manually configure CSI drivers, which streamlines day-to-day operations and keeps administrators more focused on delivering value than wrestling with infrastructure.
+You can create and manage storage volumes using standard Kubernetes tools. You don’t need to switch between different portals or set up CSI drivers on your own. This makes storage tasks easier and helps teams stay focused on running their apps.
 
-And because Azure Container Storage is built on open-source components and supports both Azure Kubernetes Service and self-hosted clusters, it offers flexibility for multicloud and hybrid scenarios. Workloads can move freely across environments while retaining consistent storage capabilities, reducing friction when deploying applications beyond a single cloud boundary.
+Azure Container Storage works with Azure Kubernetes Service and self-managed Kubernetes clusters. Because it uses open-source components, it supports deployments across Azure and other clouds. This gives you flexibility for hybrid and multicloud setups.
 
 ## Key benefits
 
