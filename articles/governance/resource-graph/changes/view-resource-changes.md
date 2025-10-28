@@ -10,8 +10,6 @@ ms.custom: sfi-image-nochange
 
 # View resource changes in the Azure portal
 
-[!INCLUDE [preview](../../includes/resource-graph/preview/change-analysis.md)]
-
 Change Analysis provides data for various management and troubleshooting scenarios, helping you understand which changes to your application caused which breaking issues. In addition to [querying Resource Graph for resource changes](./get-resource-changes.md), you can also view all changes to your applications via the Azure portal.
 
 In this guide, you learn where to find Change Analysis in the portal and how to view, filter, and query changes.
