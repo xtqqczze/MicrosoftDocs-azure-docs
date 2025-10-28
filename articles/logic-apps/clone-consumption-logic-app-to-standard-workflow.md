@@ -128,7 +128,7 @@ If your source Consumption logic app connects to a system using a firewall, you 
 
 1. Under **Outbound IP addresses**, find the outbound IPs list:
 
-   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/properties-outbound-ip-addresses.png" alt-text="Screenshot shows Standard logic app resource with outbound PI addresses." lightbox="media/clone-consumption-logic-app-to-standard-workflow/properties-outbound-ip-addresses.png":::
+   :::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/properties-outbound-ip-addresses.png" alt-text="Screenshot shows Standard logic app resource with outbound PI addresses." lightbox="media/clone-consumption-logic-app-to-standard-workflow/properties-outbound-ip-addresses.png":::
 
 If your Standard logic app connects to an Azure virtual network, use Virtual Network Integration instead. This approach gives you more control over traffic and separates the communication between your logic app and resources inside the virtual network. For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
