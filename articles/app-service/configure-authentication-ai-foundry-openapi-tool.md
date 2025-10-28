@@ -11,7 +11,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Secure OpenAPI endpoints for Azure AI Foundry Agent Service
 
-This article shows you how to secure your App Service OpenAPI endpoints when they're called by Azure AI Foundry Agent Service. When you add your App Service app as an OpenAPI tool in Azure AI Foundry, you can configure it to call your APIs anonymously without authentication, which is easier for development and testing. However, for production environments, it's recommended to use Microsoft Entra authentication with managed identity. This guide walks you through configuring managed identity authentication to enable secure, token-based communication between Azure AI Foundry and your app.
+This article shows you how to secure your App Service OpenAPI endpoints when they're called by Azure AI Foundry Agent Service. When you add your App Service app as an OpenAPI tool in Azure AI Foundry, you can configure it to call your APIs anonymously without authentication, which is easier for development and testing. However, for production environments, your should use Microsoft Entra authentication with managed identity. This guide walks you through configuring managed identity authentication to enable secure, token-based communication between Azure AI Foundry and your app.
 
 ## Prerequisites
 
@@ -63,9 +63,9 @@ You need the client ID (also called the object ID or principal ID) of your Azure
 
 ## Update the app registration Application ID URI
 
-After enabling authentication, you need to update the app registration's Application ID URI to match your App Service app's URL. This allows Azure AI Foundry Agent Service to authenticate with your app.
+After enabling authentication, you need to update the app registration's Application ID URI to match your App Service app's URL.
 
-1. After the Microsoft provider configuration completes, select it in the **Identity provider** column. This opens the app registration.
+1. After the Microsoft provider configuration completes, select it in the **Identity provider** column to open the app registration page.
 
 1. In the left menu, select **Manage** > **Expose an API**.
 
@@ -82,9 +82,9 @@ After enabling authentication, you need to update the app registration's Applica
 > [!NOTE]
 > This section assumes you already completed one of the tutorials in the [Prerequisites](#prerequisites) section, where you added your app as an OpenAPI tool in Azure AI Foundry using anonymous authentication. You now update the tool to use managed identity authentication.
 
-1. Back the [Azure AI Foundry portal](https://ai.azure.com), select your agent.
+1. Back in the [Azure AI Foundry portal](https://ai.azure.com), select your agent.
 
-1. Find the OpenAPI tool select it to edit.
+1. Find the OpenAPI tool and select it to edit.
 
 1. In the **Define the schema for this tool** page:
 
