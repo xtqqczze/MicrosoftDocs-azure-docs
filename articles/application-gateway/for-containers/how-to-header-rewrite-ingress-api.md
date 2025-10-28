@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 10/23/2025
+ms.date: 10/27/2025
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to implement header rewriting in the Ingress API for Application Gateway for Containers, so that I can modify request and response headers for backend services to meet application requirements and facilitate better control over traffic management."
 ---
