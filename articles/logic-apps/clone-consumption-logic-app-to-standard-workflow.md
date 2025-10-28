@@ -144,7 +144,7 @@ To find the source Consumption logic app, follow these steps:
 
 1. On the workflow sidebar, under **Configuration**, select **Properties**.
 
-   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/workflow-configuration-properties.png" alt-text="Screenshot shows workflow sidebar with Properties selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/workflow-configuration-properties.png":::
+   :::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/workflow-configuration-properties.png" alt-text="Screenshot shows workflow sidebar with Properties selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/workflow-configuration-properties.png":::
 
 1. Under **Source workflow**, find the source Consumption logic app.
 
