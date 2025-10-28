@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/5/2024
+ms.date: 10/27/2025
 ms.author: mbender
 # Customer intent: As a cloud engineer, I want to implement HTTP header rewrites in Application Gateway for Containers, so that I can modify request and response headers for backend services to better handle client requests.
 ---
