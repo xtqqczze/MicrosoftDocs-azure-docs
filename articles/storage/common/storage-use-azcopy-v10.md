@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 10/02/2025
+ms.date: 10/28/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
@@ -18,17 +18,17 @@ AzCopy is a command-line utility that you can use to copy data to, from, or betw
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
-AzCopy **V10** is the currently supported version of AzCopy and it is supported only on versions of Windows, Linux, or macOS that are officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
+AzCopy **V10** is the currently supported version of AzCopy. It's supported only on versions of Windows, Linux, or macOS that are officially maintained. If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 ## AzCopy use cases
 
-AzCopy can be used to copy your data to, from, or between Azure storage accounts. Common use cases include:
+Use AzCopy to copy your data to, from, or between Azure storage accounts. Common use cases include:
 
 - Copying data from an on-premises source to an Azure storage account
 - Copying data from an Azure storage account to an on-premises source
 - Copying data from one storage account to another storage account
 
-AzCopy supports each use case with commands and options. For example, AzCopy has native commands for copying or synchronizing data. This makes AzCopy a flexible tool that can be used for one-time copy activities and ongoing synchronization scenarios. You can target specific storage services such as Azure Blob Storage or Azure Files and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa.
+AzCopy supports each use case with commands and options. For example, AzCopy has native commands for copying or synchronizing data. This support makes AzCopy a flexible tool that you can use for one-time copy activities and ongoing synchronization scenarios. You can target specific storage services such as Azure Blob Storage or Azure Files, and you can also copy between them. For example, you can copy data from Azure Blob Storage containers to Azure File shares or vice versa.
 
 For a complete list of data transfer guides, see the [Transfer data](#transfer-data) section of this article.
 
@@ -38,7 +38,7 @@ For a complete list of data transfer guides, see the [Transfer data](#transfer-d
 
 ## Get AzCopy
 
-If you are using AzCopy on a linux machine, you can use a package manager. For all other operating systems, download a portable binary file. For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
+If you're using AzCopy on a Linux machine, you can use a package manager. For all other operating systems, download a portable binary file. For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
 
 ### Use a package manager (Linux only)
 
@@ -61,11 +61,11 @@ An installation package is available only for Linux. For all other operating sys
 These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
 
 > [!NOTE]
-> If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
+> If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
 
 ### Add AzCopy to your system path
 
-For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system. If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in a command shell.
+For convenience, consider adding the directory location of the AzCopy executable to your system path. That way you can type `azcopy` from any directory on your system. If you don't add the AzCopy directory to your path, you need to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in a command shell.
 
 <a id="choose-how-youll-provide-authorization-credentials"></a>
 
@@ -89,7 +89,7 @@ By using Microsoft Entra ID, you can provide credentials once instead of having 
 
 ### Authorize with a SAS token
 
-You can append a SAS token to each source or destination URL that use in your AzCopy commands. This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the container URL.
+You can append a SAS token to each source or destination URL that you use in your AzCopy commands. This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the container URL.
 
 ```azcopy
 azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
@@ -101,9 +101,9 @@ To learn more about SAS tokens and how to obtain one, see [Using shared access s
 
 ## Transfer data
 
-After you've authorized your identity or obtained a SAS token, you can begin transferring data.
+After you authorize your identity or obtain a SAS token, you can start transferring data.
 
-To find example commands, see any of these articles.
+For example commands, see any of these articles.
 
 | Service | Article |
 |--------|-----------|
@@ -116,7 +116,7 @@ To find example commands, see any of these articles.
 |Google Cloud Storage|[Copy data from Google Cloud Storage to Azure Storage (preview)](storage-use-azcopy-google-cloud.md)|
 |Azure Stack storage|[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
-While you can run AzCopy commands interactively, you can also incorporate AzCopy into automated scripts for batch operations, scheduled data transfers, or continuous integration pipelines. For more information, see [Use AzCopy in scripts and scheduled transfers](storage-use-azcopy-in-script.md).
+You can run AzCopy commands interactively. You can also incorporate AzCopy into automated scripts for batch operations, scheduled data transfers, or continuous integration pipelines. For more information, see [Use AzCopy in scripts and scheduled transfers](storage-use-azcopy-in-script.md).
 
 [!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
@@ -124,7 +124,7 @@ While you can run AzCopy commands interactively, you can also incorporate AzCopy
 
 To see a list of commands, type `azcopy -h` and then press the ENTER key.
 
-To learn about a specific command, just include the name of the command (For example: `azcopy list -h`).
+To learn about a specific command, include the name of the command (For example: `azcopy list -h`).
 
 > [!div class="mx-imgBorder"]
 > ![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
@@ -140,22 +140,22 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy doc](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_doc)|Generates documentation for the tool in Markdown format.|
 |[azcopy env](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_env)|Shows the environment variables that can configure AzCopy's behavior.|
 |[azcopy jobs](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs)|Subcommands related to managing jobs.|
-|[azcopy jobs clean](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_clean)|Remove all log and plan files for all jobs.|
+|[azcopy jobs clean](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_clean)|Removes all log and plan files for all jobs.|
 |[azcopy jobs list](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_list)|Displays information on all jobs.|
-|[azcopy jobs remove](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_remove)|Remove all files associated with the given job ID.|
+|[azcopy jobs remove](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_remove)|Removes all files associated with the given job ID.|
 |[azcopy jobs resume](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_resume)|Resumes the existing job with the given job ID. |
 |[azcopy jobs show](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_show)|Shows detailed information for the given job ID.|
 |[azcopy list](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_list)|Lists the entities in a given resource.|
-|[azcopy login](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_login)|Logs in to Microsoft Entra ID to access Azure Storage resources.|
+|[azcopy login](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_login)|Signs in to Microsoft Entra ID to access Azure Storage resources.|
 |[azcopy login status](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_login_status)|Lists the entities in a given resource.|
-|[azcopy logout](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_logout)|Logs the user out and terminates access to Azure Storage resources.|
+|[azcopy logout](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_logout)|Signs the user out and terminates access to Azure Storage resources.|
 |[azcopy make](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_make)|Creates a container or file share.|
-|[azcopy remove](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_remove)|Delete blobs or files from an Azure storage account.|
+|[azcopy remove](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_remove)|Deletes blobs or files from an Azure storage account.|
 |[azcopy sync](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_sync)|Replicates the source location to the destination location.|
-|[azcopy set-properties](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_set-properties)|Change the access tier of one or more blobs and replace (overwrite) the metadata, and index tags of one or more blobs.|
+|[azcopy set-properties](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_set-properties)|Changes the access tier of one or more blobs and replaces (overwrites) the metadata and index tags of one or more blobs.|
 
 > [!NOTE]
-> AzCopy does not have a command to rename files.
+> AzCopy doesn't have a command to rename files.
 
 ## Configure, optimize, and fix
 
@@ -173,15 +173,15 @@ See any of the following resources:
 
 ## Use a previous version (deprecated)
 
-If you need to use the previous version of AzCopy, see either of the following links:
+If you need to use a previous version of AzCopy, see either of the following links:
 
 - [AzCopy on Windows (v8)](/previous-versions/azure/storage/storage-use-azcopy)
 
 - [AzCopy on Linux (v7)](/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 > [!NOTE]
-> These versions AzCopy are been deprecated. Microsoft recommends using AzCopy v10.
+> These versions of AzCopy are deprecated. Microsoft recommends using AzCopy v10.
 
 ## Next steps
 
-If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy) page.
+If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy).

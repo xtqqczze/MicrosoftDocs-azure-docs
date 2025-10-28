@@ -4,7 +4,7 @@ description: Learn how to obtain a static link to a specific AzCopy version and 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 10/27/2025
+ms.date: 10/28/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
@@ -18,20 +18,20 @@ You can incorporate [AzCopy](storage-use-azcopy-v10.md) into automated scripts f
 
 ## Obtain a static download link
 
-Over time, the AzCopy [download link](storage-use-azcopy-v10.md#download-a-portable-binary) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon.
+Over time, the AzCopy [download link](storage-use-azcopy-v10.md#download-a-portable-binary) points to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon.
 
-To avoid these issues, obtain a static (unchanging) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
+To avoid these issues, get a static (unchanging) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
 
-To obtain a static link, open the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases). Then, scroll through the page until you locate the desired release. In the list of assets for that release, right-click the desired asset. In the context menu, select **Copy link**. You can then use that URL in your script to download and extract the AzCopy binary.
+To get a static link, open the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases). Then, scroll through the page until you locate the desired release. In the list of assets for that release, right-click the desired asset. In the context menu, select **Copy link**. You can then use that URL in your script to download and extract the AzCopy binary.
 
 > [!NOTE]
-> The static link to AzCopy binaries is subject to change over time due to our content delivery infrastructure. If you must use a specific version of AzCopy for any reason, we recommend using AzCopy with an operating system that leverages the [Linux published package](storage-use-azcopy-install-linux-package.md). This method ensures that you can reliably install and maintain the desired version of AzCopy.
+> The static link to AzCopy binaries can change over time due to our content delivery infrastructure. If you must use a specific version of AzCopy for any reason, consider using AzCopy with an operating system that leverages the [Linux published package](storage-use-azcopy-install-linux-package.md). This method ensures that you can reliably install and maintain the desired version of AzCopy.
 
 ## Create a scheduled task
 
 You can create a scheduled task or cron job that runs an AzCopy command script. The script identifies and uploads new on-premises data to cloud storage at a specific time interval.
 
-The following examples assume that you have configured Microsoft Entra authentication by using the `AZCOPY_AUTO_LOGIN_TYPE` environment variable. To learn more, see [Authorize with Microsoft Entra ID](storage-use-azcopy-v10.md#authorize-with-microsoft-entra-id).
+The following examples assume that you configured Microsoft Entra authentication by using the `AZCOPY_AUTO_LOGIN_TYPE` environment variable. To learn more, see [Authorize with Microsoft Entra ID](storage-use-azcopy-v10.md#authorize-with-microsoft-entra-id).
 
 ### [Linux](#tab/linux)
 
@@ -52,7 +52,7 @@ You can schedule the script to run at a specific time daily, monthly, or yearly.
 
 ### [Windows](#tab/windows)
 
-Copy the following AzCopy command to a text editor. Update the parameter values this command to the appropriate values. Save the file as `script.bat`.
+Copy the following AzCopy command to a text editor. Update the parameter values in this command to the appropriate values. Save the file as `script.bat`.
 
 ```bash
 azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
@@ -81,11 +81,11 @@ Windows, see [Schtasks](/previous-versions/orphan-topics/ws.10/cc772785(v=ws.10)
 
 ## Escape special characters in SAS tokens
 
-In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an extra `%` character next to existing `%` characters in the SAS token string. The resulting character sequence appears as `%%`. Make sure to add an extra `^` before each `&` character to create the character sequence `^&`.
+In batch files that have the `.cmd` extension, you need to escape the `%` characters that appear in SAS tokens. Add an extra `%` character next to existing `%` characters in the SAS token string. The resulting character sequence appears as `%%`. Add an extra `^` before each `&` character to create the character sequence `^&`.
 
 ## Run scripts by using Jenkins
 
-If you plan to use [Jenkins](https://jenkins.io/) to run scripts, make sure to place the following command at the beginning of the script.
+If you plan to use [Jenkins](https://jenkins.io/) to run scripts, place the following command at the beginning of the script.
 
 ```
 /usr/bin/keyctl new_session
@@ -93,4 +93,4 @@ If you plan to use [Jenkins](https://jenkins.io/) to run scripts, make sure to p
 
 ## Next steps
 
-If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy) page.
+If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy).

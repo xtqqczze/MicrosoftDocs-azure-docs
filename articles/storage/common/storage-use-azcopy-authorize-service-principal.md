@@ -78,7 +78,7 @@ $Env:AZCOPY_TENANT_ID="<tenant-id>"
 
 Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the application ID and the tenant ID, see [Sign into the application](/entra/identity-platform/howto-create-service-principal-portal#sign-in-to-the-application).
 
-Replace the `<client-secret>` placeholder with the client secret. To obtain a client secret, see [Create a new client secret](/entra/identity-platform/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
+Replace the `<client-secret>` placeholder with the client secret. To obtain a client secret, see [Create a new client secret](/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret).
 
 > [!NOTE]
 > Consider using a prompt to collect the password from the user. That way, your password doesn't appear in your command history.
@@ -143,7 +143,7 @@ To learn more about creating service principal, see [How to: Use the portal to c
 
 #### Authorize a service principal by using a client secret
 
-Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration. To obtain a client secret, see [Create a new client secret](/entra/identity-platform/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret).
+Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration. To obtain a client secret, see [Create a new client secret](/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret).
 
 > [!NOTE]
 > Make sure to set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.

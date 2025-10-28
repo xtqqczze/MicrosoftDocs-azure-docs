@@ -5,7 +5,7 @@ description: You can install AzCopy by using a Linux package that is hosted on t
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 10/02/2025
+ms.date: 10/28/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: ai-video-demo
@@ -15,7 +15,7 @@ ai-usage: ai-assisted
 
 # Install AzCopy on Linux by using a package manager
 
-This article helps you install [AzCopy](storage-use-azcopy-v10.md) by using popular Linux package managers (dnf, apt, zypper). Once installed, you'll have AzCopy available system-wide and can easily keep it updated through your regular system maintenance routines.
+This article helps you install [AzCopy](storage-use-azcopy-v10.md) by using popular Linux package managers (dnf, apt, zypper). When you install AzCopy, you make it available system-wide and can easily keep it updated through your regular system maintenance routines.
 
 For more detailed guidance on installing these packages, see [Linux Software Repository for Microsoft Products](/linux/packages).
 
@@ -27,7 +27,7 @@ For more detailed guidance on installing these packages, see [Linux Software Rep
    curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.rpm
    ```
 
-   Replace the `<distribution>` and `<version>` placeholders in this command with the Linux distribution and version that you are running on your machine. See [packages.microsoft.com](https://packages.microsoft.com/) to find the list of supported Linux distributions and versions.
+   Replace the `<distribution>` and `<version>` placeholders in this command with the Linux distribution and version that you're running on your machine. See [packages.microsoft.com](https://packages.microsoft.com/) to find the list of supported Linux distributions and versions.
 
    Use the `cat /etc/os-release` command to get the Linux distribution and version running on your machine. For example, if `Ubuntu` and `version 20.04` appears in the output of that command, then open the [packages.microsoft.com](https://packages.microsoft.com/) page, select **ubuntu**, and then verify that **20.04** appears in the list. Then, use that distribution and version in your comment.
 
@@ -35,25 +35,25 @@ For more detailed guidance on installing these packages, see [Linux Software Rep
    curl -sSL -O https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.rpm
    ````
 
-2. Install the repository configuration package.
+1. Install the repository configuration package.
 
    ```bash
    sudo rpm -i packages-microsoft-prod.rpm
    ````
 
-3. Delete the repository configuration package after you've installed it.
+1. Delete the repository configuration package after you install it.
 
    ```bash
    rm packages-microsoft-prod.rpm
    ````
 
-4. Update the package index files.
+1. Update the package index files.
 
    ```bash
    sudo dnf update
    ```
 
-5. Install AzCopy.
+1. Install AzCopy.
 
    ```bash
    sudo dnf install azcopy
@@ -67,7 +67,7 @@ For more detailed guidance on installing these packages, see [Linux Software Rep
    curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.rpm
    ```
 
-   Replace the `<distribution>` and `<version>` placeholders in this command with the Linux distribution and version that you are running on your machine. See [packages.microsoft.com](https://packages.microsoft.com/) to find the list of supported Linux distributions and versions.
+   Replace the `<distribution>` and `<version>` placeholders in this command with the Linux distribution and version that you're running on your machine. See [packages.microsoft.com](https://packages.microsoft.com/) to find the list of supported Linux distributions and versions.
 
    Use the `cat /etc/os-release` command to get the Linux distribution and version running on your machine. For example, if `Ubuntu` and `version 20.04` appears in the output of that command, then open the [packages.microsoft.com](https://packages.microsoft.com/) page, select **ubuntu**, and then verify that **20.04** appears in the list. Then, use that distribution and version in your comment.
 
@@ -81,7 +81,7 @@ For more detailed guidance on installing these packages, see [Linux Software Rep
    sudo rpm -i packages-microsoft-prod.rpm
    ```
 
-1. Delete the repository configuration package after you've installed it.
+1. Delete the repository configuration package after you install it.
 
    ```bash
    rm packages-microsoft-prod.rpm
@@ -107,7 +107,7 @@ For more detailed guidance on installing these packages, see [Linux Software Rep
    curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.deb
    ```
 
-   Replace the `<distribution>` and `<version>` placeholders in this command with the Linux distribution and version that you are running on your machine. See [packages.microsoft.com](https://packages.microsoft.com/) to find the list of supported Linux distributions and versions.
+   Replace the `<distribution>` and `<version>` placeholders in this command with the Linux distribution and version that you're running on your machine. See [packages.microsoft.com](https://packages.microsoft.com/) to find the list of supported Linux distributions and versions.
 
    Use the `cat /etc/os-release` command to get the Linux distribution and version running on your machine. For example, if `Ubuntu` and `version 20.04` appears in the output of that command, then open the [packages.microsoft.com](https://packages.microsoft.com/) page, select **ubuntu**, and then verify that **20.04** appears in the list. Then, use that distribution and version in your comment.
 
@@ -115,25 +115,25 @@ For more detailed guidance on installing these packages, see [Linux Software Rep
    curl -sSL -O https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
    ````
 
-2. Install the repository configuration package.
+1. Install the repository configuration package.
 
    ```bash
    sudo dpkg -i packages-microsoft-prod.deb
    ```
 
-3. Delete the repository configuration package after you've installed it.
+1. Delete the repository configuration package after you install it.
 
    ```bash
    rm packages-microsoft-prod.deb
    ```
 
-4. Update the package index files.
+1. Update the package index files.
 
    ```bash
    sudo apt-get update
    ```
 
-5. Install AzCopy.
+1. Install AzCopy.
 
    ```bash
    sudo apt-get install azcopy
@@ -151,4 +151,4 @@ sudo tdnf install azcopy
 
 ## Next steps
 
-If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy) page.
+If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy).
