@@ -158,7 +158,7 @@ After you finish workflow setup and are ready to test, you must enable your work
 
 1. On the **Workflows** page, select the checkbox for the new workflow. On the page toolbar, select **Enable**.
 
-   ::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/workflow-enable.png" alt-text="Screenshot shows workflows with selected workflow checkbox and the toolbar with Enable selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/workflow-enable.png":::
+   :::image type="content" source="media/clone-consumption-logic-app-to-standard-workflow/workflow-enable.png" alt-text="Screenshot shows workflows with selected workflow checkbox and the toolbar with Enable selected." lightbox="media/clone-consumption-logic-app-to-standard-workflow/workflow-enable.png":::
 
 ## Related content
 
