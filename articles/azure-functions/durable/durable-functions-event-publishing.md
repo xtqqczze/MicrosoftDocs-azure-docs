@@ -127,8 +127,8 @@ For more information, visit [Use managed identities for App Service and Azure Fu
 To configure system assigned identity follow the instructions below:
 
 #### Configuration
-- Turn on system assigned identity for the function app.
-- In the Event Grid topic resource, give the function app the EventGrid Data Sender role.
+- Turn on system assigned identity for the function app. Go to the function app, **Identity** section, in the **System Assigned** tab, toggle the **Status** switch to on.
+- In the Event Grid topic resource, give the function app the EventGrid Data Sender role. In the Event Grid topic resource, assign the **EventGrid Data Sender** role to the uami. Go to the **Access Control (IAM)** section, click **+ Add**, select the **EventGrid Data Sender** role, click **Next**, choose **Managed Identity** in the **Assign access to** section, click **+ Select Members** in the **Members** section, select the managed identity, then click **Review + Assign**.
 
 #### App Settings
 - Add an `EventGrid__topicEndpoint` app setting with the value as the Event Grid topic endpoint.
@@ -137,17 +137,16 @@ To configure system assigned identity follow the instructions below:
 To configure user assigned managed identity follow the instructions below:
 
 #### Configuration
-- Create a user assigned managed identity (uami).
-- Attach the uami to the function app resource (in the Identity section).
-- Attach the uami to the event grid topic resource (in the Identity section).
-- Create an Event Grid subscription and select an endpoint. In the Managed Identity for Delivery section, choose User Assigned for the Managed Identity type and select the the uami.
-- In the Event Grid topic resource, assign the EventGrid Data Sender role to the uami.
+- Create a user assigned managed identity (uami). From the portal home page, click **+ Create a resource**, go to the **Identity** section, and then choose **User Assigned Managed Identity**.
+- Attach the uami to the function app resource. Go to the function app, **Identity** section, click **Add +**, choose the user assigned identity, then click **Add**.
+- Attach the uami to the event grid topic resource. Go to the event grid topic resource, **Identity** section, click **Add +**, choose the user assigned identity, then click **Add**.
+- Create an Event Grid subscription and select an endpoint. In the **Managed Identity for Delivery** section, choose **User Assigned** for the **Managed Identity** type and select the uami.
+- In the Event Grid topic resource, assign the **EventGrid Data Sender** role to the uami. Go to the **Access Control (IAM)** section, click **+ Add**, select the **EventGrid Data Sender** role, click **Next**, choose **Managed Identity** in the **Assign access to** section, click **+ Select Members** in the **Members** section, select the managed identity, then click **Review + Assign**.
 
 #### App Settings
 - Add an `EventGrid__topicEndpoint` app setting with the value as the Event Grid topic endpoint.
 - Add an `EventGrid__credential` app setting with the value `managedidentity`.
 - Add an `EventGrid__clientId` app setting with the value of the user assigned managed identity client ID.
-
 
 ## Create functions that listen for events
 
