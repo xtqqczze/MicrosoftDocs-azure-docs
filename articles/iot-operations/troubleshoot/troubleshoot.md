@@ -60,9 +60,10 @@ The following message indicates that the logged-in principal doesn't have the re
 Message: The client {principal Id} with object id {principal object Id} has permission to perform action Microsoft.ExtendedLocation/customLocations/resourceSyncRules/write on scope {resource sync resource Id}; however, it does not have permission to perform action(s) Microsoft.Authorization/roleAssignments/write on the linked scope(s) {resource sync resource group} (respectively) or the linked scope(s) are invalid.
 ```
 
-To deploy resource sync rules, the logged-in principal must have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This security constraint is necessary because edge to cloud resource hydration creates new resources in the target resource group.
+To enable resource sync, the logged-in principal must have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This security constraint is necessary because edge to cloud resource hydration creates new resources in the target resource group.
 
-To resolve the issue, either elevate principal permissions, or don't deploy resource sync rules.
+To resolve the issue elevate principal permissions.
+
 > [!NOTE]
 > Legacy AIO CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
 

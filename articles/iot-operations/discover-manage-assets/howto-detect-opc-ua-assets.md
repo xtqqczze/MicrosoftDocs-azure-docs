@@ -22,7 +22,7 @@ To learn more, see [What is asset discovery?](overview-akri.md).
 
 ## Prerequisites
 
-- **Enable resource sync rules.** A deployed instance of Azure IoT Operations with resource sync rules enabled. To learn more, see [Deploy Azure IoT Operations](../deploy-iot-ops/overview-deploy.md).
+- **Enable resource sync.** A deployed instance of Azure IoT Operations with resource sync enabled.
 
 - **Set permissions on your custom location.** The custom location in the resource group where you deployed Azure IoT Operations must have the **Azure Kubernetes Service Arc Contributor Role** role enabled with **K8 Bridge** as a member: For example:
 
@@ -42,16 +42,16 @@ To learn more, see [What is asset discovery?](overview-akri.md).
 
     # [Azure CLI](#tab/cli)
 
-    Run `rsync enable` to enable resource sync rules on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
+    Run `enable-rsync` to enable resource sync on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
 
     ```bash
-    az iot ops rsync enable - n <my instance> -g <my resource group>
+    az iot ops enable-rsync -n <my instance> -g <my resource group>
     ```
 
     If the signed-in CLI user doesn't have permission to look up the object ID (OID) of the K8 Bridge service principal, you can provide it explicitly using the `--k8-bridge-sp-oid` parameter:
 
     ```bash
-    az iot ops rsync enable --k8-bridge-sp-oid <k8 bridge service principal object ID>
+    az iot ops enable-rsync --k8-bridge-sp-oid <k8 bridge service principal object ID>
     ```
 
     > [!NOTE]
@@ -60,6 +60,10 @@ To learn more, see [What is asset discovery?](overview-akri.md).
     > ```bash
     > az ad sp list --display-name "K8 Bridge" --query "[0].appId" -o tsv
     > ```
+
+    > [!NOTE]
+    > The `az iot ops rsync enable` command is deprecated. Use `az iot ops enable-rsync` instead.
+
 
     ---
 
