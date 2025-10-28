@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Enable Threat Detection and monitor health of Azure VM Backups
-description: Learn how to enable threat detection for Azure VM backups using Azure Backup integrated with Microsoft Defender for Cloud, configure settings, and monitor backup restore point health.
+description: Learn how to enable threat detection for Azure VM backups using Azure Backup. The feature is integrated with Microsoft Defender for Cloud, configure settings, and monitor backup restore point health.
 ms.service: azure-backup
 ms.date: 10/24/2025
 ms.topic: tutorial
@@ -13,9 +13,9 @@ ms.reviewer: v-mallicka
 
 # Tutorial: Enable Threat Detection and monitor health of Azure VM Backups (preview)
 
-This tutorial describes how to enable threat detection for Azure VM backups using Azure Backup integrated with Microsoft Defender for Cloud, configure settings, and monitor backup restore point health.
+This tutorial describes how to enable threat detection for Azure Virtual Machine (VM) backups using Azure Backup. This feature is integrated with Microsoft Defender for Cloud, configure settings, and monitor backup restore point health.
 
-Azure Backup now leverages Microsoft Defender for Cloud to provide threat detection for Azure VM backups. By integrating security signals and malware scans from Defender for Servers, Azure Backup automatically assesses the health of restore points during backup creation. This helps you quickly identify and respond to suspicious or ransomware-infected backups, ensuring safer recovery options for your VMs. 
+Azure Backup now uses Microsoft Defender for Cloud (MDC) to provide threat detection for Azure VM backups. By integrating security signals and malware scans from Defender for Servers, Azure Backup automatically assesses the health of restore points during backup creation. This feature helps you quickly identify and respond to suspicious or ransomware-infected backups, ensuring safer recovery options for your VMs. 
 
 [Learn about Azure Backup threat detection features and supported scenarios](threat-detection-overview.md).
 
@@ -24,15 +24,16 @@ Azure Backup now leverages Microsoft Defender for Cloud to provide threat detect
 Before you enable threat detection for Azure VM backups, ensure the following prerequisites are met:
 
 - Enable Microsoft Defender for Servers Plan 1 or Plan 2 on your Azure subscription. For Plan 1, enable Microsoft Defender for Endpoint (MDE) on virtual machines and verify correct configuration on the source VM; otherwise, backups may be incorrectly tagged.
-- Enable bi-directional alert synchronization in Microsoft Sentinel to accurately identify backup recovery points.
+- Enable bi-directional alert synchronization in Microsoft Sentinel to accurately identify backup recovery points (RPs).
 - Mark alerts as resolved in Microsoft Defender for Cloud when using any third-party incident management solution alongside Defender.
 
 
 ## Enable threat detection for Azure VM backups
 
-You can configure source-scan at-scale at the vault level, which allows Azure Backup to performn Malware scans using Microsoft Defender at the source virtual machine, and Azure Backup assesses the health of recovery points when snapshots are taken.
+You can configure source-scan at-scale at the vault level, which allows Azure Backup to perform Malware scans using Microsoft Defender at the source virtual machine. This capability allows Azure Backup to assess the health of recovery points when snapshots are taken.
 
-You can enable threat detection for Azure VM backups using one of the methods - Resiliency or Vault properties.
+You can enable threat detection for Azure VM backups using one of the methods - Resiliency or Vault properties. After the threat detection scan is configured on the vaults, the vault applies scan status to all new restore points created for VM backups.
+
 
 >[!Important]
 >With the required Microsoft Defender for Cloud (MDC) plans, you can enable source-scan integration. This feature can't be disabled.
@@ -41,28 +42,31 @@ You can enable threat detection for Azure VM backups using one of the methods - 
 ### Option 1: Configure threat detection using Resiliency
 
 
-To enable threat detection for Azure VM backups, follow these steps:
+To enable threat detection for Azure VM backups using Resiliency, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Resiliency**.
 
-1. On the ** Backup and Disaster Recovery overview** pane,  select **Threat detection**.
+1. On the **overview** pane,  select the **Threat detection (Preview)** tile.
+
+   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/threat-detection-tile.png" alt-text="Screenshot shows the Threat detection tile in Resiliency." lightbox="./media/threat-detection-configure-monitor-tutorial/threat-detection-tile.png":::
 
 1. On the **Threat detection** pane, select **+ Configure scan** to start configuring source-scan integration.
 
-   
+   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/configure-threat-detection.png" alt-text="Screenshot shows how to initiate threat detection scan configuration." lightbox="./media/threat-detection-configure-monitor-tutorial/configure-threat-detection.png":::   
 
+1. On the **Configure source-scan integration (preview)** pane, click **+ Select Vaults**.
+1. On the **Select Vaults** pane, under **Select subscription**, choose the subscription under which you want to enable the source-scan integration.
 
-> :::image type="content" source="media/threat-detection/image1.png" alt-text="A screenshot of a chat AI-generated content may be incorrect.":::
+1. To enable integration with Microsoft Defender for Cloud, select the vaults from the list that contain the protected datasources (VM backups), and then select **Add**.
 
-5.  Select the subscription where you want to enable this source-scan integration.
+   >[!Note]
+   >You can configure Source scan only when the selected subscription has the required Microsoft Defender for Servers plan.
 
-6.  If the selected subscription has the required Defender for Servers plan enabled, you can proceed to select the vaults.
+   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/select-vault.png" alt-text="Screenshot shows the vault selection for scan configuration." lightbox="./media/threat-detection-configure-monitor-tutorial/select-vault.png":::   
 
-7.  Select the vaults which contains the protected Items (VM backups) where you want to enable integration with MDC.
+1. On the **Configure source-scan integration (preview)** pane, select **Configure scan** to enable threat detection for the vaults in the supported regions.
 
-8.  Select “Configure Scan” and threat detection will be enabled for the vaults in the preview regions where the feature is available.
-
-9.  All the new RPs created for the VM backups in the vault will start getting the scan status configured.
+All the new recovery points created for the VM backups in the vault start showing the scan status as **Configured**.
 
 ### Option 2: Configure threat detection from vault properties
 
@@ -76,27 +80,30 @@ To enable threat detection for Azure VM backups from the Recovery Services Vault
 1. On the **Threat Detection (Preview)** pane, turn on **Enable source-scan integration**, accept the terms by selecting the checkbox.
 1. Select **Update**.
 
-**View Health of RPs:**
+## Monitor the health of Azure VM recovery points
 
-1.  Open Azure Portal and navigate to Azure Resiliency.
+To monitor the health of Azure VM recovery points using Resiliency in Azure, follow these steps:
 
-2.  Under Overview, navigate to threat detection tile to view summary of the RP health.
+1. Go to **Resiliency**, and select the **Threat detection (Preview)** tile and view the summary of the recovery point health.
 
-3.  Go to Threat detection blade and click on the backup item to view the “Scan status” and “Scan summary”. Scan summary is aggregated value based on the scan status of the RPs created in the last 7 days.
+1. On the **Threat detection (Preview)** pane, select the protected item  with **Scan summary** status as **Suspicious RPs found**
 
-:::image type="content" source="media/threat-detection/image3.png" alt-text="A screenshot of a computer AI-generated content may be incorrect.":::
+   You can view the **Scan status** and **Scan summary** of all protected items across subscriptions. Scan summary is aggregated value based on the scan status of the recovery points created in the last seven days.
 
-4.  For RPs with “Suspicious” health status, click on the “Protected Item” and select “Suspicious” status hyper link and view the scan details.
+   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/threat-detection-status-protected-items.png" alt-text="Screenshot shows the threat detection status of the protected items." lightbox="./media/threat-detection-configure-monitor-tutorial/threat-detection-status-protected-items.png":::
 
-:::image type="content" source="media/threat-detection/image4.png" alt-text="A screenshot of a computer AI-generated content may be incorrect.":::
+1. On the selected protected item pane, select the associated item from the list.
 
-5.  You can see the alerts that led to tagging this RP as suspicious. Select the alert and navigate to MDC to remediate and take action. You can stop backups or increase security level of backups by enabling immutability or MUA.
+1. On the associated item pane, from the list of recovery points, select the hyper link with **Recent scan status** as **Suspicious** and view the scan details.
 
-:::image type="content" source="media/threat-detection/image5.png" alt-text="A screenshot of a computer AI-generated content may be incorrect.":::
+   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/suspecious-recovery-point.png" alt-text="Screenshot shows the suspicious recovery points." lightbox="./media/threat-detection-configure-monitor-tutorial/suspecious-recovery-point.png":::
 
-6.  After resolving all alerts and marking them as “resolved” in MDC, backup items will be marked as “No Threats Reported”.
+5.  You can see the alerts that led to tagging this RP as **Suspicious**. You can remediate and take actions by selecting the alert and navigating to MDC. You can stop backups or increase security level of backups by enabling immutability or Multi-user authorization.
 
+   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/scan-details.png" alt-text="Screenshot shows the scan details for the suspicious recovery point." lightbox="./media/threat-detection-configure-monitor-tutorial/scan-details.png":::
+
+After you resolve all alerts and mark them as *resolved* in Microsoft Defender for Cloud, protected items are marked as **No threats reported**.
 
 You can also view the scan status of each recovery point during Azure VM restore, which helps you to select the appropriate restore point for ransomware recovery.
 
-:::image type="content" source="media/threat-detection/image6.png" alt-text="A screenshot of a computer AI-generated content may be incorrect.":::
+:::image type="content" source="./media/threat-detection-configure-monitor-tutorial/view-restore-point-scan-status.png" alt-text="Screenshot shows the restore point scan status." lightbox="./media/threat-detection-configure-monitor-tutorial/view-restore-point-scan-status.png":::
