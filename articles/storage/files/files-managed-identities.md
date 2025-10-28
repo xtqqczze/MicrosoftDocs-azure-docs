@@ -79,23 +79,36 @@ You can also select your subscription by specifying your subscription name:
 Set-AzContext -Subscription "<subscription-name>" 
 ```
 
-## Configure the SMB oAuth property on your storage account
+## Configure the SMB OAuth property on your storage account
 
-In order to authenticate a managed identity, you must configure the SMB OAuth property on the storage account that contains the Azure file share you want to access. We recommend creating a new storage account for this purpose. You can use an existing storage account only if it doesn't have Microsoft Entra Kerberos enabled as the identity source.
+In order to authenticate a managed identity, you must enable the SMB OAuth property on the storage account that contains the Azure file share you want to access. We recommend creating a new storage account for this purpose. You can use an existing storage account only if it doesn't have Microsoft Entra Kerberos enabled as the identity source.
 
-Download this script to create or configure the storage account. Save it as `SBD_PREP.ps1`. 
-
-Open a PowerShell window as administrator and use the downloaded script to create or modify a storage account and create a file share. Replace `<subscription-ID>`, `<resource-group>`, `<region-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
+To create a new storage account with SMBOAuth enabled, run the following PowerShell command as administrator. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your values. You can specify a different SKU if needed.
 
 ```powershell
-.\SBD_PREP.ps1 -subscription <subscription-ID> -resourceGroup <resource-group> -location <region-name> -accountName <storage-account-name> -shareName <file-share-name>
+New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -SkuName Standard_LRS -Location <region> -EnableSmbOAuth $true
 ```
 
-You can ignore any warnings unless the script fails with exceptions. 
+To enable SMBOAuth on an existing storage account, run the following PowerShell command. Replace `<resource-group>` and `<storage-account-name>` with your values.
 
-Running the script multiple times is safe. It will reapply the SMB OAuth property and skip file share creation if the file share already exists. 
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -EnableSmbOAuth $true
+```
 
-Once the script completes, you should have a storage account and file share ready for SMB OAuth authentication. Verify in the Azure portal that your storage account and file share were created.
+If you see errors that the resource was disallowed by policy, then you might have a policy set on your subscription disallowing `Set-AzStorageAccount`. To workaround, retry using the following command:
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -EnableSmbOAuth $true -AllowBlobPublicAccess $false
+```
+
+Next, create an SMB file share on the storage account. Replace `<resource-group>`, `<storage-account-name>`, and `<file-share-name>` with your values. 
+
+```powershell
+$storageAccount = Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name>
+New-AzStorageShare -Name <file-share-name> -Context $storageAccount.Context
+```
+
+You should now have a storage account and file share ready for SMB OAuth authentication. Verify in the Azure portal that your storage account and file share were created.
 
 ## Prepare your VM and assign roles
 
@@ -125,7 +138,28 @@ For non-Azure Windows machines (on-prem or other cloud), follow these steps.
 
 Now that your storage account and permissions are configured, follow these steps to mount the file share using managed identity authentication.
 
+### Prepare your client
 
+Log into your VM or device that has the managed identity assigned and open a PowerShell window as administrator. You'll need either PowerShell 5.1+ or PowerShell 7+.
+
+Install the Azure Files SMB Managed Identity Client PowerShell module and import it:
+
+```powershell
+Install-Module AzFilesSMBMIClient 
+Import-Module AzFilesSMBMIClient 
+```
+
+Check your current Powershell execution policy by running the following command:
+
+```powershell
+Get-ExecutionPolicy -List 
+```
+
+If the execution policy on CurrentUser is **Restricted** or **Undefined**, change it to **RemoteSigned**. If the execution policy is **RemoteSigned**, **Default**, **AllSigned**, **Bypass**, or **Unrestricted**, you can skip this step. 
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser 
+```
 
 > [!TIP]
 > To view complete usage information and examples, run the executable without any parameters: `AzFilesSmbMIClient.exe`
