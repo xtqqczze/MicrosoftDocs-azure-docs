@@ -77,6 +77,9 @@ After enabling authentication, you need to update the app registration's Applica
 
 1. Select **Save**.
 
+> [!WARNING]
+> If you delete your App Service app, you must also delete the app registration and clean up any authentication resources that reference the Application ID URI. Failing to do so creates a security vulnerability: if someone else creates an app with the same URL, they could potentially gain unauthorized access to resources that trust the orphaned app registration. Always remove app registrations and their associated permissions when decommissioning an app.
+
 ## Configure the OpenAPI tool in Azure AI Foundry
 
 > [!NOTE]
