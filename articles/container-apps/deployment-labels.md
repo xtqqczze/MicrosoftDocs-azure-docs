@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 07/25/2025
+ms.date: 10/27/2025
 ---
 
 # Deployment labels in Azure Container Apps
@@ -30,7 +30,9 @@ Deployment labels enable you to create sophisticated deployment strategies while
 
 - **Staging releases & auto swap**: Automatic revision activation allows you to seamlessly create new revisions and have them assigned to new or existing labels and receive traffic. Any revisions no longer referenced by a label will be shut down automatically.
 
-## Use deployment labels [ADD CLI/BICEP EXAMPLES]
+::: zone pivot="azureportal"
+
+## Use deployment labels
 
 To enable deployment labels, follow these steps in the Azure portal:
 
@@ -74,6 +76,39 @@ Use the *Show history* option for any label to:
 
 - Review the label's revision history.
 - Roll back to a previous revision by pointing the label to a different container revision.
+
+::: zone-end
+
+::: zone pivot="azurecli"
+
+## Use deployment labels
+
+To enable deployment labels, follow these steps in the Azure CLI:
+
+1. Open your terminal.
+
+1. Use the following command to create a new label:
+
+   ```bash
+   az containerapp create --name <app-name> --resource-group <resource-group> --image <container-image> --environment <environment-name> --ingress external --target-port 0 --revisions-mode labels --target-label <label-name>
+   ```
+
+1. To update a label, use the following command:
+   ```bash
+   az containerapp update --name <app-name> --resource-group <resource-group> --image <new-container-image> --target-label <label-name>
+   ```
+
+1. To show label history, use the following command:
+   ```bash
+   az containerapp label-history show --name <app-name> --resource-group <resource-group> --label <label-name>
+   ```
+1. To delete a label, use the following commands:
+
+   ```bash
+   az containerapp delete --name <app-name> --resource-group <resource-group> -y
+   ```	
+
+::: zone-end
 
 ## Supported scenarios
 
