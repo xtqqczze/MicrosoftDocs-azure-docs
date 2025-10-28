@@ -96,7 +96,7 @@ To monitor the health of Azure VM recovery points using Resiliency in Azure, fol
 
 1. On the associated item pane, from the list of recovery points, select the hyper link with **Recent scan status** as **Suspicious** and view the scan details.
 
-   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/suspecious-recovery-point.png" alt-text="Screenshot shows the suspicious recovery points." lightbox="./media/threat-detection-configure-monitor-tutorial/suspecious-recovery-point.png":::
+   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/suspicious-recovery-point.png" alt-text="Screenshot shows the suspicious recovery points." lightbox="./media/threat-detection-configure-monitor-tutorial/suspicious-recovery-point.png":::
 
 5.  You can see the alerts that led to tagging this RP as **Suspicious**. You can remediate and take actions by selecting the alert and navigating to MDC. You can stop backups or increase security level of backups by enabling immutability or Multi-user authorization.
 
