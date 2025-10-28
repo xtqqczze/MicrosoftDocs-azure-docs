@@ -19,7 +19,7 @@ This article shows you how to secure your App Service OpenAPI endpoints when the
   - [Add an App Service app as a tool in Azure AI Foundry Agent Service (.NET)](tutorial-ai-integrate-azure-ai-agent-dotnet.md)
   - [Add an App Service app as a tool in Azure AI Foundry Agent Service (Java)](tutorial-ai-integrate-azure-ai-agent-java.md)
   - [Add an App Service app as a tool in Azure AI Foundry Agent Service (Python)](tutorial-ai-integrate-azure-ai-agent-python.md)
-  - [Add an App Service app as a tool in Azure AI Foundry Agent Service (Node.js)](tutorial-ai-integrate-azure-ai-agent-nodejs.md)
+  - [Add an App Service app as a tool in Azure AI Foundry Agent Service (Node.js)](tutorial-ai-integrate-azure-ai-agent-node.md)
 
 - An Azure AI Foundry project where you'll add your app as an OpenAPI tool.
 
@@ -59,7 +59,7 @@ You need the client ID (also called the object ID or principal ID) of your Azure
 
 1. Select **Add** to create the identity provider.
 
-   :::image type="content" source="media/configure-authentication-provider-aad-ai-foundry-openapi/entra-auth-configuration.png" alt-text="Screenshot showing the configuration of a new Microsoft authentication provider in the App Service.":::
+   :::image type="content" source="media/configure-authentication-ai-foundry-openapi-tool/entra-auth-configuration.png" alt-text="Screenshot showing the configuration of a new Microsoft authentication provider in the App Service.":::
 
 ## Update the app registration Application ID URI
 
