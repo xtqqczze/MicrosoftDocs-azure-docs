@@ -11,7 +11,7 @@ ms.reviewer: v-mallicka
 
 ---
 
-# Tutorial: Enable Threat Detection and monitor health of Azure VM Backups
+# Tutorial: Enable Threat Detection and monitor health of Azure VM Backups (preview)
 
 This tutorial describes how to enable threat detection for Azure VM backups using Azure Backup integrated with Microsoft Defender for Cloud, configure settings, and monitor backup restore point health.
 
