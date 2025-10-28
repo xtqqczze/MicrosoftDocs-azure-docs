@@ -1,5 +1,5 @@
 ---
-title: Enhancing Web App Assessment by Adding Code Scan Report
+title: Enhancing Web App Assessment With Code Scan Reports for Azure Migration
 description: Learn how to install AppCat and run the quickstart to assess and migrate .NET and Java applications using Azure Migrate. Step-by-step guide included.
 ms.topic: how-to
 author: sudesai
@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 ---
 
 
-# Enhancing Web app assessment by adding code scan report 
+# Enhancing Web app assessment with Code Scan Reports for Azure migration
 
 This article describes how to improve web app assessments by including code scan reports when modernising applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code scan reports helps you better assess migration readiness and receive recommendations for appropriate migration strategies based on the code changes identified during the scan.
 
@@ -74,7 +74,7 @@ This method connects Azure Migrate to a GitHub repository using provided connect
 - Provide information about the GitHub repository required for integration with Azure Migrate to allow automatic requests and synchronization of code scan reports. 
 - Provide GitHub application details that grant permission to create issues and read comments on issues within the target repository. 
 
-## Create new GitHub App 
+## Create new GitHub app 
 
 Create a new **GitHub App** by following these steps:
 
@@ -102,16 +102,16 @@ Provide the following details to set up your new GitHub App:
     [Add screen]
   1. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
   
-| Issues  | Read and write  | 
-| --- | --- | 
-| Metadata  | Read-only  |
-| Webhook   | Read and write  |
+    | Issues  | Read and write  | 
+    | --- | --- | 
+    | Metadata  | Read-only  |
+    | Webhook   | Read and write  |
 
   1. Under **Where can this GitHub App be installed?**, select **Only on this account** or **Any account**. 
     [Add screen]
   1. Select **Create GitHub App**. 
 
-### Install GitHub App on the repository
+### Install GitHub app on the repository
 
 Follow these steps to install GitHub App on your repository:
 
@@ -201,7 +201,7 @@ Follow these guidelines to successfully import paths and upload zip files withou
  - Uncompressed size is 500 MB or less.
  - Doesn't include nested zip files.
 
-You might see errors if the uploaded zip file doesn’t meet the required constraints. Here are some examples:
+    You might see errors if the uploaded zip file doesn’t meet the required constraints. Here are some examples:
  
  - The uploaded blob content type '%Value;' is not supported. - Occurs when the uploaded file is not a zip file. 
  - Zip contains too many files (%FileCount;). Limit is %MaxFileCount;. - Occurs when the zip file contains more than 100 files. 
