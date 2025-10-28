@@ -6,7 +6,15 @@ ms.date: 10/28/2025
 ms.author: glenga
 validation.skip: true
 ---
-<!---this include supports both Flex Consumption and Consumption plan, and the main page must have independent tabs for both `flex-consumption-plan` and `consumption-plan`.--->
+<!---this include supports both Flex Consumption and Consumption plan, and the main page must have independent tabs for both `flex-consumption-plan` and `consumption-plan`.
+
+### [Flex Consumption plan](#tab/flex-consumption-plan)
+
+### [Consumption plan](#tab/consumption-plan)
+
+---
+
+-->
 
 #### [Portal](#tab/portal/flex-consumption-plan)
 
