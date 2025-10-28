@@ -102,10 +102,10 @@ Provide the following details to set up your new GitHub App:
     [Add screen]
   1. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
   
-    | Issues  | Read and write  | 
-    | --- | --- | 
-    | Metadata  | Read-only  |
-    | Webhook   | Read and write  |
+  | Issues  | Read and write  | 
+  | --- | --- | 
+  | Metadata  | Read-only  |
+  | Webhook   | Read and write  |
 
   1. Under **Where can this GitHub App be installed?**, select **Only on this account** or **Any account**. 
     [Add screen]
