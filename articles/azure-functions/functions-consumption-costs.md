@@ -34,7 +34,7 @@ Durable Functions can also run in both of these plans. To learn more about the c
 
 The way that consumption-based costs are calculated, including free grants, depends on the specific plan. For the most current cost and grant information, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
-### [Flex Consumption plan](#tab/flex-consumtion-plan)
+### [Flex Consumption plan](#tab/flex-consumption-plan)
 
 [!INCLUDE [functions-flex-consumption-billing-table](../../includes/functions-flex-consumption-billing-table.md)]
 
@@ -117,7 +117,7 @@ In [your invoice](../cost-management-billing/understand/download-azure-invoice.m
 
 The app-level metrics available to your app depends on the type of consumption plan:
 
-#### [Flex Consumption plan](#tab/flex-consumtion-plan)
+#### [Flex Consumption plan](#tab/flex-consumption-plan)
 
 These Azure Monitor metrics are related to Flex Consumption plan billing:
 
