@@ -50,4 +50,4 @@ The WAF **Policy settings** define the CAPTCHA challenge cookie validity lifetim
 ## Related content
 
 - [Web Application Firewall JavaScript challenge](/azure/web-application-firewall/waf-javascript-challenge)
-- [Configure a custom response for Front Door WAF](./afds/waf-front-door-configure-custom-response-code.md)
+- [Configure a custom response for Front Door WAF](/azure/web-application-firewall/afds/waf-front-door-configure-custom-response-code)
