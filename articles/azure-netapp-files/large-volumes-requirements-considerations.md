@@ -156,7 +156,7 @@ You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to re
 ### Register for extra-large volumes 
 
 >[!NOTE]
->You must be registered to use [large volumes](#register-the-feature) and, if you're using the Flexible, Premium, or Ultra service level, [cool access](manage-cool-access.md#register-for-cool-access) before registering for extra-large volumes. 
+>You must be registered to use [large volumes](#register-the-feature) and, if you're using the Flexible, Premium, or Ultra service level, [cool access](manage-cool-access.md#register-the-feature) before registering for extra-large volumes. 
 
 Extra large volumes are currently in preview. Submit a waitlist request for access to the feature. 
 <!-- insert waitlist -->

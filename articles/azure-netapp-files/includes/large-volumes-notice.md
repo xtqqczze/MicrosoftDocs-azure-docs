@@ -2,7 +2,7 @@
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: include
-ms.date: 10/15/2025
+ms.date: 10/28/2025
 ms.author: anfdocs
 ms.custom: include file
 
@@ -22,4 +22,5 @@ Regular volumes quotas are between 50 GiB and 100 TiB. Large volume quotas range
 
 * **Large volume type**
 
-    Select **Large volume** to create the volume at a size between 50 TiB and 2 PiB. If you plan to enable cool access and want to scale to 7.2 PiB, select **Extra-large volume 7.2 PiB**. Ensure you meet the [requirements for extra large volumes](large-volumes-requirements-considerations.md#requirements-and-considerations-for-extra-large-volumes).
+    * To create a volume between 50 TiB and 1 PiB, select **Large volume** to create the volume at a size between 50 TiB and 2 PiB.
+    * If you plan to enable cool access and want to scale to 7.2 PiB, select **Extra-large volume 7.2 PiB**. Ensure you meet the [requirements for extra large volumes](../large-volumes-requirements-considerations.md#requirements-and-considerations-for-extra-large-volumes).
