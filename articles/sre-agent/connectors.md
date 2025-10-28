@@ -17,6 +17,7 @@ Connectors in Azure SRE Agent let you integrate external services for communicat
 Connectors are modular integrations that extend the SRE Agent's capabilities. There are two main types:
 
 | Type | Description | Possible use case |
+|--|--|--|
 | **Communication connectors** | Send notifications and updates to services like Outlook and Microsoft Teams. | When the SRE Agent detects an incident, it can email stakeholders or post updates in Teams. |
 | **Consumption connectors** | Ingest data from external monitoring platforms such as Datadog, Dynatrace, and New Relic. | During troubleshooting, the agent can query telemetry from Datadog or Dynatrace. |
 
