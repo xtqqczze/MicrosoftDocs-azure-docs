@@ -227,9 +227,15 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 ## Deployment behaviors
 
-When you deploy updates to your function app code, currently executing functions are terminated. After deployment completes, the new code is loaded to begin processing requests. Review [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless) to learn how to write stateless and defensive functions.
+When you deploy updates to your function app code, the deployment behavior depends on your hosting plan:
 
-If you need more control over this transition, you should use deployment slots.
+**Consumption, Elastic Premium, and Dedicated plans:** Currently executing functions are terminated when new code is deployed. After deployment completes, the new code is loaded to begin processing requests. This forceful termination behavior is known as a recreate strategy.
+
+**Flex Consumption plan:** The default behavior also uses the recreate strategy, terminating currently executing functions during deployment. However, Flex Consumption is the only hosting plan that offers the ability to change the site update strategy. You can [configure Rolling Update strategy](./functions-site-update-strategies.md) for zero-downtime deployments.
+
+Review [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless) to learn how to write stateless and defensive functions.
+
+For near zero-downtime deployments on Consumption, Elastic Premium, and Dedicated plans, use [deployment slots](#deployment-slots). For Flex Consumption plans, enable the Rolling Update strategy for zero-downtime deployments.
 
 ## Deployment slots
 
@@ -248,3 +254,4 @@ Read these articles to learn more about deploying your function apps:
 + [Zip deployments for Azure Functions](deployment-zip-push.md)
 + [Run your Azure Functions from a package file](run-functions-from-deployment-package.md)
 + [Automate resource deployment for your function app in Azure Functions](functions-infrastructure-as-code.md)
++ [Configure zero-downtime deployments in Flex Consumption](./functions-site-update-strategies#rollingupdate-strategy.md)
