@@ -310,7 +310,7 @@
         href: private-endpoints-overview.md
       - name: V2 experience
         href: backup-azure-private-endpoints-concept.md
-    - name: Threat detection for Azure VMs using Microsoft Defender for Cloud    
+    - name: Threat detection for Azure VM backups 
       href: threat-detection-overview.md
   - name: Backup architecture
     href: backup-architecture.md
