@@ -12,15 +12,15 @@ ms.date: 10/07/2025
 ms.author: cgardin
 # Customer intent: provide information to SAP Basis team and Security teams.
 ---
- # Identity Management 
+ # Identity Management and Authentication for SAP
 This article provides a collection of links and general information on Identity Management, Provisioning and Single Sign-on, multifactor authentication & Global Secure Access SNC  
 
 There are too many complex scenarios covering Identity Management, Authentication, and Authorization and it isn't possible to document generalizable scenarios.     
 The links in this section are intended to be a starting point for developing the appropriate solution for a specific customer scenario.  
 ## 1.	Identity Management  
 It's common to use the approach documented in these two links to Provision, Deprovision, Maintain, and create Workflows for User ID lifecycle – Microsoft Entra for SAP 
-- [Identity and Access Management with Microsoft Entra - SAP Community (Part I)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcommunity.sap.com%2Ft5%2Ftechnology-blog-posts-by-members%2Fidentity-and-access-management-with-microsoft-entra-part-i-managing-access%2Fba-p%2F13873276&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933642486%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=jMwpMMSHzMWSM7KZSpRd31CAXI6V%2F8arkm2FlI%2BKdH4%3D&reserved=0)
-- [Identity and Access Management with Microsoft Entra - SAP Community (Part II)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcommunity.sap.com%2Ft5%2Ftechnology-blog-posts-by-members%2Fidentity-and-access-management-with-microsoft-entra-part-ii-provisioning-to%2Fba-p%2F13990927&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933659428%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=lMaF61kTk9bw8v0913vUDfBDlfhbRNcP6q6SbcXgIys%3D&reserved=0)
+- [Identity and Access Management with Microsoft Entra - SAP Community (Part I)](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-i-managing-access/ba-p/13873276)
+- [Identity and Access Management with Microsoft Entra - SAP Community (Part II)](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-ii-provisioning-to/ba-p/13990927)
 - [Identity and Access Management with Microsoft Entra - SAP Community (Part III)](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-iii-successfactors/ba-p/14233747)
 
 https://aka.ms/MigrateFromSAPIDM 
@@ -29,7 +29,7 @@ https://aka.ms/MigrateFromSAPIDM
 It's recommended to use SSO and/or multifactor authentication for all SAP applications. Traditional User and Password for SAP applications isn't recommended. There are three typical options: User and Password (not recommended), Single Sign On (SSO) or SSO + MFA. Different SAP applications on different platforms have many options for Authentication: 
 
 ### i.	Web Browser based Clients – SAML or OIDC (OpenID Connect)
-[Configure SAP NetWeaver for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fentra%2Fidentity%2Fsaas-apps%2Fsap-netweaver-tutorial&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933681119%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=mfQW1rVPUl%2FULlP0QmPX0EAVrskxn9NvJOI%2F7wI4CNA%3D&reserved=0)
+[Configure SAP NetWeaver for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/saas-apps/sap-netweaver-tutorial)
 SAML is a well established industry standard but OIDC is a newer solution. This article contains a good comparison between the two technologies [OIDC vs. SAML your hybrid SAP Landscape: What You ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/oidc-vs-saml-your-hybrid-sap-landscape-what-you-need-to-know/ba-p/13797204)
 
 ### ii.	SAPGUI – X.509 or Kerberos Tickets
@@ -48,7 +48,7 @@ It's therefore recommended to use SAML or OIDC.
 
 ### iv.	Microsoft Power Platform and Microsoft AI 
 Authentication options for Microsoft Power Platform and Microsoft AI:
-- [Principal propagation in a multicloud solution be... - SAP Community](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcommunity.sap.com%2Ft5%2Ftechnology-blog-posts-by-members%2Fprincipal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and%2Fba-p%2F13519225&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933696887%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=l4FOZirBcOXwK9igLcg3FfD4%2BVMczTBra6%2Bp4D%2Bs24E%3D&reserved=0)
+- [Principal propagation in a multicloud solution be... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and/ba-p/13519225)
 - [Power Platform + SAP OData - single sign-on - Happy path](https://www.youtube.com/watch?v=NSE--fVLdUg)
 - [Power Platform + SAP OData - single sign-on - Step by Step](https://www.youtube.com/watch?v=AcM67FBIEB4)
 - [142 - The one with Power Platform and single sign-on (Martin Raepple) | SAP on Azure Video Podcast](https://www.youtube.com/watch?v=PM2vNriPlT0)
@@ -111,7 +111,7 @@ The GSA client implements an [NDIS 6.0 lightweight filter (LWF) network driver](
 
 ## 5.	SAP Products Approaching End of Life / Migration
 Several SAP security solution products are now end of life. Microsoft and SAP have collaborated to provide a migration path for customers 
-- [Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fentra%2Fid-governance%2Fscenarios%2Fmigrate-from-sap-idm&data=05%7C02%7Ccgardin%40microsoft.com%7Ceafa92bc95fc43c941d908ddda66f3c0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638906857933712915%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=8A2HrWopNUB3IhzaCavmW4lm0MLSZjtMlpNwXrifvFc%3D&reserved=0)
+- [Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn](https://learn.microsoft.com/en-us/entra/id-governance/scenarios/migrate-from-sap-idm)
 SAP IDM 8.0 – End of Life December 2027. Documentation on the migration path can be found here 
 - [Update on the SAP Identity Management migration to... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/update-on-the-sap-identity-management-migration-to-microsoft-entra/ba-p/13742820)
 - [Preparing for SAP Identity Management’s End-of-Mai... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101)

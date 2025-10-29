@@ -29,7 +29,7 @@ These topics are covered in a series of related pages.
 SAP applications should be incorporated into the overall Zero-Trust security solution for the entire IT landscape. [Zero Trust Strategy & Architecture | Microsoft Security](https://www.microsoft.com/security/business/zero-trust?msockid=343d619786f36e041990740887e36ff0#modal-21)
 The SAP Security Solution should reference the Zero-Trust security model. The Zero-Trust security solution validates each action at each layer such as Identity, Endpoint Network Access, Authentication, and MFA through SAP Application and Data Access. 
  
- ![alt text](image.png)
+ ![alt text](image.png) 
 
 The purpose of this documentation is to provide a single location with links and a brief description on how to implement Identity, Security, and Audit related features for SAP solutions running on Azure Hyperscale Cloud.   This documentation doesn't precisely specify which security features should be implemented as requirements are dependent on risk profile, industry, and regulatory environment. This document does make some default recommendations such as a general recommendation to use Defender for Endpoint, Transparent Database Encryption (TDE), and Backup Encryption on all systems.  
 Customers designing and implementing Identity, Security, and Audit solutions for SAP review the concepts explained in [Microsoft cloud security benchmark introduction | Microsoft Learn](https://learn.microsoft.com/security/benchmark/azure/introduction). 
@@ -177,7 +177,7 @@ It's recommended to only deploy Generation 2 VMs and to activate Trusted Launch.
 > [!NOTE]
 > Note only recent versions of Suse 15 support Trusted Launch. [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/trusted-launch#operating-systems-supported)
 
-[Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/trusted-launch)
+[Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](/virtual-machines/trusted-launch)
 
 [Improve the security of Generation 2 VMs via Trusted Launch in Azure DevTest Labs | Develop from the cloud](https://devblogs.microsoft.com/develop-from-the-cloud/improve-the-security-of-generation-2-vms-via-trusted-launch-in-azure-devtest-labs/)
 
