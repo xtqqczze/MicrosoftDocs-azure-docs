@@ -23,7 +23,7 @@ When your user signs to the `CallAgent` there is a new method that you can use t
 const activeCallDetails = await callAgent.getActiveCallDetails();
 ```
 
-The function `getActiveCallDetails` a way that you can manually query for this data. Once you have the active call details, you can use it to switch the client to the call that was found. This function returns `undefined` if there is no active call ongoing for your user.
+The function `getActiveCallDetails` a way that you can manually query for this data. Once you have the active call details, you can use it to switch the client to the call that was found. This function returns `undefined` if there is no active call ongoing for your user. You can use this to fetch any ongoing calls when you first sign into the `CallAgent` to pick up on any calls that are already ongoing.
 
 ### Switching Active Calls
 
