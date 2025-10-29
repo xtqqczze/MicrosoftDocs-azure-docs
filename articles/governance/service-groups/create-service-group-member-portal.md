@@ -25,15 +25,15 @@ To add resources, resource groups, or subscriptions to a Service Group (preview)
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 
-- To be able to deploy a service group member relationship, you must have Microsoft.Relationship/ServiceGroupMember/write permissions on the source as well as Microsoft.ServiceGroup Contributor at the target service group. 
+- To be able to deploy a service group member relationship, you must have Microsoft.Relationship/ServiceGroupMember/write permissions on the source and Microsoft.ServiceGroup Contributor at the target service group. 
 
 ## Add members during service group creation 
 
-1. When creating a new Service Group, there is an available tab to add members. 
+1. When creating a new Service Group, there's an available tab to add members. 
 
 [Picture]
 
-2. Select to add individual resources, resource groups or subscriptions. 
+2. Select to add individual resources, resource groups, or subscriptions. 
 
 3. Once selected, you can filter the list as needed. 
 
@@ -50,11 +50,11 @@ To add resources, resource groups, or subscriptions to a Service Group (preview)
 4. Select desired Service Group. 
 5. Select **membership tab** on the left hand side. 
 [Picture]
-6. To add members, select the **+Add** button on the top action bar. Select to add individual resources, resource groups or subscriptions. On the **Add members** pane, select and filter the resources to be join the group. Once all members are chosen, select **Add**. 
+6. To add members, select the **+Add** button on the top action bar. Select to add individual resources, resource groups, or subscriptions. On the **Add members** pane, select and filter to the desired resources. Once all members are chosen, select **Add**. 
 7. To remove members, select the members from the list of members and click **Delete** from the top action bar. 
 
 
-## Remove members to existing service grouo
+## Remove members to existing service group
 
 1. Log into the [Azure portal](https://aka.ms/portalfx/service-groups-internal).
 2. Select **All services** > **Management + governance**.

@@ -1,6 +1,6 @@
 ---
 title: "Manage Service Group membership at scale" 
-description: "Learn how to create, manage and update membership at scale"
+description: "Learn how to create, manage, and update membership at scale"
 author: kenieva
 ms.author: kenieva
 ms.service: azure-service-groups 
@@ -13,7 +13,7 @@ ms.date: 10/28/2025
 
 Azure **Service Groups** provide a flexible way to organize and manage resources. Membership for Service Groups are managed via the 'Microsoft.Relationship/serviceGroupMember' extension resource, which follows the lifecycle of the resource that is a member, and points to the desired Service Group via the `targetId` property. You can review the [available rest APIs](manage-service-groups.md#create-a-service-group-member) or follow the [quickstart to adding members in portal](#create-service-group-member-portal).
 
-By automating membership and deploying service groups with defined memberships, organizations can streamline scenarios built on Service Groups.  This guide provides a starting point to ease of management of memberships for one or multiple groups. 
+By automating membership and deploying service groups with defined memberships, organizations can streamline scenarios built on Service Groups. This guide provides a starting point to ease of management of memberships for one or multiple groups. 
 
 ## Sample consolidated template for creating Service Group and Members 
 
@@ -63,7 +63,7 @@ resource rel0 'Microsoft.Relationships/serviceGroupMember@2023-09-01-preview' = 
 
 ## Using Azure Policy for automatic membership 
 
-Often Service Group membership can be defined by a rule. Common examples are resources following a naming convention that contain `appCode` or resource having a tag with a specific `costCode` values. 
+Often Service Group membership can be defined by a rule. Common examples are resources following a naming convention that contains `appCode` or resource having a tag with a specific `costCode` values. 
 
 To automate the creation of service group membership, you can define an Azure Policy definition that can deploy the Service Group memberships relationships based on the rule. 
 
@@ -153,7 +153,7 @@ To automate the creation of service group membership, you can define an Azure Po
 ```
 
 
-## Creating memberships based on an Resource Graph query 
+## Creating memberships based on a Resource Graph query 
 
 
 
