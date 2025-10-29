@@ -12,16 +12,16 @@ ms.date: 10/15/2025
 
 # Execute and track Waves in Azure Migrate
 
-This phase begins when you reach the planned start time and perform migration and modernization activities within the scheduled time window.
+This article describes how to execute migration and modernization waves in Azure Migrate, including starting migration flows, performing tasks, and tracking progress for supported and unsupported workloads.
 
-Azure Migrate provides two types of execution and tracking flows, based on whether the workload migration from source to target is supported:
+This phase begins when you reach the planned start time and perform migration and modernization activities within the scheduled time window. Azure Migrate provides two types of execution and tracking flows, based on whether the workload migration from source to target is supported:
 
 1. **Azure Migrate supports execution activities**: When Azure Migrate supports execution, Wave Planning enables automated execution and tracking. You can start migration, and modernization flows through wave execution, take actions, and track statuses. For example, you can perform server migration tasks such as replication, test migration, and cutover, and monitor progress automatically.
 1. **Azure Migrate doesn't support these execution activities**: Azure Migrate doesn’t support several workload and application migration or modernization activities. In such cases, you plan and track the activities in Azure Migrate and manually update their status for centralized tracking. Execute these activities outside Azure Migrate.
 
 ## Executing Waves
 
-When the wave is ready, follow these steps to execute it:
+This section explains how to execute a migration wave in Azure Migrate using the Wave Planning feature. When the wave is ready, follow these steps to execute it:
 
 1. Select **Execute wave** from **Wave Planning**.
 
@@ -36,9 +36,9 @@ Use the application migration settings to review workloads, execute migration fl
 
 :::image type="content" source="./media/how-to-execute-track-waves/application-execute.png" alt-text="The screenshot shows the details of the application execute waves." lightbox="./media/how-to-execute-track-waves/application-execute.png"::: 
 
-1. For each source to target combination, select **Review and Execute**. If supported, Azure Migrate starts the execution flow for the workload.
-1. If the application has tracked tasks, select the number under **Tasks**.
-1. After you complete the task out of band, select **Mark as Complete**.
+2. For each source to target combination, select **Review and Execute**. If supported, Azure Migrate starts the execution flow for the workload.
+3. If the application has tracked tasks, select the number under **Tasks**.
+4. After you complete the task out of band, select **Mark as Complete**.
 
 :::image type="content" source="./media/how-to-execute-track-waves/application-tasks.png" alt-text="The screenshot shows the application task marked as complete." lightbox="./media/how-to-execute-track-waves/application-tasks.png"::: 
 

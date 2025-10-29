@@ -12,6 +12,8 @@ ms.date: 10/15/2025
 
 # Create migration Waves in Azure Migrate for efficient planning
 
+This article explains how to create migration waves in Azure Migrate to group workloads, sequence migrations, and plan efficient execution for reduced risk and improved migration speed.
+
 To create migration waves, group your applications and workloads into logical sets that you can migrated together. These groups called **waves** help you execute migrations in smaller, manageable batches, reduce risk and improving efficiency. The key planning actions include:
 
 - **Distribute workloads into waves**: Group workloads and applications that share dependencies or business. This ensures they migrate together without breaking application functionality.
@@ -44,7 +46,7 @@ To create Migration Waves manually using Azure Migrate portal, follow these step
 
 :::image type="content" source="./media/how-to-plan-create-waves/wave-create-completion.png" alt-text="The screenshot shows the completion of the wave creation." lightbox="./media/how-to-plan-create-waves/wave-create-completion.png":::
 
-1. After you finalized the wave components, select **Create Wave**
+8. After you finalized the wave components, select **Create Wave**
 
 In a few seconds, Azure Migrate creates the wave project. To view it, select **View Waves** in the Project overview.
 
