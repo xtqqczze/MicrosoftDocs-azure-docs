@@ -24,13 +24,13 @@ A well secured SAP solution incorporates many security concepts with many layers
 7.	Azure Infrastructure Hardening 
 
 These topics are covered in a series of related pages.  
-SAP applications should be incorporated into the overall Zero-Trust security solution for the entire IT landscape. [Zero Trust Strategy & Architecture | Microsoft Security](https://www.microsoft.com/security/business/zero-trust?msockid=343d619786f36e041990740887e36ff0#modal-21)
+SAP applications should be incorporated into the overall Zero-Trust security solution for the entire IT landscape. [Zero Trust Strategy & Architecture | Microsoft Security](/security/business/zero-trust?msockid=343d619786f36e041990740887e36ff0#modal-21)
 The SAP Security Solution should reference the Zero-Trust security model. The Zero-Trust security solution validates each action at each layer such as Identity, Endpoint Network Access, Authentication, and MFA through SAP Application and Data Access. 
  
  ![alt text](articles/sap/workloads/media/sap-security-instructure/microsoft-zero-trust-security-diagram.png) 
 
 The purpose of this documentation is to provide a single location with links and a brief description on how to implement Identity, Security, and Audit related features for SAP solutions running on Azure Hyperscale Cloud.   This documentation doesn't precisely specify which security features should be implemented as requirements are dependent on risk profile, industry, and regulatory environment. This document does make some default recommendations such as a general recommendation to use Defender for Endpoint, Transparent Database Encryption (TDE), and Backup Encryption on all systems.  
-Customers designing and implementing Identity, Security, and Audit solutions for SAP review the concepts explained in [Microsoft cloud security benchmark introduction | Microsoft Learn](../security/benchmark/azure/introduction). 
+Customers designing and implementing Identity, Security, and Audit solutions for SAP review the concepts explained in [Microsoft cloud security benchmark introduction | Microsoft Learn](/security/benchmark/azure/introduction). 
 More Checklists can be found [Secure Overview - Cloud Adoption Framework | Microsoft Learn](../../cloud-adoption-framework/secure/overview#cloud-security-checklist) 
 
 ## Deployment Checklist 
@@ -66,13 +66,13 @@ This documentation provides a basic deployment pattern covering a minimum securi
 Defender for Endpoint is the only comprehensive Antivirus (AV) and Endpoint Detection and Response (EDR) solution that is comprehensively benchmarked and tested with SAP Benchmarking tools and documented for SAP workloads. 
 Defender for Endpoint should be deployed on all NetWeaver, S4HANA, Hana, and AnyDB servers without exception. The deployment guidance for Defender fully covers the correct deployment and configuration of Defender for Endpoint for SAP applications.
 
-[Deployment guidance for Microsoft Defender for Endpoint on Linux for SAP - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/defender-endpoint/mde-linux-deployment-on-sap)
+[Deployment guidance for Microsoft Defender for Endpoint on Linux for SAP - Microsoft Defender for Endpoint | Microsoft Learn](/defender-endpoint/mde-linux-deployment-on-sap)
 
-[Microsoft Defender Endpoint on Windows Server with SAP - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/defender-endpoint/mde-sap-windows-server)
+[Microsoft Defender Endpoint on Windows Server with SAP - Microsoft Defender for Endpoint | Microsoft Learn](/defender-endpoint/mde-sap-windows-server)
 
 ## 2.	Defender XDR
 In addition to AV and EDR protection Defender can provide more protection with features such as advanced threat hunting, Vulnerability Management, and other capabilities.  
-The SAPXPG can be exploited and should be monitored using this procedure [Custom detection rules with advanced hunting: Protecting SAP external OS commands (SAPXPG) - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/defender-endpoint/mde-sap-custom-detection-rules)
+The SAPXPG can be exploited and should be monitored using this procedure [Custom detection rules with advanced hunting: Protecting SAP external OS commands (SAPXPG) - Microsoft Defender for Endpoint | Microsoft Learn](/defender-endpoint/mde-sap-custom-detection-rules)
 
 Defender Vulnerability Management can detect vulnerabilities in the Operating System and Database layer. [Microsoft Defender Vulnerability Management dashboard - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/defender-vulnerability-management/tvm-dashboard-insights)  
 Defender Vulnerability Management doesn't have the functionality to detect ABAP and Java vulnerabilities today
