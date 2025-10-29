@@ -40,7 +40,8 @@ As new developer capabilities are released in Windows 365, Microsoft will provid
 
 ## Key Actions for Customers 
 
-- **No Immediate Action Required:** Continue using and scaling your Dev Box deployments as usual. Migration resources will be provided as new features roll out in Windows 365. 
+- **Existing customers:** Continue using the service as normal. No action is required. You can continue to use and scale your Dev Box deployments as usual. Migration resources will be provided as new features roll out in Windows 365. 
+- **New customers:** Starting November 1, 2025, Microsoft Dev Box no longer accepts new customers. If you previously evaluated or tested Dev Box and need to onboard after November 1, 2025, request an exception through [Name of form](https://aka.ms/link-to-form).
 - **Stay Informed:** Monitor communications from Microsoft and your account team for updates. 
 - **Interested in Previewing New Features?** Express your interest to your Microsoft account team. 
 
