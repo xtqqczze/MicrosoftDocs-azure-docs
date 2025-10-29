@@ -8,7 +8,7 @@ metadata:
   author: Jeronika-MS
   ms.author: v-gajeronika
 title: Software and Insights - common questions
-summary: This article answers frequently asked common questions about Software and Insights capabilities in Azure Migrate. For any other questions, refer to the following resources:
+summary: This article answers frequently asked common questions about Software and Insights capabilities in Azure Migrate. For any other questions, refer to the following resources
          - [General questions](resources-faq.md) about Azure Migrate
          - Questions about [Azure Migrate appliance](common-questions-appliance.md)
          - Questions about [Migration and modernization](common-questions-server-migration.md)
