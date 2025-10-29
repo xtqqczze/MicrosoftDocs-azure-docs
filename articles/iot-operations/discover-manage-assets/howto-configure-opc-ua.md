@@ -213,7 +213,7 @@ az iot ops ns asset opcua dataset show --asset thermostat -n default -g {your re
 
 When you create an asset by using the Azure CLI, you can define:
 
-- Multiple data points/data points by using the `point add` command multiple times.
+- Multiple data points by using the `point add` command multiple times.
 - Multiple events by using the `--event` parameter multiple times.
 - Optional information for the asset such as:
   - Manufacturer

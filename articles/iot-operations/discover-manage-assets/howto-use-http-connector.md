@@ -143,8 +143,8 @@ A dataset defines where the connector sends the data it collects from a collecti
 
 1. Select **Create and next** to create the dataset.
 
-> [!TIP]
-> Use the **Manage default settings** option to configure default dataset settings such as the sampling interval.
+    > [!TIP]
+    > Use the **Manage default settings** option to configure default dataset settings such as the sampling interval.
 
 1. On the **Data points** page, select **Add data point** to add a data point for the dataset. For example:
 
