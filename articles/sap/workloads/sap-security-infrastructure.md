@@ -117,9 +117,9 @@ More information on these services
 
 [What is Azure Key Vault? | Microsoft Learn](../../key-vault/general/basic-concepts)
 
-[Overview of Azure Cloud HSM Preview | Microsoft Learn](../../azure/cloud-hsm/overview)
-
-[How to choose the right key management solution - How to choose between Azure Key Vault, Azure Managed HSM, Azure Dedicated HSM, and Azure Payment HSM | Microsoft Learn](https://learn.microsoft.com/azure/security/fundamentals/key-management-choose)
+[Overview of Azure Cloud HSM Preview | Microsoft Learn](../../cloud-hsm/overview)
+ 
+[How to choose the right key management solution - How to choose between Azure Key Vault, Azure Managed HSM, Azure Dedicated HSM, and Azure Payment HSM | Microsoft Learn](../../security/fundamentals/key-management-choose)
 
 It is recommended to store OS and application passwords in Azure Key Vault. Training on secret management [Manage secrets in your server apps with Azure Key Vault - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/manage-secrets-with-azure-key-vault/?source=recommendations)
 
