@@ -117,7 +117,7 @@ More information on these services
 
 [What is Azure Key Vault? | Microsoft Learn](../../key-vault/general/basic-concepts)
 
-[Overview of Azure Cloud HSM Preview | Microsoft Learn](../../cloud-hsm/overview)
+[Overview of Azure Cloud HSM Preview | Microsoft Learn](../cloud-hsm/overview)
  
 [How to choose the right key management solution - How to choose between Azure Key Vault, Azure Managed HSM, Azure Dedicated HSM, and Azure Payment HSM | Microsoft Learn](../../security/fundamentals/key-management-choose)
 
