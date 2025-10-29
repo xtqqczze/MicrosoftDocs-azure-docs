@@ -77,13 +77,13 @@ Tests observed performance thresholds of a single large volume breakthrough mode
 
 The graph represents a 256-KiB sequential workload using 12 virtual machines reading and writing to a single large volume using a 1-TiB working set. The graph shows that a single Azure NetApp Files large volume can handle between approximately 21,202 MiB/s pure sequential writes and 50,000 MiB/s pure sequential reads.
 
-:::image type="content" source="./media/performance-large-volumes-linux/256-kib-sequential-reads-breakthrough-mode.png" alt-text="Bar chart of a 256-KiB sequential workload on a large volume." lightbox="./media/performance-large-volumes-linux/256-kib-sequential-reads-breakthrough-mode.png":::
+:::image type="content" source="./media/performance-large-volumes-linux/sequential-reads-breakthrough-mode.png" alt-text="Bar chart of a 256-KiB sequential workload on a large volume breakthrough mode." lightbox="./media/performance-large-volumes-linux/sequential-reads-breakthrough-mode.png":::
 
 ### 8-KiB random workload (IOPS)
 
 The graph represents an 8-KiB random workload and a 1 TiB working set. The graph shows that an Azure NetApp Files large volume can handle between approximately 994,384 pure random writes and approximately 1,800,000 pure random reads.
 
-:::image type="content" source="./media/performance-large-volumes-linux/random-workload-chart-breakthrough-mode.png" alt-text="Bar chart of a random workload on a large volume." lightbox="./media/performance-large-volumes-linux/random-workload-chart-breakthrough-mode.png":::
+:::image type="content" source="./media/performance-large-volumes-linux/random-workload-chart-breakthrough-mode.png" alt-text="Bar chart of a random workload on a large volume breakthrough mode." lightbox="./media/performance-large-volumes-linux/random-workload-chart-breakthrough-mode.png":::
 
 ## Linux scale-up tests 
 
