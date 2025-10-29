@@ -15,7 +15,7 @@ ms.service: azure-app-service
 
 :::zone target="docs" pivot="dotnet"
 
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All App Service plans support WebJobs at no additional cost. This tutorial walks you through creating a scheduled (triggered) WebJob using your preferred development stack.
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All App Service plans support WebJobs at no extra cost. This tutorial walks you through creating a scheduled (triggered) WebJob using your preferred development stack.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
     Current time with is: 07:53:07 PM -05:00
     ```
 
-1. Once you've confirmed the app works, build it and navigate to the parent directory:
+1. Once you confirm that the app works, build it and navigate to the parent directory:
 
     ### [Windows](#tab/windows)
 
@@ -85,7 +85,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
     ./webjob
     ``` 
 
-1. Now package the files into a .zip as shown below:
+1. Now package the files into a .zip as shown in the following command:
 
     ### [Windows](#tab/windows)
 
@@ -131,7 +131,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 :::zone target="docs" pivot="python"
 
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no extra cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
 
 ## Prerequisites
 
@@ -142,7 +142,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 ## Prepare the sample WebJob
 
-1. [Download the pre-built sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes the file `webjob.py`, which outputs the current time to the console as shown below:
+1. [Download the prebuilt sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes the file `webjob.py`, which outputs the current time to the console as shown below:
 
     ```Python 
     import datetime 
@@ -182,7 +182,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 :::zone target="docs" pivot="node"
 
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no extra cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
 
 ## Prerequisites
 
@@ -193,7 +193,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 ## Prepare the sample WebJob
 
-1. [Download the pre-built sample project](https://github.com/Azure-Samples/App-Service-NodeJS-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes a JavaScript file `webjob.js`, which outputs the current time to the console as shown below:
+1. [Download the prebuilt sample project](https://github.com/Azure-Samples/App-Service-NodeJS-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes a JavaScript file `webjob.js`, which outputs the current time to the console as shown below:
 
     ```JavaScript 
     // Import the 'Date' object from JavaScript
@@ -237,7 +237,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 :::zone target="docs" pivot="java"
 
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no extra cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
 
 > [!IMPORTANT]
 > WebJobs aren't supported in custom Linux containers based on Alpine Linux, including Linux apps using Java 8 and Java 11 runtime stacks. Starting with Java 17 Linux apps, Azure App Service uses non-Alpine based images, which are compatible with WebJobs.
@@ -253,35 +253,23 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 ## Prepare the WebJob
 
-[A sample Java WebJob](https://github.com/Azure-Samples/App-Service-Java-WebJobs-QuickStart) has been created for you. In this section, you review the sample and then build a `.JAR` file using [Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
+1. [Download the sample Java WebJob](https://github.com/Azure-Samples/App-Service-Java-WebJobs-QuickStart). You will build a `.JAR` file using [Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md). The Java project located at `project/src/main/java/webjob/HelloWorld.java` outputs a message & the current time to the console.  
 
-### Review the sample
-
-The Java project located at `project/src/main/java/webjob/HelloWorld.java` outputs a message & the current time to the console.  
-
-```Java 
-import java.time.LocalDateTime; 
-
-public class HelloWorld { 
-
-    public static void main(String[] args) { 
-
-        System.out.println("------------------------------------------------------------"); 
-        System.out.println("Hello World from WebJob: " + LocalDateTime.now()); 
-        System.out.println("------------------------------------------------------------"); 
+    ```Java 
+    import java.time.LocalDateTime; 
+    
+    public class HelloWorld { 
+    
+        public static void main(String[] args) { 
+    
+            System.out.println("------------------------------------------------------------"); 
+            System.out.println("Hello World from WebJob: " + LocalDateTime.now()); 
+            System.out.println("------------------------------------------------------------"); 
+        } 
     } 
-} 
-``` 
-
-### Build the Java WebJob
-
-1. The `run.sh` script runs a jar with the name that sets in the Maven configuration. This script runs when our WebJob is triggered.
-
-    ```bash
-    java -jar webjob-artifact-1.0.0.jar
     ``` 
 
-1. Next, we compile the Java project to produce the executable `.jar`. There are multiple ways to do this, but for this example, we use Maven. Run the following commands from the `project/` directory:
+1. Build and package the Java project to produce the executable `.jar` by running the following commands from the `project/` directory:
 
     ```bash
     mvn install 
