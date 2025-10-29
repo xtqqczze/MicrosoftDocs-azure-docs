@@ -2,7 +2,7 @@
 title: 'Build a scheduled WebJob using your preferred language'
 description: WebJobs on App Service enable you to automate repetitive tasks on your app. Learn how to create scheduled WebJobs in Azure App Service.
 ms.topic: tutorial
-ms.date: 5/1/2025
+ms.date: 10/29/2025
 author: msangapu-msft
 ms.author: msangapu
 ms.reviewer: glenga
@@ -22,7 +22,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing App Service [.NET 9 app](quickstart-dotnetcore.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
-- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
+- For Linux, ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
 ## Prepare the WebJob locally
 
@@ -63,25 +63,43 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 1. Once you've confirmed the app works, build it and navigate to the parent directory:
 
+    ### [Windows](#tab/windows)
+
     ```bash
-    dotnet build --self-contained
-    
-    cd ..
+    dotnet publish -c Release -r win-x64 --self-contained true /p:PublishSingleFile=true
     ```
 
-1. Next we to create `run.sh` with the following code:
+    ### [Linux](#tab/linux)
+
+    ```bash
+    dotnet publish -c Release -r linux-x64 --self-contained true /p:PublishSingleFile=true
+    ```
+
+    ---
+
+1. **(Linux only)** In the project root, create a `run.sh` with the following code to run the built executable:
 
     ```text 
     #!/bin/bash
-    
-    dotnet webjob/bin/Debug/net9.0/webjob.dll 
+
+    ./webjob
     ``` 
 
-1. Now package all the files into a .zip as shown below:
+1. Now package the files into a .zip as shown below:
+
+    ### [Windows](#tab/windows)
 
     ```bash
-    zip webjob.zip run.sh webjob/bin/Debug/net9.0/*
+    zip -j webjob.zip bin/Release/net9.0/win-x64/publish/webjob.exe
     ```
+
+    ### [Linux](#tab/linux)
+
+    ```bash
+    zip -j webjob.zip run.sh bin/Release/net9.0/linux-x64/publish/*
+    ```
+
+    ---
 
 ## Create a scheduled WebJob in Azure
 
@@ -118,29 +136,22 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing App Service [Python app](quickstart-python.md).
+- An existing Linux [Python app](quickstart-python.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
-## Download the sample WebJob
+## Prepare the sample WebJob
 
-You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.py` and `run.sh`.
+1. [Download the pre-built sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes the file `webjob.py`, which outputs the current time to the console as shown below:
 
-The Python script, `webjob.py`, outputs the current time to the console as shown below:
+    ```Python 
+    import datetime 
 
-```Python 
-import datetime 
+    current_datetime = datetime.datetime.now() 
+    print(current_datetime) # Output: 2025-03-27 10:27:21.240752
+    ``` 
 
-current_datetime = datetime.datetime.now() 
-print(current_datetime) # Output: 2025-03-27 10:27:21.240752 
-``` 
-
-The file, `run.sh`, calls WebJob.py as shown below:
-
-```Bash
-#!/bin/bash
-/opt/python/3/bin/python3.13 webjob.py
-``` 
+1. Extract the downloaded zip file, then create a new zip file containing only the `webjob.py` file (without any parent directory). WebJobs requires the executable or script to be at the root of the zip file.
 
 ## Create a scheduled WebJob
 
@@ -150,14 +161,14 @@ The file, `run.sh`, calls WebJob.py as shown below:
 
     :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal (scheduled WebJob).":::
 
-1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you downloaded earlier in the [Download the sample WebJob](#download-the-sample-webjob) section.
+1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you created earlier in the [Prepare the sample WebJob](#prepare-the-sample-webjob) section.
 
     :::image type="content" source="media/webjobs-create/configure-new-scheduled-webjob.png" alt-text="Screenshot that shows how to configure a scheduled WebJob in an App Service app.":::
 
-   | Setting      | value   | Description  |
+   | Setting      | value   | Description  |
    | ------------ | ----------------- | ------------ |
    | **Name** | webjob | The WebJob name. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
-   | **File Upload** | App-Service-Python-WebJobs-Quickstart-Main.zip | The *.zip* file that contains your executable or script file. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
+   | **File Upload** | webjob.zip | The *.zip* file that contains `webjob.py` at the root level. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
    | **Type** | Triggered | Specifies when the WebJob runs: Continuous or Triggered. |
    | **Triggers** | Scheduled | Scheduled or Manual. Ensure [Always on](configure-common.md?tabs=portal#configure-general-settings) is enabled for the schedule to work reliably.|
    | **CRON Expression** | 0 0/1 * * * * | For this quickstart, we use a schedule that runs every minute. See [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) to learn more about the syntax. |
@@ -178,32 +189,24 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing App Service [Node app](quickstart-nodejs.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
-- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
+- For Linux, ensure the app setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
-## Download the sample WebJob
+## Prepare the sample WebJob
 
-You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-NodeJS-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.js` and `run.sh`.
+1. [Download the pre-built sample project](https://github.com/Azure-Samples/App-Service-NodeJS-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes a JavaScript file `webjob.js`, which outputs the current time to the console as shown below:
 
-The JavaScript, `webjob.js`, outputs the current time to the console as shown below:
+    ```JavaScript 
+    // Import the 'Date' object from JavaScript
+    const currentTime = new Date();
 
-```JavaScript 
-// Import the 'Date' object from JavaScript
-const currentTime = new Date();
+    // Format the time as a string
+    const formattedTime = currentTime.toLocaleTimeString();
 
-// Format the time as a string
-const formattedTime = currentTime.toLocaleTimeString();
+    // Output the formatted time to the console
+    console.log(`Current system time is: ${formattedTime}`);
+    ``` 
 
-// Output the formatted time to the console
-console.log(`Current system time is: ${formattedTime}`);
-``` 
-
-The file, `run.sh`, calls webjob.js as shown below:
-
-```Bash
-#!/bin/bash
-
-node webjob.js
-``` 
+1. Extract the downloaded zip file, then create a new zip file containing only the `webjob.js` file (without any parent directory). WebJobs requires the executable or script to be at the root of the zip file.
 
 ## Create a scheduled WebJob
 
@@ -213,14 +216,14 @@ node webjob.js
 
     :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal (scheduled WebJob).":::
 
-1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you downloaded earlier in the [Download the sample WebJob](#download-the-sample-webjob) section.
+1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you created earlier in the [Prepare the sample WebJob](#prepare-the-sample-webjob) section.
 
     :::image type="content" source="media/webjobs-create/configure-new-scheduled-webjob.png" alt-text="Screenshot that shows how to configure a scheduled WebJob in an App Service app.":::
 
-   | Setting      | value   | Description  |
+   | Setting      | value   | Description  |
    | ------------ | ----------------- | ------------ |
    | **Name** | webjob | The WebJob name. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
-   | **File Upload** | App-Service-Node-WebJobs-Quickstart-Main.zip | The *.zip* file that contains your executable or script file. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
+   | **File Upload** | webjob.zip | The *.zip* file that contains `webjob.js` at the root level. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
    | **Type** | Triggered | Specifies when the WebJob runs: Continuous or Triggered. |
    | **Triggers** | Scheduled | Scheduled or Manual. Ensure [Always on](configure-common.md?tabs=portal#configure-general-settings) is enabled for the schedule to work reliably.|
    | **CRON Expression** | 0 0/1 * * * * | For this quickstart, we use a schedule that runs every minute. See [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) to learn more about the syntax. |
@@ -287,10 +290,10 @@ public class HelloWorld {
 
     The jar files will be located at `project/target/webjob-artifact-1.0.0.jar` after a successful build.  
 
-1. Move the jar file to the root of the git repo with `mv project/target/webjob-artifact-1.0.0.jar .` Next you package our application as a `.zip` file.
+1. Package the `project/target/webjob-artifact-1.0.0.jar` as a `.zip` file.
 
     ```bash
-    zip webjob.zip run.sh webjob-artifact-1.0.0.jar 
+    zip webjob.zip project/target/webjob-artifact-1.0.0.jar
     ``` 
 
 ## Create a scheduled WebJob on Azure
@@ -308,7 +311,7 @@ public class HelloWorld {
    | Setting      | value   | Description  |
    | ------------ | ----------------- | ------------ |
    | **Name** | webjob | The WebJob name. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
-   | **File Upload** | webjob.zip | The *.zip* file that contains your executable or script file. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
+   | **File Upload** | webjob.zip | The *.zip* file that contains `webjob-artifact-1.0.0.jar`. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
    | **Type** | Triggered | Specifies when the WebJob runs: Continuous or Triggered. |
    | **Triggers** | Scheduled | Scheduled or Manual. Ensure [Always on](configure-common.md?tabs=portal#configure-general-settings) is enabled for the schedule to work reliably.|
    | **CRON Expression** | 0 0/1 * * * * | For this quickstart, we use a schedule that runs every minute. See [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) to learn more about the syntax. |
@@ -332,29 +335,21 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
-## Download the sample WebJob
+## Prepare the sample WebJob
 
-You can [download a prebuilt sample project](https://github.com/Azure-Samples/App-Service-PHP-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.php` and `run.sh`.
+1. [Download the prebuilt sample project](https://github.com/Azure-Samples/App-Service-PHP-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample contains the PHP file `webjob.php`, which outputs the current time to the console as shown below:
 
-The PHP script, `webjob.php`, outputs the current time to the console as shown below:
+    ```PHP 
+    <?php
+    // Get the current time
+    $current_time = date("Y-m-d H:i:s");
 
-```PHP 
-<?php
-// Get the current time
-$current_time = date("Y-m-d H:i:s");
+    // Display the current time
+    echo "The current time is: " . $current_time;
+    ?>
+    ``` 
 
-// Display the current time
-echo "The current time is: " . $current_time;
-?>
-``` 
-
-The file, `run.sh`, calls webjob.php as shown below:
-
-```Bash
-#!/bin/bash
-
-php -f webjob.php
-``` 
+1. Extract the downloaded zip file, then create a new zip file containing only the `webjob.php` file (without any parent directory). WebJobs requires the executable or script to be at the root of the zip file.
 
 ## Create a scheduled WebJob
 
@@ -364,14 +359,14 @@ php -f webjob.php
 
     :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal (scheduled WebJob).":::
 
-1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you downloaded earlier in the [Download the sample WebJob](#download-the-sample-webjob) section.
+1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you created earlier in the [Prepare the sample WebJob](#prepare-the-sample-webjob) section.
 
     :::image type="content" source="media/webjobs-create/configure-new-scheduled-webjob.png" alt-text="Screenshot that shows how to configure a scheduled WebJob in an App Service app.":::
 
-   | Setting      | value   | Description  |
+   | Setting      | value   | Description  |
    | ------------ | ----------------- | ------------ |
    | **Name** | webjob | The WebJob name. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
-   | **File Upload** | App-Service-PHP-WebJobs-Quickstart-Main.zip | The *.zip* file that contains your executable or script file. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
+   | **File Upload** | webjob.zip | The *.zip* file that contains `webjob.php` at the root level. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
    | **Type** | Triggered | Specifies when the WebJob runs: Continuous or Triggered. |
    | **Triggers** | Scheduled | Scheduled or Manual. Ensure [Always on](configure-common.md?tabs=portal#configure-general-settings) is enabled for the schedule to work reliably.|
    | **CRON Expression** | 0 0/1 * * * * | For this quickstart, we use a schedule that runs every minute. See [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) to learn more about the syntax. |
