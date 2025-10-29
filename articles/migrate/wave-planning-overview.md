@@ -23,7 +23,7 @@ Wave Planning offers a structured set of capabilities to simplify and manage the
 - Distribute the applications or the underlying infrastructure such as servers and workloads (servers, databases, web apps) discovered through Azure Migrate into waves.
 - Create a high-fidelity migration plan for each wave from their source (On-prem or other cloud) to the Azure destination using azure recommendations through Assessments.
 - Visualize the execution plans across the waves using timeline.
-- Execute and track the migration of applications in waves
+- Execute and track the migration of applications in waves.
 - Monitor the progress, identify risks, and actions as the execution proceeds through different stages of migration.
 
 You can perform migrations using the tools of your choice including Azure Migrate – Server Migration, DMS, or others. With Migration Waves extensible tracking capability, you can integrate your migration tooling for centralized tracking of your entire migration and modernization journey.
@@ -60,7 +60,7 @@ Here are some of the concepts and terminology to help you use the Wave Planning 
 
 There are two broad stages as you proceed with them migration of waves:
 
-1. **Configuration**: This stage indicates that wave planning activities are in progress. The goal is to prepare the team and environment for migration and modernization, and to identify all required actions. Generally, activities include defining the migration path, selecting target configurations and tools, and setting up the migration environment. After configuration is complete, the wave is ready for execution.
+1. **Configuration**: This stage indicates that wave planning activities are in progress. The goal is to prepare the team and environment for migration and modernization, and to identify all required actions. Activities include defining the migration path, selecting target configurations and tools, and setting up the migration environment. After configuration is complete, the wave is ready for execution.
 
 1. **Execution**: This stage of the wave indicates the application migration is in progress. All migration and modernization activities identified during the configuration stage are executed here. Internally users prepare the environment, migrate workloads and applications, and optimize the set up of end-to-end migration or modernization. After all the applications complete their migration or modernization, the wave execution is considered complete.
 
@@ -83,7 +83,7 @@ This section defines the status of the wave migration against the defined plan. 
 
 ### Execution stages of workloads
 
-1. Workloads generally go thorugh three execution stages: **Preparation > Testing > Completion**. The activities performed in each stage might differ depending on the workload and the kind of execution strategy.   
+1. Workloads go thorugh three execution stages: **Preparation > Testing > Completion**. The activities performed in each stage might differ depending on the workload and the kind of execution strategy.   
 1. The **preparation stage** involves setting up the Azure environment and performing data and configuration transfers.  
 1. During the **testing stage**, the application is deployed in an isolated environment for testing, and all necessary tests are performed.  
 1. In the **completion stage**, the applications are set up in the final environment, and optimizations are performed to make them ready for consumption.
