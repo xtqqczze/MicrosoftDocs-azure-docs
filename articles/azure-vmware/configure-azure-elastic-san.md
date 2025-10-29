@@ -27,19 +27,19 @@ The following prerequisites are required to continue.
 
 > [!IMPORTANT]
 > As of November 2025, creating and deleting an Azure Elastic SAN based datastore in Azure VMware Solution requires appropriate permissions. If you're using built-in roles such as Owner and Contributor across the these two services, no changes are necessary. If you're using custom roles, ensure you have the correct permissions configured.
-> <details><summary>For a complete list of required permissions, expand this section.</summary>
-> > To create an Elastic SAN datastore, you must have the following permissions:
-- `Microsoft.AVS/privateClouds/clusters/datastores/write`
-- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/write`
-- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/read`
-
-> To delete an Elastic SAN datastore, you must have the following permissions:
-- `Microsoft.AVS/privateClouds/clusters/datastores/write`
-- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/write`
-- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/read`
-
-> For information about creating and modifying custom roles, see [create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md).
-
+><details><summary>For a complete list of required permissions, expand this section.</summary>
+>
+>To create an Elastic SAN datastore, you must have the following permissions:
+>- `Microsoft.AVS/privateClouds/clusters/datastores/write`
+>- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/write`
+>- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/read`
+>
+>To delete an Elastic SAN datastore, you must have the following permissions:
+>- `Microsoft.AVS/privateClouds/clusters/datastores/write`
+>- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/write`
+>- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/read`
+>
+>For information about creating and modifying custom roles, see [create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md).
 </details>
 
 - Have a fully configured Azure VMware solution private cloud in a [region that Elastic SAN is available in](../storage/elastic-san/elastic-san-create.md).
