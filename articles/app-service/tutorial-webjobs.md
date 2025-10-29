@@ -22,7 +22,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing App Service [.NET 9 app](quickstart-dotnetcore.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
-- For Linux, ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
+- For Windows containers and all Linux apps, ensure the app setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
 ## Prepare the WebJob locally
 
@@ -138,7 +138,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Linux [Python app](quickstart-python.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
-- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
+- Ensure the app setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
 ## Prepare the sample WebJob
 
@@ -249,7 +249,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 - An existing App Service [Java app](quickstart-java.md).
 - [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
-- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
+- Ensure the app setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
 ## Prepare the WebJob
 
@@ -321,7 +321,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing App Service PHP app on Linux. In this quickstart, a [PHP app](quickstart-php.md) is used.
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
-- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
+- Ensure the app setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
 ## Prepare the sample WebJob
 
