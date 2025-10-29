@@ -13,8 +13,6 @@ ms.author: cgardin
 # Customer intent: provide information to SAP Basis team and Security teams.
 ---
 
-
-
 # Secure Azure Infrastructure for SAP Applications 
 A well secured SAP solution incorporates many security concepts with many layers spanning multiple domains:
 1.	Identity Management, Provisioning and Single Sign-on, MFA, Global Secure Access, Secure Network Connection (SNC)  
@@ -117,7 +115,7 @@ Azure supports two solutions for Key Management:
 2.	Azure Cloud HSM – a hardware level PKCS#11 FIPS 140-3 Level 3 single tenant solution
 More information on these services
 
-[What is Azure Key Vault? | Microsoft Learn](https://learn.microsoft.com/azure/key-vault/general/basic-concepts)
+[What is Azure Key Vault? | Microsoft Learn](../../key-vault/general/basic-concepts.md)
 
 [Overview of Azure Cloud HSM Preview | Microsoft Learn](https://learn.microsoft.com/azure/cloud-hsm/overview)
 

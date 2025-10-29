@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-conten
 ms.date: 10/07/2025 
 ms.author: cgardin
 # Customer intent: provide information to SAP Basis team and Security teams.
----
+--- 
  # Identity Management and Authentication for SAP
 This article provides a collection of links and general information on Identity Management, Provisioning and Single Sign-on, multifactor authentication & Global Secure Access SNC  
 
