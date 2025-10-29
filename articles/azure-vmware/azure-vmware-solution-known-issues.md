@@ -4,7 +4,7 @@ description: This article provides details about the known issues of Azure VMwar
 ms.topic: reference
 ms.custom: "engagement-fy23"
 ms.service: azure-vmware
-ms.date: 10/8/2025
+ms.date: 10/22/2025
 # Customer intent: "As a cloud administrator, I want to access detailed information about known issues in Azure VMware Solution so that I can implement workarounds and ensure the stability of my virtual environment."
 ---
 
