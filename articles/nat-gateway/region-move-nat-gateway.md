@@ -16,7 +16,7 @@ ms.custom: template-how-to
 In this article, you'll learn how to set up a NAT gateway after moving resources to a different region. You might want to move resources to a new Azure region that better suits your customers' location or meets your organization's needs and policies. 
 
 > [!IMPORTANT]
-> Azure NAT Gateway V2 is currently in PREVIEW.
+> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 > [!NOTE]

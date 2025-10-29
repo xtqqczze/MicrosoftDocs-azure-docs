@@ -14,7 +14,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 Get started with NAT Gateway V2 by using an Azure Resource Manager template (ARM template) or Bicep template. The templates deploy a NAT gateway, virtual network, subnet, and Ubuntu virtual machine for testing NAT gateway functionality. The NAT gateway is assigned to a subnet of the virtual network.
 
 > [!IMPORTANT]
-> Azure NAT Gateway V2 is currently in PREVIEW.
+> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
