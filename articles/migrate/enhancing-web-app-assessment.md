@@ -92,14 +92,14 @@ Enterprise account:
     1. For an app owned by a personal account or organization:  In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**. 
     1. For an app owned by an enterprise: In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
     
-  :::image type="content" source="./media/enhancing-web-app-assessment/new-github-app.png" alt-text="The screenshot shows how to select the new github app." lightbox="./media/enhancing-web-app-assessment/new-github-app.png":::
+:::image type="content" source="./media/enhancing-web-app-assessment/new-github-app.png" alt-text="The screenshot shows how to select the new github app." lightbox="./media/enhancing-web-app-assessment/new-github-app.png":::
 
 Provide the following details to set up your new GitHub App: 
 
   1. Under **GitHub App name**, enter a name for your app.  
   1. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and is not used in this process. 
   
-:::image type="content" source="./media/enhancing-web-app-assessment/register-new-github.png" alt-text="The screenshot shows the homepage url." lightbox="./media/enhancing-web-app-assessment/register-new-github.png":::
+    :::image type="content" source="./media/enhancing-web-app-assessment/register-new-github.png" alt-text="The screenshot shows the homepage url." lightbox="./media/enhancing-web-app-assessment/register-new-github.png":::
 
   1.  Deselect **Active** under **Webhook** 
   
@@ -114,7 +114,7 @@ Provide the following details to set up your new GitHub App:
 
   1. Under **Where can this GitHub App be installed?**, select **Only on this account** or **Any account**. 
   
-:::image type="content" source="./media/enhancing-web-app-assessment/permissions.png" alt-text="The screenshot shows the available persmissions." lightbox="./media/enhancing-web-app-assessment/permissions.png":::
+    :::image type="content" source="./media/enhancing-web-app-assessment/permissions.png" alt-text="The screenshot shows the available persmissions." lightbox="./media/enhancing-web-app-assessment/permissions.png":::
     
   1. Select **Create GitHub App**. 
 
@@ -126,12 +126,12 @@ Follow these steps to install GitHub App on your repository:
 1. Select **Install App** 
 1. Select an account to install the app, and then select **Install**. Use the account that contains the repository for creating issues and uploading code scan reports. 
 
-:::image type="content" source="./media/enhancing-web-app-assessment/select-repository.png" alt-text="The screenshot shows how to select appropriate repository." lightbox="./media/enhancing-web-app-assessment/select-repository.png":::
+    :::image type="content" source="./media/enhancing-web-app-assessment/select-repository.png" alt-text="The screenshot shows how to select appropriate repository." lightbox="./media/enhancing-web-app-assessment/select-repository.png":::
 
 
 1. Select **Only select repositories**, then select the appropriate repositories by selecting **Select repositories**. You can select multiple repositories. When finished, select **Install**.
 
-:::image type="content" source="./media/enhancing-web-app-assessment/install.png" alt-text="The screenshot shows how to install the selected repository." lightbox="./media/enhancing-web-app-assessment/install.png":::
+    :::image type="content" source="./media/enhancing-web-app-assessment/install.png" alt-text="The screenshot shows how to install the selected repository." lightbox="./media/enhancing-web-app-assessment/install.png":::
 
 1. After the installation completes, note the browser URL that contains the installation ID. For example: `https://github.com/settings/installations/<installationID>`
 
@@ -163,7 +163,7 @@ Collate the following GitHub App details and private key to create a GitHub conn
 | Field  | Details  | 
 | --- | --- | 
 | Connection name  | Provide a name for the connection. This name appears in the list when you add report to the web app.  |    
-| GitHub repository URL   |Specify the GitHub repository for creating an issue to request a code scan report. Upload the code scan report to this issue using GitHub Copilot.  </br> </br> > [!Note] Use this repository only to create GitHub issues and read code scan reports from those issues. You do not need to include application code in this repository.  | 
+| GitHub repository URL   |Specify the GitHub repository for creating an issue to request a code scan report. Upload the code scan report to this issue using GitHub Copilot.  </br> </br> Use this repository only to create GitHub issues and read code scan reports from those issues. You do not need to include application code in this repository.  | 
 | App ID  | Enter the App ID of the GitHub App you created to allow Azure Migrate access. | 
 | Private Key  | Copy all the contents of the private key file you generated for your GitHub App.  |
 | Installation ID  | Enter the Installation ID of the GitHub App installed on the repository you specified above.  |
@@ -214,7 +214,7 @@ Follow these guidelines to successfully import paths and upload zip files withou
  - Uncompressed size is 500 MB or less.
  - Doesn't include nested zip files.
 
-    You might see errors if the uploaded zip file doesn’t meet the required constraints. Here are some examples:
+  You might see errors if the uploaded zip file doesn’t meet the required constraints. Here are some examples:
  
  - The uploaded blob content type '%Value;' is not supported. - Occurs when the uploaded file is not a zip file. 
  - Zip contains too many files (%FileCount;). Limit is %MaxFileCount;. - Occurs when the zip file contains more than 100 files. 
@@ -224,7 +224,7 @@ Follow these guidelines to successfully import paths and upload zip files withou
 
 If you see any of these errors, remove the invalid or extra files and recreate the zip file before uploading it again.
 
-1. **Partial files or No files accepted for report generation**: Even if the zip file meets all guidelines and is processed, you might not see reports for every file in the zip. This can happen due to issues such as JSON schema incompatibility or unsupported targets in the report file.
+2. **Partial files or No files accepted for report generation**: Even if the zip file meets all guidelines and is processed, you might not see reports for every file in the zip. This can happen due to issues such as JSON schema incompatibility or unsupported targets in the report file.
 When this occurs, Azure Migrate uses content from valid files to generate the report. Files that fail validation return errors like:
 
  - The report content is invalid or not in the expected JSON format. - Occurs when the JSON report schema is invalid or incompatible. 
