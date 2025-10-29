@@ -27,7 +27,7 @@ These topics are covered in a series of related pages.
 SAP applications should be incorporated into the overall Zero-Trust security solution for the entire IT landscape. [Zero Trust Strategy & Architecture | Microsoft Security](https://www.microsoft.com/security/business/zero-trust?msockid=343d619786f36e041990740887e36ff0#modal-21)
 The SAP Security Solution should reference the Zero-Trust security model. The Zero-Trust security solution validates each action at each layer such as Identity, Endpoint Network Access, Authentication, and MFA through SAP Application and Data Access. 
  
- ![alt text](\articles\sap\workloads\media\sap-security-instructure/microsoft-zero-trust-security-diagram.png) 
+ ![alt text](articles/sap/workloads/media/sap-security-instructure/microsoft-zero-trust-security-diagram.png) 
 
 The purpose of this documentation is to provide a single location with links and a brief description on how to implement Identity, Security, and Audit related features for SAP solutions running on Azure Hyperscale Cloud.   This documentation doesn't precisely specify which security features should be implemented as requirements are dependent on risk profile, industry, and regulatory environment. This document does make some default recommendations such as a general recommendation to use Defender for Endpoint, Transparent Database Encryption (TDE), and Backup Encryption on all systems.  
 Customers designing and implementing Identity, Security, and Audit solutions for SAP review the concepts explained in [Microsoft cloud security benchmark introduction | Microsoft Learn](../security/benchmark/azure/introduction). 
@@ -77,14 +77,14 @@ The SAPXPG can be exploited and should be monitored using this procedure [Custom
 Defender Vulnerability Management can detect vulnerabilities in the Operating System and Database layer. [Microsoft Defender Vulnerability Management dashboard - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/defender-vulnerability-management/tvm-dashboard-insights)  
 Defender Vulnerability Management doesn't have the functionality to detect ABAP and Java vulnerabilities today
 
-Defender for Storage for Blob What is [Microsoft Defender for Storage - Microsoft Defender for Cloud | Microsoft Learn](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-storage-introduction)
+Defender for Storage for Blob What is [Microsoft Defender for Storage - Microsoft Defender for Cloud | Microsoft Learn](../../defender-for-cloud/defender-for-storage-introduction)
 Support for Azure Files SMB [Azure Files support and new updates in advanced threat protection for Azure Storage | Microsoft Azure Blog](https://azure.microsoft.com/blog/azure-files-support-and-new-updates-in-advanced-threat-protection-for-azure-storage/).
 
 Microsoft Secure Score and Vulnerability Management is discussed in the Operating System section below [Microsoft Defender Vulnerability Management dashboard - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/defender-vulnerability-management/tvm-dashboard-insights)
 
 ## 3.	Microsoft Sentinel for SAP Connector 
 Microsoft Sentinel SIEM/SOAR solution has a connector for SAP. SAP application specific signals such as user logons and access to sensitive transactions can be monitored and corelated with other SIEM/SOAR signals, such as network access and data exfiltration.  
-[Microsoft Sentinel solution for SAP applications overview | Microsoft Learn](https://learn.microsoft.com/azure/sentinel/sap/solution-overview)
+[Microsoft Sentinel solution for SAP applications overview | Microsoft Learn](../../sentinel/sap/solution-overview)
 
 [140 - The one with Microsoft Sentinel for SAP (Yoav Daniely, Yossi Hasson & Martin Pankraz, Sebastian Ullrich - YouTube](https://www.youtube.com/watch?v=uVsrqCoVWlI)
 
@@ -97,7 +97,7 @@ To enable TDE on Hana follow [Enable Encryption | SAP Help Portal](https://help.
 
 SQL Server Transparent Database Encryption is fully integrated into the Azure Key Vault.  
 - [1380493 - SQL Server Transparent Data Encryption (TDE)](https://me.sap.com/notes/1380493)
-- [Transparent data encryption (TDE) - SQL Server | Microsoft Learn](https://learn.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver17)
+- [Transparent data encryption (TDE) - SQL Server | Microsoft Learn](../../sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver17)
 
 Oracle DBMS supports TDE in combination with SAP applications. TDE keys can be stored in HSM PKCS#11 devices 
 - [974876 - Oracle Transparent Data Encryption (TDE)](https://me.sap.com/notes/974876/E)
