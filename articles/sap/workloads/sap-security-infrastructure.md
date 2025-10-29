@@ -97,7 +97,7 @@ To enable TDE on Hana follow [Enable Encryption | SAP Help Portal](https://help.
 
 SQL Server Transparent Database Encryption is fully integrated into the Azure Key Vault.  
 - [1380493 - SQL Server Transparent Data Encryption (TDE)](https://me.sap.com/notes/1380493)
-- [Transparent data encryption (TDE) - SQL Server | Microsoft Learn](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver17)
+- [Transparent data encryption (TDE) - SQL Server | Microsoft Learn](/sql/relational-databases/security/encryption/transparent-data-encryption)
 
 Oracle DBMS supports TDE in combination with SAP applications. TDE keys can be stored in HSM PKCS#11 devices 
 - [974876 - Oracle Transparent Data Encryption (TDE)](https://me.sap.com/notes/974876/E)
