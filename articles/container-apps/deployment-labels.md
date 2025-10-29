@@ -7,6 +7,7 @@ ms.author: cshoe
 ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 10/27/2025
+zone_pivot_groups: azure-cli-or-portal
 ---
 
 # Deployment labels in Azure Container Apps
@@ -16,6 +17,7 @@ Deployment labels allow you to assign meaningful names (such as dev, staging, pr
 With deployment labels, you can:
 
 - Assign clear, descriptive labels to revisions
+- Have new revisions automatically assigned to labels for routing and traffic management
 - Route traffic based on labels instead of changing revision names
 - Promote or demote revisions by reassigning labels
 - Roll back to previous revisions using label history
@@ -30,7 +32,7 @@ Deployment labels enable you to create sophisticated deployment strategies while
 
 - **Staging releases & auto swap**: Automatic revision activation allows you to seamlessly create new revisions and have them assigned to new or existing labels and receive traffic. Any revisions no longer referenced by a label will be shut down automatically.
 
-::: zone pivot="azureportal"
+::: zone pivot="azure-portal"
 
 ## Use deployment labels
 
@@ -79,7 +81,7 @@ Use the *Show history* option for any label to:
 
 ::: zone-end
 
-::: zone pivot="azurecli"
+::: zone pivot="azure-cli"
 
 ## Use deployment labels
 
@@ -87,26 +89,67 @@ To enable deployment labels, follow these steps in the Azure CLI:
 
 1. Open your terminal.
 
-1. Use the following command to create a new label:
+1. Create the following environment variables.
+
+```bash
+CONTAINER_APP_NAME="my-container-app"
+CONTAINER_APP_IMAGE="mcr.microsoft.com/k8se/quickstart:latest"
+LOCATION="centralus"
+RESOURCE_GROUP="my-container-apps-rg"
+ENVIRONMENT_NAME="my-container-apps-env"
+TARGET_LABEL="stage"
+```
+
+1. Use the following command to create a new app and revision with label:
 
    ```bash
-   az containerapp create --name <app-name> --resource-group <resource-group> --image <container-image> --environment <environment-name> --ingress external --target-port 0 --revisions-mode labels --target-label <label-name>
+   az containerapp create \
+   --name $CONTAINER_APP_NAME \
+   --resource-group $RESOURCE_GROUP \
+   --image $CONTAINER_APP_IMAGE \
+   --environment $ENVIRONMENT_NAME \
+   --location $LOCATION \
+   --ingress external \
+   --target-port 0 \
+   --revisions-mode labels \
+   --target-label $TARGET_LABEL
    ```
 
-1. To update a label, use the following command:
+1. To create a new revision with a new or existing label, use the following command:
    ```bash
-   az containerapp update --name <app-name> --resource-group <resource-group> --image <new-container-image> --target-label <label-name>
+   az containerapp update \
+   --name $CONTAINER_APP_NAME \
+   --resource-group $RESOURCE_GROUP \
+   --image $CONTAINER_APP_IMAGE \
+   --target-label $TARGET_LABEL
    ```
 
 1. To show label history, use the following command:
    ```bash
-   az containerapp label-history show --name <app-name> --resource-group <resource-group> --label <label-name>
+   az containerapp label-history show \
+   --name $CONTAINER_APP_NAME \
+   --resource-group $RESOURCE_GROUP \
+   --label $TARGET_LABEL
    ```
-1. To delete a label, use the following commands:
+
+1. To add a label to a revision, use the following commands:
+   ```bash
+   az containerapp revision label add \
+   --name $CONTAINER_APP_NAME \
+   --resource-group $RESOURCE_GROUP \
+   --revision $REVISION_NAME \
+   --label $TARGET_LABEL
+   ```
+
+1. To remove a label from a revision, use the following commands:
 
    ```bash
-   az containerapp delete --name <app-name> --resource-group <resource-group> -y
-   ```	
+   az containerapp revision label remove \
+   --name $CONTAINER_APP_NAME \
+   --resource-group $RESOURCE_GROUP \
+   --revision $REVISION_NAME \
+   --label $TARGET_LABEL
+   ```
 
 ::: zone-end
 
