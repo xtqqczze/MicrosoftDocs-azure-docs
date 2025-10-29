@@ -28,7 +28,7 @@ In this article, you’ll learn how to:
 You can add code scan report to web app assessment using either of the following two methods:  
 
 - Upload a code scan report manually, generate using Azure Migrate application and code assessment tool (AppCAT)
-- Connect your GitHub repo where the code scan reports are uploaded using GitHub Copilot app modernization extension. 
+- Connect to your GitHub repo where the code scan reports are uploaded using GitHub Copilot app modernization extension. 
 
 ##  Upload code scan report manually using AppCAT
 
@@ -43,13 +43,14 @@ With this approach, you must generate the code scan report using AppCAT and then
 
 To generate a code scan report, complete the following steps:
 
-1. Install the AppCAT:
+1. Install AppCAT:
 
-    - For .NET you use the below command. For more inforamtion, see, [Install the .NET global tool](/dotnet/azure/migration/appcat/install#install-the-net-global-tool).
-    - For more information on Java, see [Assess a Java project using AppCAT 7](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#download-and-install).
-1. Generate the AppCAT report for all your web app that you have assessed.  
-    - For more information on .NET follow, see, [Analyze applications with the .NET CLI](/dotnet/azure/migration/appcat/dotnet-cli). 
-    - For more information on Java, see, [Run AppCAT against a sample Java project](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#run-appcat-against-a-sample-java-project).
+    - For .NET you use the below command
+    `dotnet tool install --global Microsoft.AppCAT.Tool` For detailed instructions, see [Install the .NET global tool](/dotnet/azure/migration/appcat/install#install-the-net-global-tool).
+    - For guidance on assessing Java projects, see [Assess a Java project using AppCAT 7](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#download-and-install).
+1. Generate AppCAT Reports
+   - After installing AppCAT, generate reports for all web apps you have assessed: For .NET applications, use the .NET CLI to analyze applications. For more details, see [Analyze applications with the .NET CLI](/dotnet/azure/migration/appcat/dotnet-cli). 
+    - For Java applications: To run AppCAT against a sample Java project, see [Run AppCAT against a sample Java project](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#run-appcat-against-a-sample-java-project).
 1. Create a zip file for all the reports that you want to add to assessment. 
 
 ### Upload code scan report to web app assessment using zip file 
@@ -57,11 +58,11 @@ To generate a code scan report, complete the following steps:
 1. Select **Assessments** on the Azure Migrate project **Overview** page under **Decide and Plan**.
 1. Search for the assessment with the **Workloads** filter and select it. 
 1. On the assessment **Overview** page, select the **Recommended path** tab or **View details** in the recommended path report.  
-    This screen displays the distribution of web apps across Azure targets. Select a line item to drill down further. 
+    This Overview page displays the distribution of web apps across Azure targets. Select a line item to drill down further. 
 1. Under **Add code insights** select Using GitHub Copilot assessment. 
 1. In the Add code insights page, select **Upload a zip file**.  
 1. Select **Browse**, choose the location of the ZIP file containing AppCAT reports you want to import, and then select **Upload**. Wait for the upload and validation to complete.
-1. In the Web app list, under the AppCAT report dropdown, view the uploaded reports under **Uploaded from zip file**. 
+1. In the Web app list, under the **AppCAT report** dropdown, view the uploaded reports under **Uploaded from zip file**. 
 1. Select the appropriate report to map to the respective web app. Repeat these steps for all required web app.  
 1. After mapping, select **Add** and wait for the process to complete. 
 1. When mapping is complete, open notification and follow the steps to recalculate the assessment.
@@ -218,15 +219,15 @@ Follow these guidelines to successfully import paths and upload zip files withou
 
   You might see errors if the uploaded zip file doesn’t meet the required constraints. Here are some examples:
  
- - The uploaded blob content type '%Value;' is not supported. - Occurs when the uploaded file is not a zip file. 
- - Zip contains too many files (%FileCount;). Limit is %MaxFileCount;. - Occurs when the zip file contains more than 100 files. 
- - Total uncompressed size %UncompressedSize;MB of uploaded zip file exceeds limit of %MaxUncompressedSize;MB. - Occurs when the uncompressed size of the zip file exceeds 500 MB.
- - Zip entry '%EntryName;' is invalid (possible path traversal). - Occurs when a file name in the zip contains path traversal characters such as ../../.  
- - The uploaded zip file is empty and contains no valid files. - Occurs when the zip file does not contain any files.
+ - The uploaded blob content type '%Value;' is not supported. - *Occurs when the uploaded file is not a zip file*. 
+ - Zip contains too many files (%FileCount;). Limit is %MaxFileCount;. - *Occurs when the zip file contains more than 100 files*. 
+ - Total uncompressed size %UncompressedSize;MB of uploaded zip file exceeds limit of %MaxUncompressedSize;MB. - *Occurs when the uncompressed size of the zip file exceeds 500 MB*.
+ - Zip entry '%EntryName;' is invalid (possible path traversal). - *Occurs when a file name in the zip contains path traversal characters such as ../../.*  
+ - The uploaded zip file is empty and contains no valid files. - *Occurs when the zip file does not contain any files.*
 
 If you see any of these errors, remove the invalid or extra files and recreate the zip file before uploading it again.
 
-2. **Partial files or No files accepted for report generation**: Even if the zip file meets all guidelines and is processed, you might not see reports for every file in the zip. This can happen due to issues such as JSON schema incompatibility or unsupported targets in the report file.
+2. **Partial files or No files accepted for report generation**: Even if the zip file meets all guidelines and is processed, you might not see the reports for every file in the zip. This can happen due to issues such as JSON schema incompatibility or unsupported targets in the report file.
 When this occurs, Azure Migrate uses content from valid files to generate the report. Files that fail validation return errors like:
 
  - The report content is invalid or not in the expected JSON format. - Occurs when the JSON report schema is invalid or incompatible. 
