@@ -173,7 +173,7 @@ Azure infrastructure security configuration can be enhanced to reduce or elimina
 #### Generation 2 VM and Trusted Launch 
 It's recommended to only deploy Generation 2 VMs and to activate Trusted Launch. 
 > [!NOTE]
-> Note only recent versions of Suse 15 support Trusted Launch. [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](../../virtual-machines/trusted-launch#operating-systems-supported)
+> Note only recent versions of Suse 15 support Trusted Launch. [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](/virtual-machines/trusted-launch#operating-systems-supported)
 
 [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](/virtual-machines/trusted-launch)
 
@@ -236,7 +236,7 @@ Further links:
 - [Microsoft Digital Defense Report and Security Intelligence Insights](https://www.microsoft.com/security/business/security-intelligence-report?msockid=343d619786f36e041990740887e36ff0)
 - Microsoft also offers support and consulting services for security related topics 
 [DART: the Microsoft cybersecurity team we hope you never meet | Microsoft Security Blog](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/)
-- Microsoft provides tools to remove ransomware and other Malware from Windows [Microsoft Safety Scanner Download - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/defender-endpoint/safety-scanner-download) 
+- Microsoft provides tools to remove ransomware and other Malware from Windows [Microsoft Safety Scanner Download - Microsoft Defender for Endpoint | Microsoft Learn](/defender-endpoint/safety-scanner-download) 
 - [Windows Malicious Software Removal Tool 64-bit](https://www.microsoft.com/download/details.aspx?id=9905)
 - [FAQ - Protect backups from Ransomware with Azure Backup - Azure Backup | Microsoft Learn](../../backup/protect-backups-from-ransomware-faq)
  
@@ -269,7 +269,7 @@ Security Analysts and Forums have reported an increase in the exploitation of SA
 - [Azure security fundamentals documentation | Microsoft Learn](../../security/fundamentals/)  
 - [SAP HANA Database Encryption - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-hana-database-encryption/ba-p/13555367)
 - [3345490 - Common Criteria Compliance FAQ](https://me.sap.com/notes/3345490)
-- [Microsoft Security Compliance Toolkit Guide | Microsoft Learn](https://learn.microsoft.com/windows/security/operating-system-security/device-management/windows-security-configuration-framework/security-compliance-toolkit-10)
+- [Microsoft Security Compliance Toolkit Guide | Microsoft Learn](/windows/security/operating-system-security/device-management/windows-security-configuration-framework/security-compliance-toolkit-10)
 - [SQL Server database security for SAP on Azure - Cloud Adoption Framework | Microsoft Learn](../../cloud-adoption-framework/scenarios/sap/sap-lza-database-security)
 - [Firmware measured boot and host attestation - Azure Security | Microsoft Learn](../../security/fundamentals/measured-boot-host-attestation)
 
