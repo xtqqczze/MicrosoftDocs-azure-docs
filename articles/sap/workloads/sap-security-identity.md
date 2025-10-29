@@ -29,7 +29,7 @@ https://aka.ms/MigrateFromSAPIDM
 It's recommended to use SSO and/or multifactor authentication for all SAP applications. Traditional User and Password for SAP applications isn't recommended. There are three typical options: User and Password (not recommended), Single Sign On (SSO) or SSO + MFA. Different SAP applications on different platforms have many options for Authentication: 
 
 ### i.	Web Browser based Clients – SAML or OIDC (OpenID Connect)
-[Configure SAP NetWeaver for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](/entra/identity/saas-apps/sap-netweaver-tutorial.md)
+[Configure SAP NetWeaver for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](/entra/identity/saas-apps/sap-netweaver-tutorial)
 SAML is a well established industry standard but OIDC is a newer solution. This article contains a good comparison between the two technologies [OIDC vs. SAML your hybrid SAP Landscape: What You ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/oidc-vs-saml-your-hybrid-sap-landscape-what-you-need-to-know/ba-p/13797204)
 
 ### ii.	SAPGUI – X.509 or Kerberos Tickets
@@ -63,20 +63,20 @@ For more information on how to configure single sign-on from Microsoft Entra ID,
   > [!NOTE]
   > Note the preferred strategy is to use the SAP Cloud Identity Services (CIS) where possible.  
 
-It's technically possible to integrate SAP SuccessFactors with Entra ID or SAP Cloud Identity Service (CIS). However, the preferred strategy is to use inbound provisioning from SuccessFactors to Microsoft Entra as described in [Configure SuccessFactors for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](/entra/identity/saas-apps/successfactors-tutorial.md) For outbound provisioning to SuccessFactors, such as assigning a new HR admin role to a user in SuccessFactors, SuccessFactors would be configured as a target system in CIS as described in [SAP SuccessFactors | SAP Help Portal](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-sap-successfactors).
+It's technically possible to integrate SAP SuccessFactors with Entra ID or SAP Cloud Identity Service (CIS). However, the preferred strategy is to use inbound provisioning from SuccessFactors to Microsoft Entra as described in [Configure SuccessFactors for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](/entra/identity/saas-apps/successfactors-tutorial) For outbound provisioning to SuccessFactors, such as assigning a new HR admin role to a user in SuccessFactors, SuccessFactors would be configured as a target system in CIS as described in [SAP SuccessFactors | SAP Help Portal](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/target-sap-successfactors).
 
 More information on Microsoft Entra SSO services for SAP solutions: 
-- [SAP Cloud Identity Services](/entra/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)
-- [SAP SuccessFactors](/entra/identity/saas-apps/successfactors-tutorial.md)
-- [SAP Analytics Cloud](/entra/identity/saas-apps/sapboc-tutorial.md)
-- [SAP Fiori](/entra/identity/saas-apps/sap-fiori-tutorial.md)
-- [SAP Ariba](/entra/identity/saas-apps/ariba-tutorial.md)
-- [SAP Concur Travel and Expense](/entra/identity/saas-apps/concur-travel-and-expense-tutorial.md)
-- [SAP Business Technology Platform](/entra/identity/saas-apps/sap-hana-cloud-platform-tutorial.md)
-- [SAP Business ByDesign](/entra/identity/saas-apps/sapbusinessbydesign-tutorial.md)
-- [SAP HANA](/entra/identity/saas-apps/saphana-tutorial.md)
-- [SAP Cloud for Customer](/entra/identity/saas-apps/sap-customer-cloud-tutorial.md)
-- [SAP Fieldglass](/entra/identity/saas-apps/fieldglass-tutorial.md)
+- [SAP Cloud Identity Services](/entra/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial)
+- [SAP SuccessFactors](/entra/identity/saas-apps/successfactors-tutorial)
+- [SAP Analytics Cloud](/entra/identity/saas-apps/sapboc-tutorial)
+- [SAP Fiori](/entra/identity/saas-apps/sap-fiori-tutorial)
+- [SAP Ariba](/entra/identity/saas-apps/ariba-tutorial)
+- [SAP Concur Travel and Expense](/entra/identity/saas-apps/concur-travel-and-expense-tutorial)
+- [SAP Business Technology Platform](/entra/identity/saas-apps/sap-hana-cloud-platform-tutorial)
+- [SAP Business ByDesign](/entra/identity/saas-apps/sapbusinessbydesign-tutorial)
+- [SAP HANA](/entra/identity/saas-apps/saphana-tutorial)
+- [SAP Cloud for Customer](/entra/identity/saas-apps/sap-customer-cloud-tutorial)
+- [SAP Fieldglass](/entra/identity/saas-apps/fieldglass-tutorial)
 
 Also see the following blog posts and SAP resources:
 - SAP GUI MFA with Microsoft Entra [integration with SAP Secure Login Service](https://community.sap.com/t5/technology-blogs-by-members/sap-gui-mfa-with-microsoft-entra-part-i-integration-with-sap-secure-login/ba-p/13605383) and [integration with Microsoft Entra Private Access](https://community.sap.com/t5/technology-blogs-by-members/sap-gui-mfa-with-microsoft-entra-part-ii-integration-with-microsoft-entra/ba-p/13691141)
@@ -88,12 +88,12 @@ More information on the SAP Cloud Identity Services (CIS) can be found here:
 - Identity Provisioning Service (BTP) and Identity Authentication Service (BTP)
 - [Getting Started with SAP Cloud Identity Service - ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/getting-started-with-sap-cloud-identity-service-authentication-admin-user/ba-p/13541902)
 - [What Is Identity Provisioning? | SAP Help Portal](https://help.sap.com/docs/identity-provisioning/identity-provisioning/what-is-identity-provisioning)
-- [Explaining Identity and Access Management on SAP BTP](https://learning.sap.com/learning-journeys/administrating-sap-business-technology-platform/explaining-identity-and-access-management-on-sap-btp)
+- [Explaining Identity and Access Management on SAP BTP](https://learning.sap.com/courses/operating-sap-business-technology-platform/explaining-identity-and-access-management-on-sap-btp)
 - A good summary can be found here [Navigating SAP SSO: Choosing Between SAP single sign-on 3.0 and SAP Secure Login Service for SAP GUI](https://www.linkedin.com/pulse/navigating-sap-sso-choosing-between-single-sign-on-30-carsten-olt-jyrje/?trk=article-ssr-frontend-pulse_little-text-block)
 - /entra/id-governance/sap 
 
 ## 3.	Automatic Synchronization of Authorization Attributes 
-Authorization attributes can be replicated from Microsoft Entra to target SAP applications such as SAP BTP Role Collections. This is discussed in this link [Manage access to your SAP applications - Microsoft Entra ID Governance | Microsoft Learn](/entra/id-governance/sap.md)
+Authorization attributes can be replicated from Microsoft Entra to target SAP applications such as SAP BTP Role Collections. This is discussed in this link [Manage access to your SAP applications - Microsoft Entra ID Governance | Microsoft Learn](/entra/id-governance/sap)
 
   > [!NOTE]
   > Microsoft has released new Microsoft Entra functionality to synchronize both Users and Groups from Microsoft Entra to SAP CIS. This functionality can be added free of charge in the Entra Admin Center. 
@@ -105,7 +105,7 @@ The latest diagram showing the new Microsoft Entra functionality allowing synchr
 
 ## 4.	Global Secure Access GSA with SAPGUI SNC  
 The video embedded in the following blog is recommended for customers wanting to achieve Network Level Security. The outcome is similar to operating a VPN without the overhead of installing and maintaining a full VPN on client devices.  
-The GSA client implements an [NDIS 6.0 lightweight filter (LWF) network driver](/windows-hardware/drivers/network/ndis-filter-drivers.md) to route any traffic to internal and external applications based on centrally defined access rules at the company's Entra ID tenant level.
+The GSA client implements an [NDIS 6.0 lightweight filter (LWF) network driver](/windows-hardware/drivers/network/ndis-filter-drivers) to route any traffic to internal and external applications based on centrally defined access rules at the company's Entra ID tenant level.
   - [SAP GUI MFA with Microsoft Entra (Part II): Integr... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-ii-integration-with-microsoft-entra/ba-p/13691141)
   - [219 - The one with SSO to SAP GUI using Global Secure Access (Martin Raepple) | SAP on Azure Video](https://www.youtube.com/watch?v=42dj-lV-MDQ)
 
