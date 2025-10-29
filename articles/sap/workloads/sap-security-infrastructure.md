@@ -30,8 +30,8 @@ The SAP Security Solution should reference the Zero-Trust security model. The Ze
  ![alt text](\articles\sap\workloads\media\sap-security-instructure/microsoft-zero-trust-security-diagram.png) 
 
 The purpose of this documentation is to provide a single location with links and a brief description on how to implement Identity, Security, and Audit related features for SAP solutions running on Azure Hyperscale Cloud.   This documentation doesn't precisely specify which security features should be implemented as requirements are dependent on risk profile, industry, and regulatory environment. This document does make some default recommendations such as a general recommendation to use Defender for Endpoint, Transparent Database Encryption (TDE), and Backup Encryption on all systems.  
-Customers designing and implementing Identity, Security, and Audit solutions for SAP review the concepts explained in [Microsoft cloud security benchmark introduction | Microsoft Learn](https://learn.microsoft.com/security/benchmark/azure/introduction). 
-More Checklists can be found [Secure Overview - Cloud Adoption Framework | Microsoft Learn](https://learn.microsoft.com/azure/cloud-adoption-framework/secure/overview#cloud-security-checklist) 
+Customers designing and implementing Identity, Security, and Audit solutions for SAP review the concepts explained in [Microsoft cloud security benchmark introduction | Microsoft Learn](../security/benchmark/azure/introduction). 
+More Checklists can be found [Secure Overview - Cloud Adoption Framework | Microsoft Learn](../../cloud-adoption-framework/secure/overview#cloud-security-checklist) 
 
 ## Deployment Checklist 
 The design and implementation of a comprehensive security solution for SAP applications running on Azure is a consulting project. 
