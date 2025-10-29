@@ -76,9 +76,6 @@ If any of these utilization numbers isn't available, the size recommendations mi
 
 ### Coverage
 
-The table below shows the performance coverage for assessment, which depend on the percentage of available data points:
-
-
 ### Low performance coverage
 
 Here are a few reasons why an assessment could get a low performance coverage:

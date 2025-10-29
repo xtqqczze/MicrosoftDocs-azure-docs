@@ -141,8 +141,7 @@ If there are changes to on-premises web apps that are in a group that's been ass
   
     Run the assessment again (**Recalculate**) to reflect the changes.
 
-### Low confidence rating
-
+### Low performance coverage
 An assessment might not have all the data points for many reasons:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you're creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you can't wait for the duration, change the performance duration to a smaller period and "Recalculate" the assessment.

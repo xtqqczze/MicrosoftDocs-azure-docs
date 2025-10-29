@@ -94,7 +94,7 @@ For storage sizing in an Azure VM assessment, Azure Migrate tries to map each di
     - Provisioned IOPS is calculated using the following logic: 
       - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS is equal to source disk IOPS.
       - Else, provisioned IOPS is calculated using IOPS to be provisioned = (source disk throughput) *1024/256 
-      - Provisioned throughput range is dependent on provisioned IOPS. [Learn more](assessment-report.md#confidence-ratings-performance-based)
+      - Provisioned throughput range is dependent on provisioned IOPS. [Learn more](assessment-report.md#coverage)
       
 ### Network sizing 
 
