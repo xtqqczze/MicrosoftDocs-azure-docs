@@ -53,7 +53,9 @@ In this tutorial, you learn how:
 2. Navigate to the **Manage credentials and discovery sources** panel.
 1.  In **Step 1: Provide credentials for discovery source**, select on **Add credentials** to  provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
 1. In **Step 2: Provide discovery source details**, select **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details.":::
+
+:::image type="content" source="./media/how-to-discover-applications/add-server-credentials.png" alt-text="Screenshot shows how to add server credentials." lightbox="./media/how-to-discover-applications/add-server-credentials.png":::
+
 1. In **Step 3: Provide server credentials to perform guest discovery of installed software, dependencies and workloads**, select **Add credentials** to provide multiple server credentials to perform software inventory.
 1. Select **Start discovery**, to initiate discovery.
 
@@ -82,13 +84,17 @@ The software inventory is exported and downloaded in Excel format. The **Softwar
 After software inventory has completed, you can review the inventory in the Azure portal at the project level or per server level.
 
 ### Review software at project level
+
 1. Go to your Azure Migrate project and from the left menu, select **Software** under **Explore inventory** to review software discovered from all servers in the project.
-2. You can see some software **category cards** available on top of the view for quick access to some category of software.
-3. By default, **All software** card is selected but you can select from **Security & compliance**, **Databases & Data platforms**, **Web hosting**, **Business applications**, **Others** to review discovered software that have been classified in that category.
-4. You can view the aggregated insights for the software inventory to review **Servers with discovery issues**- selecting **View issues** takes you to the Action Center view which is prefiltered to show all servers with issues in gathering software inventory. You can either review the errors at per server level or switch to **View by issues** to review issues aggregated by Error codes and take the suggested remedial action to resolve the issues.
-5. The other aggregated insight in the software view shows the count of unique **Vulnerabilities** identified across all the discovered software. You can choose to select **View all** to review identified vulnerabilities across all discovered software or review them at per software level from the table below.
-6. In the table, you can review each software metadata like **Name**, **Publisher**, **Version** that have been gathered through Software inventory, performed using servers credentials you provided on the Azure Migrate appliance.
-7. You can also review the additional insights like **Category**, **Subcategory**, **Support Status**, **Server count** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
+
+:::image type="content" source="./media/how-to-discover-applications/security-insights-overview.png" alt-text="Screenshot shows the security insights." lightbox="./media/how-to-discover-applications/security-insights-overview.png":::
+
+1. You can see some software **category cards** available on top of the view for quick access to some category of software.
+1. By default, **All software** card is selected but you can select from **Security & compliance**, **Databases & Data platforms**, **Web hosting**, **Business applications**, **Others** to review discovered software that have been classified in that category.
+1. You can view the aggregated insights for the software inventory to review **Servers with discovery issues**- selecting **View issues** takes you to the Action Center view which is prefiltered to show all servers with issues in gathering software inventory. You can either review the errors at per server level or switch to **View by issues** to review issues aggregated by Error codes and take the suggested remedial action to resolve the issues.
+1. The other aggregated insight in the software view shows the count of unique **Vulnerabilities** identified across all the discovered software. You can choose to select **View all** to review identified vulnerabilities across all discovered software or review them at per software level from the table below.
+1. In the table, you can review each software metadata like **Name**, **Publisher**, **Version** that have been gathered through Software inventory, performed using servers credentials you provided on the Azure Migrate appliance.
+1. You can also review the additional insights like **Category**, **Subcategory**, **Support Status**, **Server count** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
 
     > [!NOTE]
     > The gathered software data is processed further to derive **Category**, **Subcategory**, **Support Status** and **Vulnerabilities** . Since this information is AI-generated, there might be inaccuracies.
@@ -172,10 +178,13 @@ The table below shows different categories and subcategories in which the discov
 In addition to reviewing software at project level, you can also review them at per server level by following these steps:
 
 1. Go to your Azure Migrate project and from the left menu, select **Infrastructure** under **Explore inventory** to review software discovered from each server.
-2. You can select the count of **software** for any server to get to a tab which shows all software discovered from this server.
-3. In this tab, you can review each software metadata like **Name**, **Publisher**, **Version** and additional insights like **Category**, **Subcategory**, **Support Status** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
-4.  The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, and **Vulnerabilities**.
-5.  In addition to the software, you can select the **Roles and features** tab to view the roles and features installed on Windows servers.
+
+:::image type="content" source="./media/how-to-discover-applications/software-inventory-infra-view.png" alt-text="Screenshot shows the software inventory view of infrastructure." lightbox="./media/how-to-discover-applications/software-inventory-infra-view.png":::
+
+1. You can select the count of **software** for any server to get to a tab which shows all software discovered from this server.
+1. In this tab, you can review each software metadata like **Name**, **Publisher**, **Version** and additional insights like **Category**, **Subcategory**, **Support Status** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
+1.  The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, and **Vulnerabilities**.
+1.  In addition to the software, you can select the **Roles and features** tab to view the roles and features installed on Windows servers.
 
 ::: moniker-end
 
