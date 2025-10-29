@@ -12,13 +12,13 @@ ms.topic: conceptual
 
 # SAP Testing Automation Framework Overview
 
-The [SAP Testing Automation Framework](https://github.com/Azure/sap-automation-qa) (STAF) is an open-source orchestration tool designed to validate SAP deployments on Microsoft Azure. It enables you to assess overall system and infrastructure configurations against SAP on Azure best practices and guidelines. Additionally, the framework facilitates automation of High Availability (HA) functional testing scenarios.
+The [SAP Testing Automation Framework](https://github.com/Azure/sap-automation-qa) (STAF) is an open-source orchestration tool that validates SAP deployments on Microsoft Azure. It validates SAP system's and infrastructure configurations against SAP on Azure best practices and guidelines. Additionally, the framework automates testing of High Availability (HA) cluster's functional behavior in SAP systems.
 
-The SAP Testing Automation Framework started as an addition to the [SAP Deployment Automation Framework (SDAF)](./deployment-framework.md), offering a robust testing layer for SAP systems deployed on Azure through automated validation processes. However, the framework is designed to be flexible and can be configured as a standalone solution, enabling customers who have not deployed their systems using SDAF to independently use the testing capabilities and validate their existing SAP environments. The framework validates the configurations and behavior of SAP HANA databases and SAP Central Services (ASCS/ERS) in high availability scenarios, as well as performs comprehensive configuration checks for SAP systems, including database (SAP HANA and IBM DB2), central services, and application server components.
+The SAP Testing Automation Framework started as an addition to the [SAP Deployment Automation Framework (SDAF)](./deployment-framework.md), offering a robust testing layer for SAP systems deployed on Azure through automated validation processes. The framework is flexible and works as a standalone solution, allowing customers who have not deployed their systems using SDAF to independently use the testing capabilities and validate their existing SAP environments. The framework validates the configurations and behavior of SAP HANA databases and SAP Central Services (ASCS/ERS) in high availability setup and performs comprehensive configuration checks for SAP systems, including database (SAP HANA and IBM DB2), central services, and application server components.
 
-## Key Scenarios
+## Test Categories
 
-SAP Testing Automation is designed as a scalable framework to orchestrate and validate a wide spectrum of SAP landscape scenarios through repeatable, policy-driven test modules. The framework currently takes care of following scenarios :
+SAP Testing Automation is designed as a scalable framework to orchestrate and validate an array of SAP landscape configurations/deployment patterns through repeatable, policy-driven test modules. The framework currently takes care of following scenarios :
 
 ### High Availability Testing
 
@@ -26,11 +26,11 @@ In the SAP Testing Automation Framework, thorough validation of high availabilit
 
 - **High Availability Configuration Validation (online):** The framework helps to ensure that SAP HANA scale-up and SAP Central Services configurations and load balancer settings are compliant with SAP on Azure high availability configuration guidelines.
 - **High Availability Configuration Validation (offline):** Offline validation is a mode of the framework that validates SAP HANA and SAP Central Services high availability cluster configurations without establishing a live SSH connection to the production cluster. Instead, it analyzes captured cluster information base (CIB) XML files exported from each cluster node.
-- **Functional Testing:** The framework executes series of real-world scenarios based on the SAP HANA and SAP Central Services high availability setup to identify potential issues, whether during a new system deployment or before implementing cluster changes in a production environment. The test cases are based on what is documented in how-to guides for SAP HANA and SAP Central Services configuration.
+- **Functional Testing:** The framework executes series of real-world failure conditions based on the SAP HANA and SAP Central Services high availability setup to identify potential issues, whether during a new system deployment or before implementing cluster changes in a production environment. The test cases are based on what is documented in how-to guides for SAP HANA and SAP Central Services configuration.
 
 ### Configuration Checks (Preview)
 
-The framework performs comprehensive configuration checks to ensure that the SAP system and its components are set up according to [SAP on Azure best practice](../../sap/index.yml). This includes validating infrastructure settings, operating system parameter configurations, and network settings, in addition to the cluster configuration, to identify any deviations that could affect system performance or reliability.
+The framework performs comprehensive configuration checks to ensure that the SAP system and its components are set up according to [SAP on Azure best practice](../../sap/index.yml). This includes validating infrastructure settings, operating system parameter configurations, and network settings, in addition to the cluster configuration, to identify any deviations that affect system performance or reliability.
 
 - **Infrastructure Validation:** This includes validating the underlying infrastructure components, such as virtual machines, load balancer, and other resource configurations, to ensure they meet the requirements for running SAP workloads on Azure.
 
@@ -38,9 +38,9 @@ The framework performs comprehensive configuration checks to ensure that the SAP
 
 - **Operating System and SAP Parameter Validation:** The framework checks critical operating system parameters and SAP kernel settings to ensure they align with recommended configurations.
 
-- **Cluster Configuration Validation:** This framework ensures that the high availability cluster resource settings adhere to best practices for high availability and failover scenarios.
+- **Cluster Configuration Validation:** This framework ensures that the high availability cluster resource settings adhere to best practices for high availability and failover conditions.
 
-The framework generates comprehensive reports, highlighting configuration mismatch or deviations from recommended best practices. For high availability scenarios, the report includes failover test outcomes, any failures encountered, and logs with insights to aid in troubleshooting identified issues.
+The framework generates comprehensive reports, highlighting configuration mismatch or deviations from recommended best practices. For high availability functional tests, the report includes failover test outcomes, any failures encountered, and logs with insights to aid in troubleshooting identified issues.
 
 > [!NOTE]
 >
@@ -50,23 +50,27 @@ The framework generates comprehensive reports, highlighting configuration mismat
 
 Testing is crucial for keeping SAP systems running smoothly, especially for critical business operations. This framework helps by addressing key challenges:
 
-- **Risk Prevention** - The high availability testing helps simulate system failures like node crashes, network issues, and storage failures to check if recovery mechanisms work properly, helping to catch problems before they affect production operations. Configuration validation detects misalignments with SAP on Azure best practices early.
+- **Risk Prevention** - High availability testing simulates system failures like node crashes, network issues, and storage failures to verify recovery mechanisms work properly, catching problems before they affect production operations. Configuration validation detects misalignments with SAP on Azure best practices early.
 
 - **Compliance Requirements** - Many businesses need to prove their SAP systems are reliable. This framework provides detailed reports and logs that help with audits and ensure compliance with internal and regulatory standards.
 
-- **Quality Assurance** - The framework runs automated tests to verify whether the failover behavior of SAP components functions as expected on Azure across various test scenarios. It also ensures that the cluster and resource configurations are set up correctly, helping to maintain system reliability.
+- **Quality Assurance** - The framework runs automated tests to verify that the failover behavior of SAP components functions as expected on Azure. It also ensures that cluster and resource configurations are set up correctly, maintaining system reliability.
 
-- **Test Automation** - Manually validating overall SAP systems' configurations and high availability (HA) setup is slow and error-prone. This framework automates the process, from setup to reporting, saving time and ensuring more accurate and consistent results.
+- **Test Automation** - Manually validating SAP systems' configurations and high availability (HA) setup is slow and error-prone. This framework automates the process, from setup to reporting, saving time and ensuring accurate and consistent results.
 
 ## Considerations
 
-Before running the scenarios, review these guidelines to ensure smooth execution :
+Before running the tests or validations using the SAP Testing Automation Framework, review these guidelines to ensure smooth execution:
 
-1. On new deployment you can execute the scenarios to validate that the system is configured according to SAP on Azure best practices and to observe how the cluster system behaves under various test cases. 
-2. Full end-to-end high availability test typically takes around 90 minutes on new HANA setups with small databases and for SAP Central services. For larger databases, the run time may extend. You should estimate the duration of the tests, based on your specific environment. Internal validation has been performed on HANA database of size 3.5 TiB.
-3. For large HANA databases, test first in a non-production environment matching production scale. You may need to adjust certain retry logic parameters as operations like stop, start, and registration takes more time on large database.
-4. For live, production SAP systems, run the high availability scenarios only during downtime maintenance window with no active business operations. We suggest estimating the duration of the test execution first in a similarly sized non-production system.
-5. The framework does not install packages or modify any configuration on cluster nodes. The generated HTML report simply reflects the configuration values and observed behavior of your current setup.
+1. **New deployment validation:** For new SAP deployments, run these tests before go-live to validate the system configuration and cluster behavior. This helps identify configuration issues and verify failover mechanisms in a controlled environment before production use.
+
+2. **Test duration:** Full end-to-end high availability tests typically take around 90 minutes for new HANA setups with small databases and SAP Central Services. For larger databases, the run time may be longer. Estimate the duration based on your specific environment. (Internal validation has been performed on HANA databases up to 3.5 TiB.)
+
+3. **Large database testing:** For large HANA databases, test first in a non-production environment that matches your production scale. You may need to adjust retry logic parameters, as operations like stop, start, and registration take longer on large databases.
+
+4. **Production system testing:** For live production SAP systems, run high availability tests only during scheduled maintenance windows with no active business operations. We recommend estimating the test duration first by running tests in a similarly sized non-production system.
+
+5. **Non-invasive testing:** The framework doesn't install packages or modify any cluster node configurations. The generated HTML report only reflects the configuration values and observed behavior of your current setup.
 
 ## Architecture and Components
 

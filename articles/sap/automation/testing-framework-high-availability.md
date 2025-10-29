@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-conten
 
 High Availability (HA) is essential for maintaining business continuity in SAP landscapes. The SAP Testing Automation Framework provides a structured, automated approach to validating HA configuration and resilience for SAP HANA (scale-up) and SAP Central Services. It executes configuration validation checks and orchestrates controlled failure simulations to ensure that recovery and failover mechanisms comply with SAP on Azure best practices.
 
-The framework uses Ansible to coordinate test execution, collect telemetry, capture logs, and generate detailed outcome reports. Tests cover scenarios such as resource migration, process crashes, node failures, fencing events, and network partitions helping teams confidently assess readiness before go‑live or during lifecycle operations.
+The framework uses Ansible to coordinate test execution, collect telemetry, capture logs, and generate detailed outcome reports. Tests cover scenarios such as resource migration, process crashes, node failures, fencing events, and network partitions, enabling teams to assess readiness before go‑live or during lifecycle operations.
 
 > [!NOTE]
 >

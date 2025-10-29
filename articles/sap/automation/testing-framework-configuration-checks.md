@@ -13,13 +13,13 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-conten
 
 # SAP Testing Automation Framework: Configuration Checks (Preview)
 
-The SAP Testing Automation Framework includes comprehensive configuration validation capabilities to ensure SAP systems comply with best practices and guidelines for deployments on Microsoft Azure. These configuration checks help identify potential issues that could affect system performance, reliability, and compliance.
+The SAP Testing Automation Framework includes comprehensive configuration validation capabilities to ensure SAP systems comply with best practices and guidelines for deployments on Microsoft Azure. These configuration checks help identify potential issues that can affect system performance, reliability, and compliance.
 
 ## Overview
 
 Configuration validation is a critical component of the testing framework that performs nonintrusive checks to validate system configurations against SAP on Azure best practices. These checks help identify configuration issues before they affect production systems. The framework validates various aspects of the SAP system, including infrastructure settings, operating system parameters, storage configurations, and cluster resource settings.
 
-These checks are designed to be nonintrusive, meaning they don't modify the system or require downtime. Instead, they analyze existing configurations and provide detailed reports highlighting any deviations from recommended practices.
+These checks are nonintrusive, meaning they don't modify the system or require downtime. Instead, they analyze existing configurations and provide detailed reports highlighting any deviations from recommended practices.
 
 > [!NOTE]
 > The configuration checks in SAP Testing Automation Framework is currently in public preview.
