@@ -67,7 +67,7 @@ The rolling update strategy provides zero-downtime deployments through this proc
 
 1. A site update is initiated while your function app has active instances
 1. The platform assigns all live instances to batches
-1. At regular intervals, the platform drains one batch of instances. Draining prevents instances from accepting new events while allowing in-progress executions to complete (up to the 1-hour maximum execution time)
+1. At regular intervals, the platform drains one batch of instances. Draining prevents instances from accepting new events while allowing in-progress executions to complete (up to the one hour maximum execution time)
 1. Simultaneously, the scaling platform provisions new instances running the latest version to replace the draining capacity
 1. This process continues until all instances are running the latest version
 
@@ -81,7 +81,7 @@ The platform intelligently manages capacity during rolling updates. If demand in
 - **Dynamic scaling**: The platform adjusts instance count based on current demand during the update
 
 **Current limitations (public preview):**
-- **Platform-managed parameters**: Batch count, instances per batch, and drain intervals are controlled by the platform
+- **Platform-managed parameters**: The platform controls batch count, instances per batch, and drain intervals
 - **No real-time monitoring**: Progress information about batches and instance states isn't available
 - **No completion signal**: Monitor instance logs to estimate when the update completes
 - **Single-instance scenarios**: Apps running on one instance experience brief downtime similar to recreate, though in-progress executions still complete
@@ -96,7 +96,7 @@ The platform intelligently manages capacity during rolling updates. If demand in
 
 ## How to configure the site update strategy
 
-The `SiteUpdateStrategy` is a property within the `functionAppConfig`. By default, its `type` is set to `Recreate`. Currently, only Bicep and ARM is supported:
+The `SiteUpdateStrategy` is a property within the `functionAppConfig`. By default, its `type` is set to `Recreate`. Currently, only Bicep and ARM are supported:
 
 ### [Bicep](#tab/Bicep)
 ```bicep
@@ -120,25 +120,25 @@ functionAppConfig: {
 }
 ```
 
-Changes to the site update strategy take effect at the next site update. For example, the site update changing from `Recreate` to `RollingUpdate` will be carried out with the recreate strategy. All subsequent site updates will effectively use rolling updates.
+Changes to the site update strategy take effect at the next site update. For example, the site update changing from `Recreate` to `RollingUpdate` would be carried out with the recreate strategy. All subsequent site updates would effectively use rolling updates.
 
 ## Monitoring
 
-During the Public Preview, there is no first-class monitoring support. You can assume that a recreate is completed one minute after receiving a 202 HTTP response from your site update gesture; rolling updates may take up to three minutes.
+During the Public Preview, there's no first-class monitoring support. You can assume that a recreate site update is completed one minute after receiving a 202 HTTP response from your site update gesture; rolling updates may take up to three minutes.
 
 ## FAQ
 
 **I'm used to deployment slots for zero downtime deployments. How do rolling updates differ?**
-- Unlike deployment slots, rolling updates does not require you to manage additional infrastructure such as a staging slot. By setting `siteUpdateStrategy.type` to `"RollingUpdate"`, you unlock the benefits of zero downtime deployments.
-- Rolling updates provide a true zero downtime deployment. Deployment slots do not preserve in-flight executions during a swap. Furthermore, certain site properties and sticky settings cannot be swapped. Modifying those required a restart of the production site.
-- Unlike deployment slots, rolling updates do not provide a separate environment for you to canary test changes or route a percentage of live traffic to. If you need these features, use a plan that supports deployment slots, like Elastic Premium, or manage separate Flex Consumption apps behind a traffic manager.
+- Unlike deployment slots, rolling updates doesn't require you to manage extra infrastructure such as a staging slot. By setting `siteUpdateStrategy.type` to `"RollingUpdate"`, you unlock the benefits of zero downtime deployments.
+- Rolling updates provide a true zero downtime deployment. Deployment slots don't preserve in-flight executions during a swap. Furthermore, certain site properties and sticky settings can't be swapped. Modifying those required a restart of the production site.
+- Unlike deployment slots, rolling updates don't provide a separate environment for you to canary test changes or route a percentage of live traffic to. If you need these features, use a plan that supports deployment slots, like Elastic Premium, or manage separate Flex Consumption apps behind a traffic manager.
 
-**How do I rollback a site update?**
-- There is currently no feature to rollback a site update. If a rollback is necessary, initiate another site update with the previous state of code or config.
+**How do I roll back a site update?**
+- There's currently no feature to roll back a site update. If a rollback is necessary, initiate another site update with the previous state of code or config.
 
 **How are timer triggers handled?**
-- Timer triggers will maintain their singleton nature. Once a timer-triggered function app is marked for drain, new timer functions will run on the latest version. 
-- If the next timer interval occurs while the previous execution is draining, it will be handled as it today: the new execution will be delayed until the previous execution is completed.
+- Timer triggers maintain their singleton nature. Once a timer-triggered function app is marked for drain, new timer functions run on the latest version. 
+- If the next timer interval occurs while the previous execution is draining, it will be handled as it today: the new execution is delayed until the previous execution is completed.
 
 ## Next steps
 
