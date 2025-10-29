@@ -17,14 +17,14 @@ This tutorial describes how to enable threat detection for Azure Virtual Machine
 
 Azure Backup now uses Microsoft Defender for Cloud (MDC) to provide threat detection for Azure VM backups. By integrating security signals and malware scans from Defender for Servers, Azure Backup automatically assesses the health of restore points during backup creation. This feature helps you quickly identify and respond to suspicious or ransomware-infected backups, ensuring safer recovery options for your VMs. 
 
-[Learn about Azure Backup threat detection features and supported scenarios](threat-detection-overview.md).
+[Learn about Azure Backup threat detection feature and supported scenarios](threat-detection-overview.md).
 
 ## Prerequisites
 
 Before you enable threat detection for Azure VM backups, ensure the following prerequisites are met:
 
-- Enable Microsoft Defender for Servers Plan 1 or Plan 2 on your Azure subscription. For Plan 1, enable Microsoft Defender for Endpoint (MDE) on virtual machines and verify correct configuration on the source VM; otherwise, backups may be incorrectly tagged.
-- Enable bi-directional alert synchronization in Microsoft Sentinel to accurately identify backup recovery points (RPs).
+- Enable Microsoft Defender for Servers Plan 1 or Plan 2 on your Azure subscription. For Plan 1, enable Microsoft Defender for Endpoint (MDE) on virtual machines and verify correct configuration on the source VM; otherwise, backups might be incorrectly tagged. For Plan 2, ensure that you enable agentless malware scan. [Learn more about Defender for Servers](/azure/defender-for-cloud/defender-for-servers-overview).
+- Enable bi-directional alert synchronization in Microsoft Sentinel to accurately identify backup recovery points (RPs). [Learn how to Ingest Microsoft Defender for Cloud alerts to Microsoft Sentinel](/azure/sentinel/connect-defender-for-cloud).
 - Mark alerts as resolved in Microsoft Defender for Cloud when using any third-party incident management solution alongside Defender.
 
 
