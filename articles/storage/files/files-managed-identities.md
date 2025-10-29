@@ -4,7 +4,7 @@ description: This article explains how you can authenticate managed identities t
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/29/2025
+ms.date: 10/30/2025
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
