@@ -131,7 +131,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 :::zone target="docs" pivot="python"
 
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no extra cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no extra cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.
 
 ## Prerequisites
 
@@ -182,7 +182,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 :::zone target="docs" pivot="node"
 
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no extra cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no extra cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.
 
 ## Prerequisites
 
@@ -237,7 +237,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 :::zone target="docs" pivot="java"
 
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no extra cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no extra cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.
 
 > [!IMPORTANT]
 > WebJobs aren't supported in custom Linux containers based on Alpine Linux, including Linux apps using Java 8 and Java 11 runtime stacks. Starting with Java 17 Linux apps, Azure App Service uses non-Alpine based images, which are compatible with WebJobs.
@@ -253,7 +253,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 ## Prepare the WebJob
 
-1. [Download the sample Java WebJob](https://github.com/Azure-Samples/App-Service-Java-WebJobs-QuickStart). You will build a `.JAR` file using [Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md). The Java project located at `project/src/main/java/webjob/HelloWorld.java` outputs a message & the current time to the console.  
+1. [Download the sample Java WebJob](https://github.com/Azure-Samples/App-Service-Java-WebJobs-QuickStart). You will build a `.JAR` file using [Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md). The Java project located at `project/src/main/java/webjob/HelloWorld.java` outputs a message & the current time to the console.
 
     ```Java 
     import java.time.LocalDateTime; 
@@ -276,7 +276,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
     mvn package 
     ``` 
 
-    The jar files will be located at `project/target/webjob-artifact-1.0.0.jar` after a successful build.  
+    The jar files will be located at `project/target/webjob-artifact-1.0.0.jar` after a successful build.
 
 1. Package the `project/target/webjob-artifact-1.0.0.jar` as a `.zip` file.
 
@@ -314,12 +314,12 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 :::zone target="docs" pivot="php"
 
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no extra cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no extra cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing App Service PHP app on Linux.  In this quickstart, a [PHP app](quickstart-php.md) is used.
+- An existing App Service PHP app on Linux. In this quickstart, a [PHP app](quickstart-php.md) is used.
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
