@@ -152,7 +152,7 @@ items:
         - name: Code level insights
           items:
             - name: Integrate with CAST highlights
-              href: cast-
+              href: cast-highlights-integration.md
     - name: Workload specific assessments
       items:
       - name: Azure VM assessment
