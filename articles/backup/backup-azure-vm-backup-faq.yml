@@ -151,7 +151,7 @@ sections:
 
       - question: In Azure VM Backup, what is the Snapshot Tier and Storage Redundancy for snapshot taken as part of backup?
         answer: |
-          In Azure VM Backup, snapshots are taken using the Standard HDD tier type, regardless of the source VM disk tier. By default, the storage redundancy for these snapshots is Locally Redundant Storage (LRS). However, if the VM backups are managed by an Enhanced Policy and the underlying source disk storage locates in the region which support Zone Redundancy, snapshots will be of Zone Redundant Storage.
+          In Azure VM Backup, snapshots are taken using the Standard HDD tier type, regardless of the source VM disk tier. By default, the storage redundancy for these snapshots is Locally Redundant Storage (LRS). However, if the VM backups are managed by an Enhanced Policy and the underlying source disk storage locates in the region which supports Zone Redundancy, snapshots will be of Zone Redundant Storage.
 
       - question: How long can I retain backup points of Azure VMs using the backup policy?
         answer: |
@@ -162,7 +162,7 @@ sections:
           - **Retention of monthly backup points**: 1188 months
           - **Retention of yearly backup points**: 99 years 
 
-      - question: Can I back up a VM disks that're created in the Azure Classic Storage?
+      - question: Can I back up a VM disks that are created in the Azure Classic Storage?
         answer: |
           No, the support for disks created in Azure Classic Storage is no longer available. To ensure continued functionality, you must migrate these disks to Azure Resource Manager Storage. Also, Classic Storage accounts can't support ARM-based Virtual Machines (VMs), and no workarounds exist to enable compatibility.
 
