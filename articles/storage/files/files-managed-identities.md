@@ -4,7 +4,7 @@ description: This article explains how you can authenticate managed identities t
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/27/2025
+ms.date: 10/29/2025
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -17,7 +17,7 @@ ms.custom:
 
 This article explains how you can use [managed identities](/entra/identity/managed-identities-azure-resources/overview) to allow applications and virtual machines (VMs) to access SMB Azure file shares using identity-based authentication with Microsoft Entra ID (preview). A managed identity is an identity in Microsoft Entra ID that is automatically managed by Azure. You typically use managed identities when developing cloud applications to manage the credentials for authenticating to Azure services. 
 
-By the end of this guide, you'll have a storage account and VM configured with a managed identity. Then you'll mount a file share without using a storage account key.
+By the end of this guide, you'll have a storage account and VM configured with a managed identity. Then you'll mount a file share using identity-based authentication.
 
 ## Why authenticate using a managed identity?
 
@@ -183,15 +183,25 @@ AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.wi
 
 ### Mount the share
 
-You should now be able to [mount the file share](storage-how-to-use-files-windows) without using a storage account key.
+You should now be able to [mount the file share](storage-how-to-use-files-windows.md) without using a storage account key.
 
 You can directly access your Azure file share using the UNC path by entering the following into File Explorer. Be sure to replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name:
 
 `\\<storage-account-name>.file.core.windows.net\<file-share-name>`
 
+## Troubleshooting
+
+If you encounter issues when mounting your file share, follow these steps to enable verbose logging and collect diagnostic information.
+
+1. On the client machine, use the Registry Editor to set the **Data** level for **verbosity** to 0x00000004 (4) for `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure\Storage\Files\SmbAuth`.
+
+1. Try to mount the share again and reproduce the error.
+
+1. You should now have a file named `AzFilesSmbMILog.log`. Send the log file to azurefilespm@microsoft.com for assistance.
+
 ## Client library installation and integration options 
 
-For developers who need to integrate this functionality into their applications, multiple implementation approaches are available depending on your application architecture and requirements.
+For developers who need to integrate managed identities into their applications, multiple implementation approaches are available depending on your application architecture and requirements.
 
 ### Managed assembly integration: NuGet package
 
