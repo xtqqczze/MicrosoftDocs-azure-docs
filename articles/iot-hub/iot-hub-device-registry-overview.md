@@ -39,6 +39,10 @@ When you [create an IoT Hub Gen 2 instance](iot-hub-device-registry-setup.md), y
 > [!NOTE]
 > Azure Device Registry is also available with [Azure IoT Operations](/azure/iot-operations) instances. 
 
+## Built-in RBAC roles
+
+Azure Device Registry offers three built-in roles designed to simplify and secure access management for hub resources: Azure Device Registry Contributor, Azure Device Registry Credentials Contributor, and Azure Device Registry Onboarding. For more information, see [Built-in RBAC roles for Azure IoT Hub](iot-hub-device-registry-rbac.md).
+
 ## Supported regions
 
 Azure Device Registry is currently supported in the following regions:
