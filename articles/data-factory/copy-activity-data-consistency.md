@@ -6,7 +6,7 @@ author: dearandyxu
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 10/29/2025
 ms.author: yexu
 ---
 #  Data consistency verification in copy activity
