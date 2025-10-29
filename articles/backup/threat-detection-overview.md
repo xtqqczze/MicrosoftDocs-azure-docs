@@ -26,6 +26,17 @@ Threat detection for Azure VM backups includes the following benefits:
 
 - **Seamless integration:** Works natively with [Microsoft Defender for Servers Plan 1 and Plan 2](/azure/defender-for-cloud/defender-for-servers-overview#plan-protection-features), ensuring a unified and consistent security experience across Azure workloads.
 
+## Source scan status for Azure VM Backups
+
+The following table describes the available source scan statuses for Azure VM backups:
+
+| Source Scan Summary   | Description |
+|-----------------------|-------------|
+| **No Threats Reported**   | Microsoft Defender for Cloud (MDC) didn't find any malware or ransomware threats for a backup recovery point.<br><br>If all recovery points (RPs) for a backup item in the last seven days show no threats, the backup item is marked as **No Threats Reported**. |
+| **Suspicious RPs found**  | MDC detected ransomware or malware threats for a backup recovery point.<br><br>If a minimum of one backup recovery point (RP) is found suspicious in the last seven days, the summary for the backup item is marked as **Suspicious RPs Found**. |
+| **Not Applicable**        | If the Defender for Servers Plan is downgraded for the source virtual machine, the status for the recovery point is marked as **Not Applicable**.<br><br>If all backup RPs for a backup item aren't applicable in the last seven days, the summary is marked as  **Not Applicable**. |
+| **Unknown (-)**           | Source scan integration isn't configured or failed. The summary for both backup recovery points and the backup item is marked as **Unknown (-)**. |
+
 ## Supported regions for Threat Detection for Azure VM Backups
 
 This feature is available in public preview in limited regions: West Central US, Australia East, North Europe.
@@ -43,4 +54,3 @@ This preview feature has the following limitations and known issues:
 ## Next steps
 
 [Enable Threat Detection and monitor health of Azure VM Backups](threat-detection-configure-monitor-tutorial.md).
-
