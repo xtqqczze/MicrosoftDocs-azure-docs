@@ -80,7 +80,7 @@ You have an orchestration with 5 activities, plus error handling, and averaging 
 | - | ----------- | ------ |
 | Monthly actions | 20,000,000 × 12 | 240,000,000 actions |
 | Actions per second | 240,000,000 ÷ 2,628,000 | ≈ 91 actions/second |
-| Required CUs | 91 ÷ 2,000 | 240,000,000 actions | 0.046 → **1 CU sufficient** |
+| Required CUs | 91 ÷ 2,000 | 240,000,000 actions<br>CUs needed: 0.046 → **1 CU sufficient** |
 
 #### Example 2
 
@@ -90,7 +90,7 @@ A large enterprise runs 500 million complex orchestrations monthly, with an aver
 | - | ----------- | ------ |
 | Monthly actions | 500 million × 13 | 6.5 billion actions |
 | Actions per second | 6.5 billion ÷ 2,628,000 | ≈ 2,854 actions/second |
-| Required CUs | 2,473 ÷ 2,000 | 240,000,000 actions | 1.23 → **2 CUs sufficient** |
+| Required CUs | 2,473 ÷ 2,000 | 240,000,000 actions<br>CUs needed: 1.23 → **2 CUs sufficient** |
 
 #### Example 3
 
@@ -100,7 +100,7 @@ A Software as a Service (SaaS) platform supports 800 million orchestrations mont
 | - | ----------- | ------ |
 | Monthly actions | 800 million × 15 | 12 billion actions |
 | Actions per second | 12 billion ÷ 2,628,000  | ≈ 4,567 actions/second |
-| Required CUs | 4,567 ÷ 2,000 | 240,000,000 actions | 2.28 → **3 CUs sufficient** |
+| Required CUs | 4,567 ÷ 2,000 | 240,000,000 actions<br>CUs needed: 2.28 → **3 CUs sufficient** |
 
 ### Consumption SKU
 
@@ -124,7 +124,7 @@ The Consumption SKU offers a pay-as-you-use model, ideal for variable workloads 
 
 #### Example 1
 
-A development team is testing simple orchestrations, each with three actions (using the "Hello City" pattern), and runs 10,000 orchestrations per month.
+A development team is testing simple orchestrations, each with three actions (using [the "Hello City" pattern](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/quickstarts/durable-functions/dotnet/HelloCities)), and runs 10,000 orchestrations per month.
 
 |   | Calculation | Result |
 | - | ----------- | ------ |
