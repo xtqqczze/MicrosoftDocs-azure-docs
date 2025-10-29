@@ -19,7 +19,7 @@ Microsoft Dev Box is evolving and transitioning into a unified business model un
 - Access to a broader range of options, including GPU-backed SKUs. 
 - Greater flexibility to support hybrid and ephemeral development scenarios. 
 
-Windows 365 delivers personalized, persistent Cloud PCs to meet the needs of organizations of all sizes, supporting a broad range of employee personas and business scenarios. The Microsoft Dev Box service in Azure extends this vision by providing cloud-powered, ready-to-code development environments that enable developers to spin up secure, project-specific workspaces optimized for productivity quickly. 
+Windows 365 delivers personalized, persistent Cloud PCs to meet the needs of organizations of all sizes, supporting a broad range of employee personas and business scenarios. The Microsoft Dev Box service in Azure extends this vision by providing cloud-powered, ready-to-code development environments that enable developers to quickly spin up secure, project-specific workspaces optimized for productivity. 
 
 We're excited to announce that we're bringing these developer-specific capabilities to Windows 365, further empowering organizations to deliver the best information worker and developer experiences from a single unified solution. 
 
@@ -32,7 +32,7 @@ Effective November 1, 2025, the following changes will take place:
     - As features are integrated into Windows 365 and made available publicly, Customers interested in continuing to leverage these capabilities should reach out to their Microsoft account team. 
 - There's no immediate change to existing customers 
     - Customers who have run a POC, experimented, or begun configuring Dev Box are considered existing customers, and they can continue using and scaling their current Dev Box deployments. 
-    - If you plan to start using or scaling Dev Boxes into additional tenants, submit a request through [Azure Support](https://go.microsoft.com/fwlink/p/?linkid=2202692&clcid=0x409) to allow your new tenants.  
+    - If you plan to start using or scaling Dev Boxes into additional tenants, submit a request through [Azure Support](https://go.microsoft.com/fwlink/p/?linkid=2202692&clcid=0x409) to get your new tenants allowlisted.  
 
 All core workflows and value props remain intact - including managing development teams through the Dev Center/Project platform in Azure, configuring guardrails, providing self-serve capabilities for developers, and offering ready-to-code machines with imaging and customizations, as well as custom network support. 
 
