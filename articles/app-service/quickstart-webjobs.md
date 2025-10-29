@@ -29,12 +29,11 @@ Choose a sample based on your App Service platform. All Windows samples can run 
 
 ### [Windows](#tab/windows)
 
-| Language | Download link | Script/Executable |
+| Language | Download link | Script/source code |
 |----------|---------------|-------------------|
 | **Bash** | [Download webjob-bash.zip](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/raw/main/bash/webjob-bash.zip) | [run.sh](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/blob/main/bash/run.sh) |
 | **CMD** | [Download webjob-windows.zip](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/raw/main/windows/webjob-windows.zip) | [run.cmd](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/blob/main/windows/run.cmd) |
 | **Batch** | [Download webjob-bat.zip](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/raw/main/winshell/webjob-bat.zip) | [run.bat](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/blob/main/winshell/run.bat) |
-Azure-Samples/App-Service-WebJobs-Quickstart/blob/main/bash/run.sh) |
 | **PowerShell** | [Download webjob-PowerShell.zip](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/raw/main/winshell/webjob-powershell.zip) | [run.ps1](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/blob/main/winshell/run.ps1) |
 | **F#** | [Download webjob-fsharp.zip](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/raw/main/winshell/webjob-fsharp.zip) | [run.fsx](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/blob/main/winshell/run.fsx) |
 | **.NET** | [Download dotnet-win.zip](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/raw/main/dotnet/dotnet-win.zip) | [Program.cs](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/blob/main/dotnet/src/Program.cs) |
@@ -45,7 +44,7 @@ Azure-Samples/App-Service-WebJobs-Quickstart/blob/main/bash/run.sh) |
 
 ### [Linux](#tab/linux)
 
-| Language | Download link | Script/Executable |
+| Language | Download link | Script/source code |
 |----------|---------------|-------------------|
 | **Bash** | [Download webjob-bash.zip](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/raw/main/bash/webjob-bash.zip) | [run.sh](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/blob/main/bash/run.sh) |
 | **.NET** | [Download dotnet-lin.zip](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/raw/main/dotnet/dotnet-lin.zip) | [Program.cs](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/blob/main/dotnet/src/Program.cs) |
