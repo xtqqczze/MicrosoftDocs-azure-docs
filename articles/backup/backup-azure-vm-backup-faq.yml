@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 10/27/2025
+  ms.date: 10/29/2025
   author: AbhishekMallick-MS
   ms.author: v-mallicka
   ms.custom: build-2025
@@ -151,7 +151,7 @@ sections:
 
       - question: In Azure VM Backup, what is the Snapshot Tier and Storage Redundancy for snapshot taken as part of backup?
         answer: |
-          In Azure VM Backup, snapshots are taken using the Standard HDD tier type, regardless of the source VM disk tier. By default, the storage redundancy for these snapshots is Locally Redundant Storage (LRS). However, if the VM backups are managed by an Enhanced Policy and the underlying source disk storage locates in the region which support Zone Redundancy.
+          In Azure VM Backup, snapshots are taken using the Standard HDD tier type, regardless of the source VM disk tier. By default, the storage redundancy for these snapshots is Locally Redundant Storage (LRS). However, if the VM backups are managed by an Enhanced Policy and the underlying source disk storage locates in the region which support Zone Redundancy, snapshots will be of Zone Redundant Storage.
 
       - question: How long can I retain backup points of Azure VMs using the backup policy?
         answer: |
@@ -164,10 +164,10 @@ sections:
 
       - question: Can I back up a VM disks that're created in the Azure Classic Storage?
         answer: |
-          No, the support for disks created in Azure Classic Storage is no longer available. To ensure continued functionality, you must migrate these disks to Azure Resource Manager (ARM) Storage. Also, Classic Storage accounts can't support ARM-based Virtual Machines (VMs), and no workarounds exist to enable compatibility.
+          No, the support for disks created in Azure Classic Storage is no longer available. To ensure continued functionality, you must migrate these disks to Azure Resource Manager Storage. Also, Classic Storage accounts can't support ARM-based Virtual Machines (VMs), and no workarounds exist to enable compatibility.
 
           >[!Important]
-          >Support for backup of all Classic VMs is planned for deprecation on September 30, 2025. We recommend that you migrate the Classic VMs and associated disks to ARM Storage before this timeline to avoid disruptions.
+          >Support for backup of all Classic VMs is planned for deprecation on September 30, 2025. We recommend that you migrate the Classic VMs and associated disks to Azure Resource Manager Storage before this timeline to avoid disruptions.
  
       - question: How Soft-Delete behavior occurs when the retention of the backup policy is changed or modified?
         answer: |
@@ -265,7 +265,7 @@ sections:
 
       - question: Is there a limit to trigger restore in a day?
         answer: |
-          The restore limit applies per data source within a 24-hour window. You can restore the same VM up to 20 times in that period. Restoring multiple VMs simultaneously is allowed, but may trigger throttling from other Azure services, such as [Azure Resource Manager (ARM) due to request limits](/azure/azure-resource-manager/management/request-limits-and-throttling#migrating-to-regional-throttling-and-token-bucket-algorithm).
+          The restore limit applies per data source within a 24-hour window. You can restore the same VM up to 20 times in that period. Restoring multiple VMs simultaneously is allowed, but may trigger throttling from other Azure services, such as [Azure Resource Manager due to request limits](/azure/azure-resource-manager/management/request-limits-and-throttling#migrating-to-regional-throttling-and-token-bucket-algorithm).
 
       - question: How does restored disk SKU depend on target SA provided?
         answer: |
