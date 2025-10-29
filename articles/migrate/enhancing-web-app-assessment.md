@@ -16,16 +16,19 @@ ms.custom: engagement-fy24
 
 This article describes how to improve web app assessments by including code scan reports when modernising applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code scan reports helps you better assess migration readiness and receive recommendations for appropriate migration strategies based on the code changes identified during the scan.
 
-There are two ways to add code scan report to web app assessment. 
+
+In this article, you’ll learn how to: 
+
+- Import code scan reports to Web app assessments  
+- Generate the code scan report using supported methods. 
+- Calculate assessment to see updated reports. 
+- View updated assessment along with code insights. 
+
+
+You can add code scan report to web app assessment using either of the following two methods:  
 
 - Upload a code scan report manually, generate using Azure Migrate application and code assessment tool (AppCAT)
 - Connect your GitHub repo where the code scan reports are uploaded using GitHub Copilot app modernization extension. 
-
-In this article, you’ll learn how to:
-- Import code scan reports to Web app assessments
-- Generate the code scan report using supported methods. 
-- Calculate assessment to see updated reports.
-- View updated assessment along with code insights. 
 
 ##  Upload code scan report manually using AppCAT
 
@@ -40,9 +43,9 @@ With this approach, you must generate the code scan report using AppCAT and then
 
 To generate a code scan report, complete the following steps:
 
-1. Install the AppCAT using:
+1. Install the AppCAT:
 
-    - For .NET you can use below command. For more inforamtion, see, [Install the .NET global tool](/dotnet/azure/migration/appcat/install#install-the-net-global-tool).
+    - For .NET you use the below command. For more inforamtion, see, [Install the .NET global tool](/dotnet/azure/migration/appcat/install#install-the-net-global-tool).
     - For more information on Java, see [Assess a Java project using AppCAT 7](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#download-and-install).
 1. Generate the AppCAT report for all your web app that you have assessed.  
     - For more information on .NET follow, see, [Analyze applications with the .NET CLI](/dotnet/azure/migration/appcat/dotnet-cli). 
@@ -83,40 +86,40 @@ Create a new **GitHub App** by following these steps:
     
 Personal account:
 
- 1. Select **Settings**.
- 1. Select **Your organization** and then **Settings** from right of the organization. 
+1. Select **Settings**.
+1. Select **Your organization** and then **Settings** from right of the organization. 
 Enterprise account:
- 1. If you use **Enterprise Managed Users**, select **Your enterprise** to go directly to the enterprise account settings. 
- 1. If you use personal accounts, select **Your enterprises** and then to the right of the enterprise, select **Settings**. 
- 1. Navigate to the **GitHub App** settings. 
-    1. For an app owned by a personal account or organization:  In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**. 
-    1. For an app owned by an enterprise: In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
+1. If you use **Enterprise Managed Users**, select **Your enterprise** to go directly to the enterprise account settings. 
+1. If you use personal accounts, select **Your enterprises** and then to the right of the enterprise, select **Settings**. 
+1. Navigate to the **GitHub App** settings. 
+  1. For an app owned by a personal account or organization:  In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**. 
+  1. For an app owned by an enterprise: In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
     
 :::image type="content" source="./media/enhancing-web-app-assessment/new-github-app.png" alt-text="The screenshot shows how to select the new github app." lightbox="./media/enhancing-web-app-assessment/new-github-app.png":::
 
 Provide the following details to set up your new GitHub App: 
 
-  1. Under **GitHub App name**, enter a name for your app.  
-  1. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and is not used in this process. 
+1. Under **GitHub App name**, enter a name for your app.  
+1. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and is not used in this process. 
   
-    :::image type="content" source="./media/enhancing-web-app-assessment/register-new-github.png" alt-text="The screenshot shows the homepage url." lightbox="./media/enhancing-web-app-assessment/register-new-github.png":::
+:::image type="content" source="./media/enhancing-web-app-assessment/register-new-github.png" alt-text="The screenshot shows the homepage url." lightbox="./media/enhancing-web-app-assessment/register-new-github.png":::
 
-  1.  Deselect **Active** under **Webhook** 
+1.  Deselect **Active** under **Webhook** 
   
-  :::image type="content" source="./media/enhancing-web-app-assessment/register-new-github.png" alt-text="The screenshot shows how to deselect the active webook." lightbox="./media/enhancing-web-app-assessment/active-webhook.png":::
+:::image type="content" source="./media/enhancing-web-app-assessment/register-new-github.png" alt-text="The screenshot shows how to deselect the active webook." lightbox="./media/enhancing-web-app-assessment/active-webhook.png":::
 
-  1. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
+1. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
   
   | Issues  | Read and write  | 
   | --- | --- | 
   | Metadata  | Read-only  |
   | Webhook   | Read and write  |
 
-  1. Under **Where can this GitHub App be installed?**, select **Only on this account** or **Any account**. 
+1. Under **Where can this GitHub App be installed?** select **Only on this account** or **Any account**. 
   
-    :::image type="content" source="./media/enhancing-web-app-assessment/permissions.png" alt-text="The screenshot shows the available persmissions." lightbox="./media/enhancing-web-app-assessment/permissions.png":::
+:::image type="content" source="./media/enhancing-web-app-assessment/permissions.png" alt-text="The screenshot shows the available persmissions." lightbox="./media/enhancing-web-app-assessment/permissions.png":::
     
-  1. Select **Create GitHub App**. 
+1. Select **Create GitHub App**. 
 
 ### Install GitHub app on the repository
 
@@ -126,10 +129,10 @@ Follow these steps to install GitHub App on your repository:
 1. Select **Install App** 
 1. Select an account to install the app, and then select **Install**. Use the account that contains the repository for creating issues and uploading code scan reports. 
 
-    :::image type="content" source="./media/enhancing-web-app-assessment/select-repository.png" alt-text="The screenshot shows how to select appropriate repository." lightbox="./media/enhancing-web-app-assessment/select-repository.png":::
+:::image type="content" source="./media/enhancing-web-app-assessment/select-repository.png" alt-text="The screenshot shows how to select appropriate repository." lightbox="./media/enhancing-web-app-assessment/select-repository.png":::
 
 
-1. Select **Only select repositories**, then select the appropriate repositories by selecting **Select repositories**. You can select multiple repositories. When finished, select **Install**.
+1. Select **Only select repositories**, then select the appropriate repositories from **Select repositories**. You can select multiple repositories. When finished, select **Install**.
 
     :::image type="content" source="./media/enhancing-web-app-assessment/install.png" alt-text="The screenshot shows how to install the selected repository." lightbox="./media/enhancing-web-app-assessment/install.png":::
 
