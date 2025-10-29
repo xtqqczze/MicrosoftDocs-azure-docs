@@ -61,7 +61,7 @@ Integrating CAST Highlight with Azure Migrate allows you to import code-level in
      - **Cost and Effort**: Code insights may inform the estimated effort to remediate the app.
 
 1. **Iterate as Needed**
-   - CAST Highlight data in Azure Migrate is a snapshot. If you address code issues and rescan in CAST, you can **Update code insights** in Azure Migrate to refresh the data.
+   - CAST Highlight data in Azure Migrate is a snapshot. If you address code issues and rescan in CAST, you can **Update code insights** in Azure Migrate to update the assessment.
 
 
 
