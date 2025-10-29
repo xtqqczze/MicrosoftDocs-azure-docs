@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 07/23/2025
+ms.date: 10/29/2025
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from HTTP/REST endpoints.
 ---
@@ -23,6 +23,7 @@ The connector for HTTP/REST supports the following features:
 - Automatic retries when sampling failures occur. Reports a failed status for errors that can't be retried.
 - Integration with OpenTelemetry.
 - Use of _device endpoints_ and _namespace assets_.
+- Optionally transform incoming data using WASM modules.
 - Device endpoint and asset definition validation for REST compatibility.
 - Multiple authentication methods:
   - Username/password basic HTTP authentication
@@ -47,7 +48,7 @@ To configure devices and assets, you need a running instance of Azure IoT Operat
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
-Your IT administrator must have configured the connector for HTTP/REST template for your Azure IoT Operations instance in the Azure portal.
+Your IT administrator must configure the connector for HTTP/REST template for your Azure IoT Operations instance in the Azure portal.
 
 You need any credentials required to access the HTTP source. If the HTTP source requires authentication, you need to create a Kubernetes secret that contains the username and password for the HTTP source.
 
@@ -73,7 +74,7 @@ To configure the connector for HTTP/REST, first create a device that defines the
 
 1. On the **Device details** page, select **Next** to continue.
 
-1. On the **Add custom property** page, you can add any other properties you want to associate with the device. For example, you might add a property to indicate the manufacturer of the camera. Then select **Next** to continue
+1. On the **Add custom property** page, add any other properties you want to associate with the device. For example, you might add a property to indicate the manufacturer of the camera. Then select **Next** to continue.
 
 1. On the **Summary** page, review the details of the device and select **Create** to create the asset.
 
@@ -141,6 +142,8 @@ A dataset defines where the connector sends the data it collects from a collecti
 
     :::image type="content" source="media/howto-use-http-connector/create-dataset.png" alt-text="Screenshot that shows how to create a dataset in the operations experience." lightbox="media/howto-use-http-connector/create-dataset.png":::
 
+    To transform the incoming data, add the URL of a WebAssembly (WASM) module in the **Transform** field. To learn more, see [Transform incoming data](#transform-incoming-data).
+
 1. Select **Create and next** to create the dataset.
 
     > [!TIP]
@@ -166,6 +169,29 @@ Run the following command:
 az iot ops ns asset rest create --name myrestasset --instance {your instance name} -g {your resource group name} --device rest-http-connector-cli --endpoint rest-http-connector-0 --dataset-dest topic="azure-iot-operations/data/erp" retain=Never qos=Qos1 ttl=3600
 ```
 
-To learn more, see [az iot ops ns asset rest](/cli/azure/iot/ops/ns/asset/rest).
+For more information, see [az iot ops ns asset rest](/cli/azure/iot/ops/ns/asset/rest).
 
 ---
+
+## Transform incoming data
+
+To transform the incoming data by using a WASM module, complete the following steps:
+
+1. Develop a WASM module to perform the custom transformation. For more information, see [Develop WebAssembly (WASM) modules and graph definitions](../connect-to-cloud/howto-develop-wasm-modules.md).
+
+1. Configure your transformation graph. For more information, see [Configure WebAssembly (WASM) graph definitions](../connect-to-cloud/howto-configure-wasm-graph-definitions.md).
+
+1. Deploy both the module and graph. For more information, see [Use WebAssembly (WASM)](../connect-to-cloud/howto-dataflow-graph-wasm.md).
+
+    > [!NOTE]
+    > You need to deploy at least one data flow graph to enable WASM graph processing, but this feature doesn't otherwise use the graph.
+
+1. Configure your dataset with the URL of the deployed WASM graph in the **Transform** field:
+
+    :::image type="content" source="media/howto-use-http-connector/configure-transform.png" alt-text="Screenshot that shows how to add a WASM transform to a dataset." lightbox="media/howto-use-http-connector/configure-transform.png":::
+
+A data transformation in the HTTP/REST connector only requires a [single map operator](../connect-to-cloud/howto-develop-wasm-modules.md#create-a-simple-module), but WASM graphs are fully supported with the following restrictions:
+
+- The graph must have a single `source` node and a single `sink` node.
+- The graph must consume and emit the `DataModel::Message` datatype.
+- The graph must be stateless. Currently, this restriction means that accumulate operators aren't supported.
