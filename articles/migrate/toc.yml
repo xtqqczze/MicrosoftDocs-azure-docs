@@ -149,6 +149,10 @@ items:
           href: assessment-properties.md
         - name: Review assessment report
           href: review-application-assessment.md
+        - name: Code level insights
+          items:
+            - name: Integrate with CAST highlights
+              href: cast-
     - name: Workload specific assessments
       items:
       - name: Azure VM assessment
