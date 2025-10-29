@@ -173,9 +173,9 @@ Azure infrastructure security configuration can be enhanced to reduce or elimina
 #### Generation 2 VM and Trusted Launch 
 It's recommended to only deploy Generation 2 VMs and to activate Trusted Launch. 
 > [!NOTE]
-> Note only recent versions of Suse 15 support Trusted Launch. [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](/virtual-machines/trusted-launch#operating-systems-supported)
+> Note only recent versions of Suse 15 support Trusted Launch. [Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](../../virtual-machines/trusted-launch#operating-systems-supported)
 
-[Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](/virtual-machines/trusted-launch)
+[Trusted Launch for Azure VMs - Azure Virtual Machines | Microsoft Learn](../../virtual-machines/trusted-launch)
 
 [Improve the security of Generation 2 VMs via Trusted Launch in Azure DevTest Labs | Develop from the cloud](https://devblogs.microsoft.com/develop-from-the-cloud/improve-the-security-of-generation-2-vms-via-trusted-launch-in-azure-devtest-labs/)
 
