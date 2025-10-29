@@ -24,10 +24,10 @@ A well secured SAP solution incorporates many security concepts with many layers
 7.	Azure Infrastructure Hardening 
 
 These topics are covered in a series of related pages.  
-SAP applications should be incorporated into the overall Zero-Trust security solution for the entire IT landscape. [Zero Trust Strategy & Architecture | Microsoft Security](/security/business/zero-trust?msockid=343d619786f36e041990740887e36ff0#modal-21)
+SAP applications should be incorporated into the overall Zero-Trust security solution for the entire IT landscape. [Zero Trust Strategy & Architecture | Microsoft Security](/security/business/zero-trust)
 The SAP Security Solution should reference the Zero-Trust security model. The Zero-Trust security solution validates each action at each layer such as Identity, Endpoint Network Access, Authentication, and MFA through SAP Application and Data Access. 
  
- ![alt text](articles/sap/workloads/media/sap-security-instructure/microsoft-zero-trust-security-diagram.png) 
+ ![alt text](./media/sap-security-instructure/microsoft-zero-trust-security-diagram.png) 
 
 The purpose of this documentation is to provide a single location with links and a brief description on how to implement Identity, Security, and Audit related features for SAP solutions running on Azure Hyperscale Cloud.   This documentation doesn't precisely specify which security features should be implemented as requirements are dependent on risk profile, industry, and regulatory environment. This document does make some default recommendations such as a general recommendation to use Defender for Endpoint, Transparent Database Encryption (TDE), and Backup Encryption on all systems.  
 Customers designing and implementing Identity, Security, and Audit solutions for SAP review the concepts explained in [Microsoft cloud security benchmark introduction | Microsoft Learn](/security/benchmark/azure/introduction). 
@@ -74,13 +74,13 @@ Defender for Endpoint should be deployed on all NetWeaver, S4HANA, Hana, and Any
 In addition to AV and EDR protection Defender can provide more protection with features such as advanced threat hunting, Vulnerability Management, and other capabilities.  
 The SAPXPG can be exploited and should be monitored using this procedure [Custom detection rules with advanced hunting: Protecting SAP external OS commands (SAPXPG) - Microsoft Defender for Endpoint | Microsoft Learn](/defender-endpoint/mde-sap-custom-detection-rules)
 
-Defender Vulnerability Management can detect vulnerabilities in the Operating System and Database layer. [Microsoft Defender Vulnerability Management dashboard - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/defender-vulnerability-management/tvm-dashboard-insights)  
+Defender Vulnerability Management can detect vulnerabilities in the Operating System and Database layer. [Microsoft Defender Vulnerability Management dashboard - Microsoft Defender Vulnerability Management | Microsoft Learn](/defender-vulnerability-management/tvm-dashboard-insights)  
 Defender Vulnerability Management doesn't have the functionality to detect ABAP and Java vulnerabilities today
 
 Defender for Storage for Blob What is [Microsoft Defender for Storage - Microsoft Defender for Cloud | Microsoft Learn](../../defender-for-cloud/defender-for-storage-introduction)
 Support for Azure Files SMB [Azure Files support and new updates in advanced threat protection for Azure Storage | Microsoft Azure Blog](https://azure.microsoft.com/blog/azure-files-support-and-new-updates-in-advanced-threat-protection-for-azure-storage/).
 
-Microsoft Secure Score and Vulnerability Management is discussed in the Operating System section below [Microsoft Defender Vulnerability Management dashboard - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/defender-vulnerability-management/tvm-dashboard-insights)
+Microsoft Secure Score and Vulnerability Management is discussed in the Operating System section below [Microsoft Defender Vulnerability Management dashboard - Microsoft Defender Vulnerability Management | Microsoft Learn](/defender-vulnerability-management/tvm-dashboard-insights)
 
 ## 3.	Microsoft Sentinel for SAP Connector 
 Microsoft Sentinel SIEM/SOAR solution has a connector for SAP. SAP application specific signals such as user logons and access to sensitive transactions can be monitored and corelated with other SIEM/SOAR signals, such as network access and data exfiltration.  
@@ -117,13 +117,13 @@ More information on these services
 
 [What is Azure Key Vault? | Microsoft Learn](../../key-vault/general/basic-concepts)
 
-[Overview of Azure Cloud HSM Preview | Microsoft Learn](../cloud-hsm/overview)
+[Overview of Azure Cloud HSM Preview | Microsoft Learn](../../cloud-hsm/overview)
  
 [How to choose the right key management solution - How to choose between Azure Key Vault, Azure Managed HSM, Azure Dedicated HSM, and Azure Payment HSM | Microsoft Learn](../../security/fundamentals/key-management-choose)
 
-It is recommended to store OS and application passwords in Azure Key Vault. Training on secret management [Manage secrets in your server apps with Azure Key Vault - Training | Microsoft Learn](https://learn.microsoft.com/training/modules/manage-secrets-with-azure-key-vault/?source=recommendations)
+It is recommended to store OS and application passwords in Azure Key Vault. Training on secret management [Manage secrets in your server apps with Azure Key Vault - Training | Microsoft Learn](/training/modules/manage-secrets-with-azure-key-vault/?source=recommendations)
 
-Defender for Key Vault is recommended to alert if suspicious activity occurs on Azure Key Vault [Microsoft Defender for Key Vault - the benefits and features - Microsoft Defender for Cloud | Microsoft Learn](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-key-vault-introduction)
+Defender for Key Vault is recommended to alert if suspicious activity occurs on Azure Key Vault [Microsoft Defender for Key Vault - the benefits and features - Microsoft Defender for Cloud | Microsoft Learn](../../defender-for-cloud/defender-for-key-vault-introduction)
 
 ## 6.	Operating System Level Hardening 
 Operating System patching is one key layer in a secure solution. It isn't possible to consistently and reliably update VMs at scale manually without the use of patch management tools. Azure Update Manager should be used to accelerate and automate this process [Azure Update Manager overview | Microsoft Learn](https://learn.microsoft.com/azure/update-manager/overview)
