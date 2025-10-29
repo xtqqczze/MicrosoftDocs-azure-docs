@@ -19,7 +19,7 @@ This quickstart explains how to ingest data into your collection using the Micro
 
 Before using this quickstart, you need:
 
-- An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active GeoCatalog instance. Use the link to [Create a GeoCatalog](./deploy-geocatalog-resource.md).
 - An Azure blob storage container with:
   - A geospatial dataset in a supported format. See [Supported data types](./supported-data-types.md) for more information.
@@ -67,10 +67,14 @@ Now that you have configured an ingestion source, refer to the following steps t
 8. When the ingestion run is complete, the **STAC items** tab in your collection displays your list of STAC items that have been ingested, with columns for the item ID and acquisition date. 
     [ ![Screenshot of STAC items tab.](./media/stac-items.jpeg) ](./media/stac-items.jpeg#lightbox)
 
+## Troubleshooting
+
+If you encounter issues during the ingestion process, such as failures in creating an ingestion source, starting a run, or if items don't appear as expected, refer to the following resources:
+
+- [Troubleshooting data ingestion in Microsoft Planetary Computer Pro](./troubleshooting-ingestion.md): Provides guidance on diagnosing common ingestion problems.
+- [Error codes: Microsoft Planetary Computer Pro ingestion](./error-codes-ingestion.md): Lists common error codes and their meanings.
 
 ## Next steps
-
-<!-- TODO: Update this link to point to the next article in the sequence once finalized. -->
 
 Once you have ingested data, it's time to configure the STAC Collection so you can visualize your data in the Explorer. 
 

@@ -128,7 +128,6 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Red Hat OpenShift
 - Azure Remote Rendering
 - Azure SignalR Service
-- Azure Spring Apps
 - Azure Storage: Archive Storage
 - Azure Storage: Azure File Sync
 - Azure Synapse Analytics
@@ -150,6 +149,7 @@ Azure services are presented in the following lists by category. Note that some 
 - Virtual Machines: HCv1-series
 - Virtual Machines: Lsv2-series
 - Virtual Machines: Lsv3-series
+- Virtual Machines: Lsv4, Lasv4, and Laosv4-series
 - Virtual Machines: Mv2-series
 - Virtual Machines: NCasT4_v3-series
 - Virtual Machines: NCv3-series

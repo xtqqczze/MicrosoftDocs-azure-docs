@@ -14,6 +14,7 @@ ms.custom:
   - engagement-fy23
   - devx-track-arm-template
   - build-2025
+# Customer intent: "As a cloud administrator, I want to deploy an internal load balancer using an ARM template, so that I can efficiently manage traffic distribution to virtual machines within a virtual network."
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using an ARM template
@@ -32,7 +33,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 

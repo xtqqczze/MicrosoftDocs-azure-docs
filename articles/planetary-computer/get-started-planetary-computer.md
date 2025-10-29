@@ -17,7 +17,7 @@ Microsoft Planetary Computer Pro is an Azure cloud service for storing, catalogi
 
 ## Prerequisites
 
-- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Table of Contents
 
@@ -71,7 +71,7 @@ The recommended and most secure method for ingesting data is to have the data st
 
 ### Get your data ready for Ingestion
 > [!div class="checklist"]
-> * [Setup Managed Identity Access to your Azure Blob Storage](./set-up-ingestion-credentials-managed-identity.md)
+> * [Set up Managed Identity Access to your Azure Blob Storage](./set-up-ingestion-credentials-managed-identity.md)
 > * [Create STAC Items for your data](./create-stac-item.md)
 > * Ingest Your Data a [single item at a time](./add-stac-item-to-collection.md) or through [bulk ingestion](./bulk-ingestion-api.md)
 
@@ -91,7 +91,7 @@ Planetary Computer Pro's Tiler service [requires configuration](./collection-con
 > [!div class="checklist"]
 > * [Review Supported Data Types](./supported-data-types.md)
 > * [Configure Mosaic Settings](./mosaic-configurations-for-collections.md)
-> * [Setup Rendering](./render-configuration.md)
+> * [Set up Rendering](./render-configuration.md)
 > * [Adjust Tile Settings](./tile-settings.md)
 
 
@@ -106,11 +106,12 @@ Data that is [configured for visualization](./configure-collection-web-interface
 Data can also be accessed directly using the [GeoCatalog APIs](/rest/api/planetarycomputer). For details on establishing permissions for your applications, review the [Application Authentication](./application-authentication.md) documentation. 
 
 Planetary Computer Pro supports [connecting collections to ESRI's ArcGIS Pro Service](./create-connection-arc-gis-pro.md) to enable GIS-type work flows. 
+You can also use [QGIS](./configure-qgis.md) to work with your GeoCatalog data in an open-source desktop GIS.
 
 ## Get help
 
 1. Review the [rest of the documentation](/azure/planetary-computer) for relevant articles
-2. [Check out Microsoft Q&A](https://learn.microsoft.com/answers/tags/133/azure) to ask a question or find answers from others
+2. [Check out Microsoft Q&A](/answers/tags/775/planetary-computer-pro) to ask a question or find answers from others
 3. [File a Support Ticket](https://azure.microsoft.com/support/create-ticket)
 
 

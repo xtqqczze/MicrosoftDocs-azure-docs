@@ -8,6 +8,7 @@ ms.date: 02/19/2023
 ms.topic: quickstart
 ms.service: azure-traffic-manager
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-bicep
+# Customer intent: As a cloud engineer, I want to create a Traffic Manager profile using Bicep, so that I can efficiently manage and route traffic to multiple external endpoints based on performance.
 ---
 
 # Quickstart: Create a Traffic Manager profile using Bicep
@@ -18,7 +19,7 @@ This quickstart describes how to use Bicep to create a Traffic Manager profile w
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

@@ -18,7 +18,7 @@ This article guides the reader through the process of deploying a GeoCatalog res
 
 ## Prerequisites
 
-- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli) (For using the REST API) 
 
 ## Methods
@@ -116,9 +116,7 @@ This article describes two methods for deploying an Planetary Computer Pro GeoCa
    az resource show -g $RESOURCE_GROUP -n $CATALOG_NAME --namespace Microsoft.Orbital --resource-type "geocatalogs"
    ```
 
-1. Once the deployment status shows succeeded, you should be able to see the created GeoCatalog instance on the portal under the specified resource group (note you need to check "Show hidden types" checkbox to see it).
-
-   [ ![Screenshot of GeoCatalog instance in the Azure portal under the specified resource group.](media/show-hidden-roles.png) ](media/show-hidden-roles.png#lightbox)
+1. Once the deployment status shows succeeded, you should be able to see the created GeoCatalog instance on the portal under the specified resource group.
 
 ## Next Steps
 - [Create a STAC Collection](./create-collection-web-interface.md)

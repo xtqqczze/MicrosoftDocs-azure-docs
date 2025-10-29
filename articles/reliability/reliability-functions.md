@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Functions
-description: Find out about reliability support in Azure Functions, including intra-regional resiliency and cross-region recovery and business continuity.
+description: Learn how to ensure serverless reliability with Azure Functions by using Azure availability zones, SKUs, and cross-region disaster recovery strategies.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
@@ -49,7 +49,7 @@ When you configure Elastic Premium function app plans as zone redundant, the pla
 
 Instance spreading with a zone-redundant deployment is determined inside the following rules, even as the app scales in and out:
 
-- The minimum function app instance count is three. 
+- The minimum function app instance count is two. 
 - When you specify a capacity larger than the number of zones, the instances are spread evenly only when the capacity is a multiple of the number of zones. 
 - For a capacity value more than Number of Zones * Number of instances, extra instances are spread across the remaining zones.
 
@@ -107,8 +107,8 @@ Availability zone support is a property of the Premium plan. Here are current co
 - You can only enable availability zones in the plan when you create your app. You can't convert an existing Premium plan to use availability zones.
 - You must use a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) for your function app's [default host storage account](../azure-functions/storage-considerations.md#storage-account-requirements). If you use a different type of storage account, your app might behave unexpectedly during a zonal outage.
 - Both Windows and Linux are supported.
-- Function apps hosted on a Premium plan must have a minimum of three [always ready instances](../azure-functions/functions-premium-plan.md#always-ready-instances).
-- The platform enforces this minimum count behind the scenes if you specify an instance count fewer than three.
+- Function apps hosted on a Premium plan must have a minimum of two [always ready instances](../azure-functions/functions-premium-plan.md#always-ready-instances).
+- The platform enforces this minimum count behind the scenes if you specify an instance count fewer than two.
 - If you aren't using Premium plan or a scale unit that supports availability zones, are in an unsupported region, or are unsure, see the [migration guidance](../reliability/migrate-functions.md).
 ::: zone-end 
 ### Pricing 
@@ -118,13 +118,15 @@ There's no separate meter associated with enabling availability zones. Pricing f
 When you enable availability zones in an app with always-ready instance configuration of fewer than two instances for each [per-function scaling function or group](../azure-functions/flex-consumption-plan.md#per-function-scaling), the platform automatically creates two instances of the [always-ready](../azure-functions/flex-consumption-plan.md#always-ready-instances) type for each per-function scaling function or group. These new instances are also billed as always-ready instances.
 ::: zone-end 
 ::: zone pivot="premium-plan" 
-There's no extra cost associated with enabling availability zones. Pricing for a zone-redundant Premium App Service plan is the same as a single zone Premium plan. For each App Service plan you use, you're charged based on the SKU you choose, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones on a plan with fewer than three instances, the platform enforces a minimum instance count of three for that App Service plan, and you're charged for all three instances.
+There's no extra cost associated with enabling availability zones. Pricing for a zone-redundant Premium App Service plan is the same as a single zone Premium plan. For each App Service plan you use, you're charged based on the SKU you choose, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones on a plan with fewer than two instances, the platform enforces a minimum instance count of two for that App Service plan, and you're charged for both instances.
 ::: zone-end 
 ### Create a function app in a zone-redundant plan 
 ::: zone pivot="flex-consumption-plan"
 There are currently multiple ways to deploy a zone-redundant Flex Consumption app.
 
 #### [Azure portal](#tab/azure-portal)
+
+1. To create a function app in a zone-redundant plan, you must have an existing [zone-redundant storage account](../azure-functions/storage-considerations.md#storage-account-requirements). If you don't already have a zone-redundant storage account, create one before you proceed. 
 
 1. In the Azure portal, go to the **Create Function App** page. For more information about creating a function app in the portal, see [Create a function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
 
@@ -140,7 +142,7 @@ There are currently multiple ways to deploy a zone-redundant Flex Consumption ap
     :::image type="content" source="../azure-functions/media/functions-az-redundancy/azure-functions-flex-basics-az.png" alt-text="Screenshot of the Basics tab of the Flex Consumption function app create page.":::
     
 
-1. On the **Storage** tab, enter the settings for your function app storage account. Pay special attention to the setting in the following table, which has specific requirements for zone redundancy.
+1. On the **Storage** tab, select the zone-redundant storage account for your function app. Pay special attention to the setting in the following table, which has specific requirements for zone redundancy.
 
     | Setting      | Suggested value  | Notes for zone redundancy |
     | ------------ | ---------------- | ----------- |
@@ -240,13 +242,19 @@ After the storage accounts used by your app are updated, you can update the Flex
 
 #### [Azure portal](#tab/azure-portal)
 
-Not currently supported.
+1. In the Azure portal, search for and select the function app to update.
+
+1. Under **Settings**, select **Scale and Concurrency**.
+
+1. On the **Zone redundancy** tab, check **Add zone redundancy** to enable the feature. If already checked, you can uncheck this box to disable the feature.
+
+1. Select **Save** to commit your changes and restart the app.
+
+:::image type="content" source="../azure-functions/media/functions-az-redundancy/azure-functions-flex-update-az.png" alt-text="Screenshot of the Scale and Concurrency tab of a Flex Consumption function app.":::
 
 #### [Azure CLI](#tab/azure-cli)
 
-Not currently supported.
-<!--- unhide this after we get the required CLI fix implemented 
-Update the Flex Consumption app by using the [az functionapp plan update](/cli/azure/functionapp#az-functionapp-plan-update) command and setting the `--zone-redundant true` parameter:
+Update the app by using the `--zone-redundant` parameter of the [az functionapp plan update](/cli/azure/functionapp/plan#az-functionapp-plan-update) command. Use a value of `true` to enable zone redundancy and `false` disable the feature. This example enables zone redundancy for an existing app in a Flex Consumption plan:
 
 ```azurecli
 PLAN_RESOURCE_ID=$(az functionapp show --resource-group <RESOURCE_GROUP> --name <APP_NAME> --query "properties.serverFarmId"  -o tsv) 
@@ -254,7 +262,7 @@ PLAN_RESOURCE_ID=$(az functionapp show --resource-group <RESOURCE_GROUP> --name 
 az functionapp plan update --ids $PLAN_RESOURCE_ID --set zoneRedundant=true
 ```
 
-In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with the names of your resource group and app, respectively. -->
+In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with the names of your resource group and app, respectively.
 
 #### [Bicep template](#tab/bicep)
 
@@ -355,7 +363,7 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
 1. When creating the Premium plan, add the `--zone-redundant true` parameter:
 
     ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --SKU EP1 --zone-redundant true 
+    az functionapp plan create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --SKU EP1 --zone-redundant true 
     ```
 
 #### [Bicep template](#tab/bicep)
@@ -370,7 +378,7 @@ The only properties to be aware of while creating a zone-redundant hosting plan 
 Following is a Bicep template snippet for a zone-redundant, Premium plan. It shows the `zoneRedundant` field and the `capacity` specification.
 
 ```bicep
-resource flexFuncPlan 'Microsoft.Web/serverfarms@2021-01-15' = {
+resource EPFuncPlan 'Microsoft.Web/serverfarms@2021-01-15' = {
     name: '<YOUR_PLAN_NAME>'
     location: '<YOUR_REGION_NAME>'
     sku: {
@@ -490,8 +498,6 @@ With an active-active pattern, functions in both regions are actively running an
 
 ![Architecture for Azure Front Door and Function](../azure-functions/media/functions-geo-dr/front-door.png)  
 
-For an example, see the sample on how to [implement the geode pattern by deploying the API to geodes in distributed Azure regions.](https://github.com/mspnp/geode-pattern-accelerator).
-
 ### Active-passive pattern for non-HTTPS trigger functions
 
 It's recommended that you use active-passive pattern for your event-driven, non-HTTP triggered functions, such as Service Bus and Event Hubs triggered functions.
@@ -514,11 +520,9 @@ Read more on information and considerations for failover with [Service Bus](../s
 
 ### Active-active pattern for non-HTTPS trigger functions
 
-While you're encouraged to use the [active-passive pattern](#active-passive-pattern-for-non-https-trigger-functions) for non-HTTPS trigger functions, you can still create active-active deployments for non-HTTP triggered functions. Before you implement this pattern, you must consider how the two active regions interact or coordinate with one another. 
+While you're encouraged to use the [active-passive pattern](#active-passive-pattern-for-non-https-trigger-functions) for non-HTTPS trigger functions, you can still create active-active deployments for non-HTTP triggered functions. Before you implement this pattern, you must consider how the two active regions interact or coordinate with one another and the trigger source. 
 
-For example, consider having the same Service Bus triggered function code deployed to two regions but triggering on the same Service Bus queue. In this case, both functions act as competing consumers on dequeueing the single queue. While each message can only be processed by one of the two app instances, it also means there's still a single point of failure, which is the single Service Bus instance. 
-
-You might instead deploy two Service Bus queues, with one in a primary region, one in a secondary region. In this case, you could have two function apps, with each pointed to the Service Bus queue active in their region. The challenge with this topology is how the queue messages are distributed between the two regions. Often, this means that each publisher attempts to publish a message to *both* regions, and each message is processed by both active function apps. While this creates the desired active/active pattern, it also creates other challenges around duplication of compute and when or how data is consolidated. 
+For example, consider having the same Service Bus triggered function code deployed to two regions but triggering on the same Service Bus queue. In this case, both functions act as competing consumers on dequeueing the single queue. While each message can only be processed by one of the two app instances, it also means there's still a single point of failure, which is the single Service Bus instance. Consider enabling the [geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md) and [geo-replication](../service-bus-messaging/service-bus-geo-replication.md) features of Service Bus to ensure it is also resilient.
 
 ## Next steps
 

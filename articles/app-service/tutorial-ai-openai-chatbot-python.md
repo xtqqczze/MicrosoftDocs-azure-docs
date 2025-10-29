@@ -4,17 +4,19 @@ description: Learn how to build and deploy a Python web app to Azure App Service
 author: jefmarti
 ms.author: jefmarti
 ms.date: 05/19/2025
+ms.update-cycle: 180-days
 ms.topic: tutorial
 ms.custom:
   - devx-track-node
   - linux-related-content
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Flask)
 
-In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Python web application and deploying it to Azure App Service. You'll create a Flask app that sends chat completion requests to a model in Azure OpneAI.
+In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Python web application and deploying it to Azure App Service. You'll create a Flask app that sends chat completion requests to a model in Azure OpenAI.
 
 :::image type="content" source="media/tutorial-ai-openai-chatbot-python/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 
@@ -28,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/) with an active subscription
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
 - A [GitHub account](https://github.com/join) for using GitHub Codespaces
 
 ## 1. Create an Azure OpenAI resource

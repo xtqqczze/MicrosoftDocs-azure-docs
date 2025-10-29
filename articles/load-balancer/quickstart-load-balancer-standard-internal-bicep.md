@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.author: mbender
 ms.date: 09/30/2024
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-bicep,engagement-fy23
+# Customer intent: As a cloud architect, I want to create an internal load balancer using a Bicep file, so that I can efficiently distribute traffic among virtual machines in a secure network environment.
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using Bicep
@@ -20,7 +21,7 @@ In this quickstart, you learn to use a Bicep file to create an internal Azure lo
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

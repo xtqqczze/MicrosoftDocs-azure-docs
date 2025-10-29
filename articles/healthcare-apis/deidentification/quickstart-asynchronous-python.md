@@ -41,13 +41,8 @@ This tutorial covers how to configure and run the service via the asynchronous (
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A de-identification service with system-assigned managed identity:
-  - [Deploy the de-identification service](quickstart.md).
-
-## Deploy a multilingual model
-
-To use the service, deploy a **De-identification service** through the [Azure Portal](https://portal.azure.com):
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+* A de-identification service with system-assigned managed identity. [Deploy the de-identification service](quickstart.md).
 
 1. In the top search bar, type `De-identification`.
 2. Select **De-identification Services** from the search results.
@@ -123,15 +118,8 @@ Learn more at [Configure Azure Storage firewalls and virtual networks](/azure/st
 az storage account update --name $StorageAccountName --public-network-access Disabled --bypass AzureServices
 ```
 
-## Running the De-identification Service
-
-You can run the de-identification service in two ways:
-
-- Using the Python SDK for English data
-- Using CURL for French, German and Spanish data
-
-### Use the python SDK for English data
-The following code contains a sample from the [Azure Health Deidentification SDK for Python](https://learn.microsoft.com/python/api/overview/azure/health-deidentification?view=azure-python). 
+## Use the python SDK
+The code below contains a sample from the [Azure Health Deidentification SDK for Python](/python/api/overview/azure/health-deidentification). 
 
 ```Bash
 

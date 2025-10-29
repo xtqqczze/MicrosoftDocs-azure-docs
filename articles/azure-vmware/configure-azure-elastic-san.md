@@ -5,8 +5,12 @@ ms.topic: how-to
 ms.service: azure-vmware
 author: ju-shim
 ms.author: jushiman
-ms.date: 3/22/2024
-ms.custom: references_regions, engagement-fy23
+ms.date: 6/18/2024
+ms.custom:
+  - references_regions
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: "As a cloud administrator, I want to integrate Azure Elastic SAN with Azure VMware Solution, so that I can optimize storage performance and enhance resource management for my virtual machines."
 ---
 
 # Use Azure VMware Solution with Azure Elastic SAN 
@@ -20,6 +24,23 @@ To accompany the steps below, you can use this [interactive demo](https://regale
 ## Prerequisites
 
 The following prerequisites are required to continue.
+
+> [!IMPORTANT]
+> As of November 2025, creating and deleting an Azure Elastic SAN based datastore in Azure VMware Solution requires appropriate permissions. If you're using built-in roles such as Owner and Contributor across the these two services, no changes are necessary. If you're using custom roles, ensure you have the correct permissions configured.
+><details><summary>For a complete list of required permissions, expand this section.</summary>
+>
+>To create an Elastic SAN datastore, you must have the following permissions:
+>- `Microsoft.AVS/privateClouds/clusters/datastores/write`
+>- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/write`
+>- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/read`
+>
+>To delete an Elastic SAN datastore, you must have the following permissions:
+>- `Microsoft.AVS/privateClouds/clusters/datastores/write`
+>- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/write`
+>- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/read`
+>
+>For information about creating and modifying custom roles, see [create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md).
+</details>
 
 - Have a fully configured Azure VMware solution private cloud in a [region that Elastic SAN is available in](../storage/elastic-san/elastic-san-create.md).
     - Size your ExpressRoute gateways to handle your elastic SAN's bandwidth capabilities. For example, a single ultra performance ExpressRoute gateway supports a bandwidth of 1,280 mbps. An individual elastic SAN datastore used to its full potential would use the entirety of that bandwidth. Multiple gateways might be required depending on your needs.
@@ -41,6 +62,7 @@ You can use the following host types when Azure Elastic SAN is the backing stora
 
 - AV36
 - AV36P
+- AV48
 - AV52
 - AV64
 
@@ -109,10 +131,23 @@ Once your SDDC express route is connected with the private endpoint for your Ela
 To delete the Elastic SAN-based datastore, use the following steps from the Azure portal.
 
 1. From the left navigation in your Azure VMware Solution private cloud, select **Storage**, then **Datastore list**.
-1. On the far right is an **ellipsis**. Select **Delete** to disconnect the datastore from the clusters.
-   
-   :::image type="content" source="media/configure-azure-elastic-san/elastic-san-datastore-list-ellipsis-removal.png" alt-text="Screenshot showing Elastic SAN volume removal." border="false"lightbox="media/configure-azure-elastic-san/elastic-san-datastore-list-ellipsis-removal.png":::
-   
+1. On the far right is an **ellipsis**. Select **Delete** to disconnect the datastore from the clusters.  
 1. Optionally, you can delete the volume you previously created in your Elastic SAN.
-      > [!NOTE]
+
+   :::image type="content" source="media/configure-azure-elastic-san/disconnect-esan-based-datastore.png" alt-text="Screenshot showing Disconnect ESAN based datastore." border="false"lightbox="media/configure-azure-elastic-san/disconnect-esan-based-datastore.png":::
+   
+   > [!NOTE]
    > This operation can't be completed if virtual machines or virtual disks reside on an Elastic SAN VMFS Datastore.
+   
+## Resize an Elastic SAN-based datastore
+
+To resize the Elastic SAN-based datastore, use the following steps from the Azure portal.
+
+1. From the left navigation in your Azure VMware Solution private cloud, select **Operations**, then **Run Command**.
+1. On the packages, go to the latest Azure VMware Solution VMFS package and select **Resize-VmfsVolume**.
+1. In the run command, enter the ClusterName, DeviceNaaID or DatastoreName details and click **Run**.
+
+   :::image type="content" source="media/configure-azure-elastic-san/resize-vmfsvolume.png" alt-text="Screenshot showing Resize ESAN based datastore." border="false"lightbox="media/configure-azure-elastic-san/resize-vmfsvolume.png":::
+
+   > [!NOTE]
+   > Run Commands are executed one at a time in the order submitted.

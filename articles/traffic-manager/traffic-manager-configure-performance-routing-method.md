@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 05/30/2023
 ms.author: allensu
 ms.custom: template-how-to
+# Customer intent: "As a network engineer, I want to configure the Performance traffic routing method in Traffic Manager, so that I can direct user traffic to the endpoint with the lowest latency and improve application responsiveness for clients."
 ---
 
 # Configure the performance traffic routing method
@@ -17,7 +18,7 @@ The Performance traffic routing method allows you to direct traffic to the endpo
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create a resource group
 Create a resource group for the Traffic Manager profile.

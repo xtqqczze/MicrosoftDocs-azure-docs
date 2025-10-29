@@ -1,18 +1,21 @@
 ---
-title: Hybrid connections in Azure App Service
+title: Hybrid Connections in Azure App Service
 description: Learn how to create and use hybrid connections in Azure App Service to access resources in disparate networks. 
 author: seligj95
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
-ms.topic: article
-ms.date: 06/04/2025
+ms.topic: how-to
+ms.date: 10/27/2025
+ms.update-cycle: 1095-days
 ms.author: jordanselig
+#customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
+ms.service: azure-app-service
 ms.custom:
   - "UpdateFrequency3, fasttrack-edit"
   - build-2025
-#customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
+  - sfi-image-nochange
 ---
 
-# Azure App Service Hybrid Connections
+# Create and use hybrid connections in Azure App Service
 
 Hybrid Connections is both a service in Azure and a feature in Azure App Service. As a service, it has uses and capabilities beyond the ones that are used in App Service. To learn more about Hybrid Connections and their usage outside App Service, see [Azure Relay Hybrid Connections][HCService].
 
@@ -88,7 +91,7 @@ When a Hybrid Connection is added to your app, you can see details on it simply 
 
 To create a Hybrid Connection using an ARM/Bicep template, add the following resource to your existing template. You must include the `userMetadata` to have a valid Hybrid Connection. If you don't include the `userMetadata`, the Hybrid Connection doesn't work. If you create the Hybrid Connection in the Azure portal, this property is automatically filled in for you.
 
-The `userMetadata` property should be a string representation of a JSON array in the format `[{"key": "endpoint", "value : "host:port"}]`. The following Bicep template has a sample for this property. For more information, see [Microsoft.Relay namespaces/hybridConnections](/azure/templates/microsoft.relay/namespaces/hybridconnections).
+The `userMetadata` property should be a string representation of a JSON array in the format `[{/"key/": /"endpoint/", /"value/" : /"<HOST>:<PORT>/"}]`. For more information, see [Microsoft.Relay namespaces/hybridConnections](/azure/templates/microsoft.relay/namespaces/hybridconnections).
 
 ```bicep
 resource hybridConnection 'Microsoft.Relay/namespaces/hybridConnections@2024-01-01' = {
@@ -96,7 +99,7 @@ resource hybridConnection 'Microsoft.Relay/namespaces/hybridConnections@2024-01-
   name: hybridConnectionName
   properties: {
     requiresClientAuthorization: true
-    userMetadata: '[{"key": "endpoint", "value : "<HOST>:<PORT>"}]'
+    userMetadata: '[{/"key/": /"endpoint/", /"value/" : /"<HOST>:<PORT>/"}]'
   }
 }
 ```
@@ -116,7 +119,7 @@ App Service Hybrid Connections are only available in Basic, Standard, Premium, a
 |:----|:----|
 | Basic | 5 per plan |
 | Standard | 25 per plan |
-| Premium (v1-v3) | 220 per app |
+| Premium (v1-v4) | 220 per app |
 | IsolatedV2 | 220 per app |
 
 The App Service plan UI shows you how many Hybrid Connections are being used and by what apps.
@@ -137,6 +140,9 @@ The Hybrid Connections feature requires a relay agent in the network that hosts 
 
 This tool runs on both Windows and Linux. On Windows, the Hybrid Connection Manager requires Windows Server 2012 and later. The Hybrid Connection Manager runs as a service and connects outbound to Azure Relay on port 443.
 
+> [!NOTE]
+> As of October 20, 2025, [Azure Service Bus no longer supports TLS 1.0 and TLS 1.1][ServiceBus]. The minimum TLS version is now 1.2 for all Service Bus deployments. Hybrid Connections use Service Bus for connectivity. App Service Hybrid Connection Manager version 0.7.7 and later supports TLS 1.2. If you are on a previous version, **you must update to the new version of the Hybrid Connection Manager as soon as possible to prevent service disruption.**
+
 ### Installation instructions
 
 # [Windows](#tab/windows)
@@ -156,8 +162,8 @@ To install the Hybrid Connection Manager on Linux, from your terminal running as
 ```bash
 sudo apt update
 sudo apt install tar gzip build-essential
-wget "https://download.microsoft.com/download/HybridConnectionManager-Linux.tar.gz"
-tar -xf HybridConnectionManager-Linux.tar.gz
+sudo wget "https://download.microsoft.com/download/HybridConnectionManager-Linux.tar.gz"
+sudo tar -xf HybridConnectionManager-Linux.tar.gz
 cd HybridConnectionManager/
 sudo chmod 755 setup.sh
 sudo ./setup.sh
@@ -169,6 +175,8 @@ To support the Hybrid Connections it's configured with, the Hybrid Connection Ma
 
 - TCP access to Azure over port 443.
 - TCP access to the Hybrid Connection endpoint.
+- Windows clients must have ports 4999-5001 available.
+- Linux clients must have port 5001 available.
 - The ability to do DNS look-ups on the endpoint host and the Service Bus namespace. In other words, the hostname in the Azure relay connection should be resolvable from the machine that hosts the Hybrid Connection Manager.
 
 ### Getting started with the Hybrid Connection Manager GUI
@@ -237,6 +245,23 @@ You can also show the details of a specific Hybrid Connection with the `hcm show
 
 :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm-details-cli.png" alt-text="Screenshot of Hybrid Connection Details in CLI.":::
 
+### Configure proxy server settings
+
+If you need to configure proxy server settings for the Hybrid Connection Manager, edit the `ProxySettings` section in the `appsettings.json` file located at:
+
+- **Windows**: `C:\ProgramData\HybridConnectionManager\`
+- **Linux**: `/usr/share/HybridConnectionManager/`
+
+After you edit the configuration file, restart the Hybrid Connection Manager service to apply the new proxy settings:
+
+- **Windows**: Restart the service through **Services** from the **Start Menu**.
+- **Linux**: Run `systemctl restart hybridconnectionmanager.service`.
+
+Configuring a proxy server routes requests from the Hybrid Connection Manager through the selected proxy server before reaching the destination. Ensure your proxy server supports HTTP/HTTPS traffic so that the Hybrid Connection Manager can communicate with the Azure Relay Service.
+
+> [!NOTE]
+> All addresses set in `appsettings.json` (`ProxyAddress`, `BypassList`) should be in RegEx format if not an exact match.
+
 ### Redundancy
 
 Each Hybrid Connection Manager can support multiple Hybrid Connections. Multiple Hybrid Connection Managers can support any Hybrid Connection. The default behavior is to route traffic across the configured Hybrid Connection Managers for any given endpoint. If you want high availability on your Hybrid Connections from your network, run multiple Hybrid Connection Managers on separate machines. The load distribution algorithm used by the Relay service to distribute traffic to the Hybrid Connection Managers is random assignment.
@@ -267,7 +292,7 @@ There are periodic updates to the Hybrid Connection Manager to fix issues or pro
 
 -----
 
-## Adding a Hybrid Connection to your app programmatically
+## Add a Hybrid Connection to your app programmatically
 
 There's Azure CLI support for Hybrid Connections. The commands provided operate at both the app and the App Service plan level. The app level commands are:
 
@@ -378,3 +403,4 @@ If you have a command-line client for your endpoint, you can test connectivity f
 [Azure portal]: https://portal.azure.com/
 [sbpricing]: https://azure.microsoft.com/pricing/details/service-bus/
 [install-azure-cli]: /cli/azure/install-azure-cli/
+[ServiceBus]: /azure/service-bus-messaging/transport-layer-security-configure-minimum-version/

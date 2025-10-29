@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.service: azure-dns
 ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
+# Customer intent: "As a network administrator, I want to create and manage an Azure DNS Private Resolver using PowerShell, so that I can facilitate seamless DNS resolution for my private virtual networks without the need for VM-based DNS servers."
 ---
 
 # Quickstart: Create an Azure DNS Private Resolver using Azure PowerShell
@@ -25,7 +26,7 @@ The following figure summarizes the setup used in this article:
 
 ## Prerequisites
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 This article assumes you've [installed the Az Azure PowerShell module](/powershell/azure/install-azure-powershell).
 

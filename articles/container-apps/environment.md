@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 04/28/2025
+ms.date: 10/10/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -21,7 +21,7 @@ Environments include the following features:
 | Type | There are [two different types](#types) of Container Apps environments: Workload profiles environments and Consumption only environments. Workload profiles environments support both the Consumption and Dedicated [plans](plans.md) whereas Consumption only environments support only the Consumption [plan](plans.md). |
 | Virtual network | A virtual network supports each environment, which enforces the environment's secure boundaries. As you create an environment, a virtual network with [limited network capabilities](networking.md) is created for you, or you can provide your own. Adding an [existing virtual network](vnet-custom.md) gives you fine-grained control over your network. |
 | Multiple container apps | When multiple container apps are in the same environment, they share the same virtual network and write logs to the same logging destination. |
-| Multi-service integration | You can add [Azure Functions](https://aka.ms/functionsonaca) and [Azure Spring Apps](https://aka.ms/asaonaca) to your Azure Container Apps environment. |
+| Multi-service integration | You can add [Azure Functions](../container-apps/functions-overview.md) and [Azure Spring Apps](https://aka.ms/asaonaca) to your Azure Container Apps environment. |
 
 :::image type="content" source="media/environments/azure-container-apps-environments.png" alt-text="Azure Container Apps environments.":::
 
@@ -92,15 +92,7 @@ You can monitor the status of your environments through Azure Monitor alerts or 
 
 Understanding the limits and quotas for Container Apps environments helps you plan your application architecture effectively.
 
-| Resource | Limit | Notes |
-|----------|-------|-------|
-| Container apps per environment | 200 | Maximum number of container apps in a single environment |
-| Container app revisions per environment | 1000 | Total revisions across all apps in an environment |
-| Environments per region per subscription | 20 | Can be increased via support request |
-| Maximum CPU per container | 4 vCPU (Consumption), Varies by workload profile | Depends on the environment type and selected workload profile |
-| Maximum memory per container | 16 GB (Consumption), Varies by workload profile | Depends on the environment type and selected workload profile |
-| Maximum replicas per container app | 300 | Maximum scale-out limit for a single container app |
-| Maximum ingress request timeout | 240 seconds | For HTTP requests through ingress |
+To see the quotas relevant to your environment, see [Quotas for Azure Container Apps](./quotas.md) for ways to return your quota limits.
 
 For the most up-to-date limits and quotas, refer to the [Azure Container Apps service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#container-apps-limits).
 

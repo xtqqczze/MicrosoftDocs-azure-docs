@@ -4,9 +4,10 @@ description: While a blob is in the archive access tier, it's considered to be o
 author: normesta
 
 ms.author: normesta
-ms.date: 07/31/2024
+ms.date: 06/21/2025
 ms.service: azure-blob-storage
 ms.topic: concept-article
+# Customer intent: As a cloud storage administrator, I want to rehydrate archived blobs to an online tier, so that I can access and modify the stored data as needed for operational tasks.
 ---
 
 # Blob rehydration from the archive tier
@@ -16,6 +17,11 @@ While a blob is in the archive access tier, that blob is considered to be offlin
 - [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier): You can rehydrate an archived blob by copying it to a new blob in the hot or cool tier with the [Copy Blob](/rest/api/storageservices/copy-blob) operation.
 
 - [Change an archived blob's access tier to an online tier](#change-a-blobs-access-tier-to-an-online-tier): You can rehydrate an archived blob to the hot or cool tier by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
+
+> [!IMPORTANT]
+> Snapshots and previous versions cannot be rehydrated back to the hot or cool tiers once they are moved to the archive tier.
+> To access data from an archived snapshot or previous version, you must copy it to a new blob in an online tier (Hot or Cool) using the [copy blob operation](/rest/api/storageservices/copy-blob).
+> Direct rehydration of snapshots or previous versions is not supported.
 
 Rehydrating a blob from the archive tier can take several hours to complete. Microsoft recommends archiving larger blobs for optimal performance when rehydrating. Rehydrating a large number of small blobs might require extra time due to the processing overhead on each blob. A maximum of 10 GiB per storage account may be rehydrated per hour with priority retrieval.
 
@@ -33,6 +39,10 @@ To check the rehydration priority while the rehydration operation is underway, c
 Standard priority is the default rehydration option. A high-priority rehydration is faster, but also costs more than a standard-priority rehydration. A high-priority rehydration may take longer than one hour, depending on blob size and current demand. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations.
 
 While a standard-priority rehydration operation is pending, you can update the rehydration priority setting for a blob to *High* to rehydrate that blob more quickly. For example, if you're rehydrating a large number of blobs in bulk, you can specify *Standard* priority for all blobs for the initial operation, then increase the priority to *High* for any individual blobs that need to be brought online more quickly, up to the limit of 10 GiB per hour.
+
+> [!IMPORTANT]
+> The 10 GiB/hour limit applies at the **storage account level**, not per blob. While timelines such as “up to 15 hours” for standard priority may apply to individual blobs under ideal conditions, they do **not scale linearly** for bulk operations. Customers rehydrating large volumes of data should expect longer durations and plan accordingly.
+> The throughput is shared across all blobs being rehydrated within the same account, and exceeding the hourly limit may result in throttling or extended delays. For optimal performance, consider batching rehydration requests and monitoring account-level activity.
 
 The rehydration priority setting can't be lowered from *High* to *Standard* for a pending operation. Keep in mind that updating the rehydration priority setting may have a billing impact.
 

@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/09/2025
+ms.date: 10/20/2025
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -27,7 +27,7 @@ The following v2 tiers are generally available:
 
 The following v2 tier is in preview:
 
-* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation and scaling for high volume workloads.
+* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, and workspaces.
 
 ## Key capabilities
 
@@ -77,15 +77,14 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Multiple custom domain names 
 * Capacity metric - *replaced by CPU Percentage of Gateway and Memory Percentage of Gateway metrics*
 * Built-in analytics - *replaced by Azure Monitor-based dashboard*
-* Autoscaling
 * Upgrade to v2 tiers from classic tiers 
 * CA Certificates
 * Sending events to Event Grid
+* Event Hubs event metrics
 
 **Developer portal**
 * Reports
 * Custom HTML code widget and custom widget
-* Self-hosted developer portal
 
 **Gateway**
 * Self-hosted gateway

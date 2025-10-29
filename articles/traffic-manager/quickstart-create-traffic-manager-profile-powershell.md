@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.service: azure-traffic-manager
 ms.custom: template-quickstart, devx-track-azurepowershell, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
+# Customer intent: As an IT administrator, I want to configure a Traffic Manager profile for my web applications, so that I can ensure high availability and automatic failover in case of primary site failure.
 ---
 
 # Quickstart: Create a Traffic Manager profile for a highly available web application using Azure PowerShell
@@ -22,7 +23,7 @@ In this quickstart, you'll create two instances of a web application. Each of th
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) now.
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
