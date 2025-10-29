@@ -12,7 +12,7 @@ ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files large volumes
 
-Large volumes are Azure NetApp Files volumes with a size of 50 TiB to 1,024 TiB. 
+Large volumes are Azure NetApp Files volumes with a size of 50 TiB to 1,024 TiB. With cool access enabled, large volumes can scale to 7.2 PiB in certain situations; for more information, see [extra-large volumes](#requirements-and-considerations-for-extra-large-volumes-preview).
 
 This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
 
@@ -72,14 +72,11 @@ The following requirements and considerations apply to large volumes. For perfor
 * Cool access is supported with large volumes. You must be [registered to use cool access](manage-cool-access.md#register-the-feature) before creating a cool access-enabled large volume. 
 
 
-#### Requirements and considerations for extra-large volumes
+#### Requirements and considerations for extra-large volumes (preview)
 
-* Extra-large volumes are supported with cool access. This feature is currently in preview. 
+* Extra-large volumes are supported with cool access enabled at sizes between 2,400 GiB and 7.2 PiB.
   * If you're using the Flexible, Premium, or Ultra service levels, you must also [register to use those service levels with cool access](manage-cool-access.md#register-the-feature).
-* Extra-large volumes are supported at sizes between 2,400 GiB and 7.2 PiB.
-* With extra-large volumes, 90% of the data must reside on the cool tier. The remaining 10% can reside on the hot tier. 
-
-<!-- CRR requirements -->
+* With extra-large volumes, more than 80% of the data should reside in the cool tier.  
 
 ## About 64-bit file IDs
 

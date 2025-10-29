@@ -17,14 +17,14 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Extra-large volumes](large-volumes-requirements-considerations.md#register-for-extra-large-volumes) (preview)
+* [Large volumes up to 7.2 PiB with cool access](large-volumes-requirements-considerations.md#register-for-extra-large-volumes) (preview)
 
-    Extra-large volumes with cool access allows you to create Azure NetApp Files volumes with up to 7.2 PiB on dedicated capacity, designed for workloads where most data is rarely accessed. This enhancement extends cool-access support beyond the previous 2 PiB limit, giving you a new scale option for large deployments. By combining petabyte-scale capacity, cool-tier economics, and enterprise-grade performance, organizations can store massive datasets cost-effectively without compromising efficiency. 
+   Azure NetApp Files now supports large volumes up to 7.2 PiB on dedicated capacity, designed for workloads where most data is infrequently accessed. This enhancement extends cool access support beyond the previous 2 PiB limit, giving you a new scale option for large deployments. By combining petabyte-scale capacity, cool-tier economics, and enterprise-grade performance, organizations can store massive datasets cost-effectively without compromising efficiency. 
 
-    This capability helps reduce storage costs for infrequently accessed data while maintaining predictable performance for active workloads. It's ideal for industries managing large archives, backups, and compliance-driven datasets where 80–90% of data can reside in the cool tier. Use cases include archives, media libraries, healthcare imaging, compliance data lakes, AI/ML datasets, EDA projects, and large file shares—delivering multi-petabyte consolidation, transparent tiering, and lower TCO without sacrificing enterprise-grade performance. 
+    This capability helps reduce storage costs for infrequently accessed data while maintaining predictable performance for active workloads. It's ideal for industries managing large archives, backups, and compliance-driven datasets where at least 80% of data resides in the cool tier. Use cases include archives, media libraries, healthcare imaging, compliance data lakes, AI/ML datasets, EDA projects, and large file shares—delivering multi-petabyte consolidation, transparent tiering, and lower TCO without sacrificing enterprise-grade performance. 
 
-    This feature is supported in all regions that support [large volumes](large-volumes-requirements-considerations.md#supported-regions). Extra-large volumes with cool access is currently in preview. 
-
+    This feature is supported in all regions that support [large volumes](large-volumes-requirements-considerations.md#supported-regions). Large volumes up to 7.2 PiB with cool access is currently in preview.
+  
 ## October 2025
 
 * [Object REST API](object-rest-api-access-configure.md) (preview)
