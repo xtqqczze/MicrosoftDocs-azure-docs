@@ -181,10 +181,10 @@ In addition to reviewing software at project level, you can also review them at 
 
 :::image type="content" source="./media/how-to-discover-applications/software-inventory-infra-view.png" alt-text="Screenshot shows the software inventory view of infrastructure." lightbox="./media/how-to-discover-applications/software-inventory-infra-view.png":::
 
-1. You can select the count of **software** for any server to get to a tab which shows all software discovered from this server.
-1. In this tab, you can review each software metadata like **Name**, **Publisher**, **Version** and additional insights like **Category**, **Subcategory**, **Support Status** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
-1.  The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, and **Vulnerabilities**.
-1.  In addition to the software, you can select the **Roles and features** tab to view the roles and features installed on Windows servers.
+2. You can select the count of **software** for any server to get to a tab which shows all software discovered from this server.
+3. In this tab, you can review each software metadata like **Name**, **Publisher**, **Version** and additional insights like **Category**, **Subcategory**, **Support Status** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
+4. The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, and **Vulnerabilities**.
+5. In addition to the software, you can select the **Roles and features** tab to view the roles and features installed on Windows servers.
 
 ::: moniker-end
 
