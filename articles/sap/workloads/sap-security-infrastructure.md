@@ -68,7 +68,7 @@ This documentation provides a basic deployment pattern covering a minimum securi
 Defender for Endpoint is the only comprehensive Antivirus (AV) and Endpoint Detection and Response (EDR) solution that is comprehensively benchmarked and tested with SAP Benchmarking tools and documented for SAP workloads. 
 Defender for Endpoint should be deployed on all NetWeaver, S4HANA, Hana, and AnyDB servers without exception. The deployment guidance for Defender fully covers the correct deployment and configuration of Defender for Endpoint for SAP applications.
 
-[Deployment guidance for Microsoft Defender for Endpoint on Linux for SAP - Microsoft Defender for Endpoint | Microsoft Learn](defender-endpoint/mde-linux-deployment-on-sap.md)
+[Deployment guidance for Microsoft Defender for Endpoint on Linux for SAP - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/defender-endpoint/mde-linux-deployment-on-sap)
 
 [Microsoft Defender Endpoint on Windows Server with SAP - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/defender-endpoint/mde-sap-windows-server)
 
@@ -161,7 +161,7 @@ High priority items for Windows Operating System include:
 - Minimize the installation of any 3rd party software 
 - Configure Windows Firewall with minimal open ports via Group Policy 
 - SMB Encryption enforced via Group Policy [Configure the SMB client to require encryption in Windows | Microsoft Learn](https://learn.microsoft.com/windows-server/storage/file-server/configure-smb-client-require-encryption?tabs=group-policy)
-- After installation, it is supported to lock the <sid>adm username as described in SAP Note 1837765.  The service account SAPService<SID> should have "deny interactive login" (the default setting after installation).  The SAPService<SID> and <sid>adm account must not deleted. Review [1837765 - Security policies for <SID>adm and SAPService<SID> on Windows](https://me.sap.com/notes/1837765/E)
+- After installation, it is supported to lock the '<sid>adm' username as described in SAP Note 1837765.  The service account 'SAPService<SID>' should have "deny interactive login" (the default setting after installation).  The 'SAPService<SID>' and '<sid>adm' account must not deleted. Review [1837765 - Security policies for <SID>adm and SAPService<SID> on Windows](https://me.sap.com/notes/1837765/E)
 - Configure Windows Group Policy to clear last user name, on permit AD authenticated sign-in (mitigates against cloning attack) and disable legacy TLS and SMB protocols 
 
 Other links for Windows: 
