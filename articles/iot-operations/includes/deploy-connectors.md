@@ -9,7 +9,7 @@ ms.author: dobett
 
 When you deploy Azure IoT Operations, the deployment includes various connectors. Before you can use the connectors (such as ONVIF, media, MQTT, and HTTP/REST) in the operations experience web UI, an administrator must add connector template instances to your Azure IoT Operations instance.
 
-All the connectors can publish captured data to the MQTT broker. The media connector can also save captured data to storage. Azure IoT Operations uses [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to transfer the captured data to cloud storage destinations such as Azure Blob Storage. When you configure a connector template instance, you specify a _persistent volume claim_ and _mount path_ for the connector to use to save captured data. To learn how to create a suitable persistent volume claim, see [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes).
+All the connectors can publish captured data to the MQTT broker. The media connector can also save captured data to storage. Azure IoT Operations uses [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to transfer the captured data to cloud storage destinations such as Azure Blob Storage. When you configure a connector template instance, you specify a _persistent volume claim_ and _mount path_ for the connector to use to save captured data. You can also share volumes between pods. To learn how to create a suitable persistent volume claim, see [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes).
 
 To add a connector template instance to your Azure IoT Operations instance:
 
@@ -29,7 +29,11 @@ To add a connector template instance to your Azure IoT Operations instance:
 
 1. On the **Runtime configuration** page, if you're synchronizing captured data to the cloud, select **Add a volume claim** and enter the details of the persistent volume claim you created previously. Then select **Review**:
 
-    :::image type="content" source="media/deploy-connectors/add-volume-claim.png" alt-text="Screenshot of Azure portal that shows how to configure the runtime settings for the connector template instance." lightbox="media/deploy-connectors/add-volume-claim.png":::
+    :::image type="content" source="media/deploy-connectors/add-volume-claim.png" alt-text="Screenshot of Azure portal that shows how to configure the runtime settings for the connector template instance volume claims." lightbox="media/deploy-connectors/add-volume-claim.png":::
+
+    You can also specify secrets from Azure Key Vault to use for authentication by the connector. These secrets are made available to all device endpoints that use the connector template instance:
+
+    :::image type="content" source="media/deploy-connectors/add-secrets.png" alt-text="Screenshot of Azure portal that shows how to configure the runtime settings for the connector template instance secrets." lightbox="media/deploy-connectors/add-secrets.png":::
 
 1. On the **Review** page, review the details of the connector template instance, and then select **Create** to create the connector template instance.
 

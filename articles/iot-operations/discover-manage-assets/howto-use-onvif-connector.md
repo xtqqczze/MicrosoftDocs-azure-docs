@@ -18,7 +18,13 @@ In Azure IoT Operations, the connector for ONVIF enables you to discover and use
 
 [!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
 
-The connector for ONVIF for Azure IoT Operations discovers [ONVIF conformant](https://www.onvif.org/profiles-add-ons-specifications/) cameras connected to your Azure IoT Operations instance and registers them in the Azure Device Registry. After the camera is registered, examples of management operations include:
+The connector for ONVIF for Azure IoT Operations connects [ONVIF conformant](https://www.onvif.org/profiles-add-ons-specifications/) cameras to your Azure IoT Operations instance and registers them in the Azure Device Registry. The connector then automatically discovers:
+
+- The capabilities, such as pan-tilt-zoom (PTZ), of the ONVIF device.
+- The media endpoints exposed by the ONVIF device.
+- Details of the media streams such as framerate, resolution, and encoding.
+
+After the camera is registered, examples of management operations include:
 
 - Retrieving and updating the configuration of the camera to adjust the output image configuration.
 - Controlling the camera pan, tilt, and zoom (PTZ).
@@ -42,7 +48,8 @@ This article describes how to use the operations experience web UI to:
 The connector for ONVIF supports the following authentication methods:
   - Username/password authentication
   - Anonymous access for testing purposes
-  - Certificate trust list
+
+To establish a TLS connection to the ONVIF camera, you can configure a certificate trust list for the connector.
 
 ## Prerequisites
 
