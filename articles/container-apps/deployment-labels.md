@@ -161,7 +161,7 @@ TARGET_LABEL="stage"
 
 - **Staged rollouts**: Gradually increase traffic to a new revision by adjusting traffic percentages.
 
-- **Environment isolation**: Use labels to maintain separate dev, staging, and prod environments. Each environment can have its own configuration while maintaining a clear promotion path.
+- **Environment isolation**: Use labels to maintain separate dev, staging, and prod environments. Each environment can be updated independently while maintaining a clear promotion path.
 
 ## Workflow example
 
