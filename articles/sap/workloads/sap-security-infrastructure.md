@@ -115,9 +115,9 @@ Azure supports two solutions for Key Management:
 2.	Azure Cloud HSM – a hardware level PKCS#11 FIPS 140-3 Level 3 single tenant solution
 More information on these services
 
-[What is Azure Key Vault? | Microsoft Learn](../../key-vault/general/basic-concepts.md)
+[What is Azure Key Vault? | Microsoft Learn](../../key-vault/general/basic-concepts)
 
-[Overview of Azure Cloud HSM Preview | Microsoft Learn](https://learn.microsoft.com/azure/cloud-hsm/overview)
+[Overview of Azure Cloud HSM Preview | Microsoft Learn](../../azure/cloud-hsm/overview)
 
 [How to choose the right key management solution - How to choose between Azure Key Vault, Azure Managed HSM, Azure Dedicated HSM, and Azure Payment HSM | Microsoft Learn](https://learn.microsoft.com/azure/security/fundamentals/key-management-choose)
 
