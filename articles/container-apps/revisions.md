@@ -89,7 +89,7 @@ Azure Container Apps support two revision modes. Your choice of mode determines 
 |---|---|---|
 | Single | New revisions are automatically provisioned, activated, and scaled to the desired size. Once all the replicas are running as defined by the [scale rule](scale-app.md), then traffic is diverted from the old version to the new one. If an update fails, traffic remains pointed to the old revision. Old revisions are automatically deprovisioned. | Yes |
 | Deployment labels (preview) | Assign meaningful names (such as dev, staging, prod) to specific container revisions. Use for traffic splitting & A/B testing, auto swapping staging release revisions, and simplified rollbacks. | No |
-| Multiple | You can have multiple active revisions, split traffic between revisions, and choose when to deprovision old revisions. This level of control is helpful for testing multiple versions of an app, blue-green testing, or taking full control of app updates. Refer to [traffic splitting](traffic-splitting.md) for more detail.
+| Multiple | You can have multiple active revisions, split traffic between revisions, and choose when to deprovision old revisions. This level of control is helpful for testing multiple versions of an app, blue-green testing, or taking full control of app updates. Refer to [traffic splitting](traffic-splitting.md) for more detail. | No |
 
 ### Labels
 

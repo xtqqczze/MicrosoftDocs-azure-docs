@@ -91,14 +91,14 @@ To enable deployment labels, follow these steps in the Azure CLI:
 
 1. Create the following environment variables.
 
-```bash
-CONTAINER_APP_NAME="my-container-app"
-CONTAINER_APP_IMAGE="mcr.microsoft.com/k8se/quickstart:latest"
-LOCATION="centralus"
-RESOURCE_GROUP="my-container-apps-rg"
-ENVIRONMENT_NAME="my-container-apps-env"
-TARGET_LABEL="stage"
-```
+	```bash
+	CONTAINER_APP_NAME="my-container-app"
+	CONTAINER_APP_IMAGE="mcr.microsoft.com/k8se/quickstart:latest"
+	LOCATION="centralus"
+	RESOURCE_GROUP="my-container-apps-rg"
+	ENVIRONMENT_NAME="my-container-apps-env"
+	TARGET_LABEL="stage"
+	```
 
 1. Use the following command to create a new app and revision with label:
 
