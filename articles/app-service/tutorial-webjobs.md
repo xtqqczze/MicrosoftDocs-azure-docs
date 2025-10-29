@@ -292,7 +292,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
     :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal (scheduled WebJob).":::
 
-1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you downloaded earlier in the [Download the sample WebJob](#download-the-sample-webjob) section.
+1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file that you created in the previous section.
 
     :::image type="content" source="media/webjobs-create/configure-new-scheduled-webjob.png" alt-text="Screenshot that shows how to configure a scheduled WebJob in an App Service app.":::
 
