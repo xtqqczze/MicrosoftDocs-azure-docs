@@ -26,10 +26,7 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 ## Prerequisites
 
 > [!NOTE]
-> At this time Trusted Signing is available to organizations and DBAs based in the USA and Canada that have a verifiable history of three years or more.
-
-> [!NOTE]
-> At this time Trusted Signing is available to individual developers based in the USA and Canada.
+> Trusted Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada.
 
 To complete this quickstart, you need:
 
@@ -224,15 +221,15 @@ You can complete your own identity validation by filling in the request form wit
 To create an identity validation request for an Organization or a DBA:
 
 1. In the Azure portal, go to your new Trusted Signing account.
-2. Confirm that you're assigned the Trusted Signing Identity Verifier role.
+1. Confirm that you're assigned the Trusted Signing Identity Verifier role.
 
    To learn how to manage, access by using role-based access control (RBAC), see [Tutorial: Assign roles in Trusted Signing](tutorial-assign-roles.md).
-3. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
-4. Select **New identity**, and then select either **Public** or **Private**.
+1. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
+1. Select **New identity**, and then select either **Public** or **Private**.
 
    - Public identity validation applies only to these certificate profile types: Public Trust, Public Trust Test, VBS Enclave.
    - Private identity validation applies only to these certificate profile types: Private Trust, Private Trust CI Policy.
-5. On **New identity validation**, provide the following information:
+1. On **New identity validation**, provide the following information:
 
     | Fields       | Details     |
     | :------------------- | :------------------- |
@@ -244,13 +241,17 @@ To create an identity validation request for an Organization or a DBA:
     | **Business Identifier**           | Enter a business identifier for the legal business entity. |
     | **Seller ID**          | Applies only to Microsoft Store customers. Find your Seller ID in the Partner Center portal. |
     | **Street, City, Country/Region, State/Province, Postal code**           | Enter the business address of the legal business entity. |
+    | **First Name**           | Enter the first name of the individual representing the organization that will perform individual identity validation. Use the exact name as it appears on your government-issued identification document for the Identity Validation process. |
+    | **Last Name**           | Enter the last name of the individual representing the organization. This individual performs individual identity validation. Use the exact name as it appears on your government-issued identification document for the Identity Validation process.  |
 
-6. Select **Certificate subject preview** to see the preview of the information that appears in the certificate.
-7. Select **I accept Microsoft terms of use for trusted signing services**. You can download the Terms of Use to review or save them.  
-8. Select the **Create** button.
-9. When the request is successfully created, the identity validation request status changes to **In Progress**.
-10. If more documents are required, an email is sent and the request status changes to **Action Required**.
-11. When the identity validation process is finished, the request status changes, and an email is sent with the updated status of the request:
+1. Select **Certificate subject preview** to see the preview of the information that appears in the certificate.
+1. Select the **Create** button.
+1. When the request is successfully created, the identity validation request status changes to **In Progress**.
+1. When the status changes to **Action Required**, follow the instructions step 9 onwards in the [Identity Validation - Individual Developer](#identity-validation---individual-developer) section.
+1. The link for individual identity validation is also sent through email to the primary email address. 
+1. Once Individual Identity Validation is successfully completed, the status changes back to **In Progress** and the validation process continues.
+1. If more documents are required, an email is sent and the request status changes to **Action Required**.  
+1. When the identity validation process is finished, the request status changes, and an email is sent with the updated status of the request:
 
    - **Completed** if the process is completed successfully.
    - **Failed** if the process isn't completed successfully.
