@@ -58,9 +58,9 @@ Functions provides these two dynamic scale plans that support serverless hosting
 
 [!INCLUDE [functions-consumption-plans-compare-tabs](../../includes/functions-consumption-plans-compare-tabs.md)]
 
-These examples use Azure Monitor metrics to help estimate the cost of running your function app on your chosen consumption plan. To learn more about estimating costs for these plans, see [Estimating consumption plan costs](functions-consumption-costs.md).
-
 [!INCLUDE [functions-monitor-metrics-consumption](../../includes/functions-monitor-metrics-consumption.md)]  
+
+To learn more about estimating costs for these plans, see [Estimating consumption plan costs](functions-consumption-costs.md).
 
 ### Analyze logs for Azure Functions
 

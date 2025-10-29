@@ -437,7 +437,7 @@ To configure deployment settings when you create your function app in the Flex C
 Use the [`az functionapp create`] command and supply these extra options that customize deployment storage:  
 
 | Parameter | Description |
-|--|--|--|
+|--|--|
 | `--deployment-storage-name` | The name of the deployment storage account. | 
 | `--deployment-storage-container-name` | The name of the container in the account to contain your app's deployment package. | 
 | `--deployment-storage-auth-type`| The authentication type to use for connecting to the deployment storage account. Accepted values include `StorageAccountConnectionString`, `UserAssignedIdentity`, and `SystemAssignedIdentity`. |
@@ -733,25 +733,27 @@ When your app is connected to Application Insights, you can better analyze your 
    + Use "Failures" to identify any errors occurring after migration
    + Create custom queries in "Logs" to analyze function behavior. For example:
 
-   Compare success rates by instance:
-     ```kusto
-     requests
-     | where timestamp > ago(7d)
-     | summarize successCount=countif(success == true), failureCount=countif(success == false) by bin(timestamp, 1h), cloud_RoleName
-     | render timechart
-     ```
+Use this query to compare success rates by instance:
 
-   Analyze the number of instances that were actively processing your function:
-     ```kusto
-    let _startTime = ago(20m); //Adjust start time as needed
-    let _endTime = now(); //Adjust end time as needed
-    let bins = 1s; //Adjust bin as needed - this will give per second results
-    requests 
-    | where operation_Name == 'EventHubsTrigger' //Replace with the name of the function in the function app that you are analyzing
-    | where timestamp between(_startTime .. _endTime)
-    | make-series dcount(cloud_RoleInstance) default=0 on timestamp from _startTime to _endTime step bins
-    | render columnchart
-     ```
+```kusto
+requests
+| where timestamp > ago(7d)
+| summarize successCount=countif(success == true), failureCount=countif(success == false) by bin(timestamp, 1h), cloud_RoleName
+| render timechart
+```
+
+Use this query to analyze the number of instances that were actively processing your function:
+
+```kusto
+let _startTime = ago(20m); //Adjust start time as needed
+let _endTime = now(); //Adjust end time as needed
+let bins = 1s; //Adjust bin as needed - this will give per second results
+requests 
+| where operation_Name == 'EventHubsTrigger' //Replace with the name of the function in the function app that you are analyzing
+| where timestamp between(_startTime .. _endTime)
+| make-series dcount(cloud_RoleInstance) default=0 on timestamp from _startTime to _endTime step bins
+| render columnchart
+```
 
 ### View costs
 

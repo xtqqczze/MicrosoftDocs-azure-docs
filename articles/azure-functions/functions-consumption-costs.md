@@ -95,24 +95,6 @@ This section shows you how to use metrics, both app-level and function execution
 
 ### Function app-level metrics
 
-The app-level metrics available to your app depends on the type of consumption plan you use.
-
-#### [Flex Consumption plan](#tab/flex-consumption-plan)
-
-These Azure Monitor metrics are related to Flex Consumption plan billing:
-
-[!INCLUDE [functions-flex-consumption-metrics-table](../../includes/functions-flex-consumption-metrics-table.md)]
-
-#### [Consumption plan](#tab/consumption-plan)
-
-These Azure Monitor metrics are related to Consumption plan billing:
-
-[!INCLUDE [functions-flex-consumption-metrics-table](../../includes/functions-consumption-metrics-table.md)]
-
----
-
-To better understand the costs of your functions, use Azure Monitor to view cost-related metrics that your function apps generate. You can view metrics by using one of these tools:
-
 [!INCLUDE [functions-monitor-metrics-consumption](../../includes/functions-monitor-metrics-consumption.md)]
 
 

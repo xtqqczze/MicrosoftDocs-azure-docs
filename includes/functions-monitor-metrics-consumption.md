@@ -5,7 +5,26 @@ ms.topic: include
 ms.date: 10/28/2025
 ms.author: glenga
 ---
-<!---this include supports both Flex Consumption and Consumption plan, and the main page must have independent tabs for both `flex-consumption-plan` and `consumption-plan`. -->
+
+The app-level metrics available to your app depend on the type of consumption plan you use.
+
+#### [Flex Consumption plan](#tab/flex-consumption-plan)
+
+These Azure Monitor metrics are related to Flex Consumption plan billing:
+
+[!INCLUDE [functions-flex-consumption-metrics-table](../../includes/functions-flex-consumption-metrics-table.md)]
+
+#### [Consumption plan](#tab/consumption-plan)
+
+These Azure Monitor metrics are related to Consumption plan billing:
+
+[!INCLUDE [functions-flex-consumption-metrics-table](../../includes/functions-consumption-metrics-table.md)]
+
+---
+
+For more information, see [Azure Functions monitoring data reference](monitor-functions-reference.md).
+
+To better understand the costs of your functions, use Azure Monitor to view cost-related metrics that your function apps generate. You can view Monitor metrics by using one of these tools:
 
 #### [Portal](#tab/portal/flex-consumption-plan)
 
@@ -21,7 +40,7 @@ Use [Azure Monitor metrics explorer](/azure/azure-monitor/essentials/metrics-get
 
 The resulting chart contains the totals for all the Flex Consumption execution metrics in the chosen time range, which in this example is a custom time range.
 
-![Graph of On Demand Function Execution Counts and On Demand Function Execution Units](./media/functions-monitor-metrics-consumption/monitor-billing-metrics-flex-consumption.png)
+![Graph of On Demand Function Execution Counts and On Demand Function Execution Units.](./media/functions-monitor-metrics-consumption/monitor-billing-metrics-flex-consumption.png)
 
 Because the number of On Demand Function Execution Units is greater than On Demand Function Execution Count, and there were no [always ready instances](../articles/azure-functions/flex-consumption-plan.md#always-ready-instances) on the app, the chart just shows On Demand Function Execution Units.
 
