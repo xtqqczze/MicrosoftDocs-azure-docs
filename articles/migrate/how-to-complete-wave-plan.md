@@ -10,7 +10,9 @@ ms.date: 10/15/2025
 # Customer intent: Understand concepts such as migration targets, prerequisites, and wave planning. Also, plan and execute a predictable migration and modernization process using Azure Migrate.
 ---
 
-# High-fidelity execution planning for predictable migration and modernization 
+# Plan high-fidelity execution for predictable migration and modernization 
+
+This article explains how to create a high-fidelity migration plan in Azure Migrate, including defining targets, configuring settings, adding tasks, and preparing prerequisites to ensure predictable migration and modernization.
 
 Creating a high-fidelity plan including all the migration details is essential for ensuring predictable migration and modernization without deviations and plans and outcomes. The primary details include:
 
@@ -26,7 +28,7 @@ Before migrating workloads and applications, you should identify the Azure desti
 >[!Note]
 > At present, the assessment link suggests an Azure target for every workload, but specific configurations, such as storage or compute SKUs are only available for integrated server migrations.
 
-To review and update these settings in Azure Migrate's Wave planning, follow these steps:
+To review and update these settings in Azure Migrate Wave planning, follow these steps:
 
 1. Go to Azure Targets page and select **Configure** in the **Target Settings** tile.
 
@@ -42,7 +44,7 @@ Linking an assessment to the application links the assessment to all workloads f
 
 :::image type="content" source="./media/how-to-complete-wave-plan/application-target-settings.png" alt-text="The screenshot shows how to select link assessment in target settings page." lightbox="./media/how-to-complete-wave-plan/application-target-settings.png"::: 
 
-1. Select **Add tasks** to add tasks you need to perform as part of migration beyond the workload migrations. These tasks are manual, so you can add, update and track manually.
+1. Select **Add tasks** to add tasks that you need to perform as part of migration beyond the workload migrations. These tasks are manual, so you can add, update and track manually.
 
 :::image type="content" source="./media/how-to-complete-wave-plan/application-tasks.png" alt-text="The screenshot shows how to select tasks that you need to perfrom." lightbox="./media/how-to-complete-wave-plan/application-tasks.png"::: 
 
@@ -51,7 +53,7 @@ Linking an assessment to the application links the assessment to all workloads f
 
 Use workload target settings to configure Azure targets, select migration tools, and add tasks for your migration plan.
 
-1. Select **Configure target** to review and configure the Azure target. The system sets target by default when you select an assessment. 
+1. Select **Configure target** to review and configure the Azure target. The system sets the target by default when you select an assessment. 
 1. Select **None** for workloads that are planned for retirement and not to be migrated.
 1. Select the tool in **Migration tool** dropdown to define the migration path and tasks. 
 1. Select **Other** for workloads that you want to migrate outside Azure Migrate.
@@ -81,9 +83,9 @@ Azure Migrate identifies the prerequisites you need to complete before starting 
 
 The tasks appear in the Wave configuration stage of the migration and modernization journey. Complete these tasks before the Wave is ready for execution.
 
-After you identify all tasks and activities, review and update the planned start and end dates for the migration in the Wave Settings page.
+After you identify all tasks and activities, review and update the planned start and end dates for the migration in the **Wave Settings** page.
 
-After you identify the migration and modernization activities, configure the target settings, and complete the prerequisites, the wave transitions to the Ready for Execution stage.
+After you identify the migration and modernization activities, configure the target settings, and complete the prerequisites, the wave transitions to the **Ready for Execution** stage.
 
 You can perform the wave planning for multiple waves in a similar way.
 
