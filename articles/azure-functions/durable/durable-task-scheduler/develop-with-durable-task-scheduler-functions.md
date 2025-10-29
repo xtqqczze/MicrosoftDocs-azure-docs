@@ -2,7 +2,7 @@
 title: Azure Functions Durable Task Scheduler in Durable Functions (preview)
 description: Learn how to develop with the Azure Functions Durable Task Scheduler for Durable Functions.
 ms.topic: how-to
-ms.date: 10/28/2025
+ms.date: 10/29/2025
 ---
 
 # Durable Task Scheduler in Durable Functions (preview)
@@ -14,7 +14,7 @@ The Azure Functions Durable Task Scheduler is a highly performant, fully managed
 > * Configure identity-based authentication for your application to access Durable Task Scheduler.
 > * Monitor the status of your app and task hub on the Durable Task Scheduler dashboard. 
 
-Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#feature-highlights), [supported regions](./durable-task-scheduler.md#limitations-and-considerations), and [plans](./durable-task-scheduler.md#limitations-and-considerations).
+Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#feature-highlights), [supported regions](./durable-task-scheduler.md#limitations-and-considerations), and [plans](./durable-task-scheduler-dedicated-sku.md).
 
 ## Create a scheduler and task hub
 You can create a scheduler and a task hub as part of the Function app creation on Azure portal. This creation approach automatically configures identity-based authentication for the app to access the task hub. 
@@ -50,12 +50,6 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 ```
 
 ## Limitations
-
-- **Supported hosting plans:** 
-
-   The Durable Task Scheduler currently only supports Durable Functions running on *Functions Premium* and *App Service* plans. For apps running on the Functions Premium plan, you must [enable the *Runtime Scale Monitoring* setting](#auto-scaling-in-functions-premium-plan) to get auto scaling of the app.
-
-   The *Consumption*, *Flex Consumption*, and *Azure Container App* hosting plans aren't yet supported when using the Durable Task Scheduler.
 
 - **Migrating [task hub data](../durable-functions-task-hubs.md) across backend providers:** 
 

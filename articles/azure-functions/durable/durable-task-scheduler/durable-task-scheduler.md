@@ -2,7 +2,7 @@
 title: Azure Functions Durable Task Scheduler (preview)
 description: Learn about the characteristics of the Azure Functions Durable Task Scheduler.
 ms.topic: conceptual
-ms.date: 04/28/2025
+ms.date: 10/29/2025
 ---
 
 # Azure Functions Durable Task Scheduler (preview)
@@ -12,6 +12,16 @@ The Durable Task Scheduler provides durable execution in Azure. Durable executio
 - Multi-agent orchestration
 - Data processing
 - Infrastructure management, and others. 
+
+## Supported regions
+
+You can run the following command to get a list of available regions for Durable Task Scheduler. 
+
+```bash
+az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table
+```
+
+Consider using the same region for your Durable Functions app and the Durable Task Scheduler resources to optimize performance and certain network-related functionality.
 
 ## Orchestration frameworks
 
@@ -124,16 +134,6 @@ Stale orchestration data should be purged periodically to ensure efficient stora
 
 ## Limitations and considerations
 
-- **Available regions:** 
-
-    Durable Task Scheduler resources can be created in a subset of Azure regions today. You can run the following command to get a list of the supported regions:  
-
-    ```bash
-    az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table
-    ```
-
-    Consider using the same region for your Durable Functions app and the Durable Task Scheduler resources to optimize performance and certain network-related functionality.
-
 - **Scheduler quota:** 
 
     You can currently create up to **five schedulers per region** per subscription.
@@ -156,9 +156,6 @@ Stale orchestration data should be purged periodically to ensure efficient stora
 
     - [Orchestration rewind](../durable-functions-instance-management.md#rewind-instances-preview)
     - [Extended sessions](../durable-functions-azure-storage-provider.md#extended-sessions)
-
-    > [!NOTE]
-    > Feature availability is subject to change as the Durable Task Scheduler backend approaches general availability. To report problems or request new features, submit an issue in the [Durable Task Scheduler GitHub repository](https://github.com/azure/Durable-Task-Scheduler).
 
 ## Next steps
 

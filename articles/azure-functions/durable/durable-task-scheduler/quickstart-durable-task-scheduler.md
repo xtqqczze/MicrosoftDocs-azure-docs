@@ -2,7 +2,7 @@
 title: "Quickstart: Configure a Durable Functions app to use Azure Functions Durable Task Scheduler (preview)"
 description: Learn how to configure an existing Durable Functions app to use Azure Functions Durable Task Scheduler.
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.date: 10/29/2025
 zone_pivot_groups: dts-runtime
 ---
 
@@ -19,9 +19,6 @@ In this quickstart, you:
 > * Set up the Durable Task emulator for local development.
 > * Deploy your app to Azure on the App Service plan using Visual Studio Code.
 > * Monitor the status of your app and task hub on the Durable Task Scheduler dashboard. 
-
-> [!NOTE]
-> Durable Task Scheduler currently only supports Durable Functions running on **Functions Premium** and **App Service** plans. 
 
 ## Prerequisites
 

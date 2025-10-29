@@ -143,4 +143,5 @@ An e-commerce application experiences dynamic workload scaling during promotiona
 ## Next steps
 
 - View [throughput performance benchmarks](./durable-task-scheduler-work-item-throughput.md)
+- [Choose your orchestration framework](./choose-orchestration-framework.md)
 - Try out the [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md).
