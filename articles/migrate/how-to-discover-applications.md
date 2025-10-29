@@ -51,13 +51,13 @@ In this tutorial, you learn how:
 
 1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
 2. Navigate to the **Manage credentials and discovery sources** panel.
-1.  In **Step 1: Provide credentials for discovery source**, select on **Add credentials** to  provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
-1. In **Step 2: Provide discovery source details**, select **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
+3. In **Step 1: Provide credentials for discovery source**, select on **Add credentials** to  provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
+4. In **Step 2: Provide discovery source details**, select **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
 
 :::image type="content" source="./media/how-to-discover-applications/add-server-credentials.png" alt-text="Screenshot shows how to add server credentials." lightbox="./media/how-to-discover-applications/add-server-credentials.png":::
 
-1. In **Step 3: Provide server credentials to perform guest discovery of installed software, dependencies and workloads**, select **Add credentials** to provide multiple server credentials to perform software inventory.
-1. Select **Start discovery**, to initiate discovery.
+5. In **Step 3: Provide server credentials to perform guest discovery of installed software, dependencies and workloads**, select **Add credentials** to provide multiple server credentials to perform software inventory.
+6. Select **Start discovery**, to initiate discovery.
 
 After the server discovery is complete, appliance initiates the discovery of installed software, roles, and features (software inventory) on the servers. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate portal. After the initial discovery is complete, software inventory data is collected and sent to Azure once every 24 hours. Review the [data](discovered-metadata.md#software-inventory-data) collected by appliance during software inventory.
 
@@ -89,25 +89,25 @@ After software inventory has completed, you can review the inventory in the Azur
 
 :::image type="content" source="./media/how-to-discover-applications/security-insights-overview.png" alt-text="Screenshot shows the security insights." lightbox="./media/how-to-discover-applications/security-insights-overview.png":::
 
-1. You can see some software **category cards** available on top of the view for quick access to some category of software.
-1. By default, **All software** card is selected but you can select from **Security & compliance**, **Databases & Data platforms**, **Web hosting**, **Business applications**, **Others** to review discovered software that have been classified in that category.
-1. You can view the aggregated insights for the software inventory to review **Servers with discovery issues**- selecting **View issues** takes you to the Action Center view which is prefiltered to show all servers with issues in gathering software inventory. You can either review the errors at per server level or switch to **View by issues** to review issues aggregated by Error codes and take the suggested remedial action to resolve the issues.
-1. The other aggregated insight in the software view shows the count of unique **Vulnerabilities** identified across all the discovered software. You can choose to select **View all** to review identified vulnerabilities across all discovered software or review them at per software level from the table below.
-1. In the table, you can review each software metadata like **Name**, **Publisher**, **Version** that have been gathered through Software inventory, performed using servers credentials you provided on the Azure Migrate appliance.
-1. You can also review the additional insights like **Category**, **Subcategory**, **Support Status**, **Server count** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
+2. You can see some software **category cards** available on top of the view for quick access to some category of software.
+3. By default, **All software** card is selected but you can select from **Security & compliance**, **Databases & Data platforms**, **Web hosting**, **Business applications**, **Others** to review discovered software that have been classified in that category.
+4. You can view the aggregated insights for the software inventory to review **Servers with discovery issues**- selecting **View issues** takes you to the Action Center view which is prefiltered to show all servers with issues in gathering software inventory. You can either review the errors at per server level or switch to **View by issues** to review issues aggregated by Error codes and take the suggested remedial action to resolve the issues.
+5. The other aggregated insight in the software view shows the count of unique **Vulnerabilities** identified across all the discovered software. You can choose to select **View all** to review identified vulnerabilities across all discovered software or review them at per software level from the table below.
+6. In the table, you can review each software metadata like **Name**, **Publisher**, **Version** that have been gathered through Software inventory, performed using servers credentials you provided on the Azure Migrate appliance.
+7. You can also review the additional insights like **Category**, **Subcategory**, **Support Status**, **Server count** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
 
     > [!NOTE]
     > The gathered software data is processed further to derive **Category**, **Subcategory**, **Support Status** and **Vulnerabilities** . Since this information is AI-generated, there might be inaccuracies.
 
-9. You can select the **Server count** against each software to view the list of servers discovered from your datacenter that are running that particular software version. You can use this view to select a few or all servers to **Add and edit tags**. This will help you scope the servers running the specific software during migration planning.
-10. You can select the **Vulnerabilities** count against each software to view the identified CVE (Common Vulnerabilities and Exposures) IDs for that software version along with other details such as CVSS (Common Vulnerability Scoring System), Risk Level, Age and date the CVE was published on. You can use this view to **Export** the vulnerabilities information for a particular software.
+8. You can select the **Server count** against each software to view the list of servers discovered from your datacenter that are running that particular software version. You can use this view to select a few or all servers to **Add and edit tags**. This will help you scope the servers running the specific software during migration planning.
+9. You can select the **Vulnerabilities** count against each software to view the identified CVE (Common Vulnerabilities and Exposures) IDs for that software version along with other details such as CVSS (Common Vulnerability Scoring System), Risk Level, Age and date the CVE was published on. You can use this view to **Export** the vulnerabilities information for a particular software.
 
     > [!NOTE]
     > Vulnerabilities are sourced from National Vulnerability Database [NVD](https://www.nist.gov/itl/nvd) and mapped to discovered software. [Learn more](insights-overview.md#how-are-insights-derived) on how Insights (preview) are generated and and for complete list of vulnerabilities, use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
 
-11. You can also review the list of **Potential Targets** that have been suggested to plan the migration of your software to the Azure First Party(1P) services or Third Party (3P) Independent Software Vendor (ISV) services available as [Azure Native integrations](/azure/partner-solutions/partners) through Azure Marketplace.
-12. The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, **Servers count** and **Vulnerabilities**.
-13. You can **Export** the software inventory data across the datacenter from **All software**. If you select any other category card, exported file will have information for those scoped sets of software.
+10. You can also review the list of **Potential Targets** that have been suggested to plan the migration of your software to the Azure First Party(1P) services or Third Party (3P) Independent Software Vendor (ISV) services available as [Azure Native integrations](/azure/partner-solutions/partners) through Azure Marketplace.
+11. The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, **Servers count** and **Vulnerabilities**.
+12. You can **Export** the software inventory data across the datacenter from **All software**. If you select any other category card, exported file will have information for those scoped sets of software.
     
     > [!NOTE]
     > You can also export scoped set of software by filtering the view using one or more filters on attributes like **Name**, **Publisher**, **Version**, **Category**, **Subcategory**, **Support Status**,**Servers count** and **Vulnerabilities**. The file is exported in CSV format and can be reviewed using Microsoft Excel.
