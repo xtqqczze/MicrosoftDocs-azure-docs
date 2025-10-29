@@ -29,7 +29,7 @@ These topics are covered in a series of related pages.
 SAP applications should be incorporated into the overall Zero-Trust security solution for the entire IT landscape. [Zero Trust Strategy & Architecture | Microsoft Security](https://www.microsoft.com/security/business/zero-trust?msockid=343d619786f36e041990740887e36ff0#modal-21)
 The SAP Security Solution should reference the Zero-Trust security model. The Zero-Trust security solution validates each action at each layer such as Identity, Endpoint Network Access, Authentication, and MFA through SAP Application and Data Access. 
  
- ![alt text](image.png) 
+ ![alt text](\articles\sap\workloads\media\sap-security-instructure/microsoft-zero-trust-security-diagram.png) 
 
 The purpose of this documentation is to provide a single location with links and a brief description on how to implement Identity, Security, and Audit related features for SAP solutions running on Azure Hyperscale Cloud.   This documentation doesn't precisely specify which security features should be implemented as requirements are dependent on risk profile, industry, and regulatory environment. This document does make some default recommendations such as a general recommendation to use Defender for Endpoint, Transparent Database Encryption (TDE), and Backup Encryption on all systems.  
 Customers designing and implementing Identity, Security, and Audit solutions for SAP review the concepts explained in [Microsoft cloud security benchmark introduction | Microsoft Learn](https://learn.microsoft.com/security/benchmark/azure/introduction). 
@@ -206,7 +206,7 @@ A comparison of Disk Encryption technologies can be found here [Overview of mana
 > [!Important]
 > Azure Disk Encryption isn't supported for SAP systems.  
 #### Virtual Network Encryption 
-Virtual Network Encryption can be considered for high security deployments and gateways. There are some [feature restrictions](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations). Virtual Network Encryption is currently used for specific high security scenarios.   
+Virtual Network Encryption can be considered for high security deployments and gateways. There are some [feature restrictions](https://learn.microsoft.com/azure/virtual-network/virtual-network-encryption-overview#limitations). Virtual Network Encryption is currently used for specific high security scenarios.   
 [What is Azure Virtual Network encryption? - Azure Virtual Network | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-network-encryption-overview)
 
 #### Intel Total Memory Encryption (TME)
@@ -262,16 +262,16 @@ Security Analysts and Forums have reported an increase in the exploitation of SA
 
 ## Links  
 
-- Microsoft Response Center [MSRC - Microsoft Security Response Center](https://www.microsoft.com/en-us/msrc?rtc=1&oneroute=true)
+- Microsoft Response Center [MSRC - Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1&oneroute=true)
 - [3356389 - Antivirus or other security software affecting SAP operations](https://me.sap.com/notes/3356389/E)
 - [CVE: Common Vulnerabilities and Exposures](https://www.cve.org/)
-- [Azure operational security checklist | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/operational-checklist)
+- [Azure operational security checklist | Microsoft Learn](https://learn.microsoft.com/azure/security/fundamentals/operational-checklist)
 - [Microsoft Purview classic data governance best practices for security - Microsoft Purview | Azure Docs](https://docs.azure.cn/en-us/purview/data-gov-classic-security-best-practices)
-- [Azure Bastion documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/bastion/)
-- [Azure security fundamentals documentation | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/)  
+- [Azure Bastion documentation | Microsoft Learn](https://learn.microsoft.com/azure/bastion/)
+- [Azure security fundamentals documentation | Microsoft Learn](https://learn.microsoft.com/azure/security/fundamentals/)  
 - [SAP HANA Database Encryption - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-hana-database-encryption/ba-p/13555367)
 - [3345490 - Common Criteria Compliance FAQ](https://me.sap.com/notes/3345490)
-- [Microsoft Security Compliance Toolkit Guide | Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/security-compliance-toolkit-10)
-- [SQL Server database security for SAP on Azure - Cloud Adoption Framework | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/sap/sap-lza-database-security)
-- [Firmware measured boot and host attestation - Azure Security | Microsoft Learn](https://learn.microsoft.com/en-us/azure/security/fundamentals/measured-boot-host-attestation)
+- [Microsoft Security Compliance Toolkit Guide | Microsoft Learn](https://learn.microsoft.com/windows/security/operating-system-security/device-management/windows-security-configuration-framework/security-compliance-toolkit-10)
+- [SQL Server database security for SAP on Azure - Cloud Adoption Framework | Microsoft Learn](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/sap/sap-lza-database-security)
+- [Firmware measured boot and host attestation - Azure Security | Microsoft Learn](https://learn.microsoft.com/azure/security/fundamentals/measured-boot-host-attestation)
 
