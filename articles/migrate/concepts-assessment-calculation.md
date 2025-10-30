@@ -296,7 +296,7 @@ Each performance-based Azure VM assessment in Azure Migrate is associated with a
 If any of these utilization numbers isn't available, the size recommendations might be unreliable.
 
 > [!NOTE]
-> Performance coverage isn't assigned for servers assessed using an imported CSV file. Coverage also isn't applicable for as-is on-premises assessment.
+> Performance coverage isn't assigned for servers assessed using an imported inventory. Coverage also isn't applicable for as-is on-premises assessment.
 
 ### Coverage
 
