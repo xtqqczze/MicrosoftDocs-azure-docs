@@ -22,10 +22,10 @@ This article describes how to use the operations experience web UI to manage cor
 To learn how to use the operations experience to manage namespace assets and devices, see:
 
 - [Configure the connector for OPC UA](howto-configure-opc-ua.md)
-- [Configure the connector for ONVIF (preview)](howto-use-onvif-connector.md)
-- [Configure the media connector (preview)](howto-use-media-connector.md)
-- [Configure the connector for HTTP/REST (preview)](howto-use-http-connector.md)
-- [Configure the connector for SSE (preview)](howto-use-sse-connector.md)
+- [Configure the connector for ONVIF](howto-use-onvif-connector.md)
+- [Configure the media connector](howto-use-media-connector.md)
+- [Configure the connector for HTTP/REST](howto-use-http-connector.md)
+- [Configure the connector for SSE](howto-use-sse-connector.md)
 - [Configure the connector for MQTT (preview)](howto-use-mqtt-connector.md)
 To learn how to use the operations experience to manage data flows, see [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
 
@@ -109,6 +109,6 @@ To view activity logs as the resource level, select the resource that you want t
 - [Connector for ONVIF overview](howto-use-onvif-connector.md)
 - [Media connector overview](howto-use-media-connector.md)
 - [Connector for HTTP/REST overview](howto-use-http-connector.md)
-- [Connector for SSE (preview)](howto-use-sse-connector.md)
+- [Connector for SSE](howto-use-sse-connector.md)
 - [Connector for MQTT (preview)](howto-use-mqtt-connector.md)
 - [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md)

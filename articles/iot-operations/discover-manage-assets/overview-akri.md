@@ -89,6 +89,6 @@ Akri services build on the capabilities of the open-source Akri project and prov
 - [Configure the connector for ONVIF](howto-use-onvif-connector.md)
 - [Configure the media connector](howto-use-media-connector.md)
 - [Configure the connector for OPC UA](howto-configure-opc-ua.md)
-- [Configure the connector for HTTP/REST (preview)](howto-use-http-connector.md)
-- [Configure the connector for SSE (preview)](howto-use-sse-connector.md)
+- [Configure the connector for HTTP/REST](howto-use-http-connector.md)
+- [Configure the connector for SSE](howto-use-sse-connector.md)
 - [Configure the connector for MQTT (preview)](howto-use-mqtt-connector.md)
