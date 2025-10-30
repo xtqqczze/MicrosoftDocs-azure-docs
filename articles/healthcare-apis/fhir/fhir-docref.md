@@ -1,5 +1,5 @@
 ---
-title: $docref
+title: DocumentReference ($docref)
 description: Overview of $docref in Azure Health Data Services FHIR
 author: evachen96
 ms.author: evach

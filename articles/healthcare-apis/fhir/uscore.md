@@ -1,6 +1,6 @@
 ---
-title: $docref
-description: Overview of $docref in Azure Health Data Services FHIR
+title: US Core
+description: Overview of US Core in Azure Health Data Services FHIR
 author: evachen96
 ms.author: evach
 ms.service: azure-health-data-services
