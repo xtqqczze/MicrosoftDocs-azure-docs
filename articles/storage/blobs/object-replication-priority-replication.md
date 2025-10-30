@@ -120,8 +120,10 @@ $destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -S
     -PolicyId default -SourceAccount $srcAccountName `
     -Rule $rule1 -EnableMetric $true -EnablePriorityReplication $true
 $destPolicy.PriorityReplication.Enabled
+```
 
 # [Azure CLI](#tab/cli)
+```azurecli-interactive
 
 # Login to your Azure account
 az login
@@ -134,8 +136,10 @@ $srcAccountName  = "<source-account-name>"
 $srcContainer    = "<source-container-name>"
 $destContainer   = "<destination-container-name>"
 
-#Create Account
+# Set OR policy on destination account with priority replication enabled
 
 az storage account or-policy create -n $destAccountName -s $srcAccountName --dcont $dstContainer --scont $srcContainer -t "2020-02-19T16:05:00Z" --enable-metrics True --priority-replication true
+
+```
 
 ---
