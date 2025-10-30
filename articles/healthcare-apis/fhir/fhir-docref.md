@@ -1,5 +1,5 @@
 ---
-title: DocumentReference ($docref)
+title: Fetch DocumentReference
 description: Overview of $docref in Azure Health Data Services FHIR
 author: evachen96
 ms.author: evach
@@ -8,7 +8,7 @@ ms.topic: overview #Required; leave this attribute/value as-is.
 ms.date: 10/10/2025
 
 ---
-# `$docref` operation in FHIR service
+# Fetch DocumentReference using `$docref` operation in FHIR service
 The [$docref operation](https://www.hl7.org/fhir/us/core/STU6.1/OperationDefinition-docref.html), as defined as part of US Core 6.1.0, is used to return all the references to documents related to a patient. A `searchset` Bundle containing DocumentReference resources for the patient is returned. 
 
 ## `$docref` parameters
