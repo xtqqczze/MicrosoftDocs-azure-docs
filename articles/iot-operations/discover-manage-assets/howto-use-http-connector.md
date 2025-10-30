@@ -29,7 +29,7 @@ The connector for HTTP/REST supports the following features:
   - Username/password basic HTTP authentication
   - x509 client certificates
   - Anonymous access for testing purposes
-  - Certificate trust list
+- To establish a TLS connection to the HTTP endpoint, you can configure a certificate trust list for the connector.
 
 For each configured dataset, the connector for HTTP/REST:
 

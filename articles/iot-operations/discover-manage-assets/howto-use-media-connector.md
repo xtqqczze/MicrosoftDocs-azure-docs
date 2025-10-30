@@ -12,7 +12,7 @@ ms.date: 07/23/2025
 
 # Configure the media connector
 
-In Azure IoT Operations, the media connector enables access to media from media sources such as edge-attached cameras.
+In Azure IoT Operations, the media connector enables access to media from media sources such as cameras.
 
 [!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
 
@@ -28,12 +28,13 @@ This article explains how to use the media connector to perform tasks such as:
 The media connector supports the following southbound authentication methods:
   - Username/password authentication
   - Anonymous access for testing purposes
-  - Certificate trust list
+
+To establish a TLS connection to the media source, you can configure a certificate trust list for the connector.
 
 The media connector supports the following northbound authentication methods:    
-  - Username/password for RTSP and RTSPs endpoints
-  - Anonymous access for testing purposes on RTSP and RTSPs endpoints
-  - Certificate trust list for RTSPs endpoints only
+  - Username/password for RTSP and RTSPS endpoints
+  - Anonymous access for testing purposes on RTSP and RTSPS endpoints
+  - Certificate trust list for RTSPS endpoints only
 
 ## Prerequisites
 
@@ -49,11 +50,8 @@ The media connector can connect to various sources, including:
 
 | Media source | Example URLs | Notes |
 |--------------| ---------------|-------|
-| Edge attached camera | `file://host/dev/video0`<br/>`file://host/dev/usb0` | No authentication required. The URL refers to the device file. Connects to a node using USB, FireWire, MIPI, or proprietary interface. |
 | IP camera | `rtsp://192.168.178.45:554/stream1` | JPEG over HTTP for snapshots, RTSP/RTCP/RTP/MJPEG-TS for video streams. An IP camera might also expose a standard ONVIF control interface. |
 | Media server | `rtsp://192.168.178.45:554/stream1` | JPEG over HTTP for snapshots, RTSP/RTCP/RTP/MJPEG-TS for video streams. A media server can also serve images and videos using URLs such as `ftp://host/path` or `smb://host/path` |
-| Media file | `http://camera1/snapshot/profile1`<br/>`nfs://server/path/file.extension`<br/>` file://localhost/media/path/file.mkv`  | Any media file with a URL accessible from the cluster. |
-| Media folder | `file://host/path/to/folder/`<br/>`ftp://server/path/to/folder/` | A folder, accessible from the cluster, that contains media files such as snapshots or clips. |
 
 ## Task types
 
@@ -65,15 +63,15 @@ The media connector supports the following task types:
 | clip-to-fs | Saves a video clip from a media source to the file system. |
 | snapshot-to-fs | Saves a snapshot from a media source to the file system. |
 | stream-to-rtsp | Proxies a live video stream from a media source to RTSP endpoints. |
-| stream-to-rtsps | Proxies a live video stream from a media source to RTSPs endpoints. |
+| stream-to-rtsps | Proxies a live video stream from a media source to RTSPS endpoints. |
 
 ### RTSP endpoint authentication
 
-The connector supports username/password authentication when it proxies live video streams to RTSP or RTSPs endpoints. The connector also supports certificate-based authentication when it proxies live video streams to RTSPs endpoints.
+The connector supports username/password authentication when it proxies live video streams to RTSP or RTSPS endpoints. The connector also supports TLS when it proxies live video streams to RTSPS endpoints.
 
 Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault, project them into Kubernetes cluster, and reference them from your `stream-to-rtsp` and `stream-to-rtsps` asset configurations.
 
-Follow the steps in [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications) to add secrets for certificates in Azure Key Vault, project them into Kubernetes cluster, and reference them from your `stream-to-rtsps` asset configurations.
+Follow the steps in [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications) to add secrets for TLS certificates in Azure Key Vault, project them into Kubernetes cluster, and reference them from your `stream-to-rtsps` asset configurations.
 
 ## Example uses
 
@@ -81,7 +79,7 @@ Example uses of the media connector include:
 
 - Capture snapshots from a video stream or from an image URL and publish them to an MQTT topic. A subscriber to the MQTT topic can use the captured images for further processing or analysis.
 
-- Save video streams to a local file system on your cluster. Use [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to provide a reliable and fault-tolerant solution for uploading the captured video to the cloud for storage or processing.
+- Save snapshots or video clips to a local file system on your cluster. Use [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to provide a reliable and fault-tolerant solution for uploading the captured video to the cloud for storage or processing.
 
 - Proxy a live video stream from a camera to an endpoint that an operator can access. For security and performance reasons, only the media connector should have direct access to an edge camera. The media connector uses a separate media server component to stream video to an operator's endpoint. This media server can transcode to various protocols such as RTSP, RTCP, SRT, and HLS. You need to deploy your own media server to provide these capabilities.
 
@@ -192,7 +190,7 @@ To learn more, see [az iot ops ns asset rest](/cli/azure/iot/ops/ns/asset/rest).
 
 ### Verify the published messages
 
-To verify that the connector is publishing messages, you can use an MQTT client to subscribe to the topic `azure-iot-operations/data/{asset name}/{stream name}`. If the device and namespace asset are configured correctly, you receive messages containing JPEG image snapshots when you subscribe to this topic.
+To verify that the connector is publishing messages, you can use an MQTT client to subscribe to the topic configured as the destination for the stream, by default this topic is called `azure-iot-operations/data/{asset name}/{stream name}`. If the device and namespace asset are configured correctly, you receive messages containing JPEG image snapshots when you subscribe to this topic.
 
 The following steps show you how to run the **mosquitto_sub** tool in the cluster. To learn more about this tool and alternative approaches, see [MQTT tools](../troubleshoot/tips-tools.md#mqtt-tools):
 
@@ -250,6 +248,9 @@ The following steps assume that you configured a persistent volume claim (PVC) t
 | Edge sub volume path | `exampleSubDir` |
 | Connector template mount path | `/data` |
 | Stream path in operations experience | `/data/exampleSubDir/clips` |
+
+> [!IMPORTANT]
+> The mount path must start with the '/' character.
 
 After the connector captures the clips, it uploads them to the `/pvc/clips` folder in your container:
 
