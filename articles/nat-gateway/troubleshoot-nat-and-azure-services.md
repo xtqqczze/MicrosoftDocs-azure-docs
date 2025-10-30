@@ -26,7 +26,7 @@ This article provides guidance on how to troubleshoot connectivity issues when u
 * [Azure SQL Managed Instance](#azure-sql-managed-instance)
 
 > [!IMPORTANT]
-> Azure NAT Gateway V2 is currently in PREVIEW.
+> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Known issues with StandardV2 NAT Gateway and VNet injection scenarios

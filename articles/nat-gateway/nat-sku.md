@@ -13,7 +13,7 @@ ms.customs: references_regions
 Azure Network Address Translation (NAT) Gateway has two stock-keeping units (SKUs). This article provides an overview of these different SKUs and their differences.
 
 > [!IMPORTANT]
-> Azure NAT Gateway V2 is currently in PREVIEW.
+> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## SKU comparison

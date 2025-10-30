@@ -15,7 +15,7 @@ ms.date: 09/09/2025
 Review this article to familiarize yourself with considerations for designing virtual networks with NAT gateway.
 
 > [!IMPORTANT]
-> Azure NAT Gateway V2 is currently in PREVIEW.
+> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Connect to the internet with a NAT gateway

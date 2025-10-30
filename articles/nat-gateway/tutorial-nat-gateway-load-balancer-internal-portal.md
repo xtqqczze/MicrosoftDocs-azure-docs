@@ -22,7 +22,7 @@ SNAT is enabled for an internal backend pool via another public load balancer, n
 The NAT gateway integration replaces the need for the deployment of a public load balancer, network routing, or a public IP defined on a virtual machine in the backend pool.
 
 > [!IMPORTANT]
-> Azure NAT Gateway V2 is currently in PREVIEW.
+> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-internal-portal/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-nat-gateway-load-balancer-internal-portal/resources-diagram.png":::
