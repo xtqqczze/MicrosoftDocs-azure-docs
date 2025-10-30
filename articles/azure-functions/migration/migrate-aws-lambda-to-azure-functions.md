@@ -9,7 +9,7 @@ ms.custom:
 ms.collection: 
  - migration
  - aws-to-azure
-ms.date: 10/23/2025
+ms.date: 10/29/2025
 ms.topic: conceptual
 #customer intent: As a developer, I want to learn how to migrate serverless applications from AWS Lambda to Azure Functions so that I can make the transition efficiently.
 ---
@@ -38,7 +38,7 @@ To make it easier to migrate your AWS Lambda apps to Azure using Visual Studio C
 
 1. If you don't already have the [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) Visual Studio Code extension, install it now.
 
-1. Open your Lambda project in Visual Studio Code as a workspace.
+1. Open your Lambda project as a workspace in Visual Studio Code.
 
 1. Run this prompt in **Agent** mode in GitHub Copilot:
 
@@ -81,7 +81,7 @@ The first step is to conduct a detailed discovery process to evaluate your exist
 > Use this custom chat mode prompt to generate an assessment report for your AWS Lambda setup:
 > 
 > ```copilot-prompt
-> `/LambdaMigration-Phase1-AssessLambdaProject `
+> /LambdaMigration-Phase1-AssessLambdaProject
 > ```
 
 ## Perform premigration planning
@@ -266,7 +266,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
    > Use this custom chat mode prompt to check the current status of the migration process at any time:
    > 
    > ```copilot-prompt
-   > `/LambdaMigration-GetStatus`
+   > /LambdaMigration-GetStatus
    > ```
 
    Use the proof of concept to gather feedback, identify gaps, and fine-tune the process before you scale to larger workloads. This iterative approach ensures that by the time you move to full-scale migration, you address potential challenges and refine the process.
@@ -280,7 +280,7 @@ This step is a transitional development phase. During this phase, you build sour
    > Use this custom chat mode prompt to start the code migration process:
    > 
    > ```copilot-prompt
-   > `/LambdaMigration-Phase2-MigrateLambdaCode`
+   > /LambdaMigration-Phase2-MigrateLambdaCode
    > ```
 - [Adjust configuration settings](#adjust-configuration-settings)
 - [Generate IaC files](#generate-iac-files)
@@ -290,13 +290,13 @@ This step is a transitional development phase. During this phase, you build sour
 
 To update code for Azure Functions runtime requirements:
 
-   - Modify your code to adhere to the Azure Functions programming model. For instance, adapt your function signatures to match the format that Azure Functions requires. For more information about function definition and execution context, see [Azure Functions developer guides](/azure/azure-functions/functions-reference-node).
+- Modify your code to adhere to the Azure Functions programming model. For instance, adapt your function signatures to match the format that Azure Functions requires. For more information about function definition and execution context, see [Azure Functions developer guides](/azure/azure-functions/functions-reference-node).
 
-   - Use the [Azure Functions extensions bundle](/azure/azure-functions/functions-bindings-register) to handle various bindings and triggers that are similar to AWS services. For .NET applications, you should use the appropriate NuGet packages instead of the extensions bundle.
+- Use the [Azure Functions extensions bundle](/azure/azure-functions/functions-bindings-register) to handle various bindings and triggers that are similar to AWS services. For .NET applications, you should use the appropriate NuGet packages instead of the extensions bundle.
 
-   - Use the extensions bundle to integrate with other Azure services such as Azure Storage, Azure Service Bus, and Azure Cosmos DB without needing to manually configure each binding through SDKs. For more information, see [Connect functions to Azure services by using bindings](/azure/azure-functions/add-bindings-existing-function) and [Azure Functions binding expression patterns](/azure/azure-functions/functions-bindings-expressions-patterns).
+- Use the extensions bundle to integrate with other Azure services such as Azure Storage, Azure Service Bus, and Azure Cosmos DB without needing to manually configure each binding through SDKs. For more information, see [Connect functions to Azure services by using bindings](/azure/azure-functions/add-bindings-existing-function) and [Azure Functions binding expression patterns](/azure/azure-functions/functions-bindings-expressions-patterns).
 
-The following snippets are examples of common SDK code. The AWS Lambda code maps to the corresponding triggers, bindings, or SDK code snippets in Azure Functions.
+These snippets are examples of common SDK code. The AWS Lambda code maps to the corresponding triggers, bindings, or SDK code snippets in Azure Functions.
 
 **Reading from Amazon S3 versus Azure Blob Storage**
 
@@ -618,7 +618,7 @@ Deployments follow a single path. After you build your project code and zip it i
    > Use this custom chat mode prompt to generate infrastructure as code (IaC) files for Azure Functions:
    > 
    > ```copilot-prompt
-   > `/LambdaMigration-Phase3-GenerateFunctionsInfra`
+   > /LambdaMigration-Phase3-GenerateFunctionsInfra
    > ```
 
 - Define resources such as Azure Functions, storage accounts, and networking components in your IaC files.
@@ -651,7 +651,7 @@ Develop failover and failback strategies for your migration and thoroughly test 
       > Use this custom chat mode prompt to validate the migrated Azure Functions code:
       > 
       > ```copilot-prompt
-      > `/LambdaMigration-Phase4-ValidateCode`
+      > /LambdaMigration-Phase4-ValidateCode
       > ```
 
    - Use tools like curl or [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extensions on VS Code to send HTTP requests for HTTP-triggered functions.
@@ -668,7 +668,7 @@ Develop failover and failback strategies for your migration and thoroughly test 
       > Use this custom chat mode prompt to validate the infrastructure configuration:
       > 
       > ```copilot-prompt
-      > `/LambdaMigration-Phase5-ValidateInfra`
+      > /LambdaMigration-Phase5-ValidateInfra
       > ```
 
    - Use Application Insights for [monitoring, log analysis, and troubleshooting](/azure/azure-functions/functions-monitoring) during the testing phase.
@@ -689,7 +689,7 @@ Deploy and test functions to validate their performance and correctness.
 > Use this custom chat mode prompt to deploy the validated project to Azure:
 > 
 > ```copilot-prompt
-> `/LambdaMigration-Phase6-DeployToAzure`
+> /LambdaMigration-Phase6-DeployToAzure
 > ```
 
 Deploy workloads by using the [VS Code](/azure/azure-functions/functions-develop-vs-code#publish-to-azure) publish feature. You can also deploy workloads from the command line by using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). [Azure DevOps](/azure/azure-functions/functions-how-to-azure-devops#deploy-your-app) and [GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) also use One Deploy.
