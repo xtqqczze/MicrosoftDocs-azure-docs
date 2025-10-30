@@ -209,7 +209,7 @@ az storage account update -n $storageAccountName -g $rgname --enable-blob-geo-pr
 
 To ensure transparency and empower customers to track the performance of Geo priority replication, Azure provides a new monitoring tool integrated directly into Azure Monitor Metrics. After geo priority replication is enabled, you have the ability to view the new **Geo Blob Lag metric (preview)** for Blob data on a per-account basis. You can check your "Geo blob lag" performance throughout the month via the **Redundancy** and **Metrics** panes. The **Geo Blob Lag metric (preview)** allows you to monitor the lag, or the number of seconds since the last full data copy between the primary and secondary regions, of your block blob data. Geo blob lag can be viewed over the course of a specified time range, up to 12 months. This metric allows you to assess the performance trends and identify potential SLA breaches for your account. 
 
-<!-->INSERT IMAGE HERE-->
+<!--INSERT IMAGE HERE-->
 
 ## Feature pricing
 
@@ -219,5 +219,5 @@ Users begin paying for Geo priority replication feature as soon as they enable t
 > When you disable Geo Priority Replication, the account is billed for 30 days beyond the date on which the feature was disabled.
 
 ## Next steps
-- [Understand Azure Storage redundancy options](storage-redundancy-overview.md)
+- [Understand Azure Storage redundancy options](storage-redundancy.md)
 - [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/)
