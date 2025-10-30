@@ -10,13 +10,13 @@ ms.subservice: sap-automation
 ms.topic: conceptual
 ---
 
-# SAP Testing Automation Framework Overview
+# SAP Testing Automation Framework overview
 
 The [SAP Testing Automation Framework](https://github.com/Azure/sap-automation-qa) (STAF) is an open-source orchestration tool that validates SAP deployments on Microsoft Azure. It validates SAP system's and infrastructure configurations against SAP on Azure best practices and guidelines. Additionally, the framework automates testing of High Availability (HA) cluster's functional behavior in SAP systems.
 
 The SAP Testing Automation Framework started as an addition to the [SAP Deployment Automation Framework (SDAF)](./deployment-framework.md), offering a robust testing layer for SAP systems deployed on Azure through automated validation processes. The framework is flexible and works as a standalone solution, allowing customers who have not deployed their systems using SDAF to independently use the testing capabilities and validate their existing SAP environments. The framework validates the configurations and behavior of SAP HANA databases and SAP Central Services (ASCS/ERS) in high availability setup and performs comprehensive configuration checks for SAP systems, including database (SAP HANA and IBM DB2), central services, and application server components.
 
-## Test Categories
+## Test categories
 
 SAP Testing Automation is designed as a scalable framework to orchestrate and validate an array of SAP landscape configurations/deployment patterns through repeatable, policy-driven test modules. The framework currently takes care of following scenarios :
 
