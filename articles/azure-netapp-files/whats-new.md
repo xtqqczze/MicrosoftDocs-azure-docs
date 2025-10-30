@@ -23,10 +23,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     [Azure NetApp Files backup](backup-requirements-considerations.md) now supports large volumes by moving point-in-time snapshot copy data to low-cost Azure storage to address long-term retention, data protection, and compliance needs. Azure NetApp Files backup employs an efficient data mover to backup data at high speeds for both initial and incremental subsequent backups. You must register the large volumes AFEC to use Azure NetApp Files backup on large volumes. 
 
-* [Restore individual files using single-file restore from backup](restore-single-file-backup.md) is now generally available (GA)
-
-  With Azure NetApp Files single file restore from backup, you can restore individual files from Azure NetApp Files backup vault without needing to restore an entire volume. By restoring only the necessary files, you can save cost and time needed for restoring data. 
-
 * [Object REST API](object-rest-api-access-configure.md) (preview)
 
     The [Object REST API (an S3-compatible REST API)](object-rest-api-introduction.md) on Azure NetApp Files bridges the gap between traditional file-based storage and modern cloud services, enabling you to use your existing data in new ways. With the Object REST API, you can seamlessly integrate Azure NetApp Files data with Microsoft Fabric, Azure AI services, and other Azure offerings without the need to move or replicate data. This unlocks new use cases such as advanced analytics, machine learning, and real-time business intelligence, while reducing costs and accelerating innovation.
