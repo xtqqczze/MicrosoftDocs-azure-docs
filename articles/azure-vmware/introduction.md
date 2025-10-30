@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 10/29/2025
+ms.date: 10/30/2025
 ms.custom: engagement-fy23
 ---
 
