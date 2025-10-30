@@ -1,9 +1,9 @@
 ---
 title: Site update strategies in Flex Consumption
-description: Learn which site update strategy to choose for your Flex Consumption app.
+description: Learn how to configure zero downtime deployments and choose the right site update strategy for your Flex Consumption app.
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 10/28/2025
+ms.date: 10/30/2025
 ---
 
 # Site update strategies in Flex Consumption
@@ -13,24 +13,24 @@ The Flex Consumption plan provides a `SiteUpdateStrategy` property that controls
 Flex Consumption supports two update strategies:
 
 - **Recreate**: Restarts all running instances and replaces them with the latest version. This approach may cause brief downtime while instances are recycled and preserves the default behavior from other Azure Functions hosting plans.
-- **RollingUpdate**: Provides zero-downtime deployments by draining and replacing instances in batches. In-flight executions complete naturally without forced termination.
+- **Rolling update**: Provides zero-downtime deployments by draining and replacing instances in batches. In-flight executions complete naturally without forced termination.
 
 > [!IMPORTANT]
 > The rolling update strategy is currently in public preview. Review the limitations and considerations before using this feature in production scenarios.
 
-## Overview of site update strategies
+## Strategy comparison
 
 Refer to this table when deciding between the two site update strategies:
 
-| Consideration | Recreate | Rolling Update |
+| Consideration | Recreate | Rolling update |
 | ------------- | -------- | -------------- |
 | Downtime      | Brief downtime as your app scales out from 0 after the restart | No period of downtime |
-| In-flight executions | Forcefully terminated | Allowed to complete for the [maximum time-out duration](./functions-scale#function-app-time-out-duration.md) |
-| Speed         | Quick - environment can take up to 30 seconds to update | Gradual - environment can take a few minutes depending on the number of instances |
+| In-flight executions | Forcefully terminated | Allowed to complete within the [60-minute scale-in grace period](functions-scale.md#function-app-time-out-duration) (HTTP functions limited to 230-second timeout) |
+| Speed         | Quick - environment can take up to 30 seconds to update | Gradual - environment can take up to three minutes depending on the number of instances (includes delay between site update completion and rolling update start) |
 | Backward compatibility | Not necessary as one version will be running at a time | Changes must be backward compatible, especially with stateful workloads or breaking changes |
 | How to set    | Default behavior, consistent with other hosting plans  | Opt-in configuration |
 
-## When to use each strategy
+## Choosing a strategy
 
 **Use Recreate when:**
 - You need fast deployments
@@ -38,7 +38,7 @@ Refer to this table when deciding between the two site update strategies:
 - You're deploying breaking changes that require a clean restart
 - Your functions are stateless and can handle interruption
 
-**Use RollingUpdate when:**
+**Use Rolling update when:**
 - Zero-downtime deployments are required
 - You have long-running or critical functions that shouldn't be interrupted
 - Your changes are backward-compatible
@@ -48,11 +48,12 @@ Refer to this table when deciding between the two site update strategies:
 
 The recreate strategy follows this process:
 
-1. A site update is initiated while your function app has active instances
+1. A site update (code or configuration changes) is applied to your function app
+1. The recreate strategy is triggered to update running instances with the new changes
 1. The platform forcefully restarts all live and draining instances
-1. Active instance count reaches zero, triggering the scaling system to provision new instances with the latest version
+1. The scaling system immediately begins provisioning new instances with the updated version (original instances may still be deprovisioning in the background)
 
-### Recreate limitations
+### Recreate behavior and limitations
 
 The recreate strategy has these characteristics:
 
@@ -61,22 +62,23 @@ The recreate strategy has these characteristics:
 - **No completion signal**: Monitor instance logs to track when original instances stop emitting logs
 
 
-## RollingUpdate strategy
+## Rolling update strategy
 
 The rolling update strategy provides zero-downtime deployments through this process:
 
-1. A site update is initiated while your function app has active instances
+1. A site update (code or configuration changes) is applied to your function app
+1. The rolling update strategy is triggered to update running instances with the new changes
 1. The platform assigns all live instances to batches
 1. At regular intervals, the platform drains one batch of instances. Draining prevents instances from accepting new events while allowing in-flight executions to complete (up to the one hour maximum execution time)
-1. Simultaneously, the scaling platform provisions new instances running the latest version to replace the draining capacity
-1. This process continues until all live instances are on the latest version
+1. Simultaneously, the scaling platform provisions new instances running the updated version to replace the draining capacity
+1. This process continues until all live instances are running the updated version
 
 The platform intelligently manages capacity during rolling updates. If demand increases, more instances are provisioned than were drained. If demand decreases, only the necessary instances are created to meet current needs. This approach ensures continuous availability while optimizing resource usage. 
 
-### RollingUpdate behavior and limitations
+### Rolling update behavior and limitations
 
 **Key behaviors:**
-- **Asynchronous operations**: Draining and scale-out happen simultaneously without waiting for each other to complete
+- **Asynchronous operations**: Draining and scale-out happen simultaneously without waiting for each other to complete. The scale-out is not guaranteed to occur before the next drain interval
 - **Overlapping updates**: You can initiate additional rolling updates while one is in progress. All non-latest instances are drained, and only the newest version is scaled out
 - **Dynamic scaling**: The platform adjusts instance count based on current demand during the update
 
@@ -87,14 +89,14 @@ The platform intelligently manages capacity during rolling updates. If demand in
 - **Single-instance scenarios**: Apps running on one instance experience brief downtime similar to recreate, though in-flight executions still complete
 
 **Important considerations:**
-- **Durable Functions**: Mixed versions during updates may cause unexpected behavior. Use an explicit [orchestration version match strategy](./durable/durable-functions-orchestration-versioning.md)
+- **Durable Functions**: Mixed versions during updates may cause unexpected behavior. Use an explicit [orchestration version match strategy](durable/durable-functions-orchestration-versioning.md)
 - **Infrastructure as Code**: Deploying code and configuration changes together triggers multiple rolling updates that may overlap
 - **Backward compatibility**: Ensure your changes work with the previous version during the transition period
 
 > [!IMPORTANT]
 > These limitations and behaviors may change when the feature reaches general availability.
 
-## How to configure the site update strategy
+## Configuration
 
 The `SiteUpdateStrategy` is a property within the `functionAppConfig`. By default, its `type` is set to `Recreate`. Currently, only Bicep and ARM are supported with API version `2024-11-01` or later:
 
@@ -122,11 +124,11 @@ functionAppConfig: {
 
 Changes to the site update strategy take effect at the next site update. For example, changing from `Recreate` to `RollingUpdate` uses the recreate strategy for that update. All subsequent site updates use rolling updates.
 
-## Monitoring
+## Monitoring site updates
 
-During the Public Preview, there's no deterministic completion signal for site updates. You have two options:
+During the public preview, there's no deterministic completion signal for site updates. You have two options:
 
-1. **Wait a conservative amount of time**: up to 30 seconds for the recreate updates or up to 3 minutes for rolling updates
+1. **Wait a conservative amount of time**: up to 30 seconds for recreate updates or up to 3 minutes for rolling updates
 2. **Estimate completion using queries**: Use the KQL query below to track rolling update progress, but be aware of its limitations
 
 ### Query rolling update progress
@@ -193,7 +195,7 @@ For production scenarios, use rolling updates for zero-downtime deployments with
 
 **I'm used to deployment slots for zero downtime deployments. How do rolling updates differ?**
 - Unlike deployment slots, rolling updates require no additional infrastructure. Set `siteUpdateStrategy.type` to `"RollingUpdate"` for zero-downtime deployments.
-- Rolling updates preserve in-flight executions, while deployment slots terminate them during swaps. [Certain site properties](./functions-deployment-slots#manage-settings.md) and sticky settings can't be swapped and require modifying the production slot directly.
+- Rolling updates preserve in-flight executions, while deployment slots terminate them during swaps. [Certain site properties](functions-deployment-slots.md#manage-settings) and sticky settings can't be swapped and require modifying the production slot directly.
 - Unlike deployment slots, rolling updates don't provide a separate environment for you to canary test changes or route a percentage of live traffic to. If you need these features, use a plan that supports deployment slots, like Elastic Premium, or manage separate Flex Consumption apps behind a traffic manager.
 
 **How do I roll back a site update?**
@@ -202,8 +204,12 @@ For production scenarios, use rolling updates for zero-downtime deployments with
 **How are timer triggers handled?**
 - Timer triggers maintain their singleton nature. Once a timer-triggered function app is marked for drain, new timer functions run on the latest version. 
 
+**I'm seeing runtime errors during the rolling update...what went wrong?**
+- If new instances fail to start or encounter runtime errors, the issue is likely in the application code, dependencies, configuration settings, or environment variables that were modified.
+- To resolve, redeploy your last known healthy version to restore the runtime and then test your proposed changes in a development or staging environment before reattempting. Review error logs to identify what specific change caused the issue. 
+
 ## Next steps
 
-- [Learn more about the Flex Consumption plan](./flex-consumption-plan.md)
-- [Learn more about how deployments differ in Flex Consumption](./flex-consumption-plan#deployment.md)
-- [Learn how to write infrastructure-as-code templates](./functions-infrastructure-as-code.md)
+- [Learn more about the Flex Consumption plan](flex-consumption-plan.md)
+- [Learn more about how deployments differ in Flex Consumption](flex-consumption-plan.md#deployment)
+- [Learn how to write infrastructure-as-code templates](functions-infrastructure-as-code.md)
