@@ -8,6 +8,7 @@ ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 08/12/2025
 ms.subservice: azure-iot-hub-dps
+ms.custom: sfi-image-nochange
 ---
 
 # Azure IoT Hub Device Provisioning Service (DPS) support for virtual networks

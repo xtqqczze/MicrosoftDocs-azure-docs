@@ -1,27 +1,27 @@
 ---
 title: Reliability in Azure App Service Environment
-description: Learn how to implement reliability in App Service Environments by using availability zones and multiple-region deployments. 
+description: Learn how to improve reliability in Azure App Service Environment deployments by using availability zones and zone redundancy for high availability.
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-app-service
-ms.date: 07/17/2025
+ms.date: 10/24/2025
 
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how an App Service Environment works from a reliability perspective and plan resiliency strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 
-# Reliability in App Service Environment
+# Reliability in Azure App Service Environment
 
-App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment to run App Service apps securely at high scale. Unlike the App Service public multitenant offering that shares supporting infrastructure, an App Service Environment provides dedicated compute for a single customer.
+App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment to run App Service apps securely at high scale. This article describes reliability support in [App Service Environment](../app-service/environment/overview.md), including zone redundancy configuration for mission-critical applications. It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multiple-region deployments](#multiple-region-support).
+
+Unlike the App Service public multitenant offering that shares supporting infrastructure, an App Service Environment provides dedicated compute resources and enhanced network isolation for a single customer.
   
 An environment provides the following key reliability benefits:
 
 - Dedicated compute resources that aren't shared with other customers
 - Enhanced network isolation for improved security and stability
 - The ability to deploy in your own virtual network for greater control over traffic routing and security policies
-
-This article describes reliability support in [App Service Environment](../app-service/environment/overview.md). It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multiple-region deployments](#multiple-region-support).
 
 For more information about reliability support in App Service, see [Reliability in App Service](./reliability-app-service.md).
 
@@ -94,6 +94,9 @@ For App Service plans that aren't zone redundant, the underlying VM instances ar
 You can enable zone redundancy on an App Service Environment or its plans at no extra cost. However, zone redundancy for a plan requires that it has two or more instances. You're charged based on your App Service plan SKU, the capacity that you specify, and any instances that you scale to based on your autoscale criteria.
 
 If you enable availability zones but specify a capacity of fewer than two instances, the platform enforces a minimum instance of two. The platform charges you for those two instances.
+
+> [!IMPORTANT]
+> When you enable availability zones for an App Service Environment, all App Service plans with fewer than 3 instances are scaled to 3 instances. Any plan with 3 or more instances remains unchanged. Once the operation to enable availability zones completes, you can scale your App Service plans as needed, including to fewer than 3 instances.
 
 ### Configure availability zone support
 

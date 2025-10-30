@@ -4,8 +4,9 @@ description: Learn about what's new and recent updates in the Azure Migrate serv
 ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
-ms.manager: abhemraj
+ms.manager: ronai
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 02/24/2025
 ms.custom: mvc, engagement-fy25
 # Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Migrate, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
@@ -15,7 +16,37 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
-## Update (August 2025)
+## Update (October 2025)
+
+Public preview: Dependency visualization across multiple servers [Learn more](how-to-create-group-machine-dependencies-agentless.md#visualize-dependencies-across-servers)
+
+You can use this capability to:
+- **Visualize network dependencies across servers:** This feature enables you to visualize network dependencies between discovered across different appliances. This comprehensive helps you understand how servers communicate within your datacenter.
+- **Navigate easily with user-friendly controls:** The visualization layout is designed with intuitive controls that make it easy for you to move through the dependency map. This helps you efficiently explore server dependencies for scale environments without complexity.
+- **Interact with nodes for server insights:** You can interact directly with nodes within the visualization to access detailed server information. This includes viewing immediate dependents and connection details, allowing for a deeper understanding of each server’s properties and dependencies.
+- **Scope and filter visualization:** You can search by server names and apply filters using netstat data, such as process and port information, enabling scoped analysis of network connections.
+- **Switch to per server view:** For more granular analysis, you can switch the visualization to a per-server view. This mode allows analyzing network connections at the process and port levels for individual servers. [Learn more](how-to-create-group-machine-dependencies-agentless.md#visualize-individual-server-dependencies). 
+- **Identify and group high-affinity servers:** The visualization makes it easy to identify servers that are tightly coupled and exhibit high affinity. You can multi-select these servers and tag them as application groups, supporting logical organization and application-centric migration planning.
+
+## Update (September 2025)
+
+Public preview: Azure Migrate now supports discovery and assessment of PostgreSQL instances. 
+You can use this capability to:
+
+- Discover PostgreSQL instances and their attributes within your environment. 
+- Assess the readiness of these instances for migration to Azure Database for PostgreSQL flexible server.
+- Obtain recommendations on suitable compute and storage options, along with the associated costs.
+- Analyze configuration compatibility including server parameters, extensions, and authentication methods.
+- Review migration blockers and receive remediation guidance for seamless migration.
+
+  Key features include:
+
+    - **Configuration-based assessment**: Analyzes PostgreSQL configuration metadata to provide migration recommendations
+    - **Comprehensive discovery**: Identifies PostgreSQL instances across VMware, Hyper-V, physical servers, and other cloud environments
+    - **Cost estimation**: Provides detailed monthly cost breakdowns for compute and storage in Azure
+    - **Migration readiness**: Categorizes instances as Ready, Ready with conditions, Not ready, or Unknown with detailed remediation steps. 
+[Learn more](tutorial-assess-postgresql.md).
+
 
 - General availability: Azure Migrate enhances resiliency by supporting migration to [ZRS Disks](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) during Migration. **Zone-Redundant Storage (ZRS)** for Azure Disks synchronously replicates data across three physically separate availability zones within a region – each with independent power, cooling, and networking – enhancing Disk availability and resiliency.
 

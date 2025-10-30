@@ -7,8 +7,11 @@ ms.date: 08/12/2025
 ms.topic: tutorial
 ms.service: azure-iot-hub
 services: iot-dps
-ms.custom: devx-track-csharp, devx-track-azurecli
 ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - devx-track-csharp
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)
