@@ -15,8 +15,9 @@ summary: This article answers common questions about Software and Insights capab
           - Questions about [Azure Migrate appliance](common-questions-appliance.md)
 
           - Questions about [Migration and modernization](common-questions-server-migration.md)
-          - Get questions answered in the [Azure Migrate forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate)
           
+          - Get questions answered in the [Azure Migrate forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate)
+
 sections:
   - name: Common questions
     questions:
