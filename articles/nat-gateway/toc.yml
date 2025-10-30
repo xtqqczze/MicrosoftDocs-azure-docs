@@ -55,6 +55,10 @@ items:
         href: region-move-nat-gateway.md
       - name: Metrics and alerts
         href: nat-metrics.md
+      - name: Manage Standard V2 NAT gateway flow logs
+        href: nat-gateway-flow-logs.md
+      - name: Monitor Standard V2 NAT gateway flow logs
+        href: monitor-nat-gateway-flow-logs.md
   - name: Troubleshoot
     items:
       - name: Troubleshoot NAT gateway
