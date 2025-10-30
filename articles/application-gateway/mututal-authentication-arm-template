@@ -20,7 +20,41 @@ To configure mutual authentication with an Application Gateway, you need a clien
 
 To learn more, especially about what kind of client certificates you can upload, see [Overview of mutual authentication with Application Gateway](./mutual-authentication-overview.md#certificates-supported-for-mutual-authentication).
 
+## Create a new Application Gateway
 
+First create a new Application Gateway as you would usually through an ARM template - there are no additional steps needed in the creation to enable mutual authentication. For more information on how to create an Application Gateway using an ARM template, check out our [arm template quickstart tutorial](./quick-create-template.md).
+
+## Review and Customize Parameters ##
+
+Next, edit the following parameters to configure mutual authentication:
+   - Edit `mtls.parameters.json`:
+     - `addressPrefix` and `subnetPrefix`: Define network ranges.
+     - `skuName` and `capacity`: Set gateway size and instance count.
+     - `certData` and `certPassword`: Paste SSL certificate and password.
+
+## Deploy Using Azure CLI ##
+
+Use the Azure CLI to deploy the ARM template with mutual authentication settings. Run the following command in your terminal, replacing `<your-resource-group>` with your desired resource group name:
+   ```sh
+   az deployment group create --resource-group <your-resource-group> --template-file mtlsdeploy_novmss.json --parameters mtls.parameters.json
+   ```
+
+## Validate Deployment ##
+
+To validate that mutual authentication is configured correctly:
+   - In Azure Portal, check the Application Gateway resource.
+   - Confirm that the **mTLS passthrough listener** is enabled.
+
+## Send Client Certificate to backend ##
+     - If you need to forward the client certificate to the backend, configure a rewrite rule as described in [https://docs.azure.cn/en-us/application-       gateway/rewrite-http-headers-url#mutual-authentication-server-variables.](https://docs.azure.cn/en-us/application-gateway/rewrite-http-headers-url#server-variables)
+       <img width="1024" height="609" alt="image" src="https://github.com/user-attachments/assets/8f65c05f-4e2a-4c10-bd6a-5842797fb0ab" />
+
+     - If the client has sent a certificate, this rewrite ensures the client certificate is included in the request headers for backend processing.
+       
+## Test Connectivity ##
+
+To test the mutual authentication setup, use a tool like cURL or Postman to send requests to the Application Gateway with and without a client certificate.
+   - Connections should be established even if a client certificate is not provided.
 
 ## Clean up resources
 
