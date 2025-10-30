@@ -165,17 +165,14 @@ You can disable Geo Priority Replication at any time by clearing the checkbox an
 Connect-AzAccount
  
 # Set variables
-$rgname          = "<resource-group-name>"
-$newAccountName  = "<new-account-name>"
-$destAccountName = "<destination-account-name>"
-$srcAccountName  = "<source-account-name>"
-$srcContainer    = "<source-container-name>"
-$destContainer   = "<destination-container-name>"
+$rgname              = "<resource-group-name>"
+$storageAccountName  = "<storage-account-name>"
  
-## Update storage account with Geo Priority Replication enabled
-$account = Set-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $newAccountName -EnableBlobGeoPriorityReplication $false
-$account
-$account.GeoPriorityReplicationStatus.IsBlobEnabled
+# Update storage account with Geo Priority Replication enabled
+$account = Set-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $storageAccountName -EnableBlobGeoPriorityReplication $true
+
+# Update storage account with Geo Priority Replication disabled
+$account = Set-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $storageAccountName -EnableBlobGeoPriorityReplication $false
 ```
 
 # [Azure CLI](#tab/cli)
@@ -187,7 +184,7 @@ Connect-AzAccount
 
 # Set variables
 $rgname              = "<resource-group-name>"
-$storageAccountName  = "<new-account-name>"
+$storageAccountName  = "<storage-account-name>"
 
 # Update existing storage account to enable geo priority replication
 az storage account update -n $storageAccountName -g $rgname --enable-blob-geo-priority-replication true
