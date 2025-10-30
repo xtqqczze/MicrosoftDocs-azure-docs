@@ -16,7 +16,7 @@ The HL7 US Core Implementation Guide (US Core IG) is a set of rules and best pra
 - [US Core 3.1.1](https://hl7.org/fhir/us/core/STU3.1.1/index.html)
 - [US Core 6.1.0](https://www.hl7.org/fhir/us/core/STU6.1/ImplementationGuide-hl7.fhir.us.core.html)
 
-Note that the FHIR service doesn't store any profiles from implementation guides by default. You'll need to load them into the FHIR service. Follow [storing profiles instructions](./fhir/store-profiles-in-fhir.md) to store the relevant profiles for your desired US Core version. 
+The FHIR service doesn't store any profiles from implementation guides by default. You need to load them into the FHIR service. Follow [storing profiles instructions](./fhir/store-profiles-in-fhir.md) to store the relevant profiles for your desired US Core version. 
 
 ## US Core 6.1.0
 US Core 6.1.0 introduces several new operations, including `$docref` and `$expand`. For more information about these operations, see the following articles:
@@ -24,7 +24,7 @@ US Core 6.1.0 introduces several new operations, including `$docref` and `$expan
 - [`$expand` operation in FHIR service](./fhir/fhir-expand.md)
 
 ### US Core 6 test data
-Please reference [sample test data](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/USCore6-test-data) that can be used for US Core 6 testing.  
+Reference [sample test data](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/USCore6-test-data) that can be used for US Core 6 testing.  
 
 Note: Samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They aren't part of the Azure Health Data Service and aren't supported by Microsoft Support.   
 
