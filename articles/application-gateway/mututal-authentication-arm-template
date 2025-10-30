@@ -1,66 +1,38 @@
-                              # mTLS Passthrough Listener Deployment on Azure Application Gateway
+---
+title: 'Configure mutual authentication with Application Gateway through ARM'
+description: Learn how to configure an Application Gateway to have mutual authentication through an ARM template.
+services: application-gateway
+author: darshilshah
+ms.date: 10/29/2025
+ms.topic: how-to
+ms.service: azure-application-gateway
+---
 
-## Overview
+# Configure mutual authentication with Application Gateway through ARM
 
-This repository provides step-by-step guidance and ARM templates for deploying an Azure Application Gateway with **mutual TLS (mTLS) passthrough listener** using the latest Azure API (version `2025-03-01`). In mTLS passthrough mode, the Application Gateway requests a client certificate but does **not** enforce verification at the gateway. The backend is responsible for certificate validation and policy enforcement.
+This article describes how to use an ARM template to configure mutual authentication on your Application Gateway. Mutual authentication means Application Gateway authenticates the client sending the request using the client certificate you upload onto the Application Gateway. 
 
-## Note
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This deployment is intended **for testing purposes only**.  
-**Do not use with production workloads.**
+## Before you begin
 
-## Key Features
+To configure mutual authentication with an Application Gateway, you need a client certificate to upload to the gateway. The client certificate will be used to validate the certificate the client will present to Application Gateway. For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure. 
 
-- **No client CA certificate required** for mTLS passthrough listener.
-- New property: `verifyClientCertMode` (supports `Strict` and `Passthrough`).
-- Automated deployment using Azure CLI and ARM templates.
-- Backend receives client certificate for custom validation.
+To learn more, especially about what kind of client certificates you can upload, see [Overview of mutual authentication with Application Gateway](./mutual-authentication-overview.md#certificates-supported-for-mutual-authentication).
 
-## Prerequisites
 
-- Azure subscription and resource group
-- Admin access to Azure CLI
-- Application Gateway with valid backend and SSL certificate for the https listener
-- API version: `2025-03-01`
-- Post creation updates need to be performed via ARM template using API version `2025-03-01`
 
-## Deployment Steps
+## Clean up resources
 
-1. **Review and Customize Parameters**
-   - Edit `mtls.parameters.json`:
-     - `addressPrefix` and `subnetPrefix`: Define network ranges.
-     - `skuName` and `capacity`: Set gateway size and instance count.
-     - `certData` and `certPassword`: Paste SSL certificate and password.
+When you no longer need the resources that you created with the application gateway, delete the resource group. This removes the application gateway and all the related resources.
 
-2. **Deploy Using Azure CLI**
-   ```sh
-   az deployment group create --resource-group <your-resource-group> --template-file mtlsdeploy_novmss.json --parameters mtls.parameters.json
-   ```
+To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 
-3. **Validate Deployment**
-   - In Azure Portal, check the Application Gateway resource.
-   - Confirm that the **mTLS passthrough listener** is enabled.
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name <your resource group name>
+```
 
-4. **Send Client Certificate to backend**
-     - If you need to forward the client certificate to the backend, configure a rewrite rule as described in [https://docs.azure.cn/en-us/application-       gateway/rewrite-http-headers-url#mutual-authentication-server-variables.](https://docs.azure.cn/en-us/application-gateway/rewrite-http-headers-url#server-variables)
-       <img width="1024" height="609" alt="image" src="https://github.com/user-attachments/assets/8f65c05f-4e2a-4c10-bd6a-5842797fb0ab" />
+## Next steps
 
-     - If the client has sent a certificate, this rewrite ensures the client certificate is included in the request headers for backend processing.
-       
-5.  **Test Connectivity**
-   - Connections should be established even if a client certificate is not provided.
-
-## mTLS Passthrough Parameters
-
-| Name                    | Type   | Description                                                                 |
-|-------------------------|--------|-----------------------------------------------------------------------------|
-| verifyClientCertIssuerDN| boolean| Verify client certificate issuer name on the gateway                        |
-| verifyClientRevocation  | options| Verify client certificate revocation                                        |
-| VerifyClientAuthMode    | options| Set client certificate mode (`Strict` or `Passthrough`)                     |
-
-**Passthrough Mode:** Gateway requests a client certificate but does not enforce it. Backend validates certificate and enforces policy.
-
-## Security Notice
-
-This solution is classified as **Microsoft Confidential**. Please ensure you follow your organization’s security and data handling best practices when deploying and managing this solution.
-
+> [!div class="nextstepaction"]
+> [Manage web traffic with an application gateway using the Azure CLI](./tutorial-manage-web-traffic-cli.md)
