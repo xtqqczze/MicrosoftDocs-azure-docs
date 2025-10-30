@@ -32,7 +32,7 @@ Replace `{provide-unique-name}` and the curly braces `{}` with a unique storage 
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "{provide-unique-name}",
       "location": "eastus",
       "sku": {

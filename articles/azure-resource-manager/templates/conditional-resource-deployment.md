@@ -77,7 +77,7 @@ You can use conditional deployment to create a new resource or use an existing o
     {
       "condition": "[equals(parameters('newOrExisting'), 'new')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -88,7 +88,7 @@ You can use conditional deployment to create a new resource or use an existing o
     {
       "condition": "[equals(parameters('newOrExisting'), 'existing')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]"
     }
   ],
