@@ -25,7 +25,7 @@ Here are the key enhancements:
 - **Review software discovery across the project:** The enhancement enables users to review the software discovered across all servers, discovered from their datacenter.
 - **Sanitized and classified software inventory:** The software inventory metadata is sanitized and classified into Categories & Subcategories that helps you easily review key software & their insights across categories of Security, Monitoring, IT Management, Web hosting, Data platforms, Business Applications etc.
 - **Software insights:** In addition to the software metadata you can now find software insights such as Support status and Vulnerabilities for all software discovered from your datacenter.
-- **Potential Azure Targets:** You can also review the list of Potential Targets that have been suggested (mapped to a subcategory of software) to plan the migration of their software to the Azure 1P services or 3P ISV services available as [Azure Native integrations](https://learn.microsoft.com/azure/partner-solutions/partners) through Azure Marketplace.
+- **Potential Azure Targets:** You can also review the list of Potential Targets that have been suggested (mapped to a subcategory of software) to plan the migration of their software to the Azure 1P services or 3P ISV services available as [Azure Native integrations](/azure/partner-solutions/partners) through Azure Marketplace.
 - **Security insights**: These enhancements power key security insights which help customers understand their overall security posture. [Learn more](insights-overview.md)
 - **Scoping and filtering capabilities:** Users can search and filter with software metadata and insights to easily scope the inventory for analysis, export and migration planning.
 
