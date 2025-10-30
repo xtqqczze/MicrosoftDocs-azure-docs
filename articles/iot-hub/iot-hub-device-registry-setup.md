@@ -418,29 +418,6 @@ To provision devices with leaf certificates, you need to create an enrollment gr
 az iot dps enrollment-group create --dps-name "$DPS_NAME" --resource-group "$RESOURCE_GROUP" --enrollment-id "$ENROLLMENT_ID" --credential-policy default
 ```
 
-### Delete an IoT hub
-
-To delete an IoT hub in your Azure subscription, run the following command:
-
-```bash
-az iot hub delete --name $HUB_NAME --resource-group $RESOURCE_GROUP
-```
-
-### Disable a device 
-
-To disable a device in your IoT hub, run the following commands:
-
-1. List all devices in your IoT hub to find the device ID you want to disable.
-
-    ```bash
-    # List all devices
-    az iot hub device-identity list --hub-name $HUB_NAME --resource-group $RESOURCE_GROUP
-    ```
-1. Disable a device. Make sure to use the correct device id.
-
-    ```bash
-    az iot hub device-identity update --hub-name $HUB_NAME --resource-group $RESOURCE_GROUP -d <mydevice1> --status disabled
-    ```
 
 ### [Script](#tab/script)
 
@@ -490,3 +467,35 @@ Set values for the following variables in the variables section
     - Custom Role Assignments
 
 ***
+
+## Delete an IoT hub
+
+When you delete an IoT hub, you lose the associated device identity registry. If you want to move or upgrade an IoT hub, or delete an IoT hub but keep the devices, consider [migrating an IoT hub using the Azure CLI](./migrate-hub-state-cli.md).
+
+### [Azure portal](#tab/portal)
+
+To delete an IoT hub, open your IoT hub in the Azure portal, then choose **Delete**.
+
+:::image type="content" source="./media/create-hub/delete-iot-hub.png" alt-text="Screenshot showing where to find the delete button for an IoT hub in the Azure portal." lightbox="./media/create-hub/delete-iot-hub.png":::
+
+### [Azure CLI](#tab/cli)
+
+To delete an IoT hub, run the [az iot hub delete](/cli/azure/iot/hub#az-iot-hub-delete) command:
+
+```azurecli-interactive
+az iot hub delete --name <IOT_HUB_NAME> --resource-group <RESOURCE_GROUP_NAME>
+```
+
+### [Script](#tab/script)
+
+You can't delete an IoT hub using the script. Instead,  delete the IoT hub using the Azure portal or Azure CLI.
+
+*** 
+
+## Next steps
+
+You can now start using your IoT hub with Azure Device Registry integration. To learn more about how to connect devices to your IoT hub, see the following articles:
+
+- [Create and manage device identities](create-connect-device.md)
+- [Monitor IoT Hub with metrics and logs](monitor-iot-hub.md)
+- [Create and manage namespaces](iot-hub-device-registry-namespaces.md)

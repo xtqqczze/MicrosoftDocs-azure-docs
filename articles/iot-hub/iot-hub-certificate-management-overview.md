@@ -97,7 +97,7 @@ When renewal is necessary, the device initiates another provisioning call to DPS
 
 ## Disable a device
 
-Certificate Management doesn't support certificate revocation during public preview. To remove the connection of a device that uses an X.509 operational certificate, you can disable the device in the IoT hub registry.
+Certificate Management doesn't support certificate revocation during public preview. To remove the connection of a device that uses an X.509 operational certificate, you can disable the device in the IoT hub registry. To disable a device, see [Disable or delete a device](create-connect-device.md#disable-or-delete-a-device).
 
 ## Limits and quotas
 

@@ -174,14 +174,8 @@ Remove-AzIotHub `
 
 In addition to the Azure portal and CLI, the following tools are available to help you work with IoT hubs in whichever way supports your scenario:
 
-* **IoT Hub resource provider REST API**
+* **IoT Hub resource provider REST API**: Use the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) set of operations.
 
-  Use the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) set of operations.
+* **Azure resource manager templates, Bicep, or Terraform**: Use the [Microsoft.Devices/IoTHubs](/azure/templates/microsoft.devices/iothubs) resource type. For examples, see [IoT Hub sample templates](/samples/browse/?terms=iot%20hub&languages=bicep%2Cjson).
 
-* **Azure resource manager templates, Bicep, or Terraform**
-
-  Use the [Microsoft.Devices/IoTHubs](/azure/templates/microsoft.devices/iothubs) resource type. For examples, see [IoT Hub sample templates](/samples/browse/?terms=iot%20hub&languages=bicep%2Cjson).
-
-* **Visual Studio Code**
-
-  Use the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md).
+* **Visual Studio Code**: Use the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md).
