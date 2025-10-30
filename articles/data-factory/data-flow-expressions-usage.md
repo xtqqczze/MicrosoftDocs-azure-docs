@@ -1,7 +1,7 @@
 ---
-title: Details and usage for all mapping data flow functions
+title: Details and usage for all mapping data flow Functions
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn about details of usage and functionality for all expression functions in mapping data flow.
+description: Learn about details of usage and functionality for all expression functions in mapping data flows.
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
@@ -16,7 +16,7 @@ ms.date: 07/25/2025
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The following articles provide details about usage of all expressions and functions supported by Azure Data Factory and Azure Synapse Analytics in mapping data flows. For summaries of each type of function supported, reference the following articles:
+This article provides details about the use of all expressions and functions supported by Azure Data Factory and Azure Synapse Analytics in mapping data flows. For summaries of each type of function supported, refer to the following articles:
 
 - [Aggregate functions](data-flow-aggregate-functions.md)
 - [Array functions](data-flow-array-functions.md)
@@ -28,9 +28,9 @@ The following articles provide details about usage of all expressions and functi
 - [Metafunctions](data-flow-metafunctions.md)
 - [Window functions](data-flow-window-functions.md)
 
-## Alphabetical listing of all functions
+## Alphabetical list of all functions
 
-Following is an alphabetical listing of all functions available in mapping data flows.
+The following alphabetical list includes all the functions that are available in mapping data flows.
 
 ## A
 
@@ -57,7 +57,7 @@ ___
 
 ### <code>add</code>
 <code><b>add(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Adds a pair of strings or numbers. Adds a date to many days. Adds a duration to a timestamp. Appends one array of similar type to another. Same as the + operator. 
+Adds a pair of strings or numbers. Adds a date to many days. Adds a duration to a time stamp. Appends one array of a similar type to another. Same as the `+` operator. 
 * ``add(10, 20) -> 30``  
 * ``10 + 20 -> 30``  
 * ``add('ice', 'cream') -> 'icecream'``  
@@ -73,7 +73,7 @@ ___
 
 ### <code>addDays</code>
 <code><b>addDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to add&gt;</i> : integral) => datetime</b></code><br/><br/>
-Add days to a date or timestamp. Same as the + operator for date. 
+Adds days to a date or time stamp. Same as the `+` operator for date. 
 * ``addDays(toDate('2016-08-08'), 1) -> toDate('2016-08-09')``  
 ___
 
@@ -82,7 +82,7 @@ ___
 
 ### <code>addMonths</code>
 <code><b>addMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to add&gt;</i> : integral, [<i>&lt;value3&gt;</i> : string]) => datetime</b></code><br/><br/>
-Add months to a date or timestamp. You can optionally pass a timezone. 
+Adds months to a date or time stamp. You can optionally pass a time zone. 
 * ``addMonths(toDate('2016-08-31'), 1) -> toDate('2016-09-30')``  
 * ``addMonths(toTimestamp('2016-09-30 10:10:10'), -1) -> toTimestamp('2016-08-31 10:10:10')``  
 ___
@@ -92,7 +92,7 @@ ___
 
 ### <code>and</code>
 <code><b>and(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Logical AND operator. Same as &&. 
+Logical `AND` operator. Same as `&&`. 
 * ``and(true, false) -> false``  
 * ``true && false -> false``  
 ___
@@ -111,7 +111,7 @@ ___
 
 ### <code>array</code>
 <code><b>array([<i>&lt;value1&gt;</i> : any], ...) => array</b></code><br/><br/>
-Creates an array of items. All items should be of the same type. If no items are specified, an empty string array is the default. Same as a [] creation operator. 
+Creates an array of items. All items should be of the same type. If no items are specified, an empty string array is the default. Same as a `[]` creation operator. 
 * ``array('Seattle', 'Washington')``
 * ``['Seattle', 'Washington']``
 * ``['Seattle', 'Washington'][1]``
@@ -122,7 +122,7 @@ ___
 
 ### <code>ascii</code>
 <code><b>ascii(<i>&lt;Input&gt;</i> : string) => number</b></code><br/><br/>
-Returns the numeric value of the input character. If the input string has more than one character, the numeric value of the first character is returned
+Returns the numeric value of the input character. If the input string has more than one character, the numeric value of the first character is returned.
 * ``ascii('A') -> 65``
 * ``ascii('a') -> 97``
 
@@ -151,7 +151,7 @@ ___
 
 ### <code>associate</code>
 <code><b>reassociate(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => map</b></code><br/><br/>
-Creates a map of key/values. All the keys & values should be of the same type. If no items are specified, it defaults to a map of string to string type. Same as a ```[ -> ]``` creation operator. Keys and values should alternate with each other.
+Creates a map of key/values. All the keys and values should be of the same type. If no items are specified, it defaults to a map of string-to-string type. Same as a ```[ -> ]``` creation operator. Keys and values should alternate with each other.
 *	``associate('fruit', 'apple', 'vegetable', 'carrot' )=> ['fruit' -> 'apple', 'vegetable' -> 'carrot']``
 ___
 
@@ -160,7 +160,7 @@ ___
 
 ### <code>at</code>
 <code><b>at(<i>&lt;value1&gt;</i> : array/map, <i>&lt;value2&gt;</i> : integer/key type) => array</b></code><br/><br/>
-Finds the element at an array index. The index is 1-based. Out of bounds index results in a null value. Finds a value in a map given a key. If the key isn't found, it returns null.
+Finds the element at an array index. The index is 1-based. Out-of-bounds index results in a `null` value. Finds a value in a map when given a key. If the key isn't found, it returns a `null` value.
 *	``at(['apples', 'pears'], 1) => 'apples'``
 *	``at(['fruit' -> 'apples', 'vegetable' -> 'carrot'], 'fruit') => 'apples'``
 ___
@@ -219,7 +219,7 @@ ___
 
 ### <code>bitwiseAnd</code>
 <code><b>bitwiseAnd(<i>&lt;value1&gt;</i> : integral, <i>&lt;value2&gt;</i> : integral) => integral</b></code><br/><br/>
-Bitwise And operator across integral types. Same as & operator  
+`Bitwise And` operator across integral types. Same as the `&` operator. 
 * ``bitwiseAnd(0xf4, 0xef)``
 * ``0xe4``
 * ``(0xf4 & 0xef)``
@@ -231,7 +231,7 @@ ___
 
 ### <code>bitwiseOr</code>
 <code><b>bitwiseOr(<i>&lt;value1&gt;</i> : integral, <i>&lt;value2&gt;</i> : integral) => integral</b></code><br/><br/>
-Bitwise Or operator across integral types. Same as | operator  
+`Bitwise Or` operator across integral types. Same as the `|` operator. 
 * ``bitwiseOr(0xf4, 0xef)``
 * ``0xff``
 * ``(0xf4 | 0xef)``
@@ -243,7 +243,7 @@ ___
 
 ### <code>bitwiseXor</code>
 <code><b>bitwiseXor(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Bitwise Or operator across integral types. Same as | operator  
+`Bitwise Or` operator across integral types. Same as the `|` operator  
 * ``bitwiseXor(0xf4, 0xef)``
 * ``0x1b``
 * ``(0xf4 ^ 0xef)``
@@ -259,7 +259,7 @@ ___
 
 ### <code>blake2b</code>
 <code><b>blake2b(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calculates the Blake2 digest of set of column of varying primitive datatypes given a bit length, which can only be multiples of 8 between 8 & 512. It can be used to calculate a fingerprint for a row  
+Calculates the Blake2 digest of a set of columns of varying primitive datatypes when given a bit length, which can only be multiples of 8 between 8 and 512. You can use it to calculate a fingerprint for a row.  
 * ``blake2b(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))``
 * ``'c9521a5080d8da30dffb430c50ce253c345cc4c4effc315dab2162dac974711d'``
 ___
@@ -269,7 +269,7 @@ ___
 
 ### <code>blake2bBinary</code>
 <code><b>blake2bBinary(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => binary</b></code><br/><br/>
-Calculates the Blake2 digest of set of column of varying primitive datatypes given a bit length, which can only be multiples of 8 between 8 & 512. It can be used to calculate a fingerprint for a row  
+Calculates the Blake2 digest of a set of columns of varying primitive datatypes when given a bit length, which can only be multiples of 8 between 8 and 512. You can use it to calculate a fingerprint for a row. 
 * ``blake2bBinary(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))``
 * ``unHex('c9521a5080d8da30dffb430c50ce253c345cc4c4effc315dab2162dac974711d')``
 ___
@@ -278,7 +278,7 @@ ___
 
 ### <code>byItem</code>
 <code><b>byItem(<i>&lt;parent column&gt;</i> : any, <i>&lt;column name&gt;</i> : string) => any</b></code><br/><br/>
-Find a sub item within a structure or array of structure. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion actions (? date, ? string ...). Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions.
+Finds a sub item within a structure or array of structure. If there are multiple matches, the first match is returned. If there are no matches, a `NULL` value is returned. The returned value must be type converted by one of the type conversion actions (? date, ? string ...). Address column names known at design time by their name. Computed inputs aren't supported, but you can use parameter substitutions.
 
 * ``byItem( byName('customer'), 'orderItems') ? (itemName as string, itemQty as integer)``
 * ``byItem( byItem( byName('customer'), 'orderItems'), 'itemName') ? string``
@@ -288,7 +288,7 @@ ___
 
 ### <code>byName</code>
 <code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Selects a column value by name in the stream. You can pass an optional stream name as the second argument. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions (TO_DATE, TO_STRING ...). Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions. 
+Selects a column value by name in the stream. You can pass an optional stream name as the second argument. If there are multiple matches, the first match is returned. If there are no matches, a `NULL` value is returned. The returned value must be type converted by one of the type conversion functions (such as `TO_DATE` and  `TO_STRING`). Address column names known at design time by their names. Computed inputs aren't supported, but you can use parameter substitutions. 
 * ``toString(byName('parent'))``  
 * ``toLong(byName('income'))``  
 * ``toBoolean(byName('foster'))``  
@@ -302,7 +302,7 @@ ___
 
 ### <code>byNames</code>
 <code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Select an array of columns by name in the stream. You can pass an optional stream name as the second argument. If there are multiple matches, the first match is returned. If there are no matches for a column, the entire output is a NULL value. The returned value requires a type conversion function (toDate, toString, ...). Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions.
+Select an array of columns by name in the stream. You can pass an optional stream name as the second argument. If there are multiple matches, the first match is returned. If there are no matches for a column, the entire output is a `NULL` value. The returned value requires a type conversion function (toDate, toString, ...). Address column names known at design time by their names. Computed inputs aren't supported, but you can use parameter substitutions.
 * ``toString(byNames(['parent', 'child']))``
 * ``byNames(['parent']) ? string``
 * ``toLong(byNames(['income']))``
@@ -319,7 +319,7 @@ ___
 
 ### <code>byOrigin</code>
 <code><b>byOrigin(<i>&lt;column name&gt;</i> : string, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Selects a column value by name in the origin stream. The second argument is the origin stream name. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions (TO_DATE, TO_STRING ...). Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions. 
+Selects a column value by name in the origin stream. The second argument is the origin stream name. If there are multiple matches, the first match is returned. If there are no matches, a `NULL` value is returned. The returned value must be type converted by one of the type conversion functions (such as `TO_DATE` and  `TO_STRING`). Address column names known at design time by their name. Computed inputs aren't supported, but you can use parameter substitutions. 
 * ``toString(byOrigin('ancestor', 'ancestorStream'))``
 ___
 
@@ -328,7 +328,7 @@ ___
 
 ### <code>byOrigins</code>
 <code><b>byOrigins(<i>&lt;column names&gt;</i> : array, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Selects an array of columns by name in the stream. The second argument is the stream where it originated from. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions (TO_DATE, TO_STRING ...). Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions.
+Selects an array of columns by name in the stream. The second argument is the stream where it originated from. If there are multiple matches, the first match is returned. If there are no matches, a `NULL` value is returned. The returned value must be type converted by one of the type conversion functions (such as `TO_DATE` and  `TO_STRING`). Address column names known at design time by their name. Computed inputs aren't supported, but you can use parameter substitutions.
 * ``toString(byOrigins(['ancestor1', 'ancestor2'], 'ancestorStream'))``
 ___
 
@@ -337,7 +337,7 @@ ___
 
 ### <code>byPath</code>
 <code><b>byPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => any</b></code><br/><br/>
-Finds a hierarchical path by name in the stream. You can pass an optional stream name as the second argument. If no such path is found, it returns null. Column names/paths known at design time should be addressed just by their name or dot notation path. Computed inputs aren't supported but you can use parameter substitutions. 
+Finds a hierarchical path by name in the stream. You can pass an optional stream name as the second argument. If no such path is found, it returns null. Column names/paths known at design time should be addressed just by their name or dot notation path. Computed inputs aren't supported, but you can use parameter substitutions. 
 * ``byPath('grandpa.parent.child') => column`` 
 ___
 
@@ -346,7 +346,7 @@ ___
 
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
-Selects a column value by its relative position (1 based) in the stream. If the position is out of bounds, it returns a NULL value. The returned value has to be type converted by one of the type conversion functions (TO_DATE, TO_STRING ...). Computed inputs aren't supported but you can use parameter substitutions. 
+Selects a column value by its relative position (1 based) in the stream. If the position is out of bounds, it returns a `NULL` value. The returned value must be type converted by one of the type conversion functions (such as `TO_DATE` and  `TO_STRING`). Computed inputs aren't supported, but you can use parameter substitutions. 
 * ``toString(byPosition(1))``  
 * ``toDecimal(byPosition(2), 10, 2)``  
 * ``toBoolean(byName(4))``  
@@ -389,7 +389,7 @@ ___
 
 ### <code>char</code>
 <code><b>char(<i>&lt;Input&gt;</i> : number) => string</b></code><br/><br/>
-Returns the ascii character represented by the input number. If number is greater than 256, the result is equivalent to char(number % 256)
+Returns the ASCII character represented by the input number. If yhe number is greater than 256, the result is equivalent to char (number % 256).
 * ``char(65) -> 'A'``
 * ``char(97) -> 'a'``
 ___
@@ -513,7 +513,7 @@ ___
 
 ### <code>count</code>
 <code><b>count([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
-Gets the aggregate count of values. If one or more optional columns are specified, it ignores NULL values in the count. 
+Gets the aggregate count of values. If one or more optional columns are specified, it ignores `NULL` values in the count. 
 * ``count(custId)``  
 * ``count(custId, custName)``  
 * ``count()``  
@@ -553,7 +553,7 @@ ___
 
 ### <code>countIf</code>
 <code><b>countIf(<i>&lt;value1&gt;</i> : boolean, [<i>&lt;value2&gt;</i> : any]) => long</b></code><br/><br/>
-Based on a criteria gets the aggregate count of values. If the optional column is specified, it ignores NULL values in the count. 
+Based on a criteria gets the aggregate count of values. If the optional column is specified, it ignores `NULL` values in the count. 
 * ``countIf(state == 'CA' && commission < 10000, name)``  
 ___
 
@@ -599,7 +599,7 @@ ___
 
 ### <code>crc32</code>
 <code><b>crc32(<i>&lt;value1&gt;</i> : any, ...) => long</b></code><br/><br/>
-Calculates the CRC32 hash of set of column of varying primitive datatypes given a bit length, which can only be of values 0(256), 224, 256, 384, 512. It can be used to calculate a fingerprint for a row. 
+Calculates the CRC32 hash of a set of columns of varying primitive datatypes when given a bit length, which can only be of values 0(256), 224, 256, 384, 512. You can use it to calculate a fingerprint for a row. 
 * ``crc32(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 3630253689L``  
 ___
 
@@ -617,7 +617,7 @@ ___
 
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Gets the current date when this job starts to run. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone of the data factory's data center/region is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). 
+Gets the current date when this job starts to run. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone of the data factory's data center/region is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). 
 * ``currentDate() == toDate('2250-12-31') -> false``  
 * ``currentDate('PST')  == toDate('2250-12-31') -> false``  
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``  
@@ -637,7 +637,7 @@ ___
 
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Gets the current timestamp as UTC. If you want your current time to be interpreted in a different timezone than your cluster time zone, you can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It defaults to the current timezone. Refer to Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). To convert the UTC time to a different timezone use `fromUTC()`. 
+Gets the current timestamp as UTC. If you want your current time to be interpreted in a different time zone than your cluster time zone, you can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. It defaults to the current time zone. Refer to Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). To convert the UTC time to a different time zone use `fromUTC()`. 
 * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``  
 * ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
@@ -649,7 +649,7 @@ ___
 
 ### <code>dayOfMonth</code>
 <code><b>dayOfMonth(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
-Gets the day of the month given a date. 
+Gets the day of the month when given a date. 
 * ``dayOfMonth(toDate('2018-06-08')) -> 8``  
 ___
 
@@ -658,7 +658,7 @@ ___
 
 ### <code>dayOfWeek</code>
 <code><b>dayOfWeek(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
-Gets the day of the week given a date. 1 - Sunday, 2 - Monday ..., 7 - Saturday. 
+Gets the day of the week when given a date. 1 - Sunday, 2 - Monday ..., 7 - Saturday. 
 * ``dayOfWeek(toDate('2018-06-08')) -> 6``  
 ___
 
@@ -667,7 +667,7 @@ ___
 
 ### <code>dayOfYear</code>
 <code><b>dayOfYear(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
-Gets the day of the year given a date. 
+Gets the day of the year when given a date. 
 * ``dayOfYear(toDate('2016-04-09')) -> 100``  
 ___
 
@@ -924,7 +924,7 @@ ___
 
 ### <code>fromUTC</code>
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts to the timestamp from UTC. You can optionally pass the timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It defaults to the current timezone. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Converts to the timestamp from UTC. You can optionally pass the time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. It defaults to the current time zone. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
 * ``fromUTC(currentTimestamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``fromUTC(currentTimestamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
@@ -969,7 +969,7 @@ ___
 
 ### <code>hasColumn</code>
 <code><b>hasColumn(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => boolean</b></code><br/><br/>
-Checks for a column value by name in the stream. You can pass an optional stream name as the second argument. Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions. 
+Checks for a column value by name in the stream. You can pass an optional stream name as the second argument. Address column names known at design time by their name. Computed inputs aren't supported, but you can use parameter substitutions. 
 * ``hasColumn('parent')``  
 ___
 
@@ -990,7 +990,7 @@ ___
 
 ### <code>hasPath</code>
 <code><b>hasPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => boolean</b></code><br/><br/>
-Checks if a certain hierarchical path exists by name in the stream. You can pass an optional stream name as the second argument. Column names/paths known at design time should be addressed just by their name or dot notation path. Computed inputs aren't supported but you can use parameter substitutions. 
+Checks if a certain hierarchical path exists by name in the stream. You can pass an optional stream name as the second argument. Column names/paths known at design time should be addressed just by their name or dot notation path. Computed inputs aren't supported, but you can use parameter substitutions. 
 * ``hasPath('grandpa.parent.child') => boolean``
 ___  
 
@@ -1008,7 +1008,7 @@ ___
 
 ### <code>hour</code>
 <code><b>hour(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the hour value of a timestamp. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Gets the hour value of a time stamp. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
 * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``  
 * ``hour(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 12``  
 ___
@@ -1039,7 +1039,7 @@ ___
 
 ### <code>iifNull</code>
 <code><b>iifNull(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => any</b></code><br/><br/>
-Given two or more inputs, returns the first not null item. This function is equivalent to coalesce.
+Returns the first not null item when given two or more inputs. This function is equivalent to the `coalesce` function.
 * ``iifNull(10, 20) -> 10``  
 * ``iifNull(null, 20, 40) -> 20``  
 * ``iifNull('azure', 'data', 'factory') -> 'azure'``  
@@ -1070,7 +1070,7 @@ ___
 
 ### <code>instr</code>
 <code><b>instr(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string) => integer</b></code><br/><br/>
-Finds the position (1 based) of the substring within a string. 0 is returned if not found. 
+Finds the position (1 based) of the substring within a string. Ff not found, 0 is returned. 
 * ``instr('dumbo', 'mbo') -> 3``  
 * ``instr('microsoft', 'o') -> 5``  
 * ``instr('good', 'bad') -> 0``  
@@ -1090,7 +1090,7 @@ ___
 
 ### <code>isBitSet</code>
 <code><b>isBitSet (<i><i>\<value1\></i></i> : array, <i>\<value2\></i>:integer ) => boolean</b></code><br/><br/>
-Checks if a bit position is set in this bitset
+Checks if a bit position is set in this bitset.
 * ``isBitSet(toBitSet([10, 32, 98]), 10) => true``
 ___
 
@@ -1099,7 +1099,7 @@ ___
 
 ### <code>isBoolean</code>
 <code><b>isBoolean(<i>\<value1\></i>: string) => boolean</b></code><br/><br/>
-Checks if the string value is a boolean value according to the rules of ``toBoolean()``
+Checks if the string value is a Boolean value according to the rules of ``toBoolean()``.
 * ``isBoolean('true') -> true``
 * ``isBoolean('no') -> true``
 * ``isBoolean('microsoft') -> false``
@@ -1110,7 +1110,7 @@ ___
 
 ### <code>isByte</code>
 <code><b>isByte(<i>\<value1\></i> : string) => boolean</b></code><br/><br/>
-Checks if the string value is a byte value given an optional format according to the rules of ``toByte()``
+Checks if the string value is a byte value when given an optional format according to the rules of ``toByte()``.
 * ``isByte('123') -> true``
 * ``isByte('chocolate') -> false``
 ___
@@ -1120,7 +1120,7 @@ ___
 
 ### <code>isDate</code>
 <code><b>isDate (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks if the input date string is a date using an optional input date format. Refer to Java's SimpleDateFormat for available formats. If the input date format is omitted, default format is ``yyyy-[M]M-[d]d``. Accepted formats are ``[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]``
+Checks if the input date string is a date by using an optional input date format. Refer to Java's `SimpleDateFormat` for available formats. If the input date format is omitted, the default format is ``yyyy-[M]M-[d]d``. Accepted formats are ``[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]``.
 * ``isDate('2012-8-18') -> true``
 * ``isDate('12/18--234234' -> 'MM/dd/yyyy') -> false``
 ___
@@ -1130,7 +1130,7 @@ ___
 
 ### <code>isDecimal</code>
 <code><b>isDecimal (<i>\<value1\></i> : string) => boolean</b></code><br/><br/>
-Checks if the string value is a decimal value given an optional format according to the rules of ``toDecimal()``
+Checks if the string value is a decimal value when given an optional format according to the rules of ``toDecimal()``.
 * ``isDecimal('123.45') -> true``
 * ``isDecimal('12/12/2000') -> false``
 ___
@@ -1140,7 +1140,7 @@ ___
 
 ### <code>isDelete</code>
 <code><b>isDelete([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is marked for delete. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1. 
+Checks if the row should be deleted. For transformations that take more than one input stream, you can pass the (1-based) index of the stream. The stream index should be either `1` or `2` and the default value is `1`. 
 * ``isDelete()``  
 * ``isDelete(1)``  
 ___
@@ -1150,7 +1150,7 @@ ___
 
 ### <code>isDistinct</code>
 <code><b>isDistinct(<i>&lt;value1&gt;</i> : any , <i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
-Finds if a column or set of columns is distinct. It doesn't count null as a distinct value
+Finds if a column or set of columns is distinct. It doesn't count null as a distinct value.
 *    ``isDistinct(custId, custName) => boolean``
 ___
 
@@ -1160,7 +1160,7 @@ ___
 
 ### <code>isDouble</code>
 <code><b>isDouble (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks if the string value is a double value given an optional format according to the rules of ``toDouble()``
+Checks if the string value is a double value when given an optional format according to the rules of ``toDouble()``.
 * ``isDouble('123') -> true``
 * ``isDouble('$123.45' -> '$###.00') -> true``
 * ``isDouble('icecream') -> false``
@@ -1170,7 +1170,7 @@ ___
 
 ### <code>isError</code>
 <code><b>isError([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is marked as error. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1. 
+Checks if the row is marked as error. For transformations that take more than one input stream, you can pass the (1-based) index of the stream. The stream index should be either `1` or `2` and the default value is `1`. 
 * ``isError()``  
 * ``isError(1)``  
 ___
@@ -1179,7 +1179,7 @@ ___
 
 ### <code>isFloat</code>
 <code><b>isFloat (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks if the string value is a float value given an optional format according to the rules of ``toFloat()``
+Checks if the string value is a float value when given an optional format according to the rules of ``toFloat()``.
 * ``isFloat('123') -> true``
 * ``isFloat('$123.45' -> '$###.00') -> true``
 * ``isFloat('icecream') -> false``
@@ -1190,7 +1190,7 @@ ___
 
 ### <code>isIgnore</code>
 <code><b>isIgnore([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is marked to be ignored. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1. 
+Checks if the row is marked to be ignored. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either `1` or `2` and the default value is `1`. 
 * ``isIgnore()``  
 * ``isIgnore(1)``  
 ___
@@ -1200,7 +1200,7 @@ ___
 
 ### <code>isInsert</code>
 <code><b>isInsert([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is marked for insert. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1. 
+Checks if the row is marked for insert. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either `1` or `2` and the default value is `1`. 
 * ``isInsert()``  
 * ``isInsert(1)``  
 ___
@@ -1210,7 +1210,7 @@ ___
 
 ### <code>isInteger</code>
 <code><b>isInteger (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks if the string value is an integer value given an optional format according to the rules of ``toInteger()``
+Checks if the string value is an integer value when given an optional format according to the rules of ``toInteger()``.
 * ``isInteger('123') -> true``
 * ``isInteger('$123' -> '$###') -> true``
 * ``isInteger('microsoft') -> false``
@@ -1221,7 +1221,7 @@ ___
 
 ### <code>isLong</code>
 <code><b>isLong (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks if the string value is a long value given an optional format according to the rules of ``toLong()``
+Checks if the string value is a long value when given an optional format according to the rules of ``toLong()``.
 * ``isLong('123') -> true``
 * ``isLong('$123' -> '$###') -> true``
 * ``isLong('gunchus') -> false``
@@ -1232,7 +1232,7 @@ ___
 
 ### <code>isMatch</code>
 <code><b>isMatch([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is matched at lookup. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1. 
+Checks if the row is matched at lookup. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either `1` or `2` and the default value is `1`. 
 * ``isMatch()``  
 * ``isMatch(1)``  
 ___
@@ -1242,7 +1242,7 @@ ___
 
 ### <code>isNan</code>
 <code><b>isNan (<i>\<value1\></i> : integral) => boolean</b></code><br/><br/>
-Check if this isn't a number.
+Checks if this isn't a number.
 * ``isNan(10.2) => false``
 ___
 
@@ -1251,7 +1251,7 @@ ___
 
 ### <code>isNull</code>
 <code><b>isNull(<i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
-Checks if the value is NULL. 
+Checks if the value is `NULL`. 
 * ``isNull(NULL()) -> true``  
 * ``isNull('') -> false``  
 ___
@@ -1261,7 +1261,7 @@ ___
 
 ### <code>isShort</code>
 <code><b>isShort (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks if the string value is a short value given an optional format according to the rules of ``toShort()``
+Checks if the string value is a short value when given an optional format according to the rules of ``toShort()``.
 * ``isShort('123') -> true``
 * ``isShort('$123' -> '$###') -> true``
 * ``isShort('microsoft') -> false``
@@ -1272,7 +1272,7 @@ ___
 
 ### <code>isTimestamp</code>
 <code><b>isTimestamp (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks if the input date string is a timestamp using an optional input timestamp format. Refer to Java's SimpleDateFormat for available formats. If the timestamp is omitted the default pattern ``yyyy-[M]M-[d]d hh:mm:ss[.f...]`` is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. Timestamp supports up to millisecond accuracy with value of 999 Refer to Java's SimpleDateFormat for available formats.
+Checks if the input date string is a time stamp by using an optional input time stamp format. Refer to Java's `SimpleDateFormat` for available formats. If the time stamp is omitted the default pattern ``yyyy-[M]M-[d]d hh:mm:ss[.f...]`` is used. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. Timestamp supports up to millisecond accuracy with a value of 999. Refer to Java's `SimpleDateFormat` for available formats.
 * ``isTimestamp('2016-12-31 00:12:00') -> true``
 * ``isTimestamp('2016-12-31T00:12:00' -> 'yyyy-MM-dd\\'T\\'HH:mm:ss' -> 'PST') -> true``
 * ``isTimestamp('2012-8222.18') -> false``
@@ -1283,7 +1283,7 @@ ___
 
 ### <code>isUpdate</code>
 <code><b>isUpdate([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is marked for update. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1. 
+Checks if the row is marked for update. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either `1` or `2` and the default value is `1`. 
 * ``isUpdate()``  
 * ``isUpdate(1)``  
 ___
@@ -1293,7 +1293,7 @@ ___
 
 ### <code>isUpsert</code>
 <code><b>isUpsert([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is marked for insert. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1. 
+Checks if the row is marked for insert. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either `1` or `2` and the default value is `1`. 
 * ``isUpsert()``  
 * ``isUpsert(1)``  
 ___
@@ -1342,7 +1342,7 @@ ___
 
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Gets the value of the first parameter evaluated n rows before the current row. The second parameter is the number of rows to look back and the default value is 1. If there aren't as many rows a value of null is returned unless a default value is specified. 
+Gets the value of the first parameter evaluated `n` rows before the current row. The second parameter is the number of rows to look back, and the default value is `1`. If there aren't as many rows, a value of null is returned unless a default value is specified. 
 * ``lag(amount, 2)``  
 * ``lag(amount, 2000, 100)``  
 ___
@@ -1352,7 +1352,7 @@ ___
 
 ### <code>last</code>
 <code><b>last(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
-Gets the last value of a column group. If the second parameter ignoreNulls is omitted, it's assumed false. 
+Gets the last value of a column group. If the second parameter `ignoreNulls` is omitted, it's assumed false. 
 * ``last(sales)``  
 * ``last(sales, false)``  
 ___
@@ -1362,7 +1362,7 @@ ___
 
 ### <code>lastDayOfMonth</code>
 <code><b>lastDayOfMonth(<i>&lt;value1&gt;</i> : datetime) => date</b></code><br/><br/>
-Gets the last date of the month given a date. 
+Gets the last date of the month when given a date. 
 * ``lastDayOfMonth(toDate('2009-01-12')) -> toDate('2009-01-31')``  
 ___
 
@@ -1371,7 +1371,7 @@ ___
 
 ### <code>lead</code>
 <code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Gets the value of the first parameter evaluated n rows after the current row. The second parameter is the number of rows to look forward and the default value is 1. If there aren't as many rows a value of null is returned unless a default value is specified. 
+Gets the value of the first parameter evaluated `n` rows after the current row. The second parameter is the number of rows to look forward, and the default value is `1`. If there aren't as many rows, a value of null is returned unless a default value is specified. 
 * ``lead(amount, 2)``  
 * ``lead(amount, 2000, 100)``  
 ___
@@ -1381,7 +1381,7 @@ ___
 
 ### <code>least</code>
 <code><b>least(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
-Comparison lesser than or equal operator. Same as <= operator. 
+Comparison lesser than or equal to operator. Same as the `<=` operator. 
 * ``least(10, 30, 15, 20) -> 10``  
 * ``least(toDate('2010-12-12'), toDate('2011-12-12'), toDate('2000-12-12')) -> toDate('2000-12-12')``  
 ___
@@ -1410,7 +1410,7 @@ ___
 
 ### <code>lesser</code>
 <code><b>lesser(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Comparison less operator. Same as < operator. 
+Comparison less operator. Same as `<` operator. 
 * ``lesser(12, 24) -> true``  
 * ``('abcd' < 'abc') -> false``  
 * ``(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS') < toTimestamp('2019-02-05 08:21:34.890', 'yyyy-MM-dd HH:mm:ss.SSS')) -> true``  
@@ -1421,7 +1421,7 @@ ___
 
 ### <code>lesserOrEqual</code>
 <code><b>lesserOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Comparison lesser than or equal operator. Same as <= operator. 
+Comparison lesser than or equal operator. Same as the `<=` operator. 
 * ``lesserOrEqual(12, 12) -> true``  
 * ``('dumbo' <= 'dum') -> false``  
 ___
@@ -1440,7 +1440,7 @@ ___
 
 ### <code>like</code>
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
-The pattern is a string that is matched literally. The exceptions are the following special symbols:  _ matches any one character in the input (similar to. In ```posix``` regular expressions)
+The pattern is a string that is matched literally. The exceptions are the following special symbols:  _ matches any one character in the input (similar to .* in ```posix``` regular expressions)
   % matches zero or more characters in the input (similar to ```.*``` in ```posix``` regular expressions).
   The escape character is ''. If an escape character precedes a special symbol or another escape character, the following character is matched literally. It's invalid to escape any other character. 
 * ``like('icecream', 'ice%') -> true``  
@@ -1451,7 +1451,7 @@ ___
 
 ### <code>locate</code>
 <code><b>locate(<i>&lt;substring to find&gt;</i> : string, <i>&lt;string&gt;</i> : string, [<i>&lt;from index - 1-based&gt;</i> : integral]) => integer</b></code><br/><br/>
-Finds the position (1 based) of the substring within a string starting a certain position. If the position is omitted, it's considered from the beginning of the string. 0 is returned if not found. 
+Finds the position (1 based) of the substring within a string starting a certain position. If the position is omitted, it starts from the beginning of the string. If not found, `0` is returned. 
 * ``locate('mbo', 'dumbo') -> 3``  
 * ``locate('o', 'microsoft', 6) -> 7``  
 * ``locate('bad', 'good') -> 0``  
@@ -1480,7 +1480,7 @@ ___
 
 ### <code>lookup</code>
 <code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
-Looks up the first row from the cached sink using the specified keys that match the keys from the cached sink.
+Looks up the first row from the cached sink by using the specified keys that match the keys from the cached sink.
 * ``cacheSink#lookup(movieId)``  
 ___
 
@@ -1498,7 +1498,7 @@ ___
 
 ### <code>lpad</code>
 <code><b>lpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
-Left pads the string by the supplied padding until it is of a certain length. If the string is equal to or greater than the length, then it's trimmed to the length. 
+Left pads the string by the supplied padding until the string is of a certain length. If the string is equal to or greater than the length, the string is trimmed to the length. 
 * ``lpad('dumbo', 10, '-') -> '-----dumbo'``  
 * ``lpad('dumbo', 4, '-') -> 'dumb'``  
 
@@ -1509,7 +1509,7 @@ ___
 
 ### <code>ltrim</code>
 <code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
-Left trims a string of leading characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter. 
+Left trims a string of leading characters. If the second parameter is unspecified, it trims whitespace. Otherwise, it trims any character specified in the second parameter. 
 * ``ltrim('  dumbo  ') -> 'dumbo  '``  
 * ``ltrim('!--!du!mbo!', '-!') -> 'du!mbo!'``  
 ___
@@ -1520,7 +1520,7 @@ ___
 
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
-Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item. 
+Maps each element of the array to a new element by using the provided expression. Map expects a reference to one element in the expression function as #item. 
 * ``map([1, 2, 3, 4], #item + 2) -> [3, 4, 5, 6]``  
 * ``map(['a', 'b', 'c', 'd'], #item + '_processed') -> ['a_processed', 'b_processed', 'c_processed', 'd_processed']``  
 ___
@@ -1530,7 +1530,7 @@ ___
 
 ### <code>mapAssociation</code>
 <code><b>mapAssociation(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => array</b></code><br/><br/>
-Transforms a map by associating the keys to new values. Returns an array. It takes a mapping function where you can address the item as #key and current value as #value. 
+Transforms a map by associating the keys to new values. Returns an array. It takes a mapping function where you can address the item as #key and the current value as #value. 
 *	``mapAssociation(['bojjus' -> 'gunchus', 'appa' -> 'ammi'], @(key = #key, value = #value)) => [@(key = 'bojjus', value = 'gunchus'), @(key = 'appa', value = 'ammi')]``
 ___ 
 
@@ -1539,7 +1539,7 @@ ___
 
 ### <code>mapIf</code>
 <code><b>mapIf (<i>\<value1\></i> : array, <i>\<value2\></i> : binaryfunction, \<value3\>: binaryFunction) => any</b></code><br/><br/>
-Conditionally maps an array to another array of same or smaller length. The values can be of any datatype including structTypes. It takes a mapping function where you can address the item in the array as #item and current index as #index. For deeply nested maps you can refer to the parent maps using the ``#item_[n](#item_1, #index_1...)`` notation.
+Conditionally maps an array to another array of the same or smaller length. The values can be of any datatype including `structTypes`. It takes a mapping function where you can address the item in the array as #item and the current index as #index. For deeply nested maps, you can refer to the parent maps by using the ``#item_[n](#item_1, #index_1...)`` notation.
 *    ``mapIf([10, 20, 30], #item > 10, #item + 5) -> [25, 35]``
 * ``mapIf(['icecream', 'cake', 'soda'], length(#item) > 4, upper(#item)) -> ['ICECREAM', 'CAKE']``
 ___
@@ -1549,7 +1549,7 @@ ___
 
 ### <code>mapIndex</code>
 <code><b>mapIndex(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => any</b></code><br/><br/>
-Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item and a reference to the element index as #index. 
+Maps each element of the array to a new element by using the provided expression. Map expects a reference to one element in the expression function as #item and a reference to the element index as #index. 
 * ``mapIndex([1, 2, 3, 4], #item + 2 + #index) -> [4, 6, 8, 10]``  
 ___
 
@@ -1558,7 +1558,7 @@ ___
 
 ### <code>mapLoop</code>
 <code><b>mapLoop(<i>\<value1\></i> : integer, <i>\<value2\></i> : unaryfunction) => any</b></code><br/><br/>
-Loops through from 1 to length to create an array of that length. It takes a mapping function where you can address the index in the array as #index. For deeply nested maps you can refer to the parent maps using the #index_n(#index_1, #index_2...) notation.
+Loops through from 1 to length to create an array of that length. It takes a mapping function where you can address the index in the array as #index. For deeply nested maps, you can refer to the parent maps by using the #index_n(#index_1, #index_2...) notation.
 *    ``mapLoop(3, #index * 10) -> [10, 20, 30]``
 ___
 
@@ -1585,7 +1585,7 @@ ___
 
 ### <code>md5</code>
 <code><b>md5(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calculates the MD5 digest of set of column of varying primitive datatypes and returns a 32-character hex string. It can be used to calculate a fingerprint for a row. 
+Calculates the MD5 digest of a set of columns of varying primitive datatypes and returns a 32-character hex string. You can use it to calculate a fingerprint for a row. 
 * ``md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '4ce8a880bd621a1ffad0bca905e1bc5a'``  
 ___
 
@@ -1603,7 +1603,7 @@ ___
 
 ### <code>meanIf</code>
 <code><b>meanIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Based on a criteria gets the mean of values of a column. Same as avgIf. 
+Gets the mean of values of a column based on criteria. Same as `avgIf`. 
 * ``meanIf(region == 'West', sales)``  
 ___
 
@@ -1612,7 +1612,7 @@ ___
 
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the millisecond value of a date. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Gets the millisecond value of a date. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
 * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
 ___
 
@@ -1639,7 +1639,7 @@ ___
 
 ### <code>minIf</code>
 <code><b>minIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Based on a criteria, gets the minimum value of a column. 
+Gets the minimum value of a column based on criteria. 
 * ``minIf(region == 'West', sales)``  
 ___
 
@@ -1648,7 +1648,7 @@ ___
 
 ### <code>minus</code>
 <code><b>minus(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Subtracts numbers. Subtract number of days from a date. Subtract duration from a timestamp. Subtract two timestamps to get difference in milliseconds. Same as the - operator. 
+Subtracts numbers. Subtracts the number of days from a date. Subtracts duration from a time stamp. Subtracts two time stamps to get the difference in milliseconds. Same as the `-` operator. 
 * ``minus(20, 10) -> 10``  
 * ``20 - 10 -> 10``  
 * ``minus(toDate('2012-12-15'), 3) -> toDate('2012-12-12')``  
@@ -1662,7 +1662,7 @@ ___
 
 ### <code>minute</code>
 <code><b>minute(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the minute value of a timestamp. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Gets the minute value of a time stamp. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
 * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58``  
 * ``minute(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 58``  
 ___
@@ -1681,7 +1681,7 @@ ___
 
 ### <code>mlookup</code>
 <code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
-Looks up the all matching rows from the cached sink using the specified keys that match the keys from the cached sink.
+Looks up all the matching rows from the cached sink by using the specified keys that match the keys from the cached sink.
 * ``cacheSink#mlookup(movieId)``  
 ___
 
@@ -1690,7 +1690,7 @@ ___
 
 ### <code>mod</code>
 <code><b>mod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Modulus of pair of numbers. Same as the % operator. 
+Modulus of pair of numbers. Same as the `%` operator. 
 * ``mod(20, 8) -> 4``  
 * ``20 % 8 -> 4``  
 ___
@@ -1700,7 +1700,7 @@ ___
 
 ### <code>month</code>
 <code><b>month(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
-Gets the month value of a date or timestamp. 
+Gets the month value of a date or time stamp. 
 * ``month(toDate('2012-8-8')) -> 8``  
 ___
 
@@ -1709,7 +1709,7 @@ ___
 
 ### <code>monthsBetween</code>
 <code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;roundoff&gt;</i> : boolean], [<i>&lt;time zone&gt;</i> : string]) => double</b></code><br/><br/>
-Gets the number of months between two dates. You can round off the calculation. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Gets the number of months between two dates. You can round off the calculation. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
 * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``  
 ___
 
@@ -1718,7 +1718,7 @@ ___
 
 ### <code>multiply</code>
 <code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Multiplies pair of numbers. Same as the * operator. 
+Multiplies pair of numbers. Same as the `*` operator. 
 * ``multiply(20, 10) -> 200``  
 * ``20 * 10 -> 200``  
 ___
@@ -1738,7 +1738,7 @@ ___
 
 ### <code>nextSequence</code>
 <code><b>nextSequence() => long</b></code><br/><br/>
-Returns the next unique sequence. The number is consecutive only within a partition and is prefixed by the partitionId. 
+Returns the next unique sequence. The number is consecutive only within a partition and is prefixed by the partition ID. 
 * ``nextSequence() == 12313112 -> false``  
 ___
 
@@ -1766,7 +1766,7 @@ ___
 
 ### <code>notEquals</code>
 <code><b>notEquals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Comparison not equals operator. Same as != operator. 
+Comparison not equals operator. Same as the `!=` operator. 
 * ``12 != 24 -> true``  
 * ``'bojjus' != 'bo' + 'jjus' -> false``  
 ___
@@ -1786,7 +1786,7 @@ ___
 
 ### <code>null</code>
 <code><b>null() => null</b></code><br/><br/>
-Returns a NULL value. Use the function `syntax(null())` if there's a column named 'null'. Any operation that uses will result in a NULL. 
+Returns a `NULL` value. Use the function `syntax(null())` if there's a column named 'null'. Any operation that uses results in a `NULL` value. 
 * ``isNull('dumbo' + null) -> true``  
 * ``isNull(10 * null) -> true``  
 * ``isNull('') -> false``  
@@ -1800,7 +1800,7 @@ ___
 
 ### <code>or</code>
 <code><b>or(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Logical OR operator. Same as ||. 
+Logical OR operator. Same as `||`. 
 * ``or(true, false) -> true``  
 * ``true || false -> true``  
 ___
@@ -1819,7 +1819,7 @@ ___
 
 ### <code>output</code>
 <code><b>output() => any</b></code><br/><br/>
-Returns the first row of the results of the cache sink
+Returns the first row of the results of the cache sink.
 * ``cacheSink#output()``  
 ___
 
@@ -1828,7 +1828,7 @@ ___
 
 ### <code>outputs</code>
 <code><b>output() => any</b></code><br/><br/>
-Returns the entire output row set of the results of the cache sink
+Returns the entire output row set of the results of the cache sink.
 * ``cacheSink#outputs()``
 ___
 
@@ -1875,7 +1875,7 @@ ___
 
 ### <code>random</code>
 <code><b>random(<i>&lt;value1&gt;</i> : integral) => double</b></code><br/><br/>
-Returns a random number given a seed within a partition. The seed should be a fixed value and is used with the partitionId to produce random values in range (0.0-1.0).
+Returns a random number when given a seed within a partition. The seed should be a fixed value and is used with the partitionId to produce random values in range (0.0-1.0).
 * ``random(1) == 1 -> false``
 ___
 
@@ -1912,7 +1912,7 @@ ___
 
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-Extract a matching substring for a given regex pattern. The last parameter identifies the match group and is defaulted to 1 if omitted. Use `<regex>`(back quote) to match a string without escaping. Index 0  returns all matches. Without match groups, index 1 and above won’t return any result. 
+Extract a matching substring for a given regex pattern. The last parameter identifies the match group and is defaulted to 1 if omitted. Use `<regex>`(back quote) to match a string without escaping. Index 0 returns all matches. Without match groups, index 1 and above don't return any result. 
 * ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``  
 * ``regexExtract('Cost is between 600 and 800 dollars', `(\d+) and (\d+)`, 2) -> '800'``  
 ___
@@ -1922,7 +1922,7 @@ ___
 
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
-Checks if the string matches the given regex pattern. Use `<regex>`(back quote) to match a string without escaping. 
+Checks if the string matches the given regex pattern. Use `<regex>` to match a string without escaping. 
 * ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``  
 * ``regexMatch('200.50', `(\d+).(\d+)`) -> true``  
 ___
@@ -1932,7 +1932,7 @@ ___
 
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-Replace all occurrences of a regex pattern with another substring in the given string Use `<regex>`(back quote) to match a string without escaping. 
+Replaces all occurrences of a regex pattern with another substring in the given string. Use `<regex>` to match a string without escaping. 
 * ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``  
 * ``regexReplace('100 and 200', `(\d+)`, 'gunchus') -> 'gunchus and gunchus'``  
 ___
@@ -1994,7 +1994,7 @@ ___
 
 ### <code>round</code>
 <code><b>round(<i>&lt;number&gt;</i> : number, [<i>&lt;scale to round&gt;</i> : number], [<i>&lt;rounding option&gt;</i> : integral]) => double</b></code><br/><br/>
-Rounds a number given an optional scale and an optional rounding mode. If the scale is omitted, it's defaulted to 0. If the mode is omitted, it's defaulted to ROUND_HALF_UP(5). The values for rounding include
+Rounds a number when given an optional scale and an optional rounding mode. If the scale is omitted, it's defaulted to 0. If the mode is omitted, it's defaulted to ROUND_HALF_UP(5). The values for rounding include
  
 1. ROUND_UP - Rounding mode to round away from zero.
 1. ROUND_DOWN - Rounding mode to round towards zero.
@@ -2046,7 +2046,7 @@ ___
 
 ### <code>second</code>
 <code><b>second(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the second value of a date. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Gets the second value of a date. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
 * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59``  
 ___
 
@@ -2073,7 +2073,7 @@ ___
 
 ### <code>sha1</code>
 <code><b>sha1(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calculates the SHA-1 digest of set of column of varying primitive datatypes and returns a 40-character hex string. It can be used to calculate a fingerprint for a row. 
+Calculates the SHA-1 digest of a set of columns of varying primitive datatypes and returns a 40-character hex string. You can use it to calculate a fingerprint for a row. 
 * ``sha1(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '46d3b478e8ec4e1f3b453ac3d8e59d5854e282bb'``  
 ___
 
@@ -2082,7 +2082,7 @@ ___
 
 ### <code>sha2</code>
 <code><b>sha2(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calculates the SHA-2 digest of set of column of varying primitive datatypes given a bit length, which can only be of values 0(256), 224, 256, 384, 512. It can be used to calculate a fingerprint for a row. 
+Calculates the SHA-2 digest of a set of columns of varying primitive datatypes when given a bit length, which can only be of values 0(256), 224, 256, 384, 512. You can use it to calculate a fingerprint for a row. 
 * ``sha2(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'afe8a553b1761c67d76f8c31ceef7f71b66a1ee6f4e6d3b5478bf68b47d06bd3'``  
 ___
 
@@ -2257,7 +2257,7 @@ ___
 
 ### <code>subDays</code>
 <code><b>subDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
-Subtract days from a date or timestamp. Same as the - operator for date. 
+Subtract days from a date or time stamp. Same as the - operator for date. 
 * ``subDays(toDate('2016-08-08'), 1) -> toDate('2016-08-07')``  
 ___
 
@@ -2266,7 +2266,7 @@ ___
 
 ### <code>subMonths</code>
 <code><b>subMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
-Subtract months from a date or timestamp. 
+Subtract months from a date or time stamp. 
 * ``subMonths(toDate('2016-09-30'), 1) -> toDate('2016-08-31')``  
 ___
 
@@ -2502,7 +2502,7 @@ Converts a primitive datatype to a string. For numbers and date a format can be 
 
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts a string to a timestamp given an optional timestamp format. If the timestamp is omitted, the default pattern yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. Timestamp supports up to millisecond accuracy with value of 999. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Converts a string to a timestamp when given an optional timestamp format. If the timestamp is omitted, the default pattern yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. Timestamp supports up to millisecond accuracy with value of 999. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
 * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
@@ -2514,7 +2514,7 @@ ___
 
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts the timestamp to UTC. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It's defaulted to the current timezone. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Converts the timestamp to UTC. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. It's defaulted to the current time zone. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
 * ``toUTC(currentTimestamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``toUTC(currentTimestamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 
@@ -2554,7 +2554,7 @@ ___
 
 ### <code>typeMatch</code>
 <code><b>typeMatch(<i>&lt;type&gt;</i> : string, <i>&lt;base type&gt;</i> : string) => boolean</b></code><br/><br/>
-Matches the type of the column. Can only be used in pattern expressions. Number matches short, integer, long, double, float or decimal, integral matches short, integer, long, fractional matches double, float, decimal, and datetime matches date or timestamp type. 
+Matches the type of the column. Can only be used in pattern expressions. Number matches short, integer, long, double, float or decimal, integral matches short, integer, long, fractional matches double, float, decimal, and datetime matches date or time stamp type. 
 * ``typeMatch(type, 'number')``  
 * ``typeMatch('date', 'datetime')``  
 ___
@@ -2679,7 +2679,7 @@ ___
 
 ### <code>weekOfYear</code>
 <code><b>weekOfYear(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
-Gets the week of the year given a date. 
+Gets the week of the year when given a date. 
 * ``weekOfYear(toDate('2008-02-20')) -> 8``  
 ___
 

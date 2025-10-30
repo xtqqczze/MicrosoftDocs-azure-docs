@@ -52,47 +52,47 @@ In Azure Data Factory and Azure Synapse Analytics pipelines, use the expression 
 | [crc32](data-flow-expressions-usage.md#crc32) | Calculates the CRC32 hash of a set of columns of varying primitive data types when given a bit length. The bit length must be of values `0` (`256`), `224`, `256`, `384`, and `512`. You can use it to calculate a fingerprint for a row.  |
 | [degrees](data-flow-expressions-usage.md#degrees) | Converts radians to degrees.  |
 | [divide](data-flow-expressions-usage.md#divide) | Divides a pair of numbers. Same as the `/` operator.  |
-| [dropLeft](data-flow-expressions-usage.md#dropLeft) | Removes as many characters from the left of the string. If the drop requested exceeds the length of the string, an empty string is returned.|
-| [dropRight](data-flow-expressions-usage.md#dropRight) | Removes as many characters from the right of the string. If the drop requested exceeds the length of the string, an empty string is returned.|
+| [dropLeft](data-flow-expressions-usage.md#dropLeft) | Removes as many characters as specified from the left of the string. If the drop requested exceeds the length of the string, an empty string is returned.|
+| [dropRight](data-flow-expressions-usage.md#dropRight) | Removes as many characters as specified from the right of the string. If the drop requested exceeds the length of the string, an empty string is returned.|
 | [endsWith](data-flow-expressions-usage.md#endsWith) | Checks if the string ends with the supplied string.  |
 | [equals](data-flow-expressions-usage.md#equals) | Comparison equals operator. Same as the `==` operator.  |
-| [equalsIgnoreCase](data-flow-expressions-usage.md#equalsIgnoreCase) | Comparison equals operator, ignoring case. Same as the `<=>` operator.  |
+| [equalsIgnoreCase](data-flow-expressions-usage.md#equalsIgnoreCase) | Uses the comparison equals operator and ignores case. Same as the `<=>` operator.  |
 | [escape](data-flow-expressions-usage.md#escape) | Escapes a string according to a format. Literal values for acceptable format are `json`, `xml`, `ecmascript`, `html`, and `java`.|
 | [expr](data-flow-expressions-usage.md#expr) | Results in an expression from a string. Equivalent to writing the expression in a nonliteral form. You can use it to pass parameters as string representations.|
 | [factorial](data-flow-expressions-usage.md#factorial) | Calculates the factorial of a number.  |
 | [false](data-flow-expressions-usage.md#false) | Always returns a false value. Use the function `syntax(false())` if there's a column named `false`.  |
 | [floor](data-flow-expressions-usage.md#floor) | Returns the largest integer not greater than the number.  |
 | [fromBase64](data-flow-expressions-usage.md#fromBase64) | Decodes the specific base64-encoded string.|
-| [greater](data-flow-expressions-usage.md#greater) | Comparison greater operator. Same as the `>` operator.  |
-| [greaterOrEqual](data-flow-expressions-usage.md#greaterOrEqual) | Comparison greater than or equal operator. Same as the `>=` operator.  |
+| [greater](data-flow-expressions-usage.md#greater) | Uses the comparison greater than operator. Same as the `>` operator.  |
+| [greaterOrEqual](data-flow-expressions-usage.md#greaterOrEqual) | Uses the comparison greater than or equal to operator. Same as the `>=` operator.  |
 | [greatest](data-flow-expressions-usage.md#greatest) | Returns the greatest value among the list of values as input skipping null values. Returns null if all inputs are null.  |
-| [hasColumn](data-flow-expressions-usage.md#hasColumn) | Checks for a column value by name in the stream. You can pass an optional stream name as the second argument. Column names known at design time should be addressed by their name only. Computed inputs aren't supported, but you can use parameter substitutions.  |
+| [hasColumn](data-flow-expressions-usage.md#hasColumn) | Checks for a column value by name in the stream. You can pass an optional stream name as the second argument. Column names known at design time should be addressed by using their name only. Computed inputs aren't supported, but you can use parameter substitutions.  |
 | [hasError](data-flow-expressions-usage.md#hasError) | Checks if the assert with the provided ID is marked as an error. |
-| [iif](data-flow-expressions-usage.md#iif) | Applies one value or the other based on a condition. If the other is unspecified, it's considered `NULL`. Both the values must be compatible (for example, numeric or string).  |
+| [iif](data-flow-expressions-usage.md#iif) | Applies one value or the other based on a condition. If the other is unspecified, the value is considered `NULL`. Both the values must be compatible (for example, numeric or string).  |
 | [iifNull](data-flow-expressions-usage.md#iifNull) | Returns the first not null item when given two or more inputs. This function is equivalent to `coalesce`. |
 | [initCap](data-flow-expressions-usage.md#initCap) | Converts the first letter of every word to uppercase. Words are identified as separated by whitespace.  |
 | [instr](data-flow-expressions-usage.md#instr) | Finds the position (1 based) of the substring within a string. If not found, `0` is returned.  |
 | [isDelete](data-flow-expressions-usage.md#isDelete) | Checks if the row is marked for delete. For transformations that take more than one input stream, you can pass the (1-based) index of the stream. The stream index should be either `1` or `2`, and the default value is `1`.  |
 | [isError](data-flow-expressions-usage.md#isError) | Checks if the row is marked as error. For transformations that take more than one input stream, you can pass the (1-based) index of the stream. The stream index should be either `1` or `2`. The default value is `1`.  |
-| [isIgnore](data-flow-expressions-usage.md#isIgnore) | Checks if the row is marked to be ignored. For transformations that take more than one input stream, you can pass the (1-based) index of the stream. The stream index should be either `1` or `2`. The default value is `1`.  |
+| [isIgnore](data-flow-expressions-usage.md#isIgnore) | Checks if the row should be ignored. For transformations that take more than one input stream, you can pass the (1-based) index of the stream. The stream index should be either `1` or `2`. The default value is `1`.  |
 | [isInsert](data-flow-expressions-usage.md#isInsert) | Checks if the row is marked for insert. For transformations that take more than one input stream, you can pass the (1-based) index of the stream. The stream index should be either `1` or `2`. The default value is `1`.  |
 | [isMatch](data-flow-expressions-usage.md#isMatch) | Checks if the row is matched at lookup. For transformations that take more than one input stream, you can pass the (1-based) index of the stream. The stream index should be either `1` or `2`. The default value is `1`.  |
 | [isNull](data-flow-expressions-usage.md#isNull) | Checks if the value is `NULL`.  |
 | [isUpdate](data-flow-expressions-usage.md#isUpdate) | Checks if the row is marked for update. For transformations that take more than one input stream, you can pass the (1-based) index of the stream. The stream index should be either `1` or `2`. The default value is `1`.  |
 | [isUpsert](data-flow-expressions-usage.md#isUpsert) | Checks if the row is marked for insert. For transformations that take more than one input stream, you can pass the (1-based) index of the stream. The stream index should be either `1` or `2`. The default value is 1.  |
 | [jaroWinkler](data-flow-expressions-usage.md#jaroWinkler) | Gets the JaroWinkler distance between two strings. |
-| [least](data-flow-expressions-usage.md#least) | Uses the comparison lesser than or equal operator. Same as the `<=` operator.  |
+| [least](data-flow-expressions-usage.md#least) | Uses the comparison lesser than or equal to operator. Same as the `<=` operator.  |
 | [left](data-flow-expressions-usage.md#left) | Extracts a substring start at index `1` with the number of characters. Same as `SUBSTRING(str, 1, n)`.  |
 | [length](data-flow-expressions-usage.md#length) | Returns the length of the string.  |
 | [lesser](data-flow-expressions-usage.md#lesser) | Uses the comparison less operator. Same as the `<` operator.  |
-| [lesserOrEqual](data-flow-expressions-usage.md#lesserOrEqual) | Uses the comparison lesser than or equal operator. Same as the `<=` operator.  |
+| [lesserOrEqual](data-flow-expressions-usage.md#lesserOrEqual) | Uses the comparison lesser than or equal to operator. Same as the `<=` operator.  |
 | [levenshtein](data-flow-expressions-usage.md#levenshtein) | Gets the levenshtein distance between two strings.  |
-| [like](data-flow-expressions-usage.md#like) | The pattern is a string that's matched literally. The exceptions are the following special symbols:  `_` matches any one character in the input (similar to in ```posix``` regular expressions).|
-| [locate](data-flow-expressions-usage.md#locate) | Finds the position (1 based) of the substring within a string that starts a certain position. If the position is omitted, it's considered from the beginning of the string. If not found, `0` is returned.  |
+| [like](data-flow-expressions-usage.md#like) | Uses a pattern with a string that's matched literally. The exception is the special symbol  `_` that matches any one character in the input (similar to .* in ```posix``` regular expressions).|
+| [locate](data-flow-expressions-usage.md#locate) | Finds the position (1 based) of the substring within a string that starts a certain position. If the position is omitted, start from the beginning of the string. If not found, `0` is returned.  |
 | [log](data-flow-expressions-usage.md#log) | Calculates the log value. You can supply an optional base or else a Euler number if used.  |
 | [log10](data-flow-expressions-usage.md#log10) | Calculates the log value based on a 10 base.  |
 | [lower](data-flow-expressions-usage.md#lower) | Lowercases a string.  |
-| [lpad](data-flow-expressions-usage.md#lpad) | Left pads the string by the supplied padding until it's of a certain length. If the string is equal to or greater than the length, it's trimmed to the length.  |
+| [lpad](data-flow-expressions-usage.md#lpad) | Left pads the string by the supplied padding until it's of a certain length. If the string is equal to or greater than the length, the string is trimmed to the length.  |
 | [ltrim](data-flow-expressions-usage.md#ltrim) | Left trims a string of leading characters. If the second parameter is unspecified, it trims whitespace. Otherwise, it trims any character specified in the second parameter.  |
 | [md5](data-flow-expressions-usage.md#md5) | Calculates the MD5 digest of a set of columns of varying primitive data types and returns a 32-character hex string. You can use it to calculate a fingerprint for a row.  |
 | [minus](data-flow-expressions-usage.md#minus) | Subtracts numbers. Subtracts the number of days from a date. Subtracts duration from a time stamp. Subtracts two time stamps to get the difference in milliseconds. Same as the `-` operator.  |
@@ -119,7 +119,7 @@ In Azure Data Factory and Azure Synapse Analytics pipelines, use the expression 
 | [right](data-flow-expressions-usage.md#right) | Extracts a substring with the number of characters from the right. Same as `SUBSTRING(str, LENGTH(str) - n, n)`.  |
 | [rlike](data-flow-expressions-usage.md#rlike) | Checks if the string matches the specific regex pattern.  |
 | [round](data-flow-expressions-usage.md#round) | Rounds a number when given an optional scale and an optional rounding mode. If the scale is omitted, it defaults to 0. If the mode is omitted, it defaults to `ROUND_HALF_UP(5)`. |
-| [rpad](data-flow-expressions-usage.md#rpad) | Right pads the string by the supplied padding until it's of a certain length. If the string is equal to or greater than the length, then it's trimmed to the length.  |
+| [rpad](data-flow-expressions-usage.md#rpad) | Right pads the string by the supplied padding until it's of a certain length. If the string is equal to or greater than the length, the string is trimmed to the length.  |
 | [rtrim](data-flow-expressions-usage.md#rtrim) | Right trims a string of trailing characters. If the second parameter is unspecified, it trims whitespace. Otherwise, it trims any character specified in the second parameter.  |
 | [sha1](data-flow-expressions-usage.md#sha1) | Calculates the SHA-1 digest of a set of columns of varying primitive data types and returns a 40-character hex string. You can use it to calculate a fingerprint for a row.  |
 | [sha2](data-flow-expressions-usage.md#sha2) | Calculates the SHA-2 digest of a set of columns of varying primitive data types when given a bit length, which can only be of values `0` (`256`), `224`, `256`, `384`, and `512`. You can use it to calculate a fingerprint for a row.  |
