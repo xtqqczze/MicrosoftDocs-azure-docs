@@ -32,9 +32,10 @@ items:
         - name: Using ARM template
           href: fhir-service-resource-manager-template.md
     - name: Use Microsoft Entra External ID for an identity provider
-      href: azure-entra-external-id-setup.md
       expanded: true
       items: 
+        - name: Use Microsoft Entra External ID for an identity provider
+          href: azure-entra-external-id-setup.md
         - name: Use Azure AD B2C for an identity provider
           href: azure-ad-b2c-setup.md
         - name: Configure multiple service identity providers
