@@ -73,6 +73,9 @@ The rolling update strategy provides zero-downtime deployments through this proc
 1. Simultaneously, the scaling platform provisions new instances running the updated version to replace the draining capacity
 1. This process continues until all live instances are running the updated version
 
+> [!NOTE]
+> The specific rolling update parameters (such as batch size, number of batches, and drain intervals) are determined by the platform during public preview and may change before general availability to optimize performance and reliability.
+
 The platform intelligently manages capacity during rolling updates. If demand increases, more instances are provisioned than were drained. If demand decreases, only the necessary instances are created to meet current needs. This approach ensures continuous availability while optimizing resource usage. 
 
 ### Rolling update behavior and limitations
@@ -122,6 +125,8 @@ functionAppConfig: {
 }
 ```
 
+---
+
 Changes to the site update strategy take effect at the next site update. For example, changing from `Recreate` to `RollingUpdate` uses the recreate strategy for that update. All subsequent site updates use rolling updates.
 
 ## Monitoring site updates
@@ -137,7 +142,7 @@ You can monitor rolling update progress using KQL queries in Application Insight
 
 ```kusto
 // Rolling update completion check
-let deploymentStart = datetime('2025-10-29T15:16:00Z'); // Set to your deployment start time
+let deploymentStart = datetime('2025-10-30T19:00:00Z'); // Set to your deployment start time
 let checkInterval = 10s; // How often you run this query
 let buffer = 30s; // Safety buffer for instance detection
 //
