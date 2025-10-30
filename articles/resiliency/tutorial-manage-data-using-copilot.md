@@ -14,6 +14,8 @@ ms.author: v-mallicka
 
 This article describes how to use Resiliency in Azure Copilot to make your resiliency journey seamless. 
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 ## What is Resiliency Copilot? 
 
 The Resiliency Copilot feature assists you to protect and recover your resources. The key use cases for the Resiliency Copilot are prioritized by the four resiliency pillars:

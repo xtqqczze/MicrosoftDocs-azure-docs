@@ -21,6 +21,8 @@ Resiliency in Azure allows you to suspend backup for a datasource in one vault a
 
 This tutorial describes how to reconfigure backup for data sources in Azure Business Continuity Center by switching to an alternate Recovery Services vault, called re-registration. The feature is available for all datasources supported in Recovery Services vault.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 > [!NOTE]
 > - Backup reconfiguration to alternate vault isn't supported for SQL Always On Availability Groups (AG) and SAP HANA System Replication (HSR).
 > - Recovery Services vault doesn't allow active multi-protection.

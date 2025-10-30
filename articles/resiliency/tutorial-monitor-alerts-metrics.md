@@ -16,6 +16,8 @@ ms.author: v-mallicka
 
 This tutorial describes how Resiliency in Azure allows you to view alerts across Azure Backup and Azure Site Recovery. You can also configure notifications, view metrics, and take appropriate action. 
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 ## Monitor alerts
 
 Resiliency in Azure allows you to monitor alerts that are raised for your critical events in your backup and disaster recovery events. You can view any built-in alerts fired by solutions, such as Azure Backup or Azure Site Recovery. Also, you can view alerts fired based on custom alert rules on metrics.

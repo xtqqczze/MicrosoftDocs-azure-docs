@@ -17,6 +17,8 @@ This tutorial describes the process to recover deleted items from the vault to e
 
 Resiliency in Azure allows you to recover protected items (restore backup, failover, test failover, and more), for the replication of the datasources from various views such as Overview, protected items, and so on.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 ## Prerequisites
 
 Before you start the recovery process, ensure that the following prerequisites are met:

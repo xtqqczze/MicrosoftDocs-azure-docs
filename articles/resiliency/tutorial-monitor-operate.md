@@ -17,6 +17,8 @@ This tutorial describes how to monitor jobs across your resiliency estate.
 
 Resiliency in Azure allows you to view jobs across Azure Backup and Azure Site Recovery, with ability to filter, view details of individual jobs and take appropriate action. 
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 ## Monitor jobs
 
 To monitor jobs, follow these steps:
