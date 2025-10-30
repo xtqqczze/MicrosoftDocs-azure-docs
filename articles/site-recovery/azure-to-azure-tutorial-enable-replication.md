@@ -176,7 +176,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 1. In **Replication settings**, review the settings. Site Recovery creates default settings/policy for the target region. For the purposes of this tutorial, we use the default settings.
     >[!Note]
     >Azure Site Recovery has a *High Churn* option that you can choose to protect VMs with high data change rate. With this, you can use a *Premium Block Blob* type of storage account. By default, the **Normal Churn** option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md). You can select the **High Churn** option from  **Storage** > **View/edit storage configuration** > **Churn for the VM**.
-    >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/vm- churn-settings.png" alt-text="Screenshot of churn."::: 
+    >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/vm-churn-settings.png" alt-text="Screenshot of churn."::: 
 
 2. Select **Next**.
   
