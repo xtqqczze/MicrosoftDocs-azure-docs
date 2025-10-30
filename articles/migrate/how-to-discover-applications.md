@@ -103,7 +103,7 @@ After software inventory has completed, you can review the inventory in the Azur
 9. You can select the **Vulnerabilities** count against each software to view the identified CVE (Common Vulnerabilities and Exposures) IDs for that software version along with other details such as CVSS (Common Vulnerability Scoring System), Risk Level, Age and date the CVE was published on. You can use this view to **Export** the vulnerabilities information for a particular software.
 
     > [!NOTE]
-    > Vulnerabilities are sourced from National Vulnerability Database [NVD](https://www.nist.gov/itl/nvd) and mapped to discovered software. [Learn more](insights-overview.md#how-are-insights-derived) on how Insights (preview) are generated and and for complete list of vulnerabilities, use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
+    > Vulnerabilities are sourced from National Vulnerability Database [NVD](https://www.nist.gov/itl/nvd) and mapped to discovered software. [Learn more](insights-overview.md#how-are-insights-derived) on how Insights (preview) are generated and for complete list of vulnerabilities, use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
 
 10. You can also review the list of **Potential Targets** that have been suggested to plan the migration of your software to the Azure First Party(1P) services or Third Party (3P) Independent Software Vendor (ISV) services available as [Azure Native integrations](/azure/partner-solutions/partners) through Azure Marketplace.
 11. The software inventory view can be scoped by using **Search & filter** using any of the metadata like **Name**, **Publisher**, **Version** or the additional insights like **Category**, **Subcategory**, **Support Status**, **Servers count** and **Vulnerabilities**.
@@ -114,7 +114,7 @@ After software inventory has completed, you can review the inventory in the Azur
 
 #### Software classification & Potential Targets 
 
-The table below shows different categories and subcategories in which the discovered software are categorized along with some examples of software found running in IT datacenters with the Potential Targets suggested for all software at a subcategory level:
+The table below shows different categories and subcategories in which the discovered software is categorized along with some examples of software found running in IT datacenters with the Potential Targets suggested for all software at a subcategory level:
 
 | **Category**                     | **Subcategory**                  | **Software examples**                                                                                                      | **Azure Services (1P)**                                                                                          | **Azure Native integrations (3P ISV services)**                                                                                     |
 |----------------------------------|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
