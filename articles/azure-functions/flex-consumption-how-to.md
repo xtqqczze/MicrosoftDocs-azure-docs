@@ -643,15 +643,15 @@ The Flex Consumption plan uniquely supports two different site update strategies
 
 ### [Azure CLI](#tab/azure-cli)
 
-Site update strategy configuration isn't currently supported in the Azure CLI. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configuration).
+Site update strategy configuration isn't currently supported in the Azure CLI. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
 
 ### [Azure portal](#tab/azure-portal)
 
-Site update strategy configuration isn't currently supported in the Azure portal. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configuration).
+Site update strategy configuration isn't currently supported in the Azure portal. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
 
 ### [Visual Studio Code](#tab/vs-code)
 
-Site update strategy configuration isn't currently supported in Visual Studio Code. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configuration).
+Site update strategy configuration isn't currently supported in Visual Studio Code. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
 
 ---
 

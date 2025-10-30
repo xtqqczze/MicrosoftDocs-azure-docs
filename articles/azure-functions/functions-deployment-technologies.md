@@ -252,4 +252,4 @@ Read these articles to learn more about deploying your function apps:
 + [Zip deployments for Azure Functions](deployment-zip-push.md)
 + [Run your Azure Functions from a package file](run-functions-from-deployment-package.md)
 + [Automate resource deployment for your function app in Azure Functions](functions-infrastructure-as-code.md)
-+ [Configure zero-downtime deployments in Flex Consumption](flex-consumption-site-updates.md#rolling-update-strategy)
++ [Configure zero-downtime deployments in Flex Consumption](flex-consumption-site-updates.md)
