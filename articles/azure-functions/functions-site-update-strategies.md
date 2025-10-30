@@ -8,7 +8,7 @@ ms.date: 10/30/2025
 
 # Site update strategies in Flex Consumption
 
-The Flex Consumption plan provides a `SiteUpdateStrategy` property that controls how the platform updates running instances when you deploy code changes or configuration updates. This property determines whether your function app experiences downtime during these updates and how in-flight executions are handled.
+The Flex Consumption plan provides a `SiteUpdateStrategy` property that controls how the platform updates running instances during site updates. A site update occurs whenever you deploy code, modify application settings, or change other configuration properties. This property determines whether your function app experiences downtime during these updates and how in-flight executions are handled.
 
 Flex Consumption supports two update strategies:
 

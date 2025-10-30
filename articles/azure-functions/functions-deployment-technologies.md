@@ -233,7 +233,7 @@ When you deploy updates to your function app code, the deployment behavior depen
 
 Review [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless) to learn how to write stateless and defensive functions.
 
-**Flex Consumption plan:** The default behavior also uses the recreate strategy, terminating currently executing functions during deployment. However, Flex Consumption is the only hosting plan that offers the ability to change the site update strategy. You can [configure Rolling Update strategy](functions-site-update-strategies.md) for zero-downtime deployments.
+**Flex Consumption plan:** The default behavior also uses the recreate strategy, terminating currently executing functions during deployment. However, Flex Consumption uniquely supports two different site update strategies. You can [configure rolling updates](functions-site-update-strategies.md) for zero-downtime deployments.
 
 ## Deployment slots
 
