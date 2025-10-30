@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: how-to
 ms.service: azure-site-recovery
-ms.date: 05/02/2024
+ms.date: 10/30/2025
 # Customer intent: As an IT administrator, I want to troubleshoot network connectivity issues for Azure-to-Azure disaster recovery, so that I can ensure seamless replication and recovery of virtual machines during failover events.
 ---
 
@@ -75,7 +75,7 @@ This example shows how to configure NSG rules for a VM to replicate.
 
 1. Create an HTTPS outbound security rule for the NSG as shown in the following screenshot. This example uses the **Destination service tag**: _AzureActiveDirectory_ and **Destination port ranges**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Screenshot shows an Add outbound security rule pane for a security rule for Microsoft Entra ID.":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/azure-active-directory-tag.png" alt-text="Screenshot shows an Add outbound security rule pane for a security rule for Microsoft Entra ID.":::
 
 1. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.CentralUS" on the NSG that correspond to the target location. This allows access to Site Recovery monitoring.
 1. Create an outbound HTTPS (443) security rule for "AzureSiteRecovery" on the NSG. This allows access to Site Recovery Service in any region.
