@@ -25,7 +25,7 @@ Refer to this table when deciding between the two site update strategies:
 | Consideration | Recreate | Rolling update |
 | ------------- | -------- | -------------- |
 | Downtime      | Brief downtime as your app scales out from 0 after the restart | No period of downtime |
-| In-flight executions | Forcefully terminated | Allowed to complete within the [60-minute scale-in grace period](functions-scale.md#function-app-time-out-duration) (HTTP functions limited to 230-second timeout) |
+| In-flight executions | Forcefully terminated | Allowed to complete within the [60-minute scale-in grace period](functions-scale.md#timeout) (HTTP functions limited to 230-second timeout) |
 | Speed         | Quick - environment can take up to 30 seconds to update | Gradual - environment can take up to three minutes depending on the number of instances (includes delay between site update completion and rolling update start) |
 | Backward compatibility | Not necessary as one version will be running at a time | Changes must be backward compatible, especially with stateful workloads or breaking changes |
 | How to set    | Default behavior, consistent with other hosting plans  | Opt-in configuration |
