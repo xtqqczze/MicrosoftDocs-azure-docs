@@ -59,4 +59,4 @@ All Azure Migrate data, including waves, is available in Azure Resource Graph (A
  - Workload in wave: `microsoft.migrate/migrateprojects/migrationentities`
  - Application in wave: `microsoft.migrate/migrateprojects/migrationentitygroups`
 
-You can build queries as needed by using the Azure portal, Azure CLI, PowerShell, REST APIs, or the Power BI connector to generate reports.
+You can build queries as needed by using the Azure portal, Azure CLI, PowerShell, REST APIs, or the Power BI connector to generate reports. For more information, see [Azure Resource Graph](/azure/governance/resource-graph/overview.md).
