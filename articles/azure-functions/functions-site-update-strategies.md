@@ -26,7 +26,7 @@ Refer to this table when deciding between the two site update strategies:
 | ------------- | -------- | -------------- |
 | Downtime      | Brief downtime as your app scales out from 0 after the restart | No period of downtime |
 | In-flight executions | Forcefully terminated | Allowed to complete within the [60-minute scale-in grace period](functions-scale.md#timeout) (HTTP functions limited to 230-second timeout) |
-| Speed         | Quick - environment can take up to 30 seconds to update | Gradual - environment can take up to three minutes depending on the number of instances (includes delay between site update completion and rolling update start) |
+| Speed         | Faster - instances are restarted immediately | Slower - instances are updated in batches at regular intervals |
 | Backward compatibility | Not necessary as one version will be running at a time | Changes must be backward compatible, especially with stateful workloads or breaking changes |
 | How to set    | Default behavior, consistent with other hosting plans  | Opt-in configuration |
 
@@ -131,14 +131,11 @@ Changes to the site update strategy take effect at the next site update. For exa
 
 ## Monitoring site updates
 
-During the public preview, there's no deterministic completion signal for site updates. You have two options:
+During the public preview, there's no built-in completion signal for site updates. You can use KQL queries in Application Insights as a best-effort approach to estimate rolling update progress.
 
-1. **Wait a conservative amount of time**: up to 30 seconds for recreate updates or up to 3 minutes for rolling updates
-2. **Estimate completion using queries**: Use the KQL query below to track rolling update progress, but be aware of its limitations
+### Monitoring rolling update progress
 
-### Query rolling update progress
-
-You can monitor rolling update progress using KQL queries in Application Insights. The following query tracks how many original instances have been replaced and returns `"RollingUpdateComplete": "Yes"` when no original instances remain:
+The following KQL query provides a best-effort estimate of rolling update progress by tracking instance turnover in Application Insights logs. This approach has significant limitations and should not be relied upon for production automation:
 
 ```kusto
 // Rolling update completion check
@@ -176,15 +173,15 @@ currentInstances
 | project RollingUpdateComplete, PercentComplete, OriginalStillActiveCount, NewCount
 ```
 
-**How to use this query:**
+**How to use this query for estimation:**
 
 1. Paste this query in the Logs blade of the Application Insights resource associated with your function app.
 2. Set `deploymentStart` to the timestamp when your site update returned success.
-3. Run the query periodically to track progress. Set the polling interval to be at least as long as your average function execution time, and ensure the `checkInterval` variable in the query matches this polling frequency
-4. The query returns:
-   - `RollingUpdateComplete`: Whether all original instances have been replaced
-   - `PercentComplete`: Percentage of original instances that have been replaced
-   - `OriginalStillActiveCount`: Number of original instances still running
+3. Run the query periodically to estimate progress. Set the polling interval to be at least as long as your average function execution time, and ensure the `checkInterval` variable in the query matches this polling frequency
+4. The query returns approximate values:
+   - `RollingUpdateComplete`: Best estimate of whether all original instances have been replaced
+   - `PercentComplete`: Estimated percentage of original instances that have been replaced
+   - `OriginalStillActiveCount`: Estimated number of original instances still running
    - `NewCount`: Number of new instances currently active
 
 **Query limitations**
@@ -193,8 +190,7 @@ currentInstances
 
 2. **Log-based detection**: This approach relies on application logs to infer instance state rather than directly querying instance status. Instances may be running but not actively logging, leading to false completion signals when original instances are still active but haven't emitted logs within the `checkInterval` window.
 
-For production scenarios, use rolling updates for zero-downtime deployments without relying on completion detection. For more predictable timing, use the recreate strategy (faster but with brief downtime).
-
+**Recommendation for production**: Use rolling updates when zero-downtime deployments are critical. Ensure your deployment pipelines don't require waiting for update completion before proceeding to subsequent steps. Use recreate when you need faster, more predictable update timing and can tolerate brief downtime.
 
 ## FAQ
 
