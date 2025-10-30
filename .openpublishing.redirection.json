@@ -6221,11 +6221,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/communications-gateway/toc.yml",
-      "redirect_url": "/previous-versions/azure/communications-gateway/toc.yml",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/communications-gateway/whats-new.md",
       "redirect_url": "/previous-versions/azure/communications-gateway/whats-new.md",
       "redirect_document_id": false
