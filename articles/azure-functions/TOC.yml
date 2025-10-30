@@ -224,6 +224,8 @@
       href: consumption-plan.md
   - name: Deployment options
     href: functions-deployment-technologies.md
+  - name: Site update strategies
+    href: functions-site-update-strategies.md
   - name: Events and messaging
     items:
     - name: Connect to services
