@@ -101,7 +101,7 @@ Deployments in the Flex Consumption plan follow a single path, and there's no lo
 > [!NOTE]
 > Zero-downtime deployments with rolling updates are currently in public preview.
 
-Flex Consumption is the only Azure Functions hosting plan that supports zero-downtime deployments. This capability uses rolling updates as the [site update strategy](functions-site-update-strategies.md), which allows code deployments and configuration changes to be applied gradually across instances without interrupting function execution. Unlike other hosting plans where deployments terminate currently executing functions, rolling updates ensure continuous availability during updates, making it ideal for production workloads that require high availability.
+Flex Consumption provides zero-downtime deployments through rolling updates as the [site update strategy](functions-site-update-strategies.md), which allows code deployments and configuration changes to be applied gradually across instances without interrupting function execution. Other hosting plans use deployment slots to minimize downtime during deployments. For deployment options across all hosting plans, see [optimize deployments](functions-best-practices.md#optimize-deployments).
 
 ## Billing
 
