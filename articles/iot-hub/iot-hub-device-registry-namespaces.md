@@ -176,6 +176,48 @@ az iot ops ns create -n <my namespace name> -g $RESOURCE_GROUP
 
 ***
 
+## Enable a credential resource for your namespace
+
+### [Azure portal](#tab/portal)
+
+Credential resources allow you to manage device authentication and authorization for devices connecting to your namespace. When you enable a credential resource, you can set up policies to control how certificates are issued and managed for your devices. 
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
+1. Go to the **Namespaces** page.
+1. Select the namespace you want to enable a credential resource for.
+1. In the namespace page, under **Settings**, select **Credentials**.
+1. In the **Credentials** page, select **Enable**.
+
+
+### [Azure CLI](#tab/cli)
+
+TO DO
+
+***
+
+## Sync policies to IoT hubs
+
+### [Azure portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
+1. Go to the **Namespaces** page.
+1. Select the namespace you want to sync policies for.
+1. In the namespace page, under **Resources**, select **Policies**.
+1. In the **Policies** page, you can view your policies, validity periods, intervals, and status.
+1. Select the policies you want to sync. You can sync more than one policy at a time.
+1. Select **Sync policies**.
+
+    > [!NOTE]
+    > If you select to sync more than one policy, policies are synced to their respective IoT hubs.
+
+1. In the **Sync policies** pane, review the policies to be synced and select **Sync**.
+
+### [Azure CLI](#tab/cli)
+
+TO DO
+
+***
+
 ## Delete a namespace
 
 When you no longer need the ADR namespace and its related resources, you can delete them to avoid incurring unnecessary costs.
