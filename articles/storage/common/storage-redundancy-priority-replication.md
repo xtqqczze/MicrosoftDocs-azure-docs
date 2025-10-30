@@ -100,9 +100,10 @@ To enable Geo Priority Replication when creating a new storage account, complete
 
 ```powershell
 
-# Login Azure account, one time work
-# Connect-AzAccount
- 
+# Login to your Azure account
+Connect-AzAccount
+
+# Set variables 
 $rgname = 
 $newAccountName = 
 $destAccountName = 
@@ -110,13 +111,30 @@ $srcAccountName =
 $srcContainer = 
 $destContainer =
  
-## Create storage account with geo priority replication enabled
+# Create storage account with geo priority replication enabled
 $account = New-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $newAccountName -SkuName Standard_GRS -Location centralusEUAP -EnableBlobGeoPriorityReplication $true
 
 ```
 # [Azure CLI](#tab/cli)
 
 Content for CLI...
+
+```azurecli-interactive
+
+# Login to your Azure account
+Connect-AzAccount
+
+# Set variables
+$rgname          = "<resource-group-name>"
+$newAccountName  = "<new-account-name>"
+$destAccountName = "<destination-account-name>"
+$srcAccountName  = "<source-account-name>"
+$srcContainer    = "<source-container-name>"
+$destContainer   = "<destination-container-name>"
+
+# Create storage account with geo priority replication enabled
+az storage account create -n $newAccountName -g $rgname --sku Standard_GRS --enable-blob-geo-priority-replication true
+```
 
 ---
 
@@ -143,15 +161,16 @@ You can disable Geo Priority Replication at any time by clearing the checkbox an
 # [Azure PowerShell](#tab/powershell)
 
 ```powershell
-# Login Azure account, one time work
-# Connect-AzAccount
+# Login to your Azure account
+Connect-AzAccount
  
-$rgname = 
-$newAccountName = 
-$destAccountName = 
-$srcAccountName = 
-$srcContainer = 
-$destContainer =
+# Set variables
+$rgname          = "<resource-group-name>"
+$newAccountName  = "<new-account-name>"
+$destAccountName = "<destination-account-name>"
+$srcAccountName  = "<source-account-name>"
+$srcContainer    = "<source-container-name>"
+$destContainer   = "<destination-container-name>"
  
 ## Update storage account with Geo Priority Replication enabled
 $account = Set-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $newAccountName -EnableBlobGeoPriorityReplication $false
@@ -161,7 +180,22 @@ $account.GeoPriorityReplicationStatus.IsBlobEnabled
 
 # [Azure CLI](#tab/cli)
 
-Content for CLI...
+```azurecli-interactive
+
+# Login to your Azure account
+Connect-AzAccount
+
+# Set variables
+$rgname              = "<resource-group-name>"
+$storageAccountName  = "<new-account-name>"
+
+# Update existing storage account to enable geo priority replication
+az storage account update -n $storageAccountName -g $rgname --enable-blob-geo-priority-replication true
+
+# Update existing storage account to disable geo priority replication
+az storage account update -n $storageAccountName -g $rgname --enable-blob-geo-priority-replication false
+
+```
 
 ---
 
