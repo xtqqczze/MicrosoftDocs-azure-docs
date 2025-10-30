@@ -2,7 +2,7 @@
 title: Use the Dedicated SKU for Azure Functions Durable Task Scheduler (preview)
 description: Learn about how the Dedicated SKU in Azure Functions Durable Task Scheduler.
 ms.topic: conceptual
-ms.date: 10/22/2025
+ms.date: 10/30/2025
 ms.author: franlanglois
 ---
 # Azure Functions Durable Task Scheduler Pricing and SKU Options
@@ -57,20 +57,20 @@ Durable Task Scheduler offers two SKU options: Dedicated and Consumption (previe
 
 ### Dedicated SKU
 
-The Dedicated SKU provides predictable performance and pricing through preallocated Capacity Units (CUs). You can purchase up to three CUs. 
+The Dedicated SKU provides  performance and pricing through preallocated Capacity Units (CUs). You can purchase up to three CUs. 
 
 #### Key features
 
 | Feature | Description |  
 | - | - |
 | Base cost | Fixed monthly cost per CU (regional pricing) |
-| Performance | Each CU supports up to 2,000 actions per second and 50GB of orchestration data |
+| Performance | Each CU supports up to 2,000 actions per second and 50GB of orchestration data storage |
 | Enterprise SLA | 99.95% uptime |  
-| Data retention | Up to 90 days |  
-| High availability | High availability with multi-CU deployments. A minimum of 3 CUs is required.
+| Orchestration data retention | Up to 90 days |  
 | Custom scaling | Configure CUs to match your workload needs. 1 CU required per deployment. |  
+| High availability | High availability with multi-CU deployments. A minimum of 3 CUs is required.
 
-#### Calculating the Dedicated SKU
+#### Calculating Capacity Units for the Dedicated SKU
 
 #### Example 1
 
@@ -79,7 +79,7 @@ You have an orchestration with 5 activities, plus error handling, and averaging 
 |   | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 20,000,000 × 12 | 240,000,000 actions |
-| Actions per second | 240,000,000 ÷ 2,628,000 | ≈ 91 actions/second |
+| Actions per second | 240,000,000 ÷ 2,628,000 (seconds in a month) | ≈ 91 actions/second |
 | Required CUs | 91 ÷ 2,000 | 240,000,000 actions<br>CUs needed: 0.046 → **1 CU sufficient** |
 
 #### Example 2
@@ -114,13 +114,6 @@ The Consumption SKU offers a pay-as-you-use model, ideal for variable workloads 
 | Performance | Up to 500 actions per second. |
 | SLA | 99.9% uptime guarantee |  
 | Data retention | 30-day maximum retention |  
-
-#### Pricing and Limits
-
-| Pricing | Description |  
-| - | - |
-| Cost | $0.03 per action dispatched |
-| Throughput | Up to 500 actions per second |
 
 #### Example 1
 
