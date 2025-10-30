@@ -428,7 +428,7 @@ The following example creates a resource group and deploys a storage account to 
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2022-09-01",
+              "apiVersion": "2025-01-01",
               "name": "[variables('storageName')]",
               "location": "[parameters('rgLocation')]",
               "sku": {

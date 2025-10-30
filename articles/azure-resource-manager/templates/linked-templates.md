@@ -81,7 +81,7 @@ The following example deploys a storage account through a nested template.
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2022-09-01",
+              "apiVersion": "2025-01-01",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('location')]",
               "sku": {
@@ -118,7 +118,7 @@ The following example deploys a storage account through a nested template.
   "resources": {
     "mainStorage": {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-01-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -138,7 +138,7 @@ The following example deploys a storage account through a nested template.
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2022-09-01",
+              "apiVersion": "2025-01-01",
               "name": "[format('{0}nested', parameters('storageAccountName'))]",
               "location": "[parameters('location')]",
               "sku": {
@@ -762,7 +762,7 @@ The following example template shows how to use `copy` with a nested template:
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2022-09-01",
+            "apiVersion": "2025-01-01",
             "name": "[format('{0}{1}', variables('storageName'), copyIndex())]",
             "location": "West US",
             "sku": {

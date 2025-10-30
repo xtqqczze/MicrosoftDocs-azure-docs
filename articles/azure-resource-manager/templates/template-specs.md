@@ -73,7 +73,7 @@ The following example shows a simple template for creating a storage account in 
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
+      "apiVersion": "2025-01-01",
       "name": "[concat('store', uniquestring(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "kind": "StorageV2",
@@ -166,7 +166,7 @@ You can also create template specs by using ARM templates. The following templat
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2019-06-01",
+              "apiVersion": "2025-01-01",
               "name": "[concat('store', uniquestring(resourceGroup().id))]",
               "location": "[resourceGroup().location]",
               "kind": "StorageV2",

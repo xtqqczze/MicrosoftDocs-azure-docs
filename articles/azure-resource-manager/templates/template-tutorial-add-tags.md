@@ -74,7 +74,7 @@ Your previous template deployed a storage account, an App Service plan, and a we
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2025-01-01",
       "name": "[variables('uniqueStorageName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -200,7 +200,7 @@ The following example shows the changes to the template. Copy the whole file, an
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2025-01-01",
       "name": "[variables('uniqueStorageName')]",
       "location": "[parameters('location')]",
       "tags": "[parameters('resourceTags')]",

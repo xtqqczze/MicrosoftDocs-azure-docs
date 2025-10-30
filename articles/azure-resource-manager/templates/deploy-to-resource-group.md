@@ -298,7 +298,7 @@ To deploy resources in the target resource group, define those resources in the 
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2025-01-01",
       "name": "[variables('uniqueStorageName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -356,7 +356,7 @@ The following example deploys two storage accounts. The first storage account is
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-01-01",
       "name": "[variables('firstStorageName')]",
       "location": "[resourceGroup().location]",
       "sku": {
@@ -382,7 +382,7 @@ The following example deploys two storage accounts. The first storage account is
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2021-04-01",
+              "apiVersion": "2025-01-01",
               "name": "[variables('secondStorageName')]",
               "location": "[parameters('secondStorageLocation')]",
               "sku": {
@@ -519,7 +519,7 @@ From a resource group deployment, you can switch to the subscription level and c
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-01-01",
       "name": "[variables('storageName')]",
       "location": "[parameters('location')]",
       "sku": {

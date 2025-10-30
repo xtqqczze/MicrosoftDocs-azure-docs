@@ -512,7 +512,7 @@ From a management-group-level deployment, you can target a subscription within t
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2021-04-01",
+              "apiVersion": "2025-01-01",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('nestedLocation')]",
               "kind": "StorageV2",

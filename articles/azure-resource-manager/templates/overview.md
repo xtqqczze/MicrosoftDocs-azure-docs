@@ -38,7 +38,7 @@ If you're trying to decide between using ARM templates and one of the other infr
     "resources": {
       "mystore": {
         "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2023-04-01",
+        "apiVersion": "2025-01-01",
         "name": "mystorageaccount",
         "location": "[parameters('location')]",
         "sku": {
@@ -104,7 +104,7 @@ When you deploy a template, Resource Manager converts the template into REST API
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2022-09-01",
+    "apiVersion": "2025-01-01",
     "name": "mystorageaccount",
     "location": "centralus",
     "sku": {

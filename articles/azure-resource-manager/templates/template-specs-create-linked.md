@@ -136,7 +136,7 @@ The `relativePath` property is always relative to the template file where `relat
       "resources": [
         {
           "type": "Microsoft.Storage/storageAccounts",
-          "apiVersion": "2022-09-01",
+          "apiVersion": "2025-01-01",
           "name": "[variables('storageAccountName')]",
           "location": "[parameters('location')]",
           "sku": {

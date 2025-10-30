@@ -434,7 +434,7 @@ For `resources`, add a `comments` element or a `metadata` object. The following 
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2022-09-01",
+    "apiVersion": "2025-01-01",
     "name": "[format('{0}{1}', 'storage', uniqueString(resourceGroup().id))]",
     "comments": "Storage account used to store VM disks",
     "location": "[parameters('location')]",

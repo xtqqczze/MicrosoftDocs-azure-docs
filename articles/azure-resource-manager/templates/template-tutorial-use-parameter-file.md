@@ -81,7 +81,7 @@ Your template has many parameters you can provide during deployment. At the end 
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-09-01",
+      "apiVersion": "2025-01-01",
       "name": "[variables('uniqueStorageName')]",
       "location": "[parameters('location')]",
       "tags": "[parameters('resourceTags')]",

@@ -602,7 +602,7 @@ The following example **fails** because the API version is more than two years o
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2019-06-01",
+    "apiVersion": "2025-01-01",
     "name": "storageaccount1",
     "location": "[parameters('location')]"
   }

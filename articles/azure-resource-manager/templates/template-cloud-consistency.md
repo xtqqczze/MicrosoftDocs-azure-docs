@@ -283,7 +283,7 @@ By referencing the location key of the object in the defaultValue of the input p
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2015-06-15",
+    "apiVersion": "2025-01-01",
     "name": "storageaccount1",
     "location": "[parameters('location')]",
     ...
@@ -314,7 +314,7 @@ For this reason, Resource Manager introduced the concept of API profiles to temp
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-01-01",
+      "apiVersion": "2025-01-01",
       "name": "mystorageaccount",
       "location": "[parameters('location')]",
       "properties": {
@@ -398,7 +398,7 @@ The API profile isn't a required element in a template. Even if you add the elem
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2016-01-01",
+            "apiVersion": "2025-01-01",
             "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
