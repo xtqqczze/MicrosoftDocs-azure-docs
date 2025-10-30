@@ -22,6 +22,10 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 **Enhancement to _not-referenced search and delete**: Adds the ability to use not referenced search and delete to look for the lack of specific references. For example, to search for Patients without an Encounter listing them as a subject: /Patient?_not-referenced=Encounter:subject.
 
+**Reindex job processing improvements**: Made improvements to reindex job processing, including improving background job reliability and flexibility by refining cache refresh timing and enhancing reindex job handling. This includes a change where Create, Update, Delete, and Patch changes to custom search parameters while a reindex job is running will no longer be allowed.
+
+**Reindex improvements**: Updates to reindex, including more robust loading of soft-deleted search parameters, better logging, and performance improvements in filtering and status updates.
+
 #### Bug fixes:
 
 **URL construction for bundles with forwarded headers**: Fixed an issue with forwarded headers, like X-Forwarded-Host, where their values weren't respected when used with requests containing bundles. In some cases the paths could be erroneous while at other times they would be missing completely.
