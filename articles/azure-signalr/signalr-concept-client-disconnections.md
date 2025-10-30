@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/29/2025
 ---
 
-# Understanding Client Disconnections and Reconnection
+# Understanding client disconnections and reconnection
 
 Persistent connections, such as those maintained through WebSockets, are inherently subject to interruptions. While Azure SignalR Service is designed for high reliability and scalability, occasional client disconnections are a reality that all internet-connected applications must account for.
 
