@@ -10,7 +10,7 @@ ms.date: 10/15/2025
 # Customer intent: Customers want to leverage Azure Migrate’s Wave Planning to simplify large-scale cloud migrations. They’re looking for a structured way to break down complex projects, reduce risks, maintain business continuity, and track progress using integrated planning and execution tools.
 ---
 
-# Wave Planning overview in Azure Migrate (preview)
+# Wave planning overview in Azure Migrate (preview)
 
 Wave Planning is a capability in Azure migration that enables end-to-end migration and modernization of all applications running in your infrastructure. 
 
@@ -40,9 +40,7 @@ Wave Planning helps cloud architects and migration leads to:
 
 Wave planning enables you to create an execution plan for your migration and modernization of the applications in your entire inventory. To create an effective wave plan, follow the best practices and ensure all the pre-requisites mentioned below.
 
-### Complete infrastructure discovery in Azure Migrate for Wave Planning
-
-You must have an active Azure Migrate project and complete discovery of your infrastructure (servers, databases, and workloads). Verify that discovery is complete and inventory data is accurate.
+**Complete discovery in Azure Migrate**: You must have an active Azure Migrate project and complete discovery of your infrastructure (servers, databases, and workloads). Verify that discovery is complete and inventory data is accurate.
 
 The following are recommended for creating high quality wave plan.
 
