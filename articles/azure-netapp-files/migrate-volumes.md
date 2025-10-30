@@ -290,11 +290,11 @@ The portal version of the migration assistant is currently in preview.
 
 8.	Run the cluster peering command on the external cluster and authenticate with the provided passphrase and select **Continue to SVM Peering**.
 
-    :::image type="content" source="./media/migrate-volume/configure-svm-peering.png" alt-text="Screenshot to configure SVM peering." lightbox="./media/migrate-volume/configure-svm-peering.png":::
+    :::image type="content" source="./media/migrate-volume/configure-storage-machine-peering.png" alt-text="Screenshot to configure SVM peering." lightbox="./media/migrate-volume/configure-storage-machine-peering.png":::
 
 9.	Collect the SVM peering command to run on the external cluster.
 
-    :::image type="content" source="./media/migrate-volume/svm-peering-command.png" alt-text="Screenshot to copy SVM peering command." lightbox="./media/migrate-volume/svm-peering-command.png":::
+    :::image type="content" source="./media/migrate-volume/storage-machine-peering-command.png" alt-text="Screenshot to copy SVM peering command." lightbox="./media/migrate-volume/storage-machine-peering-command.png":::
 
     After the peering is complete, the migration transfer is initialized, and the baseline data is transferred from the source external ONTAP volume to the Azure NetApp Files Migration volume. Once the initial transfer is complete, the data between the two volumes will be synced according to the replication schedule selected during migration volume creation.
 
