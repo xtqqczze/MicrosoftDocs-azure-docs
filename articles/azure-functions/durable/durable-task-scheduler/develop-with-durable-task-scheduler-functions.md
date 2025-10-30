@@ -1,11 +1,11 @@
 ---
-title: Azure Functions Durable Task Scheduler in Durable Functions (preview)
+title: Azure Functions Durable Task Scheduler in Durable Functions
 description: Learn how to develop with the Azure Functions Durable Task Scheduler for Durable Functions.
 ms.topic: how-to
 ms.date: 10/29/2025
 ---
 
-# Durable Task Scheduler in Durable Functions (preview)
+# Durable Task Scheduler in Durable Functions
 
 The Azure Functions Durable Task Scheduler is a highly performant, fully managed backend provider for Durable Functions with an [out-of-the-box monitoring dashboard](./durable-task-scheduler-dashboard.md). Azure Functions extensions built into Durable Functions makes building event-driven scenarios easy. In this article, you learn how to:
 

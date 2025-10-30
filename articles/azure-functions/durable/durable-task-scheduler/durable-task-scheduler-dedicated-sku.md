@@ -12,8 +12,6 @@ The Durable Task Scheduler offers two pricing models to accommodate different wo
 - [Dedicated](#dedicated-sku)
 - [Consumption (preview)](#consumption-sku)
 
-You can also use the Durable Task Scheduler with [any of the Functions SKUs](../../functions-scale.md).
-
 In this article, you learn about actions, the available SKU options, and their pricing structures.
 
 ## What is an action?
@@ -63,7 +61,7 @@ The Dedicated SKU provides  performance and pricing through preallocated Capacit
 
 | Feature | Description |  
 | - | - |
-| Base cost | Fixed monthly cost per CU (regional pricing) |
+| Base cost | Fixed monthly cost per CU (regional pricing). Not "per action" billing. |
 | Performance | Each CU supports up to 2,000 actions per second and 50GB of orchestration data storage |
 | Enterprise SLA | 99.95% uptime |  
 | Orchestration data retention | Up to 90 days |  

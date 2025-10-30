@@ -1,12 +1,12 @@
 ---
-title: Develop with Durable Task Scheduler (preview)
+title: Develop with Durable Task Scheduler
 description: Learn how to develop with the Durable Task Scheduler using the Azure CLI for both Durable Functions and Durable Task Scheduler.
 ms.topic: how-to
 ms.date: 05/06/2025
 zone_pivot_groups: dts-devexp
 ---
 
-# Develop with Durable Task Scheduler (preview)
+# Develop with Durable Task Scheduler
 
 The Durable Task Scheduler is a highly performant, fully managed backend provider for Durable Functions with an [out-of-the-box monitoring dashboard](./durable-task-scheduler-dashboard.md). Azure offers two developer-oriented orchestration frameworks that work with Durable Functions to build apps: Durable Task SDKs and Durable Functions. 
 
@@ -152,7 +152,7 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
 
     :::image type="content" source="media/create-durable-task-scheduler/search-for-durable-task-scheduler.png" alt-text="Screenshot of searching for the Durable Task Scheduler in the portal.":::
 
-1. Click **Create** to open the **Azure Functions: Durable Task Scheduler (preview)** pane.
+1. Click **Create** to open the **Azure Functions: Durable Task Scheduler** pane.
 
     :::image type="content" source="media/create-durable-task-scheduler/top-level-create-form.png" alt-text="Screenshot of the create page for the Durable Task Scheduler.":::
 
