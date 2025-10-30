@@ -306,7 +306,7 @@ If you delete all private endpoints on your Azure Managed Redis cache, networkin
 
 ### Are network security groups (NSG) enabled for private endpoints?
 
-Network policies are disabled for private endpoints. To enforce Network Security Group (NSG) and User-Defined Route (UDR) rules on private endpoint traffic, network policies must be enabled on the subnet. When network policies are disabled (required to deploy private endpoints), NSG and UDR rules do not apply to traffic processed by the private endpoint. For more information, please visit:https://learn.microsoft.com/en-us/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal. NSG and UDR rules continue to apply normally to other workloads in the same subnet.
+Network policies are disabled for private endpoints. To enforce Network Security Group (NSG) and User-Defined Route (UDR) rules on private endpoint traffic, network policies must be enabled on the subnet. When network policies are disabled (required to deploy private endpoints), NSG and UDR rules do not apply to traffic processed by the private endpoint. For more information, see [Manage network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal). NSG and UDR rules continue to apply normally to other workloads in the same subnet.
 
 Traffic from client subnets to private endpoints uses a /32 prefix. To override this default routing behavior, create a corresponding UDR with a /32 route.
 
