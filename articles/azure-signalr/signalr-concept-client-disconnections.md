@@ -1,6 +1,6 @@
 ---
 title: Understanding Client Disconnections and Reconnection in Azure SignalR service
-description: This article provides information about nature of client disconnections and how to handle client re-connections effectively
+description: This article provides information about nature of client disconnections and how to handle client reconnections effectively
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-signalr-service
@@ -19,7 +19,7 @@ This article explains the nature of client disconnections, how Azure SignalR Ser
 
 ### 1. Connection interruptions are inevitable
 
-Client disconnections can occur for a variety of reasons and sources — network instability, browser tab suspensions, load balancer re-configurations, or routine service maintenance. These are normal occurrences across all real-time applications.
+Client disconnections can occur for various reasons and sources — network instability, browser tab suspensions, load balancer reconfigurations, or routine service maintenance. These are normal occurrences across all real-time applications.
 
 Developers should design applications with the expectation that disconnections **will** happen, and implement **retry and reconnection logic** as a standard part of the connection lifecycle.
 
@@ -27,7 +27,7 @@ Developers should design applications with the expectation that disconnections *
 
 Reconnection should be as lightweight and end users shouldn’t notice that a reconnection even happened whenever possible. From user's perspective, the app continues to function smoothly. 
 
-Review your current flow to determine whether all operations tied to an active WebSocket connection are truly dependent on it. In many applications — such as notifications, auctions, chat, dashboards, or collaborative experiences— reconnections are quick *(typically within a few seconds)* and low-impact. For applications involving **sensitive or transactional data**, the reconnection flow might be heavier, but consider whether certain operations can be **decoupled** and performed via **REST APIs** instead of through the persistent connection.
+Review your current flow to determine whether all operations tied to an active WebSocket connection are truly dependent on it. In many applications — such as notifications, auctions, chat, dashboards, or collaborative experiences — reconnections are quick *(typically within a few seconds)* and low-impact. For applications involving **sensitive or transactional data**, the reconnection flow might be heavier, but consider whether certain operations can be **decoupled** and performed via **REST APIs** instead of through the persistent connection.
 
 ### 3. Handle reconnections effectively
 
@@ -35,7 +35,7 @@ When a connection drops, clients typically establish a new connection and resume
 
 #### Use stateful reconnect when applicable
 
-Azure SignalR Service [supports stateful reconnect](https://learn.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-9.0&tabs=dotnet#configure-stateful-reconnect) that allows clients to resume their previous connection without losing their state. This works when the client reconnects using **the same connection ID** — for example, when a temporary network glitch occurs and the client recovers quickly.
+Azure SignalR Service [supports stateful reconnect](https://learn.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-9.0&preserve-view=true ) that allows clients to resume their previous connection without losing their state. This works when the client reconnects using **the same connection ID** — for example, when a temporary network glitch occurs and the client recovers quickly.
 
 With stateful reconnect enabled, the client can continue receiving messages missed during the brief disconnection window *(30 seconds)*, reducing data loss and minimizing the disruption perceived by end users.
 
@@ -46,21 +46,21 @@ In cases where a reconnection results in a different connection ID — such as a
 
 Consider:
 - Rejoining groups that the client was previously in,
-- Restoring session state *(e.g., subscriptions)* from a reliable store,
+- Restoring session state *(for example, subscriptions)* from a reliable store,
 - Handling missed messages by retrieving them from an application-level store or event log, if message delivery guarantee is important.
 
 ### 4. Manage load during large-scale reconnections
 
-When a large number of clients disconnect and attempt to reconnect simultaneously, this can place additional load on downstream components *(e.g., authentication, state stores, or application servers)*. We recommend identifying these components and implementing **auto-scaling policies** to absorb temporary spikes in reconnection traffic.
+When a large number of clients disconnect and attempt to reconnect simultaneously, this can place extra load on downstream components *(for example, authentication, state stores, or application servers)*. We recommend identifying these components and implementing **auto-scaling policies** to absorb temporary spikes in reconnection traffic.
 
-If many clients try to negotiate connections at once, some of those requests may be throttled by the service. The limit is proportional to the number of units — more units give you a higher threshold. [You can learn more about how to add more units to your SignalR resource here.](https://learn.microsoft.com/azure/azure-signalr/signalr-howto-scale-signalr) Additionally, to reduce the chance of throttling, introduce a small random delay before each reconnect attempt. You can find [retry examples here](https://learn.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide#how-to-restart-client-connection). 
+If many clients try to negotiate connections at once, the service may throttle some of those requests. The limit is proportional to the number of units — more units give you a higher threshold. [You can learn more about how to add more units to your SignalR resource here.](./signalr-howto-scale-signalr.md) Additionally, to reduce the chance of throttling, introduce a small random delay before each reconnect attempt. You can find [retry examples here](./signalr-howto-troubleshoot-guide.md#how-to-restart-client-connection). 
 
 
 ### 5. Consider transport options and hosting models carefully
 
 * **Long Polling** and **Server-Sent Events (SSE)** are fallbacks for environments without WebSocket support, but they typically **do not increase reliability**.
 * **Self-hosting SignalR** gives you full control over maintenance timing and lifecycle management but also shifts operational and scaling responsibilities to your team.
-* **Serverless mode** of Azure SignalR Service does not reduce the likelihood or impact of connection drops, since disconnections are a network-level behavior on the client side.
+* **Serverless mode** of Azure SignalR Service doesn't reduce the likelihood or impact of connection drops, since disconnections are a network-level behavior on the client side.
 
 
 ## Disconnections during service maintenance
