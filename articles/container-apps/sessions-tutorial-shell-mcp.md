@@ -32,7 +32,7 @@ You need the following resources before you begin this tutorial.
 ## Setup
 
 Begin by preparing the Azure CLI with the latest updates and signing in to Azure.
-
+ 
 1. Update the Azure CLI to the latest version.
 
    ```azurecli
@@ -109,7 +109,7 @@ Use an ARM template to create a shell session pool with MCP server enabled.
                "location": "[parameters('location')]",
                "properties": {
                    "poolManagementType": "Dynamic",
-                   "containerType": "Shell",
+                   "containerType": "Shell", # specify shell container type
                    "scaleConfiguration": {
                        "maxConcurrentSessions": 5
                    },
@@ -122,7 +122,7 @@ Use an ARM template to create a shell session pool with MCP server enabled.
                            "coolDownPeriodInSeconds": 300
                        }
                    },
-                   "mcpServerSettings": {
+                   "mcpServerSettings": { # enable MCP server
                        "isMCPServerEnabled": true
                    }
                }
