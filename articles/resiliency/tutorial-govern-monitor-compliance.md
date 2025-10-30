@@ -16,6 +16,8 @@ ms.author: v-mallicka
 
 This tutorial describes how to govern and view the compliance state for your Azure environment in Resiliency in Azure.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 Resiliency in Azure helps you govern your Azure environment to ensure that all your resources are compliant from a backup and replication perspective. 
 
 Some of the governance capabilities of Resiliency include: 

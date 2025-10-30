@@ -18,6 +18,8 @@ This article describes supportable scenarios and limitations.
 
 You can use [Resiliency](resiliency-overview.md), a cloud-native unified experience for resiliency management platform in Azure to manage your protection estate across solutions and environments. This feature helps enterprises to govern, monitor, operate, and analyze backups and replication at scale. This article summarizes the solutions and scenarios that Resiliency in Azure supports for each workload type.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 ## Supported regions
 
 Resiliency in Azure supports all Azure regions, except Azure Sovereign Clouds (Azure operated by 21Vianet and Azure US Government).

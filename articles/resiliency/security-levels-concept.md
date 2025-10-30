@@ -14,6 +14,8 @@ ms.author: v-mallicka
 
 This article describes the levels of Security available in Resiliency.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 Concerns about security issues, such as malware, ransomware, and intrusion, are increasing. These issues pose threats to both money and data. The Security level indicates how well the security settings are configured to guard against such attacks.
 
 Resiliency in Azure allows you to assess how secure your resources are, based on the security level.

@@ -17,6 +17,8 @@ This tutorial guides you to configure protection for your data sources that are 
 
 The key principle of data protection is to safeguard and make data or application available under all circumstances.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 ## Prerequisites
 
 Before you configure protection for datasources, ensure you have the required resource permissions to view them in the Resiliency.

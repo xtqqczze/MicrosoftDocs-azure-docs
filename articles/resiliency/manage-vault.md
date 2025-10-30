@@ -17,6 +17,8 @@ This article guides you on how to view your vaults and perform actions related t
 
 By using the Resiliency in Azure, you can centrally manage the lifecycle of your Recovery Services and Backup vaults for both Azure Backup and Azure Site Recovery. 
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 ## Prerequisites
 
 Before you start managing your vaults using Resiliency, ensure you have the required resource permissions to view them  as part of the Resiliency experiences.

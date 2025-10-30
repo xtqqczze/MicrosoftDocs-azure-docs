@@ -19,6 +19,8 @@ A backup policy defines when backups are taken, and how long they're retained. [
 
 Replication policy defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, [Site Recovery](../site-recovery/site-recovery-overview.md) creates a new replication policy with default settings of 24 hours for recovery point retention.  
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 ## Prerequisites
 
 Before you create a backup policy, [review](../backup/guidance-best-practices.md#backup-policy-considerations) the guidelines for creating a backup policy. 
