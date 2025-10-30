@@ -116,6 +116,12 @@ Start your Dev Box journey with a basic template: [Microsoft Dev Box](https://po
 
 To learn about the latest features and updates in Microsoft Dev Box, see [What's new in Microsoft Dev Box](https://aka.ms/devbox/WhatsNew).
 
+## Components shared with Azure Deployment Environments
+
+Microsoft Dev Box and [Azure Deployment Environments](../deployment-environments/overview-what-is-azure-deployment-environments.md) are complementary services that share certain architectural components. Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Dev centers and projects are common to both services, and they help organize resources in an enterprise.  
+
+When you configure Dev Box, you might see Deployment Environments resources and components. You might even see informational messages regarding Deployment Environments features. If you're not configuring any Deployment Environments features, you can safely ignore these messages.
+
 ## Related content
 
 Start using Microsoft Dev Box:
