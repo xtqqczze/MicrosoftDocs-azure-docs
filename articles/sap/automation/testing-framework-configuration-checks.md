@@ -11,7 +11,7 @@ ms.date: 10/27/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
-# SAP Testing Automation Framework: Configuration Checks (Preview)
+# SAP Testing Automation Framework: Configuration checks (Preview)
 
 The SAP Testing Automation Framework includes comprehensive configuration validation capabilities to ensure SAP systems comply with best practices and guidelines for deployments on Microsoft Azure. These configuration checks help identify potential issues that can affect system performance, reliability, and compliance.
 
@@ -24,7 +24,7 @@ These checks are nonintrusive, meaning they don't modify the system or require d
 > [!NOTE]
 > The configuration checks in SAP Testing Automation Framework is currently in public preview.
 
-### Configuration Validation Checks
+### Configuration validation checks
 
 The configuration validation checks within the SAP Testing Automation Framework are systematically organized into distinct logical groupings that provide flexibility in execution. Each group can be executed independently on a standalone basis, or alternatively, all groups can be executed together in a comprehensive validation run. 
 
@@ -45,19 +45,19 @@ The primary categories of configuration validation checks include the following.
     - **SAP HANA**: Checks for memory allocation, system replication parameters, and Pacemaker cluster configurations (resource agents, fencing mechanisms, and constraints).
     - **IBM DB2**: Verification of hardware requirements, system language settings, and operating system tuning parameters.
 
-3. **Central Services**
+3. **Central services**
 
     - Validates the configuration of ASCS (ABAP SAP Central Services) and ERS (Enqueue Replication Server) instances.
 
     - Checks for virtual hostname configuration, file system mount options, and service startup ordering.
 
-4. **Application Servers**
+4. **Application servers**
     - Validates the configuration of the application server instances.
 
 > [!NOTE]
 > High Availability (HA) configuration checks and functional tests are currently supported only for SAP HANA databases. For IBM DB2 databases, only non-HA configuration checks are available.
 
-## Next Steps
+## Next steps
 
 - To get started on SAP Testing Automation Framework setup, follow the guide [Setup Guide for SAP Testing Automation Framework](https://github.com/Azure/sap-automation-qa/blob/main/docs/SETUP.MD).
 - For running the configuration checks, see [Get started with configuration validation](https://github.com/Azure/sap-automation-qa/tree/main/docs/CONFIGURATION_CHECKS.md).

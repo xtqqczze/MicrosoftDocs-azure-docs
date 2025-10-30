@@ -28,17 +28,17 @@ In the SAP Testing Automation Framework, thorough validation of high availabilit
 - **High Availability Configuration Validation (offline):** Offline validation is a mode of the framework that validates SAP HANA and SAP Central Services high availability cluster configurations without establishing a live SSH connection to the production cluster. Instead, it analyzes captured cluster information base (CIB) XML files exported from each cluster node.
 - **Functional Testing:** The framework executes series of real-world failure conditions based on the SAP HANA and SAP Central Services high availability setup to identify potential issues, whether during a new system deployment or before implementing cluster changes in a production environment. The test cases are based on what is documented in how-to guides for SAP HANA and SAP Central Services configuration.
 
-### Configuration Checks (Preview)
+### Configuration checks (Preview)
 
 The framework performs comprehensive configuration checks to ensure that the SAP system and its components are set up according to [SAP on Azure best practice](../../sap/index.yml). This includes validating infrastructure settings, operating system parameter configurations, and network settings, in addition to the cluster configuration, to identify any deviations that affect system performance or reliability.
 
-- **Infrastructure Validation:** This includes validating the underlying infrastructure components, such as virtual machines, load balancer, and other resource configurations, to ensure they meet the requirements for running SAP workloads on Azure.
+- **Infrastructure validation:** This includes validating the underlying infrastructure components, such as virtual machines, load balancer, and other resource configurations, to ensure they meet the requirements for running SAP workloads on Azure.
 
-- **Storage Configuration Checks:** It validates settings of disks, storage accounts, Azure NetApp Files, including throughput, performance, and stripe size.
+- **Storage configuration checks:** It validates settings of disks, storage accounts, Azure NetApp Files, including throughput, performance, and stripe size.
 
-- **Operating System and SAP Parameter Validation:** The framework checks critical operating system parameters and SAP kernel settings to ensure they align with recommended configurations.
+- **Operating system and SAP parameter validation:** The framework checks critical operating system parameters and SAP kernel settings to ensure they align with recommended configurations.
 
-- **Cluster Configuration Validation:** This framework ensures that the high availability cluster resource settings adhere to best practices for high availability and failover conditions.
+- **Cluster configuration validation:** This framework ensures that the high availability cluster resource settings adhere to best practices for high availability and failover conditions.
 
 The framework generates comprehensive reports, highlighting configuration mismatch or deviations from recommended best practices. For high availability functional tests, the report includes failover test outcomes, any failures encountered, and logs with insights to aid in troubleshooting identified issues.
 
@@ -46,7 +46,7 @@ The framework generates comprehensive reports, highlighting configuration mismat
 >
 > The configuration checks scenario in SAP Testing Automation Framework is in public preview, while the high availability testing scenario is generally available (GA).
 
-## Why Use the SAP Testing Automation Framework?
+## Why use the SAP Testing Automation Framework?
 
 Testing is crucial for keeping SAP systems running smoothly, especially for critical business operations. This framework helps by addressing key challenges:
 
@@ -62,25 +62,25 @@ Testing is crucial for keeping SAP systems running smoothly, especially for crit
 
 Before running the tests or validations using the SAP Testing Automation Framework, review these guidelines to ensure smooth execution:
 
-1. **New deployment validation:** For new SAP deployments, run these tests before go-live to validate the system configuration and cluster behavior. This helps identify configuration issues and verify failover mechanisms in a controlled environment before production use.
+- **New deployment validation:** For new SAP deployments, run these tests before go-live to validate the system configuration and cluster behavior. This helps identify configuration issues and verify failover mechanisms in a controlled environment before production use.
 
-2. **Test duration:** Full end-to-end high availability tests typically take around 90 minutes for new HANA setups with small databases and SAP Central Services. For larger databases, the run time may be longer. Estimate the duration based on your specific environment. (Internal validation has been performed on HANA databases up to 3.5 TiB.)
+- **Test duration:** Full end-to-end high availability tests typically take around 90 minutes for new HANA setups with small databases and SAP Central Services. For larger databases, the run time may be longer. Estimate the duration based on your specific environment. (Internal validation has been performed on HANA databases up to 3.5 TiB.)
 
-3. **Large database testing:** For large HANA databases, test first in a non-production environment that matches your production scale. You may need to adjust retry logic parameters, as operations like stop, start, and registration take longer on large databases.
+- **Large database testing:** For large HANA databases, test first in a non-production environment that matches your production scale. You may need to adjust retry logic parameters, as operations like stop, start, and registration take longer on large databases.
 
-4. **Production system testing:** For live production SAP systems, run high availability tests only during scheduled maintenance windows with no active business operations. We recommend estimating the test duration first by running tests in a similarly sized non-production system.
+- **Production system testing:** For live production SAP systems, run high availability tests only during scheduled maintenance windows with no active business operations. We recommend estimating the test duration first by running tests in a similarly sized non-production system.
 
-5. **Non-invasive testing:** The framework doesn't install packages or modify any cluster node configurations. The generated HTML report only reflects the configuration values and observed behavior of your current setup.
+- **Non-invasive testing:** The framework doesn't install packages or modify any cluster node configurations. The generated HTML report only reflects the configuration values and observed behavior of your current setup.
 
-## Architecture and Components
+## Architecture and components
 
 To learn how the framework works, refer to the [architecture and components](./testing-framework-architecture.md) documentation.
 
-## Get Started
+## Get started
 
 There are two primary ways to get started with the SAP Testing Automation Framework. You can choose the path that best fits your current environment and objectives:
 
-### Option 1: Standalone Setup of SAP Testing Automation Framework
+### Option 1: Standalone setup of SAP Testing Automation Framework
 
 For users focused solely on validating SAP functionality and configurations, the standalone approach offers a streamlined process to test critical SAP components without the complexity of full deployment integration. For more information on the setup, see following documents to get started :
 

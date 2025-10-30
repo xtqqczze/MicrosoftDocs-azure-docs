@@ -10,11 +10,11 @@ ms.subservice: sap-automation
 ms.topic: conceptual
 ---
 
-# SAP Testing Automation Framework Supported Platforms and Features
+# SAP Testing Automation Framework supported platforms and features
 
 This document outlines the supported platforms, operating systems, and features for the SAP Testing Automation Framework.
 
-## Supported Distributions for Management Server
+## Supported distributions for management server
 
 The SAP Testing Automation Framework requires a management server that acts as an orchestrator. These are the list of supported operating systems for the management server.
 
@@ -25,11 +25,11 @@ The SAP Testing Automation Framework requires a management server that acts as a
 
 - The management server must be deployed on Azure.
 
-## Supported SAP System Configurations
+## Supported SAP system configurations
 
 Azure offers various deployment options for SAP workloads on different operating system distributions. The SAP Testing Automation Framework executes its test scenarios on the following SAP system configurations.
 
-### Linux Distributions
+### Linux distributions
 
 The SAP Testing Automation Framework is currently supported on the following Linux distributions and versions. These operating systems provide the foundational platform for running SAP workloads and the testing framework components.
 
@@ -38,7 +38,7 @@ The SAP Testing Automation Framework is currently supported on the following Lin
 | SUSE Linux Enterprise Server (SLES) | 15 SP4, 15 SP5, 15 SP6, 15 SP7 |
 | Red Hat Enterprise Linux (RHEL) | 8.8, 8.10, 9.2, 9.4, 9.6 |
 
-### High Availability Configuration Patterns
+### High availability configuration patterns
 
 The framework supports testing of various high availability configurations for SAP components. These configurations represent the most common deployment patterns for SAP systems on Azure, ensuring comprehensive validation across different architectural approaches.
 
@@ -55,7 +55,7 @@ The framework validates both Enqueue Server 1 (ENSA1) and Enqueue Server 2 (ENSA
 
 For SAP Central Services on SLES, both the simple mount approach and the classic method are supported.
 
-### SAP Configuration Checks (Preview)
+### SAP configuration checks (Preview)
 
 The framework supports configuration checks across different SAP system topologies and database combinations. These configurations cover both single server and high availability deployment scenarios for comprehensive validation.
 
@@ -74,7 +74,7 @@ The framework supports configuration checks across different SAP system topologi
 
 The framework validates configuration checks for both HANA and Db2 database backends across different deployment topologies. For high availability scenarios, the framework supports ASCS/ERS clustering for SAP Central Services and database-specific replication technologies for data tier protection.
 
-## Next Steps
+## Next steps
 
 - To get started on SAP Testing Automation Framework setup, follow the guide [Setup Guide for SAP Testing Automation Framework](https://github.com/Azure/sap-automation-qa/blob/main/docs/SETUP.MD).
 - For running the high availability testing, see [Get started with High Availability testing](testing-framework-high-availability.md).
