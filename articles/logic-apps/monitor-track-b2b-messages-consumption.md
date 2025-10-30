@@ -139,7 +139,7 @@ After your workflow runs, you can view the status and data about any B2B message
 
 1. From the resource group, select the Logic Apps B2B solution that you previously installed.
 
-1. From the solution sidebar, select *Summary**.
+1. From the solution sidebar, select **Summary**.
 
    :::image type="content" source="./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png" alt-text="Screenshot shows the solution Summary page.":::
 
