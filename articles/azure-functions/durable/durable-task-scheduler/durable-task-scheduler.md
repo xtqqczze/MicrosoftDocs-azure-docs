@@ -13,7 +13,7 @@ The Durable Task Scheduler provides durable execution in Azure. Durable executio
 - Data processing
 - Infrastructure management, and others. 
 
-You can use the Durable Task Scheduler with [any of the Functions SKUs](../../functions-scale.md), the [Dedicated SKU](./durable-task-scheduler-dedicated-sku.md#dedicated-sku), or the [Consumption SKU (preview)](./durable-task-scheduler-dedicated-sku.md#consumption-sku).
+You can use the Durable Task Scheduler with [any of the Functions SKUs](../../functions-scale.md), the [Dedicated SKU](./durable-task-scheduler-dedicated-sku.md#dedicated-sku), or the [Consumption SKU (preview)](./durable-task-scheduler-dedicated-sku.md#consumption-sku-preview).
 
 ## Supported regions
 

@@ -71,7 +71,7 @@ Durable Functions persists states in a [storage backend](../durable-functions-st
   - Azure Storage 
   - Microsoft SQL 
 - An Azure managed backend:
-  - [Durable Task Scheduler](#durable-task-sdks-with-durable-task-scheduler-preview) 
+  - [Durable Task Scheduler](#durable-task-sdks-with-durable-task-scheduler) 
 
 #### When to use Durable Functions
 

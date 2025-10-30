@@ -10,7 +10,7 @@ ms.author: franlanglois
 The Durable Task Scheduler offers two pricing models to accommodate different workload requirements, usage patterns, and preferred billing models:
 
 - [Dedicated](#dedicated-sku)
-- [Consumption (preview)](#consumption-sku)
+- [Consumption (preview)](#consumption-sku-preview)
 
 In this article, you learn about actions, the available SKU options, and their pricing structures.
 
