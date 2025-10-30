@@ -28,6 +28,7 @@ The SAP Testing Automation Framework is built on several core components that wo
 
 - **Reporting Engine**: Generates detailed HTML test reports with comprehensive results, logs, and diagnostic information. The reporting engine provides structured output. It includes test execution summaries, pass/fail status for individual test cases, performance metrics, and detailed error logs for troubleshooting purposes.
 
+
 ## Architecture
 
 ### High-Level Framework Structure
