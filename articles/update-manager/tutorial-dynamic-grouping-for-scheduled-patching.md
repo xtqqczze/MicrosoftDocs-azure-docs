@@ -38,7 +38,7 @@ To create a dynamic scope, follow these steps:
 
 1. Select **Overview** > **Schedule updates**.
 
-1. On the **Create a maintenance configuration** page, enter the details on the **Basics** tab. For **Maintenance scope**, select **Guest (Azure VM, Arc-enabled VMs/servers)**.
+1. On the **Create a maintenance configuration** pane, enter the details on the **Basics** tab. For **Maintenance scope**, select **Guest (Azure VM, Arc-enabled VMs/servers)**.
 
 1. On the **Dynamic scopes** tab, follow the [steps to add a dynamic scope](manage-dynamic-scoping.md#add-a-dynamic-scope).
 

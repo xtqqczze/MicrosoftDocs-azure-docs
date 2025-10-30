@@ -1,13 +1,13 @@
 ---
-title: Troubleshoot known issues with Azure Update Manager
+title: Troubleshoot Known Issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
 ms.date: 02/17/2025
-ms.topic: troubleshooting
+ms.topic: troubleshooting-known-issue
 author: habibaum
 ms.author: v-uhabiba
 ms.custom: sfi-image-nochange
-# Customer intent: As a system administrator managing virtual machines, I want to troubleshoot issues with Azure Update Manager, so that I can ensure successful patching and compliance for my deployed resources.
+# Customer intent: As a system administrator who manages virtual machines, I want to troubleshoot issues with Azure Update Manager so that I can ensure successful patching and compliance for my deployed resources.
 ---
 
 # Troubleshoot issues with Azure Update Manager
@@ -16,92 +16,91 @@ This article describes the errors that might occur when you deploy or use Azure 
 
 ## General troubleshooting
 
-The following troubleshooting steps apply to the Azure virtual machines (VMs) related to the patch extension on Windows and Linux machines.
+The following troubleshooting information applies to the Azure virtual machines (VMs) related to the patch extension on Windows and Linux machines.
 
+#### [Azure virtual machines](#tab/azure-machines)
 
-#### [Azure Virtual Machines](#tab/azure-machines)
+##### Linux VM
 
-##### Azure Linux VM
+To verify if the Azure VM agent is running and triggered appropriate actions on the machine and the sequence number for the automatic patching request, check the agent log for more information in `/var/log/waagent.log`. Every automatic patching request has a unique sequence number associated with it on the machine. Look for a log similar to `2021-01-20T16:57:00.607529Z INFO ExtHandler`.
 
-To verify if the Microsoft Azure Virtual Machine agent (VM agent) is running and has triggered appropriate actions on the machine and the sequence number for the autopatching request, check the agent log for more information in `/var/log/waagent.log`. Every autopatching request has a unique sequence number associated with it on the machine. Look for a log similar to `2021-01-20T16:57:00.607529Z INFO ExtHandler`.
+The package directory for the extension is `/var/lib/waagent/Microsoft.CPlat.Core.LinuxPatchExtension-<version>`. The `/status` subfolder has a `<sequence number>.status` file. It includes a brief description of the actions performed during a single automatic patching request and the status. It also includes a short list of errors that occurred during updates.
 
-The package directory for the extension is `/var/lib/waagent/Microsoft.CPlat.Core.LinuxPatchExtension-<version>`. The `/status` subfolder has a `<sequence number>.status` file. It includes a brief description of the actions performed during a single autopatching request and the status. It also includes a short list of errors that occurred while applying updates.
+To review the logs related to all actions that the extension performed, check for more information in `/var/log/azure/Microsoft.CPlat.Core.LinuxPatchExtension/`. It includes the following log files of interest:
 
-To review the logs related to all actions performed by the extension, check for more information in `/var/log/azure/Microsoft.CPlat.Core.LinuxPatchExtension/`. It includes the following two log files of interest:
+- `<seq number>.core.log`: This file contains information related to the patch actions. The information includes patches assessed and installed on the machine, along with any problems encountered in the process.
+- `<Date and Time>_<Handler action>.ext.log`: A wrapper above the patch action is used to manage the extension and invoke a specific patch operation. This log contains information about the wrapper. For automatic patching, the log `<Date and Time>_Enable.ext.log` has information on whether the specific patch operation was invoked.
 
-* `<seq number>.core.log`: Contains information related to the patch actions. This information includes patches assessed and installed on the machine and any problems encountered in the process.
-* `<Date and Time>_<Handler action>.ext.log`: There's a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log `<Date and Time>_Enable.ext.log` has information on whether the specific patch operation was invoked.
+##### Windows VM
 
-##### Azure Windows VM
+To verify if the VM agent is running and triggered appropriate actions on the machine and the sequence number for the automatic patching request, check the agent log for more information in `C:\WindowsAzure\Logs\AggregateStatus`. The package directory for the extension is `C:\Packages\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`.
 
-To verify if the VM agent is running and has triggered appropriate actions on the machine and the sequence number for the autopatching request, check the agent log for more information in `C:\WindowsAzure\Logs\AggregateStatus`. The package directory for the extension is `C:\Packages\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`.
+To review the logs related to all actions that the extension performed, check for more information in `C:\WindowsAzure\Logs\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`. It includes the following log files of interest:
 
-To review the logs related to all actions performed by the extension, check for more information in `C:\WindowsAzure\Logs\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`. It includes the following two log files of interest:
+- `WindowsUpdateExtension.log`: This file contains information related to the patch actions. The information includes patches assessed and installed on the machine, along with any problems encountered in the process.
+- `CommandExecution.log`: A wrapper above the patch action is used to manage the extension and invoke a specific patch operation. This log contains information about the wrapper. For automatic patching, the log has information on whether the specific patch operation was invoked.
 
-* `WindowsUpdateExtension.log`: Contains information related to the patch actions. This information includes patches assessed and installed on the machine and any problems encountered in the process.
-* `CommandExecution.log`: There's a wrapper above the patch action, which is used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log has information on whether the specific patch operation was invoked.
-
-#### [Arc-enabled Servers](#tab/azure-arc)
-
+#### [Azure Arc-enabled servers](#tab/azure-arc)
 
 For Azure Arc-enabled servers, see [Troubleshoot VM extensions](/azure/azure-arc/servers/troubleshoot-vm-extensions) for general troubleshooting steps.
 
-To review the logs related to all actions performed by the extension, on Windows, check for more information in `C:\ProgramData\GuestConfig\extension_logs\Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension`. It includes the following log files of interest:
+To review the logs related to all actions that the extension performed, on Windows, check for more information in `C:\ProgramData\GuestConfig\extension_logs\Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension`. It includes the following log files of interest:
 
-* `WindowsUpdateExtension.log`: Contains information related to the patch actions. This information includes the patches assessed and installed on the machine and any problems encountered in the process.
-* `cmd_execution_<numeric>_stdout.txt`: There's a wrapper above the patch action. It's used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log has information on whether the specific patch operation was invoked.
-* `cmd_execution_<numeric>_stderr.txt`
+- `WindowsUpdateExtension.log`: This file contains information related to the patch actions. The information includes the patches assessed and installed on the machine, along with any problems encountered in the process.
+- `cmd_execution_<numeric>_stdout.txt`: A wrapper above the patch action is used to manage the extension and invoke a specific patch operation. This log contains information about the wrapper. For automatic patching, the log has information on whether the specific patch operation was invoked.
+- `cmd_execution_<numeric>_stderr.txt`.
 
 ---
 
-## Periodic assessment isn't getting set correctly when the periodic assessment policy is used during create for specialized, migrated, and restored VMs
+## Periodic assessment isn't set correctly
 
 ### Cause
+
 Periodic assessment isn't getting set correctly during create for specialized, migrated, and restored VMs because of the way the current modify policy is designed. Post-creation, the policy will show these resources as non-compliant on the compliance dashboard.
 
 ### Resolution
 
 Run a remediation task post create to remediate newly created resources. For more information see, [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
 
-
-## The prerequisite for scheduled patching isn't set correctly and schedules aren't attached when utilizing specific policies during create for specialized, generalized, migrated and restored VMs
-
+## Prerequisite for scheduled patching isn't set correctly
 
 ### Cause
 
-The prerequisite for scheduled patching and attaching schedules isn't being set correctly when utilizing the **Schedule recurring updates using Azure Update Manager** and **Set prerequisite for Scheduling recurring updates on Azure virtual machines** policies during create for specialized, generalized, migrated, and restored VMs because of the way the current *Deploy If Not Exists policy* is designed. Post-creation, the policy will show these resources as non-compliant on the compliance dashboard.
+The prerequisite for scheduled patching isn't set correctly and schedules aren't attached when you're using the **Schedule recurring updates using Azure Update Manager** and **Set prerequisite for Scheduling recurring updates on Azure virtual machines** policies during create for specialized, generalized, migrated, and restored VMs because of the way the current *Deploy If Not Exists policy* is designed. Post-creation, the policy will show these resources as non-compliant on the compliance dashboard.
 
 ### Resolution
 
 Run a remediation task post create to remediate newly created resources. For more information see, [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
 
-
-## Policy remediation tasks are failing for gallery images and for images with encrypted disks
+## Policy remediation tasks are failing for images
 
 ### Issue
-There are remediation failures for VMs which have a reference to the gallery image in the Virtual Machine mode. This is because it requires the read permission to the gallery image and it's currently not part of the Virtual Machine Contributor role.
 
-  :::image type="content" source="./media/troubleshoot/policy-remediation-failure-error.png" alt-text="Screenshot that shows the error code for the policy remediation failure. " lightbox="./media/troubleshoot/policy-remediation-failure-error.png":::
+Policy remediation tasks are failing for gallery images and for images with encrypted disks. There are remediation failures for VMs which have a reference to the gallery image in the Virtual Machine mode. This is because it requires the read permission to the gallery image and it's currently not part of the Virtual Machine Contributor role.
+
+:::image type="content" source="./media/troubleshoot/policy-remediation-failure-error.png" alt-text="Screenshot that shows the error code for the policy remediation failure. " lightbox="./media/troubleshoot/policy-remediation-failure-error.png":::
 
 ### Cause
-The Virtual Machine Contributor role doesn’t have enough permissions.
+
+The Virtual Machine Contributor role doesn't have enough permissions.
 
 ### Resolution
--	For all the new assignments, a recent change is introduced to provide **Contributor** role to the managed identity created during policy assignment for remediation.  Going forward, this will be assigned for any new assignments.
--	For any previous assignments if you're experiencing failure of remediation tasks, we recommend that you manually assign the contributor role to the managed identity by following the steps listed under [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md)
--	Also, in scenarios where the Contributor role doesn’t work when the linked resources (gallery image or disk) is in another resource group or subscription, manually provide the managed identity with the right roles and permissions on the scope to unblock remediations by following the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md).
 
+- For all the new assignments, a recent change is introduced to provide **Contributor** role to the managed identity created during policy assignment for remediation.  Going forward, this will be assigned for any new assignments.
+- For any previous assignments if you're experiencing failure of remediation tasks, we recommend that you manually assign the contributor role to the managed identity by following the steps listed under [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md)
+- Also, in scenarios where the Contributor role doesn't work when the linked resources (gallery image or disk) is in another resource group or subscription, manually provide the managed identity with the right roles and permissions on the scope to unblock remediations by following the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md).
 
-## Unable to generate periodic assessment for Arc-enabled servers
+## You can't generate periodic assessment for Azure Arc-enabled servers
 
 ### Issue
 
-The subscriptions in which the Arc-enabled servers are onboarded aren't producing assessment data.
+The subscriptions in which the Azure Arc-enabled servers are onboarded aren't producing assessment data.
 
 ### Resolution
-Ensure that the Arc servers subscriptions are registered to Microsoft.Compute resource provider so that the periodic assessment data is generated periodically as expected. [Learn more](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
 
-## Maintenance configuration isn't applied when VM is moved to a different subscription or resource group
+Ensure that the Azure Arc-enabled server subscriptions are registered to Microsoft.Compute resource provider so that the periodic assessment data is generated periodically as expected. [Learn more](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
+
+## Maintenance configuration isn't applied when you move a VM
 
 ### Issue
 
@@ -127,7 +126,7 @@ If any of the steps are missed, please move the resource to the previous resourc
 > [!NOTE]
 > If the resource group is deleted, recreate it with the same name. If the subscription ID is deleted, reach out to the support team for mitigation.
 
-## Unable to change the patch orchestration option to manual updates from automatic updates
+## You can't change the patch orchestration option from automatic to manual
 
 ### Issue
 
@@ -139,12 +138,12 @@ If you don't want any patch installation to be orchestrated by Azure or aren't u
 
 :::image type="content" source="./media/troubleshoot/known-issue-update-settings-failed.png" alt-text="Screenshot that shows a notification of failed update settings.":::
 
-## Machine shows as "Not assessed" and shows an HRESULT exception
+## Machine is not assessed and shows an HRESULT exception
 
 ### Issue
 
-* You have machines that show as `Not assessed` under **Compliance**, and you see an exception message below them.
-* You see an `HRESULT` error code in the portal.
+- You have machines that show as `Not assessed` under **Compliance**, and you see an exception message below them.
+- You see an `HRESULT` error code in the portal.
 
 ### Cause
 
@@ -156,11 +155,11 @@ Try to perform updates locally on the machine. If this operation fails, it typic
 
 This issue is frequently caused by network configuration and firewall problems. Use the following checks to correct the issue:
 
-* For Linux, check the appropriate documentation to make sure you can reach the network endpoint of your package repository.
-* For Windows, check your agent configuration as described in [Updates aren't downloading from the intranet endpoint (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).
+- For Linux, check the appropriate documentation to make sure you can reach the network endpoint of your package repository.
+- For Windows, check your agent configuration as described in [Updates aren't downloading from the intranet endpoint (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).
 
-  * If the machines are configured for Windows Update, make sure that you can reach the endpoints described in [Issues related to HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
-  * If the machines are configured for Windows Server Update Services (WSUS), make sure that you can reach the WSUS server configured by the [WUServer registry key](/windows/deployment/update/waas-wu-settings).
+  - If the machines are configured for Windows Update, make sure that you can reach the endpoints described in [Issues related to HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
+  - If the machines are configured for Windows Server Update Services (WSUS), make sure that you can reach the WSUS server configured by the [WUServer registry key](/windows/deployment/update/waas-wu-settings).
 
 If you see an `HRESULT` error code, double-click the exception displayed in red to see the entire exception message. Review the following table for potential resolutions or recommended actions.  
 
@@ -173,7 +172,7 @@ If you see an `HRESULT` error code, double-click the exception displayed in red 
 |`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
 |`0x80072EE2`|There's a network connectivity problem or a problem in talking to a configured WSUS server. Check WSUS settings and make sure the service is accessible from the client.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (`wuauserv`) is running and not disabled.        |
-|`0x80070005`| An access denied error can be caused by any one of the following problems:<br> - Infected computer.<br> - Windows Update settings not configured correctly.<br> - File permission error with the `%WinDir%\SoftwareDistribution` folder.<br> - Insufficient disk space on the system drive (drive C).
+|`0x80070005`| An access denied error can be caused by any one of the following problems:<br> - Infected computer.<br> - Windows Update settings not configured correctly.<br> - File permission error with the `%WinDir%\SoftwareDistribution` folder.<br> - Insufficient disk space on the system drive (drive C). |
 |Any other generic exception     | Run a search on the internet for possible resolutions and work with your local IT support.         |
 
 Reviewing the `%Windir%\Windowsupdate.log` file can also help you determine possible causes. For more information about how to read the log, see [Read the Windowsupdate.log file](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file).
@@ -183,14 +182,16 @@ You can also download and run the [Windows Update troubleshooter](https://suppor
 > [!NOTE]
 > The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) documentation indicates that it's for use on Windows clients, but it also works on Windows Server.
 
-## An internal execution error occurred. Retry later. The operation didn’t return a response and may be incomplete.
+## Internal execution error occurred
 
 ### Issue
 
-Azure Update Manager failed to patch the VM with an internal execution error.
+Update Manager failed to patch the VM with an internal execution error. The operation didn't return a response and may be incomplete.
 
 ### Cause
-This issue might occur because of a temporary problem or communication failure between Azure Update Manager and the VM. Common causes include:
+
+This issue might occur because of a temporary problem or communication failure between Update Manager and the VM. Common causes include:
+
 - A temporary platform or backend service issue.
 - An unresponsive or outdated Azure VM Agent.
 - The VM is under heavy load or rebooting during the operation.
@@ -203,9 +204,9 @@ This issue might occur because of a temporary problem or communication failure b
 - If the Agent status shows Not Ready, try rebooting the VM.
 - Check VM resource usage (CPU, memory, disk). Restart if needed.
 - Verify network connectivity to Azure services.
-- Review logs on the VM and Update Manager for more details. 
+- Review logs on the VM and Update Manager for more details.
 
-## Known issues in scheduled patching
+## Scheduled patching isn't working
 
 - For a concurrent or conflicting schedule, only one schedule is triggered. The other schedule is triggered after the first schedule is finished.
 - If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in the case of Azure VMs.
@@ -217,6 +218,7 @@ This issue might occur because of a temporary problem or communication failure b
 Scheduled patching hasn't installed the patches on the VMs and gives an error as 'ShutdownOrUnresponsive'.
 
 #### Resolution
+
 Schedules triggered on machines deleted and recreated with the same resource ID within 8 hours may fail with ShutdownOrUnresponsive error due to a known limitation.
 
 ### Unable to apply patches for the shutdown machines
@@ -239,9 +241,9 @@ Ensure your machines are turned on at least 15 minutes before the scheduled upda
 
 When you view an update deployment in **Update History**, the property **Failed with Maintenance window exceeded** shows **true** even though enough time was left for execution. In this case, one of the following problems is possible:
 
-* No updates are shown.
-* One or more updates are in a **Pending** state.
-* Reboot status is **Required**, but a reboot wasn't attempted even when the reboot setting passed was `IfRequired` or `Always`.
+- No updates are shown.
+- One or more updates are in a **Pending** state.
+- Reboot status is **Required**, but a reboot wasn't attempted even when the reboot setting passed was `IfRequired` or `Always`.
 
 #### Cause
 
@@ -257,25 +259,26 @@ To find more information, review the logs in the file path provided in the error
 
 Set a longer time range for maximum duration when you're triggering an [on-demand update deployment](deploy-updates.md) to help avoid the problem.
 
-
 ### Windows/Linux OS update extension isn't installed
 
 #### Issue
 
-The Windows/Linux OS Update extension must be successfully installed on Arc machines to perform on-demand assessments, patching, and scheduled patching.
+The Windows/Linux OS Update extension must be successfully installed on Azure Arc-enabled machines to perform on-demand assessments, patching, and scheduled patching.
 
 #### Resolution
 
 Trigger an on-demand assessment or patching to install the extension on the machine. You can also attach the machine to a maintenance configuration schedule which will install the extension when patching is performed as per the schedule.
 
-If the extension is already present on an Arc machine but the extension status is not **Succeeded**, ensure that you [remove the extension](/azure/azure-arc/servers/manage-vm-extensions-portal#remove-extensions) and trigger an on-demand operation so that it is installed again.
+If the extension is already present on an Azure Arc-enabled machine but the extension status is not **Succeeded**, ensure that you [remove the extension](/azure/azure-arc/servers/manage-vm-extensions-portal#remove-extensions) and trigger an on-demand operation so that it is installed again.
 
 ### Windows/Linux patch update extension isn't installed
 
 #### Issue
+
 The Windows/Linux patch update extension must be successfully installed on Azure machines to perform on-demand assessment or patching, scheduled patching and for periodic assessments.
 
 #### Resolution
+
 Trigger an on-demand assessment or patching to install the extension on the machine. You can also attach the machine to a maintenance configuration schedule which will install the extension when patching is performed as per the schedule.
 
 If the extension is already present on the machine but the extension status is not **Succeeded**, trigger an on-demand operation which will install it again.
@@ -287,6 +290,7 @@ If the extension is already present on the machine but the extension status is n
 The property [AllowExtensionOperations](/dotnet/api/microsoft.azure.management.compute.models.osprofile.allowextensionoperations) is set to false in the machine OSProfile.
 
 #### Resolution
+
 The property should be set to true to allow extensions to work properly.
 
 ### Sudo privileges not present
@@ -294,26 +298,30 @@ The property should be set to true to allow extensions to work properly.
 #### Issue
 
 Sudo privileges are not granted to the extensions for assessment or patching operations on Linux machines. You may see the following exception:
+
 ```
 EXCEPTION: Exception('Unable to invoke sudo successfully. Output: root is not in the sudoers file. This incident will be reported. False ',)
 ```
 
-Azure Update Manager (*AUM*) requires a high level of permissions due to the many different components that may be updated with AUM (*Kernel drivers, OS Security Patching, etc.*). The AUM extensions use the `root` account for operations.
+Update Manager requires a high level of permissions due to the many different components that may be updated with Update Manager (*Kernel drivers, OS Security Patching, etc.*). The Update Manager extensions use the `root` account for operations.
 
 #### Resolution
+
 Grant sudo privileges to ensure assessment or patching operations succeed. You will need to add the root account to the sudoers file.
 
 1. Open the sudoers file for editing:
+
    ```bash
    sudo visudo
    ```
 
 2. Add the following entry to the end of `/etc/sudoers` file:
-   ```
+
+   ```bash
    root ALL=(ALL) ALL
    ```
 
-3. When done, save and exit the editor using the `Ctrl-X` command. If you are using the *vi* editor you can type `:wq` and press <kbd>⏎ ENTER</kbd>.
+3. When you finish, save and exit the editor using the `Ctrl-X` command. If you are using the *vi* editor you can type `:wq` and press <kbd>ENTER</kbd>.
 
 ### Proxy is configured
 
@@ -335,7 +343,7 @@ TLS 1.0 and TLS 1.1 are deprecated.
 
 #### Resolution
 
-Use TLS 1.2 or higher.
+Use TLS 1.2 or later.
 
 For Windows, see [Protocols in TLS/SSL Schannel SSP](/windows/win32/secauthn/protocols-in-tls-ssl--schannel-ssp-).
 
@@ -370,9 +378,9 @@ The updates are downloaded from configured public or private repositories for ea
 
 #### Resolution
 
-Ensure that network security rules don’t hinder connection to required repositories for update operations. 
+Ensure that network security rules don't hinder connection to required repositories for update operations.
 
-## Next steps
+## Related content
 
-* To learn more about Update Manager, see the [Overview](overview.md).
-* To view logged results from all your machines, see [Querying logs and results from Update Manager](query-logs.md).
+- To learn more about Update Manager, see the [Overview](overview.md).
+- To view logged results from all your machines, see [Querying logs and results from Update Manager](query-logs.md).
