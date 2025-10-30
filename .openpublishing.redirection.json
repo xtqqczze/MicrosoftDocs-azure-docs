@@ -6034,6 +6034,201 @@
       "source_path": "articles/storage/container-storage/container-storage-aks-quickstart.md",
       "redirect_url": "/azure/storage/container-storage/install-container-storage-aks",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/communications-gateway/connectivity.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/connectivity.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/connect-operator-connect.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/connect-operator-connect.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/connect-teams-direct-routing.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/connect-teams-direct-routing.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/connect-zoom.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/connect-zoom.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/deploy.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/deploy.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/emergency-calls-operator-connect.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/emergency-calls-operator-connect.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/emergency-calls-teams-direct-routing.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/emergency-calls-teams-direct-routing.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/emergency-calls-zoom.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/emergency-calls-zoom.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/get-started.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/get-started.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/index.yml",
+      "redirect_url": "/previous-versions/azure/communications-gateway/index.yml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/integrate-with-provisioning-api.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/integrate-with-provisioning-api.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/interoperability-operator-connect.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/interoperability-operator-connect.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/interoperability-teams-direct-routing.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/interoperability-teams-direct-routing.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/interoperability-zoom.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/interoperability-zoom.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/lab.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/lab.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/limits.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/limits.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/maintenance-notifications.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/maintenance-notifications.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/manage-enterprise-operator-connect.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/manage-enterprise-operator-connect.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/manage-enterprise-teams-direct-routing.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/manage-enterprise-teams-direct-routing.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/manage-enterprise-zoom.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/manage-enterprise-zoom.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/mobile-control-point.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/mobile-control-point.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/monitor-azure-communications-gateway.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/monitor-azure-communications-gateway.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/monitoring-azure-communications-gateway-data-reference.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/monitoring-azure-communications-gateway-data-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/onboarding.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/onboarding.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/overview.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/overview.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/plan-and-manage-costs.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/plan-and-manage-costs.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/prepare-for-live-traffic-operator-connect.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/prepare-for-live-traffic-operator-connect.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/prepare-for-live-traffic-teams-direct-routing.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/prepare-for-live-traffic-teams-direct-routing.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/prepare-for-live-traffic-zoom.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/prepare-for-live-traffic-zoom.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/prepare-for-vnet-injection.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/prepare-for-vnet-injection.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/prepare-to-deploy.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/prepare-to-deploy.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/provisioning-platform.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/provisioning-platform.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/provision-user-roles.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/provision-user-roles.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/reliability-communications-gateway.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/reliability-communications-gateway.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/request-changes.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/request-changes.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/role-in-network.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/role-in-network.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/security.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/security.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/toc.yml",
+      "redirect_url": "/previous-versions/azure/communications-gateway/toc.yml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communications-gateway/whats-new.md",
+      "redirect_url": "/previous-versions/azure/communications-gateway/whats-new.md",
+      "redirect_document_id": false
     }
   ]
 }
