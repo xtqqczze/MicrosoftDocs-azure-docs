@@ -38,10 +38,10 @@ This table compares the update process of the two strategies:
 
 :::row:::
    :::column span="":::
-    **Recreate strategy update process**:
+    **Recreate strategy**:
    :::column-end:::
    :::column span="":::
-    **Rolling update strategy update process**:
+    **Rolling update strategy**:
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -61,14 +61,14 @@ This table compares the update process of the two strategies:
    :::column-end:::
 :::row-end:::
 
-This table compares the key behaviors of the two strategies: 
+This table compares the key characteristics of the two strategies: 
 
 :::row:::
    :::column span="":::
-    **Recreate strategy characteristics**:
+    **Recreate strategy**:
    :::column-end:::
    :::column span="":::
-    **Rolling update strategy characteristics**:
+    **Rolling update strategy**:
    :::column-end:::
 :::row-end:::
 :::row:::
