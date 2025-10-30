@@ -120,9 +120,11 @@ $destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -S
     -PolicyId default -SourceAccount $srcAccountName `
     -Rule $rule1 -EnableMetric $true -EnablePriorityReplication $true
 $destPolicy.PriorityReplication.Enabled
+
 ```
 
 # [Azure CLI](#tab/cli)
+
 ```azurecli-interactive
 
 # Login to your Azure account
