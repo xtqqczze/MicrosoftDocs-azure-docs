@@ -16,7 +16,7 @@
   items:
     - name: Change a workspace and configure DTR
       href: tutorial-change-workspace-configure-data-collection-rule.md
-- name: Enable Change Tracking and Inventory
+- name: Manage Change Tracking and Inventory
   items:
     - name: Enable from machines pane
       href: enable-change-tracking-at-scale-machines-blade.md
@@ -24,7 +24,5 @@
       href: enable-change-tracking-at-scale-policy.md
     - name: Create DCR
       href: create-data-collection-rule.md
-- name: Manage Change Tracking and Inventory
-  items:
-    - name: Manage Change Tracking and Inventory
-      href: manage-azure-change-tracking-inventory-monitoring-agent.md
+    - name: Disable Change Tracking and Inventory
+      href: disable-azure-change-tracking-inventory-monitoring-agent.md

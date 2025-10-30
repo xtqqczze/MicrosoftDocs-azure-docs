@@ -3,22 +3,21 @@
 title: Azure Change Tracking and Inventory documentation
 metadata:
   title: Azure Change Tracking and Inventory documentation
-  description: Learn how to use Change Tracking and Inventory.
-  
+  description: Learn how to use Azure Change Tracking and Inventory.
   ms.service: azure-automation
   ms.topic: landing-page
-  ms.date: 09/29/2025
+  ms.date: 10/30/2025
   ms.author: v-jasmineme
   author: jasminemehndir
 
 landingContent: 
 
   # Card
-  - title: Get started
+  - title: Learn about Change Tracking and Inventory
     linkLists:
       - linkListType: overview
         links:
-          - text: About Azure Change Tracking and Inventory
+          - text: What is Azure Change Tracking and Inventory?
             url: overview-monitoring-agent.md
           - text: Release notes
             url: extension-version-details.md
@@ -26,21 +25,23 @@ landingContent:
             url: region-mappings-monitoring-agent.md
 
   # Card  
-  - title: Enable Change Tracking and Inventory
+  - title: Get started with Change Tracking and Inventory
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: quickstart
         links:
-          - text: Enable from machines pane
-            url: enable-change-tracking-at-scale-machines-blade.md
-          - text: Enable using Azure policy
-            url: enable-change-tracking-at-scale-policy.md
-          - text: Create DCR
-            url: create-data-collection-rule.md
+          - text: Enable Azure Change Tracking and Inventory
+            url: quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md
+      - linkListType: tutorial
+        links:
+          - text: Change a workspace and configure DTR
+            url: tutorial-change-workspace-configure-data-collection-rule.md
 
   # Card  
   - title: Manage Change Tracking and Inventory
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage Change Tracking and Inventory
-            url: manage-azure-change-tracking-inventory-monitoring-agent.md
+          - text: Create Data Collection Rule (DCR)
+            url: create-data-collection-rule.md
+          - text: Disable Change Tracking and Inventory
+            url: disable-azure-change-tracking-inventory-monitoring-agent.md
