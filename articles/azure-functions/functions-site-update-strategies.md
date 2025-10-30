@@ -101,7 +101,7 @@ The platform intelligently manages capacity during rolling updates. If demand in
 
 ## Configuration
 
-The `SiteUpdateStrategy` is a property within the `functionAppConfig`. By default, its `type` is set to `Recreate`. Currently, only Bicep and ARM are supported with API version `2024-11-01` or later:
+The `SiteUpdateStrategy` is a property within the `functionAppConfig`. By default, its `type` is set to `Recreate`. Currently, only Bicep and ARM supports changing the property with API version `2023-12-01` or later:
 
 ### [Bicep](#tab/Bicep)
 ```bicep
