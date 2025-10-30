@@ -23,7 +23,7 @@ There are multiple paths through this article depending on the type of enrollmen
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-* Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+* Complete the steps in [Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
 * Make sure you have [Python 3.7](https://www.python.org/downloads/) or later installed on your machine. You can check your version of Python by running `python --version` or `python3 --version`.
 
@@ -190,13 +190,13 @@ az iot dps enrollment create -g {resource_group_name} --dps-name {dps_name} --en
 
 * The enrollment ID is the registration ID for your device and, for X.509 enrollments, must match the subject common name (CN) of the device certificate.
 
-  * If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the enrollment ID is my-x509-device.
+  * If you followed the instructions in [Use a self-signed certificate](#use-a-self-signed-certificate), the enrollment ID is my-x509-device.
 
   * If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain), the enrollment ID is device-01.
 
 * The certificate path is the path to your device certificate.
 
-  * If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the filename is *device-cert.pem*.
+  * If you followed the instructions in [Use a self-signed certificate](#use-a-self-signed-certificate), the filename is *device-cert.pem*.
 
   * If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain), the filename is *certs/device-01.cert.pem*.
 
@@ -279,13 +279,13 @@ Where:
 
 * `--cert [path_to_your_device_cert]` tells curl where to find your device's X.509 certificate. If your device private key is protected by a pass phrase, you can add the pass phrase after the certificate path preceded by a colon, for example: `--cert my-device.pem:1234`.
 
-  * If you're using a self-signed certificate, your device certificate file contains a single X.509 certificate. If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the filename is *device-cert.pem* and the private key pass phrase is `1234`, so use `--cert device-cert.pem:1234`.
+  * If you're using a self-signed certificate, your device certificate file contains a single X.509 certificate. If you followed the instructions in [Use a self-signed certificate](#use-a-self-signed-certificate), the filename is *device-cert.pem* and the private key pass phrase is `1234`, so use `--cert device-cert.pem:1234`.
 
   * If you're using a certificate chain, for example, when authenticating through an enrollment group, your device certificate file must contain a valid certificate chain. The certificate chain must include the device certificate and any signing certificates up to and including a verified certificate. If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain) to create the certificate chain, the filepath is *certs/device-01-full-chain.cert.pem*, so use `--cert certs/device-01-full-chain.cert.pem`.
 
 * `--key [path_to_your_device_private_key]` tells curl where to find your device's private key.
 
-  * If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the filename is *device-key.pem*, so use `--key device-cert.pem:1234`.
+  * If you followed the instructions in [Use a self-signed certificate](#use-a-self-signed-certificate), the filename is *device-key.pem*, so use `--key device-cert.pem:1234`.
 
   * If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain), the key path is *certs/device-01-full-chain.cert.pem*, so use `--cert certs/device-01-full-chain.cert.pem`.
 
@@ -401,13 +401,13 @@ Where:
 
 * `--cert [path_to_your_device_cert]` tells curl where to find your device's X.509 certificate. If your device private key is protected by a pass phrase, you can add the pass phrase after the certificate path preceded by a colon, for example: `--cert my-device.pem:1234`.
 
-  * If you're using a self-signed certificate, your device certificate file contains a single X.509 certificate. If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the filename is *device-cert.pem* and the private key pass phrase is `1234`, so use `--cert device-cert.pem:1234`.
+  * If you're using a self-signed certificate, your device certificate file contains a single X.509 certificate. If you followed the instructions in [Use a self-signed certificate](#use-a-self-signed-certificate), the filename is *device-cert.pem* and the private key pass phrase is `1234`, so use `--cert device-cert.pem:1234`.
 
   * If you're using a certificate chain, your device certificate file must contain a valid certificate chain. If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain) to create the certificate chain, the filepath is *certs/device-01-full-chain.cert.pem*, so use `--cert certs/device-01-full-chain.cert.pem`.
 
 * `--key [path_to_your_device_private_key]` tells curl where to find your device's private key.
 
-  * If you followed the instructions in [Use a self-signed-certificate](#use-a-self-signed-certificate), the filename is *device-key.pem*, so use `--key device-cert.pem:1234`.
+  * If you followed the instructions in [Use a self-signed certificate](#use-a-self-signed-certificate), the filename is *device-key.pem*, so use `--key device-cert.pem:1234`.
 
   * If you followed the instructions in [Use a certificate chain](#use-a-certificate-chain), the key path is *certs/device-01-full-chain.cert.pem*, so use `--cert certs/device-01-full-chain.cert.pem`.
 
@@ -421,7 +421,7 @@ Where:
 
   * Replace `[assigned_iot_hub_name]` with the name of the IoT hub that your device was assigned to.
 
-  * Replace `[device_id]` with the device ID that was assigned when you registered your device. For devices that provision through enrollment groups the device ID is the registration ID. For individual enrollments, you can, optionally, specify a device ID that is different than the registration ID in the enrollment entry.
+  * Replace `[device_id]` with the device ID that was assigned when you registered your device. For devices that provision through enrollment groups the device ID is the registration ID. For individual enrollments, you can, optionally, specify a device ID that's different than the registration ID in the enrollment entry.
 
 For example:
 
@@ -452,4 +452,4 @@ Date: Wed, 31 Aug 2022 18:34:44 GMT
 
 * To learn more about attestation with X.509 certificates, see [X.509 certificate attestation](concepts-x509-attestation.md).
 
-* To learn more about uploading and verifying X.509 certificates, see [Configure verified CA certificates](how-to-verify-certificates.md).
+* To learn more about uploading and verifying X.509 certificates, see [How to verify X.509 CA certificates with your Device Provisioning Service](how-to-verify-certificates.md).

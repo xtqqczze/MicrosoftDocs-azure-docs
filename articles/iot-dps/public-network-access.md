@@ -20,10 +20,10 @@ To restrict access to [a private endpoint for DPS in your virtual network](virtu
 To turn off public network access:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left-hand menu or on the portal page, select **All resources**.
-3. Select your Device Provisioning Service.
-4. In the **Settings** menu on the left-side, select *Networking*.
-5. Under **Public network access**, select *Disabled*
+2. From either the portal menu or the portal page, select **All resources**.
+3. Select your Device Provisioning Service instance.
+4. From the service menu, under **Settings**, select **Networking**.
+5. From the working pane, under **Public network access**, select **Disabled**
 6. Select **Save**.
 
     :::image type="content" source="media/iot-dps-public-network-access/disable-public-access.png" alt-text="Image showing Azure portal where to turn off public network access" :::
@@ -49,15 +49,15 @@ Disabling public network access is enforced on a specific DPS resource, ensuring
 
 ## IP Filter
 
-If public network access is disabled, all [IP Filter](../iot-dps/iot-dps-ip-filtering.md) rules are ignored. This behavior occurs because all IPs from the public internet are blocked. To use IP Filter, use the **Selected IP ranges** option.
+If public network access is disabled, all [IP filter](../iot-dps/iot-dps-ip-filtering.md) rules are ignored. This behavior occurs because all IPs from the public internet are blocked. To use IP filtering, select the **Selected IP ranges** option.
 
 ### Turn on all network ranges
 
 To turn on all network ranges:
 
-1. Go to the [Azure portal](https://portal.azure.com).
-2. On the left-hand menu or on the portal page, select **All resources**.
-3. Select your Device Provisioning Service.
-4. In the **Settings** menu on the left-side, select *Networking*.
-5. Under **Public network access**, select *All networks*
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. From either the portal menu or the portal page, select **All resources**.
+3. Select your Device Provisioning Service instance.
+4. From the service menu, under **Settings**, select **Networking**.
+5. From the working pane, under **Public network access**, select **All networks**
 6. Select **Save**.

@@ -32,7 +32,7 @@ There are different paths through this article depending on the type of enrollme
 
 * Azure CLI. You have two options for running Azure CLI commands in this article:
     * Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
-    * Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+    * Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [How to install the Azure CLI]( /cli/azure/install-azure-cli).
 
 * If you're running in a Linux or a WSL environment, open a Bash prompt to run commands locally. If you're running in a Windows environment, open a GitBash prompt.
 
@@ -40,7 +40,7 @@ There are different paths through this article depending on the type of enrollme
 
 For this article, you can use either an [individual enrollment](concepts-service.md#individual-enrollment) or an [enrollment group](concepts-service.md#enrollment-group) to provision through DPS.
 
-* For an individual enrollment, complete [Use individual enrollment](#use-an-individual-enrollment).
+* For an individual enrollment, complete [Use an individual enrollment](#use-an-individual-enrollment).
 
 * For an enrollment group, complete [Use an enrollment group](#use-an-enrollment-group).
 
@@ -126,7 +126,7 @@ The assigned symmetric keys are returned in the **attestation** property in the 
 
 Note down the primary key.
 
-If you want to use an existing individual enrollment for this article, you can get the primary key with the [az iot dps enrollment-group show](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-show) command:
+If you want to use an existing individual enrollment for this article, you can get the primary key with the [az iot dps enrollment-group show](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-group-show) command:
 
 ```azurecli
 az iot dps enrollment-group show -g {resource_group_name} --dps-name {dps_name} --enrollment-id {enrollment_id} --show-keys true
@@ -235,7 +235,7 @@ SharedAccessSignature sr=0ne00111111%2Fregistrations%2Fmy-symkey-device&sig=eNwg
 
 Copy and save the entire line that begins with `SharedAccessSignature`. This line is the SAS token. You need it in the following sections.
 
-To learn more about using SAS tokens with DPS and their structure, see [Control Access to DPS with SAS](how-to-control-access.md).
+To learn more about using SAS tokens with DPS and their structure, see [Control access to Azure IoT Hub Device Provisioning Service (DPS) with shared access signatures and security tokens](how-to-control-access.md).
   
 ## Register your device
 
@@ -388,7 +388,7 @@ The following output shows a sample SAS token for these inputs:
 SharedAccessSignature sr=MyExampleHub.azure-devices.net%2Fdevices%2Fmy-symkey-device&sig=f%2BwW8XOKeJOtiPc9Iwjc4OpExvPM7NlhM9qxN2a1aAM%3D&se=1663119026
 ```
 
-To learn more about creating SAS tokens for IoT Hub, including example code in other programming languages, see [Control access to IoT Hub using Shared Access Signatures](../iot-hub/iot-hub-dev-guide-sas.md?tabs=python).
+To learn more about creating SAS tokens for IoT Hub, including example code in other programming languages, see [Control access to IoT Hub using shared access signatures](../iot-hub/iot-hub-dev-guide-sas.md?tabs=python).
 
 > [!NOTE]
 >
@@ -447,4 +447,4 @@ Date: Wed, 14 Sep 2022 00:32:53 GMT
 
 * To learn more about symmetric key attestation, see [Symmetric key attestation](concepts-symmetric-key-attestation.md).
 
-* To learn more about SAS tokens and their structure, see [Control access to DPS with SAS](how-to-control-access.md).
+* To learn more about SAS tokens and their structure, see [Control access to Azure IoT Hub Device Provisioning Service (DPS) with shared access signatures and security tokens](how-to-control-access.md).

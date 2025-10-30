@@ -938,29 +938,29 @@ If you plan to continue working on and exploring the device client sample, don't
 
 1. Close the device client sample output window on your machine.
 
-2. From the left-hand menu in the Azure portal, select **All resources**.
+2. From the portal menu in the Azure portal, select **All resources**.
 
 3. Select your Device Provisioning Service instance.
 
-4. In the resource menu, under **Settings**, select **Manage enrollments**.
+4. In the service menu, under **Settings**, select **Manage enrollments**.
 
-5. Select the **Individual enrollments** tab.
+5. In the working pane, select the **Individual enrollments** tab.
 
 6. Select the check box next to the registration ID of the device you enrolled in this quickstart.
 
-7. At the top of the page, select  **Delete**.
+7. At the top of the pane, select  **Delete**.
 
 ### Delete your device registration from IoT Hub
 
-1. From the left-hand menu in the Azure portal, select **All resources**.
+1. From the portal menu in the Azure portal, select **All resources**.
 
 2. Select your IoT hub.
 
-3. In the resource menu, under **Device management**, select **Devices**.
+3. In the service menu, under **Device management**, select **Devices**.
 
-4. Select the check box next to the device ID of the device you registered in this quickstart.
+4. In the working pane, select the check box next to the device ID of the device you registered in this quickstart.
 
-5. At the top of the page, select  **Delete**.
+5. At the top of the pane, select  **Delete**.
 
 ## Next steps
 

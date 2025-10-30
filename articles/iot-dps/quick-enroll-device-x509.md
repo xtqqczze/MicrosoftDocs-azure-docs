@@ -27,11 +27,11 @@ This article shows you how to programmatically create an [enrollment group](conc
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-* Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+* Complete the steps in [Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
 :::zone pivot="programming-language-csharp"
 
-* Install [.NET 6.0 SDK or later](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET 6.0 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
@@ -41,7 +41,7 @@ This article shows you how to programmatically create an [enrollment group](conc
 
 :::zone pivot="programming-language-nodejs"
 
-* Install [Node.js v4.0 or above](https://nodejs.org) or later on your machine.
+* Install [Node.js v4.0](https://nodejs.org) or later on your machine.
 
 :::zone-end
 
@@ -66,7 +66,7 @@ For this article, you need either a root CA certificate file, an intermediate CA
 
 If you already have a root CA file and/or an intermediate CA file, you can continue to [Add and verify your root or intermediate CA certificate](#add-and-verify-your-root-or-intermediate-ca-certificate).
 
-If you don't have a root CA file and/or an intermediate CA file, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create the intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-intermediate-ca-certificate) as you don't need device certificates to complete the steps in this article. When you're finished, you have two X.509 certificate files: *./certs/azure-iot-test-only.root.ca.cert.pem* and *./certs/azure-iot-test-only.intermediate.cert.pem*.
+If you don't have a root CA file and/or an intermediate CA file, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create an intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-intermediate-ca-certificate) as you don't need device certificates to complete the steps in this article. When you're finished, you have two X.509 certificate files: *./certs/azure-iot-test-only.root.ca.cert.pem* and *./certs/azure-iot-test-only.intermediate.cert.pem*.
 
 ## Add and verify your root or intermediate CA certificate
 
@@ -82,13 +82,13 @@ To add and verify your root or intermediate CA certificate to the Device Provisi
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the left-hand menu or on the portal page, select **All resources**.
+2. On the portal menu or on the portal page, select **All resources**.
 
-3. Select your Device Provisioning Service.
+3. Select your Device Provisioning Service instance.
 
-4. In the **Settings** menu, select **Certificates**.
+4. In the service menu, under **Settings**, select **Certificates**.
 
-5. On the top menu, select **+ Add:**.
+5. In the working pane, select **+ Add** from the command bar.
 
 6. Enter a name for your root or intermediate CA certificate, and upload the *.pem* or *.cer* file.
 
@@ -104,15 +104,15 @@ For the sample in this article, you need the connection string for your provisio
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the left-hand menu or on the portal page, select **All resources**.
+2. On the portal menu or on the portal page, select **All resources**.
 
-3. Select your Device Provisioning Service.
+3. Select your Device Provisioning Service instance.
 
-4. In the **Settings** menu, select **Shared access policies**.
+4. In the service menu, under **Settings**, select **Shared access policies**.
 
 5. Select the access policy that you want to use.
 
-6. In the **Access Policy** panel, copy and save the primary key connection string.
+6. In the **Access Policy** panel, copy and save the primary connection string.
 
     :::image type="content" source="./media/quick-enroll-device-x509/get-service-connection-string.png" alt-text="Screenshot that shows the location of the provisioning service connection string in the portal.":::
 
@@ -230,7 +230,7 @@ This section shows you how to create a .NET Core console application that adds a
 This section shows you how to create a Node.js script that adds an enrollment group to your provisioning service.
 
 >[!TIP]
->For simplicity, this sample uses SAS authentication to connect to the DPS service API. A more secure approach is to use Azure token credentials. For an example of that authentication method, see the [create_tpm_enrollment_with_token_credentials.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/provisioning/service/samples/create_tpm_enrollment_with_token_credential.js) sample in the Node.js SDK.
+>For simplicity, this sample uses SAS authentication to connect to the DPS service API. A more secure approach is to use Azure token credentials. For an example of that authentication method, see the [create_tpm_enrollment_with_token_credential.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/provisioning/service/samples/create_tpm_enrollment_with_token_credential.js) sample in the Node.js SDK.
 
 1. From a command window in your working folder, run:
 
@@ -402,7 +402,7 @@ To verify that the enrollment group was created:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Device Provisioning Service instance.
 
-2. In the **Settings** menu, select **Manage enrollments**.
+2. In the service menu, under **Settings**, select **Manage enrollments**.
 
 3. Select the **Enrollment groups** tab. You should see a new enrollment entry that corresponds to the enrollment group ID that you used in the sample.
 
@@ -414,19 +414,19 @@ If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, 
 
 1. Close the sample output window on your computer.
 
-2. From the left-hand menu in the Azure portal, select **All resources**.
+2. From the portal menu in the Azure portal, select **All resources**.
 
-3. Select your Device Provisioning Service.
+3. Select your Device Provisioning Service instance.
 
-4. In the left-hand menu under **Settings**, select **Manage enrollments**.
+4. In the service menu, under **Settings**, select **Manage enrollments**.
 
 5. Select the **Enrollment groups** tab.
 
 6. Select the check box next to the group name of the enrollment group you created in this article.
 
-7. At the top of the page, select  **Delete**.
+7. At the top of the pane, select  **Delete**.
 
-8. From your Device Provisioning Service in the Azure portal, select **Certificates** under **Settings** on the left-hand menu.
+8. From your Device Provisioning Service instance in the Azure portal, select **Certificates** under **Settings** on the left-hand menu.
 
 9. Select the certificate you uploaded for this article.
 
@@ -460,6 +460,6 @@ In this article, you created an enrollment group for an X.509 intermediate or ro
 
 * For more information about X.509 certificate attestation with DPS, see [X.509 certificate attestation](concepts-x509-attestation.md).
 
-* For an end-to-end example of provisioning devices through an enrollment group using X.509 certificates, see the [Provision multiple X.509 devices using enrollment groups](tutorial-custom-hsm-enrollment-group-x509.md) tutorial.
+* For an end-to-end example of provisioning devices through an enrollment group using X.509 certificates, see [Tutorial: Provision multiple X.509 devices using enrollment groups](tutorial-custom-hsm-enrollment-group-x509.md).
 
-* To learn about managing individual enrollments and enrollment groups using Azure portal, see [How to manage device enrollments with Azure portal](how-to-manage-enrollments.md).
+* To learn about managing individual enrollments and enrollment groups using Azure portal, see [Manage device enrollments in the Azure portal](how-to-manage-enrollments.md).
