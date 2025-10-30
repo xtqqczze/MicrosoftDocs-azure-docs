@@ -11,7 +11,7 @@ ms.date: 09/08/2025
 
 # Use the operations experience web UI
 
-The *operations experience* web UI lets OT users manage resources in Azure IoT Operations. The operations experience is a web-based user interface that gives you a consistent way to manage resources like devices, namespace assets, and data flows.
+The *operations experience* web UI lets OT users manage resources in Azure IoT Operations. The operations experience is a web-based user interface that gives you a consistent way to manage resources like devices, assets, and data flows.
 
 This article describes how to use the operations experience web UI to manage core resources like
 
@@ -19,7 +19,7 @@ This article describes how to use the operations experience web UI to manage cor
 - Notifications
 - Activity logs
 
-To learn how to use the operations experience to manage namespace assets and devices, see:
+To learn how to use the operations experience to manage assets and devices, see:
 
 - [Configure the connector for OPC UA](howto-configure-opc-ua.md)
 - [Configure the connector for ONVIF](howto-use-onvif-connector.md)
@@ -85,7 +85,7 @@ To enable you to copy settings between Azure Iot Operations instances, the opera
 - Data flow endpoints (JSON)
 - Data flow (JSON)
 
-For example, to export The tag definitions for a namespace asset that uses an OPC UA inbound endpoint, go to the **Tags** page for the asset, select the tags to export, and then select **Export tags**:
+For example, to export The tag definitions for an asset that uses an OPC UA inbound endpoint, go to the **Tags** page for the asset, select the tags to export, and then select **Export tags**:
 
 :::image type="content" source="media/howto-use-operations-experience/export-tags.png" alt-text="A screenshot that shows how to export tag definitions to a CSV file." lightbox="media/howto-use-operations-experience/export-tags.png":::
 

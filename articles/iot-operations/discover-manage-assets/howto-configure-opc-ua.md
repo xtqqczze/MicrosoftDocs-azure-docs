@@ -125,7 +125,7 @@ To add an asset in the operations experience:
     > [!TIP]
     > You can use the filter box to search for assets.
 
-1. Select **Create namespace asset**.
+1. Select **Create asset**.
 
 1. On the asset details screen, enter the following asset information:
 
@@ -194,7 +194,7 @@ Now you can define the data points associated with the dataset. To add OPC UA da
 
 # [Azure CLI](#tab/cli)
 
-Use the following commands to add a "thermostat" namespace asset to your device by using the Azure CLI. The commands add a dataset and two data points to the asset by using the `point add` command:
+Use the following commands to add a thermostat asset to your device by using the Azure CLI. The commands add a dataset and two data points to the asset by using the `point add` command:
 
 ```azurecli
 # Create the asset
@@ -359,7 +359,7 @@ When you're finished making changes, select **Save** to save your changes.
 
 # [Azure CLI](#tab/cli)
 
-To list your namespace assets associated with a specific endpoint, use the following command:
+To list your assets associated with a specific endpoint, use the following command:
 
 ```azurecli
 az iot ops ns asset query --device {your device name} --endpoint-name {your endpoint name}

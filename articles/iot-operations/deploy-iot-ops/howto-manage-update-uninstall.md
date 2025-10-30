@@ -139,14 +139,14 @@ You can also view the details of an existing namespace in the resource group tha
 
 The previous screenshot also shows the other resources in Azure Device Registry such as the **IoT Schema Registry**, **IoT Namespace Assets**, and **Devices** in the context of the resource group that contains your Azure IoT Operations instance.
 
-### Migrate existing assets to namespace assets
+### Migrate assets (classic) to assets
 
-If you have existing assets in your Azure IoT Operations instance that you want to move to a namespace, you can use the `az iot ops migrate-assets` command. This command migrates top-level (or root-level) assets to namespace assets in Azure Device Registry. 
+If you have existing assets in your Azure IoT Operations instance that you want to move to a namespace, you can use the `az iot ops migrate-assets` command. This command migrates root-level assets (classic) to assets in Azure Device Registry. 
 
 > [!NOTE]
 > Migrating assets requires Azure IoT Operations instance version 1.2.36 or later.
 
-The target set of root assets is converted to an equivalent namespace asset representation, and it replaces the original root asset. During the migration, namespace devices are created in-place of the endpoint profiles referenced by the root assets. If multiple assets reference the same endpoint profile, only one namespace device is referenced by the migrated assets.
+The target set of assets (classic) is converted to an equivalent asset representation, and it replaces the original root-level asset (classic). During the migration, devices are created in-place of the endpoint profiles referenced by the root assets. If multiple assets reference the same endpoint profile, only one device is referenced by the migrated assets.
 
 To migrate all root assets associated with an instance, run the following command:
 
@@ -169,7 +169,7 @@ az iot ops migrate-assets -n <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> -
 > [!IMPORTANT]
 > Before migrating assets, make sure to take a snapshot of your instance using the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command. This allows you to restore your instance to its previous state if needed. For more information, see [Clone an IoT Operations instance](./howto-clone-instance.md).
 
-Once the migration is complete, you can use `az iot ops ns asset` and `az iot ops ns device` commands to manage the namespace assets and devices in your Azure IoT Operations instance. 
+Once the migration is complete, you can use `az iot ops ns asset` and `az iot ops ns device` commands to manage the assets and devices in your Azure IoT Operations instance. 
 
 ### Configure connector templates
 

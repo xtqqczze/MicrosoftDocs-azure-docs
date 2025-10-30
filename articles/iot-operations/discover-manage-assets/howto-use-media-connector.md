@@ -149,11 +149,11 @@ To manage the trusted certificates list for the media connector, see [Manage cer
 
 ## Create an asset to publish an image snapshot
 
-To define a namespace asset that publishes an image snapshot from the media source to the MQTT broker:
+To define an asset that publishes an image snapshot from the media source to the MQTT broker:
 
 # [Operations experience](#tab/portal)
 
-1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select **Create namespace asset**.
+1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select **Create asset**.
 
 1. Select the inbound endpoint for the media connector that you created in the previous section.
 
@@ -190,7 +190,7 @@ To learn more, see [az iot ops ns asset rest](/cli/azure/iot/ops/ns/asset/rest).
 
 ### Verify the published messages
 
-To verify that the connector is publishing messages, you can use an MQTT client to subscribe to the topic configured as the destination for the stream, by default this topic is called `azure-iot-operations/data/{asset name}/{stream name}`. If the device and namespace asset are configured correctly, you receive messages containing JPEG image snapshots when you subscribe to this topic.
+To verify that the connector is publishing messages, you can use an MQTT client to subscribe to the topic `azure-iot-operations/data/{asset name}/{stream name}`. If the device and asset are configured correctly, you receive messages containing JPEG image snapshots when you subscribe to this topic.
 
 The following steps show you how to run the **mosquitto_sub** tool in the cluster. To learn more about this tool and alternative approaches, see [MQTT tools](../troubleshoot/tips-tools.md#mqtt-tools):
 

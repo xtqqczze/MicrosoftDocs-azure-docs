@@ -56,7 +56,7 @@ From the list of discovered assets, you can import an asset into your Azure IoT 
 
 1. Select the asset you want to import from the list of discovered assets. Then select **+ Import and create asset**.
 
-1. The site takes you to the **Asset details** page for a namespace asset, where you can review the asset details and make any changes. Enter a name and description for the discovered asset:
+1. The site takes you to the **Asset details** page for an asset, where you can review the asset details and make any changes. Enter a name and description for the discovered asset:
 
     :::image type="content" source="media/howto-detect-opc-ua-assets/add-asset-details.png" alt-text="Screenshot that shows an asset created from a discovered asset.":::
 
@@ -64,7 +64,7 @@ From the list of discovered assets, you can import an asset into your Azure IoT 
 
     :::image type="content" source="media/howto-detect-opc-ua-assets/add-imported-tags.png" alt-text="Screenshot that shows how to modify the tags of an imported asset.":::
 
-1. The imported namespace asset is created in your Azure IoT Operations instance. You can view the asset in the **Assets** page of the operations experience:
+1. The imported asset is created in your Azure IoT Operations instance. You can view the asset in the **Assets** page of the operations experience:
 
     :::image type="content" source="media/howto-detect-opc-ua-assets/provisioned-asset.png" alt-text="Screenshot that shows how to view the imported asset.":::
 

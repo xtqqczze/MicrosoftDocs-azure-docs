@@ -22,7 +22,7 @@ The connector for SSE supports the following features:
 
 - Automatic retries when sampling failures occur. Reports a failed status for errors that can't be retried.
 - Integration with OpenTelemetry.
-- Use of _device endpoints_ and _namespace assets_.
+- Use of _device endpoints_ and _assets_.
 - Inferring a schema from the JSON payload.
 - Multiple authentication methods:
   - Username/password basic HTTP authentication
@@ -119,13 +119,13 @@ To use the `Username password` authentication mode, complete the following steps
 
 To manage the trusted certificates list for the connector for SSE, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
 
-## Create a namespace asset
+## Create an asset
 
-To define a namespace asset that publishes events from the SSE endpoint, follow these steps:
+To define an asset that publishes events from the SSE endpoint, follow these steps:
 
 # [Operations experience](#tab/portal)
 
-1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select **Create namespace asset**.
+1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select **Create asset**.
 
 1. Select the inbound endpoint for the connector for SSE that you created in the previous section.
 

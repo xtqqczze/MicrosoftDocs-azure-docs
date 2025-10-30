@@ -74,9 +74,9 @@ items:
           - name: Understand asset and device management
             href: discover-manage-assets/overview-manage-assets.md
             displayName: operations, experience, connector, Akri, Akri services, OPC UA, ONVIF, media, device, registry, discovery, detect, discover, southbound
-          - name: Understand namespace assets and devices
+          - name: Understand assets and devices
             href: discover-manage-assets/concept-assets-devices.md
-            displayName: data points, events, operations, experience, southbound
+            displayName: data points, events, operations, experience, southbound, namespace assets, namespace
           - name: Understand Akri services
             href: discover-manage-assets/overview-akri.md
             displayName: OPC UA, akri, discover, detect, device, registry, southbound

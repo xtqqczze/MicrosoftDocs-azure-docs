@@ -1,6 +1,6 @@
 ---
 title: Understand device and asset management
-description: Understand concepts and options needed to manage the devices and namespace assets that are part of your Azure IoT Operations solution.
+description: Understand concepts and options needed to manage the devices and assets that are part of your Azure IoT Operations solution.
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
@@ -11,38 +11,12 @@ ms.custom: sfi-image-nochange
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Operations for managing devices and assets, so that I can effectively manage the devices and assets in my solution. 
 ---
 
-<!-- TODO: 
-
-## Proposed outline for this article
-
-- AIO architecture diagram
-- Physical assets and devices
-- Logical namespace assets and devices
-- Southbound and northbound connectivity
-- Services
-  - ADR
-    - Namespaces
-    - Assets
-    - Devices
-    - Schemas
-    - Resource synchronization
-  - Akri
-    - Connectivity
-    - Discovery
-    - Monitoring
-  - DOE
-  - Azure portal
-
-*Reuse existing content as much as possible*
-
--->
-
 # What is asset and device management in Azure IoT Operations?
 
-In Azure IoT Operations, a key task is to manage the namespace assets and devices that are part of your solution. This article:
+In Azure IoT Operations, a key task is to manage the assets and devices that are part of your solution. This article:
 
-- Defines what *namespace assets* and *devices* mean in Azure IoT Operations.
-- Provides an overview of services used to manage namespace assets and devices.
+- Defines what *assets* and *devices* mean in Azure IoT Operations.
+- Provides an overview of services used to manage assets and devices.
 - Explains common use cases for these services.
 
 This diagram shows the key components of asset management in Azure IoT Operations:
@@ -91,11 +65,11 @@ graph LR
 ```
 -->
 
-## Understand namespace assets and devices in Azure IoT Operations
+## Understand assets and devices in Azure IoT Operations
 
 [!INCLUDE [assets-devices-logical-entities](../includes/assets-devices-logical-entities.md)]
 
-An operator configures and manages devices and namespace assets in the operations experience web UI or by using the Azure IoT operations CLI.
+An operator configures and manages devices and assets in the operations experience web UI or by using the Azure IoT operations CLI.
 
 Learn more in [define assets and devices](concept-assets-devices.md).
 
@@ -105,26 +79,26 @@ In Azure IoT Operations, *southbound connectivity* refers to the connection betw
 
 The connectors in this article enable southbound connectivity by letting the edge cluster communicate with physical devices and assets. Learn about northbound connectivity in [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
 
-## Services for managing devices and namespace assets
+## Services for managing devices and assets
 
 Azure IoT Operations includes several services that help you manage devices and assets:
 
-- Azure Device Registry: Manages metadata for namespace assets and other resources.
+- Azure Device Registry: Manages metadata for assets and other resources.
 - Akri services: Lets you manage edge resources in a Kubernetes cluster.
-- Operations experience: A web interface for managing devices and namespace assets.
+- Operations experience: A web interface for managing devices and assets.
 - Azure portal: A web interface for managing Azure resources.
 
 ## Azure Device Registry
 
-*Azure Device Registry* is a backend service that enables the cloud and edge management of namespace assets from the Azure portal.
+*Azure Device Registry* is a backend service that enables the cloud and edge management of assets from the Azure portal.
 
-Azure Device Registry maps namespace assets from your edge environment to Azure resources in the cloud. It offers a unified registry so apps and services interacting with your assets connect to a single source. Azure Device Registry syncs assets in the cloud with custom resources in Kubernetes on the edge.
+Azure Device Registry maps assets from your edge environment to Azure resources in the cloud. It offers a unified registry so apps and services interacting with your assets connect to a single source. Azure Device Registry syncs assets in the cloud with custom resources in Kubernetes on the edge.
 
-When you create a device or namespace asset in the operations experience or by using the Azure IoT Operations CLI, that device or namespace asset is defined in Azure Device Registry.
+When you create a device or asset in the operations experience or by using the Azure IoT Operations CLI, that device or asset is defined in Azure Device Registry.
 
-### Namespace assets
+### Assets
 
-Azure Device Registry maps namespace assets to Azure resources. Enterprises can use Azure Resource Manager, Azure's deployment and management service, with namespace assets. Azure Resource Manager supports resource groups, tags, role-based access control (RBAC), policies, logging, and auditing.
+Azure Device Registry maps assets to Azure resources. Enterprises can use Azure Resource Manager, Azure's deployment and management service, with assets. Azure Resource Manager supports resource groups, tags, role-based access control (RBAC), policies, logging, and auditing.
 
 ### Devices
 
@@ -136,11 +110,11 @@ The schema registry is a service that lets you define and manage the schema for 
 
 ### Namespaces
 
-Azure Device Registry uses *namespaces* to organize namespace assets and devices. Each Azure IoT Operations instance uses one namespace for its assets and devices. Multiple instances can share a namespace.
+Azure Device Registry uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses one namespace for its assets and devices. Multiple instances can share a namespace.
 
 ### Synchronization
 
-Manage devices and namespace assets through the operations experience or Azure APIs and tools like Azure Resource Graph. Changes made in the cloud sync to the edge and appear as custom resources in the Kubernetes cluster.
+Manage devices and assets through the operations experience or Azure APIs and tools like Azure Resource Graph. Changes made in the cloud sync to the edge and appear as custom resources in the Kubernetes cluster.
 
 ## Akri services
 
@@ -162,7 +136,7 @@ Akri services let you deploy and set up connectivity protocols at the edge. Akri
 
 ### Discovery
 
-*Akri services* let you automatically discover physical devices and assets and help OT users set up devices and namespace assets in the operations experience web UI. The connectors described earlier all use the framework provided by Akri services to implement their core capabilities.
+*Akri services* let you automatically discover physical devices and assets and help OT users set up devices and assets in the operations experience web UI. The connectors described earlier all use the framework provided by Akri services to implement their core capabilities.
 
 Akri services simplify creating assets by automatically onboarding assets with preconfigured datasets and endpoints generated by the connectors to represent capabilities and devices on the network.
 
@@ -172,7 +146,7 @@ Akri services simplify creating assets by automatically onboarding assets with p
 
 ## Operations experience
 
-The *operations experience* is a web UI that lets OT users create and configure devices and namespace assets in an Azure IoT Operations instance. This web UI simplifies managing devices and namespace assets and is the recommended service for this task.
+The *operations experience* is a web UI that lets OT users create and configure devices and assets in an Azure IoT Operations instance. This web UI simplifies managing devices and assets and is the recommended service for this task.
 
 ## Azure portal
 
