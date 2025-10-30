@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 08/19/2025
+ms.date: 10/30/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
