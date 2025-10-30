@@ -272,8 +272,8 @@
       href: tutorial-message-enrichments.md
 - name: Authentication and authorization
   items:
-    - name: Built-in RBAC roles
-      href: iot-hub-device-registry-rbac.md
+    - name: Built-in RBAC roles for IoT
+      href: ../role-based-access-control/built-in-roles/internet-of-things.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
       displayName: role-based access control, RBAC, roles, permissions
     - name: Microsoft Entra ID
       href: authenticate-authorize-azure-ad.md
