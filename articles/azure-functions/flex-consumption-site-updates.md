@@ -30,7 +30,7 @@ This table compares the two site update strategies:
 | Speed         | Faster - instances are restarted immediately | Slower - instances are updated in batches at regular intervals |
 | Backward compatibility | Not necessary as one version runs at a time | Changes must be backward compatible, especially with stateful workloads or breaking changes |
 | How to set    | Default behavior, consistent with other hosting plans  | Opt-in configuration |
-| Use when... | ✔ You need fast deployments.<br/>✔ Brief downtime is acceptable.<br/>✔ You're deploying breaking changes and need a clean restart.<br/>✔ Your functions are stateless and can handle interruptions.| ✔ You require zero-downtime deployments.✔ You have long-running or critical functions that can't be interrupted.✔ Your changes are backward-compatible.✔ You must preserve in-progress executions. |
+| Use when... | ✔ You need fast deployments.<br/>✔ Brief downtime is acceptable.<br/>✔ You're deploying breaking changes and need a clean restart.<br/>✔ Your functions are stateless and can handle interruptions.| ✔ You require zero-downtime deployments.<br/>✔ You have long-running or critical functions that can't be interrupted.<br/>✔ Your changes are backward-compatible.<br/>✔ You must preserve in-progress executions. |
 
 ## Update strategy behaviors
 
