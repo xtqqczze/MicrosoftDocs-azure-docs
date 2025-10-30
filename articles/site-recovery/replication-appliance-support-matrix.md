@@ -31,15 +31,15 @@ Component | Requirement
 --- | ---
 CPU cores | 8
 RAM | 16 GB
-Number of disks | 2 including the OS disk (80 GB and a data disk) 620 GB
+Number of disks | 2, including the OS disk (80 GB and a data disk) 620 GB
 
 ### Software requirements
 
 Component | Requirement
 --- | ---
-Operating system | Windows Server 2022 <br><br> - Windows Server 2019 appliances continue to receive software updates. <br> - Upgrading OS on existing Windows Server 2019 appliances to Windows Server 2022 isn't supported.
-Operating system locale | English (en-*)
-Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services (IIS) <br> - Hyper-V
+Operating system | Windows Server 2022. <br><br> - Windows Server 2019 appliances continue to receive software updates. <br> - Upgrading OS on existing Windows Server 2019 appliances to Windows Server 2022 isn't supported.
+Operating system locale | English (en-*).
+Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services. <br>- Internet Information Services (IIS). <br> - Hyper-V.
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
 IIS | - No preexisting default website. <br> - No preexisting website/application listening on port 443. <br>- Enable [anonymous authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)). <br> - Enable [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) setting.
 Federal Information Processing Standards (FIPS) | Don't enable FIPS mode.|
@@ -48,10 +48,10 @@ Federal Information Processing Standards (FIPS) | Don't enable FIPS mode.|
 
 |Component | Requirement|
 |--- | ---|
-|Fully qualified domain name (FQDN) | Static |
-|Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
-|Network interface card type | VMXNET3 (if the appliance is a VMware VM)|
-|Network address translation | Supported |
+|Fully qualified domain name (FQDN) | Static. |
+|Ports | 443 (Control channel orchestration).<br>9443 (Data transport).|
+|Network interface card type | VMXNET3 (if the appliance is a VMware VM).|
+|Network address translation | Supported. |
 
 >[!NOTE]
 > To support communication between source machines and the replication appliance using multiple subnets, select the FQDN as the mode of connectivity during the appliance setup. This step allows source machines to use FQDN, along with a list of IP addresses, to communicate with the replication appliance.
@@ -73,7 +73,7 @@ Ensure that the following URLs are allowed and reachable from the Site Recovery 
   |`*.servicebus.windows.net`|Enable communication between the appliance and Site Recovery. |
   |`*.discoverysrv.windowsazure.com`<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |Connect to Site Recovery microservice URLs.
   |`*.blob.core.windows.net`|Upload data to Azure Storage, which is used to create target disks. |
-  |`*.backup.windowsazure.com`|Use the protection service URL. This microservice is used by Site Recovery for processing and creating replicated disks in Azure. |
+  |`*.backup.windowsazure.com`|Use the protection service URL. Site Recovery uses this microservice to process and create replicated disks in Azure. |
   | `*.prod.migration.windowsazure.com`| Discover your on-premises estate.
 
 #### Allow URLs for government clouds
