@@ -50,7 +50,7 @@ The recreate strategy follows this process:
 
 1. A site update is initiated while your function app has active instances
 1. The platform forcefully restarts all live and draining instances
-1. Instance count reaches zero, triggering the scaling system to provision new instances with the latest version
+1. Active instance count reaches zero, triggering the scaling system to provision new instances with the latest version
 
 ### Recreate limitations
 
@@ -69,7 +69,7 @@ The rolling update strategy provides zero-downtime deployments through this proc
 1. The platform assigns all live instances to batches
 1. At regular intervals, the platform drains one batch of instances. Draining prevents instances from accepting new events while allowing in-flight executions to complete (up to the one hour maximum execution time)
 1. Simultaneously, the scaling platform provisions new instances running the latest version to replace the draining capacity
-1. This process continues until all instances are running the latest version
+1. This process continues until all live instances are on the latest version
 
 The platform intelligently manages capacity during rolling updates. If demand increases, more instances are provisioned than were drained. If demand decreases, only the necessary instances are created to meet current needs. This approach ensures continuous availability while optimizing resource usage. 
 
