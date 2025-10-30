@@ -2020,6 +2020,6 @@ groups:
   prompt: Choose a virtual network gateway type
   pivots:
   - id: expressroute
-    title: Azure ExpressRoute
+    title: Azure ExpressRoute gateway
   - id: vpn
     title: Azure VPN Gateway
