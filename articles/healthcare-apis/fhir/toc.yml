@@ -129,6 +129,10 @@ items:
           href: store-profiles-in-fhir.md
         - name: Use $validate
           href: validation-against-profiles.md
+    - name: $docref
+      href: fhir-docref.md
+    - name: $expand
+      href: fhir-expand.md
 - name: API reference
   items: 
     - name: Access the FHIR service

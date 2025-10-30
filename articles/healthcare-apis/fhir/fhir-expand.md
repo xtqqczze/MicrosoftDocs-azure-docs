@@ -74,5 +74,9 @@ POST request body:
   ]
 }
 ```
+## Related content
+[US Core overview in Azure Health Data Services FHIR](./uscore.md)
+
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
+
