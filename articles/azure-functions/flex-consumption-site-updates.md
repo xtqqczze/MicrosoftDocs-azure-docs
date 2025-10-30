@@ -38,32 +38,26 @@ This table compares the update process of the two strategies:
 
 :::row:::
    :::column span="":::
-      Recreate strategy
+    **Recreate strategy update process**:
    :::column-end:::
    :::column span="":::
-      Rolling update strategy
+    **Rolling update strategy update process**:
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      Updates using the recreate strategy follow this process:
-      
-      1. A site update (code or configuration changes) is applied to your function app.
-      1. The recreate strategy is triggered to update running instances with the new changes.
-      1. The platform forcefully restarts all live and draining instances.
-      1. The scaling system immediately begins provisioning new instances with the updated version (original instances might still be deprovisioning in the background).
+    1. A site update (code or configuration changes) is applied to your function app.
+    1. The recreate strategy is triggered to update running instances with the new changes.
+    1. The platform forcefully restarts all live and draining instances.
+    1. The scaling system immediately begins provisioning new instances with the updated version (original instances might still be deprovisioning in the background).
    :::column-end:::
    :::column span="":::
-      Updates using the rolling update strategy follow this process:
-
-      1. A site update (code or configuration changes) is applied to your function app.
-      1. The rolling update strategy is triggered to update running instances with the new changes.
-      1. The platform assigns all live instances to batches.
-      1. At regular intervals, the platform drains one batch of instances. Draining prevents instances from accepting new events while allowing in-progress executions to complete (up to the one hour maximum execution time).
-      1. Simultaneously, the scaling platform provisions new instances running the updated version to replace the draining capacity.
-      1. This process continues until all live instances are running the updated version.
-      
-            The platform intelligently manages capacity during rolling updates. When demand increases, it provisions more instances than it drains. When demand decreases, it creates only the necessary instances to meet current needs. This approach ensures continuous availability while optimizing resource usage.
+    1. A site update (code or configuration changes) is applied to your function app.
+    1. The rolling update strategy is triggered to update running instances with the new changes.
+    1. The platform assigns all live instances to batches.
+    1. At regular intervals, the platform drains one batch of instances. Draining prevents instances from accepting new events while allowing in-progress executions to complete (up to the one hour maximum execution time).
+    1. Simultaneously, the scaling platform provisions new instances running the updated version to replace the draining capacity.
+    1. This process continues until all live instances are running the updated version.
    :::column-end:::
 :::row-end:::
 
@@ -71,27 +65,24 @@ This table compares the key behaviors of the two strategies:
 
 :::row:::
    :::column span="":::
-      Recreate strategy
+    **Recreate strategy characteristics**:
    :::column-end:::
    :::column span="":::
-      Rolling update strategy
+    **Rolling update strategy characteristics**:
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      The recreate strategy has these characteristics:
-      
-      - **Brief downtime**: Your app is unavailable while instances restart and scale out
-      - **Execution interruption**: In-progress executions are terminated immediately
-      - **No completion signal**: Monitor instance logs to track when original instances stop emitting logs
-   :::column-end:::
+    - **Brief downtime**: Your app is unavailable while instances restart and scale out
+    - **Execution interruption**: In-progress executions are terminated immediately
+    - **No completion signal**: Monitor instance logs to track when original instances stop emitting logs
+  :::column-end:::
    :::column span="":::
-      The rolling update strategy has these characteristics:
-
-      - **Zero downtime**: deployments are done in batches so that executions complete without forced termination.
-      - **Asynchronous operations**: Draining and scale-out happen simultaneously without waiting for each other to complete. The scale-out isn't guaranteed to occur before the next drain interval.
-      - **Overlapping updates**: You can initiate additional rolling updates while one is in progress. All non-latest instances are drained, and only the newest version is scaled out.
-      - **Dynamic scaling**: The platform adjusts instance count based on current demand during the update.
+    - **Zero downtime**: deployments are done in batches so that executions complete without forced termination.
+    - **Asynchronous operations**: Draining and scale-out happen simultaneously without waiting for each other to complete. The scale-out isn't guaranteed to occur before the next drain interval.
+    - **Overlapping updates**: You can initiate additional rolling updates while one is in progress. All non-latest instances are drained, and only the newest version is scaled out.
+    - **Dynamic scaling**: The platform adjusts instance count based on current demand during the update.
+    - **Platform managed capacity**: When demand increases, the platform provisions more instances than it drains. When demand decreases, it creates only the necessary instances to meet current needs. This approach ensures continuous availability while optimizing resource usage.
    :::column-end:::
 :::row-end:::
 
@@ -109,7 +100,7 @@ Keep these current behaviors and limitations in mind when using the rolling upda
 
 ## Configure your update strategy
 
-You control site update strategies with the `SiteUpdateStrategy` site setting, which is a child of `functionAppConfig`. By default, `SiteUpdateStrategy.type` is set to `Recreate`. Currently, only Bicep and ARM templates with API version `2023-12-01` or later support changing this property.
+You can set the update strategy for your app using the `SiteUpdateStrategy` site setting, which is a child of `functionAppConfig`. By default, `SiteUpdateStrategy.type` is set to `Recreate`. Currently, only Bicep and ARM templates with API version `2023-12-01` or later support changing this property.
 
 ### [Bicep](#tab/Bicep)
 ```bicep
