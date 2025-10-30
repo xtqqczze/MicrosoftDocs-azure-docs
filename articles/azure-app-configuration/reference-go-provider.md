@@ -148,8 +148,7 @@ options := &azureappconfiguration.Options{
 		{
 			// Load configuration values with prefix "App:" and specific tags
 			KeyFilter:   "App:*",
-			LabelFilter: "",
-			TagFilters: ["env=prod"]
+			TagFilters: []string{"env=prod"},
 		},
 	},
 }
