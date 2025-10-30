@@ -27,7 +27,7 @@ You can rely on your Azure NetApp Files backup to restore individual files that 
 
 ## Register the feature
 
-Single-file restore from backup is currently in preview. You must register for the feature before you can use it. 
+You must register for the feature before you can use it. 
 
 1. Register the feature: 
 
