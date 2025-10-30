@@ -17,6 +17,8 @@ This article describes how to create Recovery Services vault (or Backup vault) t
 
 A [Recovery Services](../backup/backup-azure-recovery-services-vault-overview.md) vault is a management entity that stores recovery points that are created over time, and it provides an interface to perform backup-related and replication related operations. For certain newer workloads, Azure Backup also uses [Backup vault](../backup/backup-vault-overview.md) to store recovery points and interface for operations. [Learn about](../backup/guidance-best-practices.md#vault-considerations) on the guidelines when creating a vault.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 ## Create vault
 
 To create a vault, follow these steps:

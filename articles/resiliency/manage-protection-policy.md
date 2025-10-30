@@ -17,6 +17,8 @@ This article describes how to view your protection policies (backup and replicat
 
 By using Resiliency, you can centrally manage the lifecycle of your replication and backup protection policies for both Azure Backup or Azure Site Recovery.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 ## Prerequisites
 
 Before you start managing policies, ensure you have the required resource permissions to view them in the Resiliency in Azure.

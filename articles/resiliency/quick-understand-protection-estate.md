@@ -14,6 +14,8 @@ ms.author: v-mallicka
 
 This quickstart describes how to identify the protected and unprotected resources/items in Resiliency.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 As a resiliency administrator, safeguarding your critical resources is a crucial step in your resiliency journey. If an outage, malicious attack, or operational failure occurs, you can recover these resources. Recovery can be done in either the primary or secondary region to avoid data loss.
 
 
