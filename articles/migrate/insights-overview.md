@@ -1,5 +1,5 @@
 ---
-title: Insights In Azure Migrate - Assess, risk, plan Cloud migration
+title: Insights In Azure Migrate - Assess, risks, and plan Cloud migration
 description: Discover how Azure Migrate's Insights (preview) feature helps identify vulnerabilities, end-of-support software, and missing security tools in your datacenter. Plan secure and efficient cloud migrations with early risk visibility and actionable insights.
 author: habibaum
 ms.author: v-uhabiba
