@@ -123,6 +123,19 @@ $destPolicy.PriorityReplication.Enabled
 
 # [Azure CLI](#tab/cli)
 
-Content for CLI...
+# Login to your Azure account
+az login
+
+# Set variables
+$rgname          = "<resource-group-name>"
+$newAccountName  = "<new-account-name>"
+$destAccountName = "<destination-account-name>"
+$srcAccountName  = "<source-account-name>"
+$srcContainer    = "<source-container-name>"
+$destContainer   = "<destination-container-name>"
+
+#Create Account
+
+az storage account or-policy create -n $destAccountName -s $srcAccountName --dcont $dstContainer --scont $srcContainer -t "2020-02-19T16:05:00Z" --enable-metrics True --priority-replication true
 
 ---
