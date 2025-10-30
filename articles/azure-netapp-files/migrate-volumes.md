@@ -247,9 +247,13 @@ The portal version of the migration assistant is currently in preview.
 1.	From the NetApp account view, select **Migration assistant**.
 
     The migration assistant page appears with a list of current and ongoing migrations along with actions that you can take to create and manage migrations. These actions are "_New migration_," "_Sync now_," "_Dry run_," "_Resume_," "_Cut over_," "_Finalize migration_," and "_Cancel migration_".
+
+    :::image type="content" source="./media/migrate-volume/new-migration-portal.png" alt-text="Screenshot of navigation to the migration assistant portal." lightbox="./media/migrate-volume/new-migration-portal.png":::
     
 2.  Select **New migration** to initiate the migration process and proceed to creation of ANF Migration volume. 
 3.	In the **Source** tab, provide the following information:
+
+    :::image type="content" source="./media/migrate-volume/new-migration-source-information.png" alt-text="Screenshot of the source tab to provide volume details." lightbox="./media/migrate-volume/new-migration-source-information.png":::
 
     * **Cluster Name**
     Enter the name for the cluster that contains the volume you're migrating.
@@ -276,21 +280,33 @@ The portal version of the migration assistant is currently in preview.
 
 6.  Navigate to the **Migration** tab and select **Configure Peering**.
 
+    :::image type="content" source="./media/migrate-volume/navigate-cluster-peering.png" alt-text="Screenshot of navigation to cluster peering." lightbox="./media/migrate-volume/navigate-cluster-peering.png":::
+
 7.	If the clusters aren't peered, provide the intercluster (IC) LIF addresses for each node of the external cluster and select **Continue**. If clusters are already peered but SVM peering hasn't yet been established, you are guided directly to SVM peering.
+
+    :::image type="content" source="./media/migrate-volume/configure-cluster-peering.png" alt-text="Screenshot to configure cluster peering." lightbox="./media/migrate-volume/configure-cluster-peering.png":::
     
     Wait until cluster peering command and passphrase are returned.
 
 8.	Run the cluster peering command on the external cluster and authenticate with the provided passphrase and select **Continue to SVM Peering**.
 
+    :::image type="content" source="./media/migrate-volume/configure-svm-peering.png" alt-text="Screenshot to configure SVM peering." lightbox="./media/migrate-volume/configure-svm-peering.png":::
+
 9.	Collect the SVM peering command to run on the external cluster.
+
+    :::image type="content" source="./media/migrate-volume/svm-peering-command.png" alt-text="Screenshot to copy SVM peering command." lightbox="./media/migrate-volume/svm-peering-command.png":::
 
     After the peering is complete, the migration transfer is initialized, and the baseline data is transferred from the source external ONTAP volume to the Azure NetApp Files Migration volume. Once the initial transfer is complete, the data between the two volumes will be synced according to the replication schedule selected during migration volume creation.
 
 10. Pause the migration to perform a dry run exercise to test and make changes or perform the cut over to prepare for finalizing the migration. 
 
+    :::image type="content" source="./media/migrate-volume/pause-migration-dry-run.png" alt-text="Screenshot to pause migration to perform dry run." lightbox="./media/migrate-volume/pause-migration-dry-run.png":::
+
     Pausing the migration makes the volume read-writeable but resuming after pausing will erase all the data written to the volume during the pause.
 
 11.	Once the migration is complete, you can finalize the migration which deletes the replication relationship and clean up the infrastructure.
+
+    :::image type="content" source="./media/migrate-volume/finalize-migration.png" alt-text="Screenshot to finalize migration." lightbox="./media/migrate-volume/finalize-migration.png":::
 
     The volume becomes read-write and functions as a regular Azure NetApp Files volume once the migration is complete.
 
