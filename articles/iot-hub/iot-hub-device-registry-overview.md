@@ -13,9 +13,7 @@ ms.date: 10/20/2025
 
 # What is Azure Device Registry?
 
-**Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 2
-
-IoT Hub Gen 2 brings integration with Azure Device Registry (ADR) to provide a unified device registry for managing all your IoT devices. ADR is required for IoT Hub Gen 2 and is automatically created when you create an IoT Hub Gen 2 instance.
+IoT Hub allows integration with Azure Device Registry (ADR) to provide a unified device registry for managing all your IoT devices.
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
@@ -34,7 +32,7 @@ For more information about namespaces, see [Create and manage namespaces](iot-hu
 
 ADR provides a unified device registry for managing all your IoT devices. Azure Device Registry (ADR) is a backend service that enables the cloud and edge management of devices across multiple IoT solutions using namespaces. ADR is an ARM resource provider that​ registers devices as Azure resources in ARM, providing a single registry for all devices and enabling consistent policy, resource queries and control plane operations.
 
-When you [create an IoT Hub Gen 2 instance](iot-hub-device-registry-setup.md), you link it to an existing ADR namespace or create a new one. The IoT Hub Gen 2 instance uses the linked namespace to manage its devices and namespace assets. 
+When you [create a new IoT hub instance](iot-hub-device-registry-setup.md), you can link it to an existing ADR namespace or create a new one. The IoT Hub instance uses the linked namespace to manage its devices and namespace assets.
 
 > [!NOTE]
 > Azure Device Registry is also available with [Azure IoT Operations](/azure/iot-operations) instances. 

@@ -1,5 +1,5 @@
 ---
-title: What is Certificate Management?
+title: What is Certificate Management (Preview?
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how Certificate Management in Azure IoT Hub helps users manage device certificates.
 author: SoniaLopezBravo
@@ -11,13 +11,11 @@ ms.date: 10/20/2025
 #Customer intent: As a developer new to IoT, I want to understand what Certificate Management is and how it can help me manage my IoT device certificates.
 ---
 
-# What is Certificate Management?
+# What is Certificate Management (Preview)?
 
-**Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 2
+Certificate Management is a built-in feature of IoT Hub that enables you to manage device certificates using Microsoft-managed PKI with X.509 certificates. The X.509 certificates are operational certificates that devices use to authenticate with IoT Hub for secure communications after the device onboards with a different credential.
 
-Certificate Management is a built-in feature of IoT Hub Gen 2 that enables you to manage device certificates using Microsoft-managed PKI with X.509 certificates. The X.509 certificates are operational certificates that devices use to authenticate with IoT Hub for secure communications after the device onboards with a different credential.
-
-If you want to use Certificate Management with IoT Hub Gen 2, you need to set up an [Azure Device Registry (ADR) namespace](iot-hub-device-registry-setup.md) and link it to your IoT Hub Gen 2 instance.
+If you want to use Certificate Management, you need to set up an [Azure Device Registry (ADR) namespace](iot-hub-device-registry-setup.md) and link it to your IoT hub instance.
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
@@ -55,13 +53,13 @@ Certificate-based authentication offers these benefits over less secure methods 
 
 ## How Certificate Management works
 
-Certificate Management uses [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) to manage device certificates. ADR is a service that provides secure device identity and authentication for IoT solutions. It integrates with IoT Hub Gen 2 and Device Provisioning Service (DPS) to provide a seamless experience for managing device identities and certificates.
+Certificate Management uses [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) to manage device certificates. ADR is a service that provides secure device identity and authentication for IoT solutions. It integrates with IoT Hub and Device Provisioning Service (DPS) to provide a seamless experience for managing device identities and certificates.
 
 When you set up your [ADR namespace](iot-hub-device-registry-namespaces.md#create-a-new-namespace), you can create a credential resource that configures a Microsoft-managed PKI and root CA on behalf of that ADR namespace. Within the namespace, you also configure one or more policies. Each policy coincides with an intermediate certificate authority (ICA) that is signed by the root CA of that namespace. Each ICA can only issue leaf certificates for devices registered within that ADR namespace and with Hubs linked to the namespace. In this policy, you can also define the lifespan for your operational leaf certificates, also known as your device certificates.
 
 For more information about how to create namespaces, policies, and credentials, see [Create and manage namespaces](iot-hub-device-registry-namespaces.md).
 
-The ADR namespace and its credential resource are then linked to your IoT Hub Gen 2 instance and DPS. This linkage enables IoT Hub to trust the device certificates issued by the ICAs configured in the ADR namespace.
+The ADR namespace and its credential resource are then linked to your IoT Hub instance and DPS. This linkage enables IoT Hub to trust the device certificates issued by the ICAs configured in the ADR namespace.
 
 The following image illustrates the X.509 certificate hierarchy used to authenticate IoT devices in Azure IoT Hub through the Azure Device Registry (ADR). 
 

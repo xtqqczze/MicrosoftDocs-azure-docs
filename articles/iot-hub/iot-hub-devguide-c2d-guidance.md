@@ -11,8 +11,6 @@ ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 
 # Cloud-to-device communications guidance
 
-**Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 1 ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 2
-
 IoT Hub provides three options for device apps to expose functionality to a back-end app:
 
 * [Direct methods](iot-hub-devguide-direct-methods.md) for communications that require immediate confirmation of the result. Direct methods are often used for interactive control of devices such as turning on a fan.

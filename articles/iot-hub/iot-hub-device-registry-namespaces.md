@@ -11,10 +11,7 @@ ms.date: 10/20/2025
 #Customer intent: As a developer new to IoT, i want to understand what Azure Device Registry is and how it can help me manage my IoT devices.
 ---
 
-
 # Create and manage Azure Device Registry namespaces
-
-**Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 2
 
 Azure IoT Operations and IoT Hub uses namespaces to organize assets and devices. This article explains how to manage your Azure Device Registry (ADR) namespaces using the Azure portal and Azure CLI.
 

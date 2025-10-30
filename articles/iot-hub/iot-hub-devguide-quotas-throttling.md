@@ -43,7 +43,7 @@ For pricing details about which operations are charged and under what circumstan
 The following table shows the enforced throttles for operations that are available in all IoT Hub tiers. Values refer to an individual hub.
 
 > [!IMPORTANT]
-> IoT Hub Gen 2 (Preview) is only available in the Free and S1 tiers.
+> Azure Device Registry and Certificate Management are only available in the Free and S1 tiers.
 
 | Throttle | Free, B1, and S1 | B2 and S2 | B3 and S3 |
 | -------- | ------- | ------- | ------- |
@@ -58,7 +58,7 @@ The following table shows the enforced throttles for operations that are availab
 The following table shows the enforced throttles for operations that are available in standard tiers only. Values refer to an individual hub.
 
 > [!IMPORTANT]
-> IoT Hub Gen 2 (Preview) is only available in the Free and S1 tiers.
+> Azure Device Registry and Certificate Management are only available in the Free and S1 tiers.
 
 | Throttle | Free and S1 | S2 | S3 |
 | -------- | ------- | ------- | ------- |

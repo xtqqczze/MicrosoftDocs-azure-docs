@@ -1,7 +1,7 @@
 ---
-title: Create an IoT hub Gen 2
+title: Create an IoT hub with Azure Device Registry integration (Preview)
 titleSuffix: Azure IoT Hub
-description: This article explains how to create an IoT hub Gen 2 with Azure Device Registry integration.
+description: This article explains how to create an IoT hub with Azure Device Registry and Certificate Management integration.
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
@@ -11,13 +11,9 @@ ms.date: 10/20/2025
 #Customer intent: As a developer new to IoT, I want to understand what Azure Device Registry is and how it can help me manage my IoT devices.
 ---
 
-# Create IoT hubs with Azure Device Registry integration
+# Create an IoT hub with Azure Device Registry integration (Preview)
 
-**Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 2
-
-IoT Hub Gen 2 expands on the capabilities of IoT Hub Gen 1 by integrating with [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) and [Certificate Management](iot-hub-certificate-management-overview.md). 
-
-This article explains how to create a new IoT hub with ADR and Certificate Management integration. You can optionally not link Certificate Management if you only want to use ADR.
+This article explains how to create a new IoT hub with [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) and [Certificate Management](iot-hub-certificate-management-overview.md) integration. You can optionally not link Certificate Management if you only want to use ADR.
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
@@ -30,7 +26,7 @@ The setup process includes the following steps:
 1. Create a custom ADR role, setup the right privileges, and create a user-assigned managed identity.
 1. Create an ADR namespace.
 1. Create a credential and policy and associate them to the namespace.
-1. Create an IoT Hub Gen 2 SKU with linked namespace.
+1. Create an IoT Hub SKU with linked namespace.
 1. Create a DPS with linked ADR namespace and Hub.
 1. Sync your credential and policies to ADR namespace.
 1. Create an enrollment group and link to your policy to enable device onboarding.
@@ -44,16 +40,14 @@ For more information about how to create namespaces, policies, and credentials, 
 Have an Azure account. If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/).
 
 ### [Azure CLI](#tab/cli)
-
-- Have an Azure account. If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/).
-- Install [Azure CLI](/cli/azure/install-azure-cli) in your environment, or run `az upgrade` to ensure you have the latest version.
-- Install the [IoT extension for Azure CLI](https://github.com/Azure/azure-cli).
 - Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 - A resource group in your Azure subscription. If you want to create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command:
 
   ```azurecli
   az group create --name <RESOURCE_GROUP_NAME> --location <REGION>
   ```
+
+- Install [Azure CLI](/cli/azure/install-azure-cli) in your environment, or run `az upgrade` to ensure you have the latest version.
 
 ### [Script](#tab/script)
 
@@ -160,6 +154,38 @@ Have an Azure account. If you don't have an Azure account, create a [free accoun
 
 ### [Azure CLI](#tab/cli)
 
+### Install the Azure IoT CLI extension
+
+1. Download the preview [Azure IoT CLI extension](https://github.com/Azure/hubgen2-certmgmt/blob/feature/publicPreview/content/azure_iot-0.30.0a2-py3-none-any.whl). Don't change the **azure_iot-0.30.0a2-py3-none-any.whl** file name, otherwise the installation fails.
+1. Open a terminal window and sign in to your Azure account.
+
+    ```azurecli-interactive
+    az login
+    ```
+1. Check for existing Azure CLI extension installations.
+
+    ```azurecli-interactive
+    az extension list
+    ```
+
+1. Remove any existing azure-iot installations.
+
+    ```azurecli-interactive
+    az extension remove --name azure-iot
+    ```
+
+1. Install the Azure IoT CLI preview extension that you downloaded. Replace `<local file path to azure_iot-0.30.0a2-py3-none-any.whl>` with the path to the downloaded whl file.
+
+    ```azurecli-interactive
+    az extension add --source <local file path to azure_iot-0.30.0a2-py3-none-any.whl> -y
+    ```
+
+1. After the install, validate your azure-iot extension version is **0.30.0a2**.
+
+    ```azurecli-interactive
+    az extension list
+    ```
+
 ### Prepare your environment
 
 To prepare your environment to use Azure Device Registry, complete the following steps:
@@ -169,7 +195,7 @@ To prepare your environment to use Azure Device Registry, complete the following
 1. To list all subscriptions and tenants you have access to, run `az account list`.
 1. If you have access to multiple Azure subscriptions, set your active subscription:
 
-    ```bash
+    ```azurecli-interactive
     az account set --subscription "<your subscription name or id>"
     ```
 
@@ -184,7 +210,7 @@ To simplify the process of creating and managing resources, set up the following
 
 1. Set up your subscription ID, resource group name, and location. Check out the available locations in the [Supported regions](iot-hub-device-registry-overview.md#supported-regions) section.
 
-    ```bash
+    ```azurecli-interactive
     SUBSCRIPTION_ID="your-subscription-id"
     RESOURCE_GROUP="your-resource-group"
     LOCATION="your-adr/dps-location"
@@ -193,7 +219,7 @@ To simplify the process of creating and managing resources, set up the following
 
 1. Set up your resource names. The `USER_IDENTITY`, `CUSTOM_ROLE_NAME`, and `ENROLLMENT_ID` values don't already exist, you need to define their names.
 
-    ```bash
+    ```azurecli-interactive
     NAMESPACE_NAME="your-adr-namespace-name"
     HUB_NAME="your-hub-name"
     DPS_NAME="your-dps-name"
@@ -204,9 +230,9 @@ To simplify the process of creating and managing resources, set up the following
 
     [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-1. Verify that the environment variables are set correctly by running the following command:
+1. Verify that the environment variables are set correctly by running the following command. If the variables are set correctly, the command outputs the values you set, otherwise it outputs a blank line.
 
-    ```bash
+    ```azurecli-interactive
     echo $HUB_NAME
     ```
 
@@ -216,43 +242,9 @@ To create a resource group, role, and permissions for your IoT solution, complet
 
 1. Create a resource group to hold your resources:
 
-    ```bash
+    ```azurecli-interactive
     az group create --name "$RESOURCE_GROUP" --location "$LOCATION"
     ```
-
-1. Create a **custom ADR role** that assigns a superset of IoT Hub and Device Provisioning Service (DPS) permissions to the principal. The custom ADR role allows you to share one identity between IoT Hub and DPS that has full permissions to the ADR namespace. Ensure that the name of this role is unique. 
-
-    If your resources are all in the same resource group, consider creating this role at the resource group level. If your resources are divided between different resources, you need a subscription level role. The following are example scopes for assignable scopes:
-
-    - subscription level: `/subscriptions/$SUBSCRIPTION_ID`
-    - resource group level: `/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP`
-    
-    > [!NOTE]
-    > Depending on your Bash configuration, you may be required to remove the "/" before the subscriptions within the AssignableScopes. If this is true, you must do this each time you reference this path.
-
-    ```bash
-    az role definition create --role-definition '{
-      "Name": "'$CUSTOM_ROLE_NAME'",
-      "Description": "Custom role for ADR namespace integration",
-      "Actions": [
-        "Microsoft.DeviceRegistry/namespaces/devices/read",
-        "Microsoft.DeviceRegistry/namespaces/devices/write", 
-        "Microsoft.DeviceRegistry/namespaces/read",
-        "Microsoft.DeviceRegistry/namespaces/write",
-        "Microsoft.DeviceRegistry/namespaces/credentials/read",
-        "Microsoft.DeviceRegistry/namespaces/credentials/policies/read",
-        "Microsoft.Devices/iothubs/certificates/*",
-        "Microsoft.Devices/iothubs/read"
-      ],
-      "dataActions": [
-        "Microsoft.DeviceRegistry/namespaces/credentials/policies/issueCertificate/action",
-        "Microsoft.Devices/iothubs/devices/*"
-      ],
-      "AssignableScopes": ["/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP"]
-    }'
-    ```
-
-    If this succeeds, you see a JSON output with your permissions, role name, role type, and assignable scopes.
 
 1. Assign a contributor role to IoT Hub on the resource group level. The `AppId` value, which is the principal ID for IoT Hub, is `89d10474-74af-4874-99a7-c23c2f643083` and it's the same for all Hub apps.
 
@@ -319,15 +311,15 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
     NAMESPACE_RESOURCE_ID=$(az iot adr ns show --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP" --query id -o tsv)
     ```
 
-1. Assign the custom ADR role to the user-assigned managed identity for the ADR namespace. This grants the managed identity the permissions defined in the custom role, scoped to the namespace.
+1. Assign the **Azure Device Registry Contributor** role to the managed identity for the ADR namespace. This grants the managed identity the necessary permissions, scoped to the namespace.
 
     ```bash
-    az role assignment create --assignee "$UAMI_PRINCIPAL_ID" --role "$CUSTOM_ROLE_NAME" --scope "$NAMESPACE_RESOURCE_ID"
+    az role assignment create --assignee $UAMI_PRINCIPAL_ID --role "a5c3590a-3a1a-4cd4-9648-ea0a32b15137" --scope $NAMESPACE_RESOURCE_ID"
     ```
 
 ### Create an IoT hub with ADR namespace integration
 
-1. Create a new IoT Hub Gen 2 instance linked to the ADR namespace and with the User-Assigned Identity.
+1. Create a new IoT hub instance linked to the ADR namespace and with the User-Assigned Identity.
 
     ```bash
     az iot hub create --name "$IOT_HUB_NAME" --resource-group "$RESOURCE_GROUP" --location "$LOCATION" --sku S1 --enable-file-upload true --assign-identity "$UAMI_RESOURCE_ID"
@@ -483,12 +475,12 @@ To delete an IoT hub, open your IoT hub in the Azure portal, then choose **Delet
 To delete an IoT hub, run the [az iot hub delete](/cli/azure/iot/hub#az-iot-hub-delete) command:
 
 ```azurecli-interactive
-az iot hub delete --name <IOT_HUB_NAME> --resource-group <RESOURCE_GROUP_NAME>
+az iot hub delete --name $HUB_NAME --resource-group $RESOURCE_GROUP
 ```
 
 ### [Script](#tab/script)
 
-You can't delete an IoT hub using the script. Instead,  delete the IoT hub using the Azure portal or Azure CLI.
+You can't delete an IoT hub using the script. Instead, delete the IoT hub using the Azure portal or Azure CLI.
 
 *** 
 

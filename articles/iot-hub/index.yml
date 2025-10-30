@@ -1,14 +1,14 @@
 ### YamlMime:Landing
 
-title: Azure IoT Hub Gen 2 (Preview) Documentation
+title: Azure IoT Hub Documentation
 metadata:
-  title: Azure IoT Hub Gen 2 (Preview) Documentation
-  description: Learn how to use Azure IoT Hub Gen 2 (Preview) to connect, monitor, and control billions of Internet of Things assets.
+  title: Azure IoT Hub Documentation
+  description: Learn how to use Azure IoT Hub  to connect, monitor, and control billions of Internet of Things assets.
   ms.service: azure-iot-hub
   ms.topic: landing-page
   author: SoniaLopezBravo
   ms.author: sonialopez
-  ms.date: 10/20/2025
+  ms.date: 11/01/2025
 
 landingContent:
  - title: Get started with IoT Hub
@@ -17,16 +17,22 @@ landingContent:
       links:
       - text: What is IoT Hub?
         url: iot-concepts-and-iot-hub.md
-      - text: Manage your devices with Device Registry
+      - text: Azure Device Registry
         url: iot-hub-device-registry-overview.md
-      - text: Manage device certificates with Certificate Management
+      - text: Certificate Management
         url: iot-hub-certificate-management-overview.md
     - linkListType: concept
       links:
-      - text: What is new in IoT Hub Gen 2 (Preview)?
+      - text: "FAQ: What is new in IoT Hub?"
         url: iot-hub-faq.md
       - text: Choose your IoT Hub tier and size
         url: iot-hub-scaling.md
+    - linkListType: how-to-guide
+      links:
+      - text: Create an IoT hub
+        url: iot-hub-device-registry-setup.md
+      - text: Manage your ADR namespaces
+        url: iot-hub-device-registry-namespaces.md
 
  - title: Collect data from your devices
    linkLists:

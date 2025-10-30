@@ -11,8 +11,6 @@ ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 
 # Device-to-cloud communications guidance
 
-**Applies to:** ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 1 ![IoT Hub checkmark](media/iot-hub-version/yes-icon.png) IoT Hub Gen 2
-
 IoT Hub exposes three options for sending information from the device app to the solution back end:
 
 * [Device-to-cloud messages](iot-hub-devguide-messages-d2c.md) for time series telemetry and alerts.
