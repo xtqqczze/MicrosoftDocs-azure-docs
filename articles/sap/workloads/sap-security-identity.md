@@ -119,10 +119,10 @@ SAP IDM 8.0 – End of Life December 2027. Documentation on the migration path c
 SAP SSO Server (Java) – SAP has announced the End of Life December 2027  [SAP GUI MFA with Microsoft Entra (Part I): Integra... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-i-integration-with-sap-secure-login/ba-p/13605383)
 
 ## Links 
-- Learn more about [Microsoft Entra ID Governance](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id-governance?rtc=1)
+- Learn more about [Microsoft Entra ID Governance](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id-governance?rtc=1)
 - View the [Microsoft Mechanics video](https://www.youtube.com/watch?v=BGE5FUHd-Uc)   
 - Walk through the [Interactive Guides](https://mslearn.cloudguides.com/guides/Microsoft%20Entra%20Identity%20Governance)
-- Microsoft Entra [Documentation](https://learn.microsoft.com/en-us/entra/id-governance/)
+- Microsoft Entra [Documentation](/entra/id-governance/)
 - [1912264 - SAP NetWeaver single sign-on 1.0: Central Note](https://me.sap.com/notes/1912264)
 - [2300234 - SAP single sign-on 3.0: Central Note](https://me.sap.com/notes/2300234)
 - [single sign-on for SAP GUI | SAP Community](https://pages.community.sap.com/topics/single-sign-on)
