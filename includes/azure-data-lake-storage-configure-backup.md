@@ -17,7 +17,7 @@ To configure backup, follow these steps:
 1. On the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention, and then select **Next**.
    If you want to create a new backup policy, select **Create new**. learn how to [create a backup policy](../articles/backup/azure-data-lake-storage-backup-create-policy-quickstart.md?pivots=client-portal).
  
-1. On the **Datasources** tab, Select**Add**. 
+1. On the **Datasources** tab, Select **Add**. 
 
    :::image type="content" source="./media/azure-data-lake-storage-configure-backup/add-resource-for-backup.png" alt-text="Screenshot shows how to add resources for backup." lightbox="./media/azure-data-lake-storage-configure-backup/add-resource-for-backup.png":::
 

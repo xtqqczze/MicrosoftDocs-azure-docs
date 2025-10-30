@@ -114,76 +114,76 @@ To configure a backup policy for Azure Date Lake Storage backup, run the followi
        ```
 1.	After you save the policy JSON with all the required values, proceed to create a new policy from the policy object using the `az dataprotection backup-policy create` command.
 
-   ```azurecli-interactive
-   Az dataprotection backup-policy create -g adlsrg –vault-name TestBkpVault -n AdlsPolicy1  –policy policy.json
-   ```
+      ```azurecli-interactive
+      Az dataprotection backup-policy create -g adlsrg –vault-name TestBkpVault -n AdlsPolicy1  –policy policy.json
+      ```
 
-   The following JSON is defined to configure a policy with 30 days retention for operational backup and 30 days default retention for vaulted backup. The vaulted backup is scheduled for every day at 7:30 UTC.
+     The following JSON is defined to configure a policy with 30 days retention for operational backup and 30 days default retention for vaulted backup. The vaulted backup is scheduled for every day at 7:30 UTC.
 
-   ```JSON
-   {
-      "properties": {
-         "policyRules": [
-               {
-                  "lifecycles": [
-                     {
-                           "deleteAfter": {
-                              "objectType": "AbsoluteDeleteOption",
-                              "duration": "P30D"
-                           },
-                           "targetDataStoreCopySettings": [],
-                           "sourceDataStore": {
-                              "dataStoreType": "VaultStore",
-                              "objectType": "DataStoreInfoBase"
-                           }
-                     }
-                  ],
-                  "isDefault": true,
-                  "name": "Default",
-                  "objectType": "AzureRetentionRule"
-               },
-               {
-                  "backupParameters": {
-                     "backupType": "Discrete",
-                     "objectType": "AzureBackupParams"
-                  },
-                  "trigger": {
-                     "schedule": {
-                           "repeatingTimeIntervals": [
-                              "R/2025-10-13T07:00:00+00:00/P1D"
-                           ],
-                           "timeZone": "Coordinated Universal Time"
-                     },
-                     "taggingCriteria": [
-                           {
-                              "tagInfo": {
-                                 "tagName": "Default",
-                                 "id": "Default_"
+      ```JSON
+      {
+         "properties": {
+            "policyRules": [
+                  {
+                     "lifecycles": [
+                        {
+                              "deleteAfter": {
+                                 "objectType": "AbsoluteDeleteOption",
+                                 "duration": "P30D"
                               },
-                              "taggingPriority": 99,
-                              "isDefault": true
-                           }
+                              "targetDataStoreCopySettings": [],
+                              "sourceDataStore": {
+                                 "dataStoreType": "VaultStore",
+                                 "objectType": "DataStoreInfoBase"
+                              }
+                        }
                      ],
-                     "objectType": "ScheduleBasedTriggerContext"
+                     "isDefault": true,
+                     "name": "Default",
+                     "objectType": "AzureRetentionRule"
                   },
-                  "dataStore": {
-                     "dataStoreType": "VaultStore",
-                     "objectType": "DataStoreInfoBase"
-                  },
-                  "name": "BackupDaily",
-                  "objectType": "AzureBackupRule"
-               }
-         ],
-         "datasourceTypes": [
-               "Microsoft.Storage/storageAccounts/adlsBlobServices"
-         ],
-         "objectType": "BackupPolicy"
-      },
-      "id": "/subscriptions/ xxxxxxxx-xxxx-xxxx-xxxx /resourceGroups/ adlsrg/providers/Microsoft.DataProtection/backupVaults/ TestBkpVault/backupPolicies/AdlsPolicy1",
-      "name": "AdlsPolicy1",
-      "type": "Microsoft.DataProtection/backupVaults/backupPolicies"
-   }
-   ```
+                  {
+                     "backupParameters": {
+                        "backupType": "Discrete",
+                        "objectType": "AzureBackupParams"
+                     },
+                     "trigger": {
+                        "schedule": {
+                              "repeatingTimeIntervals": [
+                                 "R/2025-10-13T07:00:00+00:00/P1D"
+                              ],
+                              "timeZone": "Coordinated Universal Time"
+                        },
+                        "taggingCriteria": [
+                              {
+                                 "tagInfo": {
+                                    "tagName": "Default",
+                                    "id": "Default_"
+                                 },
+                                 "taggingPriority": 99,
+                                 "isDefault": true
+                              }
+                        ],
+                        "objectType": "ScheduleBasedTriggerContext"
+                     },
+                     "dataStore": {
+                        "dataStoreType": "VaultStore",
+                        "objectType": "DataStoreInfoBase"
+                     },
+                     "name": "BackupDaily",
+                     "objectType": "AzureBackupRule"
+                  }
+            ],
+            "datasourceTypes": [
+                  "Microsoft.Storage/storageAccounts/adlsBlobServices"
+            ],
+            "objectType": "BackupPolicy"
+         },
+         "id": "/subscriptions/ xxxxxxxx-xxxx-xxxx-xxxx /resourceGroups/ adlsrg/providers/Microsoft.DataProtection/backupVaults/ TestBkpVault/backupPolicies/AdlsPolicy1",
+         "name": "AdlsPolicy1",
+         "type": "Microsoft.DataProtection/backupVaults/backupPolicies"
+      }
+      ```
 
 ::: zone-end
 

@@ -33,13 +33,9 @@ Before you back up Azure Data Lake Storage, ensure the following prerequisites a
 
 A Backup vault needs specific permissions on the storage account for backup operations. The **Storage Account Backup Contributor** role consolidates these permissions for easy assignment. We recommend you grant this role to the Backup vault before configuring backup.
 
->[!Note]
->You can also perform the role assignment while configuring backup.
+You can assign roles to the vault at the Subscription or Resource Group level based on your convenience. The role assignment can also be performed while configuring backup.
 
 To assign the required role for storage accounts that you want to protect, follow these steps:
-
->[!Note]
->You can also assign the roles to the vault at the Subscription or Resource Group levels according to your convenience.
 
 1. In the [Azure portal](https://portal.azure.com/), go to the storage account, and then select **Access Control (IAM)**.
 1. On the **Access Control (IAM)** pane, select **Add role assignments** to assign the required role.
@@ -54,8 +50,7 @@ To assign the required role for storage accounts that you want to protect, follo
 
 1. Select **Save** to finish the role assignment.
  
->[!Note]
-> The role assignment might take up to **30 minutes** to take effect.
+The role assignment might take up to **30 minutes** to become effective.
 
 [!INCLUDE [How to configure backup for Azure Data Lake Storage](../../includes/azure-data-lake-storage-configure-backup.md)]
 
