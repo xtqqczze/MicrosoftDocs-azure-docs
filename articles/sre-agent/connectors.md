@@ -4,7 +4,7 @@ description: Learn to connect external resources to Azure SRE Agent for data con
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: conceptual
-ms.date: 10/28/2025
+ms.date: 10/30/2025
 ms.service: azure-sre-agent
 ---
 
@@ -19,7 +19,8 @@ Connectors are modular integrations that extend the SRE Agent's capabilities. Th
 | Type | Description | Possible use case |
 |--|--|--|
 | **Communication connectors** | Send notifications and updates to services like Outlook and Microsoft Teams. | When the SRE Agent detects an incident, it can email stakeholders or post updates in Teams. |
-| **Consumption connectors** | Ingest data from external monitoring platforms such as Datadog, Dynatrace, and New Relic. | During troubleshooting, the agent can query telemetry from Datadog or Dynatrace. |
+| **Knowledge connectors** | Ingest data from external monitoring platforms such as Datadog, Dynatrace, and New Relic. | During troubleshooting, the agent can query telemetry from Datadog or Dynatrace. |
+| **Custom connectors** | Create a custom connection to an MCP server endpoint of your choice. The [Azure MCP Center](https://mcp.azure.com/?types.remote=true) gives you access to various MCP endpoints you can integrate into SRE Agent. | When connected to a custom endpoint, SRE Agent can gain insight into external services like GitHub, Hugging Face, Stripe, and many more. For a full list of cataloged MCP server endpoints, see [Azure MCP Center](https://mcp.azure.com/?types.remote=true).|
 
 ## Available connectors
 
@@ -28,7 +29,7 @@ Azure SRE Agent includes these connectors:
 - **Outlook** for sending email notifications.
 - **Microsoft Teams** to post messages to Teams channels.
 - **Custom MCP Servers** for integration with your own MCP server.
-- **Approved partners** to ingest telemetry from Dynatrace, Datadog, and New Relic.
+- **Approved partners** to ingest telemetry data from Dynatrace, Datadog, and New Relic.
 
 ## Configure a connector
 
