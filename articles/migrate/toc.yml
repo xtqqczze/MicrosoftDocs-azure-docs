@@ -458,7 +458,7 @@ items:
     href: common-questions-appliance.md
   - name: Discovery and dependency analysis
     href: common-questions-discovery-dependency-analysis.md
-  - name: Software and Insights - common questions
+  - name: Software and Insights
     href: software-insights-faq.yml
   - name: Assessment
     href: common-questions-discovery-assessment.md
