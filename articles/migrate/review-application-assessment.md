@@ -33,7 +33,6 @@ To review an application/cross-workload assessment, follow the steps:
 
 1. Each application assessment, if created on workloads discovered by the appliance, indicate a confidence rating. The confidence rating is a measure of quality of the data that was available to create the assessment. Explore the details about [confidence ratings](confidence-ratings.md) and ways to improve them.
 1. Review the **Overview** page to get the summary of assessed workloads and different migration paths. You can check the recommended migration path that is selected based on your migration preference.  
-
       :::image type="content" source="./media/review-application-assessment/assessment-overview.png" alt-text="The screenshot that shows where the user can start with application assessment review." lightbox="./media/review-application-assessment/assessment-overview.png":::
    Each migration path provides you with the assessment insights for all the workloads in the scope of the assessment and thus, each path can help you identify the migration insights for each workload based on the targets associated with the migration path. There are four migration paths for each application assessment:
 
