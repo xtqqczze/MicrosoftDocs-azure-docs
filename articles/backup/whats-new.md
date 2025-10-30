@@ -20,7 +20,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - November 2025
-  - [Threat detection support for Azure VM Backups using Microsoft Defender for Cloud (preview)](#threat-detection-support-for-azure-vm-backups-using-microsoft-defender-for-cloud-preview)
+  - [Threat detection in Azure Backup with Microsoft Defender for Cloud integration (preview)](#threat-detection-in-azure-backup-with-microsoft-defender-for-cloud-integration-preview)
 - September 2025
   - [Vaulted backup support for Azure Files (Premium) is now generally available](#vaulted-backup-support-for-azure-files-premium-is-now-generally-available)
 - July 2025
@@ -61,7 +61,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 
 
-## Threat detection support for Azure VM Backups using Microsoft Defender for Cloud (preview)
+## Threat detection in Azure Backup with Microsoft Defender for Cloud integration (preview)
 
 Azure Backup now integrates with Microsoft Defender for Cloud to deliver advanced threat detection for Azure Virtual Machine backups. This feature proactively identifies compromised restore points, validates snapshot health using Defender scans, and helps you recover faster by locating clean restore points. The feature works seamlessly with [Microsoft Defender for Servers Plan 1 and Plan 2](/azure/defender-for-cloud/defender-for-servers-overview). You can manage threat detection for Azure VM backups using Vault properties or [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md).
 
