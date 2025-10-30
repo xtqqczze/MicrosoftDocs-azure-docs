@@ -101,7 +101,7 @@ To block creating a connection in a workflow, follow these steps:
    | **Description** | No | <*policy-definition-name*> | A description for the policy definition. |
    | **Category** | Yes | **Logic apps** | The name for an existing category or new category for the policy definition. |
 
-1. Under **POLICY RULE**, the JSON edit box is prepopulated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the following table and using this syntax:
+1. Under **Policy rule**, the JSON edit box is prepopulated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the following table and using this syntax:
 
    ```json
    {
@@ -146,9 +146,9 @@ To block creating a connection in a workflow, follow these steps:
    }
    ```
 
-   Here's the way that the **POLICY RULE** box appears:
+   Here's the way that the **Policy rule** box appears:
 
-   :::image type="content" source="./media/block-connections-connectors/policy-definition-create-connection-rule.png" alt-text="Screenshot shows the POLICY RULE box with a policy rule example.":::
+   :::image type="content" source="./media/block-connections-connectors/policy-definition-create-connection-rule.png" alt-text="Screenshot shows the Policy rule box with a policy rule example.":::
 
    For multiple connectors, you can add more than one condition, for example:
 
@@ -219,7 +219,7 @@ You can still block the capability to associate the connection with a different 
    | **Description** | No | <*policy-definition-name*> | A description for the policy definition |
    | **Category** | Yes | **Logic apps** | The name for an existing category or new category for the policy definition |
 
-1. Under **POLICY RULE**, the JSON edit box is prepopulated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the following table and using this syntax:
+1. Under **Policy Rule**, the JSON edit box is prepopulated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the following table and using this syntax:
 
    ```json
    {
@@ -264,7 +264,7 @@ You can still block the capability to associate the connection with a different 
     }
     ```
 
-   Here's the way that the **POLICY RULE** box appears:
+   Here's the way that the policy definition rule appears:
 
    :::image type="content" source="./media/block-connections-connectors/policy-definition-use-connection-rule.png" alt-text="Screenshot shows a policy definition rule.":::
 
