@@ -15,8 +15,7 @@ ms.custom:
 
 # Use Azure Active Directory B2C to grant access to the FHIR service
 
-[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../../includes/active-directory-b2c-end-of-sale-notice-b.md)
-]
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 > [!NOTE]
 > This article details how to use Azure AD B2C, which is no longer available to purchase for new customers. Please refer to [Use Microsoft Entra External ID to grant access to the FHIR service](azure-entra-external-id-setup.md) for information on using Microsoft Entra External ID as an identity provider for the FHIR service.
