@@ -225,7 +225,7 @@
   - name: Deployment options
     href: functions-deployment-technologies.md
   - name: Site update strategies
-    href: functions-site-update-strategies.md
+    href: flex-consumption-site-updates.md
   - name: Events and messaging
     items:
     - name: Connect to services
