@@ -42,12 +42,11 @@ Organizations can use Microsoft Dev Box in a range of scenarios.
 
 Dev Box helps platform engineering teams provide the appropriate dev boxes for each user's workload. Platform engineers can:
 
-- Configure team-specific customizations using YAML-based image definitions for standardized development environments.
 - Create dev box pools with image definitions, custom images, or marketplace images.
-- Enforce governance by using project policies to select resources to allow, like networks, images, and SKUs. 
-- Define the network configuration, which determines the region where the dev box is created.
 - Control costs by using autostop schedules and hibernation features.
+- Define the network configuration, which determines the region where the dev box is created.
 - Assign the built-in Dev Box User role to grant access to development teams and enable them to self-serve dev boxes.
+- Configure team-specific customizations using YAML-based image definitions for standardized development environments.
 
 ### IT admin scenarios
 
@@ -70,10 +69,20 @@ Dev Box has the following benefits for IT admins:
 
 After a developer team lead is assigned the DevCenter Project Admin role, they can help manage the project. Project Admins can:
 
-- Create dev box pools with available image options (image definitions, custom images, or marketplace images) and independently select compute and storage configurations.
+- Create dev box pools with flexible image options (image definitions, custom images, or marketplace images) and independently select compute and storage configurations.
 - Control costs by using autostop schedules and hibernation settings.
 - Use YAML-based image definitions to create team-specific customizations that can be built into reusable images for faster dev box creation.
 - Configure setup tasks from catalogs attached to the dev center that execute during dev box creation to install and customize software specific to the project.
+
+### Developer scenarios
+
+An organization with globally distributed development teams configures Dev Box to allow developers to create their own dev boxes in their closest region. Developers create dev boxes as needed, without waiting for the IT admin team. Users access dev boxes from any device and operating system.
+
+Dev Box supports developers who are working on multiple projects. Developers can create and use separate dev boxes for separate workloads, projects, or tasks. Developers can create multiple dev boxes from a predefined pool whenever they need them, and then delete those dev boxes when they're done.
+
+Organizations can even define dev boxes for various roles on a team. You might configure standard dev boxes with admin rights to give full-time developers greater control, while applying more restricted permissions for contractors.
+
+Dev boxes use Azure virtual machines, which have sufficient vCPUs and memory to meet the requirements associated with most general-purpose workloads. For storage, dev boxes use Azure Premium SSDs, which deliver high-performance and low-latency disk support.
 
 ## Image configuration options
 
@@ -87,16 +96,6 @@ These approaches provide greater flexibility than legacy dev box definitions by 
 
 > [!TIP]
 > Read about General Motors use of Microsoft Dev Box: [General Motors reimagines the dev tool chain and onboarding experience with cloud-based developer services from Microsoft](https://www.microsoft.com/en/customers/story/1650265213028177234-gm-cloud-based-developer-services-from-microsoft).
-
-### Developer scenarios
-
-An organization with globally distributed development teams configures Dev Box to allow developers to create their own dev boxes in their closest region. Developers create dev boxes as needed, without waiting for the IT admin team. Users access dev boxes from any device and operating system.
-
-Dev Box supports developers who are working on multiple projects. Developers can create and use separate dev boxes for separate workloads, projects, or tasks. Developers can create multiple dev boxes from a predefined pool whenever they need them, and then delete those dev boxes when they're done.
-
-Organizations can even define dev boxes for various roles on a team. You might configure standard dev boxes with admin rights to give full-time developers greater control, while applying more restricted permissions for contractors.
-
-Dev boxes use Azure virtual machines, which have sufficient vCPUs and memory to meet the requirements associated with most general-purpose workloads. For storage, dev boxes use Azure Premium SSDs, which deliver high-performance and low-latency disk support.
 
 ## Get started with Microsoft Dev Box
 
