@@ -15,6 +15,8 @@ ms.author: v-mallicka
 
 This tutorial describes how to review and modify the security level for protected items in Resiliency in Azure.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 Azure Backup provides security features at the vault level to safeguard the backup data stored in it. The vault security measures encompass the settings associated with the Azure Backup solution for the vault and apply to the protected data sources contained within the vault.
 
 Resiliency in Azure allows you to view the security level for each protected item from the security posture view.

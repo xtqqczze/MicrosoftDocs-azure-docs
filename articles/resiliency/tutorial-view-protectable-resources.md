@@ -15,6 +15,8 @@ ms.author: v-mallicka
 
 This tutorial describes how to view your resources that are currently not protected by any solution, using Resiliency in Azure. 
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 ## Prerequisites
 
 Before you start viewing protectable resources, ensure the following prerequisites are met:

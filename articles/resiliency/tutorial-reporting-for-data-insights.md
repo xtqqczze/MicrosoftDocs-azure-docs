@@ -16,6 +16,8 @@ ms.author: v-mallicka
 
 This tutorial describes how to set up and view reports in the Resiliency in Azure.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 Resiliency in Azure provides a reporting solution for backup and disaster recovery administrators to gain insights into long-term data related to Azure Backup and Azure Site Recovery. This solution includes:
 
 - Allocating and analyzing of cloud storage consumed.

@@ -15,6 +15,8 @@ ms.author: v-mallicka
 
 This article describes how to monitor and govern protection estate using Resiliency in Azure.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 The Resiliency overview pane provides a comprehensive snapshot of your resources from various aspects, such as protection status, the configuration of your security settings, and which resources are protected or not protected. It provides a summarized view from different angles to give you a clear overview of your resiliency status. You can view:
 
 - The protectable resources count

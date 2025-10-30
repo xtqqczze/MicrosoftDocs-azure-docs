@@ -15,6 +15,8 @@ ms.author: v-mallicka
 
 This tutorial describes how to view your datasources that are protected by one or more solutions and perform actions on them from Resiliency in Azure.
 
+[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
+
 ## Prerequisites
 
 Before you start viewing protected items and take necessary actions, ensure you have the following prerequisites:
