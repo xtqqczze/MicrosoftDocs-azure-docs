@@ -164,8 +164,8 @@
         href: mutual-authentication-portal.md
       - name: Mutual authentication - PowerShell
         href: mutual-authentication-powershell.md
-      - name: Mutual authentication passthrouh - ARM 
-        href: mutual-authentication-passthrough-arm.md
+      - name: Mutual authentication - ARM Template 
+        href: mutual-authentication-arm-template.md
     - name: Manage certificates
       items:             
       - name: Certificates for the backend
@@ -300,7 +300,7 @@
               href: mutual-authentication-portal.md
             - name: Mutual authentication - PowerShell
               href: mutual-authentication-powershell.md
-            - name: Mutual authentication - ARM template
+            - name: Mutual authentication - ARM Template
               href: mutual-authentication-arm-template.md
         - name: Manage certificates
           items:
