@@ -121,7 +121,12 @@ The following diagram shows how your data is replicated with GRS or RA-GRS:
 
 #### Geo and Object Replication Priority Replication
 
-Geo and Object Replication Priority Replication is a feature that allows you to prioritize the replication of data to the secondary region. This can be useful for scenarios where certain data is more critical and needs to be available in the secondary region as quickly as possible. By enabling this feature, you can ensure that high-priority data is replicated to the secondary region with minimal delay, enhancing the overall resilience and availability of your applications.
+Geo and Object Replication Priority Replication is a blob data-specific preview feature that allows you to prioritize the replication of data to the secondary region. This can be useful for scenarios where certain data is more critical and needs to be available in the secondary region as quickly as possible. By enabling this feature, you can ensure that high-priority data is replicated to the secondary region with minimal delay, enhancing the overall resilience and availability of your applications.
+
+> [!IMPORTANT]
+> Priority replication for geo redundant storage accounts and object replication is currently in PREVIEW and available in all regions where Geo priority replication is supported.
+>
+> When you disable priority replication, you are billed for 30 days beyond the date on which the feature was disabled.
 
 ### Geo-zone-redundant storage
 
