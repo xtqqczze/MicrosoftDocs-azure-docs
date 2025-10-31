@@ -104,8 +104,8 @@ The code below references the [python SDK for text.](https://github.com/Azure/az
 
 To use it, create a python file called "deidentify_text_redact.py" and paste the following code in. Run "python deidentify_text_redact.py".
 
-Be sure to replace AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT with the URL you noted when creating a resource. 
-You can also change the operation type between REDACT, TAG, or SURROGATE.
+Be sure to replace `AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT` with the URL you noted when creating a resource. 
+You can also change the operation type between `REDACT`, `TAG`, or `SURROGATE`.
 
 ```python
 
@@ -201,14 +201,14 @@ pwsh DemoDeidentificationService.ps1
 
 #### cURL command 
 
-These examples cover the TAG, REDACT, and SURROGATE operations. To set the language in which the de-identification service needs to operate, set the following line [based on the list of supported language-locale pairs](articles/healthcare-apis/deidentification/languages-supported)
+These examples cover the TAG, REDACT, and SURROGATE operations. To set the language in which the de-identification service needs to operate, set the following line [based on the list of supported language-locale pairs](languages-supported.md)
 
 Example:
 ```Bash
 "InputLocale": "fr-CA"
 ```
 
-**Note:** Replace <your-service-url> with your actual service URL and <token> with your access token in these examples.
+**Note:** Replace `<your-service-url>` with your actual service URL and <token> with your access token in these examples.
 
 **TAG**
 ```Bash
