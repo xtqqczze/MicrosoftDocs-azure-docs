@@ -3,7 +3,7 @@ title: Tutorial - Change a workspace and configure data collection rule
 description: In this tutorial, learn how to change a workspace and configure data collection rule.
 services: automation
 ms.custom: linux-related-content
-ms.date: 10/27/2025
+ms.date: 10/31/2025
 ms.topic: tutorial
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
@@ -41,11 +41,11 @@ To configure Windows, Linux files, and Windows Registry using Data Collection Ru
    >[!NOTE]
    >The settings that you configure apply to all virtual machines associated with the specified DCR. For more information about DCR, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview).
 
-1. Select **Add** to configure new file settings.
+1. Select **Add** to configure new file settings. Use the procedure as specified for Windows and Linux files.
    
    #### [Windows Files](#tab/windows)
 
-    On the **Add Windows File setting** pane, enter the information for the file or folder to track and select **Save**. The following table defines the properties that you can use for the information.
+    On the **Add Windows File setting** pane, enter the information for the file or folder to track and select **Save**. The following table describes the properties that you can use to enter the information.
 
     |**Property**|**Description**|
     |---|---|
@@ -58,7 +58,7 @@ To configure Windows, Linux files, and Windows Registry using Data Collection Ru
 
    #### [Linux Files](#tab/linux)
 
-    On the **Add Linux File for Change Tracking** pane, enter the information for the file or directory to track, and then select **Save**. The following table defines the properties that you can use for the information. 
+    On the **Add Linux File for Change Tracking** pane, enter the information for the file or directory to track, and then select **Save**. The following table describes the properties that you can use to enter the information. 
     
     |**Property**|**Description**|
     |---|---|
@@ -84,7 +84,7 @@ To configure file content changes, follow these steps:
     :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/file-content-inline.png" alt-text="Screenshot of selecting the link option to connect with the Storage account." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/file-content-expanded.png":::
 
 1. In **Content Location for Change Tracking** pane, select your **Subscription**, **Storage** and confirm if you are using **System Assigned Managed Identity**. 
-1. Select **Upload file content for all settings**, and then select **Save**. It ensures that the file content changes for all the files residing in this DCR will be tracked.
+1. Select **Upload file content for all settings**, and then select **Save** to ensure that the file content changes for all the files residing in this DCR are tracked.
 
 #### [System Assigned Managed Identity](#tab/sa-mi)
 
@@ -139,8 +139,8 @@ To configure the monitoring of files and folders using wildcards, consider the f
 - Wildcards are required for tracking multiple files. 
 - Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/.conf* 
 - If an environment variable includes a path that is not valid, validation will succeed but the path will fail when inventory runs. 
-- When setting the path avoid general paths such as c:.** which will result in too many folders being traversed. 
+- When setting the path, avoid general paths such as c:.** which will result in too many folders being traversed. 
 
 ## Next steps
 
-* To disable tracking and inventory, see [Disable Change Tracking and Inventory with AMA](disable-azure-change-tracking-inventory-monitoring-agent.md).
+* To enable Azure Change Tracking and Inventory (CTI) from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).

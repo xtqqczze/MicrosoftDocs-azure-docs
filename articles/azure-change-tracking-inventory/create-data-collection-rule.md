@@ -1,8 +1,8 @@
 ---
-title: Create DCR 
+title: Create Data Collection Rule
 description: Learn how to create a data collection rule (DCR) for Azure Change Tracking and Inventory.
 services: automation
-ms.date: 10/27/2025
+ms.date: 10/31/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
@@ -14,7 +14,9 @@ ms.custom: sfi-image-nochange
 
 When you enable Change Tracking in the Azure portal using the Azure Monitoring Agent (AMA), the process automatically creates a Data Collection Rule (DCR). This rule will appear in the resource group with a name in the format ct-dcr-aaaaaaaaa. After the rule is created, add the required resources.
 
-To enable Azure Change Tracking and Inventory (CTI) from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](/azure/azure-change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory).
+This article explains how to create a Data Collection Rule for Azure Change Tracking and Inventory.
+
+To enable Azure Change Tracking and Inventory (CTI) from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
 
 ## Create DCR
 
@@ -28,11 +30,12 @@ To create a DCR, follow these steps:
    :::image type="content" source="media/create-data-collection-rule/build-template.png" alt-text="Screenshot to get started with building a template.":::
 1. On the **Edit template**, select **Load file** to upload the *CtDcrCreation.json* file.
 1. Select **Save**.
-1. On the **Custom deployment** pane > **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy the Data Collection Rule. The **Data Collection Rule Name** is optional. The resource group must be same as the resource group associated with the Log Analytic workspace ID chosen here.
+1. On the **Custom deployment** pane > **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy the Data Collection Rule. The **Data Collection Rule Name** is optional.
 
    :::image type="content" source="media/create-data-collection-rule/build-template-basics.png" alt-text="Screenshot to provide subscription and resource group details to deploy data collection rule.":::
    
    >[!NOTE]
+   >- The resource group must be same as the resource group associated with the Log Analytic workspace ID chosen here.
    >- Ensure that the name of your Data Collection Rule is unique in that resource group, else the deployment will overwrite the existing Data Collection Rule.
    >- The Log Analytics Workspace Resource ID specifies the Azure resource ID of the Log Analytics workspace used to store change tracking data. Ensure that location of workspace is from the [Change tracking supported regions](../automation/how-to/region-mappings.md)
 
@@ -42,7 +45,7 @@ To create a DCR, follow these steps:
    :::image type="content" source="media/create-data-collection-rule/deployment-confirmation.png" alt-text="Screenshot of deployment notification.":::
 
 > [!NOTE]
-> After creating the Data Collection Rule (DCR) using the Azure Monitoring Agent's change tracking schema, ensure that you don't add any Data Sources to this rule. This can cause Azure CTI to fail. You must only add new Resources in this section.
+> After creating the Data Collection Rule using the Azure Monitoring Agent's change tracking schema, ensure that you don't add any Data Sources to this rule. This can cause Azure CTI to fail. You must only add new Resources in this section.
 
 ## Next steps
 

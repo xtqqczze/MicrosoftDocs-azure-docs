@@ -2,25 +2,25 @@
 title: Azure Change Tracking extension version details and known issues
 description: This article describes the Change Tracking extension version details and the known issues.
 services: automation
-ms.date: 10/27/2025
+ms.date: 10/31/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
 author: jasminemehndir
 ---
 
-# Change Tracking and Inventory extension version details and the known issues
+# Azure Change Tracking and Inventory extension version details and known issues
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: Windows Services & Linux Daemons
 
-This article explains the version details of change tracking and inventory extension.
+This article explains the Azure Change Tracking and Inventory extension version details.
 
 
 ## Release Notes for Extension
 
 ### Extension version 2.29.0.0
 
-- **Windows** - For Windows Registry to work seamlessly, we recommend you to move to extension version 2.29.0.0
+- **Windows** - For Windows Registry to work seamlessly, we recommend you move to extension version 2.29.0.0.
 - **Linux** - None
 
 ### Extension version 2.27.0.0
@@ -48,27 +48,34 @@ After you migrate from FIM based on AMA to ChangeTracking based on AMA, the memo
 
 ### Extension version 2.22.0.0
 
+#### Issue fixed
+
+The **SvcName** or **SoftwareName** are displayed as garbled string for Japanese or Chinese language VMs. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
+
 #### Known issues
 
-- The SvcName or SoftwareName are displayed as garbled string for Japanese or Chinese language VMs. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
-- For Windows, SvcDescription field is coming as base64 encoded string. As a workaround for now you must use base64_decode_tostring() kql function.
+For Windows, **SvcDescription** field is coming as base64 encoded string. As a workaround, use base64_decode_tostring() kql function.
 
-**Windows** - None
+**OS-specific issues:**
 
-**Linux** - The Fix file content upload isn't working for Linux machines.
+- **Windows** - None
+
+- **Linux** - The Fix file content upload isn't working for Linux machines.
 
 ### Extension Version 2.21.0.0
 
-### Known issues
+#### Issues fixed
 
-- SvcName or SoftwareName are displayed as garbled string for Japanese or Chinese language VMs. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
-For Windows SvcDescription is coming as base64 encoded string. As a workaround for now you must use base64_decode_tostring() kql function.
+- **SvcName** or **SoftwareName** are displayed as garbled string for Japanese or Chinese language VMs. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
+For Windows **SvcDescription** is coming as base64 encoded string. As a workaround, use base64_decode_tostring() kql function.
 
-**Windows** - The Fix Windows services data isn't getting uploaded for machines in some languages (Japanese, Chinese).
+**OS-specific issues:**
 
-**Linux** - None
+- **Windows** - The Fix Windows services data isn't getting uploaded for machines in some languages (Japanese, Chinese).
+
+- **Linux** - None
 
 
 ## Next steps
 
-- Review [support matrix](../azure-change-tracking-inventory/change-tracking-inventory-support-matrix.md) for Azure Change Tracking and Inventory.
+- To enable Azure Change Tracking and Inventory from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).

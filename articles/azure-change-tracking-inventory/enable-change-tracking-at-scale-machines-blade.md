@@ -2,14 +2,14 @@
 title: Enable Change Tracking and Inventory at Scale with Azure portal - Machines pane
 description: This article describes how to enable change tracking and inventory at scale for Windows and Linux VMs using the Machines pane in the Azure portal.
 services: automation
-ms.date: 10/27/2025
+ms.date: 10/31/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 author: jasminemehndir
 ms.author: v-jasmineme
 ---
 
-# Enable Change Tracking and Inventory at scale using Azure portal - Machines pane
+# Enable Change Tracking and Inventory at scale using Azure portal
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
@@ -17,7 +17,7 @@ This article provides detailed procedure on how you can enable Azure CTI at scal
 
 ## At scale deployment
 
-1. In Azure portal, search for  **Change Tracking and Inventory**.
+1. In the Azure portal, search for **Change Tracking and Inventory**.
 
     :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/portal-discoverability.png" alt-text="Screenshot showing the selection Change Tracking and Inventory from Azure portal." lightbox="media/enable-change-tracking-at-scale-machines-blade/portal-discoverability.png":::
 
@@ -28,9 +28,9 @@ This article provides detailed procedure on how you can enable Azure CTI at scal
     On the top of the pane, you will also see a banner which displays the total number of machines in the selected subscription that are enabled for Azure CTI.
 
 1. In the filters, select **Enabled** to view the options. 
-   - Select Yes to view the machines enabled with Azure CTI.
-   - Select No to view the machines that aren't enabled with Azure CTI.
-   - Select All to view all the machines in the selected subscription with or without Azure CTI enabled.
+   - Select **Yes** to view the machines enabled with Azure CTI.
+   - Select **No** to view the machines that aren't enabled with Azure CTI.
+   - Select **All** to view all the machines in the selected subscription with or without Azure CTI enabled.
 
      :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/filters-enabled.png" alt-text="Screenshot showing the selection of Enabled filter." lightbox="media/enable-change-tracking-at-scale-machines-blade/filters-enabled.png":::
 
@@ -39,7 +39,7 @@ This article provides detailed procedure on how you can enable Azure CTI at scal
     1. In the **Enabled** filters column, select *No*.
     1. In the **Machine status** filters column, select *VM running* and *Connected*.
     1. Select all in the **Name** column to view the list of machines that are ready to be enabled.
-    1. Select all the machines and then select **Enable Change Tracking and Inventory**.
+    1. Select all the machines for which you intend to enable the CTI and then select **Enable Change Tracking and Inventory**.
 
     :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/bulk-deployment.png" alt-text="Screenshot showing the selection to enable Change Tracking and Inventory at scale." lightbox="media/enable-change-tracking-at-scale-machines-blade/bulk-deployment.png":::
 

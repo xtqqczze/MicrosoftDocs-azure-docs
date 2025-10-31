@@ -1,31 +1,31 @@
 ---
-title: Enable Change Tracking and Inventory at Scale using Azure Policy
+title: Enable Change Tracking and Inventory at Scale for Azure VMs using Azure Policy
 description: Learn how to use Azure Policy to enable change tracking and inventory at scale for Windows and Linux VMs, including the Arc-enabled VMs and Azure Virtual Machine Scale Sets.
 services: automation
-ms.date: 10/27/2025
+ms.date: 10/31/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 author: jasminemehndir
 ms.author: v-jasmineme
 ---
 
-# Enable Change Tracking and Inventory at scale using Azure policy
+# Enable Change Tracking and Inventory at scale for Azure VMs using Azure policy
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
-This article provides detailed procedure on how you can enable Azure Change Tracking and Inventory (CTI) at scale using Azure policy.
+This article provides detailed procedure on how to enable Azure Change Tracking and Inventory (CTI) at scale using Azure policy.
 
 ## Prerequisite
 
-Before you enable CTI, ensure you meet this prerequisite:
+Before you enable CTI, ensure:
 
-- You must [create the data collection rule](create-data-collection-rule.md).
+[Create the data collection rule](create-data-collection-rule.md).
 
-## Enable Azure Change Tracking and Inventory
+## Enable Azure Change Tracking and Inventory at scale
 
 Using the Deploy if not exist (DINE) policy, you can enable Change tracking with Azure Monitoring Agent at scale and in the most efficient manner.
 
-1. Sign in to [Azure portal](https://portal.azure.com) and select **Change Tracking and Inventory**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Change Tracking and Inventory**.
 
    :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/portal-discoverability.png" alt-text="Screenshot showing the selection Change Tracking and Inventory from Azure portal." lightbox="media/enable-change-tracking-at-scale-machines-blade/portal-discoverability.png":::
 
@@ -77,4 +77,4 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 
 ## Next steps
 
-* Learn more on [how to enable Azure CTI at scale using Azure portal - Machines pane](enable-change-tracking-at-scale-machines-blade.md).
+* Learn more on [how to enable Azure CTI at scale using Azure portal](enable-change-tracking-at-scale-machines-blade.md).

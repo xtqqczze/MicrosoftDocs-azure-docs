@@ -1,7 +1,7 @@
 ---
 title: Supported Regions for Change Tracking and Inventory with Azure Monitoring Agent
 description: This article explains the supported region mappings between an Automation account and monitoring agent workspace as it relates to certain features of Azure Automation.
-ms.date: 10/27/2025
+ms.date: 10/31/2025
 services: automation
 ms.topic: overview
 ms.custom: references_regions
@@ -12,34 +12,34 @@ ms.service: azure-change-tracking-inventory
 
 # Supported regions for Change Tracking and Inventory with Azure Monitoring Agent
 
-This article provides the supported regions for Azure CTI using Azure Monitoring Agent.
+This article provides information about the supported regions and mappings for Azure CTI using Azure Monitoring Agent.
 
 
 ## Supported mappings
 
-The following table shows the supported mappings:
+The following table lists the supported mappings:
 
 |**Geography**| **Monitoring Agent workspace region**|
 |---| ---|
-|**Asia Pacific**| EastAsia </br> SoutheastAsia|
-|**Australia**| AustraliaEast </br> AustraliaSoutheast |
-|**Brazil**| BrazilSouth|
-|**Canada**| CanadaCentral|
-|**Europe**| NorthEurope </br> WestEurope|
-|**France**| FranceCentral|
-|**Germany** | Germany WestCentral|
-|**India**| CentralIndia|
-|**Italy**| ItalyNorth|
-|**Japan**| JapanEast|
-|**Korea**| KoreaCentral|
-|**Norway**| NorwayEast|
-|**Spain**| SpainCentral|
-|**Sweden** | SwedenCentral|
-|**Switzerland**| SwitzerlandNorth|
-|**United Arab Emirates**| UAENorth|
-|**United Kingdom**| UKSouth|
-|**US Gov** <sup>1</sup>| USGovVirginia </br> USGovArizona |
-|**US**| EastUS</br> EastUS2</br> WestUS </br> WestUS2 </br> NorthCentralUS </br> CentralUS </br> SouthCentralUS </br> WestCentralUS|
+|**Asia Pacific**| East Asia </br> Southeast Asia|
+|**Australia**| Australia East </br> Australia Southeast |
+|**Brazil**| Brazil South|
+|**Canada**| Canada Central|
+|**Europe**| North Europe </br> West Europe|
+|**France**| France Central|
+|**Germany** | Germany West Central|
+|**India**| Central India|
+|**Italy**| Italy North|
+|**Japan**| Japan East|
+|**Korea**| Korea Central|
+|**Norway**| Norway East|
+|**Spain**| Spain Central|
+|**Sweden** | Sweden Central|
+|**Switzerland**| Switzerland North|
+|**United Arab Emirates**| UAE North|
+|**United Kingdom**| UK South|
+|**US Gov** <sup>1</sup>| US Gov Virginia </br> US Gov Arizona |
+|**US**| East US</br> East US2</br> West US </br> West US2 </br> North Central US </br> Central US </br> South Central US </br> West Central US|
 
 <sup>1</sup> Currently, in this region, we support onboarding via Azure portal and onboarding via policy will soon be supported.
 
@@ -47,6 +47,5 @@ The following table shows the supported mappings:
 
 ## Next steps
 
-* Learn about Update Management in [Update Management overview](../automation/update-management/overview.md).
-* Learn about Azure CTI in [Change Tracking and Inventory overview](../automation/change-tracking/overview.md).
+* Learn about Azure CTI in [Change Tracking and Inventory overview](overview-monitoring-agent.md).
 
