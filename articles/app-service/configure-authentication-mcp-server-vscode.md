@@ -11,11 +11,16 @@ ms.collection: ce-skilling-ai-copilot
 
 # Secure a Model Context Protocol server in Azure App Service with Microsoft Entra authentication
 
-This article shows you how to secure your Model Context Protocol (MCP) server hosted on Azure App Service using Microsoft Entra authentication. By enabling authentication, you ensure that only authorized users can access your MCP server through Copilot agent mode in Visual Studio Code.
+This article shows you how to secure your Model Context Protocol (MCP) server hosted on Azure App Service using Microsoft Entra authentication. By enabling authentication, you ensure that only users authenticated with Microsoft Entra can access your MCP server through Copilot agent mode in Visual Studio Code.
 
 ## Prerequisites
 
-An App Service app that hosts an MCP server. If you need to create one, see [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (.NET)](tutorial-ai-model-context-protocol-server-dotnet.md).
+An App Service app that hosts an MCP server. If you need to create one, see one of the following tutorials:
+
+- [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (.NET)](tutorial-ai-model-context-protocol-server-dotnet.md)
+- [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Java)](tutorial-ai-model-context-protocol-server-java.md)
+- [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Python)](tutorial-ai-model-context-protocol-server-python.md)
+- [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Node.js)](tutorial-ai-model-context-protocol-server-node.md)
 
 ## Enable Microsoft Entra authentication
 
@@ -63,7 +68,7 @@ Next, you need to configure the app registration to expose your API to Visual St
 
 1. Select **Add application**.
 
-1. Under **Scopes defined by this API**, find and copy the full scope value. It should look like: `api://<app-registration-app-id>/user_impersonation`
+1. Under **Scopes defined by this API**, find and copy the full scope value. It should look like `api://<app-registration-app-id>/user_impersonation`.
 
    You need this scope value in the next section.
 
@@ -77,9 +82,9 @@ To enable MCP server authorization with the correct scope, you need to add an ap
 
 1. Select **Add** to create a new application setting.
 
-1. For **Name**, enter: `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES`
+1. For **Name**, enter `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES`.
 
-1. For **Value**, paste the scope you copied from the app registration: `api://<app-registration-app-id>/user_impersonation`
+1. For **Value**, paste the scope you copied from the app registration: `api://<app-registration-app-id>/user_impersonation`.
 
 1. Select **Apply**, then select **Apply** again to confirm and restart your app.
 
@@ -142,4 +147,5 @@ If you see authentication errors, verify that:
 ## Related content
 
 - [Configure your App Service or Azure Functions app to use Microsoft Entra sign-in](configure-authentication-provider-aad.md)
+- [Configure the Microsoft Entra provider with a managed identity instead of a secret (preview)](configure-authentication-provider-aad.md#use-a-managed-identity-instead-of-a-secret-preview)
 - [What is Model Context Protocol?](https://modelcontextprotocol.io/)
