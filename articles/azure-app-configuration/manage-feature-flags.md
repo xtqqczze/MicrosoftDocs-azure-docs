@@ -29,10 +29,6 @@ The Feature manager in the Azure portal provides a UI for creating and managing 
 
 Create a new feature flag in the Azure portal by following the steps below.
 
-### Create a feature flag using the Azure portal
-
-Add a new feature flag in the Azure portal by following the steps below.
-
 1. Open your Azure App Configuration store in the Azure portal. In the resource menu, under **Operations**, select **Feature manager** > **Create**.
 
     :::image type="content" source="media/manage-feature-flags/create-feature-flag-menu.png" alt-text="Screenshot of the Azure portal that shows the Create feature flag feature.":::
