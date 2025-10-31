@@ -59,7 +59,7 @@ items:
   expanded: true
   items: 
     - name: US Core
-      href: uscore.md
+      href: us-core.md
     - name: CMS Interoperability and Patient Access rule introduction
       href: centers-for-medicare-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
