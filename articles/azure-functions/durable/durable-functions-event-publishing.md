@@ -128,14 +128,14 @@ To configure system assigned identity follow the instructions below:
 
 #### Configuration
 1. Turn on system assigned identity for the function app
-    - Go to the function app, **Identity** section, in the **System Assigned** tab, toggle the **Status** switch to on.
-  
-      ![Enabling system assigned identity in the function app.](./media/durable-functions-event-publishing/enabling-system-assigned-identity.png)
+    - Go to the function app's **Identity** section and in the **System Assigned** tab, toggle the **Status** switch to on.
+
+      :::image type="content" source="./media/durable-functions-event-publishing/enabling-system-assigned-identity.png" alt-text="Enabling system assigned identity in the function app." border="true":::
 
 2. In the Event Grid topic resource, give the function app the EventGrid Data Sender role.
     - Go to the **Access Control (IAM)** section, click **+ Add**.
 
-      :::image type="content" source="./media/durable-functions-event-publishing/add-role.png" alt-text="Add role to event grid topic resource"." border="true":::
+      :::image type="content" source="./media/durable-functions-event-publishing/add-role.png" alt-text="Add role to event grid topic resource." border="true":::
 
     - Select the **EventGrid Data Sender** role, click **Next**.
 
@@ -193,7 +193,7 @@ To configure user assigned managed identity follow the instructions below:
 
     - Go to the **Access Control (IAM)** section, click **+ Add**.
 
-      :::image type="content" source="./media/durable-functions-event-publishing/add-role.png" alt-text="Add role to event grid topic resource"." border="true":::
+      :::image type="content" source="./media/durable-functions-event-publishing/add-role.png" alt-text="Add role to event grid topic resource." border="true":::
 
     - Select the **EventGrid Data Sender** role, click **Next**.
 
