@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 04/28/2025
+ms.date: 10/10/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -92,15 +92,7 @@ You can monitor the status of your environments through Azure Monitor alerts or 
 
 Understanding the limits and quotas for Container Apps environments helps you plan your application architecture effectively.
 
-| Resource | Limit | Notes |
-|----------|-------|-------|
-| Container apps per environment | 200 | Maximum number of container apps in a single environment |
-| Container app revisions per environment | 1000 | Total revisions across all apps in an environment |
-| Environments per region per subscription | 20 | Can be increased via support request |
-| Maximum CPU per container | 4 vCPU (Consumption), Varies by workload profile | Depends on the environment type and selected workload profile |
-| Maximum memory per container | 16 GB (Consumption), Varies by workload profile | Depends on the environment type and selected workload profile |
-| Maximum replicas per container app | 300 | Maximum scale-out limit for a single container app |
-| Maximum ingress request timeout | 240 seconds | For HTTP requests through ingress |
+To see the quotas relevant to your environment, see [Quotas for Azure Container Apps](./quotas.md) for ways to return your quota limits.
 
 For the most up-to-date limits and quotas, refer to the [Azure Container Apps service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#container-apps-limits).
 

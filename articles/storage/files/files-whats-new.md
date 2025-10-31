@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/30/2025
+ms.date: 09/23/2025
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -16,6 +16,30 @@ ms.custom:
 Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
 ## What's new in 2025
+
+### 2025 quarter 3 (July, August, September)
+
+#### Azure Files vaulted backup is now generally available for SSD file shares
+
+Azure Backup now supports vaulted backup of SSD file shares to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+
+We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
+
+For more information, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/general-availability-of-azure-backup-vaulted-support-for-azure-files-premium-ssd/4455307).
+
+#### Azure file share using Microsoft.FileShares is now in public preview
+
+Azure file share using Microsoft.FileShares is now in public preview, bringing a modern, share-centric management experience to Azure Files. This update makes file shares a top-level resource in Azure, eliminating the need for storage accounts and enabling several key enhancements. This new model is ideal for cloud-native applications, CI/CD pipelines, and teams managing large volumes of file shares. In preview, we support NFSv4.1 on SSD with provisioned v2 billing only.
+
+To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/simplifying-file-share-management-and-control-for-azure-files/4452634).
+
+#### Provisioned v2 for SSD file shares
+The provisioned v2 model for Azure Files SSD (premium) pairs predictability of total cost of ownership with flexibility, allowing you to create a file share that meets your exact storage and performance requirements. Provisioned v2 SSD shares enable independent provisioning of storage, IOPS, and throughput. In addition to predictable pricing and flexible provisioning, provisioned v2 SSD also enables increased file share size range from 32 GiB up to 256 TiB.
+
+To learn more, see [understanding the provisioned v2 model](./understanding-billing.md#provisioned-v2-model).
+
+#### Azure File Sync Agent now available via Azure Arc extension
+Windows servers connected through Azure Arc can now install the Azure File Sync agent using a new extension called Azure File Sync Agent for Windows. The new extension is published by Microsoft and can be managed using the Azure portal, PowerShell, or Azure CLI. To learn more, see the [Azure File Sync agent extension documentation](../file-sync/file-sync-extension.md).
 
 ### 2025 quarter 2 (April, May, June)
 
@@ -33,7 +57,7 @@ Metadata caching is an enhancement for SMB Azure SSD file shares aimed to reduce
 
 Azure File Sync support for managed identities is now generally available, enabling customers to be secure by default. Using managed identities eliminates the need for shared keys (storage account key, SAS keys) to authenticate to Azure Files by utilizing a system-assigned managed identity provided by Microsoft Entra ID. [Learn more](../file-sync/file-sync-managed-identities.md).
 
-#### Azure Files vaulted backup is now generally available
+#### Azure Files vaulted backup is now generally available for HDD file shares
 
 Azure Backup now supports vaulted backup of HDD file shares to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
 
@@ -47,7 +71,7 @@ Data plane REST API access to NFS Azure file shares will enable further developm
 
 #### Support for customer initiated LRS-ZRS redundancy conversion for SSD file shares
 
-Azure Files now supports customer initiated LRS to ZRS (and vice versa) redundancy conversions for SSD file shares. NFS file shares supported if using private endpoints. You can easily manage the migration of your storage accounts through the Azure Portal, PowerShell, or CLI. To learn more, see [Azure Files data redundancy](files-redundancy.md).
+Azure Files now supports customer initiated LRS to ZRS (and vice versa) redundancy conversions for SSD file shares. NFS file shares supported if using private endpoints. You can easily manage the migration of your storage accounts through the Azure portal, PowerShell, or CLI. To learn more, see [Azure Files data redundancy](files-redundancy.md).
 
 ## What's new in 2024
 

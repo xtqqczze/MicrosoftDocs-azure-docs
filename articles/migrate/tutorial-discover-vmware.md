@@ -4,6 +4,7 @@ description: Learn how to discover on-premises servers, applications, and depend
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
 ms.date: 05/12/2025
 ms.service: azure-migrate
@@ -26,10 +27,15 @@ In this tutorial, you learn how to:
 > * Set up the Azure Migrate appliance.
 > * Start continuous discovery.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+
+Watch the following video to learn how to discover on-premises servers running in a VMware environment as part of your migration to Azure. 
+
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=edbc7f22-2ba1-44cd-a534-465dfd426a14]
+
 > [!NOTE]
 > Tutorials show you the quickest path for trying out a scenario. They use default options where possible. This scenario is also applicable for discovery of VM servers from AVS.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 ## Prerequisites
 
@@ -111,7 +117,7 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 Refer to security best practices to set up user accounts. 
 
 > [!NOTE]
-> You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can add multiple domain, Windows (non-domain), Linux (non-domain), Linux (SSH-key) or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
+> You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can add multiple domains, Windows (non-domain), Linux (non-domain), Linux (SSH-key) or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
 
 ## Set up a project
 
@@ -146,7 +152,7 @@ The Azure Migrate: Discovery and assessment tool uses a lightweight Azure Migrat
 To set up the appliance by using an OVA template, complete these steps, which are described in more detail in this section:
 
 1. Provide an appliance name and generate a project key in the portal.
-1. Download an OVA template file, and then import it to vCenter Server. Verify that the OVA is secure.
+1. Download an OVA template file and then import it to vCenter Server. Verify that the OVA is secure.
 1. Create the appliance from the OVA file. Verify that the appliance can connect to Azure Migrate.
 1. Configure the appliance for the first time. 
 1. Register the appliance with the project by using the project key.
@@ -195,7 +201,7 @@ To set up the appliance for the first time:
 1. Select or enter the language, time zone, and password for the appliance.
 1. Open a browser on any computer that can connect to the appliance. Then, open the URL of the appliance configuration manager: `https://appliance name or IP address: 44368`.
 
-     Or, you can open the configuration manager from the appliance server desktop by selecting the shortcut for the configuration manager.
+     Or you can open the configuration manager from the appliance server desktop by selecting the shortcut for the configuration manager.
 1. Accept the license terms and read the third-party information.
 
 #### Set up prerequisites and register the appliance
@@ -211,7 +217,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 1. **Install updates and register appliance**: To run auto-update and register the appliance, follow these steps:
 
     :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
-1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
+1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key and then copy the key that's shown.
 1. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
 1. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure sign in prompt in a new browser tab. Ensure you've disabled the pop-up blocker in the browser to see the prompt.
 
@@ -222,11 +228,11 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     > [!Note]
     > If you close the sign in tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
 
-1. After you successfully sign in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to sign in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
+1. After you successfully sign in, return to the browser tab that display the appliance configuration manager. If the Azure user account that you used to sign in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
 
     After the appliance is successfully registered, to see the registration details, select **View details**. 
 
-1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. Download VDDK 6.7, 7, or 8(depending on the compatibility of VDDK and ESXi versions) from VMware. Extract the downloaded zip file contents to the specified location on the appliance, the default path is *C:\Program Files\VMware\VMware Virtual Disk Development Kit* as indicated in the *Installation instructions*.
+1. **Install the VDDK**: The appliance checks if the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. Download VDDK version 8.0 from the [Broadcom Developer portal](https://developer.broadcom.com/sdks/vmware-virtual-disk-development-kit-vddk/8.0). After downloading, extract the zip file to the default location: C:\Program Files\VMware\VMware Virtual Disk Development Kit, as mentioned in the installation instructions.
 
 The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 

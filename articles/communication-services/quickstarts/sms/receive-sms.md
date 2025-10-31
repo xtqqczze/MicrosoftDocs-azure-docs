@@ -52,7 +52,7 @@ To start generating events, configure Azure Event Grid to use your Azure Communi
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 - An SMS-enabled telephone number. [Get a phone number](../telephony/get-phone-number.md).
 - Enable Event Grid resource provide on your subscription. See [instructions](../sms/handle-sms-events.md#register-an-event-grid-resource-provider).
@@ -71,7 +71,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Toll-free verification
 
-If you have a new toll-free number and want to send a [high volume of SMS messages](../../concepts/sms/sms-faq.md#what-happens-if-i-dont-verify-my-toll-free-numbers) or send SMS messages to Canadian phone numbers, see [SMS FAQ > Submit toll free verification](../../concepts/sms/sms-faq.md#how-do-i-submit-a-toll-free-verification) to learn how to verify your toll-free number.
+If you have a new toll-free number and want to send a [high volume of SMS messages](../../concepts/sms/sms-faq.md#what-happens-if-i-dont-verify-my-toll-free-numbers) or send SMS messages to Canadian phone numbers, see [SMS FAQ > Submit toll free verification](../../concepts/sms/sms-faq.md#how-do-i-submit-an-application-for-a-toll-free-verification) to learn how to verify your toll-free number.
 
 ## Next steps
 
