@@ -16,7 +16,6 @@ ms.custom: engagement-fy24
 
 This article describes how to improve web app assessments by adding code scan insights using GitHub Copilot assessment when modernising applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and receive recommendations for appropriate migration strategies based on the code changes identified during the scan.
 
-
 In this article, you’ll learn how to: 
 
 - Add code insights to Web app assessments  
@@ -60,14 +59,14 @@ To generate report, complete the following steps:
 1. Search for the assessment with the **Workloads** filter and select it. 
 1. On the assessment **Overview** page, under **Add code insights** select Using GitHub Copilot assessment. 
 1. In the Add code insights page, select **Upload a zip file**.  
-1. Select **Browse**, choose the location of the ZIP file containing reports you want to and then select **Upload**. Wait for the upload and validation to complete.
+1. Select **Browse**, choosed the location of the ZIP file containing reports you want to import and then select **Upload**. Wait for the upload and validation to complete.
 1. In the Web app list, under the **GitHub Copilot assessment** report dropdown, view the uploaded reports under **Uploaded from zip file**. 
 1. Select the appropriate report to map to the respective web app. Repeat these steps for all required web app.  
 1. After mapping, select **Add** and wait for the process to complete. 
 1. After mapping is complete the assessment will be marked as outdated. Select **Recalculate** to initiate recalculation.
 1. After recalculation is complete, review the updated code insights.  
 
-### Add code scan reports to Web App assessments using GitHub Copilot extension
+### Request report via GitHub
 
 This method connects Azure Migrate to a GitHub repository using provided connection details and automatically creates an issue in that repository. By using the GitHub Copilot app modernization extension, you can scan your code and upload the reports directly to the related GitHub issue. After updating the issue, Azure Migrate automatically attach the code scan reports to the associated web applications. This approach allows cloud administrators and developers to collaborate while maintaining application code security boundaries. 
 
