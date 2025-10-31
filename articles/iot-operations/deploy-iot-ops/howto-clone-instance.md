@@ -58,7 +58,7 @@ The target is where you want to replicate or save the clone definition. You can 
 
 - `--to-cluster-id`: Provide the full Azure resource ID of the target cluster where you want to replicate the cloned instance. When you use this option, the clone command deploys the version of Azure IoT Operations specified in the clone definition to the target cluster, and then applies all relevant resources to complete the deployment. Automatic federation of user-assigned managed identity (UAMI) credentials is currently supported only when cloning to a cluster target.
 
-- `--to-dir`: Provide a local directory path to replicate the clone definition to disk, where it can be deployed with existing ARM deployment tools with or without modification. If you inspect the clone definition, you see various parameterization in play to ease some customization.
+- `--to-dir`: Provide a local directory path to replicate the clone definition to disk, where it can be deployed with existing ARM deployment tools with or without modification. If you inspect the clone definition, you see various parameterizations in play to ease some customization.
 
 > [!IMPORTANT]
 > When selecting a target resource group, consider using a resource group that doesn't contain an existing IoT Operations installation and is separate from the model's resource group. By default, the clone definition preserves resource names from the model instance. If the target and model share the same resource group and you change the custom location, resource name conflicts may occur.
