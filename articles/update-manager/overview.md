@@ -63,7 +63,7 @@ Here are some of the benefits of Update Manager:
   - Built as native functionality on Azure VMs and Azure Arc-enabled servers for ease of use.
   - No dependency on Log Analytics and Azure Automation.
   - [Azure Policy support](https://aka.ms/aum-policy-support).
-  - Availability in most [Azure VMs and Azure Arc regions](https://aka.ms/aum-supported-regions).
+  - Available in most [Azure VMs and Azure Arc regions](https://aka.ms/aum-supported-regions).
 
 - Works with Azure roles and identity:
   - Granular access control at the per-resource level instead of access control at the level of the Azure Automation account and Log Analytics workspace.

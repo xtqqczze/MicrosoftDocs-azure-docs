@@ -55,7 +55,7 @@ Update Manager offers a migration portal experience and automated migration scri
 
 ### Updates pane in Update Manager: Generally available
 
-The purpose of new **Updates** pane is to present information from the updates pivot instead of machines. It's useful for central IT admins and security admins who care about vulnerabilities in the system and want to act on them by applying updates. [Learn more](deploy-manage-updates-using-updates-view.md).
+The purpose of the new **Updates** pane is to present information from the updates pivot instead of machines. It's useful for central IT admins and security admins who care about vulnerabilities in the system and want to act on them by applying updates. [Learn more](deploy-manage-updates-using-updates-view.md).
 
 ## April 2024
 
@@ -65,7 +65,7 @@ Support for Ubuntu Pro 22.04 Gen1 and Gen2, Red Hat Enterprise Linux 8.8, CentOS
 
 ### New region support
 
-Update Manager Preview is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](supported-regions.md).
+Update Manager Preview is now supported in Azure Government and Azure operated by 21Vianet. [Learn more](supported-regions.md).
 
 ## February 2024
 
@@ -146,7 +146,7 @@ The limit on the number of subscriptions that you can manage in the Update Manag
 A new patch orchestration, **Customer Managed Schedules (Preview)**, is introduced as a prerequisite to enable scheduled patching on Azure VMs. The new patch enables the **Azure-orchestrated** and **BypassPlatformSafetyChecksOnUserSchedule** VM properties on your behalf after receiving the consent.
 
 > [!IMPORTANT]
-> For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)** by June 30, 2023. If you fail to update the patch orchestration by June 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.
+> For a seamless experience with scheduled patching, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)** by June 30, 2023. If you fail to update the patch orchestration by June 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.
 
 ## November 2022
 

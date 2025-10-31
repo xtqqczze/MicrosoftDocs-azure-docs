@@ -20,9 +20,9 @@ Azure Update Manager assesses and applies updates to all Azure virtual machines 
 
 When an Update Manager operation is enabled or triggered on your Azure VM or Azure Arc-enabled server, Update Manager installs an [Azure extension](/azure/virtual-machines/extensions/overview) or [Azure Arc-enabled server extensions](/azure/azure-arc/servers/manage-vm-extensions) (respectively) on your machine to manage the updates.
 
-The extension is automatically installed when you start any Update Manager operation on your machine for the first time. These operations include **Check for updates**, **Install one-time update**, and **Periodic Assessment**. The extension is also automatically installed when a scheduled update deployment runs on your machine for the first time.
+The extensions are automatically installed when you start any Update Manager operation on your machine for the first time. These operations include **Check for updates**, **Install one-time update**, and **Periodic Assessment**. The extensions are also automatically installed when a scheduled update deployment runs on your machine for the first time.
 
-You don't have to explicitly install the extension and its lifecycle.  Update Manager manages the installation and configuration by using the following agents. These agents are required for Update Manager to work on your machines.
+You don't have to explicitly install the extensions and their lifecycles. Update Manager manages the installation and configuration by using the following agents. These agents are required for Update Manager to work on your machines.
 
 - For Azure VMs: [Azure Windows VM Agent](/azure/virtual-machines/extensions/agent-windows) or [Azure Linux VM Agent](/azure/virtual-machines/extensions/agent-linux)
 - For Azure Arc-enabled servers: [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview)
@@ -41,7 +41,7 @@ For Azure machines, Update Manager installs a single extension. For Azure Arc-en
 
 #### [Azure Arc-enabled server extensions](#tab/azure-arc-vms)
 
-| Operating system| Extension
+| Operating system| Extensions
 |----------|-------------
 |Windows  | Microsoft.CPlat.Core.WindowsPatchExtension (periodic assessment) <br> Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension (on-demand operations and scheduled patching)
 |Linux  | Microsoft.SoftwareUpdateManagement.LinuxOsUpdateExtension (on-demand operations and scheduled patching) <br> Microsoft.CPlat.Core.LinuxPatchExtension (periodic assessment)
@@ -60,7 +60,7 @@ Update Manager honors the update source settings on the machine and fetches upda
 
 #### [Windows](#tab/update-win)
 
-If the [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) is configured to fetch updates from the Windows Update repository, the Microsoft Update repository, or [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus), Update Manager honors these settings. For more information, see [Configure Windows update settings for Azure Update Manager](/azure/update-manager/configure-wu-agent). By default, *WUA is configured to fetch updates from the Windows Update repository*.
+If the [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) is configured to fetch updates from the Windows Update repository, the Microsoft Update repository, or [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus), Update Manager honors these settings. For more information, see [Configure Windows Update settings for Azure Update Manager](/azure/update-manager/configure-wu-agent). By default, *WUA is configured to fetch updates from the Windows Update repository*.
 
 #### [Linux](#tab/update-lin)
 
@@ -77,7 +77,7 @@ Update Manager performs the following steps:
 
 The machines report their update status based on the source that they're configured to synchronize with. If the Windows Update service is configured to report to WSUS, the results in Update Manager might differ from what Microsoft Update shows, depending on when WSUS last synchronized with Microsoft Update. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository.
 
-Update Manager finds only updates that the Windows Update service finds when you select the local **Check for updates** button on the local Windows system. On Linux systems, Update Manager discovers only updates in the local repository.
+Update Manager finds only updates that the Windows Update service finds when you select the **Check for updates** button on the local Windows system. On Linux systems, Update Manager discovers only updates in the local repository.
 
 Update Manager uses WUA APIs to install updates. The updates installed via WUA APIs don't appear on the Windows Update page within the Settings app on the machine. As a result, the updates installed through Update Manager aren't visible on the Windows Update page in the Settings app. The Windows Update page in the Settings app shows the progress and history of updates that the Windows Update orchestrator workflow manages. [Learn more](/windows/win32/wua_sdk/portal-client#purpose).
 
@@ -106,18 +106,18 @@ Update Manager installs patches in the following manner:
 
    In the case of Windows, the average update installation time is 10 minutes for all types of updates, except for service pack updates. For service pack updates, it's 15 minutes.
 
-1. An ongoing update installation (after it's started based on the preceding calculation) isn't forcibly stopped, even if it exceeds the maintenance window, to avoid landing the machine in a possibly undetermined state. However, Update Manager doesn't install the remaining updates after the maintenance window ends, and it shows a "maintenance window exceeded" error.
+1. An ongoing update installation (after it's started based on the preceding calculation) isn't forcibly stopped, even if it exceeds the maintenance window, to avoid landing the machine in a possibly undetermined state. However, Update Manager doesn't install the remaining updates after the maintenance window ends, and it shows a "Maintenance window exceeded" error.
 
 1. Update Manager marks an installation as successful only if all selected updates are installed and all operations involved (including reboot and assessment) succeed. Otherwise, the installation is marked as **Failed** or **Completed with warnings**. For example:
 
     |Scenario    |Update installation status
     |------------|---------------------------
-    |One of the selected updates fails to install.| **Failed**
-    |Reboot doesn't happen for any reason, and wait time for reboot times out. | **Failed**
-    | Machine fails to start during a reboot. | **Failed**
-    | Initial or final assessment failed.| **Failed**
-    | Updates require a reboot, but the **Never reboot** option is selected. | **Completed with warnings**
-    | ESM packages skipped patching in Ubuntu 18 or earlier if an Ubuntu Pro license wasn't present. | **Completed with warnings**
+    |Installation of one of the selected updates fails.| **Failed**
+    |A reboot doesn't happen for any reason, and the wait time for reboot times out. | **Failed**
+    |The machine fails to start during a reboot. | **Failed**
+    |Initial or final assessment failed.| **Failed**
+    |Updates require a reboot, but the **Never reboot** option is selected. | **Completed with warnings**
+    |ESM packages skipped patching in Ubuntu 18 or earlier if an Ubuntu Pro license wasn't present. | **Completed with warnings**
 
 1. An assessment happens at the end. Sometimes, the reboot and assessment don't happen; for example, if the maintenance window ends or the update installation fails.
 

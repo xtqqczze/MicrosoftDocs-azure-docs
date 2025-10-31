@@ -50,7 +50,7 @@ The following permissions are required in addition to the read permissions docum
 | Get the status of an asynchronous operation for an Azure VM | Microsoft.Compute/locations/operations/read | Machine subscription |
 | Trigger an assessment on an Azure Arc-enabled server | Microsoft.HybridCompute/machines/assessPatches/action | |
 | Install an update on an Azure Arc-enabled server | Microsoft.HybridCompute/machines/installPatches/action | |
-| Read the status of an update center operation on Azure Arc machines | Microsoft.HybridCompute/locations/updateCenterOperationResults/read | Machine subscription |
+| Read the status of an update center operation on Azure Arc-enabled machines | Microsoft.HybridCompute/locations/updateCenterOperationResults/read | Machine subscription |
 | Update patch mode or assessment mode for Azure VMs | Microsoft.Compute/virtualMachines/write | Machine |
 | Update assessment mode for Azure Arc-enabled machines | Microsoft.HybridCompute/machines/write | Machine |
 
@@ -81,5 +81,5 @@ The following permissions are required in addition to permissions on individual 
 
 ## Related content
 
-- [Prerequisites for Azure Update Manager](prerequisites.md).
-- [How Update Manager works](workflow-update-manager.md).
+- [Prerequisites for Azure Update Manager](prerequisites.md)
+- [How Update Manager works](workflow-update-manager.md)

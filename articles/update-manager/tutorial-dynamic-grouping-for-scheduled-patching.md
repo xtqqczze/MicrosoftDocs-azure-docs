@@ -57,7 +57,7 @@ To create a dynamic scope, follow these steps:
     az maintenance assignment create-or-update-subscription --maintenance-configuration-id "/subscriptions/{subscription_id}/resourcegroups/{rg}/providers/Microsoft.Maintenance/maintenanceConfigurations/clitestmrpconfinguestadvanced" --name cli_dynamicscope_recording01 --filter-locations eastus2euap centraluseuap --filter-os-types windows linux --filter-tags {{tagKey1:[tagKey1Val1,tagKey1Val2],tagKey2:[tagKey2Val1,tagKey2Val2]}} --filter-resource-group rg1, rg2 --filter-tags-operator All -l global
 ```
 
-#### [PowerShell](#tab/az-ps)
+#### [Azure PowerShell](#tab/az-ps)
 
 ```powershell
     New-AzConfigurationAssignment -ConfigurationAssignmentName $maintenanceConfigurationName -MaintenanceConfigurationId $maintenanceConfigurationInGuestPatchCreated.Id -FilterLocation eastus2euap,centraluseuap -FilterOsType Windows,Linux -FilterTag '{"tagKey1" : ["tagKey1Value1", "tagKey1Value2"], "tagKey2" : ["tagKey2Value1", "tagKey2Value2", "tagKey2Value3"] }' -FilterOperator "Any"
@@ -71,4 +71,4 @@ Providing consent to apply updates is an important step in the workflow of sched
 
 ## Related content
 
-Learn about [managing multiple machines](manage-multiple-machines.md).
+- Learn about [managing multiple machines](manage-multiple-machines.md).

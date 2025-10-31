@@ -43,12 +43,12 @@ The following recommended limits are for *each dynamic scope in the guest scope 
 |----------|----------------------------|
 | Resource associations     | 1,000  |
 | Number of tag filters | 50 |
-| Number of Resource Group filters    | 50 |
+| Number of resource group filters    | 50 |
 
 For more information, see [Service limits for scheduled patching](scheduled-patching.md#service-limits).
 
 ## Related content
 
-- Follow the instructions on [how manage various operations of dynamic scope](manage-dynamic-scoping.md).
-- Learn how to [automatically install updates according to the created schedule for a single VM and at scale](scheduled-patching.md).
+- Follow the instructions on [how to manage various operations of dynamic scope](manage-dynamic-scoping.md).
+- Learn [how to automatically install updates according to the created schedule for a single VM and at scale](scheduled-patching.md).
 - Learn about [pre-maintenance and post-maintenance events](pre-post-scripts-overview.md) to automatically perform tasks before and after a scheduled maintenance configuration.

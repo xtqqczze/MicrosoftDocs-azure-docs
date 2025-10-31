@@ -34,11 +34,11 @@ Following are the benefits of using Update Manager:
 
 ### How does Update Manager work on machines?
 
-Whenever you trigger any Update Manager operation on your machine, it pushes an extension on your machine. It interacts with the VM agent (for an Azure machine) or Azure Arc agent (for Azure Arc-enabled machines) to fetch and install updates.
+Whenever you trigger any Update Manager operation on your machine, it pushes an extension on your machine. It interacts with the VM agent (for an Azure machine) or Azure Arc agent (for an Azure Arc-enabled machine) to fetch and install updates.
 
 ### Is enabling Azure Arc mandatory for patch management for machines not running on Azure?
 
-Yes, machines that aren't running on Azure must be enabled for Azure Arc if you want to manage them by using Update Manager.
+Yes. Machines that aren't running on Azure must be enabled for Azure Arc if you want to manage them by using Update Manager.
 
 ### Is Update Manager dependent on Azure Automation and Log Analytics?
 
@@ -83,7 +83,7 @@ An Azure Arc-enabled server is considered managed by Update Manager for days on 
 
 ### Are there scenarios in which an Azure Arc-enabled server isn't charged for Update Manager?
 
-An Azure Arc-enabled server managed through Update Manager isn't charged in following scenarios:
+An Azure Arc-enabled server managed through Update Manager isn't charged in the following scenarios:
 
 - The machine is enabled for delivery of Extended Security Updates enabled by Azure Arc.
 - Microsoft Defender for Servers Plan 2 is enabled for the subscription that hosts the Azure Arc-enabled server. However, if you're using Defender through a security connector, you're charged.
@@ -95,7 +95,7 @@ You won't be charged for existing Azure Arc-enabled servers that used Automation
 
 ### I'm a Defender for Servers customer and use update recommendations from Update Manager. Will I be charged for Update Manager?
 
-If you purchased Defender for Servers Plan 2, you don't have to pay to remediate unhealthy resources for these recommendations: "Periodic assessment should be enabled on your machines" and "System updates should be installed on your machines."
+If you purchased Defender for Servers Plan 2, you don't have to pay to remediate unhealthy resources for these recommendations: **Periodic assessment should be enabled on your machines** and **System updates should be installed on your machines**.
 
 If you're using any other Defender for Servers plan for your Azure Arc-enabled machines, you're charged for those machines at the daily prorated rate per server by Update Manager.
 
@@ -108,8 +108,8 @@ Update Manager isn't charged for:
 
 All other resources, including (but not limited to) the following resources, are charged:
 
-- Management of individual Azure Local machines. Examples include **Machine - Azure Arc** or **Update Manager - Machines** resources.
-- All VMs on Azure Local that you don't create by using an Azure Arc resource bridge. Examples are VMs projected as Azure Arc-enabled servers and VMs on Azure Local managed by Azure Arc-enabled System Center Virtual Machine Manager.
+- Management of individual Azure Local machines. Examples include **Machine - Azure Arc** and **Update Manager - Machines** resources.
+- All VMs on Azure Local that you don't create by using an Azure Arc resource bridge. Examples include VMs projected as Azure Arc-enabled servers and VMs on Azure Local managed by Azure Arc-enabled System Center Virtual Machine Manager.
 
 ### Is there any additional cost associated with Update Manager for data transfers?
 
@@ -137,7 +137,7 @@ To move update configurations from System Center Configuration Manager to Update
 
 ### Can I configure my machines to fetch updates from WSUS (Windows) and private repositories (Linux)?
 
-By default, Update Manager relies on a Windows Update client running on your machine to fetch updates. You can configure a Windows Update client to fetch updates from Microsoft Update or a Windows Server Update Services (WSUS) repository and then manage patch schedules by using Update Manager.
+By default, Update Manager relies on a Windows Update client running on your machine to fetch updates. You can configure a Windows Update client to fetch updates from Microsoft Update or a Windows Server Update Services (WSUS) repository, and then manage patch schedules by using Update Manager.
 
 For Linux, you can fetch updates by pointing your machine to a public repository or clone a private repository that regularly pulls updates from upstream.
 

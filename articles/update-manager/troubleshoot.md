@@ -29,7 +29,7 @@ The package directory for the extension is `/var/lib/waagent/Microsoft.CPlat.Cor
 To review the logs related to all actions that the extension performed, go to `/var/log/azure/Microsoft.CPlat.Core.LinuxPatchExtension/`. This folder includes the following log files of interest:
 
 - `<seq number>.core.log`: This file contains information related to the patch actions. The information includes patches assessed and installed on the machine, along with any problems encountered in the process.
-- `<Date and Time>_<Handler action>.ext.log`: A wrapper above the patch action is used to manage the extension and invoke a specific patch operation. This log contains information about the wrapper. For automatic patching, the log `<Date and Time>_Enable.ext.log` has information on whether the specific patch operation was invoked.
+- `<Date and Time>_<Handler action>.ext.log`: A wrapper above the patch action is used to manage the extension and invoke a specific patch operation. This log contains information about the wrapper. For automatic patching, the `<Date and Time>_Enable.ext.log` file has information on whether the specific patch operation was invoked.
 
 #### Windows VM
 
@@ -44,7 +44,7 @@ To review the logs related to all actions that the extension performed, go to `C
 
 For Azure Arc-enabled servers, see [Troubleshoot VM extensions](/azure/azure-arc/servers/troubleshoot-vm-extensions) for general troubleshooting steps.
 
-To review the logs related to all actions that the extension performed, on Windows, go to `C:\ProgramData\GuestConfig\extension_logs\Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension`. This file includes the following log files of interest:
+To review the logs related to all actions that the extension performed, on Windows, go to `C:\ProgramData\GuestConfig\extension_logs\Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension`. This folder includes the following log files of interest:
 
 - `WindowsUpdateExtension.log`: This file contains information related to the patch actions. The information includes the patches assessed and installed on the machine, along with any problems encountered in the process.
 - `cmd_execution_<numeric>_stdout.txt`: A wrapper above the patch action is used to manage the extension and invoke a specific patch operation. This log contains information about the wrapper. For automatic patching, the log has information on whether the specific patch operation was invoked.
@@ -174,7 +174,7 @@ You have machines that appear as **Not assessed** under **Compliance**, and you 
 
 The update agent (Windows Update Agent on Windows and the package manager for a Linux distribution) isn't configured correctly. Update Manager relies on the machine's update agent to provide the necessary updates, the status of the patch, and the results of deployed patches. Without this information, Update Manager can't properly report on the patches that are needed or installed.
 
-#### Resolution
+### Resolution
 
 Try to perform updates locally on the machine. If this operation fails, it typically means that there's a configuration error for the update agent. To correct the issue:
 
@@ -202,7 +202,7 @@ Reviewing the `%Windir%\Windowsupdate.log` file can also help you determine poss
 
 You can also download and run the [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) to check for any problems with Windows Update on the machine. The troubleshooter works on both Windows clients and Windows Server.
 
-## Internal execution error occurs
+## You get an internal execution error
 
 ### Issue
 
@@ -242,7 +242,7 @@ Scheduled patching doesn't install the patches on the VMs and gives a `ShutdownO
 
 A known limitation can cause schedules triggered on machines deleted and re-created with the same resource ID within 8 hours to fail with this error.
 
-### Resolution
+#### Resolution
 
 The problem doesn't occur after the 8-hour period.
 
@@ -345,7 +345,7 @@ You might see the following exception:
 EXCEPTION: Exception('Unable to invoke sudo successfully. Output: root is not in the sudoers file. This incident will be reported. False ',)
 ```
 
-### Cause
+#### Cause
 
 Sudo privileges aren't granted to the extensions for assessment or patching operations on Linux machines.
 
@@ -423,7 +423,7 @@ Allow an HTTPS connection from your machine.
 
 Periodic assessments aren't working on your Linux machines.
 
-### Cause
+#### Cause
 
 The [MsftLinuxPatchAutoAssess](https://github.com/Azure/LinuxPatchExtension) service is required for successful periodic assessments.
 
@@ -437,7 +437,7 @@ Ensure that the `LinuxPatchExtension` status is `succeeded` for the machine. Reb
 
 Updates are downloaded from configured public or private repositories for each Linux distribution. The machine can't connect to these repositories to download or assess the updates.
 
-### Cause
+#### Cause
 
 Network security rules can block important connections.
 

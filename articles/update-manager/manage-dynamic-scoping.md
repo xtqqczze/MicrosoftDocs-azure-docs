@@ -15,7 +15,7 @@ ms.topic: how-to
 
 This article describes how to view, add, edit, and delete a dynamic scope that's associated with a maintenance configuration in Azure Update Manager.
 
-You can create a dynamic scope at either at the subscription level or the resource group level. A subscription or resource group is mandatory for the creation of a dynamic scope, and you can't edit it after the dynamic scope is created.
+You can create a dynamic scope at either the subscription level or the resource group level. A subscription or resource group is mandatory for the creation of a dynamic scope, and you can't edit it after the dynamic scope is created.
 
 Resources eligible to be attached to a dynamic scope are determined by the level at which you create the scope. If you set the scope at the resource group level (for example, RG1), resources from other groups (for example, RG2) will be unassigned if they're attached to the dynamic scope created under RG1. Those resources from other groups will be reassigned even if they're under the same subscription.
 
@@ -38,21 +38,21 @@ Resources eligible to be attached to a dynamic scope are determined by the level
 
 1. In **Filter by**, choose **Select**. In **Select Filter by**, specify the resource group, resource type, location, tags, and OS type. Then select **Ok**. These filters are optional fields.
 
-1. On the **Preview of machines based on above scope** pane, you can view the list of machines for the selected criteria. When you finish, select **Save**.
+1. In **Preview of machines based on above scope**, you can view the list of machines for the selected criteria. When you finish, select **Save**.
 
    > [!NOTE]
    > The list of machines might be different at run time.
 
 1. On the **Configure Azure VMs for schedule updates** pane, select one of the following options to provide your consent:
 
-    1. **Change the required options to ensure schedule supportability** ensures that the machines are patched according to the schedule and not automatically patched. By selecting this option, you're confirming that you want to update the patch orchestration to **Customer Managed Schedules**. This setting updates the following two properties on your behalf:
+    - **Change the required options to ensure schedule supportability** ensures that the machines are patched according to the schedule and not automatically patched. By selecting this option, you're confirming that you want to update the patch orchestration to **Customer Managed Schedules**. This setting updates the following two properties on your behalf:
 
        - `Patch mode = AutomaticByPlatform`
        - `BypassPlatformSafetyChecksOnUserSchedule = True`
 
-    1. **Continue with supported machines only** confirms that you want to proceed with only the machines that already have patch orchestration set to **Customer Managed Schedules**.
+    - **Continue with supported machines only** confirms that you want to proceed with only the machines that already have patch orchestration set to **Customer Managed Schedules**.
 
-       On the **Preview of machines based on above scope** pane, you can view only the machines that don't have patch orchestration set to **Customer Managed Schedules**.
+       In **Preview of machines based on above scope**, you can view only the machines that don't have patch orchestration set to **Customer Managed Schedules**.
 
 1. Select **Save**. A notification confirms that the dynamic scopes are successfully applied.
 
@@ -95,7 +95,7 @@ Resources eligible to be attached to a dynamic scope are determined by the level
 
 1. On the **Maintenance configurations** pane, select the name of the maintenance configuration for which you want to edit an existing dynamic scope.
 
-1. On the pane for the chosen maintenance configuration, select **Dynamic scopes** and select the scope that you want to delete. Select **Remove dynamic scope**, and then select **Ok**.
+1. On the pane for the chosen maintenance configuration, select **Dynamic scopes**, and then select the scope that you want to delete. Select **Remove dynamic scope**, and then select **Ok**.
 
 ## View the patch history of a dynamic scope
 
@@ -127,7 +127,7 @@ Obtaining consent to apply updates is an important step in the workflow of dynam
 
 #### [From the tab for scheduled updates](#tab/sc)
 
-1. Follow the steps from 1 to 5 in the earlier [procedure for adding a dynamic scope](#add-a-dynamic-scope).
+1. Follow the steps from 1 to 5 in the [earlier procedure for adding a dynamic scope](#add-a-dynamic-scope).
 
 1. On the **Configure Azure VMs for schedule updates** pane, select the **Change the required options to ensure schedule supportability** option. Confirm that **Patch orchestration** is set as **Customer Managed Schedules**. It sets the following properties:
 
@@ -158,5 +158,5 @@ Obtaining consent to apply updates is an important step in the workflow of dynam
 ## Related content
 
 - Learn more about [dynamic scoping](dynamic-scope-overview.md), an advanced capability of scheduled patching.
-- Learn how to [automatically install updates according to the created schedule for a single VM and at scale](scheduled-patching.md).
+- Learn [how to automatically install updates according to the created schedule for a single VM and at scale](scheduled-patching.md).
 - Learn about [pre-maintenance and post-maintenance events](pre-post-scripts-overview.md) to automatically perform tasks before and after a scheduled maintenance configuration.

@@ -14,7 +14,7 @@ ms.custom: sfi-image-nochange
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs :heavy_check_mark: Azure Arc-enabled servers.
 
-You can use pre-maintenance and post-maintenance events to execute user-defined actions before and after scheduled patch installation. One of the most common scenarios is to start and stop a virtual machine (VM). With pre-maintenance events, you can run a script to start the VM before initiating the scheduled patching process. After the scheduled patching is complete, and the server is rebooted, you can run a script to safely shut down the VM.
+You can use pre-maintenance and post-maintenance events to execute user-defined actions before and after scheduled patch installation. One of the most common scenarios is to start and stop a virtual machine (VM). With pre-maintenance events, you can run a script to start the VM before initiating the scheduled patching process. After the scheduled patching is complete and the server is rebooted, you can run a script to safely shut down the VM.
 
 This tutorial explains how to create pre-maintenance and post-maintenance events to start and stop a VM in a scheduled patch workflow by using a webhook.
 
@@ -60,7 +60,7 @@ In this tutorial, you:
     1. The [SoftwareUpdateConfigurationRunContext](../automation/update-management/pre-post-scripts.md#softwareupdateconfigurationruncontext-properties) parameter contains information about lists of machines in the update deployment. It won't be passed to the scripts when you use them for pre-maintenance or post-maintenance events while using an Automation webhook. You can either query the list of machines from Azure Resource Graph or have the list of machines coded in the scripts.
 
        - Ensure that proper roles and permissions are granted to the managed identities that you're using in the script, to execute Resource Graph queries and to start or stop machines.
-       - See the permissions related to [resource graph queries](../governance/resource-graph/overview.md#permissions-in-azure-resource-graph).
+       - See the permissions related to [Resource Graph queries](../governance/resource-graph/overview.md#permissions-in-azure-resource-graph).
        - See the [Virtual Machine Contributor role](../role-based-access-control/built-in-roles/compute.md#virtual-machine-contributor).
        - See the [webhook payload](../automation/automation-webhooks.md#parameters-used-when-the-webhook-starts-a-runbook).
        - See the following code:
@@ -107,7 +107,7 @@ In this tutorial, you:
          }
          ```
 
-To customize, you can use either your existing scripts with the preceding modifications or use the following scripts.
+To customize, you can either use your existing scripts with the preceding modifications or use the following scripts.
 
 ### Sample scripts
 

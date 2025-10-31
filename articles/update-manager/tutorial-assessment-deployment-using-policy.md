@@ -89,4 +89,4 @@ On the **Policy** home page, you can monitor the compliance of resources under *
 
 ## Related content
 
-Learn about [managing multiple machines](manage-multiple-machines.md).
+- Learn about [managing multiple machines](manage-multiple-machines.md).
