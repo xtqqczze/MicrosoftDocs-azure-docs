@@ -4,7 +4,7 @@ description: Learn about what's new and recent updates in the Azure Migrate serv
 ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
-ms.manager: abhemraj
+ms.manager: ronai
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 02/24/2025
@@ -16,9 +16,17 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
-## Update (November 2025)
+## Update (October 2025)
 
-Azure Migrate now supports adding code insights using GitHub Copilot assessment to enhance web app assessments. This capability helps you evaluate migration readiness more accurately and get recommend migration strategy for Azure Kubernetes Service (AKS) or Azure App Service. You can add code insights by either uploading a ZIP file of reports or requesting a report through a GitHub connection. [Learn more](enhancing-web-app-assessment.md).
+Public preview: Dependency visualization across multiple servers [Learn more](how-to-create-group-machine-dependencies-agentless.md#visualize-dependencies-across-servers)
+
+You can use this capability to:
+- **Visualize network dependencies across servers:** This feature enables you to visualize network dependencies between discovered across different appliances. This comprehensive helps you understand how servers communicate within your datacenter.
+- **Navigate easily with user-friendly controls:** The visualization layout is designed with intuitive controls that make it easy for you to move through the dependency map. This helps you efficiently explore server dependencies for scale environments without complexity.
+- **Interact with nodes for server insights:** You can interact directly with nodes within the visualization to access detailed server information. This includes viewing immediate dependents and connection details, allowing for a deeper understanding of each server’s properties and dependencies.
+- **Scope and filter visualization:** You can search by server names and apply filters using netstat data, such as process and port information, enabling scoped analysis of network connections.
+- **Switch to per server view:** For more granular analysis, you can switch the visualization to a per-server view. This mode allows analyzing network connections at the process and port levels for individual servers. [Learn more](how-to-create-group-machine-dependencies-agentless.md#visualize-individual-server-dependencies). 
+- **Identify and group high-affinity servers:** The visualization makes it easy to identify servers that are tightly coupled and exhibit high affinity. You can multi-select these servers and tag them as application groups, supporting logical organization and application-centric migration planning.
 
 ## Update (September 2025)
 
