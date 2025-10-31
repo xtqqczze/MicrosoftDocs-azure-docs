@@ -5,7 +5,7 @@ description: Describes how to protect your Azure Virtual Machines having high ch
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 10/31/2025
 ms.author: v-gajeronika
 # Customer intent: As a cloud administrator, I want to enable High Churn support for Azure Virtual Machines, so that I can effectively protect high churning workloads and achieve better disaster recovery performance.
 ---

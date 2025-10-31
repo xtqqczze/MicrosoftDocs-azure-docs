@@ -4,7 +4,7 @@ ms.reviewer: v-gajeronika
 description: Monitor and troubleshoot Azure Site Recovery replication issues and operations, and enable built-in alerts, by using the portal.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 10/31/2025
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: As an IT administrator, I want to monitor and receive alerts for replication issues in Azure Site Recovery, so that I can ensure business continuity and quickly respond to any potential failures or configuration problems.
@@ -164,7 +164,7 @@ You can subscribe to receive email notifications for these critical events:
 - Failover failures.
 
 > [!NOTE]
-> Enabling email notification for ASR does not incur any additional costs.
+> Enabling email notification for Azure Site Recovery does not incur any additional costs.
 
 Subscribe as follows:
 

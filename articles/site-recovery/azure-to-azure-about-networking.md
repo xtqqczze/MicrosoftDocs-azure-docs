@@ -5,7 +5,7 @@ description: Provides an overview of networking for replication of Azure VMs usi
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 10/31/2025
 ms.author: v-gajeronika
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator managing disaster recovery for Azure VMs, I want to configure networking settings using network security groups and service tags, so that I can ensure reliable replication and connectivity during failover scenarios."
@@ -27,7 +27,7 @@ The following diagram depicts a typical Azure environment, for applications runn
 
 If you're using Azure ExpressRoute or a VPN connection from your on-premises network to Azure, the environment is as follows:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png" alt-text="customer-environment.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png" alt-text="Screenshot of customer environment.":::
 
 Typically, networks are protected using firewalls and network security groups (NSGs). Service tags should be used to control network connectivity. NSGs should allow several service tags to control outbound connectivity.
 
@@ -63,7 +63,7 @@ While using NSG to control outbound connectivity, these service tags need to be 
     - Create a [Storage service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for the source region.
     - Allow these addresses so that data can be written to the cache storage account, from the virtual machine.
 - Create a [Microsoft Entra service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to Microsoft Entra ID
-- Create an EventsHub service tag-based NSG rule for the target region, allowing access to Site Recovery monitoring.
+- Create an Events Hub service tag-based NSG rule for the target region, allowing access to Site Recovery monitoring.
 - Create an Azure Site Recovery service tag-based NSG rule for allowing access to Site Recovery service in any region.
 - Create an AzureKeyVault service tag-based NSG rule. This is required only for enabling replication of ADE-enabled virtual machines via portal.
 - Create a GuestAndHybridManagement service tag-based NSG rule. This is required only for enabling autoupgrade of mobility agent for a replicated item via portal.
@@ -112,7 +112,7 @@ You can create a network service endpoint in your virtual network for "Storage" 
 
 - Select your Azure virtual network and select **Service endpoints**.
 
-    :::image type="content" source="./media/azure-to-azure-about-networking/storage-service-endpoint.png" alt-text="storage-endpoint.":::
+    :::image type="content" source="./media/azure-to-azure-about-networking/storage-service-endpoint.png" alt-text="Screenshot of storage endpoint.":::
 
 - Select **Add** and **Add service endpoints** tab opens.
 - Select *Microsoft.Storage* under **Service** and the required subnets under 'Subnets' field and select **Add**.

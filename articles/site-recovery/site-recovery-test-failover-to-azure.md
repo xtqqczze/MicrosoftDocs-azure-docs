@@ -4,7 +4,7 @@ ms.reviewer: v-gajeronika
 description: This article describes how to run a disaster recovery drill to Azure, using a Site Recovery test failover.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 10/31/2025
 ms.author: v-gajeronika
 author: Jeronika-MS
 
@@ -19,7 +19,7 @@ You run a test failover to validate your replication and disaster recovery strat
 
 ## Run a test failover
 
-This procedure describes how to run a test failover for a recovery plan. If you want to run a test failover for a single VM, follow the steps described [here](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
+This procedure describes how to run a test failover for a recovery plan. If you want to run a test failover for a single VM, follow the steps described [here](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm).
 
 :::image type="content" source="./media/site-recovery-test-failover-to-azure/test-failover.png" alt-text="Screenshot of the Test failover page in the Azure portal.":::
 
@@ -65,7 +65,7 @@ In the following scenarios, failover  requires an extra intermediate step that u
 	* storflt
 	* intelide
 	* atapi
-* VMware VMs that don't have DHCP enabled , irrespective of whether they are using DHCP or static IP addresses.
+* VMware VMs that don't have DHCP enabled, irrespective of whether they are using DHCP or static IP addresses.
 
 In all the other cases, no intermediate step is not required, and failover takes significantly less time.
 
