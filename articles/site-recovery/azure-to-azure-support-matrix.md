@@ -33,7 +33,7 @@ Replicate Azure VMs from one subscription to another for DR. | Supported within 
 Migrate VMs across regions within supported geographical clusters (within and across subscriptions). | Supported within the same Microsoft Entra tenant.
 Migrate VMs within the same region. | Not supported.
 Azure Dedicated Host. | Not supported.
-Azure Virtual Desktop infrastructure VMs. | Supported if all the Azure to Azure replication prerequisites are fulfilled. (Zone-to-zone replication for individual servers is also supported.)
+Azure Virtual Desktop infrastructure VMs. | Supported if all the Azure-to-Azure replication prerequisites are fulfilled. (Zone-to-zone replication for individual servers is also supported.)
 
 ## Region support
 
@@ -83,7 +83,7 @@ V2 storage account    |    750 disks    |    375 disks
 
 As average churn on the disks increases, the number of disks that a storage account can support decreases. Use the preceding table as a guide for making decisions on the number of storage accounts that must be provisioned.
 
-The cache limits are specific to Azure to Azure and zone-to-zone DR scenarios.
+The cache limits are specific to Azure-to-Azure and zone-to-zone DR scenarios.
 
 When you enable replication via the VM workflow for cross-subscriptions, the portal lists only the cache storage account from the source subscription. It doesn't list any storage account created in the target subscription. To set up this scenario, use [Azure PowerShell](azure-to-azure-powershell.md).
 
@@ -140,7 +140,7 @@ Site Recovery doesn't support VMs created on ARM64 CPU architecture.
 
 ### Linux kernel support timelines
 
-To support newly released Linux kernels, Site Recovery provides hotfix patches of the mobility agent on top of the latest mobility agent version. These hotfixes are released on a *best-effort basis within 30 days* of the kernel release and apply only to *Azure to Azure disaster recovery scenarios*.
+To support newly released Linux kernels, Site Recovery provides hotfix patches of the mobility agent on top of the latest mobility agent version. These hotfixes are released on a *best-effort basis within 30 days* of the kernel release and apply only to *Azure-to-Azure disaster recovery scenarios*.
 
 >[!Note]
 >This isn't a service-level agreement. The 30-day support window on a *best-effort basis* applies only to specific scenarios as outlined in the following table.
@@ -441,7 +441,7 @@ Secure transfer option | Supported.
 Write accelerator enabled disks | Not supported.
 Tags  | Supported. | User-generated tags replicate every 24 hours.
 Soft delete | Not supported. | Soft delete isn't supported because after soft delete is enabled on a storage account, it increases cost. Site Recovery performs frequent creations and deletions of log files. Replicating causes costs to increase.
-iSCSI disks | Not supported. | You can use Site Recovery to migrate or fail over iSCSI disks into Azure. However, iSCSI disks aren't supported for Azure to Azure replication and failover/failback.
+iSCSI disks | Not supported. | You can use Site Recovery to migrate or fail over iSCSI disks into Azure. However, iSCSI disks aren't supported for Azure-to-Azure replication and failover/failback.
 Storage Replica | Not supported.
 
 >[!IMPORTANT]
@@ -454,18 +454,18 @@ The following table summarizes Site Recovery limits:
 - These limits are based on our tests but don't cover all possible application I/O combinations.
 - Actual results can vary based on your app I/O mix.
 - There are two limits to consider: per-disk data churn and per-VM data churn.
-- The current limit for per-VM data churn is 54 MB/s regardless of size.
+- The current limit for per-VM data churn is 54 MBps regardless of size.
 
 Replica disk type  | Average source disk I/O | Average source disk data churn | Total source disk data churn per day
 ---|---|---|---
-Standard storage | 8 KB    | 2 MB/s | 168 GB per disk
-Premium SSD with disk size 128 GiB or more  | 8 KB    | 2 MB/s | 168 GB per disk
-Premium SSD with disk size 128 GiB or more  | 16 KB | 4 MB/s |    336 GB per disk
-Premium SSD with disk size 128 GiB or more  | 32 KB or greater | 8 MB/s | 672 GB per disk
-Premium SSD with disk size 512 GiB or more  | 8 KB    | 5 MB/s | 421 GB per disk
-Premium SSD with disk size 512 GiB or more  | 16 KB or greater |20 MB/s | 1,684 GB per disk
+Standard storage | 8 KB    | 2 MBps | 168 GB per disk
+Premium SSD with disk size 128 GiB or more  | 8 KB    | 2 MBps | 168 GB per disk
+Premium SSD with disk size 128 GiB or more  | 16 KB | 4 MBps |    336 GB per disk
+Premium SSD with disk size 128 GiB or more  | 32 KB or greater | 8 MBps | 672 GB per disk
+Premium SSD with disk size 512 GiB or more  | 8 KB    | 5 MBps | 421 GB per disk
+Premium SSD with disk size 512 GiB or more  | 16 KB or greater |20 MBps | 1,684 GB per disk
 
-High-churn support is now available in Site Recovery where churn limit per VM increased up to 100 MB/s. For more information, see [Azure VM disaster recovery: High-churn support](./concepts-azure-to-azure-high-churn-support.md).
+High-churn support is now available in Site Recovery where churn limit per VM increased up to 100 MBps. For more information, see [Azure VM disaster recovery: High-churn support](./concepts-azure-to-azure-high-churn-support.md).
 
 ## <a name = "replicated-machines---networking"></a>Replicated machines: Networking
 
