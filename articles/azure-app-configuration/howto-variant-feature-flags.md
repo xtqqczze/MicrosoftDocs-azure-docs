@@ -8,7 +8,7 @@ ms.author: rossgrambo
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/18/2024
+ms.date: 10/31/2025
 ---
 
 # Use variant feature flags
@@ -64,7 +64,7 @@ In this tutorial, you create a web app named _Quote of the Day_. When the app is
 
 ## Create a variant feature flag
 
-1. Create a variant feature flag called *Greeting* with no label in your App Configuration store. It includes three variants: *None*, *Simple*, and *Long*, each corresponding to different greeting messages. Refer to the following table for their configuration values and allocation settings. For more information on how to add a variant, see [Create a feature flag - Tailored experience](./manage-feature-flags.md?tabs=tailored-experience#create-a-feature-flag-using-the-azure-portal) or [Create a feature flag - Experiment](./manage-feature-flags.md?tabs=experiment#create-a-feature-flag-using-the-azure-portal).
+1. Create a variant feature flag called *Greeting* with no label in your App Configuration store. It includes three variants: *None*, *Simple*, and *Long*, each corresponding to different greeting messages. Refer to the following table for their configuration values and allocation settings. For more information on how to add a variant, see [Create a feature flag - Experiment](./manage-feature-flags.md?tabs=experiment#create-a-feature-flag-using-the-azure-portal).
 
     | Variant Name | Variant Configuration Value | Allocation| 
     |---|---|---|
