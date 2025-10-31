@@ -107,10 +107,8 @@ public static async Task Run(
 ```
 
 > [!NOTE]  
-> The exception message typically identifies which activity functions or sub-orchestrations caused the failure.  
-> To access more detailed error information, inspect the [`FailureDetails`](/dotnet/api/microsoft.durabletask.taskfailuredetails) property.  
-> By default, `FailureDetails` includes the **error type**, **error message**, **stack trace**, and any **nested inner exceptions** (each represented as a recursive `FailureDetails` object).  
-> If you want to include additional exception properties in the failure output, see [Include Custom Exception Properties for FailureDetails (.NET Isolated)](./include-custom-exception-properties-for-failuredetails-dotnet-isolated.md).  
+> - The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the [`FailureDetails`](/dotnet/api/microsoft.durabletask.taskfailuredetails) property.  
+> - By default, `FailureDetails` includes the **error type**, **error message**, **stack trace**, and any **nested inner exceptions** (each represented as a recursive `FailureDetails` object).  If you want to include additional exception properties in the failure output, see [Include Custom Exception Properties for FailureDetails (.NET Isolated)](#include-custom-exception-properties-for-failuredetails-dotnet-isolated).  
 
 # [JavaScript (PM3)](#tab/javascript-v3)
 
@@ -310,11 +308,11 @@ public static async Task<List<string>> MyOrchestrator(
 ```
 # [JavaScript (PM3)](#tab/javascript-v3)
 
-Entity functions aren't currently not supported in JavaScript.
+
 
 # [JavaScript (PM4)](#tab/javascript-v4)
 
-Entity functions aren't currently not supported in JavaScript.
+
 
 # [Python](#tab/python)
 
