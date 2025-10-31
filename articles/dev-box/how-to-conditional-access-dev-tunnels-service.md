@@ -92,5 +92,5 @@ With Dev Tunnels, the following limitations apply:
 - **IP range enforcement**: Dev Tunnels might not support granular IP restrictions. Consider using network-level controls or consult your security team for alternative enforcement strategies.
 
 ## Related content
-- [Open a dev box in VS Code](how-to-set-up-dev-tunnels.md).
+- [Open a dev box in VS Code](how-to-set-up-dev-tunnels.md)
 - [Conditional Access policies](/entra/identity/conditional-access/concept-conditional-access-policies)
