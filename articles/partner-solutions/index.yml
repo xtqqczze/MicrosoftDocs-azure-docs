@@ -51,7 +51,7 @@ productDirectory:
     - title: Dell PowerScale Preview
       imageSrc: ./media/index/dell.svg
       links:
-        - text: Scalable, high-performance enterprise file storage, delivered as a native managed service. 
+        - text: Scalable, high-performance enterprise file storage. 
           url: ./dell/overview.md
     - title: Dynatrace
       imageSrc: ./media/index/dynatrace.svg

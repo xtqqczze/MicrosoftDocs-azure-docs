@@ -8,17 +8,17 @@ ai-usage: ai-assisted
 
 # What is Dell PowerScale Preview?
 
-Dell PowerScale Preview is an enterprise-class, high-performance software-defined file storage solution that brings the Dell PowerScale OneFS Operating System to Azure. It provides a universal storage layer to enable seamless data movement between on-premises and Azure while maintaining performance, operational consistency, and enterprise-class data services. It's jointly developed and managed by Microsoft and Dell as an [Azure Native Integration](../overview.md). [!INCLUDE [what-is](../includes/what-is.md)]
+Dell PowerScale Preview is a file storage solution designed for demanding, scale-out workloads that brings the Dell PowerScale OneFS Operating System to Azure. It provides a storage layer that supports data movement between on-premises PowerScale clusters and Azure. It's jointly developed and managed by Microsoft and Dell as an [Azure Native Integration](../overview.md). [!INCLUDE [what-is](../includes/what-is.md)]
 
 ## What is it used for?
 
-Dell PowerScale is designed for organizations that need scalable, high-performance file storage in the cloud that's optimized for unstructured data and hybrid workflows.
+Dell PowerScale targets organizations that require scalable file storage in the cloud for unstructured data and hybrid workflows
 
 Typical use cases include:
-- Accelerating AI, machine learning, and analytics workloads with high-throughput, low-latency file access for large datasets.
-- Supporting media and entertainment workflows like video rendering, editing, and content distribution at scale.
-- Providing enterprise-grade file services with multi-protocol support (NFS, SMB, S3) for applications and user directories.
-- Enabling hybrid cloud strategies through seamless data mobility between on-premises PowerScale clusters and Azure.
+- AI, machine learning, and analytics workloads that require high-throughput, low-latency file access for large datasets.
+- Media and entertainment workflows like video rendering, editing, and content distribution at scale.
+- File services with multi-protocol support (NFS, SMB, S3) for applications and user directories.
+- Hybrid cloud scenarios with data mobility between on-premises PowerScale clusters and Azure.
 
 ## Key features
 
