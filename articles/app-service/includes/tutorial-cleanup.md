@@ -1,5 +1,4 @@
 ---
-services: storage, app-service-web
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service

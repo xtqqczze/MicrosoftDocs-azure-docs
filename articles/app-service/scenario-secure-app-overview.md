@@ -1,7 +1,6 @@
 ---
 title: Tutorial - Build a secure web app on Azure App Service | Azure
 description: In this tutorial, you learn how to build a web app by using Azure App Service, enable authentication, call Azure Storage, and call Microsoft Graph.
-services: active-directory, app-service-web, storage, microsoft-graph
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service

@@ -1,7 +1,6 @@
 ---
 title: Tutorial - JavaScript Web app accesses Microsoft Graph as the app| Azure
 description: In this tutorial, you learn how to access data in Microsoft Graph from a JavaScript web app by using managed identities.
-services: microsoft-graph, app-service-web
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service

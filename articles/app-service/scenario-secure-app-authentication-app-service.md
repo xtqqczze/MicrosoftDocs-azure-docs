@@ -1,7 +1,6 @@
 ---
 title: Quickstart - Add app authentication to a web app
 description: Learn how to enable app authentication for a web app running on Azure App Service. Limit access to the web app to users in your organization​.
-services: active-directory, app-service-web
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
