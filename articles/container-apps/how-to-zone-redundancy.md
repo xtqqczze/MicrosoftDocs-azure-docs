@@ -205,6 +205,6 @@ To verify that zone redundancy is enabled for your Container Apps environment:
     $Env.ZoneRedundant
     ```
 
-1. The command displays `True` if the enironment is zone-redundant, and `False` if it isn't.
+1. The command displays `True` if the environment is zone-redundant, and `False` if it isn't.
 
 ---
