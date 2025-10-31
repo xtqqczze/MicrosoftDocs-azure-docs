@@ -52,7 +52,7 @@ Objects on smart tier are billed the capacity meters and connected prices of the
 Smart tier charges a monitoring operation for each set of 10,000 objects over 128KiB managed by smart tier.
 Objects in smart tier are not charged for tier transitions within smart tier, early deletion fees, or data retrieval operations.
 
-All access operations billed for smart tier objects occur against the hot tier. This includes the initial transaction that triggers the move to hot tier for any object on other residency tiers. Moving existing objects into smart tier does not trigger any tier transition transaction, moving blobs out of smart tier triggers a cool write operation per object.
+All access operations billed for smart tier objects occur against the hot tier. This includes the initial transaction that triggers the move to hot tier for any object on other capacity tiers. Moving existing objects into smart tier does not trigger any tier transition transaction, moving blobs out of smart tier triggers a cool write operation per object.
 Versions and snapshots are billed full content length in current public preview phase.
 Storage account metrics can be leveraged to identify the distribution of smart tier objects across the underlying tiers for both blob count and blob capacity. Objects smaller than 128KiB will be displayed under the regular hot tier metric.
 
