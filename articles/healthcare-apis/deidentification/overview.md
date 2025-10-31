@@ -5,7 +5,7 @@ author: kimiamavon-msft
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: overview
-ms.date: 06/16/2025
+ms.date: 10/24/2025
 ms.author: kimiamavon
 ---
 
@@ -14,7 +14,11 @@ ms.author: kimiamavon
 ![Tag Redact and Surrogation operations.](tag-redact-surrogate-operations.png)
 
 
-The de-identification service in Azure Health Data Services enables healthcare organizations to de-identify clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 27 entities - including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
+The de-identification service in Azure Health Data Services enables healthcare organizations to de-identify clinical data in [multiple languages](articles/healthcare-apis/deidentification/languages-supported) so that the resulting data retains its clinical relevance and distribution while also adhering to the:
+- Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule
+- unlinked pseudonymization principle under General Data Protection Regulation
+
+The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 27 entities (*including the HIPAA 18 Protected Health Information (PHI) identifiers*) from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
 
 ## How do you benefit from de-identifying your data? 
 
@@ -25,6 +29,7 @@ The de-identification service in Azure Health Data Services enables healthcare o
 | Data Engineer           | Build and test dev environments using realistic, non-identifiable data for safer deployment.             |
 | Customer Service Agent  | Summarize support conversations and extract insights while maintaining patient confidentiality.           |
 | Executive Leader (C-Suite) | Reduce risks of data exposure, enable secure data sharing, drive AI adoption responsibly, and ensure regulatory compliance. |
+| Regulatory & Compliance Officer | Ensure data handling aligns with HIPAA Safe Harbor and GDPR pseudonymization standards across multiple languages and geographies. |
 
 ## Why is this service the right fit for your use case? 
 
@@ -49,11 +54,13 @@ The de-identification service offers many benefits, including:
 - **Expanded PHI coverage:**
 The service expands beyond the 18 HIPAA Identifiers to provide stronger privacy protections and more fine-grained distinctions between entity types. It distinguishes between Doctor and Patient, and covers [27 PHI entities the service de-identifies](/rest/api/health-dataplane/deidentify-text/deidentify-text#phicategory).
 
-- **PHI compliance**: The de-identification service is designed for protected health information (PHI). The service uses machine learning to identify PHI entities, including HIPAA’s 18 identifiers, using the “TAG” operation. The redaction and surrogation operations replace these identified PHI values with a tag of the entity type or a surrogate, or pseudonym. The service adheres to compliance requirements such as HIPAA.
+- **PHI compliance**: The de-identification service is designed for protected health information (PHI). The service uses machine learning to identify PHI entities, including HIPAA’s 18 identifiers, using the “TAG” operation. The redaction and surrogation operations replace these identified PHI values with a tag of the entity type or a surrogate, or pseudonym. The service supports compliance requirements such as HIPAA and GDPR principles.
 
 - **Security**: The de-identification service is a stateless service. Customer data stays within the customer’s tenant.
 
 - **Role-based Access Control (RBAC)**: Azure role-based access control (RBAC) enables you to manage how your organization's data is processed, stored, and accessed. You determine who has access to de-identify datasets based on roles you define for your environment.
+
+![Screenshot of consistent surrogation.](consistent-surrogation-french.png)
 
 ## Easy API Integration Into Your Workflow
 
