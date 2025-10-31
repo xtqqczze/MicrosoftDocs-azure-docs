@@ -14,7 +14,7 @@ This article describes how to manage your Dell PowerScale Preview resource.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-:::image type="content" source="media/manage/resource-overview.png" alt-text="Screenshot that shows the Overview page." lightbox="media/dell-manage/dell-overview.png"::: 
+:::image type="content" source="media/manage/resource-overview.png" alt-text="Screenshot that shows the Overview page." lightbox="media/manage/overview.png"::: 
 
 The **Essentials** details include:
 

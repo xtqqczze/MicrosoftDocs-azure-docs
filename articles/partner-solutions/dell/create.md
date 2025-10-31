@@ -67,7 +67,7 @@ The **Networking** tab has two sections:
 - **Networking details**
 - **SmartConnect FQDN**
 
-:::image type="content" source="media/dell-create/networking.png" alt-text="Screenshot that shows the Networking tab of the Create a Dell PowerScale resource page.":::
+:::image type="content" source="media/create/networking.png" alt-text="Screenshot that shows the Networking tab of the Create a Dell PowerScale resource page.":::
 
 There are required fields that you need to fill out.
 
@@ -82,7 +82,7 @@ There are required fields that you need to fill out.
  
     | Setting   |Action    |
     |----------|------------------|
-    |**SmartConnect service name**|Enter a fully qualified domain name to configure SmartConnect for Dell PowerScale File Storage.|
+    |**SmartConnect service name**|Enter a fully qualified domain name to configure SmartConnect.|
 
 1. If you want to create tags, select the **Tags** tab. See the next section. Otherwise, select the **Review + create** button at the bottom of the page.
 
