@@ -43,7 +43,7 @@ An Azure Migrate project is used to store discovery, assessment, and migration m
 5. Provide a **name** for your migration project
     :::image type="content" source="./media/quickstart-evaluate-readiness-savings-for-arc-resources/create-project-form.png" alt-text="Screenshot of Azure portal showing the form to 'Create a migration project'." lightbox="./media/quickstart-create-project/assess-migrate-servers-expanded.png":::
  
-6.	Select **Subscription**, **Resource group, and **Region** for your project. All migration related metadata is stored in this region.
+6.	Select **Subscription**, **Resource group**, and **Region** for your project. All migration related metadata is stored in this region.
  
 7.	Under **Scope**, select one or more **Subscriptions with Arc resources** that you want to include in this project. 
  
@@ -74,11 +74,11 @@ To view the business cases:
 
 ## View default assessment
 
-Similarly, when you create an Azure Migrate project with Arc resources, a default assessment named *default-all-workloads* is created. This assessment includes evaluates all workloads (servers and SQL Server instances) in scope.
+Similarly, when you create an Azure Migrate project with Arc resources, a default assessment named *default-all-workloads* is created. This assessment  evaluates all workloads (servers and SQL Server instances) in scope.
 
 To view the default assessment:
 
-1. Navigate to **Savings and Readiness (Preview)** pane in Azure Arc center as described in the [Create a migrate project with your Arc resources section](#create-a-migrate-project-with-your-arc-resources) section. By defautl, you're taken to the **Business case** tab.
+1. Navigate to **Savings and Readiness (Preview)** pane in Azure Arc center as described in the [Create a migrate project with your Arc resources section](#create-a-migrate-project-with-your-arc-resources) section. By default, you're taken to the **Business case** tab.
 
 2. Switch to the **Assessment** tab.
 
@@ -119,11 +119,14 @@ To create a custom assessment:
 
 If you no longer need the project, delete it by following these steps:
 
-1. Open the Azure resource group in which the project was created.
-2. On the Resource Group page, select **Show hidden types**.
-3. Select the project and its associated resources.
-    - The resource type is **Microsoft.Migrate/migrateprojects**.
-    - If the resource group is exclusively used by the project, you can delete the entire resource group.
+1. In Azure portal, search for *Azure Migrate*
+2. Under **Services**, select **Azure Migrate**.
+3. In **Azure Migrate**, select **All projects**.
+4. In **All projects**, search and select the project you want to delete. 
+5. Select **Delete** in the toolbar. 
+6. In the **Select associated resources** tab, ensure all resources are selected and select **Review**
+7. In the **Review** tab, enter the name of the project to confirm deletion
+8. Select **Delete**
 
 ## Next steps
 

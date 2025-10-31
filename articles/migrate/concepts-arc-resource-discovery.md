@@ -36,7 +36,7 @@ Azure Migrate supports discovery and assessment of the following Arc-enabled res
 | Resource Type | Assessment Support | Details |
 |---------------|-------------------|---------|
 | **Arc-enabled servers** | ✅ Supported | Windows and Linux servers running Arc connected machine agent version 1.46 or higher |
-| **Arc-enabled SQL Server** | ✅ Supported | SQL Server instances managed by Azure Arc. Migration assessment must be enabled to get rightsizing and SQL MI and Azure SQL DB recommendations. |
+| **Arc-enabled SQL Server** | ✅ Supported | SQL Server instances managed by Azure Arc. [Migration assessment](/sql/sql-server/azure-arc/migration-assessment) must be enabled to get rightsizing and SQL MI and Azure SQL DB recommendations. |
 
 ## How Arc-based discovery works
 

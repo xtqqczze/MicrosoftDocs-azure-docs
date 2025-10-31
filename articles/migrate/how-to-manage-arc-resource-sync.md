@@ -20,6 +20,11 @@ When you create an Azure Migrate project for Arc resources, it syncs metadata fr
 - You need an existing Azure Migrate project created for Arc resources. If you don't have one, see [Create a migrate project for Arc resources](quickstart-evaluate-readiness-savings-for-arc-resources.md).
 - You also need **Migrate Arc Discovery Reader - Preview** role on subscriptions containing Arc resources you want to sync.
 
+## Sync types
+Azure Migrate supports the following sync types
+- Manual sync
+- Automatic sync
+
 ## Manual sync
 
 Manual sync allows you to immediately refresh your Azure Migrate project with the latest data from your Arc-enabled resources.
@@ -45,7 +50,7 @@ Use manual sync when:
 5. You'll receive a notification when the sync completes successfully.
 
 > [!NOTE]
-> During sync, Azure Migrate collects metadata about your Arc-enabled resources but doesn't change the resources.
+> During sync, Azure Migrate collects metadata about your Arc-enabled resources but doesn't change the resources. When you perform an on-demand sync, change sync type, enable/disable tag sync or edit project scope, along with data sync, Azure Migrate also recalculates thed default assessments and business cases.
 
 ## Automatic sync
 
@@ -56,8 +61,9 @@ Automatic sync configures your Azure Migrate project to periodically sync Arc re
 When you enable automatic sync:
 - Azure Migrate uses the project's managed identity to access Arc resources
 - The managed identity is automatically enabled when you create a project with Arc resources
-- Sync runs periodically
-- You're notified if sync fails due to permission or connectivity issues
+- Automatic sync runs once every 24 hours. 
+- You can manually trigger a sync any time. Based on sync type, the sync will either use your identity or the Azure Migrate project managed identity to perform the sync. 
+
 
 ### Configure automatic sync
 
