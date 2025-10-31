@@ -17,7 +17,6 @@ This tutorial demonstrates how to deploy and interact with a shell environment i
 In this tutorial you:
 
  [!div class="checklist"]
-
 - Create a shell session pool with MCP server enabled
 - Set up the MCP server endpoint and credentials
 - Execute shell commands remotely using JSON-RPC

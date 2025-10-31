@@ -16,7 +16,6 @@ This tutorial demonstrates how to deploy a shell session pool in Azure Container
 In this tutorial you:
 
  [!div class="checklist"]
-
 - Deploy a shell session pool using ARM templates
 - Create a user-assigned managed identity with appropriate permissions
 - Execute shell commands via the Dynamic Sessions API
