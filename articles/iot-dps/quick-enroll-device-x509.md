@@ -25,17 +25,20 @@ This article shows you how to programmatically create an [enrollment group](conc
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
 :::zone pivot="programming-language-csharp"
 
-* Install [.NET 6.0 SDK or later](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info
     ```
+
+    > [!IMPORTANT]
+    > You must use the .NET 6.0 SDK to build and run the sample code in this article. The sample currently doesn't work with later versions of the SDK.
 
 :::zone-end
 
