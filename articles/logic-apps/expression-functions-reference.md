@@ -5032,7 +5032,7 @@ xml(
     addProperty(
       json('{}'),
       'array',
-      outputs('Compose1'),
+      outputs('Compose1')
     )
   )
 )
