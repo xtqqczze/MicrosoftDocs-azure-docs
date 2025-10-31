@@ -125,7 +125,7 @@ To add an asset in the operations experience:
     > [!TIP]
     > You can use the filter box to search for assets.
 
-1. Select **Create namespace asset**.
+1. Select **Create asset**.
 
 1. On the asset details screen, enter the following asset information:
 
@@ -188,13 +188,11 @@ Now you can define the data points associated with the dataset. To add OPC UA da
     | ns=3;s=FastUInt10 | Temperature |
     | ns=3;s=FastUInt100 | Humidity |
 
-1. To configure the MQTT topic to publish the data point data to, select **Manage default dataset**. Enter an MQTT topic name such as `azure-iot-operations/data/thermostat`, then select **Update**.
-
 1. On the **data points** page, select **Next** to go to the **Add events** page.
 
 # [Azure CLI](#tab/cli)
 
-Use the following commands to add a "thermostat" namespace asset to your device by using the Azure CLI. The commands add a dataset and two data points to the asset by using the `point add` command:
+Use the following commands to add a thermostat asset to your device by using the Azure CLI. The commands add a dataset and two data points to the asset by using the `point add` command:
 
 ```azurecli
 # Create the asset
@@ -343,7 +341,7 @@ Find and select the asset you created previously. Use the **Asset details**, **d
 
 :::image type="content" source="media/howto-configure-opc-ua/asset-update-property-save.png" alt-text="A screenshot that shows how to update an existing asset in the operations experience." lightbox="media/howto-configure-opc-ua/asset-update-property-save.png":::
 
-On the **data points** tab, you can add data points, update existing data points, or remove data points.
+On the **view data points** tab for a dataset, you can add data points, update existing data points, or remove data points.
 
 To update a data point, select an existing data point and update the data point information. Then select **Update**:
 
@@ -359,7 +357,7 @@ When you're finished making changes, select **Save** to save your changes.
 
 # [Azure CLI](#tab/cli)
 
-To list your namespace assets associated with a specific endpoint, use the following command:
+To list your assets associated with a specific endpoint, use the following command:
 
 ```azurecli
 az iot ops ns asset query --device {your device name} --endpoint-name {your endpoint name}

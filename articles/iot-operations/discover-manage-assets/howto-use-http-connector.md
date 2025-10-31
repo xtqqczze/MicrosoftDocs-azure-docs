@@ -22,7 +22,7 @@ The connector for HTTP/REST supports the following features:
 
 - Automatic retries when sampling failures occur. Reports a failed status for errors that can't be retried.
 - Integration with OpenTelemetry.
-- Use of _device endpoints_ and _namespace assets_.
+- Use of _device endpoints_ and _assets_.
 - Optionally transform incoming data using WASM modules.
 - Device endpoint and asset definition validation for REST compatibility.
 - Multiple authentication methods:
@@ -33,7 +33,7 @@ The connector for HTTP/REST supports the following features:
 
 For each configured dataset, the connector for HTTP/REST:
 
-- Performs a GET request to the address specified in the device endpoint and appends the dataset's data source from the namespace asset.
+- Performs a GET request to the address specified in the device endpoint and appends the dataset's data source from the asset.
 - Generates a message schema for each dataset based on the data it receives, and registers it with Schema Registry and Azure Device Registry.
 - Forwards the data to the specified destination.
 
@@ -120,13 +120,13 @@ To use the `Username password` authentication mode, complete the following steps
 
 To manage the trusted certificates list for the connector for HTTP/REST, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
 
-## Create a namespace asset
+## Create an asset
 
-To define a namespace asset that publishes data points from the HTTP endpoint, follow these steps:
+To define an asset that publishes data points from the HTTP endpoint, follow these steps:
 
 # [Operations experience](#tab/portal)
 
-1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select **Create namespace asset**.
+1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select **Create asset**.
 
 1. Select the inbound endpoint for the connector for HTTP/REST that you created in the previous section.
 

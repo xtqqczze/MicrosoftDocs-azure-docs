@@ -56,25 +56,19 @@ From the list of discovered assets, you can import an asset into your Azure IoT 
 
 1. Select the asset you want to import from the list of discovered assets. Then select **+ Import and create asset**.
 
-1. The site takes you to the **Asset details** page for a namespace asset, where you can review the asset details and make any changes. Enter a name and description for the discovered asset:
+1. The site takes you to the **Asset details** page for an asset, where you can review the asset details and make any changes. Enter a name and description for the discovered asset:
 
     :::image type="content" source="media/howto-detect-opc-ua-assets/add-asset-details.png" alt-text="Screenshot that shows an asset created from a discovered asset.":::
 
-1. Step through the rest of the **Create asset** pages and select the imported tags and events that you want to use:
+1. Step through the rest of the **Create asset** pages and select the imported data points and events that you want to use:
 
-    :::image type="content" source="media/howto-detect-opc-ua-assets/add-imported-tags.png" alt-text="Screenshot that shows how to modify the tags of an imported asset.":::
+    :::image type="content" source="media/howto-detect-opc-ua-assets/add-imported-tags.png" alt-text="Screenshot that shows how to modify the data points of an imported asset.":::
 
-1. The imported namespace asset is created in your Azure IoT Operations instance. You can view the asset in the **Assets** page of the operations experience:
+1. The imported asset is created in your Azure IoT Operations instance. You can view the asset in the **Assets** page of the operations experience:
 
     :::image type="content" source="media/howto-detect-opc-ua-assets/provisioned-asset.png" alt-text="Screenshot that shows how to view the imported asset.":::
 
 To learn more about managing asset configurations, see [Manage asset configurations](howto-use-operations-experience.md).
-
-## Review the asset definitions in the Azure portal (optional)
-
-Both the discovered asset and the imported asset are visible in your resource group in the Azure portal:
-
-:::image type="content" source="media/howto-detect-opc-ua-assets/portal-assets.png" alt-text="Screenshot that shows how to view the discovered and imported asset in the Azure portal.":::
 
 ## Review the custom resource definitions in your cluster (optional)
 

@@ -37,7 +37,7 @@ After you enable secure settings, the resource group that contains your Azure Io
 - An Azure Key Vault instance to store the secrets to synchronize into your Kubernetes cluster.
 - A user-assigned managed identity that Azure IoT Operations uses to access the Azure Key Vault instance.
 - A user-assigned managed identity that Azure IoT Operations components such as data flows can use to uses to connect to cloud endpoints such as Azure Event Hubs.
-- An Azure Device Registry namespace to store your namespace assets and devices.
+- An Azure Device Registry namespace to store your assets and devices.
 
 Ensure that when you configure secure settings that you [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the **Key Vault Secrets Officer** role.
 
@@ -195,7 +195,7 @@ After you select your instance in operations experience, you see the available l
 
 ### Create an asset
 
-To create an asset, select **Create namespace asset**. Then enter the following asset information:
+To create an asset, select **Create asset**. Then enter the following asset information:
 
 | Field | Value |
 | --- | --- |

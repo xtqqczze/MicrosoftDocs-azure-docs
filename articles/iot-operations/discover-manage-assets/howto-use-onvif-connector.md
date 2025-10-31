@@ -41,7 +41,7 @@ Together, the media connector, connector for ONVIF, Azure IoT Operations, and co
 This article describes how to use the operations experience web UI to:
 
 - Add a device that has an ONVIF endpoint for a compliant camera.
-- View the namespace assets and devices discovered at the ONVIF endpoint.
+- View the assets and devices discovered at the ONVIF endpoint.
 - Create a device that represents the media endpoints exposed by the ONVIF camera.
 - Create an asset that captures snapshots from the media endpoint and publishes them to the MQTT broker.
 
@@ -192,7 +192,7 @@ To create a device with media endpoints from the discovered device, follow these
 
 You can now use the discovered media device to create an asset that captures snapshots from the camera and publishes them to the MQTT broker. To create the media asset, follow these steps:
 
-1. In the operations experience web UI, select **Assets** from the left navigation pane. Then select **Create new namespace asset**.
+1. In the operations experience web UI, select **Assets** from the left navigation pane. Then select **Create asset**.
 
 1. On the **Asset details page**, enter a name for the asset, such as `my-onvif-camera-media-asset`. Then select the discovered endpoint you want to use to capture snapshots.
 

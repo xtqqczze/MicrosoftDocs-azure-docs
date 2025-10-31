@@ -22,7 +22,7 @@ The connector for SSE supports the following features:
 
 - Automatic retries when sampling failures occur. Reports a failed status for errors that can't be retried.
 - Integration with OpenTelemetry.
-- Use of _device endpoints_ and _namespace assets_.
+- Use of _device endpoints_ and _assets_.
 - Inferring a schema from the JSON payload.
 - Multiple authentication methods:
   - Username/password basic HTTP authentication
@@ -119,13 +119,13 @@ To use the `Username password` authentication mode, complete the following steps
 
 To manage the trusted certificates list for the connector for SSE, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
 
-## Create a namespace asset
+## Create an asset
 
-To define a namespace asset that publishes events from the SSE endpoint, follow these steps:
+To define an asset that publishes events from the SSE endpoint, follow these steps:
 
 # [Operations experience](#tab/portal)
 
-1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select **Create namespace asset**.
+1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select **Create asset**.
 
 1. Select the inbound endpoint for the connector for SSE that you created in the previous section.
 
@@ -133,15 +133,15 @@ To define a namespace asset that publishes events from the SSE endpoint, follow 
 
 1. Add any custom properties you want to associate with the asset. For example, you might add a property to indicate the manufacturer of the camera. Select **Next** to continue.
 
-1. On the **Events** page, select **Add event** to add an event for the asset. For example:
+1. On the **Datasets** page, create any datasets required and define the data points.
+
+1. On the **Event groups** page, create an event group to define the events to publish to the MQTT broker.
+
+1. In the event group, select **Add event** to add an event for the asset. For example:
 
     :::image type="content" source="media/howto-use-sse-connector/add-event.png" alt-text="Screenshot that shows how to add an event for SSE source." lightbox="media/howto-use-sse-connector/add-event.png":::
 
     Add details for each event to publish to the MQTT broker.
-
-1. To configure the destination for the data, select **Manage event groups** and then select the event group. Configure the MQTT destination:
-
-    :::image type="content" source="media/howto-use-sse-connector/configure-dataset.png" alt-text="Screenshot that shows how to configure the event-group for SSE source." lightbox="media/howto-use-sse-connector/configure-dataset.png":::
 
     Select **Next** to continue.
 
