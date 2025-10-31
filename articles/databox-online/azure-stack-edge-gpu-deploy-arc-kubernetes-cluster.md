@@ -18,7 +18,7 @@ ms.custom: sfi-image-nochange
 This article shows you how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge Pro device.
 
 > [!NOTE]
->To Arc-enable a Kubernetes cluster, see [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
+> Follow the instructions at [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 
 This procedure assumes that you've read and understood the following articles:
 
