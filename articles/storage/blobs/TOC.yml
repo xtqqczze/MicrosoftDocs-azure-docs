@@ -540,6 +540,12 @@ items:
     items:
     - name: Performance and scalability checklist
       href: storage-performance-checklist.md
+    - name: Put in partitioning guide
+      href: Storage-performance-partitioning.md
+    - name: Put in developer guide
+      href: Storage-performance-dev-guide.md
+    - name: Remove entirely
+      href: Storage-performance-content-removal.md
     - name: Latency in Blob storage
       href: storage-blobs-latency.md
     - name: Scalability and performance targets
