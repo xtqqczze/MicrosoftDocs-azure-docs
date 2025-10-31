@@ -42,7 +42,31 @@ Conditional access policies for the Dev Tunnels service:
 
 The conditional access policies work correctly for the Dev Tunnels service. Because registering the Dev Tunnels service app to a tenant and making it available to the conditional access picker is unique, this article documents the steps.
 
-## Enable the Dev Tunnels service for the conditional access picker
+### Register Dev tunnels service to a tenant
+
+According to [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals?tabs=browser), a service principal is created in each tenant where an application is used. However, this doesn't apply to the Dev tunnels service. The Dev tunnels service is a Microsoft service, and the service principal is created in the Microsoft Entra ID tenant where the Dev tunnels service is registered. The Dev tunnels service app isn't registered to your tenant by default, so you need to register it manually.
+
+Therefore, we're using [Microsoft.Graph PowerShell](/powershell/module/microsoft.graph.authentication/connect-mggraph?view=graph-powershell-1.0&preserve-view=true) to register the app to a tenant.
+
+1. Install PowerShell 7.x
+
+1. Follow [Install the Microsoft Graph PowerShell SDK | Microsoft Learn](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true) to install Microsoft.Graph PowerShell.
+
+1. Run the following commands:
+    ```powershell
+    # Connect to Microsoft Graph
+    Connect-MgGraph -TenantId <TenantID> -Scopes "Application.ReadWrite.All"
+  
+    # Register the Dev tunnels service app to the tenant
+    $TunnelServiceAppId = "46da2f7e-b5ef-422a-88d4-2a7f9de6a0b2"
+    New-MgServicePrincipal -AppId $TunnelServiceAppId
+    ```
+
+1. In the Microsoft Entra admin center, under **Manage**, select **Enterprise applications**. Confirm that the Dev Tunnels service appears in the list of registered applications.
+
+   :::image type="content" source="media/how-to-conditional-access-dev-tunnels-service/dev-tunnels-register-service.png" alt-text="Screenshot of the Enterprise applications page in Microsoft Entra ID, showing the Dev tunnels service registration." lightbox="media/how-to-conditional-access-dev-tunnels-service/dev-tunnels-register-service.png":::
+
+### Enable the Dev Tunnels service for the conditional access picker
 
 The Microsoft Entra ID team is working on removing the need to onboard apps for them to appear in the app picker, with delivery expected in May. Therefore, we aren't onboarding Dev tunnel service to the conditional access picker. Instead, target the Dev tunnels service in a conditional access policy using [Custom Security Attributes](/entra/identity/conditional-access/concept-filter-for-applications).
 
@@ -60,7 +84,7 @@ The Microsoft Entra ID team is working on removing the need to onboard apps for 
 
    :::image type="content" source="media/how-to-conditional-access-dev-tunnels-service/dev-tunnels-security-attributes.png" alt-text="Screenshot of configuring custom attributes for the Dev tunnels service in Microsoft Entra ID." lightbox="media/how-to-conditional-access-dev-tunnels-service/dev-tunnels-security-attributes.png":::
 
-## Testing
+## Test the conditional access policy
 
 1. Turn off the BlockDevTunnelCA policy.
 
@@ -92,5 +116,5 @@ With Dev Tunnels, the following limitations apply:
 - **IP range enforcement**: Dev Tunnels might not support granular IP restrictions. Consider using network-level controls or consult your security team for alternative enforcement strategies.
 
 ## Related content
-- [Open a dev box in VS Code](how-to-set-up-dev-tunnels.md).
+- [Open a dev box in VS Code](how-to-set-up-dev-tunnels.md)
 - [Conditional Access policies](/entra/identity/conditional-access/concept-conditional-access-policies)
