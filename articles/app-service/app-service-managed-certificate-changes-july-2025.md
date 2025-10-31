@@ -23,7 +23,6 @@ This update addresses most scenarios that restrict public access, including App 
 Even with all validations now relying on HTTP token validation and DigiCert requests being allowed through, certain configurations are still not supported for ASMC:
 - Sites configured as "Nested" or "External" endpoints behind Traffic Manager. Only "Azure" endpoints are supported.
 - Certificates requested for domains ending in *.trafficmanager.net are not supported.
-- Internal Load Balancing (ILB) App Service Environments (ASEs) remain unsupported, which was the case before the July 2025 change.
 
 ### Testing 
 Customers can easily test whether their site’s configuration or set-up supports ASMC by attempting to create one for their site. If the initial request succeeds, renewals should also work, provided all requirements are met and the site is not listed in an unsupported scenario.
