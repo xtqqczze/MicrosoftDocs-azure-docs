@@ -72,9 +72,9 @@ Next, you need to configure the app registration to expose your API to Visual St
 
    You need this scope value in the next section.
 
-## Configure the authentication scope
+## Enable protected resource metadata by setting the authorization scope
 
-To enable MCP server authorization with the correct scope, you need to add an app setting to your App Service app.
+To enable MCP server authorization, you need to configure the protected resource metadata (PRM) by setting the authorization scope in an app setting. This allows MCP clients to discover the authentication requirements through the `/.well-known/oauth-protected-resource` endpoint.
 
 1. In the Azure portal, go back to your App Service app page.
 
@@ -88,7 +88,7 @@ To enable MCP server authorization with the correct scope, you need to add an ap
 
 1. Select **Apply**, then select **Apply** again to confirm and restart your app.
 
-   This setting configures the protected resource metadata (PRM) to include the required scope for MCP server authorization. Adding this app setting enables the `/.well-known/oauth-protected-resource` endpoint, which MCP clients use to discover the authentication requirements and scope needed to access your MCP server.
+   This setting configures the PRM to include the required scope for MCP server authorization.
 
 ## Connect from Visual Studio Code
 
