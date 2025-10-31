@@ -2,17 +2,17 @@
   "redirections": [
     {
       "source_path": "articles/backup/backup-azure-enhanced-soft-delete-tutorial.md",
-      "redirect_url": "/previous-versions/azure/backup/backup-azure-enhanced-soft-delete-tutorial",
+      "redirect_url": "/azure/backup/secure-by-default",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/backup/backup-azure-security-feature-cloud.md",
-      "redirect_url": "/previous-versions/azure/backup/backup-azure-security-feature-cloud",
+      "redirect_url": "/azure/backup/secure-by-default",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/backup/quick-backup-azure-enable-enhanced-soft-delete.md",
-      "redirect_url": "/previous-versions/azure/backup/quick-backup-azure-enable-enhanced-soft-delete",
+      "redirect_url": "/azure/backup/secure-by-default",
       "redirect_document_id": false
     },
     {
