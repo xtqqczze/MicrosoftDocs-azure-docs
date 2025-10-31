@@ -56,30 +56,30 @@ To generate report, complete the following steps:
 ### Upload zip file 
 
 1. Select **Assessments** on the Azure Migrate project **Overview** page under **Decide and Plan**.
-1. Search for the assessment with the **Workloads** filter and select it. 
-1. On the assessment **Overview** page, under **Add code insights** select **Using GitHub Copilot assessment**. 
+2. Search for the assessment with the **Workloads** filter and select it. 
+3. On the assessment **Overview** page, under **Add code insights** select **Using GitHub Copilot assessment**. 
 
 :::image type="content" source="./media/enhancing-web-app-assessment/using-github-copilot-assessment.png" alt-text="The screenshot shows how to select using github copilot assessment." lightbox="./media/enhancing-web-app-assessment/using-github-copilot-assessment.png":::
 
-1. In the Add code insights page, select **Upload a zip file**.  
+4. In the Add code insights page, select **Upload a zip file**.  
 
 :::image type="content" source="./media/enhancing-web-app-assessment/upload-zip-file.png" alt-text="The screenshot shows how to upload a zip file." lightbox="./media/enhancing-web-app-assessment/upload-zip-file.png":::
 
-1. Select **Browse**, choosed the location of the ZIP file containing reports you want to import and then select **Upload**. Wait for the upload and validation to complete.
-1. In the Web app list, under the **GitHub Copilot assessment** report dropdown, view the uploaded reports under **Uploaded from zip file**. 
+5. Select **Browse**, choosed the location of the ZIP file containing reports you want to import and then select **Upload**. Wait for the upload and validation to complete.
+6. In the Web app list, under the **GitHub Copilot assessment** report dropdown, view the uploaded reports under **Uploaded from zip file**. 
 
 :::image type="content" source="./media/enhancing-web-app-assessment/add-code-insights.png" alt-text="The screenshot shows how to add code insights." lightbox="./media/enhancing-web-app-assessment/add-code-insights.png":::
 
-1. Select the appropriate report to map to the respective web app. Repeat these steps for all required web app.  
+7. Select the appropriate report to map to the respective web app. Repeat these steps for all required web app.  
 
 :::image type="content" source="./media/enhancing-web-app-assessment/upload-from-zip-file.png" alt-text="The screenshot shows how to upload from the zip file." lightbox="./media/enhancing-web-app-assessment/upload-from-zip-file.png":::
 
-1. After mapping, select **Add** and wait for the process to complete.
+8. After mapping, select **Add** and wait for the process to complete.
 
 :::image type="content" source="./media/enhancing-web-app-assessment/add.png" alt-text="The screenshot shows how to add web app." lightbox="./media/enhancing-web-app-assessment/add.png":::
  
-1. After mapping is complete the assessment will be marked as outdated. Select **Recalculate** to initiate recalculation.
-1. After recalculation is complete, review the updated code insights.  
+9. After mapping is complete the assessment will be marked as outdated. Select **Recalculate** to initiate recalculation.
+10. After recalculation is complete, review the updated code insights.  
 
 ### Request report via GitHub
 
@@ -120,7 +120,7 @@ Provide the following details to set up your new GitHub App:
 
 3. Deselect **Active** under **Webhook** 
   
-:::image type="content" source="./media/enhancing-web-app-assessment/register-new-github.png" alt-text="The screenshot shows how to deselect the active webook." lightbox="./media/enhancing-web-app-assessment/active-webhook.png":::
+:::image type="content" source="./media/enhancing-web-app-assessment/active-webhook.png" alt-text="The screenshot shows how to deselect the active webook." lightbox="./media/enhancing-web-app-assessment/active-webhook.png":::
 
 4. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
   
@@ -156,15 +156,15 @@ Follow these steps to install GitHub App on your repository:
 Collate the following GitHub App details and private key to create a GitHub connection in Azure Migrate.
 
 1. Navigate to the GitHub App you created and select **Edit**. 
-1. Under **General** > **About**, find the **App ID** and note it. 
-1. Scroll down to **Private keys** and select **Generate a private key**. 
+2. Under **General** > **About**, find the **App ID** and note it. 
+3. Scroll down to **Private keys** and select **Generate a private key**. 
  
  >[!Note]
  > Rotate the private key every 90 days for security. If you generate a new private key, you must recreate the connection because updating the key isn’t currently supported.
 
-1. The new private key file downloads automatically to your machine. 
-1. To find the **Installation ID**, navigate to **Install App** and select **Settings** next to  the account where the app is installed.  
-1. After the installation completes, note the browser URL that contains the installation ID. For example, `https://github.com/settings/installations/<installationID>`
+4. The new private key file downloads automatically to your machine. 
+5. To find the **Installation ID**, navigate to **Install App** and select **Settings** next to  the account where the app is installed.  
+6. After the installation completes, note the browser URL that contains the installation ID. For example, `https://github.com/settings/installations/<installationID>`
 
 ### Request Web App Assessment report using GitHub connection
 
