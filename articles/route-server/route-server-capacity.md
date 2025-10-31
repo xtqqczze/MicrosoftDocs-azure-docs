@@ -1,7 +1,7 @@
 ---
 title: Azure Route Server Capacity
 titleSuffix: Azure Route Server
-description: Learn how to configure capacity for your Azure Route Server based on the number of VMs deployed
+description: Learn how to configure capacity for your Azure Route Server based on the number of virtual machines deployed
 author: siddomala
 ms.author: siddomala
 ms.service: azure-route-server
@@ -13,12 +13,12 @@ ms.date: 10/31/2025
 
 # <a name="capacity"></a>Azure Route Server capacity
 
-By default, an Azure Route Server is deployed with a capacity of 2 routing infrastructure units. This supports 4,000 connected VMs deployed in Route Server's virtual network and all peered virtual networks. 
+By default, an Azure Route Server is deployed with a capacity of two routing infrastructure units. This default deployment supports 4,000 connected VMs deployed in Route Server's virtual network and all peered virtual networks. 
 
-You can specify additional routing infrastructure units to increase Route Server's capacity in increments of 1,000 VMs. This feature gives you the ability to secure upfront capacity without having to wait for the Route Server to scale out when more VMs are needed. The scale unit on which the Route Server is created becomes the minimum capacity. 
+You can specify more routing infrastructure units to increase Route Server's capacity in increments of 1,000 VMs. This feature gives you the ability to secure upfront capacity without having to wait for the Route Server to scale out when more VMs are needed. The scale unit on which the Route Server is created becomes the minimum capacity. 
 
 
-When increasing Route Server's capacity, Route Server will continue to support the number of VMs at its current capacity until the scale out is complete. It may take up to 25 minutes for Route Server to scale out to additional routing infrastructure units. 
+When you increase Route Server's capacity, Route Server continues to support the number of VMs at its current capacity until the scale-out is complete. It may take up to 25 minutes for Route Server to scale out to more routing infrastructure units. 
 
 > [!NOTE]
 > Regardless of Route Server's capacity, Route Server can only accept a maximum of 10,000 routes from its connected resources (virtual networks, branches).
@@ -26,16 +26,14 @@ When increasing Route Server's capacity, Route Server will continue to support t
 
 ## Edit Route Server capacity
 
-Adjust Route Server's capacity when you need to support additional virtual machines.
+Adjust Route Server's capacity when you need to support more virtual machines.
 
-To add additional Route Server capacity, go to the **Configuration** blade under Azure portal, and adjust the number of Routing infrastructure units using the dropdown, then **Save**.
+To add more Route Server capacity, go to the **Configuration** blade under Azure portal, and adjust the number of Routing infrastructure units using the dropdown, then **Save**.
 
 ## Autoscaling
 Azure Route Server supports autoscaling based on spoke VM utilization. See [Azure Route Server Monitoring](monitor-route-server.md) for how to monitor your Route Server's routing infrastructure units and spoke VM utilization. 
 
-As the spoke VM utilization changes over time, the autoscaling algorithm dynamically adjusts the number of routing infrastructure units. It ensures the Route Server can handle the number of deployed VMs by selecting the greater value between the minimum routing infrastructure units you specify and the units required to support the current number of VMs.
-
-Autoscaling is not instantaneous. For improved infrastructure availability and performance, ensure that your minimum provisioned routing infrastructure units (RIUs) match the requirements of your workloads. Autoscaling won't reduce the provisioned RIUs below this minimum.
+As the spoke VM utilization changes over time, the autoscaling algorithm dynamically adjusts the number of routing infrastructure units. However, autoscaling is not instantaneous. For improved infrastructure availability and performance, ensure that your minimum provisioned routing infrastructure units (RIUs) match the requirements of your workloads. Autoscaling does not reduce the provisioned RIUs below this minimum.
 
 ### Routing infrastructure unit table
 
