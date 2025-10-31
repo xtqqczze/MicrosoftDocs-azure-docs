@@ -8,7 +8,7 @@ ai-usage: ai-assisted
 
 # What is Dell PowerScale Preview?
 
-Dell PowerScale Preview is an enterprise-class, high-performance software-defined file storage solution that brings PowerScale OneFS operating system to Azure. It provides a universal storage layer to enable seamless data movement between on-premises and Azure while maintaining performance, operational consistency, and enterprise-class data services. It's jointly developed and managed by Microsoft and Dell as an [Azure Native Integration](../overview.md). [!INCLUDE [what-is](../includes/what-is.md)]
+Dell PowerScale Preview is an enterprise-class, high-performance software-defined file storage solution that brings the Dell PowerScale OneFS Operating System to Azure. It provides a universal storage layer to enable seamless data movement between on-premises and Azure while maintaining performance, operational consistency, and enterprise-class data services. It's jointly developed and managed by Microsoft and Dell as an [Azure Native Integration](../overview.md). [!INCLUDE [what-is](../includes/what-is.md)]
 
 ## What is it used for?
 
