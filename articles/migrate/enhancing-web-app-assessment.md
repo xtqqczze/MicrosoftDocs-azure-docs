@@ -255,3 +255,7 @@ When this occurs, Azure Migrate uses content from valid files to generate the re
  - The report does not contain supported targets for the specified framework. - Occurs when the report includes targets that Azure Migrate does not support. AppCAT supports many targets, but Azure Migrate only supports a subset.
 
 When you encounter these errors, regenerate the report with the correct configuration and upload it again using a separate import flow.
+
+## Next steps
+
+Learn more about [create a web app assessment](review-web-app-assessment.md).
