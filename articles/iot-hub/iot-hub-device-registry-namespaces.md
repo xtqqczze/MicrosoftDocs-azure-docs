@@ -127,19 +127,23 @@ az iot ops ns create -n <my namespace name> -g $RESOURCE_GROUP
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
 1. Go to the **Namespaces** page.
 1. Select the namespace you want to create a policy for.
-1. In the namespace page, under **Resources**, select **Policies**.
-1. In the **Policies** page, select **+ Create** to create a new policy.
+1. In the namespace page, under **Namespace resources**, select **Credential policies (Preview)**.
+
+    :::image type="content" source="media/device-registry/custom-policy.png" alt-text="Screenshot of Azure Device Registry custom policy page in the Azure portal." lightbox="media/device-registry/custom-policy.png":::
+
+1. Select **Enable** to enable credential policies for your namespace, if you haven't already done so.
+1. In the **Credential policies** page, select **+ Create** to create a new policy.
 1. A pane appears where you can configure the policy settings. In the **Basics** tab, complete the fields as follows:
     
     | Property | Value |    
     | -------- | ----- |
     | **Name** | Enter a unique name for your policy. The name must be between 3 and 50 alphanumeric characters and can include hyphens (`'-'`). |
-    | **Enrollment group**| Select the enrollment group to associate with this policy. The enrollment group defines the attestation mechanism and onboarding process for devices using this policy. |
     | **Validity period (days)** | Enter the number of days the issued certificates are valid. The validity period must be between 1 and 3650 days (10 years). |
-    | **Interval (percentage)** | Enter the percentage of the validity period after which a certificate renewal should be initiated. For example, if you set this value to 80 and the validity period is 100 days, the renewal process starts after 80 days. |
 
 1. Select **Review + create** to review your settings.
-1. The new policy appears in the list of policies for your namespace. If you enabled a credential resource for your namespace, the policy is listed as *Enabled*.
+1. The new policy appears in the list of policies for your namespace. You can select the policy to view its details.
+1. In the policy overview page, you can see the policy name, validity period, and status, which should be enabled.
+
 
 > [!NOTE]
 > Editing or disabling a policy isn't supported in public preview.
@@ -199,15 +203,16 @@ Enabling a credential resource for an existing namespace is only supported throu
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
 1. Go to the **Namespaces** page.
 1. Select the namespace you want to sync policies for.
-1. In the namespace page, under **Resources**, select **Policies**.
-1. In the **Policies** page, you can view your policies, validity periods, intervals, and status.
+1. In the namespace page, under **Namespace resources**, select **Credential policies (Preview)**.
+1. In the **Credential policies** page, you can view your policies, validity periods, intervals, and status.
 1. Select the policies you want to sync. You can sync more than one policy at a time.
-1. Select **Sync policies**.
+1. Select **Sync**.
+
+    :::image type="content" source="media/device-registry/sync-policies.png" alt-text="Screenshot of the namespace page in Azure portal that shows the sync option." lightbox="media/device-registry/sync-policies.png":::
+
 
     > [!NOTE]
-    > If you select to sync more than one policy, policies are synced to their respective IoT hubs.
-
-1. In the **Sync policies** pane, review the policies to be synced and select **Sync**.
+    > If you select to sync more than one policy, policies are synced to their respective IoT hubs. You can't undo a sync operation once it's done.
 
 ### [Azure CLI](#tab/cli)
 
