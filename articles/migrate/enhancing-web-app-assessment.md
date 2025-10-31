@@ -12,36 +12,37 @@ ms.custom: engagement-fy24
 ---
 
 
-# Enhancing Web app assessment with Code Scan Reports for Azure migration
+#  insights using GitHub Copilot assessment
 
-This article describes how to improve web app assessments by including code scan reports when modernising applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code scan reports helps you better assess migration readiness and receive recommendations for appropriate migration strategies based on the code changes identified during the scan.
+This article describes how to improve web app assessments by adding code scan insights using GitHub Copilot assessment when modernising applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and receive recommendations for appropriate migration strategies based on the code changes identified during the scan.
 
 
 In this article, you’ll learn how to: 
 
-- Import code scan reports to Web app assessments  
-- Generate the code scan report using supported methods. 
-- Calculate assessment to see updated reports. 
+- Add code insights to Web app assessments  
+- Generate the GitHub Copilot Assessment report using supported methods. 
 - View updated assessment along with code insights. 
 
+You can add code insights to web app assessment using either of the following two methods:  
 
-You can add code scan report to web app assessment using either of the following two methods:  
+- Upload using zip file.
+- Request report through GitHub 
 
-- Upload a code scan report manually, generate using Azure Migrate application and code assessment tool (AppCAT)
-- Connect to your GitHub repo where the code scan reports are uploaded using GitHub Copilot app modernization extension. 
+##  Upload code scan report manually using Zip file
 
-##  Upload code scan report manually using AppCAT
-
-With this approach, you must generate the code scan report using AppCAT and then manually upload the reports to Web Apps as a ZIP file. 
+With this approach, you must generate the code scan report manually upload the reports as Zip file. 
 
 ### Prerequisites
 
 - Ensure a web app assessment exists for each required web app because code scan reports can only be added from an existing assessment.
-- Have the code scan reports ready for web apps you want to update.
+- Have the GitHub Copilot Assessment report ready for web apps you want to update.
 
-#### Generate the code scan report
+#### Generate the GitHUb Copilot Assessment report
 
-To generate a code scan report, complete the following steps:
+To generate report, complete the following steps:
+
+>[!Note]
+>  To upload an assessment report as a zip file, use reports from AppCAT CLI. Support for GitHub Copilot App Mod reports will be added soon. 
 
 1. Install AppCAT:
 
@@ -53,20 +54,18 @@ To generate a code scan report, complete the following steps:
     - For Java applications: To run AppCAT against a sample Java project, see [Run AppCAT against a sample Java project](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#run-appcat-against-a-sample-java-project).
 1. Create a zip file for all the reports that you want to add to assessment. 
 
-### Upload code scan report to web app assessment using zip file 
+### Upload zip file 
 
 1. Select **Assessments** on the Azure Migrate project **Overview** page under **Decide and Plan**.
 1. Search for the assessment with the **Workloads** filter and select it. 
-1. On the assessment **Overview** page, select the **Recommended path** tab or **View details** in the recommended path report.  
-    This Overview page displays the distribution of web apps across Azure targets. Select a line item to drill down further. 
-1. Under **Add code insights** select Using GitHub Copilot assessment. 
+1. On the assessment **Overview** page, under **Add code insights** select Using GitHub Copilot assessment. 
 1. In the Add code insights page, select **Upload a zip file**.  
-1. Select **Browse**, choose the location of the ZIP file containing AppCAT reports you want to import, and then select **Upload**. Wait for the upload and validation to complete.
-1. In the Web app list, under the **AppCAT report** dropdown, view the uploaded reports under **Uploaded from zip file**. 
+1. Select **Browse**, choose the location of the ZIP file containing reports you want to and then select **Upload**. Wait for the upload and validation to complete.
+1. In the Web app list, under the **GitHub Copilot assessment** report dropdown, view the uploaded reports under **Uploaded from zip file**. 
 1. Select the appropriate report to map to the respective web app. Repeat these steps for all required web app.  
 1. After mapping, select **Add** and wait for the process to complete. 
-1. When mapping is complete, open notification and follow the steps to recalculate the assessment.
-1. After recalculation, review the updated code insights.  
+1. After mapping is complete the assessment will be marked as outdated. Select **Recalculate** to initiate recalculation.
+1. After recalculation is complete, review the updated code insights.  
 
 ### Add code scan reports to Web App assessments using GitHub Copilot extension
 
@@ -153,13 +152,12 @@ Collate the following GitHub App details and private key to create a GitHub conn
 1. To find the **Installation ID**, navigate to **Install App** and select **Settings** next to  the account where the app is installed.  
 1. After the installation completes, note the browser URL that contains the installation ID. For example, `https://github.com/settings/installations/<installationID>`
 
-### Request code scan report for web app assessment using GitHub connection
+### Request report for web app assessment using GitHub connection
 
 1. Select **Assessments** on the Azure Migrate project **Overview** page under **Decide and Plan**.
 2. Search for the assessment with the **Workloads** filter and select it. 
-3. On the assessment **Overview** page, select the **Recommended path** tab or **View details** in the recommended path report.  
-    This screen displays the distribution of web apps across Azure targets. Select a line item to drill down further.  
-4. Under **Add code insights** select Using GitHub Copilot Assessment. 
+3. On the assessment **Overview** page.   
+4. Under **Add code insights** select **Using GitHub Copilot Assessment**. 
 5. In the **Add code insights** page, select **Create GitHub** connection. 
 6. In the **Create new GitHub** connection page, provide the following details: 
 
@@ -171,20 +169,20 @@ Collate the following GitHub App details and private key to create a GitHub conn
 | Private Key  | Copy all the contents of the private key file you generated for your GitHub App.  |
 | Installation ID  | Enter the Installation ID of the GitHub App installed on the repository you specified above.  |
 
-7. After you add the details, select **Create** connection. Wait until the connection is successfully created.  
-8. To request the code scan report for each web app in the list, select **Request report via GitHub**. 
+7. After you add the details, select **Create** connection. Wait until the connection is successfully created and then select **Close**.
+8. On the **Add code insight** page in the web app, from the list, select **Request report via GitHub**. 
 9. In the **Request report via GitHub** page, select the appropriate connection name and then select **Request**.  
 10. Azure Migrate creates GitHub issue in the repository specified in the connection details. 
-11. When the code scan report is uploaded to the GitHub issue, Azure Migrate automatically attaches the report to the web app. 
-12. Adding the code scan report to Web App marks the assessment as outdated. 
+11. When the code scan report is uploaded to the GitHub issue, Azure Migrate automatically maps the report to the web app. 
+12. After the report is mapped, the assessment is marked as outdated. 
 13. Recalculate the assessment to view enhanced results with code insights. 
 
-### Generate code scan report using GitHub Copilot app modernization extension
+### Generate GitHub Copilot Assessment report
 
-To generate code scan report, follow below steps. 
+To generate report, follow the steps. 
 
-1. To generate code scan report for .Net follow these steps [Assess and migrate a .NET project with GitHub Copilot app modernization for .NET](/dotnet/azure/migration/appmod/quickstart). 
-1. To generate code scan report for Java, follow these steps [Assess a Java project using GitHub Copilot app modernization]. 
+1. To generate report for .NET follow these steps [Assess and migrate a .NET project with GitHub Copilot app modernization for .NET](/dotnet/azure/migration/appmod/quickstart). 
+1. To generate code scan report for Java, follow these steps [Assess a Java project using GitHub Copilot app modernization](/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate). 
 1. Once the report is available, upload the report to GitHub issue using below prompt in GitHub Copilot. 
 1. upload assessment report to [GitHub Issue URL]  
 
@@ -205,17 +203,17 @@ After you add code scan reports, the readiness and migration strategy for the re
 
 This section helps resolve issues related to importing paths or uploading zip files that don’t meet the required constraints.
 
-### Import path
+### Upload using Zip file
 
-Follow these guidelines to successfully import paths and upload zip files without errors.
+1. When failed to upload reports as zip file: Follow these guidelines to successfully import paths and upload zip files without errors.
 
-1. **Unable to Upload Zip**: Upload only zip files that meet these requirements:
+**Unable only Zip files that meet these requirements**:
 
- - Include only JSON files.
- - File size is 50 MB or less. 
- - Contains no more than 100 files. 
- - Uncompressed size is 500 MB or less.
- - Doesn't include nested zip files.
+ - Contains only JSON files.
+ - Zip file is less than 50 MB. 
+ - Total number of file in zip file are less than 100. 
+ - Maximum size of uncompressed zip file is less than 500 MB.
+ - Zip file doesn't contain another nested zip file(s).
 
   You might see errors if the uploaded zip file doesn’t meet the required constraints. Here are some examples:
  
