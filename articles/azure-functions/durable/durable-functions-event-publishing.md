@@ -135,15 +135,15 @@ To configure system assigned identity follow the instructions below:
 2. In the Event Grid topic resource, give the function app the EventGrid Data Sender role.
     - Go to the **Access Control (IAM)** section, click **+ Add**.
 
-      :::image type="content" source="./media/durable-functions-event-publishing/system-assigned-add-role.png" alt-text="Add role to event grid topic resource"." border="true":::
+      :::image type="content" source="./media/durable-functions-event-publishing/add-role.png" alt-text="Add role to event grid topic resource"." border="true":::
 
     - Select the **EventGrid Data Sender** role, click **Next**.
 
-      :::image type="content" source="./media/durable-functions-event-publishing/system-assigned-eventgrid-datasender.png" alt-text="Selecting the EventGrid Data Sender Role." border="true":::
+      :::image type="content" source="./media/durable-functions-event-publishing/event-grid-data-sender.png" alt-text="Selecting the EventGrid Data Sender Role." border="true":::
 
     - Choose **Managed Identity** in the **Assign access to** section, click **+ Select Members** in the **Members** section, select the managed identity, then click **Review + Assign**.
 
-      :::image type="content" source="./media/durable-functions-event-publishing/system-assigned-select-mi.png" alt-text="Selecting a managed identity." border="true":::
+      :::image type="content" source="./media/durable-functions-event-publishing/select-managed-identity.png" alt-text="Selecting a managed identity." border="true":::
 
 
 #### App Settings
@@ -193,15 +193,15 @@ To configure user assigned managed identity follow the instructions below:
 
     - Go to the **Access Control (IAM)** section, click **+ Add**.
 
-      :::image type="content" source="./media/durable-functions-event-publishing/system-assigned-add-role.png" alt-text="Add role to event grid topic resource"." border="true":::
+      :::image type="content" source="./media/durable-functions-event-publishing/add-role.png" alt-text="Add role to event grid topic resource"." border="true":::
 
     - Select the **EventGrid Data Sender** role, click **Next**.
 
-      :::image type="content" source="./media/durable-functions-event-publishing/system-assigned-eventgrid-datasender.png" alt-text="Selecting the EventGrid Data Sender Role." border="true":::
+      :::image type="content" source="./media/durable-functions-event-publishing/event-grid-data-sender.png" alt-text="Selecting the EventGrid Data Sender Role." border="true":::
 
     - Choose **Managed Identity** in the **Assign access to** section, click **+ Select Members** in the **Members** section, select the managed identity, then click **Review + Assign**.
 
-      :::image type="content" source="./media/durable-functions-event-publishing/system-assigned-select-mi.png" alt-text="Selecting a managed identity." border="true":::
+      :::image type="content" source="./media/durable-functions-event-publishing/select-managed-identity.png" alt-text="Selecting a managed identity." border="true":::
 
 #### App Settings
 - Add an `EventGrid__topicEndpoint` app setting with the value as the Event Grid topic endpoint.
