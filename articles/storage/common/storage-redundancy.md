@@ -119,6 +119,10 @@ The following diagram shows how your data is replicated with GRS or RA-GRS:
 
 :::image type="content" source="media/storage-redundancy/geo-redundant-storage.png" alt-text="Diagram showing how data is replicated with GRS or RA-GRS":::
 
+#### Geo and Object Replication Priority Replication
+
+Geo and Object Replication Priority Replication is a feature that allows you to prioritize the replication of data to the secondary region. This can be useful for scenarios where certain data is more critical and needs to be available in the secondary region as quickly as possible. By enabling this feature, you can ensure that high-priority data is replicated to the secondary region with minimal delay, enhancing the overall resilience and availability of your applications.
+
 ### Geo-zone-redundant storage
 
 Geo-zone-redundant storage (GZRS) combines the high availability provided by redundancy across availability zones with protection from regional outages provided by geo-replication. Data in a GZRS account is copied across three or more [Azure availability zones](../../reliability/availability-zones-overview.md) in the primary region. In addition, it also replicates to a secondary geographic region for protection from regional disasters. Microsoft recommends using GZRS for applications requiring maximum consistency, durability, and availability, excellent performance, and resilience for disaster recovery.
