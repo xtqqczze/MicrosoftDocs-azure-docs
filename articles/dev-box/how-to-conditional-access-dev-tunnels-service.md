@@ -1,31 +1,47 @@
 ---
-title: Configure Conditional Access Policies for Dev Tunnels
-description: Learn how to configure conditional access policies for the Dev tunnels service in Microsoft Entra ID to secure remote development environments and restrict access based on device management and IP ranges.
+title: Secure Dev Tunnel Access with Conditional Policies
+description: Learn how to configure conditional access policies for the Dev Tunnels service in Microsoft Entra ID to secure remote development environments and restrict access based on device management and IP ranges.
 author: RoseHJM
 contributors:
 ms.topic: how-to
-ms.date: 10/02/2025
+ms.date: 10/31/2025
 ms.author: rosemalcolm
 ms.reviewer: rosemalcolm
 ms.custom: peer-review-program
 ---
 
-# Configure conditional access policies for Dev tunnels
+# Secure Dev Tunnel access with conditional policies
 
-Microsoft Dev Box gives you an alternative connectivity method on top of Dev tunnels. You can develop remotely while coding locally or keep development going during Azure Virtual Desktop (AVD) outages or poor network performance. Many large enterprises using Dev Box have strict security and compliance policies, and their code is valuable to their business. Restricting Dev tunnels with conditional access policies is crucial for these controls.
+Dev Tunnels offer a streamlined way to connect to your Dev Box directly from Visual Studio Code, eliminating the need to use separate applications like Windows App or a browser. This method provides a more immediate and integrated development experience. Unlike traditional connection methods, Dev Tunnels simplify access and enhance productivity. 
 
-Conditional access policies for the Dev tunnels service:
+Many large enterprises using Dev Box have strict security and compliance policies, and their code is valuable to their business. This article explains how to configure conditional access policies to secure Dev Tunnel usage in your environment.
 
-- Let Dev tunnels connect from managed devices, but deny connections from unmanaged devices.
-- Let Dev tunnels connect from specific IP ranges, but deny connections from other IP ranges.
+## Prerequisites
+
+Before proceeding, ensure you have:
+
+- Access to a Dev Box environment.
+- Visual Studio Code installed.
+- PowerShell 7.x or later (any version in the 7.x series is acceptable).
+- Appropriate permissions to configure conditional access policies in Microsoft Entra ID.
+
+## Benefits of conditional access for Dev Tunnels
+
+Conditional access policies for the Dev Tunnels service:
+
+- Let Dev Tunnels connect from managed devices, but deny connections from unmanaged devices.
+- Let Dev Tunnels connect from specific IP ranges, but deny connections from other IP ranges.
 - Support other regular conditional access configurations.
 - Apply to both the Visual Studio Code application and VS Code web.
 
-## Configure conditional access
+> [!NOTE]
+> This article focuses on setting up conditional access policies specifically for Dev Tunnels. If you're configuring policies for Dev Box more broadly, refer to [Configure conditional access for Dev Box](how-to-conditional-access.md).
 
-The conditional access policies work correctly for the Dev tunnels service. Because registering the Dev tunnels service app to a tenant and making it available to the conditional access picker is unique, this article documents the steps.
+## Configure conditional access policies
 
-## Enable the Dev tunnels service for the conditional access picker
+The conditional access policies work correctly for the Dev Tunnels service. Because registering the Dev Tunnels service app to a tenant and making it available to the conditional access picker is unique, this article documents the steps.
+
+## Enable the Dev Tunnels service for the conditional access picker
 
 The Microsoft Entra ID team is working on removing the need to onboard apps for them to appear in the app picker, with delivery expected in May. Therefore, we aren't onboarding Dev tunnel service to the conditional access picker. Instead, target the Dev tunnels service in a conditional access policy using [Custom Security Attributes](/entra/identity/conditional-access/concept-filter-for-applications).
 
@@ -45,22 +61,22 @@ The Microsoft Entra ID team is working on removing the need to onboard apps for 
 
 ## Testing
 
-1. Turn off the BlockDevTunnelCA
+1. Turn off the BlockDevTunnelCA policy.
 
-1. Create a DevBox in the test tenant and run the following commands inside it. Dev tunnels can be created and connected externally.
+1. Create a Dev Box in the test tenant and run the following commands inside it. Dev Tunnels can be created and connected externally.
 
-   ```
+   ```powershell
    code tunnel user login --provider microsoft
    code tunnel
    ```
 
-1. Enable the BlockDevTunnelCA.
+1. Enable the BlockDevTunnelCA policy.
 
-    1. New connections to the existing Dev tunnels can't be established. Test with an alternate browser if a connection has already been established.
+   1. New connections to the existing Dev Tunnels can't be established. Test with an alternate browser if a connection has already been established.
 
-    1. Any new attempts to execute the commands in step #2 will fail. Both errors are:
+   1. Any new attempts to execute the commands in step 2 will fail. Both errors are:
 
-       :::image type="content" source="media/how-to-conditional-access-dev-tunnels-service/dev-tunnels-no-access.png" alt-text="Screenshot of error message when Dev tunnels connection is blocked by conditional access policy." lightbox="media/how-to-conditional-access-dev-tunnels-service/dev-tunnels-no-access.png":::
+      :::image type="content" source="media/how-to-conditional-access-dev-tunnels-service/dev-tunnels-no-access.png" alt-text="Screenshot of error message when Dev tunnels connection is blocked by conditional access policy." lightbox="media/how-to-conditional-access-dev-tunnels-service/dev-tunnels-no-access.png":::
 
 1. The Microsoft Entra ID sign-in logs show these entries.
 
@@ -69,8 +85,11 @@ The Microsoft Entra ID team is working on removing the need to onboard apps for 
 ## Limitations
 
 With Dev Tunnels, the following limitations apply:
-- You can't configure conditional access policies for Dev Box service to manage Dev tunnels for Dev Box users.
-- You can't limit Dev tunnels that aren't managed by the Dev Box service. In the context of Dev Boxes, if the Dev tunnels GPO is configured **to allow only selected Microsoft Entra tenant IDs**, Conditional Access policies can also restrict self-created Dev tunnels.
+
+- **Policy assignment restrictions**: You can't configure conditional access policies for the Dev Box service to manage Dev Tunnels for Dev Box users. Instead, configure policies at the Dev Tunnels service level as described in this article.
+- **Self-created Dev Tunnels**: You can't limit Dev Tunnels that aren't managed by the Dev Box service. In the context of Dev Boxes, if the Dev Tunnels GPO is configured **to allow only selected Microsoft Entra tenant IDs**, conditional access policies can also restrict self-created Dev Tunnels.
+- **IP range enforcement**: Dev Tunnels may not support granular IP restrictions. Consider using network-level controls or consult your security team for alternative enforcement strategies.
 
 ## Related content
+- [Open a dev box in VS Code](how-to-set-up-dev-tunnels.md).
 - [Conditional Access policies](/entra/identity/conditional-access/concept-conditional-access-policies)
