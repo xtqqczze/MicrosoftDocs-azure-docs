@@ -27,8 +27,7 @@ This tutorial covers how to configure and run the service via the asynchronous (
 
 ## Table of Contents
 
- [Prerequisites](#prerequisites)  
-- [Deploy a multilingual model](#deploy-a-multilingual-model)  
+- [Prerequisites](#prerequisites)  
 - [Create a storage account and container](#create-a-storage-account-and-container)  
 - [Upload a sample document](#upload-a-sample-document)  
 - [Grant the de-identification service access to the storage account](#grant-the-de-identification-service-access-to-the-storage-account)  
@@ -117,8 +116,9 @@ Learn more at [Configure Azure Storage firewalls and virtual networks](/azure/st
 ```powershell
 az storage account update --name $StorageAccountName --public-network-access Disabled --bypass AzureServices
 ```
+## Running the de-identification service  
 
-## Use the python SDK
+### Use the python SDK for English data
 The code below contains a sample from the [Azure Health Deidentification SDK for Python](/python/api/overview/azure/health-deidentification). 
 
 ```Bash
@@ -224,7 +224,7 @@ curl -X PUT \
   "<your Service URL>/jobs/<unique-job-name>?api-version=2024-12-15-preview"
 ```
 
-**Note:** This example uses the French Canada language-locale pair. See the full list our service supports [here.](articles/healthcare-apis/deidentification/languages-supported)
+**Note:** This example uses the French Canada language-locale pair. See the full list our service supports [here.](languages-supported.md)
 
 3. Get job status
 ```Bash
