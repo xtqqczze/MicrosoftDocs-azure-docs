@@ -30,7 +30,34 @@ Before you begin:
   - [Action-event programming model](https://learn.microsoft.com/azure/communication-services/concepts/call-automation#action-event-model)
 - Learn about the [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like `TeamsExtensionUser` and `PhoneNumberIdentifier`.
 
-For all the code samples, `client` is the `CallAutomationClient` object that you can create, as shown. Also, `callConnection` is the `CallConnection` object that you obtain from the `Answer` or `CreateCall` response. You can also obtain it from callback events that your application receives
+For all the code samples, `client` is the `CallAutomationClient` object that you can create, as shown. Also, `callConnection` is the `CallConnection` object that you obtain from the `Answer` or `CreateCall` response. You can also obtain it from callback events that your application receives.
+
+## License Requirement
+
+As of **November 1, 2025**, Calling Plan licenses on resource accounts will no longer be supported for On-Behalf-Of PSTN outbound calls as well as server initiated outbound calls. A **[Pay-As-You-Go license](https://learn.microsoft.com/en-us/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)** will be required.
+Expand the sections below for more information.
+<details><summary>For Calling Plan customers who received MC1123835</summary>
+Starting November 1, 2025, a Pay-As-You-Go license will be required for Teams Resource Accounts, provisioned for Teams Phone extensbility and that use Calling Plan numbers for outbound PSTN calls.
+If Pay-As-You-Go licenses aren't assigned to the relevant Resource Accounts by November 1, 2025, outbound calls will fail.
+</details>
+
+<details>
+<summary>For Operator Connect customers who received MC1123837</summary>
+
+On November 1, 2025, the On-Behalf-Of PSTN outbound calls as well as server initiated outbound calls, may no longer be available depending on your carrier/operator. Coordinate with your carrier/operator to ensure you continue to have uninterrupted service for these scenarios. If the appropriate arrangements aren't made with your carrier/operator, then outbound calls made by agents on behalf of resource accounts via the Teams Phone Extensibility will fail. Your carrier/operator provides the details on what adjustments may be required.
+</details>
+
+**Note:** There is no change for Direct Routing phone numbers.
+
+**Learn more:**
+- [Pay-As-You-Go Calling Plan](https://learn.microsoft.com/microsoftteams/pay-as-you-go)
+- [How to buy Calling Plans](https://learn.microsoft.com/microsoftteams/calling-plans)
+- [Enable pay-as-you-go for your subscription](https://learn.microsoft.com/microsoftteams/payg-enable)
+- [Telco pay-as-you-go overage in new commerce](https://learn.microsoft.com/microsoftteams/new-commerce-payg)
+- [Assign Teams add-on licenses to users](https://learn.microsoft.com/microsoftteams/assign-licenses)
+
+
+
 
 ## How It Works
 1. **Create a CallInvite** for the target phone number.
@@ -49,10 +76,6 @@ If the call fails, you’ll receive:
 ## Code Example (C#)
 
 ```csharp
-using Azure.Communication;
-using Azure.Communication.CallAutomation;
-using System;
-using System.Threading.Tasks;
 
 public async Task PlaceOutboundCallAsync(string targetPhoneNumber, Uri baseUri)
 {
@@ -80,8 +103,8 @@ public async Task PlaceOutboundCallAsync(string targetPhoneNumber, Uri baseUri)
 
 ```mermaid
 sequenceDiagram
-    participant App as Server App
-    participant CallAutomation as Call Automation Service
+    participant App as Customer's Application
+    participant CallAutomation as Call Automation API
     participant PSTN as PSTN Endpoint
 
     App->>CallAutomation: CreateCallAsync (CallInvite, TeamsAppSource)
