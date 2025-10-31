@@ -290,7 +290,7 @@ To deploy this example, pull the artifacts from the public registry, push them t
 
 ## Limitations
 
-This preview has the following limitations:
+Inference in WASM data flow graphs has the following limitations:
 
 - ONNX only. Data flow graphs don't support other formats like TFLite.
 - CPU only. No GPU/TPU acceleration.
