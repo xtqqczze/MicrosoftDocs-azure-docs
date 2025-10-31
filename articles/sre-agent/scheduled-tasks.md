@@ -58,7 +58,7 @@ The following examples demonstrate a few sample sets of custom instructions you 
 
 # [Health check](#tab/health-check)
 
-This task runs every minute (up to 30 times) after a database restart to check that PostgreSQL is healthy, connections succeed, and API/web services have no errors or slow responses.
+This health check task is designed to run after an incident mitigation where a PostgreSQL DB was down. The task runs to check if the database remains healthy for the next 30 minutes after mitigation.
 
 - On failure, it collects logs, notifies you, and escalates if the database is down.
 - On success, it records a summary.
