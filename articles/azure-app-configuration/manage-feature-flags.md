@@ -127,62 +127,6 @@ Add a new feature flag in the Azure portal by following the steps below.
 
     1. Select **Review + create** to see a summary of your new feature flag, and then select **Create** to finalize your operation. A notification indicates that the new feature flag was created successfully.
 
-      ### [Tailored Experience](#tab/tailored-experience)
-    
-    Use **Tailored Experience** to deliver personalized behavior based on rules or feature filters. Guidance:
-
-    - Combine targeting filters (for example, user attributes, groups, or custom rules) to define audiences.
-    - Test rules in a small audience before widening scope.
-    - Prefer targeted filters for per-customer or per-role features.
-    
-    When to use:
-    - Personalization, role-based access, or per-customer feature variations.
-    - Complex conditions that require deterministic targeting.
-
-    1. Configure **Basics** to set the core properties of your feature flag.
-            
-        | Setting                 | Example value  | Description                                                                                                                                                                                                                                                              |
-        | ----------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-        | **Enable feature flag** | Box is checked | This option enables the feature flag upon creation. If you leave this box unchecked, the new feature flag's configuration will be saved but the new feature flag will remain disabled.                                                                                   |
-        | **Feature flag name**   | *Beta*         | The feature flag name is what you use to reference the flag in your code. It must be unique within an application.                                                                                                                                                       |
-        | **Key**                 | *Beta*         | You can use the key to filter feature flags that are loaded in your application. The key is generated from the feature flag name by default, but you can also add a prefix or a namespace to group your feature flags, for example, *.appconfig.featureflag/myapp/Beta*. |
-        | **Label**               | Leave empty    | You can use labels to create different feature flags for the same key and filter flags loaded in your application based on the label. By default, a feature flag has no label.                                                                                           |
-        | **Description**         | Leave empty    | Leave empty or enter a description for your feature flag.                                                                                                                                                                                                                |
-
-        :::image type="content" source="media/manage-feature-flags/create-feature-flag-tailored-experience.png" alt-text="Screenshot of the Azure portal that shows the Create feature flag feature - Switch option.":::
-
-    1. Configure **Variants** to compare behavior, allocate traffic, and run targeted tests.
-        
-        | Setting             | Example value            | Description                                                                                                                                                                                                                          |
-        |---------------------|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-        | **Variant name**    | *Variant 1*              | Enter a unique name for each variant. Variant names identify the variant in the Feature manager and in telemetry or logs. Add at least two variants so you can compare outcomes and allocate traffic between them.                   |
-        | **Value**           | `<your-variant-1-value>` | The value returned for the variant. It can be a string, number, boolean, or JSON object. Use **Edit value in multiline** for complex JSON configuration that your application reads when evaluating the flag.                                |
-        | **Default variant** | *Variant 1* (Default)    | Choose one variant as the stable fallback and baseline. This variant is returned when no specific assignment applies or when the feature flag is disabled; it's also the baseline used for targeted allocation and controlled tests. |
-    
-    1. Configure **Audience** with target groups and users to assign specific variants to selected groups or individuals, regardless of percentage-based rollout.
-
-        | Setting         | Example value       | Description                                                                                                                                                                                       |
-        |-----------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-        | **Group name**  | *MarketingTeam*     | Enter the name of a group. If a group is listed here, the corresponding variant will be assigned to that group even if its members fall outside the percentage-based allocation for that variant. |
-        | **Variant**     | *BetaExperience*    | Select the variant to assign to the specified group. This ensures a consistent experience for all members of the group regardless of rollout percentage.                                          |
-        | **User name**   | *john@example.com*  | Enter the name or identifier of an individual user. If a user is listed here, the corresponding variant will be assigned to that user even if they fall outside the percentage-based allocation.  |
-        | **Variant**     | *BetaExperience*    | Select the variant to assign to the specified user. This guarantees the user receives the intended experience regardless of other targeting rules.                                                |
-
-        > [!IMPORTANT]
-        > If feature evaluations occur in a client application (for example, a web browser), feature flag data — including user names specified here — may be exposed to end users.
-
-    1. Configure **Conditions** to schedule changes and manage custom constraints for serving your features.
-
-        | Setting                                 | Example value                                                                                              | Description                                                                                                                                                     |
-        |-----------------------------------------|------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-        | **Add schedule**                        | Start: *2025-11-01*<br>End: *2025-11-15*<br>Time zone: *(UTC-06:00) Central Time (US & Canada)*<br>Recurrence: disabled | Define a time-based rollout by specifying start and end dates. Optionally update the suggested time zone and enable recurrence for repeated activations. |
-        | **Add custom condition**                | `User.Subscription == "Premium"`                                                   | Create conditions based on custom attributes (for example, region, device type, or subscription level). Conditions let you target precisely which users receive the feature.         |
-        | **Require all feature filters to be enabled** | On (checked)                                                                 | This option appears only after you enable both **Add custom condition** and **Add schedule**. When checked, all enabled feature filters must evaluate to true for the feature to be applied (logical AND). When unchecked, the filters are evaluated independently (logical OR).|
-
-    1. Configure **Telemetry** to collect evaluation events for this feature flag. When enabled, evaluation events are sent to the telemetry publisher you configure in your application. Before enabling telemetry, link an Application Insights resource to the App Configuration store in **Telemetry** > **App Insights**.
-
-    1. Select **Review + create** to see a summary of your new feature flag, and then select **Create** to finalize your operation. A notification indicates that the new feature flag was created successfully.
-
     ### [Experiment](#tab/experiment)
     
     Use **Experiment** to run controlled tests and compare variants. Guidance:
