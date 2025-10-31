@@ -130,7 +130,7 @@ After the vault and backup policy are created, configure backup for Azure Data L
 1. Trigger the request for backup configuration
 
 >[!Important]
->After a storage account is configured for Data Lake Storage  backup, a few capabilities, such as **change feed** and **delete lock** are affected. [Learn more](blob-backup-configure-manage.md?tabs=vaulted-backup#effects-on-backed-up-storage-accounts).
+>After a storage account is configured for Data Lake Storage  backup, a few capabilities, such as **change feed** and **delete lock**, are affected. [Learn more](blob-backup-configure-manage.md?tabs=vaulted-backup#effects-on-backed-up-storage-accounts).
 
 ### Fetch the ARM ID of the storage account containing the Data Lake Storage to be protected
 
