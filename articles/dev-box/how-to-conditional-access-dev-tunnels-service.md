@@ -36,7 +36,7 @@ Conditional access policies for the Dev Tunnels service:
 - Apply to both the Visual Studio Code application and VS Code web.
 
 > [!NOTE]
-> This article focuses on setting up conditional access policies specifically for Dev Tunnels. If you're configuring policies for Dev Box more broadly, see [Configure conditional access for Dev Box](how-to-conditional-access.md).
+> This article focuses on setting up conditional access policies specifically for Dev Tunnels. If you're configuring policies for Dev Box more broadly, see [Configure conditional access for Dev Box](how-to-configure-intune-conditional-access-policies.md).
 
 ## Configure conditional access policies
 
