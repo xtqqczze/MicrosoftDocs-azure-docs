@@ -19,7 +19,7 @@ ms.subservice: storage-common-concepts
 
 The service-level agreement (SLA) for Azure Storage accounts is available at [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
-## Scale targets for standard storage accounts and disk access objects
+## Scale targets for standard storage accounts and disk access resources
 
 [!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
