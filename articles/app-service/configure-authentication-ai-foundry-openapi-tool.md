@@ -23,9 +23,9 @@ This article shows you how to secure your App Service OpenAPI endpoints when the
 
 - An Azure AI Foundry project where you'll add your app as an OpenAPI tool.
 
-## Find your Azure AI Foundry project's client ID
+## Find your Azure AI Foundry project's managed identity IDs
 
-You need the client ID (also called the object ID or principal ID) of your Azure AI Foundry project's managed identity to configure authentication. A system-assigned managed identity is automatically created for your Azure AI Foundry project when you create it. This identity is what Azure AI Foundry Agent Service uses to authenticate with your app.
+You need both the object ID and the application ID of your Azure AI Foundry project's managed identity to configure App Service authentication. A system-assigned managed identity is automatically created for your Azure AI Foundry project when you create it. This identity is what Azure AI Foundry Agent Service uses to authenticate with your app.
 
 1. In the [Azure AI Foundry portal](https://ai.azure.com), navigate to your project and select **Overview**.
 
@@ -35,7 +35,15 @@ You need the client ID (also called the object ID or principal ID) of your Azure
 
 1. In the project resource's left menu, select **Resource Management** > **Identity**.
 
-1. Under **System assigned**, copy the value of **Object (principal) ID**. You need it in the next section.
+1. Under **System assigned**, copy the value of **Object (principal) ID** for later.
+
+1. In the Azure portal, search for and select **Microsoft Entra ID**.
+
+1. In the search box, search for the object ID you copied and select it in the search results.
+
+1. On the **Overview** page, copy the value of **Application ID**. 
+
+    Note the **Object ID** is the same as the one shown in the system-assigned managed identity. You need both the application ID and the object ID for configuring App Service authentication.
 
 ## Configure Microsoft Entra authentication for your app
 
@@ -47,11 +55,11 @@ You need the client ID (also called the object ID or principal ID) of your Azure
 
 1. Under **Additional checks**, for **Client application requirement**, select **Allow requests from specific client applications**.
 
-1. Select the pencil widget and add the client ID that you copied from your Azure AI Foundry project in [Find your Azure AI Foundry project's client ID](#find-your-azure-ai-foundry-projects-client-id).
+1. Select the pencil widget and add the **application ID** that you copied in [Find your Azure AI Foundry project's managed identity IDs](#find-your-azure-ai-foundry-projects-managed-identity-ids).
 
 1. For **Identity requirement**, select **Allow requests from specific identities**.
 
-1. Select the pencil widget and add the same client ID that you copied.
+1. Select the pencil widget and add the **object ID** that you copied in [Find your Azure AI Foundry project's managed identity IDs](#find-your-azure-ai-foundry-projects-managed-identity-ids).
 
 1. For **Tenant requirement** accept the default value. If not, be sure to select the tenant where your Azure AI Foundry project (or rather its identity) is created.
 
