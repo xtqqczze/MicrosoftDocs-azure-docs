@@ -25,7 +25,10 @@ Application Gateway provides following two options to validate client certificat
 
 
 ## Mutual TLS Passthrough Mode 
-In mutual TLS passthrough mode, Application Gateway requests a client certificate during the TLS handshake but doesn't terminate the connection if the certificate is missing or invalid. The connection to the backend proceeds regardless of the certificate's presence or validity. If a certificate is provided, Application Gateway can forward it to the backend if required by the application. The backend service is responsible for validating the client certificate. Refer to  [server variables](./rewrite-http-headers-url.md#mutual-authentication-server-variables) if you want to configure certificate forwarding. There's no need to upload any CA certificate when it is on Passthrough mode.
+In mutual TLS passthrough mode, Application Gateway requests a client certificate during the TLS handshake but doesn't terminate the connection if the certificate is missing or invalid. The connection to the backend proceeds regardless of the certificate's presence or validity. If a certificate is provided, Application Gateway can forward it to the backend if required by the application. The backend service is responsible for validating the client certificate. Refer to server variables if you want to configure certificate forwarding. There's no need to upload any CA certificate when it is on Passthrough mode.  To setup passthrough follow the steps on the following guide [Configure Application Gateway with mutual authentication using ARM Template](./mutual-authentication-arm-template.md).
+ 
+Note:
+Currently, this feature is supported only through ARM deployment using API version 2025-03-01. Portal, PowerShell, and CLI support will be available soon.
 
 
 ## Mutual TLS Strict Mode

@@ -1,72 +1,201 @@
 ---
-title: 'Configure mutual authentication with Application Gateway through ARM'
-description: Learn how to configure an Application Gateway to have mutual authentication through an ARM template.
+title: Configure mutual authentication with Application Gateway through ARM
+titleSuffix: Azure Application Gateway
+description: Deploy an Azure Application Gateway with mutual TLS (mTLS) passthrough using an ARM template.
 services: application-gateway
-author: darshilshah
-ms.date: 10/29/2025
-ms.topic: how-to
+author: mbender-ms
+ms.author: mbender
+ms.date: 10/31/2025
+ms.topic: quickstart
 ms.service: azure-application-gateway
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+# Customer intent: As a cloud architect, I want to deploy an Azure Application Gateway with an mTLS passthrough mode so that my web applications can handle mixed traffic (certificate-based and token-based) securely and at scale.
 ---
 
-# Configure mutual authentication with Application Gateway through ARM
+# Deploy an Azure Application Gateway with mTLS passthrough listener
 
-This article describes how to use an ARM template to configure mutual authentication on your Application Gateway. Mutual authentication means Application Gateway authenticates the client sending the request using the client certificate you upload onto the Application Gateway. 
+## Overview
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This quickstart shows how to deploy an Azure Application Gateway with **mutual TLS (mTLS) passthrough** using an ARM template and API version `2025-03-01`. In passthrough mode, the gateway requests a client certificate but does **not validate it**. Certificate validation and policy enforcement occur at the backend.
 
-## Before you begin
+### Key Features
+- Associate an SSL profile with the listener for mTLS passthrough.
+- No client CA certificate required at the gateway.
+- `verifyClientAuthMode` supports `Strict` and `Passthrough`.
 
-To configure mutual authentication with an Application Gateway, you need a client certificate to upload to the gateway. The client certificate will be used to validate the certificate the client will present to Application Gateway. For testing purposes, you can use a self-signed certificate. However, this is not advised for production workloads, because they're harder to manage and aren't completely secure. 
+> [!NOTE]
+> Portal, PowerShell, and CLI support for passthrough configuration will be available soon. Use ARM templates for now.
+## Prerequisites
+- Azure subscription and resource group.
+- Azure CLI installed.
+- SSL certificate (Base64-encoded PFX) and password.
+- SSH key for Linux VM admin (if applicable).
+- API version `2025-03-01` for passthrough property.
 
-To learn more, especially about what kind of client certificates you can upload, see [Overview of mutual authentication with Application Gateway](./mutual-authentication-overview.md#certificates-supported-for-mutual-authentication).
 
-## Create a new Application Gateway
+## Deploy Application Gateway with mTLS passthrough listener
 
-First create a new Application Gateway as you would usually through an ARM template - there are no additional steps needed in the creation to enable mutual authentication. For more information on how to create an Application Gateway using an ARM template, check out our [arm template quickstart tutorial](./quick-create-template.md).
+This template creates:
+- A **Virtual Network** with two subnets (one delegated to Application Gateway).
+- A **Public IP address** for the gateway frontend.
+- An **Application Gateway (Standard_v2)** with:
+  - SSL certificate and SSL profile for client certificate passthrough.
+  - HTTPS listener and routing rule.
+  - Backend pool pointing to an app service.
 
-## Review and Customize Parameters ##
+### Parameter file: `deploymentParameters.json`
 
-Next, edit the following parameters to configure mutual authentication:
-   - Edit `mtls.parameters.json`:
-     - `addressPrefix` and `subnetPrefix`: Define network ranges.
-     - `skuName` and `capacity`: Set gateway size and instance count.
-     - `certData` and `certPassword`: Paste SSL certificate and password.
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "addressPrefix": { "value": "10.0.0.0/16" },
+    "subnetPrefix": { "value": "10.0.0.0/24" },
+    "skuName": { "value": "Standard_v2" },
+    "capacity": { "value": 2 },
+    "adminUsername": { "value": "ubuntu" },
+    "adminSSHKey": { "value": "<your-ssh-public-key>" },
+    "certData": { "value": "<Base64-encoded-PFX-data>" },
+    "certPassword": { "value": "<certificate-password>" }
+  }
+}
 
-## Deploy Using Azure CLI ##
+```
+### Template file: deploymentTemplate.json
 
-Use the Azure CLI to deploy the ARM template with mutual authentication settings. Run the following command in your terminal, replacing `<your-resource-group>` with your desired resource group name:
-   ```sh
-   az deployment group create --resource-group <your-resource-group> --template-file mtlsdeploy_novmss.json --parameters mtls.parameters.json
-   ```
-
-## Validate Deployment ##
-
-To validate that mutual authentication is configured correctly:
-   - In Azure Portal, check the Application Gateway resource.
-   - Confirm that the **mTLS passthrough listener** is enabled.
-
-## Send Client Certificate to backend ##
-     - If you need to forward the client certificate to the backend, configure a rewrite rule as described in [https://docs.azure.cn/en-us/application-       gateway/rewrite-http-headers-url#mutual-authentication-server-variables.](https://docs.azure.cn/en-us/application-gateway/rewrite-http-headers-url#server-variables)
-       <img width="1024" height="609" alt="image" src="https://github.com/user-attachments/assets/8f65c05f-4e2a-4c10-bd6a-5842797fb0ab" />
-
-     - If the client has sent a certificate, this rewrite ensures the client certificate is included in the request headers for backend processing.
-       
-## Test Connectivity ##
-
-To test the mutual authentication setup, use a tool like cURL or Postman to send requests to the Application Gateway with and without a client certificate.
-   - Connections should be established even if a client certificate is not provided.
-
-## Clean up resources
-
-When you no longer need the resources that you created with the application gateway, delete the resource group. This removes the application gateway and all the related resources.
-
-To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name <your resource group name>
+```
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "addressPrefix": { "type": "String", "defaultValue": "10.0.0.0/16" },
+    "subnetPrefix": { "type": "String", "defaultValue": "10.0.0.0/24" },
+    "skuName": { "type": "String", "defaultValue": "Standard_v2" },
+    "capacity": { "type": "Int", "defaultValue": 2 },
+    "adminUsername": { "type": "String" },
+    "adminSSHKey": { "type": "SecureString" },
+    "certData": { "type": "String" },
+    "certPassword": { "type": "SecureString" }
+  },
+  "variables": {
+    "applicationGatewayName": "mtlsAppGw",
+    "publicIPAddressName": "mtlsPip",
+    "virtualNetworkName": "mtlsVnet",
+    "subnetName": "appgwsubnet"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2024-07-01",
+      "name": "[variables('virtualNetworkName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "addressSpace": { "addressPrefixes": [ "[parameters('addressPrefix')]" ] },
+        "subnets": [
+          {
+            "name": "[variables('subnetName')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetPrefix')]",
+              "delegations": [
+                {
+                  "name": "Microsoft.Network/applicationGateways",
+                  "properties": { "serviceName": "Microsoft.Network/applicationGateways" }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/applicationGateways",
+      "apiVersion": "2025-03-01",
+      "name": "[variables('applicationGatewayName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "sku": { "name": "[parameters('skuName')]", "tier": "[parameters('skuName')]", "capacity": "[parameters('capacity')]" },
+        "sslCertificates": [
+          {
+            "name": "sslCert",
+            "properties": { "data": "[parameters('certData')]", "password": "[parameters('certPassword')]" }
+          }
+        ],
+        "sslProfiles": [
+          {
+            "name": "sslPassthrough",
+            "properties": {
+              "clientAuthConfiguration": {
+                "VerifyClientAuthMode": "Passthrough",
+                "VerifyClientCertIssuerDN": false,
+                "VerifyClientRevocation": "None"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 
-## Next steps
+### Deploy the template
 
-> [!div class="nextstepaction"]
-> [Manage web traffic with an application gateway using the Azure CLI](./tutorial-manage-web-traffic-cli.md)
+```
+az deployment group create \
+  --resource-group <your-resource-group> \
+  --template-file deploymentTemplate.json \
+  --parameters @deploymentParameters.json
+```
+
+### Validate and Test
+
+
+ **Validate Deployment**
+   - In Azure Portal, check the Application Gateway resource JSON file
+   - Select API version 2025-03-01 and verify sslprofile
+   - Validate `verifyClientAuthMode` is set to "passthrough"
+   ```
+   "sslProfiles": [
+            {
+                "name": "sslnotrustedcert",
+                "id": "/subscriptions/64d48c73-c5f4-4817-93d8-65908359d9b4/resourceGroups/AppGWTeam/providers/Microsoft.Network/applicationGateways/mtlsAppGw/sslProfiles/sslnotrustedcert",
+                "etag": "W/\"851e4e20-d2b1-4338-9135-e0beac11aa0e\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "clientAuthConfiguration": {
+                        "verifyClientCertIssuerDN": false,
+                        "verifyClientRevocation": "None",
+                        "verifyClientAuthMode": "Passthrough"
+                    },
+                    "httpListeners": [
+                        {
+                            "id": "/subscriptions/64d48c73-c5f4-4817-93d8-65908359d9b4/resourceGroups/AppGWTeam/providers/Microsoft.Network/applicationGateways/mtlsAppGw/httpListeners/listener2"
+                        }
+                    ]
+  ```
+
+**Send Client Certificate to backend**
+     - If you need to forward the client certificate to the backend, configure a rewrite rule as described in [mutual-authentication-server-variables.](rewrite-http-headers-url.md)
+
+     - If the client has sent a certificate, this rewrite ensures the client certificate is included in the request headers for backend processing.
+
+**Test Connectivity**
+   - Connections should be established even if a client certificate is not provided.
+
+
+
+
+## mTLS Passthrough Parameters
+
+| Name                    | Type   | Description                                                                 |
+|-------------------------|--------|-----------------------------------------------------------------------------|
+| verifyClientCertIssuerDN| boolean| Verify client certificate issuer name on the gateway                        |
+| verifyClientRevocation  | options| Verify client certificate revocation                                        |
+| VerifyClientAuthMode    | options| Set client certificate mode (`Strict` or `Passthrough`)                     |
+
+**Passthrough Mode:** Gateway requests a client certificate but does not enforce it. Backend validates certificate and enforces policy.
+
+## Security Notice
+
+This solution is classified as **Microsoft Confidential**. Please ensure you follow your organization’s security and data handling best practices when deploying and managing this solution.
