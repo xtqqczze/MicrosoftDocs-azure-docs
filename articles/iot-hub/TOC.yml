@@ -10,14 +10,20 @@
   items:
     - name: Create an IoT hub with Certificate Management in Azure Device Registry (Preview)
       href: iot-hub-device-registry-setup.md
-    - name: What is Azure Device Registry?
-      href: iot-hub-device-registry-overview.md
-    - name: Manage your namespaces
-      href: iot-hub-device-registry-namespaces.md
-    - name: What is Certificate Management (Preview)?
-      href: iot-hub-certificate-management-overview.md
-    - name: Key concepts for Certificate Management
-      href: iot-hub-certificate-management-concepts.md
+    - name: Azure Device Registry 
+      items:
+      - name: Overview
+        href: iot-hub-device-registry-overview.md
+      - name: Manage your namespaces
+        href: iot-hub-device-registry-namespaces.md
+    - name: Certificate Management (Preview)
+      items:
+        - name: Overview
+          href: iot-hub-certificate-management-overview.md
+        - name: Manage your certificates
+          href: iot-hub-certificate-management.md
+        - name: Key concepts for Certificate Management
+          href: iot-hub-certificate-management-concepts.md
   expanded: true
 - name: Quickstarts
   items:

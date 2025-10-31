@@ -32,7 +32,6 @@ The following features are supported with Certificate Management for IoT Hub dev
 | End-entity certificate issuance for devices | Also known as leaf certificate issuance. These certificates are signed by the issuing ICA. When a device requests a certificate via certificate signing request, an end-entity leaf certificate is delivered to the IoT device. |
 | Syncing of CA chains with IoT Hubs | The policies defined in your ADR namespace will be synced to the appropriate IoT Hub. This will enable IoT Hub to trust any devices authenticating with a leaf certificate. |
 
-
 ## How Certificate Management works
 
 Certificate Management consists of several integrated components that work together to streamline the deployment of public key infrastructure (PKI) across IoT devices. To use Certificate Management with IoT Hub, you must set up both an Azure Device Registry (ADR) namespace and a Device Provisioning Service (DPS) instance.

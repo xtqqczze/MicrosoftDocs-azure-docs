@@ -70,7 +70,7 @@ Have an Azure account. If you don't have an Azure account, create a [free accoun
    | **Subscription** | Select the subscription to use for your hub. |
    | **Resource group** | Select a resource group or create a new one. To create a new one, select **Create new** and fill in the name you want to use.|
    | **IoT hub name** | Enter a name for your hub. This name must be globally unique, with a length between 3 and 50 alphanumeric characters. The name can also include the dash (`'-'`) character.|
-   | **Region** | IoT Hub Gen 2 is in **preview** and only available in [certain regions](iot-hub-faq.md#what-are-the-supported-regions-for-iot-hub-with-adr). Select the region, closest to you, where you want your hub to be located.|
+   | **Region** | IoT Hub with ADR is in **preview** and only available in [certain regions](iot-hub-faq.md#what-are-the-supported-regions-for-iot-hub-with-adr). Select the region, closest to you, where you want your hub to be located.|
    | **Tier** | Select the **Gen 2** tier. To compare the features available to each tier, select **Compare tiers**.|
    | **Daily message limit** | Select the maximum daily quota of messages for your hub. The available options depend on the tier you select for your hub. To see the available messaging and pricing options, select **See all options** and select the option that best matches the needs of your hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling).|
    | **ADR namespace** | Select an existing ADR namespace or create a new one. To create a new one, select **Create new** and fill in the name you want to use.|

@@ -6,7 +6,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 services: iot-hub
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/20/2025
 #Customer intent: As a developer new to IoT, i want to understand what Azure Device Registry is and how it can help me manage my IoT devices.
 ---
@@ -120,7 +120,32 @@ az iot ops ns create -n <my namespace name> -g $RESOURCE_GROUP
 
 ***
 
-## Create a custom policy
+## Assign your namespace to an DPS instance
+
+If you already have a Device Provisioning Service (DPS) instance, you can link it to your ADR namespace to enable certificate management for your devices.
+
+### [Azure portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Device Provisioning Service**.
+1. In the **Overview** page, select **Click here to add a namespace**.
+
+    :::image type="content" source="media/device-registry/namespace-linking-1.png" alt-text="Screenshot of Azure Device Registry namespace linking page in the Azure portal." lightbox="media/device-registry/namespace-linking-1.png":::
+
+1. A pane appears where you can select the ADR namespace you want to link to your DPS instance.
+1. Select the namespace from the dropdown list. 
+1. Select a user-assigned managed identity to link to your DPS instance. This identity is used to securely access other Azure resources, such as ADR namespace. If you don't have a user-assigned managed identity, you can create one in the Azure portal. For more information, see [Create a user-assigned managed identity in the Azure portal](/entra/identity/managed-identities-azure-resource).
+1. Select **Add** to link the namespace to your DPS instance.
+
+
+    :::image type="content" source="media/device-registry/namespace-linking-2.png" alt-text="Screenshot of Azure Device Registry assets page in the Azure portal." lightbox="media/device-registry/namespace-linking-2.png":::
+
+### [Azure CLI](#tab/cli)
+
+TO DO
+
+***
+
+## Create a custom policy for your namespace
 
 ### [Azure portal](#tab/portal)
 
@@ -177,48 +202,6 @@ az iot ops ns create -n <my namespace name> -g $RESOURCE_GROUP
 
 ***
 
-## Enable a credential resource for your namespace
-
-### [Azure portal](#tab/portal)
-
-Credential resources allow you to manage device authentication and authorization for devices connecting to your namespace. When you enable a credential resource, you can set up policies to control how certificates are issued and managed for your devices. 
-
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
-1. Go to the **Namespaces** page.
-1. Select the namespace you want to enable a credential resource for.
-1. In the namespace page, under **Settings**, select **Credentials**.
-1. In the **Credentials** page, select **Enable**.
-
-
-### [Azure CLI](#tab/cli)
-
-Enabling a credential resource for an existing namespace is only supported through the Azure portal at public preview.
-
-***
-
-## Sync policies to IoT hubs
-
-### [Azure portal](#tab/portal)
-
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Device Registry**.
-1. Go to the **Namespaces** page.
-1. Select the namespace you want to sync policies for.
-1. In the namespace page, under **Namespace resources**, select **Credential policies (Preview)**.
-1. In the **Credential policies** page, you can view your policies, validity periods, intervals, and status.
-1. Select the policies you want to sync. You can sync more than one policy at a time.
-1. Select **Sync**.
-
-    :::image type="content" source="media/device-registry/sync-policies.png" alt-text="Screenshot of the namespace page in Azure portal that shows the sync option." lightbox="media/device-registry/sync-policies.png":::
-
-
-    > [!NOTE]
-    > If you select to sync more than one policy, policies are synced to their respective IoT hubs. You can't undo a sync operation once it's done.
-
-### [Azure CLI](#tab/cli)
-
-Syncing policies for an existing namespace is only supported through the Azure portal at public preview.
-
-***
 
 ## Delete a namespace
 
