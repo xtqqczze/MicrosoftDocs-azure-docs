@@ -67,6 +67,7 @@ The Azure Portal supports the current smart tier public preview. Smart tier requ
 
 ## Next steps
 
+- Share your feedback about smart tier with us at smartblob@microsoft.com. We are excited to hear from you how we can improve smart tier even further.
 - [Set a blob's access tier](access-tiers-online-manage.md)
 - [Archive a blob](archive-blob.md)
 - [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
