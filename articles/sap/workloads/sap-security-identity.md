@@ -128,7 +128,7 @@ SAP SSO Server (Java) – SAP has announced the End of Life December 2027  [SAP 
 - [single sign-on for SAP GUI | SAP Community](https://pages.community.sap.com/topics/single-sign-on)
 - [1848999 - Central Note for CommonCryptoLib 8 (SAPCRYPTOLIB)](https://me.sap.com/notes/1848999/E)
 - [510007 - Additional considerations about setting up SSL on Application Server ABAP](https://me.sap.com/notes/510007)
-- [Single Sign On for SAP NetWeaver and Azure Active Directory - YouTube](https://www.youtube.com/watch?v=AGCZA8CCIYo)
+- [Single Sign On for SAP NetWeaver and Azure Active Directory - YouTube](https://www.youtube.com/watch?v=AGCZA8CCIYo) 
 
 
 

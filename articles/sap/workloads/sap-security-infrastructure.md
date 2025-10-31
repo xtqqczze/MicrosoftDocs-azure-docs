@@ -162,7 +162,7 @@ High priority items for Windows Operating System include:
 - After installation, it is supported to lock the \<sid>adm username as described in SAP Note 1837765.  The service account SAPService\<SID> should have "deny interactive login" (the default setting after installation).  The SAPService\<SID> and \<sid>adm account must not deleted. Review [1837765 - Security policies for \<SID>adm and SAPService\<SID> on Windows](https://me.sap.com/notes/1837765/E)
 - Configure Windows Group Policy to clear last user name, on permit AD authenticated sign-in (mitigates against cloning attack) and disable legacy TLS and SMB protocols 
 
-Other links for Windows: 
+Other links for Windows:  
 
 https://aka.ms/ws2025securitybook 
 
