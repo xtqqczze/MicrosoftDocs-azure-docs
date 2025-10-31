@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/19/2025
+ms.date: 10/31/2025
 ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
@@ -22,7 +22,7 @@ API Management has a fully customizable, standalone, managed [developer portal](
 
 ## Authentication options
 
-* **External users** - The preferred option when the developer portal is consumed externally is to enable access through a [Microsoft Entra External ID](/entra/external-id/external-identities-overview). 
+* **External users** - The preferred option when the developer portal is consumed externally is to enable access through [Microsoft Entra External ID](/entra/external-id/external-identities-overview). 
     * Microsoft Entra External ID provides the option of using native accounts: users sign in using that identity to access the developer portal. 
     * It's also useful if you want users to access the developer portal using existing social media or federated organizational accounts.  
     * The service provides many features to improve the end user sign-up and sign-in experience, including conditional access and MFA. 

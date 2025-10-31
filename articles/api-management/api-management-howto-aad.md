@@ -31,9 +31,9 @@ For an overview of options to secure the developer portal, see [Secure access to
 > * If you previously configured a Microsoft Entra app for user sign-in using the Azure AD Authentication Library (ADAL), we recommend that you [migrate to MSAL](#migrate-to-msal).
 
 For scenarios involving Microsoft External ID to allow external identities to sign in to the developer portal, see [Authorize access to API Management developer portal by using Microsoft Entra External ID](api-management-howto-entra-external-id.md).
- 
-> [!TIP]
-> Depending on your requirements for access to the developer portal, you can configure multiple Microsoft Entra ID tenants, including your workforce tenant (optionally integrated with Microsoft Entra External ID) and one or more external tenants. 
+
+[!INCLUDE [api-management-developer-portal-entra-tenants.md](../../includes/api-management-developer-portal-entra-tenants.md)]
+
 
 ## Prerequisites
 
@@ -47,86 +47,7 @@ For scenarios involving Microsoft External ID to allow external identities to si
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-
-<a name='enable-user-sign-in-using-azure-ad---portal'></a>
-
-## Enable user sign-in using Microsoft Entra ID - portal
-
-To simplify the configuration, API Management can automatically enable a Microsoft Entra application and identity provider for users of the developer portal. Alternatively, you can manually enable the Microsoft Entra application and identity provider.
-
-<a name='automatically-enable-azure-ad-application-and-identity-provider'></a>
-
-### Automatically enable Microsoft Entra application and identity provider
-
-1. In the left menu of your API Management instance, under **Developer portal**, select **Portal overview**.
-1. On the **Portal overview** page, scroll down to **Enable user sign-in with Microsoft Entra ID**. 
-1. Select **Enable Microsoft Entra ID**.
-1. On the **Enable Microsoft Entra ID** page, select **Enable Microsoft Entra ID**.
-1. Select **Close**.
-
-    :::image type="content" source="media/api-management-howto-aad/enable-azure-ad-portal.png" alt-text="Screenshot of enabling Microsoft Entra ID in the developer portal overview page.":::
-
-After the Microsoft Entra provider is enabled:
-
-* Users in the specified Microsoft Entra instance can [sign into the developer portal by using a Microsoft Entra account](#log_in_to_dev_portal).
-* You can manage the Microsoft Entra configuration on the **Developer portal** > **Identities** page in the portal.
-* Optionally configure other sign-in settings by selecting **Identities** > **Settings**. For example, you might want to redirect anonymous users to the sign-in page.
-* Republish the developer portal after any configuration change.
-
-<a name='manually-enable-azure-ad-application-and-identity-provider'></a>
-
-### Manually enable Microsoft Entra application and identity provider 
-
-1. In the left menu of your API Management instance, under **Developer portal**, select **Identities**.
-1. Select **+Add** from the top to open the **Add identity provider** pane to the right.
-1. Under **Type**, select **Microsoft Entra ID** from the drop-down menu. Once selected, you'll be able to enter other necessary information. 
-    * In the **Client library** dropdown, select **MSAL**.
-    * To add **Client ID** and **Client secret**, see steps later in the article.
-1. Save the **Redirect URL** for later.
-    
-    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Screenshot of adding identity provider in Azure portal.":::
-  
-1. In your browser, open the Azure portal in a new tab. 
-1. Navigate to [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register an app in Active Directory.
-1. Select **New registration**. On the **Register an application** page, set the values as follows:
-    
-    * Set **Name** to a meaningful name such as *developer-portal*
-    * Set **Supported account types** to **Accounts in any organizational directory**. 
-    * In **Redirect URI**, select **Single-page application (SPA)** and paste the redirect URL you saved from a previous step. 
-    * Select **Register**. 
-
-1.  After you've registered the application, copy the **Application (client) ID** from the **Overview** page. 
-1. Switch to the browser tab with your API Management instance. 
-1. In the **Add identity provider** window, paste the **Application (client) ID** value into the **Client ID** box.
-1. Switch to the browser tab with the App registration.
-1. Select the appropriate app registration.
-1. Under the **Manage** section of the side menu, select **Certificates & secrets**. 
-1. From the **Certificates & secrets** page, select the **New client secret** button under **Client secrets**. 
-    * Enter a **Description**.
-    * Select any option for **Expires**.
-    * Choose **Add**. 
-1. Copy the client **Secret value** before leaving the page. You will need it later. 
-1. Under **Manage** in the side menu, select **Token configuration** > **+ Add optional claim**.
-    1. In **Token type**, select **ID**.
-    1. Select (check) the following claims: **email**, **family_name**, **given_name**.
-    1. Select **Add**. If prompted, select **Turn on the Microsoft Graph email, profile permission**. 
-1. Switch to the browser tab with your API Management instance. 
-1. Paste the secret into the **Client secret** field in the **Add identity provider** pane.
-
-    > [!IMPORTANT]
-    > Update the **Client secret** before the key expires. 
-
-1. In **Signin tenant**, specify a tenant name or ID to use for sign-in to Microsoft Entra. If no value is specified, the Common endpoint is used.
-1. In **Allowed tenants**, add specific Microsoft Entra tenant names or IDs for sign-in to Microsoft Entra. 
-1. After you specify the desired configuration, select **Add**.
-1. Republish the developer portal for the Microsoft Entra configuration to take effect. In the left menu, under **Developer portal**, select **Portal overview** > **Publish**. 
-
-After the Microsoft Entra provider is enabled:
-
-* Users in the specified Microsoft Entra tenant(s) can [sign into the developer portal by using a Microsoft Entra account](#log_in_to_dev_portal).
-* You can manage the Microsoft Entra configuration on the **Developer portal** > **Identities** page in the portal.
-* Optionally configure other sign-in settings by selecting **Identities** > **Settings**. For example, you might want to redirect anonymous users to the sign-in page.
-* Republish the developer portal after any configuration change.
+[!INCLUDE [api-management-developer-portal-entra-app.md](../../includes/api-management-developer-portal-entra-app.md)]
 
 ## Migrate to MSAL
 
