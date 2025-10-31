@@ -68,5 +68,5 @@ This preview feature has the following limitations and known issues:
 
 ## Next steps
 
-[Enable Threat Detection and monitor health of Azure VM Backups](threat-detection-configure-monitor-tutorial.md).
+[Configure Threat Detection and manage health of Azure VM Backups (preview)](threat-detection-configure-monitor-tutorial.md).
 

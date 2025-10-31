@@ -162,7 +162,7 @@
     href: multi-user-authorization-tutorial.md
   - name: Recover soft deleted items with enhanced soft delete
     href: backup-azure-enhanced-soft-delete-tutorial.md
-  - name: Enable Threat Detection and monitor health of Azure VM Backups
+  - name: Configure Threat Detection and manage health of Azure VM Backups
     href: threat-detection-configure-monitor-tutorial.md  
 - name: Concepts
   items:
@@ -310,7 +310,7 @@
         href: private-endpoints-overview.md
       - name: V2 experience
         href: backup-azure-private-endpoints-concept.md
-    - name: Threat detection for Azure VM backups 
+    - name: Threat Detection with Microsoft Defender for Cloud integration 
       href: threat-detection-overview.md
   - name: Backup architecture
     href: backup-architecture.md

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Enable Threat Detection and manage health of Azure VM Backups
+title: Tutorial - Configure Threat Detection and manage health of Azure VM Backups
 description: Learn how to enable threat detection for Azure VM backups using Azure Backup. The feature is integrated with Microsoft Defender for Cloud, configure settings, and monitor backup restore point health.
 ms.service: azure-backup
 ms.date: 10/24/2025
@@ -11,7 +11,7 @@ ms.reviewer: v-mallicka
 
 ---
 
-# Tutorial: Enable Threat Detection and manage health of Azure VM Backups (preview)
+# Tutorial: Configure Threat Detection and manage health of Azure VM Backups (preview)
 
 This tutorial describes how to enable threat detection for Azure Virtual Machine (VM) backups and manage them using Azure Backup. This feature is integrated with Microsoft Defender for Cloud, configure settings, and monitor backup restore point health.
 
@@ -21,7 +21,7 @@ Azure Backup now uses Microsoft Defender for Cloud (MDC) to provide threat detec
 
 ## Prerequisites
 
-Before you enable threat detection for Azure VM backups, ensure the following prerequisites are met:
+Before you enable and manage threat detection for Azure VM backups, ensure the following prerequisites are met:
 
 - Enable Microsoft Defender for Servers Plan 1 or Plan 2 on your Azure subscription. For Plan 1, enable Microsoft Defender for Endpoint (MDE) on virtual machines and verify correct configuration on the source VM; otherwise, backups might be incorrectly tagged. For Plan 2, ensure that you enable agentless malware scan. [Learn more about Defender for Servers](/azure/defender-for-cloud/defender-for-servers-overview).
 - Enable bi-directional alert synchronization in Microsoft Sentinel to accurately identify backup recovery points (RPs). [Learn how to Ingest Microsoft Defender for Cloud alerts to Microsoft Sentinel](/azure/sentinel/connect-defender-for-cloud).
@@ -102,8 +102,6 @@ To monitor the health of Azure VM recovery points using Azure Business Continuit
 
      :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/scan-details.png" alt-text="Screenshot shows the scan details for the suspicious recovery point." lightbox="./media/threat-detection-configure-monitor-tutorial/scan-details.png":::
 
-After you resolve all alerts and mark them as *resolved* in Microsoft Defender for Cloud, protected items are marked as **No threats reported**.
-
 You can also view the scan status of each recovery point during Azure VM restore, which helps you to select the appropriate restore point for ransomware recovery.
 
 :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/view-restore-point-scan-status.png" alt-text="Screenshot shows the restore point scan status." lightbox="./media/threat-detection-configure-monitor-tutorial/view-restore-point-scan-status.png":::
@@ -120,6 +118,8 @@ If a backup recovery point is flagged as **Suspicious**, all subsequent recovery
   Ensure that the alert status is synchronized back to Defender for Cloud. Learn how to [Ingest Microsoft Defender for Cloud alerts to Microsoft Sentinel](/azure/sentinel/connect-defender-for-cloud).
 
 - For alerts managed through third-party incident management tools, resolve them in the Defender for Cloud portal.
+
+After you resolve all alerts and mark them as *resolved* in Microsoft Defender for Cloud, protected items are marked as **No threats reported**.
 
 ## Related content
 

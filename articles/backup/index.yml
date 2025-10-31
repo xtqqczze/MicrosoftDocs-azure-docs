@@ -65,7 +65,7 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Threat detection support for Azure VM Backups (preview)
+          - text: Threat Detection with Microsoft Defender for Cloud integration (preview)
             url: threat-detection-overview.md
           - text: Azure Files (Premium) vaulted backup
             url: azure-file-share-backup-overview.md
