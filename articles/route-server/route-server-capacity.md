@@ -37,7 +37,7 @@ As the spoke VM utilization changes over time, the autoscaling algorithm dynamic
 
 ### Routing infrastructure unit table
 
-For pricing information, see [Azure Virtual WAN pricing](https://azure.microsoft.com/pricing/details/virtual-wan/).
+For pricing information, see [Azure Route Server pricing](https://azure.microsoft.com/pricing/details/route-server/).
 
 | Routing infrastructure unit | Number of VMs |
 |----------------------------|---------------|
