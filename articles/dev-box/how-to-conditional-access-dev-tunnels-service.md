@@ -14,7 +14,7 @@ ms.custom: peer-review-program
 
 Dev Tunnels offer a streamlined way to connect to your Dev Box directly from Visual Studio Code, eliminating the need to use separate applications like Windows App or a browser. This method provides a more immediate and integrated development experience. Unlike traditional connection methods, Dev Tunnels simplify access and enhance productivity. 
 
-Many large enterprises using Dev Box have strict security and compliance policies, and their code is valuable to their business. This article explains how to configure conditional access policies to secure Dev Tunnel usage in your environment.
+Many large enterprises that use Dev Box have strict security and compliance policies, and their code is valuable to their business. This article explains how to configure conditional access policies to secure Dev Tunnel usage in your environment.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Conditional access policies for the Dev Tunnels service:
 - Apply to both the Visual Studio Code application and VS Code web.
 
 > [!NOTE]
-> This article focuses on setting up conditional access policies specifically for Dev Tunnels. If you're configuring policies for Dev Box more broadly, refer to [Configure conditional access for Dev Box](how-to-conditional-access.md).
+> This article focuses on setting up conditional access policies specifically for Dev Tunnels. If you're configuring policies for Dev Box more broadly, see [Configure conditional access for Dev Box](how-to-conditional-access.md).
 
 ## Configure conditional access policies
 
@@ -63,18 +63,18 @@ The Microsoft Entra ID team is working on removing the need to onboard apps for 
 
 1. Turn off the BlockDevTunnelCA policy.
 
-1. Create a Dev Box in the test tenant and run the following commands inside it. Dev Tunnels can be created and connected externally.
+1. Create a Dev Box in the test tenant and run the following commands inside it. You can create and connect to Dev Tunnels externally.
 
    ```powershell
    code tunnel user login --provider microsoft
    code tunnel
    ```
 
-1. Enable the BlockDevTunnelCA policy.
+1. Turn on the BlockDevTunnelCA policy.
 
-   1. New connections to the existing Dev Tunnels can't be established. Test with an alternate browser if a connection has already been established.
+   1. You can't establish new connections to the existing Dev Tunnels. If a connection is already established, test with an alternate browser.
 
-   1. Any new attempts to execute the commands in step 2 will fail. Both errors are:
+   1. Any new attempts to execute the commands in step 2 fail. Both errors are:
 
       :::image type="content" source="media/how-to-conditional-access-dev-tunnels-service/dev-tunnels-no-access.png" alt-text="Screenshot of error message when Dev tunnels connection is blocked by conditional access policy." lightbox="media/how-to-conditional-access-dev-tunnels-service/dev-tunnels-no-access.png":::
 
@@ -88,7 +88,7 @@ With Dev Tunnels, the following limitations apply:
 
 - **Policy assignment restrictions**: You can't configure conditional access policies for the Dev Box service to manage Dev Tunnels for Dev Box users. Instead, configure policies at the Dev Tunnels service level as described in this article.
 - **Self-created Dev Tunnels**: You can't limit Dev Tunnels that aren't managed by the Dev Box service. In the context of Dev Boxes, if the Dev Tunnels GPO is configured **to allow only selected Microsoft Entra tenant IDs**, conditional access policies can also restrict self-created Dev Tunnels.
-- **IP range enforcement**: Dev Tunnels may not support granular IP restrictions. Consider using network-level controls or consult your security team for alternative enforcement strategies.
+- **IP range enforcement**: Dev Tunnels might not support granular IP restrictions. Consider using network-level controls or consult your security team for alternative enforcement strategies.
 
 ## Related content
 - [Open a dev box in VS Code](how-to-set-up-dev-tunnels.md).
