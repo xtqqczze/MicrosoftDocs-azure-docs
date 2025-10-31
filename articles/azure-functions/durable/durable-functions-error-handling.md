@@ -106,6 +106,12 @@ public static async Task Run(
 }
 ```
 
+> [!NOTE]  
+> The exception message typically identifies which activity functions or sub-orchestrations caused the failure.  
+> To access more detailed error information, inspect the [`FailureDetails`](/dotnet/api/microsoft.durabletask.taskfailuredetails) property.  
+> By default, `FailureDetails` includes the **error type**, **error message**, **stack trace**, and any **nested inner exceptions** (each represented as a recursive `FailureDetails` object).  
+> If you want to include additional exception properties in the failure output, see [Include Custom Exception Properties for FailureDetails (.NET Isolated)](./include-custom-exception-properties-for-failuredetails-dotnet-isolated.md).  
+
 # [JavaScript (PM3)](#tab/javascript-v3)
 
 ```javascript
@@ -738,6 +744,85 @@ public boolean timerOrchestrator(
 ## Unhandled exceptions
 
 If an orchestrator function fails with an unhandled exception, the details of the exception are logged and the instance completes with a `Failed` status.
+
+## Include Custom Exception Properties for FailureDetails (.NET Isolated)
+
+When running Durable Task workflows in the .NET Isolated model, task failures are automatically serialized into a FailureDetails object. By default, this object includes standard fields such as:
+- ErrorType — the exception type name
+- Message — the exception message
+- StackTrace — the serialized stack trace
+- InnerFailure – a nested FailureDetails object for recursive inner exceptions
+
+Starting with Microsoft.Azure.Functions.Worker.Extensions.DurableTask [v1.9.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.9.0), You can extend this behavior by implementing an IExceptionPropertiesProvider (defined in the Microsoft.DurableTask.Worker starting from [v1.16.1](https://www.nuget.org/packages/Microsoft.DurableTask.Worker/1.16.1)package). This provider defines which exception types and which of their properties should be included in the FailureDetails.Properties dictionary.
+
+### Implement an Exception Properties Provider
+Implement a custom IExceptionPropertiesProvider to extract and return selected properties for the exceptions you care about. The returned dictionary will be serialized into the Properties field of FailureDetails when a matching exception type is thrown.
+
+```csharp
+using Microsoft.DurableTask.Worker;
+
+public class CustomExceptionPropertiesProvider : IExceptionPropertiesProvider
+{
+    public IDictionary<string, object?>? GetExceptionProperties(Exception exception)
+    {
+        return exception switch
+        {
+            ArgumentOutOfRangeException e => new Dictionary<string, object?>
+            {
+                ["ParamName"] = e.ParamName,
+                ["ActualValue"] = e.ActualValue
+            },
+            InvalidOperationException e => new Dictionary<string, object?>
+            {
+                ["CustomHint"] = "Invalid operation occurred",
+                ["TimestampUtc"] = DateTime.UtcNow
+            },
+            _ => null // Other exception types not handled
+        };
+    }
+}
+```
+
+### Register the Provider
+Register your custom IExceptionPropertiesProvider in your .NET Isolated worker host, typically in Program.cs:
+```csharp
+using Microsoft.DurableTask.Worker;
+using Microsoft.Extensions.DependencyInjection;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults(builder =>
+    {
+        // Register custom exception properties provider
+        builder.Services.AddSingleton<IExceptionPropertiesProvider, CustomExceptionPropertiesProvider>();
+    })
+    .Build();
+
+host.Run();
+```
+Once registered, any exception that matches one of the handled types will automatically include the configured properties in its FailureDetails.
+
+### Sample FailureDetails Output
+When an exception occurs that matches your provider’s configuration, the orchestration receives a serialized FailureDetails structure like this:
+```json
+{
+  "errorType": "TaskFailedException",
+  "message": "Activity failed with an exception.",
+  "stackTrace": "...",
+  "innerFailure": {
+    "errorType": "ArgumentOutOfRangeException",
+    "message": "Specified argument was out of range.",
+    "properties": {
+      "ParamName": "count",
+      "ActualValue": 42
+    }
+  }
+}
+```
+
+> [!NOTE]  
+> - This feature is available in **.NET Isolated** only. Support for Java will be added in a future release.  
+> - Make sure you're using **Microsoft.Azure.Functions.Worker.Extensions.DurableTask v1.9.0** or later.  
+> - Make sure you're using **Microsoft.DurableTask.Worker v1.16.1** or later.  
 
 ## Next steps
 
