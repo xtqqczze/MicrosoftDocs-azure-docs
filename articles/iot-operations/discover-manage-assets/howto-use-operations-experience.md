@@ -77,7 +77,7 @@ Whenever you make a change to a resource in the operations experience, you see a
 
 To enable you to copy settings between Azure Iot Operations instances, the operations experience lets you export and import settings for the following configurations:
 
-- Tags and events for OPC UA endpoints (CSV)
+- Data points and events for OPC UA endpoints (CSV)
 - Data points and events for SSE endpoints (CSV)
 - Data points for HTTP endpoints (CSV)
 - Events and actions for ONVIF endpoints (CSV)
@@ -85,9 +85,9 @@ To enable you to copy settings between Azure Iot Operations instances, the opera
 - Data flow endpoints (JSON)
 - Data flow (JSON)
 
-For example, to export The tag definitions for an asset that uses an OPC UA inbound endpoint, go to the **Tags** page for the asset, select the tags to export, and then select **Export tags**:
+For example, to export the data point definitions for an asset that uses an OPC UA inbound endpoint, go to the **Data points** page for the dataset, select the data points to export, and then select **Export data points**:
 
-:::image type="content" source="media/howto-use-operations-experience/export-tags.png" alt-text="A screenshot that shows how to export tag definitions to a CSV file." lightbox="media/howto-use-operations-experience/export-tags.png":::
+:::image type="content" source="media/howto-use-operations-experience/export-data-points.png" alt-text="A screenshot that shows how to export data point definitions to a CSV file." lightbox="media/howto-use-operations-experience/export-data-points.png":::
 
 For example, to import a previously exported data flow definition, go to **Create data flow**, select **Import**, and select the JSON file that contains the data flow definition:
 

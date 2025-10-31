@@ -133,15 +133,15 @@ To define an asset that publishes events from the SSE endpoint, follow these ste
 
 1. Add any custom properties you want to associate with the asset. For example, you might add a property to indicate the manufacturer of the camera. Select **Next** to continue.
 
-1. On the **Events** page, select **Add event** to add an event for the asset. For example:
+1. On the **Datasets** page, create any datasets required and define the data points.
+
+1. On the **Event groups** page, create an event group to define the events to publish to the MQTT broker.
+
+1. In the event group, select **Add event** to add an event for the asset. For example:
 
     :::image type="content" source="media/howto-use-sse-connector/add-event.png" alt-text="Screenshot that shows how to add an event for SSE source." lightbox="media/howto-use-sse-connector/add-event.png":::
 
     Add details for each event to publish to the MQTT broker.
-
-1. To configure the destination for the data, select **Manage event groups** and then select the event group. Configure the MQTT destination:
-
-    :::image type="content" source="media/howto-use-sse-connector/configure-dataset.png" alt-text="Screenshot that shows how to configure the event-group for SSE source." lightbox="media/howto-use-sse-connector/configure-dataset.png":::
 
     Select **Next** to continue.
 
