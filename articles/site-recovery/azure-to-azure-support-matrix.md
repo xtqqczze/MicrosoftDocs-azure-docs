@@ -33,7 +33,7 @@ Replicate Azure VMs from one subscription to another for DR. | Supported within 
 Migrate VMs across regions within supported geographical clusters (within and across subscriptions). | Supported within the same Microsoft Entra tenant.
 Migrate VMs within the same region. | Not supported.
 Azure Dedicated Host. | Not supported.
-Azure Virtual Desktop infrastructure VMs. | Supported if all the Azure-to-Azure replication prerequisites are fulfilled. (Zone-to-zone replication for individual servers is also supported.)
+Azure Virtual Desktop infrastructure VMs. | Supported if all the Azure to Azure replication prerequisites are fulfilled. (Zone-to-zone replication for individual servers is also supported.)
 
 ## Region support
 
@@ -41,15 +41,23 @@ With Site Recovery, you can perform global DR. You can replicate and recover VMs
 
 For information on the various geographic clusters that are supported, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=site-recovery&regions=all).
 
-> [!NOTE]
-> - **Support for restricted regions is reserved for in-country/region DR.** Switzerland West is reserved for Switzerland North customers. France South is reserved for France Central customers. Norway West is reserved for Norway East customers. JIO India Central is reserved for JIO India West customers. Brazil Southeast is reserved for Brazil South customers. South Africa West is reserved for South Africa North customers. Germany North is reserved for Germany West Central customers. UAE Central is reserved for UAE North customers.<br/><br/> To use restricted regions as your primary or recovery region, make a request at [Products available by region](/troubleshoot/azure/general/region-access-request-process) for both source and target subscriptions to get on the allowlist.
-> <br>
-> - For Brazil South, you can replicate and fail over to the following regions: Brazil Southeast, South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US.
-> - You can use only Brazil South as a source region from which VMs can replicate by using Site Recovery. It can't act as a target region. If you fail over from Brazil South as a source region to a target, failback to Brazil South from the target region is supported. You can use only Brazil Southeast as a target region.
->
-> - If the region in which you want to create a vault doesn't show, make sure that your subscription has access to create resources in that region.
->
-> - If you can't see a region within a geographic cluster when you enable replication, make sure that your subscription has permissions to create VMs in that region.
+Support for restricted regions is reserved for in-country/region DR:
+
+- Switzerland West is reserved for Switzerland North customers.
+- France South is reserved for France Central customers.
+- Norway West is reserved for Norway East customers.
+- JIO India Central is reserved for JIO India West customers.
+- Brazil Southeast is reserved for Brazil South customers.
+- South Africa West is reserved for South Africa North customers.
+- Germany North is reserved for Germany West Central customers.
+- UAE Central is reserved for UAE North customers.
+
+To use restricted regions as your primary or recovery region, make a request at [Products available by region](/troubleshoot/azure/general/region-access-request-process) for both source and target subscriptions to get on the allowlist:
+
+- For Brazil South, you can replicate and fail over to the following regions: Brazil Southeast, South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US.
+- You can use only Brazil South as a source region from which VMs can replicate by using Site Recovery. It can't act as a target region. If you fail over from Brazil South as a source region to a target, failback to Brazil South from the target region is supported. You can use only Brazil Southeast as a target region.
+- If the region in which you want to create a vault doesn't show, make sure that your subscription has access to create resources in that region.
+- If you can't see a region within a geographic cluster when you enable replication, make sure that your subscription has permissions to create VMs in that region.
 
 ## Cache storage
 
@@ -75,7 +83,7 @@ V2 storage account    |    750 disks    |    375 disks
 
 As average churn on the disks increases, the number of disks that a storage account can support decreases. Use the preceding table as a guide for making decisions on the number of storage accounts that must be provisioned.
 
-The cache limits are specific to Azure-to-Azure and zone-to-zone DR scenarios.
+The cache limits are specific to Azure to Azure and zone-to-zone DR scenarios.
 
 When you enable replication via the VM workflow for cross-subscriptions, the portal lists only the cache storage account from the source subscription. It doesn't list any storage account created in the target subscription. To set up this scenario, use [Azure PowerShell](azure-to-azure-powershell.md).
 
@@ -102,7 +110,7 @@ Windows 7 (x64) with SP1 and later | From version [9.30](https://support.microso
 
 ### Linux
 
-Mobility service versions 9.58 and 9.59 aren't released for Azure-to-Azure Site Recovery.
+Mobility service versions 9.58 and 9.59 aren't released for Azure to Azure Site Recovery.
 
 Operating system | Details
 --- | ---
@@ -132,7 +140,7 @@ Site Recovery doesn't support VMs created on ARM64 CPU architecture.
 
 ### Linux kernel support timelines
 
-To support newly released Linux kernels, Site Recovery provides hotfix patches of the mobility agent on top of the latest mobility agent version. These hotfixes are released on a *best-effort basis within 30 days* of the kernel release and apply only to *Azure-to-Azure disaster recovery scenarios*.
+To support newly released Linux kernels, Site Recovery provides hotfix patches of the mobility agent on top of the latest mobility agent version. These hotfixes are released on a *best-effort basis within 30 days* of the kernel release and apply only to *Azure to Azure disaster recovery scenarios*.
 
 >[!Note]
 >This isn't a service-level agreement. The 30-day support window on a *best-effort basis* applies only to specific scenarios as outlined in the following table.
@@ -150,7 +158,7 @@ RHEL, Rocky, Alma, and Oracle Linux. (All distros are based on RHEL kernels.) | 
 
 #### Supported kernel versions for Red Hat Enterprise Linux for Azure VMs
 
-Enabling replication when you create a VM deployment workflow isn't supported for VMs with OS RHEL 9* and later.
+Enabling replication when you create a VM deployment workflow isn't supported for VMs with OS RHEL 9 and later.
 
 Release | Mobility service version | Red Hat kernel version |
 --- | --- | --- |
@@ -164,7 +172,7 @@ RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3  | 9.60 | 5.14.0-70.13.1.el9_
 
 #### Supported Ubuntu kernel versions for Azure VMs
 
-Mobility service versions 9.58 and 9.59 aren't released for Azure-to-Azure Site Recovery.
+Mobility service versions 9.58 and 9.59 aren't released for Azure to Azure Site Recovery.
 
 Release | Mobility service version | Kernel version |
 --- | --- | --- |
@@ -214,7 +222,7 @@ Release | Mobility service version | Kernel version |
 
 #### Supported Debian kernel versions for Azure VMs
 
-Mobility service versions 9.58 and 9.59 aren't released for Azure-to-Azure Site Recovery. 
+Mobility service versions 9.58 and 9.59 aren't released for Azure to Azure Site Recovery. 
 
 Release | Mobility service version | Kernel version |
 --- | --- | --- |
@@ -267,7 +275,7 @@ Debian 12 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azur
 
 #### Supported SUSE Linux Enterprise Server 12 kernel versions for Azure VMs
 
-Mobility service versions 9.58 and 9.59 aren't released for Azure-to-Azure Site Recovery. 
+Mobility service versions 9.58 and 9.59 aren't released for Azure to Azure Site Recovery. 
 
 Release | Mobility service version | Kernel version |
 --- | --- | --- |
@@ -281,7 +289,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | 9.60 | All [stock SU
 
 #### Supported SUSE Linux Enterprise Server 15 kernel versions for Azure VMs
 
-Mobility service versions 9.58 and 9.59 aren't released for Azure-to-Azure Site Recovery. 
+Mobility service versions 9.58 and 9.59 aren't released for Azure to Azure Site Recovery. 
 
 Release | Mobility service version | Kernel version |
 --- | --- | --- |
@@ -306,7 +314,7 @@ Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linu
 
 #### Supported Rocky Linux kernel versions for Azure VMs
 
-Mobility service versions 9.58 and 9.59 aren't released for Azure-to-Azure Site Recovery. 
+Mobility service versions 9.58 and 9.59 aren't released for Azure to Azure Site Recovery. 
 
 Release | Mobility service version | Red Hat kernel version |
 --- | --- | --- |
@@ -325,7 +333,7 @@ Rocky Linux  | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-a
 
 #### Supported Alma Linux kernel versions for Azure VMs
 
-Mobility service versions 9.58 and 9.59 aren't released for Azure-to-Azure Site Recovery. 
+Mobility service versions 9.58 and 9.59 aren't released for Azure to Azure Site Recovery. 
 
 Release | Mobility service version | Red Hat kernel version |
 --- | --- | --- |
@@ -364,7 +372,7 @@ Tags  | Supported. | User-generated tags applied on source VMs are carried over 
 
 Action | Details
 --- | ---
-Resize a disk on a replicated VM. | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Perform resizing before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, Site Recovery doesn't capture the changes. Failback is to the original VM size.<br/><br/> If you resize to >=4 TB, see the Azure guidance on disk caching in [Azure Premium storage: Design for high performance](/azure/virtual-machines/premium-storage-performance). 
+Resize a disk on a replicated VM. | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Perform resizing before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, Site Recovery doesn't capture the changes. Failback is to the original VM size.<br/><br/> If you resize to 4 TB or larger, see the Azure guidance on disk caching in [Azure Premium storage: Design for high performance](/azure/virtual-machines/premium-storage-performance). 
 Add a disk to a replicated VM. | Supported.
 Offline changes to protected disks. | Disconnecting disks and making offline modifications to them require triggering a full resync.
 Disk caching. | Disk caching isn't supported for disks 4 TB and larger. If multiple disks are attached to your VM, each disk that's smaller than 4 TB supports caching. Changing the cache setting of an Azure disk detaches and reattaches the target disk. If it's the operating system disk, the VM is restarted. Before you change the disk cache setting, stop all applications or services that this disruption might affect. Not following the recommendations could lead to data corruption.
@@ -374,7 +382,7 @@ Disk caching. | Disk caching isn't supported for disks 4 TB and larger. If multi
 > [!NOTE]
 > Site Recovery supports storage accounts with page blobs for unmanaged disk replication.
 >
-> Unmanaged disks were deprecated on September 30, 2022, and are slated to retire by September 30, 2025. Managed disks now offer the full capabilities of unmanaged disks, along with other advancements.
+> Unmanaged disks were deprecated on September 30, 2022, and are slated to fully retire by March 31, 2026. Managed disks now offer the full capabilities of unmanaged disks, along with other advancements.
 
 The following table summarizes support for the Azure VM OS disk, data disk, and temporary disk:
 
@@ -432,8 +440,8 @@ Ultra disks | Supported. | Because block blob storage accounts aren't supported 
 Secure transfer option | Supported.
 Write accelerator enabled disks | Not supported.
 Tags  | Supported. | User-generated tags replicate every 24 hours.
-Soft delete | Not supported. | Soft delete isn't supported because after soft delete is enabled on a storage account, it increases cost. Site Recovery performs frequent creates/deletes of log files. Replicating causes costs to increase.
-iSCSI disks | Not supported. | You can use Site Recovery to migrate or fail over iSCSI disks into Azure. However, iSCSI disks aren't supported for Azure-to-Azure replication and failover/failback.
+Soft delete | Not supported. | Soft delete isn't supported because after soft delete is enabled on a storage account, it increases cost. Site Recovery performs frequent creations and deletions of log files. Replicating causes costs to increase.
+iSCSI disks | Not supported. | You can use Site Recovery to migrate or fail over iSCSI disks into Azure. However, iSCSI disks aren't supported for Azure to Azure replication and failover/failback.
 Storage Replica | Not supported.
 
 >[!IMPORTANT]

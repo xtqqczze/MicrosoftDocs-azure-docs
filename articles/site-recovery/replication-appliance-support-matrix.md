@@ -1,6 +1,6 @@
 ---
 title: Support Requirements for Azure Site Recovery Replication Appliance
-description: This article describes support and requirements when you deploy the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized.
+description: This article describes support and requirements when you deploy the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery with modernized architecture.
 ms.service: azure-site-recovery
 ms.topic: faq
 ms.date: 04/29/2025
@@ -11,12 +11,12 @@ author: Jeronika-MS
 
 # Support matrix for deploying the replication appliance with Azure Site Recovery - Modernized
 
-This article describes support and requirements when you deploy the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized.
+This article describes support and requirements when you deploy the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery with modernized architecture.
 
 >[!NOTE]
-> The information in this article applies to Azure Site Recovery - Modernized. For information about configuration server requirements in classic releases, see [Deprecation of classic experience to protect VMware and physical machines using Site Recovery](vmware-azure-configuration-server-requirements.md).
+> The information in this article applies to Azure Site Recovery with modernized architecture. For information about configuration server requirements in classic releases, see [Deprecation of classic experience to protect VMware and physical machines using Site Recovery](vmware-azure-configuration-server-requirements.md).
 
-Create a new and exclusive Azure Recovery Services vault for setting up the Site Recovery replication appliance. Don't use an existing vault.
+Create a new and exclusive Recovery Services vault for setting up the Site Recovery replication appliance. Don't use an existing vault.
 
 You deploy an on-premises replication appliance when you use [Site Recovery](site-recovery-overview.md) for disaster recovery of VMware virtual machines (VMs) or physical servers to Azure:
 
@@ -31,7 +31,7 @@ Component | Requirement
 --- | ---
 CPU cores | 8
 RAM | 16 GB
-Number of disks | 2, including the OS disk (80 GB and a data disk) 620 GB
+Number of disks | 2, including the OS disk (80 GB) and a data disk (620 GB)
 
 ### Software requirements
 
