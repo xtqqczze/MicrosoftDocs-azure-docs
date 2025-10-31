@@ -8,13 +8,13 @@ ms.topic: overview
 ms.service: azure-operator-service-manager
 ---
 # What is Azure Operator Service Manager?
-Azure Operator Service Manager is a cloud orchestration service designed to automate lifecycle management of complex mobility workloads hosted on Azure Operator Nexus. Azure Operator Service Manager caters to unique telecommunication industry requirements, taking inspiration from standards defining organizations (SDOs) such as 3GPP, ETSI, ONAP and TMF, fusing these efforts with our adaptive cloud approach to increase hybrid orchestration: 
-* Simplicity, via unified composition of infrastructure, software and configuration specifications.
+Azure Operator Service Manager is a cloud orchestration service designed to automate lifecycle management of complex mobility workloads hosted on Azure Operator Nexus. Azure Operator Service Manager caters to unique telecommunication industry requirements, taking inspiration from standards defining organizations (SDOs) such as 3GPP, ETSI, ONAP, and TMF, fusing these efforts with our adaptive cloud approach to increase hybrid orchestration: 
+* Simplicity, via unified composition of infrastructure, software, and configuration specifications.
 * Reliability, via Azure safe deployment and upgrade practices, ensuring error-free service operations.
 * Resiliency, via robust edge registry and high availability, to survive even a disconnected event.
-* Security, with private link and obscured secrets, to prevent unathorized access to sensitive date.
+* Security, with private link and obscured secrets, to prevent unauthorized access to sensitive date.
 
-Winners and losers in this industry are often decided by who can deliver the latest mobility network services first. Continue reading to learn more about the key Azure Operator Service Manager features which accelerate the transition of mobility network services to Azure.
+In an industry where pace of mobility service delivery often decides winners and losers use Azure Operator Service Manager to accelerate the transition of mobility services to Azure.
 
 :::image type="content" source="media/overview-unified-service.png" alt-text="Diagram that shows unified service orchestration across Azure domains." lightbox="media/overview-unified-service-lightbox.png":::
 
@@ -73,7 +73,7 @@ Azure Operator Service Manager uses Azure safe practices to offer a common upgra
 
 Azure Operator Service Manager works seamlessly with security features like 
 * Azure Private Link to harden all interfaces between customer premises and the Azure cloud platform.
-* Secret management services to ensure privilege information is not exposed unnecessarily.
+* Secret management services to ensure privilege information aren't exposed unnecessarily.
 
 Services installed on the customer edge cluster undergo rigorous security testing and are constantly updated for compliance with a strong security posture.
 
@@ -96,5 +96,5 @@ Azure Operator Service Manager is often deployed in combination with the followi
 - [Microsoft Copilot](/copilot)
 
 ## Access to Azure Operator Service Manager for your Azure subscription
-Azure Operator Service Manager is now generally available to any commercial Azure subscrpition. To use Azure Operator Service Manager in your subscription, register for the `Microsoft.HybridNetwork` service provider.
+Azure Operator Service Manager is now generally available to any commercial Azure subscription. To use Azure Operator Service Manager in your subscription, register for the `Microsoft.HybridNetwork` service provider.
 
