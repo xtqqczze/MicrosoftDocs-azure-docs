@@ -33,26 +33,26 @@ The primary categories of configuration validation checks include the following.
 > [!TIP]
 > For the complete and up-to-date list of all configuration checks, refer to the [Configuration Checks documentation](https://github.com/Azure/sap-automation-qa/blob/main/docs/CONFIGURATION_CHECKS.md) on GitHub.
 
-- **Infrastructure**
+#### Infrastructure
 
-  - While not a separate execution category, infrastructure checks are integrated as an essential component within the other categories.
-  - **Azure Compute**: Validation of Virtual Machine SKU, Accelerated Networking enablement, Availability Set/Zone configuration, and Proximity Placement Group settings.
-  - **Storage**: Verification of Premium SSD/Ultra Disk usage, Write Accelerator configuration, disk caching policies, and redundancy settings.
+- While not a separate execution category, infrastructure checks are integrated as an essential component within the other categories.
+- **Azure Compute**: Validation of Virtual Machine SKU, Accelerated Networking enablement, Availability Set/Zone configuration, and Proximity Placement Group settings.
+- **Storage**: Verification of Premium SSD/Ultra Disk usage, Write Accelerator configuration, disk caching policies, and redundancy settings.
 
-- **Database**
+#### Database
 
-  - Validates SAP HANA or IBM DB2 specific settings.
-  - **SAP HANA**: Checks for memory allocation, system replication parameters, and Pacemaker cluster configurations (resource agents, fencing mechanisms, and constraints).
-  - **IBM DB2**: Verification of hardware requirements, system language settings, and operating system tuning parameters.
+- Validates SAP HANA or IBM DB2 specific settings.
+- **SAP HANA**: Checks for memory allocation, system replication parameters, and Pacemaker cluster configurations (resource agents, fencing mechanisms, and constraints).
+- **IBM DB2**: Verification of hardware requirements, system language settings, and operating system tuning parameters.
 
-- **Central services**
+#### Central services
 
-  - Validates the configuration of ASCS (ABAP SAP Central Services) and ERS (Enqueue Replication Server) instances.
-  - Checks for virtual hostname configuration, file system mount options, and service startup ordering.
+- Validates the configuration of ASCS (ABAP SAP Central Services) and ERS (Enqueue Replication Server) instances.
+- Checks for virtual hostname configuration, file system mount options, and service startup ordering.
 
-- **Application servers**
+#### Application servers
 
-  - Validates the configuration of the application server instances.
+- Validates the configuration of the application server instances.
 
 > [!NOTE]
 > High Availability (HA) configuration checks and functional tests are currently supported only for SAP HANA databases. For IBM DB2 databases, only non-HA configuration checks are available.
