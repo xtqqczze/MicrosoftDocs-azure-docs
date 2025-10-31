@@ -231,7 +231,7 @@ Consider creating one or more dev box definitions in the following cases:
 
 Consider the cost of the compute resources associated with a dev box definition to assess to total cost of your deployment.
 
-## Decision summary
+#### Decision summary
 
 - Need access to on-premises/corporate resources: use an Azure network connection with Microsoft Entra hybrid join.
 - Need strict egress control (NSGs/firewalls/custom routing): use an Azure network connection.

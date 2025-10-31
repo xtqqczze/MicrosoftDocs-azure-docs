@@ -6,7 +6,7 @@ ms.service: dev-box
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 10/28/2025
+ms.date: 10/31/2025
 adobe-target: true
 
 #Customer intent: #Customer intent: As a platform engineer, I want to understand what Microsoft Dev Box is and how it can help developer teams, so that I can efficiently set up and use cloud development environments for my teams.
@@ -86,7 +86,7 @@ Microsoft Dev Box offers flexible approaches to configuring development environm
 These approaches provide greater flexibility than legacy dev box definitions by allowing independent selection of compute size and storage when creating dev box pools.
 
 > [!TIP]
-> Read about General Motors use of Microsoft Dev Box: [General Motors reimagines the dev tool chain and onboarding experience with cloud-based developer services from Microsoft](https://www.microsoft.com/en/customers/story/1650265213028177234-gm-cloud-based-developer-services-from-microsoft).
+> Read about General Motors's use of Microsoft Dev Box: [General Motors reimagines the dev tool chain and onboarding experience with cloud-based developer services from Microsoft](https://www.microsoft.com/en/customers/story/1650265213028177234-gm-cloud-based-developer-services-from-microsoft).
 
 ### Developer scenarios
 
