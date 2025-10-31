@@ -19,7 +19,8 @@ The [$docref operation](https://www.hl7.org/fhir/us/core/STU6.1/OperationDefinit
 |end| The end date-time of the date range relates to care dates, not record currency dates. |
 |type| The type relates to document type.|
 
-Note that on-demand and profile parameters aren't currently supported.
+> [!NOTE]
+> On-demand and profile parameters aren't currently supported.
 
 ## Example `$docref` requests
 
@@ -89,7 +90,7 @@ POST request body:
 }
 ```
 ## Related content
-[US Core overview in Azure Health Data Services FHIR](./uscore.md)
+[US Core overview in Azure Health Data Services FHIR](./us-core.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
 

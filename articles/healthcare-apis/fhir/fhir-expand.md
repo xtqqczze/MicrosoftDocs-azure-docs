@@ -18,7 +18,8 @@ The [$expand operation](https://hl7.org/fhir/R4/valueset-operation-expand.html),
 |url|Canonical reference of the value set.|
 | valueSet| Provide the value set directly as part of the request.|
 
-Note: other $expand parameters beyond this list aren't currently supported.
+> [!NOTE]
+> Other $expand parameters beyond this list aren't currently supported.
 
 ## Example `$expand` requests
 
@@ -75,7 +76,7 @@ POST request body:
 }
 ```
 ## Related content
-[US Core overview in Azure Health Data Services FHIR](./uscore.md)
+[US Core overview in Azure Health Data Services FHIR](./us-core.md)
 
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
