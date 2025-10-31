@@ -110,7 +110,7 @@ Replace the `<client-id>` placeholder with the client ID of the user-assigned ma
 You can find the client ID in the Azure portal by viewing the properties of the managed identity. The following screenshot shows the location of the client ID property.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot that shows the location of the client ID](./media/storage-use-azcopy-authorize-managed-identity/client-id.png)
+> ![Screenshot that shows the location of the client ID.](./media/storage-use-azcopy-authorize-managed-identity/client-id.png)
 
 #### Use an object ID
 
@@ -135,7 +135,7 @@ Replace the `<object-id>` placeholder with the object ID of the user-assigned ma
 You can find the object ID in the Azure portal by viewing the properties of the managed identity. The following screenshot shows the location of the object ID (also called the *principal ID*).
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot that shows the location of the object ID](./media/storage-use-azcopy-authorize-managed-identity/object-id.png)
+> ![Screenshot that shows the location of the object ID.](./media/storage-use-azcopy-authorize-managed-identity/object-id.png)
 
 #### Use a resource ID
 
@@ -160,7 +160,7 @@ Replace the `<resource-id>` placeholder with the resource ID of the user-assigne
 You can find the resource ID in the Azure portal by viewing the properties of the managed identity. The following screenshot shows the location of the resource ID property.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot that shows the location of the resource ID](./media/storage-use-azcopy-authorize-managed-identity/resource-id.png)
+> ![Screenshot that shows the location of the resource ID.](./media/storage-use-azcopy-authorize-managed-identity/resource-id.png)
 
 ## Authorize with the AzCopy login command
 
