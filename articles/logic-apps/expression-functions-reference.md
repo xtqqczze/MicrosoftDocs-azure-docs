@@ -5038,7 +5038,7 @@ xml(
 )
 ```
 
-All four examples, which include the JSON string data example and option 1 to 3, return the following XML result:
+All examples, which include the JSON string data example and options 1 to 3, return the following XML result:
 
 ```xml
 <root>
