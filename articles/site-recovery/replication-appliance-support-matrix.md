@@ -9,7 +9,7 @@ author: Jeronika-MS
 # Customer intent: "As a VMware administrator, I want to deploy the Azure Site Recovery replication appliance so that I can ensure effective disaster recovery of my virtual machines to Azure."
 ---
 
-# Support matrix for deploying the replication appliance with Azure Site Recovery - Modernized
+# Support matrix for deploying the replication appliance with Azure Site Recovery - modernized
 
 This article describes support and requirements when you deploy the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery with modernized architecture.
 
@@ -21,7 +21,7 @@ Create a new and exclusive Recovery Services vault for setting up the Site Recov
 You deploy an on-premises replication appliance when you use [Site Recovery](site-recovery-overview.md) for disaster recovery of VMware virtual machines (VMs) or physical servers to Azure:
 
 - The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
-- To learn more about the Site Recovery replication appliance components and processes, see [VMware to Azure disaster recovery architecture - Modernized](vmware-azure-architecture-modernized.md).
+- To learn more about the Site Recovery replication appliance components and processes, see [VMware to Azure disaster recovery architecture - modernized](vmware-azure-architecture-modernized.md).
 
 ## Prerequisites
 
