@@ -188,7 +188,7 @@ ___
 
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Gets the average of values of a column. 
+Gets the average of values of a column.
 * ``avg(sales)``  
 ___
 
@@ -197,7 +197,7 @@ ___
 
 ### <code>avgIf</code>
 <code><b>avgIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Based on a criteria gets the average of values of a column. 
+Gets the average of values of a column based on criteria.
 * ``avgIf(region == 'West', sales)``  
 ___
 
@@ -553,7 +553,7 @@ ___
 
 ### <code>countIf</code>
 <code><b>countIf(<i>&lt;value1&gt;</i> : boolean, [<i>&lt;value2&gt;</i> : any]) => long</b></code><br/><br/>
-Based on a criteria gets the aggregate count of values. If the optional column is specified, it ignores `NULL` values in the count. 
+Gets the aggregate count of values based on criteria. If the optional column is specified, it ignores `NULL` values in the count. 
 * ``countIf(state == 'CA' && commission < 10000, name)``  
 ___
 
@@ -571,7 +571,7 @@ ___
 
 ### <code>covariancePopulationIf</code>
 <code><b>covariancePopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number, <i>&lt;value3&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the population covariance of two columns. 
+Gets the population covariance of two columns based on criteria.
 * ``covariancePopulationIf(region == 'West', sales)``  
 ___
 
@@ -589,7 +589,7 @@ ___
 
 ### <code>covarianceSampleIf</code>
 <code><b>covarianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number, <i>&lt;value3&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the sample covariance of two columns. 
+Gets the sample covariance of two columns based on criteria.
 * ``covarianceSampleIf(region == 'West', sales, profit)``  
 ___
 
@@ -617,7 +617,7 @@ ___
 
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Gets the current date when this job starts to run. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone of the data factory's data center/region is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). 
+Gets the current date when this job starts to run. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone of the data factory's data center/region is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``currentDate() == toDate('2250-12-31') -> false``  
 * ``currentDate('PST')  == toDate('2250-12-31') -> false``  
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``  
@@ -637,7 +637,7 @@ ___
 
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Gets the current timestamp as UTC. If you want your current time to be interpreted in a different time zone than your cluster time zone, you can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. It defaults to the current time zone. Refer to Java's `SimpleDateFormat` class for available formats. [https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html). To convert the UTC time to a different time zone use `fromUTC()`. 
+Gets the current timestamp as UTC. If you want your current time to be interpreted in a different time zone than your cluster time zone, you can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. It defaults to the current time zone. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. To convert the UTC time to a different time zone use `fromUTC()`. 
 * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``  
 * ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
@@ -924,7 +924,7 @@ ___
 
 ### <code>fromUTC</code>
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts to the timestamp from UTC. You can optionally pass the time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. It defaults to the current time zone. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Converts to the timestamp from UTC. You can optionally pass the time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. It defaults to the current time zone. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``fromUTC(currentTimestamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``fromUTC(currentTimestamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
@@ -1008,7 +1008,7 @@ ___
 
 ### <code>hour</code>
 <code><b>hour(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the hour value of a time stamp. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Gets the hour value of a time stamp. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``  
 * ``hour(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 12``  
 ___
@@ -1120,7 +1120,7 @@ ___
 
 ### <code>isDate</code>
 <code><b>isDate (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks if the input date string is a date by using an optional input date format. Refer to Java's `SimpleDateFormat` for available formats. If the input date format is omitted, the default format is ``yyyy-[M]M-[d]d``. Accepted formats are ``[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]``.
+Checks if the input date string is a date by using an optional input date format. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. If the input date format is omitted, the default format is ``yyyy-[M]M-[d]d``. Accepted formats are ``[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]``.
 * ``isDate('2012-8-18') -> true``
 * ``isDate('12/18--234234' -> 'MM/dd/yyyy') -> false``
 ___
@@ -1272,7 +1272,7 @@ ___
 
 ### <code>isTimestamp</code>
 <code><b>isTimestamp (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks if the input date string is a time stamp by using an optional input time stamp format. Refer to Java's `SimpleDateFormat` for available formats. If the time stamp is omitted the default pattern ``yyyy-[M]M-[d]d hh:mm:ss[.f...]`` is used. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. Timestamp supports up to millisecond accuracy with a value of 999. Refer to Java's `SimpleDateFormat` for available formats.
+Checks if the input date string is a time stamp by using an optional input time stamp format. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. If the time stamp is omitted the default pattern ``yyyy-[M]M-[d]d hh:mm:ss[.f...]`` is used. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. Timestamp supports up to millisecond accuracy with a value of 999. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats.
 * ``isTimestamp('2016-12-31 00:12:00') -> true``
 * ``isTimestamp('2016-12-31T00:12:00' -> 'yyyy-MM-dd\\'T\\'HH:mm:ss' -> 'PST') -> true``
 * ``isTimestamp('2012-8222.18') -> false``
@@ -1332,7 +1332,7 @@ ___
 
 ### <code>kurtosisIf</code>
 <code><b>kurtosisIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the kurtosis of a column. 
+Gets the kurtosis of a column based on criteria.
 * ``kurtosisIf(region == 'West', sales)``  
 ___
 
@@ -1576,7 +1576,7 @@ ___
 
 ### <code>maxIf</code>
 <code><b>maxIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Based on a criteria, gets the maximum value of a column. 
+Gets the maximum value of a column based on criteria.
 * ``maxIf(region == 'West', sales)``  
 ___
 
@@ -1612,7 +1612,7 @@ ___
 
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the millisecond value of a date. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Gets the millisecond value of a date. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
 ___
 
@@ -1662,7 +1662,7 @@ ___
 
 ### <code>minute</code>
 <code><b>minute(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the minute value of a time stamp. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Gets the minute value of a time stamp. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58``  
 * ``minute(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 58``  
 ___
@@ -1709,7 +1709,7 @@ ___
 
 ### <code>monthsBetween</code>
 <code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;roundoff&gt;</i> : boolean], [<i>&lt;time zone&gt;</i> : string]) => double</b></code><br/><br/>
-Gets the number of months between two dates. You can round off the calculation. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Gets the number of months between two dates. You can round off the calculation. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``  
 ___
 
@@ -1838,7 +1838,7 @@ ___
 
 ### <code>partitionId</code>
 <code><b>partitionId() => integer</b></code><br/><br/>
-Returns the current partition ID the input row is in. 
+Returns the current partition ID that the input row is in. 
 * ``partitionId()``  
 ___
 
@@ -1847,7 +1847,7 @@ ___
 
 ### <code>pMod</code>
 <code><b>pMod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Positive Modulus of pair of numbers. 
+Gives the positive modulus of a pair of numbers. 
 * ``pmod(-20, 8) -> 4``  
 ___
 
@@ -1866,7 +1866,7 @@ ___
 
 ### <code>radians</code>
 <code><b>radians(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Converts degrees to radians
+Converts degrees to radians.
 * ``radians(180) => 3.141592653589793``  
 ___
 
@@ -1875,7 +1875,7 @@ ___
 
 ### <code>random</code>
 <code><b>random(<i>&lt;value1&gt;</i> : integral) => double</b></code><br/><br/>
-Returns a random number when given a seed within a partition. The seed should be a fixed value and is used with the partitionId to produce random values in range (0.0-1.0).
+Returns a random number when given a seed within a partition. The seed should be a fixed value and is used with the partition ID to produce random values in a range (0.0-1.0).
 * ``random(1) == 1 -> false``
 ___
 
@@ -1884,7 +1884,7 @@ ___
 
 ### <code>rank</code>
 <code><b>rank() => integer</b></code><br/><br/>
-Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will produce gaps in the sequence. Rank works even when data isn't sorted and looks for change in values. 
+Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values produce gaps in the sequence. The `rank` function works even when data isn't sorted and looks for change in values. 
 * ``rank()``  
 ___
 
@@ -1893,7 +1893,7 @@ ___
 
 ### <code>reassociate</code>
 <code><b>reassociate(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => map</b></code><br/><br/>
-Transforms a map by associating the keys to new values. It takes a mapping function where you can address the item as #key and current value as #value. 
+Transforms a map by associating the keys to new values. It takes a mapping function where you can address the item as #key and the current value as #value. 
 * ``reassociate(['fruit' -> 'apple', 'vegetable' -> 'tomato'], substring(#key, 1, 1) + substring(#value, 1, 1)) => ['fruit' -> 'fa', 'vegetable' -> 'vt']``
 ___
   
@@ -1903,7 +1903,7 @@ ___
 
 ### <code>reduce</code>
 <code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/>
-Accumulates elements in an array. Reduce expects a reference to an accumulator and one element in the first expression function as #acc and #item and it expects the resulting value as #result to be used in the second expression function. 
+Accumulates elements in an array. The `reduce` function expects a reference to an accumulator and one element in the first expression function as #acc and #item. It expects the resulting value as #result to be used in the second expression function. 
 * ``toString(reduce(['1', '2', '3', '4'], '0', #acc + #item, #result)) -> '01234'``  
 ___
 
@@ -1912,7 +1912,7 @@ ___
 
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-Extract a matching substring for a given regex pattern. The last parameter identifies the match group and is defaulted to 1 if omitted. Use `<regex>`(back quote) to match a string without escaping. Index 0 returns all matches. Without match groups, index 1 and above don't return any result. 
+Extracts a matching substring for a given regex pattern. The last parameter identifies the match group and is defaulted to 1 if omitted. Use `<regex>` to match a string without escaping. Index 0 returns all matches. Without match groups, index 1 and above don't return any result. 
 * ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``  
 * ``regexExtract('Cost is between 600 and 800 dollars', `(\d+) and (\d+)`, 2) -> '800'``  
 ___
@@ -1932,7 +1932,7 @@ ___
 
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-Replaces all occurrences of a regex pattern with another substring in the given string. Use `<regex>` to match a string without escaping. 
+Replaces all occurrences of a regex pattern with another substring in the specific string. Use `<regex>` to match a string without escaping. 
 * ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``  
 * ``regexReplace('100 and 200', `(\d+)`, 'gunchus') -> 'gunchus and gunchus'``  
 ___
@@ -1954,7 +1954,7 @@ ___
 
 ### <code>replace</code>
 <code><b>replace(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string, [<i>&lt;substring to replace&gt;</i> : string]) => string</b></code><br/><br/>
-Replace all occurrences of a substring with another substring in the given string. If the last parameter is omitted, it's default to empty string. 
+Replaces all occurrences of a substring with another substring in the specific string. If the last parameter is omitted, it defaults to an empty string. 
 * ``replace('doggie dog', 'dog', 'cat') -> 'catgie cat'``  
 * ``replace('doggie dog', 'dog', '') -> 'gie '``  
 * ``replace('doggie dog', 'dog') -> 'gie '``  
@@ -1974,7 +1974,7 @@ ___
 
 ### <code>right</code>
 <code><b>right(<i>&lt;string to subset&gt;</i> : string, <i>&lt;number of characters&gt;</i> : integral) => string</b></code><br/><br/>
-Extracts a substring with number of characters from the right. Same as SUBSTRING(str, LENGTH(str) - n, n). 
+Extracts a substring with a number of characters from the right. Same as `SUBSTRING(str, LENGTH(str) - n, n)`. 
 * ``right('bojjus', 2) -> 'us'``  
 * ``right('bojjus', 20) -> 'bojjus'``  
 ___
@@ -1994,16 +1994,16 @@ ___
 
 ### <code>round</code>
 <code><b>round(<i>&lt;number&gt;</i> : number, [<i>&lt;scale to round&gt;</i> : number], [<i>&lt;rounding option&gt;</i> : integral]) => double</b></code><br/><br/>
-Rounds a number when given an optional scale and an optional rounding mode. If the scale is omitted, it's defaulted to 0. If the mode is omitted, it's defaulted to ROUND_HALF_UP(5). The values for rounding include
+Rounds a number when given an optional scale and an optional rounding mode. If the scale is omitted, it defaults to `0`. If the mode is omitted, it defaults to `ROUND_HALF_UP(5)`. The values for rounding include:
  
-1. ROUND_UP - Rounding mode to round away from zero.
-1. ROUND_DOWN - Rounding mode to round towards zero.
-1. ROUND_CEILING - Rounding mode to round towards positive infinity. [Same as ROUND_UP if input is positive. If negative, behaves as ROUND_DOWN. Ex =  -1.1 would be -1.0 with ROUND_CEILING and -2 with ROUND_UP]
-1. ROUND_FLOOR - Rounding mode to round towards negative infinity. [Same as ROUND_DOWN if input is positive. If negative, behaves as ROUND_UP]
-1. ROUND_HALF_UP - Rounding mode to round towards “nearest neighbor” unless both neighbors are equidistant, in which case ROUND_UP. [Most common + default for Dataflow].
-1. ROUND_HALF_DOWN - Rounding mode to round towards “nearest neighbor” unless both neighbors are equidistant, in which case ROUND_DOWN.
-1. ROUND_HALF_EVEN - Rounding mode to round towards the “nearest neighbor” unless both neighbors are equidistant, in which case, round towards the even neighbor.
-1. ROUND_UNNECESSARY - Rounding mode to assert that the round operation has an exact result, hence no rounding is necessary.  
+1. `ROUND_UP`: Rounding mode to round away from zero.
+1. `ROUND_DOWN`: Rounding mode to round toward zero.
+1. `ROUND_CEILING`: Rounding mode to round toward positive infinity. (Same as `ROUND_UP` if input is positive. If negative, behaves as `ROUND_DOWN`. For example, -1.1 would be -1.0 with `ROUND_CEILING` and -2 with `ROUND_UP`.)
+1. `ROUND_FLOOR`: Rounding mode to round toward negative infinity. (Same as `ROUND_DOWN` if input is positive. If negative, it behaves as `ROUND_UP`.)
+1. `ROUND_HALF_UP`: Rounding mode to round toward "nearest neighbor" unless both neighbors are equidistant, in which case it behaves as `ROUND_UP`. (Most common + default for Dataflow.)
+1. `ROUND_HALF_DOWN`: Rounding mode to round toward "nearest neighbor" unless both neighbors are equidistant, in which case `ROUND_DOWN`.
+1. `ROUND_HALF_EVEN`: Rounding mode to round toward the "nearest neighbor" unless both neighbors are equidistant, in which case, round toward the even neighbor.
+1. `ROUND_UNNECESSARY`: Rounding mode to assert that the round operation has an exact result, so no rounding is necessary.  
       
 * ``round(100.123) -> 100.0``  
 * ``round(2.5, 0) -> 3.0``  
@@ -2024,7 +2024,7 @@ Assigns a sequential row numbering for rows in a window starting with 1.
 
 ### <code>rpad</code>
 <code><b>rpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
-Right pads the string by the supplied padding until it is of a certain length. If the string is equal to or greater than the length, then it's trimmed to the length. 
+Right pads the string by the supplied padding until the string is of a certain length. If the string is equal to or greater than the length, the string is trimmed to the length. 
 * ``rpad('dumbo', 10, '-') -> 'dumbo-----'``  
 * ``rpad('dumbo', 4, '-') -> 'dumb'``  
 * ``rpad('dumbo', 8, '<>') -> 'dumbo<><'``  
@@ -2035,7 +2035,7 @@ ___
 
 ### <code>rtrim</code>
 <code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
-Right trims a string of trailing characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter. 
+Right trims a string of trailing characters. If the second parameter is unspecified, it trims whitespace. Otherwise, it trims any character specified in the second parameter. 
 * ``rtrim('  dumbo  ') -> '  dumbo'``  
 * ``rtrim('!--!du!mbo!', '-!') -> '!--!du!mbo'``  
 ___
@@ -2046,7 +2046,7 @@ ___
 
 ### <code>second</code>
 <code><b>second(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the second value of a date. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Gets the second value of a date. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59``  
 ___
 
@@ -2055,7 +2055,7 @@ ___
 
 ### <code>seconds</code>
 <code><b>seconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
-Duration in milliseconds for number of seconds. 
+Gives the duration in milliseconds for the number of seconds. 
 * ``seconds(2) -> 2000L``  
 ___
 
@@ -2064,7 +2064,7 @@ ___
 
 ### <code>setBitSet</code>
 <code><b>setBitSet (<i>\<value1\></i>: array, <i>\<value2\></i>:array) => array</b></code><br/><br/>
-Sets bit positions in this bitset
+Sets bit positions in this bitset.
 * ``setBitSet(toBitSet([10, 32]), [98]) => [4294968320L, 17179869184L]``
 ___  
 
@@ -2073,7 +2073,7 @@ ___
 
 ### <code>sha1</code>
 <code><b>sha1(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calculates the SHA-1 digest of a set of columns of varying primitive datatypes and returns a 40-character hex string. You can use it to calculate a fingerprint for a row. 
+Calculates the SHA-1 digest of a set of columns of varying primitive data types and returns a 40-character hex string. You can use it to calculate a fingerprint for a row. 
 * ``sha1(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '46d3b478e8ec4e1f3b453ac3d8e59d5854e282bb'``  
 ___
 
@@ -2082,7 +2082,7 @@ ___
 
 ### <code>sha2</code>
 <code><b>sha2(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calculates the SHA-2 digest of a set of columns of varying primitive datatypes when given a bit length, which can only be of values 0(256), 224, 256, 384, 512. You can use it to calculate a fingerprint for a row. 
+Calculates the SHA-2 digest of a set of columns of varying primitive data types when given a bit length, which can only be of values `0(256)`, `224`, `256`, `384`, and `512`. You can use it to calculate a fingerprint for a row. 
 * ``sha2(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'afe8a553b1761c67d76f8c31ceef7f71b66a1ee6f4e6d3b5478bf68b47d06bd3'``  
 ___
 
@@ -2109,7 +2109,7 @@ ___
 
 ### <code>size</code>
 <code><b>size(<i>&lt;value1&gt;</i> : any) => integer</b></code><br/><br/>
-Finds the size of an array or map type  
+Finds the size of an array or map type.
 * ``size(['element1', 'element2']) -> 2``
 * ``size([1,2,3]) -> 3``
 ___
@@ -2128,7 +2128,7 @@ ___
 
 ### <code>skewnessIf</code>
 <code><b>skewnessIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the skewness of a column. 
+Gets the skewness of a column based on criteria.
 * ``skewnessIf(region == 'West', sales)``  
 ___
 
@@ -2137,7 +2137,7 @@ ___
 
 ### <code>slice</code>
 <code><b>slice(<i>&lt;array to slice&gt;</i> : array, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of items&gt;</i> : integral]) => array</b></code><br/><br/>
-Extracts a subset of an array from a position. Position is 1 based. If the length is omitted, it's defaulted to end of the string. 
+Extracts a subset of an array from a position. The position is 1 based. If the length is omitted, it defaults to the end of the string. 
 * ``slice([10, 20, 30, 40], 1, 2) -> [10, 20]``  
 * ``slice([10, 20, 30, 40], 2) -> [20, 30, 40]``  
 * ``slice([10, 20, 30, 40], 2)[1] -> 20``  
@@ -2151,7 +2151,7 @@ ___
 
 ### <code>sort</code>
 <code><b>sort(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => array</b></code><br/><br/>
-Sorts the array using the provided predicate function. Sort expects a reference to two consecutive elements in the expression function as #item1 and #item2. 
+Sorts the array by using the provided predicate function. The `sort` function expects a reference to two consecutive elements in the expression function as `#item1` and `#item2`. 
 * ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``  
 * ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``  
 ___
@@ -2212,7 +2212,7 @@ ___
 
 ### <code>stddevIf</code>
 <code><b>stddevIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the standard deviation of a column. 
+Gets the standard deviation of a column based on criteria. 
 * ``stddevIf(region == 'West', sales)``  
 ___
 
@@ -2230,7 +2230,7 @@ ___
 
 ### <code>stddevPopulationIf</code>
 <code><b>stddevPopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the population standard deviation of a column. 
+Gets the population standard deviation of a column based on criteria. 
 * ``stddevPopulationIf(region == 'West', sales)``  
 ___
 
@@ -2248,7 +2248,7 @@ ___
 
 ### <code>stddevSampleIf</code>
 <code><b>stddevSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the sample standard deviation of a column. 
+Gets the sample standard deviation of a column based on criteria.
 * ``stddevSampleIf(region == 'West', sales)``  
 ___
 
@@ -2257,7 +2257,7 @@ ___
 
 ### <code>subDays</code>
 <code><b>subDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
-Subtract days from a date or time stamp. Same as the - operator for date. 
+Subtracts days from a date or time stamp. Same as the `-` operator for date. 
 * ``subDays(toDate('2016-08-08'), 1) -> toDate('2016-08-07')``  
 ___
 
@@ -2266,7 +2266,7 @@ ___
 
 ### <code>subMonths</code>
 <code><b>subMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
-Subtract months from a date or time stamp. 
+Subtracts months from a date or time stamp. 
 * ``subMonths(toDate('2016-09-30'), 1) -> toDate('2016-08-31')``  
 ___
 
@@ -2275,7 +2275,7 @@ ___
 
 ### <code>substring</code>
 <code><b>substring(<i>&lt;string to subset&gt;</i> : string, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of characters&gt;</i> : integral]) => string</b></code><br/><br/>
-Extracts a substring of a certain length from a position. Position is 1 based. If the length is omitted, it's defaulted to end of the string. 
+Extracts a substring of a certain length from a position. The position is 1 based. If the length is omitted, it defaults to the end of the string. 
 * ``substring('Cat in the hat', 5, 2) -> 'in'``  
 * ``substring('Cat in the hat', 5, 100) -> 'in the hat'``  
 * ``substring('Cat in the hat', 5) -> 'in the hat'``  
@@ -2316,7 +2316,7 @@ ___
 
 ### <code>sumDistinctIf</code>
 <code><b>sumDistinctIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column. 
+Gets the aggregate sum of a numeric column based on criteria. The condition can be based on any column. 
 * ``sumDistinctIf(state == 'CA' && commission < 10000, sales)``  
 * ``sumDistinctIf(true, sales)``  
 ___
@@ -2326,7 +2326,7 @@ ___
 
 ### <code>sumIf</code>
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column. 
+Gets the aggregate sum of a numeric column based on criteria. The condition can be based on any column. 
 * ``sumIf(state == 'CA' && commission < 10000, sales)``  
 * ``sumIf(true, sales)``  
 ___
@@ -2355,7 +2355,7 @@ ___
 
 ### <code>toBase64</code>
 <code><b>toBase64(<i>&lt;value1&gt;</i> : string, <i>&lt;encoding type&gt;</i> : string]) => string</b></code><br/><br/>
-Encodes the given string in base64. You can optionally pass the encoding type  
+Encodes the specific string in base64. You can optionally pass the encoding type.
 * ``toBase64('bojjus') -> 'Ym9qanVz'``
 * ``toBase64('± 25000, € 5.000,- |', 'Windows-1252') -> 'sSAyNTAwMCwggCA1LjAwMCwtIHw='``
 
@@ -2365,7 +2365,7 @@ ___
 
 ### <code>toBinary</code>
 <code><b>toBinary(<i>&lt;value1&gt;</i> : any) => binary</b></code><br/><br/>
-Converts any numeric/date/timestamp/string to binary representation. 
+Converts any numeric, date, time stamp, or string to binary representation. 
 * ``toBinary(3) -> [0x11]``  
 ___
 
@@ -2374,7 +2374,7 @@ ___
 
 ### <code>toBoolean</code>
 <code><b>toBoolean(<i>&lt;value1&gt;</i> : string) => boolean</b></code><br/><br/>
-Converts a value of ('t', 'true', 'y', 'yes', '1') to true and ('f', 'false', 'n', 'no', '0') to false and NULL for any other value. 
+Converts a value of (`t`, `true`, `y`, `yes`, `1`) to true and (`f`, `false`, `n`, `no`, `0`) to `false` and `NULL` for any other value. 
 * ``toBoolean('true') -> true``  
 * ``toBoolean('n') -> false``  
 * ``isNull(toBoolean('truthy')) -> true``  
@@ -2385,7 +2385,7 @@ ___
 
 ### <code>toByte</code>
 <code><b>toByte(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => byte</b></code><br/><br/>
-Converts any numeric or string to a byte value. An optional Java decimal format can be used for the conversion. 
+Converts any numeric or string to a byte value. You can use an optional Java decimal format for the conversion. 
 * ``toByte(123)``
 * ``123``
 * ``toByte(0xFF)``
@@ -2399,7 +2399,7 @@ ___
 
 ### <code>toDate</code>
 <code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></code><br/><br/>
-Converts input date string to date using an optional input date format. Refer to Java's `SimpleDateFormat` class for available formats. If the input date format is omitted, default format is yyyy-[M]M-[d]d. Accepted formats are :[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]. 
+Converts an input date string to date by using an optional input date format. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. If the input date format is omitted, the default format is `yyyy-[M]M-[d]d`. Accepted formats are `:[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]`. 
 * ``toDate('2012-8-18') -> toDate('2012-08-18')``  
 * ``toDate('12/18/2012', 'MM/dd/yyyy') -> toDate('2012-12-18')``  
 ___
@@ -2409,7 +2409,7 @@ ___
 
 ### <code>toDecimal</code>
 <code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></code><br/><br/>
-Converts any numeric or string to a decimal value. If precision and scale aren't specified, it's defaulted to (10,2). An optional Java decimal format can be used for the conversion. An optional locale format in the form of BCP47 language like en-US, de, zh-CN. 
+Converts any numeric or string to a decimal value. If precision and scale aren't specified, it defaults to (`10,2`). You can use an optional Java decimal format for the conversion. An optional locale format in the form of a BCP47 language like en-US, de, zh-CN. 
 * ``toDecimal(123.45) -> 123.45``  
 * ``toDecimal('123.45', 8, 4) -> 123.4500``  
 * ``toDecimal('$123.45', 8, 4,'$###.00') -> 123.4500``  
@@ -2486,7 +2486,7 @@ ___
 
 ### <code>toString</code>
 <code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string], [<i>&lt;date locale&gt;</i> : string]) => string</b></code><br/><br/>
-Converts a primitive datatype to a string. For numbers and date a format can be specified. If unspecified the system default is picked.Java decimal format is used for numbers. Refer to Java SimpleDateFormat for all possible date formats; the default format is yyyy-MM-dd. For date or timestamp a locale can be optionally specified.
+Converts a primitive datatype to a string. For numbers and date a format can be specified. If unspecified the system default is picked.Java decimal format is used for numbers. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. The default format is `yyyy-MM-dd`. For date or time stamp a locale can be optionally specified.
 * ``toString(10) -> '10'``  
 * ``toString('engineer') -> 'engineer'``  
 * ``toString(123456.789, '##,###.##') -> '123,456.79'``  
@@ -2502,7 +2502,7 @@ Converts a primitive datatype to a string. For numbers and date a format can be 
 
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts a string to a timestamp when given an optional timestamp format. If the timestamp is omitted, the default pattern yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. Timestamp supports up to millisecond accuracy with value of 999. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Converts a string to a timestamp when given an optional timestamp format. If the timestamp is omitted, the default pattern yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. Timestamp supports up to millisecond accuracy with value of 999. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
@@ -2514,7 +2514,7 @@ ___
 
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts the timestamp to UTC. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. It's defaulted to the current time zone. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Converts the timestamp to UTC. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. It's defaulted to the current time zone. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``toUTC(currentTimestamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``toUTC(currentTimestamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 
@@ -2524,7 +2524,7 @@ Converts the timestamp to UTC. You can pass an optional time zone in the form of
 
 ### <code>translate</code>
 <code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></code><br/><br/>
-Replace one set of characters by another set of characters in the string. Characters have 1 to 1 replacement. 
+Replace one set of characters by another set of characters in the string. Characters have a one to one replacement. 
 * ``translate('(bojjus)', '()', '[]') -> '[bojjus]'``  
 * ``translate('(gunchus)', '()', '[') -> '[gunchus'``  
 ___
@@ -2534,7 +2534,7 @@ ___
 
 ### <code>trim</code>
 <code><b>trim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
-Trims a string of leading and trailing characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter. 
+Trims a string of leading and trailing characters. If the second parameter is unspecified, it trims whitespace. Otherwise, it trims any character specified in the second parameter. 
 * ``trim('  dumbo  ') -> 'dumbo'``  
 * ``trim('!--!du!mbo!', '-!') -> 'dumbo'``  
 ___
@@ -2544,7 +2544,7 @@ ___
 
 ### <code>true</code>
 <code><b>true() => boolean</b></code><br/><br/>
-Always returns a true value. Use the function `syntax(true())` if there's a column named 'true'. 
+Always returns a true value. Use the function `syntax(true())` if a column is named `true`. 
 * ``(10 + 20 == 30) -> true``  
 * ``(10 + 20 == 30) -> true()``  
 ___
@@ -2554,7 +2554,7 @@ ___
 
 ### <code>typeMatch</code>
 <code><b>typeMatch(<i>&lt;type&gt;</i> : string, <i>&lt;base type&gt;</i> : string) => boolean</b></code><br/><br/>
-Matches the type of the column. Can only be used in pattern expressions. Number matches short, integer, long, double, float or decimal, integral matches short, integer, long, fractional matches double, float, decimal, and datetime matches date or time stamp type. 
+Matches the type of the column. You can only use it in pattern expressions. Number matches short, integer, long, double, float or decimal. Integral matches short, integer, long. Fractional matches double, float, decimal. Datetime matches date or time stamp type. 
 * ``typeMatch(type, 'number')``  
 * ``typeMatch('date', 'datetime')``  
 ___
@@ -2565,7 +2565,7 @@ ___
 
 ### <code>unescape</code>
 <code><b>unescape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
-Unescapes a string according to a format. Literal values for acceptable format are 'json', 'xml', 'ecmascript', 'html', 'java'.
+Unescapes a string according to a format. Literal values for acceptable format are `json`, `xml`, `ecmascript`, `html`, and `java`.
 * ```unescape('{\\\\\"value\\\\\": 10}', 'json')```
 * ```'{\\\"value\\\": 10}'```
 ___
@@ -2585,7 +2585,7 @@ ___
 
 ### <code>unhex</code>
 <code><b>unhex(<i>\<value1\></i>: string) => binary</b></code><br/><br/>
-Unhexes a binary value from its string representation. This can be used with sha2, md5 to convert from string to binary representation
+Unhexes a binary value from its string representation. You can use it with `sha2`, `md5` to convert from string to binary representation.
 *    ``unhex('1fadbe') -> toBinary([toByte(0x1f), toByte(0xad), toByte(0xbe)])``
 *    ``unhex(md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))) -> toBinary([toByte(0x4c),toByte(0xe8),toByte(0xa8),toByte(0x80),toByte(0xbd),toByte(0x62),toByte(0x1a),toByte(0x1f),toByte(0xfa),toByte(0xd0),toByte(0xbc),toByte(0xa9),toByte(0x05),toByte(0xe1),toByte(0xbc),toByte(0x5a)])``
 
@@ -2595,7 +2595,7 @@ Unhexes a binary value from its string representation. This can be used with sha
 
 ### <code>union</code>
 <code><b>union(<i>&lt;value1&gt;</i>: array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
-Returns a union set of distinct items from 2 arrays.
+Returns a union set of distinct items from two arrays.
 * ``union([10, 20, 30], [20, 40]) => [10, 20, 30, 40]``
 ___  
   
@@ -2633,7 +2633,7 @@ ___
 
 ### <code>varianceIf</code>
 <code><b>varianceIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the variance of a column. 
+Gets the variance of a column based on criteria. 
 * ``varianceIf(region == 'West', sales)``  
 ___
 
@@ -2651,7 +2651,7 @@ ___
 
 ### <code>variancePopulationIf</code>
 <code><b>variancePopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the population variance of a column. 
+Gets the population variance of a column based on criteria.
 * ``variancePopulationIf(region == 'West', sales)``  
 ___
 
@@ -2669,7 +2669,7 @@ ___
 
 ### <code>varianceSampleIf</code>
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the unbiased variance of a column. 
+Gets the unbiased variance of a column based on criteria. 
 * ``varianceSampleIf(region == 'West', sales)``  
 ___
 
@@ -2688,7 +2688,7 @@ ___
 
 ### <code>weeks</code>
 <code><b>weeks(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
-Duration in milliseconds for number of weeks. 
+Gets the duration in milliseconds for the number of weeks. 
 * ``weeks(2) -> 1209600000L``  
 ___
 
@@ -2698,7 +2698,7 @@ ___
 
 ### <code>xor</code>
 <code><b>xor(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Logical XOR operator. Same as ^ operator. 
+Logical `XOR` operator. Same as the `^` operator. 
 * ``xor(true, false) -> true``  
 * ``xor(true, true) -> false``  
 * ``true ^ false -> true``  
@@ -2724,4 +2724,4 @@ Gets the year value of a date.
 - List of all [map functions](data-flow-map-functions.md).
 - List of all [metafunctions](data-flow-metafunctions.md).
 - List of all [window functions](data-flow-window-functions.md).
-- [Learn how to use Expression Builder](concepts-data-flow-expression-builder.md).
+- Learn how to use [Expression Builder](concepts-data-flow-expression-builder.md).

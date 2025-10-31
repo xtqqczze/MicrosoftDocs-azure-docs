@@ -110,7 +110,7 @@ In Azure Data Factory and Azure Synapse Analytics pipelines, use the expression 
 | [power](data-flow-expressions-usage.md#power) | Raises one number to the power of another.  |
 | [radians](data-flow-expressions-usage.md#radians) | Converts degrees to radians.|
 | [random](data-flow-expressions-usage.md#random) | Returns a random number when given an optional seed within a partition. The seed should be a fixed value and is used with the partition ID to produce random values.  |
-| [regexExtract](data-flow-expressions-usage.md#regexExtract) | Extracts a matching substring for a specific regex pattern. The last parameter identifies the match group and is defaulted to 1 if omitted. Use `` `<regex>` `` to match a string without escaping.  |
+| [regexExtract](data-flow-expressions-usage.md#regexExtract) | Extracts a matching substring for a specific regex pattern. The last parameter identifies the match group and defaults to 1 if omitted. Use `` `<regex>` `` to match a string without escaping.  |
 | [regexMatch](data-flow-expressions-usage.md#regexMatch) | Checks if the string matches the specific regex pattern. Use `` `<regex>` `` to match a string without escaping.  |
 | [regexReplace](data-flow-expressions-usage.md#regexReplace) | Replaces all occurrences of a regex pattern with another substring in the specific string. Use `` `<regex>` `` to match a string without escaping.  |
 | [regexSplit](data-flow-expressions-usage.md#regexSplit) | Splits a string based on a delimiter based on regex and returns an array of strings.  |
