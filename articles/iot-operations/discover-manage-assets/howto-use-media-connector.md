@@ -218,7 +218,7 @@ In this section, you add a stream to the asset that saves video clips from the m
 
 1. Select **Streams** and then select **Add stream** to add a stream to the asset.
 
-1. Add a name for the stream, such as `myclips`. Set **Storage**** as the destination and add a path such as `myclips` to use to save the clips. Select `clip-to-fs` as the task type.
+1. Add a name for the stream, such as `myclips`. Set **Storage** as the destination and add a path such as `myclips` to use to save the clips. Select `clip-to-fs` as the task type.
 
     :::image type="content" source="media/howto-use-media-connector/add-clip-stream.png" alt-text="Screenshot that shows how to add a clip stream." lightbox="media/howto-use-media-connector/add-clip-stream.png":::
 
