@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create a backup policy for Azure Data Lake Storage backup using Azure portal, PowerShell, or Azure
-description: Learn how to create a backup policy for Azure Data Lake Storage backup using Azure portal, PowerShell, or Azure.
+title: Quickstart - Create a backup policy for Azure Data Lake Storage using Azure portal, PowerShell, or Azure
+description: Learn how to create a backup policy for Azure Data Lake Storage using Azure portal, PowerShell, or Azure.
 ms.custom:
   - ignite-2025
   - devx-track-azurepowershell-azurecli, devx-track-azurecli
@@ -13,11 +13,11 @@ ms.author: v-mallicka
 # Customer intent: As an IT administrator, I want to create a backup policy for Azure Data Lake Storage using the portal, PowerShell, or Azure CLI so that I can ensure data protection against accidental or malicious deletions without maintaining on-premises infrastructure.
 ---
 
-# Quickstart: Create a backup policy for Azure Data Lake Storage backup
+# Quickstart: Create a backup policy for Azure Data Lake Storage
 
 ::: zone pivot="client-portal"
 
-This quickstart describes how to create a backup policy for [Azure Data Lake Storage backup](azure-data-lake-storage-backup-overview.md) from the Azure portal.
+This quickstart describes how to create a backup policy for [Azure Data Lake Storage](azure-data-lake-storage-backup-overview.md) from the Azure portal.
 
 ## Prerequisites
 
@@ -54,20 +54,20 @@ This quickstart describes how to create a backup policy for [Azure Data Lake Sto
 Before you create a backup policy for Azure Data Lake Storage, ensure that the following prerequisites are met:
 
 - Install the Azure PowerShell version Az 14.6.0. Learn [how to install Azure PowerShell](/powershell/azure/install-az-ps).
-- Identify or [create a Backup vault](backup-blobs-storage-account-ps.md?tabs=operational-backup#create-a-backup-vault) to configure Azure Data Lake Storage backup.
+- Identify or [create a Backup vault](backup-blobs-storage-account-ps.md#create-a-backup-vault) to configure Azure Data Lake Storage backup.
 - Review the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md) for Azure Data Lake Storage backup.
 
 ## Configure a backup policy for Azure Data Lake Storage using PowerShell
 
-To configure a backup policy for Azure Data Lake Storage backup, run the following commands:
+To configure a backup policy for Azure Data Lake Storage, run the following cmdlets:
 
-1.	To retrieve the policy template, use the [`Get-AzDataProtectionPolicyTemplate`](/powershell/module/az.dataprotection/get-azdataprotectionpolicytemplate) cmdlet. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
+1.	To fetch the policy template, use the [`Get-AzDataProtectionPolicyTemplate`](/powershell/module/az.dataprotection/get-azdataprotectionpolicytemplate) cmdlet. This command fetches a default policy template for a given datasource type. Use this policy template to create a new policy.
 
      ```azurepowershell-interactive
      $defaultPol = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureDataLakeStorage
      ```
 
-1.	To create a backup policy, define the schedule and retention for backups. The following cmdlets create a backup policy with backup frequency every week on Friday and Tuesday at 10 AM and retention of three months.
+1.	To create a backup policy, define the schedule and retention for backups. The following example cmdlets create a backup policy with backup frequency every week on Friday and Tuesday at 10 AM and retention of three months.
 
       ```azurepowershell-interactive
       $schDates = @(
@@ -97,7 +97,7 @@ This quickstart describes how to create a backup policy for [Azure Data Lake Sto
 
 Before you create a backup policy for Azure Data Lake Storage, ensure that the following prerequisites are met:
 
-- Identify or [create a Backup vault](backup-blobs-storage-account-cli.md?tabs=operational-backup#create-a-backup-vault) to configure Azure Data Lake Storage backup.
+- Identify or [create a Backup vault](backup-blobs-storage-account-cli.md#create-a-backup-vault) to configure Azure Data Lake Storage backup.
 - Review the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md) for Azure Data Lake Storage backup.
 
 ## Configure a backup policy for Azure Data Lake Storage using Azure CLI
@@ -107,7 +107,7 @@ To configure a backup policy for Azure Date Lake Storage backup, run the followi
 >[!Important]
 >The backup schedule follows the ISO 8601 duration format. However, the repeating interval prefix `R` isn't supported, as backups are configured to run indefinitely. Any value specified with `R` is ignored.
 
-1.	To understand the inner components of a Backup policy for Azure Data Lake Storage backup, retrieve the policy template using the `az dataprotection backup-policy get-default-policy-template` command. The following command returns a default policy template for a given datasource type that you can use to create a new policy.
+1.	To understand the back policy components for Azure Data Lake Storage backup, fetch the policy template using the `az dataprotection backup-policy get-default-policy-template` command. The following command returns a default policy template for a given datasource type that you can use to create a new policy.
 
        ```azurecli-interactive
        az dataprotection backup-policy get-default-policy-template --datasource-type AzureDataLakeStorage > policy.json
@@ -118,7 +118,7 @@ To configure a backup policy for Azure Date Lake Storage backup, run the followi
       Az dataprotection backup-policy create -g adlsrg –vault-name TestBkpVault -n AdlsPolicy1  –policy policy.json
       ```
 
-     The following JSON is defined to configure a policy with 30 days retention for operational backup and 30 days default retention for vaulted backup. The vaulted backup is scheduled for every day at 7:30 UTC.
+     The following example JSON is defined to configure a policy 30 days default retention for vaulted backup. The vaulted backup is scheduled for every day at 7:30 UTC.
 
       ```JSON
       {

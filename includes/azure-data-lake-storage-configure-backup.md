@@ -6,11 +6,11 @@ ms.date: 11/18/2025
 ms.author: v-mallicka
 ---
 
-## Configure backup for the Azure Data Lake Storage
+## Configure vaulted backup for the Azure Data Lake Storage
 
 You can configure backup on multiple Azure Data Lake Storage.
 
-To configure backup, follow these steps:
+To configure vaulted backup, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault**, and then select **+ Backup**. 
 1. On the **Configure Backup** pane, on the **Basics** tab, review the **Datasource type** is selected as **Azure Data Lake Storage**.
