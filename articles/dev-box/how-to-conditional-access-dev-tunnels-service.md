@@ -40,7 +40,7 @@ Conditional access policies for the Dev Tunnels service:
 
 ## Configure conditional access policies
 
-The conditional access policies work correctly for the Dev Tunnels service. Because registering the Dev Tunnels service app to a tenant and making it available to the conditional access picker is unique, this article documents the steps.
+To secure Dev Tunnels with conditional access, you need to target the Dev Tunnels service using custom security attributes. This section guides you through the process of configuring these attributes and creating the appropriate conditional access policy.
 
 ## Enable the Dev Tunnels service for the conditional access picker
 
