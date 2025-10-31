@@ -4,7 +4,7 @@ description: Learn to connect external resources to Azure SRE Agent for data con
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: conceptual
-ms.date: 10/30/2025
+ms.date: 10/31/2025
 ms.service: azure-sre-agent
 ---
 
@@ -28,7 +28,7 @@ Azure SRE Agent includes these connectors:
 
 - **Outlook** for sending email notifications.
 - **Microsoft Teams** to post messages to Teams channels.
-- **Custom MCP Servers** for integration with your own MCP server.
+- **Custom MCP Servers** for integration with your own MCP server hosted outside Microsoft Azure.
 - **Approved partners** to ingest telemetry data from Dynatrace, Datadog, and New Relic.
 
 ## Configure a connector
