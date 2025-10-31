@@ -188,7 +188,7 @@ Credential resources allow you to manage device authentication and authorization
 
 ### [Azure CLI](#tab/cli)
 
-TO DO
+Enabling a credential resource for an existing namespace is only supported through the Azure portal at public preview.
 
 ***
 
@@ -211,7 +211,7 @@ TO DO
 
 ### [Azure CLI](#tab/cli)
 
-TO DO
+Syncing policies for an existing namespace is only supported through the Azure portal at public preview.
 
 ***
 

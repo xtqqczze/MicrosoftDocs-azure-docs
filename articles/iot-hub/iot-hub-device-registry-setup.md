@@ -72,30 +72,43 @@ Have an Azure account. If you don't have an Azure account, create a [free accoun
    | **IoT hub name** | Enter a name for your hub. This name must be globally unique, with a length between 3 and 50 alphanumeric characters. The name can also include the dash (`'-'`) character.|
    | **Region** | IoT Hub Gen 2 is in **preview** and only available in [certain regions](iot-hub-faq.md#what-are-the-supported-regions-for-iot-hub-gen-2). Select the region, closest to you, where you want your hub to be located.|
    | **Tier** | Select the **Gen 2** tier. To compare the features available to each tier, select **Compare tiers**.|
-   | **ADR namespace** | Select an existing ADR namespace or create a new one. To create a new one, select **Create new** and fill in the name you want to use.|
    | **Daily message limit** | Select the maximum daily quota of messages for your hub. The available options depend on the tier you select for your hub. To see the available messaging and pricing options, select **See all options** and select the option that best matches the needs of your hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling).|
+   | **ADR namespace** | Select an existing ADR namespace or create a new one. To create a new one, select **Create new** and fill in the name you want to use.|
+   | **User managed identity** | Select a user-assigned managed identity to link to your IoT hub. This identity is used to securely access other Azure resources, such as ADR namespace and DPS. If you don't have a user-assigned managed identity, you can create one in the Azure portal. For more information, see [Create a user-assigned managed identity in the Azure portal](/azure/active-directory/managed-identities-azure-resources). |
+ 
 
    :::image type="content" source="./media/iot-hub-create-hub/iot-hub-gen-2-basics.png" alt-text="Screen capture that shows how to create an IoT hub in the Azure portal.":::
 
    > [!NOTE]
    > Prices shown are for example purposes only.
 
-    1. If you select **Create new** for the ADR namespace, a new pane appears. Fill in the fields to create a new namespace as follows:
+1. If you select **Create new** for the ADR namespace, a new pane appears. Complete the following steps to create a new ADR namespace, otherwise skip to step 7.
+
+    1. Fill in the fields in the Basics tab as follows:
 
         | Property | Value |
         | ----- | ----- |
         | **Subscription** | Select the subscription to use for your ADR namespace. |
         | **Resource group** | Select the resource group you used for your IoT hub. |
-        |**Label**| Enter a name for your ADR namespace. Your namespace name can only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, the name "msft-namespace" is valid. |
-        | **Identity**| Select **Enabled** or **Disabled** to enable or disable a system-assigned managed identity for the ADR namespace. It's recommended to enable the managed identity to allow secure access to other Azure resources.|
-        |**Tags**| (Optional) Add tags to organize your ADR namespace. When you create a tag, you define a name, a value, and a resource for it. You can use tags to filter and group your resources in the Azure portal.|
+        |**Name**| Enter a name for your ADR namespace. Your namespace name can only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, the name "msft-namespace" is valid. |
 
-       :::image type="content" source="./media/iot-hub-create-hub/iot-hub-gen-2-adr-namespace.png" alt-text="Screen capture that shows how to create an ADR namespace when creating an IoT hub in the Azure portal.":::
+       :::image type="content" source="./media/iot-hub-create-hub/iot-hub-gen-namespace-1.png" alt-text="Screen capture that shows how to fill the basics tab for an ADR namespace in the Azure portal.":::
 
-        > [!NOTE]
-        > The creation of the namespace with system-assigned managed identity might take up to 5 minutes.
+    1. Select the **Next: Identity >** button to continue creating your ADR namespace.
+    1. In the Identity tab, select **Enabled** or **Disabled** to enable or disable a system-assigned managed identity for the ADR namespace. It's recommended to enable the managed identity to allow secure access to other Azure resources.
 
-    1. Select **OK** to save your new ADR namespace and return to the Basics tab.
+       :::image type="content" source="./media/iot-hub-create-hub/iot-hub-gen-namespace-2.png" alt-text="Screen capture that shows how to enable a system-assigned managed identity for an ADR namespace in the Azure portal.":::
+
+    1. Select the **Next: Tags >** button to continue creating your ADR namespace.
+    1. In the Tags tab, you can optionally add tags to organize your ADR namespace.  When you create a tag, you define a name, a value, and a resource for it. You can use tags to filter and group your resources in the Azure portal.
+
+       :::image type="content" source="./media/iot-hub-create-hub/iot-hub-gen-namespace-3.png" alt-text="Screen capture that shows how to create tags for an ADR namespace in the Azure portal.":::
+
+    1. Select the **Review + create >** button to continue creating your ADR namespace.
+    1. Review your settings, and then select **Create** to create your ADR namespace.
+    
+    > [!NOTE]
+    > The creation of the namespace with system-assigned managed identity might take up to 5 minutes.
 
 1. Once created, you can view and select your ADR namespace from the **ADR namespace** dropdown.
 1. Select **Next: Networking** to continue creating your hub.

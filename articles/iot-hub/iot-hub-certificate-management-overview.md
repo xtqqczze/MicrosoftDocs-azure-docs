@@ -1,5 +1,5 @@
 ---
-title: What is Certificate Management (Preview?
+title: What is Certificate Management (Preview)?
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how Certificate Management in Azure IoT Hub helps users manage device certificates.
 author: SoniaLopezBravo
