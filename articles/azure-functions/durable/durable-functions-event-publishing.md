@@ -130,7 +130,7 @@ To configure system assigned identity follow the instructions below:
 1. Turn on system assigned identity for the function app
     - Go to the function app, **Identity** section, in the **System Assigned** tab, toggle the **Status** switch to on.
   
-      :::image type="content" source="./media/durable-functions-event-publishing/enabling-system-assigned-identity.png" alt-text="Enabling system assigned identity in the function app." border="true":::
+      ![Enabling system assigned identity in the function app.](./media/durable-functions-event-publishing/enabling-system-assigned-identity.png)
 
 2. In the Event Grid topic resource, give the function app the EventGrid Data Sender role.
     - Go to the **Access Control (IAM)** section, click **+ Add**.
@@ -156,7 +156,7 @@ To configure user assigned managed identity follow the instructions below:
 1. Create a user assigned managed identity (uami).
     - From the portal home page, click **+ Create a resource**.
 
-      :::image type="content" source="./media/durable-functions-event-publishing/create-a-resource.png" alt-text="Create a resource button on Azure Portal home page." border="true":::
+      :::image type="content" source="./media/durable-functions-event-publishing/create-a-resource.png" alt-text="Create a resource button on Azure portal home page." border="true":::
       
     - Go to the **Identity** section, and then choose **User Assigned Managed Identity**.
   
@@ -185,7 +185,7 @@ To configure user assigned managed identity follow the instructions below:
   
       :::image type="content" source="./media/durable-functions-event-publishing/event-subscription.png" alt-text="+ Event Subscription button." border="true":::
 
-    - Based on the endpoint you choose in **Endpoint Details**, you will see a **Managed Identity for Delivery** section, choose **User Assigned** for the **Managed Identity** type and select the uami.
+    - Based on the endpoint you choose in **Endpoint Details**, you will see a **Managed Identity for Delivery** section. Choose **User Assigned** for the **Managed Identity** type and select the uami.
   
       :::image type="content" source="./media/durable-functions-event-publishing/event-subscription-managed-identity.png" alt-text="Adding user assigned managed identity to event grid subscription." border="true":::
 
