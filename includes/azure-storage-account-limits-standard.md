@@ -12,8 +12,6 @@ title: include file
 
 The following table describes default limits for Azure general-purpose v2 (GPv2), general-purpose v1 (GPv1), and Blob storage accounts. A few entries in the table also apply to disk access resources, these are explicitly labled. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
 
-Test your service to determine whether its performance meets your requirements. For the entries that apply to disk access resources, avoid sudden spikes in the rate of traffic and ensure traffic is well-distributed. When your application reaches the limit of the disk access resource, Azure Storage returns either error code 503 (server busy) or 500 (operation timeout). If you get 503 errors, consider changing your application to use an exponential backoff policy for retries. An exponential backoff policy allows load to decrease and eases out spikes in traffic.
-
 Microsoft recommends that you use a GPv2 storage account for most scenarios. You can easily upgrade a GPv1 or a Blob storage account to a GPv2 account with no downtime and without the need to copy data. For more information, see [Upgrade to a GPv2 storage account](/azure/storage/common/storage-account-upgrade).
 
 > [!NOTE]
