@@ -28,7 +28,7 @@ The following features are supported with Certificate Management for IoT Hub dev
 | Create a unique root certificate authority (CA) per ADR Namespace | Create up to 1 root CA, also known as credential resource, in your ADR namespace |
 | Create chained issuing certificate authorities (CA) per ADR namespace | Create up to 3 issuing CA’s, also known as policies, in your ADR namespace and customize validity periods for issued certificates. |
 | Signing and Encryption algorithms | The CA will sign and end-entity certificates using the following key type: ECC NistP384 |
-| HSM keys (signing and encryption) | Keys are provisioned using [Azure Managed Hardware Security Module (Azure Managed HSM)](azure/key-vault/managed-hsm/overview). CAs created within your ADR namespace automatically use HSM signing and encryption keys. No Azure subscription is required for Azure HSM. |
+| HSM keys (signing and encryption) | Keys are provisioned using [Azure Managed Hardware Security Module (Azure Managed HSM)](/azure/key-vault/managed-hsm/overview). CAs created within your ADR namespace automatically use HSM signing and encryption keys. No Azure subscription is required for Azure HSM. |
 | End-entity certificate issuance for devices | Also known as leaf certificate issuance. These certificates are signed by the issuing ICA. When a device requests a certificate via certificate signing request, an end-entity leaf certificate is delivered to the IoT device. |
 | Syncing of CA chains with IoT Hubs | The policies defined in your ADR namespace will be synced to the appropriate IoT Hub. This will enable IoT Hub to trust any devices authenticating with a leaf certificate. |
 

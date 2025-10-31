@@ -15,7 +15,7 @@ ms.date: 10/20/2025
 
 Certificate Management in Azure IoT Hub is designed to simplify the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to Certificate Management and certificate-based authentication in IoT Hub. For more information, see [What is Certificate Management (Preview)?](iot-hub-certificate-management-overview.md).
 
-[!INCLUDE [public-preview-banner](../includes/public-preview-banner.md)]
+[!INCLUDE [public-preview-banner](includes/public-preview-banner.md)]
 
 ## Public Key Infrastructure (PKI)
 
