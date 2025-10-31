@@ -26,7 +26,7 @@ To verify if the Azure VM agent is running and triggered appropriate actions on 
 
 The package directory for the extension is `/var/lib/waagent/Microsoft.CPlat.Core.LinuxPatchExtension-<version>`. The `/status` subfolder has a `<sequence number>.status` file. It includes a brief description of the actions performed during a single automatic patching request and the status. It also includes a short list of errors that occurred during updates.
 
-To review the logs related to all actions that the extension performed, go to `/var/log/azure/Microsoft.CPlat.Core.LinuxPatchExtension/`. It includes the following log files of interest:
+To review the logs related to all actions that the extension performed, go to `/var/log/azure/Microsoft.CPlat.Core.LinuxPatchExtension/`. This folder includes the following log files of interest:
 
 - `<seq number>.core.log`: This file contains information related to the patch actions. The information includes patches assessed and installed on the machine, along with any problems encountered in the process.
 - `<Date and Time>_<Handler action>.ext.log`: A wrapper above the patch action is used to manage the extension and invoke a specific patch operation. This log contains information about the wrapper. For automatic patching, the log `<Date and Time>_Enable.ext.log` has information on whether the specific patch operation was invoked.
@@ -35,7 +35,7 @@ To review the logs related to all actions that the extension performed, go to `/
 
 To verify if the VM agent is running and triggered appropriate actions on the machine, and to verify the sequence number for the automatic patching request, check the agent log in `C:\WindowsAzure\Logs\AggregateStatus`. The package directory for the extension is `C:\Packages\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`.
 
-To review the logs related to all actions that the extension performed, go to `C:\WindowsAzure\Logs\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`. It includes the following log files of interest:
+To review the logs related to all actions that the extension performed, go to `C:\WindowsAzure\Logs\Plugins\Microsoft.CPlat.Core.WindowsPatchExtension<version>`. This folder includes the following log files of interest:
 
 - `WindowsUpdateExtension.log`: This file contains information related to the patch actions. The information includes patches assessed and installed on the machine, along with any problems encountered in the process.
 - `CommandExecution.log`: A wrapper above the patch action is used to manage the extension and invoke a specific patch operation. This log contains information about the wrapper. For automatic patching, the log has information on whether the specific patch operation was invoked.
@@ -44,7 +44,7 @@ To review the logs related to all actions that the extension performed, go to `C
 
 For Azure Arc-enabled servers, see [Troubleshoot VM extensions](/azure/azure-arc/servers/troubleshoot-vm-extensions) for general troubleshooting steps.
 
-To review the logs related to all actions that the extension performed, on Windows, go to `C:\ProgramData\GuestConfig\extension_logs\Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension`. It includes the following log files of interest:
+To review the logs related to all actions that the extension performed, on Windows, go to `C:\ProgramData\GuestConfig\extension_logs\Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension`. This file includes the following log files of interest:
 
 - `WindowsUpdateExtension.log`: This file contains information related to the patch actions. The information includes the patches assessed and installed on the machine, along with any problems encountered in the process.
 - `cmd_execution_<numeric>_stdout.txt`: A wrapper above the patch action is used to manage the extension and invoke a specific patch operation. This log contains information about the wrapper. For automatic patching, the log has information on whether the specific patch operation was invoked.
@@ -87,7 +87,7 @@ Run a remediation task for newly created resources. For more information, see [R
 
 ### Issue
 
-Policy remediation tasks are failing for gallery images and for images with encrypted disks. There are remediation failures for VMs that have a reference to a gallery image in the VM mode. This is because it requires the read permission to the gallery image, and it's currently not part of the Virtual Machine Contributor role.
+Policy remediation tasks are failing for gallery images and for images with encrypted disks. There are remediation failures for VMs that have a reference to a gallery image in the VM mode. The managed identity requires read permission to the gallery image, and it's currently not part of the Virtual Machine Contributor role.
 
 :::image type="content" source="./media/troubleshoot/policy-remediation-failure-error.png" alt-text="Screenshot that shows the error code for the policy remediation failure. " lightbox="./media/troubleshoot/policy-remediation-failure-error.png":::
 
@@ -139,11 +139,11 @@ If you're using a `static` scope:
 
 If you're using a `dynamic` scope:
 
-1. Initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, so you can proceed with the next steps.
+1. Initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment so that you can proceed with the next steps.
 1. Move the resource to a different resource group or subscription.
 1. Re-create the resource assignment.
 
-If you miss any of the steps, move the resource to the previous resource group or subscription ID and then reattempt the steps.
+If you miss any of the steps, move the resource to the previous resource group or subscription ID, and then retry the steps.
 
 > [!NOTE]
 > If the resource group is deleted, re-create it with the same name. If the subscription ID is deleted, contact the support team for mitigation.
@@ -160,7 +160,7 @@ The Azure machine has the patch orchestration option as `AutomaticByOS/Windows` 
 
 ### Resolution
 
-If you don't want Azure to orchestrate any patch installation or you aren't using custom patching solutions, you can change the patch orchestration option to **Customer Managed Schedules (Preview)** or `AutomaticByPlatform` and `ByPassPlatformSafetyChecksOnUserSchedule` and not associate a schedule or maintenance configuration to the machine. This setting ensures that no patching is performed on the machine until you change it explicitly.
+If you don't want Azure to orchestrate any patch installation or you aren't using custom patching solutions, you can change the patch orchestration option to **Customer Managed Schedules (Preview)** (or `AutomaticByPlatform` and `ByPassPlatformSafetyChecksOnUserSchedule`) and not associate a schedule or maintenance configuration to the machine. This setting ensures that no patching is performed on the machine until you change it explicitly.
 
 :::image type="content" source="./media/troubleshoot/known-issue-update-settings-failed.png" alt-text="Screenshot that shows a notification of failed update settings.":::
 
@@ -168,8 +168,7 @@ If you don't want Azure to orchestrate any patch installation or you aren't usin
 
 ### Issue
 
-- You have machines that appear as **Not assessed** under **Compliance**, and you see an exception message below them.
-- You see an `HRESULT` error code in the portal.
+You have machines that appear as **Not assessed** under **Compliance**, and you see an exception message below them. Or, you see an `HRESULT` error code in the portal.
 
 ### Cause
 
@@ -179,8 +178,8 @@ The update agent (Windows Update Agent on Windows and the package manager for a 
 
 Try to perform updates locally on the machine. If this operation fails, it typically means that there's a configuration error for the update agent. To correct the issue:
 
-- For Linux, check the appropriate documentation to make sure you can reach the network endpoint of your package repository.
-- For Windows, check your agent configuration as described in [Updates aren't downloading from the intranet endpoint (WSUS or Configuration Manager)](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsus-or-configuration-manager).
+- For Linux, check the appropriate documentation to make sure that you can reach the network endpoint of your package repository.
+- For Windows, check your agent configuration as described in [Updates aren't downloading from the intranet endpoint (WSUS or Configuration Manager)](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsus-or-configuration-manager):
 
   - If the machines are configured for Windows Update, make sure that you can reach the endpoints described in [Issues related to HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
   - If the machines are configured for Windows Server Update Services (WSUS), make sure that you can reach the WSUS server configured by the [WUServer registry key](/windows/deployment/update/waas-wu-settings).
@@ -190,24 +189,24 @@ If you see an `HRESULT` error code, double-click the exception displayed in red 
 |Exception  |Resolution or action  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Search the relevant error code in the [Windows Update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find more information about the cause of the exception.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Indicates network connectivity problems. Make sure your machine has network connectivity to Update Manager. For a list of required ports and addresses, see [Network planning](prerequisites.md#network-planning).        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | This exception indicates network connectivity problems. Make sure that your machine has network connectivity to Update Manager. For a list of required ports and addresses, see [Network planning](prerequisites.md#network-planning).        |
 |`0x8024001E`| The update operation didn't finish because the service or system was shutting down. Retry the operation.|
 |`0x8024002E`| The Windows Update service is disabled. Enable the service.|
-|`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
-|`0x80072EE2`|There's a network connectivity problem or a problem in communicating with a configured WSUS server. Check the WSUS settings and make sure the service is accessible from the client.|
-|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (`wuauserv`) is running and not disabled.        |
+|`0x8024402C`     | If you're using a WSUS server, make sure that the registry values for `WUServer` and `WUStatusServer` under the `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
+|`0x80072EE2`|There's a network connectivity problem or a problem in communicating with a configured WSUS server. Check the WSUS settings and make sure that the service is accessible from the client.|
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure that the Windows Update service (`wuauserv`) is running and not disabled.        |
 |`0x80070005`| Any of the following problems can cause an "access denied" error:<br> - Infected computer.<br> - Windows Update settings not configured correctly.<br> - File permission error with the `%WinDir%\SoftwareDistribution` folder.<br> - Insufficient disk space on the system drive (drive C). |
-|Any other generic exception     | Run a search on the internet for possible resolutions and work with your local IT support.         |
+|Any other generic exception     | Run a search on the internet for possible resolutions, and work with your local IT support.         |
 
 Reviewing the `%Windir%\Windowsupdate.log` file can also help you determine possible causes. For more information about how to read the log, see [Windows Update log files](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file).
 
 You can also download and run the [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) to check for any problems with Windows Update on the machine. The troubleshooter works on both Windows clients and Windows Server.
 
-## Internal execution error occurred
+## Internal execution error occurs
 
 ### Issue
 
-Update Manager failed to patch the VM with an internal execution error. The operation didn't return a response and might be incomplete.
+Update Manager fails to patch the VM and produces an internal execution error. The operation doesn't return a response and might be incomplete.
 
 ### Cause
 
@@ -223,7 +222,7 @@ This issue might occur because of a temporary problem or communication failure b
 - Retry the update after a few minutes.
 - Ensure that the VM agent is healthy and up to date.
 - If the agent status shows **Not Ready**, try rebooting the VM.
-- Check VM resource usage (CPU, memory, disk). Restart if needed.
+- Check VM resource usage (CPU, memory, disk). Reboot if needed.
 - Verify network connectivity to Azure services.
 - Review logs on the VM and Update Manager for more details.
 
@@ -231,7 +230,7 @@ This issue might occur because of a temporary problem or communication failure b
 
 For a concurrent or conflicting schedule, only one schedule is triggered. The other schedule is triggered after the first schedule is finished.
 
-If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in the case of Azure VMs.
+If a machine is newly created, the schedule might have 15 minutes of trigger delay in the case of Azure VMs.
 
 ### You get a ShutdownOrUnresponsive error
 
