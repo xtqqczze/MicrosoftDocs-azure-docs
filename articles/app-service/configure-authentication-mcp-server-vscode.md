@@ -35,7 +35,7 @@ An App Service app that hosts an MCP server. If you need to create one, see [Int
 
 After enabling authentication, you need to authorize Visual Studio Code to access your MCP server.
 
-1. On the **Authentication** page of your App Service app, under **Identity provider**, select **Edit** (the pencil icon) next to the Microsoft provider you just created.
+1. On the **Authentication** page of your App Service app, under **Identity provider**, select **Edit** (the pencil icon) next to the Microsoft provider you created.
 
 1. On the **Edit identity provider** page, under **Additional checks** > **Client application requirement**, select **Allow requests from specific client applications**.
 
@@ -137,7 +137,7 @@ To verify that your MCP server is properly secured and accessible:
 If you see authentication errors, verify that:
 - Your app setting `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES` is correctly configured.
 - The Visual Studio Code client ID is added to both App Service authentication configuration and in the app registration.
-- The App Service app restarts completely after configuration changes. It may take a few minutes to fully restart.
+- The App Service app restarts completely after configuration changes. It might take a few minutes to fully restart.
 
 ## Related content
 
