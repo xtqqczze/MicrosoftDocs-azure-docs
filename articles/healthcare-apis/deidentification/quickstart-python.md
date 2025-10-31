@@ -208,7 +208,7 @@ Example:
 "InputLocale": "fr-CA"
 ```
 
-**Note:** Replace `<your-service-url>` with your actual service URL and <token> with your access token in these examples.
+**Note:** Replace `<your-service-url>` with your actual service URL and `<token>` with your access token in these examples.
 
 **TAG**
 ```Bash
