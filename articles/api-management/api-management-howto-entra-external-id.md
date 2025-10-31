@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/30/2025
+ms.date: 10/30/2025
 ms.author: danlep
 ms.custom:
 
@@ -22,10 +22,10 @@ ms.custom:
 In this article, you learn the configuration of the Microsoft Entra ID identity provider for the following scenarios that are supported by the API Management developer portal: 
 
 * Integration with Microsoft Entra External ID in your *workforce tenant*. For example, if your workforce tenant is for the Contoso organization, you might want to configure Google or Facebook as an external identity provider so that these external users can also sign in using their accounts. 
-* Integration with Microsoft Entra External ID in a separate *external tenant*. This configuration only allows external users from that tenant to sign in to the developer portal. 
+* Integration with Microsoft Entra External ID in a separate *external tenant*. This configuration allows external users from that tenant to sign in to the developer portal. 
 
-> [!NOTE]
-> Currently, you can't configure more than one Microsoft Entra ID identity provider for the developer portal. 
+> [!TIP]
+> Depending on your requirements for access to the developer portal, you can configure multiple Microsoft Entra ID tenants, including your workforce tenant (optionally integrated with Microsoft Entra External ID) and one or more external tenants. 
 
 For an overview of options to secure access to the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md).
 
@@ -42,11 +42,14 @@ For an overview of options to secure access to the developer portal, see [Secure
 
 ## Add external identity provider to your tenant
 
-If you're using a workforce tenant, an external identity provider must be enabled in your workforce tenant. Configuring the external identity provider is outside the scope of this article. For more information, see [Identity providers for External ID in workforce tenant](/entra/external-id/identity-providers).
+If you're using a workforce tenant, you can optionally enable an external identity provider in that tenant. Configuring the external identity provider is outside the scope of this article. For more information, see [Identity providers for External ID in workforce tenant](/entra/external-id/identity-providers).
 
 ## Create Microsoft Entra app registration
 
 Create an app registration in your Microsoft Entra ID tenant. The app registration represents the developer portal application in Microsoft Entra and enables the portal to sign in users by using Microsoft Entra ID.
+
+> [!TIP]
+> If you're configuring a workforce tenant, to simplify the configuration, API Management can [automatically enable a Microsoft Entra application and identity provider](api-management-howto-aad.md#automatically-enable-microsoft-entra-application-and-identity-provider) for users of the developer portal. Alternatively, follow these steps to manually enable the Microsoft Entra application and identity provider.
 
 1. In the Azure portal, go to Microsoft Entra ID. 
 1. In the sidebar menu, under **Manage**, select **App registrations** >  **+ New registration**.
@@ -55,7 +58,7 @@ Create an app registration in your Microsoft Entra ID tenant. The app registrati
     * In the **Supported account types** section, select **Accounts in this organizational directory only**.
     * In **Redirect URI**, select **Single-page application (SPA)** and enter the following URL: `https://{your-api-management-service-name}.developer.azure-api.net/signin`, where `{your-api-management-service-name}` is the name of your API Management instance.
     * Select **Register** to create the application.
-1.On the app **Overview** page, find the **Application (client) ID** and **Directory (tenant) ID** and copy these values to a safe location. You need them later.
+1. On the app **Overview** page, find the **Application (client) ID** and **Directory (tenant) ID** and copy these values to a safe location. You need them later.
 1. In the sidebar menu, under **Manage**, select **Certificates & secrets**. 
 1. From the **Certificates & secrets** page, on the **Client secrets** tab, select **+ New client secret**. 
     * Enter a **Description**.
