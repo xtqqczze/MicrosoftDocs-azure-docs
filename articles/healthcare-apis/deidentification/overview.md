@@ -14,7 +14,7 @@ ms.author: kimiamavon
 ![Tag Redact and Surrogation operations.](tag-redact-surrogate-operations.png)
 
 
-The de-identification service in Azure Health Data Services enables healthcare organizations to de-identify clinical data in [multiple languages](articles/healthcare-apis/deidentification/languages-supported) so that the resulting data retains its clinical relevance and distribution while also adhering to the:
+The de-identification service in Azure Health Data Services enables healthcare organizations to de-identify clinical data in [multiple languages](languages-supported.md) so that the resulting data retains its clinical relevance and distribution while also adhering to the:
 - Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule
 - unlinked pseudonymization principle under General Data Protection Regulation
 
@@ -45,7 +45,7 @@ The de-identification service unlocks the power of your data by automating three
 ### **Consistent replacement to preserve patient timelines**
 Consistent surrogation results enable organizations to retain relationships occurring in the underlying dataset, which is critical for research, analytics, and machine learning. By submitting data in the same batch, our service allows for consistent replacement across entities and preserves the relative temporal relationships between events.
 
-![Screenshot of consistent surrogation.](consistent-surrogation.png)
+![Screenshot of consistent surrogation for english.](consistent-surrogation.png)
 
 ## De-identify clinical data securely and efficiently
 
@@ -60,7 +60,7 @@ The service expands beyond the 18 HIPAA Identifiers to provide stronger privacy 
 
 - **Role-based Access Control (RBAC)**: Azure role-based access control (RBAC) enables you to manage how your organization's data is processed, stored, and accessed. You determine who has access to de-identify datasets based on roles you define for your environment.
 
-![Screenshot of consistent surrogation.](consistent-surrogation-french.png)
+![Screenshot of consistent surrogation for the french data.](consistent-surrogation-french.png)
 
 ## Easy API Integration Into Your Workflow
 
