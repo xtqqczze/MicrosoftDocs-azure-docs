@@ -274,11 +274,12 @@ When you view an update deployment in **Update History**, the property **Failed 
 
 During an update deployment, maintenance window utilization is checked at multiple steps. Ten minutes of the maintenance window are reserved for reboot at any point.
 
-Before the deployment gets a list of missing updates or downloads or installs any update (except Windows service pack updates), it checks to verify if there are 15 minutes + 10 minutes for reboot. That is, the deployment verifies that there are at least 25 minutes left in the maintenance window.
+Before the deployment gets a list of missing updates or downloads or installs an update, it checks to verify that enough time remains in the maintenance window:
 
-For Windows service pack updates, the deployment checks for 20 minutes + 10 minutes for reboot (that is, 30 minutes).
+- All updates except Windows service pack: 15 minutes + 10 minutes for reboot, for a total of 25 minutes.
+- Windows service pack updates: 20 minutes + 10 minutes for reboot, for a total of 30 minutes.
 
-If the deployment doesn't have the sufficient time left, it skips the scan, download, and installation of updates. The deployment run then checks if a reboot is needed and if 10 minutes are left in the maintenance window. If so, the deployment triggers a reboot. Otherwise, the reboot is skipped.
+If the deployment doesn't have enough time left, it skips the scan, download, and installation of updates. The deployment run then checks if a reboot is needed and if 10 minutes remain in the maintenance window. If so, the deployment triggers a reboot. Otherwise, the reboot is skipped.
 
 In such cases, the status is updated to **Failed**, and the **Maintenance window exceeded** property is updated to **true**. For cases where the time left is less than 25 minutes, updates aren't scanned or attempted for installation.
 
@@ -310,7 +311,7 @@ If the extension is already present on an Azure Arc-enabled machine but the exte
 
 You can't perform patching on Azure VMs.
 
-#### Issue
+#### Cause
 
 The Windows/Linux patch update extension must be successfully installed on Azure machines to perform on-demand assessment or patching, scheduled patching, and periodic assessments.
 
@@ -346,13 +347,13 @@ EXCEPTION: Exception('Unable to invoke sudo successfully. Output: root is not in
 
 ### Cause
 
-Sudo privileges are not granted to the extensions for assessment or patching operations on Linux machines.
+Sudo privileges aren't granted to the extensions for assessment or patching operations on Linux machines.
 
 Update Manager requires a high level of permissions due to the many components that might be updated with Update Manager (including kernel drivers and OS security patching). The Update Manager extensions use the `root` account for operations.
 
 #### Resolution
 
-Grant sudo privileges to ensure assessment or patching operations succeed. You need to add the root account to the `/etc/sudoers` file.
+Grant sudo privileges to ensure that assessment or patching operations succeed. You need to add the root account to the `/etc/sudoers` file:
 
 1. Open the `sudoers` file for editing:
 
@@ -366,13 +367,13 @@ Grant sudo privileges to ensure assessment or patching operations succeed. You n
    root ALL=(ALL) ALL
    ```
 
-3. When you finish, save and close the editor by using the <kbd>Ctrl+X</kbd> keyboard shortcut. If you're using the *vi* editor, you can type `:wq` and select the <kbd>Enter</kbd> key.
+3. Save and close the editor by using the <kbd>Ctrl+X</kbd> keyboard shortcut. If you're using the *vi* editor, you can type `:wq` and then select the <kbd>Enter</kbd> key.
 
 ### Proxy is configured
 
 #### Issue
 
-A proxy blocks access to endpoints required for assessment or patching operations to succeed.
+A proxy blocks access to endpoints that are required for assessment or patching operations to succeed.
 
 #### Cause
 
@@ -410,7 +411,7 @@ The check for ensuring the availability of an HTTPS connection fails.
 
 #### Cause
 
-An HTTPS connection isn't available. This connection is required to download and install updates from required endpoints for each operating system.
+An HTTPS connection isn't available. This connection is required to download and install updates from the necessary endpoints for each operating system.
 
 #### Resolution
 
