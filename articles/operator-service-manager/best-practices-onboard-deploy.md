@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ---
 
 # Basic concepts for Azure Operator Service Manager
-Microsoft has developed many proven practices for managing network functions (NFs) using Azure Operator Service Manager. This article provides basic guidelines that NF vendors, telco operators, and their partners can follow to optimize NF deployments. Consider these concepts when beginning the onboard and deployment planning process.
+Microsoft has developed many proven best practices for managing network functions (NFs) using Azure Operator Service Manager. This article provides basic guidelines that NF vendors, telco operators, and their partners can follow to optimize NF deployments. Consider these concepts when beginning the onboard and deployment planning process.
 
 ## General considerations
 We recommend that you first onboard and deploy your simplest NFs (one or two charts) by using the quickstarts to familiarize yourself with the overall flow. You can add necessary configuration details in subsequent iterations. As you go through the quickstarts, consider the following points:
@@ -44,13 +44,12 @@ The Azure Operator Service Manager publisher is a regional service deployed acro
 - The publisher name must be unique for each Microsoft Entra tenant in each region.
 
 ## NFDG and NFDV considerations
-The network function definition group (NFDG) represents the smallest component that you plan to reuse independently across multiple services. All parts of an NFDG are always deployed together. These parts are called `networkFunctionApplications` items.
+The network function definition group (NFDG) represents the smallest component that you plan to reuse independently across multiple services. All parts of an NFDG are always deployed together. These parts are called `networkFunctionApplications` items. For example, it's natural to onboard a single NF that consists of multiple Helm charts and images as a single NFDG if you always deploy those components together. In cases where multiple NFs are always deployed together, it's reasonable to have a single NFDG for all of them. Single NFDGs can have multiple NFDVs.
 
-For example, it's natural to onboard a single NF that consists of multiple Helm charts and images as a single NFDG if you always deploy those components together. In cases where multiple NFs are always deployed together, it's reasonable to have a single NFDG for all of them. Single NFDGs can have multiple NFDVs.
-
-For CNF NFDVs, the `networkFunctionApplications` list can contain only Helm packages. It's reasonable to include multiple Helm packages if they're always deployed and deleted together.
-
-For VNF NFDVs, the `networkFunctionApplications` list must contain at least one `VhdImageFile` value and one ARM template. The ARM template should deploy a single virtual machine (VM). To deploy multiple VMs for a single VNF, make sure to use a separate ARM template for each VM.
+* For CNF NFDVs, the `networkFunctionApplications` list can contain only Helm packages.
+  * It's reasonable to include multiple Helm packages if they're always deployed and deleted together.
+* For VNF NFDVs, the `networkFunctionApplications` list must contain at least one `VhdImageFile` value and one ARM template.
+  * To deploy multiple VMs for a single VNF, make sure to use a separate ARM template for each VM.
 
 The ARM template can deploy only Resource Manager resources from the following resource providers:
 - `Microsoft.Compute`
@@ -63,14 +62,15 @@ The ARM template can deploy only Resource Manager resources from the following r
 
 For ARM templates that contain anything beyond the preceding list, all `PUT` calls on the VNF result in a validation error.
 
-### Common use cases that trigger an NFDV minor or major version update
-- Updating CGSs or configuration group values (CGVs) for an existing release that triggers a change to `deployParametersMappingRuleProfile`
-- Updating values that are hard-coded in the NFDV
-- Marking components as inactive to prevent them from being deployed via `applicationEnablement: Disabled`
-- A new NF release, such as charts and images
+### NFDV minor or major updates
+The NFDV represents a release of the base NFDG and and is associated to a unique version. As the NF changes overtime, many NFDVs are use to capture capabilities, at any given point in time. Typical changes that trigger a new NFDV may include: 
+- Updating NF artifacts, such as new charts or image versions.
+- Updating CGSs or configuration group values (CGVs) that change `deployParametersMappingRuleProfile`.
+- Updating any default values hard-coded into the NFDV.
+- Updating component enablement, to prevent them from being deployed via `applicationEnablement: Disabled`.
 
 > [!NOTE]
-> A minimum number of changes is required every time the payload of an NF changes. A minor or major NF release without exposing new CGS parameters requires only updating the artifact manifest, pushing new images and charts, and bumping the NFDV.
+> A minor or major NF release which doesn't expose new CGS parameters requires only updating the artifact manifest, pushing new images and charts, and bumping the NFDV.
 
 ## NSDG and NSDV considerations
 A network service design group (NSDG) is a composite of one or more NFDGs and any infrastructure components deployed at the same time. These components might include clusters and VMs in Nexus Kubernetes or Azure Kubernetes Service (AKS). A site network service (SNS) refers to a single NSDV. Such a design provides a consistent and repeatable deployment of the network service to a site from a single SNS `PUT` call.
@@ -84,20 +84,21 @@ An example NSDG might consist of:
 
 These five components form a single NSDG. A single NSDG can have multiple NSDVs.
 
-### Common use cases that trigger an NSDV minor or major version update
-- Creating or deleting CGSs
-- Changes in the ARM template associated with one of the NFs being deployed
-- Changes in the infrastructure ARM template; for example, Nexus Kubernetes, AKS, or VM
+### NSDV minor or major update
+The NSDV represents a release of the base NSD and and is associated to a unique version. NSDV changes are less frequent then NFDV changes, and in some cases, a single NSDV supports the entire lifecycle of a site network service. However, the following service changes do require new a NSDV: 
+- Creating, deleting or adding values in CGSs.
+- Changing the NF ARM template used by a deployed site network service resource.
+- Changing the infrastructure ARM template used by a deploy site resource.
 
 > [!NOTE]
-> Changes in an NFDV shouldn't trigger an NSDV update. The NFDV should be exposed as a parameter within the CGS, so operators can control what to deploy by using CGVs.
+> It's recommened to expose the NFDV as a parameter within the CGS, so operators can control what to deploy by using CGVs. This further reduces NSDV change frequency.
 
 ## SNS considerations
 We recommend that you have a single SNS for the entire site, including the infrastructure. The SNS should deploy any required infrastructure (for example, clusters and VMs in Nexus Kubernetes or AKS), and then deploy the required NFs on top. Such a design provides a consistent and repeatable deployment of the network service to a site from a single SNS `PUT` call.
 
 We recommend that you deploy every SNS with a user-assigned managed identity rather than a system-assigned managed identity. This user-assigned managed identity must have permissions to access the NFDV and must have the role of Managed Identity Operator on itself. For more information, see [Create and assign a user-assigned managed identity](how-to-create-user-assigned-managed-identity.md).
 
-## Resource scheme use-case examples 
+## Resource scheme considerations 
 The following two scenarios illustrate Azure Operator Service Manager resource mapping.
 
 ### Scenario: Single network function
@@ -125,7 +126,7 @@ Multiple NFs with some shared and independent components are deployed to a Nexus
 - **CGV**: Equal to the number of CGSs.
 - **SNS**: Single per NSDV.
 
-## Network Function upgrade considerations
+## Upgrade considerations
 Assuming that NFs support in-place and in-service upgrades, the following considerations apply for CNFs:
 - If you add new charts and images, Azure Operator Service Manager installs the new charts.
 - If you remove some charts and images, Azure Operator Service Manager deletes the charts that are no longer declared in the NFDV.
@@ -140,7 +141,7 @@ The following considerations apply for VNFs:
     - Deployment policy, to control whether VM deployment is allowed or not
   - In the NFDV, you need to parameterize `deployParameters` and `templateParameters` in such a way that you can supply the unique values by using CGVs for each.
 
-## Deployment troubleshooting considerations
+## Troubleshooting considerations
 During installation and upgrade, by default:
 - The `atomic` and `wait` options are set to `true`.
 - The operation timeout is set to `27 minutes`.
