@@ -4,13 +4,13 @@ description: Use a hypothesis-driven approach to explore multiple potential root
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 10/28/2025
+ms.date: 10/31/2025
 ms.service: azure
 ---
 
 # Use deep investigation in SRE Agent Preview
 
-Deep investigation gives you greater transparency and accuracy when diagnosing complex issues in the SRE Agent. Unlike standard investigations, which provide quick insights, deep investigation uses a hypothesis-driven approach so you can explore multiple potential root causes before recommending mitigation steps. Use deep investigation when you need to understand the root cause, not just resolve the issue.
+Deep investigation gives you greater transparency and accuracy when diagnosing complex issues in the SRE Agent. Unlike standard queries that provide quick insights, deep investigation uses a hypothesis-driven approach so you can explore multiple potential root causes before you decide on mitigation steps.
 
 Use deep investigation when:
 
@@ -18,7 +18,7 @@ Use deep investigation when:
 - You suspect **multiple root causes**, requiring systematic validation.
 - You need **visibility into the agent’s reasoning process**, similar to war room investigations.
 
-For simple queries like, "Why is CPU usage high?", standard investigation is sufficient, but deep investigation is a best-fit for cases where structured, multi-path analysis adds value.
+For simple queries, standard investigation is sufficient, but deep investigation is a best-fit for cases where structured, multi-path analysis adds value.
 
 ## How deep investigation works
 
@@ -30,12 +30,12 @@ Here’s an example:
 
 1. **Hypothesis generation**: Instead of jumping to a single answer, the agent creates two to four high-level hypotheses about potential root causes. These hypotheses represent different investigative paths to provide a structured starting point for deeper analysis. These paths could include scenarios such as database load, network latency, or configuration drift.
 
-1. **Validation process**: The agent tests each hypothesis through iterative checks. If a hypothesis appears valid, the agent digs deeper, generating subhypotheses to uncover contributing factors. For example, a validated "High DB load" hypothesis might lead to checks for query spikes or index fragmentation. The agent documents invalid hypotheses so you know what was ruled out, which is critical in complex troubleshooting scenarios.
+1. **Validation process**: The agent tests each hypothesis through iterative checks. If a hypothesis appears valid, the agent digs deeper, generating subhypotheses to uncover contributing factors. For example, a validated "High DB load" hypothesis might lead to checks for query spikes or index fragmentation. The agent documents invalid hypotheses so you know what it ruled out, which is critical in complex troubleshooting scenarios.
 
-1. **Mitigation strategies**: After the agent confirms one or more root causes, the agent suggests actionable remediation steps. These steps can include rolling back a deployment, adjusting resource allocations, or applying configuration fixes. The goal isn't just to identify problems but to guide resolution.
+1. **Mitigation strategies**: After the agent confirms one or more root causes, it suggests actionable remediation steps. These steps can include rolling back a deployment, adjusting resource allocations, or applying configuration fixes. The goal isn't just to identify problems but to guide resolution.
 
 1. **Structured output**: The agent presents all findings, which include validated and invalidated hypotheses, in a clear, visual format. This transparency helps you understand the reasoning process, making it easier to trust and act on recommendations.
 
 ## Enable deep investigation
 
-To enable deep investigation in your chat, select the (TODO) icon in your chat before submitting your query.
+To enable deep investigation in your chat, select the deep investigation (:::image type="icon" source="media/deep-investigation/sre-agent-deep-investigation-icon.png" border="false":::) icon in your chat before submitting your query.
