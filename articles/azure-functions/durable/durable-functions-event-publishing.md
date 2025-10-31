@@ -127,8 +127,24 @@ For more information, visit [Use managed identities for App Service and Azure Fu
 To configure system assigned identity follow the instructions below:
 
 #### Configuration
-- Turn on system assigned identity for the function app. Go to the function app, **Identity** section, in the **System Assigned** tab, toggle the **Status** switch to on.
-- In the Event Grid topic resource, give the function app the EventGrid Data Sender role. In the Event Grid topic resource, assign the **EventGrid Data Sender** role to the uami. Go to the **Access Control (IAM)** section, click **+ Add**, select the **EventGrid Data Sender** role, click **Next**, choose **Managed Identity** in the **Assign access to** section, click **+ Select Members** in the **Members** section, select the managed identity, then click **Review + Assign**.
+1. Turn on system assigned identity for the function app
+- Go to the function app, **Identity** section, in the **System Assigned** tab, toggle the **Status** switch to on.
+  
+    :::image type="content" source="./media/durable-functions-event-publishing/enabling-system-assigned-identity.png" alt-text="Enabling system assigned identity in the function app." border="true":::
+
+2. In the Event Grid topic resource, give the function app the EventGrid Data Sender role.
+- Go to the **Access Control (IAM)** section, click **+ Add**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/system-assigned-add-role.png" alt-text="Add role to event grid topic resource"." border="true":::
+
+- Select the **EventGrid Data Sender** role, click **Next**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/system-assigned-eventgrid-datasender.png" alt-text="Selecting the EventGrid Data Sender Role." border="true":::
+
+- Choose **Managed Identity** in the **Assign access to** section, click **+ Select Members** in the **Members** section, select the managed identity, then click **Review + Assign**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/system-assigned-select-mi.png" alt-text="." border="true":::
+
 
 #### App Settings
 - Add an `EventGrid__topicEndpoint` app setting with the value as the Event Grid topic endpoint.
