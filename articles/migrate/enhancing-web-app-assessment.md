@@ -173,7 +173,7 @@ Collate the following GitHub App details and private key to create a GitHub conn
 3. On the assessment **Overview** page.   
 4. Under **Add code insights** select **Using GitHub Copilot Assessment**. 
 
-:::image type="content" source="./media/enhancing-web-app-assessment/github-copliot-assessment.png" alt-text="The screenshot shows how to add code insights by using github copilot assessment." lightbox="./media/enhancing-web-app-assessment/github-copliot-assessment.png":::
+:::image type="content" source="./media/enhancing-web-app-assessment/github-copilot-assessment.png" alt-text="The screenshot shows how to add code insights by using github copilot assessment." lightbox="./media/enhancing-web-app-assessment/github-copilot-assessment.png":::
 
 5. In the **Add code insights** page, select **Create GitHub** connection. 
 
