@@ -57,12 +57,27 @@ To generate report, complete the following steps:
 
 1. Select **Assessments** on the Azure Migrate project **Overview** page under **Decide and Plan**.
 1. Search for the assessment with the **Workloads** filter and select it. 
-1. On the assessment **Overview** page, under **Add code insights** select Using GitHub Copilot assessment. 
+1. On the assessment **Overview** page, under **Add code insights** select **Using GitHub Copilot assessment**. 
+
+:::image type="content" source="./media/enhancing-web-app-assessment/using-github-copilot-assessment.png" alt-text="The screenshot shows how to select using github copilot assessment." lightbox="./media/enhancing-web-app-assessment/using-github-copilot-assessment.png":::
+
 1. In the Add code insights page, select **Upload a zip file**.  
+
+:::image type="content" source="./media/enhancing-web-app-assessment/upload-zip-file.png" alt-text="The screenshot shows how to upload a zip file." lightbox="./media/enhancing-web-app-assessment/upload-zip-file.png":::
+
 1. Select **Browse**, choosed the location of the ZIP file containing reports you want to import and then select **Upload**. Wait for the upload and validation to complete.
 1. In the Web app list, under the **GitHub Copilot assessment** report dropdown, view the uploaded reports under **Uploaded from zip file**. 
+
+:::image type="content" source="./media/enhancing-web-app-assessment/add-code-insights.png" alt-text="The screenshot shows how to add code insights." lightbox="./media/enhancing-web-app-assessment/add-code-insights.png":::
+
 1. Select the appropriate report to map to the respective web app. Repeat these steps for all required web app.  
-1. After mapping, select **Add** and wait for the process to complete. 
+
+:::image type="content" source="./media/enhancing-web-app-assessment/upload-from-zip-file.png" alt-text="The screenshot shows how to upload from the zip file." lightbox="./media/enhancing-web-app-assessment/upload-from-zip-file.png":::
+
+1. After mapping, select **Add** and wait for the process to complete.
+
+:::image type="content" source="./media/enhancing-web-app-assessment/add.png" alt-text="The screenshot shows how to add web app." lightbox="./media/enhancing-web-app-assessment/add.png":::
+ 
 1. After mapping is complete the assessment will be marked as outdated. Select **Recalculate** to initiate recalculation.
 1. After recalculation is complete, review the updated code insights.  
 
@@ -157,7 +172,13 @@ Collate the following GitHub App details and private key to create a GitHub conn
 2. Search for the assessment with the **Workloads** filter and select it. 
 3. On the assessment **Overview** page.   
 4. Under **Add code insights** select **Using GitHub Copilot Assessment**. 
+
+:::image type="content" source="./media/enhancing-web-app-assessment/github-copliot-assessment.png" alt-text="The screenshot shows how to add code insights by using github copilot assessment." lightbox="./media/enhancing-web-app-assessment/github-copliot-assessment.png":::
+
 5. In the **Add code insights** page, select **Create GitHub** connection. 
+
+:::image type="content" source="./media/enhancing-web-app-assessment/github-create-connections.png" alt-text="The screenshot shows how to create github connections." lightbox="./media/enhancing-web-app-assessment/github-create-connections.png":::
+
 6. In the **Create new GitHub** connection page, provide the following details: 
 
 | Field  | Details  | 
@@ -171,6 +192,9 @@ Collate the following GitHub App details and private key to create a GitHub conn
 7. After you add the details, select **Create** connection. Wait until the connection is successfully created and then select **Close**.
 8. On the **Add code insight** page in the web app, from the list, select **Request report via GitHub**. 
 9. In the **Request report via GitHub** page, select the appropriate connection name and then select **Request**.  
+
+:::image type="content" source="./media/enhancing-web-app-assessment/request-report-via-github.png" alt-text="The screenshot shows how to request report via github." lightbox="./media/enhancing-web-app-assessment/request-report-via-github.png":::
+
 10. Azure Migrate creates GitHub issue in the repository specified in the connection details. 
 11. When the code scan report is uploaded to the GitHub issue, Azure Migrate automatically maps the report to the web app. 
 12. After the report is mapped, the assessment is marked as outdated. 
@@ -178,7 +202,7 @@ Collate the following GitHub App details and private key to create a GitHub conn
 
 ### Generate GitHub Copilot Assessment report
 
-To generate report, follow the steps. 
+To generate report, follow the steps:
 
 1. To generate report for .NET follow these steps [Assess and migrate a .NET project with GitHub Copilot app modernization for .NET](/dotnet/azure/migration/appmod/quickstart). 
 1. To generate code scan report for Java, follow these steps [Assess a Java project using GitHub Copilot app modernization](/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate). 
