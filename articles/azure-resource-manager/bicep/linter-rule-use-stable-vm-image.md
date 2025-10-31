@@ -16,7 +16,7 @@ Virtual machines shouldn't use preview images. This rule checks the following pr
 
 ## Linter rule code
 
-Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
+To customize rule settings, use the following value in the [Bicep configuration file](bicep-config-linter.md)
 
 `use-stable-vm-image`
 
@@ -42,7 +42,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
 }
 ```
 
-You can fix it by using an image that does not contain the string `preview` in the imageReference.
+You can fix it by using an image that doesn't contain the string `preview` in the imageReference.
 
 ```bicep
 param location string = resourceGroup().location
