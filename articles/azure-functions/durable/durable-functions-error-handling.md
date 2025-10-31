@@ -66,6 +66,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [C# (Isolated)](#tab/csharp-isolated)
+
 In Durable Functions C# Isolated, unhandled exceptions are surfaced as [TaskFailedException](/dotnet/api/microsoft.durabletask.taskfailedexception).
 
 The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the [FailureDetails](/dotnet/api/microsoft.durabletask.taskfailuredetails) property.
@@ -245,6 +246,7 @@ If the first **CreditAccount** function call fails, the orchestrator function co
 Exception handling behavior for entity functions differs based on the Durable Functions hosting model:
 
 # [C# (InProc)](#tab/csharp-inproc)
+
 In Durable Functions using C# in-process, original exception types thrown by entity functions are directly returned to the orchestrator.
 
 ```csharp
@@ -279,6 +281,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 ```
 
 # [C# (Isolated)](#tab/csharp-isolated)
+
 In Durable Functions C# Isolated, exceptions are surfaced to the orchestrator as an `EntityOperationFailedException`. To access the original exception details, inspect its `FailureDetails` property.
 
 ```csharp
