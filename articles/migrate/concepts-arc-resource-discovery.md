@@ -1,5 +1,5 @@
 ---
-title: Overview of Arc-based discovery (Preview)
+title: Overview of Arc-based discovery in Azure Migrate (preview)
 description: Learn how Azure Migrate discovers Azure Arc resources to simplify migration planning for Arc customers.
 author: snehithm
 ms.author: snmuvva
@@ -9,11 +9,11 @@ ms.date: 10/23/2025
 ms.custom: engagement-fy25
 ---
 
-# Overview of Arc-based discovery (Preview)
+# Overview of Arc-based discovery in Azure Migrate (preview)
 
 This article provides an overview of how Azure Migrate works with [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) and [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview) to assess your on-premises resources for migration to Azure.
 
-If you Arc-enabled your on-premises servers and SQL Server instances, Azure Migrate can use this existing infrastructure to discover, assess, and build a business case for migration without requiring any other on-premises deployments.
+If you have already Arc-enabled your on-premises servers and SQL Server instances, Azure Migrate can use this existing infrastructure to discover, assess, and build a business case for migration without requiring any other on-premises deployments. This approach helps accelerate migration planning and reduces deployment complexity. 
 
 > [!IMPORTANT]
 > This feature is currently in preview. As a preview feature, the capabilities presented in this article are subject to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -25,7 +25,7 @@ Arc-based discovery is a discovery method in Azure Migrate that uses your existi
 ### Key benefits
 
 - **No additional on-premises infrastructure**: Uses your existing Arc-enabled servers and SQL Server instances.
-- **Fast time to insights**: Default business cases and assessments are automatically generated when you create a project, typically within an hour.
+- **Fast time to insights**: Azure Migrate automatically generates default business cases and assessments, typically within an hour.
 - **Subscription-based scoping**: Select one or more subscriptions containing Arc resources to include in your project.
 - **Optional performance data collection**: Install the Azure Migrate Collector VM extension to collect performance history for right-sized assessments.
 
@@ -40,9 +40,12 @@ Azure Migrate supports discovery and assessment of the following Arc-enabled res
 
 ## How Arc-based discovery works
 
-### Discovery process
+Arc-based discovery uses data already collected by Azure Arc Connected Machine Agent and Azure Arc SQL extension to accelerate migration decision making and planning for Azure Arc customers. It collects additional data using the Azure Migrate Collector VM extension for Arc servers. 
 
-1. **Create an Azure Migrate project**: Create a project from Azure Arc Center and select subscriptions containing Arc resources. Arc-based discovery currently only works with new projects.
+### Discovery process
+Discovery process is as simple as creating a project and scoping Arc resources into the project. 
+
+1. **Create an Azure Migrate project**: Create a project from Azure Arc Center and select subscriptions that contain Arc resources. Arc-based discovery currently only works with new projects.
 
 2. **Data sync**: When you create a project with Arc resources, Azure Migrate syncs a snapshot of metadata from your Arc-enabled resources in the selected subscriptions. This includes:
    - Server configuration (CPU, memory, disk, network)
@@ -50,7 +53,7 @@ Azure Migrate supports discovery and assessment of the following Arc-enabled res
    - Hypervisor information
    - SQL Server instance and database information
 
-3. **Default artifacts generation**: After sync completes, Azure Migrate automatically generates:
+3. **Default artifacts generation**: After the sync completes, Azure Migrate automatically generates:
    - Two default business cases (modernize preference and minimize migration time preference)
    - One default assessment covering all workloads (servers and SQL Servers)
 
@@ -72,7 +75,7 @@ To keep data current, you can manually trigger a sync at any time from the Azure
 ### Automatic sync
 Automatic sync configures your Azure Migrate project to periodically sync Arc resource data without manual intervention. This ensures your assessments and business cases always reflect current infrastructure state.
 
-Automatic sync uses Azure Migrate project's managed identity to read Arc resource data. So it's required to ensure the project's managed identity has the **Migrate Arc Discovery Reader - Preview** role on the subscriptions in scope. 
+Automatic sync uses the Azure Migrate project's managed identity to read Arc resource data. Ensure that the managed identity has the **Migrate Arc Discovery Reader - Preview** role on the subscriptions in scope. 
 
 ## Project scope management
 
@@ -83,7 +86,7 @@ Unlike appliance-based discovery that discovers resources in a specific datacent
 - Currently, only VMware or Hyper-V VMs are included
 - Subscriptions must have the `Microsoft.OffAzure` resource provider registered
 
-You can edit the scope at any time to add or remove subscriptions. Depending on the sync type, the user (manual) or the managed identity (automatic) must have the 'Migrate Arc Discovery Reader - Preview' role. 
+You can edit the scope at any time to add or remove subscriptions. Based on the sync type, either the user (for manual sync) or the managed identity (for automatic sync) must have the **Migrate Arc Discovery Reader - Preview** role. 
 
 ## Assessment types
 
@@ -98,9 +101,9 @@ Create separate assessments for:
 - **Azure SQL assessments**: For Arc-enabled SQL Server instances
 
 All assessments evaluate:
-- **Migration readiness**: Whether resources are suitable for migration to Azure
-- **Right-sized targets**: Recommended Azure SKUs based on configuration and optionally performance data
-- **Cost estimates**: Monthly Azure resource costs in the target region
+- **Migration readiness**: Whether resources are suitable for migration to Azure.
+- **Right-sized targets**: Recommended Azure SKUs based on configuration and optionally performance data.
+- **Cost estimates**: Monthly Azure resource costs in the target region.
 
 ## Business case
 
@@ -127,16 +130,16 @@ You can create custom business cases with different settings or scoped to specif
 Arc-based discovery supports two sizing approaches:
 
 ### As-on-premises sizing
-- Recommendations are based on current on-premises server configuration
-- No performance data collection required
-- Assumes peak capacity utilization
-- Might result in larger Azure SKUs than necessary
+- Recommendations are based on the current on-premises server configuration.
+- No performance data collection required.
+- Assumes peak capacity utilization.
+- Might result in larger Azure SKUs than necessary.
 
 ### Performance-based sizing (requires VM extension)
-- Recommendations are based on actual resource utilization over time
-- Requires Azure Migrate Collector VM extension installation
-- Uses performance history to determine optimal SKUs
-- Typically results in cost savings through right-sizing
+- Recommendations are based on actual resource utilization over time.
+- Requires the installation of Azure Migrate Collector VM extension.
+- Uses performance history to determine optimal SKUs.
+- Typically results in cost savings through right-sizing.
 
 To enable performance-based sizing:
 1. Install the Azure Migrate Collector VM extension on Arc-enabled servers
@@ -160,12 +163,12 @@ The Azure Migrate Collector VM extension is an optional component that provides 
 - Network utilization
 
 ### Installation options
-- **Single server**: Use Azure portal or Azure CLI commands
-- **At scale**: Use Azure Policy to deploy across all Arc-enabled servers in selected subscriptions
+- **Single server**: Use Azure portal or Azure CLI commands.
+- **At scale**: Use Azure Policy to deploy across all Arc-enabled servers in selected subscriptions.
 
 ### Requirements
-- **Hybrid Server Resource Administrator** role on Arc-enabled server resources to install the extension
-- Network connectivity to a regional Azure Migrate endpoints
+- You need **Hybrid Server Resource Administrator** role on Arc-enabled server resources to install the extension.
+- Ensure network connectivity to a regional Azure Migrate endpoints.
 
 For detailed installation instructions and regional endpoints, see [Install Azure Migrate Collector VM extension](how-to-enable-additional-data-collection-for-arc-servers.md) and [Extension reference](migrate-vm-extension-reference.md).
 
@@ -173,10 +176,10 @@ For detailed installation instructions and regional endpoints, see [Install Azur
 
 During the preview, the following limitations apply:
 
-- **Software Inventory**: Software inventory isn't available for Arc-discovered servers.
-- **Dependency analysis**:  and dependency mapping isn't available for Arc-discovered servers.
+- **Software Inventory**: Not available for Arc-discovered servers.
+- **Dependency analysis**:  Not available for Arc-discovered servers.
 - **Web app discovery**: Web apps aren't discovered through Arc-based discovery.
-- **PostgreSQL/MySQL discovery**: PostgreSQL/MySQL databases aren't discovered through Arc-based discovery. 
+- **PostgreSQL/MySQL discovery**: PostgreSQL and MySQL databases aren't discovered through Arc-based discovery. 
 
 
 ## Next steps

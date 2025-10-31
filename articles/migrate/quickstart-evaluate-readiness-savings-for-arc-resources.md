@@ -23,9 +23,9 @@ An Azure Migrate project is used to store discovery, assessment, and migration m
 
 ## Prerequisites
 
-- You have **Contributor** or **Owner** role on at least one resource group where you'll create the Migrate project. 
-    - Ensure `Microsoft.OffAzure` and `Microsoft.Migrate` resource providers are registered on the subscription. Learn how to [register resource providers](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
-- You have **Migrate Arc Discovery Reader - Preview** role or a custom role with equivalent permissions on the subscriptions with Arc resources. 
+- You must have the **Contributor** or **Owner** role on at least one resource group where you'll create the Migrate project. 
+    - Ensure the `Microsoft.OffAzure` and `Microsoft.Migrate` resource providers are registered on the subscription. Learn how to [register resource providers](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
+- You must have the **Migrate Arc Discovery Reader - Preview** role or a custom role with equivalent permissions on the subscriptions with Arc resources. 
     - Ensure subscriptions with Arc resources that you want to include in the project also have `Microsoft.OffAzure` resource provider registered. 
 - Your Arc-enabled Server machines are running connected machine agents of version [1.46 (September 2024 release)](/azure/azure-arc/servers/agent-release-notes-archive#version-146---september-2024) or newer. Machines with older agent versions are excluded from the project as they don’t include all the necessary information for migration assessments.
 
@@ -47,22 +47,22 @@ An Azure Migrate project is used to store discovery, assessment, and migration m
  
 7.	Under **Scope**, select one or more **Subscriptions with Arc resources** that you want to include in this project. 
  
-8.	Select a **Target region**. This region is where you *plan* to migrate these Arc resources. Target region is used to determine Azure SKU availability and costs in assessment and business case calculation.  
+8.	Select a **Target region**. This region is where you *plan* to migrate these Arc resources. Target region determines Azure SKU availability and costs in assessment and business case calculations.  
 
 9.	Select **Create**. 
 
-Project will now be created along with default business cases and assessment. Depending on the number of Arc resources, this could take up to an hour. 
+The project will now be created along with default business cases and assessment. Depending on the number of Arc resources, this could take up to an hour. 
 
 ## View default business cases
 
-When you create a project with Arc resources, two default business cases are generated, each considering different a migration strategy:
+When you create a project with Arc resources, two default business cases are generated, each considering a different a migration strategy:
 
 - Modernize strategy (named *default-modernize*)
 - Faster migration to Azure strategy (named *default-faster-mgn-az-vm*)
 
 To view the business cases:
 
-1. Navigate to **Savings and Readiness (Preview)** pane in Azure Arc center as described in previous section. You're taken to the **Business case** tab by default. 
+1. Navigate to **Savings and Readiness (Preview)** pane in Azure Arc Center as described in previous section. By default, you're taken to the **Business case** tab. 
 
 2. View potential savings at a glance on the cards in the **Recently created** section
 
@@ -74,11 +74,11 @@ To view the business cases:
 
 ## View default assessment
 
-Similarly, when you create a migrate project with Arc resources, a default assessment is created, encompassing all workloads (Servers and SQL Servers) named *default-all-workloads*.
+Similarly, when you create an Azure Migrate project with Arc resources, a default assessment named *default-all-workloads* is created. This assessment includes evaluates all workloads (servers and SQL Server instances) in scope.
 
 To view the default assessment:
 
-1. Navigate to **Savings and Readiness (Preview)** pane in Azure Arc center as described in the [Create a migrate project with your Arc resources section](#create-a-migrate-project-with-your-arc-resources) section. You're taken to the **Business case** tab by default
+1. Navigate to **Savings and Readiness (Preview)** pane in Azure Arc center as described in the [Create a migrate project with your Arc resources section](#create-a-migrate-project-with-your-arc-resources) section. By defautl, you're taken to the **Business case** tab.
 
 2. Switch to the **Assessment** tab.
 
@@ -88,7 +88,7 @@ To view the default assessment:
 
 3. Select **View all strategies** on the card or the name of the assessment in the list.
 
-4. Review the report. To learn more about the information that an assessment provides, see [Assessment report](assessment-report.md).
+4. Review the report. For details about the information that an assessment provides, see [Assessment report](assessment-report.md).
 
 ## Create custom business cases or assessments
 Along with default business cases and assessments, you can also create custom business cases and assessments. For example, you might want to generate a business case or assessment scoped to a specific application or use different settings. 
@@ -117,11 +117,11 @@ To create a custom assessment:
 
 ## Delete the project
 
-If you no longer need the project, you can delete the project using the following steps:
+If you no longer need the project, delete it by following these steps:
 
 1. Open the Azure resource group in which the project was created.
-2. In the Resource Groups page, select **Show hidden types**.
-3. Select the project that you want to delete and its associated resources.
+2. On the Resource Group page, select **Show hidden types**.
+3. Select the project and its associated resources.
     - The resource type is **Microsoft.Migrate/migrateprojects**.
     - If the resource group is exclusively used by the project, you can delete the entire resource group.
 

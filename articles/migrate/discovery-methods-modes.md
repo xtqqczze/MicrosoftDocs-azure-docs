@@ -62,9 +62,9 @@ If you have already Arc-enabled your servers and SQL Server instances, Arc-based
 
 ### Key features
 
-- Native service integration between Azure Migrate and Azure Arc. Requires no additional on-premises deployments to get started.
+- Azure Migrate integrates natively with Azure Arc and requires no additional on-premises deployments to get started.
 - Scope Arc resources by subscription into the project.
-- Default business case and assessments are automatically generated. Takes less than an hour to get to a business case and full estate assessment.
+- Azure Migrate automatically generates default business case and assessments, typically within an hour.
 - Collect additional information (utilization history) using the Azure Migrate Collector VM extension. 
 
 Learn more about [Arc-based discovery (Preview)](concepts-arc-resource-discovery.md).

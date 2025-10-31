@@ -20,6 +20,8 @@ By default, Azure Migrate projects for Arc resources collect basic configuration
 The Azure Migrate Collector VM extension enhances your migration assessments by collecting additional data beyond basic configuration:
 
 ### Currently available
+
+The following data is collected in the current preview:
 - **Performance metrics**: 
   - CPU utilization percentage over time
   - Memory utilization percentage over time
@@ -28,39 +30,39 @@ The Azure Migrate Collector VM extension enhances your migration assessments by 
   - Network utilization
 
 ### Preview limitations
-Currently the following data is not collected 
+The following data is not collected in the current preview:
 - **Software inventory**: Installed applications, packages, and versions
 - **Web applications**: Information about .NET and Java web apps
 - **Dependencies**: Network connections and service dependencies between servers
 - **Databases**: Information about MySQL and PostgreSQL databases.
 
 > [!NOTE]
-> This article focuses on currently available data collection capabilities. As additional features become available, this documentation will be updated.
+> This article describes the data collection capabilities that are currently available data. The documentation will be updated, as new features become available.
 
 ## Benefits of additional data collection
 
 Enabling additional data collection provides:
 
-- **Right-sized recommendations**: Azure VM SKU recommendations based on actual resource utilization rather than just current configuration
-- **Accurate cost estimates**: Cost projections based on real-world usage patterns
-- **Improved business case**: More accurate savings calculations for migration planning
+- **Right-sized recommendations**: Azure VM SKU recommendations based on actual resource utilization rather than just current configuration.
+- **Accurate cost estimates**: Cost projections based on real-world usage patterns.
+- **Improved business case**: More accurate savings calculations for migration planning.
 
 
 ## Prerequisites
 
 - An existing Azure Migrate project created for Arc resources. If you don't have one, see [Create a migrate project for Arc resources](quickstart-evaluate-readiness-savings-for-arc-resources.md).
-- Arc-enabled servers running connected machine agent version [1.46 (September 2024 release)](/azure/azure-arc/servers/agent-release-notes-archive#version-146---september-2024) or higher.
+- Arc-enabled servers running the connected machine agent version [1.46 (September 2024 release)](/azure/azure-arc/servers/agent-release-notes-archive#version-146---september-2024) or higher.
 - **Hybrid Server Resource Administrator** role on the Arc-enabled server resources where you want to enable data collection.
-- Network connectivity from Arc-enabled servers to the Azure Migrate regional endpoint. See [Regional endpoints](#regional-endpoints).
+- Network connectivity from Arc-enabled servers to the Azure Migrate regional endpoint. For more information, see, [Regional endpoints](#regional-endpoints).
 
 ## How additional data collection works
 
 Additional data collection is enabled through the Azure Migrate Collector VM extension:
 
-1. **Extension deployment and configuration**: The VM extension is installed on Arc-enabled servers (Windows or Linux). To install the extension, it must be configured with your Azure Migrate project information. 
-2. **Data collection**: The extension collects performance metrics and other data at regular intervals
-3. **Data transmission**: Collected data is securely transmitted to your Azure Migrate project
-4. **Assessment enhancement**: Azure Migrate uses the additional data to provide enhanced recommendations
+1. **Extension deployment and configuration**:  Install the VM extension on Arc-enabled servers (Windows or Linux). Configure the extension with your Azure Migrate project information during installation. 
+2. **Data collection**: The extension collects performance metrics and other data at regular intervals.
+3. **Data transmission**: The collected data is securely transmitted to your Azure Migrate project.
+4. **Assessment enhancement**: Azure Migrate uses the additional data to provide enhanced recommendations.
 
 ## Enable additional data collection
 
@@ -78,7 +80,7 @@ Choose your preferred method to enable additional data collection on a single Ar
 
 3. Select **+ Add**.
 
-4. Search for and select **Azure Migrate Collector for Windows** or **Azure Migrate Collector for Linux** depending on your server's operating system.
+4. Search for **Azure Migrate Collector for Windows** or **Azure Migrate Collector for Linux**, based on your server's operating system, and select it. 
 
 5. Select **Next**.
 
@@ -104,7 +106,7 @@ Choose your preferred method to enable additional data collection on a single Ar
 
 8. Review the settings and select **Create**.
 
-The extension installation takes a few minutes. Once installed, additional data collection begins automatically.
+The extension installation takes a few minutes. After installation, additional data collection starts automatically.
 
 #### [Azure CLI](#tab/cli)
 
@@ -152,7 +154,7 @@ Replace the placeholders in the commands:
 To enable additional data collection across multiple Arc-enabled servers, use Azure Policy. This approach is recommended for large environments or when you want to ensure consistent data collection across your estate.
 
 > [!IMPORTANT]
-> - You must have **Owner** role on all subscriptions with Arc resources that you included in the Azure Migrate project scope.
+> You must have **Owner** role on all subscriptions with Arc resources that you included in the Azure Migrate project scope.
 
 #### Step 1: Create custom policy for Linux machines
 
@@ -423,7 +425,7 @@ Complete the following steps for both the Linux and Windows policies you created
 4. Select **Assign policy**.
 
 5. On the **Basics** tab:
-   - **Scope**: Select all subscriptions with Arc resources that you included in your Azure Migrate project scope.
+   - **Scope**: Select all subscriptions that contain Arc included in your Azure Migrate project scope.
    - **Policy enforcement**: Ensure this is set to **Enabled**.
 
 6. Select **Next**.
@@ -483,7 +485,7 @@ After enabling additional data collection, verify that it's working correctly:
 
 ## View enhanced assessment data
 
-Once additional data collection is enabled and sufficient performance data is collected:
+After you enable additional data collection and sufficient performance data is collected:
 
 1. Navigate to your Azure Migrate project.
 
