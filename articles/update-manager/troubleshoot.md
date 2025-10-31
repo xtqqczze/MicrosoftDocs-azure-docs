@@ -101,7 +101,7 @@ For all new assignments, a recent change grants the Contributor role to the crea
 
 If you're experiencing a failure of remediation tasks for any previous assignments, we recommend that you manually grant the contributor role to the managed identity by following the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md#grant-permissions-to-the-managed-identity-through-defined-roles).
 
-In scenarios where the Contributor role doesn't work when the linked resources (gallery image or disk) is in another resource group or subscription, manually provide the managed identity with the right roles and permissions on the scope to unblock remediations. Follow the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md#grant-permissions-to-the-managed-identity-through-defined-roles).
+In scenarios where the Contributor role doesn't work when the linked resources (gallery image or disk) are in another resource group or subscription, manually provide the managed identity with the right roles and permissions on the scope to unblock remediations. Follow the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md#grant-permissions-to-the-managed-identity-through-defined-roles).
 
 ## You can't generate periodic assessment for Azure Arc-enabled servers
 

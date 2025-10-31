@@ -23,7 +23,7 @@ Update Manager provides a software as a service (SaaS) solution to manage and go
 
 Following are the benefits of using Update Manager:
 
-- Oversee update compliance for your entire fleet of Azure virtual machines (VMs), on-premises machines, and machines in multiple-cloud environments (Azure Arc-enabled servers).
+- Oversee update compliance for your entire fleet of Azure virtual machines (VMs), on-premises machines, and machines in multicloud environments (Azure Arc-enabled servers).
 - View and deploy pending updates to help secure your machines [instantly](updates-maintenance-schedules.md#update-nowone-time-update).
 - Manage [Extended Security Updates (ESUs)](/azure/azure-arc/servers/prepare-extended-security-updates) for your Azure Arc-enabled Windows Server 2012 and Windows Server 2012 R2 machines. Get consistent experience for deployment of ESUs and other updates.
 - Define recurring time windows during which your machines receive updates and might undergo reboots by using [scheduled patching](scheduled-patching.md). Enforce machines grouped together based on standard Azure constructs (for example, subscriptions, location, resource group, and tags) to have common patch schedules by using [dynamic scoping](dynamic-scope-overview.md). Sync patch schedules for Windows machines in relation to *patch Tuesday*, the unofficial term for Microsoft's scheduled release of security fixes on the second Tuesday of each month.
@@ -72,7 +72,7 @@ Update Manager is available at no extra charge for managing Azure VMs and [Azure
 
 ### How is the Update Manager price calculated for Azure Arc-enabled servers?
 
-For Azure Arc-enabled servers, Update Manager is charged per server on a monthly basis (assuming 31 days of connected usage). It's charged at a daily prorated value. An Azure Arc-enabled machine is charged only for the days when it's connected and managed by Update Manager. For more information, see see [Azure Update Manager pricing](https://azure.microsoft.com/pricing/details/azure-update-management-center/).
+For Azure Arc-enabled servers, Update Manager is charged per server on a monthly basis (assuming 31 days of connected usage). It's charged at a daily prorated value. An Azure Arc-enabled machine is charged only for the days when it's connected and managed by Update Manager. For more information, see [Azure Update Manager pricing](https://azure.microsoft.com/pricing/details/azure-update-management-center/).
 
 ### When is an Azure Arc-enabled server considered managed by Update Manager?
 
@@ -95,7 +95,7 @@ You won't be charged for existing Azure Arc-enabled servers that used Automation
 
 ### I'm a Defender for Servers customer and use update recommendations from Update Manager. Will I be charged for Update Manager?
 
-If you purchased Defender for Servers Plan 2, you don't have to pay to remediate unhealthy resources for the these recommendations: "Periodic assessment should be enabled on your machines" and "System updates should be installed on your machines".
+If you purchased Defender for Servers Plan 2, you don't have to pay to remediate unhealthy resources for these recommendations: "Periodic assessment should be enabled on your machines" and "System updates should be installed on your machines."
 
 If you're using any other Defender for Servers plan for your Azure Arc-enabled machines, you're charged for those machines at the daily prorated rate per server by Update Manager.
 
@@ -106,7 +106,7 @@ Update Manager isn't charged for:
 - Management of Azure Local instances via Azure Local and [Update Manager on Azure Local](/azure/azure-local/update/azure-update-manager-23h2).
 - [Azure Arc-enabled Azure Local VMs](/azure/azure-local/manage/azure-arc-vm-management-overview) created via an Azure Arc resource bridge. An example is the **Machine-Azure Arc (Azure Local)** resource.
 
-All other resources, including (but not limited to) the following, are charged:
+All other resources, including (but not limited to) the following resources, are charged:
 
 - Management of individual Azure Local machines. Examples include **Machine - Azure Arc** or **Update Manager - Machines** resources.
 - All VMs on Azure Local that you don't create by using an Azure Arc resource bridge. Examples are VMs projected as Azure Arc-enabled servers and VMs on Azure Local managed by Azure Arc-enabled System Center Virtual Machine Manager.

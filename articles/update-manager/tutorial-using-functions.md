@@ -274,7 +274,7 @@ In this tutorial, you learn how to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 
-1. Under **Manage**, select **Maintenance Configuration**.
+1. Under **Manage**, select **Machines** > **Maintenance Configuration**.
 
 1. On the **Maintenance Configuration** pane, select the configuration.
 
@@ -292,11 +292,11 @@ In this tutorial, you learn how to:
 
 1. Select **Create**.
 
-You can also use Azure Storage accounts and an event hub to store, send, and receive events. For more information, see the quickstarts on [creating a queue in Azure Storage](storage-quickstart-queues-portal.md) and [creating an event hub](../event-hubs/event-hubs-create.md) by using the Azure portal.
+You can also use Azure Storage accounts and an event hub to store, send, and receive events. For more information, see the quickstarts on [creating a queue in Azure Storage](/azure/storage/queues/storage-quickstart-queues-portal) and [creating an event hub](../event-hubs/event-hubs-create.md) by using the Azure portal.
 
 ## Related content
 
 - Get an [overview of pre-maintenance and post-maintenance events in Azure Update Manager](pre-post-scripts-overview.md).
 - Learn more about [how to create pre-maintenance and post-maintenance events](pre-post-events-schedule-maintenance-configuration.md).
 - Learn [how to manage pre-maintenance and post-maintenance events or to cancel a scheduled run](manage-pre-post-events.md).
-- Learn [how to create pre-maintenance and post-maintenance events by using a webhook with Automation runbooks](tutorial-webhooks-using-runbooks).
+- Learn [how to create pre-maintenance and post-maintenance events by using a webhook with Automation runbooks](tutorial-webhooks-using-runbooks.md).

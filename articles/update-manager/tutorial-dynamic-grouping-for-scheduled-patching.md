@@ -36,7 +36,7 @@ To create a dynamic scope, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 
-1. Select **Overview** > **Schedule updates**.
+1. Select **Overview** > **Schedule updates** > **Create a maintenance configuration**.
 
 1. On the **Create a maintenance configuration** pane, enter the details on the **Basics** tab. For **Maintenance scope**, select **Guest (Azure VM, Arc-enabled VMs/servers)**.
 

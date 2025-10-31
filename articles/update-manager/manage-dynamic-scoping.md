@@ -69,7 +69,7 @@ Resources eligible to be attached to a dynamic scope are determined by the level
 1. The schedules associated with dynamic scopes appear in the following two areas:
 
     - **Azure Update Manager** > **Machines** > **Associated schedules** column
-    - Virtual machine's home page > **Updates** > **Scheduling** tab
+    - Virtual machine (VM) home page > **Updates** > **Scheduling** tab
 
    To view the VMs that are associated with the schedule, go to the existing schedule and then select the **Dynamic scopes** tab.
 

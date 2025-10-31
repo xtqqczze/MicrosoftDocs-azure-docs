@@ -34,7 +34,7 @@ In this tutorial, you:
 
 1. [Create](../automation/manage-runbooks.md#create-a-runbook) and [publish](../automation/manage-runbooks.md#publish-a-runbook) an Automation runbook.
 
-1. If you were using runbooks for [pre-maintenance and post-maintenance tasks](../automation/update-management/pre-post-scripts.md) in Azure Automation Update Management, it's critical that you use the following steps to avoid an unexpected impact to your machines and failed maintenance runs:
+1. If you used runbooks for [pre-maintenance and post-maintenance tasks](../automation/update-management/pre-post-scripts.md) in Azure Automation Update Management, it's critical that you use the following steps to avoid an unexpected impact to your machines and failed maintenance runs:
 
     1. For your runbooks, parse the webhook payload to ensure that it's triggering on `Microsoft.Maintenance.PreMaintenanceEvent` or `Microsoft.Maintenance.PostMaintenanceEvent` events only. By design, webhooks are triggered on other subscription events if any other event is added with the same endpoint.
        - See the [Azure Event Grid event schema](../event-grid/event-schema.md).
@@ -343,7 +343,7 @@ Invoke-AzRestMethod `
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 
-1. Under **Manage**, select **Maintenance Configuration**.
+1. Under **Manage**, select **Machines** > **Maintenance Configuration**.
 
 1. On the **Maintenance Configuration** pane, select the configuration.
 

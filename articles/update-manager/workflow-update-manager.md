@@ -117,7 +117,7 @@ Update Manager installs patches in the following manner:
     | Machine fails to start during a reboot. | **Failed**
     | Initial or final assessment failed.| **Failed**
     | Updates require a reboot, but the **Never reboot** option is selected. | **Completed with warnings**
-    | ESM packages skipped patching in Ubuntu 18 or earlier if an Ubuntu pro license wasn't present. | **Completed with warnings**
+    | ESM packages skipped patching in Ubuntu 18 or earlier if an Ubuntu Pro license wasn't present. | **Completed with warnings**
 
 1. An assessment happens at the end. Sometimes, the reboot and assessment don't happen; for example, if the maintenance window ends or the update installation fails.
 
