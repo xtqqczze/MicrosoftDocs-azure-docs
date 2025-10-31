@@ -27,7 +27,7 @@ You can add code insights to web app assessment using either of the following tw
 - Upload using zip file.
 - Request report through GitHub 
 
-##  Manually Upload Code Scan Reports Using a ZIP File
+##  Manually upload code scan reports using a Zip File
 
 With this approach, you must generate the code scan report manually upload the reports as Zip file. 
 
