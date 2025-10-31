@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 ---
 
 
-#  insights using GitHub Copilot assessment
+#  Insights using GitHub Copilot assessment
 
 This article describes how to improve web app assessments by adding code scan insights using GitHub Copilot assessment when modernising applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and receive recommendations for appropriate migration strategies based on the code changes identified during the scan.
 
@@ -28,7 +28,7 @@ You can add code insights to web app assessment using either of the following tw
 - Upload using zip file.
 - Request report through GitHub 
 
-##  Upload code scan report manually using Zip file
+##  Manually Upload Code Scan Reports Using a ZIP File
 
 With this approach, you must generate the code scan report manually upload the reports as Zip file. 
 
@@ -37,7 +37,7 @@ With this approach, you must generate the code scan report manually upload the r
 - Ensure a web app assessment exists for each required web app because code scan reports can only be added from an existing assessment.
 - Have the GitHub Copilot Assessment report ready for web apps you want to update.
 
-#### Generate the GitHUb Copilot Assessment report
+#### Generate GitHUb Copilot Assessment report
 
 To generate report, complete the following steps:
 
@@ -137,7 +137,7 @@ Follow these steps to install GitHub App on your repository:
 
 5. After the installation completes, note the browser URL that contains the installation ID. For example: `https://github.com/settings/installations/<installationID>`
 
-### GitHub App details and private key to configure Azure GitHub connection
+### Configure Azure GitHub connection using GitHub App details and private key
 
 Collate the following GitHub App details and private key to create a GitHub connection in Azure Migrate.
 
@@ -152,7 +152,7 @@ Collate the following GitHub App details and private key to create a GitHub conn
 1. To find the **Installation ID**, navigate to **Install App** and select **Settings** next to  the account where the app is installed.  
 1. After the installation completes, note the browser URL that contains the installation ID. For example, `https://github.com/settings/installations/<installationID>`
 
-### Request report for web app assessment using GitHub connection
+### Request Web App Assessment report using GitHub connection
 
 1. Select **Assessments** on the Azure Migrate project **Overview** page under **Decide and Plan**.
 2. Search for the assessment with the **Workloads** filter and select it. 
@@ -186,7 +186,7 @@ To generate report, follow the steps.
 1. Once the report is available, upload the report to GitHub issue using below prompt in GitHub Copilot. 
 1. upload assessment report to [GitHub Issue URL]  
 
-### View code insights after adding code scan reports. 
+### View code insights after adding code scan reports
 
 1. Select **Assessments** on the Azure Migrate project **Overview** page under **Decide and Plan**.
 1. Search for the assessment with the **Workloads** filter and select it. 
