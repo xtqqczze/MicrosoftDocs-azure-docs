@@ -1,5 +1,5 @@
 ---
-title: SAP HANA Azure virtual machine premium storage configurations | Microsoft Docs
+title: SAP HANA Azure virtual machine Premium SSD configurations | Microsoft Docs
 description: Storage recommendations HANA using premium storage.
 author: msjuergent
 manager: bburns
@@ -7,27 +7,30 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 10/29/2024
+ms.date: 10/31/2025
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-# Customer intent: As a cloud architect, I want to configure SAP HANA workloads on Azure with optimal premium storage settings, so that I can ensure high performance and compliance with SAP certification requirements for production environments.
+# Customer intent: As a cloud architect, I want to configure SAP HANA workloads on Azure with optimal Premium SSD settings, so that I can ensure high performance and compliance with SAP certification requirements for production environments.
 ---
 
 # SAP HANA Azure virtual machine Premium SSD storage configurations
-This document is about HANA storage configurations for Azure premium storage or premium ssd as it was introduced years back as low latency storage for database management systems (DBMS) and other applications that need low latency storage. For general considerations around stripe sizes when using Logical Volume Manager (LVM), HANA data volume partitioning or other considerations that are independent of the particular storage type, check these two documents:
+This document is about HANA storage configurations for Azure premium storage or  the first version of Premium SSD as it was introduced years back as low latency storage for database management systems (DBMS) and other applications that need low latency storage. For general considerations around stripe sizes when using Logical Volume Manager (LVM), HANA data volume partitioning or other considerations that are independent of the particular storage type, check these two documents:
 
 - [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - [Azure Storage types for SAP workload](./planning-guide-storage.md)
 
+For documentation on how to configure storage for SAP HANA using the second version of Premium SSD, check the document [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
+
+Within this document we are referring to the first version of our premium SSD storage or disks as 'premium SSD' or 'Premium SSD'.
 
 > [!IMPORTANT]
 > The suggestions for the storage configurations in this document are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you aren't utilizing all the storage bandwidth or IOPS (I/O operations per second) provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
 
-## Solutions with premium storage and Azure Write Accelerator for Azure M-Series virtual machines
-Azure Write Accelerator is a functionality that is available for Azure M-Series Virtual Machines (VM) exclusively in combination with Azure premium storage. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure premium storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
+## Solutions with Premium SSD and Azure Write Accelerator for Azure M-Series virtual machines
+Azure Write Accelerator is a functionality that is available for Azure M-Series Virtual Machines (VM) exclusively in combination with Azure Premium SSD. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure Premium SSD. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
 
 > [!IMPORTANT]
-> When using Azure premium storage, the usage of Azure [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) for the **/hana/log** volume is mandatory. Write Accelerator is available for premium storage and M-Series and Mv2-Series VMs only. Write Accelerator is not working in combination with other Azure VM families, like Esv3 or Edsv4.
+> When using Azure premium storage, the usage of Azure [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) for the **/hana/log** volume is mandatory. Write Accelerator is available for premium storage and M-Series and Mv2-Series VMs only. Write Accelerator is not working in combination with any other Azure VM families outside of M-series families.
 
 The caching recommendations for Azure premium disks below are assuming the I/O characteristics for SAP HANA that list like:
 
@@ -62,6 +65,9 @@ Especially on smaller DBMS systems where your workload is handling a few hundred
 - Regular writes to the disk that are dependent on the workload and the nature of workload since every commit issued by the application is likely to trigger an I/O operation
 - Higher workload in throughput for cases of operational tasks, like creating or rebuilding indexes
 - Read bursts when performing transaction log or redo log backups
+
+### Azure Performance Plus for premium storage/Premium SSD
+At creation time of managed Premium SSD disks of P30 and larger, you can [activate Performance Plus](xref:virtual-machines-disks-enable-performance). Performance Plus is increasing the IOPS and throughput that is going to be delivered by the Premium SSD disks without any additional buesting. The IOPS and throughput values delivered are listed in [Managed VM disk scalability](xref:virtual-machines-disks-scalability-targets#managed-virtual-machine-disks). The lines of 'expanded provisioned' will give you the values provisioned with Performance Plus enabled. We did not consider the enahnced IOPS and bandwidth values that can be achieved with Performance Plus in the tables we are listing. As you configure new systems using Premium SSD, you might have a chance to reduce capacity overprovisioning by using Performance Plus. And as such deviate from our tables introduced in this article. For the case you want to combine the VM you are configuring with Azure Site Recovery be aware that the property of Performance Plus is not replicated by Azure Site Recovery to the destination side. As a result, the disks on the destination side of the replication arte not going to have Performance Plus enabled.
 
 
 ### Production recommended storage solution based on Azure premium storage
