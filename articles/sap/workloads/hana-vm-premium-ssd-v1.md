@@ -62,12 +62,12 @@ The ideal cases where this burst functionality can be planned in is likely going
 
 Especially on smaller DBMS systems where your workload is handling a few hundred transactions per seconds only, such a burst functionality can make sense as well for the disks or volumes that store the transaction or redo log. Expected workload against such a disk or volumes looks like:
 
-- Regular writes to the disk that are dependent on the workload and the nature of workload since every commit'sssued by the application is likely to trigger an I/O operation
+- Regular writes to the disk that are dependent on the workload and the nature of workload since every commit issued by the application is likely to trigger an I/O operation
 - Higher workload in throughput for cases of operational tasks, like creating or rebuilding indexes
 - Read bursts when performing transaction log or redo log backups
 
 ### Azure Performance Plus for premium storage/Premium SSD
-At creation time of managed Premium SSD disks of P30 and larger, you can [activate Performance Plus](https://learn.microsoft.com/azure/virtual-machines/disks-enable-performance?tabs=azure-cli). Performance Plus is increasing the provisioned IOPS and throughput that is going to be delivered by the Premium SSD disks without any additional activation of temporary bursting. The IOPS and throughput values delivered are listed in [Managed VM disk scalability](https://learn.microsoft.com/azure/virtual-machines/disks-scalability-targets?source=recommendations). The lines of 'expanded provisioned' are listing the values provisioned with Performance Plus enabled. We didn't consider the enhanced IOPS and bandwidth values that can be achieved with Performance Plus in the tables we're listing. As you configure new systems using Premium SSD, you might have a chance to reduce capacity overprovisioning by using Performance Plus. And as such deviate from our tables introduced in this article. For the case, you want to combine the VM you're configuring with Azure Site Recovery be aware that the property of Performance Plus isn't replicated by Azure Site Recovery to the destination side. As a result, the disks on the destination side of the replication arte not going to have Performance Plus enabled.
+At creation time of managed Premium SSD disks of P30 and larger, you can [activate Performance Plus](https://learn.microsoft.com/azure/virtual-machines/disks-enable-performance?tabs=azure-cli). Performance Plus is increasing the provisioned IOPS and throughput that's going to be delivered by the Premium SSD disks without any additional activation of temporary bursting. The IOPS and throughput values delivered are listed in [Managed VM disk scalability](https://learn.microsoft.com/azure/virtual-machines/disks-scalability-targets?source=recommendations). The lines of 'expanded provisioned' are listing the values provisioned with Performance Plus enabled. We didn't consider the enhanced IOPS and bandwidth values that can be achieved with Performance Plus in the tables we're listing. As you configure new systems using Premium SSD, you might have a chance to reduce capacity overprovisioning by using Performance Plus. And as such deviate from our tables introduced in this article. For the case, you want to combine the VM you're configuring with Azure Site Recovery be aware that the property of Performance Plus isn't replicated by Azure Site Recovery to the destination side. As a result, the disks on the destination side of the replication arte not going to have Performance Plus enabled.
 
 
 ### Production recommended storage solution based on Azure premium storage
@@ -76,7 +76,7 @@ At creation time of managed Premium SSD disks of P30 and larger, you can [activa
 > SAP HANA certification for Azure M-Series virtual machines is exclusively with Azure Write Accelerator for the **/hana/log** volume. As a result, production scenario SAP HANA deployments on Azure M-Series virtual machines are expected to be configured with Azure Write Accelerator for the **/hana/log** volume.  
 
 > [!NOTE]
-> In scenarios that involve Azure premium storage, we are implementing burst capabilities into the configuration. As you're using storage test tools of whatever shape or form, keep the way [Azure premium disk bursting works](/azure/virtual-machines/disk-bursting) in mind. Running the storage tests delivered through the SAP HWCCT or HCMT tool, we aren't expecting that all tests are going to pass the criteria since some of the tests are going to exceed the bursting credits you can accumulate. Especially when all the tests run sequentially without break.
+> In scenarios that involve Azure premium storage, we're implementing burst capabilities into the configuration. As you're using storage test tools of whatever shape or form, keep the way [Azure premium disk bursting works](/azure/virtual-machines/disk-bursting) in mind. Running the storage tests delivered through the SAP HWCCT or HCMT tool, we aren't expecting that all tests are going to pass the criteria since some of the tests are going to exceed the bursting credits you can accumulate. Especially when all the tests run sequentially without break.
 
 > [!NOTE]
 > With M32ts and M32ls VMs it can happen that disk throughput could be lower than expected using HCMT/HWCCT disk tests. Even with disk bursting or with sufficiently provisioned I/O throughput of the underlying disks. Root cause of the observed behavior was that the HCMT/HWCCT storage test files were completely cached in the read cache of the Premium storage data disks. This cache is located on the compute host that hosts the virtual machine and can cache the test files of HCMT/HWCCT completely. In such a case the quotas listed in the column **Max cached and temp storage throughput: IOPS/MBps (cache size in GiB)** in  the article [M-series](/azure/virtual-machines/m-series) are relevant. Specifically for M32ts and M32ls, the throughput quota against the read cache is only 400MB/sec. As a result of the tests files being completely cached, it's possible that despite disk bursting or higher provisioned I/O throughput, the tests can fall slightly short of 400MB/sec maximum throughput. As an alternative, you can test without read cache enabled on the Azure Premium storage data disks.
@@ -204,14 +204,23 @@ You may want to use Azure Ultra disk storage instead of Azure premium storage on
 | --- | --- | --- | --- | --- | --- | --- |
 | E20ds_v4| 160 GiB | 480 MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10,500 |
 | E20(d)s_v5| 160 GiB | 750 MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10,500 |
+| D64(d)s_v6 | 256 GiB | 865 MBps | 3 x P10 |  300 MBps | 510 MBps | 1,500 | 10,500|
 | E32ds_v4 | 256 GiB | 768 MBps | 3 x P10 |  300 MBps | 510 MBps | 1,500 | 10,500|
-| E32ds_v5 | 256 GiB | 865 MBps | 3 x P10 |  300 MBps | 510 MBps | 1,500 | 10,500|
+| E32(d)s_v5 | 256 GiB | 865 MBps | 3 x P10 |  300 MBps | 510 MBps | 1,500 | 10,500|
+| E32(d)s_v6 | 256 GiB | 1,696 MBps | 3 x P10 |  300 MBps | 510 MBps | 1,500 | 10,500|
+| D96(d)s_v6 | 384 GiB | 3,392 MBps | 3 x P15 |  375 MBps | 510 MBps | 3,300 | 10,500 | 
 | E48ds_v4 | 384 GiB | 1,152 MBps | 3 x P15 |  375 MBps |510 MBps | 3,300  | 10,500 | 
-| E48ds_v4 | 384 GiB | 1,315 MBps | 3 x P15 |  375 MBps |510 MBps | 3,300  | 10,500 | 
+| E48(d)s_v5 | 384 GiB | 1,315 MBps | 3 x P15 |  375 MBps |510 MBps | 3,300  | 10,500 | 
+| E48(d)s_v6 | 384 GiB | 2,544 MBps | 3 x P15 |  375 MBps |510 MBps | 3,300  | 10,500 | 
+| D128(d)s_v6 | 512 GiB | 6,782 MBps | 3 x P15 |  375 MBps | 510 MBps | 3,300 | 10,500 | 
 | E64s_v3 | 432 GiB | 1,200 MB/s | 3 x P15 |  375 MBps | 510 MBps | 3,300 | 10,500 | 
 | E64ds_v4 | 504 GiB | 1,200 MBps | 3 x P15 |  375 MBps | 510 MBps | 3,300 | 10,500 | 
 | E64(d)s_v5 | 512 GiB | 1,735 MBps | 3 x P15 |  375 MBps | 510 MBps | 3,300 | 10,500 | 
+| E64(d)s_v6 | 512 GiB | 3,392 MBps | 3 x P15 |  375 MBps | 510 MBps | 3,300 | 10,500 | 
 | E96(d)s_v5 | 672 GiB | 2,600 MBps | 3 x P15 |  375 MBps | 510 MBps | 3,300 | 10,500 | 
+| E96(d)s_v6 | 768 GiB | 5,088 MBps | 4 x P15 | 500 MBps | 680 MBps | 4,400 | 14,000 |
+| E128(d)s_v5 | 1,024 GiB | 6,782 MBps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
+| E192(d)s_v5 | 1,832 GiB | 17,280 MBps | 4 x P20 | 600 MBps | 680 MBps | 9,200| 14,000 | 
 
 
 For the other volumes, including **/hana/log** on Ultra disk, the configuration could look like:
@@ -220,14 +229,25 @@ For the other volumes, including **/hana/log** on Ultra disk, the configuration 
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E20ds_v4 | 160 GiB | 480 MBps | 80 GB | 250 MBps | 1,800 | 1 x P15 | 1 x P6 | 1 x P6 |
 | E20(d)s_v5 | 160 GiB | 750 MBps | 80 GB | 250 MBps | 1,800 | 1 x P15 | 1 x P6 | 1 x P6 |
+| D64(d)s_v6 | 256 GiB | 865 MBps | 128 GB | 250 MBps | 1,800 | 1 x P15 | 1 x P6 | 1 x P6 |
 | E32ds_v4 | 256 GiB | 768 MBps | 128 GB | 250 MBps | 1,800 | 1 x P15 | 1 x P6 | 1 x P6 |
 | E32(d)s_v5 | 256 GiB | 865 MBps | 128 GB | 250 MBps | 1,800 | 1 x P15 | 1 x P6 | 1 x P6 |
+| E32(d)s_v6 | 256 GiB | 1,696 MBps | 128 GB | 250 MBps | 1,800 | 1 x P15 | 1 x P6 | 1 x P6 |
+| D96(d)s_v6 | 384 GiB | 2,600 MBps | 192 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
 | E48ds_v4 | 384 GiB | 1,152 MBps | 192 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
 | E48(d)s_v5 | 384 GiB | 1,315 MBps | 192 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
+| E48(d)s_v6 | 384 GiB | 2,544 MBps | 192 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
 | E64s_v3 | 432 GiB | 1,200 MBps | 220 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
 | E64ds_v4 | 504 GiB | 1,200 MBps | 256 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
+| D128(d)s_v6 | 512 GiB | 1,735 MBps | 256 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
 | E64(d)s_v5 | 512 GiB | 1,735 MBps | 256 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
+| E64(d)s_v6 | 512 GiB | 3,392 MBps | 256 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
 | E96(d)s_v5 | 672 GiB | 2,600 MBps | 256 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
+| E96(d)s_v6 | 768 GiB | 5,088 MBps | 768 GB, 3 x P15 | 375-510 MBps | 3,300 - 10,500| 1 x P20 | 1 x P6 | 1 x P6 |
+| E128(d)s_v6 | 1,024 GiB | 6,782 MBps | 768 GB, 3 x P15 | 375-510 MBps | 3,300 - 10,500| 1 x P20 | 1 x P6 | 1 x P6 |
+| E192(d)s_v6 | 1,832 GiB | 17,280 MBps | 768 GB, 3 x P15 | 375-510 MBps | 3,300 - 10,500| 1 x P20 | 1 x P6 | 1 x P6 |
+
+
 
 <sup>1</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system)
 
