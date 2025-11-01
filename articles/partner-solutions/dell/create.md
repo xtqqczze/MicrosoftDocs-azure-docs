@@ -72,7 +72,7 @@ There are required fields that you need to fill out.
     | Setting   |Action    |
     |----------|------------------|
     |**Virtual network**|Select the delegated virtual network in which to deploy the resource.|
-    |**Subnet**|Select the delegated subnet in which to deploy the resource.The subnet must be delegated to Dell.Storage/filesystems and have at least 256 IP addresses reserved for Dell PowerScale.|
+    |**Subnet**|Select the delegated subnet in which to deploy the resource. The subnet must be delegated to Dell.Storage/filesystems and have at least 256 IP addresses reserved for Dell PowerScale.|
 
 1. Enter the value for the required setting under **SmartConnect FQDN**. 
  
