@@ -1,8 +1,9 @@
 ---
 title: Enable Change Tracking and Inventory at Scale for Azure VMs using Azure Policy
 description: Learn how to use Azure Policy to enable change tracking and inventory at scale for Windows and Linux VMs, including the Arc-enabled VMs and Azure Virtual Machine Scale Sets.
+#customer intent: As a customer, I want to enable Azure change tracking and inventory for Azure VMs at scale so that I can monitor configuration changes efficiently.
 services: automation
-ms.date: 10/31/2025
+ms.date: 11/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 author: jasminemehndir
@@ -64,14 +65,15 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 
      :::image type="content" source="media/create-data-collection-rule/enable-change-tracking-virtual-machines-inline.png" alt-text="Screenshot showing the selection of three policies." lightbox="media/create-data-collection-rule/enable-change-tracking-virtual-machines-expanded.png":::
 
-1. Select **Assign** to assign the policy to a resource group. For example, *Assign Built in User-Assigned Managed identity to virtual machines*.
+1. Select **Assign initiative** to assign the policy to a resource group. For example, *Assign Built in User-Assigned Managed identity to virtual machines*.
 
    > [!NOTE]
    > The Resource group contains virtual machines and when you assign the policy, it will enable change tracking at scale to a resource group. The virtual machines that are on-boarded to the same resource group will automatically have the change tracking feature enabled.
 
 1. On the **Enable Change Tracking and Inventory for virtual machines** pane, enter the following options:
-   1. On the **Basics** tab, you can define the scope. Select the three dots to configure a scope. On the **Scope** pane, provide the **Subscription** and **Resource group**.
-   1. In **Parameters**, select the option in the **Bring your own user assigned managed identity**.
+   1. On the **Basics** tab, you can define the scope. Select the three dots to configure a scope.
+   1. On the **Scope** pane, provide the **Subscription** and **Resource Group**.
+   1. On the **Parameters** tab, select the option in the **Bring Your Own User-Assigned Managed Identity**.
    1. Provide the **Data Collection Rule Resource Id**. Learn more on [how to obtain the Data Collection Rule Resource ID after you create the Data collection rule](create-data-collection-rule.md).
    1. Select **Review + create**.
 

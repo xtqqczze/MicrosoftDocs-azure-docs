@@ -6,7 +6,7 @@ metadata:
   description: Learn how to use Azure Change Tracking and Inventory.
   ms.service: azure-automation
   ms.topic: landing-page
-  ms.date: 10/30/2025
+  ms.date: 11/03/2025
   ms.author: v-jasmineme
   author: jasminemehndir
 
@@ -41,6 +41,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Enable from machines pane
+            url: enable-change-tracking-at-scale-machines-blade.md
+          - text: Enable using Azure policy
+            url: enable-change-tracking-at-scale-using-azure-policy.md
           - text: Create Data Collection Rule (DCR)
             url: create-data-collection-rule.md
           - text: Disable Change Tracking and Inventory

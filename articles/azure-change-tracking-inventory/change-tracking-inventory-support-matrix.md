@@ -1,13 +1,13 @@
 ---
 title: Azure Change Tracking and Inventory Support matrix
 description: Get a summary of support settings and limitations for enabling Azure CTI and tracking changes.
+#customer intent: As a customer, I want to understand the supported operating systems for Azure Change Tracking and Inventory so that I can ensure compatibility with my environment.
 services: automation
-ms.date: 10/27/2025
+ms.date: 11/03/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
 author: jasminemehndir
-ms.custom: sfi-image-nochange
 ---
 
 # Support matrix for Azure Change Tracking and Inventory

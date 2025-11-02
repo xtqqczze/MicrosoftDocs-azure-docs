@@ -3,12 +3,13 @@ title: Tutorial - Change a workspace and configure data collection rule
 description: In this tutorial, learn how to change a workspace and configure data collection rule.
 services: automation
 ms.custom: linux-related-content
-ms.date: 10/31/2025
+ms.date: 11/03/2025
 ms.topic: tutorial
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
 author: jasminemehndir
 #Customer intent: As a customer, I want to change a workspace for my virtual machine so that I can manage data collection more effectively.
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Change a workspace and configure data collection rule
@@ -28,6 +29,9 @@ You've enabled Change Tracking and Inventory on your VM. For detailed informatio
 To configure Windows, Linux files, and Windows Registry using Data Collection Rules, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select the virtual machine.
+ 
+   :::image type="content" source="media/create-data-collection-rule/select-virtual-machine-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/create-data-collection-rule/select-virtual-machine-portal-expanded.png"::: 
+
 1. Select a specific VM for which you would like to configure the Change tracking settings.
 1. Under **Operations**, select **Change tracking**.
    
@@ -71,8 +75,7 @@ To configure Windows, Linux files, and Windows Registry using Data Collection Ru
    
 ---
 
-You can now view the virtual machines configured to the DCR.
-
+You can now view the virtual machines configured to the DCR from the **Data collection rules** pane in the Azure portal.
 
 ### Configure file content changes
 
@@ -90,7 +93,7 @@ To configure file content changes, follow these steps:
 
 When the storage account is linked using the system assigned managed identity, a blob is created. For system-assigned managed identity, follow these steps:
 
-1. Sign in to [Azure portal](https://portal.azure.com), go to **Storage accounts**, and select the storage account.
+1. Sign in to the [Azure portal](https://portal.azure.com), go to **Storage accounts**, and select the storage account.
 1. On the **Storage accounts** pane, under **Data storage**, select **Containers** > **Changetracking blob** > **Access Control (IAM)**.
 1. On the **Changetrackingblob | Access Control (IAM)** pane, select **Add** and, then select **Add role assignment**.
 
@@ -139,7 +142,7 @@ To configure the monitoring of files and folders using wildcards, consider the f
 - Wildcards are required for tracking multiple files. 
 - Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/.conf* 
 - If an environment variable includes a path that is not valid, validation will succeed but the path will fail when inventory runs. 
-- When setting the path, avoid general paths such as c:.** which will result in too many folders being traversed. 
+- When setting the path, avoid general paths such as *C: \* which will result in too many folders being traversed. 
 
 ## Next steps
 

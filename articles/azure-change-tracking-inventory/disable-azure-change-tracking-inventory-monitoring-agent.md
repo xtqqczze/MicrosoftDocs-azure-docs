@@ -1,9 +1,10 @@
 ---
 title: Disable Change Tracking and Inventory in Azure using Azure Monitoring Agent
 description: Learn how to remove Change Tracking and Inventory using Azure Monitoring Agent (AMA) from your Azure virtual machines.
+#customer intent: As a customer, I want to disassociate a Data Collection Rule (DCR) from a virtual machine so that I can remove its association with Change Tracking.
 services: automation
 ms.custom: linux-related-content
-ms.date: 10/31/2025
+ms.date: 11/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme

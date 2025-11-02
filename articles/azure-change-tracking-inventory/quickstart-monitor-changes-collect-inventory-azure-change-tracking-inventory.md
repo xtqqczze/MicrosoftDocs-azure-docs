@@ -2,13 +2,14 @@
 title: Quickstart - Enable Azure Change Tracking and Inventory for single and multiple machines from the portal
 description: In this quickstart, learn how to enable Azure Change Tracking and Inventory.
 services: automation
-ms.date: 10/31/2025
+ms.date: 11/03/2025
 ms.topic: quickstart
 #Customer intent: As a customer, I want to enable Azure Change Tracking and Inventory so that I can further use the CTI services.
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
 author: jasminemehndir
 zone_pivot_groups: enable-change-tracking-inventory-using-monitoring-agent
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Enable Azure Change Tracking and Inventory
@@ -43,7 +44,7 @@ To enable Azure CTI for a single Azure VM using Azure – portal, follow these s
 
    :::image type="content" source="media/create-data-collection-rule/select-virtual-machine-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/create-data-collection-rule/select-virtual-machine-portal-expanded.png":::
 
-1. Select the virtual machine for which you want to enable Change Tracking.
+1. Select the virtual machine for which you want to enable Change Tracking. The pane for the selected virtual machine opens.
 
 1. In the search bar, enter **Change tracking**. Select **Change tracking** to view the **Change Tracking and Inventory** pane.
 
@@ -105,7 +106,7 @@ To enable Azure CTI for multiple Azure VMs – portal, follow these steps:
 
    :::image type="content" source="media/create-data-collection-rule/change-tracking-status-inline.png" alt-text="Screenshot showing the status of multiple vm." lightbox="media/create-data-collection-rule/change-tracking-status-expanded.png":::
 
-1. Select **Enable** to initiate the deployment.
+1. Select **Enable** to initiate the deployment. This step initiates the setup because, during enablement, the customer assigns a DCR, which defines the logging rules required to begin data collection.
 
 A notification appears on the top right corner of the pane indicating the status of deployment.
 
@@ -115,7 +116,7 @@ To enable the Azure CTI on Arc-enabled servers, ensure that the custom Change Tr
 
 To associate the data collection rule to the Arc-enabled VMs, follow these steps:
 
-1. [Create Change Tracking Data collection rule](/azure/automation/change-tracking/enable-vms-monitoring-agent?tabs=singlevm%2Cmultiplevms&pivots=single-portal&branch=pr-en-us-307064#create-data-collection-rule).
+1. [Create Change Tracking Data collection rule](/azure/automation/change-tracking/enable-vms-monitoring-agent?tabs=singlevm%2Cmultiplevms&pivots=single-portal&branch=pr-en-us-307064#create-data-collection-rule). You can also use an existing DCR that collects data for Change Tracking and Inventory. These rules are part of Azure Monitor, which helps you manage and monitor your systems.
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Monitor** and under **Settings**, select **Data Collection Rules**.
       
    :::image type="content" source="media/create-data-collection-rule/monitor-menu-data-collection-rules.png" alt-text="Screenshot showing the menu option to access data collection rules from Azure Monitor." lightbox="media/create-data-collection-rule/monitor-menu-data-collection-rules.png":::

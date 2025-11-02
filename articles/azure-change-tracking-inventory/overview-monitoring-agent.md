@@ -1,8 +1,9 @@
 ---
 title: Azure Change Tracking and Inventory overview using Azure Monitoring Agent
 description: Learn about Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
+#customer intent: As a customer, I want to evaluate the compatibility of Azure Change Tracking and Inventory with my existing infrastructure so that I can ensure seamless integration.
 services: automation
-ms.date: 10/31/2025
+ms.date: 11/03/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
@@ -18,7 +19,7 @@ This article provides an overview of Azure Change Tracking and Inventory (CTI) u
 Azure CTI service enhances the auditing and governance for in-guest operations by monitoring changes and providing detailed inventory logs for servers across Azure, on-premises, and other cloud environments.
 
 > [!IMPORTANT]
-> - We recommend that you use Azure CTI with the Change tracking extension version 2.20.0.0 or later.
+> We recommend that you use Azure CTI with the Change tracking extension version 2.20.0.0 or later.
 
 **Change Tracking:**
 

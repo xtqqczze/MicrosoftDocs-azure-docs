@@ -1,12 +1,14 @@
 ---
 title: Enable Change Tracking and Inventory at Scale with Azure portal - Machines pane
 description: This article describes how to enable change tracking and inventory at scale for Windows and Linux VMs using the Machines pane in the Azure portal.
+#customer intent: As a customer, I want to enable Azure Change Tracking and Inventory for multiple virtual machines at once so that I can monitor changes efficiently across my environment.
 services: automation
-ms.date: 10/31/2025
+ms.date: 11/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 author: jasminemehndir
 ms.author: v-jasmineme
+ms.custom: sfi-image-nochange
 ---
 
 # Enable Change Tracking and Inventory at scale using Azure portal
@@ -21,7 +23,7 @@ This article provides detailed procedure on how you can enable Azure CTI at scal
 
     :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/portal-discoverability.png" alt-text="Screenshot showing the selection Change Tracking and Inventory from Azure portal." lightbox="media/enable-change-tracking-at-scale-machines-blade/portal-discoverability.png":::
 
-1. As per the selected subscription, the machines are listed which will confirm if they are enabled for Azure CTI under the **Enabled** column.
+1. Select **Machines** from the **Resources**. As per the selected subscription, the machines are listed which will confirm if they are enabled for Azure CTI under the **Enabled** column.
 
      :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/select-subscription.png" alt-text="Screenshot showing the selection of Machines pane and subscription." lightbox="media/enable-change-tracking-at-scale-machines-blade/select-subscription.png":::
 
@@ -30,7 +32,7 @@ This article provides detailed procedure on how you can enable Azure CTI at scal
 1. In the filters, select **Enabled** to view the options. 
    - Select **Yes** to view the machines enabled with Azure CTI.
    - Select **No** to view the machines that aren't enabled with Azure CTI.
-   - Select **All** to view all the machines in the selected subscription with or without Azure CTI enabled.
+   - Select **Select all** to view all the machines in the selected subscription with or without Azure CTI enabled.
 
      :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/filters-enabled.png" alt-text="Screenshot showing the selection of Enabled filter." lightbox="media/enable-change-tracking-at-scale-machines-blade/filters-enabled.png":::
 

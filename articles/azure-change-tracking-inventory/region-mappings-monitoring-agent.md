@@ -8,6 +8,7 @@ ms.custom: references_regions
 ms.author: v-jasmineme
 author: jasminemehndir
 ms.service: azure-change-tracking-inventory
+#customer intent: As a customer, I want to identify the supported regions for Azure Change Tracking and Inventory so that I can ensure compliance with my organization's geographic requirements.
 ---
 
 # Supported regions for Change Tracking and Inventory with Azure Monitoring Agent

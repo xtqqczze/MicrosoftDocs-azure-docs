@@ -1,8 +1,9 @@
 ---
 title: Create Data Collection Rule
 description: Learn how to create a data collection rule (DCR) for Azure Change Tracking and Inventory.
+#customer intent: As a customer, I want to create a Data Collection Rule (DCR) for Azure Change Tracking and Inventory so that I can collect and manage data effectively.
 services: automation
-ms.date: 10/31/2025
+ms.date: 11/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
@@ -14,9 +15,9 @@ ms.custom: sfi-image-nochange
 
 When you enable Change Tracking in the Azure portal using the Azure Monitoring Agent (AMA), the process automatically creates a Data Collection Rule (DCR). This rule will appear in the resource group with a name in the format ct-dcr-aaaaaaaaa. After the rule is created, add the required resources.
 
-This article explains how to create a Data Collection Rule for Azure Change Tracking and Inventory.
+This article explains how to create a Data Collection Rule for Azure Change Tracking and Inventory (CTI).
 
-To enable Azure Change Tracking and Inventory (CTI) from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
+To enable Azure CTI from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
 
 ## Create DCR
 
@@ -25,12 +26,13 @@ A DCR defines what data to collect from sources, how to transform it, and where 
 To create a DCR, follow these steps: 
 
 1. Download [CtDcrCreation.json](../automation/change-tracking/change-tracking-data-collection-rule-creation.md) file on your machine.
-1. Sign in to [Azure portal](https://portal.azure.com) and in the search bar, enter *Deploy a custom template*.
-1. On the **Custom deployment** pane > **select a template**, select **Build your own template in the editor**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and in the search bar, enter *Deploy a custom template*.
+1. On the **Custom deployment** pane > **select a template** tab > select **Build your own template in the editor**.
    :::image type="content" source="media/create-data-collection-rule/build-template.png" alt-text="Screenshot to get started with building a template.":::
-1. On the **Edit template**, select **Load file** to upload the *CtDcrCreation.json* file.
+1. Select **Save** to proceed to the next tab.
+1. On the **Basics** tab > select **Edit template**, select **Load file** to upload the *CtDcrCreation.json* file.
 1. Select **Save**.
-1. On the **Custom deployment** pane > **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy the Data Collection Rule. The **Data Collection Rule Name** is optional.
+1. On the **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy the Data Collection Rule. The **Data Collection Rule Name** is optional.
 
    :::image type="content" source="media/create-data-collection-rule/build-template-basics.png" alt-text="Screenshot to provide subscription and resource group details to deploy data collection rule.":::
    
@@ -39,7 +41,8 @@ To create a DCR, follow these steps:
    >- Ensure that the name of your Data Collection Rule is unique in that resource group, else the deployment will overwrite the existing Data Collection Rule.
    >- The Log Analytics Workspace Resource ID specifies the Azure resource ID of the Log Analytics workspace used to store change tracking data. Ensure that location of workspace is from the [Change tracking supported regions](../automation/how-to/region-mappings.md)
 
-1. Select **Review+create** > **Create** to initiate the deployment of *CtDcrCreation*.
+1. Select **Next**.
+1. Select **Review + create** tab > **Create** to initiate the deployment of *CtDcrCreation*.
 1. After the deployment is complete, select **CtDcr-Deployment** to see the DCR Name. Use the **Resource ID** of the newly created Data Collection Rule for Azure CTI deployment through policy.
  
    :::image type="content" source="media/create-data-collection-rule/deployment-confirmation.png" alt-text="Screenshot of deployment notification.":::
