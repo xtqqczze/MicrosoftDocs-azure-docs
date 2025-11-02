@@ -52,34 +52,25 @@ Azure Bastion supports availability zones in both zone-redundant and zonal confi
     
     The following diagram shows a zone-redundant bastion host, with its instances spread across three zones:
    
-    :::image type="content" source="media/reliability-bastion/bastion-instances-zones.png" alt-text="Diagram that shows Azure Bastion with three instances distributed across three availability zones to illustrate zone-redundant deployment." border="false":::
+    :::image type="content" source="media/reliability-bastion/zone-redundant.svg" alt-text="Diagram that shows Azure Bastion with three instances distributed across three availability zones to illustrate zone-redundant deployment." border="false":::
 
     If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can.
 
 - *Zonal:* A zonal bastion host and all its instances are in a single availability zone that you select.
 
-   > [!IMPORTANT]
-   > Pinning to a single availability zone is only recommended when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) is too high for your needs and after you verify that the latency doesn't meet your requirements. By itself, a zonal bastion host doesn't provide resiliency to an availability zone outage. To improve the resiliency of a zonal bastion host, you need to explicitly deploy separate bastion hosts into multiple availability zones and configure traffic routing and failover.
+    [!INCLUDE [Zonal resource description](includes/reliability-availability-zone-zonal-include.md)]
 
 ### Regions supported
 
 Zonal and zone-redundant bastion hosts can be deployed into the following regions:
 
-| Americas | Europe | Middle East | Africa | Asia Pacific |
-|---|---|---|---|---|
-| Canada Central | North Europe | Qatar Central | South Africa North | Australia East |
-| Central US | Sweden Central | Israel Central | | Korea Central |
-| East US | UK South
-| East US 2 | West Europe | | |
-| West US 2  | Norway East | | |
-| East US 2 EUAP | Italy North | | |
-| Mexico Central| Spain Central | | |
+[!INCLUDE [Azure Bastion availability zone region support](../bastion/includes/availability-zone-regions-include.md)]
 
 ### Requirements
 
-- To configure bastion hosts to be zonal or zone redundant, you must deploy with the Basic, Standard, or Premium SKUs.
+- **SKU:** To configure bastion hosts to be zonal or zone redundant, you must deploy with the Basic, Standard, or Premium SKUs.
 
-- Azure Bastion requires a Standard SKU zone-redundant Public IP address.
+- **Public IP address:** Azure Bastion requires a Standard SKU zone-redundant Public IP address.
 
 ### Cost
 
@@ -104,7 +95,7 @@ This section describes what to expect when bastion hosts are configured for avai
     If you configure zone redundancy on Azure Bastion, a session might be sent to an Azure Bastion instance in an availability zone that's different from the virtual machine you're connecting to. In the following diagram, a request from the user is sent to an Azure Bastion instance in zone 2, although the virtual machine is in zone 1:
 
     <!-- Art Library Source# ConceptArt-0-000-015- -->
-    :::image type="content" source="./media/reliability-bastion/bastion-instance-zone-traffic.png" alt-text="Diagram that shows Azure Bastion with three instances. A user request goes to an Azure Bastion instance in zone 2 and is sent to a VM in zone 1." border="false":::
+    :::image type="content" source="./media/reliability-bastion/instance-zone-traffic.svg" alt-text="Diagram that shows Azure Bastion with three instances. A user request goes to an Azure Bastion instance in zone 2 and is sent to a VM in zone 1." border="false":::
 
    > [!TIP]
    > In most scenarios, the amount of cross-zone latency isn't significant. However, if you have unusually stringent latency requirements for your workloads, you should deploy a dedicated single-zone Azure Bastion instance in the virtual machine's availability zone. Keep in mind that this configuration doesn't provide zone redundancy, and we don't recommend it for most customers.
@@ -119,9 +110,7 @@ This section describes what to expect when bastion hosts are configured for avai
 
     For zone-redundant instances, Azure Bastion makes a best-effort attempt to replace any instances that are lost due to a zone outage. However, it isn't guaranteed that instances will be replaced.
 
-- **Notification**: Azure Bastion doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your bastion host. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Bastion service, including any zone failures.
-
-  Set up alerts on these services to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
+[!INCLUDE [Availability zone down notification (Service Health and Resource Health)](./includes/reliability-availability-zone-down-notification-service-resource-include.md)]
 
 - **Active requests:** When an availability zone is unavailable, any RDP or SSH connections in progress that use an Azure Bastion instance in the faulty availability zone are terminated and need to be retried.
 
