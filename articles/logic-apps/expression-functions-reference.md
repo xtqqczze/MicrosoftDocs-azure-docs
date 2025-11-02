@@ -5022,7 +5022,7 @@ xml(
 
 ```
 
-Option 3: Store the JSON array in a **Compose** action named **Compose1**. Then use the `outputs()`, `json()`, `addProperty()`, and `xml()` functions to create XML from the JSON object output, for example: 
+Option 3: Store the JSON array in a **Compose** action named **Compose1**. You can then use the `outputs()`, `json()`, `addProperty()`, and `xml()` functions to create XML from the JSON object output, for example: 
 
 ```
 xml(
