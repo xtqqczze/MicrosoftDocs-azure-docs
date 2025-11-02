@@ -9,7 +9,6 @@ ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
 author: jasminemehndir
 #Customer intent: As a customer, I want to change a workspace for my virtual machine so that I can manage data collection more effectively.
-ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Change a workspace and configure data collection rule
