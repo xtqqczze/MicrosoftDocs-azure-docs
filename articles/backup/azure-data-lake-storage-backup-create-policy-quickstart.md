@@ -13,7 +13,7 @@ ms.author: v-mallicka
 # Customer intent: As an IT administrator, I want to create a backup policy for Azure Data Lake Storage using the portal, PowerShell, or Azure CLI so that I can ensure data protection against accidental or malicious deletions without maintaining on-premises infrastructure.
 ---
 
-# Quickstart: Create a backup policy for Azure Data Lake Storage
+# Quickstart: Create a vaulted backup policy for Azure Data Lake Storage
 
 ::: zone pivot="client-portal"
 
@@ -189,7 +189,7 @@ To configure a backup policy for Azure Date Lake Storage backup, run the followi
 
 ## Next steps
 
-- [Configure backup for Azure Data Lake Storage using Azure portal, PowerShell, Azure CLI](azure-data-lake-storage-configure-backup.md).
+- [Configure vaulted backup for Azure Data Lake Storage using Azure portal, PowerShell, Azure CLI](azure-data-lake-storage-configure-backup.md).
 - [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
 - [Manage backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
 - [Troubleshoot Azure Data Lake Storage backup](azure-data-lake-storage-backup-troubleshoot.md). 

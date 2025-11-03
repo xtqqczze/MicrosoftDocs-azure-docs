@@ -22,7 +22,12 @@ For more insights on Azure Backup’s support for backups in Azure Data Lake Sto
 
 ## Supported regions
 
-Vaulted backups of Azure Data Lake Storage are available in the following regions: Australia East, Central India, Central US, East Asia, East US, East US 2, France South, Germany West Central, North Central US, North Europe, South India, Southeast Asia, Southeast US, Switzerland North, Switzerland West, UAE North, UK West, West Central US, West India, West US, West US 2, West US 3.
+Vaulted backups of Azure Data Lake Storage are available in the following regions: 
+
+| Availability type | Region |
+| --- | --- |
+| **General availability** | East Asia, France South, Southeast US, Switzerland North, Switzerland West , UAE North, UK West, West India. |
+| **Preview** | Australia East, Central India, Central US, East US, East US 2, Germany West Central, North Central US, North Europe, South India, Southeast Asia, West Central US, West US, West US 2, West US 3. |
 
 ## Supported storage accounts
 
@@ -79,7 +84,7 @@ The following table lists the Retention limits:
 | Maximum retention of daily recovery points             | 3,650 days|
 | Maximum retention of weekly recovery points             | 521 weeks|
 | Maximum retention of monthly recovery points             | 120 months|
-| Maximum retention of yearly recovery points             | 99 years|
+| Maximum retention of yearly recovery points             | 10 years|
 
 ## Restore method limits
 
@@ -97,7 +102,7 @@ The following table lists the restore method limits:
 
 ## Next steps
 
-- [Configure backup for Azure Data Lake Storage using Azure portal, PowerShell, or Azure CLI](azure-data-lake-storage-configure-backup.md).
+- [Configure vaulted backup for Azure Data Lake Storage using Azure portal, PowerShell, or Azure CLI](azure-data-lake-storage-configure-backup.md).
 - [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
 - [Manage backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
 
