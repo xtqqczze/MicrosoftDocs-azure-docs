@@ -23,7 +23,7 @@ It's common to use the approach documented in these two links to Provision, Depr
 - [Identity and Access Management with Microsoft Entra - SAP Community (Part II)](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-ii-provisioning-to/ba-p/13990927)
 - [Identity and Access Management with Microsoft Entra - SAP Community (Part III)](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-iii-successfactors/ba-p/14233747)
 
-More information about the announcement on the end of life of SAP's on-premises Identity Management solutions and [migration to Microsoft Entra](https://learn.microsoft.com/entra/id-governance/scenarios/migrate-from-sap-idm)
+More information about the announcement on the end of life of SAP's on-premises Identity Management solutions and [migration to Microsoft Entra](/entra/id-governance/scenarios/migrate-from-sap-idm)
 
 ## Authentication  
 It's recommended to use SSO and/or multifactor authentication for all SAP applications. Traditional User and Password for SAP applications isn't recommended. There are three typical options: User and Password (not recommended), Single Sign On (SSO) or SSO + MFA. Different SAP applications on different platforms have many options for Authentication: 
