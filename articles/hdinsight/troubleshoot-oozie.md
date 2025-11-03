@@ -100,3 +100,82 @@ For example, for the job example from [Use Hadoop Oozie workflows](hdinsight-use
 ## Next steps
 
 [!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]
+
+### Oozie WebUI disablement
+
+### Issue
+
+Apache Oozie has been retired since February 2025, refer to the [link](https://attic.apache.org/projects/oozie.html). There are known vulnerabilities related to Oozie WebUI.
+
+### Cause
+
+To disable the Oozie WebUI, please follow the below steps:
+
+1. Stop Oozie services from Ambari portal.
+
+2. Edit /var/lib/ambari-server/resources/stacks/HDInsight/<version>/services/OOZIE/quicklinks/quicklinks.json and remove the value for "url" parameter.
+
+Before:
+```{
+  "name": "default",
+  "description": "default quick links configuration",
+  "configuration": {
+    "links": [
+      {
+        "name": "oozie_server_ui",
+        "label": "Oozie Web UI",
+        "requires_user_name": "true",
+        "component_name": "OOZIE_SERVER",
+        "url":"%@://%@:%@/oozie?user.name=%@",
+        "port":{
+          "http_property": "oozie.base.url",
+          "http_default_port": "11000",
+          "https_property": "oozie.https.port",
+          "https_default_port": "11443",
+          "regex": "\\w*:(\\d+)",
+          "https_regex": "(\\d+)",
+          "site": "oozie-site"
+        }
+      }
+    ]
+  }
+}
+```
+
+After:
+```{
+  "name": "default",
+  "description": "default quick links configuration",
+  "configuration": {
+    "links": [
+      {
+        "name": "oozie_server_ui",
+        "label": "Oozie Web UI",
+        "requires_user_name": "true",
+        "component_name": "OOZIE_SERVER",
+        "url":"",
+        "port":{
+          "http_property": "oozie.base.url",
+          "http_default_port": "11000",
+          "https_property": "oozie.https.port",
+          "https_default_port": "11443",
+          "regex": "\\w*:(\\d+)",
+          "https_regex": "(\\d+)",
+          "site": "oozie-site"
+        }
+      }
+    ]
+  }
+}
+```
+
+3. Restart Ambari services
+```bash
+sudo ambari-services restart
+```
+
+4. Start Oozie services from Ambari
+
+### Workaround
+
+Use Oozie command line options, refer to the [link](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html#Common_CLI_Options).
