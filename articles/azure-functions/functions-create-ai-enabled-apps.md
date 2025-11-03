@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 Azure Functions provides serverless compute resources that integrate with AI and Azure services to streamline building cloud-hosted intelligent applications. This article provides a survey of the breadth of AI-related scenarios, integrations, and other AI resources that you can use in your function apps. 
 
-Consider using Azure Functions in your AI-enabled experiences for the following scenarios:
+Consider using Azure Functions in your AI-enabled experiences for these scenarios:
 
 | Scenario | Description |
 | ----- | ----- |
