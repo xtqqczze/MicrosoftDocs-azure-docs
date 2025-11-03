@@ -4,7 +4,7 @@ description: Learn to connect external resources to Azure SRE Agent for data con
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: conceptual
-ms.date: 10/31/2025
+ms.date: 11/03/2025
 ms.service: azure-sre-agent
 ---
 
