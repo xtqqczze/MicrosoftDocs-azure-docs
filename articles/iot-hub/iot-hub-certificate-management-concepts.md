@@ -19,7 +19,7 @@ Certificate Management in Azure IoT Hub is designed to simplify the management o
 
 ## Public Key Infrastructure (PKI)
 
-PKI is a system that uses digital certificates to authenticate and encrypt data between devices and services. PKI certificates are essential for securing various scenarios, such as VPN, Wi-Fi, email, web, and device identity. However, managing PKI certificates can be challenging, costly, and complex, especially for organizations that have a large number of devices and users. You can use Certificate Management to enhance the security and productivity of your devices and users, and to accelerate your digital transformation to a fully managed cloud PKI service.  
+PKI is a system that uses digital certificates to authenticate and encrypt data between devices and services. PKI certificates are essential for securing various scenarios, such as VPN, Wi-Fi, email, web, and device identity. In IoT settings, managing PKI certificates can be challenging, costly, and complex, especially for organizations that have a large number of devices and strict security requirements. You can use Certificate Management to enhance the security of your devices and accelerate your digital transformation to a fully managed cloud PKI service. 
 
 ## Microsoft vs third-party PKI
 
@@ -53,7 +53,7 @@ There are two general categories of X.509 certificates:
     
     - **Root certificates:** A root certificate is a top-level, self-signed certificate from a trusted CA that can be used to sign intermediate CAs. 
     
-    - **Intermediate certificates:** An intermediate certificate is a CA certificate that is signed by a trusted root certificate. You can use intermediate certificates to sign end-entity certificates, such as individual or leaf device certificates. You can also use intermediate certificates to sign other intermediate certificates and create a chain of intermediates. In a chain of intermediate certificates, you can use the last intermediate certificate to sign end-entity certificates, including device certificates. 
+    - **Intermediate certificates:**  An intermediate certificate is a CA certificate that is signed by a trusted root certificate. You can use intermediate certificates to sign end-entity certificates, such as individual or leaf device certificates. 
 
     > [!NOTE]
     > It might be helpful to use different intermediate certificates for different sets or groups of devices, such as devices from different manufacturers or different models of devices. The reason to use different certificates is to reduce the total security impact if any particular certificate is compromised. 

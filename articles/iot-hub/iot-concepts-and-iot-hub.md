@@ -21,18 +21,6 @@ Several messaging patterns are supported, including device-to-cloud messages, up
 
 IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads.
 
-## What is new in IoT Hub?
-
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
-
-From November 2025, IoT Hub introduces two major innovations: Azure Device Registry (ADR) and Certificate Management. These features are designed to enhance security, simplify device management, and streamline operations for IoT deployments.
-
-Integration of IoT hubs with ADR is essential to leverage the latest enhancements in device provisioning, certificate management, and deeper integration with Azure Resource Manager. For more information, see [Create an IoT hub with Azure Device Registry integration](iot-hub-device-registry-setup.md).
-
-- **Manage your devices in a unified registry with Azure Device Registry**: IoT Hub now integrates directly with Azure Device Registry (ADR) to bring a consistent experience across cloud and edge workloads. ADR is a centralized device registry that allows you to manage devices across multiple IoT hubs using namespaces. You can create a link between an existing ADR namespace to your IoT Hub or create a new namespace and create the link. For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
-
-- **Manage your X.509 credentials with Certificate Management**: IoT Hub now introduces built-in support for managing device certificates using Microsoft-managed PKI with X.509 certificates. X.509 certificates are undoubtedly the gold standard for IoT security. With IoT Hub, you can use DPS to improve the security posture of your IoT devices by adopting X.509-based authentication. These X.509 certificates are strictly operational certificates which the devices uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. For more information, see [What is Certificate Management?](iot-hub-certificate-management-overview.md).
-
 ## Understand IoT devices
 
 IoT devices differ from other clients such as browsers and mobile apps in several ways:

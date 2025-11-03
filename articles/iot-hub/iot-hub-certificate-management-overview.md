@@ -7,7 +7,7 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
-ms.date: 10/20/2025
+ms.date: 11/07/2025
 #Customer intent: As a developer new to IoT, I want to understand what Certificate Management is and how it can help me manage my IoT device certificates.
 ---
 
@@ -26,7 +26,7 @@ The following features are supported with Certificate Management for IoT Hub dev
 | Feature | Description |
 |---------|-------------|
 | Create a unique root certificate authority (CA) per ADR Namespace | Create up to 1 root CA, also known as credential resource, in your ADR namespace |
-| Create chained issuing certificate authorities (CA) per ADR namespace | Create up to 3 issuing CA’s, also known as policies, in your ADR namespace and customize validity periods for issued certificates. |
+| Create up to one issuing CA per policy | Create up to one issuing CA, also known as policy, in your ADR namespace and customize validity periods for issued certificates. |
 | Signing and Encryption algorithms | The CA will sign and end-entity certificates using the following key type: ECC NistP384 |
 | HSM keys (signing and encryption) | Keys are provisioned using [Azure Managed Hardware Security Module (Azure Managed HSM)](/azure/key-vault/managed-hsm/overview). CAs created within your ADR namespace automatically use HSM signing and encryption keys. No Azure subscription is required for Azure HSM. |
 | End-entity certificate issuance for devices | Also known as leaf certificate issuance. These certificates are signed by the issuing ICA. When a device requests a certificate via certificate signing request, an end-entity leaf certificate is delivered to the IoT device. |
@@ -72,7 +72,7 @@ The following diagram illustrates the end-to-end process of device provisioning 
 1. DPS requests an X.509 operational certificate from Microsoft PKI using the CSR and the policy defined by the enrollment group.
 1. Microsoft PKI returns the signed operational certificate to DPS.
 1. DPS sends the operational certificate and IoT Hub connection details back to the device.
-1. The device now authenticates with IoT Hub using the newly issued X.509 client certificate.
+1. The device now authenticates with IoT Hub by sending the full issuing certificate chain to IoT Hub.
 
 :::image type="content" source="media/certificate-management/operational-diagram.png" alt-text="Diagram showing how Azure Device Registry integrates with IoT Hub and DPS for certificate management during provisioning." lightbox="media/certificate-management/operational-diagram.png":::
 
@@ -92,8 +92,8 @@ The following table lists the default limits and quotas for Certificate Manageme
 
 |Feature|Limit|
 |----------------------------------|-------------------------------|
-|Number of certificates issued by PKI (by a device DPS instance) during provisioning|1000 per minute|
+|Number of certificates issued by PKI (by a device DPS instance) during provisioning|500 per minute|
 |Number of certificate renewals|500 per minute|
 |Number of credential resources per tenant|2|
 |Number of credential resources per ADR namespace|1|
-|Number of policies per credential resource|2|
+|Number of policies per credential resource|1|

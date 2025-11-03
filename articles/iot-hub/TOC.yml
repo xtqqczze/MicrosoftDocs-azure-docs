@@ -4,9 +4,11 @@
   items:
     - name: What is IoT Hub?
       href: iot-concepts-and-iot-hub.md
+    - name: What is new in IoT Hub?
+      href: iot-hub-what-is-new.md
     - name: "FAQ: What is new in IoT Hub?"
       href: iot-hub-faq.md
-- name: Get started with IoT Hub 
+- name: Preview features in IoT Hub
   items:
     - name: Create an IoT hub with Certificate Management in Azure Device Registry (Preview)
       href: iot-hub-device-registry-setup.md
