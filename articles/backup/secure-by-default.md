@@ -29,7 +29,7 @@ Secure by default with soft delete for Azure Backup enables you to recover your 
 
 Soft delete primarily delays permanent deletion of backup data and vaults (preview for vaults) and gives you an opportunity to recover data after deletion. This deleted data is retained for the specified soft delete retention period which is default set to 14 days and can be extended up to 180 days.
 
-After deletion (while the data is in soft deleted state), if you need the deleted data, you can undelete. This returns the data to *stop protection with retain data* state. You can then use it to perform restore operations or you can resume backups for this instance.
+After deletion (while the data is in soft deleted state), if you need to recover the deleted data, you can undelete. This returns the data to *stop protection with retain data* state. You can then use it to perform restore operations or you can resume backups for this instance.
 
 The following diagram shows the flow of a backup item (or a backup instance) that gets deleted:
 
@@ -44,11 +44,9 @@ The key benefits of soft delete are:
 
 - **Data recoverability**: Azure Backup promises to keep your data recoverable for up to 14 days by default at no extra cost. You need not take any action to configure secure by default state for your backup data.
 
-- **Configurable soft delete retention**: You can specify the retention duration for deleted backup data, ranging from *14 to 180 days*. By default, the retention duration is set to 14 days for the vault, and you can extend it as required. You won't incur additional costs for *14 days*; however, you will be charged for the period beyond 14 days.
+- **Configurable soft delete retention**: You can specify the retention duration for deleted backup data to retain in soft-deleted state, ranging from *14 to 180 days*. By default, the retention duration is set to 14 days for the vault, and you can extend it as required. You won't incur additional costs for *14 days*; however, you will be charged for the period beyond 14 days.
 
-- **Soft delete for vaults**: You can move vaults with soft deleted items into a soft delete state. And also recover soft-deleted vaults by undeleting them. This feature is currently in preview for RSV vaults in limited regions.
-
-  When you initiate the deletion of a vault that contains soft-deleted items, the vault automatically moves into a soft-deleted state instead of being permanently removed. You can recover soft-deleted  vaults by undeleting them within the configured soft delete retention period. <br>
+- **Soft delete for vaults**: You can move vaults with soft deleted items into a soft delete state. And also recover soft-deleted vaults by undeleting them. When you initiate the deletion of a vault that contains soft-deleted items, the vault automatically moves into a soft-deleted state instead of being permanently removed. You can recover soft-deleted  vaults by undeleting them within the configured soft delete retention period. <br>
   During this retention period, you can also create a new Recovery Services vault with the same name in the same resource group as the soft-deleted vault. Azure Backup also allows multiple soft-deleted vaults with the same name within a single resource group, as naming constraints are enforced only for active vaults. <br>
   This capability is currently in public preview across all public regions for Recovery Services vaults.
 
@@ -61,7 +59,7 @@ The key benefits of soft delete are:
 
 - **Soft delete across workloads**: Soft delete applies to all vaulted datasources alike and is supported for Recovery Services vaults and Backup vaults. Soft delete also applies to operational backups of disks and VM backup snapshots used for instant restores. However, unlike vaulted backups, these snapshots can be directly accessed and deleted before the soft delete period expires. Soft delete is currently not supported for operational backup for Blobs and Azure Files.
 
-- **Soft delete of recovery points**: This feature allows you to recover data from recovery points that might have been deleted due to making changes in a backup policy or changing the backup policy associated with a backup item. Soft delete of recovery points isn't supported for log recovery points in SQL and SAP HANA workloads.
+- **Soft delete of recovery points**: This allows you to recover data from recovery points that might have been deleted due to making changes in a backup policy or changing the backup policy associated with a backup item. Soft delete of recovery points isn't supported for log recovery points in SQL and SAP HANA workloads.
 
 ## Soft delete for vaults
 
@@ -71,7 +69,7 @@ When you initiate the deletion of a vault that contains soft-deleted items, the 
 During this retention period, you can also create a new Recovery Services vault with the same name in the same resource group as the soft-deleted vault. Azure Backup also allows multiple soft-deleted vaults with the same name within a single resource group, as naming constraints are enforced only for active vaults. <br>
 
 Recovery Services Vault deletions using Azure portal will move the vault into a soft deleted state. For Recovery Services Vault, you must follow the below steps before initiating delete on the vault:
-- Stop backups and delete all protected items
+- Stop backups and soft delete all protected items
 - Cleanup associations of Servers and Storage Accounts
 - Disable Replication for Site Recovery Replicated Items
 - Clean up dependencies related to your Site Recovery Replicated Items
