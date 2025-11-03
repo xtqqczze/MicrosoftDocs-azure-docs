@@ -11,13 +11,9 @@ ms.custom: ai-usage
 # Customer intent: As a network engineer, I want to validate the resiliency of my ExpressRoute gateway during site failovers, so that I can ensure continuous connectivity and robustness for my Azure workloads during outages or migrations.
 ---
 
-# Azure ExpressRoute Gateway Resiliency Validation (preview)
+# Azure ExpressRoute Gateway Resiliency Validation
 
 Resiliency validation is a capability designed to assess the resiliency of network connectivity for ExpressRoute-enabled workloads. This feature allows you to perform site failovers for your virtual network gateway, helping to evaluate network resiliency during site outages and validate setup during migrations by testing the effectiveness of failover mechanisms. By proactively testing your network, you can ensure continuous connectivity to Azure workloads and ensure the robustness of your connections.
-
-> [!IMPORTANT]
-> **Azure ExpressRoute Resiliency Validation** is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Key features
 
@@ -36,15 +32,15 @@ Resiliency validation is a capability designed to assess the resiliency of netwo
 
 ### Limitations
 
-- The Resiliency Validation feature is available only for ExpressRoute gateways connected to ExpressRoute circuits in at least two distinct peering locations.
+- The Resiliency Validation feature is supported only for ExpressRoute gateways connected to ExpressRoute circuits in at least two distinct peering locations.
 - The **Route List** tab can only be refreshed once per hour.
-- This feature isn't supported for Virtual WAN or ExpressRoute Metro.
+- This feature isn't supported for Virtual WAN or ExpressRoute Metro yet.
 - You can't run the Resiliency Validation test if there are any ongoing tests or if any of the circuits are currently undergoing maintenance.
 
 ## Prerequisites
 
-- To participate in the preview, contact the [**Azure ExpressRoute**](mailto:exr-resiliency@microsoft.com) team.
 - Ensure that you have an ExpressRoute circuit in at least two distinct peering locations and an ExpressRoute virtual network gateway connected to those circuits.
+- You must have Contributor-level authorization to access this feature.
 
 ## Using the gateway resiliency validation
 
@@ -56,11 +52,11 @@ The gateway resiliency validation can be accessed from any ExpressRoute gateway 
 
 :::image type="content" source="media/resiliency-validation/resiliency-validation.png" alt-text="Screenshot of the Resiliency Validation feature, accessible under the monitoring section in the left-hand menu of the ExpressRoute gateway resource.":::
 
-The dashboard provides a detailed overview of all ExpressRoute circuits connected to the ExpressRoute virtual network gateway, categorized by peering location. It displays the most recent test status, the timestamp of the last test conducted, the results of the latest test, and an action button to initiate a new test.
+The dashboard provides a detailed overview of all ExpressRoute circuits connected to the ExpressRoute virtual network gateway, categorized by peering location. It displays the most recent test status, the timestamp of the last test conducted, the results of the latest test, and an action button to configure a new test.
 
 ### Starting the test
 
-1. Navigate to the desired peering location and select the **Start new test** button.
+1. Navigate to the desired peering location and select the **Configure new test** button.
 
 1. Review the autopopulated configuration, which includes:
 
@@ -105,15 +101,13 @@ The dashboard provides a detailed overview of all ExpressRoute circuits connecte
 
 ## Frequently asked questions
 
-1. Why can't I see the Resiliency Insights feature in my ExpressRoute virtual network gateway?
+1. Why can't I see the Resiliency Validation feature in my ExpressRoute gateway?
 
-    - The Resiliency Insights feature is currently in preview. To gain access, contact the [Azure ExpressRoute team](mailto:exR-Resiliency@microsoft.com) for onboarding.
     - This feature is only available for ExpressRoute virtual network gateways configured in a Max Resiliency model. It isn't supported for Virtual WAN ExpressRoute gateways.
-    - You must have Contributor-level authorization to access this feature.
 
 1. Why is the Route List not updated to the latest?
 
-    The Route List tab has a polling interval of 1 hour. This means the pane won't refresh for 1 hour from the last updated time.
+    The Route List tab is designed for pre-test validation of critical route redundancy. It retrieves route resiliency status from Resiliency Insights, so it may display cached results for up to one hour after the last update.
 
 1. Does the feature support Microsoft Peering or VPN connectivity?
 
@@ -121,7 +115,7 @@ The dashboard provides a detailed overview of all ExpressRoute circuits connecte
 
 1. Can control the gateway validation tests other than the Azure portal?
 
-    Yes, you can use REST API to start and stop the Gateway resiliency validation tests.  
+    Yes, you can use REST API, PowerShell and CLI to start and stop the Gateway resiliency validation tests.  
 
 1. What happens if I don't terminate a test?
 

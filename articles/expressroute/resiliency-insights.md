@@ -11,18 +11,11 @@ ms.custom: ai-usage
 # Customer intent: As a network administrator, I want to evaluate the resiliency index of my ExpressRoute connection, so that I can improve connectivity reliability between my on-premises network and Azure resources.
 ---
 
-# Resiliency Insights for ExpressRoute virtual network gateway (preview)
+# Resiliency Insights for ExpressRoute virtual network gateway
 
 Resiliency Insights is an assessment capability designed to measure your network's reliability for ExpressRoute workloads. At the core of this capability is the resiliency index, a percentage score calculated based on factors such as route resilience, zone-redundant gateway usage, advisory recommendations, and resiliency validation tests. This index evaluates the control plane resiliency of the ExpressRoute connectivity between your ExpressRoute virtual network gateway and on-premises network. By analyzing and improving this index, you can enhance the robustness and reliability of your connectivity to Azure workloads through ExpressRoute.
 
-> [!NOTE]
-> To participate in the preview, contact the [**Azure ExpressRoute team**](mailto:exr-resiliency@microsoft.com).
-
 :::image type="content" source="media/resiliency-insights/resiliency-insights.png" alt-text="Screenshot of the Resiliency Insights feature, accessible under the monitoring section in the left-hand menu of the ExpressRoute gateway resource.":::
-
-> [!IMPORTANT]
-> **Azure ExpressRoute Resiliency Insights** is currently in PREVIEW.  
-> Refer to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for the legal terms applicable to Azure features in beta, preview, or other prerelease stages.
 
 ## Route set
 
@@ -95,8 +88,7 @@ The resiliency index score provides a comprehensive assessment of the reliabilit
 
 1. Why can't I see the Resiliency Insights feature in my ExpressRoute virtual network gateway?
 
-    - The Resiliency Insights feature is currently in preview. To gain access, contact the [Azure ExpressRoute team](mailto:exR-Resiliency@microsoft.com) for onboarding.
-    - This feature isn't supported for Virtual WAN ExpressRoute gateways.
+    - Resiliency Insights currently supports Virtual Network ExpressRoute Gateways only. 
     - You must have Contributor-level authorization to access this feature.
 
 1. Why doesn't the pane refresh immediately after I select **Refresh**?
