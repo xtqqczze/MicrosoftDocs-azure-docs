@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/23/2025
 ms.custom: engagement-fy25
+monikerRange: migrate
 ---
 
 # Manage sync of Arc resources to Azure Migrate project
@@ -113,10 +114,14 @@ The Azure Migrate project has a system-assigned managed identity that must be gr
 2. Under **Migration**, select **Savings and Readiness (Preview)**.
 
 3. Select **View/edit scope** from the toolbar.
+    
+    :::image type="content" source="./media/how-to-manage-arc-resource-sync/edit-scope-entry-point.png" alt-text="Screenshot of Azure portal showing View/edit scope menu in the Savings and Readiness pane in Arc Center." lightbox="./media/how-to-manage-arc-resource-sync/edit-scope-entry-point.png":::
 
 4. Select **Edit project scope**
 
 5. In the **Edit project scope** pane, from the **Sync Type** drop down, select **Periodic (automatic)**.
+
+    :::image type="content" source="./media/how-to-manage-arc-resource-sync/configure-automatic-sync.png" alt-text="Screenshot of Azure portal showing Scope type dropdown in the Edit project scope pane." lightbox="./media/how-to-manage-arc-resource-sync/configure-automatic-sync.png":::
 
 6. Select **Save**.
 

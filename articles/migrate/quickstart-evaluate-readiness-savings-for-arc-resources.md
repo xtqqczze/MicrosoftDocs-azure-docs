@@ -1,11 +1,12 @@
 ---
-title: Quickstart to create migration business case and assessments for Arc resources
+title: Quickstart to evaluate migration readiness and savings for Arc resources
 description: In this quickstart, you'll learn how you to use Azure Migrate evaluate migration of your Arc enabled servers to Azure. 
 author: snehithm
 ms.author: snmuvva
 ms.service: azure-migrate
 ms.topic: quickstart
 ms.date: 10/21/2025
+monikerRange: migrate
 # Customer intent: "As a IT admin, I want to evaluate the readiness and potential savings of migrating my Arc-enabled on-premises servers to Azure."
 ---
 
@@ -19,7 +20,7 @@ An Azure Migrate project is used to store discovery, assessment, and migration m
 
  
 > [!IMPORTANT]
-> This feature is currently in preview. As a 'Preview' feature, the capabilities presented in this article are subject to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This feature is currently in preview. As a preview feature, the capabilities presented in this article are subject to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -36,12 +37,12 @@ An Azure Migrate project is used to store discovery, assessment, and migration m
 2. In **Services**, select **Azure Arc**.
 3. Under **Migration**, select **Savings and Readiness (Preview)**.
 
-    :::image type="content" source="./media/quickstart-evaluate-readiness-savings-for-arc-resources/arc-center-migration-savings-readiness.png" alt-text="Screenshot of Azure portal showing Savings and Readiness pane under Migration in Arc Center." lightbox="./media/quickstart-create-project/assess-migrate-servers-expanded.png":::
+    :::image type="content" source="./media/quickstart-evaluate-readiness-savings-for-arc-resources/arc-center-migration-savings-readiness.png" alt-text="Screenshot of Azure portal showing Savings and Readiness pane under Migration in Arc Center." lightbox="./media/quickstart-evaluate-readiness-savings-for-arc-resources/arc-center-migration-savings-readiness.png":::
 
 4. Select **Create a migration project**. 
  
 5. Provide a **name** for your migration project
-    :::image type="content" source="./media/quickstart-evaluate-readiness-savings-for-arc-resources/create-project-form.png" alt-text="Screenshot of Azure portal showing the form to 'Create a migration project'." lightbox="./media/quickstart-create-project/assess-migrate-servers-expanded.png":::
+    :::image type="content" source="./media/quickstart-evaluate-readiness-savings-for-arc-resources/create-project-form.png" alt-text="Screenshot of Azure portal showing the form to 'Create a migration project'." lightbox="./media/quickstart-evaluate-readiness-savings-for-arc-resources/create-project-form.png":::
  
 6.	Select **Subscription**, **Resource group**, and **Region** for your project. All migration related metadata is stored in this region.
  

@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/23/2025
 ms.custom: engagement-fy25
+monikerRange: migrate
 ---
 
 # Enable additional data collection for Arc-enabled servers

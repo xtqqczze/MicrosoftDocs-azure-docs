@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 10/23/2025
 ms.custom: engagement-fy25
+monikerRange: migrate
 ---
 
 # Overview of Arc-based discovery in Azure Migrate (preview)
