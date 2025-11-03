@@ -34,7 +34,7 @@ To configure Windows, Linux files, and Windows Registry using Data Collection Ru
 1. Select a specific VM for which you would like to configure the Change tracking settings.
 1. Under **Operations**, select **Change tracking** to view all the changes that have taken place on the VM.
    
-   :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/azure-change-tracking-inline.png" alt-text="Screenshot of selecting the change tracking to configure file settings." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/azure-change-tracking-expanded.png":::
+   :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/azure-change-tracking-inline.png" alt-text="Screenshot of selecting the change tracking to view the changes on the virtual machine." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/azure-change-tracking-expanded.png":::
 
 1. Select **Settings** to view the **Data Collection Rule Configuration** (DCR) pane. Here, you can do the following actions:
    1. Configure changes on a VM at a granular level.  
@@ -44,46 +44,46 @@ To configure Windows, Linux files, and Windows Registry using Data Collection Ru
    >[!NOTE]
    >The settings that you configure apply to all virtual machines associated with the specified DCR. For more information about DCR, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview).
 
-1. Select **Add** to configure new file settings. Use the procedure as specified for Windows and Linux files.
+1. Select **Add** to configure new file settings. Use the procedure as specified for Windows, Linux files, and Windows Registry.
 
-   :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/configure-file-settings-inline.png" alt-text="Screenshot of selecting the change tracking to configure file settings." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/configure-file-settings-expanded.png":::
+   :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/configure-file-settings-inline.png" alt-text="Screenshot to configure new file settings." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/configure-file-settings-expanded.png":::
    
-   #### [Windows Files](#tab/windows)
+#### [Windows Files](#tab/windows)
 
-    On the **Windows Files** tab > Select **+ Add** > **Add windows file setting** pane, enter the information for the file or folder to track and select **Add**. The following table describes the properties that you can use to enter the information.
+On the **Windows Files** tab > Select **+ Add** > **Add windows file setting** pane, enter the information for the file or folder to track and select **Add**. The following table describes the properties that you can use to enter the information.
 
-    |**Property**|**Description**|
-    |---|---|
-    |Enabled | True if the setting is applied, and false otherwise.|
-    |Item Name | Friendly name of the file to be tracked. | 
-    |Group | A group name to group files logically| 
-    |Path | The path to check for the file, for example, **c:\temp\*.txt.** You can also use environment variables, such as %winDir%\System32\\\*.*. 
-    |Path Type | The type of path. Possible values are File and Folder.|
-    |Recursion | True if recursion is used when looking for the item to be tracked, and False otherwise. |
+|**Property**|**Description**|
+|---|---|
+|Enabled | True if the setting is applied, and false otherwise.|
+|Item Name | Friendly name of the file to be tracked. | 
+|Group | A group name to group files logically| 
+|Path | The path to check for the file, for example, **c:\temp\*.txt.** You can also use environment variables, such as %winDir%\System32\\\*.*. 
+|Path Type | The type of path. Possible values are File and Folder.|
+|Recursion | True if recursion is used when looking for the item to be tracked, and False otherwise. |
 
-   #### [Linux Files](#tab/linux)
+#### [Linux Files](#tab/linux)
 
-    On the **Linux Files** tab > Select **+ Add** > **Add linux file setting** pane, enter the information for the file or directory to track, and then select **Add**. The following table describes the properties that you can use to enter the information. 
+On the **Linux Files** tab > Select **+ Add** > **Add linux file setting** pane, enter the information for the file or directory to track, and then select **Add**. The following table describes the properties that you can use to enter the information. 
     
-    |**Property**|**Description**|
-    |---|---|
-    |Enabled | True if the setting is applied, and false otherwise.|
-    |Item Name | Friendly name of the file to be tracked. | 
-    |Group | A group name to group files logically| 
-    |Path | The path to check for the file, for example, /etc/*.conf.  
-    |Path Type | The type of path. Possible values are File and Folder.|
-    |Recursion | True if recursion is used when looking for the item to be tracked, and False otherwise. |
+|**Property**|**Description**|
+|---|---|
+|Enabled | True if the setting is applied, and false otherwise.|
+|Item Name | Friendly name of the file to be tracked. | 
+|Group | A group name to group files logically| 
+|Path | The path to check for the file, for example, /etc/*.conf.  
+|Path Type | The type of path. Possible values are File and Folder.|
+|Recursion | True if recursion is used when looking for the item to be tracked, and False otherwise. |
 
 #### [Windows Registry](#tab/windows-registry)
 
-    On the **Windows Registry** tab > Select **+ Add** > **Add windows registry setting** pane, enter the information for the registry key to track, and then select **Add**. The following table describes the properties that you can use to enter the information.
+On the **Windows Registry** tab > Select **+ Add** > **Add windows registry setting** pane, enter the information for the registry key to track, and then select **Add**. The following table describes the properties that you can use to enter the information.
 
-    |**Property**|**Description**|
-    |---|---|
-    |Enabled | True if the setting is applied, and false otherwise.|
-    |Item Name | Friendly name of the registry key to be tracked. | 
-    |Group | A group name to group keys logically| 
-    |Windows Registry Key | The name of the Windows registry key.
+|**Property**|**Description**|
+|---|---|
+|Enabled | True if the setting is applied, and false otherwise.|
+|Item Name | Friendly name of the registry key to be tracked. | 
+|Group | A group name to group keys logically| 
+|Windows Registry Key | The name of the Windows registry key.
    
 ---
 
