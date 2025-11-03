@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 11/05/2021
+ms.date: 11/05/2025
 ---
 
 ## Create an IoT hub with ADR integration using Azure CLI
@@ -85,7 +85,7 @@ To prepare your environment to use Azure Device Registry, complete the following
 
 To simplify the process of creating and managing resources, set up the following environment variables in your terminal session. Replace the placeholder values with your own values.
 
-1. Set up your subscription ID, resource group name, and location. Check out the available locations in the [Supported regions](iot-hub-device-registry-overview.md#supported-regions) section.
+1. Set up your subscription ID, resource group name, and location. Check out the available locations in the [Supported regions](../articles/iot-hub/iot-hub-device-registry-overview.md#supported-regions) section.
 
     ```azurecli-interactive
     SUBSCRIPTION_ID="your-subscription-id"
@@ -105,7 +105,7 @@ To simplify the process of creating and managing resources, set up the following
     ENROLLMENT_ID="your-enrollment-name"
     ```
 
-    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
 1. Verify that the environment variables are set correctly by running the following command. If the variables are set correctly, the command outputs the values you set, otherwise it outputs a blank line.
 
@@ -143,7 +143,7 @@ To create a resource group, role, and permissions for your IoT solution, complet
 
 ## Set up an ADR namespace
 
-Set up a new ADR namespace with a system-assigned managed identity. Creating namespace with system-assigned managed identity also creates a credential, known as root CA, and a default policy, known as intermediate CA. [Certificate Management](iot-hub-certificate-management-overview.md) uses these credentials and policies to onboard devices to the namespace.
+Set up a new ADR namespace with a system-assigned managed identity. Creating namespace with system-assigned managed identity also creates a credential, known as root CA, and a default policy, known as intermediate CA. [Certificate Management](../articles/iot-hub/iot-hub-certificate-management-overview.md) uses these credentials and policies to onboard devices to the namespace.
 
 > [!NOTE]
 > Credentials are optional. You can also create a namespace without a managed identity by omitting the `--enable-credential-policy` and `--policy-name` flags.
@@ -155,7 +155,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
     ```
 
     > [!TIP]
-    > You can also create a custom policy using the `az iot adr ns policy create` command. For more information, see [Create and manage namespaces](../articles/iot-hub/iot-hub-certificate-management.md#create-a-custom-policy).
+    > You can also create a custom policy using the `az iot adr ns policy create` command. For more information, see [Create and manage namespaces](../articles/iot-hub/iot-hub-device-registry-namespaces.md#create-a-custom-policy-for-your-namespace).
 
     > [!NOTE]
     > The creation of the namespace with system-assigned managed identity might take up to 5 minutes.

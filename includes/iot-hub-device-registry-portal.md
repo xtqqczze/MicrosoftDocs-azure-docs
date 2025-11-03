@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 11/05/2021
+ms.date: 11/05/2025
 ---
 
 ## Create an IoT hub with ADR integration using Azure portal
@@ -28,10 +28,10 @@ Have an Azure account. If you don't have an Azure account, create a [free accoun
    | **Subscription** | Select the subscription to use for your hub. |
    | **Resource group** | Select a resource group or create a new one. To create a new one, select **Create new** and fill in the name you want to use.|
    | **IoT hub name** | Enter a name for your hub. This name must be globally unique, with a length between 3 and 50 alphanumeric characters. The name can also include the dash (`'-'`) character.|
-   | **Region** | IoT Hub with ADR is in **preview** and only available in [certain regions](iot-hub-faq.md#what-are-the-supported-regions-for-iot-hub-with-adr). Select the region, closest to you, where you want your hub to be located.|
+   | **Region** | IoT Hub with ADR is in **preview** and only available in [certain regions](../articles/iot-hub/iot-hub-faq.md#what-are-the-supported-regions-for-iot-hub-with-adr). Select the region, closest to you, where you want your hub to be located.|
    | **Tier** | Select the **Preview** tier. To compare the features available to each tier, select **Compare tiers**.|
    | **Daily message limit** | Select the maximum daily quota of messages for your hub. The available options depend on the tier you select for your hub. To see the available messaging and pricing options, select **See all options** and select the option that best matches the needs of your hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling).|
-   | **ADR namespace** | Select an existing ADR namespace or create a new one. To create a new one, select **Create new** and fill in the name you want to use. For more information, see [Create and manage namespaces](iot-hub-device-registry-namespaces.md).|
+   | **ADR namespace** | Select an existing ADR namespace or create a new one. To create a new one, select **Create new** and fill in the name you want to use. For more information, see [Create and manage namespaces](../articles/iot-hub/iot-hub-device-registry-namespaces.md).|
    | **User managed identity** | Select a user-assigned managed identity to link to your IoT hub. This identity is used to securely access other Azure resources, such as ADR namespace and DPS. If you don't have a user-assigned managed identity, you can create one in the Azure portal. For more information, see [Create a user-assigned managed identity in the Azure portal](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal). |
  
 
@@ -112,7 +112,7 @@ If you select **Create new** for the ADR namespace, complete the following steps
 
     Tags are name/value pairs. You can assign the same tag to multiple resources and resource groups to categorize resources and consolidate billing. In this document, you don't add any tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources).
 
-    :::image type="content" source="./includes/media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Screen capture that shows how to assign tags for a new IoT hub.":::
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Screen capture that shows how to assign tags for a new IoT hub.":::
 
 1. Select **Next: Review + create** to review your choices.
 1. Select **Create** to start the deployment of your new hub. Your deployment might progress for a few minutes while the hub is being created. Once the deployment is complete, select **Go to resource** to open the new hub.

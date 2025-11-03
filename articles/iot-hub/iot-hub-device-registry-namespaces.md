@@ -93,11 +93,6 @@ az iot ops ns create -n <my namespace name> -g $RESOURCE_GROUP
     > [!NOTE]
     > Schema registries are only available if you have an Azure IoT Operations instance in your subscription. 
 
-1. Go to the **Assets** page to view the assets in Azure Device Registry. By default, the **Assets** page shows the assets in all namespaces in your subscription. Use the filters to view a subset of the assets, such as the assets in a specific namespace or resource group:
-
-    :::image type="content" source="media/device-registry/azure-device-registry-assets.png" alt-text="Screenshot of Azure Device Registry assets page in the Azure portal." lightbox="media/device-registry/azure-device-registry-assets.png":::
-
-
 ### [Azure CLI](#tab/cli)
 
 1. List all the ADR namespaces in your subscription:
@@ -133,11 +128,11 @@ If you already have a Device Provisioning Service (DPS) instance, you can link i
 
 1. A pane appears where you can select the ADR namespace you want to link to your DPS instance.
 1. Select the namespace from the dropdown list. 
-1. Select a user-assigned managed identity to link to your DPS instance. This identity is used to securely access other Azure resources, such as ADR namespace. If you don't have a user-assigned managed identity, you can create one in the Azure portal. For more information, see [Create a user-assigned managed identity in the Azure portal](/entra/identity/managed-identities-azure-resource).
+1. Select a user-assigned managed identity to link to your DPS instance. This identity is used to securely access other Azure resources, such as ADR namespace. If you don't have a user-assigned managed identity, you can create one in the Azure portal. For more information, see [Create a user-assigned managed identity in the Azure portal](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal).
 1. Select **Add** to link the namespace to your DPS instance.
 
 
-    :::image type="content" source="media/device-registry/namespace-linking-2.png" alt-text="Screenshot of Azure Device Registry assets page in the Azure portal." lightbox="media/device-registry/namespace-linking-2.png":::
+    :::image type="content" source="media/device-registry/namespace-linking-2.png" alt-text="Screenshot of Azure Device Registry namespace linking an existing DPS instance in the Azure portal." lightbox="media/device-registry/namespace-linking-2.png":::
 
 ### [Azure CLI](#tab/cli)
 
