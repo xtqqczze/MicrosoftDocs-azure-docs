@@ -59,24 +59,24 @@ To generate report, complete the following steps:
 2. Search for the assessment with the **Workloads** filter and select it. 
 3. On the assessment **Overview** page, under **Add code insights** select **Using GitHub Copilot assessment**. 
 
-:::image type="content" source="./media/enhancing-web-app-assessment/using-github-copilot-assessment.png" alt-text="The screenshot shows how to select using github copilot assessment." lightbox="./media/enhancing-web-app-assessment/using-github-copilot-assessment.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/using-github-copilot-assessment.png" alt-text="The screenshot shows how to select using github copilot assessment." lightbox="./media/add-github-copilot-code-insights/using-github-copilot-assessment.png":::
 
 4. In the Add code insights page, select **Upload a zip file**.  
 
-:::image type="content" source="./media/enhancing-web-app-assessment/upload-zip-file.png" alt-text="The screenshot shows how to upload a zip file." lightbox="./media/enhancing-web-app-assessment/upload-zip-file.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/upload-zip-file.png" alt-text="The screenshot shows how to upload a zip file." lightbox="./media/add-github-copilot-code-insights/upload-zip-file.png":::
 
 5. Select **Browse**, and then select the location of the ZIP file containing reports you want to import and then select **Upload**. Wait for the upload and validation to complete.
 
-:::image type="content" source="./media/enhancing-web-app-assessment/add-code-insights.png" alt-text="The screenshot shows how to add code insights." lightbox="./media/enhancing-web-app-assessment/add-code-insights.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/add-code-insights.png" alt-text="The screenshot shows how to add code insights." lightbox="./media/add-github-copilot-code-insights/add-code-insights.png":::
 
 6. In the Web app list, under the **GitHub Copilot assessment** report dropdown, view the uploaded reports under **Uploaded from zip file**. 
 
-:::image type="content" source="./media/enhancing-web-app-assessment/upload-from-zip-file.png" alt-text="The screenshot shows how to upload from the zip file." lightbox="./media/enhancing-web-app-assessment/upload-from-zip-file.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/upload-from-zip-file.png" alt-text="The screenshot shows how to upload from the zip file." lightbox="./media/add-github-copilot-code-insights/upload-from-zip-file.png":::
 
 7. Select the appropriate report to map to the respective web app. Repeat these steps for all required web app.  
 8. After mapping, select **Add** and wait for the process to complete.
 
-:::image type="content" source="./media/enhancing-web-app-assessment/add.png" alt-text="The screenshot shows how to add web app." lightbox="./media/enhancing-web-app-assessment/add.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/add.png" alt-text="The screenshot shows how to add web app." lightbox="./media/add-github-copilot-code-insights/add.png":::
  
 9. After mapping is complete the assessment will be marked as outdated. Select **Recalculate** to initiate recalculation.
 10. After recalculation is complete, review the updated code insights.  
@@ -97,27 +97,27 @@ Create a new **GitHub App** by following these steps:
 
 1. In the top right corner of **GitHub** page, select your **profile picture**. 
 1. Navigate to your account settings. 
-  1. For an app owned by a personal account, select **Settings**. 
-    1. Select **Your organization** and then **Settings** from right of the organization. 
-  1. For an app owned by an enterprise:  
-    1. If you use **Enterprise Managed Users**, select **Your enterprise** to go directly to the enterprise account settings. 
-    1. If you use personal accounts, select **Your enterprises** and then to the right of the enterprise, select **Settings**. 
-1. Navigate to the **GitHub App** settings. 
-  1. For an app owned by a personal account or organization:  In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**. 
-  1. For an app owned by an enterprise: In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
+    1. For an app owned by a personal account, select **Settings**. 
+      1. Select **Your organization** and then **Settings** from right of the organization. 
+    1. For an app owned by an enterprise:  
+      1. If you use **Enterprise Managed Users**, select **Your enterprise** to go directly to the enterprise account settings. 
+      1. If you use personal accounts, select **Your enterprises** and then to the right of the enterprise, select **Settings**. 
+  1. Navigate to the **GitHub App** settings. 
+    1. For an app owned by a personal account or organization:  In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**. 
+    1. For an app owned by an enterprise: In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
     
-:::image type="content" source="./media/enhancing-web-app-assessment/new-github-app.png" alt-text="The screenshot shows how to select the new github app." lightbox="./media/enhancing-web-app-assessment/new-github-app.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/new-github-app.png" alt-text="The screenshot shows how to select the new github app." lightbox="./media/add-github-copilot-code-insights/new-github-app.png":::
 
 1. Provide the following details to set up your new GitHub App: 
   1. Under **GitHub App name**, enter a name for your app.  
   1. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and is not used in this process. 
   
-:::image type="content" source="./media/enhancing-web-app-assessment/register-new-github.png" alt-text="The screenshot shows the homepage url." lightbox="./media/enhancing-web-app-assessment/register-new-github.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/register-new-github.png" alt-text="The screenshot shows the homepage url." lightbox="./media/add-github-copilot-code-insights/register-new-github.png":::
 
   1. Ensure that **Expire user authorization tokens** is selected.  
   1. Deselect **Active** under **Webhook** 
   
-:::image type="content" source="./media/enhancing-web-app-assessment/active-webhook.png" alt-text="The screenshot shows how to deselect the active webook." lightbox="./media/enhancing-web-app-assessment/active-webhook.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/active-webhook.png" alt-text="The screenshot shows how to deselect the active webook." lightbox="./media/add-github-copilot-code-insights/active-webhook.png":::
 
   1. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
   
@@ -128,7 +128,7 @@ Create a new **GitHub App** by following these steps:
 
   1. Under **Where can this GitHub App be installed?** select **Only on this account** or **Any account**. 
   
-:::image type="content" source="./media/enhancing-web-app-assessment/permissions.png" alt-text="The screenshot shows the available persmissions." lightbox="./media/enhancing-web-app-assessment/permissions.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/permissions.png" alt-text="The screenshot shows the available persmissions." lightbox="./media/add-github-copilot-code-insights/permissions.png":::
     
 1. Select **Create GitHub App**. 
 
@@ -140,11 +140,11 @@ Follow these steps to install GitHub App on your repository:
 2. Select **Install App** 
 3. Select an account to install the app, and then select **Install**. Use the account that contains the repository for creating issues and uploading code scan reports. 
 
-:::image type="content" source="./media/enhancing-web-app-assessment/select-repository.png" alt-text="The screenshot shows how to select appropriate repository." lightbox="./media/enhancing-web-app-assessment/select-repository.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/select-repository.png" alt-text="The screenshot shows how to select appropriate repository." lightbox="./media/add-github-copilot-code-insights/select-repository.png":::
 
 4. Select **Only select repositories**, then select the appropriate repositories from **Select repositories**. You can select multiple repositories. When finished, select **Install**.
 
-    :::image type="content" source="./media/enhancing-web-app-assessment/install.png" alt-text="The screenshot shows how to install the selected repository." lightbox="./media/enhancing-web-app-assessment/install.png":::
+    :::image type="content" source="./media/add-github-copilot-code-insights/install.png" alt-text="The screenshot shows how to install the selected repository." lightbox="./media/add-github-copilot-code-insights/install.png":::
 
 5. After the installation completes, note the browser URL that contains the installation ID. For example: `https://github.com/settings/installations/<installationID>`
 
@@ -170,11 +170,11 @@ Collate the following GitHub App details and private key to create a GitHub conn
 3. On the assessment **Overview** page.   
 4. Under **Add code insights** select **Using GitHub Copilot Assessment**. 
 
-:::image type="content" source="./media/enhancing-web-app-assessment/github-copilot-assessment.png" alt-text="The screenshot shows how to add code insights by using github copilot assessment." lightbox="./media/enhancing-web-app-assessment/github-copilot-assessment.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/github-copilot-assessment.png" alt-text="The screenshot shows how to add code insights by using github copilot assessment." lightbox="./media/add-github-copilot-code-insights/github-copilot-assessment.png":::
 
 5. In the **Add code insights** page, select **Create GitHub** connection. 
 
-:::image type="content" source="./media/enhancing-web-app-assessment/github-create-connections.png" alt-text="The screenshot shows how to create github connections." lightbox="./media/enhancing-web-app-assessment/github-create-connections.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/github-create-connections.png" alt-text="The screenshot shows how to create github connections." lightbox="./media/add-github-copilot-code-insights/github-create-connections.png":::
 
 6. In the **Create new GitHub** connection page, provide the following details: 
 
@@ -190,7 +190,7 @@ Collate the following GitHub App details and private key to create a GitHub conn
 8. On the **Add code insight** page in the web app, from the list, select **Request report via GitHub**. 
 9. In the **Request report via GitHub** page, select the appropriate connection name and then select **Request**.  
 
-:::image type="content" source="./media/enhancing-web-app-assessment/request-report-via-github.png" alt-text="The screenshot shows how to request report via github." lightbox="./media/enhancing-web-app-assessment/request-report-via-github.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/request-report-via-github.png" alt-text="The screenshot shows how to request report via github." lightbox="./media/add-github-copilot-code-insights/request-report-via-github.png":::
 
 10. Azure Migrate creates GitHub issue in the repository specified in the connection details. 
 11. When the code scan report is uploaded to the GitHub issue, Azure Migrate automatically maps the report to the web app. 
