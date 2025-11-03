@@ -155,7 +155,321 @@ To automate the creation of service group membership, you can define an Azure Po
 
 ## Creating memberships based on a Resource Graph query 
 
+ Membership to a service group could be captured via an Azure Resource Graph query. Examples include resources that need to be grouped together for job to be done. In the example below, we will group storage accounts that need to enable soft delete. We denote my selected storage accounts via an Resource Graph query that gather resources based on tag values. 
 
+>!Note
+> This is an example powershell command on how to use a Resource Group query to create Service Groups members for that point in time. 
+
+```ps1
+# Requires -Modules Az.ResourceGraph
+
+<#
+.SYNOPSIS
+    This script deploys service group members to resources in Azure based on a query that checks for a specified tag.
+
+.DESCRIPTION
+    This script uses Az.ResourceGraph to query resources with a specific tag across a given subscription and tenant.
+    It then deploys a service group member relationship for each of these resources using an ARM template.
+    The user must have owner permissions on the Service Group to add members.
+
+    This script can bring in resource from different subscriptions if they exist in the same tenant.
+    However the user will be prompted to login to each subscription the resources exist in.
+.PARAMETER TagName
+    The name of the tag to filter resources.
+
+.PARAMETER subscriptionId
+    The ID of the subscription to login. This parameter is only used to authenticate with
+    Connect-AzAccount.
+    Resources from other subscriptions in the same tenant will also be found.
+
+.PARAMETER tenantId
+    The ID of the tenant to filter resources.
+
+.PARAMETER ServiceGroupId
+    The ID of the service group to which the members will be added.
+    Description of what this parameter does.
+    Repeat for each parameter.
+
+.EXAMPLE
+    PS> .\New-ServiceGroupMembershipFromTags.ps1 -TagName "Environment" -tenantId "MyTenant" -subscription "MySub" -ServiceGroupId "MyServiceGroup"
+#>
+
+param(
+    [Parameter(Mandatory = $true)]
+    [string]$TagName,  # [INPUT HERE] Tag name to filter resources
+
+    [Parameter(Mandatory = $true)]
+    [string]$subscription,  # [INPUT HERE] Subscription ID or name to login
+
+    [Parameter(Mandatory = $true)]
+    [string]$tenantId,  # [INPUT HERE] Tenant ID to filter resources
+
+    [Parameter(Mandatory = $true)]
+    [string]$ServiceGroupId  # [INPUT HERE] Service Group ID
+)
+
+# Authenticate
+Connect-AzAccount -TenantId $tenantId -Subscription $subscription
+
+# Query ARG for resources with the specified tag
+# This should find anything with the tag, under any subscription in the tenant
+# This query can be updated to the desired scenario
+
+$query = @"
+Resources
+| where isnotnull(tags['$TagName'])
+"@
+
+$resources = Search-AzGraph -UseTenantScope -Query $query
+
+if ($resources.Count -eq 0) {
+    Write-Host "No resources found with tag '$TagName'."
+    exit
+}
+
+Write-Host "Found $($resources.Count) resources with tag '$TagName'."
+Write-Host "Resources: $($resources | Format-Table | Out-String)"
+
+$i = 0
+$lastSubscriptionId = (Get-AzContext).Subscription.id
+foreach ($resource in $resources) {
+    $resourceId = $resource.id
+    $resourceSubscriptionId = $resource.subscriptionId
+    $resourceGroup = $resource.resourceGroup
+
+    Write-Host "Deploying serviceGroupMember for resource: $($resource.name) of type $($resource.type) in subscription: $resourceSubscriptionId in resource group: $resourceGroup"
+
+    # ARM template
+    $template = @"
+    {
+      "`$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [
+        {
+          "type": "Microsoft.Relationships/serviceGroupMember",
+          "scope": "$resourceId",
+          "apiVersion": "2023-09-01-preview",
+          "name": "$ServiceGroupId-relation-$i",
+          "properties": {
+            "targetId": "/providers/Microsoft.Management/serviceGroups/$ServiceGroupId"
+          }
+        }
+      ]
+    }
+"@
+    $i++
+    Write-Host "Using template: $template"
+
+    # Save template to temporary file
+    # Using temp files to keep it Powershell 5 compatible
+    # Using -TemplateBody with `ConvertTo-Json -AsHashtable` requires powershell 6
+    $tempFile = [System.IO.Path]::GetTempFileName() + ".json"
+
+    # Deploy template
+    try {
+        $template | Out-File -FilePath $tempFile -Encoding utf8
+
+        # Change subscription if needed.
+        if ($lastSubscriptionId -ne $resourceSubscriptionId) {
+            Write-Host "Switching to subscription: $resourceSubscriptionId"
+            Connect-AzAccount -SubscriptionId $resourceSubscriptionId -WarningAction Ignore
+            $lastSubscriptionId = $resourceSubscriptionId
+            Get-AzContext
+        }
+
+        New-AzResourceGroupDeployment `
+            -ResourceGroupName $resourceGroup `
+            -TemplateFile $tempFile `
+            -Mode Incremental
+
+        Write-Host "Successfully deployed serviceGroupMember for $($resource.name)."
+    }
+    catch {
+      Write-Warning "Failed to deploy for $($resource.name): $_"
+    }
+    finally {
+        # Clean up temp file
+        if (Test-Path $tempFile) {
+            Remove-Item $tempFile
+        }
+    }
+}
+```
+
+The parameter `$query` can be updated to the desired query. Here is an example response: 
+
+```txt
+PS C:\> .\src\New-ServiceGroupMembershipFromTags.ps1 -TagName "richang" -tenantId "XXXXXXXXXXXXXX" -ServiceGroupId "XXXXXXXX" -Subscription "XXXXXXXXXXXX"
+Please select the account you want to login with.
+
+Retrieving subscriptions for the selection...
+
+Found 4 resources with tag 'richang'.
+Resources:
+id                                                                                                                                              name                 type
+--                                                                                                                                              ----                 ----
+/subscriptions/{subID}/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10283num1 richangtest10283num1 microsoft....
+/subscriptions/{subID}/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10283num2 richangtest10283num2 microsoft....
+/subscriptions/{subID}/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10301num1 richangtest10301num1 microsoft....
+/subscriptions/{subID}/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10301num2 richangtest10301num2 microsoft....
+
+
+
+Deploying serviceGroupMember for resource: richangtest10283num1 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXXXXXXXXX in resource group: richangtest
+Using template:     {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [
+        {
+          "type": "Microsoft.Relationships/serviceGroupMember",
+          "scope": "/subscriptions/{subID}/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10283num1",
+          "apiVersion": "2023-09-01-preview",
+          "name": "sgm-0",
+          "properties": {
+            "targetId": "/providers/Microsoft.Management/serviceGroups/XXXXXXXXXXXXX"
+          }
+        }
+      ]
+    }
+Subscription name        Tenant
+-----------------        ------
+{subscription name}      {Tenant Name}
+
+ResourceGroupName       : richangtest
+OnErrorDeployment       :
+DeploymentName          : tmp9832.tmp
+CorrelationId           : 07b14325-151e-4069-a0d8-51cba344c679
+ProvisioningState       : Succeeded
+Timestamp               : 10/30/2025 8:44:18 PM
+Mode                    : Incremental
+TemplateLink            :
+TemplateLinkString      :
+DeploymentDebugLogLevel :
+Parameters              :
+Tags                    :
+ParametersString        :
+Outputs                 :
+OutputsString           :
+
+Successfully deployed serviceGroupMember for richangtest10283num1.
+Deploying serviceGroupMember for resource: richangtest10283num2 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXX in resource group: richangtest
+Using template:     {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [
+        {
+          "type": "Microsoft.Relationships/serviceGroupMember",
+          "scope": "/subscriptions/{subID}/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10283num2",
+          "apiVersion": "2023-09-01-preview",
+          "name": "sgm-1",
+          "properties": {
+            "targetId": "/providers/Microsoft.Management/serviceGroups/XXXXXXXXXX"
+          }
+        }
+      ]
+    }
+
+ResourceGroupName       : richangtest
+OnErrorDeployment       :
+DeploymentName          : tmpF70C.tmp
+CorrelationId           : 9d792775-8a83-4c89-b98d-9c9a74fb3574
+ProvisioningState       : Succeeded
+Timestamp               : 10/30/2025 8:44:41 PM
+Mode                    : Incremental
+TemplateLink            :
+TemplateLinkString      :
+DeploymentDebugLogLevel :
+Parameters              :
+Tags                    :
+ParametersString        :
+Outputs                 :
+OutputsString           :
+
+Successfully deployed serviceGroupMember for richangtest10283num2.
+Deploying serviceGroupMember for resource: richangtest10301num1 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXXXX in resource group: richangtest
+Using template:     {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [
+        {
+          "type": "Microsoft.Relationships/serviceGroupMember",
+          "scope": "/subscriptions/XXXXXXXXXXXXXX/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10301num1",
+          "apiVersion": "2023-09-01-preview",
+          "name": "sgm-2",
+          "properties": {
+            "targetId": "/providers/Microsoft.Management/serviceGroups/XXXXXXXXXXX"
+          }
+        }
+      ]
+    }
+Switching to subscription: XXXXXXXXXXXXX
+Please select the account you want to login with.
+
+Retrieving subscriptions for the selection...
+Subscription Name Microsoft
+
+Name               : Subscription Name (SubID) - Tenant ID - User ID
+Subscription       : XXXXXXXXXXXXXXXX
+Account            : richang@microsoft.com
+Environment        : AzureCloud
+Tenant             : XXXXXXXXXXXXXXXX
+TokenCache         :
+VersionProfile     :
+ExtendedProperties : {}
+
+
+ResourceGroupName       : richangtest
+OnErrorDeployment       :
+DeploymentName          : tmp55E7.tmp
+CorrelationId           : 301044aa-f0ec-4e6b-9e2a-dc8935419a91
+ProvisioningState       : Succeeded
+Timestamp               : 10/30/2025 8:51:43 PM
+Mode                    : Incremental
+TemplateLink            :
+TemplateLinkString      :
+DeploymentDebugLogLevel :
+Parameters              :
+Tags                    :
+ParametersString        :
+Outputs                 :
+OutputsString           :
+
+Successfully deployed serviceGroupMember for richangtest10301num1.
+Deploying serviceGroupMember for resource: richangtest10301num2 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXXX in resource group: richangtest
+Using template:     {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [
+        {
+          "type": "Microsoft.Relationships/serviceGroupMember",
+          "scope": "/subscriptions/XXXXXXXXXXXXXX/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10301num2",
+          "apiVersion": "2023-09-01-preview",
+          "name": "sgm-3",
+          "properties": {
+            "targetId": "/providers/Microsoft.Management/serviceGroups/XXXXXXXXXXXXX"
+          }
+        }
+      ]
+    }
+
+ResourceGroupName       : richangtest
+OnErrorDeployment       :
+DeploymentName          : tmpBB4C.tmp
+CorrelationId           : 85bed56d-251e-4737-b91f-ad06b4b02bec
+ProvisioningState       : Succeeded
+Timestamp               : 10/30/2025 8:52:03 PM
+Mode                    : Incremental
+TemplateLink            :
+TemplateLinkString      :
+DeploymentDebugLogLevel :
+Parameters              :
+Tags                    :
+ParametersString        :
+Outputs                 :
+OutputsString           :
+
+Successfully deployed serviceGroupMember for richangtest10301num2.
+```
 
 
 
