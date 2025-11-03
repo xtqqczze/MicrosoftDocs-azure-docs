@@ -44,9 +44,9 @@ To create Migration Waves manually using Azure Migrate portal, follow these step
 1. Review, add, and remove workloads and applications that you want to include in the wave. You can use filters to refine the selection.  
     If you select an assessment, the workloads and applications are limited to the scope of that assessment. You can add more workloads and applications later.
 
-:::image type="content" source="./media/how-to-plan-create-waves/wave-create-completion.png" alt-text="The screenshot shows the completion of the wave creation." lightbox="./media/how-to-plan-create-waves/wave-create-completion.png":::
-
 8. After you finalized the wave components, select **Create Wave**
+
+:::image type="content" source="./media/how-to-plan-create-waves/wave-create-completion.png" alt-text="The screenshot shows the completion of the wave creation." lightbox="./media/how-to-plan-create-waves/wave-create-completion.png":::
 
 In a few seconds, Azure Migrate creates the wave project. To view it, select **View Waves** in the Project overview.
 

@@ -33,10 +33,10 @@ This section explains how to execute a migration wave in Azure Migrate using the
 Use the application migration settings to review workloads, execute migration flows, and track tasks for completion.
 
 1. Select the application name. Azure Migrate groups the workload by source-to-target combinations that share a similar migration and modernization journey.
+2. For each source to target combination, select **Review and Execute**. If supported, Azure Migrate starts the execution flow for the workload.
 
 :::image type="content" source="./media/how-to-execute-track-waves/application-execute.png" alt-text="The screenshot shows the details of the application execute waves." lightbox="./media/how-to-execute-track-waves/application-execute.png"::: 
 
-2. For each source to target combination, select **Review and Execute**. If supported, Azure Migrate starts the execution flow for the workload.
 3. If the application has tracked tasks, select the number under **Tasks**.
 4. After you complete the task out of band, select **Mark as Complete**.
 
