@@ -4,7 +4,7 @@ description: "Tutorial: Add OPC UA assets that publish messages to the MQTT brok
 author: dominicbetts
 ms.author: dobett
 ms.topic: tutorial
-ms.date: 07/25/2025
+ms.date: 11/03/2025
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -146,7 +146,7 @@ The simulator's application instance certificate is now in the connector for OPC
 
 In this step, you use the operations experience to add a device that enables you to connect to the OPC PLC simulator. To add a device:
 
-1. Select **Devices** and then **Create device**:
+1. Select **Devices** and then **Create new**:
 
     :::image type="content" source="media/tutorial-add-assets/devices.png" lightbox="media/tutorial-add-assets/devices.png" alt-text="Screenshot that shows the devices page in the operations experience.":::
 
@@ -161,7 +161,6 @@ In this step, you use the operations experience to add a device that enables you
     | Endpoint name | `opc-ua-connector-0` |
     | OPC UA server URL | `opc.tcp://opcplc-000000:50000` |
     | User authentication mode | `Username password` |
-    | Synced secret name | `plc-credentials` |
 
 In this tutorial, you add new secrets to your Azure Key Vault instance from the operations experience web UI. The secrets are automatically synced to your Kubernetes cluster:
 
@@ -185,7 +184,7 @@ This configuration deploys a new device called `opc-ua-connector` with an endpoi
 kubectl get device -n azure-iot-operations
 ```
 
-You can see the `plcusername` and `plcpassword` secrets in the Azure Key Vault instance in your resource group. The secrets are synced to your Kubernetes cluster where you can see them by using the `kubectl get secret plc-credentials -n azure-iot-operations` command. You can also see the secrets in the operations experience on the **Manage synced secrets** page.
+You can see the `plcusername` and `plcpassword` secrets in the Azure Key Vault instance in your resource group. The secrets are synced to your Kubernetes cluster where you can see them by using the `kubectl get secret -n azure-iot-operations` command. You can also see the secrets in the operations experience on the **Manage synced secrets** page.
 
 ## Manage your assets
 
@@ -215,25 +214,38 @@ Remove the existing **Custom properties** and add the following custom propertie
 
 :::image type="content" source="media/tutorial-add-assets/create-asset-details.png" lightbox="media/tutorial-add-assets/create-asset-details.png" alt-text="Screenshot of Azure IoT Operations asset details page.":::
 
-Select **Next** to go to the **Add tags** page.
+Select **Next** to go to the **Datasets** page.
 
-### Create OPC UA tags
+### Create a dataset
 
-Add an OPC UA tag on the **Tags** page. To add a tag, select **Add tag**. Enter the tag details shown in the following table:
+To create a dataset, select **Create dataset**. Enter the dataset details shown in the following table:    
 
-| Data source        | Tag name    |
+| Field | Value |
+| --- | --- |
+| Dataset name | `thermostat` |
+| Destination | `MQTT` |
+| Topic | `azure-iot-operations/data/thermostat` |
+
+Select **Create and next** to save the dataset and go to the **Data points** page.
+
+> [!TIP]
+> You can select **Manage default settings** to change the default sampling interval and queue size for each data point.
+
+### Create OPC UA data points
+
+Add an OPC UA data point on the **Data points** page. To add a data point, select **Add data point**. Enter the data point details shown in the following table:
+
+| Data source        | Data point name    |
 | ------------------ | ----------- |
 | ns=3;s=SpikeData   | temperature |
 
 The data source value here is a specific OPC UA simulator node. The node generates random values within a specified range and also has intermittent spikes.
 
-You can select **Manage default settings** to change the default sampling interval and queue size for each tag.
+Select **Save**.
 
-:::image type="content" source="media/tutorial-add-assets/add-tag.png" lightbox="media/tutorial-add-assets/add-tag.png" alt-text="Screenshot of Azure IoT Operations add tag page.":::
+:::image type="content" source="media/tutorial-add-assets/add-data-point.png" lightbox="media/tutorial-add-assets/add-data-point.png" alt-text="Screenshot of Azure IoT Operations add data point page.":::
 
-To configure the MQTT topic to publish the tag data to, select **Manage default dataset**. Enter `azure-iot-operations/data/thermostat` as the MQTT topic, then select **Update**. This topic is used by the data flow in the next tutorial to send messages to the cloud.
-
-Select **Next** to go to the **Add events** page and then **Next** to go to the **Review** page.
+Select **Next** to go to the **Event groups** page, then select **Next** to go to the **Management groups** page, and then **Next** to go to the **Review** page.
 
 ### Review
 
