@@ -55,6 +55,9 @@ This capability is currently in public preview across all public regions for Rec
 
 - **Soft delete and re-registration of backup containers**: You can unregister the backup containers (which you can soft delete) if you've deleted all backup items in the container. You can then register such soft deleted containers to other vaults. This is applicable for applicable workloads only, including SQL in Azure VM backup, SAP HANA in Azure VM backup and backup of on-premises servers.
 
+>[!Note]
+> To unregister hybrid backups(using MARS, DPM, or MABS), you need not disable soft delete. Backup data will move to soft deleted state and will be deleted permenently after soft delete retention period expires.
+
 - **Soft delete across workloads**: Soft delete applies to all vaulted datasources alike and is supported for Recovery Services vaults and Backup vaults. Soft delete also applies to operational backups of disks and VM backup snapshots used for instant restores. However, unlike vaulted backups, these snapshots can be directly accessed and deleted before the soft delete period expires. Soft delete is currently not supported for operational backup for Blobs and Azure Files.
 
 - **Soft delete of recovery points**: This feature allows you to recover data from recovery points that might have been deleted due to making changes in a backup policy or changing the backup policy associated with a backup item. Soft delete of recovery points isn't supported for log recovery points in SQL and SAP HANA workloads.
