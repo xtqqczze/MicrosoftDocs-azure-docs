@@ -14,7 +14,7 @@ ms.custom: engagement-fy24
 
 #  Add GitHub Copilot Code insights to Web App Assessments
 
-This article describes how to improve web app assessments by adding code scan insights using GitHub Copilot assessment when modernising applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and receive recommendations for appropriate migration strategies based on the code changes identified during the scan.
+This article describes how to improve web app assessments by adding code scan insights using GitHub Copilot assessment when modernizing applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and receive recommendations for appropriate migration strategies based on the code changes identified during the scan.
 
 In this article, you’ll learn how to: 
 
@@ -85,7 +85,7 @@ To generate report, complete the following steps:
 
 This method connects Azure Migrate to a GitHub repository using provided connection details and automatically creates an issue in that repository. By using the GitHub Copilot app modernization extension, you can scan your code and upload the reports directly to the related GitHub issue. After updating the issue, Azure Migrate automatically attach the code scan reports to the associated web applications. This approach allows cloud administrators and developers to collaborate while maintaining application code security boundaries. 
 
-### Prerquisites
+### Prerequisites
 
 - Ensure a web app assessment exists for each required web app because code scan reports can only be added from an existing assessment. 
 - Provide information about the GitHub repository required for integration with Azure Migrate to allow automatic requests and synchronization of code scan reports. 
@@ -112,7 +112,7 @@ Create a new **GitHub App** by following these steps:
 
 1. Provide the following details to set up your new GitHub App: 
   1. Under **GitHub App name**, enter a name for your app.  
-  1. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and is not used in this process. 
+  1. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and isn't used in this process. 
   
 :::image type="content" source="./media/add-copilot-code-insights/register-new-github.png" alt-text="The screenshot shows the homepage url." lightbox="./media/add-copilot-code-insights/register-new-github.png":::
 
@@ -183,7 +183,7 @@ Collate the following GitHub App details and private key to create a GitHub conn
 | Field  | Details  | 
 | --- | --- | 
 | Connection name  | Provide a name for the connection. This name appears in the list when you add report to the web app.  |    
-| GitHub repository URL   |Specify the GitHub repository for creating an issue to request a code scan report. Upload the code scan report to this issue using GitHub Copilot.  </br> </br> Use this repository only to create GitHub issues and read code scan reports from those issues. You do not need to include application code in this repository.  | 
+| GitHub repository URL   |Specify the GitHub repository for creating an issue to request a code scan report. Upload the code scan report to this issue using GitHub Copilot.  </br> </br> Use this repository only to create GitHub issues and read code scan reports from those issues. You don't need to include application code in this repository.  | 
 | App ID  | Enter the App ID of the GitHub App you created to allow Azure Migrate access. | 
 | Private Key  | Copy all the contents of the private key file you generated for your GitHub App.  |
 | Installation ID  | Enter the Installation ID of the GitHub App installed on the repository you specified above.  |
@@ -233,15 +233,15 @@ This section helps resolve issues related to importing paths or uploading zip fi
 
  - Contains only JSON files.
  - Zip file is less than 50 MB. 
- - Total number of file in zip file are less than 100. 
+ - Total number of file in zip file is less than 100. 
  - Maximum size of uncompressed zip file is less than 500 MB.
  - Zip file doesn't contain another nested zip file(s).
 
   You might see errors if the uploaded zip file doesn’t meet the required constraints. Here are some examples:
  
- - The uploaded blob content type '%Value;' is not supported. - *Occurs when the uploaded file is not a zip file*. 
+ - The uploaded blob content type '%Value;' isn't supported. - *Occurs when the uploaded file is not a zip file*. 
  - Zip contains too many files (%FileCount;). Limit is %MaxFileCount;. - *Occurs when the zip file contains more than 100 files*. 
- - Total uncompressed size %UncompressedSize;MB of uploaded zip file exceeds limit of %MaxUncompressedSize;MB. - *Occurs when the uncompressed size of the zip file exceeds 500 MB*.
+ - Total uncompressed size %UncompressedSize; MB of uploaded zip file exceeds limit of %MaxUncompressedSize;MB. - *Occurs when the uncompressed size of the zip file exceeds 500 MB*.
  - Zip entry '%EntryName;' is invalid (possible path traversal). - *Occurs when a file name in the zip contains path traversal characters such as ../../.*  
  - The uploaded zip file is empty and contains no valid files. - *Occurs when the zip file does not contain any files.*
 
@@ -251,7 +251,7 @@ If you see any of these errors, remove the invalid or extra files and recreate t
 When this occurs, Azure Migrate uses content from valid files to generate the report. Files that fail validation return errors like:
 
  - The report content is invalid or not in the expected JSON format. - Occurs when the JSON report schema is invalid or incompatible. 
- - The report does not contain supported targets for the specified framework. - Occurs when the report includes targets that Azure Migrate does not support. AppCAT supports many targets, but Azure Migrate only supports a subset.
+ - The report doesn't contain supported targets for the specified framework. - Occurs when the report includes targets that Azure Migrate doesn't support. AppCAT supports many targets, but Azure Migrate only supports a subset.
 
 When you encounter these errors, regenerate the report with the correct configuration and upload it again using a separate import flow.
 
