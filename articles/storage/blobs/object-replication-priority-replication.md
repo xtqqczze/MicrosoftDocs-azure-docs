@@ -17,8 +17,9 @@ ms.custom: references_regions
 
 Object replication (OR) currently copies all operations from a source storage account to one or more destination accounts asynchronously, with no guaranteed completion time. However, with the introduction of object replication priority replication, users can now choose to prioritize the replication of the operations in their replication policy. 
 
-Priority replication comes with a Service Level Agreement (SLA) guarantee if your policy's source and destination account are located within the same continent. The SLA ensures 99.0% of operations replicate from the source account to the destination account within 15 minutes during a billing month. Refer to the official [SLA terms](object-replication-priority-replication.md) for a comprehensive list of eligibility requirements.
+Priority replication comes with a Service Level Agreement (SLA) guarantee if your policy's source and destination account are located within the same continent. The SLA ensures 99.0% of operations replicate from the source account to the destination account within 15 minutes during a billing month. Refer to the official [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
 
+<!--
 > [!IMPORTANT]
 > This feature is generally available but is currently only offered in a limited number of regions.
 >
@@ -34,7 +35,7 @@ Priority replication comes with a Service Level Agreement (SLA) guarantee if you
 > - Switzerland North
 > - UAE North
 >
-> To gain access to the Azure portal experience of Object Replication priority replication, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowPriorityObjectReplicationInPortal as the feature name. The provider name for this preview feature is Microsoft.Storage.
+> To gain access to the Azure portal experience of Object Replication priority replication, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowPriorityObjectReplicationInPortal as the feature name. The provider name for this preview feature is Microsoft.Storage.-->
 
 ## Benefits of priority replication
 
@@ -57,14 +58,14 @@ When Object Replication Priority Replication is enabled, users benefit from prio
     - Your storage account or Replication Policy exceeds 1,000 PUT or DELETE operations per second and the resulting back log of writes are being replicated, and 
     - Existing blob replication is pending following a recent Replication Policy creation or update. Existing blob replication is estimated to progress at 100 TB per day on average but might experience reduced velocity when blobs with many versions are present.
   
-Refer to the official [SLA terms](object-replication-priority-replication.md) for a comprehensive list of eligibility requirements.
+Refer to the official [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
 
 > [!IMPORTANT]
 > Although a storage account can have up to two object replication policies, priority replication can only be enabled on one object replication policy per storage account. Users should plan accordingly when deciding to opt out of Priority replication, especially if the feature was enabled for critical workloads.
 
 ## Feature pricing
 
-Standard costs for read and write transactions, and for network egress still apply for object replication. These charges are consistent with existing OR pricing and should be considered when estimating the total cost of using priority replication. For detailed pricing information, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
+Standard costs for read and write transactions, and for network egress still apply for object replication. These charges are consistent with existing OR pricing and should be considered when estimating the total cost of using priority replication. Enabling OR priority replication has a per GB cost for all new data ingress. For detailed pricing information, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
 For an overview of Object Replication pricing, see the pricing section within the [object replication overview](object-replication-overview.md#billing) article.
 
