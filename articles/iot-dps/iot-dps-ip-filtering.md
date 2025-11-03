@@ -46,7 +46,7 @@ Any connection attempt from an IP address that matches a rejecting IP rule in yo
 
 By default, IP filtering is disabled and **Public network access** is set to *All networks*. This default setting means that your DPS accepts connections from any IP address, or conforms to a rule that accepts the 0.0.0.0/0 IP address range.
 
-:::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-default.png" alt-text="IoT DPS default IP filter settings.":::
+:::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-default.png" alt-text="Screenshot that shows the IoT DPS default IP filter settings in the Azure portal.":::
 
 ## Add an IP filter rule
 
@@ -64,7 +64,7 @@ To add an IP filter rule:
 
 6. Select **+ Add IP Filter Rule**.
 
-    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-add-rule.png" alt-text="Add an IP filter rule to an IoT DPS.":::
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-add-rule.png" alt-text="Screenshot that shows how to add an IP filter rule to an IoT DPS instance in the Azure portal.":::
 
 7. Fill in the following fields:
 
@@ -74,11 +74,11 @@ To add an IP filter rule:
     | **Address Range** |A single IPv4 address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255.|
     | **Action** |Select either **Allow** or **Block**.|
 
-    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png" alt-text="After selecting Add an IP Filter rule.":::
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png" alt-text="Screenshot that shows how to define and save an IP filter rule for an IoT DPS instance in the Azure portal.":::
 
 8. Select **Save**. You should see an alert notifying you that the update is in progress.
 
-    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png" alt-text="Notification about saving an IP filter rule.":::
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png" alt-text="Screenshot that shows the notification displayed while saving an IP filter rule in the Azure portal.":::
 
     >[!Note]
     > **+ Add IP Filter Rule** is disabled when you reach the maximum of 100 IP filter rules.
@@ -89,7 +89,7 @@ To edit an existing rule:
 
 1. Select the IP filter rule data you want to change.
 
-    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-rule-edit.png" alt-text="Edit an IP filter rule.":::
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-rule-edit.png" alt-text="Screenshot that shows how to edit an IP filter rule for an IoT DPS instance in the Azure portal.":::
 
 2. Make the change.
 
@@ -101,7 +101,7 @@ To delete an IP filter rule:
 
 1. Select the delete icon on the row of the IP rule you wish to delete.
 
-    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-delete-rule.png" alt-text="Delete an IoT DPS IP filter rule.":::
+    :::image type="content" source="./media/iot-dps-ip-filtering/ip-filter-delete-rule.png" alt-text="Screenshot that shows how to delete an IP filter rule for an IoT DPS instance in the Azure portal.":::
 
 2. Select **Save**.
 

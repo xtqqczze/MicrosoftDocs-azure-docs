@@ -213,7 +213,7 @@ Once you create the individual enrollment, a **primary key** and **secondary key
 
 1. Copy the value of the generated **Primary key**.
 
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-device-enrollment-primary-key.png" alt-text="Screenshot showing the enrollment details, highlighting the Copy button for the primary key of the device enrollment":::
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-device-enrollment-primary-key.png" alt-text="Screenshot showing the enrollment details, highlighting the Copy button for the primary key of the device enrollment.":::
 
 <a id="firstbootsequence"></a>
 

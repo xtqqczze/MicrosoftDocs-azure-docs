@@ -26,7 +26,7 @@ To turn off public network access:
 5. From the working pane, under **Public network access**, select **Disabled**
 6. Select **Save**.
 
-    :::image type="content" source="media/iot-dps-public-network-access/disable-public-access.png" alt-text="Image showing Azure portal where to turn off public network access" :::
+    :::image type="content" source="media/iot-dps-public-network-access/disable-public-access.png" alt-text="Image showing Azure portal where to turn off public network access." :::
 
 To turn on public network access:
 

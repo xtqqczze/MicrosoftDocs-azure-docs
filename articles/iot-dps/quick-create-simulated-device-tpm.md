@@ -636,7 +636,7 @@ In this section, you configure sample code to use the [Advanced Message Queuing 
 
 1. In the command window running the Java sample code on your machine, press *Enter* to continue running the application. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information.
 
-    :::image type="content" source="./media/quick-create-simulated-device-tpm/program-final-java.png" alt-text="Java TPM device program final":::
+    :::image type="content" source="./media/quick-create-simulated-device-tpm/program-final-java.png" alt-text="Screen capture of a Command Prompt window showing output from the Java sample code.":::
 
 ::: zone-end
 
