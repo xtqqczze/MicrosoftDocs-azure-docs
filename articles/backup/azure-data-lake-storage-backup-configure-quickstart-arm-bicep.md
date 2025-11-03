@@ -1,31 +1,31 @@
 ---
-title: Quickstart - Configure backup for Azure Data Lake Storage using ARM or Bicep template
-description: Learn how to configure backup for Azure Data Lake Storage using ARM or Bicep template.
+title: Quickstart - Configure vaulted backup for Azure Data Lake Storage using ARM or Bicep template
+description: Learn how to configure vaulted backup for Azure Data Lake Storage using ARM or Bicep template.
 ms.custom:
   - ignite-2025
   - devx-track-azurepowershell-azurecli, devx-track-azurecli
 zone_pivot_groups: backup-client-template-arm-bicep
 ms.topic: tutorial
-ms.date: 05/22/2025
+ms.date: 11/18/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As an IT administrator, I want to configure backup for Azure Data Lake Storage using the ARM or Bicep template so that I can ensure data protection against accidental or malicious deletions without maintaining on-premises infrastructure.
 ---
 
-# Quickstart: Configure backup for Azure Data Lake Storage using ARM or Bicep template
+# Quickstart: Configure vaulted backup for Azure Data Lake Storage
 
 ::: zone pivot="client-template-arm"
 
-This quickstart describes how to configure backup for [Azure Data Lake Storage operational and vaulted backup](azure-data-lake-storage-backup-overview.md) using an Azure Resource Manager (ARM) template.
+This quickstart describes how to configure [vaulted backup for Azure Data Lake Storage](azure-data-lake-storage-backup-overview.md) using an Azure Resource Manager (ARM) template.
 
 ## Prerequisites
 
 Before you back up Azure Data Lake Storage data, review the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md) for Azure Data Lake Storage backup.
 
-## Review the ARM template for Azure Data Lake Storage backup
+## Review the ARM template for Azure Data Lake Storage vaulted backup
 
-The following ARM template allows you to configure backup for two containers in a storage account with a backup policy. This backup policy runs daily and retains backups for 30 days, as well as weekly, monthly, and yearly backups for longer retention.
+The following example ARM template allows you to configure vaulted backup for two containers in a storage account with a backup policy. This backup policy runs daily and retains backups for 30 days, as well as weekly, monthly, and yearly backups for longer retention.
 
 ```json
 {
@@ -427,9 +427,11 @@ The following ARM template allows you to configure backup for two containers in 
 }
 ```
 
-## Deploy the ARM template for Azure Data Lake Storage backup
+## Deploy the ARM template for Azure Data Lake Storage vaulted backup
 
-To deploy the template for Azure Data Lake Storage backup, store the preceding template in a GitHub repository, and then run the following PowerShell script on Azure Cloud Shell.
+After you review the preceding template, deploy the template for Azure Data Lake Storage vaulted backup.
+
+To deploy the template, store the template in a GitHub repository, and then run the following PowerShell script on Azure Cloud Shell.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name (limited to eight characters) that is used to generate Azure resource names"
@@ -447,7 +449,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ::: zone pivot="client-template-bicep"
 
-This quickstart describes how to configure backup for [Azure Data Lake Storage operational and vaulted backup](azure-data-lake-storage-backup-overview.md) using a Bicep template.
+This quickstart describes how to configure [vaulted backup for Azure Data Lake Storage](azure-data-lake-storage-backup-overview.md) using a Bicep template.
 
 ## Prerequisites
 
@@ -456,9 +458,9 @@ Before you back up Azure Data Lake Storage data, ensure that the following prere
 - Configure your environment for Bicep development. [Learn how to install Bicep tools](/azure/azure-resource-manager/bicep/install).
 - Review the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md) for Azure Data Lake Storage backup.
 
-## Review the Bicep template for Azure Data Lake Storage backup
+## Review the Bicep template for Azure Data Lake Storage vaulted backup
 
-The following Bicep template allows you to configure backup for two containers in a storage account with a backup policy. This backup policy runs daily and retains backups for 30 days, as well as weekly, monthly, and yearly backups for longer retention.
+The following example Bicep template allows you to configure vaulted backup for two containers in a storage account with a backup policy. This backup policy runs daily and retains backups for 30 days, as well as weekly, monthly, and yearly backups for longer retention.
 
 
 ```BICEP
@@ -783,9 +785,11 @@ resource backupInstance 'Microsoft.DataProtection/backupVaults/backupInstances@2
 }
 ```
 
-## Deploy the Bicep template for Azure Data Lake Storage backup
+## Deploy the Bicep template for Azure Data Lake Storage vaulted backup
 
-To deploy the template for Azure Data Lake Storage backup, store the preceding template in a GitHub repository, and then run the following PowerShell script on Azure Cloud Shell.
+After you review the preceding template, deploy the template for Azure Data Lake Storage vaulted backup.
+
+To deploy the template, store the preceding template in a GitHub repository, and then run the following PowerShell script on Azure Cloud Shell.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name (limited to eight characters) that is used to generate Azure resource names"

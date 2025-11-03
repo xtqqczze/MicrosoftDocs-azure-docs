@@ -4,7 +4,7 @@ description: Learn how to back up Azure Data Lake Storage using  the Azure porta
 ms.custom:
   - ignite-2025
 ms.topic: tutorial
-ms.date: 05/22/2025
+ms.date: 11/18/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -13,34 +13,29 @@ ms.author: v-mallicka
 
 #  Tutorial: Back up Azure Data Lake Storage using the Azure portal
 
-This tutorial describes how to back up Azure Data Lake Storage using  the Azure portal. 
+This tutorial describes how to back up (vaulted backup) Azure Data Lake Storage using  the Azure portal. 
 
-Learn about [Azure Data Lake Storage backup and restore](azure-data-lake-storage-backup-overview.md), and the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md).
+Azure Backup provides a simple, secure, and cost-effective solution to protect your Azure Data Lake Storage accounts without the need to deploy and manage backup infrastructure. With vaulted backup, your data is stored in an isolated Backup vault, offering offsite protection, and long-term retention (10 years). This approach ensures resilience against accidental deletions and ransomware attacks. You can back up your data to a Backup vault in Azure and restore it when needed. Learn about [Azure Data Lake Storage vaulted backup and restore](azure-data-lake-storage-backup-overview.md), and the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md).
 
 ## Prerequisites
 
 Before you back up Azure Data Lake Storage, ensure the following prerequisites are met:
 
-- The storage account must be in a [supported region and of the required types](azure-data-lake-storage-backup-support-matrix.md).
+- The storage account must be of the required types and located in a supported region; this feature is currently available only in specific regions. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md).
 - The target account mustn't have containers with the  names same as the containers in a recovery point; otherwise, the restore operation fails.
 - Identify or [create a Backup vault](create-manage-backup-vault.md#create-backup-vault) in the same region as the Azure Data Lake Storage account.
 - [Create a backup policy for Azure Data Lake Storage](azure-data-lake-storage-backup-create-policy-quickstart.md?pivots=client-portal) to configure the backup schedule and retention.
 
 >[!Note]
->- This feature is currently available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
->- Vaulted backup restores are only possible to a different storage account.
+>You can restore vaulted backups to a different storage account only.
 
 ### Grant permissions to the Backup vault on storage accounts
 
-A Backup vault needs specific permissions on the storage account for backup operations. The **Storage Account Backup Contributor** role consolidates these permissions for easy assignment. We recommend you to grant this role to the Backup vault before configuring backup.
+A Backup vault needs specific permissions on the storage account for backup operations. The **Storage Account Backup Contributor** role consolidates these permissions for easy assignment. We recommend you grant this role to the Backup vault before configuring backup.
 
->[!Note]
->You can also perform the role assignment while configuring backup.
+You can assign roles to the vault at the Subscription or Resource Group level based on your convenience. The role assignment can also be performed while configuring backup.
 
 To assign the required role for storage accounts that you want to protect, follow these steps:
-
->[!Note]
->You can also assign the roles to the vault at the Subscription or Resource Group levels according to your convenience.
 
 1. In the [Azure portal](https://portal.azure.com/), go to the storage account, and then select **Access Control (IAM)**.
 1. On the **Access Control (IAM)** pane, select **Add role assignments** to assign the required role.
@@ -55,8 +50,7 @@ To assign the required role for storage accounts that you want to protect, follo
 
 1. Select **Save** to finish the role assignment.
  
->[!Note]
-> The role assignment might take up to **30 minutes** to take effect.
+The role assignment might take up to **30 minutes** to become effective.
 
 [!INCLUDE [How to configure backup for Azure Data Lake Storage](../../includes/azure-data-lake-storage-configure-backup.md)]
 

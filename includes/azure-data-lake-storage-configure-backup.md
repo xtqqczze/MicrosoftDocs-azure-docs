@@ -2,22 +2,22 @@
 author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
-ms.date: 10/16/2025
+ms.date: 11/18/2025
 ms.author: v-mallicka
 ---
 
-## Configure backup for the Azure Data Lake Storage
+## Configure vaulted backup for the Azure Data Lake Storage
 
 You can configure backup on multiple Azure Data Lake Storage.
 
-To configure backup, follow these steps:
+To configure vaulted backup, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault**, and then select **+ Backup**. 
 1. On the **Configure Backup** pane, on the **Basics** tab, review the **Datasource type** is selected as **Azure Data Lake Storage**.
 1. On the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention, and then select **Next**.
    If you want to create a new backup policy, select **Create new**. learn how to [create a backup policy](../articles/backup/azure-data-lake-storage-backup-create-policy-quickstart.md?pivots=client-portal).
  
-1. On the **Datasources** tab, Select**Add**. 
+1. On the **Datasources** tab, Select **Add**. 
 
    :::image type="content" source="./media/azure-data-lake-storage-configure-backup/add-resource-for-backup.png" alt-text="Screenshot shows how to add resources for backup." lightbox="./media/azure-data-lake-storage-configure-backup/add-resource-for-backup.png":::
 
@@ -35,7 +35,7 @@ To configure backup, follow these steps:
 
    :::image type="content" source="./media/azure-data-lake-storage-configure-backup/role-assign-message-success.png" alt-text="Screenshot shows the success message for role assignments." lightbox="./media/azure-data-lake-storage-configure-backup/role-assign-message-success.png":::
 
-   If access permissions are missing, error messages appear. See the [prerequisites](#prerequisites).
+   Error messages appear when access permissions are missing. See the [Grant permissions section](../articles/backup/azure-data-lake-storage-backup-tutorial.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
 
    Validation errors appear if the selected storage accounts don't have the **Storage Account Backup Contributor** role. Review the error messages and take necessary actions.
 

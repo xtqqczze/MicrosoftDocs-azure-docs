@@ -2,7 +2,7 @@
 title: Manage Backup for Azure Data Lake Storage using Azure portal
 description: Learn how to manage backup for Azure Data Lake Storage using Azure portal.
 ms.topic: how-to
-ms.date: 04/16/2025
+ms.date: 11/18/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to manage vaulted backup for Azure Data Lake Storage, so that I can ensure data protection and compliance for our organization's storage solutions."
