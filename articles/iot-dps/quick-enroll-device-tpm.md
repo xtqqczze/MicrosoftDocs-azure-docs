@@ -88,7 +88,7 @@ For the sample in this article, you use the connection string for your provision
 
 6. In the **Access Policy** panel, copy and save the primary connection string.
 
-    :::image type="content" source="./media/quick-enroll-device-tpm/get-service-connection-string.png" alt-text="Screenshot showing how to get the primary connection string from the Azure portal.":::
+    :::image type="content" source="./media/quick-enroll-device-tpm/get-service-connection-string.png" alt-text="Screenshot that shows  how to get the primary connection string from the Azure portal.":::
 
 ## Create the individual enrollment sample
 
