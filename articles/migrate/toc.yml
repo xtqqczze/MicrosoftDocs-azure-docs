@@ -15,7 +15,7 @@ items:
     href: quickstart-create-migrate-project.md
   - name: Create a project - Portal
     href: quickstart-create-project.md
-  - name: View migration readiness and savings for Arc resources
+  - name: Evaluate migration readiness and savings for Arc resources
     href: quickstart-evaluate-readiness-savings-for-arc-resources.md
   - name: Create a business case using imported inventory
     href: how-to-build-a-business-case.md
