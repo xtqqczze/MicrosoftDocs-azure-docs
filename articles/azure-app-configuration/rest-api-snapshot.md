@@ -134,7 +134,7 @@ To improve client caching, use `If-Match` or `If-None-Match` request headers. Th
 The following request retrieves the snapshot only if the current representation doesn't match the specified `etag`:
 
 ```http
-GET /snapshot/{name}?api-version={api-version} HTTP/1.1
+GET /snapshots/{name}?api-version={api-version} HTTP/1.1
 Accept: application/vnd.microsoft.appconfig.snapshot+json;
 If-None-Match: "{etag}"
 ```
@@ -290,7 +290,7 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 | retention_period | no | Standard and Premium tiers <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier and Developer tiers <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (seven days) | Standard and Premium tiers <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 3600 (one hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 7776000 (90 days) <br/> Free tier and Developer tiers <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 3600 (one hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 604800 (seven days) |
 
 ```http
-PUT /snapshot/{name}?api-version={api-version} HTTP/1.1
+PUT /snapshots/{name}?api-version={api-version} HTTP/1.1
 Content-Type: application/vnd.microsoft.appconfig.snapshot+json
 ```
 
@@ -359,7 +359,7 @@ Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-ve
 | retention_period | no | Standard tier <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (7 days) | Standard tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 7776000 (90 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 604800 (7 days) |
 
 ```http
-PUT /snapshot/{name}?api-version={api-version} HTTP/1.1
+PUT /snapshots/{name}?api-version={api-version} HTTP/1.1
 Content-Type: application/vnd.microsoft.appconfig.snapshot+json
 ```
 
