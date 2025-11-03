@@ -25,11 +25,11 @@ This article explains how to create a new IoT hub with [Azure Device Registry (A
 
 To set up your IoT hub with ADR, you can use the Azure portal, Azure CLI, or a script that automates the setup process.
 
-| Deployment method | Description | 
-|-------------------|-------------|
-| Select **Azure portal** at the top of the page| This deployment method uses the Azure portal to create a new IoT hub and link it to an existing or new ADR namespace. You also enable a user-assigned managed identity to securely access other Azure resources, such as DPS and Certificate Management. This method doesn't include the creation of a user-assigned managed identity, credentials, or a DPS instance. |
-| Select **Azure CLI** at the top of the page | This deployment method uses Azure CLI commands to create a new ADR namespace, a new IoT hub, and a new DPS instance and link them together, including the creation of a user-assigned managed identity, credentials, and policies. |
-| Select **Script** at the top of the page | This deployment method uses a PowerShell script to automate the setup of your IoT hub with ADR integration, including the creation of a new ADR namespace and a new IoT hub. This method doesn't include the creation of a user-assigned managed identity, credentials, or a DPS instance. |
+| Deployment method | Description | Includes | Requires |
+|-------------------|-------------|----------|--------------|
+| [Azure portal](#create-an-iot-hub-with-adr-integration-using-azure-portal)| Use the Azure portal to create a new IoT hub and link it to an existing or new ADR namespace. | Creation of a new ADR namespace and a new IoT hub | A user-assigned managed identity, credentials, and a DPS instance. |
+| [Azure CLI](#create-an-iot-hub-with-adr-integration-using-azure-cli) | Use the Azure CLI to create a new ADR namespace, a new IoT hub, and a new DPS instance and link them together. | Creation of a new ADR namespace, a new IoT hub, and a new DPS instance, user-assigned managed identity, credentials, and policies. | Installation of the Azure IoT CLI extension. |
+| [Script](#create-an-iot-hub-with-adr-integration-using-script) | Use a PowerShell script to automate the setup of your IoT hub with ADR integration.| Creation of a new ADR namespace and a new IoT hub | A user-assigned managed identity, credentials, and a DPS instance. |
 
 :::zone pivot="azure-portal"
 
@@ -39,7 +39,7 @@ To set up your IoT hub with ADR, you can use the Azure portal, Azure CLI, or a s
 
 :::zone pivot="azure-cli"
 
-[!INCLUDE [iot-hub-device-registry-azurecli](../../includes/iot-hub-device-registry-azurecli.md)]
+[!INCLUDE [iot-hub-device-registry-azurecli](../../includes/iot-hub-device-registry-azure-cli.md)]
 
 :::zone-end
 
