@@ -32,13 +32,20 @@ Organizations often struggle to deliver fast, consistent data access across loca
 Cache volumes unlock a range of scenarios by combining on-premises data "gravity" with cloud agility: 
 
 * **Global Collaboration**
+
     Distributed teams get LAN-speed access to shared files without maintaining multiple copies. Everyone works on the same central dataset with fast, local reads and writes.
+
 * **Hybrid Cloud Bursting**
+
     Burst on-prem workloads into Azure on demand, without lengthy data copies. Only needed data is fetched into Azure in real time, minimizing setup time and network loa.
+
 * **Global workload relocation** 
+
     Relocate HPC workloads quickly and efficiently to overcome regional GPU shortages. 
+
 * **Data-Intensive Workloads**
     Cache "hot" data near Azure compute, minimizing I/O wait times for read-heavy or latency-sensitive jobs. This leads to faster job completion and higher productivity.  
+    
 * **Lower Costs & Complexity**
     Serve frequent requests from the Azure cache, reducing WAN traffic and bandwidth costs. No need for duplicate storage systems at every location; cache only stores what’s actively used. 
 
