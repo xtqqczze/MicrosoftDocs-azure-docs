@@ -22,7 +22,7 @@ Consider using Azure Functions in your AI-enabled experiences for the following 
 | Scenario | Description |
 | ----- | ----- |
 | [Remote MCP servers](#remote-mcp-servers) | Functions lets you host remote MCP servers created using official SDKs, and you can create your own custom MCP servers using the Functions MCP server extension. |
-| [Retrieval-augmented generation (RAG)](#retrieval-augmented-generation) | RAG systems require fast data retrieval and processing. Functions can interact with multiple data sources simulateously and provide the rapid scale required by RAG scenarios. |
+| [Retrieval-augmented generation (RAG)](#retrieval-augmented-generation) | RAG systems require fast data retrieval and processing. Functions can interact with multiple data sources simultaneously and provide the rapid scale required by RAG scenarios. |
 | [Agentic workflows](#agentic-workflows) | Durable Functions helps you create multistep, long-running agent operations with built-in fault tolerance. |
 | [Function calling](#function-calling) | Whether using built-in extensions or client SDKs, Functions is ideal for implementing function calling in agentic workflows.  |
  
