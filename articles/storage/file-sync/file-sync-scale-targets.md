@@ -34,7 +34,7 @@ The following table indicates which targets are soft, representing the Microsoft
 | File size | 100 GiB | No |
 | Minimum file size for a file to be tiered | Based on file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size is 8 KiB. | Yes |
 
-## Azure File Sync performance targets
+## Azure File Sync performance metrics
 
 Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon many factors in your infrastructure, including:
 
