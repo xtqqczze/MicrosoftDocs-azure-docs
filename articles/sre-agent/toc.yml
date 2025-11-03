@@ -15,10 +15,8 @@ items:
             href: troubleshoot-azure-app-service.md
           - name: Troubleshoot Container Apps
             href: troubleshoot-azure-container-apps.md
-  - name: Features
-    items:
-      - name: Connect to external services
-        href: connectors.md
+  - name: Connect to external services
+    href: connectors.md
   - name: Incident management
     items:
       - name: Overview
