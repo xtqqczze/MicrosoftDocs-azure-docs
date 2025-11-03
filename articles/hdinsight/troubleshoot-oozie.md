@@ -116,7 +116,7 @@ To disable the Oozie WebUI, please follow the below steps:
 2. Edit /var/lib/ambari-server/resources/stacks/HDInsight/<version>/services/OOZIE/quicklinks/quicklinks.json and remove the value for "url" parameter.
 
 Before:
-```{
+```xml{
   "name": "default",
   "description": "default quick links configuration",
   "configuration": {
@@ -143,7 +143,7 @@ Before:
 ```
 
 After:
-```{
+```xml{
   "name": "default",
   "description": "default quick links configuration",
   "configuration": {
