@@ -104,35 +104,35 @@ Create a new **GitHub App** by following these steps:
       - If you use personal accounts, select **Your enterprises** and then to the right of the enterprise, select **Settings**. 
 1. Navigate to the **GitHub App** settings. 
     - For an app owned by a personal account or organization:
-      - In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**.</br></br> 
+      - In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**. 
     - For an app owned by an enterprise
       - In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
     
 :::image type="content" source="./media/add-copilot-code-insights/new-github-app.png" alt-text="The screenshot shows how to select the new github app." lightbox="./media/add-copilot-code-insights/new-github-app.png":::
 
-1. Provide the following details to set up your new GitHub App: 
-  1. Under **GitHub App name**, enter a name for your app.  
-  1. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and isn't used in this process. 
+4. Provide the following details to set up your new GitHub App: 
+5. Under **GitHub App name**, enter a name for your app.  
+6. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and isn't used in this process. 
   
 :::image type="content" source="./media/add-copilot-code-insights/register-new-github.png" alt-text="The screenshot shows the homepage url." lightbox="./media/add-copilot-code-insights/register-new-github.png":::
 
-  1. Ensure that **Expire user authorization tokens** is selected.  
-  1. Deselect **Active** under **Webhook** 
+7. Ensure that **Expire user authorization tokens** is selected.  
+8. Deselect **Active** under **Webhook** 
   
 :::image type="content" source="./media/add-copilot-code-insights/active-webhook.png" alt-text="The screenshot shows how to deselect the active webook." lightbox="./media/add-copilot-code-insights/active-webhook.png":::
 
-  1. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
+9. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
   
   | Issues  | Read and write  | 
   | --- | --- | 
   | Metadata  | Read-only  |
   | Webhook   | Read and write  |
 
-  1. Under **Where can this GitHub App be installed?** select **Only on this account** or **Any account**. 
+10. Under **Where can this GitHub App be installed?** select **Only on this account** or **Any account**. 
   
 :::image type="content" source="./media/add-copilot-code-insights/permissions.png" alt-text="The screenshot shows the available persmissions." lightbox="./media/add-copilot-code-insights/permissions.png":::
     
-1. Select **Create GitHub App**. 
+11. Select **Create GitHub App**. 
 
 ### Install GitHub app on the repository
 
