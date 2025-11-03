@@ -650,7 +650,7 @@
         href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
   - name: Azure Data Lake Storage vaulted backup
     items:
-    - name: Configure backup
+    - name: Configure vaulted backup
       href: azure-data-lake-storage-configure-backup.md
     - name: Restore
       href: azure-data-lake-storage-restore.md
