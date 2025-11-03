@@ -195,11 +195,12 @@ Complete the following steps to get the current redundancy and failover informat
     ```azurecli
     az extension add -n storage-preview
     ```
-
+<!-->
     > [!IMPORTANT]
     > The Azure CLI storage preview extension adds support for features or arguments that are currently in PREVIEW.
     >
     > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+-->
 
 ### Get the current status of the storage account with Azure CLI
 
