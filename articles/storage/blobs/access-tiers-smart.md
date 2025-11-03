@@ -5,7 +5,7 @@ author: beber-msft
 ms.author: beber
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 10/17/2025
+ms.date: 11/03/2025
 
 #CustomerIntent: As a storage administrator, I want to optimize costs for blob storage so that I can reduce expenses while maintaining performance.
 ---
@@ -30,7 +30,7 @@ Access behavior, performance characteristics, and SLAs of the underlying capacit
 - Smart tier monitoring operations are billed based on the price displayed on the Azure pricing pages. This pricing will go into effect starting January 1, 2026.
 
 ## Enabling smart tier
-Enable access to the smart tier public preview by registering the "Smart Tier (account level)" preview feature in the Azure portal [preview features blade](https://learn.microsoft.com/azure/azure-resource-manager/management/preview-features?tabs=azure-portal/).
+Enable access to the smart tier public preview by registering the "Smart Tier (account level)" preview feature in the Azure portal [preview features blade](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal/).
 After you enable smart tier on existing storage accounts, all blobs in the account that don't have an explicitly set access tier will move to smart tier.
 Smart tier is configured on the [default account access tier](access-tiers-overview.md#default-account-access-tier-setting). Smart tier doesn't support legacy account types such as Standard general-purpose v1 (GPv1). After enabling smart tier on existing storage accounts, all blobs in the account for which an access tier hasn't been explicitly set, will be moved to smart tier. Blobs with an explicit tier set don't move to smart tier. A monitoring fee is billed for each group of 10,000 objects managed by smart tier.
 You can move objects out of smart tier by setting a different online tier or changing the default account access tier to another tier. Once moved to an explicit tier, objects can't be tiered back to smart tier.
