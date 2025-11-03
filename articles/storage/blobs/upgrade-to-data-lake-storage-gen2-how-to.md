@@ -67,9 +67,9 @@ After the upgrade has completed, break the leases you created to resume allowing
 > [!WARNING]
 > Breaking an active lease without gracefully disabling applications or virtual machines that are currently accessing those resources could have unexpected results. Be sure to quiesce any current write activities before breaking any current leases.
 
-### Make any changes to the names archived blobs before you upgrade
+### Make any planned changes to the names of archived blobs
 
-If you plan the change the name of an archived blob or the name of any parent directory that leads up to the archived blob, make sure to do that **before** you upgrade. That way, you can rehydrate the archived blob in future. If you change the name of an archived blob or any parent directory leading to the archived blob **after** the upgrade, then you won't be able to rehydrate it. This is a temporary limitation of the current release. 
+If you plan the change the name of an archived blob or the name of any parent directory that leads up to the archived blob, make sure modifications **before** you upgrade. If you change the name of an archived blob or any parent directory leading to the archived blob **after** the upgrade, then you won't be able to rehydrate it. This is a temporary limitation of the current release. 
 
 ## Perform the upgrade
 
