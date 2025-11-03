@@ -22,7 +22,7 @@
       href: enable-change-tracking-at-scale-machines-blade.md
     - name: Enable using Azure policy
       href: enable-change-tracking-at-scale-policy.md
-    - name: Create DCR
+    - name: Create Data Collection Rule
       href: create-data-collection-rule.md
     - name: Disable Change Tracking and Inventory
       href: disable-azure-change-tracking-inventory-monitoring-agent.md

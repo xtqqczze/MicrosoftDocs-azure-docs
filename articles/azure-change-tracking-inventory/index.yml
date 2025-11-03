@@ -45,7 +45,7 @@ landingContent:
             url: enable-change-tracking-at-scale-machines-blade.md
           - text: Enable using Azure policy
             url: enable-change-tracking-at-scale-policy.md
-          - text: Create Data Collection Rule (DCR)
+          - text: Create Data Collection Rule
             url: create-data-collection-rule.md
           - text: Disable Change Tracking and Inventory
             url: disable-azure-change-tracking-inventory-monitoring-agent.md

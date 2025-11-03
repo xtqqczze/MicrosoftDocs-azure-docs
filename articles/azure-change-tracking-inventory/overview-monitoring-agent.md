@@ -49,4 +49,4 @@ For information on supported operating systems, see [support matrix](../azure-ch
 
 ## Next steps
 
-- Review [support matrix](../azure-change-tracking-inventory/change-tracking-inventory-support-matrix.md) for Azure CTI.
+Review [support matrix](../azure-change-tracking-inventory/change-tracking-inventory-support-matrix.md) for Azure CTI.

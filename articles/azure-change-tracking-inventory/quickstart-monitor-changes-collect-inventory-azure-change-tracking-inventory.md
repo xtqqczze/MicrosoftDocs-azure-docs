@@ -32,11 +32,11 @@ This section provides detailed procedure on how you can enable change tracking o
 
 ::: zone pivot="single-portal"
 
-### Enable Azure CTI for a single Azure VM - portal
+### Enable Azure CTI for a single Azure VM using portal
 
 This section provides detailed procedure on how you can enable change tracking on a single Azure VM and Arc-enabled VM.
 
-#### Enable Azure CTI for a Single Azure VM - portal
+#### Enable Azure CTI for a Single Azure VM using portal
 
 To enable Azure CTI for a single Azure VM using Azure – portal, follow these steps: 
 
@@ -59,7 +59,7 @@ To enable Azure CTI for a single Azure VM using Azure – portal, follow these s
 > [!NOTE]
 > - It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM.
 
-#### Enable Azure CTI for a Single Azure Arc VM - portal
+#### Enable Azure CTI for a Single Azure Arc VM using portal
 
 To enable Azure CTI for a single Azure Arc VM – portal, follow these steps:
 

@@ -32,9 +32,9 @@ To configure Windows, Linux files, and Windows Registry using Data Collection Ru
    :::image type="content" source="media/create-data-collection-rule/select-virtual-machine-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/create-data-collection-rule/select-virtual-machine-portal-expanded.png"::: 
 
 1. Select a specific VM for which you would like to configure the Change tracking settings.
-1. Under **Operations**, select **Change tracking**.
+1. Under **Operations**, select **Change tracking** to view all the changes that have taken place on the VM.
    
-   :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/configure-file-settings.png" alt-text="Screenshot of selecting the change tracking to configure file settings." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/configure-file-settings.png":::
+   :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/azure-change-tracking-inline.png" alt-text="Screenshot of selecting the change tracking to configure file settings." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/azure-change-tracking-expanded.png":::
 
 1. Select **Settings** to view the **Data Collection Rule Configuration** (DCR) pane. Here, you can do the following actions:
    1. Configure changes on a VM at a granular level.  
@@ -45,10 +45,12 @@ To configure Windows, Linux files, and Windows Registry using Data Collection Ru
    >The settings that you configure apply to all virtual machines associated with the specified DCR. For more information about DCR, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview).
 
 1. Select **Add** to configure new file settings. Use the procedure as specified for Windows and Linux files.
+
+   :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/configure-file-settings-inline.png" alt-text="Screenshot of selecting the change tracking to configure file settings." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/configure-file-settings-expanded.png":::
    
    #### [Windows Files](#tab/windows)
 
-    On the **Add Windows File setting** pane, enter the information for the file or folder to track and select **Save**. The following table describes the properties that you can use to enter the information.
+    On the **Windows Files** tab > Select **+ Add** > **Add windows file setting** pane, enter the information for the file or folder to track and select **Add**. The following table describes the properties that you can use to enter the information.
 
     |**Property**|**Description**|
     |---|---|
@@ -61,7 +63,7 @@ To configure Windows, Linux files, and Windows Registry using Data Collection Ru
 
    #### [Linux Files](#tab/linux)
 
-    On the **Add Linux File for Change Tracking** pane, enter the information for the file or directory to track, and then select **Save**. The following table describes the properties that you can use to enter the information. 
+    On the **Linux Files** tab > Select **+ Add** > **Add linux file setting** pane, enter the information for the file or directory to track, and then select **Add**. The following table describes the properties that you can use to enter the information. 
     
     |**Property**|**Description**|
     |---|---|
@@ -71,6 +73,17 @@ To configure Windows, Linux files, and Windows Registry using Data Collection Ru
     |Path | The path to check for the file, for example, /etc/*.conf.  
     |Path Type | The type of path. Possible values are File and Folder.|
     |Recursion | True if recursion is used when looking for the item to be tracked, and False otherwise. |
+
+#### [Windows Registry](#tab/windows-registry)
+
+    On the **Windows Registry** tab > Select **+ Add** > **Add windows registry setting** pane, enter the information for the registry key to track, and then select **Add**. The following table describes the properties that you can use to enter the information.
+
+    |**Property**|**Description**|
+    |---|---|
+    |Enabled | True if the setting is applied, and false otherwise.|
+    |Item Name | Friendly name of the registry key to be tracked. | 
+    |Group | A group name to group keys logically| 
+    |Windows Registry Key | The name of the Windows registry key.
    
 ---
 
@@ -81,11 +94,12 @@ You can now view the virtual machines configured to the DCR from the **Data coll
 To configure file content changes, follow these steps:
 
 1. In your virtual machine, under **Operations**, select **Change tracking** > **Settings**.
-1. On the **Data Collection Rule Configuration (Preview)** pane, select **File Content** > **Link** to link the storage account.
+1. On the **Data Collection Rule Configuration** pane, select the **File Content** tab > **Link** to link the storage account.
 
     :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/file-content-inline.png" alt-text="Screenshot of selecting the link option to connect with the Storage account." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/file-content-expanded.png":::
 
-1. In **Content Location for Change Tracking** pane, select your **Subscription**, **Storage** and confirm if you are using **System Assigned Managed Identity**. 
+1. On the **Content Location for Change Tracking** pane, select your **Subscription** and **Storage** account to be used for file content change tracking.
+1. Confirm if you are using **System Assigned Managed Identity**. 
 1. Select **Upload file content for all settings**, and then select **Save** to ensure that the file content changes for all the files residing in this DCR are tracked.
 
 #### [System Assigned Managed Identity](#tab/sa-mi)
@@ -145,4 +159,4 @@ To configure the monitoring of files and folders using wildcards, consider the f
 
 ## Next steps
 
-* To enable Azure Change Tracking and Inventory (CTI) from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
+To enable Azure Change Tracking and Inventory (CTI) from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).

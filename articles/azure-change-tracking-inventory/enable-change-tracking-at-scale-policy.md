@@ -79,4 +79,4 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 
 ## Next steps
 
-* Learn more on [how to enable Azure CTI at scale using Azure portal](enable-change-tracking-at-scale-machines-blade.md).
+Learn more on [how to enable Azure CTI at scale using Azure portal](enable-change-tracking-at-scale-machines-blade.md).
