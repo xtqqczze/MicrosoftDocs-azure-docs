@@ -81,7 +81,7 @@ To prepare your environment to use Azure Device Registry, complete the following
     - The `id` GUID. You use this value to provide your Subscription ID.
     - The `tenantId` GUID. You use this value to update your permissions using Tenant ID.
 
-## Set up the environment variables
+## Set up environment variables
 
 To simplify the process of creating and managing resources, set up the following environment variables in your terminal session. Replace the placeholder values with your own values.
 
@@ -94,14 +94,13 @@ To simplify the process of creating and managing resources, set up the following
     HUB_LOCATION="your-hub-location"
     ```
 
-1. Set up your resource names. The `USER_IDENTITY`, `CUSTOM_ROLE_NAME`, and `ENROLLMENT_ID` values don't already exist, you need to define their names.
+1. Set up your resource names. The `USER_IDENTITY` and `ENROLLMENT_ID` values don't already exist, you need to define their names.
 
     ```azurecli-interactive
     NAMESPACE_NAME="your-adr-namespace-name"
     HUB_NAME="your-hub-name"
     DPS_NAME="your-dps-name"
     USER_IDENTITY="your-user-identity-name"
-    CUSTOM_ROLE_NAME="your-custom-role-name"
     ENROLLMENT_ID="your-enrollment-name"
     ```
 
@@ -113,32 +112,32 @@ To simplify the process of creating and managing resources, set up the following
     echo $HUB_NAME
     ```
 
-## Configure your group, role, and permissions
+## Configure your resource group, permissions, and managed identity
 
 To create a resource group, role, and permissions for your IoT solution, complete the following steps:
 
 1. Create a resource group to hold your resources:
 
     ```azurecli-interactive
-    az group create --name "$RESOURCE_GROUP" --location "$LOCATION"
+    az group create --name $RESOURCE_GROUP --location $LOCATION
     ```
 
 1. Assign a contributor role to IoT Hub on the resource group level. The `AppId` value, which is the principal ID for IoT Hub, is `89d10474-74af-4874-99a7-c23c2f643083` and it's the same for all Hub apps.
 
-    ```bash
+    ```azurecli-interactive
     az role assignment create --assignee "89d10474-74af-4874-99a7-c23c2f643083" --role "Contributor" --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP"
     ```
 
 1. Create a new user-assigned managed identity in the specific resource group and location to link the IoT Hub, DPS, and ADR.
 
-    ```bash
-    az identity create --name "$USER_IDENTITY" --resource-group "$RESOURCE_GROUP" --location "$LOCATION"
+    ```azurecli-interactive
+    az identity create --name $USER_IDENTITY --resource-group $RESOURCE_GROUP --location $LOCATION
     ```
 
 1. Retrieve the resource ID of the managed identity. You need the resource ID to assign roles, configure access policies, or link the identity to other resources.    
 
-    ```bash
-    UAMI_RESOURCE_ID=$(az identity show --name "$USER_IDENTITY" --resource-group "$RESOURCE_GROUP" --query id -o tsv)
+    ```azurecli-interactive
+    UAMI_RESOURCE_ID=$(az identity show --name $USER_IDENTITY --resource-group $RESOURCE_GROUP --query id -o tsv)
     ```
 
 ## Set up an ADR namespace
@@ -150,8 +149,8 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
 
 1. Create a new ADR namespace. Your namespace `name` can only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, the name "msft-namespace" is valid. If you want to enable a system-assigned managed identity for the ADR namespace, add the `--enable-credential-policy` flag to the command and the policy name using the `--policy-name` flag. 
 
-    ```bash
-    az iot adr ns create --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP" --location "$LOCATION" --enable-credential-policy true --policy-name "PolicyName"
+    ```azurecli-interactive
+    az iot adr ns create --name $NAMESPACE_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --enable-credential-policy true --policy-name "PolicyName"
     ```
 
     > [!TIP]
@@ -162,50 +161,50 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
 
 1. Verify that the namespace with a system-assigned managed identity, or principal ID, is created.
 
-    ```bash
-    az iot adr ns show --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
+    ```azurecli-interactive
+    az iot adr ns show --name $NAMESPACE_NAME --resource-group $RESOURCE_GROUP
     ```
 
 1. Verify that a credential named "default" and policy named "PolicyName" are created.
-    
-    ```bash
-    az iot adr ns credential show --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
-    az iot adr ns policy show --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP" --name "PolicyName"
+
+    ```azurecli-interactive
+    az iot adr ns credential show --namespace $NAMESPACE_NAME --resource-group $RESOURCE_GROUP
+    az iot adr ns policy show --namespace $NAMESPACE_NAME --resource-group $RESOURCE_GROUP --name "PolicyName"
     ```
 
     > [!NOTE]
     > If you don't assign a policy name, the policy is created with the name "default".
 
 1. Retrieve the principal ID of the User-Assigned Managed Identity. This ID is needed to assign roles to the identity.
-    
-    ```bash
-    UAMI_PRINCIPAL_ID=$(az identity show --name "$USER_IDENTITY" --resource-group "$RESOURCE_GROUP" --query principalId -o tsv)
+
+    ```azurecli-interactive
+    UAMI_PRINCIPAL_ID=$(az identity show --name $USER_IDENTITY --resource-group $RESOURCE_GROUP --query principalId -o tsv)
     ```
 
 1. Retrieve the resource ID of the ADR namespace. This ID is used as the scope when assigning the custom ADR role to the user-assigned managed identity.
 
-    ```bash
-    NAMESPACE_RESOURCE_ID=$(az iot adr ns show --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP" --query id -o tsv)
+    ```azurecli-interactive
+    NAMESPACE_RESOURCE_ID=$(az iot adr ns show --name $NAMESPACE_NAME --resource-group $RESOURCE_GROUP --query id -o tsv)
     ```
 
 1. Assign the **Azure Device Registry Contributor** role to the managed identity for the ADR namespace. This grants the managed identity the necessary permissions, scoped to the namespace.
 
-    ```bash
-    az role assignment create --assignee $UAMI_PRINCIPAL_ID --role "a5c3590a-3a1a-4cd4-9648-ea0a32b15137" --scope $NAMESPACE_RESOURCE_ID"
+    ```azurecli-interactive
+    az role assignment create --assignee $UAMI_PRINCIPAL_ID --role "a5c3590a-3a1a-4cd4-9648-ea0a32b15137" --scope $NAMESPACE_RESOURCE_ID
     ```
 
 ## Create an IoT hub with ADR namespace integration
 
 1. Create a new IoT hub instance linked to the ADR namespace and with the User-Assigned Identity.
 
-    ```bash
-    az iot hub create --name "$IOT_HUB_NAME" --resource-group "$RESOURCE_GROUP" --location "$LOCATION" --sku S1 --enable-file-upload true --assign-identity "$UAMI_RESOURCE_ID"
+    ```azurecli-interactive
+    az iot hub create --name $HUB_NAME --resource-group $RESOURCE_GROUP --location $HUB_LOCATION --sku GEN2 --mi-user-assigned $UAMI_RESOURCE_ID --ns-resource-id $NAMESPACE_RESOURCE_ID --ns-identity-id $UAMI_RESOURCE_ID
     ```
 
 1. Verify that the IoT hub has correct identity and ADR properties configured.
 
-    ```bash
-    az iot hub show --name "$HUB_NAME" --resource-group "$RESOURCE_GROUP" --query identity --output json
+    ```azurecli-interactive
+    az iot hub show --name $HUB_NAME --resource-group $RESOURCE_GROUP --query identity --output json
     ```
 
     > [!NOTE]
@@ -213,67 +212,67 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
     > 
     > 1. Retrieve the principal ID of the ADR Namespace's managed identity. This identity needs permissions to interact with the IoT hub.
     > 
-    >  ```bash
-    >  ADR_PRINCIPAL_ID=$(az iot adr ns show --name "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP" --query identity.principalId -o tsv)
+    >  ```azurecli-interactive
+    >  ADR_PRINCIPAL_ID=$(az iot adr ns show --name $NAMESPACE_NAME --resource-group $RESOURCE_GROUP --query identity.principalId -o tsv)
     >  ```
     > 1. Retrieve the resource ID of the IoT hub. This ID is used as the scope for role assignments.
     > 
-    >  ```bash
-    >  HUB_RESOURCE_ID=$(az iot hub show --name "$HUB_NAME" --resource-group "$RESOURCE_GROUP" --query id -o tsv)
+    >  ```azurecli-interactive
+    >  HUB_RESOURCE_ID=$(az iot hub show --name $HUB_NAME --resource-group $RESOURCE_GROUP --query id -o tsv)
     >  ```
     > 1. Assign the "Contributor" role to the ADR identity. This grants the ADR namespace's managed identity Contributor access to the IoT hub. This role allows broad access, including managing resources, but not assigning roles.
     >
-    >  ```bash
-    >  az role assignment create --assignee "$ADR_PRINCIPAL_ID" --role "Contributor" --scope "$HUB_RESOURCE_ID"
+    >  ```azurecli-interactive
+    >  az role assignment create --assignee $ADR_PRINCIPAL_ID --role "Contributor" --scope $HUB_RESOURCE_ID
     >  ```
     > 1. Assign the "IoT Hub Registry Contributor" role to the ADR identity. This grants more specific permissions to manage device identities in the IoT hub. This is essential for ADR to register and manage devices in the hub.
     >
-    >  ```bash
-    >  az role assignment create --assignee "$ADR_PRINCIPAL_ID" --role "IoT Hub Registry Contributor" --scope "$HUB_RESOURCE_ID"
+    >  ```azurecli-interactive
+    >  az role assignment create --assignee $ADR_PRINCIPAL_ID --role "IoT Hub Registry Contributor" --scope $HUB_RESOURCE_ID
     >  ```
 
 ## Create a Device Provisioning Service with ADR namespace integration
 
 1. Create a new Device Provisioning Service (DPS) instance linked to the ADR namespace with the User-Assigned Identity. Your DPS must be located in the same region as your ADR namespace.
 
-    ```bash
-    az iot dps create --name "$DPS_NAME" --resource-group "$RESOURCE_GROUP" --location "$LOCATION" --mi-user-assigned "$UAMI_RESOURCE_ID" --ns-resource-id "$NAMESPACE_RESOURCE_ID" --ns-identity-id "$UAMI_RESOURCE_ID"
+    ```azurecli-interactive
+    az iot dps create --name $DPS_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --mi-user-assigned $UAMI_RESOURCE_ID --ns-resource-id $NAMESPACE_RESOURCE_ID --ns-identity-id $UAMI_RESOURCE_ID
     ```
 
 1. Verify that the DPS has correct identity and ADR properties configured.
 
-    ```bash
-    az iot dps show --name "$DPS_NAME" --resource-group "$RESOURCE_GROUP" --query identity --output json
+    ```azurecli-interactive
+    az iot dps show --name $DPS_NAME --resource-group $RESOURCE_GROUP --query identity --output json
     ```
 
 ## Link IoT Hub to the Device Provisioning Service
 
 1. Link the IoT hub to DPS.
 
-    ```bash
-    az iot dps linked-hub create --dps-name "$DPS_NAME" --resource-group "$RESOURCE_GROUP" --hub-name "$HUB_NAME"
+    ```azurecli-interactive
+    az iot dps linked-hub create --dps-name $DPS_NAME --resource-group $RESOURCE_GROUP --hub-name $HUB_NAME
     ```
 
 1. Verify that the IoT hub appears in the list of linked hubs for the DPS.
 
-    ```bash
-    az iot dps linked-hub list --dps-name "$DPS_NAME" --resource-group "$RESOURCE_GROUP"
+    ```azurecli-interactive
+    az iot dps linked-hub list --dps-name $DPS_NAME --resource-group $RESOURCE_GROUP
     ```
 
 ## Run ADR credential synchronization
 
 To enable IoT Hub to register the CA certificates and trust any issued leaf certificates, sync your credential and all its child policies to the ADR namespace.
 
-```bash
-az iot adr ns credential sync --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
+```azurecli-interactive
+az iot adr ns credential sync --namespace $NAMESPACE_NAME --resource-group $RESOURCE_GROUP
 ```
 
 ## Validate Hub Certificate
 
 Validate that your IoT hub has registered its CA certificate.
 
-```bash
-az iot hub certificate list --hub-name "$HUB_NAME" --resource-group "$RESOURCE_GROUP"
+```azurecli-interactive
+az iot hub certificate list --hub-name $HUB_NAME --resource-group $RESOURCE_GROUP
 ```
 
 ## Create an enrollment group in DPS
@@ -283,6 +282,6 @@ To provision devices with leaf certificates, you need to create an enrollment gr
 > [!NOTE]
 > If you created a policy with a different name from "default", ensure that you use that policy name after the `--credential-policy` parameter.
 
-```bash
-az iot dps enrollment-group create --dps-name "$DPS_NAME" --resource-group "$RESOURCE_GROUP" --enrollment-id "$ENROLLMENT_ID" --credential-policy default
+```azurecli-interactive
+az iot dps enrollment-group create --dps-name $DPS_NAME --resource-group $RESOURCE_GROUP --enrollment-id $ENROLLMENT_ID --credential-policy default
 ```
