@@ -35,7 +35,7 @@ You can pass in a parameter value that indicates whether a resource is deployed.
     {
       "condition": "[parameters('deployZone')]",
       "type": "Microsoft.Network/dnsZones",
-      "apiVersion": "2024-07-01-preview",
+      "apiVersion": "2023-07-01-preview",
       "name": "myZone",
       "location": "global",
       "properties": {
