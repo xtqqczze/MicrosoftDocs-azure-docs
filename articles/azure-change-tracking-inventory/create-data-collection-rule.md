@@ -1,5 +1,5 @@
 ---
-title: Create Data Collection Rule
+title: Create Data Collection Rule for Azure Change Tracking and Inventory
 description: Learn how to create a data collection rule (DCR) for Azure Change Tracking and Inventory.
 #customer intent: As a customer, I want to create a Data Collection Rule (DCR) for Azure Change Tracking and Inventory so that I can collect and manage data effectively.
 services: automation
