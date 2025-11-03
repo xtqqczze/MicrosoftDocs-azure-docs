@@ -11,13 +11,13 @@ ms.author: anfdocs
 
 # Understand Azure NetApp Files cache volumes (preview)
 
-Azure NetApp Files cache volumes enable you to create a cloud-based cache of your on-premises ONTAP and Cloud Volumes ONTAP storage volumes in Azure. By caching active (“hot”) data closer to users and cloud applications, cache volumes dramatically improve data access speeds and throughput over WAN connections. This results in cost-effective, low-latency remote access to important files. In practical terms, you can burst on-premises datasets to Azure with near-local performance—ideal for running computational workloads in Azure on your on-premises data or enabling globally distributed teams to collaborate without lengthy file transfer delays.  
+Azure NetApp Files cache volumes enable you to create a cloud-based cache of your on-premises ONTAP and Cloud Volumes ONTAP storage volumes in Azure. Caching active ("hot") data closer to users and cloud applications improves data access speeds and throughput over WAN connections. This results in cost-effective, low-latency remote access to important files. In practical terms, you can burst on-premises datasets to Azure with near-local performance—ideal for running computational workloads in Azure on your on-premises data or enabling globally distributed teams to collaborate without lengthy file transfer delays.  
 
 ## What are cache volumes 
 
-A cache volume in Azure NetApp Files is a cloud-based cache of an “origin” volume, which may reside on-premises or in NetApp Cloud Volumes ONTAP.  
+A cache volume in Azure NetApp Files is a cloud-based cache of an "origin" volume, which may reside on-premises or in NetApp Cloud Volumes ONTAP.  
 
-:::image type="content" source="./media/azure-netapp-files-metrics/access-cache-volumes-metrics.png" alt-text="Screenshot that shows the architecture of cache volumes." lightbox="./media/cache-volumes/understand-cache-volumes.png":::
+:::image type="content" source="./media/cache-volumes/understand-cache-volumes.png" alt-text="Screenshot that shows the architecture of cache volumes." lightbox="./media/cache-volumes/understand-cache-volumes.png":::
 
 The cache volume stores only the most frequently accessed data from the origin, synchronizing transparently to maintain consistency. When an application in Azure reads a file, if the data is present in the cache (a cache hit), it’s delivered instantly over the local network. If not (a cache miss), Azure NetApp Files fetches the data from the origin, stores it in the cache, and returns it to the application. Subsequent reads are served directly from Azure at LAN-like speeds. 
 
@@ -29,7 +29,7 @@ Organizations often struggle to deliver fast, consistent data access across loca
 
 ## Key Benefits and Use Cases 
 
-Cache volumes unlock a range of scenarios by combining on-premises data “gravity” with cloud agility: 
+Cache volumes unlock a range of scenarios by combining on-premises data "gravity" with cloud agility: 
 
 * **Global Collaboration**
     Distributed teams get LAN-speed access to shared files without maintaining multiple copies. Everyone works on the same central dataset with fast, local reads and writes.
@@ -38,7 +38,7 @@ Cache volumes unlock a range of scenarios by combining on-premises data “gravi
 * **Global workload relocation** 
     Relocate HPC workloads quickly and efficiently to overcome regional GPU shortages. 
 * **Data-Intensive Workloads**
-    Cache “hot” data near Azure compute, minimizing I/O wait times for read-heavy or latency-sensitive jobs. This leads to faster job completion and higher productivity.  
+    Cache "hot" data near Azure compute, minimizing I/O wait times for read-heavy or latency-sensitive jobs. This leads to faster job completion and higher productivity.  
 * **Lower Costs & Complexity**
     Serve frequent requests from the Azure cache, reducing WAN traffic and bandwidth costs. No need for duplicate storage systems at every location; cache only stores what’s actively used. 
 
@@ -57,7 +57,7 @@ Cache volumes require no special hardware or proxies and use standard protocols,
 
 ## Supported regions 
 
-Cache volumes is available in public preview at no extra charge (beyond standard Azure NetApp Files capacity and throughput costs). The feature is supported in the following regions: 
+Cache volumes are available in public preview at no extra charge (beyond standard Azure NetApp Files capacity and throughput costs). The feature is supported in the following regions: 
 
 * Australia Central
 * Australia Central 2
