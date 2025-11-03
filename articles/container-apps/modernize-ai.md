@@ -1,6 +1,6 @@
 ---
 title: Modernize and migrate applications with Azure Container Apps and GitHub Copilot
-description: Discover how GitHub Copilot and Azure Container Apps enable secure, scalable, and efficient modernization of Java and .NET applications, leveraging AI-powered workflows for assessment, transformation, validation, and deployment.
+description: Discover how GitHub Copilot and Azure Container Apps enable modernization of Java and .NET applications using AI-powered workflows.
 author: craigshoemaker
 ms.topic: overview
 ms.date: 11/03/2025
@@ -40,7 +40,7 @@ These core capabilities create an AI-powered workflow that automates key steps i
 
 ## Modernization workflow for Java and .NET applications
 
-Built on GitHub Copilot agent mode, the app modernization tooling offers predefined tasks for common upgrade and migration scenarios, incorporating industry best practices for Azure. The workflow includes:
+The app modernization tooling is built on GitHub Copilot agent mode and features predefined tasks for common upgrade and migration scenarios that incorporate Azure best practices. The workflow includes:
 
 1. **Assessment:** Diagnose legacy applications and generate a comprehensive assessment report.
 
@@ -52,7 +52,10 @@ Built on GitHub Copilot agent mode, the app modernization tooling offers predefi
 
 1. **Deployment:** Containerize and deploy applications to Azure Container Apps with Infrastructure as Code assets.
 
-For detailed, step-by-step guidance, refer to:
+## Related content
+
+See the following articles for step-by-step guidance on modernizing your applications to Azure Container Apps.
 
 * [GitHub Copilot app modernization for Java developers](/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java?toc=%2Fazure%2Fdeveloper%2Fgithub-copilot-app-modernization%2Ftoc.json&bc=%2Fazure%2Fdeveloper%2Fgithub-copilot-app-modernization%2Fbreadcrumb%2Ftoc.json)
+
 * [GitHub Copilot app modernization for .NET developers](/dotnet/core/porting/github-copilot-app-modernization/overview?toc=%2Fazure%2Fdeveloper%2Fgithub-copilot-app-modernization%2Ftoc.json&bc=%2Fazure%2Fdeveloper%2Fgithub-copilot-app-modernization%2Fbreadcrumb%2Ftoc.json)
