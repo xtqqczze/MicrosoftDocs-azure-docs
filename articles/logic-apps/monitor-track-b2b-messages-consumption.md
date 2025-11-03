@@ -145,7 +145,7 @@ After your workflow runs, you can view the status and data about any B2B message
 
    > [!NOTE]
    >
-   > If the Logic Apps B2B tile doesn't immediately show results after a run, try selecting **Refresh** or wait for a short time before trying again.
+   > If the Logic Apps B2B tile doesn't immediately show results after a run, try refreshing the browser or wait for a short time before trying again.
 
    By default, the **Logic Apps B2B** tile shows data based on a single day. To change the data scope to a different interval, select the scope control at the top of the page:
 
