@@ -116,7 +116,7 @@ az iot dps show --name my-sample-dps
 
 The linked IoT hub is shown in the *properties.iotHubs* collection.
 
-![Verify Provisioning Service](./media/quick-setup-auto-provision-cli/verify-provisioning-service.png)
+:::image type="content" source="./media/quick-setup-auto-provision-cli/verify-provisioning-service.png" alt-text="Screen capture of an Azure Cloud Shell window, highlighting the properties.iotHubs collection displayed in the output of the az iot dps show command.":::
 
 ## Clean up resources
 
