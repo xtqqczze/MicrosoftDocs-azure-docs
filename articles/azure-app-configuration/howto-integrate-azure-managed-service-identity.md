@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: concept-article
-ms.date: 03/24/2025
+ms.date: 08/25/2025
 zone_pivot_groups: appconfig-provider
 ms.custom:
   - devx-track-csharp
@@ -83,7 +83,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 ## Grant access to App Configuration
 
-The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. In the [Azure portal](https://portal.azure.com), select your App Configuration store.
 
@@ -159,7 +159,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Find the endpoint to your App Configuration store. This URL is listed on the **Overview** tab for the store in the Azure portal.
 
-1. Open `bootstrap.properties`, remove the connection-string property and replace it with endpoint for System Assigned Identity:
+1. Open `application.properties`, remove the connection-string property and replace it with endpoint for System Assigned Identity:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
