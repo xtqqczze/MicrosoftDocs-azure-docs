@@ -102,10 +102,10 @@ Create a new **GitHub App** by following these steps:
     - For an app owned by an enterprise:  
       - If you use **Enterprise Managed Users**, select **Your enterprise** to go directly to the enterprise account settings. 
       - If you use personal accounts, select **Your enterprises** and then to the right of the enterprise, select **Settings**. 
-  1. Navigate to the **GitHub App** settings. 
+1. Navigate to the **GitHub App** settings. 
     - For an app owned by a personal account or organization:
       - In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**.</br></br> 
-      - For an app owned by an enterprise
+    - For an app owned by an enterprise
       - In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
     
 :::image type="content" source="./media/add-copilot-code-insights/new-github-app.png" alt-text="The screenshot shows how to select the new github app." lightbox="./media/add-copilot-code-insights/new-github-app.png":::
