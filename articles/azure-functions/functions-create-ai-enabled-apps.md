@@ -2,7 +2,7 @@
 title: Use AI tools and models in Azure Functions  
 description: "Learn how Azure Functions supports AI integration in your applications, including LLMs, RAG, agentic workflows, and AI frameworks. Build scalable AI-powered serverless solutions."
 ms.topic: conceptual
-ms.date: 09/28/2025
+ms.date: 11/03/2025
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
@@ -17,19 +17,18 @@ zone_pivot_groups: programming-languages-set-functions
 
 Azure Functions provides serverless compute resources that integrate with AI and Azure services to streamline building cloud-hosted intelligent applications. This article provides a survey of the breadth of AI-related scenarios, integrations, and other AI resources that you can use in your function apps. 
 
-Some of the inherent benefits of using Azure Functions as a compute resource for your AI-integrated tasks include:
+Consider using Azure Functions in your AI-enabled experiences for the following scenarios:
 
-+ **Rapid, event-driven scaling**: you have compute resources available when you need them. With certain plans, your app scales back to zero when no longer needed. For more information, see [Event-driven scaling in Azure Functions](event-driven-scaling.md). 
-+ **Model Context Protocol (MCP) servers**: Functions enables you to easily [create and deploy remote MCP servers](#remote-mcp-servers) to make your data and functions available to AI agents and large language models (LLMs).    
-+ **Built-in support for Azure OpenAI**: the [OpenAI binding extension] greatly simplifies interacting with Azure OpenAI for both retrieval-augmented generation (RAG) and agentic workflows.
-+ **Broad language and library support**: Functions lets you interact with AI using your [choice of programming language](./supported-languages.md), plus you're able to use a broad variety of [AI frameworks and libraries](#ai-tools-and-frameworks-for-azure-functions). 
-+ **Orchestration capabilities**: while function executions are inherently stateless, the [Durable Functions extension](./durable/durable-functions-overview.md) lets you create complex workflows that your AI agents require.
-+ 
+| Scenario | Description |
+| ----- | ----- |
+| [Remote MCP servers](#remote-mcp-servers) | Functions lets you host remote MCP servers created using official SDKs, and you can create your own custom MCP servers using the Functions MCP server extension. |
+| [Retrieval-augmented generation (RAG)](#retrieval-augmented-generation) | RAG systems require fast data retrieval and processing. Functions can interact with multiple data sources simulateously and provide the rapid scale required by RAG scenarios. |
+| [Agentic workflows](#agentic-workflows) | Durable Functions helps you create multistep, long-running agent operations with built-in fault tolerance. |
+| [Function calling](#function-calling) | Whether using built-in extensions or client SDKs, Functions is ideal for implementing function calling in agentic workflows.  |
+ 
+Select one of these scenarios to learn more in this article. 
+
 This article is language-specific, so make sure you choose your programming language at the [top of the page](#top).
-
-The combination of built-in bindings and broad support for external libraries provides you with a wide range of potential scenarios for augmenting your apps and solutions with the power of AI. 
-
-The following sections introduce some key AI integration scenarios supported by Functions.   
 
 ## Retrieval-augmented generation
 
@@ -70,7 +69,7 @@ Here are some reference samples for RAG-based scenarios:
 
 ## Remote MCP servers
 
-The Model Context Protocol (MCP) provides a standardized way for AI models and agents to communicate with external systems to determine how to best make use of their capabilities. An MCP server lets an AI model or agent (client) make these determinations more efficiently. You can use an MCP server to publicly expose specific resources as tools, which are then called by agents to accomplish specific tasks. 
+The Model Context Protocol (MCP) provides a standardized way for AI models and agents to communicate with external systems to determine how to best make use of their capabilities. An MCP server lets an AI model or agent (client) make these determinations more efficiently. You can use an MCP server to publicly expose specific resources as tools, which agents call to accomplish specific tasks. 
 
 When you build or host your remote MCP servers in Azure Functions, you get dynamic scaling, serverless pricing models, and platform security features.
 
@@ -90,7 +89,7 @@ Here's a comparison of the current MCP server hosting options provided by Functi
 | Other requirements | None | Streamable HTTP transport |
 | How implemented | [MCP binding extension] | [Custom handlers](./functions-custom-handlers.md) |
 
-<sup>*</sup>Configuration details for self-hosted MCP servers will change during the preview. 
+<sup>*</sup>Configuration details for self-hosted MCP servers change during the preview. 
 
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-typescript,programming-language-python"
 Here are some options to help you get started hosting MCP servers in Functions:  
@@ -140,10 +139,18 @@ Here are some options to help you get started hosting MCP servers in Functions:
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-PowerShell isn't currently supported for either MCP server hosting options.  
+PowerShell isn't currently supported for either MCP server hosting option.  
 ::: zone-end  
 
 <sup>†</sup>Currently consider the deployment helper chat prompt _experimental_.
+
+## Agentic workflows
+
+AI-driven processes often determine how to interact with models and other AI assets. However, some scenarios require a higher level of predictability or well-defined steps. These directed agentic workflows orchestrate separate tasks or interactions that agents must follow. 
+
+The [Durable Functions extension](durable/durable-functions-overview.md) helps you take advantage of the strengths of Functions to create multistep, long-running operations with built-in fault tolerance. These workflows work well for your directed agentic workflows. For example, a trip planning solution might first gather requirements from the user, search for plan options, obtain user approval, and finally make required bookings. In this scenario, you can build an agent for each step and then coordinate their actions as a workflow using Durable Functions. 
+
+For more workflow scenario ideas, see [Application patterns](durable/durable-functions-overview.md#application-patterns) in Durable Functions. 
 
 ## Function calling
 
@@ -179,28 +186,19 @@ Here are some reference samples for function calling scenarios:
 > Uses function calling features for agents in Azure AI SDKs to implement custom function calling.  
 ::: zone-end
 
-## Agentic workflows
-
-It's common for AI-driven processes to autonomously determine how to interact with models and other AI assets. However, there are many cases where you need a higher level of predictability or where the steps are well defined. These directed agentic workflows are composed of an orchestration of separate tasks or interactions that agents are required to follow. 
-
-The [Durable Functions extension](durable/durable-functions-overview.md) helps you take advantage of the strengths of Functions to create multi-step, long-running operations with built-in fault tolerance. These workflows work well for your directed agentic workflows. For example, a trip planning solution might first gather requirements from the user, search for plan options, obtain user approval, and finally make required bookings. In this scenario, you can build an agent for each step and then coordinate their actions as a workflow using Durable Functions. 
-
-For more workflow scenario ideas, see [Application patterns](durable/durable-functions-overview.md#application-patterns) in Durable Functions. 
-
 ## AI tools and frameworks for Azure Functions
 
-Functions lets you build apps in your preferred language and using your favorite libraries. Because of this flexibility, you use a wide range of AI libraries and frameworks in your AI-enabled function apps. 
+Functions lets you build apps in your preferred language and use your favorite libraries. Because of this flexibility, you can use a wide range of AI libraries and frameworks in your AI-enabled function apps. 
 
-Here are some of the key Microsoft AI frameworks of which you should be aware:
+Here are some key Microsoft AI frameworks you should be aware of:
 
 | Framework/library | Description |
 | ----- | ----- |
+| [Agent Framework](/agent-framework/) | Easily build AI agents and agentic workflows. |
 | [Azure AI Foundry Agent Service](/azure/ai-foundry/agents/overview) | A fully managed service for building, deploying, and scaling AI agents with enterprise-grade security, built-in tools, and seamless integration with Azure Functions. |
-| [Azure AI Services SDKs](/azure/developer/ai/azure-ai-for-developers) | By working directly with client SDKs, you can use the full breadth of Azure AI services functionality directly in your function code. |
-| [OpenAI binding extension] | Easily integrate the power of Azure OpenAI in your functions and let Functions manage the service integration. |
-| [Semantic Kernel](/semantic-kernel/overview) | Lets you easily build AI agents and models. |
+| [Azure AI Services SDKs](/azure/ai-foundry/) | By working directly with client SDKs, you can use the full breadth of Azure AI services functionality directly in your function code. |
 
-Functions also lets your apps reference third-party libraries and frameworks, which means that you can use all of your favorite AI tools and libraries in your AI-enabled functions.  
+Functions also lets your apps reference third-party libraries and frameworks, so you can use all of your favorite AI tools and libraries in your AI-enabled functions.  
 
 ## Related articles
 
@@ -209,6 +207,3 @@ Functions also lets your apps reference third-party libraries and frameworks, wh
 
 [OpenAI binding extension]: functions-bindings-openai.md
 [MCP binding extension]: functions-bindings-mcp.md
-
-
-
