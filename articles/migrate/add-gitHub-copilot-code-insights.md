@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 ---
 
 
-#  Insights using GitHub Copilot assessment
+#  Add GitHub Copilot Code insights to Web App Assessments
 
 This article describes how to improve web app assessments by adding code scan insights using GitHub Copilot assessment when modernising applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and receive recommendations for appropriate migration strategies based on the code changes identified during the scan.
 
@@ -65,15 +65,15 @@ To generate report, complete the following steps:
 
 :::image type="content" source="./media/enhancing-web-app-assessment/upload-zip-file.png" alt-text="The screenshot shows how to upload a zip file." lightbox="./media/enhancing-web-app-assessment/upload-zip-file.png":::
 
-5. Select **Browse**, choosed the location of the ZIP file containing reports you want to import and then select **Upload**. Wait for the upload and validation to complete.
-6. In the Web app list, under the **GitHub Copilot assessment** report dropdown, view the uploaded reports under **Uploaded from zip file**. 
+5. Select **Browse**, and then select the location of the ZIP file containing reports you want to import and then select **Upload**. Wait for the upload and validation to complete.
 
 :::image type="content" source="./media/enhancing-web-app-assessment/add-code-insights.png" alt-text="The screenshot shows how to add code insights." lightbox="./media/enhancing-web-app-assessment/add-code-insights.png":::
 
-7. Select the appropriate report to map to the respective web app. Repeat these steps for all required web app.  
+6. In the Web app list, under the **GitHub Copilot assessment** report dropdown, view the uploaded reports under **Uploaded from zip file**. 
 
 :::image type="content" source="./media/enhancing-web-app-assessment/upload-from-zip-file.png" alt-text="The screenshot shows how to upload from the zip file." lightbox="./media/enhancing-web-app-assessment/upload-from-zip-file.png":::
 
+7. Select the appropriate report to map to the respective web app. Repeat these steps for all required web app.  
 8. After mapping, select **Add** and wait for the process to complete.
 
 :::image type="content" source="./media/enhancing-web-app-assessment/add.png" alt-text="The screenshot shows how to add web app." lightbox="./media/enhancing-web-app-assessment/add.png":::
@@ -81,59 +81,56 @@ To generate report, complete the following steps:
 9. After mapping is complete the assessment will be marked as outdated. Select **Recalculate** to initiate recalculation.
 10. After recalculation is complete, review the updated code insights.  
 
-### Request report via GitHub
+## Request report via GitHub
 
 This method connects Azure Migrate to a GitHub repository using provided connection details and automatically creates an issue in that repository. By using the GitHub Copilot app modernization extension, you can scan your code and upload the reports directly to the related GitHub issue. After updating the issue, Azure Migrate automatically attach the code scan reports to the associated web applications. This approach allows cloud administrators and developers to collaborate while maintaining application code security boundaries. 
 
-## Prerquisites
+### Prerquisites
 
 - Ensure a web app assessment exists for each required web app because code scan reports can only be added from an existing assessment. 
 - Provide information about the GitHub repository required for integration with Azure Migrate to allow automatic requests and synchronization of code scan reports. 
 - Provide GitHub application details that grant permission to create issues and read comments on issues within the target repository. 
 
-## Create new GitHub app 
+### Create new GitHub app 
 
 Create a new **GitHub App** by following these steps:
 
 1. In the top right corner of **GitHub** page, select your **profile picture**. 
 1. Navigate to your account settings. 
-    
-Personal account:
-
-1. Select **Settings**.
-1. Select **Your organization** and then **Settings** from right of the organization. 
-Enterprise account:
-1. If you use **Enterprise Managed Users**, select **Your enterprise** to go directly to the enterprise account settings. 
-1. If you use personal accounts, select **Your enterprises** and then to the right of the enterprise, select **Settings**. 
+  1. For an app owned by a personal account, select **Settings**. 
+    1. Select **Your organization** and then **Settings** from right of the organization. 
+  1. For an app owned by an enterprise:  
+    1. If you use **Enterprise Managed Users**, select **Your enterprise** to go directly to the enterprise account settings. 
+    1. If you use personal accounts, select **Your enterprises** and then to the right of the enterprise, select **Settings**. 
 1. Navigate to the **GitHub App** settings. 
   1. For an app owned by a personal account or organization:  In the left sidebar, select <> **Developer settings**, and then select **GitHub Apps**. 
   1. For an app owned by an enterprise: In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
     
 :::image type="content" source="./media/enhancing-web-app-assessment/new-github-app.png" alt-text="The screenshot shows how to select the new github app." lightbox="./media/enhancing-web-app-assessment/new-github-app.png":::
 
-Provide the following details to set up your new GitHub App: 
-
-1. Under **GitHub App name**, enter a name for your app.  
-2. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and is not used in this process. 
+1. Provide the following details to set up your new GitHub App: 
+  1. Under **GitHub App name**, enter a name for your app.  
+  1. Under **Homepage URL**, provide the complete URL. This URL serves as a placeholder and is not used in this process. 
   
 :::image type="content" source="./media/enhancing-web-app-assessment/register-new-github.png" alt-text="The screenshot shows the homepage url." lightbox="./media/enhancing-web-app-assessment/register-new-github.png":::
 
-3. Deselect **Active** under **Webhook** 
+  1. Ensure that **Expire user authorization tokens** is selected.  
+  1. Deselect **Active** under **Webhook** 
   
 :::image type="content" source="./media/enhancing-web-app-assessment/active-webhook.png" alt-text="The screenshot shows how to deselect the active webook." lightbox="./media/enhancing-web-app-assessment/active-webhook.png":::
 
-4. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
+  1. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
   
   | Issues  | Read and write  | 
   | --- | --- | 
   | Metadata  | Read-only  |
   | Webhook   | Read and write  |
 
-5. Under **Where can this GitHub App be installed?** select **Only on this account** or **Any account**. 
+  1. Under **Where can this GitHub App be installed?** select **Only on this account** or **Any account**. 
   
 :::image type="content" source="./media/enhancing-web-app-assessment/permissions.png" alt-text="The screenshot shows the available persmissions." lightbox="./media/enhancing-web-app-assessment/permissions.png":::
     
-6. Select **Create GitHub App**. 
+1. Select **Create GitHub App**. 
 
 ### Install GitHub app on the repository
 
@@ -151,7 +148,7 @@ Follow these steps to install GitHub App on your repository:
 
 5. After the installation completes, note the browser URL that contains the installation ID. For example: `https://github.com/settings/installations/<installationID>`
 
-### Configure Azure GitHub connection using GitHub App details and private key
+### GitHub App details and Private key to create GitHub connection
 
 Collate the following GitHub App details and private key to create a GitHub connection in Azure Migrate.
 
@@ -166,7 +163,7 @@ Collate the following GitHub App details and private key to create a GitHub conn
 5. To find the **Installation ID**, navigate to **Install App** and select **Settings** next to  the account where the app is installed.  
 6. After the installation completes, note the browser URL that contains the installation ID. For example, `https://github.com/settings/installations/<installationID>`
 
-### Request Web App Assessment report using GitHub connection
+### Request code scan report to web app assessment using GitHub
 
 1. Select **Assessments** on the Azure Migrate project **Overview** page under **Decide and Plan**.
 2. Search for the assessment with the **Workloads** filter and select it. 
@@ -200,7 +197,7 @@ Collate the following GitHub App details and private key to create a GitHub conn
 12. After the report is mapped, the assessment is marked as outdated. 
 13. Recalculate the assessment to view enhanced results with code insights. 
 
-### Generate GitHub Copilot Assessment report
+### Generate code scan report using GitHub Copilot app modernization extension
 
 To generate report, follow the steps:
 

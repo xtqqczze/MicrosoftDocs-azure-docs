@@ -194,7 +194,7 @@ items:
         - name: Review assessment report
           href: review-web-app-assessment.md
         - name: Enhance web app assessment by adding code scan report
-          href: enhancing-web-app-assessment.md
+          href: add-gitHub-copilot-code-insights.md
       - name: AVS assessment
         items:
         - name: Create an AVS assessment
