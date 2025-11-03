@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a vaulted  policy for Azure Data Lake Storage using Azure portal, PowerShell, or Azure
+title: Quickstart - Create a vaulted backup  policy for Azure Data Lake Storage using Azure portal, PowerShell, or Azure
 description: Learn how to create a vaulted backup policy for Azure Data Lake Storage using Azure portal, PowerShell, or Azure.
 ms.custom:
   - ignite-2025
