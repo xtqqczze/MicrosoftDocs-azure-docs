@@ -4,7 +4,7 @@ description: Use a hypothesis-driven approach to explore multiple potential root
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 10/31/2025
+ms.date: 11/03/2025
 ms.service: azure
 ---
 
