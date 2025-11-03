@@ -171,6 +171,9 @@ sudo ./setup.sh
 
 -----
 
+> [!NOTE]
+> **Legacy Hybird Connection Manager availability:** The legacy version of the Hybrid Connection Manager is available if needed and can be [downloaded here](https://download.microsoft.com/download/0/e/4/0e48d57b-c563-4877-8acb-cb740c7c6a78/HybridConnectionManager.msi). This version is no longer being updated and only supports Windows clients. It's recommended that you use the latest version of the Hybrid Connection Manager for all new installations and upgrades to existing installations.
+
 To support the Hybrid Connections it's configured with, the Hybrid Connection Manager requires:
 
 - TCP access to Azure over port 443.
