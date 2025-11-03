@@ -2,7 +2,7 @@
 title: Tutorial - Configure Threat Detection and manage health of Azure VM Backups
 description: Learn how to enable threat detection for Azure VM backups using Azure Backup. The feature is integrated with Microsoft Defender for Cloud, configure settings, and monitor backup restore point health.
 ms.service: azure-backup
-ms.date: 10/24/2025
+ms.date: 11/10/2025
 ms.topic: tutorial
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -32,12 +32,12 @@ Before you enable and manage threat detection for Azure VM backups, ensure the f
 
 You can configure source-scan at-scale at the vault level, which allows Azure Backup to perform Malware scans using Microsoft Defender at the source virtual machine. This capability allows Azure Backup to assess the health of recovery points when snapshots are taken.
 
-You can enable threat detection for Azure VM backups using one of the methods - Azure Business Continuity Center or Vault properties. After the threat detection scan is configured on the vaults, the vault applies scan status to all new restore points created for VM backups.
+You can enable threat detection for Azure VM backups with one of the methods by using Azure Business Continuity Center or Vault properties. After the threat detection scan is configured on the vaults, the vault applies scan status to all new restore points created for VM backups.
 
 
 >[!Important]
->With the required Microsoft Defender for Cloud (MDC) plans, you can enable source-scan integration. This feature can't be disabled.
-
+>- With the required Microsoft Defender for Cloud (MDC) plans, you can enable source-scan integration. Once enabled, this security feature can't be turned off.
+>- You can configure Source scan only when the selected subscription has the required Microsoft Defender for Servers plan.
 
 ### Option 1: Configure threat detection using Azure Business Continuity Center
 
@@ -58,9 +58,6 @@ To enable threat detection for Azure VM backups using Azure Business Continuity 
 1. On the **Select Vaults** pane, under **Select subscription**, choose the subscription under which you want to enable the source-scan integration.
 
 1. To enable integration with Microsoft Defender for Cloud, select the vaults from the list that contain the protected datasources (VM backups), and then select **Add**.
-
-   >[!Note]
-   >You can configure Source scan only when the selected subscription has the required Microsoft Defender for Servers plan.
 
    :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/select-vault.png" alt-text="Screenshot shows the vault selection for scan configuration." lightbox="./media/threat-detection-configure-monitor-tutorial/select-vault.png":::   
 

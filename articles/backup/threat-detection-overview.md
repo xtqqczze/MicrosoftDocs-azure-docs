@@ -5,12 +5,14 @@ description: Learn about threat detection for Azure VM backups, a feature that h
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 10/24/2025
+ms.date: 11/10/2025
 ms.topic: tutorial
 ms.service: azure-backup
 ---
 
 # Threat Detection in Azure Backup with Microsoft Defender for Cloud integration (preview)
+
+This article provides an overview of the Threat Detection feature for Azure Virtual Machine (VM) backups, which is integrated with Microsoft Defender for Cloud (MDC). 
 
 Azure Backup integrates with Microsoft Defender for Cloud (MDC) to offer advanced threat detection for Azure Virtual Machine (VM) backups. This feature allows you to assess the health of backup restore points by identifying potentially malicious or ransomware-infected backups.
 
@@ -22,7 +24,7 @@ Threat detection for Azure VM backups includes the following benefits:
 
 - **Proactive threat identification:** Threat detection Configuration at the vault level automatically identifies compromised restore points across all VM backups in the vault, which enhances recovery confidence.
 
-- **Faster recovery:** Reduce time to recover by quickly identifying clean restore points suitable for ransomware recovery.
+- **Faster recovery:** Reduced time to recover by quickly identifying clean restore points that are suitable for ransomware recovery.
 
 - **Seamless integration:** Works natively with [Microsoft Defender for Servers Plan 1 and Plan 2](/azure/defender-for-cloud/defender-for-servers-overview#plan-protection-features), ensuring a unified and consistent security experience across Azure workloads.
 
