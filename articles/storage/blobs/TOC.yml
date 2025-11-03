@@ -538,14 +538,10 @@ items:
 
   - name: Performance and scale
     items:
-    - name: Performance and scalability checklist
+    - name: Performance optimization checklist
       href: storage-performance-checklist.md
-    - name: Put in partitioning guide
+    - name: Optimizing data partitions
       href: Storage-performance-partitioning.md
-    - name: Put in developer guide
-      href: Storage-performance-dev-guide.md
-    - name: Remove entirely
-      href: Storage-performance-content-removal.md
     - name: Latency in Blob storage
       href: storage-blobs-latency.md
     - name: Scalability and performance targets
@@ -1041,6 +1037,8 @@ items:
         href: storage-blob-event-quickstart.md
     - name: Data Movement library (.NET)
       href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Performance optimization
+      href: storage-performance-dev-guide.md
   - name: Troubleshooting
     href: /troubleshoot/azure/azure-storage/welcome-azure-storage?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Samples

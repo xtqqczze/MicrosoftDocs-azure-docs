@@ -20,38 +20,6 @@ Microsoft has developed a number of proven practices for developing high-perform
 
 Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json) and [Scalability and performance targets for Blob storage](scalability-targets.md).
 
-## Checklist
-
-Use this checklist as a guide.
-
-> [!div class="checklist"]
->
-> - **Item** - Action description. (**[Learn more](/azure/storage/common/section-1)**).
->
-> - **Item2**: Action description. (**[Learn more](/azure/storage/blobs/section-2)**).
-
-### Section 1
-
-Brief description.
-
-- **Advice caption** Description or succinct guidance. Link to more information.
-
-- **Advice caption** Description or succinct guidance. Link to more information.
-
-See "Link to more information if appropriate".
-
-### Section 2
-
-Brief description.
-
-- **Advice caption** Description or succinct guidance. Link to more information.
-
-- **Advice caption** Description or succinct guidance. Link to more information.
-
-- **Application developer thing** Description of application developer concerns such as blah, blah, and blah. For more information, see application developer performance guide. You might need a small, short subsection that summarizes it and then points to various spots in the dev guides for more detail.
-
-See "Link to more information if appropriate".
-
 This article organizes proven practices for performance into a checklist you can follow while developing your Blob storage application.
 
 | Done | Category | Design consideration |
@@ -83,58 +51,48 @@ This article organizes proven practices for performance into a checklist you can
 | &nbsp; |Uploading quickly |[When trying to upload many blobs quickly, are you uploading blobs in parallel?](#upload-many-blobs-quickly) |
 | &nbsp; |Blob type |[Are you using page blobs or block blobs when appropriate?](#choose-the-correct-type-of-blob) |
 
-## Need to add
-
-Add in something about premium block blob storage accounts. For more information, see [Premium block blob storage accounts](storage-blob-block-blob-premium.md). 
-
-## Stuff from the WAF (perhaps you can harvest some):
-
-### Performance Efficiency
-
-Performance Efficiency is about **maintaining user experience even when there's an increase in load** by managing capacity. The strategy includes scaling resources, identifying and optimizing potential bottlenecks, and optimizing for peak performance.
-
-The [Performance Efficiency design principles](../performance-efficiency/principles.md) provide a high-level design strategy for achieving those capacity goals against the expected usage.
-
-#### Workload design checklist
-
-Start your design strategy based on the [design review checklist for Performance Efficiency](../performance-efficiency/checklist.md). Define a baseline that's based on key performance indicators for your Blob Storage configuration.
+## Performance checklist
 
 > [!div class="checklist"]
 >
-> - **Plan for scale**: Understand the scale targets for storage accounts.
->
 > - **Choose the optimal storage account type**: If your workload requires high transaction rates, smaller objects, and a consistently low transaction latency, then consider using premium block blob storage accounts. A standard general-purpose v2 account is most appropriate in most cases.  
->
 > - **Reduce travel distance between the client and server**: Place data in regions nearest to connecting clients (ideally in the same region). Optimize for clients in regions far away by using object replication or a content delivery network. Default network configurations provide the best performance. Modify network settings only to improve security. In general, network settings don't decrease travel distance and don't improve performance.
->
-> - **Choose an efficient naming scheme**: Decrease the latency of listing, list, query, and read operations by using hash tag prefixes nearest the beginning of the blob partition key (account, container, virtual directory, or blob name). This scheme benefits mostly accounts that have a flat namespace.
->
-> - **Optimize the performance of data clients**: [Choose a data transfer tool](/azure/storage/common/storage-choose-data-transfer-solution) that's most appropriate for the data size, transfer frequency, and bandwidth of your workloads. Some tools such as [AzCopy](/azure/storage/common/storage-use-azcopy-v10) are optimized for performance and require little intervention. Consider the [factors that influence latency](/azure/storage/blobs/storage-blobs-latency#factors-influencing-latency), and fine-tune performance by reviewing the performance optimization guidance that's published with each tool.
->
-> - **Optimize the performance of custom code**: Consider using Storage SDKs instead of creating your own wrappers for blob REST operations. Azure SDKs are optimized for performance and provide mechanisms to fine-tune performance. Before creating an application, review the [performance and scalability checklist for Blob Storage](/azure/storage/blobs/storage-performance-checklist). Consider using [query acceleration](/azure/storage/blobs/data-lake-storage-query-acceleration) to filter out unwanted data during the storage request and keep clients from needlessly transferring data across the network.
->
 > - **Collect performance data**: Monitor your storage account to identify performance bottlenecks that occur from throttling. For more information, see [Monitoring your storage service with Monitor Storage insights](/azure/storage/common/storage-insights-overview#view-from-azure-monitor). Use both metrics and logs. Metrics provide numbers such as throttling errors. Logs describe activity. If you see throttling metrics, you can use logs to identity which clients are receiving throttling errors. For more information, see [Auditing data plane operations](/azure/storage/blobs/blob-storage-monitoring-scenarios#auditing-data-plane-operations).
-
-### Configuration recommendations
-
-|Recommendation|Benefit|
-|------------------------------|-----------|
-|Provision storage accounts in the same region where dependent resources are placed. For applications that aren't hosted on Azure, such as mobile device apps or on-premises enterprise services, locate the storage account in a region nearer to those clients. For more information, see [Azure geographies](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview).<br><br>If clients from a different region don't require the same data, then create a separate account in each region.<br><br>If clients from a different region require only some data, consider using an object-replication policy to asynchronously copy relevant objects to a storage account in the other region. | Reducing the physical distance between the storage account and VMs, services, and on-premises clients can improve performance and reduce network latency. Reducing the physical distance also reduces cost for applications hosted in Azure because bandwidth usage within a single region is free.|
-|For broad consumption by web clients (streaming video, audio, or static website content), consider using a content delivery network through Azure Front Door. | Content is delivered to clients faster because it uses the Microsoft global edge network with hundreds of global and local points of presence around the world.|
-|Add a hash character sequence (such as three digits) as early as possible in the partition key of a blob. The partition key is the account name, container name, virtual directory name, and blob name. If you plan to use timestamps in names, then consider adding a seconds value to the beginning of that stamp. For more information, see [Partitioning](/azure/storage/blobs/storage-performance-checklist#partitioning).| Using a hash code or seconds value nearest the beginning of a partition key reduces the time required to list query and read blobs. |
-|When uploading blobs or blocks, use a blob or block size that's greater than 256 KiB. | Blob or block sizes above 256 KiB takes advantage of performance enhancements in the platform made specifically for larger blobs and block sizes. |
+>
+> - **Item**: Description.  
+>
+> - **Item**: Description.  
+>
+> - **Item**: Description.  
+>
+> - **Item**: Description.  
+>
+> - **Item**: Description.  
+>
+> - **Item**: Description.  
+>
+> - **Item**: Description.  
+>
+> - **Item**: Description.  
+>
 
 ## Scalability targets
 
-If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes. Avoiding these errors by staying within the limits of the scalability targets is an important part of enhancing your application's performance.
+If your application approaches or exceeds any of the scalability targets, it might encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes. Avoiding these errors by staying within the limits of the scalability targets is an important part of enhancing your application's performance.
 
-For more information about scalability targets for the Queue service, see [Azure Storage scalability and performance targets](../queues/scalability-targets.md#scale-targets-for-queue-storage).
+Link to scalability targets
 
 ### Capacity and transaction targets
 
-- If your application hits the transaction target, consider using block blob storage accounts, which are optimized for high transaction rates and low and consistent latency. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
+If your application hits the transaction target, consider using block blob storage accounts, which are optimized for high transaction rates and low and consistent latency. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
 
-- If you're building a custom application by using REST, make sure that you are performing automatic retries. SDKs have default retry behavior built into them. See - point to guidance.
+If you're building a custom application by using REST, make sure that you are performing automatic retries. SDKs have default retry behavior built into them. See - point to guidance.
+
+### Bandwidth and operations per blob
+
+If you have multiple clients that need to read the same blob and you might exceed the number of requests that single blob can receive per second, then consider using a block blob storage account. A block blob storage account provides a higher request rate, or I/O operations per second (IOPS).
+
+You can also use a content delivery network (CDN) such as Azure CDN to distribute operations on the blob. For more information about Azure CDN, see [Azure CDN overview](../../cdn/cdn-overview.md).
 
 ### Multiple clients accessing a single blob concurrently
 
@@ -144,41 +102,63 @@ If the blob can be distributed through a CDN such as images or videos served fro
 
 In other scenarios, such as scientific simulations where the data is confidential, you have two options. The first is to stagger your workload's access such that the blob is accessed over a period of time vs being accessed simultaneously. Alternatively, you can temporarily copy the blob to multiple storage accounts to increase the total IOPS per blob and across storage accounts. Results vary depending on your application's behavior, so be sure to test concurrency patterns during design.
 
-### Bandwidth and operations per blob
+### Optimize data partitions
 
-If you have multiple clients that need to read the same blob and you might exceed the number of requests that single blob can receive per second, then consider using a block blob storage account. A block blob storage account provides a higher request rate, or I/O operations per second (IOPS).
+- If possible, use blob or block sizes greater than 4 MiB for standard storage accounts and 256 KiB for premium storage accounts. Larger blob or block sizes automatically activate high-throughput block blobs. High-throughput block blobs provide high-performance ingest that isn't affected by partition naming.
 
-You can also use a content delivery network (CDN) such as Azure CDN to distribute operations on the blob. For more information about Azure CDN, see [Azure CDN overview](../../cdn/cdn-overview.md).
+- Examine the naming convention you use for accounts, containers, and blobs. Consider prefixing account, container, or blob names with a three-digit hash using a hashing function that best suits your needs.
 
-### Partitioning
+- If you organize your data using timestamps or numerical identifiers, make sure that you aren't using an append-only (or prepend-only) traffic pattern. These patterns aren't suitable for a range-based partitioning system. These patterns may lead to all traffic going to a single partition and limiting the system from effectively load balancing.
 
-Add description. To learn more, see [Partitioning Blob Storage](storage-performance-partitioning.md)
+  For example, if you have daily operations that use a blob with a timestamp such as *yyyymmdd*, then all traffic for that daily operation is directed to a single blob, which is served by a single partition server. Consider whether the per-blob limits and per-partition limits meet your needs, and consider breaking this operation into multiple blobs if needed. Similarly, if you store time series data in your tables, all traffic may be directed to the last part of the key namespace. If you're using numerical IDs, prefix the ID with a three-digit hash. If you're using timestamps, prefix the timestamp with the seconds value, for example, *ssyyyymmdd*. If your application routinely performs listing and querying operations, choose a hashing function that limits your number of queries. In some cases, a random prefix may be sufficient.
 
-## Networking
+  To learn more, see [Partitioning Blob Storage](storage-performance-partitioning.md)
 
-The physical network constraints of the application may have a significant impact on performance. The following sections describe some of limitations users may encounter.
+From WAF:
 
-### Client network capability
+Add a hash character sequence (such as three digits) as early as possible in the partition key of a blob. The partition key is the account name, container name, virtual directory name, and blob name. If you plan to use timestamps in names, then consider adding a seconds value to the beginning of that stamp. For more information, see [Partitioning](/azure/storage/blobs/storage-performance-checklist#partitioning).
 
-Bandwidth and the quality of the network link play important roles in application performance, as described in the following sections.
+Using a hash code or seconds value nearest the beginning of a partition key reduces the time required to list query and read blobs.
 
-#### Throughput
+When uploading blobs or blocks, use a blob or block size that's greater than 256 KiB. | Blob or block sizes above 256 KiB takes advantage of performance enhancements in the platform made specifically for larger blobs and block sizes.
 
-For bandwidth, the problem is often the capabilities of the client. Larger Azure instances have NICs with greater capacity, so you should consider using a larger instance or more VMs if you need higher network limits from a single machine. If you're accessing Azure Storage from an on premises application, then the same rule applies: understand the network capabilities of the client device and the network connectivity to the Azure Storage location and either improve them as needed or design your application to work within their capabilities.
+### Optimize VM size
 
-#### Link quality
+For bandwidth, the problem is often the capabilities of the client. Larger Azure instances have NICs with greater capacity, so you should consider using a larger instance or more VMs if you need higher network limits from a single machine.
+
+### Optimize on premises clients 
+
+ If you're accessing Azure Storage from an on premises application, then the same rule applies: understand the network capabilities of the client device and the network connectivity to the Azure Storage location and either improve them as needed or design your application to work within their capabilities.
+
+#### Examine link quality
 
 As with any network usage, keep in mind that network conditions resulting in errors and packet loss slows effective throughput.  Using WireShark or NetMon may help in diagnosing this issue.
 
-### Location
+### Locate data near clients
 
 In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure web app that uses Azure Storage, then locate them both within a single region, such as US West or Asia Southeast. Co-locating resources reduces the latency and the cost, as bandwidth usage within a single region is free.
 
-## Caching
+Provision storage accounts in the same region where dependent resources are placed. For applications that aren't hosted on Azure, such as mobile device apps or on-premises enterprise services, locate the storage account in a region nearer to those clients. For more information, see [Azure geographies](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview).
 
-Caching plays an important role in performance. The following sections discuss caching best practices.
+If clients from a different region don't require the same data, then create a separate account in each region. 
 
-### Reading data
+If clients from a different region require only some data, consider using an object-replication policy to asynchronously copy relevant objects to a storage account in the other region. 
+
+Reducing the physical distance between the storage account and VMs, services, and on-premises clients can improve performance and reduce network latency. Reducing the physical distance also reduces cost for applications hosted in Azure because bandwidth usage within a single region is free
+
+For broad distribution of blob content, use a content deliver network such as Azure CDN. For more information about Azure CDN, see [Azure CDN](../../cdn/cdn-overview.md).
+
+## Distribute content efficiently
+
+For broad consumption by web clients (streaming video, audio, or static website content), consider using a content delivery network through Azure Front Door.  
+
+Content is delivered to clients faster because it uses the Microsoft global edge network with hundreds of global and local points of presence around the world.
+
+Sometimes an application needs to serve the same content to many users (for example, a product demo video used in the home page of a website), located in either the same or multiple regions. In this scenario, use a Content Delivery Network (CDN) such as Azure Front Door. Azure Front Door is Microsoft’s modern cloud CDN that provides fast, reliable, and secure access between your users and your applications’ static and dynamic web content across the globe. Azure Front Door delivers your Blob Storage content using Microsoft’s global edge network with hundreds of [global and local points of presence (PoPs)](../../frontdoor/edge-locations-by-region.md). A CDN can typically support much higher egress limits than a single storage account and offers improved latency for content delivery to other regions. 
+
+For more information about Azure Front Door, see [Azure Front Door](../../frontdoor/front-door-overview.md).
+
+### Cache data to improve performance
 
 In general, reading data once is preferable to reading it twice. Consider the example of a web application that has retrieved a 50 MiB blob from the Azure Storage to serve as content to a user. Ideally, the application caches the blob locally to disk and then retrieves the cached version for subsequent user requests.
 
@@ -190,34 +170,19 @@ Configuration data, lookup data, and other data that is frequently used by the a
 
 For more information about using conditional headers, see [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).
 
-### Uploading data in batches
+### Upload data in batches
 
 In some scenarios, you can aggregate data locally, and then periodically upload it in a batch instead of uploading each piece of data immediately. For example, suppose a web application keeps a log file of activities. The application can either upload details of every activity as it happens to a table (which requires many storage operations), or it can save activity details to a local log file and then periodically upload all activity details as a delimited file to a blob. If each log entry is 1 KB in size, you can upload thousands of entries in a single transaction. A single transaction supports uploading a blob of up to 64 MiB in size. The application developer must design for the possibility of client device or upload failures. If the activity data needs to be downloaded for an interval of time rather than for a single activity, then using Blob storage is recommended over Table storage.
 
-## Copying and moving blobs
-
-Azure Storage provides a number of solutions for copying and moving blobs within a storage account, between storage accounts, and between on-premises systems and the cloud. This section describes some of these options in terms of their effects on performance. For information about efficiently transferring data to or from Blob storage, see [Choose an Azure solution for data transfer](../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json).
-
-### Use AzCopy
+### Use performance-optimized tools to transfer data
 
 The AzCopy command-line utility is a simple and efficient option for bulk transfer of blobs to, from, and across storage accounts. AzCopy is optimized for this scenario, and can achieve high transfer rates. AzCopy version 10 uses the `Put Block From URL` operation to copy blob data across storage accounts. For more information, see [Copy or move data to Azure Storage by using AzCopy v10](../common/storage-use-azcopy-v10.md).
 
-### Use Azure Data Box
+Put something here for storage mover.
 
 For importing large volumes of data into Blob storage, consider using the Azure Data Box family for offline transfers. Microsoft-supplied Data Box devices are a good choice for moving large amounts of data to Azure when you're limited by time, network availability, or costs. For more information, see the [Azure DataBox Documentation](../../databox/index.yml).
 
-## Content distribution
-
-Sometimes an application needs to serve the same content to many users (for example, a product demo video used in the home page of a website), located in either the same or multiple regions. In this scenario, use a Content Delivery Network (CDN) such as Azure Front Door. Azure Front Door is Microsoft’s modern cloud CDN that provides fast, reliable, and secure access between your users and your applications’ static and dynamic web content across the globe. Azure Front Door delivers your Blob Storage content using Microsoft’s global edge network with hundreds of [global and local points of presence (PoPs)](../../frontdoor/edge-locations-by-region.md). A CDN can typically support much higher egress limits than a single storage account and offers improved latency for content delivery to other regions. 
-
-For more information about Azure Front Door, see [Azure Front Door](../../frontdoor/front-door-overview.md).
-
-## Account and container metadata updates
-
-Account and container metadata is propagated across the storage service in the region where the account resides. Full propagation of this metadata can take up to 60 seconds depending on the operation. For example:
-
-- If you are rapidly creating, deleting, and recreating accounts with the same account name in the same region ensure that you are waiting 60 seconds for the account state to fully propagate, or your requests may fail.
-- When you establish a stored access policy on a container, the policy might take up to 30 seconds to take effect.
+For more information about choosing a migration data tool, see put link here.
 
 ## Upload many blobs quickly
 
