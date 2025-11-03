@@ -18,7 +18,7 @@ Use deep investigation when:
 - You suspect **multiple root causes**, requiring systematic validation.
 - You need **visibility into the agent’s reasoning process**, similar to war room investigations.
 
-For simple queries, standard investigation is sufficient, but deep investigation is a best-fit for cases where structured, multi-path analysis adds value.
+For simple queries, standard investigation is often all you need. However, when you encounter cases where you suspect you need a structured, multi-path analysis to locate the root cause, then use deep investigation.
 
 ## How deep investigation works
 
