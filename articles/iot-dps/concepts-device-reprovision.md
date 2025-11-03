@@ -38,7 +38,7 @@ When a device is initially provisioned with a Device Provisioning Service instan
 
 Over time, [device operations](../iot-hub/iot-hub-devguide-device-twins.md#device-operations) and [back-end operations](../iot-hub/iot-hub-devguide-device-twins.md#back-end-operations) could update the device state data on the IoT hub. The initial device state information stored in the Device Provisioning Service instance stays untouched. This untouched device state data is the initial configuration.
 
-:::image type="content" source="./media/concepts-device-reprovisioning/dps-provisioning-2.png" alt-text="Diagram that highlights device state changes for devices provisioned with the Device Provisioning Service":::
+:::image type="content" source="./media/concepts-device-reprovisioning/dps-provisioning-2.png" alt-text="Diagram that highlights device state changes for devices provisioned with the Device Provisioning Service.":::
 
 Depending on the scenario, as a device moves between IoT hubs, it might also be necessary to migrate device state updated on the previous IoT hub over to the new IoT hub. Reprovisioning policies in the Device Provisioning Service can support this migration.
 
@@ -85,9 +85,9 @@ Before September 2018, device assignments to IoT hubs had a sticky behavior. Whe
 
 For solutions that take a dependency on this behavior, the provisioning service includes backwards compatibility. This behavior is presently maintained for devices according to the following criteria:
 
-1. The devices connect with an API version before the availability of native reprovisioning support in the Device Provisioning Service. Refer to the following API table.
+* The devices connect with an API version before the availability of native reprovisioning support in the Device Provisioning Service. Refer to the following API table.
 
-2. The enrollment entry for the devices doesn't have a reprovisioning policy set on them.
+* The enrollment entry for the devices doesn't have a reprovisioning policy set on them.
 
 This compatibility makes sure that previously deployed devices experience the same behavior that's present during initial testing. To preserve the previous behavior, don't save a reprovisioning policy to these enrollments. If a reprovisioning policy is set, the reprovisioning policy takes precedence over the behavior. By allowing the reprovisioning policy to take precedence, customers can update device behavior without having to reimage the device.
 
