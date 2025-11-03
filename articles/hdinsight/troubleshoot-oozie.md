@@ -116,57 +116,29 @@ To disable the Oozie WebUI, please follow the below steps:
 2. Edit /var/lib/ambari-server/resources/stacks/HDInsight/<version>/services/OOZIE/quicklinks/quicklinks.json and remove the value for "url" parameter.
 
 Before:
-```xml{
+```xml
   "name": "default",
   "description": "default quick links configuration",
   "configuration": {
     "links": [
-      {
-        "name": "oozie_server_ui",
-        "label": "Oozie Web UI",
-        "requires_user_name": "true",
-        "component_name": "OOZIE_SERVER",
+  .....
         "url":"%@://%@:%@/oozie?user.name=%@",
         "port":{
           "http_property": "oozie.base.url",
-          "http_default_port": "11000",
-          "https_property": "oozie.https.port",
-          "https_default_port": "11443",
-          "regex": "\\w*:(\\d+)",
-          "https_regex": "(\\d+)",
-          "site": "oozie-site"
-        }
-      }
-    ]
-  }
-}
+  .....
 ```
 
 After:
-```xml{
+```xml
   "name": "default",
   "description": "default quick links configuration",
   "configuration": {
     "links": [
-      {
-        "name": "oozie_server_ui",
-        "label": "Oozie Web UI",
-        "requires_user_name": "true",
-        "component_name": "OOZIE_SERVER",
+  .....
         "url":"",
         "port":{
           "http_property": "oozie.base.url",
-          "http_default_port": "11000",
-          "https_property": "oozie.https.port",
-          "https_default_port": "11443",
-          "regex": "\\w*:(\\d+)",
-          "https_regex": "(\\d+)",
-          "site": "oozie-site"
-        }
-      }
-    ]
-  }
-}
+  .....
 ```
 
 3. Restart Ambari services
