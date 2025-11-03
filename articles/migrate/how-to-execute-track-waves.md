@@ -38,9 +38,10 @@ Use the application migration settings to review workloads, execute migration fl
 :::image type="content" source="./media/how-to-execute-track-waves/application-execute.png" alt-text="The screenshot shows the details of the application execute waves." lightbox="./media/how-to-execute-track-waves/application-execute.png"::: 
 
 3. If the application has tracked tasks, select the number under **Tasks**.
-4. After you complete the task out of band, select **Mark as Complete**.
 
 :::image type="content" source="./media/how-to-execute-track-waves/application-tasks.png" alt-text="The screenshot shows the application task marked as complete." lightbox="./media/how-to-execute-track-waves/application-tasks.png"::: 
+
+4. After you complete the task out of band, select **Mark as Complete**.
 
 ### Execute Workload migration flows
 
