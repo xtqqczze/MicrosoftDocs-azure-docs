@@ -3,7 +3,7 @@ title: Configure Premium V4 Tier
 description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new Premium V4 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 ms.topic: how-to
-ms.date: 08/22/2025
+ms.date: 09/24/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom:
@@ -93,28 +93,41 @@ Premium V4 is available in the following regions:
 
 ### Azure Public
 
-- Australia East
-- Canada Central
+>[!IMPORTANT]
+> Not all Premium V4 regions offer availability zone support. Regions marked with an (*) below currently support availability zones.
+- Australia East<sup>*</sup>
+- Canada Central<sup>*</sup>
 - Central India
 - Central US
+- East Asia
 - East US
-- East US 2
-- France Central
-- Italy North
+- East US 2<sup>*</sup>
+- France Central<sup>*</sup>
+- Germany West Central<sup>*</sup>
+- Indonesia Central<sup>*</sup>
+- Italy North<sup>*</sup>
 - Japan East
-- Korea Central
+- Japan West<sup>*</sup>
+- Korea Central<sup>*</sup>
+- Mexico Central
 - North Central US
 - North Europe
-- Norway East
-- Poland Central
+- Norway East<sup>*</sup>
+- Poland Central<sup>*</sup>
+- South Africa North<sup>*</sup>
 - Southeast Asia
-- Sweden Central
-- Switzerland North
-- UK South
+- Spain Central<sup>*</sup>
+- Sweden Central<sup>*</sup>
+- Switzerland North<sup>*</sup>
+- UAE North<sup>*</sup>
+- UK South<sup>*</sup>
 - West Central US
 - West Europe
 - West US
+- West US 2
 - West US 3
+
+<sup>*</sup> Region supports Premium v4 with availability zones.
 
 ## Scale up from an unsupported resource group and region combination
 

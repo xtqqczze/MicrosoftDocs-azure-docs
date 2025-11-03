@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/04/2025
+ms.date: 10/22/2025
 ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 
@@ -25,7 +25,8 @@ With Azure NetApp Files' migration assistant, you can peer and migrate volumes f
 * You should complete migrations from a single source cluster using one Azure subscription before migrating volumes destined for another subscription. Cluster peering fails when using a second Azure subscription and the same external source clusters. 
 * If you use Azure RBAC to separate the role of Azure NetApp Files storage management with the intention of separating volume management tasks where volumes reside on the same network sibling set, be aware that externally connected ONTAP systems peered to that sibling set don't adhere to these Azure-defined roles. The external storage administrator might have limited visibility to all volumes in the sibling set showing storage level metadata details.
 * When creating each migration volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created volumes in the subscription to reduce the number of network interface cards (NICs) or IPs consumed in the delegated subnet. If this isn't possible, an additional seven NICs are consumed.
-* When the migration is in progress, don't enable features such as backup. Only enable features once the migration has completed. 
+* You should ensure that there are no external FlexGroup volumes as they cannot be migrated to Azure NetApp Files large volumes.
+* When the migration is in progress, don't enable features such as backup. Only enable features once the migration has completed.
 
 >[!TIP]
 >For help creating a migration volume and peering clusters for the migration assistant, see the [PowerShell migration assistant workflow sample script](https://github.com/Azure-Samples/azure-docs-powershell-samples/blob/main/migration-assistant/migration-assistant-workflow.ps1).
@@ -73,7 +74,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     >[!IMPORTANT]
     >Ensure the size and other volume properties on the target volumes match with the source.
     >
-    >You should create the Azure NetApp Files volume with 20% or more quota than the source volume. Azure NetApp Files volumes use raw capacity size. The source volume might be smaller due to deduplication and compression. You can shrink Azure NetApp Files nondisruptively after the migration to prevent over-provisioning. 
+    >You should create the Azure NetApp Files volume with 20% or more quota than the source volume. Azure NetApp Files volumes use logical capacity size. The source volume might be smaller due to deduplication and compression. For correct Azure NetApp Files volume sizing, use the logical space reported by the volume you are migrating. You can shrink Azure NetApp Files nondisruptively after the migration to prevent over-provisioning. 
 
     The "remote path" values are the host, server, and volume names of your on-premises storage. 
 
@@ -123,14 +124,17 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
           ],
           "subnetId":"/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet>",
           "networkFeatures":"Standard",
-          "isLargeVolume":"<true|false>"
+          "isLargeVolume":"false"
        }
     }
     ```
 
 1. Issue a cluster peering API request for each of the target Azure NetApp Files migration volumes to the on-premises cluster. Repeat this step for each migration volume. Each call must provide a list of the on-premises cluster intercluster LIFs. The peer IP Addresses must match your on-premises networking.
 
-    >[!NOTE]
+   >[!NOTE]
+   >Cluster peering supports only one active subscription between a given pair of source and destination clusters. If a second subscription is created for the same cluster pair, the peering process will fail. Within the same zone, only one active subscription can be migrated at a time; however, migrations across different zones are supported and will complete successfully.
+
+   >[!NOTE]
     >Every node in your ONTAP system needs an IC LIF. Each IC LIF needs to be listed here. 
 
     ```rest

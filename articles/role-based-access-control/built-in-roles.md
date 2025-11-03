@@ -4,10 +4,10 @@ description: This article describes the Azure built-in roles for Azure role-base
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: jenniferf-skc    
+author: rolyon    
 manager: pmwongera
-ms.author: jfields
-ms.date: 09/03/2025
+ms.author: rolyon
+ms.date: 09/24/2025
 ms.custom: generated
 ---
 
@@ -191,7 +191,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
 > | <a name='acrdelete'></a>[AcrDelete](./built-in-roles/containers.md#acrdelete) | Delete repositories, tags, or manifests from a container registry. | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
-> | <a name='acrimagesigner'></a>[AcrImageSigner](./built-in-roles/containers.md#acrimagesigner) | Push trusted images to or pull trusted images from a container registry enabled for content trust. | 6cef56e8-d556-48e5-a04f-b8e64114680f |
+> | <a name='acrimagesigner'></a>[AcrImageSigner](./built-in-roles/containers.md#acrimagesigner) | Avoid using this role. Content Trust in Azure Container Registry and the AcrImageSigner role are being deprecated and will be completely removed on March 31, 2028. For details and transition guidance, see https://aka.ms/acr/dctdeprecation. | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | <a name='acrpull'></a>[AcrPull](./built-in-roles/containers.md#acrpull) | Pull artifacts from a container registry. | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
 > | <a name='acrpush'></a>[AcrPush](./built-in-roles/containers.md#acrpush) | Push artifacts to or pull artifacts from a container registry. | 8311e382-0749-4cb8-b61a-304f252e45ec |
 > | <a name='acrquarantinereader'></a>[AcrQuarantineReader](./built-in-roles/containers.md#acrquarantinereader) | Pull quarantined images from a container registry. | cdda3590-29a3-44f6-95f2-9f980659eb04 |
@@ -218,6 +218,8 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-kubernetes-service-cluster-monitoring-user'></a>[Azure Kubernetes Service Cluster Monitoring User](./built-in-roles/containers.md#azure-kubernetes-service-cluster-monitoring-user) | List cluster monitoring user credential action. | 1afdec4b-e479-420e-99e7-f82237c7c5e6 |
 > | <a name='azure-kubernetes-service-cluster-user-role'></a>[Azure Kubernetes Service Cluster User Role](./built-in-roles/containers.md#azure-kubernetes-service-cluster-user-role) | List cluster user credential action. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | <a name='azure-kubernetes-service-contributor-role'></a>[Azure Kubernetes Service Contributor Role](./built-in-roles/containers.md#azure-kubernetes-service-contributor-role) | Grants access to read and write Azure Kubernetes Service clusters | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
+> | <a name='azure-kubernetes-service-namespace-contributor'></a>[Azure Kubernetes Service Namespace Contributor](./built-in-roles/containers.md#azure-kubernetes-service-namespace-contributor) | Allows users to create and manage Azure Kubernetes Service namespace resources. | 289d8817-ee69-43f1-a0af-43a45505b488 |
+> | <a name='azure-kubernetes-service-namespace-user'></a>[Azure Kubernetes Service Namespace User](./built-in-roles/containers.md#azure-kubernetes-service-namespace-user) | Allows users to read Azure Kubernetes Service namespace resources. In-cluster namespace access further requires assignment of Azure Kubernetes Service RBAC roles to the namespace resource for an Entra ID enabled cluster. | c9f76ca8-b262-4b10-8ed2-09cf0948aa35 |
 > | <a name='azure-kubernetes-service-rbac-admin'></a>[Azure Kubernetes Service RBAC Admin](./built-in-roles/containers.md#azure-kubernetes-service-rbac-admin) | Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces. | 3498e952-d568-435e-9b2c-8d77e338d7f7 |
 > | <a name='azure-kubernetes-service-rbac-cluster-admin'></a>[Azure Kubernetes Service RBAC Cluster Admin](./built-in-roles/containers.md#azure-kubernetes-service-rbac-cluster-admin) | Lets you manage all resources in the cluster. | b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b |
 > | <a name='azure-kubernetes-service-rbac-reader'></a>[Azure Kubernetes Service RBAC Reader](./built-in-roles/containers.md#azure-kubernetes-service-rbac-reader) | Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation). Applying this role at cluster scope will give access across all namespaces. | 7f6c6a51-bcf8-42ba-9220-52d62157d7db |
@@ -520,6 +522,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='grafana-editor'></a>[Grafana Editor](./built-in-roles/monitor.md#grafana-editor) | Create, edit, delete, or view dashboards; create, edit, or delete folders; and edit or view playlists. | a79a5197-3a5c-4973-a920-486035ffd60f |
 > | <a name='grafana-limited-viewer'></a>[Grafana Limited Viewer](./built-in-roles/monitor.md#grafana-limited-viewer) | View home page. | 41e04612-9dac-4699-a02b-c82ff2cc3fb5 |
 > | <a name='grafana-viewer'></a>[Grafana Viewer](./built-in-roles/monitor.md#grafana-viewer) | View dashboards, playlists, and query data sources. | 60921a7e-fef1-4a43-9b16-a26c52ad4769 |
+> | <a name='log-analytics-data-reader'></a>[Log Analytics Data Reader](./built-in-roles/monitor.md#log-analytics-data-reader) | Log Analytics Data Reader can query and search the logs it is allowed to view over Log Analytics workspaces and tables. | 3b03c2da-16b3-4a49-8834-0f8130efdd3b |
 > | <a name='log-analytics-contributor'></a>[Log Analytics Contributor](./built-in-roles/monitor.md#log-analytics-contributor) | Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; adding solutions; and configuring Azure diagnostics on all Azure resources. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | <a name='log-analytics-reader'></a>[Log Analytics Reader](./built-in-roles/monitor.md#log-analytics-reader) | Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | <a name='monitoring-contributor'></a>[Monitoring Contributor](./built-in-roles/monitor.md#monitoring-contributor) | Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/roles-permissions-security#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
@@ -584,6 +587,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='arc-gateway-manager'></a>[Arc Gateway Manager](./built-in-roles/hybrid-multicloud.md#arc-gateway-manager) | Manage Arc Gateway Resources | f6e92014-8af2-414d-9948-9b1abf559285 |
 > | <a name='azure-arc-scvmm-administrator-role'></a>[Azure Arc ScVmm Administrator role](./built-in-roles/hybrid-multicloud.md#azure-arc-scvmm-administrator-role) | Arc ScVmm VM Administrator has permissions to perform all ScVmm actions. | a92dfd61-77f9-4aec-a531-19858b406c87 |
 > | <a name='azure-arc-scvmm-private-cloud-user'></a>[Azure Arc ScVmm Private Cloud User](./built-in-roles/hybrid-multicloud.md#azure-arc-scvmm-private-cloud-user) | Azure Arc ScVmm Private Cloud User has permissions to use the ScVmm resources to deploy VMs. | c0781e91-8102-4553-8951-97c6d4243cda |
 > | <a name='azure-arc-scvmm-private-clouds-onboarding'></a>[Azure Arc ScVmm Private Clouds Onboarding](./built-in-roles/hybrid-multicloud.md#azure-arc-scvmm-private-clouds-onboarding) | Azure Arc ScVmm Private Clouds Onboarding role has permissions to provision all the required resources for onboard and deboard vmm server instances to Azure. | 6aac74c4-6311-40d2-bbdd-7d01e7c6e3a9 |
