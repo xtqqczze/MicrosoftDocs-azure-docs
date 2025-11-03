@@ -28,7 +28,7 @@ Azure SRE Agent includes these connectors:
 
 - **Outlook** for sending email notifications.
 - **Microsoft Teams** to post messages to Teams channels.
-- **Custom MCP Servers** for integration with your own MCP server hosted outside Microsoft Azure.
+- **Custom MCP Servers** for integration with your own remote MCP server.
 - **Approved partners** to ingest telemetry data from Dynatrace, Datadog, and New Relic.
 
 ## Configure a connector
