@@ -31,7 +31,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 
 | Geopolitical region | Azure regions | ExpressRoute locations |
 | --- | --- | --- |
-| **Asia** | East Asia<br/>Southeast Asia<br/>Taiwan North | Bangkok<br/>Hong Kong<br/>Hong Kong2<br/>Jakarta<br/>Jakarta2<br/>Jakarta Metro<br/>Kuala Lumpur<br/>Kuala Lumpur2<br/>Singapore<br/>Singapore2<br/>Taipei<br/>Taipei2<br/>Taipei Metro |
+| **Asia** | East Asia<br/>Malaysia West<br/>Southeast Asia<br/>Taiwan North | Bangkok<br/>Hong Kong<br/>Hong Kong2<br/>Jakarta<br/>Jakarta2<br/>Jakarta Metro<br/>Kuala Lumpur<br/>Kuala Lumpur2<br/>Singapore<br/>Singapore2<br/>Taipei<br/>Taipei2<br/>Taipei Metro |
 | **India** | India West<br/>India Central<br/>India South | Chennai<br/>Chennai2<br/>Mumbai<br/>Mumbai2<br/>Pune |
 | **Israel** | Israel Central |Tel Aviv<br/>Tel Aviv2 |
 | **Japan** | Japan West<br/>Japan East | Osaka<br/>Tokyo<br/>Tokyo2<br/>Tokyo3 |
