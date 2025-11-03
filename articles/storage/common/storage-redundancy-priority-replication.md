@@ -27,6 +27,7 @@ A Service Level Agreement (SLA) backs geo priority replication, and applies to a
 
 You can monitor your geo lag via Azure portal's **Metrics** pane.
 
+<!--
 > [!IMPORTANT]
 > This feature is generally available but is currently only offered in a limited number of regions.
 >
@@ -40,6 +41,7 @@ You can monitor your geo lag via Azure portal's **Metrics** pane.
 > - Central India
 > - Switzerland North
 > - UAE North
+-->
 
 ## Benefits of geo priority replication
 
@@ -82,8 +84,8 @@ These limitations are critical to understanding how and when the SLA applies, an
 > Certain operational scenarios can also disrupt SLA coverage. For example, an unplanned failover will automatically disable Geo Priority Replication, requiring you to re-enable the feature manually after geo-redundancy is restored. By comparison, planned failovers and account conversions between GRS and geo zone redundant storage (GZRS) don't affect SLA eligibility, provided the account remains within guardrails.
 
 
-## Enabling Geo-Redundant Storage replication
-Enabling Geo Priority Replication is straightforward and can be completed via the Azure portal, PowerShell, or the Azure CLI. It can be enabled for existing accounts, or during the process of creating a new account.
+## Enabling and disabling Geo-Redundant Storage replication
+Enabling and disabling Geo Priority Replication is straightforward and can be completed via the Azure portal, PowerShell, or the Azure CLI. It can be enabled during the process of creating a new account, or enabled or disabled on existing accounts.
 
 ### Enabling replication during new account creation
 
@@ -127,10 +129,6 @@ Connect-AzAccount
 # Set variables
 $rgname          = "<resource-group-name>"
 $newAccountName  = "<new-account-name>"
-$destAccountName = "<destination-account-name>"
-$srcAccountName  = "<source-account-name>"
-$srcContainer    = "<source-container-name>"
-$destContainer   = "<destination-container-name>"
 
 # Create storage account with geo priority replication enabled
 az storage account create -n $newAccountName -g $rgname --sku Standard_GRS --enable-blob-geo-priority-replication true
@@ -138,25 +136,31 @@ az storage account create -n $newAccountName -g $rgname --sku Standard_GRS --ena
 
 ---
 
-### Enabling replication for preexisting accounts
+### Enabling and disabling replication for preexisting accounts
 
-To enable Geo Priority Replication for an existing storage account, complete the following steps:
+To enable or disable Geo Priority Replication for an existing storage account, complete the following steps:
 
 # [Azure portal](#tab/portal)
 
 1. Navigate to the Azure portal and select a storage account. 
 1. In the **Data Management** group, select **Redundancy** to display the redundancy options for the storage account.
-1. Select the **Geo priority replication (Blob only)** checkbox to enable the feature as shown in the following screenshot, and then select **Save**.
+1. To enable the feature, select the **Geo priority replication (Blob only)** checkbox as shown in the following screenshot, and then select **Save**.
 
-    :::image type="content" source="media/storage-redundancy-priority-replication/replication-existing-accounts-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for existing accounts." lightbox="media/storage-redundancy-priority-replication/replication-existing-accounts-lrg.png":::
+    :::image type="content" source="media/storage-redundancy-priority-replication/replication-existing-accounts-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for enabling existing accounts." lightbox="media/storage-redundancy-priority-replication/replication-existing-accounts-lrg.png":::
 
-1. Ensure that the setting is saved successfully. Validate that the **Geo priority replication** status is set to **Enabled**, and the **View metrics** link is available and enabled as shown in the following screenshot.
+1. To disable the feature, de-select the **Geo priority replication (Blob only)** checkbox as shown in the following screenshot, and then select **Save**.
+
+    :::image type="content" source="media/storage-redundancy-priority-replication/replication-existing-accounts-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for disablingexisting accounts." lightbox="media/storage-redundancy-priority-replication/replication-existing-accounts-lrg.png":::
+
+1. Ensure that the setting is saved successfully.
+
+    When you enable the feature, validate that the **Geo priority replication** status is selected, and that the **View metrics** link is available and enabled as shown in the following screenshot.
 
     :::image type="content" source="media/storage-redundancy-priority-replication/replication-enabled-sml.png" alt-text="Screenshot showing the geo priority replication enabled status for existing accounts." lightbox="media/storage-redundancy-priority-replication/replication-enabled-lrg.png":::
 
-You can disable Geo Priority Replication at any time by clearing the checkbox and saving the settings as shown in the following screen capture.
+    When you disable the feature, validate that the **Geo priority replication** status is not selected, and that the **View metrics** link is not available as shown in the following screenshot.
 
-:::image type="content" source="media/storage-redundancy-priority-replication/replication-disabled-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for disabling the feature." lightbox="media/storage-redundancy-priority-replication/replication-disabled-lrg.png":::
+    :::image type="content" source="media/storage-redundancy-priority-replication/replication-disabled-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for disabling the feature." lightbox="media/storage-redundancy-priority-replication/replication-disabled-lrg.png":::
 
 # [Azure PowerShell](#tab/powershell)
 
