@@ -382,6 +382,7 @@ Connection Monitor tests created for ExpressRoute connections through the Azure 
 - Connection Monitor tests created through other methods (PowerShell, CLI, ARM templates, or REST API)
 - Existing Connection Monitor setups created before this portal integration
 - Connection Monitor tests for non-ExpressRoute scenarios
+- Azure Alerts and Log analytics workspace storage costs
 
 For these scenarios, standard [Azure Network Watcher Connection Monitor pricing](https://azure.microsoft.com/pricing/details/network-watcher/) applies:
 - 0-10 tests: Free
