@@ -32,7 +32,7 @@ In this article, you learn how to use premium ingress with Azure Container Apps.
 
 ::: zone pivot="azure-cli"
 
-1. Run the following command so sign in to Azure from the CLI.
+1. Run the following command to sign in to Azure from the CLI.
 
     ```azurecli
     az login
