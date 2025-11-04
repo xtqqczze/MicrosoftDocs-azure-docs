@@ -30,6 +30,10 @@ No, existing IoT hubs without ADR and Certificate Management integration remain 
 
 No, upgrade from existing IoT hubs to IoT hubs with ADR and Certificate Management isn't currently supported. You must create a new IoT Hub instance and link it to an ADR namespace. The ability to upgrade an existing IoT Hub instance to use the new features is coming soon. For more information, see [Get started with ADR and Certificate Management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
 
+## What happens to the built-in IoT Hub Device Registry if I setup a new IoT hub with ADR and Certificate Management enabled?
+
+IoT Hub Device Registry continues to exist, and all the existing functionalities are all available within the built-in registry while in preview. Azure Device Registry integration is an additional ARM representation that you can use for listing devices across IoT Hubs in your ADR namespace. ADR integration enables you to use out-of-box Azure capabilities more seamlessly.
+
 ## Can I use namespaces and Azure Device Registry in my existing hubs?
 
 No, namespaces and Azure Device Registry aren't available in existing hubs. You must create a new IoT hub instance and link it to an ADR namespace. For more information, see [Get started with ADR and Certificate Management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
@@ -52,7 +56,7 @@ No, Certificate Management relies on the Device Provisioning Service (DPS) for d
 
 ## What is the pricing model for IoT Hub with ADR and Certificate Management?
 
-During the preview period, ADR and Certificate Management features in IoT Hub are **free of charge**. After the preview period, pricing details will be provided. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+During the preview period, IoT Hub with ADR and Certificate Management features enabled on top of IoT Hub are available **free of charge**. After the preview period, pricing details will be provided. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## What are the quotas and limits for IoT Hub with ADR and Certificate Management?
 
