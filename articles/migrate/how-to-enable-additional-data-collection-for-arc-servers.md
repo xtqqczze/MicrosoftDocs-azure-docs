@@ -54,7 +54,7 @@ Enabling additional data collection provides:
 - An existing Azure Migrate project created for Arc resources. If you don't have one, see [Create a migrate project for Arc resources](quickstart-evaluate-readiness-savings-for-arc-resources.md).
 - Arc-enabled servers running the connected machine agent version [1.46 (September 2024 release)](/azure/azure-arc/servers/agent-release-notes-archive#version-146---september-2024) or higher.
 - **Hybrid Server Resource Administrator** role on the Arc-enabled server resources where you want to enable data collection.
-- Network connectivity from Arc-enabled servers to the Azure Migrate regional endpoint. For more information, see, [Regional endpoints](#regional-endpoints).
+- Network connectivity from Arc-enabled servers to the Azure Migrate endpoint - ```https://*.migration.windowsazure.com```
 
 ## How additional data collection works
 
@@ -499,17 +499,6 @@ After you enable additional data collection and sufficient performance data is c
    - More accurate cost estimates
    - Utilization patterns and trends
    - Cost optimization opportunities
-
-## Regional endpoints
-
-The Azure Migrate Collector VM extension requires network connectivity to regional endpoints based on your Azure Migrate project region. Ensure the following URL pattern is accessible from your Arc-enabled servers:
-
-```
-https://discoverysrv.<region-code>.prod.migration.windowsazure.com
-```
-
-For the complete list of regional endpoints, see [Regional endpoints for Azure Migrate Collector VM extension](migrate-virtual-machine-extension-reference.md#regional-endpoints).
-
 
 ## Disable additional data collection
 

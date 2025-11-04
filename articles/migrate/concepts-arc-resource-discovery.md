@@ -169,9 +169,9 @@ The Azure Migrate Collector VM extension is an optional component that provides 
 
 ### Requirements
 - You need **Hybrid Server Resource Administrator** role on Arc-enabled server resources to install the extension.
-- Ensure network connectivity to a regional Azure Migrate endpoints.
+- Ensure network connectivity from the server to Azure Migrate endpoint - ```https://*.migration.windowsazure.com```
 
-For detailed installation instructions and regional endpoints, see [Install Azure Migrate Collector VM extension](how-to-enable-additional-data-collection-for-arc-servers.md) and [Extension reference](migrate-virtual-machine-extension-reference.md).
+For detailed installation instructions, see [Install Azure Migrate Collector VM extension](how-to-enable-additional-data-collection-for-arc-servers.md).
 
 ## Current limitations
 
