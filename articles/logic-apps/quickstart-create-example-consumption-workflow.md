@@ -90,7 +90,7 @@ To create a Standard logic app workflow that runs in single-tenant Azure Logic A
    | **Logic App name** | Yes | <*logic-app-name*> | Provide a name that's unique across regions and contains only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), or periods (**.**). <br><br>This example creates a logic app resource named **My-Consumption-Logic-App**. |
    | **Region** | Yes | <*Azure-region*> | The Azure datacenter region for your logic app. <br><br>This example uses **West US**. |
    | **Enable log analytics** | Yes | **No** | Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. |
-   | **Workflow type** | Yes | **Stateful** | The type of workflow to create. By default, Consumption workflows are stateful, meaning the workflow automatically saves and stores run history information, such as status, inputs, and outputs. <br><br>**Note**: This example selects a region where agentic workflows aren't currently supported, so you can't change the **Stateful** selection. This quickstart focuses on creating a non-agentic workflow, so you can ignore this section for this scenario. |
+   | **Workflow type** | Yes | **Stateful** | The type of workflow to create. All Consumption workflows are stateful, which means the workflow automatically saves and stores run history information, such as status, inputs, and outputs. <br><br>**Note**: This quickstart focuses on creating a non-agentic workflow. Unless **Stateful** isn't selected, you don't have to change anything in this section. In regions that don't support agentic workflows, the **Workflow type** options are unavailable. <br><br>For information about agentic workflows, see: <br>- [Create autonomous AI agent workflows in Azure Logic Apps](create-autonomous-agent-workflows.md#consumption) <br>- [Create conversational AI agent workflows in Azure Logic Apps](create-conversational-agent-workflows.md#consumption) |
 
    > [!NOTE]
    >
@@ -101,7 +101,7 @@ To create a Standard logic app workflow that runs in single-tenant Azure Logic A
 
    When you're done, your settings look similar to the following example:
 
-   :::image type="content" source="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal and logic app resource creation page with details for new logic app." lightbox="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png":::
+   :::image type="content" source="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal and Consumption logic app resource creation page." lightbox="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png":::
 
 1. When you're ready, select **Review + create**. On the validation page that appears, confirm all the provided information, and select **Create**.
 
@@ -154,7 +154,7 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
 
 1. Save your changes. On the code view toolbar, select **Save**.
 
-   Every time that you save changes to your workflow in the designer or code editor, Azure instantly publishes those changes live in the Azure portal.
+   Every time that you save changes to your workflow in the designer or code view, Azure instantly publishes those changes live in the Azure portal.
 
 1. Return to the designer. On the code view toolbar, select **Designer**.
 
@@ -182,7 +182,7 @@ This example uses an Office 365 Outlook action that sends an email each time the
 
    Many connectors require that you first create a connection and authenticate your identity before you can continue. This example uses manual authentication for connecting to Office 365 Outlook. However, other services might support or use different authentication types. Based on your scenario, you can handle connection authentication in various ways.
 
-   For more information, see the following documentation:
+   For more information, see:
 
    * [Template parameters for deployment](logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
    * [Authorize OAuth connections](logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)

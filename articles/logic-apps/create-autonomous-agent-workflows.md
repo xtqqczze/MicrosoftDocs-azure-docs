@@ -1,75 +1,61 @@
 ---
 title: Create Autonomous AI Agent Workflows
-description: Build AI agent workflows that complete tasks without human interactions in Azure Logic Apps.
+description: Learnt to build AI agent workflows that don't use human interactions in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewers: estfan, divswa, krmitta, azla
+ms.reviewers: estfan, divswa, krmitta, LogicApps
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/14/2025
+ms.date: 11/18/2025
 ms.update-cycle: 180-days
-# Customer intent: As an AI developer, I want to build workflows that complete tasks by using AI agents and other AI capabilities without human interactions for my integration solutions with Azure Logic Apps.
+# Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks using AI agents and other AI capabilities without human intervention in my integration solutions.
 ---
 
-# Create autonomous agent workflows that don't use human interactions in Azure Logic Apps (Preview)
+# Create autonomous agent workflows that don't require human interactions in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-> [!IMPORTANT]
->
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-When your scenario requires workflows that support natural language and use agents connected to large language models (LLMs) to make decisions and complete tasks without human interactions, create an *autonomous* agent workflow in Azure Logic Apps. This workflow type is the best option for scenarios where agents must work without human intervention, might need to run for a long time, and require stronger governance, isolation, and automated rollback or compensation strategies.
-
-All agent workflows perform tasks by using an agent connected to an LLM. The agent uses an iterative looped process to solve complex, multistep problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction. An agent workflow lets you separate an agent's decision logic, which includes the LLM, prompts, and orchestration, from the integration and task execution components.
-
-An agent provides the following capabilities and benefits when connected to a model:
-
-- Accepts instructions about the agent's role, how to operate, and how to respond.
-- Receives and responds to requests or *prompts*.
-- Processes inputs, analyze data, and make choices, based on available information.
-- Chooses tools to complete the tasks necessary to fulfill requests. A *tool* is a sequence with one or more actions that complete a task.
-- Adapts to environments that require flexibility and are fluid, dynamic, unpredictable, or unstable.
-
-With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that provide actions that you can use to create tools for an agent to use, autonomous agent workflows support a vast range of scenarios that can greatly benefit from AI capabilities.
+When your scenario requires workflows that support natural language and use agents connected to *large language models* (LLMs) to make decisions and complete tasks without human intervention, create an *autonomous* agent workflow in Azure Logic Apps. This workflow type is the best option for scenarios where agents must work without human interactions, might need to run for a long time, and require stronger governance, isolation, and automated rollback or compensation strategies.
 
 The following screenshot shows an example autonomous agent workflow that you create in this guide. The workflow uses an agent to get the weather forecast and send that forecast in email. The diagram shows the agent information pane where you set up the agent and provide instructions that don't require human interaction for the agent to follow:
 
 :::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example autonomous agent." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
 
-For the high-level steps that describe how the agent works and more overview information about agent workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
+This guide shows how to create an example Standard or Consumption logic app workflow with the **Autonomous Agents** type, which works without human interaction or inputs. To fulfill requests, the agent uses tools that you build to complete the necessary tasks in real-world services and systems.
 
-This guide shows how to create an example Standard logic app workflow with the **Autonomous Agents** type, which works without human interaction or inputs, and how to update an existing stateful workflow to include an agent. To fulfill requests, the agent uses tools that you build to complete the necessary tasks in real-world services and systems.
+> [!IMPORTANT]
+>
+> Although agent workflows don't incur extra charges in Azure Logic Apps, model usage incurs charges. For more information, see the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
+For a high-level overview about how an agent works, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- A new or existing Standard logic app resource or project. You can work in either development environment:
+- Requirements differ based on whether you work with a Standard or Consumption logic app resource:
 
-  - Azure portal: A Standard logic app resource.
-
-    If you don't have this resource, see [Create an example Standard workflow in the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal).
-
-  - Visual Studio Code: A Standard logic app project.
-
-    Make sure that you have the latest **Azure Logic Apps (Standard) extension for Visual Studio Code**. If you don't have this project, see [Create Standard workflows in Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code).
+  | Logic app | Requirement |
+  |-----------|-------------|
+  | Standard | Based on your development environment: <br><br>- Azure portal: A Standard logic app resource. If you don't have this resource, see [Create Standard workflows in the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal). <br><br>- Visual Studio Code: A Standard logic app project. If you don't have this project, see [Create Standard workflows in Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code), and make sure that you have the latest extension. |
+  | Consumption (preview) | Azure portal only: A Consumption logic app resource that uses the workflow type named **Autonomous Agents**. For more information, see [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md). <br><br>**Note**: Visual Studio Code support is unavailable. |
 
   The examples in this guide use the Azure portal. However, after you open the workflow designer, the steps to use the designer are mostly similar between the portal and Visual Studio Code. Some interactions have minor differences.
 
-- For your model source, you need one of the following sources:
+- Based on your logic app, an LLM source as follows:
 
-  | Model source | Description |
-  |--------------|-------------|
-  | [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models) | You need the resource name when you create a connection to your deployed model in Azure OpenAI Service from an agent in your workflow. If you don't have this resource and model, see the following articles: <br><br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br><br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) <br><br>Agent workflows support only specific models. For more information, see [Supported models](#supported-models-for-agent-workflows). |
-  | [Azure OpenAI Service resource](/azure/ai-services/openai/overview) connected to an [Azure AI Foundry project](/azure/ai-foundry/what-is-azure-ai-foundry) and a deployed [Azure OpenAI model in Azure AI Foundry](/azure/ai-foundry/openai/concepts/models) | Make sure that you have a Foundry project, not a Hub based project. If you don't have this project, resource, and model, see the following articles: <br><br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal)<br><br>- [Create a project for Azure AI Foundry](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry) <br><br>- [Connect Azure AI services after you create a project](/azure/ai-services/connect-services-ai-foundry-portal#connect-azure-ai-services-after-you-create-a-project) or [Create a new connection in Azure AI Foundry portal](/azure/ai-foundry/how-to/connections-add?tabs=aoai%2Cblob%2Cserp&pivots=fdp-project#create-a-new-connection) <br><br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) <br><br>Agent workflows support only specific models. For more information, see [Supported models](#supported-models-for-agent-workflows). |
+  - **Consumption logic apps**
+  
+    You don't need to bring your own model. By default, your workflow includes an agent with a model that's automatically hosted in your subscription and logic app region. You only have to select the model version.
 
-  > [!IMPORTANT]
-  >
-  > Although agent workflows don't incur extra charges in Azure Logic Apps, 
-  > model usage incurs charges. For more information, see the Azure 
-  > [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+  - **Standard logic apps**
+  
+    You need one of the following model sources:
+
+    | Model source | Description |
+    |--------------|-------------|
+    | [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models) | You need the resource name when you create a connection to your deployed model in Azure OpenAI Service from an agent in your workflow. If you don't have this resource and model, see the following articles: <br><br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br><br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) <br><br>Agent workflows support only specific models. For more information, see [Supported models](#supported-models-for-agent-workflows). |
+    | [Azure OpenAI Service resource](/azure/ai-services/openai/overview) connected to an [Azure AI Foundry project](/azure/ai-foundry/what-is-azure-ai-foundry) and a deployed [Azure OpenAI model in Azure AI Foundry](/azure/ai-foundry/openai/concepts/models) | Make sure that you have a Foundry project, not a Hub based project. If you don't have this project, resource, and model, see the following articles: <br><br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal)<br><br>- [Create a project for Azure AI Foundry](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry) <br><br>- [Connect Azure AI services after you create a project](/azure/ai-services/connect-services-ai-foundry-portal#connect-azure-ai-services-after-you-create-a-project) or [Create a new connection in Azure AI Foundry portal](/azure/ai-foundry/how-to/connections-add?tabs=aoai%2Cblob%2Cserp&pivots=fdp-project#create-a-new-connection) <br><br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) <br><br>Agent workflows support only specific models. For more information, see [Supported models](#supported-models-for-agent-workflows). |
 
 - The authentication to use when you create a new connection between an agent and your deployed model.
 
@@ -132,21 +118,55 @@ This guide shows how to create an example Standard logic app workflow with the *
 
 The following table describes the current limitations and any known issues in this release.
 
+### [Consumption](#tab/consumption)
+
 | Limitation | Description |
 |------------|-------------|
-| Supported workflow types | To create an autonomous agent workflow, select the **Autonomous Agents** workflow type or add an **Agent** action to an existing **Stateful** workflow. You can't use the **Stateless** workflow type, and then add an agent. |
+
+| Authentication | For managed identity authentication, you can use only the system-assigned managed identity at this time. Support is currently unavailable for the user-assigned managed identity. |
+
+
+### [Standard](#tab/standard)
+
+| Limitation | Description |
+|------------|-------------|
+| Supported workflow types | To create an autonomous agent workflow, select the **Autonomous Agents** workflow type or add an **Agent** action to an existing **Stateful** workflow. You can't use the **Stateless** workflow type for agentic workflows. |
 | Authentication | For managed identity authentication, you can use only the system-assigned managed identity at this time. Support is currently unavailable for the user-assigned managed identity. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. |
 | Agent tools | - To create tools, you can use only actions, not triggers. <br><br>- A tool starts with action and always contains at least one action. <br><br>- A tool works only inside the agent where that tool exists. <br><br>- Control flow actions are unsupported. |
 | Documentation | This guide covers the basic steps to create an autonomous agent workflow. Documentation for advanced features is in progress. |
 | General limits | For general information about the limits in Azure OpenAI Service, Azure AI Foundry, and Azure Logic Apps, see the following articles: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Azure AI Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
+---
+
 ## Create an autonomous agent workflow
 
-You can start with either a new workflow or [add an agent to a nonagent **Stateful** workflow](#add-agent-nonagent-workflow).
+The following section shows how to create a partial agentic workflow, if the agentic workflow doesn't already exist.
 
-### Create a new workflow
+### [Consumption](#tab/consumption)
 
-To create a partial workflow with an empty **Agent**, follow these steps:
+For Consumption logic apps, the **Autonomous Agents** workflow type creates a partial workflow that uses the **Request** trigger named **When an HTTP request is received** and a default **Agent** action named **Default Agent**.
+
+To start setting up your agent, open the designer:
+
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
+
+1. On the resource sidebar, under **Development Tools**, select the designer to open the partial agentic workflow.
+
+1. On the designer, select the trigger named **When an HTTP request is received** to open the trigger information pane.
+
+1. Provide a description for the trigger.
+
+1. On the designer, select **Default Agent**.
+
+
+
+### [Standard](#tab/standard)
+
+For Standard logic app, start by creating a new workflow or [add an agent to a nonagent **Stateful** workflow](#add-agent-nonagent-workflow).
+
+#### Create a new workflow
+
+To create a workflow with an empty **Agent**, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -180,7 +200,7 @@ To create a partial workflow with an empty **Agent**, follow these steps:
 
    1. On the **Add a trigger** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger) to add the best trigger for your scenario.
 
-      This example uses the **Request** trigger named **When a HTTP request is received**. For this article, you don't need any other trigger setup.
+      This example uses the **Request** trigger named **When an HTTP request is received**. For this article, you don't need any other trigger setup.
 
       :::image type="content" source="media/create-autonomous-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Agent action." lightbox="media/create-autonomous-agent-workflows/request-trigger.png":::
 
