@@ -201,7 +201,10 @@ azd auth login
 azd up
 ```
 
-1. Manage the deployment
+## Manage the deployment
+
+Use the following command to view the status and logs of your container app.
+
 
 ```bash
 # Check deployment status
