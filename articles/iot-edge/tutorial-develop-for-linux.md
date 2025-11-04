@@ -3,7 +3,7 @@ title: Develop Azure IoT Edge modules using Visual Studio Code tutorial
 description: 'Develop IoT Edge modules with Visual Studio Code: Follow step-by-step instructions to create, build, and deploy modules using Azure IoT Edge tools.'
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/16/2025
+ms.date: 11/03/2025
 ms.topic: tutorial
 ms.service: azure-iot-edge
 services: iot-edge
@@ -25,12 +25,12 @@ ms.custom:
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-This tutorial shows you how to develop and deploy your code to an IoT Edge device. Azure IoT Edge modules let you deploy code that runs your business logic directly on your IoT Edge device. In the [Deploy code to a Linux device](quickstart-linux.md) quickstart, you set up an IoT Edge device and deployed a module from the Azure Marketplace.
+This tutorial shows how to develop and deploy your code to an IoT Edge device. Azure IoT Edge modules enable you to deploy code that runs your business logic directly on your IoT Edge device. In the [Deploy code to a Linux device](quickstart-linux.md) quickstart, you set up an IoT Edge device and deployed a module from the Azure Marketplace.
 
-This article covers steps for two IoT Edge development tools:
+This article describes the steps for two IoT Edge development tools:
 
- * *Azure IoT Edge Dev Tool* command-line (CLI), which is preferred for development.
- * *Azure IoT Edge tools for Visual Studio Code* extension, which is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
+ * **Azure IoT Edge Dev Tool** command-line (CLI), which is preferred for development.
+ * **Azure IoT Edge tools for Visual Studio Code** extension, which is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 Use the tool selector button at the beginning of this article to choose your tool.
 
@@ -51,14 +51,13 @@ A development machine:
 
 * Use your own computer or a virtual machine.
 * Make sure your development machine supports [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) to run a container engine.
-* You can use most operating systems that run a container engine to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but it points out known differences on macOS or Linux.
+* You can use most operating systems that run a container engine to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but it also points out known differences on macOS or Linux.
 * Install [Visual Studio Code](https://code.visualstudio.com/)
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 An Azure IoT Edge device:
 
-* Run IoT Edge on a separate device. Keeping the development machine and IoT Edge device separate simulates a real deployment scenario and helps keep the concepts clear.
-    Use the quickstart article [Deploy code to a Linux Device](quickstart-linux.md) to create an IoT Edge device in Azure or the [Azure Resource Template to deploy an IoT Edge enabled VM](https://github.com/Azure/iotedge-vm-deploy).
+* Run IoT Edge on a separate device. Keeping the development machine and IoT Edge device separate simulates a real deployment scenario and helps keep the concepts clear. Use the quickstart article [Deploy code to a Linux Device](quickstart-linux.md) to create an IoT Edge device in Azure or the [Azure Resource Manager template to deploy an IoT Edge-enabled VM](https://github.com/Azure/iotedge-vm-deploy).
 
 Cloud resources:
 
@@ -68,23 +67,23 @@ Cloud resources:
 
 > [!TIP]
 > For guidance on interactive debugging in Visual Studio Code or Visual Studio 2022:
->* [Debug Azure IoT Edge modules using Visual Studio Code](debug-module-vs-code.md)
->* [Use Visual Studio 2022 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md)
+> * [Debug Azure IoT Edge modules using Visual Studio Code](debug-module-vs-code.md)
+> * [Use Visual Studio 2022 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md)
 >
->This tutorial covers development steps for Visual Studio Code.
+> This tutorial covers development steps for Visual Studio Code.
 
 ## Key concepts
 
-This tutorial walks through developing an IoT Edge module. An *IoT Edge module* is a container with executable code. Deploy one or more modules to an IoT Edge device. Modules do specific tasks like ingesting data from sensors, cleaning and analyzing data, or sending messages to an IoT Hub. For more information, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
+This tutorial walks through developing an IoT Edge module. An *IoT Edge module* is a container with executable code. You can deploy one or more modules to an IoT Edge device. Modules do specific tasks like ingesting data from sensors, cleaning and analyzing data, or sending messages to an IoT Hub. For more information, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
 
-When you develop IoT Edge modules, understand the difference between the development machine and the target IoT Edge device where the module deploys. The container you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is developing a module on a Windows computer to target a Linux device running IoT Edge. In that case, the container operating system is Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*.
+When you develop IoT Edge modules, you should understand the difference between the development machine and the target IoT Edge device where the module deploys. The container you build to hold your module code must match the operating system (OS) of the target device. For example, the most common scenario is developing a module on a Windows computer to target a Linux device running IoT Edge. In that case, the container operating system is Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*.
 
 >[!TIP]
->If you're using [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md), the *target device* in your scenario is the Linux virtual machine, not the Windows host.
+>If you're using [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md), the target device in your scenario is the Linux virtual machine, not the Windows host.
 
 This tutorial targets devices running IoT Edge with Linux containers. Use your preferred operating system as long as your development machine runs Linux containers. Visual Studio Code is recommended for developing with Linux containers, so this tutorial uses it. You can use Visual Studio as well, although there are differences in support between the two tools.
 
-The following table lists supported development scenarios for **Linux containers** in Visual Studio Code and Visual Studio.
+The following table lists supported development scenarios for Linux containers in Visual Studio Code and Visual Studio.
 
 |   | Visual Studio Code | Visual Studio 2019/2022 |
 | - | ------------------ | ------------------ |
@@ -99,14 +98,11 @@ IoT Edge modules are packaged as containers, so you need a [Docker compatible co
 
 Use the Docker documentation to install Docker on your development machine:
 
-* [Install Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/)
-
-  * When you install Docker Desktop for Windows, you're asked whether you want to use Linux or Windows containers. You can change this setting at any time. This tutorial uses Linux containers because the modules target Linux devices. For more information, see [Switch between Windows and Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+* [Install Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/). When you install Docker Desktop for Windows, you're asked whether you want to use Linux or Windows containers. You can change this setting at any time. This tutorial uses Linux containers because the modules target Linux devices. For more information, see [Switch between Windows and Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 * [Install Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/install/)
 
-* Read [About Docker CE](https://docs.docker.com/install/) for installation information on several Linux platforms.
-  * For Windows Subsystem for Linux (WSL), install Docker Desktop for Windows.
+* Read [About Docker CE](https://docs.docker.com/install/) for installation information on several Linux platforms. For the Windows Subsystem for Linux (WSL), install Docker Desktop for Windows.
 
 ## Set up tools
 
@@ -114,28 +110,23 @@ Use the Docker documentation to install Docker on your development machine:
 
 Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) to create your IoT Edge solution. You have two options:
 
-* Use the preferred prebuilt [IoT Edge Dev Container](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/run-devcontainer-docker.md)
-* Install the tool using the [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md)
+* Use the preferred prebuilt [IoT Edge Dev Container](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/run-devcontainer-docker.md).
+* Install the tool using the [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
 
 ::: zone-end
 
 ::: zone pivot="iotedge-dev-ext"
 
 > [!IMPORTANT]
-> The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
+> The **Azure IoT Edge tools for Visual Studio Code** extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639). The preferred development tool is the command-line (CLI) **Azure IoT Edge Dev Tool**.
 
 Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These extensions offer project templates, automate the creation of the deployment manifest, and let you monitor and manage IoT Edge devices. In this section, you install Visual Studio Code and the IoT extension, then set up your Azure account to manage IoT Hub resources from within Visual Studio Code.
 
 1. Install [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension.
-
 1. Install [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension.
-
-1. After you install the extensions, open the command palette by selecting **View** > **Command Palette**.
-
+1. After you install the extensions, open the command palette by selecting **View > Command Palette**.
 1. In the command palette, search for and select **Azure IoT Hub: Select IoT Hub**. Follow the prompts to select your Azure subscription and IoT Hub.
-
-1. Open the explorer section of Visual Studio Code by selecting the icon in the activity bar or by selecting **View** > **Explorer**.
-
+1. Open the explorer section of Visual Studio Code by selecting the icon in the activity bar or by selecting **View > Explorer**.
 1. At the bottom of the explorer section, expand the collapsed **Azure IoT Hub / Devices** menu. You see the devices and IoT Edge devices associated with the IoT Hub that you selected through the command palette.
 
 ::: zone-end
@@ -177,8 +168,8 @@ To develop an IoT Edge module in Python, install these extra prerequisites on yo
 * [Cookiecutter](https://github.com/audreyr/cookiecutter).
 * [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
->[!Note]
->Make sure your `bin` folder is on your path for your platform. Typically, it's `~/.local/` for UNIX and macOS, or `%APPDATA%\Python` on Windows.
+> [!NOTE]
+> Make sure your `bin` folder is on your path for your platform. Typically, it's `~/.local/` for UNIX and macOS, or `%APPDATA%\Python` on Windows.
 
 ---
 
