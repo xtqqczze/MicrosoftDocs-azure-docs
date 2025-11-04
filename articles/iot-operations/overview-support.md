@@ -45,7 +45,7 @@ Azure IoT Operations depends on these support services and features:
 
 * [Azure Device Registry](./discover-manage-assets/overview-manage-assets.md#azure-device-registry)
 * [Schema registry](./connect-to-cloud/concept-schema-registry.md)
-* [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview)
+* [Azure Container Storage enabled by Azure Arc (optional)](/azure/azure-arc/container-storage/overview)
 * [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension)
 * [Azure Monitor pipeline](/azure/azure-monitor/essentials/edge-pipeline-configure)
 * Workload identity federation in Azure Arc-enabled Kubernetes
@@ -55,6 +55,9 @@ Azure IoT Operations depends on these support services and features:
 
 > [!NOTE]
 > For the *Azure Device Registry* and *Schema registry* capabilities, Azure IoT Operations is the only product under which these  services are licensed for production use.
+
+> [!NOTE]
+> *Azure Container Storage enabled by Azure Arc* is an optional dependency. Connectors like the *media connector* can use this storage option to synchronize captured data to cloud storage.
 
 ## Licensing
 
