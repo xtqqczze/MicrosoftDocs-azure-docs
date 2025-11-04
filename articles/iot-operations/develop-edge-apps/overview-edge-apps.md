@@ -31,7 +31,7 @@ Multithreaded applications should use [receive-max](https://docs.oasis-open.org/
 
 ## Acknowledging messages
 
-When a subscriber application sends an acknowledgment for a QoS-1 message, it takes ownership of the message. Upon receiving acknowledgment for a QoS-1 message, MQTT broker stops tracking the message for that application and topic. Proper transfer of ownership ensures message preservation in processing issues or application crashes. If an application wants to protect it from application crashes, then the application shouldn't take ownership before successfully completing its processing on that message. Applications subscribing to MQTT broker should delay acknowledging messages until processing is complete up to *receive-max* value with a maximum of 65,535. This might include relaying the message, or a derivative of the message, to MQTT broker for further dispatching.
+When a subscriber application sends an acknowledgment for a QoS-1 message, it takes ownership of the message. Upon receiving acknowledgment for a QoS-1 message, MQTT broker stops tracking the message for that application and topic. Proper transfer of ownership ensures message preservation in case of processing issues or application crashes. If an application wants to protect it from application crashes, then the application shouldn't take ownership before successfully completing its processing on that message. Applications subscribing to MQTT broker should delay acknowledging messages until processing is complete up to *receive-max* value with a maximum of 65,535. This might include relaying the message, or a derivative of the message, to MQTT broker for further dispatching.
 
 ## Message retention and broker behavior
 
@@ -43,7 +43,7 @@ The broker retains messages until it receives an acknowledgment from a subscribe
 
 ## Keep-Alive
 
-To ensure high availability in connection errors or drops, set suitable [keep-alive intervals](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901045) for client-server communication. During idle periods, clients send *PINGREQs*, awaiting *PINGRESPs*. If no response, implement auto reconnect logic in the client to re-establish connections. Most clients like [Paho](https://www.eclipse.org/paho/) have retry logic built in. As MQTT broker is fault-tolerant, a reconnection succeeds if there is at least two healthy broker instances a frontend and a backend.
+To ensure high availability in case of connection errors or drops, set suitable [keep-alive intervals](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901045) for client-server communication. During idle periods, clients send *PINGREQs*, awaiting *PINGRESPs*. If no response, implement auto reconnect logic in the client to re-establish connections. Most clients like [Paho](https://www.eclipse.org/paho/) have retry logic built in. As MQTT broker is fault-tolerant, a reconnection succeeds if there is at least two healthy broker instances a frontend and a backend.
 
 ## Eventual consistency with QoS-1 subscription
 
