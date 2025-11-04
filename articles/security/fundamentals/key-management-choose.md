@@ -1,6 +1,6 @@
 ---
 title: How to choose the right key management solution
-titleSuffix: How to choose between Azure Key Vault, Azure Managed HSM, Azure Cloud HSM, and Azure Payment HSM
+titleSuffix: How to choose between Azure Key Vault, Azure Key Vault Managed HSM, Azure Dedicated HSM, and Azure Payment HSM
 description: This article provides a detailed explanation of how to choose the right Key Management solution in Azure.
 services: security
 author: chenkaren
@@ -12,7 +12,7 @@ ms.author: chenkaren
 
 # How to choose the right Azure key management solution
 
-Azure offers several solutions for cryptographic key storage and management in the cloud: Azure Key Vault (standard and premium offerings), Azure Managed HSM, Azure Cloud HSM, and Azure Payment HSM. It might be overwhelming for customers to decide which key management solution is right for them. This article helps customers navigate this decision-making process by presenting the range of solutions based on three considerations: scenarios, requirements, and industry.
+Azure offers several solutions for cryptographic key storage and management in the cloud: Azure Key Vault (standard and premium offerings), Azure Key Vault Managed HSM, Azure Dedicated HSM, and Azure Payment HSM. It might be overwhelming for customers to decide which key management solution is right for them. This article helps customers navigate this decision-making process by presenting the range of solutions based on three considerations: scenarios, requirements, and industry.
 
 For an overview of key management concepts and detailed descriptions of each solution, see [Key management in Azure](key-management.md).
 
@@ -49,9 +49,9 @@ Provisioning and hosting are managed by Microsoft across all solutions. Key gene
 
 Use the table to compare all the solutions side by side. Begin from top to bottom, answering each question found on the left-most column to help you choose the solution that meets all your needs, including management overhead and costs.
 
-|  | **AKV Standard** | **AKV Premium** | **Azure Managed HSM** | **Azure Cloud HSM** | **Azure Payment HSM** |
+|  | **AKV Standard** | **AKV Premium** | **Azure Key Vault Managed HSM** | **Azure Dedicated HSM** | **Azure Payment HSM** |
 | --- | --- | --- | --- | --- | --- |
-| What level of **compliance** do you need? | FIPS 140-2 level 1 | FIPS 140-3 level 3, PCI DSS, PCI 3DS | FIPS 140-3 level 3, PCI DSS, PCI 3DS | FIPS 140-3 level 3, HIPAA, PCI DSS, PCI 3DS, eIDAS | FIPS 140-2 level 3, PCI HSM v3, PCI PTS HSM v3, PCI DSS, PCI 3DS, PCI PIN |
+| What level of **compliance** do you need? | FIPS 140-2 level 1 | FIPS 140-2 level 2 | FIPS 140-2 level 3, PCI DSS, PCI 3DS | FIPS 140-2 level 3, HIPAA, PCI DSS, PCI 3DS, eIDAS | FIPS 140-2 level 3, PCI HSM v3, PCI PTS HSM v3, PCI DSS, PCI 3DS, PCI PIN |
 | Do you need **key sovereignty**? | No | No | Yes | Yes | Yes |
 | What kind of **tenancy** are you looking for? | Multitenant | Multitenant | Single Tenant | Single Tenant | Single Tenant |
 | What are your **use cases**? | Encryption at Rest, CMK, custom | Encryption at Rest, CMK, custom | Encryption at Rest, TLS Offload, CMK, custom | PKCS11, TLS Offload, code/document signing, custom | Payment PIN processes, custom |
@@ -68,12 +68,12 @@ Here is a list of the key management solutions we commonly see being utilized ba
 
 | **Industry** | **Suggested Azure solution** | **Considerations for suggested solutions** |
 | --- | --- | --- |
-| I am an enterprise or an organization with strict security and compliance requirements (ex: banking, government, highly regulated industries). | Azure Managed HSM, Azure Cloud HSM | Azure Managed HSM provides FIPS 140-3 Level 3 compliance, and it is a PCI compliant solution for ecommerce. It supports encryption for PCI DSS 4.0. It provides HSM backed keys and gives customers key sovereignty and single tenancy. Azure Cloud HSM provides FIPS 140-3 Level 3 compliance, customer ownership of HSM clusters, and support for PKCS#11 and other standard APIs for cryptographic operations. |
-| I am a direct-to-consumer ecommerce merchant who needs to store, process, and transmit my customers’ credit cards to my external payment processor/gateway and looking for a PCI compliant solution. | Azure Managed HSM | Azure Managed HSM provides FIPS 140-3 Level 3 compliance, and it is a PCI compliant solution for ecommerce. It supports encryption for PCI DSS 4.0. It provides HSM backed keys and gives customers key sovereignty and single tenancy. |
+| I am an enterprise or an organization with strict security and compliance requirements (ex: banking, government, highly regulated industries). | Azure Key Vault Managed HSM, Azure Dedicated HSM | Azure Key Vault Managed HSM provides FIPS 140-2 Level 3 compliance, and it is a PCI compliant solution for ecommerce. It supports encryption for PCI DSS 4.0. It provides HSM backed keys and gives customers key sovereignty and single tenancy. Azure Dedicated HSM provides FIPS 140-2 Level 3 compliance, customer ownership of HSM clusters, and support for PKCS#11 and other standard APIs for cryptographic operations. |
+| I am a direct-to-consumer ecommerce merchant who needs to store, process, and transmit my customers' credit cards to my external payment processor/gateway and looking for a PCI compliant solution. | Azure Key Vault Managed HSM | Azure Key Vault Managed HSM provides FIPS 140-2 Level 3 compliance, and it is a PCI compliant solution for ecommerce. It supports encryption for PCI DSS 4.0. It provides HSM backed keys and gives customers key sovereignty and single tenancy. |
 | I am a service provider for financial services, an issuer, a card acquirer, a card network, a payment gateway/PSP, or 3DS solution provider looking for a single tenant service that can meet PCI and multiple major compliance frameworks. | Azure Payment HSM | Azure Payment HSM provides FIPS 140-2 Level 3, PCI HSM v3, PCI DSS, PCI 3DS, and PCI PIN compliance. It provides key sovereignty and single tenancy, common internal compliance requirements around payment processing. Azure Payment HSM provides full payment transaction and PIN processing support. |
 | I am an early-stage startup customer looking to prototype a cloud-native application. | Azure Key Vault Standard | Azure Key Vault Standard provides software-backed keys at an economy price. |
-| I am a startup customer looking to produce a cloud-native application. | Azure Key Vault Premium, Azure Managed HSM | Both Azure Key Vault Premium and Azure Managed HSM provide HSM-backed keys* and are the best solutions for building cloud native applications. |
-| I am an IaaS customer wanting to move my application to use Azure VM/HSMs. | Azure Cloud HSM | Azure Cloud HSM supports SQL IaaS customers. It is the only solution that supports PKCS11 and custom noncloud native applications. |
+| I am a startup customer looking to produce a cloud-native application. | Azure Key Vault Premium, Azure Key Vault Managed HSM | Both Azure Key Vault Premium and Azure Key Vault Managed HSM provide HSM-backed keys* and are the best solutions for building cloud native applications. |
+| I am an IaaS customer wanting to move my application to use Azure VM/HSMs. | Azure Dedicated HSM | Azure Dedicated HSM supports SQL IaaS customers. It is the only solution that supports PKCS11 and custom noncloud native applications. |
 
 For detailed information about each Azure key management solution, including technical specifications and use cases, see [Key management in Azure](key-management.md).
 
@@ -81,7 +81,7 @@ For detailed information about each Azure key management solution, including tec
 
 - [Key management in Azure](key-management.md)
 - [Azure Key Vault](/azure/key-vault/general/overview)
-- [Azure Managed HSM](/azure/key-vault/managed-hsm/overview)
-- [Azure Cloud HSM](/azure/cloud-hsm/overview)
+- [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview)
+- [Azure Dedicated HSM](/azure/dedicated-hsm/overview)
 - [Azure Payment HSM](/azure/payment-hsm/overview)
 - [What is Zero Trust?](/security/zero-trust/zero-trust-overview)

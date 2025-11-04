@@ -57,7 +57,7 @@ A FIPS 140-2 Level 3, PCI HSM v3, validated single-tenant bare metal HSM offerin
 
 ## Pricing
 
-The Azure Key Vault Standard and Premium tiers are billed on a transactional basis, with an extra monthly per-key charge for premium hardware-backed keys. Managed HSM, Cloud HSM, and Payments HSM don't charge on a transactional basis; instead they are always-in-use devices that are billed at a fixed hourly rate. For detailed pricing information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault) and [Payment HSM pricing](https://azure.microsoft.com/pricing/details/payment-hsm).
+The Azure Key Vault Standard and Premium tiers are billed on a transactional basis, with an extra monthly per-key charge for premium hardware-backed keys. Azure Key Vault Managed HSM, Azure Dedicated HSM, and Azure Payment HSM don't charge on a transactional basis; instead they are always-in-use devices that are billed at a fixed hourly rate. For detailed pricing information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault) and [Payment HSM pricing](https://azure.microsoft.com/pricing/details/payment-hsm).
 
 ## Service Limits
 
