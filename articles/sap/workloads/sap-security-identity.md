@@ -30,13 +30,13 @@ It's recommended to use SSO and/or multifactor authentication for all SAP applic
 
 ### Web Browser based Clients – SAML or OIDC (OpenID Connect)
 [Configure SAP NetWeaver for Single sign-on with Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn](/entra/identity/saas-apps/sap-netweaver-tutorial)
-SAML is a well established industry standard but OIDC is a newer solution. This article contains a good comparison between the two technologies [OIDC vs. SAML your hybrid SAP Landscape: What You ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/oidc-vs-saml-your-hybrid-sap-landscape-what-you-need-to-know/ba-p/13797204)
+SAML is a well established industry standard but OIDC is a newer solution. This article contains a good comparison between the two technologies [OIDC vs. SAML your hybrid SAP Landscape: What You Need to Know](https://community.sap.com/t5/technology-blog-posts-by-sap/oidc-vs-saml-your-hybrid-sap-landscape-what-you-need-to-know/ba-p/13797204)
 
 ### SAPGUI – X.509 or Kerberos Tickets
 SAP Secure Login Client - SNC certificate X.509 and Kerberos Tickets are documented here [SNC X.509 Configuration | SAP Help Portal]('https://help.sap.com/docs/SAP SECURE LOGIN SERVICE/c35917ca71e941c5a97a11d2c55dcacd/767e439cf7764fcaab165416a00e2a6f.html')   
 
 Additional information is available here 
-- [Exploring SAP Secure Login Service for SAP GUI: A ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/exploring-sap-secure-login-service-for-sap-gui-a-comprehensive-review/ba-p/13573382)
+- [Exploring SAP Secure Login Service for SAP GUI: A Comprehensive Review](https://community.sap.com/t5/technology-blog-posts-by-members/exploring-sap-secure-login-service-for-sap-gui-a-comprehensive-review/ba-p/13573382)
 - [SAP GUI MFA with Microsoft Entra (Part I): Integration - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-i-integration-with-sap-secure-login/ba-p/13605383)
 - [How to Configure SSO for SAP GUI Including MFA - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/how-to-configure-sso-for-sap-gui-including-mfa/ba-p/14213388)
 
@@ -48,7 +48,7 @@ It's therefore recommended to use SAML or OIDC.
 
 ### Microsoft Power Platform and Microsoft AI 
 Authentication options for Microsoft Power Platform and Microsoft AI:
-- [Principal propagation in a multicloud solution be... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and/ba-p/13519225)
+- [Principal propagation in a multi-cloud solution between Microsoft Azure and SAP, Part IV: SSO with a Power Virtual Agents Chatbot and On-Premises Data Gateway](https://community.sap.com/t5/technology-blog-posts-by-members/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and/ba-p/13519225)
 - [Power Platform + SAP OData - single sign-on - Happy path](https://www.youtube.com/watch?v=NSE--fVLdUg)
 - [Power Platform + SAP OData - single sign-on - Step by Step](https://www.youtube.com/watch?v=AcM67FBIEB4)
 - [142 - The one with Power Platform and single sign-on (Martin Raepple) | SAP on Azure Video Podcast](https://www.youtube.com/watch?v=PM2vNriPlT0)
@@ -86,7 +86,7 @@ Also see the following blog posts and SAP resources:
 
 More information on the SAP Cloud Identity Services (CIS) can be found here: 
 - Identity Provisioning Service (BTP) and Identity Authentication Service (BTP) [Learning](https://learning.sap.com/learning-journeys/introducing-sap-cloud-identity-services) 
-- [Getting Started with SAP Cloud Identity Service - ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/getting-started-with-sap-cloud-identity-service-authentication-admin-user/ba-p/13541902)
+- [Getting Started with SAP Cloud Identity Service - Authentication Admin User](https://community.sap.com/t5/technology-blog-posts-by-sap/getting-started-with-sap-cloud-identity-service-authentication-admin-user/ba-p/13541902)
 - [What Is Identity Provisioning? | SAP Help Portal](https://help.sap.com/docs/identity-provisioning/identity-provisioning/what-is-identity-provisioning)
 - [Explaining Identity and Access Management on SAP BTP](https://learning.sap.com/courses/operating-sap-business-technology-platform/explaining-identity-and-access-management-on-sap-btp)
 - A good summary can be found here [Navigating SAP SSO: Choosing Between SAP single sign-on 3.0 and SAP Secure Login Service for SAP GUI](https://www.linkedin.com/pulse/navigating-sap-sso-choosing-between-single-sign-on-30-carsten-olt-jyrje/?trk=article-ssr-frontend-pulse_little-text-block)
