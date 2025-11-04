@@ -32,7 +32,7 @@ This tutorial covers how to configure and run the service via the asynchronous (
 - [Upload a sample document](#upload-a-sample-document)  
 - [Grant the de-identification service access to the storage account](#grant-the-de-identification-service-access-to-the-storage-account)  
 - [Configure network isolation on the storage account](#configure-network-isolation-on-the-storage-account)  
-- [Running the De-identification Service](#running-the-de-identification-service)  
+- [Running the de-identification Service](#running-the-de-identification-service)  
   - [Use the python SDK for English data](#use-the-python-sdk-for-english-data)  
   - [Use CURL for French German and Spanish data](#use-curl-for-french-german-and-spanish-data)  
 - [Clean up resources](#clean-up-resources)  
