@@ -30,6 +30,9 @@ Adjust Route Server's capacity when you need to support more virtual machines.
 
 To add more Route Server capacity, go to the **Configuration** blade under Azure portal, and adjust the number of Routing infrastructure units using the dropdown, then **Save**.
 
+> [!NOTE]
+> Each additional routing infrastructure unit will cost $0.10/hour.
+
 ## Autoscaling
 Azure Route Server supports autoscaling based on spoke VM utilization. See [Azure Route Server Monitoring](monitor-route-server.md) for how to monitor your Route Server's routing infrastructure units and spoke VM utilization. 
 
