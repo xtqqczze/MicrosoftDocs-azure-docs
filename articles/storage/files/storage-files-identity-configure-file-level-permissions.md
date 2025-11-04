@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/03/2025
+ms.date: 11/04/2025
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to configure directory and file-level permissions for Azure file shares using Windows ACLs, so that I can ensure granular access control and enhance security for users accessing shared files."
 ---
@@ -138,19 +138,36 @@ Follow these steps to configure Windows ACLs per Entra user or group using the A
 
 1. Sign in to the Azure portal and navigate to the file share for which you want to configure Windows ACLs.
 
-1. From the service menu, select **Browse**. If you want to set an ACL at the root folder, select **Manage access** from the top menu and proceed to step 4.
+1. From the service menu, select **Browse**. If you want to set an ACL at the root folder, select **Manage access** from the top menu.
 
    :::image type="content" source="media/configure-file-level-permissions/set-root-access.png" alt-text="Screenshot of the Azure portal showing how to manage access for the root folder of a file share." lightbox="media/configure-file-level-permissions/set-root-access.png" border="true":::
 
-1. To set an ACL for a file or directory, right-click on the file or directory and then select **Manage access**. You should see the available users and groups. You can optionally add a new user or group.
+1. To set an ACL for a file or directory, right-click on the file or directory, and then select **Manage access**.
 
    :::image type="content" source="media/configure-file-level-permissions/manage-access.png" alt-text="Screenshot of the Azure portal showing how to set Windows ACLs for a file or directory." lightbox="media/configure-file-level-permissions/manage-access.png" border="true":::
 
-1. Select the pencil icon at the far right of any user or group to add or edit permissions for the user/group to access the specified file/directory. **Deny** always takes precedence over **Allow** when both are set. When neither are set, default permissions are inherited.
+1. You should now see the available users and groups. You can optionally add a new user or group. Select the pencil icon at the far right of any user or group to add or edit permissions for the user/group to access the specified file/directory.
+
+   :::image type="content" source="media/configure-file-level-permissions/users-and-groups.png" alt-text="Screenshot of the Azure portal showing a list of Entra users and groups." lightbox="media/configure-file-level-permissions/users-and-groups.png" border="true":::
+
+1. Edit the permissions. **Deny** always takes precedence over **Allow** when both are set. When neither are set, default permissions are inherited.
 
    :::image type="content" source="media/configure-file-level-permissions/edit-permissions.png" alt-text="Screenshot of the Azure portal showing how to add or edit permissions for an Entra user or group." lightbox="media/configure-file-level-permissions/edit-permissions.png" border="true":::
 
 1. Select **Save** to set the ACL.
+
+### Configure Windows ACLs for cloud-only identities using PowerShell
+
+If you need to assign ACLs in bulk to cloud-only users, you can use the [RestSetAcls PowerShell module](https://github.com/Azure-Samples/azure-files-samples/tree/master/RestSetAcls) to automate the process using the Azure Files REST API.
+
+For example, if you want to set a root ACL that will let the cloud-only user testUser@contoso.com have read access:
+
+```powershell
+$AccountName = "<storage-account-name>" # replace with the storage account name 
+$AccountKey = "<storage-account-key>" # replace with the storage account key 
+$context = New-AzStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey 
+Add-AzFileAce -Context $context -FileShareName test -FilePath "/" -Type Allow -Principal "testUser@contoso.com" -AccessRights Read,Synchronize -InheritanceFlags ObjectInherit,ContainerInherit 
+```
 
 ### Configure Windows ACLs with Windows File Explorer (hybrid identities only)
 
