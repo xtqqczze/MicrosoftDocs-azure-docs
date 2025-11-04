@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 11/03/2025
+ms.date: 11/04/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
@@ -78,7 +78,7 @@ While Geo Priority Replication introduces an SLA-backed capability for Azure Blo
     - Your storage account data transfer rate exceeds 1 gigabit per second (Gbps) and the resulting back log of writes are being replicated, or
     - Your storage account exceeds 100 CopyBlob requests per second and the resulting back log of writes are being replicated
     
-These limitations are critical to understanding how and when the SLA applies, and Azure provides detailed telemetry and metrics to help customers monitor their eligibility throughout the billing month. During these intervals, although replication of the data remains prioritized, the account is temporarily excluded from SLA eligibility. Refer to the official [SLA terms] for a comprehensive list of eligibility requirements. 
+These limitations are critical to understanding how and when the SLA applies, and Azure provides detailed telemetry and metrics to help customers monitor their eligibility throughout the billing month. During these intervals, although replication of the data remains prioritized, the account is temporarily excluded from SLA eligibility. Refer to the official [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements. 
 
 > [!IMPORTANT]
 > Certain operational scenarios can also disrupt SLA coverage. For example, an unplanned failover will automatically disable Geo Priority Replication, requiring you to re-enable the feature manually after geo-redundancy is restored. By comparison, planned failovers and account conversions between GRS and geo zone redundant storage (GZRS) don't affect SLA eligibility, provided the account remains within guardrails.
@@ -148,7 +148,7 @@ To enable or disable Geo Priority Replication for an existing storage account, c
 
 1. To disable the feature, de-select the **Geo priority replication (Blob only)** checkbox as shown in the following screenshot, and then select **Save**.
 
-    :::image type="content" source="media/storage-redundancy-priority-replication/replication-disabled-existing-accounts-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for disablingexisting accounts." lightbox="media/storage-redundancy-priority-replication/replication-disabled-existing-accounts-lrg.png":::
+    :::image type="content" source="media/storage-redundancy-priority-replication/replication-disabled-existing-accounts-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for disabling existing accounts." lightbox="media/storage-redundancy-priority-replication/replication-disabled-existing-accounts-lrg.png":::
 
 1. Ensure that the setting is saved successfully.
 
