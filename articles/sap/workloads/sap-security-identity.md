@@ -37,7 +37,7 @@ SAP Secure Login Client - SNC certificate X.509 and Kerberos Tickets are documen
 
 Additional information is available here 
 - [Exploring SAP Secure Login Service for SAP GUI: A ... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/exploring-sap-secure-login-service-for-sap-gui-a-comprehensive-review/ba-p/13573382)
-- [SAP GUI MFA with Microsoft Entra (Part I): Integratrion - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-i-integration-with-sap-secure-login/ba-p/13605383)
+- [SAP GUI MFA with Microsoft Entra (Part I): Integration - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-i-integration-with-sap-secure-login/ba-p/13605383)
 - [How to Configure SSO for SAP GUI Including MFA - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/how-to-configure-sso-for-sap-gui-including-mfa/ba-p/14213388)
 
 ### Mobile Devices – X509 or SAML 
@@ -98,7 +98,7 @@ Authorization attributes can be replicated from Microsoft Entra to target SAP ap
   > [!NOTE]
   > Microsoft has released new Microsoft Entra functionality to synchronize both Users and Groups from Microsoft Entra to SAP CIS. This functionality can be added free of charge in the Microsoft Entra admin center. 
 
-The process to setup and synchronize Authorization Roles and Profiles for NetWeaver and S/4 systems is documented in detail [Identity and Access Management with Microsoft Entra - SAP Community (Part III)](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-iii-successfactors/ba-p/14233747). Additional information for BTP applications, SuccessFactors, Ariba, and Fieldglass Authorization attributes will be added to this documentation. 
+The process to set up and synchronize Authorization Roles and Profiles for NetWeaver and S/4 systems is documented in detail [Identity and Access Management with Microsoft Entra - SAP Community (Part III)](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-iii-successfactors/ba-p/14233747). Additional information for BTP applications, SuccessFactors, Ariba, and Fieldglass Authorization attributes will be added to this documentation. 
 
 The diagram here depicts the architecture from an SAP centric point of view:  [SAP IAM integration with SAP Cloud Identity Services | SAP Architecture Center](https://architecture.learning.sap.com/docs/ref-arch/20c6b29b1e).   This diagram shows the concept with reference to Microsoft Entra [Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn](/entra/id-governance/scenarios/migrate-from-sap-idm#overview-of-microsoft-entra-and-its-sap-product-integrations)
 The latest diagram showing the new Microsoft Entra functionality allowing synchronization of both Users and Groups to ABAP systems is [shown in this diagram](https://community.sap.com/t5/image/serverpage/image-id/329690iC40448471EB1C535/is-moderation-mode/true/image-dimensions/2000?v=v2&px=-1).  
@@ -113,8 +113,8 @@ The GSA client implements an [NDIS 6.0 lightweight filter (LWF) network driver](
 Several SAP security solution products are now end of life. Microsoft and SAP have collaborated to provide a migration path for customers 
 - [Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn](/entra/id-governance/scenarios/migrate-from-sap-idm)
 SAP IDM 8.0 – End of Life December 2027. Documentation on the migration path can be found here 
-- [Update on the SAP Identity Management migration to... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/update-on-the-sap-identity-management-migration-to-microsoft-entra/ba-p/13742820)
-- [Preparing for SAP Identity Management’s End-of-Mai... - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101)
+- [Update on the SAP Identity Management migration to Microsoft Entra](https://community.sap.com/t5/technology-blog-posts-by-sap/update-on-the-sap-identity-management-migration-to-microsoft-entra/ba-p/13742820)
+- [Preparing for SAP Identity Management’s End-of-Maintenance in 2027](https://community.sap.com/t5/technology-blog-posts-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101)
 
 SAP SSO Server (Java) – SAP has announced the End of Life December 2027  [SAP GUI MFA with Microsoft Entra (Part I): Integration - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-i-integration-with-sap-secure-login/ba-p/13605383)
 
