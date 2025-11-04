@@ -130,13 +130,13 @@ The following table summarizes Site Recovery limits:
 - **Networking and CPU** – You need to ensure there is enough networking and CPU on Azure VM for ASR to be able to replicate data changes from the source. 
 
 >[!NOTE]
->If you already have an Azure VM protected using Azure Site Recovery High Churn option before this Public Preview, its churn limit will be 100 MB/s only even if it is meeting all support requirements. If you want to get churn support up to 700 MB/s (Preview) for those VMs, you will need to disable ASR and re-enable ASR with **High Churn** option as documented [here](), which will give you enhanced churn limits. 
+>If you already have an Azure VM protected using Azure Site Recovery High Churn option before this Public Preview, its churn limit will be 100 MB/s only even if it is meeting all support requirements. If you want to get churn support up to 700 MB/s (Preview) for those VMs, you need to disable ASR and re-enable ASR with **High Churn** option as documented [here](), which will give you enhanced churn limits. 
 
 #### Updated Limits by Replica Disk size and IO Size 
 
 Replica Disk must be of Premium v1 SSD disk type.
 
-|**Replica disk Size* (in GiB)**|**8 KB IO Size**|**16 KB IO Size**|**32 KB IO Size**|**64 KB IO Size**|**128KB IO Size**|**256 KB & More**|
+|**Replica disk Size (in GiB)**|**8 KB IO Size**|**16 KB IO Size**|**32 KB IO Size**|**64 KB IO Size**|**128KB IO Size**|**256 KB & More**|
 |---|---|---|---|---|---|---|
 |128|3.9 MB/s|7.8 MB/s|11.5 MB/s|33.1 MB/s|66.1 MB/s|100 MB/s|
 |256|8.6 MB/s|17.2 MB/s|34.4 MB/s|68.8 MB/s|125 MB/s|125 MB/s|
@@ -148,14 +148,14 @@ Replica Disk must be of Premium v1 SSD disk type.
 |16,384|140.6 MB/s|281.3 MB/s|350 MB/s|350 MB/s|350 MB/s|350 MB/s|
 |32,767|156.3 MB/s|312.5 MB/s|350 MB/s|350 MB/s|350 MB/s|350 MB/s|
 
-*Replica disk must be of premium v1 SSD.
-
 >[!NOTE]
 >The maximum churn supported in Public Preview is **700 MB/s per VM**, but actual limits depend on disk size and type for the replica disks. 
 
 ### Region Availability
 
-Enhanced churn support for 700 MB/s is currently available in following regions: 
+Source region and target region must be in the following regions only. 
+
+Enhanced churn support for 700 MB/s is currently available in the following regions: 
 
 - West Central US
 - Central US
@@ -167,11 +167,11 @@ Enhanced churn support for 700 MB/s is currently available in following regions:
 - Australia East
 - Australia Southeast 
 
-Your source region and target region must be in the above regions. 
-
 ### Enable Preview 
 
-Use the same configuration steps as documented [here](/azure/site-recovery/concepts-azure-to-azure-high-churn-support#enable-high-churn-support) and select High Churn. No additional setup is required for Public Preview; the feature will be automatically enabled in the supported regions, if churn on Azure VM exceeds 100 MB/s and all support matrix requirements are met.  
+Use the same configuration steps as documented [here](/azure/site-recovery/concepts-azure-to-azure-high-churn-support#enable-high-churn-support) and select High Churn. 
+
+No additional setup is required for Preview; the feature is automatically enabled in the supported regions, if churn on Azure VM exceeds 100 MB/s and all support matrix requirements are met.  
 
 ## Cost Implications  
 
