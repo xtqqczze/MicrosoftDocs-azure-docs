@@ -31,8 +31,6 @@ landingContent:
       links:
       - text: Create an IoT hub
         url: iot-hub-device-registry-setup.md
-      - text: Manage your ADR namespaces
-        url: iot-hub-device-registry-namespaces.md
 
  - title: Collect data from your devices
    linkLists:

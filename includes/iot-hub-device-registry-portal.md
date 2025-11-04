@@ -31,7 +31,7 @@ Have an Azure account. If you don't have an Azure account, create a [free accoun
    | **Region** | IoT Hub with ADR is in **preview** and only available in [certain regions](../articles/iot-hub/iot-hub-faq.md#what-are-the-supported-regions-for-iot-hub-with-adr). Select the region, closest to you, where you want your hub to be located.|
    | **Tier** | Select the **Preview** tier. To compare the features available to each tier, select **Compare tiers**.|
    | **Daily message limit** | Select the maximum daily quota of messages for your hub. The available options depend on the tier you select for your hub. To see the available messaging and pricing options, select **See all options** and select the option that best matches the needs of your hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling).|
-   | **ADR namespace** | Select an existing ADR namespace or create a new one. To create a new one, select **Create new** and fill in the name you want to use. For more information, see [Create and manage namespaces](../articles/iot-hub/iot-hub-device-registry-namespaces.md).|
+   | **ADR namespace** | Select an existing ADR namespace or create a new one. To create a new one, select **Create new** and fill in the name you want to use.|
    | **User managed identity** | Select a user-assigned managed identity to link to your IoT hub. This identity is used to securely access other Azure resources, such as ADR namespace and DPS. If you don't have a user-assigned managed identity, you can create one in the Azure portal. For more information, see [Create a user-assigned managed identity in the Azure portal](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal). |
  
 
@@ -126,5 +126,5 @@ If you select **Create new** for the ADR namespace, complete the following steps
 Once your IoT hub and your namespace are created, you can link your namespace to a Device Provisioning Service (DPS) instance to enable device provisioning with Certificate Management. To do this, follow the steps in the article: [Manage your certificates and namespaces](../articles/iot-hub/iot-hub-certificate-management.md).
 
 - [Assign a namespace to a DPS instance](../articles/iot-hub/iot-hub-certificate-management.md#assign-a-namespace-to-a-dps-instance): Link your ADR namespace to an existing DPS instance.
-- [Create a custom policy for your namespace](../articles/iot-hub/iot-hub-device-registry-namespaces.md#create-a-custom-policy-for-your-namespace): Define a policy in your ADR namespace to issue device certificates.
+- [Create a custom policy for your namespace](../articles/iot-hub/iot-hub-certificate-management.md#create-a-custom-policy-for-your-namespace): Define a policy in your ADR namespace to issue device certificates.
 - [Assign a policy when creating an enrollment group](../articles/iot-hub/iot-hub-certificate-management.md#assign-a-policy-when-creating-an-enrollment-group): Create an enrollment group in DPS and assign the policy from your ADR namespace to enable certificate-based provisioning for your devices.
