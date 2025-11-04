@@ -164,18 +164,55 @@ To enable or disable Priority Replication for an existing OR policy, complete th
 # [Azure portal](#tab/portal)
 
 1. In the Azure portal, navigate to the storage account you want to modify.
-1. Select the **Your accounts** tab to view the list of accounts within the subscription as shown.
+1. Select the **Your accounts** tab to view the list of accounts within your subscription as shown.
+
+
+
+1. Locate the **Destination account** containing the **Source container** and **Destination container** whose OR policy you want to modify. Select the ellipsis or the **More options** button and then select **Edit rules** to open the **Edit replication rules** pane as shown.
 
     :::image type="content" source="media/object-replication-priority-replication/edit-replication-rules-sml.png" alt-text="Screenshot showing how to locate the Edit Rules option for existing replication rules." lightbox="media/object-replication-priority-replication/edit-replication-rules-lrg.png":::
 
-1. Locate the **Destination account** containing the **Source container** and **Destination container** whose OR policy you want to modify.
 1. To enable OR priority replication, select **Enable** link  in the corresponding storage account's **Priority replication** column as shown in the following screenshot, and then select **Save**.
+
+    :::image type="content" source="media/object-replication-priority-replication/edit-replication-rules-pane-sml.png" alt-text="Screenshot showing the location of the Enable Priority Replication checkbox in the Edit Replication Rules pane." lightbox="media/object-replication-priority-replication/edit-replication-rules-pane-lrg.png":::
+
 1. To disable OR priority replication, select the **Disable** link in the corresponding storage account's **Priority replication** column and then select **Save**, as shown.
 
 # [Azure PowerShell](#tab/powershell)
 
 ```powershell
-# Login to your Azure account
+
+# First, login to your Azure account
+Connect-AzAccount
+
+# Next, set your variables
+$rgname          = "<resource-group-name>"
+$newAccountName  = "<new-account-name>"
+$destAccountName = "<destination-account-name>"
+$srcAccountName  = "<source-account-name>"
+$srcContainer    = "<source-container-name>"
+$destContainer   = "<destination-container-name>"
+
+# Get the destination OR policy
+# and enable priority replication
+$Policy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName
+$destPolicy.PriorityReplication.Enabled
+
+# Get the source OR policy
+# and enable priority replication
+$Policy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName
+$srcPolicy.PriorityReplication.Enabled
+
+# Remove the OR policy from the destination account
+Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName -PolicyId $destPolicy.PolicyId
+
+# Remove the OR policy from the source account
+Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName -PolicyId $srcPolicy.PolicyId
+
 ```
 
 # [Azure CLI](#tab/cli)
