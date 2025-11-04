@@ -118,7 +118,7 @@ Microsoft might initiate a regional failover in extreme circumstances, such as a
 
 > [!IMPORTANT]
 > Use customer-managed failover options to develop, test, and implement your disaster recovery plans. **Do not** rely on Microsoft-managed failover, which might only be used in extreme circumstances.
-> A Microsoft-managed failover would be initiated for an entire physical unit, such as a region or a datacenter. It can't be initiated for individual storage accounts, subscriptions, or tenants. If you need the ability to selectively fail over your individual storage accounts, use [customer-managed planned failover](#customer-managed-planned-failover-preview).
+> A Microsoft-managed failover would be initiated for an entire physical unit, such as a region or a datacenter. It can't be initiated for individual storage accounts, subscriptions, or tenants. If you need the ability to selectively fail over your individual storage accounts, use [customer-managed planned failover](#customer-managed-planned-failover).
 
 ### Anticipate data loss and inconsistencies
 
