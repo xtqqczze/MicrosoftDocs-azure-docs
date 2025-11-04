@@ -27,25 +27,27 @@ This article applies to the **Azure Stack Edge 2510** release, which maps to sof
 
 ## Supported update paths
 
-To apply the 2510 update, your device must be running version **2506** or later.
+To apply the 2510 update, your device must be running version **2501** or later.
 
  - If you aren't running the minimum required version, you see this error:
 
    *Update package can't be installed as its dependencies aren't met.*
 
- - You can update to **2506** from 2501 or later, and then update to 2510.
+ - You can update to **2501** from 2403 or later, and then update directly to 2510.
 
 You can update to the latest version using the following update paths:
 
 | Current version of Azure Stack Edge software and Kubernetes     | Update to Azure Stack Edge software and Kubernetes  | Desired update to 2510  |
 | --------------------| -----------| -----------|
-|earlier than 2501  | update to 2501, then to 2506   | 2510   |
-|earlier than 2506  | update to 2506   | 2510   |
+|earlier than 2501  | update to 2501, then directly to 2510   | 2510   |
+|2501  | Directly to   | 2510   |
 |2506   | Directly to   | 2510   |
 
 ## What's new
 
-There are no new features or enhancements in this release.
+There are no new features or enhancements in this release, but the following is a change:
+
+The Kubernetes workload profile selection feature has been deprecated from the local UI and from Minishell.
 
 
 ## Known issues in this release
