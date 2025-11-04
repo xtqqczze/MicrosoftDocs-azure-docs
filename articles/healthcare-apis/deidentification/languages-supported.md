@@ -19,8 +19,8 @@ The following table lists the languages the De-identification service can TAG, R
 |Language| Locale | Language-locale pair| State |
 |:-----|:----:|:-----|:----:|
 |English| United States| en-US  | Generally Available |
-|English   |United Kingdom| en-GB | Public Preview|
-|French  | Canada| fr-CA | Public Preview|
-|French  |France | fr-FR |Public Preview|
-|German  | Germany| de-DE  | Public Preview |
-|Spanish  | United States| es-US  | Public Preview |
+|English   |United Kingdom| en-GB | Preview|
+|French  | Canada| fr-CA | Preview|
+|French  |France | fr-FR | Preview|
+|German  | Germany| de-DE  | Preview |
+|Spanish  | United States| es-US  | Preview |
