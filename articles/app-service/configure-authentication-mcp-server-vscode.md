@@ -122,6 +122,9 @@ Now you can connect to your secured MCP server from Visual Studio Code.
 1. Visual Studio Code automatically prompts you to sign in with Microsoft Entra ID. Follow the authentication prompts.
 
    The MCP extension handles the OAuth flow using the scope you configured, and Visual Studio Code obtains the necessary access token to call your MCP server.
+   
+   > [!TIP]
+   > If you see an unexpected authentication prompt or encounter errors, see [Troubleshooting](#troubleshooting).
 
 1. Once authenticated, your MCP server is connected and ready to use in GitHub Copilot Chat agent mode or other MCP clients.
 
@@ -137,12 +140,23 @@ To verify that your MCP server is properly secured and accessible:
    Show me all my tasks
    ```
 
-1. GitHub Copilot should successfully call your MCP server, and you should see the results in the chat.
+1. GitHub Copilot should successfully call your MCP server, and you should see the results in the chat. If you encounter any issues, see [Troubleshooting](#troubleshooting).
 
-If you see authentication errors, verify that:
-- Your app setting `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES` is correctly configured.
-- The Visual Studio Code client ID is added to both App Service authentication configuration and in the app registration.
-- The App Service app restarts completely after configuration changes. It might take a few minutes to fully restart.
+## Troubleshooting
+
+When you start the MCP server in Visual Studio Code, the authentication prompt you see indicates whether your configuration is correct:
+
+- **Correct configuration**: Visual Studio Code prompts you to **authenticate with Microsoft**. This means the protected resource metadata (PRM) is configured properly, and Visual Studio Code successfully discovered the authorization server and scope from the `/.well-known/oauth-protected-resource` endpoint.
+
+- **Incorrect configuration**: Visual Studio Code prompts you to authenticate with an `/authorize` endpoint on your App Service app (for example, `https://<your-app-url>.azurewebsites.net/authorize`). This means the PRM is not configured properly. Visual Studio Code cannot find the authorization server and authorization scope, so it falls back to using your app's URL as the authorization endpoint, which doesn't exist.
+
+If you see the incorrect authentication prompt, verify that:
+- Your app setting `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES` is correctly configured with the full scope value `api://<app-registration-app-id>/user_impersonation`.
+- The App Service app has fully restarted after adding the app setting. It might take a few minutes to complete the restart.
+
+If you see authentication errors after signing in, verify that:
+- The Visual Studio Code client ID (`aebc6443-996d-45c2-90f0-388ff96faa56`) is added to both the App Service authentication configuration (allowed client applications) and in the app registration (authorized client applications in **Expose an API**).
+- The scope value in the app setting matches exactly what's defined in your app registration.
 
 ## Related content
 
