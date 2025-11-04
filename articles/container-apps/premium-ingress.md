@@ -117,6 +117,8 @@ Once configured you will see an output of the settings you just applied.
         --resource-group my-resource-group \
         --name my-container-apps-env \
         --workload-profile-name Ingress-D4 \
+        --min-nodes 3 \
+        --max-nodes 6 \
         --termination-grace-period 500 \
         --request-idle-timeout 4 \
         --header-count-limit 100
