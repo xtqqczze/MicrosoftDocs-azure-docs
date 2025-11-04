@@ -15,7 +15,7 @@ ms.date: 11/07/2025
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
-From November 2025, IoT Hub introduces two major innovations: Azure Device Registry (ADR) and Certificate Management. These features are designed to enhance security, simplify device management, and streamline operations for IoT deployments.
+From November 2025, IoT Hub introduces two major upgrades: integration with Azure Device Registry (ADR) and enhanced Certificate Management. These features are designed to improve security, simplify device management, and streamline operations for IoT deployments.
 
 ## Manage your devices in a unified registry with Azure Device Registry
 
@@ -27,7 +27,7 @@ Integration of IoT hubs with ADR is essential to leverage the latest enhancement
 
 X.509 certificates are undoubtedly the gold standard for IoT security. IoT Hub now introduces Certificate Management for managing device certificates using Microsoft-managed PKI with X.509 certificates.
 
-Certificate Management is a built-in feature of ADR that enables you to issue X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each of your ADR namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub.
+Certificate Management is an optional feature of ADR that enables you to issue X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each of your ADR namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub.
 
 These X.509 certificates are strictly operational certificates which the devices uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. 
 
