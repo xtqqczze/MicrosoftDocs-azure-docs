@@ -23,7 +23,7 @@ Azure Backup now uses Microsoft Defender for Cloud (MDC) to provide threat detec
 
 Before you enable and manage threat detection for Azure VM backups, ensure the following prerequisites are met:
 
-- Enable Microsoft Defender for Servers Plan 1 or Plan 2 on your Azure subscription. For Plan 1, enable Microsoft Defender for Endpoint (MDE) on virtual machines and verify correct configuration on the source VM; otherwise, backups might be incorrectly tagged. For Plan 2, ensure that you enable agentless malware scan. [Learn more about Defender for Servers](/azure/defender-for-cloud/defender-for-servers-overview).
+- Enable Microsoft Defender for Servers Plan 1 or Plan 2 on your Azure subscription. For Plan 1, enable Microsoft Defender for Endpoint (MDE) on virtual machines and verify correct configuration on the source VM; otherwise, backups might be incorrectly tagged. For Plan 2, ensure that you enable agentless malware scan. [Learn more about Defender for Server plans](/azure/defender-for-cloud/defender-for-servers-overview).
 - Enable bi-directional alert synchronization in Microsoft Sentinel to accurately identify backup recovery points (RPs). [Learn how to Ingest Microsoft Defender for Cloud alerts to Microsoft Sentinel](/azure/sentinel/connect-defender-for-cloud).
 - Mark alerts as resolved in Microsoft Defender for Cloud when using any third-party incident management solution alongside Defender.
 
@@ -32,7 +32,7 @@ Before you enable and manage threat detection for Azure VM backups, ensure the f
 
 You can configure source-scan at-scale at the vault level, which allows Azure Backup to perform Malware scans using Microsoft Defender at the source virtual machine. This capability allows Azure Backup to assess the health of recovery points when snapshots are taken.
 
-You can enable threat detection for Azure VM backups with one of the methods by using Azure Business Continuity Center or Vault properties. After the threat detection scan is configured on the vaults, the vault applies scan status to all new restore points created for VM backups.
+You can enable threat detection for Azure VM backups with one of the methods - Azure Business Continuity Center or Vault properties. After the threat detection scan is configured on the vaults, the vault applies scan status to all new restore points created for VM backups.
 
 
 >[!Important]
@@ -50,7 +50,7 @@ To enable threat detection for Azure VM backups using Azure Business Continuity 
 
    :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/threat-detection-tile.png" alt-text="Screenshot shows the Threat detection tile in Azure Business Continuity Center." lightbox="./media/threat-detection-configure-monitor-tutorial/threat-detection-tile.png":::
 
-1. On the **Threat detection** pane, select **+ Configure scan** to start configuring source-scan integration.
+1. On the **Threat detection (Preview)** pane, select **+ Configure scan** to start configuring source-scan integration.
 
    :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/configure-threat-detection.png" alt-text="Screenshot shows how to initiate threat detection scan configuration." lightbox="./media/threat-detection-configure-monitor-tutorial/configure-threat-detection.png":::   
 
@@ -69,7 +69,7 @@ All the new recovery points created for the VM backups in the vault start showin
 
 To enable threat detection for Azure VM backups from the Recovery Services Vault properties, follow these steps:
 
-1. Go to the **Recovery Services vault**, and then select **Properties**.
+1. Go to the **Recovery Services vault** that contains the VM backups requiring threat detection, and then select **Properties**.
 1. On the **Properties** pane, under **Security Settings** > **Threat detection (Preview)**, select **Update**.
 
    :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/enable-threat-detection-vault.png" alt-text="Screenshot shows the enable threat detection option in the vault properties." lightbox="./media/threat-detection-configure-monitor-tutorial/enable-threat-detection-vault.png":::
@@ -99,9 +99,9 @@ To monitor the health of Azure VM recovery points using Azure Business Continuit
 
      :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/scan-details.png" alt-text="Screenshot shows the scan details for the suspicious recovery point." lightbox="./media/threat-detection-configure-monitor-tutorial/scan-details.png":::
 
-You can also view the scan status of each recovery point during Azure VM restore, which helps you to select the appropriate restore point for ransomware recovery.
+   You can also view the scan status of each recovery point during Azure VM restore, which helps you to select the appropriate restore point for ransomware recovery.
 
-:::image type="content" source="./media/threat-detection-configure-monitor-tutorial/view-restore-point-scan-status.png" alt-text="Screenshot shows the restore point scan status." lightbox="./media/threat-detection-configure-monitor-tutorial/view-restore-point-scan-status.png":::
+   :::image type="content" source="./media/threat-detection-configure-monitor-tutorial/view-restore-point-scan-status.png" alt-text="Screenshot shows the restore point scan status." lightbox="./media/threat-detection-configure-monitor-tutorial/view-restore-point-scan-status.png":::
 
 ## Resolve threats and ensure healthy backups
 
@@ -109,7 +109,7 @@ If a backup recovery point is flagged as **Suspicious**, all subsequent recovery
 
  To resolve the alerts, select the  alert from the **Scan details** pane and go to the Defender portal and perform one of the following actions:
 
-- Mark the alert as **Resolved** in the Defender for Cloud. Learn how to [Manage security alerts in Microsoft Defender for Cloud](/azure/defender-for-cloud/manage-respond-alerts).
+- Resolve the alert in the Defender for Cloud. Learn how to [Manage security alerts in Microsoft Defender for Cloud](/azure/defender-for-cloud/manage-respond-alerts).
 - [Resolve alerts in Microsoft Sentinel](/azure/sentinel/incident-navigate-triage).
 
   Ensure that the alert status is synchronized back to Defender for Cloud. Learn how to [Ingest Microsoft Defender for Cloud alerts to Microsoft Sentinel](/azure/sentinel/connect-defender-for-cloud).

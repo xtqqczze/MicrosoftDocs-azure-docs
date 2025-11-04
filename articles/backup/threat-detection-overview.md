@@ -16,13 +16,14 @@ This article provides an overview of the Threat Detection feature for Azure Virt
 
 Azure Backup integrates with Microsoft Defender for Cloud (MDC) to offer advanced threat detection for Azure Virtual Machine (VM) backups. This feature allows you to assess the health of backup restore points by identifying potentially malicious or ransomware-infected backups.
 
-With security signals from Microsoft Defender for Servers, Azure Backup detects compromise indicators such as disruption patterns, behavioral anomalies, and ransomware signatures. Azure Backup also uses Defender scans the source VM and validates restore point health during snapshot creation.
+With security signals from Microsoft Defender for Servers, Azure Backup detects compromise indicators such as disruption patterns, behavioral anomalies, and ransomware signatures. Microsoft Defender for Cloud scans the source virtual machine for malware, and Azure Backup evaluates restore point health using these signals when creating the backup snapshot.
+
 
 ## Key benefits of Threat Detection for Azure VM Backups
 
 Threat detection for Azure VM backups includes the following benefits:
 
-- **Proactive threat identification:** Threat detection Configuration at the vault level automatically identifies compromised restore points across all VM backups in the vault, which enhances recovery confidence.
+- **Proactive threat identification:** Threat detection Configuration at the vault level automatically identifies compromised restore points across all VM backups in the vault, which enhances recovery confidence during a ransomware attack scenario.
 
 - **Faster recovery:** Reduced time to recover by quickly identifying clean restore points that are suitable for ransomware recovery.
 
@@ -62,11 +63,10 @@ This feature is available in public preview in limited regions: West Central US,
 
 This preview feature has the following limitations and known issues:
 
-- **Re-registration to Multiple Vaults**: When a virtual machine is registered to backup multiple vaults, the threat detection feature currently shows only one vault. However, the source-side scan status and summary show aggregated values across all protected items.
-
+- **Re-registration to Multiple Vaults**: When a virtual machine is configured to back up with multiple vaults, the threat detection feature shows only one vault name, and the source-side scan status and summary show aggregated values across all protected items. However, you can view the scan details for a respective vault under **Protected items**.
 - **Update for Active Ransomware Alerts**: After the threat detection is enabled, if the VM has any active ransomware alerts, the backup scan summary might take up to 48 hours to correctly update and reflect as **Suspicious**.
 
-- **MDC Pricing Disabled for VM or Subscription:** When Microsoft Defender for Cloud (MDC) pricing is disabled for a virtual machine or subscription, the protected item status changes to **Configuration Failed**. Subsequent backups appear in an **Unknown (-)** state, and the source scan summary for the protected item appears as **Unknown**.
+- **MDC Pricing Disabled for VM or Subscription:** When you disable Microsoft Defender for Cloud (MDC) pricing for a virtual machine or subscription, the protected item status changes to **Configuration Failed**. Subsequent backups appear in an **Unknown (-)** state, and the source scan summary for the protected item appears as **Unknown**.
 
 ## Next steps
 
