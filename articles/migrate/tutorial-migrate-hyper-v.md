@@ -64,7 +64,7 @@ For migrating Hyper-V VMs, you need to install the software provider (Azure Site
     - The registration key is needed to register the Hyper-V host with the Migration and modernization tool.
     - The key is valid for five days after you generate it.
 
-    :::image type="content" source="./media/tutorial-migrate-hyper-v/download-provider-hyper-v-one.png" alt-text="Screenshot shows the the download provider and key." lightbox="./media/tutorial-migrate-hyper-v/download-provider-hyper-v-one.png":::    
+    :::image type="content" source="./media/tutorial-migrate-hyper-v/download-provider-hyper-v-one.png" alt-text="Screenshot shows the download provider and key." lightbox="./media/tutorial-migrate-hyper-v/download-provider-hyper-v-one.png":::    
 
 
 1. Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running the VMs you want to replicate.
@@ -149,8 +149,8 @@ After discovery is finished, you can begin the replication of Hyper-V VMs to Azu
 > You can replicate up to 10 machines together. If you need to replicate more, replicate them simultaneously in batches of 10.
 
 1. In the Azure Migrate project, select **Start migration** in the Migration tile.
-1. In **Specify intent** > What do you want to migrate**, select **Servers or virtual machines (VM)** 
-1. In **Where do you want to migrate to? Select Azure VM.
+1. In **Specify intent** > **What do you want to migrate**, select **Servers or virtual machines (VM)** 
+1. In **Where do you want to migrate to?** Select Azure VM.
     1. In **Are your machines virtualized?**, select **Yes, with Hyper-V**. Then select **Next: Virtual machines**. 
     1. In **Virtual machines**, select the machines you want to replicate.
     - By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost. We recommend using them wherever applicable.
