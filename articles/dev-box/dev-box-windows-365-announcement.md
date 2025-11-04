@@ -1,6 +1,6 @@
 ---
 title: Microsoft Dev Box capabilities are coming to Windows 365
-description: Discover how Microsoft Dev Box capabilities are transitioning to Windows 365, offering unified solutions for developers and IT admins starting November 2025.
+description: Discover how Microsoft Dev Box capabilities are transitioning to Windows 365, offering unified solutions for developers and IT admins starting in November 2025.
 #customer intent: As an IT admin, I want to understand the changes to Microsoft Dev Box so that I can plan for the transition to Windows 365.
 author: RoseHJM
 ms.author: rosemalcolm
@@ -9,8 +9,6 @@ ms.date: 09/15/2025
 ms.topic: concept-article
 ms.service: dev-box
 ---
-
-
 
 # Microsoft Dev Box capabilities are coming to Windows 365
 
@@ -21,20 +19,20 @@ Microsoft Dev Box is evolving and transitioning into a unified business model un
 - Access to a broader range of options, including GPU-backed SKUs. 
 - Greater flexibility to support hybrid and ephemeral development scenarios. 
 
-Windows 365 delivers personalized, persistent Cloud PCs to meet the needs of organizations of all sizes, supporting a broad range of employee personas and business scenarios. The Microsoft Dev Box service in Azure extends this vision by providing ready-to-code, cloud-powered development environments that enable developers to quickly spin up secure, ready-to-code, project-specific workspaces optimized for productivity. 
+Windows 365 delivers personalized, persistent Cloud PCs to meet the needs of organizations of all sizes, supporting a broad range of employee personas and business scenarios. The Microsoft Dev Box service in Azure extends this vision by providing cloud-powered, ready-to-code development environments that enable developers to quickly spin up secure, project-specific workspaces optimized for productivity. 
 
 We're excited to announce that we're bringing these developer-specific capabilities to Windows 365, further empowering organizations to deliver the best information worker and developer experiences from a single unified solution. 
 
-Dev Box is built on Windows 365, and by consolidating these capabilities into Windows 365 and unifying the solution, developers will benefit from a consistent, flexible solution, and seamless integration with enterprise identity and security. IT admins and platform engineers can use more centralized controls, streamlined provisioning, consistent policy enforcement, and unified visibility across Cloud PCs—from task workers to developers—all in one place. 
+Dev Box is built on Windows 365, and by consolidating these capabilities into Windows 365 and unifying the solution, developers will benefit from a consistent, flexible solution and seamless integration with enterprise identity and security. IT admins and platform engineers can use centralized controls, streamlined provisioning, consistent policy enforcement, and unified visibility across Cloud PCs—from task workers to developers—all in one place. 
 
 Effective November 1, 2025, the following changes will take place: 
 
 - The Microsoft Dev Box service stops accepting net new customers. 
     - *Net new customers* are defined as those with no prior Dev Box deployment in any form. 
-    - As features are integrated into Windows 365 and made available publicly, Customers interested in continuing to leverage these capabilities should reach out to their Microsoft account team. 
+    - As features are integrated into Windows 365 and become publicly available, customers interested in using them should contact their Microsoft account team. 
 - There's no immediate change to existing customers 
-    - Customers who have run a POC, experimented, or begun configuring Dev Box are considered as existing customers and they can continue using and scaling their current Dev Box deployments. 
-    - If you plan to start using or scaling Dev Boxes into additional tenants, submit a request through [Azure Support](https://go.microsoft.com/fwlink/p/?linkid=2202692&clcid=0x409) to your new tenants allowlisted.  
+    - Customers who have run a POC, experimented, or begun configuring Dev Box are considered existing customers, and they can continue using and scaling their current Dev Box deployments. 
+    - If you plan to start using or scaling Dev Boxes into additional tenants, submit a request through [Azure Support](https://go.microsoft.com/fwlink/p/?linkid=2202692&clcid=0x409) to get your new tenants allowlisted.  
 
 All core workflows and value props remain intact - including managing development teams through the Dev Center/Project platform in Azure, configuring guardrails, providing self-serve capabilities for developers, and offering ready-to-code machines with imaging and customizations, as well as custom network support. 
 
@@ -42,7 +40,8 @@ As new developer capabilities are released in Windows 365, Microsoft will provid
 
 ## Key Actions for Customers 
 
-- **No Immediate Action Required:** Continue using and scaling your Dev Box deployments as usual. Migration resources will be provided as new features roll out in Windows 365. 
+- **Existing customers:** Continue using the service as normal. No action is required. You can continue to use and scale your Dev Box deployments as usual. Migration resources will be provided as new features roll out in Windows 365. 
+- **New customers:** Starting November 1, 2025, Microsoft Dev Box no longer accepts new customers. If you previously evaluated or tested Dev Box and need to onboard after November 1, 2025, request an exception through [Name of form](https://aka.ms/link-to-form).
 - **Stay Informed:** Monitor communications from Microsoft and your account team for updates. 
 - **Interested in Previewing New Features?** Express your interest to your Microsoft account team. 
 
