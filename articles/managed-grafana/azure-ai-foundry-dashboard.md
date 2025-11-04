@@ -61,9 +61,8 @@ Import the pre-built Azure AI Foundry dashboard into your Grafana workspace.
 
 1. After importing the dashboard, use the dropdown selectors at the top of the dashboard to filter your specific AI Foundry resource.
 
-<!-- tbc
 > [!TIP]
-> You can also import this dashboard directly from the Azure portal. Go to **Monitor** > **Dashboards with Grafana (preview)**, and select the **AI Foundry** dashboard, or go to [AI Foundry dashboard](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureGrafana.ReactView/GalleryType/Azure%20Monitor/ConfigurationId/AIFoundry).-->
+> You can also import this dashboard directly from the Azure portal. Go to **Monitor** > **Dashboards with Grafana (preview)**, and select the **AI Foundry** dashboard, or go to [AI Foundry dashboard](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureGrafana.ReactView/GalleryType/Azure%20Monitor/ConfigurationId/AIFoundry).
 
 :::image type="content" source="media/ai-foundry-dashboard/ai-foundry-top-section.png" alt-text="Screenshot of Grafana showing Azure Monitor data source configuration." lightbox="media/ai-foundry-dashboard/ai-foundry-top-section.png":::::
 
@@ -84,7 +83,7 @@ To add a new panel:
    - **Data source**: Select **Azure Monitor**.
    - **Resource**: Choose your AI Foundry or OpenAI resource.
    - **Metric namespace**: Select the appropriate namespace (for example, `Microsoft.CognitiveServices/accounts`).
-   - **Metric**: Choose the metric to display (for example, `TokenTransaction`, `Latency`).
+   - **Metric**: Choose the metric to display (for example, `TokenTransaction`, `Latency`). For a complete list of available metrics, see [Azure AI Foundry metrics](/azure/ai-foundry/foundry-models/how-to/monitor-models#metrics-explorer).
    - **Aggregation**: Select the aggregation method (Average, Sum, Count, Min, Max).
 
 1. Configure visualization options:
