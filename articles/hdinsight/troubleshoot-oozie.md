@@ -117,27 +117,27 @@ To disable the Oozie WebUI, please follow the below steps:
 
 Before:
 ```xml
- ` "name": "default",`
- ` "description": "default quick links configuration",`
-  `"configuration": {`
-    `"links": [`
+ "name": "default",
+ "description": "default quick links configuration",
+  "configuration": {
+    "links": [
   .....
-        `"url":"%@://%@:%@/oozie?user.name=%@",`
-       ` "port":{`
-         ` "http_property": "oozie.base.url",`
+        **`"url":"%@://%@:%@/oozie?user.name=%@",`**
+        "port":{
+         "http_property": "oozie.base.url",
   .....
 ```
 
 After:
 ```xml
-  `"name": "default",`
-  `"description": "default quick links configuration",`
-  `"configuration": {`
-    `"links": [`
+  "name": "default",
+  "description": "default quick links configuration",
+  "configuration": {
+    "links": [
   .....
-        `"url":"",`
-        `"port":{`
-          `"http_property": "oozie.base.url",`
+        **`"url":"",`**
+        "port":{
+          "http_property": "oozie.base.url",
   .....
 ```
 
