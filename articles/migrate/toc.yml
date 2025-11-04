@@ -235,7 +235,7 @@ items:
 - name: Modernize applications
   items:
   - name: Overview of Web App Migration and Modernization
-    href: web-app-migration-and-modernization.md
+    href: web-app-migration-modernization.md
   - name: Containerize ASP.NET apps and migrate to AKS
     href: tutorial-app-containerization-aspnet-kubernetes.md
   - name: Containerize Java web apps and migrate to AKS
