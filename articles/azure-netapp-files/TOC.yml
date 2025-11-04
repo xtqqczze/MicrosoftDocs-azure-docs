@@ -179,7 +179,7 @@
           href: application-volume-group-oracle-introduction.md
         - name: Requirements and considerations for application volume group for Oracle
           href: application-volume-group-oracle-considerations.md
-  - name: Data protection and resiliency
+  - name: Hybrid data mobility and protection
     items:
     - name: Reliability in Azure NetApp Files 
       href: ../reliability/reliability-netapp-files.md?toc=azure/azure-netapp-files/toc.json&bc=/azure/azure-netapp-files/breadcrumb/toc.json
@@ -421,7 +421,7 @@
           href: configure-application-volume-oracle-azure-resource-manager.md 
       - name: Delete an application volume group
         href: application-volume-group-delete.md
-  - name: Manage data protection  
+  - name: Manage hybrid data mobility and protection  
     items:
     - name: Manage volume snapshots
       items:

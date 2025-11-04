@@ -20,7 +20,7 @@ Write-back allows the write to be committed to stable storage at the cache and a
 
 ## Considerations
 
-* Cache volumes are currently only supported with the REST API. 
+* Cache volumes are currently only supported with the REST API (new caches endpoint).
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for data access to one or more cache volumes.
     * Ensure that the delegated subnet address space is sized appropriately to accommodate the Azure NetApp Files network interfaces. Review the [guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.
 * When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created cache volumes in the subscription. This is done to try to reduce the number of NICs/IPs consumed in the delegated subnet. If this isn't possible, another 6+1 NICs are consumed.

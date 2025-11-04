@@ -84,10 +84,8 @@ Cache volumes are available in public preview at no extra charge (beyond standar
 * Israel Central
 * Italy North
 * Japan East
-* Japan West
 * Korea Central
 * Korea South
-& New Zealand North
 * North Central US
 * North Europe
 * Norway East
