@@ -171,11 +171,11 @@ To enable or disable Priority Replication for an existing OR policy, complete th
 
 1. To enable priority replication, select the **Enable priority replication** checkbox in the corresponding storage account's **Priority replication** column. Select **Save** to save your changes as shown in the following screenshot.
 
-    :::image type="content" source="media/object-replication-priority-replication/enable-existing-policy-sml.png" alt-text="Screenshot showing the location of the Enable Priority Replication checkbox in the Edit Replication Rules pane." lightbox="media/object-replication-priority-replication/enable-existing-policy-lrg.png":::
+    :::image type="content" source="media/object-replication-priority-replication/enable-existing-policy-sml.png" alt-text="Screenshot showing the location of the selected Enable Priority Replication checkbox in the Edit Replication Rules pane." lightbox="media/object-replication-priority-replication/enable-existing-policy-lrg.png":::
 
 1. To disable priority replication, de-select the **Enable priority replication** checkbox in the corresponding storage account's **Priority replication** column. Select **Save** to save your changes as shown in the following screenshot.
 
-    :::image type="content" source="media/object-replication-priority-replication/disable-existing-policy-sml.png" alt-text="Screenshot showing the location of the Enable Priority Replication checkbox in the Edit Replication Rules pane." lightbox="media/object-replication-priority-replication/disable-existing-policy-lrg.png":::
+    :::image type="content" source="media/object-replication-priority-replication/disable-existing-policy-sml.png" alt-text="Screenshot showing the location of the de-selected Enable Priority Replication checkbox in the Edit Replication Rules pane." lightbox="media/object-replication-priority-replication/disable-existing-policy-lrg.png":::
 
 # [Azure PowerShell](#tab/powershell)
 
