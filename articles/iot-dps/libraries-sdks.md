@@ -27,6 +27,9 @@ The DPS SDKs help to provision devices to your IoT hubs. Microsoft also provides
 
 ## Device SDKs
 
+> [!IMPORTANT]
+> Certificate Management in IoT Hub is in **public preview** and is supported only in the following Device SDKs: Embedded C (Bare metal, Free RTOS), C, and Python. For more information, see the [What is Certificate Management?](../iot-hub/iot-hub-certificate-management-overview.md).
+
 [!INCLUDE [iot-dps-sdks-device](../../includes/iot-dps-sdks-device.md)]
 
 ### Embedded device SDKs

@@ -13,7 +13,7 @@ ms.date: 11/07/2025
 
 # What is Certificate Management (Preview)?
 
-Certificate Management is a built-in feature of Azure Device Registry (ADR) that enables you to issue X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each of your ADR Namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR Namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub. 
+Certificate Management is a built-in feature of Azure Device Registry (ADR) that enables you to issue X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each of your ADR namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR Namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub. 
 
 Using Certificate Management requires you to also use IoT Hub, [Azure Device Registry (ADR)](iot-hub-device-registry-setup.md), and [Device Provisioning Service (DPS)](../iot-dps/index.yml). Certificate Management is currently in public preview.
 

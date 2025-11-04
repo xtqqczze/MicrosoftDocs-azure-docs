@@ -55,12 +55,15 @@ If you select **Create new** for the ADR namespace, complete the following steps
     :::image type="content" source="../articles/iot-hub/media/iot-hub-create-hub/iot-hub-namespace-1.png" alt-text="Screen capture that shows how to fill the basics tab for an ADR namespace in the Azure portal.":::
 
 1. Select the **Next: Identity >** button to continue creating your ADR namespace.
-1. In the Identity tab, select **Enabled** or **Disabled** to enable or disable a system-assigned managed identity for the ADR namespace. You must enable the managed identity to allow Certificate Management integration.
+1. In the **Identity** tab, you can choose to enable a system-assigned managed identity and a credential resource for your namespace. To enable these features, toggle the switch to **Enabled**. For more information about how ADR works with managed identities and credential resources, see [What is Certificate Management](../articles/iot-hub/iot-hub-certificate-management-overview.md).
+
+    - Managed identities allow your namespace to authenticate to Azure services without storing credentials in your code. 
+    - Credential resources securely store and manage device authentication credentials, such as API keys or certificates, for devices connecting to your namespace. When you enable this feature, you can set policies to control how certificates are issued and managed for your devices.
 
     :::image type="content" source="../articles/iot-hub/media/iot-hub-create-hub/iot-hub-namespace-2.png" alt-text="Screen capture that shows how to enable a system-assigned managed identity for an ADR namespace in the Azure portal.":::
 
 1. Select the **Next: Tags >** button to continue creating your ADR namespace.
-1. In the Tags tab, you can optionally add tags to organize your ADR namespace. When you create a tag, you define a name, a value, and a resource for it. You can use tags to filter and group your resources in the Azure portal.
+1. In the Tags tab, you can optionally **add tags** to organize your ADR namespace. Tags are key-value pairs that help you manage and identify your resources. You can use tags to filter and group your resources in the Azure portal.
 
     :::image type="content" source="../articles/iot-hub/media/iot-hub-create-hub/iot-hub-namespace-3.png" alt-text="Screen capture that shows how to create tags for an ADR namespace in the Azure portal.":::
 
@@ -71,10 +74,10 @@ If you select **Create new** for the ADR namespace, complete the following steps
     > The creation of the namespace with system-assigned managed identity might take up to 5 minutes.
 
 1. Once created, you can view and select your ADR namespace from the **ADR namespace** dropdown.
-1. Select **Next: Networking** to continue creating your hub.
 
 ## Configure the networking, management, and add-ons settings
 
+1. Select **Next: Networking** to continue creating your hub.
 1. On the **Networking** tab, complete the fields as follows:
 
    | Property | Value |
@@ -117,3 +120,11 @@ If you select **Create new** for the ADR namespace, complete the following steps
 1. Select **Next: Review + create** to review your choices.
 1. Select **Create** to start the deployment of your new hub. Your deployment might progress for a few minutes while the hub is being created. Once the deployment is complete, select **Go to resource** to open the new hub.
 
+
+## Integrate Device Provisioning Service with your IoT hub
+
+Once your IoT hub and your namespace are created, you can link your namespace to a Device Provisioning Service (DPS) instance to enable device provisioning with Certificate Management. To do this, follow the steps in the article: [Manage your certificates and namespaces](../articles/iot-hub/iot-hub-certificate-management.md).
+
+- [Assign a namespace to a DPS instance](../articles/iot-hub/iot-hub-certificate-management.md#assign-a-namespace-to-a-dps-instance): Link your ADR namespace to an existing DPS instance.
+- [Create a custom policy for your namespace](../articles/iot-hub/iot-hub-device-registry-namespaces.md#create-a-custom-policy-for-your-namespace): Define a policy in your ADR namespace to issue device certificates.
+- [Assign a policy when creating an enrollment group](../articles/iot-hub/iot-hub-certificate-management.md#assign-a-policy-when-creating-an-enrollment-group): Create an enrollment group in DPS and assign the policy from your ADR namespace to enable certificate-based provisioning for your devices.

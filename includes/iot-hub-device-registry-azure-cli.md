@@ -32,7 +32,6 @@ The setup process includes the following steps:
 - Install [Azure CLI](/cli/azure/install-azure-cli) in your environment, or run `az upgrade` to ensure you have the latest version.
 - Install the **preview Azure IoT CLI extension** to access the ADR and Certificate Management functionalities. To install the extension, complete the following steps:
 
-    1. Download the preview [Azure IoT CLI extension](https://github.com/Azure/hubgen2-certmgmt/blob/feature/publicPreview/content/azure_iot-0.30.0a2-py3-none-any.whl). Don't change the **azure_iot-0.30.0a2-py3-none-any.whl** file name, otherwise the installation fails.
     1. Open a terminal window and sign in to your Azure account.
     
         ```azurecli-interactive
@@ -51,10 +50,10 @@ The setup process includes the following steps:
         az extension remove --name azure-iot
         ```
     
-    1. Install the Azure IoT CLI preview extension that you downloaded. Replace `<local file path to azure_iot-0.30.0a2-py3-none-any.whl>` with the path to the downloaded whl file.
+    1. Install the preview version of the azure-iot extension.
     
         ```azurecli-interactive
-        az extension add --source <local file path to azure_iot-0.30.0a2-py3-none-any.whl> -y
+        az extension add --name azure-iot --allow-preview
         ```
     
     1. After the install, validate your azure-iot extension version is **0.30.0a2**.
@@ -154,7 +153,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
     ```
 
     > [!TIP]
-    > You can also create a custom policy using the `az iot adr ns policy create` command. For more information, see [Create and manage namespaces](../articles/iot-hub/iot-hub-device-registry-namespaces.md#create-a-custom-policy-for-your-namespace).
+    > You can also create a custom policy using the `az iot adr ns policy create` command. For more information, see [Create a custom policy for your namespace](#create-a-custom-policy-for-your-namespace).
 
     > [!NOTE]
     > The creation of the namespace with system-assigned managed identity might take up to 5 minutes.
@@ -284,4 +283,65 @@ To provision devices with leaf certificates, you need to create an enrollment gr
 
 ```azurecli-interactive
 az iot dps enrollment-group create --dps-name $DPS_NAME --resource-group $RESOURCE_GROUP --enrollment-id $ENROLLMENT_ID --credential-policy default
+```
+
+At this point, your IoT hub with ADR and Certificate Management integration is set up and ready to use.
+
+## Manage your namespaces
+
+The following commands help you manage your ADR namespaces, credentials, and policies using the Azure CLI.
+
+1. List all the ADR namespaces in your subscription:
+
+    ```azurecli-interactive
+    az iot adr ns list --resource-group $RESOURCE_GROUP
+    ```
+
+1. Show the details of a specific ADR namespace:
+
+    ```azurecli-interactive
+    az iot adr ns show --name $NAMESPACE_NAME --resource-group $RESOURCE_GROUP
+    ```
+
+1. Show the credentials associated with a specific ADR namespace:
+
+    ```azurecli-interactive
+    az iot adr ns credential show --namespace $NAMESPACE_NAME --resource-group $RESOURCE_GROUP
+    ```
+
+### Create a custom policy for your namespace
+
+1. List all policies associated with a specific ADR namespace:
+
+    ```azurecli-interactive
+    az iot adr ns policy list --namespace $NAMESPACE_NAME --resource-group $RESOURCE_GROUP
+    ```
+
+1. Show the details of a specific policy associated with a specific ADR namespace:
+
+    ```azurecli-interactive
+    az iot adr ns policy show --name "policy-name" --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
+    ```
+
+1. Create a custom policy. Set the name, certificate subject, and validity period for the policy following these rules:
+
+    - The policy `name` value must be unique within the namespace. If you try to create a policy with a name that already exists, you receive an error message.
+    - The certificate subject `cert-subject` value must be unique across all policies in the namespace. If you try to create a policy with a subject that already exists, you receive an error message.
+
+    - The validity period `cert-validity-days` value must be between 1 and 3650 days (10 years). If you try to create a policy with a validity period outside this range, you receive an error message.
+    
+    The following example creates a policy named "custom-policy" with a subject of "CN=TestDevice" and a validity period of 30 days. 
+
+    ```azurecli-interactive
+    az iot adr ns policy create --name "custom-policy" --namespace $NAMESPACE_NAME --resource-group $RESOURCE_GROUP --cert-subject "CN=TestDevice" --cert-validity-days "30"
+    ```
+
+### Delete a namespace
+
+When you no longer need the ADR namespace and its related resources, you can delete them to avoid incurring unnecessary costs.
+
+Run the `az iot adr ns delete` command to delete an Azure Device Registry namespace. Replace `$NAMESPACE_NAME` with the name of your namespace.
+
+```azurecli-interactive
+az iot adr ns delete --name $NAMESPACE_NAME --resource-group $RESOURCE_GROUP
 ```

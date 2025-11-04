@@ -1,5 +1,5 @@
 ---
-title: Create an IoT hub with Certificate Management in Azure Device Registry (Preview)
+title: Get started with ADR and Certificate Management in IoT Hub (Preview)
 titleSuffix: Azure IoT Hub
 description: This article explains how to create an IoT hub with Azure Device Registry and Certificate Management integration.
 author: SoniaLopezBravo
@@ -12,7 +12,7 @@ zone_pivot_groups: service-portal-azcli-script
 #Customer intent: As a developer new to IoT, I want to understand what Azure Device Registry is and how it can help me manage my IoT devices.
 ---
 
-# Create an IoT hub with Certificate Management in Azure Device Registry (Preview)
+# Get started with Azure Device Registry and Certificate Management in IoT Hub (Preview)
 
 This article explains how to create a new IoT hub with [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) and [Certificate Management](iot-hub-certificate-management-overview.md) integration. 
 
@@ -23,7 +23,7 @@ This article explains how to create a new IoT hub with [Azure Device Registry (A
 
 ## Choose a deployment method
 
-To set up your IoT hub with ADR, you can use the Azure portal, Azure CLI, or a script that automates the setup process.
+To set up your IoT hub with ADR and Certificate Management, you can use the Azure portal, Azure CLI, or a script that automates the setup process.
 
 | Deployment method | Description | Includes | Requires |
 |-------------------|-------------|----------|--------------|
@@ -49,10 +49,3 @@ To set up your IoT hub with ADR, you can use the Azure portal, Azure CLI, or a s
 
 :::zone-end
 
-## Next steps
-
-You can now start using your IoT hub with Azure Device Registry integration. To learn more about how to connect devices to your IoT hub, see the following articles:
-
-- [Create and manage device identities](create-connect-device.md)
-- [Monitor IoT Hub with metrics and logs](monitor-iot-hub.md)
-- [Create and manage namespaces](iot-hub-device-registry-namespaces.md)

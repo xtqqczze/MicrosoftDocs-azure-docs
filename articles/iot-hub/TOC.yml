@@ -4,28 +4,26 @@
   items:
     - name: What is IoT Hub?
       href: iot-concepts-and-iot-hub.md
-    - name: What is new in IoT Hub?
-      href: iot-hub-what-is-new.md
-    - name: "FAQ: What is new in IoT Hub?"
-      href: iot-hub-faq.md
-- name: Preview features in IoT Hub
+- name: What's new (Preview)?
   items:
-    - name: Create an IoT hub with Certificate Management in Azure Device Registry (Preview)
-      href: iot-hub-device-registry-setup.md
-    - name: Azure Device Registry 
+    - name: Overview
+      href: iot-hub-what-is-new.md
+    - name: Frequently asked questions
+      href: iot-hub-faq.md
+    - name: Integration with Azure Device Registry (Preview)
       items:
       - name: Overview
         href: iot-hub-device-registry-overview.md
-      - name: Manage your namespaces
-        href: iot-hub-device-registry-namespaces.md
     - name: Certificate Management (Preview)
       items:
         - name: Overview
           href: iot-hub-certificate-management-overview.md
-        - name: Manage your certificates
-          href: iot-hub-certificate-management.md
         - name: Key concepts for Certificate Management
           href: iot-hub-certificate-management-concepts.md
+        - name: Manage certificates and namespaces
+          href: iot-hub-certificate-management.md
+    - name: Get started with ADR and Certificate Management in IoT Hub (Preview)
+      href: iot-hub-device-registry-setup.md
   expanded: true
 - name: Quickstarts
   items:
