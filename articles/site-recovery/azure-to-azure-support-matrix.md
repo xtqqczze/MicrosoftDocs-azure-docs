@@ -171,7 +171,7 @@ When you upgrade Linux OS to a new major version, ASR detects the change and pro
 - SUSE Linux Enterprise Server (SLES) - Upgrade from SLES 12 to SLES 15.
 
 >[!NOTE]
->Support for this feature in preview is available only from ASR agent version 9.66.7567.1 and above. So, first update the ASR agent to version 9.66.7567.1 and above and then, you can do major OS upgrades.
+>Support for this feature in preview is available only from ASR agent version 9.66.7567.1 and above. So, first update the ASR agent to version 9.66.7567.1 and later and then, you can do major OS upgrades.
 
 If you configure auto update of ASR agent, ASR agent gets automatically updated in the next update cycle to be compatible with the upgraded OS version. 
 
