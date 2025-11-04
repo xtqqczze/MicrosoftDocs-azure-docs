@@ -7,7 +7,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage, Premium SSD v2'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 12/19/2024
+ms.date: 11/03/2025
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 # Customer intent: As an SAP administrator, I want to configure storage for SAP HANA on Azure using Premium SSD v2, so that I can ensure optimal performance and cost-effectiveness for my workload while accommodating varying storage needs.
@@ -92,11 +92,12 @@ The major difference of Premium SSD v2 to the existing NetWeaver and HANA certif
 - Every Premium SSD v2 storage disk comes with 3,000 IOPS and 125 MB/sec on throughput that is included in the capacity pricing
 - Extra IOPS and throughput on top of the default ones that come with each disk can be provisioned at any point in time and are charged separately
 - Changes to the provisioned IOPS and throughput can be executed four times in a 24 hour window
-- Latency of Premium SSD v2 is lower than premium storage, but higher than Ultra disk. But is submillisecond, so, that it passes the SAP HANA KPIs without the help of any other functionality, like Azure Write Accelerator
+- Latency of Premium SSD v2 is lower than premium storage, but higher than Ultra disk. But is submillisecond, so, that it passes the SAP HANA KPIs without the help of any other Azure functionality, like Azure Write Accelerator
 - **Like with Ultra disk, you can use Premium SSD v2 for /hana/data and /hana/log volumes without the need of any accelerators or other caches**.
 - Like Ultra disk, Azure Premium SSD v2 doesn't offer caching options as Premium SSD does
-- With Premium SSD v2, the same storage configuration applies to the HANA certified Ev4, Ev5, and M-series virtual machines (VM) that offer the same memory 
+- With Premium SSD v2, the same storage configuration applies to the HANA certified Ev4, Ev5, D6, Ev6 and M-series virtual machines (VM) that offer the same memory 
 - Unlike Premium SSD, there's no disk or VM bursting for Premium SSD v2
+- Snapshot functionality with Premium SSD v2 works distinctively different compared to Premium SSD (v1). For more details see [Instant access snapshots for Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/disks-instant-access-snapshots?tabs=azure-cli%2Cazure-cli-snapshot-state#snapshots-of-ultra-disks-and-premium-ssd-v2)
 
 Not having Azure Write Accelerator support or support by other caches makes the configuration of Premium SSD v2 for the different VM families easier and more unified and avoid variations that need to be considered in deployment automation. Not having bursting capabilities makes throughput and IOPS delivered more deterministic and reliable. Since Premium SSD v2 is a new storage type, there are still some restrictions related to its features and capabilities. To read up on these limitations and differences between the different storages, start with reading the document [Azure managed disk types](/azure/virtual-machines/disks-types).
 
