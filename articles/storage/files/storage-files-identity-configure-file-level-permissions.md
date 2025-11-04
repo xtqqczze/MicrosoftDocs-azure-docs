@@ -115,9 +115,9 @@ net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /use
 
 ## Configure Windows ACLs
 
-You can configure the Windows ACLs using [icacls](#configure-windows-acls-with-icacls) or [Windows File Explorer](#configure-windows-acls-with-windows-file-explorer). You can also use the Azure portal or the [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command. Windows File Explorer won't work for cloud-only identities.
+You can configure the Windows ACLs using icacls, or you can use Windows File Explorer (hybrid identities only). You can also use the Azure portal or the [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command.
 
-If you have directories or files in on-premises file servers with Windows ACLs configured against the AD DS identities, you can copy them over to Azure Files while preserving the ACLs by using traditional file copy tools like Robocopy or [Azure AzCopy v 10.4+](https://github.com/Azure/azure-storage-azcopy/releases). If you tier directories and files to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
+If you have directories or files in on-premises file servers with Windows ACLs configured against the AD DS identities, you can copy them over to Azure Files while preserving the ACLs by using traditional file copy tools like Robocopy or the latest version of [Azure AzCopy](https://github.com/Azure/azure-storage-azcopy/releases). If you tier directories and files to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
 
 > [!IMPORTANT]
 > **If you're using Microsoft Entra Kerberos to authenticate hybrid identities, the hybrid identities must be synced to Microsoft Entra ID in order for ACLs to be enforced.** You can set file and directory level ACLs for identities that aren't synced to Microsoft Entra ID. However, these ACLs aren't enforced because the Kerberos ticket used for authentication and authorization doesn't contain the not-synced identities. If you're using on-premises AD DS as your AD source, you can include not-synced identities in the ACLs. AD DS puts those SIDs in the Kerberos ticket, and ACLs are enforced.
@@ -132,9 +132,29 @@ icacls <mapped-drive-letter>: /grant <user-upn>:(f)
 
 For more information on how to use icacls to set Windows ACLs and on the different types of supported permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).
 
+### Configure Windows ACLs using the Azure portal
+
+Follow these steps to configure Windows ACLs per user/group using the Azure portal. This method works for both hybrid and cloud-only identities.
+
+1. Sign in to the Azure portal and navigate to the file share for which you want to configure Windows ACLs.
+
+1. From the service menu, select **Browse**. If you want to set an ACL at the root folder, select **Manage access** from the top menu.
+
+   :::image type="content" source="media/storage-files-identity-configure-file-level-permissions/set-root-access.png" alt-text="Screenshot of the Azure portal showing how to manage access for the root folder of a file share." lightbox="media/storage-files-identity-configure-file-level-permissions/set-root-access.png" border="true":::
+
+1. To set an ACL for a file or directory, right-click on the file or directory and then select **Manage access**. You should see the available users and groups. You can optionally add a new user or group.
+
+   :::image type="content" source="media/storage-files-identity-configure-file-level-permissions/manage-access.png" alt-text="Screenshot of the Azure portal showing how to set Windows ACLs for a file or directory." lightbox="media/storage-files-identity-configure-file-level-permissions/manage-access.png" border="true":::
+
+1. Select the pencil icon at the far right of any user or group to add or edit permissions for the user/group to access the specified file/directory. **Deny** always takes precedence over **Allow** when both are set. When neither are set, default permissions are inherited.
+
+   :::image type="content" source="media/storage-files-identity-configure-file-level-permissions/edit-permissions.png" alt-text="Screenshot of the Azure portal showing how to add or edit permissions for a user or group." lightbox="media/storage-files-identity-configure-file-level-permissions/edit-permissions.png" border="true":::
+
+1. Select **Save** to set the ACL.
+
 ### Configure Windows ACLs with Windows File Explorer (hybrid identities only)
 
-If you're signed in to a domain-joined Windows client, you can use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory. This won't work for cloud-only identities.
+If you're signed in to a domain-joined Windows client, you can use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory. Using File Explorer only works for hybrid identities; it doesn't work for cloud-only identities.
 
 > [!IMPORTANT]
 > If your client isn't domain joined, or if your environment has multiple AD forests, don't use Windows Explorer to configure ACLs. [Use icacls](#configure-windows-acls-with-icacls) instead. This restriction exists because Windows File Explorer ACL configuration requires the client to be domain joined to the AD domain that the storage account is joined to.
