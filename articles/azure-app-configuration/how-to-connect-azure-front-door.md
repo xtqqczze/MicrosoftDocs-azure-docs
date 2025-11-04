@@ -63,7 +63,7 @@ Create a new Azure Front Door profile and connect it to your App Configuration s
 
 1. Create an endpoint that uses this App Configuration store as origin:
 
-[!INCLUDE [azure-app-configuration-create-front-door-endpoint-connection](../../includes/azure-app-configuration-create-front-door-endpoint.md)]
+   [!INCLUDE [azure-app-configuration-create-front-door-endpoint-connection](../../includes/azure-app-configuration-create-front-door-endpoint.md)]
 
    - Select **Create & Connect** to create the profile and establish the connection.
 
@@ -87,7 +87,7 @@ After connecting to an Azure Front Door profile, you can create multiple endpoin
 
 1. From the Azure Front Door page in your App Configuration store, select **Create Endpoint**.
 
-[!INCLUDE [azure-app-configuration-create-front-door-endpoint-connection](../../includes/azure-app-configuration-create-front-door-endpoint.md)]
+   [!INCLUDE [azure-app-configuration-create-front-door-endpoint-connection](../../includes/azure-app-configuration-create-front-door-endpoint.md)]
 
    - Select **Create** to create the new endpoint.
 
