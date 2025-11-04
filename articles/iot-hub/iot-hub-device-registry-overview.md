@@ -23,7 +23,7 @@ ADR uses *namespaces* to organize IoT devices. Namespaces provide a way to organ
 
 ADR offers a unified registry so apps and services interacting with your IoT devices connect to a single source. ADR syncs devices in the cloud with custom resources in Kubernetes on the edge. Enterprises can use Azure Resource Manager, Azure's deployment and management service, with namespace assets. Azure Resource Manager supports resource groups, tags, role-based access control (RBAC), policies, logging, and auditing.
 
-For more information about namespaces, see [Create and manage namespaces](iot-hub-device-registry-namespaces.md).
+For more information, [Manage your certificates and namespaces in IoT Hub](iot-hub-certificate-management.md).
 
 ## How ADR works with IoT solutions?
 

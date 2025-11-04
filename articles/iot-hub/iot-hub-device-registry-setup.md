@@ -29,7 +29,7 @@ To set up your IoT hub with ADR and Certificate Management, you can use the Azur
 |-------------------|-------------|----------|--------------|
 | [Azure portal](#create-an-iot-hub-with-adr-integration-using-azure-portal)| Use the Azure portal to create a new IoT hub and link it to an existing or new ADR namespace. | Creation of a new ADR namespace and a new IoT hub | A user-assigned managed identity, credentials, and a DPS instance. |
 | [Azure CLI](#create-an-iot-hub-with-adr-integration-using-azure-cli) | Use the Azure CLI to create a new ADR namespace, a new IoT hub, and a new DPS instance and link them together. | Creation of a new ADR namespace, a new IoT hub, and a new DPS instance, user-assigned managed identity, credentials, and policies. | Installation of the Azure IoT CLI extension. |
-| [Script](#create-an-iot-hub-with-adr-integration-using-script) | Use a PowerShell script to automate the setup of your IoT hub with ADR integration.| Creation of a new ADR namespace and a new IoT hub | A user-assigned managed identity, credentials, and a DPS instance. |
+| [Script](#create-an-iot-hub-with-adr-integration-using-a-script) | Use a PowerShell script to automate the setup of your IoT hub with ADR integration.| Creation of a new ADR namespace and a new IoT hub | A user-assigned managed identity, credentials, and a DPS instance. |
 
 :::zone pivot="azure-portal"
 
