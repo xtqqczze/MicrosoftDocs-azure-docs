@@ -101,7 +101,7 @@ Your workload profile must have at least two nodes to use premium ingress.
 | `header-count-limit` | The maximum number of HTTP headers allowed per request. | 100 | 1 | n/a |
 
 
-Once configured you will see an output of the settings you just applied.
+Once configured, you see an output of the settings you just applied.
 ```json
 {
   "headerCountLimit": 100,
