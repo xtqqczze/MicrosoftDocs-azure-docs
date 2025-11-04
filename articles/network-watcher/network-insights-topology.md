@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 11/03/2025
+ms.date: 11/18/2025
 ms.custom:
   - subject-monitoring
   - sfi-image-nochange
@@ -156,22 +156,22 @@ In this section, you learn how to navigate the topology view from regions to the
 
    :::image type="content" source="./media/network-insights-topology/vm-insights-diagnostics.png" alt-text="Screenshot of the virtual machine's insights and diagnostics tab." lightbox="./media/network-insights-topology/vm-insights-diagnostics.png"::: 
 
-## AKS Cluster Topology Visualization (preview)
+## AKS cluster topology visualization (preview)
 
-Azure Kubernetes Service (AKS) clusters can be complex, with multiple interconnected Azure resources supporting containerized workloads. Network Topology in Network Watcher now supports AKS visualization, enabling you to view and understand the network architecture of your AKS clusters directly within the Azure portal.
+Azure Kubernetes Service (AKS) clusters can be complex, with multiple interconnected Azure resources supporting containerized workloads. Topology in Network Watcher now supports AKS visualization, enabling you to view and understand the network architecture of your AKS clusters directly within the Azure portal.
 
-AKS Network Topology Visualization provides a graphical representation of the networking resources associated with your AKS cluster. This includes virtual networks (VNets), subnets, network security groups (NSGs), load balancers, NAT gateways, public IPs, and more. The visualization helps you:
+AKS network topology visualization provides a graphical representation of the networking resources associated with your AKS cluster. This includes virtual networks (VNets), subnets, network security groups (NSGs), load balancers, NAT gateways, public IPs, and more. The visualization helps you:
 
-- **Understand resource relationships**: See how AKS nodes, pods, and supporting infrastructure are connected, helping you visualize dependencies and architecture.
-- **Diagnose connectivity issues**: Identify misconfigurations or bottlenecks in your cluster's network setup. The visualization displays connectivity details such as active connections and connection drops, allowing you to quickly spot failures or interruptions in network paths.
-- **Monitor traffic**: Analyze traffic metrics including bytes forwarded and bytes dropped across network paths. This helps you assess throughput, detect bottlenecks, and understand data transmission efficiency within your AKS environment.
-- **Monitor resource health**: Quickly assess the state and placement of critical networking components to ensure your AKS cluster is operating optimally.
+- **Understand resource relationships:** See how AKS nodes, pods, and supporting infrastructure are connected, helping you visualize dependencies and architecture.
+- **Diagnose connectivity issues:** Identify misconfigurations or bottlenecks in your cluster's network setup. The visualization displays connectivity details such as active connections and connection drops, allowing you to quickly spot failures or interruptions in network paths.
+- **Monitor traffic:** Analyze traffic metrics including bytes forwarded and bytes dropped across network paths. This helps you assess throughput, detect bottlenecks, and understand data transmission efficiency within your AKS environment.
+- **Monitor resource health:** Quickly assess the state and placement of critical networking components to ensure your AKS cluster is operating optimally.
 
     :::image type="content" source="./media/network-insights-topology/aks_topology.jpg" alt-text="Screenshot of the AKS cluster topology." lightbox="./media/network-insights-topology/aks_topology.jpg":::
 
 ### Supported AKS scenarios
 
-Network Topology supports visualization for a wide range of AKS deployment scenarios, including:
+Topology supports visualization for a wide range of AKS deployment scenarios, including:
 
 - Default AKS clusters (Kubenet, no custom VNet/UDR)
 - Kubenet with custom VNet and UDR
