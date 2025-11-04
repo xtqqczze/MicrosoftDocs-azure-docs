@@ -66,7 +66,7 @@ In this section, you learn how to query StandardV2 NAT Gateway flow logs to iden
         | sort by TotalPacketsSent desc
 
     ```
-    :::image type="content" source="media/monitor-nat-gateway-flow-logs/view-top-talkers-query.png" alt-text="Screenshot of query editor with NAT Gateway top talkers kusto query.":::
+    :::image type="content" source="media/monitor-flow-logs/view-top-talkers-query.png" alt-text="Screenshot of query editor with NAT Gateway top talkers kusto query.":::
 
 1. Select **Run** to execute the query.
 1. If you want to modify and save the query, make your query changes and select **Save**>**Save as query**.
