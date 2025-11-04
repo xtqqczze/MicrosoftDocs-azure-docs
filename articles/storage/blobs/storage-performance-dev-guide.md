@@ -16,7 +16,9 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 
 # Optimize the performance of applications
 
-Introduction goes here.
+Azure Storage has scalability and performance targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json) and [Scalability and performance targets for Blob storage](scalability-targets.md).
+
+This article organizes proven practices for performance into a checklist you can follow while developing your Blob storage application.
 
 ## Performance checklist
 
@@ -36,6 +38,40 @@ Use this checklist as a guide.
 > - **Use server-side queries** - Consider using [query acceleration](/azure/storage/blobs/data-lake-storage-query-acceleration) to filter out unwanted data during the storage request and keep clients from needlessly transferring data across the network.
 >
 > - **Use server-to-server APIs to copy between accounts**: To copy blobs across storage accounts, use the [Put Block From URL](/rest/api/storageservices/put-block-from-url) operation. This operation copies data synchronously from any URL source into a block blob. Using the `Put Block from URL` operation can significantly reduce required bandwidth when you're migrating data across storage accounts. Because the copy operation takes place on the service side, you don't need to download and re-upload the data. To copy data within the same storage account, use the [Copy Blob](/rest/api/storageservices/Copy-Blob) operation. Copying data within the same storage account is typically completed quickly.
+
+Incorporate this
+
+## Upload many blobs quickly
+
+To upload many blobs quickly, upload blobs in parallel. Uploading in parallel is faster than uploading single blobs at a time with parallel block uploads because it spreads the upload across multiple partitions of the storage service. AzCopy performs uploads in parallel by default, and is recommended for this scenario. For more information, see [Get started with AzCopy](../common/storage-use-azcopy-v10.md).
+
+### Cache data to improve performance
+
+Is your application caching data that is frequently accessed and rarely changed?
+
+In general, reading data once is preferable to reading it twice. Consider the example of a web application that has retrieved a 50 MiB blob from the Azure Storage to serve as content to a user. Ideally, the application caches the blob locally to disk and then retrieves the cached version for subsequent user requests.
+
+One way to avoid retrieving a blob if it hasn't been modified since it was cached is to qualify the GET operation with a conditional header for modification time. If the last modified time is after the time that the blob was cached, then the blob is retrieved and re-cached. Otherwise, the cached blob is retrieved for optimal performance.
+
+You may also decide to design your application to assume that the blob remains unchanged for a short period after retrieving it. In this case, the application doesn't need to check whether the blob was modified during that interval.
+
+Configuration data, lookup data, and other data that is frequently used by the application are good candidates for caching.
+
+For more information about using conditional headers, see [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).
+
+### Upload data in batches
+
+Is your application batching updates by caching them on the client and then uploading them in larger sets?
+
+In some scenarios, you can aggregate data locally, and then periodically upload it in a batch instead of uploading each piece of data immediately. For example, suppose a web application keeps a log file of activities. The application can either upload details of every activity as it happens to a table (which requires many storage operations), or it can save activity details to a local log file and then periodically upload all activity details as a delimited file to a blob. If each log entry is 1 KB in size, you can upload thousands of entries in a single transaction. A single transaction supports uploading a blob of up to 64 MiB in size. The application developer must design for the possibility of client device or upload failures. If the activity data needs to be downloaded for an interval of time rather than for a single activity, then using Blob storage is recommended over Table storage.
+
+## Upload blobs quickly
+
+To upload blobs quickly, first determine whether you're uploading one blob or many. Use the below guidance to determine the correct method to use depending on your scenario. If you're using the Azure Storage client library for data transfers, see [Performance tuning for data transfers](#performance-tuning-for-data-transfers) for further guidance.
+
+### Upload one large blob quickly
+
+To upload a single large blob quickly, a client application can upload its blocks or pages in parallel, being mindful of the scalability targets for individual blobs and the storage account as a whole. The Azure Storage client libraries support uploading in parallel. Client libraries for other supported languages provide similar options.
 
 ## Next steps
 

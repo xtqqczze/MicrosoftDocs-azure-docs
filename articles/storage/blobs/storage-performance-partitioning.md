@@ -36,15 +36,11 @@ For more information on the partitioning scheme used in Azure Storage, see [Azur
 
 You can follow some best practices to reduce the frequency of such operations.
 
-- If possible, use blob or block sizes greater than 4 MiB for standard storage accounts and 256 KiB for premium storage accounts. Larger blob or block sizes automatically activate high-throughput block blobs. High-throughput block blobs provide high-performance ingest that isn't affected by partition naming.
-
 - Examine the naming convention you use for accounts, containers, and blobs. Consider prefixing account, container, or blob names with a three-digit hash using a hashing function that best suits your needs.
 
 - If you organize your data using timestamps or numerical identifiers, make sure that you aren't using an append-only (or prepend-only) traffic pattern. These patterns aren't suitable for a range-based partitioning system. These patterns may lead to all traffic going to a single partition and limiting the system from effectively load balancing.
 
   For example, if you have daily operations that use a blob with a timestamp such as *yyyymmdd*, then all traffic for that daily operation is directed to a single blob, which is served by a single partition server. Consider whether the per-blob limits and per-partition limits meet your needs, and consider breaking this operation into multiple blobs if needed. Similarly, if you store time series data in your tables, all traffic may be directed to the last part of the key namespace. If you're using numerical IDs, prefix the ID with a three-digit hash. If you're using timestamps, prefix the timestamp with the seconds value, for example, *ssyyyymmdd*. If your application routinely performs listing and querying operations, choose a hashing function that limits your number of queries. In some cases, a random prefix may be sufficient.
-
-
 
 ## Next steps
 
