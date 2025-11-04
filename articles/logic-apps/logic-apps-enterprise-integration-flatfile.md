@@ -96,7 +96,7 @@ After you create your schema, upload the schema based on the following scenario:
    
       For this example, from the dynamic content list, under **When an HTTP request is received**, select the **Body** token, which is the body content output from the trigger.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-content-to-encode-consumption.png" alt-text="Screenshot showing the workflow designer and Content property with dynamic content list and content selected for encoding.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-content-to-encode.png" alt-text="Screenshot showing the workflow designer and Content property with dynamic content list and content selected for encoding.":::
 
    > [!NOTE]
    >
@@ -104,7 +104,7 @@ After you create your schema, upload the schema based on the following scenario:
 
 1. From the **Schema Name** list, select your schema.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-encoding-schema-consumption.png" alt-text="Screenshot showing Consumption workflow designer and opened "Schema Name" list with selected schema for encoding.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-encoding-schema.png" alt-text="Screenshot showing the workflow designer and opened "Schema Name" list with selected schema for encoding.":::
 
    > [!NOTE]
    >
@@ -141,7 +141,7 @@ After you create your schema, upload the schema based on the following scenario:
    
       For this example, from the dynamic content list, under **When an HTTP request is received**, select the **Body** token, which represents the body content output from the trigger.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode-consumption.png" alt-text="Screenshot showing the Consumption workflow designer and "Content" property with dynamic content list and content selected for decoding.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode.png" alt-text="Screenshot showing the workflow designer and "Content" property with dynamic content list and content selected for decoding.":::
 
    > [!NOTE]
    >
@@ -149,7 +149,7 @@ After you create your schema, upload the schema based on the following scenario:
 
 1. From the **Schema Name** list, select your schema.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema-consumption.png" alt-text="Screenshot showing Consumption workflow designer and opened "Schema Name" list with selected schema for decoding.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema.png" alt-text="Screenshot showing workflow designer and opened "Schema Name" list with selected schema for decoding.":::
 
    > [!NOTE]
    >
