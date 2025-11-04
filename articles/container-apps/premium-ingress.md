@@ -174,7 +174,7 @@ Once configured, you see an output of the settings you just applied.
     }              
     ```
 
-This will deploy a Container Apps environment with a premium ingress configuration including the following settings:
+This step deploys a Container Apps environment with a premium ingress configuration including the following settings:
 
 
 | Name                        | Description                                                                                 |
