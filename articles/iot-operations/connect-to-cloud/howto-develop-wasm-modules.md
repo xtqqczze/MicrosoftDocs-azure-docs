@@ -236,22 +236,19 @@ Create a simple module that converts temperature from Celsius to Fahrenheit. Thi
 # [Rust](#tab/rust)
 
 ```rust
-// src/lib.rs
-use tinykube_wasm_sdk::logger::{self, Level};
-use tinykube_wasm_sdk::macros::map_operator;
 use serde_json::{json, Value};
 
-// Import the generated types from wit-bindgen
-use crate::tinykube_graph::processor::types::{DataModel, ModuleConfiguration, BufferOrBytes};
+use wasm_graph_sdk::logger::{self, Level};
+use wasm_graph_sdk::macros::map_operator;
 
-fn fahrenheit_to_celsius(_configuration: ModuleConfiguration) -> bool {
+fn fahrenheit_to_celsius_init(_configuration: ModuleConfiguration) -> bool {
     logger::log(Level::Info, "temperature-converter", "Init invoked");
     true
 }
 
-#[map_operator(init = "fahrenheit_to_celsius")]
+#[map_operator(init = "fahrenheit_to_celsius_init")]
 fn fahrenheit_to_celsius(input: DataModel) -> Result<DataModel, Error> {
-    let DataModel::Message(mut result) = input else { 
+    let DataModel::Message(mut result) = input else {
         return Err(Error {
             message: "Unexpected input type".to_string(),
         });
@@ -260,13 +257,13 @@ fn fahrenheit_to_celsius(input: DataModel) -> Result<DataModel, Error> {
     let payload = &result.payload.read();
     if let Ok(data_str) = std::str::from_utf8(payload) {
         if let Ok(mut data) = serde_json::from_str::<Value>(data_str) {
-            if let Some(temp) = data["value"]["temperature"].as_f64() {
+            if let Some(temp) = data["temperature"]["value"].as_f64() {
                 let fahrenheit = (temp * 9.0 / 5.0) + 32.0;
-                data["value"] = json!({
-                    "temperature_fahrenheit": fahrenheit,
+                data["temperature"] = json!({
+                    "value_fahrenheit": fahrenheit,
                     "original_celsius": temp
                 });
-                
+
                 if let Ok(output_str) = serde_json::to_string(&data) {
                     result.payload = BufferOrBytes::Bytes(output_str.into_bytes());
                 }
@@ -274,8 +271,9 @@ fn fahrenheit_to_celsius(input: DataModel) -> Result<DataModel, Error> {
         }
     }
 
-    DataModel::Message(result)
+    Ok(DataModel::Message(result))
 }
+
 ```
 
 # [Python](#tab/python)
