@@ -123,7 +123,7 @@ The following table summarizes Site Recovery limits:
 
 - **Configuration**: Follows the [same process](/azure/site-recovery/concepts-azure-to-azure-high-churn-support#enable-high-churn-support) used to select the existing High Churn configuration. If your churn exceeds 100 MB/s, Azure Site Recovery can support it through this preview, provided it stays within 500 MB/s per VM. Premium Block Blob storage account is used for cache storage account. 
 
-- **Updated Disk performance limits**: Based on the disk size of your replicated disks, the [supported churn](#updated-limits-by-replica-disk-size-and-io-size) changes. 
+- **Updated Disk performance limits**: Based on the disk size of your replicated disks, the [supported churn](#updated-limits-by-source-disk-size-and-io-size) changes. 
 
 ### Support Matrix 
 
