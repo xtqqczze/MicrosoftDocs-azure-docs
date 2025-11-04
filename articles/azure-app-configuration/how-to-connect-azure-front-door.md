@@ -23,7 +23,7 @@ Before you begin, ensure you have:
 - An existing Azure App Configuration store
 - Permissions to create and manage Azure Front Door resources (Contributor or equivalent)
 - Permissions to  assign roles on the App Configuration resource (Owner or User Access Administrator)
-- Basic understanding of CDN and content delivery concepts
+- Basic understanding of [CDN and content delivery concepts](/azure/frontdoor/front-door-overview)
 
 ## Set up the Azure Front Door integration
 
@@ -32,6 +32,8 @@ To integrate Azure Front Door with your App Configuration store, follow these st
 1. In the Azure portal, navigate to your App Configuration store.
 
 1. In the left navigation pane, under **Settings**, select **Azure Front Door (preview)**.
+
+    :::image type="content" source="media/how-to-connect-azure-front-door/select-resource.png" alt-text="Screenshot showing  Azure Front Door resource selection in the App Configuration store."
 
 1. Configure the connection settings:
 
@@ -48,101 +50,65 @@ Continue with the steps that match your selection:
 
 1. In **Profile name**, enter a name for your new Azure Front Door profile.
 
+    :::image type="content" source="media/how-to-connect-azure-front-door/create-profile.png" alt-text="Screenshot showing creation of a new Azure Front Door profile in the App Configuration store."
+
 1. Choose a pricing tier based on your needs:
 
    - **Azure Front Door Standard**: Content delivery optimized
    - **Azure Front Door Premium**: Security optimized with enhanced security features
 
    For a detailed overview and comparison of Azure Front Door pricing tiers, see [Compare pricing between Azure Front Door tiers](/azure/frontdoor/understanding-pricing).
+    :::image type="content" source="media/how-to-connect-azure-front-door/create-profile.png" alt-text="Screenshot showing  Azure Front Door profile name and tier in the App Configuration store."
 
 1. Create an endpoint that uses this App Configuration store as origin:
 
-   1. Basic settings:
-
-   - **Endpoint name**: Enter a descriptive name for your endpoint
-   - **Endpoint host name**: Automatically generated based on your endpoint name
-   - **Origin host name**: Select your App Configuration store and any replicas from the dropdown. These are added to the origin group so Azure Front Door can route traffic to them. For details on how origin groups improve availability and performance, see [Azure Front Door routing methods](/azure/frontdoor/routing-methods).
-
-   1. **Identity type**: Choose the managed identity type for Azure Front Door to access your App Configuration store:
-
-      - **System assigned managed identity**: Automatically enabled; no additional selection required.
-      - **User assigned managed identity**: Select the managed identity from the dropdown.
-
-   1. **Cache Duration for Azure Front Door**: Configure caching to improve performance and reduce latency,and typical values range from a few seconds for dynamic content to several hours for static assets. Default duration is 10 minutes. For more details about caching, see [Caching with Azure Front Door](/azure/frontdoor/front-door-caching).
-
-   1. **Filter Configuration to scope the request**: Configure one or more filters to control the requests Azure Front Door, improving security and reducing unnecessary load.
-      
-      - Specify one or more **Key-values** to restrict access to specific keys.
-      - Select one or more **Snapshot name**s to restrict access to specific snapshots.
+[!INCLUDE [azure-app-configuration-create-front-door-endpoint-connection](../../includes/azure-app-configuration-create-front-door-endpoint.md)]
 
 1. Select **Create & Connect** to create the profile and establish the connection.
 
-After successfully connecting to Azure Front Door, you might want to [create additional endpoints](#create-additional-endpoints) for different scenarios. This section explains how to set up multiple endpoints.
+After successfully connecting to Azure Front Door, you might want to [create additional endpoints](#create-endpoints) for different scenarios.
 
 ### Connect to an existing Azure Front Door profile
 
 1. In **Profile name**, select your existing Azure Front Door profile from the dropdown.
 
+    :::image type="content" source="media/how-to-connect-azure-front-door/select-profile.png" alt-text="Screenshot showing use of existing profile in the App Configuration store."
+
 1. Select **Connect** to establish the connection.
 
 After successful connection, you see your subscription information, the connected Azure Front Door profile name as a clickable link, and an **Existing Endpoints** section. Any endpoints in the connected Azure Front Door profile that use this App Configuration store or its replicas as an origin appear here.
 
-## Create additional endpoints
+## Manage endpoints
 
-After connecting to an Azure Front Door profile, you can create multiple endpoints for different scenarios or regions.
+### Create endpoints
 
-1. From the Azure Front Door page in your App Configuration store, select **Create Endpoint**.
+After connecting to an Azure Front Door profile, you can create multiple endpoints, for example, to apply different request scopes for separate applications.
 
-1. Configure the new endpoint:
+1. From the Azure Front Door page in your App Configuration store, select **Create Endpoint**, and configure the new endpoint:
 
-   1. Basic settings:
-
-   - **Endpoint name**: Enter a descriptive name for your endpoint
-   - **Endpoint host name**: Automatically generated based on your endpoint name
-   - **Origin host name**: Select your App Configuration store and any replicas from the dropdown. These are added to the origin group so Azure Front Door can route traffic to them. For details on how origin groups improve availability and performance, see [Azure Front Door routing methods](/azure/frontdoor/routing-methods).
-
-   1. **Identity type**: Choose the managed identity type for Azure Front Door to access your App Configuration store:
-
-      - **System assigned managed identity**: Automatically enabled; no additional selection required.
-      - **User assigned managed identity**: Select the managed identity from the dropdown.
-
-   1. **Cache Duration for Azure Front Door**: Configure caching to improve performance and reduce latency,and typical values range from a few seconds for dynamic content to several hours for static assets. Default duration is 10 minutes. For more details about caching, see [Caching with Azure Front Door](/azure/frontdoor/front-door-caching).
-
-   1. **Filter Configuration to scope the request**: Configure one or more filters to control the requests Azure Front Door, improving security and reducing unnecessary load.
-      
-      - Specify one or more **Key-values** to restrict access to specific keys.
-      - Select one or more **Snapshot name**s to restrict access to specific snapshots.
+[!INCLUDE [azure-app-configuration-create-front-door-endpoint-connection](../../includes/azure-app-configuration-create-front-door-endpoint.md)]
 
 1. Select **Create** to create the new endpoint.
 
 The new endpoint appears in the **Existing endpoints** table, showing the endpoint URL, origin URL, origin location, and any configuration warnings that need attention.
 
-## Monitor endpoint status
+### Monitor endpoint status
 
 Use the **Existing Endpoints** table to monitor your Azure Front Door endpoints and identify configuration issues.
 
+:::image type="content" source="media/how-to-connect-azure-front-door/existing-connections.png" alt-text="Screenshot showing Azure Front Door connections in the App Configuration store." lightbox="media/how-to-connect-azure-front-door/existing-connections.png":::
+
 The table displays:
 - **Azure Front Door Endpoint**: The endpoint URL (clickable link)
-- **Origin**: The origin URL pointing to your App Configuration store
+- **Origin**: The origin URL pointing to your App Configuration store or replica
 - **Origin Location**: The Azure region where the origin is located
 - **Warnings**: Configuration issues that may need attention
 
 Monitor for warnings such as "Identity not configured" which indicate additional setup requirements. Address these warnings promptly to ensure proper functionality.
 
-## Manage endpoint configuration
-
-From the main Azure Front Door pane in your App Configuration store, you can:
-
-- **Create endpoint**: Add new endpoints to your Azure Front Door profile
-- **Refresh**: Update the endpoint list to reflect recent changes
-- **Feedback**: Provide feedback on the preview feature
-- **Disconnect**: Remove the integration between your App Configuration store and Azure Front Door
-
-Regular monitoring and management ensure optimal performance and security of your content delivery setup.
-
 ## Disconnect Azure Front Door integration
 
-When you no longer need the integration, you can disconnect your App Configuration store from Azure Front Door.
+When you no longer need to manage your Front Door profile through App Configuration, disconnect your App Configuration store from Azure Front Door.
 
 1. From the Azure Front Door pane in your App Configuration store, select **Disconnect**.
 
@@ -154,7 +120,7 @@ When you no longer need the integration, you can disconnect your App Configurati
 1. Confirm the action by selecting **OK**.
 
 > [!WARNING]
-> Disconnecting removes the integration between your App Configuration store and Azure Front Door. Your Front Door profile and endpoints remain in Azure but are no longer managed through App Configuration.
+> After disconnecting, you won’t be able to manage the Front Door profile or its endpoints through App Configuration. However, your Front Door profile and endpoints will continue to exist in Azure, and your application will keep fetching configuration via Front Door as expected, unless other changes are made.
 
 ## Troubleshoot common issues
 
