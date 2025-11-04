@@ -19,7 +19,7 @@ items:
     href: deep-investigation.md
   - name: Connect source code repositories
     href: code-repository-connect.md
-  - name: Schedule tasks
+  - name: Scheduled tasks
     href: schedule-tasks.md
     items:
       - name: Overview
