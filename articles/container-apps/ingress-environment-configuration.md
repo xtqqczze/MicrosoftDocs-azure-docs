@@ -49,7 +49,7 @@ These features include:
 
 - Advanced settings: You can configure advanced settings such as idle time-outs for ingress proxy instances.
 
-To decide between default and premium ingress mode, you evaluate the resources consumed by the proxy instance considering the requests served. Start by looking at vCPU cores and memory resources consumed by the proxy instance. If your environment sustains the maximum ingress proxy count (default 10) for any extended period, consider switching to premium ingress mode. For more information, see [metrics](metrics.md). To learn how to configure premium ingress mode, see the [tutorial](premium-ingress.md).
+To decide between default and premium ingress mode, you evaluate the resources consumed by the proxy instance considering the requests served. Start by looking at vCPU cores and memory resources consumed by the proxy instance. If your environment sustains the maximum ingress proxy count (default 10) for any extended period, consider switching to premium ingress mode. For more information, see [metrics](metrics.md). To learn how to configure premium ingress mode, see the [Use premium ingress in Azure Container Apps](premium-ingress.md).
 
 ### Workload profile
 
