@@ -57,19 +57,19 @@ A FIPS 140-2 Level 3, PCI HSM v3, validated single-tenant bare metal HSM offerin
 
 ## Pricing
 
-The Azure Key Vault Standard and Premium tiers are billed on a transactional basis, with an extra monthly per-key charge for premium hardware-backed keys. Managed HSM, Cloud HSM Preview, and Payments HSM don't charge on a transactional basis; instead they are always-in-use devices that are billed at a fixed hourly rate. For detailed pricing information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault) and [Payment HSM pricing](https://azure.microsoft.com/pricing/details/payment-hsm).
+The Azure Key Vault Standard and Premium tiers are billed on a transactional basis, with an extra monthly per-key charge for premium hardware-backed keys. Managed HSM, Cloud HSM, and Payments HSM don't charge on a transactional basis; instead they are always-in-use devices that are billed at a fixed hourly rate. For detailed pricing information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault) and [Payment HSM pricing](https://azure.microsoft.com/pricing/details/payment-hsm).
 
 ## Service Limits
 
-Managed HSM, Cloud HSM Preview, and Payments HSM offer dedicated capacity. Key Vault Standard and Premium are multitenant offerings and have throttling limits. For service limits, see [Key Vault service limits](/azure/key-vault/general/service-limits). 
+Managed HSM, Cloud HSM, and Payments HSM offer dedicated capacity. Key Vault Standard and Premium are multitenant offerings and have throttling limits. For service limits, see [Key Vault service limits](/azure/key-vault/general/service-limits). 
 
 ## Encryption-At-Rest
 
-Azure Key Vault and Azure Key Vault Managed HSM have integrations with Azure Services and Microsoft 365 for Customer Managed Keys, meaning customers may use their own keys in Azure Key Vault and Azure Managed HSM for encryption-at-rest of data stored in these services. Cloud HSM Preview and Payments HSM are Infrastructure-as-Service offerings and do not offer integrations with Azure Services. For an overview of encryption-at-rest with Azure Key Vault and Managed HSM, see [Azure Data Encryption-at-Rest](encryption-atrest.md).
+Azure Key Vault and Azure Key Vault Managed HSM have integrations with Azure Services and Microsoft 365 for Customer Managed Keys, meaning customers may use their own keys in Azure Key Vault and Azure Managed HSM for encryption-at-rest of data stored in these services. Cloud HSM and Payments HSM are Infrastructure-as-Service offerings and do not offer integrations with Azure Services. For an overview of encryption-at-rest with Azure Key Vault and Managed HSM, see [Azure Data Encryption-at-Rest](encryption-atrest.md).
 
 ## APIs
 
-Cloud HSM Preview and Payments HSM support the PKCS#11, JCE/JCA, and KSP/CNG APIs, but Azure Key Vault and Managed HSM do not. Azure Key Vault and Managed HSM use the Azure Key Vault REST API and offer SDK support. For more information on the Azure Key Vault API, see [Azure Key Vault REST API Reference](/rest/api/keyvault/).
+Cloud HSM and Payments HSM support the PKCS#11, JCE/JCA, and KSP/CNG APIs, but Azure Key Vault and Managed HSM do not. Azure Key Vault and Managed HSM use the Azure Key Vault REST API and offer SDK support. For more information on the Azure Key Vault API, see [Azure Key Vault REST API Reference](/rest/api/keyvault/).
 
 ## What's next
 
