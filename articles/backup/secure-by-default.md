@@ -55,7 +55,7 @@ The key benefits of soft delete are:
 - **Soft delete and re-registration of backup containers**: You can unregister the backup containers (which you can soft delete) if you've deleted all backup items in the container. You can then register such soft deleted containers to other vaults. This is applicable for applicable workloads only, including SQL in Azure VM backup, SAP HANA in Azure VM backup and backup of on-premises servers.
 
 >[!Note]
-> To unregister hybrid backups(using MARS, DPM, or MABS), you need not disable soft delete. Backup data will move to soft deleted state and will be deleted permanently after soft delete retention period expires.
+> To unregister hybrid backups(using MARS, DPM, or MABS), you need not disable soft delete. Backup data moves to soft deleted state and is deleted permanently after soft delete retention period expires.
 
 - **Soft delete across workloads**: Soft delete applies to all vaulted datasources alike and is supported for Recovery Services vaults and Backup vaults. Soft delete also applies to operational backups of disks and VM backup snapshots used for instant restores. However, unlike vaulted backups, these snapshots can be directly accessed and deleted before the soft delete period expires. Soft delete is currently not supported for operational backup for Blobs and Azure Files.
 
