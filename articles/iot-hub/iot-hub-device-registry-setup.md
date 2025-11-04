@@ -48,3 +48,9 @@ To set up your IoT hub with ADR and Certificate Management, you can use the Azur
 
 :::zone-end
 
+## Next steps
+
+At this point, your IoT hub with ADR and Certificate Management integration is set up and ready to use. You can now start onboarding your IoT devices to the hub using the Device Provisioning Service (DPS) instance and manage your IoT devices securely using the policies and enrollments you have set up.
+
+For more information on how to onboard devices, check out some the [Device DPS SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
+

@@ -252,4 +252,3 @@ Synchronize a policy created within your ADR namespace to the IoT hub linked to 
 > [!NOTE]
 > If you select to sync more than one policy, policies are synced to their respective IoT hubs. You can't undo a sync operation once it's done.
 
-At this point, you created an IoT hub with Azure Device Registry and Certificate Management integration using the Azure portal. You can now manage your IoT devices securely using the policies and enrollments you have set up.

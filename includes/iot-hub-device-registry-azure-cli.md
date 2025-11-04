@@ -297,5 +297,3 @@ To provision devices with leaf certificates, you need to create an enrollment gr
 az iot dps enrollment-group create --dps-name $DPS_NAME --resource-group $RESOURCE_GROUP --enrollment-id $ENROLLMENT_ID --credential-policy default
 ```
 
-At this point, your IoT hub with ADR and Certificate Management integration is set up and ready to use.
-

@@ -30,8 +30,8 @@ The following features are supported with Certificate Management for IoT Hub dev
 | Create up to one issuing CA per policy | Create up to 1 issuing CA, also known as a policy, in your ADR namespace and customize validity periods for issued certificates. |
 | Signing and Encryption algorithms | The issuing CA will sign end-entity certificates using the following key type: ECC NistP384 |
 | HSM keys (signing and encryption) | Keys are provisioned using [Azure Managed Hardware Security Module (Azure Managed HSM)](/azure/key-vault/managed-hsm/overview). CAs created within your ADR namespace automatically use HSM signing and encryption keys. No Azure subscription is required for Azure HSM. |
-| End-entity certificate issuance and renewal | End-entity certificates, also known as leaf certificates or device certificates, are signed by the issuing CA and delivered to the device. Leaf certificates can also be renewed by the issuing CA.
-| At-scale provisioning of leaf certificates | The policies defined in your ADR namespace are directly linked to a Device Provisioning Service enrollment group to be used at the time of certificate provisioning.
+| End-entity certificate issuance and renewal | End-entity certificates, also known as leaf certificates or device certificates, are signed by the issuing CA and delivered to the device. Leaf certificates can also be renewed by the issuing CA.|
+| At-scale provisioning of leaf certificates | The policies defined in your ADR namespace are directly linked to a Device Provisioning Service enrollment group to be used at the time of certificate provisioning.|
 | Syncing of CA chains with IoT Hubs | The policies defined in your ADR namespace will be synced to the appropriate IoT Hub. This will enable IoT Hub to trust any devices authenticating with an end-entity certificate. |
 
 ## How Certificate Management works
@@ -60,7 +60,7 @@ To use Certificate Management, devices must be provisioned through [Device Provi
 1. Selecting the specific method for device onboarding authentication. Supported methods are Trusted Platform Module (TPM), symmetric keys, or X.509 certificates.
 2. Linking a policy created within your ADR namespace to manage certificate issuance and lifecycle at-scale.
 
-Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT devices generate a **Certificate Signing Request (CSR)** containing their public key and identity to prove key ownership. The CSR is sent to the PKI, which validates it and forwards it to an **Issuing CA (ICA)** to issue an X.509 certificate. For more information on DPS Certificate Signing Request, check out some the Device DPS SDKs samples.
+Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT devices generate a **Certificate Signing Request (CSR)** containing their public key and identity to prove key ownership. The CSR is sent to the PKI, which validates it and forwards it to an **Issuing CA (ICA)** to issue an X.509 certificate. For more information on DPS Certificate Signing Request, check out some the [Device DPS SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
 
 > [!NOTE]
 > While a PKI is configured for each of your ADR Namespaces, it's not exposed as an external Azure resource.
