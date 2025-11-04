@@ -65,14 +65,14 @@ Refer to the official [SLA terms](https://www.microsoft.com/licensing/docs/view/
 
 ## Feature pricing
 
-Standard costs for read and write transactions, and for network egress still apply for object replication. These charges are consistent with existing OR pricing and should be considered when estimating the total cost of using priority replication. Enabling OR priority replication has a per GB cost for all new data ingress. For detailed pricing information, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
+Standard costs for read and write transactions, and for network egress still apply for object replication. These charges are consistent with existing OR pricing and should be considered when estimating the total cost of using priority replication. Enabling OR priority replication has a per-GB cost for all new data ingress. 
 
-For an overview of Object Replication pricing, see the pricing section within the [object replication overview](object-replication-overview.md#billing) article.
+For detailed Azure Storage pricing information, refer to the [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/) article. For an overview of Object Replication-specific pricing, see the pricing section within the [object replication overview](object-replication-overview.md#billing) article.
 
 > [!IMPORTANT]
 > Customers have the flexibility to disable priority replication at any time. However, it's important to note that billing for the feature will continue for 30 days after being disabled.
 
-## How to monitor SLA compliance for OR priority replication
+## Monitor SLA compliance for OR priority replication
 
 To ensure transparency and empower customers to track the performance of OR priority replication, Azure provides a two monitoring tools integrated directly into Azure portal, PowerShell and Azure CLI. When OR priority replication is enabled, Replication Metrics for Object Replication is automatically enabled as well. These metrics empower users to troubleshoot replication delays and help users monitor their SLA compliance. Metrics now supported are: 
 
@@ -85,20 +85,26 @@ For more information about OR metrics, see [replication metrics](object-replicat
 
 Users also have other options such as checking the replication status of their source blob. Users can check the replication status of a source blob to determine whether replication to the destination is complete. Once the replication status is marked as `Completed`, the user can guarantee the blob is available in the destination account. For more information view, [Check the replication status of a blob](object-replication-configure.md?tabs=portal#check-the-replication-status-of-a-blob).
 
-## Enabling object replication priority replication
+## Enable object replication priority replication
 
 Users can enable OR priority replication on both new and existing OR policies using Azure portal, PowerShell, or the Azure CLI. It can be enabled for existing OR policies, or during the process of creating new a new OR policy.
 
-### Enabling priority replication during new policy creation
+### Enable priority replication during new policy creation
 
 To enable OR Priority Replication when creating a new OR policy, complete the following steps:
 
 # [Azure portal](#tab/portal)
 
 1. Navigate to the Azure portal and create a new storage account.
-1. In the **Basics** tab, select the checkbox for **Geo priority replication** as shown in the following screenshot.
+1. Select the **Create replication rules** tab to open the **Create replication rules** pane as shown in the following screenshot.
 
     :::image type="content" source="media/object-replication-priority-replication/replication-new-accounts.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for a new storage account.":::
+
+1. In the **Create replication rules** pane, select your chosen **Destination subscription** and **Destination storage account**. Select the checkbox for **Geo priority replication** as shown.
+
+    :::image type="content" source="media/object-replication-priority-replication/create-replication-rules-sml.png" alt-text="Screenshot showing the location of the Enable Priority Replication and Enable Replication Monitoring checkboxes in the replication rules pane." lightbox="media/object-replication-priority-replication/create-replication-rules-lrg.png":::
+
+
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -116,10 +122,12 @@ $srcContainer    = "<source-container-name>"
 $destContainer   = "<destination-container-name>"
 
 # Set OR policy on destination account with priority replication enabled
-$rule1 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainer -DestinationContainer $destContainer
-$destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -StorageAccountName $destAccountName `
-    -PolicyId default -SourceAccount $srcAccountName `
-    -Rule $rule1 -EnableMetric $true -EnablePriorityReplication $true
+$rule1 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainer ` 
+    -DestinationContainer $destContainer
+$destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName -PolicyId default `
+    -SourceAccount $srcAccountName -Rule $rule1 -EnableMetric $true `
+    -EnablePriorityReplication $true
 $destPolicy.PriorityReplication.Enabled
 
 ```
@@ -141,7 +149,9 @@ $destContainer   = "<destination-container-name>"
 
 # Set OR policy on destination account with priority replication enabled
 
-az storage account or-policy create -n $destAccountName -s $srcAccountName --dcont $dstContainer --scont $srcContainer -t "2020-02-19T16:05:00Z" --enable-metrics True --priority-replication true
+az storage account or-policy create -n $destAccountName -s $srcAccountName /
+    --dcont $dstContainer --scont $srcContainer -t "2020-02-19T16:05:00Z" /
+    --enable-metrics True --priority-replication true
 
 ```
 
