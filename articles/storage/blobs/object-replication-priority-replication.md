@@ -98,7 +98,7 @@ To enable OR Priority Replication when creating a new OR policy, complete the fo
 1. Navigate to the Azure portal and create a new storage account.
 1. Select the **Create replication rules** tab to open the **Create replication rules** pane as shown in the following screenshot.
 
-    :::image type="content" source="media/object-replication-priority-replication/replication-new-accounts.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for a new storage account.":::
+    :::image type="content" source="media/object-replication-priority-replication/replication-new-accounts-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for a new storage account." lightbox="media/object-replication-priority-replication/replication-new-accounts-lrg.png":::
 
 1. In the **Create replication rules** pane, select your chosen **Destination subscription** and **Destination storage account**. Select the checkbox for **Geo priority replication** as shown.
 
