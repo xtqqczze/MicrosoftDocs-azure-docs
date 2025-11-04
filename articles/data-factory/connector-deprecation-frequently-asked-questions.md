@@ -97,7 +97,7 @@ While compatibility mode offers flexibility, we strongly encourage users to upgr
 
 ## How do I know which workload has been automatically upgraded?
 
-You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgraded information is recorded. The examples below show the upgraded information in various activity outputs. You can find the payload examples from this [article](automatic-connector-upgrade.md#automatic-connector-upgrade).
+You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgraded information is recorded. The examples below show the upgraded information in various activity outputs. You can find the payload examples from this [article](automatic-connector-upgrade.md).
 
 
 ## If my workload is automatically upgraded by the service, how much additional time can I get to upgrade to v2?
