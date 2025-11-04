@@ -77,7 +77,7 @@ You can create an Azure Event Grid subscription with an Event Hubs namespace as 
 To learn how to explore captured Avro files, see [Explore captured Avro files](explore-captured-avro-files.md).
 
 ## Azure Storage account as a destination
-To enable capture on an event hub with Azure Storage as the capture destination, or update properties on an event hub with Azure Storage as the capture destination, the user, or service principal must have a role-based access control (RBAC) role with the following permissions assigned at the storage account scope.
+To enable capture on an event hub with Azure Storage as the capture destination, or update properties on an event hub with Azure Storage as the capture destination, the user, or service principal must have a role-based access control (RBAC) role with the following permissions assigned at the storage account scope. 
 
 ```
 Microsoft.Storage/storageAccounts/blobServices/containers/write
