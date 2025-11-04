@@ -73,6 +73,32 @@ No. Azure Data Box does not support Azure NetApp Files currently.
 
 No. Azure Import/Export service does not support Azure NetApp Files currently.
 
+## Is there a specific timeframe for users to provide commands for migration
+
+Yes, the user should enter the commands within the specified timeframe.
+
+## What happens if I close the window before the migrating volume workflow is not complete.
+
+You will not receive the peering commands and therefore, need to restart the complete workflow.
+
+## Are there inputs case-sensitive for migrating volume?
+
+Yes, the inputs are case-sensitive.
+
+## Can I configure peering with more IP's than are available in the subnet?
+
+No, you should clean up the IP addresses on the subnet or use a different subnet.
+
+## Can I enable cool access on a migration volume?
+You should finalize the migration or target a different volume. Finalizing the volume will make it a regular ANF volume allowing you to enable cool access.
+
+## Can I create an external replication without a cluster peer?
+You should complete the cluster peering setup as per the instructions provided. 
+
+## Why am I not able to resume migrations after it has been paused from the Migration Assistant view?
+Select the action from the Migration tab of the volume and not from the Migration Assistant view. The Migration tab is up to date for all migrations that are paused or resumed.
+
+
 ## Next steps  
 
 - [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
