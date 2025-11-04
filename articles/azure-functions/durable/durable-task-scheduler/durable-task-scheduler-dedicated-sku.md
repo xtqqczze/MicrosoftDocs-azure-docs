@@ -16,7 +16,7 @@ In this article, you learn about actions, the available SKU options, and their p
 
 ## What is an action?
 
-An action is one of the fundamental billing units, representing a function invocation triggered by the Durable Task Scheduler. Each time one of the following function runs, an action from the scheduler told it to.
+An action is one of the fundamental billing units, representing a function invocation triggered by the Durable Task Scheduler. Each time one of the following functions runs, an action from the scheduler told it to.
 
 - Starting an orchestration or suborchestration  
 - Starting an activity 
