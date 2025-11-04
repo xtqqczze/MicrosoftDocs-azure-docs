@@ -11,7 +11,7 @@ monikerRange: migrate
 # Customer intent: Understand concepts such as migration targets, prerequisites, and wave planning. Also, plan and execute a predictable migration and modernization process using Azure Migrate.
 ---
 
-# Plan high-fidelity execution for predictable migration and modernization 
+# Plan high-fidelity execution for predictable migration and modernization (preview)
 
 This article explains how to create a high-fidelity migration plan in Azure Migrate, including defining targets, configuring settings, adding tasks, and preparing prerequisites to ensure predictable migration and modernization.
 

@@ -12,7 +12,7 @@ monikerRange: migrate
 ---
 
 
-# Wave Planning - Common questions
+# Wave Planning - Common questions (preview)
 
 This article answers common questions about Wave Planning in Azure Migrate. 
 

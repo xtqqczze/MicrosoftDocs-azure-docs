@@ -11,7 +11,7 @@ monikerRange: migrate
 # Customer intent: To understand how to execute and track migration waves in Azure Migrate, including supported and manual execution flows, and learn how to monitor migration progress and update statuses during the migration phase.
 ---
 
-# Execute and track waves in Azure Migrate 
+# Execute and track waves in Azure Migrate (preview)
 
 This article describes how to execute migration and modernization waves in Azure Migrate, including starting migration flows, performing tasks, and tracking progress for supported and unsupported workloads.
 

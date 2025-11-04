@@ -16,6 +16,25 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
+## Update (November 2025)
+
+Public preview: Wave Planning in Azure Migrate provides a structured approach to cloud migration and modernization. It helps organizations break down large-scale migrations into manageable “waves” of workloads and applications. This capability accelerates timelines, reduces uncertainty, and minimizes risks through phased execution and logical grouping. [Learn more](wave-planning-overview.md).
+
+- Distribute workloads and applications into waves for high-fidelity planning, leveraging Azure Migrate’s discovery and assessment information. [Learn more](how-to-complete-wave-plan.md). 
+
+- Sequence and prioritize migration waves based on business criticality, complexity of applications ensuring efficient and risk-mitigated execution. [Learn more](how-to-plan-create-waves.md). 
+
+- Visualize execution plans and timelines across all waves, providing clear visibility into migration progress and sequence. [Learn more](how-to-execute-track-waves.md).
+ 
+- Execute and centrally track migrations using integrated tools, for example, Server Migration for unified tracking. [Learn more](how-to-execute-track-waves.md). 
+
+- Monitor progress as migrations proceed, with status updates. [Learn more](how-to-execute-track-waves.md).
+
+- Support both automated and manual migration scenarios, allowing for flexible execution and tracking regardless of workload type or migration tool . [Learn more](how-to-execute-track-waves.md). 
+
+Wave Planning in Azure Migrate provides a scalable, transparent, and risk-aware migration experience, enabling organizations to modernize infrastructure with confidence and control. 
+
+
 ## Update (September 2025)
 
 Public preview: Azure Migrate now supports discovery and assessment of PostgreSQL instances. 
