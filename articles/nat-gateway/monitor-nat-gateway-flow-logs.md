@@ -72,9 +72,7 @@ In this section, you learn how to query StandardV2 NAT Gateway flow logs to iden
 1. If you want to modify and save the query, make your query changes and select **Save**>**Save as query**.
 1. In the **Save a query** window, enter a name for the query, other optional information, and select **Save**.
 
-## Next steps
-
-* In this article, you learned how to enable and analyze the logs of your StandardV2 NAT gateway traffic flows.
+## Next step
 
 For more information about StandardV2 NAT Gateway flow logs, see [StandardV2 NAT Gateway Flow Logs](./nat-gateway-flow-logs.md).
 

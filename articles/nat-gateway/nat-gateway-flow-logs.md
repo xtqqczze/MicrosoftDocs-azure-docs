@@ -67,8 +67,6 @@ The packetsSentDropped and packetsReceivedDropped fields indicate packets that w
 
 Flow Logs are only available for [StandardV2 NAT Gateway](/azure/nat-gateway/nat-overview).
 
-## Next Steps
-
-In this article, you learned about StandardV2 NAT gateway flow logs.
+## Next step
 
 To learn how to set up flow logs, see [enabling and analyzing StandardV2 NAT Gateway flow logs](/azure/nat-gateway/monitor-nat-gateway-flow-logs).
