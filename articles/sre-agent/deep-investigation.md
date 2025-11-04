@@ -4,7 +4,7 @@ description: Use a hypothesis-driven approach to explore multiple potential root
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 11/03/2025
+ms.date: 11/04/2025
 ms.service: azure
 ---
 
@@ -39,3 +39,9 @@ Here’s an example:
 ## Enable deep investigation
 
 To enable deep investigation in your chat, select the deep investigation (:::image type="icon" source="media/deep-investigation/sre-agent-deep-investigation-icon.png" border="false":::) icon in your chat before submitting your query.
+
+:::image type="content" source="media/deep-investigation/sre-agent-chat-window-deep-investigation.png" alt-text="Screenshot of Azure SRE Agent highlighting the deep investigation button.":::
+
+## Related content
+
+- [Incident management overview](incident-management.md)
