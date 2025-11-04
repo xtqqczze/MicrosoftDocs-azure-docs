@@ -167,7 +167,7 @@ AKS Network Topology Visualization provides a graphical representation of the ne
 - **Monitor traffic**: Analyze traffic metrics including bytes forwarded and bytes dropped across network paths. This helps you assess throughput, detect bottlenecks, and understand data transmission efficiency within your AKS environment.
 - **Monitor resource health**: Quickly assess the state and placement of critical networking components to ensure your AKS cluster is operating optimally.
 
-    :::image type="content" source="./media/network-insights-topology/aks_topology.jpg" alt-text="Screenshot of the AKS cluster topology." lightbox="./media/network-insights-topology/aks_topology.jpg":::
+    :::image type="content" source="./media/network-insights-topology/aks-topology.jpg" alt-text="Screenshot of the AKS cluster topology." lightbox="./media/network-insights-topology/aks-topology.jpg":::
 
 ### Supported AKS scenarios
 
