@@ -15,7 +15,7 @@ ms.custom:
 This article outlines key design considerations for Azure VMware Solution Generation 2 (Gen 2) private clouds. It explains the capabilities this generation brings to VMware-based private cloud environments, enabling access for your applications from both on-premises infrastructure and Azure-based resources. There are several considerations to review before you set up your Azure VMware Solution Gen 2 private cloud. This article provides solutions for use cases that you might encounter when you're using the private cloud type.
 
 > [!Note]
-> Generation 2 is available in specific Azure public regions. SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage.
+> Generation 2 is available in specific Azure public regions. Contact your Microsoft account team or Microsoft Support to confirm coverage.
 
 ## Limitations
 
