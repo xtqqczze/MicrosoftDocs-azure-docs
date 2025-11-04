@@ -52,8 +52,8 @@ Before you begin this tutorial, you should:
 For migrating Hyper-V VMs, you need to install the software provider (Azure Site Recovery provider and Recovery Services agent) on Hyper-V hosts or cluster nodes. The [Azure Migrate appliance](migrate-appliance.md) isn't used for Hyper-V migration.
 
 1. In the Azure Migrate project, select **Migrations > Discover more**.
-1. In **Discover** > **WHere do you want to migrate to?**, select **Azure VM**.
-1. In **Are your machines virtualized**, select **Yes, with Hyper-V**
+1. In **Discover** > **Where do you want to migrate to?**, select **Azure VM**.
+1. In **Are your machines virtualized**, select **Yes, with Hyper-V**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is region-name**.
 1. Select **Create resources**. This step creates a Recovery Services vault in the background.
@@ -64,7 +64,8 @@ For migrating Hyper-V VMs, you need to install the software provider (Azure Site
     - The registration key is needed to register the Hyper-V host with the Migration and modernization tool.
     - The key is valid for five days after you generate it.
 
-    ![Screenshot that shows the Download provider and key.](./media/tutorial-migrate-hyper-v/download-provider-hyper-v-one.png)
+    :::image type="content" source="./media/tutorial-migrate-hyper-v/download-provider-hyper-v-one.png" alt-text="Screenshot shows the the download provider and key." lightbox="./media/tutorial-migrate-hyper-v/download-provider-hyper-v-one.png":::    
+
 
 1. Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running the VMs you want to replicate.
 
