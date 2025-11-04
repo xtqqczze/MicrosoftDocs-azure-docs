@@ -6,7 +6,8 @@ ms.author: shuj
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: how-to
-ms.date: 10/15/2025
+ms.date: 11/04/2025
+monikerRange: migrate 
 # Customer intent: To understand how to execute and track migration waves in Azure Migrate, including supported and manual execution flows, and learn how to monitor migration progress and update statuses during the migration phase.
 ---
 

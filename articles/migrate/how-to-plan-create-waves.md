@@ -6,7 +6,8 @@ ms.author: shuj
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: how-to
-ms.date: 10/15/2025
+ms.date: 11/04/2025
+monikerRange: migrate 
 # Customer intent: how to plan and execute cloud migration efficiently using Azure Migrate by creating migration waves that group workloads logically, sequence them based on priority, and optionally leverage assessments for optimized migration paths.
 ---
 

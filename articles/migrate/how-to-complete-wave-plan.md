@@ -6,7 +6,8 @@ ms.author: shuj
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: concept-article
-ms.date: 10/15/2025
+ms.date: 11/04/2025
+monikerRange: migrate 
 # Customer intent: Understand concepts such as migration targets, prerequisites, and wave planning. Also, plan and execute a predictable migration and modernization process using Azure Migrate.
 ---
 

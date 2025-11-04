@@ -6,7 +6,8 @@ ms.author: shuj
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: concept-article
-ms.date: 10/15/2025
+ms.date: 11/04/2025
+monikerRange: migrate 
 # Customer intent: As a cloud migration specialist, this article help understand and clarify common questions about using Azure Migrate Wave Planning for migration projects.
 ---
 
