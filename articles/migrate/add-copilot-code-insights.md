@@ -36,7 +36,7 @@ With this approach, you must generate the code scan report manually upload the r
 - Ensure a web app assessment exists for each required web app because code scan reports can only be added from an existing assessment.
 - Have the GitHub Copilot Assessment report ready for web apps you want to update.
 
-#### Generate GitHUb Copilot Assessment report
+#### Generate GitHub Copilot Assessment report
 
 To generate report, complete the following steps:
 
@@ -59,7 +59,7 @@ To generate report, complete the following steps:
 2. Search for the assessment with the **Workloads** filter and select it. 
 3. On the assessment **Overview** page, under **Add code insights** select **Using GitHub Copilot assessment**. 
 
-:::image type="content" source="./media/add-github-copilot-code-insights/using-github-copilot-assessment.png" alt-text="The screenshot shows how to select using github copilot assessment." lightbox="./media/add-github-copilot-code-insights/using-github-copilot-assessment.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/using-github-copilot-assessment.png" alt-text="The screenshot shows how to select using GitHub copilot assessment." lightbox="./media/add-github-copilot-code-insights/using-github-copilot-assessment.png":::
 
 4. In the Add code insights page, select **Upload a zip file**.  
 
@@ -108,7 +108,7 @@ Create a new **GitHub App** by following these steps:
     - For an app owned by an enterprise
       - In the left sidebar, under **Settings**, select **GitHub Apps**, and then select **New GitHub App**. 
     
-:::image type="content" source="./media/add-github-copilot-code-insights/new-github-app.png" alt-text="The screenshot shows how to select the new github app." lightbox="./media/add-github-copilot-code-insights/new-github-app.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/new-github-app.png" alt-text="The screenshot shows how to select the new GitHub app." lightbox="./media/add-github-copilot-code-insights/new-github-app.png":::
 
 4. Provide the following details to set up your new GitHub App: 
 5. Under **GitHub App name**, enter a name for your app.  
@@ -119,7 +119,7 @@ Create a new **GitHub App** by following these steps:
 7. Ensure that **Expire user authorization tokens** is selected.  
 8. Deselect **Active** under **Webhook** 
   
-:::image type="content" source="./media/add-github-copilot-code-insights/active-webhook.png" alt-text="The screenshot shows how to deselect the active webook." lightbox="./media/add-github-copilot-code-insights/active-webhook.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/active-webhook.png" alt-text="The screenshot shows how to deselect the active webhook." lightbox="./media/add-github-copilot-code-insights/active-webhook.png":::
 
 9. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
   
@@ -130,7 +130,7 @@ Create a new **GitHub App** by following these steps:
 
 10. Under **Where can this GitHub App be installed?** select **Only on this account** or **Any account**. 
   
-:::image type="content" source="./media/add-github-copilot-code-insights/permissions.png" alt-text="The screenshot shows the available persmissions." lightbox="./media/add-github-copilot-code-insights/permissions.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/permissions.png" alt-text="The screenshot shows the available permissions." lightbox="./media/add-github-copilot-code-insights/permissions.png":::
     
 11. Select **Create GitHub App**. 
 
@@ -172,11 +172,11 @@ Collate the following GitHub App details and private key to create a GitHub conn
 3. On the assessment **Overview** page.   
 4. Under **Add code insights** select **Using GitHub Copilot Assessment**. 
 
-:::image type="content" source="./media/add-github-copilot-code-insights/github-copilot-assessment.png" alt-text="The screenshot shows how to add code insights by using github copilot assessment." lightbox="./media/add-github-copilot-code-insights/github-copilot-assessment.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/github-copilot-assessment.png" alt-text="The screenshot shows how to add code insights by using GitHub copilot assessment." lightbox="./media/add-github-copilot-code-insights/github-copilot-assessment.png":::
 
 5. In the **Add code insights** page, select **Create GitHub** connection. 
 
-:::image type="content" source="./media/add-github-copilot-code-insights/github-create-connections.png" alt-text="The screenshot shows how to create github connections." lightbox="./media/add-github-copilot-code-insights/github-create-connections.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/github-create-connections.png" alt-text="The screenshot shows how to create GitHub connections." lightbox="./media/add-github-copilot-code-insights/github-create-connections.png":::
 
 6. In the **Create new GitHub** connection page, provide the following details: 
 
@@ -192,7 +192,7 @@ Collate the following GitHub App details and private key to create a GitHub conn
 8. On the **Add code insight** page in the web app, from the list, select **Request report via GitHub**. 
 9. In the **Request report via GitHub** page, select the appropriate connection name and then select **Request**.  
 
-:::image type="content" source="./media/add-github-copilot-code-insights/request-report-via-github.png" alt-text="The screenshot shows how to request report via github." lightbox="./media/add-github-copilot-code-insights/request-report-via-github.png":::
+:::image type="content" source="./media/add-github-copilot-code-insights/request-report-via-github.png" alt-text="The screenshot shows how to request report via GitHub." lightbox="./media/add-github-copilot-code-insights/request-report-via-github.png":::
 
 10. Azure Migrate creates GitHub issue in the repository specified in the connection details. 
 11. When the code scan report is uploaded to the GitHub issue, Azure Migrate automatically maps the report to the web app. 
@@ -233,7 +233,7 @@ This section helps resolve issues related to importing paths or uploading zip fi
 
  - Contains only JSON files.
  - Zip file is less than 50 MB. 
- - Total number of file in zip file is less than 100. 
+ - Total number of files in zip file is less than 100. 
  - Maximum size of uncompressed zip file is less than 500 MB.
  - Zip file doesn't contain another nested zip file(s).
 
