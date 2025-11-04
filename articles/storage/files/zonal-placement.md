@@ -1,5 +1,5 @@
 ---
-title: Zone Pinning for Classic Azure File Shares
+title: Zonal Placement for Classic Azure File Shares
 description: Learn to use zonal placement for Azure storage accounts so you can choose the specific availability zone for your SSD file shares.
 author: khdownie
 ms.service: azure-file-storage
@@ -8,33 +8,17 @@ ms.date: 11/04/2025
 ms.author: kendownie
 ms.custom:
   - references_regions
-# Customer intent: "As an IT admin, I want to use zonal placement for my storage account so I can select the specific Azure availability zone in which my SSD file shares will reside."
+# Customer intent: "As an IT admin, I want to use zonal placement for my storage account so I can select the specific Azure availability zone in which my SSD file shares will reside, potentially reducing latency and improving performance."
 ---
 
 # Use zonal placement for Azure file shares
 
 Zonal placement allows you to select the specific availability zone in which your Azure Files storage account resides. If desired, you can place your virtual machines (VMs) in the same zone to reduce latency between compute and storage.
 
-This feature is currently available only for premium storage accounts (SSD) using [locally redundant storage (LRS)](files-redundancy.md#locally-redundant-storage) in [supported regions](#region-support).
+This feature is currently available only for premium storage accounts (SSD media tier) using [locally redundant storage (LRS)](files-redundancy.md#locally-redundant-storage) in [supported regions](#region-support).
 
-## Applies to
-
-This article applies to classic Azure file shares only. It doesn't apply to file shares created with the Microsoft.FileShares resource provider (preview).
-
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.FileShares | Provisioned v2 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.FileShares | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+> [!NOTE]
+> This article applies to classic Azure file shares only (Microsoft.Storage). Zonal placement isn't currently possible for file shares created with the Microsoft.FileShares resource provider (preview).
 
 ## Prerequisites
 
@@ -44,12 +28,10 @@ This article assumes that you have an Azure subscription. If you don't have an A
 
 Zonal placement is supported for premium storage accounts with LRS redundancy in the following Azure regions:
 
-- Austria East
-- Belgium Central
+- Asia East
 - Canada Central
 - Central US
 - Chile Central
-- Denmark East
 - East US
 - Germany West Central
 - Indonesia Central
@@ -59,11 +41,11 @@ Zonal placement is supported for premium storage accounts with LRS redundancy in
 - Malaysia West
 - Mexico Central
 - New Zealand North
-- North Europe
 - Qatar Central
 - Poland Central
+- South Africa North
+- South US
 - Spain Central
-- US Government Southwest
 - West US 2
 - West US 3
 
