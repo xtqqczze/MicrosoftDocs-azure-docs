@@ -15,7 +15,7 @@ ms.author: v-gajeronika
 Azure Site Recovery supports churn (data change rate) up to 100 MB/s per virtual machine. You'll  be able to protect your Azure virtual machines having high churning workloads (like databases) using the *High Churn* option in Azure Site Recovery, which supports churn up to 100 MB/s per virtual machine. You may be able to achieve better Recovery Point Objective performance for your high churning workloads. With the default Normal Churn option, you can [support churn only up to 54 MB/s per virtual machine](./azure-to-azure-support-matrix.md#limits-and-data-change-rates). 
 
 >[!NOTE]
->Support beyond 100 MB/s is now in Preview, allowing data change up to 700 MB/s per VM in selected regions. [Learn more](#enhanced-churn-support-upto-700-mbs-per-vm-preview). 
+>Support beyond 100 MB/s is now in Preview, allowing data change up to 500 MB/s per VM in selected regions. [Learn more](#enhanced-churn-support-up-to-500-mbs-per-vm-preview). 
 
 ## Limitations 
 
@@ -112,31 +112,36 @@ The following table summarizes Site Recovery limits:
 >- You can only enable High Churn only when you enable replication while configuring Azure Site Recovery on a virtual machine.
 >- If you want to enable High Churn support for virtual machines already protected by Azure Site Recovery, disable replication for those virtual machines and select **High Churn** while enabling replication again. Similarly, disable and enable replication again to switch back to **Normal Churn**.
 
-## Enhanced Churn Support upto 700 MB/s per VM (preview)
+## Cost Implications  
 
-- **Enhanced Churn Support**: With Azure Site Recovery, you can now protect workloads with churn (data change) rates up to 350 MB/s per disk and upto 700 MB/s per VM. This allows increased flexibility, makes it easier to run high throughput, demanding workloads while ensuring their protection. 
+- **High Churn** uses *Premium Block Blob* storage accounts, which may have higher cost implications as compared to **Normal Churn** which uses *Standard* storage accounts. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+- For High churn virtual machines, more data changes may get replicated to target for **High churn** compared to **Normal churn**. This may lead to more network cost.
 
-- **Same Configuration Option**: Follows the [same process](/azure/site-recovery/concepts-azure-to-azure-high-churn-support#enable-high-churn-support) used to select the existing High Churn configuration. If your churn exceeds 100 MB/s, Azure Site Recovery can support it through this preview, provided it stays within 700 MB/s per VM. Premium Block Blob storage account is used for cache storage account. 
+## Enhanced Churn Support up to 500 MB/s per VM (preview)
 
-- **Updated Disk performance limits**: Based on disk size of your replica disks, the [supported churn](#updated-limits-by-replica-disk-size-and-io-size) changes in this preview. 
+- **Enhanced Churn Support**: With Azure Site Recovery, you can now protect workloads with churn (data change) rates up to 250 MB/s per disk and upto 500 MB/s per VM. This allows increased flexibility, makes it easier to run high throughput, demanding workloads while ensuring their protection. 
+
+- **Configuration**: Follows the [same process](/azure/site-recovery/concepts-azure-to-azure-high-churn-support#enable-high-churn-support) used to select the existing High Churn configuration. If your churn exceeds 100 MB/s, Azure Site Recovery can support it through this preview, provided it stays within 500 MB/s per VM. Premium Block Blob storage account is used for cache storage account. 
+
+- **Updated Disk performance limits**: Based on the disk size of your replicated disks, the [supported churn](#updated-limits-by-replica-disk-size-and-io-size) changes. 
 
 ### Support Matrix 
 
 - **Scenario**: This is only for Azure-to-Azure disaster recovery scenario. 
-- **Region availability**: This capability is currently available in [selected Azure regions](#region-availability). 
-- **RAM**: Azure VM must have RAM of 256 GB or more to support churn upto 700 MB/s. If RAM is less than 256 GB, churn limit will be 100 MB/s only. ASR reserves upto 6.25% of RAM, with maximum 16GB. 
+- **Region availability**: This capability is currently available in [selected Azure regions](#region-availability).
+- **RAM**: Azure VM must have RAM of 256 GB or more to support churn up to 500 MB/s. If RAM is less than 256 GB, churn limit will be 100 MB/s. ASR reserves up to 6.25% of RAM, maximum of 16 GB. 
 - **Operating System**: Windows. Linux – RHEL 9, SLES 15, Ubuntu 24.04. 
-- **Disk type**: If your source VM has Premium SSD v2 or Ultra disks attached, they can be supported based on the corresponding [replica disk type and size](#updated-limits-by-replica-disk-size-and-io-size).
-- **Networking and CPU** – You need to ensure there is enough networking and CPU on Azure VM for ASR to be able to replicate data changes from the source. 
+- **Disk size**: Churn limit is based on [source disk type and size](#updated-limits-by-source-disk-size-and-io-size).
+- **Networking and CPU** – Ensure there is enough networking and CPU on Azure VM for ASR to be able to replicate data changes from the source.
 
 >[!NOTE]
->If you already have an Azure VM protected using Azure Site Recovery High Churn option before this Public Preview, its churn limit will be 100 MB/s only even if it is meeting all support requirements. If you want to get churn support up to 700 MB/s (Preview) for those VMs, you need to disable ASR and re-enable ASR with **High Churn** option as documented [here](), which will give you enhanced churn limits. 
+>If you already have an Azure VM protected using Azure Site Recovery High Churn option before to this Preview, its churn limit will be 100 MB/s only even if it is meeting all support requirements. If you want to get churn support up to 500 MB/s (Preview), you need to disable ASR and re-enable ASR with **High Churn** option as documented [here](#enable-preview). 
 
-#### Updated Limits by Replica Disk size and IO Size 
+#### Updated Limits by Source Disk size and IO Size 
 
-Replica Disk must be of Premium v1 SSD disk type.
+Source Disk must be of Premium v1 SSD or Premium v2 or Ultra disk type.
 
-|**Replica disk Size (in GiB)**|**8 KB IO Size**|**16 KB IO Size**|**32 KB IO Size**|**64 KB IO Size**|**128KB IO Size**|**256 KB & More**|
+|**Source disk size (in GiB)**|**8 KB IO Size**|**16 KB IO Size**|**32 KB IO Size**|**64 KB IO Size**|**128KB IO Size**|**256 KB & More**|
 |---|---|---|---|---|---|---|
 |128|3.9 MB/s|7.8 MB/s|11.5 MB/s|33.1 MB/s|66.1 MB/s|100 MB/s|
 |256|8.6 MB/s|17.2 MB/s|34.4 MB/s|68.8 MB/s|125 MB/s|125 MB/s|
@@ -144,12 +149,12 @@ Replica Disk must be of Premium v1 SSD disk type.
 |1,024|39.1 MB/s|78.1 MB/s|156.3 MB/s|200.0 MB/s|200 MB/s|200 MB/s|
 |2,048|58.6 MB/s|117.2 MB/s|234.4 MB/s|250.0 MB/s|250 MB/s|250 MB/s|
 |4,096|58.6 MB/s|117.2 MB/s|234.4 MB/s|250.0 MB/s|250 MB/s|250 MB/s|
-|8,192|125.0 MB/s|250.0 MB/s|350 MB/s|350 MB/s|350 MB/s|350 MB/s|
-|16,384|140.6 MB/s|281.3 MB/s|350 MB/s|350 MB/s|350 MB/s|350 MB/s|
-|32,767|156.3 MB/s|312.5 MB/s|350 MB/s|350 MB/s|350 MB/s|350 MB/s|
+|8,192|125.0 MB/s|250.0 MB/s|250 MB/s|250 MB/s|250 MB/s|250 MB/s|
+|16,384|140.6 MB/s|250 MB/s|250 MB/s|250 MB/s|250 MB/s|250 MB/s|
+|32,767|156.3 MB/s|250 MB/s|250 MB/s|250 MB/s|250 MB/s|250 MB/s|
 
 >[!NOTE]
->The maximum churn supported in Public Preview is **700 MB/s per VM**, but actual limits depend on disk size and type for the replica disks. 
+>The maximum churn supported in Public Preview is **500 MB/s per VM**, but actual limits depend on the disk size and type for the source disks. 
 
 ### Region Availability
 
@@ -173,10 +178,7 @@ Use the same configuration steps as documented [here](/azure/site-recovery/conce
 
 No additional setup is required for Preview; the feature is automatically enabled in the supported regions, if churn on Azure VM exceeds 100 MB/s and all support matrix requirements are met.  
 
-## Cost Implications  
-
-- **High Churn** uses *Premium Block Blob* storage accounts, which may have higher cost implications as compared to **Normal Churn** which uses *Standard* storage accounts. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
-- For High churn virtual machines, more data changes may get replicated to target for **High churn** compared to **Normal churn**. This may lead to more network cost.
+The associated cost implications are detailed in [this section](#cost-implications).
 
 ## Next steps
 
