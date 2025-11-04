@@ -279,6 +279,8 @@
     href: ip-addresses.md
   - name: Custom handlers
     href: functions-custom-handlers.md
+  - name: Self-hosted MCP servers
+    href: self-hosted-mcp-servers.md
 - name: Languages
   items:
   - name: Supported languages
