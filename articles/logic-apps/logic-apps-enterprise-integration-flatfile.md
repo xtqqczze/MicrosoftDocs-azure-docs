@@ -84,7 +84,7 @@ After you create your schema, upload the schema based on the following scenario:
 
 1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Flat file operations don't have any triggers available.
 
-   This example uses the **Request** trigger named **When an HTTP request is received**. To add a trigger, see [Add a trigger to start your workflow](/add-trigger-action-workflow.md#add-a-trigger-to-start-your-workflow).
+   This example uses the **Request** trigger named **When an HTTP request is received**. To add a trigger, see [Add a trigger to start your workflow](add-trigger-action-workflow.md#add-a-trigger-to-start-your-workflow).
 
 1. On the workflow designer, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the built-in action **Flat File Encoding**.
 
@@ -104,7 +104,7 @@ After you create your schema, upload the schema based on the following scenario:
 
 1. From the **Schema Name** list, select your schema.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-encoding-schema.png" alt-text="Screenshot showing the workflow designer and opened "Schema Name" list with selected schema for encoding.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-encoding-schema.png" alt-text="Screenshot showing the workflow designer and opened Schema Name list with selected schema for encoding.":::
 
    > [!NOTE]
    >
@@ -129,7 +129,7 @@ After you create your schema, upload the schema based on the following scenario:
 
 1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Flat file operations don't have any triggers available.
 
-   This example uses the **Request** trigger named **When an HTTP request is received**. To add a trigger, see [Add a trigger to start your workflow](/add-trigger-action-workflow.md#add-a-trigger-to-start-your-workflow).
+   This example uses the **Request** trigger named **When an HTTP request is received**. To add a trigger, see [Add a trigger to start your workflow](add-trigger-action-workflow.md#add-a-trigger-to-start-your-workflow).
 
 1. On the workflow designer, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the built-in action **Flat File Decoding**.
 
@@ -141,7 +141,7 @@ After you create your schema, upload the schema based on the following scenario:
    
       For this example, from the dynamic content list, under **When an HTTP request is received**, select the **Body** token, which represents the body content output from the trigger.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode.png" alt-text="Screenshot showing the workflow designer and "Content" property with dynamic content list and content selected for decoding.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode.png" alt-text="Screenshot showing the workflow designer and Content property with dynamic content list and content selected for decoding.":::
 
    > [!NOTE]
    >
@@ -149,7 +149,7 @@ After you create your schema, upload the schema based on the following scenario:
 
 1. From the **Schema Name** list, select your schema.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema.png" alt-text="Screenshot showing workflow designer and opened "Schema Name" list with selected schema for decoding.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema.png" alt-text="Screenshot showing workflow designer and opened Schema Name list with selected schema for decoding.":::
 
    > [!NOTE]
    >
