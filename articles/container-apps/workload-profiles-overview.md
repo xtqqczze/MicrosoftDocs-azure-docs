@@ -40,10 +40,10 @@ Each Container Apps environment includes a default Consumption profile. You can 
 
 Different workload profile types offer different **form factors** such as general purpose, memory‑optimized, GPU, or blended.
 
-| Profile type | Form factor | Description | Potential use |
+| Profile type | Form factors | Description | Potential use |
 |--|--|--|--|
 | **Consumption** | General purpose | Automatically added to new environments and runs on serverless Consumption infrastructure. | Apps that don't require specific hardware requirements. |
-| **Consumption** | GPU | Scale‑to‑zero serverless GPUs are available in regions like West US 3, Australia East, and Sweden Central. | Apps that require GPU acceleration. |
+| **Consumption** | GPU | Scale‑to‑zero serverless GPUs are available in regions like West US, Australia East, and Sweden Central. To see a full list of available regions, see [serverless GPU supported regions](./gpu-serverless-overview.md#supported-regions) | Apps that require GPU acceleration. |
 | **Dedicated** | General purpose | Profiles with a balance of CPU and memory resources. | Apps that require larger amounts of CPU or memory. |
 | **Dedicated** | Memory optimized | Profiles with increased memory resources for in‑memory data or machine‑learning models. | Apps with high memory requirements. |
 | **Dedicated** | GPU | Profiles with GPU‑enabled compute are available in select regions only. **GPU‑enabled Dedicated profiles must be configured when creating an environment.**| Apps that require GPU acceleration and dedicated hardware. |
@@ -60,17 +60,18 @@ The following tables summarize the available workload profiles by **profile type
 | Profile names | vCPU range | Memory range | GPU type | Regions | Allocation |
 |--|--|--|--|--|--|
 | **Consumption** | 0.25-4 | 0.5-8 GiB |  | All supported regions | per replica |
-| **Consumption-GPU-NC24-A100, Consumption-GPU-NC8as-T4** | 8–24 | 56–220 GiB | NVIDIA T4, A100 | West US 3, Australia East, Sweden Central | per replica |
+| **Consumption-GPU-NC24-A100, Consumption-GPU-NC8as-T4** | 8–24 | 56–220 GiB | NVIDIA T4, A100 | To see a full list of available regions, see [serverless GPU supported regions](./gpu-serverless-overview.md#supported-regions) | per replica |
 
 All Consumption profiles support serverless scaling and are billed based on per‑replica usage.
 
 ### Dedicated profile details
 
-| Profile names | vCPU range | Memory range | GPU type | Regions | Allocation |
+| Classification | Profile names | vCPU range | Memory range | GPU type | Regions | Allocation |
 |--|--|--|--|--|--|
-| **D4, D8, D16, D32** | 4–32 | 16–128 GiB | None | All supported regions | per node |
-| **E4, E8, E16, E32** | 4–32 | 32–256 GiB | None | All supported regions | per node |
-| **NC24-A100, NC48-A100, NC96-A100** | 24–96 | 220–880 GiB | A100 | West US 3, North Europe | per node |
+| General Purpose | **D4, D8, D16, D32** | 4–32 | 16–128 GiB | None | All supported regions | per node |
+| Memory Optimized | **E4, E8, E16, E32** | 4–32 | 32–256 GiB | None | All supported regions | per node |
+| [Confidential Compute](./security.md#confidential-compute-preview) |**DC4, DC8, DC16, DC32, DC48, DC64, DC96** | 4-96 | 16-384 GiB | None | UAENorth | per node |
+| GPU | **NC24-A100, NC48-A100, NC96-A100** | 24–96 | 220–880 GiB | A100 | West US 3, North Europe | per node |
 
 > [!NOTE]
 > GPU‑enabled Dedicated profiles allocate capacity on a per‑case basis. [You must submit a support ticket to request the required capacity](/azure/container-apps/quotas#gpu-quotas).
