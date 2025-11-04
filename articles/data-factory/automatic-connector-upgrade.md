@@ -1,5 +1,5 @@
 ---
-title: Connector automatic upgrade
+title: Automatic connector upgrade
 description: This article describes the guidance for automatically upgrading connectors of Azure Data Factory.
 author: jianleishen
 ms.author: jianleishen
@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.custom:
   - references_regions
   - build-2025
-ms.date: 10/20/2025
+ms.date: 11/04/2025
 ---
 
 # Automatic connector upgrade
