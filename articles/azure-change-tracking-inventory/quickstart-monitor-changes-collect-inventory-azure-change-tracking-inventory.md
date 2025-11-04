@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Enable Azure Change Tracking and Inventory for single and multiple machines from the portal
-description: In this quickstart, learn how to enable Azure Change Tracking and Inventory.
+description: In this quickstart, learn how to enable Azure Change Tracking and Inventory for single and multiple machines from the portal.
 services: automation
 ms.date: 11/03/2025
 ms.topic: quickstart
@@ -26,7 +26,7 @@ Before you enable Azure Change Tracking and Inventory (CTI), ensure you meet the
 - An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A [virtual machine](/azure/virtual-machines/windows/quick-create-portal) configured in the specified region.
 
-## Enable Azure CTI for single VM from Azure portal
+## Enable Azure CTI for single and multiple VMs from Azure portal
 
 This section provides detailed procedure on how you can enable change tracking on a single Azure VM and Arc-enabled VM.
 
@@ -36,7 +36,7 @@ This section provides detailed procedure on how you can enable change tracking o
 
 This section provides detailed procedure on how you can enable change tracking on a single Azure VM and Arc-enabled VM.
 
-#### Enable Azure CTI for a Single Azure VM using portal
+#### Single Azure VM using portal
 
 To enable Azure CTI for a single Azure VM using Azure – portal, follow these steps: 
 
@@ -59,7 +59,7 @@ To enable Azure CTI for a single Azure VM using Azure – portal, follow these s
 > [!NOTE]
 > - It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM.
 
-#### Enable Azure CTI for a Single Azure Arc VM using portal
+#### Single Azure Arc VM using portal
 
 To enable Azure CTI for a single Azure Arc VM – portal, follow these steps:
 
@@ -83,7 +83,7 @@ To enable Azure CTI for a single Azure Arc VM – portal, follow these steps:
 
 This section provides detailed procedure on how you can enable Azure CTI on multiple Azure VMs and Azure Arc-enabled VMs.
 
-#### Enable Azure CTI for Multiple Azure VMs using portal
+#### Multiple Azure VMs using portal
 
 To enable Azure CTI for multiple Azure VMs – portal, follow these steps:
 
@@ -104,13 +104,13 @@ To enable Azure CTI for multiple Azure VMs – portal, follow these steps:
 
 1. On the **Enable Change Tracking** pane, you can view the list of machines that are enabled, ready to be enabled and the ones that you can't enable. You can use the filters to select the **Subscription**, **Location**, and **Resource groups**. You can select a maximum of three resource groups.
 
-   :::image type="content" source="media/create-data-collection-rule/change-tracking-status-inline.png" alt-text="Screenshot showing the status of multiple vm." lightbox="media/create-data-collection-rule/change-tracking-status-expanded.png":::
+   :::image type="content" source="media/create-data-collection-rule/change-tracking-status-inline.png" alt-text="Screenshot showing the status of multiple VM." lightbox="media/create-data-collection-rule/change-tracking-status-expanded.png":::
 
 1. Select **Enable** to initiate the deployment. This step initiates the setup because, during enablement, the customer assigns a DCR, which defines the logging rules required to begin data collection.
 
 A notification appears on the top right corner of the pane indicating the status of deployment.
 
-#### Enable Azure CTI for multiple Arc-enabled VMs using portal/CLI
+#### Multiple Arc-enabled VMs using CLI
 
 To enable the Azure CTI on Arc-enabled servers, ensure that the custom Change Tracking Data collection rule is associated to the Arc-enabled VMs. 
 
@@ -148,6 +148,5 @@ On the **Select a scope**, from **Resource types**, select *Machines-Azure Arc* 
 
 ## Next steps
 
-* To create data collection rule (DCR), see [Create data collection rule](/azure/automation/change-tracking/enable-vms-monitoring-agent?tabs=singlevm%2Cmultiplevms&pivots=single-portal&branch=pr-en-us-307064#create-data-collection-rule)
-
+* To create data collection rule (DCR), see [Create data collection rule](/azure/automation/change-tracking/enable-vms-monitoring-agent?tabs=singlevm%2Cmultiplevms&pivots=single-portal&branch=pr-en-us-307064#create-data-collection-rule).
 * To track changes on both Windows and Linux, see [support matrix](../azure-change-tracking-inventory/change-tracking-inventory-support-matrix.md).

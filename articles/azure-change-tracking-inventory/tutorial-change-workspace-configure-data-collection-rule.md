@@ -44,7 +44,7 @@ To configure Windows, Linux files, and Windows Registry using Data Collection Ru
    >[!NOTE]
    >The settings that you configure apply to all virtual machines associated with the specified DCR. For more information about DCR, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview).
 
-1. Select **Add** to configure new file settings. Use the procedure as specified for Windows, Linux files, and Windows Registry.
+1. Select **+ Add** to configure new file settings. Use the procedure as specified for Windows, Linux files, and Windows Registry.
 
    :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/configure-file-settings-inline.png" alt-text="Screenshot to configure new file settings." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/configure-file-settings-expanded.png":::
    

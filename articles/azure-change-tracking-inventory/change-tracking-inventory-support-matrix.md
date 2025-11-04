@@ -17,7 +17,7 @@ Azure Change Tracking and Inventory (CTI) monitors changes and provide inventory
 ## Support matrix
 
 |**Component**| **Applies to**|
-|---| ---|
+|---|---|
 |Operating systems| Windows </br> Linux | 
 |Resource types | Azure VMs </br> Azure Arc-enabled VMs </br> Virtual machines scale set|
 |Data types | Windows registry </br> Windows services </br> Linux Daemons </br> Files </br> Software

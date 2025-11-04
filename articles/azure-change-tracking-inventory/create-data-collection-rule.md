@@ -41,8 +41,8 @@ To create a DCR, follow these steps:
    >- Ensure that the name of your Data Collection Rule is unique in that resource group, else the deployment will overwrite the existing Data Collection Rule.
    >- The Log Analytics Workspace Resource ID specifies the Azure resource ID of the Log Analytics workspace used to store change tracking data. Ensure that location of workspace is from the [Change tracking supported regions](../automation/how-to/region-mappings.md)
 
-1. Select **Next**.
-1. Select **Review + create** tab > **Create** to initiate the deployment of *CtDcrCreation*.
+1. Select **Next : Review + create >**.
+1. On the **Review + create** tab > Select **Create** to initiate the deployment of *CtDcrCreation*.
 1. After the deployment is complete, select **CtDcr-Deployment** to see the DCR Name. Use the **Resource ID** of the newly created Data Collection Rule for Azure CTI deployment through policy.
  
    :::image type="content" source="media/create-data-collection-rule/deployment-confirmation.png" alt-text="Screenshot of deployment notification.":::

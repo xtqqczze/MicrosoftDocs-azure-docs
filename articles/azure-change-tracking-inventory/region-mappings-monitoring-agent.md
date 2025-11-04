@@ -48,5 +48,5 @@ The following table lists the supported mappings:
 
 ## Next steps
 
-Learn about Azure CTI in [Change Tracking and Inventory overview](overview-monitoring-agent.md).
+Learn about Azure CTI in [Change Tracking and Inventory overview using AMA](overview-monitoring-agent.md).
 
