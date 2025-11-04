@@ -172,11 +172,13 @@ To enable or disable Priority Replication for an existing OR policy, complete th
 
     :::image type="content" source="media/object-replication-priority-replication/edit-replication-rules-sml.png" alt-text="Screenshot showing how to locate the Edit Rules option for existing replication rules." lightbox="media/object-replication-priority-replication/edit-replication-rules-lrg.png":::
 
-1. To enable OR priority replication, select **Enable** link  in the corresponding storage account's **Priority replication** column as shown in the following screenshot, and then select **Save**.
+1. To enable priority replication, select the **Enable priority replication** checkbox in the corresponding storage account's **Priority replication** column. Select **Save** to save your changes as shown in the following screenshot.
 
-    :::image type="content" source="media/object-replication-priority-replication/edit-replication-rules-sml.png" alt-text="Screenshot showing the location of the Enable Priority Replication checkbox in the Edit Replication Rules pane." lightbox="media/object-replication-priority-replication/edit-replication-rules-lrg.png":::
+    :::image type="content" source="media/object-replication-priority-replication/enable-existing-policy-sml.png" alt-text="Screenshot showing the location of the Enable Priority Replication checkbox in the Edit Replication Rules pane." lightbox="media/object-replication-priority-replication/enable-existing-policy-lrg.png":::
 
-1. To disable OR priority replication, select the **Disable** link in the corresponding storage account's **Priority replication** column and then select **Save**, as shown.
+1. To disable priority replication, de-select the **Enable priority replication** checkbox in the corresponding storage account's **Priority replication** column. Select **Save** to save your changes as shown in the following screenshot.
+
+    :::image type="content" source="media/object-replication-priority-replication/disable-existing-policy-sml.png" alt-text="Screenshot showing the location of the Enable Priority Replication checkbox in the Edit Replication Rules pane." lightbox="media/object-replication-priority-replication/disable-existing-policy-lrg.png":::
 
 # [Azure PowerShell](#tab/powershell)
 
