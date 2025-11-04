@@ -55,7 +55,7 @@ In Azure Data Factory and Azure Synapse Analytics pipelines, use the expression 
 | [dropLeft](data-flow-expressions-usage.md#dropLeft) | Removes as many characters as specified from the left of the string. If the drop requested exceeds the length of the string, an empty string is returned.|
 | [dropRight](data-flow-expressions-usage.md#dropRight) | Removes as many characters as specified from the right of the string. If the drop requested exceeds the length of the string, an empty string is returned.|
 | [endsWith](data-flow-expressions-usage.md#endsWith) | Checks if the string ends with the supplied string.  |
-| [equals](data-flow-expressions-usage.md#equals) | Comparison equals operator. Same as the `==` operator.  |
+| [equals](data-flow-expressions-usage.md#equals) | Uses the comparison equals operator. Same as the `==` operator.  |
 | [equalsIgnoreCase](data-flow-expressions-usage.md#equalsIgnoreCase) | Uses the comparison equals operator and ignores case. Same as the `<=>` operator.  |
 | [escape](data-flow-expressions-usage.md#escape) | Escapes a string according to a format. Literal values for acceptable format are `json`, `xml`, `ecmascript`, `html`, and `java`.|
 | [expr](data-flow-expressions-usage.md#expr) | Results in an expression from a string. Equivalent to writing the expression in a nonliteral form. You can use it to pass parameters as string representations.|
