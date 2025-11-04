@@ -184,6 +184,8 @@ The following instruction enables the _Easy Auth_ feature on the server app and 
     az functionapp config appsettings set --name <function-app-name> --resource-group <resource-group-name> --settings "WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES=<scope>"
     ```
 
+1. Find the "Application ID URI" (looks like `api://abcd123-efg456-hijk-7890123`) on the top and save for later step.
+
 ## Connect to server
 
 1. Get the server domain by running the following command:
@@ -215,7 +217,35 @@ The following instruction enables the _Easy Auth_ feature on the server app and 
 >[!TIP]
 > Click the tool icon in Copilot chat to see the tools available. Ensure your MCP server is picked when you test. 
 
+
+## Configure Azure AI Foundry agent to user MCP server
+
+You can configure an agent on Azure AI Foundry to leverage tools exposed by MCP servers hosted on Azure Functions.
+
+1. In the Foundry portal, find the agent you want to be configured with MCP servers hosted on Functions 
+
+1. Under the "Tools" section, click the **Add** button, then **+ Add a new tool**
+
+1. Select the "Custom" tab, then select "Model Context Protocol (MCP)". Click the **Create** button.
+
+1. Fill in the following information:
+    - Name: Name of the server
+    - Remote MCP Server endpoint: 
+        - MCP extension server: `https://<server domain>/runtime/webhooks/mcp`
+        - Self-hosted server: `https://<server domain>/mcp`
+    - Authentication: Choose "Microsoft Entra"
+    - Type: Choose "Project Managed Identity" 
+    - Audience: This is the Entra App ID URI from [Set authorization scope related app setting](#set-authorization-scope-related-app-setting)
+
+    For example:
+    <div align="center">
+      <img src="./media/functions-mcp/foundry-agent-config.png" alt="Diagram showing Foundry agent configuration for connecting to MCP server." width="500">
+    </div>
+
+1. Click **Connect**
+
+1. Test by asking a question that can be answered with the help of a server tool in the chat window. 
+
 ## Next steps
 
-- Learn how to [configure](./functions-mcp-integration.md) an Azure AI Foundry agent to leverage MCP servers hosted remotely on Azure Functions. 
 - Learn how to [register](./functions-mcp-integration.md) Azure Functions-hosted MCP servers on Azure API Center.
