@@ -96,7 +96,7 @@ To create a Standard logic app workflow that runs in single-tenant Azure Logic A
    | **Logic App name** | Yes | <*logic-app-name*> | Provide a name that's unique across regions and contains only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), or periods (**.**). <br><br>This example creates a logic app resource named **My-Consumption-Logic-App**. |
    | **Region** | Yes | <*Azure-region*> | The Azure datacenter region for your logic app. <br><br>This example uses **West US**. |
    | **Enable log analytics** | Yes | **No** | Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. |
-   | **Workflow type** | Yes | **Stateful** | The type of workflow to create. This workflow type automatically saves and stores run history information, such as status, inputs, and outputs. |
+   | **Workflow type** | Yes | **Stateful** | The type of workflow to create. By default, Consumption workflows are stateful, meaning the workflow automatically saves and stores run history information, such as status, inputs, and outputs. <br><br>**Note**: This example selects a region where agentic workflows aren't currently supported, so you can't change the **Stateful** selection. This quickstart focuses on creating a non-agentic workflow, so you can ignore this section for this scenario. |
 
    > [!NOTE]
    >
