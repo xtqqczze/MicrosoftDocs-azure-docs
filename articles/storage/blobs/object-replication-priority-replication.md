@@ -85,7 +85,7 @@ For more information about OR metrics, see [replication metrics](object-replicat
 
 Users also have other options such as checking the replication status of their source blob. Users can check the replication status of a source blob to determine whether replication to the destination is complete. Once the replication status is marked as `Completed`, the user can guarantee the blob is available in the destination account. For more information view, [Check the replication status of a blob](object-replication-configure.md?tabs=portal#check-the-replication-status-of-a-blob).
 
-## Enable object replication priority replication
+## Enable and disable object replication priority replication
 
 Users can enable OR priority replication on both new and existing OR policies using Azure portal, PowerShell, or the Azure CLI. It can be enabled for existing OR policies, or during the process of creating new a new OR policy.
 
@@ -104,7 +104,7 @@ To enable OR Priority Replication when creating a new OR policy, complete the fo
 
     :::image type="content" source="media/object-replication-priority-replication/create-replication-rules-sml.png" alt-text="Screenshot showing the location of the Enable Priority Replication and Enable Replication Monitoring checkboxes in the replication rules pane." lightbox="media/object-replication-priority-replication/create-replication-rules-lrg.png":::
 
-
+1. Complete the remaining fields and select **Add rule** to create the new OR policy with priority replication enabled.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -153,6 +153,35 @@ az storage account or-policy create -n $destAccountName -s $srcAccountName /
     --dcont $dstContainer --scont $srcContainer -t "2020-02-19T16:05:00Z" /
     --enable-metrics True --priority-replication true
 
+```
+
+---
+
+### Enable or disable priority replication for existing policies
+
+To enable or disable Priority Replication for an existing OR policy, complete the following steps:
+
+# [Azure portal](#tab/portal)
+
+1. In the Azure portal, navigate to the storage account you want to modify.
+1. Select the **Your accounts** tab to view the list of accounts within the subscription as shown.
+
+    :::image type="content" source="media/object-replication-priority-replication/edit-replication-rules-sml.png" alt-text="Screenshot showing how to locate the Edit Rules option for existing replication rules." lightbox="media/object-replication-priority-replication/edit-replication-rules-lrg.png":::
+
+1. Locate the **Destination account** containing the **Source container** and **Destination container** whose OR policy you want to modify.
+1. To enable OR priority replication, select **Enable** link  in the corresponding storage account's **Priority replication** column as shown in the following screenshot, and then select **Save**.
+1. To disable OR priority replication, select the **Disable** link in the corresponding storage account's **Priority replication** column and then select **Save**, as shown.
+
+# [Azure PowerShell](#tab/powershell)
+
+```powershell
+# Login to your Azure account
+```
+
+# [Azure CLI](#tab/cli)
+
+```azurecli-interactive
+# Login to your Azure account
 ```
 
 ---
