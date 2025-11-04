@@ -44,7 +44,7 @@ Connection Monitor assigns each test a numeric value based on your configured th
 - **2 (Warning)** - Connectivity works but performance is degraded
 - **3 (Fail)** - Connectivity failed or performance severely degraded
 
-For more information about test states, see [Connection Monitor overview](connection-monitor-overview.md#states-of-a-test).
+For more information about test states, see [Connection Monitor overview](https://learn.microsoft.com/en-us/azure/network-watcher/connection-monitor-overview#states-of-a-test).
 
 > [!NOTE]
 > The default alert is sensitive—it fires if even one test fails. This helps you catch issues quickly but might generate more alerts than you need. You can adjust the settings to match your environment.
@@ -251,10 +251,4 @@ The default evaluation frequency is 1 minute with a 5-minute lookback. In most c
 
 **Can I send alerts to a ticketing system?**
 
-Yes. Configure an action group with a webhook that sends to your ITSM tool (ServiceNow, Jira, etc.). For details, see [ITSM Connector](../azure-monitor/alerts/itsmc-overview.md).
-
-## Next steps
-
-- [Monitor Azure ExpressRoute](../expressroute/monitor-expressroute.md)
-- [Connection Monitor overview](connection-monitor-overview.md)
-- [Create an action group](../azure-monitor/alerts/action-groups.md)
+Yes. Configure an action group with a webhook that sends to your ITSM tool (ServiceNow, Jira, etc.). For details, see [ITSM Connector](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/itsmc-overview).
