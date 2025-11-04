@@ -89,7 +89,7 @@ Microsoft Sentinel SIEM/SOAR solution has a connector for SAP. SAP application s
 
 [140 - The one with Microsoft Sentinel for SAP (Yoav Daniely, Yossi Hasson & Martin Pankraz, Sebastian Ullrich - YouTube](https://www.youtube.com/watch?v=uVsrqCoVWlI)
 
-## Database Level Encryption – TDE and Backup Encryption 
+## Database Level Encryption – TDE and Backup Encryption
 
 It's recommended to enable Transparent Database Encryption (TDE) for all DBMS running SAP applications on Azure. Testing shows that the performance overhead is between zero to two percent. The advantages of TDE far outweigh the disadvantages. Most DBMS platforms create encrypted backups if the database is TDE enabled mitigating one common attack vector, theft of backups. 
 SAP Hana Transparent Database Encryption
