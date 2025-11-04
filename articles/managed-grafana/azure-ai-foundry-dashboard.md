@@ -20,11 +20,8 @@ The Azure AI Foundry dashboard is designed for platform engineers, data scientis
 
 The Azure AI Foundry platform metrics dashboard is a pre-configured Grafana dashboard that visualizes key metrics from Azure AI services and infrastructure. It provides real-time monitoring of:
 
-- **Compute resources**: CPU, GPU, and memory utilization across AI workloads
 - **Model performance**: Inference latency, throughput, and success rates
 - **Resource consumption**: Token usage, API calls, and cost tracking
-- **Operational health**: Service availability, error rates, and request patterns
-- **Infrastructure metrics**: Storage usage, network throughput, and scaling events
 
 This dashboard helps you optimize resource allocation, identify performance bottlenecks, and maintain the health of your AI platform.
 
@@ -38,53 +35,11 @@ Before you begin, ensure you have:
 - Appropriate permissions to read metrics from your Azure AI resources (Reader role or higher).
 - Azure Monitor configured to collect metrics from your AI services.
 
-## Enable diagnostic settings for Azure AI Foundry
-
-Before importing the dashboard, configure diagnostic settings to send metrics and logs to Azure Monitor.
-
-1. In the Azure portal, navigate to your Azure AI Foundry resource.
-
-1. In the resource menu, under **Monitoring**, select **Diagnostic settings**.
-
-1. Select **+ Add diagnostic setting**.
-
-1. Configure the diagnostic setting:
-
-   - **Diagnostic setting name**: Enter a descriptive name, such as *ai-foundry-metrics*.
-   - **Logs**: Select the log categories you want to collect. For example, *allLogs*.
-   - **Metrics**: Select **AllMetrics** to collect all available metrics.
-   - **Destination details**: Select **Send to Log Analytics workspace** and choose your workspace.
-
-   :::image type="content" source="media/ai-foundry-dashboard/diagnostic-settings.png" alt-text="Screenshot of the Azure portal showing diagnostic settings configuration for Azure AI Foundry.":::
-
-1. Select **Save**.
-
-> [!NOTE]
-> It may take 5-10 minutes for metrics to start flowing to Azure Monitor after you enable diagnostic settings.
-
-## Add Azure Monitor as a data source
-
-Configure Azure Monitor as a data source in your Azure Managed Grafana workspace to access AI metrics.
-
-1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL to open the Grafana portal.
-
-1. In the Grafana portal, go to **Connections** > **Data sources**.
-
-1. If Azure Monitor isn't already configured, select **Azure Monitor** and enter or select the following settings:
-
-   - **Name**: Enter `Azure Monitor` or a descriptive name.
-   - **Authentication**: Select **Managed Identity**.
-
-    > [!NOTE]
-    > Ensure your Azure Managed Grafana workspace has the Monitoring Reader role on the subscription, resource group, or specific Azure AI Foundry resource. If not, [assign the role to the workspace's managed identity](./how-to-permissions.md#edit-azure-monitor-permissions)
-
-   :::image type="content" source="media/ai-foundry-dashboard/azure-monitor-datasource.png" alt-text="Screenshot of Grafana showing Azure Monitor data source configuration.":::
-
-1. Select **Save & test** to verify the connection.
-
 ## Import the Azure AI Foundry dashboard
 
 Import the pre-built Azure AI Foundry dashboard into your Grafana workspace.
+
+1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL to open the Grafana portal.
 
 1. In the Grafana portal, go to **Dashboards** > **New** > **Import**.
 
@@ -97,11 +52,18 @@ Import the pre-built Azure AI Foundry dashboard into your Grafana workspace.
    - **Name**: Optionally customize the dashboard name.
    - **Folder**: Select a folder to organize your dashboard.
    - **Unique identifier (UID)**: Leave as default or customize.
-   - **Azure Monitor**: Select your Azure Monitor data source.
+   - **Azure Monitor**: Select your Azure Monitor data source from the dropdown.
+
+   > [!NOTE]
+   > Ensure your Azure Managed Grafana workspace has the Monitoring Reader role on the subscription, resource group, or specific Azure AI Foundry resource. If not, [assign the role to the workspace's managed identity](./how-to-permissions.md#edit-azure-monitor-permissions).
 
 1. Select **Import**.
 
 1. After importing the dashboard, use the dropdown selectors at the top of the dashboard to filter your specific AI Foundry resource.
+
+<!-- tbc
+> [!TIP]
+> You can also import this dashboard directly from the Azure portal. Go to **Monitor** > **Dashboards with Grafana (preview)**, and select the **AI Foundry** dashboard, or go to [AI Foundry dashboard](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureGrafana.ReactView/GalleryType/Azure%20Monitor/ConfigurationId/AIFoundry).-->
 
 :::image type="content" source="media/ai-foundry-dashboard/ai-foundry-top-section.png" alt-text="Screenshot of Grafana showing Azure Monitor data source configuration." lightbox="media/ai-foundry-dashboard/ai-foundry-top-section.png":::::
 
