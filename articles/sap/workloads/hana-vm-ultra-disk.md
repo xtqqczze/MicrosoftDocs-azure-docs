@@ -7,7 +7,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 11/03/2025
+ms.date: 11/04/2025
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 # Customer intent: "As an IT administrator managing SAP HANA on Azure, I want to configure Ultra Disk storage for optimal IOPS and throughput, so that I can ensure low latency and high performance for critical data processing workloads."
@@ -41,7 +41,7 @@ Other advantages of Ultra disk can be the better read latency in comparison to p
 
 **/hana/log**  - Size of 0.5 x VM memory, or 500 GiB if VM larger than 1 TiB memory. See log throughput and IOPS values in the following table. 
 
-**/hana/shared** - Size of1 x VM memory, or 1 TiB if VM larger than 1 TiB memory. Use default IOPS and throughput as starting configuration. 
+**/hana/shared** - Size of 1 x VM memory, or 1 TiB if VM larger than 1 TiB memory. Use default IOPS and throughput as starting configuration. 
 
 ## Production recommended storage solution with pure Ultra disk configuration
 In this configuration, you keep the **/hana/data** and **/hana/log** volumes separately. The suggested values are derived out of the KPIs that SAP has to certify VM types for SAP HANA and storage configurations as recommended in the [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html).
@@ -76,7 +76,7 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 **The values listed are intended to be a starting point and need to be evaluated against the real demands.** The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
 
 > [!NOTE]
-> Snapshot functionality with Ultra disk works distinctively different compared to Premium SSD (v1). For more details, see [Instant access snapshots for Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/disks-instant-access-snapshots?tabs=azure-cli%2Cazure-cli-snapshot-state#snapshots-of-ultra-disks-and-premium-ssd-v2)
+> Snapshot functionality with Ultra disk works distinctively different compared to Premium SSD (v1). For more information, see [Instant access snapshots for Azure managed disks](https://learn.microsoft.com/azure/virtual-machines/disks-instant-access-snapshots?tabs=azure-cli%2Cazure-cli-snapshot-state#snapshots-of-ultra-disks-and-premium-ssd-v2)
 
 
 ## Next steps
