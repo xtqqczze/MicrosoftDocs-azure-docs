@@ -134,11 +134,11 @@ For more information on how to use icacls to set Windows ACLs and on the differe
 
 ### Configure Windows ACLs using the Azure portal
 
-Follow these steps to configure Windows ACLs per user/group using the Azure portal. This method works for both hybrid and cloud-only identities.
+Follow these steps to configure Windows ACLs per Entra user or group using the Azure portal. This method works for both hybrid and cloud-only identities.
 
 1. Sign in to the Azure portal and navigate to the file share for which you want to configure Windows ACLs.
 
-1. From the service menu, select **Browse**. If you want to set an ACL at the root folder, select **Manage access** from the top menu.
+1. From the service menu, select **Browse**. If you want to set an ACL at the root folder, select **Manage access** from the top menu and proceed to step 4.
 
    :::image type="content" source="media/configure-file-level-permissions/set-root-access.png" alt-text="Screenshot of the Azure portal showing how to manage access for the root folder of a file share." lightbox="media/configure-file-level-permissions/set-root-access.png" border="true":::
 
@@ -148,7 +148,7 @@ Follow these steps to configure Windows ACLs per user/group using the Azure port
 
 1. Select the pencil icon at the far right of any user or group to add or edit permissions for the user/group to access the specified file/directory. **Deny** always takes precedence over **Allow** when both are set. When neither are set, default permissions are inherited.
 
-   :::image type="content" source="media/configure-file-level-permissions/edit-permissions.png" alt-text="Screenshot of the Azure portal showing how to add or edit permissions for a user or group." lightbox="media/configure-file-level-permissions/edit-permissions.png" border="true":::
+   :::image type="content" source="media/configure-file-level-permissions/edit-permissions.png" alt-text="Screenshot of the Azure portal showing how to add or edit permissions for an Entra user or group." lightbox="media/configure-file-level-permissions/edit-permissions.png" border="true":::
 
 1. Select **Save** to set the ACL.
 
