@@ -104,7 +104,7 @@ For more information on network security in Azure Container Apps, see the follow
   - [Use mTLS](./mtls.md)
   - [Integrate with Azure Front Door](./how-to-integrate-with-azure-front-door.md)
 
-## Confidential Compute (Preview)
+## Confidential compute (Preview)
 
 Azure Container Apps includes a confidential compute workload profile (public preview) that runs containerized workloads inside hardware-based Trusted Execution Environments (TEEs). Confidential computing complements Azure encryption at rest and in transit by protecting data in use by encrypting memory and attesting the environment before code is executed. This capability helps reduce the risk of unauthorized access to sensitive workloads, including access from cloud operators.
 
