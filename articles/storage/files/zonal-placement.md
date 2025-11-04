@@ -13,7 +13,7 @@ ms.custom:
 
 # Use zonal placement for Azure file shares
 
-Zonal placement allows you to select the specific availability zone in which your Azure Files storage account resides. If desired, you can place your virtual machines in the same zone to reduce latency between compute and storage.
+Zonal placement allows you to select the specific availability zone in which your Azure Files storage account resides. If desired, you can place your virtual machines (VMs) in the same zone to reduce latency between compute and storage.
 
 This feature is currently available only for premium storage accounts (SSD) using [locally redundant storage (LRS)](files-redundancy.md#locally-redundant-storage) in [supported regions](#region-support).
 
@@ -69,7 +69,7 @@ Zonal placement is supported for premium storage accounts with LRS redundancy in
 
 ## How zonal placement works
 
-When creating a new premium storage account, you can create either a **regional** or **zonal** storage account. A zonal storage account is placed in a specific availability zone within a supported Azure region, offering guaranteed data locality. Zonal placement can also potentially reduce latency and improve performance for your workload if you place your compute resources (virtual machines) in the same zone as your storage account.
+When creating a new premium storage account, you can create either a **regional** or **zonal** storage account. A zonal storage account is placed in a specific availability zone within a supported Azure region, offering guaranteed data locality. Zonal placement can also potentially reduce latency and improve performance for your workload if you place your compute resources (VMs) in the same zone as your storage account.
 
 You can only specify a specific zone when creating a new storage account. Existing storage accounts can only be pinned to a zone selected by Azure. Once a storage account is pinned to a zone, it can only be moved back to a regional configuration. For example, if your storage account is pinned to zone 1, you can't move it to zone 2 or zone 3.
 
@@ -155,16 +155,16 @@ Follow these steps to pin an existing storage account to an Azure-selected zone 
 
 1. Sign in to the Azure portal and navigate to the premium storage account that you want to pin.
 
-1. On the **Overview** tab, locate the **Availability** section. Select **Edit** next to the availability information.
+1. On the **Overview** tab, select **Availability**.
 
-1. The **Move storage to availability zone** page opens. A dropdown next to the storage account name appears with two options:
+1. The **Move storage account availability zone** pane opens. A dropdown next to the storage account name appears with two options:
 
-   - A zone selected by Azure (for example, Zone 1, 2, or 3)
+   - Azure-selected zone
    - None (to use the regional storage account configuration)
 
     :::image type="content" source="media/zonal-placement/move-availability-zone.png" alt-text="Screenshot of the Azure portal showing how to pin an existing storage account to an Azure-selected zone." lightbox="media/zonal-placement/move-availability-zone.png" border="true":::
 
-1. Choose the Azure-selected zone, and then select **Move**.
+1. Choose **Azure-selected zone**, and then select **Move**.
 
 The storage account will now be pinned to the selected zone, as reflected in the **Availability** section on the **Overview** tab. 
 
@@ -191,22 +191,22 @@ Follow these steps to unpin a zonal storage account from a zone using the Azure 
 
 1. Sign in to the Azure portal and navigate to the zonal storage account that you want to unpin.
 
-1. On the **Overview** tab, locate the **Availability** section. Select **Edit** next to the availability information.
+1. On the **Overview** tab, select **Availability**.
 
-1. The **Move storage to availability zone** page opens. A dropdown next to the storage account name appears with two options: 
+1. The **Move storage account availability zone** pane opens. A dropdown next to the storage account name appears with two options: 
 
-   - A zone selected by Azure (for example, Zone 1, 2, or 3)
+   - Azure-selected zone
    - None (to use the regional storage account configuration)
 
-   Select **None**.
+    :::image type="content" source="media/zonal-placement/unpin-availability-zone.png" alt-text="Screenshot of the Azure portal showing how to unpin a storage account from an availability zone." lightbox="media/zonal-placement/unpin-availability-zone.png" border="true":::
 
-1. Consent to the prompt "I agree for Microsoft to create a system-managed identity," and then select **Apply**.
+1. Choose **None**, and then select **Move**.
 
-The storage account will now be unpinned from the zone, as reflected in the **Availability** section on the **Overview** tab. If desired, you can now change the redundancy setting for the storage account from LRS to zone-redundant storage (ZRS). For `<SkuName>`, specify either `Premium_LRS` or `PremiumV2_LRS`.
+The storage account will now be unpinned from the zone, as reflected in the **Availability** section on the **Overview** tab. If desired, you can now change the redundancy setting for the storage account from LRS to ZRS.
 
 # [PowerShell](#tab/azure-powershell)
 
-To unpin a zonal storage account from a zone using Azure PowerShell, run the following commands. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your values.
+To unpin a zonal storage account from a zone using Azure PowerShell, run the following commands. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your values. For `<SkuName>`, specify either `Premium_LRS` or `PremiumV2_LRS`.
 
 ```azurepowershell
 New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -Location <region> -SkuName <SkuName> -Kind FileStorage -ZonePlacementPolicy Any​
