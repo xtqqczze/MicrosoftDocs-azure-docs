@@ -174,7 +174,7 @@ To enable or disable Priority Replication for an existing OR policy, complete th
 
 1. To enable OR priority replication, select **Enable** link  in the corresponding storage account's **Priority replication** column as shown in the following screenshot, and then select **Save**.
 
-    :::image type="content" source="media/object-replication-priority-replication/edit-replication-rules-pane-sml.png" alt-text="Screenshot showing the location of the Enable Priority Replication checkbox in the Edit Replication Rules pane." lightbox="media/object-replication-priority-replication/edit-replication-rules-pane-lrg.png":::
+    :::image type="content" source="media/object-replication-priority-replication/edit-replication-rules-sml.png" alt-text="Screenshot showing the location of the Enable Priority Replication checkbox in the Edit Replication Rules pane." lightbox="media/object-replication-priority-replication/edit-replication-rules-lrg.png":::
 
 1. To disable OR priority replication, select the **Disable** link in the corresponding storage account's **Priority replication** column and then select **Save**, as shown.
 
@@ -218,7 +218,28 @@ Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 # [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
-# Login to your Azure account
+
+# First, login to your Azure account
+az login
+
+# Next, set your variables
+$rgname          = "<resource-group-name>"
+$newAccountName  = "<new-account-name>"
+$destAccountName = "<destination-account-name>"
+$srcAccountName  = "<source-account-name>"
+$srcContainer    = "<source-container-name>"
+$destContainer   = "<destination-container-name>"
+
+# Enable an existing OR policy on a destination account with priority replication enabled
+az storage account or-policy update -n $destAccountName -s $srcAccountName /
+    --dcont $dstContainer --scont $srcContainer -t "2020-02-19T16:05:00Z" /
+    --enable-metrics True --priority-replication true
+
+# Disable an existing OR policy on a destination account with priority replication enabled
+az storage account or-policy update -n $destAccountName -s $srcAccountName /
+    --dcont $dstContainer --scont $srcContainer -t "2020-02-19T16:05:00Z" /
+    --enable-metrics True --priority-replication false
+
 ```
 
 ---
