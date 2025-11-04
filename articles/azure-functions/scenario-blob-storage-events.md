@@ -9,12 +9,14 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Quickstart: Respond to blob storage events by using Azure Functions
 
-In this quickstart, you use Visual Studio Code to build an app that responds to blob storage events by using an Event Grid blob trigger. After testing the code locally with the Azurite emulator, you deploy it to a new serverless function app running in a Flex Consumption plan in Azure Functions.
+In this quickstart, you use Visual Studio Code to build an app that responds to events in a Blob Storage container. After testing the code locally using an emulator, you deploy it to a new serverless function app running in a Flex Consumption plan in Azure Functions.
 
 The project source uses the Azure Developer CLI (azd) extension with Visual Studio Code to simplify initializing and verifying your project code locally, as well as deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
 
-The Event Grid blob trigger provides significant advantages over traditional polling-based blob triggers, including near real-time processing, reduced costs, and improved scalability - making it essential for Flex Consumption plans where polling-based triggers aren't available.
-
+::: zone pivot="programming-language-java"  
+> [!IMPORTANT]  
+> This article isn't currently supported in Java. To complete the quickstart, select a supported languages at the top of the article.
+::: zone-end 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 This article supports version 4 of the Node.js programming model for Azure Functions.
 ::: zone-end
@@ -37,14 +39,14 @@ Use the `azd init` command from the command palette to create a local Azure Func
 ::: zone pivot="programming-language-csharp"
 1. When prompted, choose **Select a template**, then search for and select `Azure Functions C# Event Grid Blob Trigger using Azure Developer CLI`. 
 
-1. When prompted, enter a unique environment name, such as `blobevents-dotnet`.
+1. When prompted in the terminal, enter a unique environment name, such as `blobevents-dotnet`.
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventgrid-blob) and initializes the project in the current folder or workspace.
 ::: zone-end
 ::: zone pivot="programming-language-python"
 1. When prompted, choose **Select a template**, then search for and select `Azure Functions Python Event Grid Blob Trigger using Azure Developer CLI`. 
 
-1. When prompted, enter a unique environment name, such as `blobevents-python`.
+1. When prompted in the terminal, enter a unique environment name, such as `blobevents-python`.
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-azd-eventgrid-blob) and initializes the project in the current folder or workspace.
 ::: zone-end
@@ -72,37 +74,18 @@ Use the `azd init` command from the command palette to create a local Azure Func
 
 In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
 
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
-1. Run this command, depending on your local operating system, to grant configuration scripts the required permissions:    ### [Linux/macOS](#tab/linux)
-    
-    Run this command with sufficient privileges:
-
-    ```bash
-    chmod +x ./infra/scripts/*.sh
-    ```
-
-    ### [Windows](#tab/windows-cmd)
-    
-    Run this command from the Windows command prompt:
- 
-    ```cmd
-    pwsh -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser"
-    ```
-
-    If prompted, select **Yes** to approve the policy change.     
-
-    ---
-::: zone-end
-
 ## Set up local storage emulator
 
-Unlike the Cosmos DB project, you can fully test this blob storage project locally by using the Azurite emulator before deploying to Azure.
+You can use the Azurite emulator to run your code project locally before having to create and use Azure resources.
 
-1. If you haven't already, [install Azurite](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite#install-azurite).
+1. If you haven't already, [install Azurite](/azure/storage/common/storage-use-azurite#install-azurite).
 
 1. Press <kbd>F1</kbd>. In the command palette, search for and run the command `Azurite: Start` to start the local storage emulator.
 
-1. Create the required blob containers by using either Azure Storage Explorer or the VS Code Azure Storage extension:
+1. Press <kbd>F1</kbd>. In the command palette, search for and run the command 
+
+
+ Create the required blob containers by using either Azure Storage Explorer or the VS Code Azure Storage extension:
    - Create a container named `unprocessed-pdf`
    - Create a container named `processed-pdf`
 

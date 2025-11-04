@@ -27,6 +27,9 @@
     - name: Scalable web API
       displayName: Flex Consumption plan
       href: create-first-function-azure-developer-cli.md
+    - name: Process file uploads
+      displayName: storage, blob, Event Grid
+      href: scenario-blob-storage-events.md  
     - name: Respond to database changes
       items:
       - name: Azure Cosmos DB (NoSQL)
