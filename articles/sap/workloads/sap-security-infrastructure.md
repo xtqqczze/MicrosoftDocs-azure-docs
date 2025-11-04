@@ -13,7 +13,7 @@ ms.author: cgardin
 # Customer intent: Secure Azure infrastructure for SAP applications 
 ---
 
-# Secure Azure Infrastructure for SAP Applications 
+# Secure Azure infrastructure for SAP applications 
 A well secured SAP solution incorporates many security concepts with many layers spanning multiple domains:
 -	Identity Management, Provisioning and Single Sign-on, MFA, Global Secure Access, Secure Network Connection (SNC)  
 -	Auditing, Log Analytics and Event Management
@@ -27,7 +27,7 @@ A well secured SAP solution incorporates many security concepts with many layers
 These topics are covered in a series of related pages. SAP applications should be incorporated into the overall Zero-Trust security solution for the entire IT landscape. [Zero Trust Strategy & Architecture | Microsoft Security](https://www.microsoft.com/security/business/zero-trust?msockid=343d619786f36e041990740887e36ff0)
 The SAP Security Solution should reference the Zero-Trust security model. The Zero-Trust security solution validates each action at each layer such as Identity, Endpoint Network Access, Authentication, and MFA through SAP Application and Data Access. 
  
- ![alt text](./media/sap-security-instructure/microsoft-zero-trust-security-diagram.png) 
+ ![alt text]Screenshot of Microsoft zero trust design(./media/sap-security-instructure/microsoft-zero-trust-security-diagram.png) 
 
 The purpose of this documentation is to provide a single location with links and a brief description on how to implement Identity, Security, and Audit related features for SAP solutions running on Azure Hyperscale Cloud.   This documentation doesn't precisely specify which security features should be implemented as requirements are dependent on risk profile, industry, and regulatory environment. This document does make some default recommendations such as a general recommendation to use Defender for Endpoint, Transparent Database Encryption (TDE), and Backup Encryption on all systems.  
 Customers designing and implementing Identity, Security, and Audit solutions for SAP review the concepts explained in [Microsoft cloud security benchmark introduction | Microsoft Learn](/security/benchmark/azure/introduction). 
@@ -92,7 +92,7 @@ Microsoft Sentinel SIEM/SOAR solution has a connector for SAP. SAP application s
 ## Database Level Encryption – TDE and Backup Encryption 
 
 It's recommended to enable Transparent Database Encryption (TDE) for all DBMS running SAP applications on Azure. Testing shows that the performance overhead is between zero to two percent. The advantages of TDE far outweigh the disadvantages. Most DBMS platforms create encrypted backups if the database is TDE enabled mitigating one common attack vector, theft of backups. 
-SAP Hana Transparent Database Encryption.
+SAP Hana Transparent Database Encryption
 
 SAP Hana doesn't support storing Keys in Azure Key Vault or any other HSM device. [3444154 - HSM for SAP HANA Encryption Key Management](https://me.sap.com/notes/3444154/E)  
 To enable TDE on Hana follow [Enable Encryption | SAP Help Portal](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/4b11e7dee04f4dd98301fcd86e2f3d8b.html)
