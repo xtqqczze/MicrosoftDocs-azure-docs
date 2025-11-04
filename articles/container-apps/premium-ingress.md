@@ -104,9 +104,9 @@ Your workload profile must have at least two nodes to use premium ingress.
 
 | Parameter                     | Description                                                                                 |
 |-----------------------------|---------------------------------------------------------------------------------------------|
-| termination-grace-period | The time (in seconds) to allow active connections to close before terminating the ingress.   |
-| request-idle-limit           | The time (in seconds) a request can remain idle before being disconnected.                                      |
-| header-count-limit         | The maximum number of HTTP headers allowed per request.                   |
+| termination-grace-period | The time (in seconds) to allow active connections to close before terminating the ingress.   Minimum: 0, Maximum: 60. |
+| request-idle-limit           |  The time (in minutes) a request can remain idle before being disconnected.  Default: 4, Minimum: 4, Maximum: 30. |
+| header-count-limit         | The maximum number of HTTP headers allowed per request. Default: 100, Minimum: 1 |
 
 
 Once configured you will see an output of the settings you just applied.
@@ -187,12 +187,12 @@ This will deploy a Container Apps environment with a premium ingress configurati
 |-----------------------------|---------------------------------------------------------------------------------------------|
 | name                       | The name of the workload profile used for premium ingress.                                   |
 | workloadProfileType         | The type/size of the workload profile (e.g., D4) for scaling and resource allocation.        |
-| minimumCount               | The minimum number of instances for the workload profile.                                    |
-| maximumCount               | The maximum number of instances for the workload profile.                                    |
+| minimumCount               | The minimum number of instances for the workload profile. Minimum: 2.                           |
+| maximumCount               | The maximum number of instances for the workload profile. Maximum: 50.                                    |
 | workloadProfileName        | The workload profile name associated with the ingress configuration.                         |
-| terminationGracePeriodSeconds | The time (in seconds) to allow active connections to close before terminating the ingress.   |
-| headerCountLimit           | The maximum number of HTTP headers allowed per request.                                      |
-| requestIdleTimeout         | The time (in seconds) a request can remain idle before being disconnected.                   |
+| terminationGracePeriodSeconds | The time (in seconds) to allow active connections to close before terminating the ingress. Minimum: 0, Maximum: 60.   |
+| headerCountLimit           | The maximum number of HTTP headers allowed per request. The maximum number of HTTP headers allowed per request. Default: 100, Minimum: 1.                                      |
+| requestIdleTimeout         | The time (in minutes) a request can remain idle before being disconnected.  Default: 4, Minimum: 4, Maximum: 30.          |
 
 
 1. Deploy to Azure
@@ -246,6 +246,20 @@ You can configure the ingress for your environment after you create it.
 
 ::: zone-end
 
+## Monitoring and metrics
+Ingress metrics are available in the Container App Environment -> Monitoring -> Metrics page. These are available with Default or Premium Ingress enabled. Additional metrics are in progress.
+
+- Ingress CPU Usage
+- Ingress Memory Usage Bytes
+
+Benchmarks show that the ingress can handle around 3000 requests per second per CPU core, but that will vary by application usage. Memory only tends to become a bottleneck if the application is receiving requests quicker than it can handle them and requests get queued at the ingress layer.
+
+The resources allocated to the ingress in each mode are:
+
+| Mode     | Instances                | CPU                | Memory         | CPU Scale Threshold | Memory Scale Threshold |
+|----------|--------------------------|--------------------|---------------|--------------------|-----------------------|
+| Default  | 2-10                     | 1 core             | 2 GB          | 75%                | 50%                   |
+| Premium  | One per node (min 2)     | 90% of node cores  | 90% of node memory | 50% of node cores  | 50% of node memory    |
 
 ## Clean up resources
 
