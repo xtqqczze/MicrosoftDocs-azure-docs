@@ -1,6 +1,6 @@
 ---
-title: Create Consumption workflows in Azure portal
-description: Learn to build your first example Consumption logic app workflow that runs in multitenant Azure Logic Apps using the Azure portal.
+title: Create Consumption Workflows with Azure Logic Apps in Portal
+description: Learn to build your first Consumption logic app workflow that runs in multitenant Azure Logic Apps using the Azure portal.
 services: azure-logic-apps
 ms.suite: integration
 ms.reviewers: estfan, LogicApps
@@ -11,19 +11,19 @@ ms.update-cycle: 180-days
 ms.custom:
   - mode-ui
   - sfi-image-nochange
-#Customer intent: As an integration developer working with Azure Logic Apps, I want to create my first example Consumption logic app workflow that runs in multitenant Azure Logic Apps by using the Azure portal.
+#Customer intent: As an integration developer new to Azure Logic Apps, I want to create my first Consumption logic app workflow in multitenant Azure Logic Apps using the Azure portal.
 ---
 
 # Quickstart: Create an example Consumption logic app workflow in the Azure portal
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-This quickstart shows how to create an example workflow that performs tasks with multiple cloud services and runs in multitenant Azure Logic Apps. The workflow checks an RSS feed for new articles, based on a specific schedule, and sends an email for each new RSS item. Specifically, you create a Consumption logic app resource and workflow that uses the following connector actions:
+This quickstart shows how to create an automated workflow that monitors an RSS feed and sends email notifications. You'll build a Consumption logic app workflow using the following connector operations:
 
 - The **RSS** connector, which provides a trigger to check an RSS feed.
 - The **Office 365 Outlook** connector, which provides an action to send email.
 
-When you finish, your workflow looks like the following high level example:
+Consumption workflows run in multitenant Azure Logic Apps. After you complete this quickstart, your workflow looks like the following example:
 
 :::image type="content" source="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png" alt-text="Screenshot shows completed workflow with RSS trigger and Office 365 Outlook action." lightbox="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png":::
 
@@ -51,23 +51,17 @@ To create a Standard logic app workflow that runs in single-tenant Azure Logic A
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* An email account from a service that works with Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
-
-  This quickstart uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but your UI might slightly differ. If you use Outlook.com, use your personal Microsoft account instead to sign in.
+- Email account such as Office 365 Outlook or Outlook.com.
 
   > [!NOTE]
   >
-  > If you want to use the [Gmail connector](/connectors/gmail/), only G Suite accounts can use 
-  > this connector without restriction in Azure Logic Apps. If you have a consumer Gmail account, 
-  > you can only use this connector with specific Google-approved services, unless you 
-  > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). For more information, see 
-  > [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > This quickstart uses Office 365 Outlook, which requires a work or school account. Outlook.com requires a personal Microsoft account. For other email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-* If you have a firewall that limits traffic based on IP addresses, you must allow access for the IP addresses that Azure Logic Apps uses. These addresses include both [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) addresses in the Azure region where your logic app exists.
+- Network access to Azure resources.
 
-  This example uses the **RSS** and **Office 365 Outlook** connectors, which [are hosted and run in global multitenant Azure and are managed by Microsoft](../connectors/managed.md). These connectors require that you set up your firewall to allow access for all the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses) in the Azure region for your logic app resource.
+  If you're behind a corporate firewall, see [IP address requirements](logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags) for Azure Logic Apps. For connectors, see [Managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses).
 
 <a name="create-logic-app-resource"></a>
 
@@ -105,7 +99,7 @@ To create a Standard logic app workflow that runs in single-tenant Azure Logic A
    > For more information, see [Reliability in Azure Functions](../reliability/reliability-functions.md#availability-zone-support) and 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
-   After you finish, your settings look similar to the following example:
+   When you're done, your settings look similar to the following example:
 
    :::image type="content" source="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal and logic app resource creation page with details for new logic app." lightbox="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png":::
 
@@ -219,7 +213,7 @@ This example uses an Office 365 Outlook action that sends an email each time the
 
          :::image type="content" source="media/quickstart-create-example-consumption-workflow/dynamic-content-see-more.png" alt-text="Screenshot shows open dynamic content list and selected option, See more." lightbox="media/quickstart-create-example-consumption-workflow/dynamic-content-see-more.png":::
 
-         After you finish, the email subject looks like the following example:
+         When you're done, the email subject looks like the following example:
 
          :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png" alt-text="Screenshot shows the action named Send an email, with example email subject and included property named Feed title." lightbox="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png":::
 
