@@ -85,7 +85,7 @@ To synchronize OPC UA node properties to the distributed state store, the connec
 
 To configure this behavior, select **Sync properties into state store** when you configure an inbound OPC UA endpoint in the operations experience web UI:
 
-:::image type="content" source="media/overview-opc-ua-connector/sync-properties.png" alt-text="SCreenshot that shows the location of the sync properties to state store option." lightbox="media/overview-opc-ua-connector/sync-properties.png":::
+:::image type="content" source="media/overview-opc-ua-connector/sync-properties.png" alt-text="Screenshot that shows the location of the sync properties to state store option." lightbox="media/overview-opc-ua-connector/sync-properties.png":::
 
 You can also force a synchronization of all properties by making an MQTT RPC call to the `azure-iot-operation/asset-operations/{AssetName}/builtin/syncProperties` topic. A payload `{}` forces a synchronization without observing `ModelChange` events. A payload `{"observeModelChanges": true}` forces a synchronization that observes `ModelChange` events.
 
