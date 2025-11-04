@@ -46,21 +46,6 @@ In this article, you learn how to use rule-based routing with Azure Container Ap
 
     Ignore any warnings about modules currently in use.
 
-    Install or update the Azure Container Apps extension for the CLI.
-
-    If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
-
-    ```azurecli
-    az extension add --name containerapp --upgrade
-    ```
-
-    > [!NOTE]
-    > Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](whats-new.md), install the Container Apps extension with `--allow-preview true`.
-    >
-    > ```azurecli
-    > az extension add --name containerapp --upgrade --allow-preview true
-    > ```
-
 1. Now that the current extension or module is installed, register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces.
 
     ```azurecli
