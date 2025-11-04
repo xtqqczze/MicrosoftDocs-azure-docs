@@ -164,11 +164,8 @@ To enable or disable Priority Replication for an existing OR policy, complete th
 # [Azure portal](#tab/portal)
 
 1. In the Azure portal, navigate to the storage account you want to modify.
-1. Select the **Your accounts** tab to view the list of accounts within your subscription as shown.
-
-
-
-1. Locate the **Destination account** containing the **Source container** and **Destination container** whose OR policy you want to modify. Select the ellipsis or the **More options** button and then select **Edit rules** to open the **Edit replication rules** pane as shown.
+1. Select the **Your accounts** tab to view the list of accounts within your subscription.
+1. Locate the **Destination account** containing the **Source container** and **Destination container** whose OR policy you want to modify. Select the **More options** ellipsis and then select **Edit rules** to open the **Edit replication rules** pane as shown.
 
     :::image type="content" source="media/object-replication-priority-replication/edit-replication-rules-sml.png" alt-text="Screenshot showing how to locate the Edit Rules option for existing replication rules." lightbox="media/object-replication-priority-replication/edit-replication-rules-lrg.png":::
 
