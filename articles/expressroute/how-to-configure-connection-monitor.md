@@ -2,219 +2,368 @@
 title: 'Configure Connection Monitor for Azure ExpressRoute'
 description: Configure cloud-based network connectivity monitoring for Azure ExpressRoute circuits. This covers monitoring over ExpressRoute private peering and Microsoft peering.
 services: expressroute
-author: duongau
+author: dpremchandani
 ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 01/31/2025
-ms.author: duau
+ms.author: divyapr
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network engineer, I want to configure Connection Monitor for Azure ExpressRoute, so that I can monitor connectivity and performance between Azure and on-premises locations to quickly identify and resolve potential network issues."
 ---
 
 # Configure Connection Monitor for Azure ExpressRoute
 
-This article guides you through configuring a Connection Monitor extension to monitor ExpressRoute. Connection Monitor is a cloud-based network monitoring solution that tracks connectivity between Azure cloud deployments and on-premises locations (such as branch offices). It's part of Azure Monitor logs and allows you to monitor network connectivity for both private and Microsoft peering connections. By configuring Connection Monitor for ExpressRoute, you can identify and resolve network issues.
+When you're investigating ExpressRoute connectivity issues, you're left guessing where the problem is: your network, Azure's infrastructure, or somewhere in between.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
+Connection Monitor changes this by providing true end-to-end visibility. Unlike OOB resource metrics and health that only focus on the individual component, or open-source tools that can detect failures but can't pinpoint where problems occur, Connection Monitor tests your entire ExpressRoute path—from your on-premises servers through the ExpressRoute circuit to your Azure workloads to not just detect but also localize and mitigate issues.
 
-With Connection Monitor for ExpressRoute, you can:
+With Connection Monitor, you can:
 
-* Monitor loss and latency across various VNets and set alerts.
-* Monitor all network paths, including redundant ones.
-* Troubleshoot transient and point-in-time network issues that are difficult to replicate.
-* Identify specific network segments responsible for degraded performance.
+- **Detect any connectivity or performance degradation** with continuous connectivity tests between your on-premises and Azure workloads
+- **Pinpoint the exact problem location** with hop-by-hop network path visualization
+- **Prove whether it's your issue or Azure's** by localizing failures within the Azure network or your infrastructure
+- **Track performance over time** with historical latency and packet loss data
+- **Get instant alerts** when thresholds are breached (learn more about [configuring alerts](connection-monitor-alerts.md))
 
-## Workflow
+This article shows you how to set up Connection Monitor so you have complete visibility into your ExpressRoute connection health.
 
-Monitoring agents are installed on multiple servers, both on-premises and in Azure. These agents communicate by sending TCP handshake packets, allowing Azure to map the network topology and traffic paths.
+## Prerequisites
 
-1. Create a Log Analytics workspace.
-2. Install and configure software agents (not required for Microsoft Peering only):
-    * Install monitoring agents on on-premises servers and Azure VMs (for private peering).
-    * Configure settings on monitoring agent servers to allow communication (for example, open firewall ports).
-3. Configure network security group (NSG) rules to allow communication between monitoring agents on Azure VMs and on-premises agents.
-4. Enable Network Watcher on your subscription.
-5. Set up monitoring by creating connection monitors with test groups to monitor source and destination endpoints across your network.
+Before you begin, ensure you have the following:
 
-If you're already using Network Performance Monitor (deprecated) or Connection Monitor and have a Log Analytics workspace in a supported region, you can skip steps 1 and 2 and start from step 3.
+### What you need
 
-## Create a workspace
+* **An active ExpressRoute connection** between your on-premises network and Azure
+* **Azure Monitor agent for on-premises endpoints**: Install the [Azure Monitor agent](../network-watcher/azure-monitor-agent-with-connection-monitor.md) on any on-premises server that you intend to use as a source endpoint for connectivity testing.
+* **A TCP listener running** on your on-premises servers (on the port you'll configure)
 
-Create a workspace in the subscription that has the VNets linked to the ExpressRoute circuit.
+### Permissions
 
-1. Sign in to the [Azure portal](https://portal.azure.com). From the subscription with the virtual networks connected to your ExpressRoute circuit, select **+ Create a resource**. Search for *Log Analytics Workspace*, then select **Create**.
+Most users need **Network Contributor** role. If you don't have it, ask your Azure administrator.
 
-   > [!NOTE]
-   > You can create a new workspace or use an existing one. If using an existing workspace, ensure it's been migrated to the new query language. [More information...](/azure/azure-monitor/logs/log-query-overview)
+<details>
+<summary>Detailed permission requirements (expand if you need specifics)</summary>
 
-1. Create a workspace by entering or selecting the following information:
+Your exact permissions depend on your scenario:
 
-    | Settings | Value |
-    | -------- | ----- |
-    | Subscription | Select the subscription with the ExpressRoute circuit. |
-    | Resource Group | Create a new or select an existing resource group. |
-    | Name | Enter a name to identify this workspace. |
-    | Region | Select a region where this workspace is created. |
+**Creating a new connection with monitoring:**
+* `Microsoft.Network/virtualNetworks/write`
+* `Microsoft.Resources/deployments/*`
+* `Microsoft.OperationalInsights/workspaces/*`
 
-   >[!NOTE]
-   >The ExpressRoute circuit can be anywhere in the world. It doesn't have to be in the same region as the workspace.
+**If Network Watcher isn't enabled in your region:**
+* Contributor role OR `Microsoft.Resources/subscriptions/resourceGroups/write`
 
-1. Select **Review + Create** to validate and then **Create** to deploy the workspace. Once deployed, continue to the next section to configure the monitoring solution.
+**If monitoring Azure Arc servers:**
+* `Microsoft.HybridCompute/machines/write`
+* `Microsoft.Authorization/*/Read`
 
-## Configure monitoring solution
+</details>
 
-Complete the Azure PowerShell script by replacing the values for *$SubscriptionId*, *$location*, *$resourceGroup*, and *$workspaceName*. Then run the script to configure the monitoring solution.
+## Understand test configuration and limitations
 
-```azurepowershell-interactive
-$subscriptionId = "Subscription ID should come here"
-Select-AzSubscription -SubscriptionId $subscriptionId
+Connection Monitor automatically creates tests based on your selected endpoints. Understanding how tests are created helps you plan your monitoring strategy effectively.
 
-$location = "Workspace location should come here"
-$resourceGroup = "Resource group name should come here"
-$workspaceName = "Workspace name should come here"
+### How tests are created
 
-$solution = @{
-    Location          = $location
-    Properties        = @{
-        workspaceResourceId
-        workspaceResourceId = "/subscriptions/$($subscriptionId)/resourcegroups/$($resourceGroup)/providers/Microsoft.OperationalInsights/workspaces/$($workspaceName)"
-    }
-    Plan              = @{
-        Name          = "NetworkMonitoring($($workspaceName))" 
-        Publisher     = "Microsoft"
-        Product       = "OMSGallery/NetworkMonitoring"
-        PromotionCode = ""
-    }
-    ResourceName      = "NetworkMonitoring($($workspaceName))" 
-    ResourceType      = "Microsoft.OperationsManagement/solutions" 
-    ResourceGroupName = $resourceGroup
-}
+The type of test Connection Monitor creates depends on your endpoint configuration:
 
-New-AzResource @solution -Force
-```
+| On-premises endpoint type | Azure endpoint | Test direction |
+|---------------------------|----------------|---------------|
+| Azure Arc-enabled server | Azure VM or Virtual Machine Scale Set | Bi-directional: Azure to Arc server and Arc server to Azure |
+| External address (IP address without Azure Arc) | Azure VM or Virtual Machine Scale Set | Uni-directional: Azure to external address only |
 
-Once you configure the monitoring solution, proceed to install and configure the monitoring agents on your servers.
+### Regional considerations
 
-## Install and configure agents on-premises
+Only endpoints in the same Azure region as your ExpressRoute connection can serve as source endpoints. This limitation affects the number and direction of tests that Connection Monitor creates.
 
-### Download the agent setup file
+**Key points:**
 
-1. Navigate to the **Log Analytics workspace** and select **Agents management** under *Settings*. Download the agent that corresponds to your machine's operating system.
+- Endpoints in any region can be destination endpoints.
+- Only endpoints in the ExpressRoute connection region can be source endpoints.
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/download-agent.png" alt-text="Screenshot of agent management page in workspace.":::
+**Example:**
 
-1. Copy the **Workspace ID** and **Primary Key** to Notepad.
+Your ExpressRoute connection is in **East US** and you select the following endpoints:
 
-1. For Windows machines, download and run this PowerShell script [*EnableRules.ps1*](https://aka.ms/npmpowershellscript) in a PowerShell window with Administrator privileges. The script opens the relevant firewall port for TCP transactions.
+- **On-premises endpoints:**
+    - Arc-enabled server 1 in East US
+    - Arc-enabled server 2 in West US
 
-    For Linux machines, change the port number manually:
-    * Navigate to /var/opt/microsoft/omsagent/npm_state.
-    * Open the npmdregistry file.
-    * Change the value for Port Number `PortNumber:<port of your choice>`.
+- **Azure endpoints:**
+    - Virtual network 1 in East US
+    - Virtual network 2 in West US
 
-### Install Log Analytics agent on each monitoring server
+Connection Monitor creates these tests:
 
-Install the Log Analytics agent on at least two servers on both sides of the ExpressRoute connection for redundancy. Follow these steps:
+| Test direction | Source | Destination | Reason |
+|----------------|--------|-------------|--------|
+| Azure to on-premises | Virtual network 1 (East US) | Arc-enabled server 1 | Virtual network 1 is in the ExpressRoute connection region |
+| Azure to on-premises | Virtual network 1 (East US) | Arc-enabled server 2 | Virtual network 1 is in the ExpressRoute connection region |
+| On-premises to Azure | Arc-enabled server 1 (East US) | Virtual network 1 | Arc-enabled server 1 is in the ExpressRoute connection region |
+| On-premises to Azure | Arc-enabled server 1 (East US) | Virtual network 2 | Arc-enabled server 1 is in the ExpressRoute connection region |
 
-1. Select the appropriate operating system for the steps to install the Log Analytics agent on your servers:
-    * [Windows](/azure/azure-monitor/agents/agent-windows#install-the-agent)
-    * [Linux](/azure/azure-monitor/agents/agent-linux)
+Connection Monitor doesn't create these tests:
 
-1. After installation, the Microsoft Monitoring Agent appears in the Control Panel. Review your configuration and [verify the agent connectivity](/azure/azure-monitor/agents/agent-windows-troubleshoot?tabs=UpdateMMA#connectivity-issues) to Azure Monitor logs.
+- Arc-enabled server 2 to Azure endpoints because Arc-enabled server 2 is in West US, not the ExpressRoute connection region
+- Virtual network 2 to Arc-enabled servers because virtual network 2 is in West US, not the ExpressRoute connection region
 
-1. Repeat steps 1 and 2 for other on-premises machines you wish to monitor.
+### Azure endpoint configuration
 
-### Install Network Watcher agent on each monitoring server
+When you configure Azure endpoints:
 
-#### New Azure virtual machine
+- **Automatic selection**: Connection Monitor automatically selects endpoints in the same region as your ExpressRoute connection.
+- **Manual selection**: You can manually select endpoints in other regions as destination endpoints.
+- **Virtual network visibility**: Only virtual networks that contain at least one virtual machine or Virtual Machine Scale Set appear in the endpoint list.
+- **Virtual machine sampling**: Connection Monitor selects up to three virtual machines per virtual network and automatically installs the Network Watcher extension on them.
+- **Endpoint limit**: You can select up to 30 Azure virtual networks as endpoints.
 
-If creating a new Azure VM for monitoring connectivity, you can install the Network Watcher agent during VM creation.
+## Configure Connection Monitor
 
-#### Existing Azure virtual machine
+You can configure Connection Monitor when creating a new ExpressRoute connection or add it to an existing connection.
 
-If using an existing VM, install the Network Agent separately for [Linux](../network-watcher/network-watcher-agent-linux.md) and [Windows](../network-watcher/network-watcher-agent-windows.md).
+### Create a new ExpressRoute connection with monitoring
 
-### Open firewall ports on monitoring agent servers
+Follow these steps to enable Connection Monitor while creating a new ExpressRoute connection:
 
-Ensure firewall rules allow TCP or ICMP packets between source and destination servers for connection monitoring.
+1. Create the ExpressRoute connection by following the steps in [Link a virtual network to ExpressRoute circuits](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
 
-#### Windows
+1. On the **Monitoring** tab during connection setup:
+    * The **Enable Connection Monitor** checkbox is selected by default. Clear it if you don't want to enable monitoring.
+    * Select your **on-premises and Azure endpoints**. Both endpoints are required to define the test path.
+        * **On-premises endpoint**: Select the on-premises endpoint for your connectivity tests. You can choose one or both options:
+            * **Azure Arc-enabled endpoint**: Select a server that has the Azure Monitor agent installed. This option supports bi-directional tests (the endpoint can act as both source and destination).
+            * **External URL or IP address**: Enter an external address that is reachable through your ExpressRoute connection. This option only supports uni-directional tests where the external address serves as the destination endpoint.
+              
+              > [!NOTE]
+              > If you don't have Arc-enabled servers yet, you can start with external addresses and upgrade to Arc later for bi-directional testing.
 
-Run the [EnableRules](https://aka.ms/npmpowershellscript) PowerShell script (downloaded earlier) in a PowerShell window with administrative privileges. This script creates the necessary registry keys and Windows Firewall rules.
+            > [!NOTE]
+            > See [Understand test configuration](#understand-test-configuration-and-limitations) for details on how your endpoint selection affects test creation.
+           
+        * **Azure endpoint**: Select your Azure Virtual Machine (VM) or Virtual Machine Scale Set (VMSS) from the list of available Azure Virtual Networks. If you don't explicitly select a VM, Connection Monitor randomly samples a VM within the selected virtual network. Bi-directional tests are supported when the Azure endpoint is in the same region as the on-premises endpoint. Otherwise, only uni-directional tests are available.
 
-> [!NOTE]
-> The script configures Windows Firewall rules only on the server where it's bring run. Ensure network firewalls allow traffic for the TCP port used by Connection Monitor.
+            > [!TIP]
+            > Endpoints in the same region as your ExpressRoute connection are auto-selected because they provide the most comprehensive test coverage.
 
-#### Linux
+    * Configure the **test settings**:
+        * **Protocol**: The network protocol used for testing. Connection Monitor supports TCP to simulate application traffic on a specific port.
+        * **Disable traceroute**: Select this checkbox to stop sources from discovering topology and hop-by-hop RTT.
+        * **Destination port**: Enter the port your application uses.
+          
+          > [!TIP]
+          > Common choices: Port 443 (HTTPS), 1433 (SQL Server), or 3389 (RDP). Pick a port that matches your critical workload.
 
-Change port numbers manually:
-1. Navigate to /var/opt/microsoft/omsagent/npm_state.
-1. Open the npmdregistry file.
-1. Change the value for Port Number `PortNumber:<port of your choice>`. Ensure the same port number is used across all agents in a workspace.
+        * **Listen on port**: This checkbox applies when the protocol is TCP. Select this checkbox to open the chosen TCP port if it isn't already open.
+        * **Test Frequency**: How often Connection Monitor checks your connection.
+            * **30 seconds**: Best for mission-critical apps where you need immediate detection (uses more resources)
+            * **5 minutes**: Good balance for most production environments
+            * **30 minutes**: Adequate for non-critical monitoring
+            * Select **Custom** to enter another frequency from 30 seconds to 30 minutes
+        * **Success Threshold**: Set thresholds to get alerted when performance degrades:
+            * **Checks failed**: The percentage of acceptable packet loss. Start with 10% and adjust based on your SLA requirements.
+            * **Round-trip time**: The maximum acceptable latency in milliseconds. Start with your baseline plus 20% (for example, if your typical RTT is 50ms, set this to 60ms).
 
-## Configure Network Security Group rules
+    :::image type="content" source="./media/how-to-configure-connection-monitor/connection-monitor.png" alt-text="Screenshot showing the Monitoring tab configuration page for Connection Monitor settings." lightbox="./media/how-to-configure-connection-monitor/connection-monitor.png":::
 
-To monitor servers in Azure, configure NSG rules to allow TCP or ICMP traffic from Connection Monitor. The default port is **8084**.
+1. Select **Review + create** and then select **Create** to deploy the connection. The monitor is created only if the ExpressRoute connection deploys successfully.
 
-For more information about NSG, see the tutorial on [filtering network traffic](../virtual-network/tutorial-filter-network-traffic.md).
+## Verify your monitoring is working
 
-> [!NOTE]
-> Ensure agents are installed (both on-premises and Azure) and run the PowerShell script before proceeding.
+After you configure Connection Monitor, confirm everything is running correctly:
 
-## Enable Network Watcher
+1. **Wait 5 minutes** for the first test results to appear.
 
-Ensure Network Watcher is enabled for your subscription. For more information, see [Enable Network Watcher](../network-watcher/network-watcher-create.md).
+1. Go to your ExpressRoute connection and select **Monitoring** > **Connection Monitor**.
 
-## Create a connection monitor
+1. **You should see:**
+   * ✅ Green "Pass" status for each endpoint
+   * ✅ Latency graphs showing data points
+   * ✅ Path view displaying network hops from on-premises to Azure
 
-For a high-level overview of creating a connection monitor, tests, and test groups, see [Create a connection monitor](../network-watcher/connection-monitor-create-using-portal.md). Follow these steps to configure connection monitoring for Private Peering and Microsoft Peering:
+1. **If you see "Indeterminate" status:**
+   * Wait up to 10 minutes—the first test run can take time
+   * Check that Azure Monitor agent is running on your on-premises servers
+   * Verify the TCP listener is started on the configured port
 
-1. In the Azure portal, navigate to your **Network Watcher** resource and select **Connection monitor** under *Monitoring*. Select **Create** to create a new connection monitor.
+1. **If you see "Fail" status:**
+   * Select the endpoint to view the **Reason** column for specific error details
+   * Common issues:
+     * Firewall blocking the test port
+     * TCP listener not running on Arc endpoints
+     * Network Watcher extension still installing on Azure VMs
 
-1. On the **Basics** tab, select the same region where you deployed your Log Analytics workspace for the *Region* field. For *Workspace configuration*, select the existing Log Analytics workspace you created earlier. Then select **Next: Test groups >>**.
+1. **Test your alerts** (optional but recommended):
+   * Go to **Monitoring** > **Alerts** on your ExpressRoute connection
+   * Select the Connection Monitor alert rule
+   * Select **Test action group** to trigger a test notification
 
-1. On the *Add test group details* page, add the source and destination endpoints for your test group. Enter a **Name** for this test group.
+> [!TIP]
+> Bookmark the Connection Monitor dashboard for quick access. You'll use this frequently to check connection health.
 
-1. Select **Add source** and navigate to the **Non-Azure endpoints** tab. Choose the on-premises resources with Log Analytics agent installed that you want to monitor, then select **Add endpoints**.
+**Next steps:** Learn how to [update configured alert thresholds](connection-monitor-alerts.md) to match your SLA requirements.
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/add-source-endpoints.png" alt-text="Screenshot of adding source endpoints.":::
+### Add monitoring to an existing ExpressRoute connection
 
-1. Select **Add destinations**. 
+Follow these steps to add monitoring to an existing ExpressRoute connection:
 
-    To monitor connectivity over ExpressRoute **private peering**, navigate to the **Azure endpoints** tab. Choose the Azure resources with the Network Watcher agent installed that you want to monitor. Select the private IP address of each resource in the *IP* column. Select **Add endpoints**.
+1. In the Azure portal, go to **ExpressRoute Circuit**, then select **Connections** and select the connection you want to monitor.
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/add-destination-endpoints.png" alt-text="Screenshot of adding Azure destination endpoints.":::
+1. Check the **Monitoring status** column in the connections list:
+    * If a monitor exists, select **View Tests** to edit the configuration.
+    * If no monitor exists, select **Add monitor**.
 
-    To monitor connectivity over ExpressRoute **Microsoft peering**, navigate to the **External Addresses** tab. Select the Microsoft services endpoints you wish to monitor. Select **Add endpoints**.
+    Alternatively, open the connection resource and select **Connection Monitor** under **Monitoring** in the left menu.
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/add-external-destination-endpoints.png" alt-text="Screenshot of adding external destination endpoints.":::
+1. Configure endpoints and test settings by following the same steps as described in [Create a new ExpressRoute connection with monitoring](#create-a-new-expressroute-connection-with-monitoring).
 
-1. Select **Add test configuration**. Choose **TCP** for the protocol, and input the **destination port** you opened on your servers. Configure your **test frequency** and **thresholds for failed checks and round trip time**. Select **Add Test configuration**.
+1. Select **Review + create** and then select **Create** to deploy the monitor. After the monitor is created, you can view performance and connectivity data.
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/add-test-configuration.png" alt-text="Screenshot of add test configuration page.":::
+## Troubleshoot deployment issues
 
-1. Select **Add Test Group** once you've added your sources, destinations, and test configuration.
+### The connection deploys but monitoring doesn't appear
 
-1. Select **Next : Create alert >>** if you want to create alerts. Once completed, select **Review + create** and then **Create**.
+**Why this happens:** Network Watcher might not be enabled in your region, or you might lack permissions to create monitoring resources.
 
-## View results
+**What to do:**
+1. In the Azure portal, search for **Network Watcher**.
+1. Check if your region appears in the list of enabled regions.
+1. If your region isn't listed, ask your Azure administrator to enable Network Watcher or grant you Contributor permissions.
 
-1. Go to your **Network Watcher** resource and select **Connection monitor** under *Monitoring*. You should see your new connection monitor after 5 minutes. To view the connection monitor's network topology and performance charts, select the test from the test group dropdown.
+### I get a permissions error during setup
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/overview.png" alt-text="Screenshot of connection monitor overview page." lightbox="./media/how-to-configure-connection-monitor/overview-expanded.png":::
+**Why this happens:** You need additional permissions to create Log Analytics workspaces or manage Network Watcher resources.
 
-1. In the **Performance analysis** panel, view the percentage of check failures and each test's round-trip time results. Adjust the time frame for the displayed data using the dropdown at the top of the panel.
+**What to do:**
+1. Note the exact error message from the deployment failure.
+1. Share the error message with your Azure administrator.
+1. Ask them to grant you Network Contributor role or create the Log Analytics workspace for you.
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/performance-analysis.png" alt-text="Screenshot of performance analysis panel." lightbox="./media/how-to-configure-connection-monitor/performance-analysis-expanded.png":::
+### Tests show "Indeterminate" status
 
-1. Closing the **Performance analysis** panel reveals the network topology detected by the connection monitor between the source and destination endpoints. This view shows the bi-directional traffic paths and hop-by-hop latency before reaching Microsoft's edge network.
+**Why this happens:** The monitoring agents haven't collected data yet, or there's a connectivity issue preventing test execution.
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/topology.png" alt-text="Screenshot of network topology in connection monitor." lightbox="./media/how-to-configure-connection-monitor/topology-expanded.png":::
+**What to do:**
+1. Wait 10 minutes for the first test run to complete.
+1. If status remains "Indeterminate," check that:
+   * The Azure Monitor agent is installed and running on your on-premises servers
+   * The TCP listener is started on the configured port
+   * Network Watcher extension is installed on Azure VMs
 
-    Selecting any hop in the topology view displays additional information about the hop. Any issues detected by the connection monitor are displayed here.
+### Tests show "Fail" immediately after setup
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/hop-details.png" alt-text="Screenshot of more information for a network hop.":::
+**Why this happens:** Firewall rules might be blocking the test traffic, or the destination port isn't accessible.
+
+**What to do:**
+1. Check the **Reason** column in the Connection Monitor dashboard for specific error details.
+1. Common fixes:
+   * Open the destination port in your firewall rules
+   * Verify the TCP listener is running on Arc-enabled endpoints
+   * Check that your ExpressRoute circuit has active BGP sessions
+   * Confirm your routing allows traffic between the selected endpoints
+
+## Monitor connection status and alerts
+
+After Connection Monitor is configured, you can track connectivity status and receive alerts when issues occur.
+
+### View connection status
+
+1. In the Azure portal, go to your **ExpressRoute connection**.
+
+1. In the left menu, select **Monitoring**, then select **Connection Monitor**.
+
+1. The dashboard shows the aggregated status for each endpoint based on test results from the past hour:
+    * **Pass**: All tests succeeded
+    * **Fail**: All tests failed
+    * **Warning**: Some tests failed (e.g., "2/6" means 2 out of 6 tests failed)
+    * **Indeterminate**: No test data found in Log Analytics
+    
+1. Select an endpoint to view:
+    * Individual test results
+    * The **Reason** column for failure causes
+    * Latency trends and packet loss metrics
+    * Network path visualization
+
+### Configure and manage alerts
+
+Connection Monitor automatically creates Azure Monitor alerts when connectivity issues are detected. You can view, edit, and create custom alerts based on your monitoring needs.
+
+**To view or edit alert rules:**
+
+1. On the Connection Monitor dashboard, select the value in the **Alerts** column.
+
+1. The alert rule definition opens where you can:
+    * Modify alert thresholds
+    * Change notification settings
+    * Add action groups
+    * Configure alert severity
+
+For detailed information about default alerts, customizing alert conditions, creating alerts for performance metrics (RTT and packet loss), and detecting monitoring gaps, see [Configure alerts for Connection Monitor](connection-monitor-alerts.md).
+
+## FAQ
+
+### Endpoint configuration
+
+**What's the difference between Azure Arc endpoints and external addresses?**
+
+When configuring on-premises endpoints, you have two options:
+
+- **Azure Arc endpoints**: If you have Azure Arc-enabled servers, they automatically appear in the endpoint list. When you select these servers, Connection Monitor creates bi-directional tests—from each Azure endpoint to each Arc server AND from each Arc server to each Azure endpoint.
+
+- **External addresses**: If you don't have Azure Arc-enabled servers, you can manually enter on-premises IP addresses. When you specify external addresses, Connection Monitor creates uni-directional tests only—from each Azure endpoint to each external address. No reverse-direction tests are created.
+
+**What does "Your source endpoints must be in the same region as your ExpressRoute connection region" mean?**
+
+You can select endpoints from any region, but only endpoints in the same region as your ExpressRoute connection can act as source endpoints. This limitation affects how many tests are created:
+
+- Endpoints in any region can serve as destinations in tests
+- Only endpoints in the ExpressRoute connection region can initiate tests as sources
+- Each endpoint can be used as a source in one test and as a destination in another test to provide monitoring in both directions
+
+This regional requirement limits the total number of possible tests based on your endpoint selections.
+
+**Why don't I see some of my virtual networks in the Azure endpoints list?**
+
+Only virtual networks that contain at least one VM or Virtual Machine Scale Set appear in the endpoint list. If your virtual network only has other resources (like App Service, Azure Kubernetes Service, or databases), it won't be listed.
+
+**Why are some endpoints automatically selected?**
+
+Endpoints in the same region as your ExpressRoute connection are automatically selected. You can manually select or deselect other endpoints from different regions as needed.
+
+**Do tests run on all VMs in a virtual network?**
+
+No. Connection Monitor selects up to 3 VMs per virtual network. The Network Watcher Extension is automatically enabled on these VMs when you create the connection or update an existing connection with Connection Monitor enabled. You can't manually choose which specific VMs are used.
+
+**Can I select more than 30 virtual networks as Azure endpoints?**
+
+No, 30 virtual networks is the current limit per Connection Monitor. If you need to monitor more endpoints, contact Azure support to discuss your requirements.
+
+### Monitoring and alerts
+
+**How am I notified when an issue occurs?**
+
+Azure Monitor automatically raises alerts when Connection Monitor detects connectivity issues. For more information, see [Connection Monitor alerts](connection-monitor-alerts.md).
+
+**Can I edit the automatically configured alerts?**
+
+Yes. On the Connection Monitor dashboard, select the value in the **Alerts** column. This opens the alert rule definition where you can edit thresholds, notification settings, action groups, and alert severity. For step-by-step guidance, see [Configure alerts for Connection Monitor](connection-monitor-alerts.md).
+
+**What should I do when Connection Monitor alerts are triggered?**
+
+Go to your ExpressRoute connection resource and select **Monitoring** > **Connection Monitor** from the left menu. The dashboard shows the connectivity test status for each endpoint, helping you identify which tests are failing and why.
+
+**What does the status on the Connection Monitor dashboard mean?**
+
+A Connection Monitor includes one or more tests. The dashboard shows an aggregated status based on test results from the past hour:
+
+- **Pass**: All tests passed
+- **Fail**: All tests failed
+- **Indeterminate**: No test data found in Log Analytics
+- **Warning**: Some tests failed. The status column displays the number of failed tests (for example, "1/4" means 1 out of 4 tests failed). The **Reason** column provides the cause of failure.
+
+Select an endpoint to view individual test results, latency trends, packet loss metrics, and network path visualization.
 
 ## Next steps
 
-Learn more about [Monitoring Azure ExpressRoute](monitor-expressroute.md)
+- [Configure alerts for Connection Monitor](connection-monitor-alerts.md)
+- [Monitor Azure ExpressRoute](monitor-expressroute.md)
