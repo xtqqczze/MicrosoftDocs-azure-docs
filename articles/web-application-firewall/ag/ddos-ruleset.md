@@ -48,7 +48,7 @@ Once traffic from a client exceeds the threshold for one of the rules in the HTT
 
 When an IP address exceeds a threshold, a rule hit for the HTTP DDoS ruleset is logged, and the IP is placed in the penalty box. Additional blocks while that IP is in the penalty box aren't logged.
 
-# Monitoring the HTTP DDoS ruleset
+## Monitoring the HTTP DDoS ruleset
 
 Some monitoring capabilities are limited during preview. The following monitoring options are currently available for the HTTP DDoS ruleset:
 
@@ -56,7 +56,7 @@ Some monitoring capabilities are limited during preview. The following monitorin
 
 - You can monitor the number of blocks using the Response Status Metric on the Application Gateway and splitting the metric by HTTP Status and viewing how many *4xx* responses are returned to the client. 
 
-# Accessing the preview
+## Accessing the preview
 
 To configure the ruleset, use the [preview portal](https://preview.portal.azure.com). You can also use ARM template and Bicep deployments to configure the ruleset.
 
