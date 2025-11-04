@@ -4,7 +4,7 @@ description: Learn to use zonal placement for Azure storage accounts so you can 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/17/2025
+ms.date: 11/04/2025
 ms.author: kendownie
 ms.custom:
   - references_regions
@@ -89,7 +89,7 @@ Follow these steps to create a new zonal storage account using the Azure portal.
 
 1. Enter a name for the storage account. The name must be unique across all existing storage account names in Azure. It must be 3 to 24 characters long, and can contain only lowercase letters and numbers.
 
-1. Select a region. Make sure it's on the [supported list](#region-support).
+1. Select a region. Make sure it's on the [supported list](#region-support) for zonal placement.
 
 1. Under **Preferred storage type**, select **Azure Files**.
 
@@ -101,10 +101,12 @@ Follow these steps to create a new zonal storage account using the Azure portal.
 
 1. If the selected region supports zonal placement, a **Zone options** dropdown appears. It offers three choices:
 
+   - **None:** Creates a regional storage account.
    - **Self-selected zone:** Enables a secondary dropdown to select a specific availability zone (1, 2, or 3).
    - **Azure-selected zone:** Azure automatically assigns zone 1, 2, or 3.
-   - **None:** Creates a regional storage account.
-   
+
+    :::image type="content" source="media/zonal-placement/zone-options.png" alt-text="Screenshot showing the three different zonal placement options in the Azure portal." border="true":::
+
    Choose the desired option and proceed with storage account configuration.
 
 1. When configuration is complete, select **Review + Create**, and then select **Create**.
@@ -142,7 +144,7 @@ New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-
 
 ## Pin an existing storage account to an Azure-selected zone
 
-You can also pin an existing premium storage account to an Azure-selected availability zone by using the Azure portal or PowerShell. Once pinned, Microsoft guarantees that the storage account won't be moved. 
+You can also pin an existing premium storage account to an Azure-selected availability zone by using the Azure portal or PowerShell. Once pinned, the storage account won't be moved.
 
 > [!IMPORTANT]
 > Existing storage accounts can only be pinned to availability zones that are automatically selected by Azure. You can't choose a specific zone number.
@@ -160,9 +162,9 @@ Follow these steps to pin an existing storage account to an Azure-selected zone 
    - A zone selected by Azure (for example, Zone 1, 2, or 3)
    - None (to use the regional storage account configuration)
 
-   Choose the zone selected by Azure.
+    :::image type="content" source="media/zonal-placement/move-availability-zone.png" alt-text="Screenshot of the Azure portal showing how to pin an existing storage account to an Azure-selected zone." lightbox="media/zonal-placement/move-availability-zone.png" border="true":::
 
-1. Consent to the prompt "I agree for Microsoft to create a system-managed identity," and then select **Apply**.
+1. Choose the Azure-selected zone, and then select **Move**.
 
 The storage account will now be pinned to the selected zone, as reflected in the **Availability** section on the **Overview** tab. 
 
