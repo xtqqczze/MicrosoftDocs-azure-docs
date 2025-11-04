@@ -31,7 +31,7 @@ The agent reviews logs, health probes, and other data to assess the incident. Du
 
 ## Platform integration
 
-Minimal setup is required for Azure Monitor (default integration). Non-Microsoft systems like PagerDuty and ServiceNow require extra setup for incident handling preferences. All platforms automatically handle SEV2 and lower issues by default. You can change this default behavior at any time.
+Minimal setup is required for Azure Monitor (default integration). Non-Microsoft systems like PagerDuty and ServiceNow require extra setup for incident handling preferences. All platforms automatically handle severity level 2 (SEV2) and lower issues by default. You can change this behavior at any time.
 
 To access the incident management settings, open your agent in the Azure portal and select the **Incident platform** tab.
 
