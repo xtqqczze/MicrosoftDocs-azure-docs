@@ -13,7 +13,7 @@ monikerRange: migrate
 
 # Plan high-fidelity execution for predictable migration and modernization (preview)
 
-This article explains how to create a high-fidelity migration plan in Azure Migrate, including defining targets, configuring settings, adding tasks, and preparing prerequisites to ensure predictable migration and modernization.
+This article explains how for creating a high-fidelity migration plan in Azure Migrate, including defining targets, configuring settings, adding tasks, and preparing prerequisites to ensure predictable migration and modernization.
 
 Creating a high-fidelity plan including all the migration details is essential for ensuring predictable migration and modernization without deviations and plans and outcomes. The primary details include:
 
@@ -41,13 +41,13 @@ Use the application target settings to link assessments and add migration tasks 
 
 1. In **Target Setting** select **Link assessment** to review the link assessment. You can change assessment or link if none is currently linked.  
 
-Linking an assessment to the application links the assessment to all workloads for that application across waves and reset the tasks.  
+To link an assessment to the application links the assessment to all workloads for that application across waves and reset the tasks.  
 
 :::image type="content" source="./media/how-to-complete-wave-plan/application-target-settings.png" alt-text="The screenshot shows how to select link assessment in target settings page." lightbox="./media/how-to-complete-wave-plan/application-target-settings.png"::: 
 
-2. Select **Add tasks** to add tasks that you need to perform as part of migration beyond the workload migrations. These tasks are manual, so you can add, update and track manually.
+2. Select **Add tasks** to add tasks that you need to perform as part of migration beyond the workload migrations. These tasks are manual, so you can add, update, and track manually.
 
-:::image type="content" source="./media/how-to-complete-wave-plan/application-tasks.png" alt-text="The screenshot shows how to select tasks that you need to perfrom." lightbox="./media/how-to-complete-wave-plan/application-tasks.png"::: 
+:::image type="content" source="./media/how-to-complete-wave-plan/application-tasks.png" alt-text="The screenshot shows how to select tasks that you need to perform." lightbox="./media/how-to-complete-wave-plan/application-tasks.png"::: 
 
 
 ### Configure Workload Targets and migration tasks
@@ -69,18 +69,18 @@ Refer to the [FAQ](common-questions-wave-planning.md) to learn about the support
 
 ## Prepare your Wave for migration: Key prerequisites
 
-Azure Migrate identifies the prerequisites you need to complete before starting migration, based on the migration targets, tools, and tasks you define. To review and add additional prerequisites for tracking and to make the wave ready for migration, do the following:
+Azure Migrate identifies the prerequisites you need to complete before starting migration, based on the migration targets, tools, and tasks you define. To review and add other prerequisites for tracking and to make the wave ready for migration, do the following:
 
 1. Select **View details** in the Wave settings tile.  
 
 :::image type="content" source="./media/how-to-complete-wave-plan/wave-settings.png" alt-text="The screenshot shows how to view details in the wave settings tile." lightbox="./media/how-to-complete-wave-plan/wave-settings.png":::   
 
-2. Review the pre-requisites and select **Add Task**  
+2. Review the prerequisites and select **Add Task**  
 
 :::image type="content" source="./media/how-to-complete-wave-plan/add-tasks-and-prereqs.png" alt-text="The screenshot shows how to add tasks in wave settings." lightbox="./media/how-to-complete-wave-plan/add-tasks-and-prereqs.png":::   
 
 3. Provide a description name of the task and **Description** about the task.
-4. Select **Add**, and then select **Save changes** to save the tasks as a pre-requisite.
+4. Select **Add**, and then select **Save changes** to save the tasks as a prerequisite.
 
 The tasks appear in the Wave configuration stage of the migration and modernization journey. Complete these tasks before the Wave is ready for execution.
 
