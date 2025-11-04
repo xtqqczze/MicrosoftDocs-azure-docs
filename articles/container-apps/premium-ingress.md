@@ -94,11 +94,11 @@ Your workload profile must have at least two nodes to use premium ingress.
     ```
     The following table describes the parameters you can set when configuring premium ingress settings for your Container Apps environment.
 
-| Parameter                     | Description                                                                                 |
-|-----------------------------|---------------------------------------------------------------------------------------------|
-| termination-grace-period | The time (in seconds) to allow active connections to close before terminating the ingress.   Minimum: 0, Maximum: 60. |
-| request-idle-limit           |  The time (in minutes) a request can remain idle before being disconnected.  Default: 4, Minimum: 4, Maximum: 30. |
-| header-count-limit         | The maximum number of HTTP headers allowed per request. Default: 100, Minimum: 1. |
+| Parameter | Description | Default | Minimum | Maximum |
+|--|--|--|--|--|
+| `termination-grace-period` | The time (in seconds) to allow active connections to close before terminating the ingress. | n/a | 0 | 60 |
+| `request-idle-limit` | The time (in minutes) a request can remain idle before being disconnected. | 4 | 4 | 30 |
+| `header-count-limit` | The maximum number of HTTP headers allowed per request. | 100 | 1 | n/a |
 
 
 Once configured you will see an output of the settings you just applied.
