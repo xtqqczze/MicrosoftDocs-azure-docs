@@ -45,7 +45,7 @@ The de-identification service unlocks the power of your data by automating three
 ### **Consistent replacement to preserve patient timelines**
 Consistent surrogation results enable organizations to retain relationships occurring in the underlying dataset, which is critical for research, analytics, and machine learning. By submitting data in the same batch, our service allows for consistent replacement across entities and preserves the relative temporal relationships between events.
 
-![Screenshot of consistent surrogation for english.](consistent-surrogation.png)
+![Screenshot of consistent surrogation for English.](consistent-surrogation.png)
 
 ## De-identify clinical data securely and efficiently
 
