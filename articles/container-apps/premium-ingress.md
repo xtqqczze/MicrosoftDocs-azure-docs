@@ -189,9 +189,9 @@ This step deploys a Container Apps environment with a premium ingress configurat
 | `requestIdleTimeout` | The time (in minutes) a request can remain idle before being disconnected.  Default: 4, Minimum: 4, Maximum: 30. |
 
   
-1. Deploy to Azure
+### Deploy to Azure
 
-Navigate to the directory where you saved the `ingress.bicep` file, then run the following command to deploy the Bicep file:
+Navigate to the directory where you saved the *ingress.bicep* file, then run the following command to deploy the Bicep file:
 
 ```bash
 # Login to Azure (if not already logged in)
