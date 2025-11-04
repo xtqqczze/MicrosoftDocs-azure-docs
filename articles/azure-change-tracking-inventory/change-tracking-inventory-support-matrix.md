@@ -1,55 +1,30 @@
 ---
-title: Azure Change Tracking and Inventory overview using Azure Monitoring Agent
-description: Learn how to the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
+title: Azure Change Tracking and Inventory Support matrix
+description: Get a summary of support settings and limitations for enabling Azure CTI and tracking changes.
+#customer intent: As a customer, I want to understand the supported operating systems for Azure Change Tracking and Inventory so that I can ensure compatibility with my environment.
 services: automation
-ms.date: 10/03/2025
+ms.date: 11/03/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
 author: jasminemehndir
-ms.custom: sfi-image-nochange
 ---
 
-# About Azure Change Tracking and Inventory
+# Support matrix for Azure Change Tracking and Inventory
 
-> [!IMPORTANT]
-> - It is recommended that you use Azure Change Tracking and Inventory with the Change tracking extension version 2.20.0.0 (or above).
-
-## What is Change Tracking & Inventory
-
-Azure Change Tracking & Inventory service enhances the auditing and governance for in-guest operations by monitoring changes and providing detailed inventory logs for servers across Azure, on-premises, and other cloud environments.
-
-1. **Change Tracking**
-
-    a. Monitors changes, including modifications to files, registry keys, software installations, and Windows services or Linux daemons.</br>
-    b. Provides detailed logs of what and when the changes were made, enabling you to quickly detect configuration drifts or unauthorized changes. </br>
-    Change Tracking metadata will get ingested into the ConfigurationChange table in the connected LA workspace. [Learn more](/azure/azure-monitor/reference/tables/configurationchange)
-    
-1. **Inventory**
-
-    a. Collects and maintains an updated list of installed software, operating system details, and other server configurations in linked LA workspace </br>
-    b. Helps create an overview of system assets, which is useful for compliance, audits, and proactive maintenance.</br>
-    Inventory metadata will get ingested into the ConfigurationData table in the connected LA workspace. [Learn more](/azure/azure-monitor/reference/tables/configurationdata)
+Azure Change Tracking and Inventory (CTI) monitors changes and provide inventory logs for servers across Azure, on-premises, and other cloud environments. This article summarizes support settings and limitations when you enable Azure CTI and track changes.
 
 ## Support matrix
 
 |**Component**| **Applies to**|
-|---| ---|
+|---|---|
 |Operating systems| Windows </br> Linux | 
 |Resource types | Azure VMs </br> Azure Arc-enabled VMs </br> Virtual machines scale set|
 |Data types | Windows registry </br> Windows services </br> Linux Daemons </br> Files </br> Software
 
-## Key benefits
-
-- **Compatibility with the unified monitoring agent** - Compatible with the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) that enhances security, reliability, and facilitates multi-homing experience to store data.
-- **Compatibility with tracking tool**- Compatible with the Change tracking (CT) extension deployed through the Azure Policy on the client's virtual machine. You can switch to Azure Monitor Agent (AMA), and then the CT extension pushes the software, files, and registry to AMA.
-- **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](/azure/azure-monitor/agents/azure-monitor-agent-migration) so that all VMs point to a single workspace for data collection and maintenance.
-- **Rules management** – Uses [Data Collection Rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
-
-
 ## Limits
 
-The following table shows the tracked item limits per machine for change tracking and inventory.
+The following table shows the tracked item limits per machine for Azure CTI.
 
 | **Resource** | **Limit**| **Notes** |
 |---|---|---|
@@ -63,35 +38,34 @@ The following table shows the tracked item limits per machine for change trackin
 
 ## Supported operating systems
 
-Change Tracking and Inventory is supported on all operating systems that meet Azure Monitor agent requirements. See [supported operating systems](/azure/azure-monitor/agents/agents-overview#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
+Azure CTI is supported on all operating systems that meet Azure Monitor agent requirements. See [supported operating systems](/azure/azure-monitor/agents/agents-overview#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
 
 To understand client requirements for TLS, see [TLS for Azure Automation](../automation/automation-managing-data.md#tls-for-azure-automation).
 
 
-## Enable Change Tracking and Inventory
+## Enable Azure Change Tracking and Inventory
 
-You can enable Change Tracking and Inventory in the following ways:
+You can enable Azure CTI in the following ways:
 
-- Manually for non-Azure Arc-enabled machines, Refer to the Initiative *Enable Change Tracking and Inventory for Arc-enabled virtual machines* in **Policy > Definitions > Select Category = ChangeTrackingAndInventory**. To enable Change Tracking and Inventory at scale, use the **DINE Policy** based solution. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent (Preview)](enable-virtual-machines-monitoring-agent.md).
+- Manually for non-Azure Arc-enabled machines, Refer to the Initiative *Enable Change Tracking and Inventory for Arc-enabled virtual machines* in **Policy > Definitions > Select Category = ChangeTrackingAndInventory**. To enable Azure CTI at scale, use the **DINE Policy** based solution. For more information, see [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
 
-- For a single Azure VM from the [Virtual machine page](../automation/change-tracking/enable-vms-monitoring-agent.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
+- For a single Azure VM from the [Virtual machine pane](../automation/change-tracking/enable-vms-monitoring-agent.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
 
-- For [multiple Azure VMs](enable-virtual-machines-monitoring-agent.md) by selecting them from the Virtual machines page in the Azure portal.
+- For [multiple Azure VMs](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md) by selecting them from the Virtual machines pane in the Azure portal.
 
-## Tracking file changes
+## Track file changes
 
-For tracking changes in files on both Windows and Linux, Change Tracking and Inventory uses SHA256 hashes of the files. The feature uses the hashes to detect if changes have been made since the last inventory.
+For tracking changes in files on both Windows and Linux, Azure CTI uses SHA256 hashes of the files. The feature uses the hashes to detect if changes have been made since the last inventory.
 
-## Tracking file content changes
+## Track file content changes
 
-Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. [Learn more](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
+Azure CTI allows you to view the contents of a Windows or Linux file. For each change to a file, Azure CTI stores the contents of the file in an [Azure Storage account](../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. [Learn more](tutorial-change-workspace-configure-data-collection-rule.md).
 
 ![Screenshot of viewing changes in a Windows or Linux file.](./media/overview/view-file-changes.png)
 
+## Track registry keys
 
-## Tracking of registry keys
-
-Change Tracking and Inventory allows monitoring of changes to Windows registry keys. Monitoring allows you to pinpoint extensibility points where third-party code and malware can activate. The following table lists pre-configured (but not enabled) registry keys. To track these keys, you must enable each one.
+Azure CTI allows monitoring of changes to Windows registry keys. Monitoring allows you to pinpoint extensibility points where third-party code and malware can activate. The following table lists pre-configured (but not enabled) registry keys. To track these keys, you must enable each one.
 
 > [!div class="mx-tdBreakAll"]
 > |Registry Key | Purpose |
@@ -104,8 +78,8 @@ Change Tracking and Inventory allows monitoring of changes to Windows registry k
 > |`HKEY_LOCAL_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitors copy hook handlers that hook directly into Windows Explorer and usually run in-process with **explorer.exe**.
 > |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitors for icon overlay handler registration.
 >|`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitors for icon overlay handler registration for 32-bit applications running on 64-bit computers.
-> |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation.
-> |`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current page and to control navigation for 32-bit applications running on 64-bit computers.
+> |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current pane and to control navigation.
+> |`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current pane and to control navigation for 32-bit applications running on 64-bit computers.
 > |`HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons.
 > |`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons for 32-bit applications running on 64-bit computers.
 > |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitors 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc. Similar to the [drivers] section in the **system.ini** file.
@@ -116,7 +90,7 @@ Change Tracking and Inventory allows monitoring of changes to Windows registry k
 
 ## Recursion support
 
-Change Tracking and Inventory supports recursion, which allows you to specify wildcards to simplify tracking across directories. Recursion also provides environment variables to allow you to track files across environments with multiple or dynamic drive names. The following list includes common information you should know when configuring recursion:
+Azure CTI supports recursion, which allows you to specify wildcards to simplify tracking across directories. Recursion also provides environment variables to allow you to track files across environments with multiple or dynamic drive names. The following list includes common information you should know when configuring recursion:
 
 - Wildcards are required for tracking multiple files.
 
@@ -128,7 +102,7 @@ Change Tracking and Inventory supports recursion, which allows you to specify wi
 
 ## Change Tracking and Inventory data collection
 
-The next table shows the data collection frequency for the types of changes supported by Change Tracking and Inventory. Inventory logs will be populated every 10 hours by default for all data types. Additionally, when there is a change registered for any of the data types, the inventory and change logs will be generated for this instance.
+The next table shows the data collection frequency for the types of changes supported by Azure CTI. Inventory logs will be populated every 10 hours by default for all data types. Additionally, when there is a change registered for any of the data types, the inventory and change logs will be generated for this instance.
 
 | **Change Type** | **Frequency** |
 | --- | --- |
@@ -140,7 +114,7 @@ The next table shows the data collection frequency for the types of changes supp
 | Linux software | 5 minutes |
 | Linux Daemons | 5 minutes | 
 
-The following table shows the tracked item limits per machine for Change Tracking and Inventory.
+The following table shows the tracked item limits per machine for Azure CTI.
 
 | **Resource** | **Limit** |
 |---|---|
@@ -157,39 +131,37 @@ The following table shows the tracked item limits per machine for Change Trackin
 
 To enable tracking of Windows Services data, you must upgrade CT extension and use extension more than or equal to 2.11.0.0
 
-#### [For Windows Azure VMs](#tab/win-az-vm)
+#### For Windows Azure VMs
 
 ```powershell-interactive
 - az vm extension set --publisher Microsoft.Azure.ChangeTrackingAndInventory --version 2.11.0 --ids /subscriptions/<subscriptionids>/resourceGroups/<resourcegroupname>/providers/Microsoft.Compute/virtualMachines/<vmname> --name ChangeTracking-Windows --enable-auto-upgrade true
 ```
-#### [For Linux Azure VMs](#tab/lin-az-vm)
+#### For Linux Azure VMs
 
 ```powershell-interactive
 – az vm extension set --publisher Microsoft.Azure.ChangeTrackingAndInventory --version 2.11.0 --ids /subscriptions/<subscriptionids>/resourceGroups/<resourcegroupname>/providers/Microsoft.Compute/virtualMachines/<vmname> --name ChangeTracking-Linux --enable-auto-upgrade true
 ```
-#### [For Arc-enabled Windows VMs](#tab/win-arc-vm)
+#### For Arc-enabled Windows VMs
 
 ```powershell-interactive
 – az connectedmachine extension create --name ChangeTracking-Windows --publisher Microsoft.Azure.ChangeTrackingAndInventory --type ChangeTracking-Windows --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location> --enable-auto-upgrade true
 ```
 
-#### [For Arc-enabled Linux VMs](#tab/lin-arc-vm)
+#### For Arc-enabled Linux VMs
 
 ```powershell-interactive
 - az connectedmachine extension create --name ChangeTracking-Linux --publisher Microsoft.Azure.ChangeTrackingAndInventory --type ChangeTracking-Linux --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location> --enable-auto-upgrade true
 ```
----
 
 #### Configure frequency
 
-The default collection frequency for Windows services is 30 minutes. To configure the frequency,
-- under **Edit** Settings, use a slider on the **Windows services** tab.
+The default collection frequency for Windows services is 30 minutes. To configure the frequency, under **Edit** Settings, use a slider on the **Windows services** tab.
 
 :::image type="content" source="media/overview-monitoring-agent/frequency-slider-inline.png" alt-text="Screenshot of frequency slider." lightbox="media/overview-monitoring-agent/frequency-slider-expanded.png":::
 
 ## Current limitations
 
-Change Tracking and Inventory using Azure Monitoring Agent doesn't support or has the following limitations:
+Azure CTI using Azure Monitoring Agent doesn't support or has the following limitations:
 
 - Recursion for Windows registry tracking
 - Currently, only the HKEY_LOCAL_MACHINE is supported. You will encounter this limitation whenever you manually add the registry key.
@@ -199,7 +171,7 @@ Change Tracking and Inventory using Azure Monitoring Agent doesn't support or ha
 - The **Max File Size** column and values are unused in the current implementation.
 - If you are tracking file changes, it is limited to a file size of 5 MB or less. 
 - If the file size appears >1.25MB, then FileContentChecksum is incorrect due to memory constraints in the checksum calculation.
-- If you try to collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
+- If you try to collect more than 2500 files in a 30-minute collection cycle, Azure CTI performance might be degraded.
 - If network traffic is high, change records can take up to six hours to display.
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
 - Collecting Hotfix updates on Windows Server 2016 Core RS3 machines.
@@ -210,7 +182,7 @@ Change Tracking and Inventory using Azure Monitoring Agent doesn't support or ha
 
 ## Support for alerts on configuration state
 
-A key capability of Change Tracking and Inventory is alerting on changes to the configuration state of your hybrid environment. Many useful actions are available to trigger in response to alerts. For example, actions on Azure functions, Automation runbooks, webhooks, and the like. Alerting on changes to the **c:\windows\system32\drivers\etc\hosts** file for a machine is one good application of alerts for Change Tracking and Inventory data. There are many more scenarios for alerting as well, including the query scenarios defined in the next table.
+A key capability of Azure CTI is alerting on changes to the configuration state of your hybrid environment. Many useful actions are available to trigger in response to alerts. For example, actions on Azure functions, Automation runbooks, webhooks, and the like. Alerting on changes to the **c:\windows\system32\drivers\etc\hosts** file for a machine is one good application of alerts for Azure CTI data. There are many more scenarios for alerting as well, including the query scenarios defined in the next table.
 
 |Query  |Description  |
 |---------|---------|
@@ -225,4 +197,4 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 
 ## Next steps
 
-- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking-inventory/enable-virtual-machines-monitoring-agent.md).
+To enable Azure CTI from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](/azure/azure-change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory).
