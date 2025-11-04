@@ -92,7 +92,7 @@ Your workload profile must have at least two nodes to use premium ingress.
         --request-idle-timeout 4 \
         --header-count-limit 100
     ```
-    Below is a description of the parameters you can set when configuring premium ingress settings for your Container Apps environment.
+    The following table describes the parameters you can set when configuring premium ingress settings for your Container Apps environment.
 
 | Parameter                     | Description                                                                                 |
 |-----------------------------|---------------------------------------------------------------------------------------------|
