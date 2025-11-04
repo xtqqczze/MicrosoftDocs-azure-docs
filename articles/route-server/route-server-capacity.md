@@ -37,7 +37,7 @@ As the spoke VM utilization changes over time, the autoscaling algorithm dynamic
 
 ### Routing infrastructure unit table
 
-For pricing information, see [Azure Route Server pricing](https://azure.microsoft.com/pricing/details/route-server/).
+Each additional routing infrastructure unit will cost $0.10/hour. 
 
 | Routing infrastructure unit | Number of VMs |
 |----------------------------|---------------|
