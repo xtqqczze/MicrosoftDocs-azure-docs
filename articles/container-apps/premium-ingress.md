@@ -177,16 +177,16 @@ Once configured, you see an output of the settings you just applied.
 This step deploys a Container Apps environment with a premium ingress configuration including the following settings:
 
 
-| Name                        | Description                                                                                 |
-|-----------------------------|---------------------------------------------------------------------------------------------|
-| name                       | The name of the workload profile used for premium ingress.                                   |
-| workloadProfileType         | The type/size of the workload profile (e.g., D4) for scaling and resource allocation.        |
-| minimumCount               | The minimum number of instances for the workload profile. Minimum: 2.                           |
-| maximumCount               | The maximum number of instances for the workload profile. Maximum: 50.                                    |
-| workloadProfileName        | The workload profile name associated with the ingress configuration.                         |
-| terminationGracePeriodSeconds | The time (in seconds) to allow active connections to close before terminating the ingress. Minimum: 0, Maximum: 60.   |
-| headerCountLimit           | The maximum number of HTTP headers allowed per request. The maximum number of HTTP headers allowed per request. Default: 100, Minimum: 1.                                      |
-| requestIdleTimeout         | The time (in minutes) a request can remain idle before being disconnected.  Default: 4, Minimum: 4, Maximum: 30.          |
+| Name | Description |
+|--|--|
+| `name` | The name of the workload profile used for premium ingress. |
+| `workloadProfileType` | The type/size of the workload profile (for example, D4) for scaling and resource allocation. |
+| `minimumCount` | The minimum number of instances for the workload profile. Minimum: 2. |
+| `maximumCount` | The maximum number of instances for the workload profile. Maximum: 50. |
+| `workloadProfileName`  | The workload profile name associated with the ingress configuration. |
+| `terminationGracePeriodSeconds` | The time (in seconds) to allow active connections to close before terminating the ingress. Minimum: 0, Maximum: 60. |
+| `headerCountLimit` | The maximum number of HTTP headers allowed per request. The maximum number of HTTP headers allowed per request. Default: 100, Minimum: 1. |
+| `requestIdleTimeout` | The time (in minutes) a request can remain idle before being disconnected.  Default: 4, Minimum: 4, Maximum: 30. |
 
   
 1. Deploy to Azure
