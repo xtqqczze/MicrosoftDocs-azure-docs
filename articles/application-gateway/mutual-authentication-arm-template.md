@@ -176,9 +176,9 @@ az deployment group create \
   ```
 
 **Send Client Certificate to backend**
-     - If you need to forward the client certificate to the backend, configure a rewrite rule as described in [mutual-authentication-server-variables.](rewrite-http-headers-url.md)
+  - If you need to forward the client certificate to the backend, configure a rewrite rule as described in [mutual-authentication-server-variables.](rewrite-http-headers-url.md)
 
-     - If the client has sent a certificate, this rewrite ensures the client certificate is included in the request headers for backend processing.
+  - If the client has sent a certificate, this rewrite ensures the client certificate is included in the request headers for backend processing.
 
 **Test Connectivity**
    - Connections should be established even if a client certificate is not provided.
