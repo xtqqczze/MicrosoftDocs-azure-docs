@@ -24,16 +24,16 @@ All resources in Azure NetApp files have [limits](azure-netapp-files-resource-li
 | File count | 2,147,483,632 |
 | Performance | <ul><li>Standard: 1,600 MiB/s</li><li>Flexible: 4,500 MiB/s</li><li>Premium: 4,500 MiB/s</li><li>Ultra: 4,500 MiB/s</li></ul> |
 
-Large volumes have the following limits. Note that with cool-access enabled, you can also create extra-large volumes.  
+Large volumes have the following limits. Note that with cool-access enabled, you can also create volumes up to 7.2 PiB.
 
 | Limit type | Values | 
 | - | - | 
-| Capacity | Large volumes <br><ul><li>50 TiB minimum</li><li>1 PiB maximum (or [2 PiB by special request](azure-netapp-files-resource-limits.md#request-limit-increase))</li></ul> <br>Extra-large volumes<br> <ul><li>2,400 GiB minimum</li><li>7.2 PiB maximum</li></ul>|
+| Capacity | Large volumes <br><ul><li>50 TiB minimum</li><li>1 PiB maximum (or [2 PiB by special request](azure-netapp-files-resource-limits.md#request-limit-increase))</li></ul> <br>Large volumes up to 7.2 PiB<br> <ul><li>2,400 GiB minimum</li><li>7.2 PiB maximum</li></ul>|
 | File count | 15,938,355,048 |
 | Performance | The large volume performance limit is 12,800 MiB/s on all service levels. |
 
 >[!NOTE]
->You must enable cool access on the volume and select **Extra-large volume** as the volume type when you create the volume. 
+>You must enable cool access on the volume and select **Extra-large volume 7.2 PiB** as the volume type when you create the volume. 
 
 ## Large volumes effect on performance 
 

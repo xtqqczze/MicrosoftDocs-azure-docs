@@ -23,4 +23,4 @@ Regular volumes quotas are between 50 GiB and 100 TiB. Large volume quotas range
 * **Large volume type**
 
     * To create a volume between 50 TiB and 1 PiB, select **Large volume** to create the volume at a size between 50 TiB and 2 PiB.
-    * If you plan to enable cool access and want to scale to 7.2 PiB, select **Extra-large volume 7.2 PiB**. Ensure you meet the [requirements for extra large volumes](../large-volumes-requirements-considerations.md#requirements-and-considerations-for-extra-large-volumes-preview).
+    * If you plan to enable cool access and want to scale to 7.2 PiB, select **Extra-large volume 7.2 PiB**. Ensure you meet the [requirements for extra large volumes](../large-volumes-requirements-considerations.md#requirements-and-considerations-for-large-volumes-up-to-72-pib-preview).
