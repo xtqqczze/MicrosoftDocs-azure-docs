@@ -1,6 +1,6 @@
 ---
 title: Monitor and Track B2B Messages
-description: Learn monitor and track B2B messages for Consumption workflows in Azure Logic Apps by collecting diagnostics data using Azure Monitor.
+description: Learn how to monitor and track B2B messages for Consumption workflows in Azure Logic Apps by collecting diagnostics data using Azure Monitor.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, divswa, azla
@@ -179,7 +179,7 @@ After your workflow runs, you can view the status and data about any B2B message
    * [X12 folder and file name formats](#x12-folder-file-names)
    * [EDIFACT folder and file name formats](#edifact-folder-file-names)
 
-   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/download-messages.png" alt-text="Download message files.":::
+   :::image type="content" source="./media/monitor-b2b-messages-log-analytics/download-messages.png" alt-text="Screenshot shows the option to download message files.":::
 
 1. To view all actions that have the same run ID, on the **Log Search** page, select a message from the message list.
 
