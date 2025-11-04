@@ -214,7 +214,7 @@ items:
   - name: Wave planning
     items:
     - name: Overview
-      href: wave-planning-overview.md
+      href: overview.md
     - name: Plan and create waves
       href: how-to-plan-create-waves.md
     - name: Complete a wave plan
