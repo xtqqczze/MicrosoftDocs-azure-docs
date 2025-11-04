@@ -87,7 +87,7 @@ A large enterprise runs 500 million complex orchestrations monthly, with an aver
 |   | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 500 million × 13 | 6.5 billion actions |
-| Actions per second | 6.5 billion ÷ 2,628,000 | ≈ 2,854 actions/second |
+| Actions per second | 6.5 billion ÷ 2,628,000 | ≈ 2,473 actions/second |
 | Required CUs | 2,473 ÷ 2,000 | 240,000,000 actions<br>CUs needed: 1.23 → **2 CUs sufficient** |
 
 #### Example 3
@@ -97,8 +97,8 @@ A Software as a Service (SaaS) platform supports 800 million orchestrations mont
 |   | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 800 million × 15 | 12 billion actions |
-| Actions per second | 12 billion ÷ 2,628,000  | ≈ 4,567 actions/second |
-| Required CUs | 4,567 ÷ 2,000 | 240,000,000 actions<br>CUs needed: 2.28 → **3 CUs sufficient** |
+| Actions per second | 12 billion ÷ 2,628,000  | ≈ 4,571 actions/second |
+| Required CUs | 4,571 ÷ 2,000 | 240,000,000 actions<br>CUs needed: 2.29 → **3 CUs sufficient** |
 
 ### Consumption SKU (preview)
 
@@ -122,7 +122,7 @@ A development team is testing simple orchestrations, each with three actions (us
 
 |   | Calculation | Result |
 | - | ----------- | ------ |
-| Monthly actions | 500 million × 13 | 30,000 actions |
+| Monthly actions | 10,000 × 3 | 30,000 actions |
 | Cost | 30,000 × $0.003 | **$90/month** |
 
 #### Example 2
