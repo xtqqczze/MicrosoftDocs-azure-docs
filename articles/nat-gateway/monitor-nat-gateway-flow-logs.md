@@ -1,12 +1,12 @@
 ---
 title: Monitor with StandardV2 NAT Gateway Flow Logs
 titleSuffix: Azure NAT Gateway
-description: Learn how to set, monitor, and troubleshoot with StandardV2 NAT Gateway Flow Logs.
+description: Learn how to set up, monitor, and troubleshoot with StandardV2 NAT Gateway Flow Logs.
 author: cozhang
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: how-to
-ms.date: 11/18/2025
+ms.date: 11/04/2025
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 #Customer intent: As a network administrator, I want to learn how to enable StandardV2 NAT Gateway flow logs and how the data can be analyzed.
 ---
@@ -27,13 +27,14 @@ In this article, you learn how to set up, monitor, and troubleshoot with Azure S
 ## Enable diagnostic settings to collect NAT gateway flow logs
 
 In this section, you learn how to set up StandardV2 NAT gateway flow logs and send it to the recommended destination – Log Analytics workspace which enables you to manage data retention and access. To learn more about the other destinations, including Azure Storage account and Azure Event Hubs, see [Diagnostic settings in Azure Monitor - Azure Monitor | Microsoft Learn.](/azure/azure-monitor/platform/diagnostic-settings)
-Note
-If you are sending logs to Azure Storage or Event Hubs, please ensure the region of your storage account and Eventhub namespace are in the same region as your StandardV2 NAT gateway resource.
+
+> [!NOTE]
+> If you are sending logs to Azure Storage or Event Hubs, please ensure the region of your storage account and Eventhub namespace are in the same region as your StandardV2 NAT gateway resource.
  
-1.	In the Azure portal, navigate to your StandardV2 NAT gateway resource.
-2.	From your NAT gateway resource's **Overview** page, choose **Monitoring** > **Diagnostic settings**.
-3.	Select **+ Add diagnostic setting**.
-4.	In the **Diagnostic setting** window, select or enter the following settings:
+1. In the Azure portal, navigate to your StandardV2 NAT gateway resource.
+1. From your NAT gateway resource's **Overview** page, choose **Monitoring** > **Diagnostic settings**.
+1. Select **+ Add diagnostic setting**.
+1. In the **Diagnostic setting** window, select or enter the following settings:
 
     | **Setting** | **Value** |
     | --- | --- |
@@ -43,7 +44,7 @@ If you are sending logs to Azure Storage or Event Hubs, please ensure the region
     | **Metrics** | Leave unchecked. |
     | **Destination details** | Select **Send to Log Analytics workspace**.</br>Select your subscription and your Log Analytics workspace. |
 
-5. 	Select Save and close the Diagnostic setting window.
+1. Select Save and close the Diagnostic setting window.
 
     > [!NOTE]
     > Once your diagnostic setting has been configured, it can take up to 90 minutes for logs to appear. 
@@ -53,8 +54,8 @@ If you are sending logs to Azure Storage or Event Hubs, please ensure the region
 In this section, you learn how to query StandardV2 NAT Gateway flow logs to identify virtual machines generating the most outbound traffic sent – commonly referred to as top talkers. This insight is useful for diagnosing unexpected spikes in traffic and understanding bandwidth consumption patterns. The sample query provided will sort the virtual machines by the total number of packets sent in descending order. This allows you to quickly pinpoint which VMs are sending the most outbound traffic from your NAT gateway.
 
 1. In the Azure portal, navigate to your Log Analytics workspace resource associated to your StandardV2 NAT gateway resource.
-2. From your Log Analytics workspace’s **Overview** page, choose **Logs**.
-3.	Enter the following code in the query editor:
+1. From your Log Analytics workspace's **Overview** page, choose **Logs**.
+1. Enter the following code in the query editor:
 
 1. The following code is displayed in the query editor:
 
@@ -75,5 +76,5 @@ In this section, you learn how to query StandardV2 NAT Gateway flow logs to iden
 
 * In this article, you learned how to enable and analyze the logs of your StandardV2 NAT gateway traffic flows.
 
-For more information about StandardV2 NAT Gateway flow logs, see [StandardV2 NAT Gateway Flow Logs](./nat-gateway-flow-logs).
+For more information about StandardV2 NAT Gateway flow logs, see [StandardV2 NAT Gateway Flow Logs](./nat-gateway-flow-logs.md).
 
