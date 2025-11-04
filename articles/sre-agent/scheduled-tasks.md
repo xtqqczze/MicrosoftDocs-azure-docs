@@ -1,6 +1,6 @@
 ---
-title: Schedule tasks with Azure SRE Agent (Preview)
-description: Learn how to use scheduled tasks in Azure SRE Agent to automate monitoring, enforce security, and validate recovery.
+title: Schedule tasks with SRE Agent (Preview)
+description: Learn how to use scheduled tasks in SRE Agent to automate monitoring, enforce security, and validate recovery.
 author: craigshoemaker
 ms.topic: overview
 ms.date: 10/27/2025
@@ -10,7 +10,8 @@ ms.service: azure-sre-agent
 
 # Scheduled tasks in Azure SRE Agent (Preview)
 
-Use Azure SRE Agent to automate routine monitoring, maintenance, and security tasks in your Azure environment with tasks that run on a schedule you define. You can either create a task manually, ask the agent to create one during a chat, or the agent could autonomously create one for you as the result of an [incident response](incident-response-plan.md).
+Scheduled tasks in Azure SRE Agent let you automate operational workflows—such as monitoring, maintenance, and security checks—on a schedule you define. You can create these tasks manually, request them during a chat with the agent, or allow the agent to generate them autonomously as part of [incident response](incident-response-plan.md). This feature helps teams shift from reactive fixes to proactive operations by ensuring routine and critical activities run consistently without manual effort.
+
 
 The following scenarios show you some common use cases for using scheduled tasks:
 
@@ -58,115 +59,18 @@ The following examples demonstrate a few sample sets of custom instructions you 
 
 # [Health check](#tab/health-check)
 
-This health check task is designed to run after an incident mitigation where a PostgreSQL DB was down. The task runs to check if the database remains healthy for the next 30 minutes after mitigation.
-
-- On failure, it collects logs, notifies you, and escalates if the database is down.
-- On success, it records a summary.
-- At completion, it generates a PDF report with metrics, logs, and a pass/fail summary.
-
-```Text
+Create a health check task is designed to run after an incident mitigation where a PostgreSQL DB was down. The task runs to check if the database remains healthy for the next 30 minutes after mitigation.
 This task runs autonomously every 1 minute for up to 30 
 executions to validate post-recovery health after DB startup.
 
-Goal: confirm <APP_NAME> services remain healthy and that 
-listings are served. Resources & scope:
+- On failure, it collects logs, notifies, and escalates if the database is down.
+- On success, it records a summary.
+- At completion, it generates a PDF report with metrics, logs, and a pass/fail summary.
 
-- Container Apps: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/containerapps/<APP_NAME>
-- Container Apps: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/containerapps/<APP_NAME>
-- PostgreSQL Flexible Server: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.DBforPostgreSQL/flexibleServers/<DATABASE_NAME>
-
-Time window and data range:
-
-Analyze ONLY the last 60 seconds of metrics/logs on each 
-run (do NOT scan full history).
-
-Checks (success criteria):
-
-1) PostgreSQL 'is_db_alive' == 1 (healthy)
-2) PostgreSQL 'connections_failed' == 0 in last minute
-3) PostgreSQL 'connections_succeeded' 0 (indicates traffic)
-4) API (<APP_NAME>) Requests 5xx count == 0 in last minute
-5) API ResponseTime p95 < 2000 ms (adjust if noisy)
-6) Web (<APP_NAME>-web) Requests 5xx count == 0 in last minute
-
-On-breach actions (any check fails):
-
-- Immediately capture last 50 console log lines from 
-the impacted container app (web or api) and last 200 
-lines from postgres server diagnostic logs (if available).
-
-- Send a notification summary containing the failing 
-metric, its current value, and attached logs.
-
-- If the DB shows connections_failed 0 and is_db_alive == 0, 
-escalate by creating an incident note (write a short JSON blob) 
-and keep running the task until max executions.
-
-On-success actions (all checks pass for the run):
-
-- Record a short summary (timestamp, metric snapshot) to the 
-run report.
-
-Idempotence & safety:
-
-- Do not make any destructive changes.
-
-- Avoid duplicate notifications: aggregate consecutive identical
-breach events and only notify again if condition persists for 3 
-consecutive runs.
-
-- Rate limits: limit API calls to Azure Monitor and Container Apps
-logs to once per run per resource.
-
-Output expectations (per run):
-
-- Small JSON summary: {timestampUTC, is_db_alive, 
-connections_failed, connections_succeeded, api_5xx_count, 
-api_p95_ms, web_5xx_count, actions_taken}
-
-- On completion (after maxExecutions or duration): one PDF 
-report (compiled metrics charts and collected logs) and a 
-final pass/fail matrix.
-
-Escalation hint:
-
-- If breaches persist for >3 consecutive runs, include 
-recommended immediate actions: check DB firewall, confirm 
-Key Vault DB credentials, and consider restart of backend 
-if DB is healthy but errors persist.
-
-Stop conditions:
-
-- Stop after maxExecutions reached (30) or manual cancel.
-
-Notifications: Send notifications to the user via this 
-chat with summarized results and attach the PDF at the end.
-
-Constraints: Keep each run under 30s execution to avoid 
-overlapping runs. Use minimal data pull to meet this requirement.
-```
 
 # [Security analysis](#tab/security-analysis)
 
-This task automates a scheduled security review of your application, focusing on authentication, secrets, access controls, infrastructure, and dependencies.
-
-```text
-Perform security analysis of the my application focusing on:
-
-* Authentication vulnerabilities and credential exposure risks
-* Secret management practices in configuration files and environment variables
-* Access control implementation and privilege escalation risks
-* Infrastructure security posture and network exposure
-* Dependency vulnerabilities and supply chain security
-
-Generate prioritized findings with remediation recommendations 
-(including code changes if required), emphasizing migration to secure 
-authentication patterns.
-
-Create GitHub issues for critical/high findings with actionable implementation steps.
-
-Compliance: OWASP Top 10, Azure Security Benchmark
-```
+Create a security check task that runs every week to perform security review of my application <xyz>, focusing on authentication, secrets, access controls, infrastructure, and dependencies.
 
 ---
 
