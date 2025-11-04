@@ -68,4 +68,4 @@ To view detailed workload status, follow the steps:
 
 ## Next steps
 
-Learn more about [Optimize work loads](/azure/cloud-adoption-framework/modernize/optimize-after-cloud-modernization)
+Learn more to [Optimize work loads](/azure/cloud-adoption-framework/modernize/optimize-after-cloud-modernization).
