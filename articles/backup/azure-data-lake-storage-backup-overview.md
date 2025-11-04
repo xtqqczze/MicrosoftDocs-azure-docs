@@ -44,7 +44,7 @@ Azure Backup automatically runs scheduled jobs, replicating block blobs from the
 
 >[!Note]
 >- Backup can be enabled for multiple storage accounts in a single vault using one or multiple backup policies.
->- Vaulted backups support long-term retention for up to 99 years.
+>- Vaulted backups support long-term retention for up to 10 years.
 
 ### Backup management 
 

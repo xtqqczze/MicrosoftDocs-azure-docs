@@ -15,7 +15,7 @@ ms.author: v-mallicka
 
 This tutorial describes how to back up (vaulted backup) Azure Data Lake Storage using  the Azure portal. 
 
-Azure Backup provides a simple, secure, and cost-effective solution to protect your Azure Data Lake Storage accounts without the need to deploy and manage backup infrastructure. With vaulted backup, your data is stored in an isolated Backup vault, offering offsite protection, and long-term retention (99 years). This approach ensures resilience against accidental deletions and ransomware attacks. You can back up your data to a Backup vault in Azure and restore it when needed. Learn about [Azure Data Lake Storage vaulted backup and restore](azure-data-lake-storage-backup-overview.md), and the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md).
+Azure Backup provides a simple, secure, and cost-effective solution to protect your Azure Data Lake Storage accounts without the need to deploy and manage backup infrastructure. With vaulted backup, your data is stored in an isolated Backup vault, offering offsite protection, and long-term retention (10 years). This approach ensures resilience against accidental deletions and ransomware attacks. You can back up your data to a Backup vault in Azure and restore it when needed. Learn about [Azure Data Lake Storage vaulted backup and restore](azure-data-lake-storage-backup-overview.md), and the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md).
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ To check the backup job status, follow these steps:
 ## Next steps
 
 - [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
-- [Manage backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
+- [Manage vaulted backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
 - [Troubleshoot Azure Data Lake Storage backup](azure-data-lake-storage-backup-troubleshoot.md). 
 
 
