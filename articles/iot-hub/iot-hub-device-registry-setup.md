@@ -20,16 +20,15 @@ This article explains how to create a new IoT hub with [Azure Device Registry (A
 
 ## Choose a deployment method
 
+Certificate Management requires you to also use IoT Hub, ADR, and [Device Provisioning Service (DPS)](../iot-dps/index.yml). You can optionally not use Certificate Management, and limit your setup to just IoT Hub and ADR.
+
 To set up your IoT hub with ADR and Certificate Management, you can use the Azure portal, Azure CLI, or a script that automates the setup process.
 
-| Deployment method | Includes | Requires |
-|-------------------|----------|--------------|
-| Select **Azure portal** at the top of the page | Creation of a new ADR namespace and a new IoT hub. | A user-assigned managed identity, credentials, and a DPS instance. |
-| Select **Azure CLI** at the top of the page | Creation of a new ADR namespace, a new IoT hub, and a new DPS instance, user-assigned managed identity, credentials, and policies. | Installation of the Azure IoT CLI extension. |
-| Select **PowerShell script** at the top of the page | Creation of a new ADR namespace and a new IoT hub. | A user-assigned managed identity, credentials, and a DPS instance. |
-
-> [!NOTE]
-> Certificate Management requires you to also use IoT Hub, ADR, and [Device Provisioning Service (DPS)](../iot-dps/index.yml). You can optionally not use Certificate Management, and limit your setup to just IoT Hub and ADR.
+| Deployment method | Description |
+|-------------------|-------------|
+| Select **Azure portal** at the top of the page | Use the Azure portal to create a new IoT hub, DPS instance, and ADR namespace, and configure all necessary settings. |
+| Select **Azure CLI** at the top of the page | Use the Azure CLI to create a new IoT hub, DPS instance, and ADR namespace and configure all necessary settings. |
+| Select **PowerShell script** at the top of the page | Use a PowerShell script to automate the creation of a new IoT hub, DPS instance, and ADR namespace and configure all necessary settings. |
 
 :::zone pivot="azure-portal"
 

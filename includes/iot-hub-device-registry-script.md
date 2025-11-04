@@ -8,9 +8,20 @@ ms.topic: include
 ms.date: 11/05/2025
 ---
 
-## Create an IoT hub with ADR integration using a script
+Use the provided PowerShell script to automate the setup of your IoT hub with Azure Device Registry integration. The script performs all the necessary steps to create the required resources and link them together.
 
-You can use the provided PowerShell script to automate the setup of your IoT hub with Azure Device Registry integration. The script performs all the necessary steps to create the required resources and link them together.
+The script includes the following resources:
+
+1. Assign an ADR role, setup the right privileges, and create a user-assigned managed identity.
+1. Create an ADR namespace.
+1. Create a credential and policy and associate them to the namespace.
+1. Create an IoT Hub SKU with linked namespace.
+1. Create a DPS with linked ADR namespace and Hub.
+1. Sync your credential and policies to ADR namespace.
+1. Create an enrollment group and link to your policy to enable device onboarding.
+
+> [!IMPORTANT]
+> During the preview period, ADR and Certificate Management features in IoT Hub are **free of charge**. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## Prerequisites
 
@@ -28,7 +39,7 @@ You can use the provided PowerShell script to automate the setup of your IoT hub
 
 ## Prepare Your Environment
 
-1. Navigate to the [GitHub repository](https://github.com/Azure/hubgen2-certmgmt/tree/main/Scripts) and download the entire folder, Scripts, which contains the script file (.ps1) and the role template (.json).
+1. Navigate to the [GitHub repository](https://github.com/Azure/hubgen2-certmgmt/tree/main/Scripts) and download the **Scripts** folder, which contains the script file (.ps1) and the role template (.json).
 1. Place the script, role template, and the .whl files in your working folder and confirm they are accessible. Your working folder is the directory that holds all of your files.
 
 ## Customize the script variables
@@ -41,7 +52,7 @@ Set values for the following variables in the variables section
 - `Location`: The Azure region where you want to create your resources. Check out the available locations in the [Supported regions](../articles/iot-hub/iot-hub-device-registry-overview.md#supported-regions) section.
 - `NamespaceName`: Your namespace name may only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, "msft-namespace" is a valid name.
 - `HubName`: Your hub name can only contain lowercase letters and numerals.
-- `DpsName`: The name of your Device Provisioning Service.
+- `DpsName`: The name of your Device Provisioning Service instance.
 - `UserIdentity`: The user-assigned managed identity for your resources.
 - `WorkingFolder`: The local folder where your scripts and templates are located.
 

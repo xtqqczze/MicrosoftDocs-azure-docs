@@ -54,17 +54,17 @@ No, Certificate Management relies on the Device Provisioning Service (DPS) for d
 
 Yes, you can link an existing DPS instance to an ADR namespace when setting up Certificate Management. For more information, see [Assign a namespace to a DPS instance](iot-hub-certificate-management.md#assign-a-namespace-to-a-dps-instance).
 
-## What is the pricing model for IoT Hub with ADR?
+## What is the pricing model for IoT Hub with ADR and Certificate Management?
 
-During the preview period, IoT Hub is **free to use**. After the preview period, pricing details will be provided.
+During the preview period, ADR and Certificate Management features in IoT Hub are **free of charge**. After the preview period, pricing details will be provided. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-## What are the quotas and limits for IoT Hub with ADR?
+## What are the quotas and limits for IoT Hub with ADR and Certificate Management?
 
-IoT Hub with ADR is only available in the **Free and S1 tiers**. For more information, see the standard tier operations section in [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md#standard-tier-operations).
+IoT Hub with ADR and Certificate Management is only available in the **Free and S1 tiers**. For more information, see the standard tier operations section in [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md#standard-tier-operations).
 
-## What are the supported regions for IoT Hub with ADR?
+## What are the supported regions for IoT Hub with ADR and Certificate Management?
 
-IoT Hub with ADR is available in the following regions:
+IoT Hub with ADR and Certificate Management is available in the following regions:
 
 - East US
 - East US 2

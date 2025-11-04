@@ -8,9 +8,9 @@ ms.topic: include
 ms.date: 11/05/2025
 ---
 
-## Create an IoT hub with ADR integration using Azure CLI
+Use the Azure CLI commands to create an IoT hub with Azure Device Registry and Certificate Management integration.
 
-The setup process includes the following steps:
+The setup process in this article includes the following steps:
 
 1. Assign an ADR role, setup the right privileges, and create a user-assigned managed identity.
 1. Create an ADR namespace.
@@ -19,6 +19,9 @@ The setup process includes the following steps:
 1. Create a DPS with linked ADR namespace and Hub.
 1. Sync your credential and policies to ADR namespace.
 1. Create an enrollment group and link to your policy to enable device onboarding.
+
+> [!IMPORTANT]
+> During the preview period, ADR and Certificate Management features in IoT Hub are **free of charge**. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## Prerequisites
 
@@ -139,7 +142,7 @@ To create a resource group, role, and permissions for your IoT solution, complet
     UAMI_RESOURCE_ID=$(az identity show --name $USER_IDENTITY --resource-group $RESOURCE_GROUP --query id -o tsv)
     ```
 
-## Set up an ADR namespace
+## Create a new ADR namespace
 
 Set up a new ADR namespace with a system-assigned managed identity. Creating namespace with system-assigned managed identity also creates a credential, known as root CA, and a default policy, known as intermediate CA. [Certificate Management](../articles/iot-hub/iot-hub-certificate-management-overview.md) uses these credentials and policies to onboard devices to the namespace.
 
@@ -152,11 +155,20 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
     az iot adr ns create --name $NAMESPACE_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --enable-credential-policy true --policy-name "PolicyName"
     ```
 
-    > [!TIP]
-    > You can also create a custom policy using the `az iot adr ns policy create` command. For more information, see [Create a custom policy for your namespace](#create-a-custom-policy-for-your-namespace).
-
     > [!NOTE]
     > The creation of the namespace with system-assigned managed identity might take up to 5 minutes.
+
+1. Create a custom policy using the `az iot adr ns policy create` command. Set the name, certificate subject, and validity period for the policy following these rules:
+
+    - The policy `name` value must be unique within the namespace. If you try to create a policy with a name that already exists, you receive an error message.
+    - The certificate subject `cert-subject` value must be unique across all policies in the namespace. If you try to create a policy with a subject that already exists, you receive an error message.
+    - The validity period `cert-validity-days` value must be between 1 and 3650 days (10 years). If you try to create a policy with a validity period outside this range, you receive an error message.
+    
+    The following example creates a policy named "custom-policy" with a subject of "CN=TestDevice" and a validity period of 30 days. 
+
+    ```azurecli-interactive
+    az iot adr ns policy create --name "custom-policy" --namespace $NAMESPACE_NAME --resource-group $RESOURCE_GROUP --cert-subject "CN=TestDevice" --cert-validity-days "30"
+    ```
 
 1. Verify that the namespace with a system-assigned managed identity, or principal ID, is created.
 
@@ -194,7 +206,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
 
 ## Create an IoT hub with ADR namespace integration
 
-1. Create a new IoT hub instance linked to the ADR namespace and with the User-Assigned Identity.
+1. Create a new IoT hub instance linked to the ADR namespace and with the user-assigned identity.
 
     ```azurecli-interactive
     az iot hub create --name $HUB_NAME --resource-group $RESOURCE_GROUP --location $HUB_LOCATION --sku GEN2 --mi-user-assigned $UAMI_RESOURCE_ID --ns-resource-id $NAMESPACE_RESOURCE_ID --ns-identity-id $UAMI_RESOURCE_ID
@@ -232,19 +244,19 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
 
 ## Create a Device Provisioning Service with ADR namespace integration
 
-1. Create a new Device Provisioning Service (DPS) instance linked to the ADR namespace with the User-Assigned Identity. Your DPS must be located in the same region as your ADR namespace.
+1. Create a new Device Provisioning Service (DPS) instance linked to your ADR namespace created in the previous sections. Your DPS instance must be located in the same region as your ADR namespace.
 
     ```azurecli-interactive
     az iot dps create --name $DPS_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --mi-user-assigned $UAMI_RESOURCE_ID --ns-resource-id $NAMESPACE_RESOURCE_ID --ns-identity-id $UAMI_RESOURCE_ID
     ```
 
-1. Verify that the DPS has correct identity and ADR properties configured.
+1. Verify that the DPS has the correct identity and ADR properties configured.
 
     ```azurecli-interactive
     az iot dps show --name $DPS_NAME --resource-group $RESOURCE_GROUP --query identity --output json
     ```
 
-## Link IoT Hub to the Device Provisioning Service
+## Link your IoT hub to the Device Provisioning Service instance
 
 1. Link the IoT hub to DPS.
 
@@ -266,7 +278,7 @@ To enable IoT Hub to register the CA certificates and trust any issued leaf cert
 az iot adr ns credential sync --namespace $NAMESPACE_NAME --resource-group $RESOURCE_GROUP
 ```
 
-## Validate Hub Certificate
+## Validate the hub Certificate
 
 Validate that your IoT hub has registered its CA certificate.
 
@@ -287,61 +299,3 @@ az iot dps enrollment-group create --dps-name $DPS_NAME --resource-group $RESOUR
 
 At this point, your IoT hub with ADR and Certificate Management integration is set up and ready to use.
 
-## Manage your namespaces
-
-The following commands help you manage your ADR namespaces, credentials, and policies using the Azure CLI.
-
-1. List all the ADR namespaces in your subscription:
-
-    ```azurecli-interactive
-    az iot adr ns list --resource-group $RESOURCE_GROUP
-    ```
-
-1. Show the details of a specific ADR namespace:
-
-    ```azurecli-interactive
-    az iot adr ns show --name $NAMESPACE_NAME --resource-group $RESOURCE_GROUP
-    ```
-
-1. Show the credentials associated with a specific ADR namespace:
-
-    ```azurecli-interactive
-    az iot adr ns credential show --namespace $NAMESPACE_NAME --resource-group $RESOURCE_GROUP
-    ```
-
-### Create a custom policy for your namespace
-
-1. List all policies associated with a specific ADR namespace:
-
-    ```azurecli-interactive
-    az iot adr ns policy list --namespace $NAMESPACE_NAME --resource-group $RESOURCE_GROUP
-    ```
-
-1. Show the details of a specific policy associated with a specific ADR namespace:
-
-    ```azurecli-interactive
-    az iot adr ns policy show --name "policy-name" --namespace "$NAMESPACE_NAME" --resource-group "$RESOURCE_GROUP"
-    ```
-
-1. Create a custom policy. Set the name, certificate subject, and validity period for the policy following these rules:
-
-    - The policy `name` value must be unique within the namespace. If you try to create a policy with a name that already exists, you receive an error message.
-    - The certificate subject `cert-subject` value must be unique across all policies in the namespace. If you try to create a policy with a subject that already exists, you receive an error message.
-
-    - The validity period `cert-validity-days` value must be between 1 and 3650 days (10 years). If you try to create a policy with a validity period outside this range, you receive an error message.
-    
-    The following example creates a policy named "custom-policy" with a subject of "CN=TestDevice" and a validity period of 30 days. 
-
-    ```azurecli-interactive
-    az iot adr ns policy create --name "custom-policy" --namespace $NAMESPACE_NAME --resource-group $RESOURCE_GROUP --cert-subject "CN=TestDevice" --cert-validity-days "30"
-    ```
-
-### Delete a namespace
-
-When you no longer need the ADR namespace and its related resources, you can delete them to avoid incurring unnecessary costs.
-
-Run the `az iot adr ns delete` command to delete an Azure Device Registry namespace. Replace `$NAMESPACE_NAME` with the name of your namespace.
-
-```azurecli-interactive
-az iot adr ns delete --name $NAMESPACE_NAME --resource-group $RESOURCE_GROUP
-```

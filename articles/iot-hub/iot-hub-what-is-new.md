@@ -35,3 +35,13 @@ To use Certificate Management, devices must be provisioned through [Device Provi
 
 For more information, see [What is Certificate Management?](iot-hub-certificate-management-overview.md) and [Key concepts for Certificate Management](iot-hub-certificate-management-concepts.md).
 
+## Supported regions
+
+Azure Device Registry and Certificate Management are currently supported in the following regions:
+
+- East US
+- East US 2
+- West US
+- West US 2
+- West Europe
+- North Europe

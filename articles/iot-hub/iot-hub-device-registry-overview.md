@@ -38,16 +38,6 @@ When you [create a new IoT hub instance](iot-hub-device-registry-setup.md), you 
 
 Azure Device Registry offers three built-in roles designed to simplify and secure access management for hub resources: Azure Device Registry Contributor, Azure Device Registry Credentials Contributor, and Azure Device Registry Onboarding. For more information, see [Built-in RBAC roles for Azure IoT](/azure/role-based-access-control/built-in-roles/internet-of-things).
 
-## Supported regions
-
-Azure Device Registry is currently supported in the following regions:
-
-- East US
-- East US 2
-- West US
-- West US 2
-- West Europe
-- North Europe
 
 ## Limits and quotas
 

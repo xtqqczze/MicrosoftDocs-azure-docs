@@ -17,19 +17,28 @@ landingContent:
       links:
       - text: What is IoT Hub?
         url: iot-concepts-and-iot-hub.md
-      - text: Azure Device Registry
-        url: iot-hub-device-registry-overview.md
-      - text: Certificate Management
-        url: iot-hub-certificate-management-overview.md
     - linkListType: concept
       links:
-      - text: "FAQ: What is new in IoT Hub?"
-        url: iot-hub-faq.md
       - text: Choose your IoT Hub tier and size
         url: iot-hub-scaling.md
     - linkListType: how-to-guide
       links:
       - text: Create an IoT hub
+        url: create-hub.md
+
+ - title: New features in IoT Hub (Preview)
+   linkLists:
+    - linkListType: overview
+      links:
+      - text: What is Azure Device Registry?
+        url: iot-hub-device-registry-overview.md
+      - text: What is Certificate Management?
+        url: iot-hub-certificate-management-overview.md
+      - text: "FAQ: What is new in IoT Hub?"
+        url: iot-hub-faq.md
+    - linkListType: how-to-guide
+      links:
+      - text: Get started with Azure Device Registry and Certificate Management
         url: iot-hub-device-registry-setup.md
 
  - title: Collect data from your devices
