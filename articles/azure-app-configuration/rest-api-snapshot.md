@@ -334,8 +334,8 @@ Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-ve
   ],
   "composition_type": "key",
   "created": "2023-03-20T21:00:03+00:00",
-  "size": 2000,
-  "items_count": 4,
+  "size": 0,
+  "items_count": 0,
   "tags": {
     "t1": "value1",
     "t2": "value2"
@@ -405,8 +405,8 @@ Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-ve
   ],
   "composition_type": "key",
   "created": "2023-03-20T21:00:03+00:00",
-  "size": 2000,
-  "items_count": 4,
+  "size": 0,
+  "items_count": 0,
   "tags": {
     "t1": "value1",
     "t2": "value2"
