@@ -8,6 +8,8 @@ ms.topic: include
 ms.date: 11/05/2025
 ---
 
+## Overview
+
 Use the provided PowerShell script to automate the setup of your IoT hub with Azure Device Registry integration. The script performs all the necessary steps to create the required resources and link them together.
 
 The script includes the following resources:

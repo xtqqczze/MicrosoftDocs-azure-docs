@@ -8,6 +8,8 @@ ms.topic: include
 ms.date: 11/05/2025
 ---
 
+## Overview
+
 Use the Azure portal to create an IoT hub with Azure Device Registry and Certificate Management integration.
 
 The setup process in this article includes the following steps:
