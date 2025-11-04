@@ -46,14 +46,6 @@ In this article, you learn how to use premium ingress with Azure Container Apps.
 
     Ignore any warnings about modules currently in use.
 
-    Install or update the Azure Container Apps extension for the CLI.
-
-    If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
-
-    ```azurecli
-    az extension add --name containerapp --upgrade
-    ```
-
 1. Now that the current extension or module is installed, register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces.
 
     ```azurecli
@@ -106,7 +98,7 @@ Your workload profile must have at least two nodes to use premium ingress.
 |-----------------------------|---------------------------------------------------------------------------------------------|
 | termination-grace-period | The time (in seconds) to allow active connections to close before terminating the ingress.   Minimum: 0, Maximum: 60. |
 | request-idle-limit           |  The time (in minutes) a request can remain idle before being disconnected.  Default: 4, Minimum: 4, Maximum: 30. |
-| header-count-limit         | The maximum number of HTTP headers allowed per request. Default: 100, Minimum: 1 |
+| header-count-limit         | The maximum number of HTTP headers allowed per request. Default: 100, Minimum: 1. |
 
 
 Once configured you will see an output of the settings you just applied.
@@ -194,7 +186,7 @@ This will deploy a Container Apps environment with a premium ingress configurati
 | headerCountLimit           | The maximum number of HTTP headers allowed per request. The maximum number of HTTP headers allowed per request. Default: 100, Minimum: 1.                                      |
 | requestIdleTimeout         | The time (in minutes) a request can remain idle before being disconnected.  Default: 4, Minimum: 4, Maximum: 30.          |
 
-
+  
 1. Deploy to Azure
 
 Navigate to the directory where you saved the `ingress.bicep` file, then run the following command to deploy the Bicep file:
