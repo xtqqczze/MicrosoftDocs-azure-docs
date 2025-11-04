@@ -30,6 +30,20 @@ Events are generated from the following FHIR service types.
 
 For more information about delete types in the FHIR service, see [REST API capabilities in the FHIR service in Azure Health Data Services](../fhir/rest-api-capabilities.md).
 
+**How can I delete and recreate a Patient resource and receive a Patient Create event?**
+
+Deleting and recreating a Patient resource can trigger a new `FhirResourceCreated` (Patient Create) event, provided these guidelines are followed:
+
+- Use a hard delete to remove the resource completely. Hard delete ensures the previous resource instance is fully removed. See the hard-delete guidance: [REST API capabilities in the FHIR service in Azure Health Data Services](../fhir/rest-api-capabilities.md).
+- Recreate the patient using POST (create) rather than PUT. Using POST creates a new resource instance and will emit a `FhirResourceCreated` event.
+- If you must use PUT to recreate the resource, wait until after the retention window (7 days) has passed before recreating to avoid conflicts with residual data. Reconciling within the retention window may not generate a create event or may cause conflicts.
+- Summary:
+  - Preferred flow: hard delete → POST (new resource) → you receive `FhirResourceCreated`.
+  - If PUT is used: ensure recreation occurs after the 7-day retention window.
+
+> [!Note]
+> Events are emitted based on the actual data-change semantics of the operation (create, update, soft delete). A hard delete followed by a POST represents a new create and will generate a `FhirResourceCreated` event; recreating with PUT within the retention period may behave like an update or produce conflicts and may not produce a create event.
+
 **Does events support FHIR bundles?**
 
 Yes. The events capability emits notifications of data changes at the FHIR resource level. 
