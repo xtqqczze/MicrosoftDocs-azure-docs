@@ -181,7 +181,7 @@ To update ASR agent manually, follow these steps:
 2. Select **Update Agent to support new OS version detected on VM**.
 3. Review the details in the context pane and proceed with the agent upgrade as prompted.  
 
->[NOTE]
+>[!NOTE]
 >If you upgrade your Linux OS without updating the ASR Mobility Agent to a compatible version, replication may fail. Ensure that the agent version supports your new OS version. After a major Linux OS upgrade, data resynchronization occurs when the agent is updated.
 
 #### Supported kernel versions for Red Hat Enterprise Linux for Azure VMs
