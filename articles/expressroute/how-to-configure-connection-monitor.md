@@ -27,6 +27,9 @@ With Connection Monitor, you can:
 
 This article shows you how to set up Connection Monitor so you have complete visibility into your ExpressRoute connection health.
 
+> [!NOTE]
+> If you don't see the Connection Monitor option when creating or editing an ExpressRoute connection, you may need to enable the feature flag. Access the Azure portal with this URL: `https://ms.portal.azure.com/?feature.experimentation=false&exp.AzurePortal_ExRCMIntegration=true#home`
+
 ## Prerequisites
 
 Before you begin, ensure you have the following:
@@ -362,6 +365,33 @@ A Connection Monitor includes one or more tests. The dashboard shows an aggregat
 - **Warning**: Some tests failed. The status column displays the number of failed tests (for example, "1/4" means 1 out of 4 tests failed). The **Reason** column provides the cause of failure.
 
 Select an endpoint to view individual test results, latency trends, packet loss metrics, and network path visualization.
+
+## Pricing
+
+Connection Monitor tests created for ExpressRoute connections through the Azure portal are **free of charge**. This benefit applies when you:
+
+- Enable Connection Monitor while creating a new ExpressRoute connection in the portal
+- Add Connection Monitor to an existing ExpressRoute connection through the portal
+
+**What's included:**
+- All tests automatically created between your selected endpoints
+- No limit on the number of tests
+- No monthly charges for these ExpressRoute monitoring tests
+
+**What's not included in this benefit:**
+- Connection Monitor tests created through other methods (PowerShell, CLI, ARM templates, or REST API)
+- Existing Connection Monitor setups created before this portal integration
+- Connection Monitor tests for non-ExpressRoute scenarios
+
+For these scenarios, standard [Azure Network Watcher Connection Monitor pricing](https://azure.microsoft.com/pricing/details/network-watcher/) applies:
+- 0-10 tests: Free
+- 10-240,010 tests: $0.30/test/month
+- 240,010-750,010 tests: $0.10/test/month
+- 750,010-1,000,010 tests: $0.06/test/month
+- 1,000,010+ tests: $0.03/test/month
+
+> [!TIP]
+> To take advantage of free monitoring, always configure Connection Monitor through the Azure portal when working with ExpressRoute connections.
 
 ## Next steps
 
