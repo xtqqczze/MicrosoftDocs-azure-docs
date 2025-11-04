@@ -69,7 +69,7 @@ To run the Service Bus emulator locally on Linux or macOS:
 
 ### [Docker (Linux container)](#tab/docker-linux-container)
 
-When you use Docker, the service bus is fetched from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/en-us/artifact/mar/azure-messaging/servicebus-emulator/about). Use the following steps to manually set up and run the Service Bus emulator by using Docker Compose:
+When you use Docker, the service bus emulator is fetched from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/en-us/artifact/mar/azure-messaging/servicebus-emulator/about). Use the following steps to manually set up and run the Service Bus emulator by using Docker Compose:
 
 1. To start the emulator, supply a configuration for the entities that you want to use. Save the following JSON file locally as _config.json_:
 
