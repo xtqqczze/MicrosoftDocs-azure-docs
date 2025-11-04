@@ -132,6 +132,13 @@ To enable deployment labels, follow these steps in the Azure CLI:
    --label $TARGET_LABEL
    ```
 
+1. To show label app traffic, use the following command:
+   ```bash
+   az containerapp ingress traffic show \
+   --name $CONTAINER_APP_NAME \
+   --resource-group $RESOURCE_GROUP \
+   ```
+
 1. To add a label to a revision, use the following commands:
    ```bash
    az containerapp revision label add \
@@ -147,7 +154,6 @@ To enable deployment labels, follow these steps in the Azure CLI:
    az containerapp revision label remove \
    --name $CONTAINER_APP_NAME \
    --resource-group $RESOURCE_GROUP \
-   --revision $REVISION_NAME \
    --label $TARGET_LABEL
    ```
 
