@@ -45,9 +45,7 @@ Certificate Management consists of several integrated components that work toget
 
 Certificate Management uses [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) to manage device certificates. ADR is a service that provides secure device identity and authentication for IoT solutions. It integrates with IoT Hub and Device Provisioning Service (DPS) to provide a seamless experience for managing device identities and certificates.
 
-For more information about how to manage namespaces, policies, and credentials, see [Manage your certificates and namespaces in IoT Hub](iot-hub-certificate-management.md).
-
-The following image illustrates the X.509 certificate hierarchy used to authenticate IoT devices in Azure IoT Hub through the Azure Device Registry (ADR).
+The following image illustrates the X.509 certificate hierarchy used to authenticate IoT devices in Azure IoT Hub through the ADR namespace.
 
 - Each ADR namespace (cloud) has a unique root CA credential managed by Microsoft. This credential acts as the primary certificate authority in the chain.
 - Each policy within the ADR namespace defines an issuing CA (ICA) signed by the root CA. Each policy can issue leaf certificates for devices registered within that ADR namespace and with Hubs linked to the namespace. This structure enables scalable identity management and policy enforcement across device groups.

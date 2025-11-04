@@ -87,7 +87,7 @@ To prepare your environment to use Azure Device Registry, complete the following
 
 To simplify the process of creating and managing resources, set up the following environment variables in your terminal session. Replace the placeholder values with your own values.
 
-1. Set up your subscription ID, resource group name, and location. Check out the available locations in the [Supported regions](../articles/iot-hub/iot-hub-device-registry-overview.md#supported-regions) section.
+1. Set up your subscription ID, resource group name, and location. Check out the available locations for preview features in the [Supported regions](../articles/iot-hub/iot-hub-what-is-new.md#supported-regions) section.
 
     ```azurecli-interactive
     SUBSCRIPTION_ID="your-subscription-id"

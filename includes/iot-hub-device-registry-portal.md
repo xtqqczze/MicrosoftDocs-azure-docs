@@ -42,14 +42,14 @@ In this section, you create a new IoT hub instance with a new ADR namespace and 
    | **Subscription** | Select the subscription to use for your hub. |
    | **Resource group** | Select a resource group or create a new one. To create a new one, select **Create new** and fill in the name you want to use.|
    | **IoT hub name** | Enter a name for your hub. This name must be globally unique, with a length between 3 and 50 alphanumeric characters. The name can also include the dash (`'-'`) character.|
-   | **Region** | ADR and Certificate Management functionalities are in **preview** and only available in **certain regions**. See the [supported regions](../articles/iot-hub/iot-hub-device-registry-overview.md#what-are-the-supported-regions-for-iot-hub-with-adr) and select the region, closest to you, where you want your hub to be located.|
+   | **Region** | ADR and Certificate Management functionalities are in **preview** and only available in **certain regions**. See the [supported regions](../articles/iot-hub/iot-hub-what-is-new.md#supported-regions) and select the region, closest to you, where you want your hub to be located.|
    | **Tier** | Select the **Preview** tier. To compare the features available to each tier, select **Compare tiers**.|
    | **Daily message limit** | Select the maximum daily quota of messages for your hub. The available options depend on the tier you select for your hub. To see the available messaging and pricing options, select **See all options** and select the option that best matches the needs of your hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling).|
    | **ADR namespace** | Select an existing ADR namespace or create a new one. To create a new one, select **Create new** and fill in the name you want to use.|
    | **User managed identity** | Select a user-assigned managed identity to link to your IoT hub. This identity is used to securely access other Azure resources, such as ADR namespace and DPS. If you don't have a user-assigned managed identity, you can create one in the Azure portal. For more information, see [Create a user-assigned managed identity in the Azure portal](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal). |
  
 
-   :::image type="content" source="../articles/iot-hub/media/iot-hub-device-registry/iot-hub-gen-2-basics.png" alt-text="Screen capture that shows how to create an IoT hub in the Azure portal.":::
+   :::image type="content" source="../articles/iot-hub/media/device-registry/iot-hub-gen-2-basics.png" alt-text="Screen capture that shows how to create an IoT hub in the Azure portal.":::
 
    > [!NOTE]
    > Prices shown are for example purposes only.
@@ -68,7 +68,7 @@ When you select **Create new** in the **ADR namespace** field, a new pane appear
     | **Resource group** | Select the resource group you used for your IoT hub. |
     |**Name**| Enter a name for your ADR namespace. Your namespace name can only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, the name "msft-namespace" is valid. |
 
-    :::image type="content" source="../articles/iot-hub/media/iot-hub-device-registry/iot-hub-namespace-1.png" alt-text="Screen capture that shows how to fill the basics tab for an ADR namespace in the Azure portal.":::
+    :::image type="content" source="../articles/iot-hub/media/device-registry/iot-hub-namespace-1.png" alt-text="Screen capture that shows how to fill the basics tab for an ADR namespace in the Azure portal.":::
 
 1. Select the **Next: Identity >** button to continue creating your ADR namespace.
 1. In the **Identity** tab, you can choose to enable a system-assigned managed identity and a credential resource for your namespace. To enable these features, toggle the switch to **Enabled**. For more information about how ADR works with managed identities and credential resources, see [What is Certificate Management](../articles/iot-hub/iot-hub-certificate-management-overview.md).
@@ -76,12 +76,12 @@ When you select **Create new** in the **ADR namespace** field, a new pane appear
     - Managed identities allow your namespace to authenticate to Azure services without storing credentials in your code. 
     - Credential resources securely store and manage device authentication credentials, such as API keys or certificates, for devices connecting to your namespace. When you enable this feature, you can set policies to control how certificates are issued and managed for your devices.
 
-    :::image type="content" source="../articles/iot-hub/media/iot-hub-device-registry/iot-hub-namespace-2.png" alt-text="Screen capture that shows how to enable a system-assigned managed identity for an ADR namespace in the Azure portal.":::
+    :::image type="content" source="../articles/iot-hub/media/device-registry/iot-hub-namespace-2.png" alt-text="Screen capture that shows how to enable a system-assigned managed identity for an ADR namespace in the Azure portal.":::
 
 1. Select the **Next: Tags >** button to continue creating your ADR namespace.
 1. In the Tags tab, you can optionally **add tags** to organize your ADR namespace. Tags are key-value pairs that help you manage and identify your resources. You can use tags to filter and group your resources in the Azure portal.
 
-    :::image type="content" source="../articles/iot-hub/media/iot-hub-device-registry/iot-hub-namespace-3.png" alt-text="Screen capture that shows how to create tags for an ADR namespace in the Azure portal.":::
+    :::image type="content" source="../articles/iot-hub/media/device-registry/iot-hub-namespace-3.png" alt-text="Screen capture that shows how to create tags for an ADR namespace in the Azure portal.":::
 
 1. Select the **Review + create >** button to continue creating your ADR namespace.
 1. Review your settings, and then select **Create** to create your ADR namespace.
@@ -192,7 +192,7 @@ Create custom policies within your ADR namespace to define how certificates are 
 1. Select your ADR namespace.
 1. In the namespace page, under **Namespace resources**, select **Credential policies (Preview)**.
 
-    :::image type="content" source="../articles/iot-hub/media/device-registry/custom-policy.png" alt-text="Screenshot of Azure Device Registry custom policy page in the Azure portal." lightbox="media/device-registry/custom-policy.png":::
+    :::image type="content" source="../articles/iot-hub/media/device-registry/custom-policy.png" alt-text="Screenshot of Azure Device Registry custom policy page in the Azure portal." lightbox="../articles/iot-hub/media/device-registry/custom-policy.png":::
 
 1. Select **Enable** to enable credential policies for your namespace, if you haven't already done so.
 1. In the **Credential policies** page, select **+ Create** to create a new policy.

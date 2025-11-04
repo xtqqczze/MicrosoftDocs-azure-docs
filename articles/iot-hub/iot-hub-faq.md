@@ -50,10 +50,6 @@ No. Certificate Management is an optional feature of ADR, and thus it requires u
 
 No, Certificate Management relies on the Device Provisioning Service (DPS) for device registration and certificate management. You must use DPS in conjunction with ADR to utilize Certificate Management features. For more information, see the section [Device Provisioning Service integration](iot-hub-certificate-management-overview.md#device-provisioning-service-integration) in [What is Certificate Management?](iot-hub-certificate-management-overview.md).
 
-## Can I use my existing DPS instance to link a namespace? 
-
-Yes, you can link an existing DPS instance to an ADR namespace when setting up Certificate Management. For more information, see [Assign a namespace to a DPS instance](iot-hub-certificate-management.md#assign-a-namespace-to-a-dps-instance).
-
 ## What is the pricing model for IoT Hub with ADR and Certificate Management?
 
 During the preview period, ADR and Certificate Management features in IoT Hub are **free of charge**. After the preview period, pricing details will be provided. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
