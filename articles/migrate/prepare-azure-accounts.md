@@ -10,7 +10,7 @@ ms.custom: engagement-fy25
 # Customer intent: "As a cloud architect, I want to prepare Azure accounts and assign Azure Migrate built-in roles to provide secure, least-privileged access for Azure Migrate projects". 
 ---
 
-# Quickstart: Prepare Azure accounts for Azure Migrate using built-in roles
+# Prepare Azure accounts for Azure Migrate using built-in roles
 
 Azure Migrate is a unified migration platform that lets customers discover, assess, and migrate various workloads including servers, databases, and web apps. A typical customer's migration journey includes three [phases](migrate-services-overview.md#migration-phases): the Decide phase to discover the workloads, plan phase to assess the Azure readiness of workloads, right size the Azure targets and execute phase to migrate and modernize the workloads. The article explains how to implement Azure Role-based access control to grant least privileged Azure access in Azure Migrate using built-in roles. The built-in roles are purposefully mapped to the Decide, Plan, and Execute phases, so users have only the permissions needed for that phase of the migration journey. 
 
@@ -79,13 +79,13 @@ In this section, you learn how to grant access to users by assigning Azure Migra
 6.	Select the preferred assignment type and duration. The recommended approach is to choose eligible type and time-bound assignment duration. 
 7. Select next and review + assign to complete the role assignment. 
 ### Assigning Decide and Plan Expert and Execute Expert role
-Azure Migrate owner can grant a user access to Azure Migrate Decide and Plan Expert and Azure Migrate Execute Expert roles.  
+An Azure Migrate Owner can assign the roles **Azure Migrate Decide and Plan Expert** and **Azure Migrate Execute Expert** to a user.  
 1.	Select the resource group where the Migrate project is set up.
 2.	In the navigation menu, select Access control (IAM)
 3.	Select Add > Add role assignment
 4.	Select the role you want to assign. The Azure Migrate Decide and Plan Expert role and Azure Migrate Execute Expert role appear under Job function roles. 
-:::image type="content" source="./media/prepare-azure-accounts/role-assignment-decide-plan-expert.png" alt-text="Azure portal Add role assignment page displaying Job function roles tab with Azure Migrate Decide and Plan Expert role highlighted in red rectangle. The interface shows role selection options with tabs for Role, Members, Conditions, and Review + assign. Text indicates this role grants restricted access on Azure Migrate project to only perform planning operations including appliance/import-based discovery, managing inventory, identifying server dependencies, creation of business case & assessment reports." lightbox="./media/prepare-azure-accounts/role-assignment-decide-plan-expert.png":::
-:::image type="content" source="./media/prepare-azure-accounts/role-assignment-execute-expert.png" alt-text="Azure portal Add role assignment page displaying Job function roles tab with Azure Migrate Decide and Plan Expert role highlighted in red rectangle. The interface shows role selection options with tabs for Role, Members, Conditions, and Review + assign. Text indicates this role grants restricted access on Azure Migrate project to only perform planning operations including appliance/import-based discovery, managing inventory, identifying server dependencies, creation of business case & assessment reports." lightbox="./media/prepare-azure-accounts/role-assignment-execute-expert.png":::
+:::image type="content" source="./media/prepare-azure-accounts/role-assignment-decide-plan-expert.png" alt-text="Azure portal Add role assignment page displaying Job function roles tab with Azure Migrate Decide and Plan Expert role highlighted in red rectangle.Text indicates this role grants restricted access on Azure Migrate project to only perform planning operations including appliance or import-based discovery, managing inventory, identifying server dependencies, creation of business case and assessment reports." lightbox="./media/prepare-azure-accounts/role-assignment-decide-plan-expert.png":::
+:::image type="content" source="./media/prepare-azure-accounts/role-assignment-execute-expert.png" alt-text="Azure portal Add role assignment page displaying Job function roles tab with Azure Migrate Execute Expert role highlighted in red rectangle. Text indicates this role grants restricted access on Azure Migrate project to only perform migration related operations including replication, execution of test migrations, tracking and monitoring of migration progress, and initiation of agentless and agent-based migrations." lightbox="./media/prepare-azure-accounts/role-assignment-execute-expert.png":::
 
 5.	After selecting the role, on the members tab, select the user or group.
 6.	Select the preferred assignment type and duration. The recommended approach is to choose eligible type and time-bound assignment duration. 
@@ -94,7 +94,7 @@ Azure Migrate owner can grant a user access to Azure Migrate Decide and Plan Exp
 Follow these steps to check your access
 1.	From the resource group/subscription, select Access control (IAM) and view my access.
 2.	Verify if the role assignment is successful.
-:::image type="content" source="./media/prepare-azure-accounts/view-my-access.png" alt-text="Azure portal Access control IAM interface showing the Check access section on the left side with a blue View my access button highlighted. The main content area displays Current role assignments tab with a table showing Azure Migrate Owner role assignment. The table includes columns for Role, Description, Scope, and Group assignment. One row shows Azure Migrate Owner role with description Grants full access to create and manage Azure Migrate projects, scoped to This resource, with Group assignment showing two dashes. A red rectangle highlights the Azure Migrate Owner row in the table." lightbox="./media/prepare-azure-accounts/view-my-access.png":::
+:::image type="content" source="./media/prepare-azure-accounts/view-my-access.png" alt-text="Azure portal Access control IAM interface showing the Check access section on the left side with a blue View my access button highlighted." lightbox="./media/prepare-azure-accounts/view-my-access.png":::
 3.	To check access for a user or group, select check access. Enter the user or group details and verify role assignment. 
 
 ### Remove access
@@ -102,7 +102,7 @@ Follow these steps to check your access
 2.	Open Access control (IAM) at scope subscription or resource group. 
 3.	Select role assignments
 4.	Select the role assignment that you would like to remove
-:::image type="content" source="./media/prepare-azure-accounts/remove-access.png" alt-text="Azure portal Access control IAM interface showing the Check access section on the left side with a blue View my access button highlighted. The main content area displays Current role assignments tab with a table showing Azure Migrate Owner role assignment. The table includes columns for Role, Description, Scope, and Group assignment. One row shows Azure Migrate Owner role with description Grants full access to create and manage Azure Migrate projects, scoped to This resource, with Group assignment showing two dashes. A red rectangle highlights the Azure Migrate Owner row in the table." lightbox="./media/prepare-azure-accounts/remove-access.png":::
+:::image type="content" source="./media/prepare-azure-accounts/remove-access.png" alt-text="Azure portal Access control IAM page showing role assignments table with a selected user row highlighted in blue and a red Delete button prominently displayed in the top toolbar, demonstrating the process to remove role assignments from users in the resource management interface." lightbox="./media/prepare-azure-accounts/remove-access.png":::
 5.	Select Delete to remove the role assignment.
 ## Guidance for role assignments at the resource group scope
 We recommend performing role assignments at resource group to operate in a least privilege access model. Note the following scenarios when role assignments are done at the resource group scope.
