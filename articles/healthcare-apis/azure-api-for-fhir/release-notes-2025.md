@@ -30,8 +30,6 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 **Reindex Orchestrator – Reliability and Performance Improvements**: Enhanced the reindex orchestrator for better reliability, accuracy, and performance. Updates include optimized surrogate ID range handling, improved job completion tracking, refined polling intervals to reduce database load, and fixes for query and parameter handling to ensure accurate progress reporting.
 
-**Reindex job processing improvements**: Made improvements to reindex job processing, including improving background job reliability and flexibility by refining cache refresh timing and enhancing reindex job handling. This includes a change where Create, Update, Delete, and Patch changes to custom search parameters while a reindex job is running will no longer be allowed.
-
 ## September 2025
 ### FHIR service
 
