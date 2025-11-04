@@ -26,10 +26,10 @@ In this article, you learn how to set up, monitor, and troubleshoot with Azure S
 
 ## Enable diagnostic settings to collect NAT gateway flow logs
 
-In this section, you learn how to set up StandardV2 NAT gateway flow logs and send it to the recommended destination – Log Analytics workspace which enables you to manage data retention and access. To learn more about the other destinations, including Azure Storage account and Azure Event Hubs, see [Diagnostic settings in Azure Monitor - Azure Monitor | Microsoft Learn.](/azure/azure-monitor/platform/diagnostic-settings)
+In this section, you learn how to set up StandardV2 NAT gateway flow logs and send it to the recommended destination – Log Analytics workspace, which enables you to manage data retention and access. To learn more about the other destinations, including Azure Storage account and Azure Event Hubs, see [Diagnostic settings in Azure Monitor - Azure Monitor | Microsoft Learn.](/azure/azure-monitor/platform/diagnostic-settings)
 
 > [!NOTE]
-> If you are sending logs to Azure Storage or Event Hubs, please ensure the region of your storage account and Eventhub namespace are in the same region as your StandardV2 NAT gateway resource.
+> If you're sending logs to Azure Storage or Event Hubs, ensure the region of your storage account and Event Hubs namespace are in the same region as your StandardV2 NAT gateway resource.
  
 1. In the Azure portal, navigate to your StandardV2 NAT gateway resource.
 1. From your NAT gateway resource's **Overview** page, choose **Monitoring** > **Diagnostic settings**.
@@ -47,11 +47,11 @@ In this section, you learn how to set up StandardV2 NAT gateway flow logs and se
 1. Select Save and close the Diagnostic setting window.
 
     > [!NOTE]
-    > Once your diagnostic setting has been configured, it can take up to 90 minutes for logs to appear. 
+    > Once your diagnostic setting is configured, it can take up to 90 minutes for logs to appear. 
 
 ## Configure a log query
 
-In this section, you learn how to query StandardV2 NAT Gateway flow logs to identify virtual machines generating the most outbound traffic sent – commonly referred to as top talkers. This insight is useful for diagnosing unexpected spikes in traffic and understanding bandwidth consumption patterns. The sample query provided will sort the virtual machines by the total number of packets sent in descending order. This allows you to quickly pinpoint which VMs are sending the most outbound traffic from your NAT gateway.
+In this section, you learn how to query StandardV2 NAT Gateway flow logs to identify virtual machines generating the most outbound traffic sent – commonly referred to as top talkers. This insight is useful for diagnosing unexpected spikes in traffic and understanding bandwidth consumption patterns. The sample query provided sorts the virtual machines by the total number of packets sent in descending order. The query allows you to quickly pinpoint which virtual machines are sending the most outbound traffic from your NAT gateway.
 
 1. In the Azure portal, navigate to your Log Analytics workspace resource associated to your StandardV2 NAT gateway resource.
 1. From your Log Analytics workspace's **Overview** page, choose **Logs**.

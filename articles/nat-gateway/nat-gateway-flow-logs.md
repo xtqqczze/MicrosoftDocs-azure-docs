@@ -13,7 +13,7 @@ ms.custom:
 
 # Manage StandardV2 NAT Gateway Flow Logs
 
-NAT Gateway Flow Logs provide IP information on the traffic flowing through your StandardV2 NAT gateway. Logs are captured through Azure Monitor resource log category NatGatewayFlowLogsV1 which you enable through Diagnostic Settings on your StandardV2 NAT gateway resource.
+NAT Gateway Flow Logs provide IP information on the traffic flowing through your StandardV2 NAT gateway. Logs are captured through Azure Monitor resource log category `NatGatewayFlowLogsV1`, which you enable through Diagnostic Settings on your StandardV2 NAT gateway resource.
 
 > [!IMPORTANT]
 > Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
@@ -27,7 +27,7 @@ Flow logs provide visibility to the traffic flowing through your NAT gateway, wh
 
 - **Ensure traceability:** Maintain a record of traffic flows for auditing and forensic analysis.
 
-- **Analyze traffic patterns:** Understand bandwidth consumption and identify top talkers (e.g., which virtual machines initiate the most outbound connections).
+- **Analyze traffic patterns:** Understand bandwidth consumption and identify top talkers (for example, which virtual machines initiate the most outbound connections).
 
 - **Troubleshoot connectivity issues:** Pinpoint failures or misconfigurations in outbound traffic paths.
 
@@ -42,7 +42,7 @@ The following table describes the fields and their definitions for *NatGatewayFl
 | **Field** | **Type** | **Description** |
 |----|----|----|
 | TimeGenerated | Time in \[UTC\] | Time the data was generated from the data source. |
-| SourceIp | string | Source IP address of originating traffic (Azure VM's private IP). |
+| SourceIp | string | Source IP address of originating traffic (Azure virtual machine's private IP). |
 | DestinationIp | string | Destination IP address of originating traffic (Internet IP address). |
 | NatGatewayIp | string | NAT Gateway IP address. |
 | packetsSent | int / null | Count of packets sent from source IP and allowed by the NAT Gateway. |
@@ -57,11 +57,11 @@ The following table describes the fields and their definitions for *NatGatewayFl
 
 **How is the pricing calculated?**
 
-When your NAT gateway resource has *NatGatewayFlowlogsV1* log category enabled, it will incur a \$4 monthly fee. The charge is prorated hourly based on how long the Diagnostic setting remains active. For example, if the setting is enabled for 71.5 hours, you will be billed for 72 hours and total cost for that month would be \[72 ÷ 730 (total number of hours in a month) × \$4\] = \$0.40.
+When your NAT gateway resource has *NatGatewayFlowlogsV1* log category enabled, it incurs a \$4 monthly fee. The charge is prorated hourly based on how long the Diagnostic setting remains active. For example, if the setting is enabled for 71.5 hours, you will be billed for 72 hours and total cost for that month would be \[72 ÷ 730 (total number of hours in a month) × \$4\] = \$0.40.
 
 **What do dropped packets mean?**
 
-The packetsSentDropped and packetsReceivedDropped fields indicate packets that were dropped after a NAT gateway connection was successfully established. These dropped fields do not include failures to establish a connection, such as those caused by SNAT port exhaustion.
+The packetsSentDropped and packetsReceivedDropped fields indicate packets that were dropped after a NAT gateway connection was successfully established. These dropped fields don't include failures to establish a connection, such as failures caused by SNAT port exhaustion.
 
 **Does Standard NAT Gateway have Flow Logs?**
 
