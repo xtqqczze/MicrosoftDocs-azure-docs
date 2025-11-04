@@ -64,15 +64,6 @@ The following example ARM template allows you to configure vaulted backup for tw
         "description": "Name of the Backup Policy"
       }
     },
-    "operationalTierRetentionInDays": {
-      "type": "int",
-      "defaultValue": 30,
-      "minValue": 1,
-      "maxValue": 360,
-      "metadata": {
-        "description": "Operational tier backup retention duration in days"
-      }
-    },
     "vaultTierDefaultRetentionInDays": {
       "type": "int",
       "defaultValue": 30,
@@ -476,11 +467,6 @@ param vaultStorageRedundancy string = 'GeoRedundant'
 
 @description('Name of the Backup Policy')
 param backupPolicyName string = 'policy${uniqueString(resourceGroup().id)}'
-
-@description('Operational tier backup retention duration in days')
-@minValue(1)
-@maxValue(360)
-param operationalTierRetentionInDays int = 30
 
 @description('Vault tier default backup retention duration in days')
 @minValue(7)
