@@ -114,7 +114,7 @@ items:
     - name: Collect additional data about Arc enabled servers
       href: how-to-enable-additional-data-collection-for-arc-servers.md
     - name: Azure Migrate VM Extension for Arc-enabled servers.
-      href: migrate-vm-extension-reference.md
+      href: migrate-virtual-machine-extension-reference.md
   - name: Discover using inventory import
     items: 
       - name: CSV import

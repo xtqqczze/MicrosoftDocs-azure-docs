@@ -14,7 +14,7 @@ monikerRange: migrate
 
 This article describes how to sync Arc-enabled resources in Azure Migrate, manage project scope, and configure automatic synchronization.
 
-When you create an Azure Migrate project for Arc resources, it syncs metadata from your Arc-enabled servers and SQL Server instances. As your environment changes, you need to sync the project to ensure assessments and business cases reflect the current state of your infrastructure.
+When you create an Azure Migrate project for Arc resources, it syncs metadata from your Arc-enabled servers and SQL Server instances. As your environment changes, you need to sync the project to ensure assessments, and business cases reflect the current state of your infrastructure.
 
 ## Prerequisites
 
@@ -33,9 +33,9 @@ Manual sync allows you to immediately refresh your Azure Migrate project with th
 ### When to use manual sync
 
 Use manual sync when:
-- New Arc-enabled servers or SQL Server instances have been added to subscriptions in scope
-- Servers or SQL Server instances have been removed from your environment
-- Configuration changes have occurred (CPU, memory, disk changes)
+- New Arc-enabled servers or SQL Server instances are added to subscriptions in scope
+- Servers or SQL Server instances are removed from your environment
+- Configuration of servers changes (CPU, memory, disk changes)
 - You want to ensure the latest data before creating an assessment or business case
 
 ### Perform an on-demand sync
@@ -46,16 +46,16 @@ Use manual sync when:
 
 3. On the toolbar, select **Sync Arc data**.
 
-4. The sync process begins. Depending on the number of Arc resources in your subscriptions, this may take several minutes.
+4. The sync process begins. Depending on the number of Arc resources in your subscriptions, this process might take several minutes.
 
-5. You'll receive a notification when the sync completes successfully.
+5. You receive a notification when the sync completes successfully.
 
 > [!NOTE]
-> During sync, Azure Migrate collects metadata about your Arc-enabled resources but doesn't change the resources. When you perform an on-demand sync, change sync type, enable/disable tag sync or edit project scope, along with data sync, Azure Migrate also recalculates thed default assessments and business cases.
+> During sync, Azure Migrate collects metadata about your Arc-enabled resources but doesn't change the resources. When you perform an on-demand sync, change sync type, enable/disable tag sync or edit project scope, along with data sync, Azure Migrate also recalculates the default assessments and business cases.
 
 ## Automatic sync
 
-Automatic sync configures your Azure Migrate project to periodically sync Arc resource data without manual intervention. This ensures your assessments and business cases always reflect the current state of your infrastructure.
+Automatic sync configures your Azure Migrate project to periodically sync Arc resource data without manual intervention. This setting ensures your assessments and business cases always reflect the current state of your infrastructure.
 
 ### How automatic sync works
 
@@ -63,7 +63,7 @@ When you enable automatic sync:
 - Azure Migrate uses the project's managed identity to access Arc resources
 - The managed identity is automatically enabled when you create a project with Arc resources
 - Automatic sync runs once every 24 hours. 
-- You can manually trigger a sync any time. Based on sync type, the sync will either use your identity or the Azure Migrate project managed identity to perform the sync. 
+- You can manually trigger a sync anytime. Manual sync uses your identity, while automatic (periodic) sync uses the Azure Migrate project managed identity to perform the sync.
 
 
 ### Configure automatic sync
@@ -80,27 +80,27 @@ The Azure Migrate project has a system-assigned managed identity that must be gr
 
 3. For each subscription containing Arc resources in your project scope:
 
-   a. Navigate to the subscription in the Azure portal.
+   1. Navigate to the subscription in the Azure portal.
    
-   b. Select **Access control (IAM)** from the left menu.
+   2. Select **Access control (IAM)** from the left menu.
    
-   c. Select **+ Add** > **Add role assignment**.
+   3. Select **+ Add** > **Add role assignment**.
    
-   d. On the **Role** tab, search for and select **Migrate Arc Discovery Reader - Preview**.
+   4. On the **Role** tab, search for and select **Migrate Arc Discovery Reader - Preview**.
    
-   e. Select **Next**.
+   5. Select **Next**.
    
-   f. On the **Members** tab, select **Managed identity**.
+   6. On the **Members** tab, select **Managed identity**.
    
-   g. Select **+ Select members**.
+   7. Select **+ Select members**.
    
-   h. In the **Managed identity** dropdown, select **Migrate Project**.
+   8. In the **Managed identity** dropdown, select **Migrate Project**.
    
-   i. Search for and select your Azure Migrate project name.
+   9. Search for and select your Azure Migrate project name.
    
-   j. Select **Select**.
+   10. Select **Select**.
    
-   k. Select **Review + assign** and complete the role assignment.
+   11. Select **Review + assign** and complete the role assignment.
 
 4. Repeat for all subscriptions in your project scope.
 
@@ -143,7 +143,7 @@ To disable automatic sync:
 
 ## Configure tag synchronization
 
-Azure Migrate can synchronize Azure Resource Manager tags from your Arc-enabled resources to the Migrate inventory. This helps you organize and filter resources in assessments and business cases.
+Azure Migrate can synchronize Azure Resource Manager tags from your Arc-enabled resources to the Migrate inventory. Tag syncing helps you organize and filter resources in assessments and business cases.
 
 ### About tag synchronization
 

@@ -508,7 +508,7 @@ The Azure Migrate Collector VM extension requires network connectivity to region
 https://discoverysrv.<region-code>.prod.migration.windowsazure.com
 ```
 
-For the complete list of regional endpoints, see [Regional endpoints for Azure Migrate Collector VM extension](migrate-vm-extension-reference.md#regional-endpoints).
+For the complete list of regional endpoints, see [Regional endpoints for Azure Migrate Collector VM extension](migrate-virtual-machine-extension-reference.md#regional-endpoints).
 
 
 ## Disable additional data collection
@@ -531,4 +531,4 @@ To stop collecting additional data from specific servers:
 - [Manage sync of Arc resources to Azure Migrate project](how-to-manage-arc-resource-sync.md)
 - [Create performance-based assessments](how-to-create-assessment.md)
 - [View business case reports](how-to-view-a-business-case.md)
-- [Azure Migrate Collector extension reference](migrate-vm-extension-reference.md)
+- [Azure Migrate Collector extension reference](migrate-virtual-machine-extension-reference.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Migrate Collector VM extension reference
+title: Azure Migrate Collector virtual machine extension reference
 description: Technical reference for the Azure Migrate Collector VM extension including settings schema, regional endpoints, and configuration options.
 author: snehithm
 ms.author: snmuvva
@@ -10,9 +10,9 @@ ms.custom: engagement-fy25
 monikerRange: migrate
 ---
 
-# Azure Migrate Collector VM extension reference
+# Azure Migrate Collector virtual machine extension reference
 
-This article provides technical reference information for the Azure Migrate Collector VM extension used with Arc-enabled servers.
+This article provides technical reference information for the Azure Migrate Collector Virtual Machine (VM) extension used with Arc-enabled servers.
 
 ## Overview
 
@@ -26,7 +26,7 @@ The Azure Migrate Collector VM extension is an optional component that collects 
 |----------|-------|
 | **Publisher** | Microsoft.Azure.Migrate |
 | **Type** | AzureMigrateCollectorForWindows |
-| **Supported OS** | All Windows OSes supported by Arc-enabled Servers |
+| **Supported OS** | All Windows operating systems supported by Arc-enabled Servers |
 
 ### Linux extension
 
@@ -34,7 +34,7 @@ The Azure Migrate Collector VM extension is an optional component that collects 
 |----------|-------|
 | **Publisher** | Microsoft.Azure.Migrate |
 | **Type** | AzureMigrateCollectorForLinux |
-| **Supported OS** | All Linux OSes supported by Arc-enabled Servers |
+| **Supported OS** | All Linux operating systems supported by Arc-enabled Servers |
 
 ## Extension settings schema
 
@@ -67,7 +67,7 @@ The extension requires configuration through the `settings` parameter:
 {
   "migrateProjects": [
     {
-      "id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/MigrateRG/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MigrateRG/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject",
       "location": "eastus"
     }
   ]
@@ -80,11 +80,11 @@ The extension requires configuration through the `settings` parameter:
 {
   "migrateProjects": [
     {
-      "id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/MigrateRG/providers/Microsoft.Migrate/migrateProjects/Project1",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MigrateRG/providers/Microsoft.Migrate/migrateProjects/Project1",
       "location": "eastus"
     },
     {
-      "id": "/subscriptions/87654321-4321-4321-4321-210987654321/resourceGroups/MigrateRG2/providers/Microsoft.Migrate/migrateProjects/Project2",
+      "id": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/MigrateRG2/providers/Microsoft.Migrate/migrateProjects/Project2",
       "location": "westeurope"
     }
   ]
@@ -105,51 +105,51 @@ https://discoverysrv.{migrate-region-code}.prod.migration.windowsazure.com
 
 | Geography | Azure Migrate project region | Migrate Region code | Endpoint URL |
 |-----------|------------------------------|-------------|--------------|
-| Africa | South Africa North | san | `https://discoverysrv.san.prod.migration.windowsazure.com` |
-| Asia Pacific | East Asia | ea | `https://discoverysrv.ea.prod.migration.windowsazure.com` |
-| Asia Pacific | Southeast Asia | sea | `https://discoverysrv.sea.prod.migration.windowsazure.com` |
-| Australia | Australia East | ae | `https://discoverysrv.ae.prod.migration.windowsazure.com` |
-| Australia | Australia Southeast | ause | `https://discoverysrv.ause.prod.migration.windowsazure.com` |
-| Brazil | Brazil South | brs | `https://discoverysrv.brs.prod.migration.windowsazure.com` |
-| Canada | Canada Central | cc | `https://discoverysrv.cc.prod.migration.windowsazure.com` |
-| Europe | North Europe | ne | `https://discoverysrv.ne.prod.migration.windowsazure.com` |
-| Europe | West Europe | we | `https://discoverysrv.we.prod.migration.windowsazure.com` |
-| France | France Central | frc | `https://discoverysrv.frc.prod.migration.windowsazure.com` |
-| Germany | Germany West Central | gwc | `https://discoverysrv.gwc.prod.migration.windowsazure.com` |
-| India | Central India | inc | `https://discoverysrv.inc.prod.migration.windowsazure.com` |
-| India | Jio India West | jiow | `https://discoverysrv.jiow.prod.migration.windowsazure.com` |
-| India | South India | ins | `https://discoverysrv.ins.prod.migration.windowsazure.com` |
-| Israel | Israel Central | isc | `https://discoverysrv.isc.prod.migration.windowsazure.com` |
-| Italy | Italy North | itn | `https://discoverysrv.itn.prod.migration.windowsazure.com` |
-| Japan | Japan East | je | `https://discoverysrv.je.prod.migration.windowsazure.com` |
-| Japan | Japan West | jw | `https://discoverysrv.jw.prod.migration.windowsazure.com` |
-| Korea | Korea Central | koc | `https://discoverysrv.koc.prod.migration.windowsazure.com` |
-| Korea | Korea South | kos | `https://discoverysrv.kos.prod.migration.windowsazure.com` |
-| Mexico | Mexico Central | mxc | `https://discoverysrv.mxc.prod.migration.windowsazure.com` |
-| New Zealand | New Zealand North | nzn | `https://discoverysrv.nzn.prod.migration.windowsazure.com` |
-| Norway | Norway East | noe | `https://discoverysrv.noe.prod.migration.windowsazure.com` |
-| Poland | Poland Central | plc | `https://discoverysrv.plc.prod.migration.windowsazure.com` |
-| Qatar | Qatar Central | qrc | `https://discoverysrv.qrc.prod.migration.windowsazure.com` |
-| Spain | Spain Central | spc | `https://discoverysrv.spc.prod.migration.windowsazure.com` |
-| Sweden | Sweden Central | swc | `https://discoverysrv.swc.prod.migration.windowsazure.com` |
-| Switzerland | Switzerland North | szn | `https://discoverysrv.szn.prod.migration.windowsazure.com` |
-| Switzerland | Switzerland West | szw | `https://discoverysrv.szw.prod.migration.windowsazure.com` |
-| Taiwan | Taiwan North | twn | `https://discoverysrv.twn.prod.migration.windowsazure.com` |
-| United Arab Emirates | UAE North | uaen | `https://discoverysrv.uaen.prod.migration.windowsazure.com` |
-| United Kingdom | UK South | uks | `https://discoverysrv.uks.prod.migration.windowsazure.com` |
-| United Kingdom | UK West | ukw | `https://discoverysrv.ukw.prod.migration.windowsazure.com` |
-| United States | Central US | cus | `https://discoverysrv.cus.prod.migration.windowsazure.com` |
-| United States | East US | eus | `https://discoverysrv.eus.prod.migration.windowsazure.com` |
-| United States | East US 2 | eus2 | `https://discoverysrv.eus2.prod.migration.windowsazure.com` |
-| United States | North Central US | ncus | `https://discoverysrv.ncus.prod.migration.windowsazure.com` |
-| United States | South Central US | scus | `https://discoverysrv.scus.prod.migration.windowsazure.com` |
-| United States | West US | wus | `https://discoverysrv.wus.prod.migration.windowsazure.com` |
-| United States | West US 2 | wus2 | `https://discoverysrv.wus2.prod.migration.windowsazure.com` |
-| United States | West US 3 | wus3 | `https://discoverysrv.wus3.prod.migration.windowsazure.com` |
+| Africa | South Africa North | `san` | `https://discoverysrv.san.prod.migration.windowsazure.com` |
+| Asia Pacific | East Asia | `ea` | `https://discoverysrv.ea.prod.migration.windowsazure.com` |
+| Asia Pacific | Southeast Asia | `sea` | `https://discoverysrv.sea.prod.migration.windowsazure.com` |
+| Australia | Australia East | `ae` | `https://discoverysrv.ae.prod.migration.windowsazure.com` |
+| Australia | Australia Southeast | `ause` | `https://discoverysrv.ause.prod.migration.windowsazure.com` |
+| Brazil | Brazil South | `brs` | `https://discoverysrv.brs.prod.migration.windowsazure.com` |
+| Canada | Canada Central | `cc` | `https://discoverysrv.cc.prod.migration.windowsazure.com` |
+| Europe | North Europe | `ne` | `https://discoverysrv.ne.prod.migration.windowsazure.com` |
+| Europe | West Europe | `we` | `https://discoverysrv.we.prod.migration.windowsazure.com` |
+| France | France Central | `frc` | `https://discoverysrv.frc.prod.migration.windowsazure.com` |
+| Germany | Germany West Central | `gwc` | `https://discoverysrv.gwc.prod.migration.windowsazure.com` |
+| India | Central India | `inc` | `https://discoverysrv.inc.prod.migration.windowsazure.com` |
+| India | Jio India West | `jiow` | `https://discoverysrv.jiow.prod.migration.windowsazure.com` |
+| India | South India | `ins` | `https://discoverysrv.ins.prod.migration.windowsazure.com` |
+| Israel | Israel Central | `isc` | `https://discoverysrv.isc.prod.migration.windowsazure.com` |
+| Italy | Italy North | `itn` | `https://discoverysrv.itn.prod.migration.windowsazure.com` |
+| Japan | Japan East | `je` | `https://discoverysrv.je.prod.migration.windowsazure.com` |
+| Japan | Japan West | `jw` | `https://discoverysrv.jw.prod.migration.windowsazure.com` |
+| Korea | Korea Central | `koc` | `https://discoverysrv.koc.prod.migration.windowsazure.com` |
+| Korea | Korea South | `kos` | `https://discoverysrv.kos.prod.migration.windowsazure.com` |
+| Mexico | Mexico Central | `mxc` | `https://discoverysrv.mxc.prod.migration.windowsazure.com` |
+| New Zealand | New Zealand North | `nzn` | `https://discoverysrv.nzn.prod.migration.windowsazure.com` |
+| Norway | Norway East | `noe` | `https://discoverysrv.noe.prod.migration.windowsazure.com` |
+| Poland | Poland Central | `plc` | `https://discoverysrv.plc.prod.migration.windowsazure.com` |
+| Qatar | Qatar Central | `qrc` | `https://discoverysrv.qrc.prod.migration.windowsazure.com` |
+| Spain | Spain Central | `spc` | `https://discoverysrv.spc.prod.migration.windowsazure.com` |
+| Sweden | Sweden Central | `swc` | `https://discoverysrv.swc.prod.migration.windowsazure.com` |
+| Switzerland | Switzerland North | `szn` | `https://discoverysrv.szn.prod.migration.windowsazure.com` |
+| Switzerland | Switzerland West | `szw` | `https://discoverysrv.szw.prod.migration.windowsazure.com` |
+| Taiwan | Taiwan North | `twn` | `https://discoverysrv.twn.prod.migration.windowsazure.com` |
+| United Arab Emirates | UAE North | `uaen` | `https://discoverysrv.uaen.prod.migration.windowsazure.com` |
+| United Kingdom | UK South | `uks` | `https://discoverysrv.uks.prod.migration.windowsazure.com` |
+| United Kingdom | UK West | `ukw` | `https://discoverysrv.ukw.prod.migration.windowsazure.com` |
+| United States | Central US | `cus` | `https://discoverysrv.cus.prod.migration.windowsazure.com` |
+| United States | East US | `eus` | `https://discoverysrv.eus.prod.migration.windowsazure.com` |
+| United States | East US 2 | `eus2` | `https://discoverysrv.eus2.prod.migration.windowsazure.com` |
+| United States | North Central US | `ncus` | `https://discoverysrv.ncus.prod.migration.windowsazure.com` |
+| United States | South Central US | `scus` | `https://discoverysrv.scus.prod.migration.windowsazure.com` |
+| United States | West US | `wus` | `https://discoverysrv.wus.prod.migration.windowsazure.com` |
+| United States | West US 2 | `wus2` | `https://discoverysrv.wus2.prod.migration.windowsazure.com` |
+| United States | West US 3 | `wus3` | `https://discoverysrv.wus3.prod.migration.windowsazure.com` |
 
 ### Network requirements
 
-- **Protocol**: HTTPS (TLS 1.2 or higher)
+- **Protocol**: HTTPS (Transport Layer Security (TLS) 1.2 or higher)
 - **Port**: 443
 - **Direction**: Outbound from Arc-enabled server
 - **Proxy support**: Honors Arc-enabled server proxy configuration
@@ -218,7 +218,7 @@ New-AzConnectedMachineExtension `
 
 ### For the extension to function
 
-The extension uses the Arc-enabled server's managed identity to authenticate with Azure Migrate. No additional permissions are required on the Azure Migrate project; the project automatically accepts data from Arc-enabled servers within its configured scope.
+The extension uses the Arc-enabled server's managed identity to authenticate with Azure Migrate. No other permissions are required on the Azure Migrate project; the project automatically accepts data from Arc-enabled servers within its configured scope.
 
 ## Extension status and health
 

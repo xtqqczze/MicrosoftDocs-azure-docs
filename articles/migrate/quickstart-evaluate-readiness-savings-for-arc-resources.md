@@ -10,7 +10,7 @@ monikerRange: migrate
 # Customer intent: "As a IT admin, I want to evaluate the readiness and potential savings of migrating my Arc-enabled on-premises servers to Azure."
 ---
 
-# Quickstart: Evaluate readiness and identify potential savings of migrating your Arc enabled servers to Azure (Preview). 
+# Quickstart: Evaluate readiness and identify potential savings of migrating your Arc enabled servers to Azure (Preview)
 
 In this quickstart, you'll use Azure Migrate's new [Arc-based discovery](concepts-arc-resource-discovery.md) to evaluate migration readiness and identify potential migration savings of your Arc-enabled servers. 
 
@@ -56,7 +56,7 @@ The project will now be created along with default business cases and assessment
 
 ## View default business cases
 
-When you create a project with Arc resources, two default business cases are generated, each considering a different a migration strategy:
+When you create a project with Arc resources, two default business cases are generated, each considering a different migration strategy:
 
 - Modernize strategy (named *default-modernize*)
 - Faster migration to Azure strategy (named *default-faster-mgn-az-vm*)

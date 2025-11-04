@@ -112,12 +112,12 @@ When you create an Azure Migrate project with Arc resources, two default busines
 
 ### Default business cases
 
-1. **Modernize strategy** (`default-modernize`): Evaluates migration using Platform-as-a-Service (PaaS) options where possible, such as:
+- **Modernize strategy** (`default-modernize`): Evaluates migration using Platform-as-a-Service (PaaS) options where possible, such as:
    - Azure SQL Database or Azure SQL Managed Instance for SQL workloads
    - Azure App Service for web applications
    - Azure VMs when PaaS isn't suitable
 
-2. **Minimize migration time** (`default-faster-mgn-az-vm`): Evaluates Infrastructure-as-a-Service (IaaS) lift-and-shift migration to Azure VMs for all workloads.
+- **Minimize migration time** (`default-faster-mgn-az-vm`): Evaluates Infrastructure-as-a-Service (IaaS) lift-and-shift migration to Azure VMs for all workloads.
 
 Both business cases calculate:
 - Estimated cost savings compared to on-premises
@@ -171,7 +171,7 @@ The Azure Migrate Collector VM extension is an optional component that provides 
 - You need **Hybrid Server Resource Administrator** role on Arc-enabled server resources to install the extension.
 - Ensure network connectivity to a regional Azure Migrate endpoints.
 
-For detailed installation instructions and regional endpoints, see [Install Azure Migrate Collector VM extension](how-to-enable-additional-data-collection-for-arc-servers.md) and [Extension reference](migrate-vm-extension-reference.md).
+For detailed installation instructions and regional endpoints, see [Install Azure Migrate Collector VM extension](how-to-enable-additional-data-collection-for-arc-servers.md) and [Extension reference](migrate-virtual-machine-extension-reference.md).
 
 ## Current limitations
 
