@@ -17,7 +17,7 @@ ms.update-cycle: 180-days
 
 When you need AI-powered automation that runs independently, create *autonomous agent* workflows in Azure Logic Apps. These workflows use agents connected to *large language models* (LLMs) to automatically make decisions and complete tasks without requiring human intervention. Autonomous agent workflows also work well for automation that needs to run for a long time, requires stronger governance, isolation, and supports automated rollback or compensation strategies.
 
-The following example workflow uses an agent to get weather forcasts and send email notifications.
+The following example workflow uses an agent to get the current weather and send email notifications:
 
 :::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, workflow designer, and example autonomous agent." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
 
@@ -407,7 +407,7 @@ In this example, the agent needs a tool that gets the weather forecast. You can 
 
    :::image type="content" source="media/create-autonomous-agent-workflows/get-weather-tool.png" alt-text="Screenshot shows completed Get weather tool with description." lightbox="media/create-autonomous-agent-workflows/get-weather-tool.png":::
 
-   Under **Description**, the **Agent Parameters** section applies only for specific use cases. For more information, see [Create agent parameters](#create-agent-parameters-for-the-get-current-weather-action).
+   Under **Description**, the **Agent Parameters** section applies only for specific use cases. For more information, see [Create agent parameters](#create-agent-parameters-get-weather).
 
 1. Continue to the next section to learn more about agent parameters, their use cases, and how to create them, based on these use cases.
 
@@ -560,7 +560,7 @@ To build this tool, follow these steps:
 
 ## Create agent parameters for the 'Send an email (V2)' action
 
-The steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-for-the-get-current-weather-action), except that you set up different agent parameters for the **Send an email (V2)** action.
+The steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-get-weather), except that you set up different agent parameters for the **Send an email (V2)** action.
 
 1. Follow the earlier steps to create the following agent parameters for the action parameter values in the action named **Send an email (V2)**.
 
