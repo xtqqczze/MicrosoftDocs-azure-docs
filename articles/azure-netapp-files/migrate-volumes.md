@@ -76,7 +76,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     >[!IMPORTANT]
     >Ensure the size and other volume properties on the target volumes match with the source.
     >
-    >You should create the Azure NetApp Files volume with 20% or more quota than the source volume. Azure NetApp Files volumes use raw capacity size. The source volume might be smaller due to deduplication and compression. You can shrink Azure NetApp Files nondisruptively after the migration to prevent over-provisioning. 
+    >You should create the Azure NetApp Files volume with 20% or more quota than the source volume. Azure NetApp Files volumes use logical capacity size. The source volume might be smaller due to deduplication and compression. For correct Azure NetApp Files volume sizing, use the logical space reported by the volume you are migrating. You can shrink Azure NetApp Files nondisruptively after the migration to prevent over-provisioning. 
 
     The "remote path" values are the host, server, and volume names of your on-premises storage. 
 
