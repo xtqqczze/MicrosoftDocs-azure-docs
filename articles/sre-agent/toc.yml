@@ -21,6 +21,7 @@ items:
     href: code-repository-connect.md
   - name: Scheduled tasks
     href: scheduled-tasks.md
+  - name: Incident management
     items:
       - name: Overview
         href: incident-management.md
