@@ -1,8 +1,8 @@
 ---
-title: Capture Streaming Events
+title: Capture streaming events
 description: This article provides an overview of the Capture feature that allows you to capture events streaming through Azure Event Hubs. 
 ms.topic: concept-article
-ms.date: 05/20/2025
+ms.date: 06/25/2024
 #customer intent: As a developer, I want to know how capture events flowing through an event hub in an Azure Blob Storage or an Azure Data Lake Storage. 
 ---
 
@@ -11,12 +11,15 @@ Azure Event Hubs enables you to automatically capture the data streaming through
 
 :::image type="content" source="./media/event-hubs-features/capture.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage":::
 
+> [!NOTE]
+> Configuring Event Hubs Capture to use Azure Data Lake Storage **Gen 2** is same as configuring it to use an Azure Blob Storage. For details, see [Configure Event Hubs Capture](event-hubs-capture-enable-through-portal.md). 
+
 Event Hubs Capture enables you to process real-time and batch-based pipelines on the same stream. This means you can build solutions that grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution, Event Hubs Capture makes working with streaming data easier.
 
-## Important points to consider
-- The destination storage (Azure Storage or Azure Data Lake Storage) account must be in the same subscription as the event hub when not using managed identity for authentication.
-- Event Hubs doesn't support capturing events in a premium storage account.
-- Event Hubs Capture supports any non-premium Azure storage account with support for block blobs.
+> [!IMPORTANT]
+> - The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub when not using managed identity for authentication.
+> - Event Hubs doesn't support capturing events in a premium storage account.
+> - Event Hubs Capture supports any non-premium Azure storage account with support for block blobs.
 
 ## How Event Hubs Capture works
 
@@ -27,10 +30,7 @@ Event Hubs Capture enables you to specify your own Azure Blob storage account an
 Captured data is written in [Apache Avro][Apache Avro] format: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, Stream Analytics, and Azure Data Factory. More information about working with Avro is available later in this article.
 
 > [!NOTE]
-> - When you use no code editor in the Azure portal, you can capture streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in the **Parquet** format. For more information, see [How to: capture data from Event Hubs in Parquet format](../stream-analytics/capture-event-hub-data-parquet.md?toc=%2Fazure%2Fevent-hubs%2Ftoc.json) and [Tutorial: capture Event Hubs data in Parquet format and analyze with Azure Synapse Analytics](../stream-analytics/event-hubs-parquet-capture-tutorial.md?toc=%2Fazure%2Fevent-hubs%2Ftoc.json).
-> - Configuring Event Hubs Capture to use Azure Data Lake Storage **Gen 2** is same as configuring it to use an Azure Blob Storage. For details, see [Configure Event Hubs Capture](event-hubs-capture-enable-through-portal.md). 
-
-
+> When you use no code editor in the Azure portal, you can capture streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in the **Parquet** format. For more information, see [How to: capture data from Event Hubs in Parquet format](../stream-analytics/capture-event-hub-data-parquet.md?toc=%2Fazure%2Fevent-hubs%2Ftoc.json) and [Tutorial: capture Event Hubs data in Parquet format and analyze with Azure Synapse Analytics](../stream-analytics/event-hubs-parquet-capture-tutorial.md?toc=%2Fazure%2Fevent-hubs%2Ftoc.json).
 
 ### Capture windowing
 
@@ -77,15 +77,15 @@ You can create an Azure Event Grid subscription with an Event Hubs namespace as 
 To learn how to explore captured Avro files, see [Explore captured Avro files](explore-captured-avro-files.md).
 
 ## Azure Storage account as a destination
-To enable capture on an event hub with Azure Storage as the capture destination, or update properties on an event hub with Azure Storage as the capture destination, the user, or service principal must have a role-based access control (RBAC) role with the following permissions assigned at the storage account scope.
+To enable capture on an event hub with Azure Storage as the capture destination, or update properties on an event hub with Azure Storage as the capture destination, the user, or service principal must have a role-based access control (RBAC) role with the following permissions assigned at the storage account scope. 
 
 ```
 Microsoft.Storage/storageAccounts/blobServices/containers/write
 Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write
 ```
+ 
 
-
-Without this permission, you see following error:
+Without this permission, you see following error: 
 
 ```
 Generic: Linked access check failed for capture storage destination <StorageAccount Arm Id>.
@@ -94,7 +94,7 @@ Please enable Microsoft.Storage/storageAccounts/blobServices/containers/write, M
 TrackingId:<ID>, SystemTracker:mynamespace.servicebus.windows.net:myhub, Timestamp:<TimeStamp>
 ```
 
-The [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) is a built-in role with above permissions, so add the user account or the service principal to this role.
+The [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) is a built-in role with above permissions, so add the user account or the service principal to this role.  
 
 ## Related content
 Event Hubs Capture is the easiest way to get data into Azure. Using Azure Data Lake, Azure Data Factory, and Azure HDInsight, you can perform batch processing and other analytics using familiar tools and platforms of your choosing, at any scale you need.
@@ -104,8 +104,6 @@ Learn how to enable this feature using the Azure portal and Azure Resource Manag
 - [Use the Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
 - [Use an Azure Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
-
-Learn about data redundancy options for your Capture destination storage account in [Reliability in Azure Blob Storage](../reliability/reliability-storage-blob.md).
 
 [Apache Avro]: https://avro.apache.org/
 [Apache Drill]: https://drill.apache.org/
