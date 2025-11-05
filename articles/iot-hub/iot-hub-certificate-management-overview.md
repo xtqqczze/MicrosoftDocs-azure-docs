@@ -63,7 +63,7 @@ To use certificate management, devices must be provisioned through [Device Provi
 Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT devices generate a **Certificate Signing Request (CSR)** containing their public key and identity to prove key ownership. The CSR is sent to the PKI, which validates it and forwards it to an **Issuing CA (ICA)** to issue an X.509 certificate. For more information on DPS Certificate Signing Request, check out some the [Device DPS SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
 
 > [!NOTE]
-> While a PKI is configured for each of your ADR Namespaces, it's not exposed as an external Azure resource.
+> While a PKI is configured for each of your ADR namespaces, it's not exposed as an external Azure resource.
 
 ### End-to-end device provisioning with certificate management
 
