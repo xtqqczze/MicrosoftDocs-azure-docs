@@ -350,3 +350,4 @@ The portal version of the migration assistant is currently in preview.
 
 * [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md)
 * [Migrating data to Azure NetApp Files volumes](migrate-data.md)
+* [Data migration and protection FAQs for Azure NetApp Files](faq-data-migration-protection.md)
