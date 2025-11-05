@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 09/15/2023
 ms.author: duau
 ms.custom: template-tutorial, devx-track-azurecli
+ai-usage: ai-assisted
 ---
 # Connect a virtual network to an ExpressRoute circuit using Azure CLI
 
@@ -175,7 +176,7 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 ```
 
 > [!NOTE]
-> You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
+> You can use [Connection Monitor](configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
 >
 
 ## Clean up resources
@@ -190,7 +191,5 @@ az network vpn-connection delete --name ERConnection --resource-group ExpressRou
 
 In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about the ExpressRoute gateway, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 
-To learn how to configure route filters for Microsoft peering using Azure CLI, advance to the next tutorial.
+After connecting your virtual network to an ExpressRoute circuit, you can set up monitoring to track the health and performance of your connection. For more information, see [Connection Monitor overview](connection-monitor-overview.md), [Configure Connection Monitor](configure-connection-monitor.md), and [Configure alerts](connection-monitor-alerts.md).
 
-> [!div class="nextstepaction"]
-> [Configure route filters for Microsoft peering](how-to-routefilter-cli.md)

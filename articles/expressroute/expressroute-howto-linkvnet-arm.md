@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: duau
 ms.custom: devx-track-azurepowershell
+ai-usage: ai-assisted
 ---
 # Connect a virtual network to an ExpressRoute circuit using Azure PowerShell
 
@@ -268,7 +269,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ```
 
 > [!NOTE]
-> You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
+> You can use [Connection Monitor](configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
 
 > [!NOTE]
 > Enabling FastPath Private Link support for limited GA scenarios may take upwards of 4 weeks to complete. Please plan your deployment(s) in advance.
@@ -293,9 +294,6 @@ Remove-AzVirtualNetworkGatewayConnection "MyConnection" -ResourceGroupName "MyRG
 
 ## Next steps
 
-In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+In this article, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 
-To learn how to configure, route filters for Microsoft peering using PowerShell, advance to the next tutorial.
-
-> [!div class="nextstepaction"]
-> [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md)
+After connecting your virtual network to an ExpressRoute circuit, you can set up monitoring to track the health and performance of your connection. For more information, see [Connection Monitor overview](connection-monitor-overview.md), [Configure Connection Monitor](configure-connection-monitor.md), and [Configure alerts](connection-monitor-alerts.md).
