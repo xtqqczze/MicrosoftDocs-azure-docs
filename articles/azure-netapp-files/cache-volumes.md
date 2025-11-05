@@ -50,15 +50,6 @@ Cache volumes unlock a range of scenarios by combining on-premises data "gravity
 * **Lower Costs & Complexity**
     Serve frequent requests from the Azure NetApp Files cache in Azure, reducing WAN traffic and bandwidth costs. No need for duplicate storage systems at every location; cache only stores what’s actively used. 
 
-To illustrate, here’s a quick summary of use cases and the benefits of cache volumes: 
-
-
-| Use Case/Scenario | How Azure NetApp Files Cache Volumes Help  | 
-| - | - | 
-| Global collaboration (distributed teams across regions)  | Delivers LAN-like file access speeds for distributed offices without maintaining full copies of data in each location. Engineers worldwide can work together on the same large files in a central repository, with caches ensuring everyone experiences fast, local reads and writes.  |
-| Hybrid cloud bursting (on-demand Azure compute for on-premises data)   | Burst seamlessly to Azure for extra compute capacity on your on-premises datasets. Cache volumes fetch only the needed data into Azure in real time, avoiding upfront bulk data transfers. This minimizes setup time and network load, so you can quickly run cloud HPC, analytics, or rendering jobs using your on-premises data and get near-local I/O performance.   |
-| Data-intensive workloads (e.g. EDA simulations, AI/ML training, media rendering, large builds)   | Minimize I/O wait times by caching hot data near the Azure compute. Instead of each read/write crossing a WAN, the cache serves most operations instantly in Azure. For these read-heavy or latency-sensitive jobs, milliseconds saved on each file access accumulate into significantly faster job completion. The result is higher throughput and productivity – analyses run faster, builds finish sooner, and pipelines keep moving at full speed.  |
-
 ## Seamless Integration 
 
 Cache volumes require no special hardware or proxies and use standard protocols, so applications need no modification. Azure NetApp Files cache volumes handles all cache synchronization and consistency, and permissions from the origin volume are preserved. This bridges on-premises and Azure environments securely and intuitively. 
