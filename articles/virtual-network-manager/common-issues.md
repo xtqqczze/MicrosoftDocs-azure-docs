@@ -86,17 +86,15 @@ To avoid issues with resource group creation in AVNM, consider the following bes
 - Document internal tag requirements and ensure they align with AVNM's managed resource group process.
 - Keep the naming convention consistent across all subscriptions.
 
-## Microsoft Mesh (Mesh) for high scale private endpoints isn't working
+## High scale private endpoints aren't working
 
 To use high scale private endpoints in a mesh topology, you need to enable the high scale private endpoint feature for each Virtual Network in the configuration.
 
-The portal interface highlights which Virtual Networks are inactive for high scale private endpoints. This indication appears only when the high scale private endpoint feature is enabled.
-
-:::image type="content" source="media/common-issues/verify-high-scale-priveate-endpoints.png" alt-text="Screenshot of enablement of high scale endpoints in network manager.":::
-
 ### How to identify inactive Virtual Networks for high scale private endpoints
 
-The portal interface highlights which Virtual Networks are inactive for high scale private endpoints (as illustrated in the following section with red arrows). This indication appears only when the high scale private endpoint feature is switched on (shown in the following section with the green arrow). 
+The portal interface highlights which Virtual Networks are inactive for high scale private endpoints. This indication appears only when the high scale private endpoint feature is enabled.
+
+:::image type="content" source="media/common-issues/verify-high-scale-private-endpoints.png" alt-text="Screenshot of enablement of high scale endpoints in network manager.":::
 
 For information on how to enable high scale private endpoints, see [Enable high-scale connectivity in Azure Virtual Network Manager connected groups](concept-connectivity-configuration.md#enable-high-scale-connectivity-in-azure-virtual-network-manager-connected-groups).
 
@@ -104,4 +102,3 @@ For information on how to enable high scale private endpoints, see [Enable high-
 
 - [Azure Virtual Network Manager overview](overview.md)
 - [Azure Virtual Network Manager FAQ](faq.md)
-
