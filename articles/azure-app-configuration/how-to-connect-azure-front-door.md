@@ -68,7 +68,7 @@ Create a new Azure Front Door profile and connect it to your App Configuration s
 
 #### Endpoint configuration settings
 
-1. Basic settings:
+1. Endpoint information:
 
    - **Endpoint name**: Enter a descriptive name for your endpoint
    - **Endpoint host name**: Automatically generated based on your endpoint name
