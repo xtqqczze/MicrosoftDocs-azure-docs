@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: tutorial
 ms.date: 11/04/2025
 ms.author: jefmarti
-zone_pivot_groups: azure-cli-bicep
+zone_pivot_groups: arm-azure-cli-portal-bicep
 ---
 
 # Use premium ingress with Azure Container Apps
@@ -22,7 +22,7 @@ In this article, you learn how to use premium ingress with Azure Container Apps.
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
-::: zone pivot="bicep"
+::: zone pivot="container-apps-bicep"
 
 - [Bicep](/azure/azure-resource-manager/bicep/install)
 
@@ -234,13 +234,13 @@ You can configure the ingress for your environment after you create it.
 
     | Setting | Value |
     |---|---|
-    | Ingress Mode| Select [**Premium**](#premium-ingress-mode). |
-    | Workload profile size | Select a size from [**D4** to **D32**](#workload-profile). |
-    | Minimum node instances | Enter the [minimum workload profile node instances](#workload-profile). |
-    | Maximum node instances | Enter the [maximum workload profile node instances](#workload-profile). |
-    | Termination grace period |Enter the [termination grace period in minutes](#advanced-ingress-settings). |
-    | Idle request timeout| Enter the [idle request time-out in minutes](#advanced-ingress-settings). |
-    | Request header count | Enter the [request header count](#advanced-ingress-settings). |
+    | Ingress Mode| Select **Premium**. |
+    | Workload profile size | Select a size from **D4** to **D32**. |
+    | Minimum node instances | Enter the minimum workload profile node instances. |
+    | Maximum node instances | Enter the maximum workload profile node instances. |
+    | Termination grace period |Enter the termination grace period in minutes. |
+    | Idle request timeout| Enter the idle request time-out in minutes. |
+    | Request header count | Enter the request header count. |
 
 1. Select **Apply**.
 
