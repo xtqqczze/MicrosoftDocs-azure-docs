@@ -111,15 +111,15 @@ The latency probe currently uses Microsoft's Ping Mesh technology, which is base
 
 [!INCLUDE [Microsoft.Network/azureFirewalls](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-azurefirewalls-logs-include.md)]
 
-## Additional DNS Proxy Logs
-The Additional DNS Proxy logs provides deeper visibility into DNS activity, helping admins troubleshoot resolution issues and verify traffic behavior.
+## DNS Flow Trace Logs
+The DNS Flow Trace logs provide deeper visibility into DNS activity, helping admins troubleshoot resolution issues and verify traffic behavior.
 
 Previously, DNS Proxy logging was limited to:
 
 - **AZFWDNSQuery** - the initial client query
 - **AZFWInternalFqdnResolutionFailure** - FQDN resolution failures
 
-With the new DNS Proxy logs, admins can trace the complete DNS resolution flow -- from the client query through the Azure Firewall as a DNS proxy, to the external DNS server, and back to the client.
+With the DNS flow trace logs, admins can trace the complete DNS resolution flow -- from the client query through the Azure Firewall as a DNS proxy, to the external DNS server, and back to the client.
 
 The logs capture the following stages:
 
@@ -137,9 +137,9 @@ These logs provide valuable insights, such as:
 - Resolved IP addresses
 - Whether the Azure Firewall cache was used
 
-**Enabling Additional DNS Proxy Logs**
+**Enabling DNS Flow Trace Logs**
 
-Before setting up Additional DNS Proxy Logs, you must first enable the feature using Azure PowerShell:
+Before setting up DNS Flow Trace Logs, you must first enable the feature using Azure PowerShell:
 
 1. Enable logs (pre-requisite) - Run the following commands in Azure PowerShell, replacing placeholders with your values.
 
@@ -158,16 +158,16 @@ $firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <Firewal
 $firewall.EnableDnstapLogging = $false
 Set-AzFirewall -AzureFirewall $firewall
 ```
-**Configuring DNS Proxy and Additional DNS Proxy Logs**
+**Configuring DNS Proxy and DNS flow trace logs**
 1. Enable DNS proxy:
     1. Navigate to Azure Firewall DNS settings and Enable DNS Proxy.
     2. Configure a custom DNS server or use the default Azure DNS.
     3. Navigate to Virtual Network DNS settings and set the Firewall's private IP as the primary DNS server.
-2. Enable Additional DNS Proxy logs:
+2. Enable DNS flow trace logs:
     1. Navigate to Azure Firewall in the Azure portal.
     2. Select **Diagnostic settings** under Monitoring.
     3. Choose an existing diagnostic setting or create a new one.
-    4. Under **Log**, select **Additional DNS Proxy Logs**.
+    4. Under the **Log** section, select **DNS Flow Trace Logs**.
     5. Choose your desired destination (Log Analytics, Event Hub, Storage Account).
     6. Save the settings.
 3. Test the configuration:
