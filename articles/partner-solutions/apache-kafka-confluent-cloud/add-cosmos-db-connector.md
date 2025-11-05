@@ -48,7 +48,7 @@ On the **Basics** tab, enter or select values for the following settings:
 |**Cluster** |Select the cluster where you want to create the connector.| 
 |**Topics**|Select one or more Kafka topics to pull data from. |
 |**Cosmos DB Account** |Select the destination Azure Cosmos DB account in your Azure tenant. |
-|**Cosmose DH database** |Select the destination Azure Cosmos DB database under the account. |
+|**Cosmos DB database** |Select the destination Azure Cosmos DB database under the account. |
 
 :::image type="content" source="./media/add-cosmos-db-connector/create-connector-settings.png" alt-text="Screenshot that shows the settings for creating a connector." lightbox="./media/add-cosmos-db-connector/create-connector-settings.png":::
 
@@ -101,8 +101,8 @@ On the **Basics** tab, enter or select values for the following settings:
 |**Connector Name**|Enter a name for your connector. For example, *cosmos-source-connector*.|
 |**Environment**|Select the environment where you want to create the connector. |
 |**Cluster**|Select the cluster where you want to create the connector.| 
-|**Cosmos account endpoint (URI)**|Select the source Azure Cosmos DB account. |
-|**Database**|Select the source Azure Cosmos DB database.| 
+|**Cosmos DB Account**|Select the source Azure Cosmos DB account. |
+|**Cosmos DB database**|Select the source Azure Cosmos DB database.| 
 
 :::image type="content" source="./media/add-cosmos-db-connector/source-basics-tab.png" alt-text="Screenshot that shows the Basics tab for creating a source connector." lightbox="./media/add-cosmos-db-connector/source-basics-tab.png":::
 
