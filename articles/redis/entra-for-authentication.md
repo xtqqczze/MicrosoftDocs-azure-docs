@@ -89,8 +89,18 @@ Because most Azure Managed Redis clients assume that a password and access key a
 
    - `User` = Object ID of your managed identity or service principal
    - `Password` = Microsoft Entra token refreshed periodically
+   - 
+## Troubleshooting Microsoft Entra ID and your cache
 
-### Client library support
+If your application fails to access to the Azure Managed Redis instance through Entra ID, use this PowerShell script:
+
+[EntraTokenValidation](https://github.com/AzureManagedRedis/DiagnosticTools/tree/main/EntraTokenValidation)
+
+Use this PowerShell script to validate Microsoft Entra ID tokens for Azure Managed Redis Cache resources. It validates tokens and verifies access policies to help you diagnose authentication issues.
+
+If you're having trouble using Microsoft Entra ID to authenticate Redis connections, run this script to analyze your Microsoft Entra token and identify any issues.
+
+## Client library support
 
 The library [`Microsoft.Azure.StackExchangeRedis`](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) is an extension of `StackExchange.Redis` that enables you to use Microsoft Entra to authenticate connections from a Redis client application to an Azure Managed Redis. The extension manages the authentication token, including proactively refreshing tokens before they expire to maintain persistent Redis connections over multiple days.
 
