@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 07/08/2025
+ms.date: 11/05/2025
 ---
 
 # Enable telemetry for feature flags
@@ -50,7 +50,7 @@ These types of questions can be answered through the emission and analysis of fe
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, editing a feature flag.](./media/howto-telemetry/edit-feature-flag.png)
 
-1. In the new view, select the **Telemetry** tab.
+1. In the new view, open the **Experiment** > **Telemetry** tab.
 1. Check the **Enable Telemetry** box and then select the **Review + update** button at the bottom of the page.
 
     > [!div class="mx-imgBorder"]
@@ -69,7 +69,7 @@ These types of questions can be answered through the emission and analysis of fe
 
 1. Use the time range selector to focus on specific periods to identify trends or investigate particular timeframes of interest.
 
-1. Filter by feature Flag
+1. Filter by feature flag
     1. Click on the dropdown menu above the event graph
     1. Under **Feature flags with events** select your feature flag
     1. The graph will now display only events related to the feature flag's evaluations

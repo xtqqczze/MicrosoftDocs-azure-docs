@@ -16,9 +16,9 @@ ai-usage: ai-assisted
 
 # Quickstart: Manage feature flags in Azure App Configuration
 
-Azure App Configuration includes feature flags, which you can use to enable or disable a functionality, and variant feature flags, which allow multiple variations of a feature flag.
+Azure App Configuration provides feature management through feature flags, enabling teams to dynamically control application functionality without redeploying code. This allows for safe, targeted rollouts, faster experimentation, and reduced risk, giving developers flexible control over app behavior and the ability to respond quickly to changing business or customer needs.
 
-The Feature manager in the Azure portal provides a UI for creating and managing the feature flags and the variant feature flags that you use in your applications.
+The feature manager in the Azure portal provides a UI for creating and managing the feature flags that you use in your applications.
 
 ## Prerequisites
 
@@ -36,19 +36,18 @@ Create a new feature flag in the Azure portal by following the steps below.
 1. Under **What will you be using your feature flag for?**, choose one of the following purposes:
    - **Switch** – Toggle features on/off with a simple switch.
    - **Rollout** – Gradually enable the feature for a percentage of users.
-   - **Tailored Experience** – Deliver personalized experiences based on conditions.
    - **Experiment** – Run controlled experiments with traffic allocation to determine the best-performing variant.
 
     Choose a purpose below to see guidance and recommended settings for each use case.
 
     ### [Switch](#tab/switch)
     
-    Use **Switch** to enable or disable functionality instantly for all users. This is the simplest option and is useful for:
+    Use **Switch** to enable or disable functionality instantly for all users. This is useful for:
 
     - Minimal configuration: enable/disable state only, no audience targeting required.
     - Emergency toggles and quick rollbacks.
     - Feature flags that gate development or operational features (preview toggles, maintenance mode).
-        
+
     When to use:
 
     - Short-lived operational toggles.
@@ -58,7 +57,7 @@ Create a new feature flag in the Azure portal by following the steps below.
 
         | Setting                 | Example value  | Description                                                                                                                                                                                                                                                              |
         | ----------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-        | **Enable feature flag** | Box is checked | This option enables the feature flag upon creation. If you leave this box unchecked, the new feature flag's configuration will be saved but the new feature flag will remain disabled.                                                                                   |
+        | **Enable feature flag** | Toggle on | This option enables the feature flag upon creation. If you toggle this off, the new feature flag's configuration is saved but the new feature flag remains disabled.                                                                                   |
         | **Feature flag name**   | *Beta*         | The feature flag name is what you use to reference the flag in your code. It must be unique within an application.                                                                                                                                                       |
         | **Key**                 | *Beta*         | You can use the key to filter feature flags that are loaded in your application. The key is generated from the feature flag name by default, but you can also add a prefix or a namespace to group your feature flags, for example, *.appconfig.featureflag/Beta*. |
         | **Label**               | Leave empty    | You can use labels to create different feature flags for the same key and filter flags loaded in your application based on the label. By default, a feature flag has no label.                                                                                           |
@@ -165,7 +164,7 @@ Create a new feature flag in the Azure portal by following the steps below.
         | **Distribution (seed)**              | Use custom seed: *12345*                        | By default the percentile distribution is randomized. Provide a fixed seed to produce deterministic (repeatable) allocations across feature flags that share the same seed value.        |
 
         > [!IMPORTANT]
-        > If feature evaluations occur in a client application (for example, a web browser), feature flag data — including user names specified here — may be exposed to end users.
+        > If feature evaluations occur in a client application (for example, a web browser), feature flag data — including user names specified here — may be exposed to end users. For more information, see [Client applications in App Configuration](/azure/azure-app-configuration/howto-best-practices.md#client-applications-in-app-configuration).
         
     1. Configure **Conditions** to limit exposure, schedule changes, and manage custom constraints for serving your features.
 
@@ -178,9 +177,6 @@ Create a new feature flag in the Azure portal by following the steps below.
         | **Add schedule**         | Start: *2025-11-01*<br>End: *2025-11-15*<br>Time zone: *(UTC-06:00) Central Time (US & Canada)*<br>Recurrence: *Weekly* | Define a time-based rollout by specifying start and end times. Optionally update the suggested time zone and enable recurrence for repeated activations (for example, weekly or monthly). |
         | **Add custom condition** | *User.Region == "EU"* | Create conditions based on custom attributes (for example, region, device type, or subscription level). Conditions allow precise targeting so only users that match these criteria receive the feature. |
         | **Require all feature filters to be enabled** | *On* (checked) | This option appears only after you enable multiple conditions. When checked, all enabled feature filters must evaluate to true for the feature flag to be applied (logical AND). When unchecked, the filters are evaluated independently (logical OR).|
-            
-        > [!IMPORTANT]
-        > If feature evaluations occur in a client application (for example, a web browser), feature flag data — including user names specified here — may be exposed to end users.
     
    1. Configure **Telemetry** to collect evaluation events for this feature flag. When enabled, evaluation events are sent to the telemetry publisher you configure in your application. Before enabling telemetry, link an Application Insights resource to the App Configuration store in **Telemetry** > **App Insights**.
 
@@ -189,13 +185,13 @@ Create a new feature flag in the Azure portal by following the steps below.
 
 ## Edit feature flags
 
-To update a feature flag or variant feature flag, follow these steps:
+To update a feature flag, follow these steps:
 
 :::image type="content" source="media\manage-feature-flags\edit-feature-flag.png" alt-text="Screenshot of the Azure platform. Edit a feature flag.":::
 
 1. In the resource menu, go to **Operations** > **Feature manager**.
 
-1. Move to the right end of the feature flag or variant feature flag you want to modify and select the **More actions** ellipsis (**...**). From this menu, you can view feature flag details, edit the flag, lock or unlock it, create a label, update tags, review the history, or delete the flag.
+1. Move to the right end of the feature flag you want to modify and select the **More actions** ellipsis (**...**). From this menu, you can view feature flag details, edit the flag, lock or unlock it, create a label, update tags, review the history, or delete the flag.
 
 1. Select **Edit** to make changes using the visual editor, or **Advanced Edit** to modify the flag's raw JSON directly.
 
@@ -203,7 +199,7 @@ To update a feature flag or variant feature flag, follow these steps:
 
 ## Manage view
 
-The **Feature manager** menu displays the feature flags and variant feature flags stored in Azure App Configuration. You can change the Feature manager display in the Azure portal by selecting **Manage view**.
+The **Feature manager** menu displays the feature flags stored in Azure App Configuration. You can change the Feature manager display in the Azure portal by selecting **Manage view**.
 
 - **Settings** lets you choose how many feature flags are loaded per **Load more** action. **Load more** will only be visible if there are more than 200 feature flags.
 
