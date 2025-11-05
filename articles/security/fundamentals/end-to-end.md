@@ -109,7 +109,7 @@ Azure provides tools to analyze security events and respond to incidents.
 
 - [Microsoft Sentinel](/azure/sentinel/overview) - Threat hunting with search and query tools
 - [Azure Monitor](/azure/azure-monitor/overview) - Comprehensive telemetry collection and analysis with Log Analytics workspaces
-- [Microsoft Entra reports and monitoring](/entra/identity/monitoring-health/concept-reporting-monitoring-overview) - Activity logs and audit history
+- [What is Microsoft Entra monitoring and health?](/entra/identity/monitoring-health/overview-monitoring-health) - Activity logs and audit history
 - [Microsoft Defender for Cloud Apps](/defender-cloud-apps/investigate) - Cloud environment investigation tools
 
 For monitoring and operational guidance, see [Azure security management and monitoring overview](/azure/security/fundamentals/management-monitoring-overview).
