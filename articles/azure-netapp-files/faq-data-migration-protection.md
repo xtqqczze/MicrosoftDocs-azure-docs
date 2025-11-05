@@ -85,9 +85,9 @@ You will not receive the cluster peering and SVM peering commands and therefore,
 
 Yes, the inputs provided in the Migration assistant tool are case-sensitive.
 
-## Can I configure peering with more IP's than are available in the subnet?
+## Can I configure peering with more IPs than are available in the subnet?
 
-No, you cannot configure peering with more IP's than that are available in the subnet. If you want to use the existing subnet, you should clean up the IP addresses on the subnet or use a different subnet.
+No, you cannot configure peering with more IPs than that are available in the subnet. If you want to use the existing subnet, you should clean up the IP addresses on the subnet or use a different subnet.
 
 ## Can I enable cool access on a migration volume in the Migration assistant tool?
 To enable cool access, you should finalize the migration or use a different volume. Finalizing the migration will make the volume a regular ANF volume allowing you to enable cool access.
