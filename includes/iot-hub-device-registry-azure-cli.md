@@ -25,36 +25,6 @@ The setup process in this article includes the following steps:
 > [!IMPORTANT]
 > During the preview period, IoT Hub with ADR and Certificate Management features enabled on top of IoT Hub are available **free of charge**. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-## Prerequisites
-
-- Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-- Install [Azure CLI](/cli/azure/install-azure-cli) in your environment, or run `az upgrade` to ensure you have the latest version.
-- Install the **preview Azure IoT CLI extension** to access the ADR and Certificate Management functionalities. To install the extension, complete the following steps:
-
-    1. Check for existing Azure CLI extension installations.
-    
-        ```azurecli-interactive
-        az extension list
-        ```
-    
-    1. Remove any existing azure-iot installations.
-    
-        ```azurecli-interactive
-        az extension remove --name azure-iot
-        ```
-    
-    1. Install the preview version of the azure-iot extension.
-    
-        ```azurecli-interactive
-        az extension add --name azure-iot --allow-preview
-        ```
-    
-    1. After the install, validate your azure-iot extension version is **0.30.0a2**.
-    
-        ```azurecli-interactive
-        az extension list
-        ```
-
 ## Prepare your environment
 
 To prepare your environment to use Azure Device Registry, complete the following steps:

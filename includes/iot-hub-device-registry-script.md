@@ -46,13 +46,13 @@ Set values for the following variables in the variables section
 - `HubName`: Your hub name can only contain lowercase letters and numerals.
 - `DpsName`: The name of your Device Provisioning Service instance.
 - `UserIdentity`: The user-assigned managed identity for your resources.
-- `WorkingFolder`: The local folder where your scripts and templates are located.
+- `WorkingFolder`: The local folder where your script is located.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
 ## Run the script interactively
 
-1. Run the script in **PowerShell 7+** by navigating to the folder and running `.\cmsSetupCli.ps1`.
+1. Open the script and run in **PowerShell 7+** as an administrator. You can navigate to the folder and run `.\cmsSetupCli.ps1`.
 1. If you run into an execution policy issue, try running `powershell -ExecutionPolicy Bypass -File .\cmsSetupCli.ps1`.
 1. Follow the guided prompts:
 

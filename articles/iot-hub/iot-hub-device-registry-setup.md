@@ -18,9 +18,43 @@ This article explains how to create a new IoT hub with [Azure Device Registry (A
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
+## Pre-requisites
+1. Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+2. Install the **preview Azure IoT CLI extension** to access the ADR and Certificate Management functionalities. To install the extension, complete the following steps:
+
+    2.1. Check for existing Azure CLI extension installations.
+    
+        ```azurecli-interactive
+        az extension list
+        ```
+    
+    2.2. Remove any existing azure-iot installations.
+    
+        ```azurecli-interactive
+        az extension remove --name azure-iot
+        ```
+    
+    2.3. Install the preview version of the azure-iot extension.
+    
+        ```azurecli-interactive
+        az extension add --name azure-iot --allow-preview
+        ```
+    
+    2.3. After the install, validate your azure-iot extension version is greater than **0.30.0b1**.
+    
+        ```azurecli-interactive
+        az extension list
+        ```
+
+3. To complete this setup, you will need elevated permissions (Ex: Owner, User Administrator) to perform role assignments. If you would like to use pre-built roles, you can use the following:
+- The user that will setup the resources (IoT Hub, ADR Namespace, DPS, and Managed Identity) can be assigned the "Azure Device Registry Onboarding" role, scoped to the subscription or to your resource group.
+- Later in this setup, you will also need to assign the "Azure Device Registry Contributor" role to the newly created User-Assigned Managed Identity. You will need elevated permissions (ex: Owner, User Administrator) to complete this.
+
+
 ## Choose a deployment method
 
 To use certificate management, you must also set up IoT Hub, ADR, and the [Device Provisioning Service (DPS)](../iot-dps/index.yml). If you prefer, you can choose not to enable certificate management and configure only IoT Hub with ADR.
+
 
 To set up your IoT hub with ADR and certificate management, you can use Azure CLI or a script that automates the setup process.
 
