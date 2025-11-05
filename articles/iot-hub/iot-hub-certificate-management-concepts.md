@@ -64,7 +64,7 @@ There are two general categories of X.509 certificates:
 
 Today, certificate management only supports issuance and renewal for end-entity operational certificates. 
 
-- **Onboarding Credential:** To use certificate management, devices must be provisioned via Device Provisioning Service. The device must onboard and authenticate using one of the existing supported methods: including X.509 certificates (procured from a third-party CA), symmetric keys, and Trusted Platform Modules (TPM) [Include links to DPS sections for these]. When using certificate management with DPS, we currently only support HTTP, MQTT, and MQTT-Web-Sockets protocols.  
+- **Onboarding Credential:** To use certificate management, devices must be provisioned via Device Provisioning Service. The device must onboard and authenticate using one of the existing supported methods: including X.509 certificates (procured from a third-party CA), symmetric keys, and Trusted Platform Modules (TPM) [Include links to DPS sections for these]. Currently, certificate management only supports HTTP, MQTT, and MQTT-Web-Sockets protocols.  
 
 - **Operational Certificate:** An operational certificate is an end-entity certificate issued by an intermediate CA during a device’s provisioning process. Once the device is provisioned, the operational certificate can be used to authenticate directly with IoT Hub. Today, certificate management will issue an the operational certificate to authenticate a device in its daily operations. These certificates are typically short-lived and renewed as needed during device operation. 
 
