@@ -98,7 +98,7 @@ Microsoft Defender for Servers includes:
 * Vulnerability assessment for identifying security weaknesses
 * Just-in-time VM access to reduce attack surface
 * File integrity monitoring to detect changes to critical files
-* Adaptive application controls to whitelist approved applications
+* Adaptive application controls for approved applications
 
 For more information, see [Introduction to Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), [Microsoft Defender for Servers](/azure/defender-for-cloud/defender-for-servers-introduction), and [Microsoft Defender for Cloud frequently asked questions](/azure/defender-for-cloud/faq-general).
 
