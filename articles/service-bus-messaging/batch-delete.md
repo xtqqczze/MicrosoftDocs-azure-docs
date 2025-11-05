@@ -58,12 +58,10 @@ When using Azure SDKs to perform these operations, the beforeEnqueueTime paramet
 
 To ensure predictable performance across tiers, Azure Service Bus offers tier-based limits for the maximum number of messages that can be deleted in a single batch delete request:
 
-
-
-|     Tier    | Maximum Batch Size per Request | 
-|:-----------:|:----------------------------:|
-| Standard | 500 messages |
-| Premium | 4000 messages |
+| Tier     | Maximum Batch Size per Request |
+| ---      | ---                           |
+| Standard | 500 messages                  |
+| Premium  | 4000 messages                 |
 
 
 These limits apply to all batch delete operations initiated via SDKs, REST APIs, and Service Bus Explorer.
