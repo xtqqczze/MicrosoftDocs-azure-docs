@@ -1,6 +1,6 @@
 ---
 title: Agent Builder scenarios in Azure SRE Agent
-description: Learn how you can use Agent Builder in Azure SRE Agent to connect observability tools, manage knowledge bases, configure specialized sub-agents, and automate operational workflows using triggers and scheduled tasks.
+description: Learn how you can use Agent Builder in Azure SRE Agent to connect observability tools, manage knowledge bases, configure specialized subagents, and automate operational workflows using triggers and scheduled tasks.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.service: azure-sre-agent
 
 ## Agent Builder scenarios in Azure SRE Agent
 
-Agent Builder in Azure SRE Agent enables you to design, configure, and extend intelligent operational agents tailored to your organization's needs. With Agent Builder, you can seamlessly integrate data sources, manage and enrich knowledge bases, create specialized sub-agents, and automate workflows by using triggers and scheduled tasks. This article explores common scenarios and configuration patterns to help you maximize the value of Agent Builder for your site reliability engineering (SRE) operations.
+Agent Builder in Azure SRE Agent enables you to design, configure, and extend intelligent operational agents tailored to your organization's needs. With Agent Builder, you can seamlessly integrate data sources, manage and enrich knowledge bases, create specialized subagents, and automate workflows by using triggers and scheduled tasks. This article explores common scenarios and configuration patterns to help you maximize the value of Agent Builder for your site reliability engineering (SRE) operations.
 
 ### Bring your own data sources (observability tools)
 
@@ -20,10 +20,10 @@ Agent Builder enables you to connect your existing observability infrastructure 
 
 SRE Agent supports the following data connectors that interface with Agent Builder:
 
-- **Azure Monitor**: Integrate with Azure Monitor workspaces for metrics and alerting data.
 - **Model Context Protocol (MCP)**: Connect to external data sources and APIs.
-- **GitHub**: Connect to repositories for code analysis and deployment history.
-- **Azure DevOps**: Integrate with work items and pipeline data.
+- **Microsoft Teams**: Post messages to Teams channels.
+- **Outlook**: Send email notifications.
+
 
 #### Configuration process
 
@@ -78,23 +78,23 @@ Enhance your agents' knowledge by uploading organizational documentation, runboo
 > [!NOTE]
 > Uploaded files are automatically indexed and made searchable by your agents. The system supports up to 1,000 files per agent instance.
 
-### Build your sub-agents
+### Build your subagents
 
-Create specialized sub-agents that focus on specific operational domains or technical areas.
+Create specialized subagents that focus on specific operational domains or technical areas.
 
-#### Sub-agent types
+#### Subagent types
 
 Examples of specialized agents include:
 
-- **Database specialists**: Focused on database performance and connectivity diagnostics
+- **Database specialists**: Focus on database performance and connectivity diagnostics
 
-- **Network analysts**: Specialized in connectivity and performance issues
+- **Network analysts**: Specialize in connectivity and performance issues
 
 - **Security investigators**: Trained on security incidents and compliance checks
 
 - **Application monitors**: Experts in specific application stacks or frameworks
 
-#### Sub-agent configuration
+#### Subagent configuration
 
 - **Define agent purpose**: Clearly specify the agent's operational focus and expertise
 
@@ -102,11 +102,11 @@ Examples of specialized agents include:
 
 - **Customize instructions**: Provide domain-specific guidance and operational procedures
 
-- **Set handoff rules**: Configure how the sub-agent escalates to human operators or other agents
+- **Set handoff rules**: Configure how the subagent escalates to human operators or other agents
 
-- **Test capabilities**: Validate the sub-agent's performance on domain-specific scenarios
+- **Test capabilities**: Validate the subagent's performance on domain-specific scenarios
 
-Example sub-agent configuration:
+Example subagent configuration:
 
 ```yml
 agent: 
@@ -190,13 +190,13 @@ Automate your operational workflows with intelligent triggering mechanisms.
 
 Automatically activate agents when specific incident conditions are met by adjusting the following configuration options:
 
-- **Platform integration**: Azure Monitor, PagerDuty, ServiceNow, or custom webhook sources
+- **Platform integration**: Azure Monitor, PagerDuty, or ServiceNow.
 
-- **Filtering criteria**: Service impact, severity level, incident type, and custom matching rules
+- **Filtering criteria**: Service impact, severity level, incident type, and custom matching rules.
 
-- **Response timing**: Immediate activation or delayed response based on incident duration
+- **Response timing**: Immediate activation or delayed response based on incident duration.
 
-- **Escalation paths**: Define handoff procedures when automated resolution fails
+- **Escalation paths**: Define handoff procedures when automated resolution fails.
 
 Example incident trigger:
 
@@ -221,21 +221,21 @@ Create recurring operational activities that run automatically:
 
 - **Schedule types**:
 
-  - **Cron expressions**: Use standard cron syntax for precise timing
+  - **Cron expressions**: Use standard cron syntax for precise timing.
   
-  - **Preset intervals**: Hourly, daily, weekly, or monthly execution
+  - **Preset intervals**: Hourly, daily, weekly, or monthly execution.
   
-  - **Natural language**: Describe schedules in plain English (for example, "every weekday at 9 AM")
+  - **Natural language**: Describe schedules in plain English (for example, "every weekday at 9 AM").
 
 - **Common scheduled task patterns**:
 
-  - **Health summaries**: Daily environment status reports
+  - **Health summaries**: Daily environment status reports.
 
-  - **Compliance scans**: Weekly security and policy validation
+  - **Compliance scans**: Weekly security and policy validation.
 
-  - **Performance reviews**: Monthly resource utilization analysis
+  - **Performance reviews**: Monthly resource utilization analysis.
 
-  - **Maintenance checks**: Quarterly system health assessments
+  - **Maintenance checks**: Quarterly system health assessments.
 
 Example scheduled task:
 
