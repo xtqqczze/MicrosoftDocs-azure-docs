@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/09/2025
+ms.date: 11/05/2025
 ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 
@@ -245,12 +245,45 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 The portal version of the migration assistant is currently in preview.
 
 1.	From the NetApp account view, select **Migration assistant**.
-
-    The migration assistant page appears with a list of current and ongoing migrations along with actions that you can take to create and manage migrations. These actions are "_New migration_," "_Sync now_," "_Dry run_," "_Resume_," "_Cut over_," "_Finalize migration_," and "_Cancel migration_".
-
-    :::image type="content" source="./media/migrate-volume/new-migration-portal.png" alt-text="Screenshot of navigation to the migration assistant portal." lightbox="./media/migrate-volume/new-migration-portal.png":::
     
-2.  Select **New migration** to initiate the migration process and proceed to creation of ANF Migration volume. 
+    :::image type="content" source="./media/migrate-volume/new-migration-portal.png" alt-text="Screenshot of navigation to the migration assistant portal." lightbox="./media/migrate-volume/new-migration-portal.png":::
+
+    The migration assistant page appears with a list of current and ongoing migrations along with actions that you can take to create and manage migrations. These actions are:
+    
+    **New migration**
+    
+    Initiates the migration process and proceeds to the creation of an ANF Migration volume.
+
+    **Sync now**
+
+    Initiates a manual data replication for the migration, ensuring your latest changes are synced.
+
+    **Dry run**
+    
+    Pauses the migration to perform a dry run exercise to test your applications and data access before the cut over.  
+
+    **Resume** 
+
+    Resumes the migration process after the dry run is complete. Resuming the process erases all the data written to the volume during the pause.
+    
+    **Cut over**
+
+    Removes the replication relationship. If this is the last migration to this Azure NetApp Files storage, the peering relationship will also be removed.
+
+    **Finalize migration**
+
+    Deletes the external migration relationship and converts the destination volume into a regular volume. If this is the last migration to this Azure NetApp Files storage, the peering relationship will also be removed.
+
+    **Cancel migration**
+
+    Cancels the migration process and deletes the destination volume. The peering relationship between the ONTAP cluster and Azure NetApp Files will be remove if it is not used by any other migration volume.
+
+    **View migration details**
+
+    Migration details provide information about the migration for a specific volume. To view these details, under the **Actions** column, click the three dots `...` associated with the volume and select **View migration details**.
+
+ 
+2.  Select **New migration**.
 3.	In the **Source** tab, provide the following information:
 
     :::image type="content" source="./media/migrate-volume/new-migration-source-information.png" alt-text="Screenshot of the source tab to provide volume details." lightbox="./media/migrate-volume/new-migration-source-information.png":::

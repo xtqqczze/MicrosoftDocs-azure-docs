@@ -73,30 +73,30 @@ No. Azure Data Box does not support Azure NetApp Files currently.
 
 No. Azure Import/Export service does not support Azure NetApp Files currently.
 
-## Is there a specific timeframe for users to provide commands for migration
+## Is there a specific timeframe for users to execute the cluster peering and SVM peering commands in the Migration assistant tool?
 
-Yes, the user should enter the commands within the specified timeframe.
+Yes, the user should copy the commands and execute them within 60 minutes.
 
-## What happens if I close the window before the migrating volume workflow is not complete.
+## What happens if I close the Migration assistant tool page before the migrating volume workflow is  complete?
 
-You will not receive the peering commands and therefore, need to restart the complete workflow.
+You will not receive the cluster peering and SVM peering commands and therefore, you will need to restart the complete workflow.
 
-## Are there inputs case-sensitive for migrating volume?
+## Are there inputs provided case-sensitive in the Migration assistant tool?
 
-Yes, the inputs are case-sensitive.
+Yes, the inputs provided in the Migration assistant tool are case-sensitive.
 
 ## Can I configure peering with more IP's than are available in the subnet?
 
-No, you should clean up the IP addresses on the subnet or use a different subnet.
+No, you cannot configure peering with more IP's than that are available in the subnet. If you want to use the existing subnet, you should clean up the IP addresses on the subnet or use a different subnet.
 
-## Can I enable cool access on a migration volume?
-You should finalize the migration or target a different volume. Finalizing the volume will make it a regular ANF volume allowing you to enable cool access.
+## Can I enable cool access on a migration volume in the Migration assistant tool?
+To enable cool access, you should finalize the migration or use a different volume. Finalizing the migration will make the volume a regular ANF volume allowing you to enable cool access.
 
-## Can I create an external replication without a cluster peer?
-You should complete the cluster peering setup as per the instructions provided. 
+## Why am I not able to resume migrations after it has been paused from the Migration assistant tool?
+Select the action from the **Migration** tab of the volume and not from the Migration Assistant view. The Migration tab is up to date for all migrations that are paused or resumed.
 
-## Why am I not able to resume migrations after it has been paused from the Migration Assistant view?
-Select the action from the Migration tab of the volume and not from the Migration Assistant view. The Migration tab is up to date for all migrations that are paused or resumed.
+## Are there post migration steps to be performed on ONTAP systems?
+For external ONTAP, you should manually delete the existing peering before creating a new one.
 
 
 ## Next steps  
