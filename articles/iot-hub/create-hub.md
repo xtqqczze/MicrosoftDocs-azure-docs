@@ -14,7 +14,7 @@ ms.custom:
 
 # Create and manage Azure IoT hubs
 
-This article explains how to create an IoT hub **without** [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) and [Certificate Management](iot-hub-certificate-management-overview.md) integration. If you want to create an IoT hub with ADR integration, see [Create IoT hubs with ADR integration](iot-hub-device-registry-setup.md).
+This article explains how to create an IoT hub **without** [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) and [certificate management](iot-hub-certificate-management-overview.md) integration. If you want to create an IoT hub with ADR integration, see [Create IoT hubs with ADR integration](iot-hub-device-registry-setup.md).
 
 ## Prerequisites
 

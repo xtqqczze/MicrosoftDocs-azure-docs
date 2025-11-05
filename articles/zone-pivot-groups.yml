@@ -440,12 +440,10 @@ groups:
     title: Azure portal
   - id: azure-cli
     title: Azure CLI
-- id: service-portal-azcli-script
+- id: service-azcli-script
   title: App Service deployment method
   prompt: Choose a deployment method
   pivots:
-  - id: azure-portal
-    title: Azure portal
   - id: azure-cli
     title: Azure CLI
   - id: script

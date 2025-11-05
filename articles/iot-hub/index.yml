@@ -32,13 +32,13 @@ landingContent:
       links:
       - text: What is Azure Device Registry?
         url: iot-hub-device-registry-overview.md
-      - text: What is Certificate Management?
+      - text: What is certificate management?
         url: iot-hub-certificate-management-overview.md
       - text: "FAQ: What is new in IoT Hub?"
         url: iot-hub-faq.md
     - linkListType: how-to-guide
       links:
-      - text: Get started with Azure Device Registry and Certificate Management
+      - text: Get started with Azure Device Registry and certificate management
         url: iot-hub-device-registry-setup.md
 
  - title: Collect data from your devices

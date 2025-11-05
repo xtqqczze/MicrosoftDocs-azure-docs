@@ -12,13 +12,13 @@
       href: iot-hub-faq.md
     - name: Integration with Azure Device Registry (Preview)
       href: iot-hub-device-registry-overview.md
-    - name: Certificate Management (Preview)
+    - name: certificate management (Preview)
       items:
         - name: Overview
           href: iot-hub-certificate-management-overview.md
-        - name: Key concepts for Certificate Management
+        - name: Key concepts for certificate management
           href: iot-hub-certificate-management-concepts.md
-    - name: Get started with ADR and Certificate Management in IoT Hub (Preview)
+    - name: Get started with ADR and certificate management in IoT Hub (Preview)
       href: iot-hub-device-registry-setup.md
   expanded: true
 - name: Quickstarts

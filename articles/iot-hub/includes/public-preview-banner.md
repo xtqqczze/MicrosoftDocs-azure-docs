@@ -8,4 +8,4 @@ services: iot-hub
 ---
 
 > [!IMPORTANT]
-> IoT Hub with Certificate Management in Azure Device Registry is in **public preview** and isn't recommended for production workloads. For more information, see the [FAQ: What is new in IoT Hub?](../iot-hub-faq.md).
+> IoT Hub with certificate management in Azure Device Registry is in **public preview** and isn't recommended for production workloads. For more information, see the [FAQ: What is new in IoT Hub?](../iot-hub-faq.md).
