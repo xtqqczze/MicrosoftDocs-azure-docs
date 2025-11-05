@@ -46,9 +46,13 @@ To add resources, resource groups, or subscriptions to a Service Group (preview)
 ## Add members to existing service group 
 
 1. Log into the [Azure portal](https://aka.ms/portalfx/service-groups-internal).
+
 2. Select **All services** > **Management + governance**.
+
 3. Select **Service Groups**.
+
 4. Select the desired Service Group. 
+
 5. In the left hand side service menu, select **members** under relationship management. 
 
 :::image type="content" source="./media/members-service-menu.png" alt-text="Screenshot of the members tab within the create service group page Lightbox="./media/members-service-menu.png":::
@@ -59,10 +63,15 @@ To add resources, resource groups, or subscriptions to a Service Group (preview)
 ## Remove members to existing service group
 
 1. Log into the [Azure portal](https://aka.ms/portalfx/service-groups-internal).
+
 2. Select **All services** > **Management + governance**.
+
 3. Select **Service Groups**.
+
 4. Select the desired Service Group. 
+
 5. In the left hand side service menu, select **members** under relationship management. 
+
 6. Select the members from the list of members by clicking the check box and press **Delete** from the top action bar. This removes the resource as a member, but won't delete the resource. 
 
 :::image type="content" source="./media/delete-members.png" alt-text="Screenshot of the members tab within the create service group page Lightbox="./media/delete-members.png":::
