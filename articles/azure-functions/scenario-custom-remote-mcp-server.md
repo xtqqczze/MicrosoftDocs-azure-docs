@@ -1,6 +1,6 @@
 ---
 title: Build a custom remote MCP server using Azure Functions
-description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a custom Model Context Protocol (MCP) server to a Flex Consumption plan on Azure. The project enables AI assistants to access custom tools hosted on Azure."
+description: "Learn how to create and deploy a custom Model Context Protocol (MCP) server using the Functions MCP Server extension, which enables AI clients to access custom tools hosted on Azure. The sample uses the Azure Developer CLI (azd) to create Azure resources and deploy a custom MCP server project to a Flex Consumption plan in Azure."
 ms.date: 11/04/2025
 ms.topic: quickstart
 ms.custom:
@@ -11,9 +11,9 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Quickstart: Build a custom remote MCP server using Azure Functions
 
-In this quickstart, you use Azure Developer command-line tools to build a custom remote Model Context Protocol (MCP) server with function endpoints that provide tools for AI assistants like GitHub Copilot. After testing the code locally, you deploy it to a new serverless function app you create running in a Flex Consumption plan in Azure Functions. 
+In this quickstart, you use the Azure Developer CLI (`azd`) to create a custom remote Model Context Protocol (MCP) server from a template project. The MCP server uses the Azure Functions MCP server extension to provide tools for AI models, agents, and assistants, like GitHub Copilot. After running the project locally, you deploy it to a new serverless Flex Consumption plan app in Azure Functions. 
 
-The project source uses the Azure Developer CLI (azd) to simplify deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
+The project source uses the Azure Developer CLI (azd) to simplify creating Azure resources and deploying your code. This deployment follows current best practices for secure and scalable Azure Functions deployments.
 
 By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -21,6 +21,12 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 > [!IMPORTANT]  
 > This article is currently only supported in C#, Java, Python, and TypeScript. To complete the quickstart, select one of these supported languages at the top of the article.
 ::: zone-end  
+::: zone pivot="programming-language-typescript"
+This article supports version 4 of the Node.js programming model for Azure Functions.
+::: zone-end
+::: zone pivot="programming-language-python"
+This article supports version 2 of the Python programming model for Azure Functions.
+::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
 ## Prerequisites
 
