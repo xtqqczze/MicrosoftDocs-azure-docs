@@ -1,4 +1,4 @@
-# Release Notes - rocky_9_ado
+# Release Notes - CIS Benchmark - Rocky Linux 9
 
 **Supported Benchmarks**
 | Benchmark Title |

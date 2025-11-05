@@ -1,4 +1,4 @@
-# Release Notes - rhel_8_ado
+# Release Notes - CIS Benchmark - RedHat Enterprise Linux 8
 
 **Supported Benchmarks**
 | Benchmark Title |

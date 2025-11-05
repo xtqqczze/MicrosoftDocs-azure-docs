@@ -1,4 +1,4 @@
-# Release Notes - suse_15_ado
+# Release Notes - CIS Benchmark - SUSE Linux Enterprise 15
 
 **Supported Benchmarks**
 | Benchmark Title |

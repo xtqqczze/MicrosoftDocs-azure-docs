@@ -1,4 +1,4 @@
-# Release Notes - debian_12_ado
+# Release Notes - CIS Benchmark - Debian Linux 12
 
 **Supported Benchmarks**
 | Benchmark Title |

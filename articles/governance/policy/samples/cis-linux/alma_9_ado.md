@@ -1,4 +1,4 @@
-# Release Notes - alma_9_ado
+# Release Notes - CIS Benchmark - Alma Linux 9
 
 **Supported Benchmarks**
 | Benchmark Title |

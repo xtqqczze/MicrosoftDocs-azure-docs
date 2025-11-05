@@ -1,4 +1,4 @@
-# Release Notes - ubuntu_22_04_ado
+# Release Notes - CIS Benchmark - Ubuntu 22.04 LTS + Pro
 
 **Supported Benchmarks**
 | Benchmark Title |

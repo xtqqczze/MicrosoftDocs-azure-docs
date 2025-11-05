@@ -1,4 +1,4 @@
-# Release Notes - ubuntu_24_04_ado
+# Release Notes - CIS Benchmark - Ubuntu 24.04 LTS + Pro
 
 **Supported Benchmarks**
 | Benchmark Title |

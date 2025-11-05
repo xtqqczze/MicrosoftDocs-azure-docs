@@ -1,4 +1,4 @@
-# Release Notes - oracle_8_ado
+# Release Notes - CIS Benchmark - Oracle Linux 8
 
 **Supported Benchmarks**
 | Benchmark Title |
