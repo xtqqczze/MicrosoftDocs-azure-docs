@@ -25,7 +25,7 @@ Conversion functions are used to convert data and test for data types
 | Conversion function | Task |
 |----|----|
 | [ascii](data-flow-expressions-usage.md#ascii) | Returns the numeric value of the input character. If the input string has more than one character, the numeric value of the first character is returned.|
-| [char](data-flow-expressions-usage.md#char) | Returns the ASCII character represented by the input number. If the number is greater than 256, the result is equivalent to char(number % 256).|
+| [char](data-flow-expressions-usage.md#char) | Returns the ASCII character represented by the input number. If the number is greater than 256, the result is equivalent to char (number % 256).|
 | [decode](data-flow-expressions-usage.md#decode) | Decodes the encoded input data into a string based on the specific charset. You can use a second (optional) argument to specify which charset to use: `US-ASCII`, `ISO-8859-1`, `UTF-8` (default), `UTF-16BE`, `UTF-16LE`, or `UTF-16`.|
 | [encode](data-flow-expressions-usage.md#encode) | Encodes the input string data into binary based on a charset. You can use a second (optional) argument to specify which charset to use: `US-ASCII`, `ISO-8859-1`, `UTF-8` (default), `UTF-16BE`, `UTF-16LE`, or `UTF-16`.|
 | [isBitSet](data-flow-expressions-usage.md#isBitSet) | Checks if a bit position is set in this bitset.|

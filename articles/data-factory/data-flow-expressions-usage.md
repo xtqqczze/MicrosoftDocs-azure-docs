@@ -2005,9 +2005,9 @@ Rounds a number when given an optional scale and an optional rounding mode. If t
 1. `ROUND_HALF_EVEN`: Rounding mode to round toward the "nearest neighbor" unless both neighbors are equidistant, in which case, round toward the even neighbor.
 1. `ROUND_UNNECESSARY`: Rounding mode to assert that the round operation has an exact result, so no rounding is necessary.  
       
-* ``round(100.123) -> 100.0``  
-* ``round(2.5, 0) -> 3.0``  
-* ``round(5.3999999999999995, 2, 7) -> 5.40``  
+   * ``round(100.123) -> 100.0``  
+   * ``round(2.5, 0) -> 3.0``  
+   * ``round(5.3999999999999995, 2, 7) -> 5.40``  
 ___
 
 
