@@ -65,9 +65,9 @@ To configure the ruleset, use the [preview portal](https://preview.portal.azure.
 
 ## Known limitations during the preview
 
-1. No ability for traffic from specific IP addresses to bypass the DDoS ruleset or penalty box 
+- No ability for traffic from specific IP addresses to bypass the DDoS ruleset or penalty box 
 
-1. Once HTTP DDoS ruleset is assigned to a Web Application Firewall policy, any changes made to other managed rulesets using the production portal will remove the HTTP DDoS ruleset from the WAF Policy.
+- Once HTTP DDoS ruleset is assigned to a Web Application Firewall policy, any changes made to other managed rulesets using the production portal will remove the HTTP DDoS ruleset from the WAF Policy.
 
-1. PowerShell and CLI are currently not supported.
+- PowerShell and CLI are currently not supported.
 
