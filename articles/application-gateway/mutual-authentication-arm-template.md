@@ -1,5 +1,5 @@
 ---
-title: Configure mutual authentication with Application Gateway through ARM
+title: Configure mutual authentication with Application Gateway through ARM template
 titleSuffix: Azure Application Gateway
 description: Deploy an Azure Application Gateway with mutual TLS (mTLS) passthrough using an ARM template.
 services: application-gateway
@@ -14,17 +14,17 @@ ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 
 # Deploy an Azure Application Gateway with mTLS passthrough listener
 
-## Overview
 
 This quickstart shows how to deploy an Azure Application Gateway with **mutual TLS (mTLS) passthrough** using an ARM template and API version `2025-03-01`. In passthrough mode, the gateway requests a client certificate but does **not validate it**. Certificate validation and policy enforcement occur at the backend.
 
-### Key Features
+### Key features
 - Associate an SSL profile with the listener for mTLS passthrough.
 - No client CA certificate required at the gateway.
 - `verifyClientAuthMode` supports `Strict` and `Passthrough`.
 
 > [!NOTE]
-> Portal, PowerShell, and CLI support for passthrough configuration will be available soon. Use ARM templates for now.
+> Portal, PowerShell, and CLI support for passthrough configuration are currently unavailable. For the purpose of this guide, use ARM templates.
+
 ## Prerequisites
 - Azure subscription and resource group.
 - Azure CLI installed.
@@ -148,18 +148,18 @@ az deployment group create \
   --parameters @deploymentParameters.json
 ```
 
-### Validate and Test
+### Validate and test
 
 
- **Validate Deployment**
-   - In Azure Portal, check the Application Gateway resource JSON file
+ **Validate deployment**
+   - In Azure portal, check the Application Gateway resource JSON file
    - Select API version 2025-03-01 and verify sslprofile
    - Validate `verifyClientAuthMode` is set to "passthrough"
    ```
    "sslProfiles": [
             {
                 "name": "sslnotrustedcert",
-                "id": "/subscriptions/64d48c73-c5f4-4817-93d8-65908359d9b4/resourceGroups/AppGWTeam/providers/Microsoft.Network/applicationGateways/mtlsAppGw/sslProfiles/sslnotrustedcert",
+                "id": "samplesubscriptionid",
                 "etag": "W/\"851e4e20-d2b1-4338-9135-e0beac11aa0e\"",
                 "properties": {
                     "provisioningState": "Succeeded",
@@ -170,23 +170,23 @@ az deployment group create \
                     },
                     "httpListeners": [
                         {
-                            "id": "/subscriptions/64d48c73-c5f4-4817-93d8-65908359d9b4/resourceGroups/AppGWTeam/providers/Microsoft.Network/applicationGateways/mtlsAppGw/httpListeners/listener2"
+                            "id": "samplesubscriptionid"
                         }
                     ]
   ```
 
-**Send Client Certificate to backend**
+**Send client certificate to backend**
   - If you need to forward the client certificate to the backend, configure a rewrite rule as described in [mutual-authentication-server-variables.](rewrite-http-headers-url.md)
 
   - If the client has sent a certificate, this rewrite ensures the client certificate is included in the request headers for backend processing.
 
-**Test Connectivity**
+**Test connectivity**
    - Connections should be established even if a client certificate is not provided.
 
 
 
 
-## mTLS Passthrough Parameters
+## mTLS passthrough parameters
 
 | Name                    | Type   | Description                                                                 |
 |-------------------------|--------|-----------------------------------------------------------------------------|
@@ -196,6 +196,6 @@ az deployment group create \
 
 **Passthrough Mode:** Gateway requests a client certificate but does not enforce it. Backend validates certificate and enforces policy.
 
-## Security Notice
+## Security notice
 
 This solution is classified as **Microsoft Confidential**. Please ensure you follow your organization’s security and data handling best practices when deploying and managing this solution.

@@ -24,18 +24,18 @@ Application Gateway supports certificate-based mutual authentication where you c
 Application Gateway provides following two options to validate client certificates:
 
 
-## Mutual TLS Passthrough Mode 
-In mutual TLS passthrough mode, Application Gateway requests a client certificate during the TLS handshake but doesn't terminate the connection if the certificate is missing or invalid. The connection to the backend proceeds regardless of the certificate's presence or validity. If a certificate is provided, Application Gateway can forward it to the backend if required by the application. The backend service is responsible for validating the client certificate. Refer to server variables if you want to configure certificate forwarding. There's no need to upload any CA certificate when it is on Passthrough mode.  To setup passthrough follow the steps on the following guide [Configure Application Gateway with mutual authentication using ARM Template](./mutual-authentication-arm-template.md).
+## Mutual TLS passthrough mode 
+In mutual TLS passthrough mode, Application Gateway requests a client certificate during the TLS handshake but doesn't terminate the connection if the certificate is missing or invalid. The connection to the backend proceeds regardless of the certificate's presence or validity. If a certificate is provided, Application Gateway can forward it to the backend if required by the application. The backend service is responsible for validating the client certificate. Refer to server variables if you want to configure certificate forwarding. There's no need to upload any CA certificate when it is on Passthrough mode.  To set up passthrough, follow the steps on the following guide [Configure Application Gateway with mutual authentication using ARM Template](./mutual-authentication-arm-template.md).
  
-Note:
-Currently, this feature is supported only through ARM deployment using API version 2025-03-01. Portal, PowerShell, and CLI support will be available soon.
+> [!NOTE]
+> Currently, this feature is supported only through Azure Resource Manager deployment using API version 2025-03-01.
 
 
-## Mutual TLS Strict Mode
+## Mutual TLS strict mode
 In mutual TLS strict mode, Application Gateway enforces client certificate authentication during the TLS handshake by requiring a valid client certificate. To enable this, a trusted client CA certificate containing a root CA and optionally intermediate CAs must be uploaded as part of the SSL profile. This SSL profile is then associated with a listener to enforce mutual authentication. 
 
 
-## Details of configuring Mutual TLS Strict Mode 
+## Details of configuring Mutual TLS strict mode 
 To configure mutual authentication Strict Mode, a trusted client CA certificate is required to be uploaded as part of the client authentication portion of an SSL profile. The SSL profile then needs to be associated to a listener in order to complete configuration of mutual authentication. There must always be a root CA certificate in the client certificate that you upload. You can upload a certificate chain as well, but the chain must include a root CA certificate in addition to as many intermediate CA certificates as you'd like. The maximum size of each uploaded file must be 25 KB or less.
 
 For example, if your client certificate contains a root CA certificate, multiple intermediate CA certificates, and a leaf certificate, make sure that the root CA certificate and all the intermediate CA certificates are uploaded onto Application Gateway in one file. For more information on how to extract a trusted client CA certificate, see [how to extract trusted client CA certificates](./mutual-authentication-certificate-management.md).
@@ -49,9 +49,9 @@ Each SSL profile can support up to 100 trusted client CA certificate chains. A s
 
 > [!NOTE] 
 > * Mutual authentication is only available on Standard_v2 and WAF_v2 SKUs.
-> * Configuration of Mutual authentication for [TLS protocol listeners (preview)](tcp-tls-proxy-overview.md) is currently available through REST API, PowerShell, and CLI. Azure Portal support is coming soon.
+> * Configuration of Mutual authentication for [TLS protocol listeners (preview)](tcp-tls-proxy-overview.md) is currently available through REST API, PowerShell, and CLI. 
 
-### Certificates supported for mutual TLS Strict mode authentication
+### Certificates supported for mutual TLS strict mode authentication
 
 Application Gateway supports certificates issued from both public and privately established certificate authorities.
 
@@ -61,7 +61,7 @@ Application Gateway supports certificates issued from both public and privately 
 > [!NOTE]
 > When issuing client certificates from well established certificate authorities, consider working with the certificate authority to see if an intermediate certificate can be issued for your organization to prevent inadvertent cross-organizational client certificate authentication.
 
-## Additional client authentication validation for mutual TLS Strict mode
+## Additional client authentication validation for mutual TLS strict mode
 
 ### Verify client certificate DN
 
@@ -88,11 +88,11 @@ For more information on how to extract trusted client CA certificate chains, see
 
 With mutual TLS authentication, there are additional server variables that you can use to pass information about the client certificate to the backend servers behind the Application Gateway. For more information about which server variables are available and how to use them, check out [server variables](./rewrite-http-headers-url.md#mutual-authentication-server-variables).
 
-## Certificate Revocation
+## Certificate revocation
 
 When a client initiates a connection to an Application Gateway configured with mutual TLS authentication, not only can the certificate chain and issuer's distinguished name be validated, but revocation status of the client certificate can be checked with OCSP (Online Certificate Status Protocol). During validation, the certificate presented by the client will be looked up via the defined OCSP responder defined in its Authority Information Access (AIA) extension. In the event the client certificate has been revoked, the application gateway responds to the client with an HTTP 400 status code and reason.  If the certificate is valid, the request will continue to be processed by application gateway and forwarded on to the defined backend pool.
 
-Client certificate revocation can be enabled via REST API, ARM, Bicep, CLI, or PowerShell.
+Client certificate revocation can be enabled via REST API, ARM template, Bicep, CLI, or PowerShell.
 
 # [Azure PowerShell](#tab/powershell)
 To configure client revocation check on an existing Application Gateway via Azure PowerShell, the following commands can be referenced:
@@ -134,7 +134,8 @@ To verify OCSP revocation status has been evaluated for the client request, [acc
 
 It's critical that the OCSP responder is highly available and network connectivity between Application Gateway and the responder is possible. In the event Application Gateway is unable to resolve the fully qualified domain name (FQDN) of the defined responder or network connectivity is blocked to/from the responder, certificate revocation status fails and Application Gateway will return a 400 HTTP response to the requesting client.
 
-Note: OCSP checks are validated via local cache based on the nextUpdate time defined by a previous OCSP response. If the OCSP cache hasn't been populated from a previous request, the first response may fail. Upon retry of the client, the response should be found in the cache and the request will be processed as expected. 
+> [!NOTE]
+> OCSP checks are validated via local cache based on the nextUpdate time defined by a previous OCSP response. If the OCSP cache hasn't been populated from a previous request, the first response may fail. Upon retry of the client, the response should be found in the cache and the request will be processed as expected. 
 
 ## Notes
 - Revocation check via CRL isn't supported
