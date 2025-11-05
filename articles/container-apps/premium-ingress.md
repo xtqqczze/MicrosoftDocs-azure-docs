@@ -252,7 +252,7 @@ Ingress metrics are available via the Azure portal in the Container Apps environ
 - Ingress CPU Usage
 - Ingress Memory Usage Bytes
 
-Benchmarks show that the ingress can handle around 3000 requests per second per CPU core, but that will vary by application usage. Memory only tends to become a bottleneck if the application is receiving requests quicker than it can handle them and requests get queued at the ingress layer.
+Benchmarks show that the ingress can handle around 3000 requests per second per CPU core, but that capacity varies by application usage. Memory only tends to become a bottleneck if the application is receiving requests quicker than  the environment can handle and requests get queued at the ingress layer.
 
 The resources allocated to the ingress in each mode are:
 
