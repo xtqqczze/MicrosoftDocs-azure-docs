@@ -23,6 +23,7 @@ Before you begin, ensure you have:
 - An existing Azure App Configuration store
 - Permissions to create and manage Azure Front Door resources (Contributor or equivalent)
 - Permissions to  assign roles on the App Configuration resource (Owner or User Access Administrator)
+- App Configuration Data Owner or App Configuration Data Reader role 
 - Basic understanding of [CDN and content delivery concepts](/azure/frontdoor/front-door-overview)
 
 ## Set up the Azure Front Door integration
@@ -125,31 +126,13 @@ When you no longer need to manage your Front Door profile through App Configurat
 
 ## Troubleshoot common issues
 
-### Resolve identity configuration warnings
+If you encounter issues while connecting Azure Front Door to your App Configuration store, consider the following troubleshooting steps:
 
-If endpoints show identity configuration warnings:
-
-1. Verify that managed identity is properly configured for the endpoint.
-1. Ensure the identity has appropriate permissions to access App Configuration.
-1. Check that the correct identity type is selected in the endpoint configuration.
-
-### Fix endpoint accessibility issues
-
-If you can't access endpoints:
-
-1. Verify that the origin host name is correctly configured.
-1. Check network connectivity between Azure Front Door and App Configuration.
-1. Confirm that DNS resolution is working properly.
-
-### Address connection failures
-
-If connection attempts fail:
-
-1. Ensure you have appropriate permissions in the subscription and resource group.
-1. Verify that the Azure Front Door resource provider is registered in your subscription.
-1. Check for any service-level issues on the Azure status page.
-
-For additional help, use the **Feedback** option to report preview-specific problems or contact Azure support for subscription-related issues.
+- Ensure that you have sufficient permissions to create and manage Front Door resources (Contributor or equivalent)
+- Ensure that you have sufficient permissions to assign roles (Owner or User Access Administrator).
+- Ensure that the selected managed identity has the App Configuration Data Reader role assignment.
+- From Front Door portal, make sure that the origin is correctly setup to be able to authenticate with the App Configuration origin. Learn how to [use managed identities to authenticate to origins](/azure/frontdoor/origin-authentication-with-managed-identities)
+- Verify that the Azure Front Door resource provider is registered in your subscription.
 
 ## Related content
 
