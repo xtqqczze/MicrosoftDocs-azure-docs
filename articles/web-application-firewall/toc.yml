@@ -88,7 +88,6 @@ items:
           href: ./ag/application-gateway-customize-waf-rules-cli.md
     - name: HTTP DDoS protection
       href: ./ag/ddos-ruleset.md
-      items:
     - name: Bot protection
       items:
       - name: Overview
