@@ -224,10 +224,13 @@ azd logs
 
 You can configure the ingress for your environment after you create it.
 
-1. Browse to your environment in the Azure portal.
-1. Select **Networking** under **Settings**.
+1. Go to your Container Apps environment in the Azure portal.
+
+1. Under *Settings*, select **Networking**.
+
 1. Select the **Ingress settings** tab.
-1. Configure your ingress settings as follows.
+
+1. Configure your ingress settings according to the following settings.
 
     | Setting | Value |
     |---|---|
