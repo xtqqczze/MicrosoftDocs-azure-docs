@@ -28,7 +28,7 @@ To add resources, resource groups, or subscriptions to a Service Group (preview)
 
 1. When creating a new Service Group, there's an available `Members` tab to add resources. 
 
-:::image type="content" source="./media/members-tab-create-flow.png" alt-text="Screenshot of the members tab within the create service group page Lightbox="./media/members-tab-create-flow.png":::
+:::image type="content" source="./media/members-tab-create-flow.png" alt-text="Screenshot of the members tab within the create service group page" lightbox="./media/members-tab-create-flow.png":::
 
 2. Select to add individual resources, resource groups, or subscriptions. 
 
