@@ -664,11 +664,8 @@ Follow the steps in this section to monitor the progress of a Storage Mover Migr
 1. Select your job to view **progress, speed, and estimated completion time**.
 1. Select **Logs** to check for any errors or warnings.
 1. After the migration is complete, verify the data in **Azure Blob Storage**.
-1. Select your job to view **progress, speed, and estimated completion time**.
-1. Select **Logs** to check for any errors or warnings.
-1. After the migration is complete, verify the data in **Azure Blob Storage**.
 
-## Post-Migration Validation 
+## Post-Migration Validation
 
 Post-migration data validation ensures that your data is accurate and that the transfer from AWS S3 to Azure Blob Storage is complete. This validation process verifies data integrity and consistency by comparing migrated data to the same data from the source. You can also choose to conduct user acceptance tests to further confirm functionality. Validation helps identify and resolve discrepancies, ensuring the migrated data is reliable and meets your business requirements.
 
