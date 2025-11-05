@@ -26,7 +26,61 @@ Learn how to deploy a highly available DHCP server in Azure on a virtual machine
 
 [!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
-[!INCLUDE [create-two-virtual-machines-windows-load-balancer.md](../../includes/create-two-virtual-machines-windows-load-balancer.md)]
+## Create virtual machines
+
+In this section, you create two VMs (**vm-1** and **vm-2**) in two different availability zones (**Zone 1** and **Zone 2**) to provide high availability for your DHCP service.
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+1. Select **+ Create** then **Azure virtual machine**.
+   
+1. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Virtual machine name | Enter **vm-1**. |
+    | Region | Select **East US 2**. |
+    | Availability options | Select **Availability zone**. |
+    | Availability zone | Select **Zone 1**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Windows Server 2022 Datacenter - x64 Gen2**. |
+    | VM architecture | Leave the default of **x64**. |
+    | Size | Select a size. |
+    | **Administrator account** |  |
+    | Authentication type | Select **Password**. |
+    | Username | Enter **azureuser**. |
+    | Password | Enter a password. |
+    | Confirm password | Reenter the password. |
+    | **Inbound port rules** |  |
+    | Public inbound ports | Select **None**. |
+
+1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+  
+1. In the Networking tab, enter or select the following information:
+
+    | Setting | Value |
+    |-|-|
+    | **Network interface** |  |
+    | Virtual network | Select **vnet-1**. |
+    | Subnet | Select **subnet-1 (10.0.0.0/24)**. |
+    | Public IP | Select **None**. |
+    | NIC network security group | Select **Basic**. |
+    | Public inbound ports | Leave the default of **None**. |
+   
+1. Select **Review + create**. 
+  
+1. Review the settings, and then select **Create**.
+
+1. Follow the previous steps to create a second VM with the following values and all the other settings the same as **vm-1**:
+
+    | Setting | VM 2 |
+    | ------- | ----- |
+    | Name |  **vm-2** |
+    | Availability zone | **Zone 2** |
 
 ## Configure DHCP server network adapters
 
