@@ -15,27 +15,15 @@ ms.custom: references_regions
 
 # Priority replication for Azure Storage object replication
 
-Object replication (OR) currently copies all operations from a source storage account to one or more destination accounts asynchronously, with no guaranteed completion time. However, with the introduction of object replication priority replication, users can now choose to prioritize the replication of the operations in their replication policy. 
+Object replication (OR) currently copies all operations from a source storage account to one or more destination accounts asynchronously, with no guaranteed completion time. However, with the introduction of object replication priority replication, users can now choose to prioritize the replication of the operations in their replication policy.
 
 Priority replication comes with a Service Level Agreement (SLA) guarantee if your policy's source and destination account are located within the same continent. The SLA ensures 99.0% of operations replicate from the source account to the destination account within 15 minutes during a billing month. Refer to the official [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
 
-<!--
+
 > [!IMPORTANT]
-> This feature is generally available but is currently only offered in a limited number of regions.
+> This feature is generally available and offered in all regions.
 >
->
-> OR Priority replication is available only within the following regions:
-> - East US 2
-> - West US 2
-> - North Europe
-> - West Europe
-> - Japan East
-> - Japan West
-> - Central India
-> - Switzerland North
-> - UAE North
->
-> To gain access to the Azure portal experience of Object Replication priority replication, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowPriorityObjectReplicationInPortal as the feature name. The provider name for this preview feature is Microsoft.Storage.-->
+> To gain access to the Azure portal experience of Object Replication priority replication, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowPriorityObjectReplicationInPortal as the feature name. The provider name for this preview feature is `Microsoft.Storage`.
 
 ## Benefits of priority replication
 
@@ -65,9 +53,9 @@ Refer to the official [SLA terms](https://www.microsoft.com/licensing/docs/view/
 
 ## Feature pricing
 
-Standard costs for read and write transactions, and for network egress still apply for object replication. These charges are consistent with existing OR pricing and should be considered when estimating the total cost of using priority replication. Enabling OR priority replication has a per-GB cost for all new data ingress. 
+Enabling OR priority replication has a per-GB cost for all new data ingress. For detailed Azure Storage pricing information, refer to the [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/) article. 
 
-For detailed Azure Storage pricing information, refer to the [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/) article. For an overview of Object Replication-specific pricing, see the pricing section within the [object replication overview](object-replication-overview.md#billing) article.
+Standard costs for read and write transactions, and for network egress still apply for object replication. These charges are consistent with existing OR pricing and should be considered when estimating the total cost of using priority replication. For an overview of Object Replication-specific pricing, see the pricing section within the [object replication overview](object-replication-overview.md#billing) article.
 
 > [!IMPORTANT]
 > Customers have the flexibility to disable priority replication at any time. However, it's important to note that billing for the feature will continue for 30 days after being disabled.
@@ -98,13 +86,13 @@ To enable OR Priority Replication when creating a new OR policy, complete the fo
 1. Navigate to the Azure portal and create a new storage account.
 1. Select the **Create replication rules** tab to open the **Create replication rules** pane as shown in the following screenshot.
 
-    :::image type="content" source="media/object-replication-priority-replication/replication-new-accounts-sml.png" alt-text="Screenshot showing the location of the geo priority replication checkbox for a new storage account." lightbox="media/object-replication-priority-replication/replication-new-accounts-lrg.png":::
+    :::image type="content" source="media/object-replication-priority-replication/replication-new-accounts-sml.png" alt-text="Screenshot showing the location of the priority replication checkbox for a new storage account." lightbox="media/object-replication-priority-replication/replication-new-accounts-lrg.png":::
 
-1. In the **Create replication rules** pane, select your chosen **Destination subscription** and **Destination storage account**. Select the checkbox for **Geo priority replication** as shown.
+1. In the **Create replication rules** pane, select your chosen **Destination subscription** and **Destination storage account**. Select the checkbox for **Enable priority replication** as shown.
 
     :::image type="content" source="media/object-replication-priority-replication/create-replication-rules-sml.png" alt-text="Screenshot showing the location of the Enable Priority Replication and Enable Replication Monitoring checkboxes in the replication rules pane." lightbox="media/object-replication-priority-replication/create-replication-rules-lrg.png":::
 
-1. Complete the remaining fields and select **Add rule** to create the new OR policy with priority replication enabled.
+1. Complete the remaining fields and select **Add rule** to update the new OR policy with priority replication enabled.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -164,7 +152,6 @@ To enable or disable Priority Replication for an existing OR policy, complete th
 # [Azure portal](#tab/portal)
 
 1. In the Azure portal, navigate to the storage account you want to modify.
-1. Select the **Your accounts** tab to view the list of accounts within your subscription.
 1. Locate the **Destination account** containing the **Source container** and **Destination container** whose OR policy you want to modify. Select the **More options** ellipsis and then select **Edit rules** to open the **Edit replication rules** pane as shown.
 
     :::image type="content" source="media/object-replication-priority-replication/edit-replication-rules-sml.png" alt-text="Screenshot showing how to locate the Edit Rules option for existing replication rules." lightbox="media/object-replication-priority-replication/edit-replication-rules-lrg.png":::
@@ -203,14 +190,6 @@ $destPolicy.PriorityReplication.Enabled
 $Policy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
     -StorageAccountName $srcAccountName
 $srcPolicy.PriorityReplication.Enabled
-
-# Remove the OR policy from the destination account
-Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
-    -StorageAccountName $destAccountName -PolicyId $destPolicy.PolicyId
-
-# Remove the OR policy from the source account
-Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
-    -StorageAccountName $srcAccountName -PolicyId $srcPolicy.PolicyId
 
 ```
 
