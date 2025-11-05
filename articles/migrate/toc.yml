@@ -120,7 +120,7 @@ items:
 - name: Explore applications
   items:
   - name: Define and manage applications
-    href: define-and-manage-applications.md
+    href: define-manage-applications.md
 - name: Create Business case
   items:
   - name: Business case overview
