@@ -15,7 +15,6 @@ To add resources, resource groups, or subscriptions to a Service Group (preview)
 
 > [!IMPORTANT]
 > Azure Service Groups is currently in PREVIEW. 
-> For more information about participating in the preview, see [Azure Service Groups Preview](https://aka.ms/ServiceGroups/PreviewSignup).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
@@ -23,7 +22,7 @@ To add resources, resource groups, or subscriptions to a Service Group (preview)
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 
-- To be able to deploy a service group member relationship, you must have Microsoft.Relationship/ServiceGroupMember/write permissions on the source and Microsoft.ServiceGroup Contributor at the target service group. 
+- To be able to deploy a service group member relationship, you must have Microsoft.Relationship/ServiceGroupMember/write permissions on member resource and [Service Group Contributor](../../role-based-access-control/built-in-roles/management-and-governance.md) at the target service group. 
 
 ## Add members during service group creation 
 
