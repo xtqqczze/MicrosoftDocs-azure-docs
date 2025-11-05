@@ -1,5 +1,5 @@
 ---
-title: User access roles and agent and user permissions Azure SRE Agent Preview
+title: User access roles and agent and user permissions Azure SRE Agent
 description: Learn how agent and user permissions affect how SRE Agent behaves.
 author: craigshoemaker
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
-# Managed identity in Azure SRE Agent Preview
+# Managed identity in Azure SRE Agent
 
 The Azure SRE Agent features a flexible model for managing roles and access management based on Azure role-based access control (RBAC) and the [Principle of Least Privilege](/entra/identity-platform/secure-least-privileged-access). This model ensures users only interact with the agent and managed resources according to Azure RBAC policies.
 

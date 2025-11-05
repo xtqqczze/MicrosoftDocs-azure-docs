@@ -19,10 +19,9 @@ To create an agent, you need to grant your agent the correct permissions, config
 
 * **Firewall settings**: Add `*.azuresre.ai` to the allowlist in your firewall settings. Some networking profiles might block access to `*.azuresre.ai` domain by default.
 
-* **Subscription ID for your allowlist**: Make sure that your Azure CLI session is set to the subscription ID in the preview allowlist. If you need to set the Azure CLI context to your subscription ID, use the following command:
+* **Subscription ID for your allowlist**: Make sure that your Azure CLI session is set to the subscription ID in the allowlist. If you need to set the Azure CLI context to your subscription ID, use the following command:
 
     ```azurecli  
     az account set --subscription "<SUBSCRIPTION_ID>"
     ```
 
-* **Access to the approved regions**: During the preview, the only allowed regions for SRE Agent are the *Sweden Central*, *East US 2*, and *Australia East* regions. Make sure that your user account has *owner* or *admin* permissions, along with permissions to create resources in the appropriate region.

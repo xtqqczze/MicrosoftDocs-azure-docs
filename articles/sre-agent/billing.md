@@ -1,5 +1,5 @@
 ---
-title: Billing for Azure SRE Agent Preview
+title: Billing for Azure SRE Agent
 description: Learn how different agent actions are billed in Azure SRE Agent.
 author: craigshoemaker
 ms.author: cshoe
@@ -8,9 +8,9 @@ ms.date: 08/08/2025
 ms.service: azure-sre-agent
 ---
 
-# Billing for Azure SRE Agent Preview
+# Billing for Azure SRE Agent
 
-Azure SRE Agent Preview works on your behalf in two ways.
+Azure SRE Agent works on your behalf in two ways.
 
 As soon as you create the agent, it begins monitoring your resources. During this time, the agent examines system data and learns about your resource's behavior. This continuous attention ensures that the agent is ready to respond to problems regardless of the scale or complexity of what you deploy on Azure. This type of action is called *always-on flow*.
 
