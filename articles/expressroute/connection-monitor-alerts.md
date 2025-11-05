@@ -1,5 +1,5 @@
 ---
-title: 'Configure alerts for ExpressRoute Connection Monitor'
+title: 'Configure alerts for Azure ExpressRoute Connection Monitor'
 description: Learn about the default Connection Monitor alert created for ExpressRoute connections and how to customize it for your monitoring needs.
 services: network-watcher
 author: dpremchandani
