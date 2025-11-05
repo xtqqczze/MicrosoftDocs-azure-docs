@@ -15,20 +15,20 @@ Web app migration and modernization is the process of moving existing applicatio
 
 Explore articles that explain how to migrate and modernize ASP.NET and Java web applications to Azure Kubernetes Service and Azure App Service.
 
-## Migrate to Azure Kuberenetes Service
+## Migrate to Azure Kubernetes Service
 
 Migrate your applications to Azure Kubernetes Service (AKS) for scalable, secure, and containerized deployment.
 
-**ASP.NET app containerization and migration to AKS**: Use Azure Migrate: App Containerization to package ASP.NET apps without code access and deploy them on Azure Kubernetes Service or App Service. The tool also supports Java web apps on Linux containers for AKS and App Service. [Learn more](tutorial-app-containerization-aspnet-kubernetes.md).
+**ASP.NET app containerization and migration to AKS**: Use Azure Migrate: App Containerization to package ASP.NET apps without code access and deploy them on Azure Kubernetes Service. [Learn more](tutorial-app-containerization-aspnet-kubernetes.md).
 
 
-**Java web app containerization and migration to Azure Kubernetes Service**: App Containerization to package Java apps running on Apache Tomcat without code access and deploy them on Azure Kubernetes Service or App Service. The tool also supports ASP.NET apps on Windows containers for AKS and App Service. [Learn more](tutorial-app-containerization-java-kubernetes.md).
+**Java web app containerization and migration to Azure Kubernetes Service**: App Containerization to package Java apps running on Apache Tomcat without code access and deploy them on Azure Kubernetes Service. [Learn more](tutorial-app-containerization-java-kubernetes.md).
 
 ## Migrate to Azure App Service
 
 Migrate your applications to Azure App Service for a fully managed platform that simplifies deployment and scales effortlessly.
 
--  Containerize Java apps and deploy them on App Service containers. [Learn more](tutorial-app-containerization-aspnet-kubernetes.md).
+-  Containerize Java apps and deploy them on App Service containers. [Learn more](tutorial-app-containerization-java-app-service.md).
 
 - Upgrade ASP.NET apps to modern code on App Service. [Learn more](tutorial-modernize-asp-net-appservice-code.md).
 
@@ -42,6 +42,11 @@ Migrate web apps using GitHub Copilot to accelerate modernization with AI-powere
 
 ## Deploy containerized applications using Azure DevOps
 
-Deploying containerized applications with Azure DevOps automates building, testing, and deploying containerized apps to cloud or Kubernetes environments. Using Azure DevOps pipelines, you can create CI/CD workflows to build images, push them to registries, and deploy securely with integrated Docker and Kubernetes support.
+Deploying containerized applications with Azure DevOps automates building, testing, and deploying containerized apps to cloud or Kubernetes environments.
 
 - Automate continuous deployment of containerized applications with Azure DevOps pipelines that build Docker images, push to Azure Container Registry, and deploy to AKS or App Service. [Learn more](/azure/migrate/tutorial-app-containerization-azure-pipeline).
+
+## Next steps
+
+- Review best practices for [deploying to Azure App service](/azure/app-service/deploy-best-practices). 
+- Review best practices for [deploying to Azure Kubernetes service](/azure/aks/best-practices). 
