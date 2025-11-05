@@ -47,10 +47,10 @@ Notable aspects of the solution:
 - Highlights fragmentation in security tooling in the environment through [classification](how-to-discover-applications.md#software-classification--potential-targets).
 
 ### Software inventory enhancements
-These following enhancements will help improve the usability of the inventory and assist customers in planning for the migration of these software as part of their overall migration planning for their workloads. [Learn more](how-to-discover-applications.md)
+These following enhancements will help improve the usability of the inventory and assist customers in planning for the migration of this software as part of their overall migration planning for their workloads. [Learn more](how-to-discover-applications.md)
 
 - **Review software discovery across the project:** The enhancement enables users to review the software discovered across all servers, discovered from their datacenter.
-- **Sanitized and classified software inventory:** The software inventory metadata is sanitized and classified into Categories & Subcategories that helps you easily review key software & their insights across categories of Security, Monitoring, IT Management, Web hosting, Data platforms, Business Applications etc.
+- **Sanitized and classified software inventory:** The software inventory metadata is sanitized and classified into Categories & Subcategories that help you easily review key software & their insights across categories of Security, Monitoring, IT Management, Web hosting, Data platforms, Business Applications etc.
 - **Software insights:** In addition to the software metadata you can now find software insights such as Support status and Vulnerabilities for all software discovered from your datacenter.
 - **Potential Azure Targets:** You can also review the list of Potential Targets that have been suggested (mapped to a subcategory of software) to plan the migration of their software to the Azure 1P services or 3P ISV services available as [Azure Native integrations](/azure/partner-solutions/partners) through Azure Marketplace.
 - **Security insights**: These enhancements power key security insights which help customers understand their overall security posture. [Learn more](insights-overview.md)

@@ -75,7 +75,7 @@ Azure Migrate identifies the prerequisites you need to complete before starting 
 
 :::image type="content" source="./media/how-to-complete-wave-plan/wave-settings.png" alt-text="The screenshot shows how to view details in the wave settings tile." lightbox="./media/how-to-complete-wave-plan/wave-settings.png":::   
 
-2. Review the prerequisites and select **Add Task**  
+2. Review the prerequisites and select **Add Task**.  
 
 :::image type="content" source="./media/how-to-complete-wave-plan/add-tasks-and-prereqs.png" alt-text="The screenshot shows how to add tasks in wave settings." lightbox="./media/how-to-complete-wave-plan/add-tasks-and-prereqs.png":::   
 

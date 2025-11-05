@@ -15,7 +15,7 @@ monikerRange: migrate
 
 This article explains how to create migration waves in Azure Migrate to group workloads, sequence migrations, and plan efficient execution for reduced risk and improved migration speed.
 
-To create migration waves, group your applications and workloads into logical sets that you can migrated together. These groups called **waves** help you execute migrations in smaller, manageable batches, reduce risk and improving efficiency. The key planning actions include:
+To create migration waves, group your applications and workloads into logical sets that you can be migrated together. These groups called **waves** help you execute migrations in smaller, manageable batches, reduce risk and improving efficiency. The key planning actions include:
 
 - **Distribute workloads into waves**: Group workloads and applications that share dependencies or business. This ensures they migrate together without breaking application functionality.
 - **Sequence waves**: Prioritize waves based on factors such as business criticality, complexity, and migration impact.
@@ -27,7 +27,7 @@ For more information on grouping and sequencing, see, [Azure Cloud Adoption Fram
 
 To create Migration Waves manually using Azure Migrate portal, follow these steps:
 
-1. Select your project from **All Projects** in Azure portal.
+1. Select your project from **All Projects** in Azure Portal.
 
      :::image type="content" source="./media/how-to-plan-create-waves/project-listing-page.png" alt-text="The screenshot shows the project listing page." lightbox="./media/how-to-plan-create-waves/project-listing-page.png":::
 
@@ -45,7 +45,7 @@ To create Migration Waves manually using Azure Migrate portal, follow these step
 1. Review, add, and remove workloads and applications that you want to include in the wave. You can use filters to refine the selection.  
     If you select an assessment, the workloads and applications are limited to the scope of that assessment. You can add more workloads and applications later.
 
-8. After you finalized the wave components, select **Create Wave**
+8. After you finalized the wave components, select **Create Wave**.
 
 :::image type="content" source="./media/how-to-plan-create-waves/wave-create-completion.png" alt-text="The screenshot shows the completion of the wave creation." lightbox="./media/how-to-plan-create-waves/wave-create-completion.png":::
 
