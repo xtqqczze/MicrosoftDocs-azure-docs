@@ -14,16 +14,11 @@ ms.date: 10/23/2025
 
 # De-identify multiple documents with the asynchronous de-identification service
 
-The Azure Health Data Services de-identification service can de-identify documents in Azure Storage via an asynchronous job. If you have many documents that you would like
-to de-identify, using a job is a good option. Jobs also provide consistent surrogation, meaning that surrogate values in the de-identified output match across
-all documents. For more information about de-identification, including consistent surrogation, see [What is the de-identification service?](overview.md)
+The Azure Health Data Services de-identification service can de-identify documents in Azure Storage via an asynchronous job. If you have many documents that you would like to de-identify, using a job is a good option. Jobs also provide consistent surrogation, meaning that surrogate values in the de-identified output match across all documents. For more information about de-identification, including consistent surrogation, see [What is the de-identification service?](overview.md)
 
 When you choose to store documents in Azure Blob Storage, you're charged based on Azure Storage pricing. This cost isn't included in the de-identification service pricing. [Explore Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs).
 
-This tutorial covers how to configure and run the service via the asynchronous (Batch) API on data in:
-
-- **English** (using Python SDK)  
-- **French**, **Spanish**, and **German** (using multilingual model via REST API / CURL)
+This tutorial covers how to configure and run the service via the asynchronous (Batch) API.
 
 ## Table of Contents
 
@@ -32,9 +27,7 @@ This tutorial covers how to configure and run the service via the asynchronous (
 - [Upload a sample document](#upload-a-sample-document)  
 - [Grant the de-identification service access to the storage account](#grant-the-de-identification-service-access-to-the-storage-account)  
 - [Configure network isolation on the storage account](#configure-network-isolation-on-the-storage-account)  
-- [Running the de-identification Service](#running-the-de-identification-service)  
-  - [Use the python SDK for English data](#use-the-python-sdk-for-english-data)  
-  - [Use CURL for French German and Spanish data](#use-curl-for-french-german-and-spanish-data)  
+- [Running the service using the python SDK](#running-the-service-using-the-python-sdk)     
 - [Clean up resources](#clean-up-resources)  
 - [Next steps](#next-steps)
 
@@ -116,10 +109,10 @@ Learn more at [Configure Azure Storage firewalls and virtual networks](/azure/st
 ```powershell
 az storage account update --name $StorageAccountName --public-network-access Disabled --bypass AzureServices
 ```
-## Running the de-identification service  
+## Running the service using the python SDK
 
-### Use the python SDK for English data
 The code below contains a sample from the [Azure Health Deidentification SDK for Python](/python/api/overview/azure/health-deidentification). 
+**Note:** This example uses the French Canada language-locale pair. See the full list our service supports [here.](languages-supported.md)
 
 ```Bash
 
@@ -148,9 +141,11 @@ from azure.health.deidentification.models import (
     DeidentificationJob,
     SourceStorageLocation,
     TargetStorageLocation,
+    DeidentificationJobCustomizationOptions,
+    DeidentificationOperationType,    
 )
+
 from azure.identity.aio import DefaultAzureCredential
-import os
 import uuid
 
 
@@ -159,29 +154,36 @@ async def deidentify_documents_async():
     storage_location = "https://<CONTAINER NAME>.blob.core.windows.net/deidtest/" ### Replace <CONTAINER NAME>
     inputPrefix = "deidsample" 
     outputPrefix = "_output"
-
+    locale = "fr-CA"  ### e.g., fr-FR, de-DE, etc
+    
     credential = DefaultAzureCredential()
     client = DeidentificationClient(endpoint, credential)
 
     jobname = f"sample-job-{uuid.uuid4().hex[:8]}"
 
     job = DeidentificationJob(
+        ### Set the operation to Surrogate:
+        operation_type=DeidentificationOperationType.SURROGATE,
         source_location=SourceStorageLocation(
             location=storage_location,
             prefix=inputPrefix,
         ),
         target_location=TargetStorageLocation(location=storage_location, prefix=outputPrefix, overwrite=True),
+         
+        ### Locale customization for surrogate generation: 
+        customizations=DeidentificationJobCustomizationOptions(surrogate_locale=locale),
+
     )
 
     async with client:
         lro: AsyncLROPoller = await client.begin_deidentify_documents(jobname, job)
         finished_job: DeidentificationJob = await lro.result()
 
-        await credential.close()
+    await credential.close()
 
-        print(f"Job Name:   {finished_job.job_name}")
-        print(f"Job Status: {finished_job.status}")  # Succeeded
-        print(f"File Count: {finished_job.summary.total_count if finished_job.summary is not None else 0}")
+    print(f"Job Name:   {finished_job.job_name}")
+    print(f"Job Status: {finished_job.status}")  # Succeeded
+    print(f"File Count: {finished_job.summary.total_count if finished_job.summary is not None else 0}")
 
 
 async def main():
@@ -191,40 +193,8 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 
-
-```
-### Use CURL for French, German and Spanish data
-
-1. Get an access token
-```Bash
-az login
-az account get-access-token --scope https://deid.azure.com/.default --query accessToken -o tsv > token.txt
-```
-2. Run a job
-```Bash
-curl -X PUT \
-  -H "Authorization: Bearer $(<token.txt)" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "Operation": "surrogate",
-    "SourceLocation": {
-      "Location": "https://<your_storage_account>.blob.core.windows.net/deidtest",
-      "Prefix": ".",
-      "Extensions": [".txt"]
-    },
-    "TargetLocation": {
-      "Location": "https://<your_storage_account>.blob.core.windows.net/deidtest",
-      "Prefix": "output",
-      "Overwrite": true
-    },
-    "customizations": {
-      "surrogatelocale": "fr-CA"
-    }
-  }' \
-  "<your Service URL>/jobs/<unique-job-name>?api-version=2024-12-15-preview"
 ```
 
-**Note:** This example uses the French Canada language-locale pair. See the full list our service supports [here.](languages-supported.md)
 
 3. Get job status
 ```Bash
