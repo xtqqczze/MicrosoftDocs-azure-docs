@@ -22,45 +22,15 @@ Agent Builder empowers you to create sophisticated automation solutions for your
 | Data Integration | Connect your observability tools and knowledge sources | • Azure Monitor for metrics and logs<br>• File uploads for documentation<br>• External APIs through MCP connectors |
 | Automated Triggers | Set up incident response plans and scheduled tasks | • Automatic incident investigation<br>• Daily health reports<br>• Weekly compliance scans |
 
-## TODO
+## Work with Agent Builder
 
-Go to Agent Builder in the Azure SRE Agent portal.
+To create a new agent, you begin by defining the agent’s primary purpose and operational scope so its responsibilities are clear. Then you connect the data sources the agent uses to expand its content. Potential sources include observability connectors or organizational knowledge (runbooks, procedures).
 
-Choose Create Agent and provide a descriptive name
+You can extend the agent's capabilities by associating system tools and any MCP integrations, and provide custom instructions that guide analytical and operational behavior. Finally,  you can define handoff rules that control when processing should transition to other agents or human operators.
 
-Define the agent's primary purpose and operational scope
+Agents are triggered via incident response plans or as scheduled tasks.
 
-Connect data sources
-
-Add relevant data connectors for your observability tools
-
-Upload organizational knowledge and procedural documentation
-
-Test connectivity and validate data access
-
-Configure capabilities
-
-Select appropriate system tools and MCP integrations
-
-Define custom instructions tailored to your operational procedures
-
-Set up handoff rules for escalation scenarios
-
-Set up automation
-
-Create incident response plans with appropriate filters and autonomy levels
-
-Configure scheduled tasks for recurring operational activities
-
-Test automation scenarios before production deployment
-
-Monitor and Refine
-
-Review agent performance and decision quality
-
-Adjust instructions and tool selections based on operational feedback
-
-Expand capabilities as your automation needs to evolve
+Once running, make sure to continuously monitor and refine your agent. Regularly review performance and decision quality, adjust instructions, tune tool selections, and expand capabilities as needs evolve.
 
 ## Create your first agent
 
@@ -95,3 +65,6 @@ Before using Agent Builder, ensure you have:
     | System Tools (optional) | Select one or more system tools to make available to the agent.  |
     | Handoff Agents (optional) | Select the next agent you want to pick up processing once this agent is done executing. |
 
+## Related content
+
+- [Agent Builder scenarios](./agent-builder-scenarios.md)
