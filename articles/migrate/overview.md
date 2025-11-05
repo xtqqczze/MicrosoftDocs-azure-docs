@@ -26,7 +26,7 @@ Wave Planning helps cloud architects and migration leads to:
 Wave Planning in Azure Migrate offers a structured set of capabilities to simplify and manage the end-to-end migration and modernization of applications and infrastructure.
 
 - Distribute the applications or the underlying infrastructure such as servers and workloads (servers, databases, web apps) discovered through Azure Migrate into waves.
-- Create a high-fidelity migration plan for each wave from their source (On-prem or other cloud) to the Azure destination using azure recommendations through Assessments.
+- Create a high-fidelity migration plan for each wave from their source (on-premises or other cloud) to the Azure destination using azure recommendations through Assessments.
 - Visualize the execution plans across the waves using timeline.
 - Execute and track the migration of applications in waves.
 - Monitor the progress, identify risks, and actions as the execution proceeds through different stages of migration.

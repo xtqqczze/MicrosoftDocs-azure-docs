@@ -23,11 +23,11 @@ To create migration waves, group your applications and workloads into logical se
 
 For more information on grouping and sequencing, see, [Azure Cloud Adoption Framework – Migration Wave Planning](/azure/cloud-adoption-framework/migrate/migration-wave-planning).
 
-## Create Waves using Azure Portal
+## Create Waves using Azure portal
 
 To create Migration Waves manually using Azure Migrate portal, follow these steps:
 
-1. Select your project from **All Projects** in Azure Portal.
+1. Select your project from **All Projects** in Azure portal.
 
      :::image type="content" source="./media/how-to-plan-create-waves/project-listing-page.png" alt-text="The screenshot shows the project listing page." lightbox="./media/how-to-plan-create-waves/project-listing-page.png":::
 
