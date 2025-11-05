@@ -38,12 +38,27 @@ The following functionality is limited during this time. These limitations will 
     - To maintain your cross-resource group reference, create a role assignment from your cross-resource group or subscription and give the “AzS VIS Prod App” the "AVS on Fleet VIS Role". The role assignment allows you to use reference and have your reference correctly applied for your Azure VMware Solution private cloud.  
 15. Gen 2 private cloud **deployments may fail if Azure policies that enforce strict rules for Network Security Groups or route tables (for example, specific naming conventions)**. These policy constraints can block required Azure VMware Solution Network Security Group and route table creation during deployment. You must remove these policies from the Azure VMware Solution virtual network before deploying your private cloud. Once your private cloud is deployed, these policies can be added back to your Azure VMware Solution private cloud.  
 16. If you are using **Private DNS** for your Azure VMware Solution Gen 2 private cloud, using **Custom DNS** on the virtual network where an Azure VMware Solution Gen 2 private cloud is deployed is unsupported. Custom DNS breaks lifecycle operations such as scaling, upgrades, and patching.  
-1. If you are **deleting** your private cloud and some Azure VMware Solution created resources are not removed, you can retry the deletion of the Azure VMware Solution private cloud using the Azure CLI.  
+17. If you are **deleting** your private cloud and some Azure VMware Solution created resources are not removed, you can retry the deletion of the Azure VMware Solution private cloud using the Azure CLI.
+18. Azure VMware Solution Gen 2 uses an HTTP Proxy to distinguish between customer and management network traffic. Certain VMware cloud service endpoints **may not follow the same network path or proxy rules as general vCenter-managed traffic**. Examples include: "scapi.vmware" and "apigw.vmware". The VAMI proxy governs the vCenter Server Appliance’s (VCSA) general outbound internet access, but not all service endpoint interactions flow through this proxy. Some interactions originate directly from the user’s browser or from integration components, which instead follow the workstation’s proxy settings or initiate connections independently. As a result, traffic to VMware cloud service endpoints may bypass the VCSA proxy entirely.
 
 ## Unsupported integrations
 
 The following 1st-party and 3rd-party integrations aren't available:
 - **Zerto DR**
+
+## Delegated Subnets and Network Security Groups for Gen 2
+When an Azure VMware Solution (AVS) Gen 2 private cloud is deployed, Azure automatically creates several delegated subnets within the private cloud’s host virtual network. These subnets are used to isolate and protect the private cloud’s management components.
+
+Customers can manage access to these subnets using Network Security Groups (NSGs) that are visible in the Azure portal or through Azure CLI/PowerShell. In addition to customer-manageable NSGs, AVS applies additional system-managed NSGs to critical management interfaces. These system-managed NSGs are not visible or editable by customers and exist to ensure that the private cloud remains secure by default.
+
+As part of the default security posture:
+- Internet access is disabled for the private cloud unless the customer explicitly enables it.
+- Only required management traffic is allowed to reach platform services.
+
+> [!Note]
+You may see a warning in the Azure portal indicating that certain ports appear to be exposed to the internet. This occurs because the portal evaluates only the customer-visible Network Security Group (NSG) configuration. However, Azure VMware Solution also applies additional system-managed Network Security Groups that are not visible in the portal. These system-managed Network Security Groups block inbound traffic unless access has been explicitly enabled through Azure VMware Solution configuration.
+
+This design ensures that the AVS environment is isolated and secure out of the box, while still allowing customers to control and customize network access based on their specific requirements.
 
 ## Routing and subnet considerations
 
