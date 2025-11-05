@@ -32,8 +32,7 @@ The script includes the following resources:
 
 ## Prepare Your Environment
 
-1. Navigate to the [GitHub repository](https://github.com/Azure/hubgen2-certmgmt/tree/main/Scripts) and download the **Scripts** folder, which contains the script file (.ps1) and the role template (.json).
-1. Place the script, role template, and the .whl files in your working folder and confirm they are accessible. Your working folder is the directory that holds all of your files.
+1. Navigate to the [GitHub repository](https://github.com/Azure/hubgen2-certmgmt/tree/main/Scripts) and download the **Scripts** folder, which contains the script file (.ps1).
 
 ## Customize the script variables
 
