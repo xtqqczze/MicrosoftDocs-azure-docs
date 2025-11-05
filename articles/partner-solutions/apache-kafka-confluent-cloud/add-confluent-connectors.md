@@ -57,9 +57,10 @@ Select **Next**.
 
 ### Authentication
 
-On the **Authentication** tab, you can configure the authentication of your Kafka cluster via API keys. By default, **Create New** is selected and API keys are automatically generated and configured when the connector is created.
+On the **Authentication** tab, select an authentication method: **User** or **Service account**. 
 
-Leave the default values and select the **Configuration** tab.
+- To use a service account (recommended for production), enter a **Service account** name and continue. A new service account will be provisioned in Confluent cloud when the connector is created. 
+- To use a user account, leave **User** selected and continue. A user API key and secret will be created for the specific user in Confluent cloud when the connector is created. 
 
 :::image type="content" source="./media/confluent-connectors/authentication.png" alt-text="Screenshot that shows the Authentication tab in the Azure portal.":::
 
@@ -115,9 +116,10 @@ Select **Next**.
 
 ### Authentication
 
-On the **Authentication** tab, you can configure the authentication of your Kafka cluster via API keys. By default, **Create New** is selected and API keys are automatically generated and configured when the connector is created.
+On the **Authentication** tab, select an authentication method: **User** or **Service account**. 
 
-Leave the default values and select the **Configuration** tab.
+- To use a service account (recommended for production), enter a **Service account** name and continue. A new service account will be provisioned in Confluent cloud when the connector is created. 
+- To use a user account, leave **User** selected and continue. A user API key and secret will be created for the specific user in Confluent cloud when the connector is created. 
 
 :::image type="content" source="./media/confluent-connectors/authentication.png" alt-text="Screenshot that shows the Authentication tab in the Azure portal.":::
 
