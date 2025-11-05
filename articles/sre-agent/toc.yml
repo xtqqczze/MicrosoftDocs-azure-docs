@@ -17,6 +17,12 @@ items:
             href: troubleshoot-azure-container-apps.md
   - name: Connect to external services
     href: connectors.md
+  - name: Build custom agents
+    items:
+      - name: Overview
+        href: agent-builder-overview.md
+      - name: Create and manage agents
+        href: agent-builder-scenarios.md
   - name: Incident management
     items:
       - name: Overview
