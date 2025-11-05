@@ -27,7 +27,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Simplified network management with multiple storage endpoints per volume 
     * Dedicated capacity stamps to eliminate noisy neighbor interference and maintain predictable performance 
 
-    This feature is supported in [all regions that support large volumes](large-volumes-requirements-considerations.md#supported-regions). Breakthough mode is currently in preview. 
+    This feature is supported in [all regions that support large volumes](large-volumes-requirements-considerations.md#supported-regions). Breakthrough mode is currently in preview. 
     
 ## October 2025
 

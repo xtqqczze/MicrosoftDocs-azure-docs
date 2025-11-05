@@ -77,7 +77,7 @@ The following requirements and considerations apply to large volumes. For perfor
 
 Large volumes breakthrough mode are currently in preview and you must request the feature before using it for the first time. 
 
-* Breakthrough mode large volumes are supported at sizes between 2,400 GiB up to 2,400 TiB (4,096 GiB).
+* Breakthrough mode large volumes are supported at sizes between 2,400 GiB up to 2,400 TiB (2 PiB). 
 * With breakthrough mode, you can achieve up 50 GiB/s throughput depending on your workload's characteristics and system placement.
 * The [migration assistant](migrate-volumes.md) isn't supported for large volumes with breakthrough mode. 
 * Breakthrough mode is supported on the Flexible, Standard, Premium, and Ultra service levels. 
