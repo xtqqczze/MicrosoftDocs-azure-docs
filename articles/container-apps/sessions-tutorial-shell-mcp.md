@@ -16,10 +16,11 @@ This tutorial demonstrates how to deploy and interact with a shell environment i
 
 In this tutorial you:
 
- [!div class="checklist"]
-- Create a shell session pool with MCP server enabled
-- Set up the MCP server endpoint and credentials
-- Execute shell commands remotely using JSON-RPC
+> [!div class="checklist"]
+>
+> * Create a shell session pool with MCP server enabled
+> * Set up the MCP server endpoint and credentials
+> * Execute shell commands remotely using JSON-RPC
 
 ## Prerequisites
 
@@ -28,7 +29,7 @@ You need the following resources before you begin this tutorial.
 | Requirement | Description |
 |-------------|-------------|
 | Azure account | You need an Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.com/free). |
-| Azure CLI | [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). |
+| Azure CLI | [Install the Azure CLI](/azure/install-azure-cli). |
 
 ## Setup
 
@@ -123,8 +124,8 @@ Use an ARM template to create a shell session pool with MCP server enabled.
                            "coolDownPeriodInSeconds": 300
                        }
                    },
-                   "mcpServerSettings": { # Add the "mcpServerSettings" section to enable the MCP server
-                       "isMCPServerEnabled": true
+                   "mcpServerSettings": { 
+                       "isMCPServerEnabled": true # Add the "mcpServerSettings" section to enable the MCP server
                    }
                }
            }
@@ -220,5 +221,5 @@ az group delete --resource-group $RESOURCE_GROUP
 
 ## Next steps
 
-- [Container Apps dynamic sessions overview](https://learn.microsoft.com/azure/container-apps/sessions)
+- [Container Apps dynamic sessions overview](/azure/container-apps/sessions)
 - [MCP JSON-RPC specification](https://spec.modelcontextprotocol.io/)
