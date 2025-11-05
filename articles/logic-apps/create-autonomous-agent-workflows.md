@@ -1,6 +1,6 @@
 ---
 title: Create Autonomous AI Agent Workflows
-description: Learnt to build AI agent workflows that don't use human interactions in Azure Logic Apps.
+description: Learn to build intelligent automation workflows with AI agents and LLMs that automatically perform tasks without human interactions in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, divswa, krmitta, LogicApps
@@ -11,23 +11,19 @@ ms.update-cycle: 180-days
 # Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks using AI agents and other AI capabilities without human intervention in my integration solutions.
 ---
 
-# Create autonomous agent workflows that don't require human interactions in Azure Logic Apps
+# Create autonomous agent workflows without human interactions in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When your scenario requires workflows that support natural language and use agents connected to *large language models* (LLMs) to make decisions and complete tasks without human intervention, create an *autonomous* agent workflow in Azure Logic Apps. This workflow type is the best option for scenarios where agents must work without human interactions, might need to run for a long time, and require stronger governance, isolation, and automated rollback or compensation strategies.
+When you need AI-powered automation that runs independently, create *autonomous agent* workflows in Azure Logic Apps. These workflows use agents connected to *large language models* (LLMs) to automatically make decisions and complete tasks without requiring human intervention. Autonomous agent workflows also work well for automation that needs to run for a long time, requires stronger governance, isolation, and supports automated rollback or compensation strategies.
 
-The following screenshot shows an example autonomous agent workflow that you create in this guide. The workflow uses an agent to get the weather forecast and send that forecast in email. The diagram shows the agent information pane where you set up the agent and provide instructions that don't require human interaction for the agent to follow:
+The following example workflow uses an agent to get weather forcasts and send email notifications.
 
 :::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, workflow designer, and example autonomous agent." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
 
-This guide shows how to create an example Standard or Consumption logic app that uses the **Autonomous Agents** workflow type. This workflow type works without requiring human interaction or inputs. To fulfill requests, the agent uses tools that you build to complete the necessary tasks in real-world services and systems.
+This guide shows how to create a Standard or Consumption logic app workflow using the **Autonomous Agents** workflow type. This workflow runs without human interaction and uses tools that you build to automatically complete tasks.
 
-For a high-level overview about how an agent works, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
-
-> [!IMPORTANT]
->
-> Although agent workflows don't incur extra charges in Azure Logic Apps, AI model usage incurs charges. For more information, see the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+For a high-level overview about agentic workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
 ## Prerequisites
 
@@ -115,6 +111,12 @@ For a high-level overview about how an agent works, see [AI agent workflows in A
 
 [!INCLUDE [supported-models](includes/supported-models.md)]
 
+## Billing
+
+- Consumption: Billing is charged using the pay-as-you-go model, based on the number of tokens used for each agent action.
+
+- Standard: Although agent workflows don't incur extra charges, AI model usage incurs charges. For more information, see the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
 ## Limitations and known issues
 
 The following sections describe current limitations and any known issues in this release, based on your logic app resource type.
@@ -123,7 +125,7 @@ The following sections describe current limitations and any known issues in this
 |-----------|-----------------------------|
 | Both | To create tools for your agent, the following limitations apply: <br><br>- You can add only actions, not triggers. <br>- A tool must start with an action and always contains at least one action. <br>- A tool works only inside the agent where that tool exists. <br>- Control flow actions are unsupported. |
 | Consumption | - Authentication: The connection between your agent and AI model uses [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2). |
-| Standard | - Unsupported workflow types: **Stateless** <br><br>- Authentication: For managed identity authentication, only the system-assigned managed identity is supported. User-assigned managed identity is currently unsupported. <br><br>**Note**: Azure AI Foundry projects require that you use managed identity authentication. <br><br>- For general limits in Azure OpenAI Service, Azure AI Foundry, and Azure Logic Apps, see: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Azure AI Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
+| Standard | - Unsupported workflow types: **Stateless** <br><br>- Authentication: For managed identity authentication, only the system-assigned managed identity is supported. User-assigned managed identity is currently unsupported. <br><br>**Note**: Azure AI Foundry projects require that you use managed identity authentication. <br><br>- Agent action is throttled based on the number of tokens used. <br><br>- For general limits in Azure OpenAI Service, Azure AI Foundry, and Azure Logic Apps, see: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Azure AI Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
 ## Create an autonomous agent workflow
 
@@ -140,6 +142,8 @@ To open this partial workflow, follow these steps:
 1. On the resource sidebar, under **Development Tools**, select the designer to open the partial agentic workflow.
 
    The designer shows a partial workflow with the trigger named **When an HTTP request is received**. Under the workflow, an **Agent** action named **Default Agent** appears. For this scenario, you don't need any other trigger setup.
+
+   :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-consumption.png" alt-text="Screenshot shows workflow designer with trigger When an HTTP request is received and empty Default Agent." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-consumption.png":::
 
 1. Continue to the next section to set up your agent.
 
@@ -159,15 +163,15 @@ To create a workflow with an empty **Agent**, follow these steps:
 
 1. On the **Create workflow** pane, complete the following steps:
 
-   1. For **Workflow name**, provide a name for your workflow to use.
+   1. For **Workflow name**, provide a name for your workflow.
 
    1. Select **Autonomous Agents** > **Create**.
 
-      :::image type="content" source="media/create-autonomous-agent-workflows/select-autonomous-agents.png" alt-text="Screenshot shows Standard logic app resource with open Workflows page and Create workflow pane with workflow name, selected Autonomous Agents option, and Create button." lightbox="media/create-autonomous-agent-workflows/select-autonomous-agents.png":::
+      :::image type="content" source="media/create-autonomous-agent-workflows/select-autonomous-agents.png" alt-text="Screenshot shows Standard logic app with open Workflows page and Create workflow pane with workflow name, selected Autonomous Agents option, and Create button." lightbox="media/create-autonomous-agent-workflows/select-autonomous-agents.png":::
 
       The designer opens and shows a partial workflow, which includes an empty **Agent** action that you need to set up later. 
 
-      :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Agent." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start.png":::
+      :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Agent." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png":::
 
    Before you can save your workflow, you must complete the following setup tasks for the **Agent** action:
 
@@ -187,7 +191,7 @@ To create a workflow with an empty **Agent**, follow these steps:
 
       :::image type="content" source="media/create-autonomous-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Agent action." lightbox="media/create-autonomous-agent-workflows/request-trigger.png":::
 
-   1. Continue to the next section so you can connect your agent to the AI model.
+   1. Skip the next section so you can set up your agent with an AI model.
 
 <a name="add-agent-nonagent-workflow"></a>
 
@@ -213,7 +217,7 @@ If you have an existing **Stateful** workflow, you can add an **Agent** action t
 >
 > If you try to save the workflow now, you get an error that workflow validation failed.
 >
-> For a Standard workflow, the designer toolbar also shows a red dot on the **Errors** button. The designer alerts you to this error condition because the agent requires setup before you can save any changes. However, you don't have to set up the agent now. You can continue to create your workflow. Just remember to set up the agent before you save your workflow.
+> In a Standard workflow, the designer toolbar also shows a red dot on the **Errors** button. The designer alerts you to this error condition because the agent requires setup before you can save any changes. However, you don't have to set up the agent now. You can continue to create your workflow. Just remember to set up the agent before you save your workflow.
 >
 > :::image type="content" source="media/create-autonomous-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar and Errors button with red dot and error in the agent action information pane." lightbox="media/create-autonomous-agent-workflows/error-missing-agent-settings.png":::
 
@@ -232,6 +236,12 @@ Follow the corresponding steps to set up your agent with the AI model that you w
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
    | **Model Id** | Yes | <*model-version*> | The Azure OpenAI model to use. Some regions support **gpt-4o-mini**, while others support **gpt-5o-mini**. |
+
+   The agent information pane now shows the selected AI model, for example:
+
+   :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows example connected deployed AI model." lightbox="media/create-autonomous-agent-workflows/connected-model-consumption.png":::
+
+1. Continue to the next section to rename the agent.
 
 ### [Standard](#tab/standard)
 
@@ -262,7 +272,7 @@ Follow the corresponding steps to set up your agent with the AI model that you w
 
 1. When you're done, select **Create new**.
 
-   The agent information pane now shows the AI model that you connected, for example:
+   The agent information pane now shows the connected AI model, for example:
 
    :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-standard.png" alt-text="Screenshot shows example connected deployed AI model." lightbox="media/create-autonomous-agent-workflows/connected-model-standard.png":::
 
@@ -274,7 +284,7 @@ Follow the corresponding steps to set up your agent with the AI model that you w
 
 ## Rename the agent
 
-Clearly identify the agent's purpose by updating the agent name in following steps:
+Update the agent name to clearly identify the agent's purpose by following these steps:
 
 1. On the designer, select the agent title bar to open the agent information pane.
 
@@ -295,17 +305,13 @@ The agent requires instructions that describe the roles that the agent can play 
 
 For the best results, provide instructions are prescriptive and stay open to the possiblity that you might have to iteratively refine these instructions.
 
-> [!NOTE]
->
-> Autonomous agents don't accept input through the chat interface at runtime.
-
 1. In the **Instructions for agent** box, enter the instructions that the agent needs to understand its role and tasks.
 
    For this example, the weather agent example uses the following sample instructions where you later provide a subscriber list with your own email address for testing:
 
-   **You're an AI agent that generates a weather report, which you send in email to each subscriber on a list. This list includes each subscriber's name, location, and email address to use.**
+   **`You're an AI agent that generates a weather report, which you send in email to each subscriber on a list. This list includes each subscriber's name, location, and email address to use.`**
 
-   **Format the weather report with bullet lists where appropriate. Make your response concise and useful, but use a conversational and friendly tone. You can include suggestions like "Carry an umbrella" or "Dress in layers".**
+   **`Format the weather report with bullet lists where appropriate. Make your response concise and useful, but use a conversational and friendly tone. You can include suggestions like "Carry an umbrella" or "Dress in layers".`**
 
    Here's an example:
 
