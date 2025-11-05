@@ -130,11 +130,6 @@ When you no longer need to manage your Front Door profile through App Configurat
 
 1. From the Azure Front Door pane in your App Configuration store, select **Disconnect**.
 
-1. Review the confirmation dialog showing:
-
-   - Resource group information
-   - Disconnected Azure Front Door profile
-
 1. Confirm the action by selecting **OK**.
 
 > [!WARNING]
