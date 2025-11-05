@@ -18,7 +18,7 @@ Azure provides comprehensive security management and monitoring capabilities to 
 
 ## Azure Monitor
 
-[Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) collects, analyzes, and acts on telemetry data from your Azure and on-premises environments. Monitor helps you maximize the availability and performance of your applications and proactively identify issues.
+[Azure Monitor](/azure/azure-monitor/overview) collects, analyzes, and acts on telemetry data from your Azure and on-premises environments. Monitor helps you maximize the availability and performance of your applications and proactively identify issues.
 
 Azure Monitor provides:
 
@@ -32,9 +32,9 @@ For security monitoring, Azure Monitor integrates with Microsoft Sentinel and Mi
 
 Learn more:
 
-* [Azure Monitor overview](https://learn.microsoft.com/azure/azure-monitor/overview)
-* [Azure Monitor Logs overview](https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs)
-* [Threat detection overview](https://learn.microsoft.com/azure/security/fundamentals/threat-detection)
+* [Azure Monitor overview](/azure/azure-monitor/overview)
+* [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs)
+* [Threat detection overview](/azure/security/fundamentals/threat-detection)
 
 ## Azure role-based access control
 
@@ -50,13 +50,13 @@ Azure RBAC enables you to:
 
 Learn more:
 
-* [What is Azure role-based access control (Azure RBAC)?](https://learn.microsoft.com/azure/role-based-access-control/overview)
-* [Azure built-in roles](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles)
-* [Identity management security overview](https://learn.microsoft.com/azure/security/fundamentals/identity-management-overview)
+* [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
+* [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
+* [Identity management security overview](/azure/security/fundamentals/identity-management-overview)
 
 ## Azure Policy
 
-[Azure Policy](https://learn.microsoft.com/azure/governance/policy/overview) helps you enforce organizational standards and assess compliance at scale. Azure Policy evaluates resources in Azure by comparing their properties to defined rules.
+[Azure Policy](/azure/governance/policy/overview) helps you enforce organizational standards and assess compliance at scale. Azure Policy evaluates resources in Azure by comparing their properties to defined rules.
 
 Azure Policy capabilities include:
 
@@ -76,12 +76,12 @@ Common security use cases:
 
 Learn more:
 
-* [What is Azure Policy?](https://learn.microsoft.com/azure/governance/policy/overview)
-* [Azure Policy regulatory compliance](https://learn.microsoft.com/azure/governance/policy/concepts/regulatory-compliance)
+* [What is Azure Policy?](/azure/governance/policy/overview)
+* [Azure Policy regulatory compliance](/azure/governance/policy/concepts/regulatory-compliance)
 
 ## Azure Update Manager
 
-[Azure Update Manager](https://learn.microsoft.com/azure/update-manager/overview) is a unified service that helps you manage and govern operating system updates for Windows and Linux virtual machines across Azure, on-premises, and multicloud environments.
+[Azure Update Manager](/azure/update-manager/overview) is a unified service that helps you manage and govern operating system updates for Windows and Linux virtual machines across Azure, on-premises, and multicloud environments.
 
 Azure Update Manager provides:
 
@@ -102,8 +102,8 @@ Update Manager features include:
 
 Learn more:
 
-* [About Azure Update Manager](https://learn.microsoft.com/azure/update-manager/overview)
-* [Scheduled patching in Update Manager](https://learn.microsoft.com/azure/update-manager/scheduled-patching)
+* [About Azure Update Manager](/azure/update-manager/overview)
+* [Scheduled patching in Update Manager](/azure/update-manager/scheduled-patching)
 
 ## Activity logging and auditing
 
@@ -121,12 +121,12 @@ For comprehensive security auditing, you can configure diagnostic settings to se
 
 Learn more:
 
-* [Azure Activity Log](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log)
-* [Diagnostic settings](https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings)
+* [Azure Activity Log](/azure/azure-monitor/essentials/activity-log)
+* [Diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings)
 
 ## Microsoft Cost Management
 
-[Microsoft Cost Management](https://learn.microsoft.com/azure/cost-management-billing/costs/overview-cost-management) helps you monitor, allocate, and optimize your Azure spending. Understanding costs is essential for security management as unauthorized resource deployments can indicate security incidents.
+[Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) helps you monitor, allocate, and optimize your Azure spending. Understanding costs is essential for security management as unauthorized resource deployments can indicate security incidents.
 
 Cost Management provides:
 
@@ -138,12 +138,12 @@ Cost Management provides:
 
 Learn more:
 
-* [What is Microsoft Cost Management?](https://learn.microsoft.com/azure/cost-management-billing/costs/overview-cost-management)
-* [Create and manage budgets](https://learn.microsoft.com/azure/cost-management-billing/costs/tutorial-acm-create-budgets)
+* [What is Microsoft Cost Management?](/azure/cost-management-billing/costs/overview-cost-management)
+* [Create and manage budgets](/azure/cost-management-billing/costs/tutorial-acm-create-budgets)
 
 ## Azure Resource Graph
 
-[Azure Resource Graph](https://learn.microsoft.com/azure/governance/resource-graph/overview) provides efficient resource exploration with the ability to query at scale across subscriptions. Resource Graph enables security teams to quickly identify resources with specific configurations or security postures.
+[Azure Resource Graph](/azure/governance/resource-graph/overview) provides efficient resource exploration with the ability to query at scale across subscriptions. Resource Graph enables security teams to quickly identify resources with specific configurations or security postures.
 
 Resource Graph capabilities:
 
@@ -155,12 +155,12 @@ Resource Graph capabilities:
 
 Learn more:
 
-* [What is Azure Resource Graph?](https://learn.microsoft.com/azure/governance/resource-graph/overview)
-* [Starter Resource Graph queries](https://learn.microsoft.com/azure/governance/resource-graph/samples/starter)
+* [What is Azure Resource Graph?](/azure/governance/resource-graph/overview)
+* [Starter Resource Graph queries](/azure/governance/resource-graph/samples/starter)
 
 ## Azure Automation
 
-[Azure Automation](https://learn.microsoft.com/azure/automation/overview) delivers cloud-based automation and configuration management supporting consistent governance across Azure and non-Azure environments.
+[Azure Automation](/azure/automation/overview) delivers cloud-based automation and configuration management supporting consistent governance across Azure and non-Azure environments.
 
 Azure Automation provides:
 
@@ -179,12 +179,12 @@ Common security automation scenarios:
 
 Learn more:
 
-* [Azure Automation overview](https://learn.microsoft.com/azure/automation/overview)
-* [Change Tracking and Inventory overview](https://learn.microsoft.com/azure/automation/change-tracking/overview)
+* [Azure Automation overview](/azure/automation/overview)
+* [Change Tracking and Inventory overview](/azure/automation/change-tracking/overview)
 
 ## Azure Advisor
 
-[Azure Advisor](https://learn.microsoft.com/azure/advisor/advisor-overview) is a personalized cloud consultant that provides best practice recommendations to optimize your Azure deployments. Advisor includes security recommendations from Microsoft Defender for Cloud.
+[Azure Advisor](/azure/advisor/advisor-overview) is a personalized cloud consultant that provides best practice recommendations to optimize your Azure deployments. Advisor includes security recommendations from Microsoft Defender for Cloud.
 
 Advisor recommendation categories:
 
@@ -196,12 +196,12 @@ Advisor recommendation categories:
 
 Learn more:
 
-* [Azure Advisor overview](https://learn.microsoft.com/azure/advisor/advisor-overview)
-* [Get started with Azure Advisor](https://learn.microsoft.com/azure/advisor/advisor-get-started)
+* [Azure Advisor overview](/azure/advisor/advisor-overview)
+* [Get started with Azure Advisor](/azure/advisor/advisor-get-started)
 
 ## Azure Service Health
 
-[Azure Service Health](https://learn.microsoft.com/azure/service-health/overview) provides personalized information about the health of your Azure services and regions. Service Health helps you plan for maintenance and respond to incidents that may affect availability.
+[Azure Service Health](/azure/service-health/overview) provides personalized information about the health of your Azure services and regions. Service Health helps you plan for maintenance and respond to incidents that may affect availability.
 
 Service Health components:
 
@@ -212,12 +212,12 @@ Service Health components:
 
 Learn more:
 
-* [What is Azure Service Health?](https://learn.microsoft.com/azure/service-health/overview)
-* [Create activity log alerts on service notifications](https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal)
+* [What is Azure Service Health?](/azure/service-health/overview)
+* [Create activity log alerts on service notifications](/azure/service-health/alerts-activity-log-service-notifications-portal)
 
 ## Next steps
 
-* [Threat detection and protection](https://learn.microsoft.com/azure/security/fundamentals/threat-detection)
-* [Identity management security overview](https://learn.microsoft.com/azure/security/fundamentals/identity-management-overview)
-* [Network security overview](https://learn.microsoft.com/azure/security/fundamentals/network-overview)
-* [Azure security best practices and patterns](https://learn.microsoft.com/azure/security/fundamentals/best-practices-and-patterns)
+* [Threat detection and protection](/azure/security/fundamentals/threat-detection)
+* [Identity management security overview](/azure/security/fundamentals/identity-management-overview)
+* [Network security overview](/azure/security/fundamentals/network-overview)
+* [Azure security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns)

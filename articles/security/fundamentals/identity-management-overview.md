@@ -24,8 +24,8 @@ Microsoft Entra ID extends on-premises Active Directory into the cloud, enabling
 
 Learn more:
 
-* [What is single sign-on in Microsoft Entra ID?](https://learn.microsoft.com/entra/identity/enterprise-apps/what-is-single-sign-on)
-* [Plan a single sign-on deployment](https://learn.microsoft.com/entra/identity/enterprise-apps/plan-sso-deployment)
+* [What is single sign-on in Microsoft Entra ID?](/entra/identity/enterprise-apps/what-is-single-sign-on)
+* [Plan a single sign-on deployment](/entra/identity/enterprise-apps/plan-sso-deployment)
 
 ## Multifactor authentication
 
@@ -44,8 +44,8 @@ Microsoft Entra ID P1 and P2 licenses support Conditional Access policies that e
 
 Learn more:
 
-* [How Microsoft Entra multifactor authentication works](https://learn.microsoft.com/entra/identity/authentication/concept-mfa-howitworks)
-* [Plan a Microsoft Entra multifactor authentication deployment](https://learn.microsoft.com/entra/identity/authentication/howto-mfa-getstarted)
+* [How Microsoft Entra multifactor authentication works](/entra/identity/authentication/concept-mfa-howitworks)
+* [Plan a Microsoft Entra multifactor authentication deployment](/entra/identity/authentication/howto-mfa-getstarted)
 
 ## Azure role-based access control
 
@@ -62,9 +62,9 @@ You can also create custom roles tailored to your specific needs.
 
 Learn more:
 
-* [What is Azure role-based access control (Azure RBAC)?](https://learn.microsoft.com/azure/role-based-access-control/overview)
-* [Azure built-in roles](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles)
-* [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
+* [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
+* [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 
 ## Application Proxy
 
@@ -74,8 +74,8 @@ Application Proxy supports SSO and can integrate with existing on-premises authe
 
 Learn more:
 
-* [Microsoft Entra application proxy overview](https://learn.microsoft.com/entra/identity/app-proxy/application-proxy)
-* [Publish on-premises apps with Microsoft Entra application proxy](https://learn.microsoft.com/entra/identity/app-proxy/application-proxy-add-on-premises-application)
+* [Microsoft Entra application proxy overview](/entra/identity/app-proxy/application-proxy)
+* [Publish on-premises apps with Microsoft Entra application proxy](/entra/identity/app-proxy/application-proxy-add-on-premises-application)
 
 ## Privileged Identity Management
 
@@ -93,8 +93,8 @@ With PIM, you can:
 
 Learn more:
 
-* [What is Microsoft Entra Privileged Identity Management?](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure)
-* [Plan a Privileged Identity Management deployment](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-deployment-plan)
+* [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure)
+* [Plan a Privileged Identity Management deployment](/entra/id-governance/privileged-identity-management/pim-deployment-plan)
 
 ## Identity Protection
 
@@ -109,8 +109,8 @@ Identity Protection provides:
 
 Learn more:
 
-* [What is Microsoft Entra ID Protection?](https://learn.microsoft.com/entra/id-protection/overview-identity-protection)
-* [Investigate risk with Identity Protection](https://learn.microsoft.com/entra/id-protection/howto-identity-protection-investigate-risk)
+* [What is Microsoft Entra ID Protection?](/entra/id-protection/overview-identity-protection)
+* [Investigate risk with Identity Protection](/entra/id-protection/howto-identity-protection-investigate-risk)
 
 ## Microsoft Entra access reviews
 
@@ -126,8 +126,8 @@ Access reviews support:
 
 Learn more:
 
-* [What are Microsoft Entra access reviews?](https://learn.microsoft.com/entra/id-governance/access-reviews-overview)
-* [Plan a Microsoft Entra access reviews deployment](https://learn.microsoft.com/entra/id-governance/deploy-access-reviews)
+* [What are Microsoft Entra access reviews?](/entra/id-governance/access-reviews-overview)
+* [Plan a Microsoft Entra access reviews deployment](/entra/id-governance/deploy-access-reviews)
 
 ## Hybrid identity management
 
@@ -151,8 +151,8 @@ Microsoft recommends Cloud Sync for new hybrid identity deployments.
 
 Learn more:
 
-* [What is Microsoft Entra Cloud Sync?](https://learn.microsoft.com/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)
-* [Choose the right sync client for Microsoft Entra ID](https://learn.microsoft.com/entra/identity/hybrid/sync-tools)
+* [What is Microsoft Entra Cloud Sync?](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)
+* [Choose the right sync client for Microsoft Entra ID](/entra/identity/hybrid/sync-tools)
 
 ## Device registration
 
@@ -162,9 +162,9 @@ When combined with mobile device management (MDM) solutions like Microsoft Intun
 
 Learn more:
 
-* [Plan your Microsoft Entra device deployment](https://learn.microsoft.com/entra/identity/devices/plan-device-deployment)
-* [Microsoft Entra joined devices](https://learn.microsoft.com/entra/identity/devices/concept-directory-join)
-* [Microsoft Entra hybrid joined devices](https://learn.microsoft.com/entra/identity/devices/concept-hybrid-join)
+* [Plan your Microsoft Entra device deployment](/entra/identity/devices/plan-device-deployment)
+* [Microsoft Entra joined devices](/entra/identity/devices/concept-directory-join)
+* [Microsoft Entra hybrid joined devices](/entra/identity/devices/concept-hybrid-join)
 
 ## External identities
 
@@ -174,12 +174,12 @@ For B2B collaboration, External ID enables secure sharing of applications and re
 
 Learn more:
 
-* [Microsoft Entra External ID overview](https://learn.microsoft.com/entra/external-id/external-identities-overview)
-* [B2B collaboration overview](https://learn.microsoft.com/entra/external-id/what-is-b2b)
+* [Microsoft Entra External ID overview](/entra/external-id/external-identities-overview)
+* [B2B collaboration overview](/entra/external-id/what-is-b2b)
 
 ## Next steps
 
-* [Azure security best practices and patterns](https://learn.microsoft.com/azure/security/fundamentals/best-practices-and-patterns)
-* [Network security overview](https://learn.microsoft.com/azure/security/fundamentals/network-overview)
-* [Threat detection and protection](https://learn.microsoft.com/azure/security/fundamentals/threat-detection)
-* [Key management in Azure](https://learn.microsoft.com/azure/security/fundamentals/key-management)
+* [Azure security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns)
+* [Network security overview](/azure/security/fundamentals/network-overview)
+* [Threat detection and protection](/azure/security/fundamentals/threat-detection)
+* [Key management in Azure](/azure/security/fundamentals/key-management)

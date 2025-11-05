@@ -15,16 +15,16 @@ The Azure fleet is composed of millions of servers (hosts) with thousands more a
 ## Securing Azure hardware and firmware
 This series of articles describe how Microsoft ensures integrity and security of hosts through various stages in their lifecycle, from manufacturing to sunset. The articles address:
  
-- [Firmware security](https://learn.microsoft.com/azure/security/fundamentals/firmware)
-- [Platform code integrity](https://learn.microsoft.com/azure/security/fundamentals/code-integrity)
-- [UEFI Secure Boot](https://learn.microsoft.com/azure/security/fundamentals/secure-boot)
-- [Measured boot and host attestation](https://learn.microsoft.com/azure/security/fundamentals/measured-boot-host-attestation)
-- [Project Cerberus](https://learn.microsoft.com/azure/security/fundamentals/project-cerberus)
-- [Encryption at rest](https://learn.microsoft.com/azure/security/fundamentals/encryption-atrest)
-- [Hypervisor security](https://learn.microsoft.com/azure/security/fundamentals/hypervisor)
+- [Firmware security](/azure/security/fundamentals/firmware)
+- [Platform code integrity](/azure/security/fundamentals/code-integrity)
+- [UEFI Secure Boot](/azure/security/fundamentals/secure-boot)
+- [Measured boot and host attestation](/azure/security/fundamentals/measured-boot-host-attestation)
+- [Project Cerberus](/azure/security/fundamentals/project-cerberus)
+- [Encryption at rest](/azure/security/fundamentals/encryption-atrest)
+- [Hypervisor security](/azure/security/fundamentals/hypervisor)
  
 ## Next steps
 
-- Learn how Microsoft actively partners within the cloud hardware ecosystem to drive continuous [firmware security improvements](https://learn.microsoft.com/azure/security/fundamentals/firmware).
+- Learn how Microsoft actively partners within the cloud hardware ecosystem to drive continuous [firmware security improvements](/azure/security/fundamentals/firmware).
 
-- Understand your [shared responsibility in the cloud](https://learn.microsoft.com/azure/security/fundamentals/shared-responsibility).
+- Understand your [shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).

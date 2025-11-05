@@ -19,11 +19,11 @@ This article provides information that helps you:
 - Change your security focus from a network-centric to an identity-centric perimeter security approach
 - Implement general PaaS security best practices recommendations
 
-[Develop secure applications on Azure](https://learn.microsoft.com/azure/security/develop/secure-develop) is a general guide to the security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
+[Develop secure applications on Azure](/azure/security/develop/secure-develop) is a general guide to the security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
 
 ## Cloud security advantages
 
-It's important to understand the [division of responsibility](https://learn.microsoft.com/azure/security/fundamentals/shared-responsibility) between you and Microsoft. On-premises, you own the whole stack, but as you move to the cloud some responsibilities transfer to Microsoft.
+It's important to understand the [division of responsibility](/azure/security/fundamentals/shared-responsibility) between you and Microsoft. On-premises, you own the whole stack, but as you move to the cloud some responsibilities transfer to Microsoft.
 
 There are security advantages to being in the cloud. In an on-premises environment, organizations likely have unmet responsibilities and limited resources available to invest in security, which creates an environment where attackers can exploit vulnerabilities at all layers.
 
@@ -64,23 +64,23 @@ Modern security practices assume that the adversary has breached the network per
 The following are best practices for managing the identity perimeter.
 
 **Best practice**: Secure your keys and credentials to secure your PaaS deployment.
-**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
+**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](/azure/key-vault/general/overview) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
 
 **Best practice**: Don't put credentials and other secrets in source code or GitHub.
 **Detail**: The only thing worse than losing your keys and credentials is having an unauthorized party gain access to them. Attackers can take advantage of bot technologies to find keys and secrets stored in code repositories such as GitHub. Do not put keys and secrets in these public code repositories.
 
 **Best practice**: Use strong authentication and authorization platforms.
-**Detail**: Use [Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/whatis) for authentication instead of custom user stores. When you use Microsoft Entra ID, you take advantage of a platform-based approach and delegate the management of authorized identities. A Microsoft Entra ID approach is especially important when employees are terminated and that information needs to be reflected through multiple identity and authorization systems.
+**Detail**: Use [Microsoft Entra ID](/entra/fundamentals/whatis) for authentication instead of custom user stores. When you use Microsoft Entra ID, you take advantage of a platform-based approach and delegate the management of authorized identities. A Microsoft Entra ID approach is especially important when employees are terminated and that information needs to be reflected through multiple identity and authorization systems.
 
 Use platform-supplied authentication and authorization mechanisms instead of custom code. The reason is that developing custom authentication code can be error prone. Most of your developers are not security experts and are unlikely to be aware of the subtleties and the latest developments in authentication and authorization. Commercial code (for example, from Microsoft) is often extensively security reviewed.
 
-Use [multifactor authentication (MFA)](https://learn.microsoft.com/entra/identity/authentication/concept-mfa-howitworks). MFA is the current standard for authentication and authorization because it avoids the security weaknesses inherent in username and password types of authentication. Access to both Azure management (portal/remote PowerShell) interfaces and customer-facing services should be designed and configured to use Microsoft Entra multifactor authentication.
+Use [multifactor authentication (MFA)](/entra/identity/authentication/concept-mfa-howitworks). MFA is the current standard for authentication and authorization because it avoids the security weaknesses inherent in username and password types of authentication. Access to both Azure management (portal/remote PowerShell) interfaces and customer-facing services should be designed and configured to use Microsoft Entra multifactor authentication.
 
 Use standard authentication protocols, such as OAuth2 and Kerberos. These protocols have been extensively peer reviewed and are likely implemented as part of your platform libraries for authentication and authorization.
 
 ## Use threat modeling during application design
 
-The Microsoft [Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl) specifies that teams should engage in a process called threat modeling during the design phase. To help facilitate this process, Microsoft has created the [SDL Threat Modeling Tool](https://learn.microsoft.com/azure/security/develop/threat-modeling-tool). Modeling the application design and enumerating [STRIDE](https://learn.microsoft.com/azure/security/develop/threat-modeling-tool-threats) threats across all trust boundaries can catch design errors early on.
+The Microsoft [Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl) specifies that teams should engage in a process called threat modeling during the design phase. To help facilitate this process, Microsoft has created the [SDL Threat Modeling Tool](/azure/security/develop/threat-modeling-tool). Modeling the application design and enumerating [STRIDE](/azure/security/develop/threat-modeling-tool-threats) threats across all trust boundaries can catch design errors early on.
 
 The following table lists the STRIDE threats and gives some example mitigations that use Azure features. These mitigations won't work in every situation.
 
@@ -88,71 +88,71 @@ The following table lists the STRIDE threats and gives some example mitigations 
 | --- | --- | --- |
 | Spoofing | Authentication | Require HTTPS connections. |
 | Tampering | Integrity | Validate TLS/SSL certificates. |
-| Repudiation | Non-repudiation | Enable Azure [monitoring and diagnostics](https://learn.microsoft.com/azure/architecture/best-practices/monitoring). |
-| Information disclosure | Confidentiality | Encrypt sensitive data at rest by using [service certificates](https://learn.microsoft.com/azure/cloud-services/cloud-services-certs-create). |
+| Repudiation | Non-repudiation | Enable Azure [monitoring and diagnostics](/azure/architecture/best-practices/monitoring). |
+| Information disclosure | Confidentiality | Encrypt sensitive data at rest by using [service certificates](/azure/cloud-services/cloud-services-certs-create). |
 | Denial of service | Availability | Monitor performance metrics for potential denial-of-service conditions. Implement connection filters. |
-| Elevation of privilege | Authorization | Use [Privileged Identity Management](https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-configure). |
+| Elevation of privilege | Authorization | Use [Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure). |
 
 ## Azure App Service
 
-[Azure App Service](https://learn.microsoft.com/azure/app-service/overview) is a PaaS offering that lets you create web and mobile apps for any platform or device and connect to data anywhere, in the cloud or on-premises. App Service includes the web and mobile capabilities that were previously delivered separately as Azure Websites and Azure Mobile Services. It also includes new capabilities for automating business processes and hosting cloud APIs.
+[Azure App Service](/azure/app-service/overview) is a PaaS offering that lets you create web and mobile apps for any platform or device and connect to data anywhere, in the cloud or on-premises. App Service includes the web and mobile capabilities that were previously delivered separately as Azure Websites and Azure Mobile Services. It also includes new capabilities for automating business processes and hosting cloud APIs.
 
 Following are best practices for using App Service.
 
-**Best practice**: [Authenticate through Microsoft Entra ID](https://learn.microsoft.com/azure/app-service/overview-authentication-authorization).
+**Best practice**: [Authenticate through Microsoft Entra ID](/azure/app-service/overview-authentication-authorization).
 **Detail**: App Service provides an OAuth 2.0 service for your identity provider. OAuth 2.0 focuses on client developer simplicity while providing specific authorization flows for web applications, desktop applications, and mobile phones. Microsoft Entra ID uses OAuth 2.0 to enable you to authorize access to mobile and web applications.
 
 **Best practice**: Restrict access based on the need to know and least privilege security principles.
-**Detail**: Restricting access is imperative for organizations that want to enforce security policies for data access. You can use [Azure RBAC](https://learn.microsoft.com/azure/role-based-access-control/overview) to assign permissions to users, groups, and applications at a certain scope.
+**Detail**: Restricting access is imperative for organizations that want to enforce security policies for data access. You can use [Azure RBAC](/azure/role-based-access-control/overview) to assign permissions to users, groups, and applications at a certain scope.
 
 **Best practice**: Protect your keys.
-**Detail**: Azure Key Vault helps safeguard cryptographic keys and secrets that cloud applications and services use. With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs. See [Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview) to learn more. You can also use Key Vault to manage your TLS certificates with auto-renewal.
+**Detail**: Azure Key Vault helps safeguard cryptographic keys and secrets that cloud applications and services use. With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs. See [Azure Key Vault](/azure/key-vault/general/overview) to learn more. You can also use Key Vault to manage your TLS certificates with auto-renewal.
 
 **Best practice**: Restrict incoming source IP addresses.
-**Detail**: [App Service Environment](https://learn.microsoft.com/azure/app-service/environment/intro) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](https://learn.microsoft.com/azure/app-service/overview-vnet-integration).
+**Detail**: [App Service Environment](/azure/app-service/environment/intro) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](/azure/app-service/overview-vnet-integration).
 
 **Best practice**: Monitor the security state of your App Service environments.
 **Detail**: Use Microsoft Defender for Cloud to monitor your App Service environments. When Defender for Cloud identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls. Microsoft Defender for App Service provides threat protection for your App Service resources.
 
-For more information, see [Microsoft Defender for App Service](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-app-service-introduction).
+For more information, see [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction).
 
 ## Web Application Firewall
 
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks and cross-site scripting attacks. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching, and monitoring at many layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each individual web application.
 
-[Azure Web Application Firewall (WAF)](https://learn.microsoft.com/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. WAF is available through [Azure Application Gateway](https://learn.microsoft.com/azure/web-application-firewall/ag/ag-overview) and [Azure Front Door](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview).
+[Azure Web Application Firewall (WAF)](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. WAF is available through [Azure Application Gateway](/azure/web-application-firewall/ag/ag-overview) and [Azure Front Door](/azure/web-application-firewall/afds/afds-overview).
 
 ## DDoS protection
 
-[Azure DDoS Protection](https://learn.microsoft.com/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. You should enable Azure DDoS Protection on any perimeter virtual network.
+[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application-design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. You should enable Azure DDoS Protection on any perimeter virtual network.
 
-Azure DDoS Protection protects at layer 3 and layer 4 network layers. For web applications protection at layer 7, you need to add protection at the application layer using a WAF offering. For more information, see [Application DDoS protection](https://learn.microsoft.com/azure/web-application-firewall/shared/application-ddos-protection).
+Azure DDoS Protection protects at layer 3 and layer 4 network layers. For web applications protection at layer 7, you need to add protection at the application layer using a WAF offering. For more information, see [Application DDoS protection](/azure/web-application-firewall/shared/application-ddos-protection).
 
 ## Monitor application performance
 
-[Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/overview) collects, analyzes, and acts on telemetry from your cloud and on-premises environments. An effective monitoring strategy helps you understand the detailed operation of the components of your application. It helps you increase your uptime by notifying you of critical issues so that you can resolve them before they become problems. It also helps you detect anomalies that might be security related.
+[Azure Monitor](/azure/azure-monitor/overview) collects, analyzes, and acts on telemetry from your cloud and on-premises environments. An effective monitoring strategy helps you understand the detailed operation of the components of your application. It helps you increase your uptime by notifying you of critical issues so that you can resolve them before they become problems. It also helps you detect anomalies that might be security related.
 
-Use [Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview) to monitor availability, performance, and usage of your application, whether it's hosted in the cloud or on-premises. By using Application Insights, you can quickly identify and diagnose errors in your application without waiting for a user to report them. With the information that you collect, you can make informed choices on your application's maintenance and improvements.
+Use [Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor availability, performance, and usage of your application, whether it's hosted in the cloud or on-premises. By using Application Insights, you can quickly identify and diagnose errors in your application without waiting for a user to report them. With the information that you collect, you can make informed choices on your application's maintenance and improvements.
 
 Application Insights has extensive tools for interacting with the data that it collects. Application Insights stores its data in a common repository. It can take advantage of shared functionality such as alerts, dashboards, and deep analysis with the Kusto query language.
 
 ## Perform security penetration testing
 
-Validating security defenses is as important as testing any other functionality. Make [penetration testing](https://learn.microsoft.com/azure/security/fundamentals/pen-testing) a standard part of your build and deployment process. Schedule regular security tests and vulnerability scanning on deployed applications, and monitor for open ports, endpoints, and attacks.
+Validating security defenses is as important as testing any other functionality. Make [penetration testing](/azure/security/fundamentals/pen-testing) a standard part of your build and deployment process. Schedule regular security tests and vulnerability scanning on deployed applications, and monitor for open ports, endpoints, and attacks.
 
 ## Next steps
 
 In this article, we focused on security advantages of an Azure PaaS deployment and security best practices for cloud applications. Next, learn recommended practices for securing your PaaS web and mobile solutions using specific Azure services. We'll start with Azure App Service, Azure SQL Database and Azure Synapse Analytics, and Azure Storage. As articles on recommended practices for other Azure services become available, links will be provided in the following list:
 
-- [Azure App Service](https://learn.microsoft.com/azure/security/fundamentals/paas-applications-using-app-services)
-- [Azure SQL Database and Azure Synapse Analytics](https://learn.microsoft.com/azure/security/fundamentals/paas-applications-using-sql)
-- [Azure Storage](https://learn.microsoft.com/azure/security/fundamentals/paas-applications-using-storage)
+- [Azure App Service](/azure/security/fundamentals/paas-applications-using-app-services)
+- [Azure SQL Database and Azure Synapse Analytics](/azure/security/fundamentals/paas-applications-using-sql)
+- [Azure Storage](/azure/security/fundamentals/paas-applications-using-storage)
 
-See [Develop secure applications on Azure](https://learn.microsoft.com/azure/security/develop/secure-dev-overview) for security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
+See [Develop secure applications on Azure](/azure/security/develop/secure-dev-overview) for security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
 
-See [Azure security best practices and patterns](https://learn.microsoft.com/azure/security/fundamentals/best-practices-and-patterns) for more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure.
+See [Azure security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns) for more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure.
 
 The following resources are available to provide more general information about Azure security and related Microsoft services:
 
-- [Azure Security Documentation](https://learn.microsoft.com/azure/security/) - for comprehensive security guidance
+- [Azure Security Documentation](/azure/security/) - for comprehensive security guidance
 - [Microsoft Security Response Center](https://www.microsoft.com/msrc) - where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to secure@microsoft.com
