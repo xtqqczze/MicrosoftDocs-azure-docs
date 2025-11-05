@@ -33,7 +33,7 @@ For a high-level overview about agentic workflows, see [AI agent workflows in Az
 
   | Logic app | Requirement |
   |-----------|-------------|
-  | Standard | Based on your development environment: <br><br>- Azure portal: A Standard logic app resource. If you don't have this resource, see [Create Standard workflows in the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal). <br><br>- Visual Studio Code: A Standard logic app project. If you don't have this project, see [Create Standard workflows in Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code), and make sure that you have the latest extension. <br><br>After you open the workflow designer, the steps for the designer are mostly similar between the portal and Visual Studio Code. Some interactions have minor differences. |
+  | Standard | Based on your development environment: <br><br>- Azure portal: A Standard logic app resource that has public access enabled for testing or a private endpoint in production. If you don't have this resource, see [Create Standard workflows in the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal). <br><br>- Visual Studio Code: A Standard logic app project. If you don't have this project, see [Create Standard workflows in Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code), and make sure that you have the latest extension. <br><br>After you open the workflow designer, the steps for the designer are mostly similar between the portal and Visual Studio Code. Some interactions have minor differences. |
   | Consumption (preview) | Azure portal only: A Consumption logic app resource that uses the workflow type named **Autonomous Agents**. For more information, see [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md). <br><br>**Note**: Visual Studio Code support is unavailable. |
 
   The examples in this guide use the Azure portal.
@@ -288,7 +288,7 @@ Update the agent name to clearly identify the agent's purpose by following these
 
 1. On the designer, select the agent title bar to open the agent information pane.
 
-1. On the information pane, select the agent name, and enter the new name, for example, **Weather agent**.
+1. On the information pane, select the agent name, and enter the new name, for example, `Weather agent`.
 
    :::image type="content" source="media/create-autonomous-agent-workflows/rename-agent.png" alt-text="Screenshot shows workflow designer, workflow trigger, and renamed agent." lightbox="media/create-autonomous-agent-workflows/rename-agent.png":::
 
@@ -303,15 +303,17 @@ The agent requires instructions that describe the roles that the agent can play 
 - Any restrictions or limitations
 - Interactions for specific scenarios or special cases
 
-For the best results, provide instructions are prescriptive and stay open to the possiblity that you might have to iteratively refine these instructions.
+For the best results, provide prescriptive instructions and be prepared to iteratively refine your instructions.
 
 1. In the **Instructions for agent** box, enter the instructions that the agent needs to understand its role and tasks.
 
    For this example, the weather agent example uses the following sample instructions where you later provide a subscriber list with your own email address for testing:
 
-   **`You're an AI agent that generates a weather report, which you send in email to each subscriber on a list. This list includes each subscriber's name, location, and email address to use.`**
+   ```
+   You're an AI agent that generates a weather report, which you send in email to each subscriber on a list. This list includes each subscriber's name, location, and email address to use.
 
-   **`Format the weather report with bullet lists where appropriate. Make your response concise and useful, but use a conversational and friendly tone. You can include suggestions like "Carry an umbrella" or "Dress in layers".`**
+   Format the weather report with bullet lists where appropriate. Make your response concise and useful, but use a conversational and friendly tone. You can include suggestions like "Carry an umbrella" or "Dress in layers".
+   ```
 
    Here's an example:
 
@@ -341,7 +343,21 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
 
 1. On the workflow sidebar, under **Development Tools**, select **Run history**.
 
-1. On the **Run history** page, on the **Run history** tab, in the **Identifier** column, select the latest workflow run.
+1. On the **Run history** page, in the runs table, select the latest workflow run.
+
+   > [!NOTE]
+   >
+   > If the page doesn't show any runs, on the toolbar, select **Refresh**.
+   >
+   > If the **Status** column shows a **Running** status, the agent workflow is still working.
+
+   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent instructions that you provided earlier. The pane also shows the agent's response.
+
+   :::image type="content" source="media/create-autonomous-agent-workflows/agent-only-test-consumption.png" alt-text="Screenshot shows monitoring view for Consumption workflow, operation status, and agent log." lightbox="media/create-autonomous-agent-workflows/agent-only-test-consumption.png":::
+
+   The agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete tasks.
+
+1. Return to the designer. On the monitoring view toolbar, select **Edit**.
 
 ### [Standard](#tab/standard)
 
@@ -349,19 +365,19 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
 
 1. On the workflow sidebar, under **Tools**, select **Run history**.
 
-1. On the **Run history** page, on the **Run history** tab, in the **Identifier** column, select the latest workflow run.
+1. On the **Run history** page, on the **Run history** tab, select the latest workflow run.
 
    > [!NOTE]
    >
    > If the page doesn't show any runs, on the toolbar, select **Refresh**.
    >
-   > If the **Status** column shows a **Running** status, the agent workflow is either still working or waiting. The latter behavior happens if you enabled chat channels on your agent in an earlier release. The current release no longer includes chat channels.
+   > If the **Status** column shows a **Running** status, the agent workflow is still working.
 
-   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent instructions that you provided earlier. The pane also shows the agent's response. For autonomous agent workflows, the chat box is unavailable and in ready-only mode.
+   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent instructions that you provided earlier.
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/agent-only-test.png" alt-text="Screenshot shows monitoring view, operation status, and agent log." lightbox="media/create-autonomous-agent-workflows/agent-only-test.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/agent-only-test-standard.png" alt-text="Screenshot shows monitoring view for Standard workflow, operation status, and agent log." lightbox="media/create-autonomous-agent-workflows/agent-only-test-standard.png":::
 
-   However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete their tasks. You might even get an email that your email server rejected the message.
+   The agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete tasks.
 
 1. Return to the designer. On the monitoring view toolbar, select **Edit**.
 
@@ -369,7 +385,7 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
 
 <a name="create-tool-weather"></a>
 
-## Create a tool to get weather forecast
+## Create a 'Get weather' tool
 
 For an agent to run prebuilt actions available in Azure Logic Apps, you must create one or more tools for the agent to use. A tool must contain at least one action and only actions. The agent calls the tool by using specific arguments.
 
@@ -377,29 +393,27 @@ In this example, the agent needs a tool that gets the weather forecast. You can 
 
 1. On the designer, inside the agent and under **Add tool**, select the plus sign (**+**) to open the pane where you can browse available actions.
 
-1. On the **Add an action** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to add an action for your scenario.
+1. On the **Add an action** pane, follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action#add-action) for your logic app to add an action that's best for your scenario.
 
-   This example uses the **MSN Weather** action named **Get forecast for today**.
+   This example uses the **MSN Weather** action named **Get current weather**.
 
-   After you select the action, both the **Tool** and the action appear inside the agent on the designer at the same time. Both information panes also open at the same time.
+   After you select the action, both the **Tool** container and the selected action appear in the agent on the designer. Both information panes also open at the same time.
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/added-tool-get-forecast.png" alt-text="Screenshot shows workflow designer with the renamed agent, which contains a tool that includes the action named Get forecast for today." lightbox="media/create-autonomous-agent-workflows/added-tool-get-forecast.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/added-tool-get-current-weather.png" alt-text="Screenshot shows workflow designer with the renamed agent, which contains a tool that includes the action named Get current weather." lightbox="media/create-autonomous-agent-workflows/added-tool-get-current-weather.png":::
 
-1. On the tool information pane, rename the tool to describe its purpose.
+1. On the tool information pane, rename the tool to describe its purpose. For this example, use `Get weather`.
 
-   This example uses **Get weather**.
+1. On the **Details** tab, for **Description**, enter the tool description. For this example, use `Get the weather for the specified location.`
 
-1. On the **Details** tab, for **Description**, enter the tool description.
+   :::image type="content" source="media/create-autonomous-agent-workflows/get-weather-tool.png" alt-text="Screenshot shows completed Get weather tool with description." lightbox="media/create-autonomous-agent-workflows/get-weather-tool.png":::
 
-   This example uses **Get the weather for the specified location.**
-
-   Under **Description**, the **Agent Parameters** section applies only for specific use cases. For more information, see [Create agent parameters](#create-agent-parameters-for-the-get-forecast-action).
+   Under **Description**, the **Agent Parameters** section applies only for specific use cases. For more information, see [Create agent parameters](#create-agent-parameters-for-the-get-current-weather-action).
 
 1. Continue to the next section to learn more about agent parameters, their use cases, and how to create them, based on these use cases.
 
 <a name="create-agent-parameters-get-weather"></a>
 
-## Create agent parameters for the 'Get forecast' action
+## Create agent parameters for 'Get current weather' action
 
 Actions usually have parameters that require you to specify the values to use. Actions in tools are almost the same except for one difference. You can create agent parameters that the agent uses to specify the parameter values for actions in tools. You can specify model-generated outputs, values from nonmodel sources, or a combination. For more information, see [Agent parameters](agent-workflows-concepts.md#key-concepts).
 
@@ -411,13 +425,13 @@ The following table describes the use cases for creating agent parameters and wh
 | Use nonmodel values. | No agent parameters needed. <br><br>This experience is the same as the usual action setup experience in Azure Logic Apps but is repeated for convenience in [Use values from nonmodel sources](#use-values-from-nonmodel-sources). |
 | Use model-generated outputs with nonmodel values. <br>Share with other actions in the same tool. | Start from the tool, in the **Agent Parameters** section. For detailed steps, see [Use model outputs and nonmodel values](#use-model-outputs-and-nonmodel-values).|
 
-##### Use model-generated outputs only
+#### Use model-generated outputs only
 
 For an action parameter that uses only model-generated outputs, create an agent parameter by following these steps:
 
 1. In the tool, select the action to open the information pane.
 
-   For this example, the action is **Get forecast for today**.
+   For this example, the action is **Get current weather**.
 
 1. On the **Parameters** tab, select inside the parameter box to show the parameter options.
 
@@ -440,19 +454,19 @@ For an action parameter that uses only model-generated outputs, create an agent 
    > [!NOTE]
    >
    > Microsoft recommends that you follow the action's Swagger definition. For example, 
-   > for the **Get forecast for today** action, which is from the **MSN Weather** "shared" 
+   > for the **Get current weather** action, which is from the **MSN Weather** "shared" 
    > connector hosted and managed by global, multitenant Azure, see the 
-   > [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-forecast-for-today).
+   > [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather).
 
 1. When you're ready, select **Create**.
 
-   The following diagram shows the example **Get weather forecast for today** action with the **Location** agent parameter:
+   The following example shows the **Get current weather** action with the **Location** agent parameter:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/get-forecast-today-action.png" alt-text="Screenshot shows the Weather agent, Get weather tool, and selected action named Get forecast for today. The Location action parameter includes the created agent parameter." lightbox="media/create-autonomous-agent-workflows/get-forecast-today-action.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/get-current-weather-action.png" alt-text="Screenshot shows the Weather agent, Get weather tool, and selected action named Get current weather. The Location action parameter includes the created agent parameter." lightbox="media/create-autonomous-agent-workflows/get-current-weather-action.png":::
 
 1. Save your workflow.
 
-##### Use values from nonmodel sources
+#### Use values from nonmodel sources
 
 For an action parameter value that uses only nonmodel values, choose the option that best fits your use case:
 
@@ -478,7 +492,7 @@ To create an expression, follow these steps:
 
 For more information, see [Reference guide to workflow expression functions in Azure Logic Apps](/azure/logic-apps/workflow-definition-language-functions-reference).
 
-##### Use model outputs and nonmodel values
+#### Use model outputs and nonmodel values
 
 Some scenarios might need to specify an action parameter value that uses both model-generated outputs with nonmodel values. For example, you might want to create an email body that uses static text, nonmodel outputs from earlier operations in the workflow, and model-generated outputs.
 
@@ -490,13 +504,13 @@ For these scenarios, create the agent parameter on the tool by following these s
 
 1. Expand **New agent parameter**, and provide the following information, but match the action parameter details.
 
-   For this example, the example action is **Get forecast for today**.
+   For this example, the example action is **Get current weather**.
 
    > [!NOTE]
    >
    > Microsoft recommends that you follow the action's Swagger definition. For example, 
-   > to find this information for the **Get forecast for today** action, see the 
-   > [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-forecast-for-today). 
+   > to find this information for the **Get current weather** action, see the 
+   > [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather). 
    > The example action is provided by the **MSN Weather** managed "shared" connector, 
    > which is hosted and run in global, multitenant Azure.
   
@@ -514,13 +528,13 @@ For these scenarios, create the agent parameter on the tool by following these s
 
 1. From the **Agent parameters** list, select the agent parameter that you defined earlier.
 
-   For example, the finished **Get weather** tool looks like the following example:
+   The finished **Get weather** tool looks like the following example:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/get-weather-tool.png" alt-text="Screenshot shows workflow designer with the agent and selected tool now named Get weather." lightbox="media/create-autonomous-agent-workflows/get-weather-tool.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/get-weather-tool-complete.png" alt-text="Screenshot shows agent and finished Get weather tool." lightbox="media/create-autonomous-agent-workflows/get-weather-tool-complete.png":::
 
 1. Save your workflow.
 
-## Create a tool to send email
+## Create a 'Send email' tool
 
 For many scenarios, an agent usually needs more than one tool. In this example, the agent needs a tool that sends the weather report in email.
 
@@ -530,47 +544,77 @@ To build this tool, follow these steps:
 
 1. On the **Add an action** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to select another action for your new tool.
 
-   The examples use the **Outlook.com** action named **Send an email (V2)**.
+   This example uses the **Outlook.com** action named **Send an email (V2)**.
 
-   Like before, after you select the action, both the new **Tool** and action appear inside the agent on the designer at the same time. Both information panes open at the same time.
+   Like before, after you select the action, both the new **Tool** and action appear inside the agent on the designer. Both information panes open at the same time.
 
    :::image type="content" source="media/create-autonomous-agent-workflows/added-tool-send-email.png" alt-text="Screenshot shows workflow designer with Weather agent, Get weather tool, and new tool with action named Send an email (V2)." lightbox="media/create-autonomous-agent-workflows/added-tool-send-email.png":::
 
-1. On the tool information pane, make the tool's purpose obvious by updating the tool name.
+1. On the tool information pane, rename the tool to describe its purpose. For this example, use `Send email`.
 
-   The examples use **Send email**.
+1. On the **Details** tab, for **Description**, enter the tool description. For this example, use `Send current weather by email.`
 
-1. On the **Details** tab, provide the following information:
+   :::image type="content" source="media/create-autonomous-agent-workflows/send-email-tool.png" alt-text="Screenshot shows completed Send email tool with description." lightbox="media/create-autonomous-agent-workflows/send-email-tool.png":::
 
-   1. For **Description**, enter the tool description.
-
-      This example uses **Send weather forecast in email.**
+1. Save your workflow.
 
 ## Create agent parameters for the 'Send an email (V2)' action
 
-The steps in this section are nearly the same as [Create agent parameters for the 'Get forecast' action](#create-agent-parameters-for-the-get-forecast-action), except for the different parameters in the **Send an email (V2)** action. 
+The steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-for-the-get-current-weather-action), except that you set up different agent parameters for the **Send an email (V2)** action.
 
 1. Follow the earlier steps to create the following agent parameters for the action parameter values in the action named **Send an email (V2)**.
 
    The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
 
-   For example, the **Send an email (V2)** action looks like the following example:
-
    When you're done, the example action uses the previously defined agent parameters as shown here:
 
    :::image type="content" source="media/create-autonomous-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-autonomous-agent-workflows/send-email-action.png":::
 
-   The second example tool is now complete and looks like the following example:
+   The finished **Send email** tool looks like the following example:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/send-email-tool-complete.png" alt-text="Screenshot shows the finished second tool inside the agent." lightbox="media/create-autonomous-agent-workflows/send-email-tool-complete.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/send-email-tool-complete.png" alt-text="Screenshot shows the agent and finished Send email tool." lightbox="media/create-autonomous-agent-workflows/send-email-tool-complete.png":::
 
-## Create a tool to provide subscriber list
+1. Save your workflow.
+
+## Create a subscriber list tool
 
 Finally, for this example, create a tool named **Get subscribers** to provide a subscriber list for the agent parameter values to use. This tool uses the **Compose** action to supply the subscriber name, email address, and location. Or, you might source these inputs from blob storage or a database. Azure Logic Apps offers many options that you can use as data sources.
 
-The following example shows how the **Get subscribers** tool might look:
+For this example, follow these steps:
 
-:::image type="content" source="media/create-autonomous-agent-workflows/add-tool-get-subscribers.png" alt-text="Screenshot shows agent with new tool named Get subscribers that contains a Compose action with subscriber information." lightbox="media/create-autonomous-agent-workflows/add-tool-get-subscribers.png":::
+1. Rename the tool to `Get subscribers`.
+
+1. In the **Get subscribers** tool, use the following description:
+
+   `Get the list of subscribers, including their name, location, and email address. To generate the weather report, use the location for each subscriber. To send the weather report, use the email address for each subscriber.`
+
+1. Rename to **Compose** action to `Subscriber list`. In the **Input** box, use the following JSON array but replace the sample subscriber data with the data that you want to use for testing.
+
+   ```json
+   [
+       {
+           "Name": "Fabrikam",
+           "Email": "FabrikamGoods@outlook.com",
+           "Location": "Boston"
+       },
+       {
+           "Name": "Contoso",
+           "Email": "ContosoGoods@outlook.com",
+           "Location": "Jaipur"
+       },
+       {
+           "Name": "Sophie Owen",
+           "Email": "sophieowen@outlook.com",
+           "Location": "Seattle"
+       }
+   ]
+   ```
+
+   The finished **Get subscribers** tool looks like the following example:
+
+   :::image type="content" source="media/create-autonomous-agent-workflows/get-subscribers-tool-complete.png" alt-text="Screenshot shows the agent and finished Get subscribers tool." lightbox="media/create-autonomous-agent-workflows/get-subscribers-tool-complete.png":::
+
+1. Save your workflow, then test the workflow to make sure everything works the way that you expect.
 
 [!INCLUDE [best-practices-agent-workflows](includes/best-practices-agent-workflows.md)]
 
