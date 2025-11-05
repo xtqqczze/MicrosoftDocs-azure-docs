@@ -38,7 +38,7 @@ Create a new feature flag in the Azure portal by following the steps below.
    - **Rollout** – Gradually enable the feature for a percentage of users.
    - **Experiment** – Run controlled experiments with traffic allocation to determine the best-performing variant.
 
-    Choose a purpose below to see guidance and recommended settings for each use case.
+    Choose a tab below to see guidance and recommended settings for scenario.
 
     ### [Switch](#tab/switch)
     
@@ -124,9 +124,9 @@ Create a new feature flag in the Azure portal by following the steps below.
 
     ### [Experiment](#tab/experiment)
     
-    Use **Experiment** to run controlled tests and compare variants. Guidance:
+    Use **Experiment** to run A/B tests and compare variants. Guidance:
 
-    - Create variant feature flags and allocate traffic across variants (must total 100%).
+    - Create feature flags and allocate traffic across variants (must total 100%).
     - Optionally use group or user overrides for targeted experiments.
     - Integrate telemetry/metrics to evaluate performance of each variant and choose a winner.
     

@@ -50,7 +50,7 @@ These types of questions can be answered through the emission and analysis of fe
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, editing a feature flag.](./media/howto-telemetry/edit-feature-flag.png)
 
-1. In the new view, open the **Experiment** > **Telemetry** tab.
+1. In the new view, select the **Telemetry** tab.
 1. Check the **Enable Telemetry** box and then select the **Review + update** button at the bottom of the page.
 
     > [!div class="mx-imgBorder"]
