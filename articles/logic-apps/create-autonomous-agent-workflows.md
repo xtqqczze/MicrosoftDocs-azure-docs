@@ -588,7 +588,7 @@ For this example, follow these steps:
 
    `Get the list of subscribers, including their name, location, and email address. To generate the weather report, use the location for each subscriber. To send the weather report, use the email address for each subscriber.`
 
-1. Rename to **Compose** action to `Subscriber list`. In the **Input** box, use the following JSON array but replace the sample subscriber data with the data that you want to use for testing.
+1. Rename to **Compose** action to `Subscriber list`. In the **Input** box, use the following JSON array but replace the sample subscriber data with the data that you want to use for testing. For example, replace the email addresses with your own so you get the weather for different locations.
 
    ```json
    [
@@ -615,6 +615,8 @@ For this example, follow these steps:
    :::image type="content" source="media/create-autonomous-agent-workflows/get-subscribers-tool-complete.png" alt-text="Screenshot shows the agent and finished Get subscribers tool." lightbox="media/create-autonomous-agent-workflows/get-subscribers-tool-complete.png":::
 
 1. Save your workflow, then test the workflow to make sure everything works the way that you expect.
+
+   You should get an email with the weather for each location.
 
 [!INCLUDE [best-practices-agent-workflows](includes/best-practices-agent-workflows.md)]
 
