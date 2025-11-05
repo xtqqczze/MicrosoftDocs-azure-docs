@@ -84,7 +84,7 @@ To maximize test coverage for your ExpressRoute connection:
 1. **Use Azure Arc** to enable bi-directional testing from on-premises endpoints
 1. **Consider multiple ExpressRoute connections** in different regions if you need comprehensive multi-region monitoring
 
-For complete details about endpoint types and test directions, see [Connection Monitor overview](../network-watcher/connection-monitor-overview.md#test-groups-and-test-configurations).
+For complete details about endpoint types and test directions, see [Connection Monitor overview](../network-watcher/connection-monitor-overview.md).
 
 ## Azure endpoint configuration
 

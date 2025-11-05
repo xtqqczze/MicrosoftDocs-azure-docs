@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 # Configure alerts for ExpressRoute Connection Monitor
 
 > [!NOTE]
-> For comprehensive information about Connection Monitor alerts, including how to create custom alerts for performance metrics (RTT, packet loss), log-based alerts, troubleshooting, and best practices, see [Connection Monitor alerts](../network-watcher/connection-monitor-alerts.md). This article focuses on the default alert created for ExpressRoute connections.
+> For comprehensive information about Connection Monitor alerts, including how to create custom alerts for performance metrics (RTT, packet loss), log-based alerts, troubleshooting, and best practices, see [Connection Monitor alerts](../network-watcher/connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts). This article focuses on the default alert created for ExpressRoute connections.
 
 Connection Monitor for ExpressRoute automatically creates an Azure Monitor alert when you enable monitoring. This article explains the default alert configuration and how to customize it for your specific needs.
 
@@ -38,7 +38,7 @@ When you enable Connection Monitor for an ExpressRoute connection through the Az
 > [!NOTE]
 > The default alert is sensitive—it fires if even one test fails. This helps you catch issues quickly but might generate more alerts than needed. You can adjust the settings to match your environment.
 
-For more information about test states and values, see [Connection Monitor overview](../network-watcher/connection-monitor-overview.md#test-results-and-states).
+For more information about test states and values, see [Connection Monitor overview](../network-watcher/connection-monitor-overview.md#checks-in-a-test).
 
 ## View and customize the default alert
 
@@ -53,7 +53,7 @@ For more information about test states and values, see [Connection Monitor overv
    - Threshold value
    - Dimensions to filter specific endpoints
 
-For detailed guidance on customizing alerts, adding dimensions, and configuring advanced alert logic, see [Customize Connection Monitor alerts](../network-watcher/connection-monitor-alerts.md#customize-alert-rules).
+For detailed guidance on customizing alerts, adding dimensions, and configuring advanced alert logic, see [Customize Connection Monitor alerts](../network-watcher/connection-monitor-overview.md#data-collection-analysis-and-alerts).
 
 ## Create additional alerts
 
@@ -63,23 +63,16 @@ Beyond the default connectivity alert, you can create additional alerts for spec
 - **Monitoring gap alerts** - Detect when Connection Monitor stops sending data
 - **Endpoint-specific alerts** - Focus on critical source-destination pairs
 
-For step-by-step instructions on creating these alerts, see:
-- [Create performance metric alerts](../network-watcher/connection-monitor-alerts.md#create-alerts-for-performance-metrics)
-- [Create log-based alerts for monitoring gaps](../network-watcher/connection-monitor-alerts.md#alert-when-monitoring-stops)
-
 ## Best practices
 
 - **Start with the default alert** - Let it run for a week to understand your baseline before making changes
 - **Add action groups** - Configure notifications via email, SMS, webhooks, or ITSM integration
-- **Test your alerts** - Use the "Test action group" feature to verify notifications work
+- **Test your alerts** - Use the *Test action group* feature to verify notifications work
 - **Create maintenance windows** - Suppress alerts during planned maintenance to avoid alert fatigue
-
-For comprehensive alert best practices, troubleshooting, and frequently asked questions, see [Connection Monitor alert best practices](../network-watcher/connection-monitor-alerts.md#best-practices).
 
 ## Next steps
 
 - [Connection Monitor for ExpressRoute overview](connection-monitor-overview.md)
 - [Configure Connection Monitor for ExpressRoute](configure-connection-monitor.md)
-- [Connection Monitor alerts documentation](../network-watcher/connection-monitor-alerts.md)
+- [Connection Monitor alerts documentation](../network-watcher/connection-monitor-overview.md)
 - [Monitor Azure ExpressRoute](monitor-expressroute.md)
-```
