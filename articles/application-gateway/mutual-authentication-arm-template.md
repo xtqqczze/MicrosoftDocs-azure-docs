@@ -17,7 +17,7 @@ ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart shows how to deploy an Azure Application Gateway with **mutual TLS (mTLS) passthrough** using an ARM template and API version `2025-03-01`. In passthrough mode, the gateway requests a client certificate but does **not validate it**. Certificate validation and policy enforcement occur at the backend.
 
-### Key features
+## Key features
 - Associate an SSL profile with the listener for mTLS passthrough.
 - No client CA certificate required at the gateway.
 - `verifyClientAuthMode` supports `Strict` and `Passthrough`.
