@@ -64,8 +64,17 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
 1. If you already installed the Durable Task Scheduler CLI extension, upgrade to the latest version.
 
     ```azurecli
-    az extension add --upgrade --name durabletask
+    az extension update --name durabletask
     ```
+
+1. Check your installed version:
+   
+   ```azurecli
+   az extension show --name durabletask
+   ```
+
+[Learn more about the various `az durabletask` commands you can use.](https://github.com/Azure/azure-cli-extensions/tree/main/src/durabletask)   
+
 ::: zone-end 
 
 ## Create a scheduler and task hub
