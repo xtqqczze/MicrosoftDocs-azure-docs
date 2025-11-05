@@ -67,7 +67,7 @@ The HCX update is first applied to the HCX Manager systems.
 
 **Procedure**
 - **Microsoft-managed:** Microsoft upgrades the **HCX Cloud Manager** on behalf of customers during the agreed maintenance window. Microsoft may initiate mass rollouts of newer validated versions or request customer confirmation prior to upgrade scheduling.  
-- **Customer-managed:** To manually upgrade **HCX Connector** on-premises or perform validation steps, follow the VMware procedure in [Upgrading the HCX Manager](hhttps://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/vmware-hcx-user-guide-4-11/updating-vmware-hcx/hcx-service-update-procedures/upgrade-hcx-manager-for-connected-sites.html).
+- **Customer-managed:** To manually upgrade **HCX Connector** on-premises or perform validation steps, follow the VMware procedure in [Upgrading the HCX Manager](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/vmware-hcx-user-guide-4-11/updating-vmware-hcx/hcx-service-update-procedures/upgrade-hcx-manager-for-connected-sites.html).
 
 
 ### Upgrade HCX Service Mesh appliances 
