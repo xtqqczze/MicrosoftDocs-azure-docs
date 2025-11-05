@@ -11,7 +11,7 @@ ms.date: 10/28/2025
 
 # Manage Service Group Membership at scale
 
-Azure **Service Groups** provide a flexible way to organize and manage resources. Membership for Service Groups are managed via the 'Microsoft.Relationship/serviceGroupMember' extension resource, which follows the lifecycle of the resource that is a member, and points to the desired Service Group via the `targetId` property. You can review the [available rest APIs](manage-service-groups.md#create-a-service-group-member) or follow the [quickstart to adding members in portal](#create-service-group-member-portal.md).
+Azure **Service Groups** provide a flexible way to organize and manage resources. Membership for Service Groups are managed via the 'Microsoft.Relationship/serviceGroupMember' extension resource, which follows the lifecycle of the resource that is a member, and points to the desired Service Group via the `targetId` property. You can review the [available rest APIs](./manage-service-groups.md#create-a-service-group-member) or follow the [quickstart to adding members in portal](./create-service-group-member-portal.md).
 
 By automating membership and deploying service groups with defined memberships, organizations can streamline scenarios built on Service Groups. This guide provides a starting point to ease of management of memberships for one or multiple groups. 
 
