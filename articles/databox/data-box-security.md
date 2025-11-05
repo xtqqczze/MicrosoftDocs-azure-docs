@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: overview
-ms.date: 03/14/2025
+ms.date: 11/06/2025
 ms.author: shaas
 zone_pivot_groups: data-box-sku
 ms.custom: sfi-image-nochange
@@ -142,7 +142,7 @@ The following security guidelines are implemented in Data Box:
 |[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)                            | Data protection         |
 |Appendix A, for ATA Hard Disk Drives in [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf) | Data sanitization       |
 
-## Secure Erase Media Sanitization details
+## Secure erase media sanitization details
 
 The secure erasure process performed on our devices is compliant with [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf) and following are the details of the implementation:
 
