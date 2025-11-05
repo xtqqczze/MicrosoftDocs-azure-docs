@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure SRE Agent Preview
+title: Overview of Azure SRE Agent
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: overview
@@ -8,7 +8,7 @@ ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
-# Overview of Azure SRE Agent Preview
+# Overview of Azure SRE Agent
 
 Azure SRE Agent is designed to automate operational work and reduce toil, enabling developers and operators to focus on high-value tasks. By streamlining repetitive and complex processes, SRE Agent accelerates innovation and improves reliability across cloud and hybrid environments.
 
@@ -83,23 +83,14 @@ Create a schedule task to run on a schedule you define.
 Keep in mind the following considerations as you use Azure SRE Agent:
 
 - English is the only supported language in the chat interface.
-- During the preview, you can deploy the agent to the *Sweden Central*, *East US 2*, and *Australia East* regions, but the agent can monitor and remediate issues for services in any Azure region.
 - For more information on how data is managed in Azure SRE Agent, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
 - Availability varies by region and tenant configuration.  
-- Preview [billing](billing.md) begins *September 1, 2025*, via Azure agent units (AAUs).
 
 When you create an agent, following resources are also automatically created for you:
 
 - Azure Application Insights
 - Log Analytics workspace
 - Managed Identity
-
-## Preview access
-
-While access to SRE Agent was previously only available to customers via a waitlist, the agent is now available to all customers through the [Azure portal](https://aka.ms/sreagent/portal).
-
-> [!NOTE]
-> By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Next step
 
