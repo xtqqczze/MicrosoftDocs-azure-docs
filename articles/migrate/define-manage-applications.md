@@ -1,8 +1,8 @@
 ---
 title: Define and manage applications in Azure Migrate
 description:  Learn how to define and manage applications in Azure Migrate for application centric migration planning and execution.
-author: vikram1988
-ms.author: vibansa
+author: ankitsurkar06
+ms.author: ankitsurkar
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: concept-article
