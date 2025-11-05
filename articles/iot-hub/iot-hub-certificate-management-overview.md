@@ -13,7 +13,7 @@ ms.date: 11/07/2025
 
 # What is certificate management (Preview)?
 
-Certificate management is an optional feature of Azure Device Registry (ADR) that enables you to issue X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each of your ADR namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR Namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub.
+Certificate management is an optional feature of Azure Device Registry (ADR) that enables you to issue and manage X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each of your ADR namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub.
 
 Using certificate management requires you to also use IoT Hub, [Azure Device Registry (ADR)](iot-hub-device-registry-setup.md), and [Device Provisioning Service (DPS)](../iot-dps/index.yml). certificate management is currently in public preview.
 
@@ -25,8 +25,8 @@ The following features are supported with certificate management for IoT Hub dev
 
 | Feature | Description |
 |---------|-------------|
-| Create multiple certificate authorities (CA) in an ADR Namespace | Create two-tier PKI hierarchy with root and issuing CA in the cloud. |
-| Create a unique root certificate authority (CA) per ADR Namespace | Create up to 1 root CA, also known as a credential, in your ADR namespace |
+| Create multiple certificate authorities (CA) in an ADR namespace | Create two-tier PKI hierarchy with root and issuing CA in the cloud. |
+| Create a unique root certificate authority (CA) per ADR namespace | Create up to 1 root CA, also known as a credential, in your ADR namespace |
 | Create up to one issuing CA per policy | Create up to 1 issuing CA, also known as a policy, in your ADR namespace and customize validity periods for issued certificates. |
 | Signing and Encryption algorithms | The issuing CA will sign end-entity certificates using the following key type: ECC NistP384 |
 | HSM keys (signing and encryption) | Keys are provisioned using [Azure Managed Hardware Security Module (Azure Managed HSM)](/azure/key-vault/managed-hsm/overview). CAs created within your ADR namespace automatically use HSM signing and encryption keys. No Azure subscription is required for Azure HSM. |
@@ -87,7 +87,7 @@ Due to the wide variety of IoT devices, each device is responsible for monitorin
 
 ## Disable a device
 
-Certificate management doesn't support certificate revocation during public preview. To remove the connection of a device that uses an X.509 operational certificate, you can disable the device in the IoT hub registry. To disable a device, see [Disable or delete a device](create-connect-device.md#disable-or-delete-a-device).
+Certificate management doesn't support certificate revocation during public preview. To remove the connection of a device that uses an X.509 operational certificate, you can disable the device in the IoT Hub. To disable a device, see [Disable or delete a device](create-connect-device.md#disable-or-delete-a-device).
 
 ## Limits and quotas
 

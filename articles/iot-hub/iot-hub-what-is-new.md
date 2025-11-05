@@ -19,9 +19,9 @@ From November 2025, IoT Hub introduces two new features: integration with Azure 
 
 ## Manage your devices in a unified registry with Azure Device Registry
 
-IoT Hub now integrates directly with Azure Device Registry (ADR) to bring a consistent experience across cloud and edge workloads. ADR is a centralized device registry that allows you to manage IoT devices across IoT Hub and IoT Operations instances using namespaces. You can link your IoT instances to either a new or existing ADR namespace. For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
+IoT Hub now integrates directly with Azure Device Registry (ADR) to bring a consistent experience across cloud and edge workloads. ADR is a centralized device registry that allows you to manage IoT devices across IoT Hub and IoT Operations instances using namespaces. You can link your IoT instances to either a new or an existing ADR namespace. For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
 
-Integration of IoT hubs with ADR is essential to leverage the latest enhancements in device provisioning, certificate management, and deeper integration with Azure Resource Manager. For more information, see [Get started with ADR and certificate management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
+Integration of IoT Hub with ADR is essential to leverage the latest enhancements in device provisioning, certificate management, and deeper integration with Azure Resource Manager. For more information, see [Get started with ADR and certificate management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
 
 ## Manage your X.509 credentials with certificate management
 
