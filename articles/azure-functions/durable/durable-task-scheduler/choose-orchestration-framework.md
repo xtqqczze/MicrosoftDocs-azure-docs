@@ -47,9 +47,9 @@ You can implement an AI agent for each task, and then write an orchestration tha
 
 Both Durable Functions and Durable Task SDK are available in multiple languages but there are some differences in how they can be used. 
 
-Before deciding on a framework, knowing whether your project can recieve end-to-end support can help you decide on an orchestration framework. While the Durable Task backend is fully managed and supported, the Durable Functions extension and Durable Task SDKs vary in stability depending on [the pricing model](./durable-task-scheduler-dedicated-sku.md) and the language SDK you use. 
+Knowing which orchestration framework is recommended for production can help you decide which works best for your project. While the Durable Task backend is fully managed and supported, the Durable Functions extension and Durable Task SDKs vary in stability depending on [the pricing model](./durable-task-scheduler-dedicated-sku.md) and the language SDK you use. 
 
-The following table shows what client experience includes end-to-end support. 
+The following table shows what client experience is fit for production use. 
 
 | Experience | Dedicated SKU | Consumption SKU |
 | ---------- | ------------- | --------------- |

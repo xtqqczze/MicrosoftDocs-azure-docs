@@ -102,8 +102,8 @@ A Software as a Service (SaaS) platform supports 800 million orchestrations mont
 
 ### Consumption SKU (preview)
 
->[!NOTE]
-> The Consumption SKU is currently in preview. [Learn more about the SKU and orchestration framework combinations that offers end-to-end support.](./choose-orchestration-framework.md#orchestration-framework-options)
+> [!NOTE]
+> The Consumption SKU is currently in preview. [Learn more about the SKU and orchestration framework combinations recommended for production use.](./choose-orchestration-framework.md#orchestration-framework-options)
 
 The Consumption SKU offers a pay-as-you-use model, ideal for variable workloads and development scenarios.
 
