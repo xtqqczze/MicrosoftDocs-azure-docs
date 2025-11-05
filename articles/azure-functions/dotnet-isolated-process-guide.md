@@ -17,6 +17,11 @@ ms.custom:
 
 # Guide for running C# Azure Functions in the isolated worker model
 
+> [!NOTE]
+> GA support for .NET 10 is rolling out but is not yet available in all regions. For the latest information about support for .NET 10 in global Azure, see this [tracking thread on GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/3152).
+>
+> You can't run .NET 10 apps on Linux in the Consumption plan. To run on Linux, you should instead use the [Flex Consumption plan](./flex-consumption-plan.md).
+
 This article is an introduction to working with Azure Functions in .NET, using the isolated worker model. This model allows your project to target versions of .NET independently of other runtime components. For information about specific .NET versions supported, see [supported version](#supported-versions). 
 
 Use the following links to get started right away building .NET isolated worker model functions.
@@ -65,11 +70,18 @@ The following packages are required to run your .NET functions in an isolated wo
 + [Microsoft.Azure.Functions.Worker]
 + [Microsoft.Azure.Functions.Worker.Sdk]
 
+ Minimum versions of these packages are required based on your target .NET version:
+
+| .NET version   | `Microsoft.Azure.Functions.Worker` | `Microsoft.Azure.Functions.Worker.Sdk` |
+|----------------|------------------------------------|-----------------------------------------|
+| .NET 10        | 2.50.0 or later                    | 2.0.5 or later                         |
+| .NET 9         | 2.0.0 or later                     | 2.0.0 or later                         |
+| .NET 8         | 1.16.0 or later                    | 1.11.0 or later                        |
+| .NET Framework | 1.16.0 or later                    | 1.11.0 or later                        |
+
 #### Version 2.x
 
-The 2.x versions of the core packages change the supported frameworks and bring in support for new .NET APIs from these later versions. When you target .NET 9 or later, your app needs to reference version 2.0.0 or later of both packages.
-
-When updating to the 2.x versions, note the following changes:
+The 2.x versions of the core packages change the supported frameworks and bring in support for new .NET APIs from these later versions. When updating to the 2.x versions, note the following changes:
 
 - Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker.Sdk]:
     - The SDK includes default configurations for [SDK container builds](/dotnet/core/docker/publish-as-container).
@@ -1320,16 +1332,17 @@ While it might be possible to target a given release from a local Functions proj
 
 Azure Functions currently can be used with the following "Preview" or "Go-live" .NET releases:
 
-| Operating system | .NET preview version          |
-|------------------|-------------------------------|
-| Linux            | .NET 10 RC1<sup>1,2,3</sup> |
-| Windows          | .NET 10 Preview 5<sup>1,2</sup> |
+| Operating system | .NET preview version |
+|------------------|----------------------|
+| Linux            | .NET 10 RC1          |
+| Windows          | .NET 10 Preview 5    |
 
-1. Apps targeting .NET 10 must use [version 2.0.5 or later of `Microsoft.Azure.Functions.Worker.Sdk`][Microsoft.Azure.Functions.Worker.Sdk]. You should also update to [version 2.50.0-preview1 or later of `Microsoft.Azure.Functions.Worker`][Microsoft.Azure.Functions.Worker], which updates dependencies to align with .NET 10. When using Visual Studio, you also need to use [Visual Studio 2026 Insiders][vs-insiders] and [update the Functions tools and templates](#considerations-for-using-net-preview-versions) to version 4.114.0 or later.
-2. For the latest information about support for .NET 10 in global Azure, see this [tracking thread on GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/3152).
-3. You can't run .NET 10 apps on Linux in the Consumption plan. To run on Linux, you should instead use the [Flex Consumption plan](./flex-consumption-plan.md).
+> [!NOTE]
+> GA support for .NET 10 is rolling out but is not yet available in all regions. For the latest information about support for .NET 10 in global Azure, see this [tracking thread on GitHub](https://github.com/Azure/azure-functions-dotnet-worker/issues/3152).
+>
+> You can't run .NET 10 apps on Linux in the Consumption plan. To run on Linux, you should instead use the [Flex Consumption plan](./flex-consumption-plan.md).
 
-See [Supported versions][supported-versions] for a list of generally available releases that you can use.
+<!-- See [Supported versions][supported-versions] for a list of generally available releases that you can use. -->
 
 ### Using a preview .NET SDK
 
@@ -1366,7 +1379,7 @@ Keep these considerations in mind when using Functions with preview versions of 
 
 + Make sure you have the latest Functions tools and templates. To update your tools:
 
-    1. Navigate to **Tools** > **Options**, choose **Azure Functions** under **Projects and Solutions**.
+    1. Navigate to **Tools** > **Options**, choose **Azure Functions** under **Projects and Solutions** > **More Settings**.
     1. Select **Check for updates** and install updates as prompted.
 
 + During a preview period, your development environment might have a more recent version of the .NET preview than the hosted service. This can cause your function app to fail when deployed. To address this, you can specify the version of the SDK to use in [`global.json`](/dotnet/core/tools/global-json). 
