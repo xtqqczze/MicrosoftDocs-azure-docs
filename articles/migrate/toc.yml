@@ -9,6 +9,8 @@ items:
     href: whats-new.md
 - name: Quickstarts
   items:
+  - name: Prepare Azure accounts using built-in roles
+    href: prepare-azure-accounts.md
   - name: Create a project
     href: create-project.md
   - name: Create a project - ARM template
