@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: tutorial
 ms.date: 11/04/2025
 ms.author: jefmarti
-zone_pivot_groups: arm-azure-cli-portal-bicep
+zone_pivot_groups: azure-cli-bicep
 ---
 
 # Use premium ingress with Azure Container Apps
@@ -22,7 +22,7 @@ In this article, you learn how to use premium ingress with Azure Container Apps.
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
-::: zone pivot="container-apps-bicep"
+::: zone pivot="bicep"
 
 - [Bicep](/azure/azure-resource-manager/bicep/install)
 
@@ -220,8 +220,6 @@ azd logs
 
 ::: zone-end
 
-::: zone pivot="portal"
-
 You can configure the ingress for your environment after you create it.
 
 1. Go to your Container Apps environment in the Azure portal.
@@ -243,8 +241,6 @@ You can configure the ingress for your environment after you create it.
     | Request header count | Enter the request header count. |
 
 1. Select **Apply**.
-
-::: zone-end
 
 ## Monitoring and metrics
 Ingress metrics are available via the Azure portal in the Container Apps environment instance. Under *Monitoring*, select **Metrics**. These metrics are available with Default or Premium Ingress enabled. Additional metrics are in progress.
