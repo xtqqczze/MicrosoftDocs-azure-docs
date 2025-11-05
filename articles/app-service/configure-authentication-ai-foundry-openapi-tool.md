@@ -11,7 +11,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Secure OpenAPI endpoints for Azure AI Foundry Agent Service
 
-This article shows you how to secure your App Service OpenAPI endpoints when they're called by Azure AI Foundry Agent Service. When you add your App Service app as an OpenAPI tool in Azure AI Foundry, you can configure it to call your APIs anonymously without authentication, which is easier for development and testing. However, for production environments, your should use Microsoft Entra authentication with managed identity. This guide walks you through configuring managed identity authentication to enable secure, token-based communication between Azure AI Foundry and your app.
+This article shows you how to secure your App Service OpenAPI endpoints when they're called by Azure AI Foundry Agent Service. When you add your App Service app as an OpenAPI tool in Azure AI Foundry, you can configure it to call your APIs anonymously without authentication, which is easier for development and testing. However, for production environments, you should use Microsoft Entra authentication with managed identity. This guide walks you through configuring managed identity authentication to enable secure, token-based communication between Azure AI Foundry and your app.
 
 ## Prerequisites
 
