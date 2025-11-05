@@ -24,7 +24,7 @@ This article describes how you can use Azure Migrate to define applications runn
 
 ## Before you start
 
-1. Ensure that you've [created a project](./create-manage-projects.md).
+1. Ensure that you have an [Azure Migrate project](./create-manage-projects.md).
 1. Review the requirements based on your environment and the appliance you're setting up to perform discovery of servers and workloads:
 
 
@@ -40,8 +40,8 @@ This article describes how you can use Azure Migrate to define applications runn
 ## Deploy and configure the Azure Migrate appliance
 
 1. Deploy the Azure Migrate appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
-1. When you set up the appliance, you specify the following in the appliance configuration manager:
-    - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
+1. When you set up the appliance, provide the following details in the appliance configuration manager:
+    - The details of the source environment (vCenter Servers/Hyper-V hosts or clusters/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (nondomain)/ Linux (nondomain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
  
 
@@ -62,7 +62,7 @@ This article describes how you can use Azure Migrate to define applications runn
 
 6. Select on **Start discovery**, to initiate discovery.
 
-After you initiate discovery, appliance performs the discovery of configuration and performance metadata of servers in your enviornment. This is followed by discovery of installed software, network dependencies and workloads such as databases and web applications. For gathering network dependencies between the servers, Azure Migrate automatically enables agentless dependency analysis on servers where the validation checks succeed.
+After you initiate discovery, appliance performs the discovery of configuration and performance metadata of servers in your enviornment. This metadata discovery is followed by discovery of installed software, network dependencies and workloads such as databases and web applications. For gathering network dependencies between the servers, Azure Migrate automatically enables agentless dependency analysis on servers where the validation checks succeed.
 
 
 ## Review inventory & server dependencies
@@ -70,23 +70,23 @@ After you initiate discovery, appliance performs the discovery of configuration 
 - After the completion of discovery, you can go to your Azure Migrate project and review all the discovered inventory in **All inventory** under **Explore inventory**. 
 - You can review the collected dependency data in your project through **Dependency analysis** under **Explore applications**. Here you can visualize dependencies across all discovered servers in your Azure Migrate project. 
 - The visualization shows logically spread server nodes with their connections, indicating their network affinity to help you identify applications running in your datacenter. [Learn more](how-to-create-group-machine-dependencies-agentless.md)
-- You can **add or edit tags** on the servers, you identify to be part of same application group. This can help you define application entity in the Azure Migrate project as covered in the section below.
+- You can **add or edit tags** on the servers, you identify to be part of same application group. Tags can help you define application entity in the Azure Migrate project.
 
 ## Define applications
 
-After you have reviewed the discovered inventory and the dependencies, you can start defining the applications running in your datacenter. Here are the steps you can follow to get started:
+You can start defining the applications running in your datacenter. Here are the steps you can follow to get started:
 
 1. You can either go to **Overview** and select **Define application** from the All inventory summary card or you can go to **Applications** under **Explore applications** and select **Define application** from there.
 2. You can define applications in one of the two ways- select **New application** if you want to define application through Portal or select **Import applications** to import the application information at scale through CSV import.
 
 ### Define new application
 
-1. If you have selected **New application**, you will start by providing basic details of an application like **Name**, **Description** and **Type**. You can choose to provide same name for the application as on-premises, add a description that helps understand about the application and choose between **Custom** or **Packaged** for application type. 
+1. Select **New application**, start by providing basic details of an application like **Name**, **Description** and **Type**. You can choose to provide same name for the application as on-premises, add a description that helps the service understand about the application and choose between **Custom** or **Packaged** for application type. 
 
     >[!Note]
     > The type **Packaged** refers to the Commercial-off-the-shelf (COTS) applications you are running in your datacenter.
 
-2. In the next step, you can link the workloads that are hosting this application. You can select **Link workloads** to go to the All inventory view which helps you select the workloads that you want to add to this new application. 
+2. In the next step, you can link the workloads that are hosting this application. You can select **Link workloads** to go to the All inventory view, which helps you select the workloads that you want to add to this new application. 
 3. You can scope the All inventory view by searching for specific workloads or filtering workloads by Category, Type, OS name etc and **Add** the selected workloads.
 
     >[!Note]
@@ -98,13 +98,13 @@ After you have reviewed the discovered inventory and the dependencies, you can s
     --- | --- | --- | ---
     Business criticality | Yes | Specify the criticality of the application to your business | Choose from **High**, **Medium**, **Low**
     Complexity | Yes | Specify the complexity in terms of workloads and dependencies | Choose from **High**, **Medium**, **Low**
-    Publisher | No (Optional) | Specify the names of the publisher of application (Packaged) or its workloads (custom) | For example, **SAP** if it is a Packaged application or **Microsoft** if it is a Custom application running on .NET IIS web application and SQL Server DB workloads
+    Publisher | No (Optional) | Specify the names of the publisher of application (Packaged) or its workloads (custom) | For example, **SAP** if it is a Packaged application or **Microsoft** if it is a Custom application running on .NET IIS web application and SQL database
     Technology stack | No (Optional) | Specify the technology used like runtimes, frameworks, languages etc. | For example, .NET, SQL, MySQL, Tomcat etc.
 
     >[!Note]
     > The **Properties** can help identify the application uniquely and can be used to filter and perform scoped migration planning for different types of applications.
 
-5. After you have added properties, you can add **tags** to the application you are creating.You can use tags to group and visualize similar applications based on specific tags, such as environment, department, or datacenter etc.
+5. After adding the properties, you can add **tags** to the application you are creating.You can use tags to group and visualize similar applications based on specific tags, such as environment, department, or datacenter etc.
 6. In the final step, you can **review** the details of the application and proceed to **Create** the application.
 
 
@@ -112,12 +112,12 @@ After you have reviewed the discovered inventory and the dependencies, you can s
 
 If you want to define applications at scale, you can select **Import applications** which opens a side pane where you can follow these steps:
 
-1. You can define applications by adding the application names(s) against the discovered servers and workloads in the prescribed template which is an export of all discovered inventory. 
+1. You can define applications by adding the application names against the discovered servers and workloads in the prescribed template which is an export of all discovered inventory. 
 2. You can select **Export all inventory** which downloads a CSV file with the details of all discovered inventory across servers, databases and web applications.
-3. In the exported CSV, you can add names of the application(s), a workload is a part of. You can add more than one name if the workload is shared amongst multiple applications. For instance, if a database- "SQLDB01" is shared by 2 applications, then you can add- "App01, App02" under Application name(s) column in the same row.
+3. In the exported CSV, you can add names of the applications, a workload is a part of. You can add more than one name if the workload is shared amongst multiple applications. For instance, if a database- "SQLDB01" is shared by 2 applications, then you can add- "App01, App02" under Application name column in the same row.
 
     >[!Note]
-    > The **Application name(s)** are case-sensitive. You can add applications in multiple import operations but it is recommended to not trigger multiple import operations in parallel. 
+    > The **Application names** are case-sensitive. You can add applications in multiple import operations but it is recommended to not trigger multiple import operations in parallel. 
 
 4. Afted adding the application names to the file, you can browse and select the CSV file. 
 5. If the selected file passes the validation checks, you can select **Import** to upload the details of the applications, as added in the CSV file.
@@ -129,7 +129,7 @@ If you want to define applications at scale, you can select **Import application
 
 ## Review applications
 
-After you have defined the applications, you can review the applications any time from the **Applications** view. 
+After defining the applications, you can review the applications any time from the **Applications** view. 
 
 - In the **Applications** view, the applications are sorted by their **Creation Time** so that the recently defined applications show on top of the table.
 - You can use the prefiltered cards to switch between **Custom** and **Packaged** applications.
@@ -143,7 +143,7 @@ After you have defined the applications, you can review the applications any tim
  You can select any application name to review and update the basic details, added workloads, properties or tags. Here are the steps you can follow:
 
 1. After selecting an application, you are taken to the **Overview** of the application. Here you can **Sync code changes** for the application or **Edit** the basic details such as Description and Type of the application.
-2. In the **Overview** you can review the distribution of linked workloads by type and by OS support status. 
+2. In the **Overview**, you can review the distribution of linked workloads by type and by OS support status. 
 3. You can go to **Activity logs** from left menu to review the activities performed on the application.
 4. You can review the **Workloads** to add or remove any workloads any time after the application was defined.
 5. You can also review and update the **Properties** or **Tags** associated with the application.
@@ -154,7 +154,7 @@ After you have defined the applications, you can review the applications any tim
 - You can select one or more applications from the **Applications** view to delete the unwanted applications.
 - When you select **Delete**, a side pane opens with the names of applications you want to delete. 
 - Before deleting the applications, you should ensure that they are not part of any Assessment or Migration Wave as that can lead to change in assesment computation and execution planning for the workloads associted with the applications.
-- The delete action will clean up the application resource and **ungroup the workloads** associated with this application.
+- The delete action cleans up the application resource and **ungroup the workloads** associated with this application.
 - You can confirm to "delete" the applications to proceed. Please note that this operation will permanently clean up the application resource and there is no way to retrieve it again.
 - After deleting the applications, you can refresh the **Applications** view for the change to take effect.
 
