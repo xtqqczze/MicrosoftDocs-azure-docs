@@ -161,7 +161,7 @@
                 href: sessions-tutorial-semantic-kernel.md
             - name: Use the REST API
               items:
-              - name: JavaScript code interpreter (preview)
+              - name: JavaScript code interpreter
                 href: sessions-tutorial-nodejs.md
               - name: Shell session (preview)
                 href: sessions-tutorial-shell.md
