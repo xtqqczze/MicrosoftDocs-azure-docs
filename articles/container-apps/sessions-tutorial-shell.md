@@ -154,9 +154,22 @@ Create a user-assigned managed identity that will be used for authenticating API
    UAMI_PRINCIPAL=$(az identity show --resource-group $RESOURCE_GROUP --name $UAMI_NAME --query principalId -o tsv)
    ```
 
+## Assign the managed identity to your Azure Container App
+
+When creating or updating your Azure Container App, assign the user-assigned managed identity to the app. For example:
+
+```azurecli
+az containerapp update \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group $RESOURCE_GROUP \
+  --user-assigned $UAMI_NAME
+```
+
+Refer to [Assign a managed identity to a container app](/azure/container-apps/managed-identity) for more details.
+
 ## Set role assignments for session execution APIs
 
-To interact with the session pool's API, you must assign the `Azure ContainerApps Session Executor` role to your managed identity. If you plan to test the API locally using your personal Azure credentials, assign the role to your current user account as well.
+To interact with the session pool's API, you must assign the `Azure ContainerApps Session Executor` role to your managed identity.
 
 1. Wait for identity propagation, then assign the role to the managed identity.
 
@@ -166,11 +179,30 @@ To interact with the session pool's API, you must assign the `Azure ContainerApp
 
 ## Get a bearer token
 
-For direct access to the session pool's API, generate an access token to include in the `Authorization` header of your requests.
+To access the session pool's API, you need an access token. The method depends on where you're running the code:
+
+### From inside your Azure Container App
+
+When running from inside an Azure Container App that has the user-assigned managed identity assigned, obtain an access token using the Azure Instance Metadata Service (IMDS):
+
+```sh
+ACCESS_TOKEN=$(curl -s -H "Metadata: true" \
+  "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://dynamicsessions.io" \
+  | jq -r '.access_token')
+```
+
+This command retrieves the token and extracts the `access_token` value from the JSON response using `jq`.
+
+### For local testing and development
+
+When testing locally or from your development environment, you can obtain an access token using the Azure CLI (you must have the appropriate permissions):
 
 ```azurecli
-TOKEN=$(az account get-access-token --resource https://dynamicsessions.io --query accessToken -o tsv)
+ACCESS_TOKEN=$(az account get-access-token --resource "https://dynamicsessions.io" --query accessToken --output tsv)
 ```
+
+> [!NOTE]
+> For local testing to work, your Azure CLI session must be authenticated as a user or service principal that has the "Azure ContainerApps Session Executor" role assigned to the session pool. The managed identity approach is recommended for production scenarios.
 
 ## Execute shell commands in your session
 
@@ -178,7 +210,7 @@ Now that you have a bearer token to establish the security context, you can send
 
 1. Create the request body for the API call.
 
-   ```azurecli
+   ```sh
    EXEC_ID=$(uuidgen)
    BODY=$(cat <<EOF
     {
@@ -193,15 +225,19 @@ Now that you have a bearer token to establish the security context, you can send
 
 2. Construct the API endpoint URL.
 
-   ```azurecli
+   ```sh
    URL="https://$LOCATION.dynamicsessions.io/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/sessionPools/$SESSION_POOL_NAME/executions?api-version=$API_VERSION&identifier=$EXEC_ID"
    ```
 
 3. Execute the shell commands.
 
-   ```azurecli
-   curl --request POST --url "$URL" --header "Authorization: Bearer $TOKEN" --header 'content-type: application/json' --data "$BODY"
+   **From inside Azure Container App or local testing:**
+
+   ```sh
+   curl --request POST --url "$URL" --header "Authorization: Bearer $ACCESS_TOKEN" --header 'content-type: application/json' --data "$BODY"
    ```
+
+   You should receive a JSON response containing the execution results, including the output from the shell commands (`hello world` and `hi`).
 
 ## Verify your deployment
 
@@ -229,6 +265,6 @@ az group delete --resource-group $RESOURCE_GROUP
 
 ## Next steps
 
-- [Learn more about Azure Container Apps sessions](../container-apps/sessions.md)
-- [Explore Dynamic Sessions API samples](https://github.com/Azure-Samples/container-apps-dynamic-sessions-samples)
-- [Understanding session pool management](../container-apps/sessions-usage.md)
+* [Learn more about Azure Container Apps sessions](../container-apps/sessions.md)
+* [Explore Dynamic Sessions API samples](https://github.com/Azure-Samples/container-apps-dynamic-sessions-samples)
+* [Understanding session pool management](../container-apps/sessions-usage.md)
