@@ -62,7 +62,7 @@ This article describes how you can use Azure Migrate to define applications runn
 
 6. Select on **Start discovery**, to initiate discovery.
 
-After you initiate discovery, appliance performs the discovery of configuration and performance metadata of servers in your enviornment. This metadata discovery is followed by discovery of installed software, network dependencies and workloads such as databases and web applications. For gathering network dependencies between the servers, Azure Migrate automatically enables agentless dependency analysis on servers where the validation checks succeed.
+After you initiate discovery, appliance performs the discovery of configuration and performance metadata of servers in your datacenter. This metadata discovery is followed by discovery of installed software, network dependencies and workloads such as databases and web applications. For gathering network dependencies between the servers, Azure Migrate automatically enables agentless dependency analysis on servers where the validation checks succeed.
 
 
 ## Review inventory & server dependencies
@@ -70,7 +70,7 @@ After you initiate discovery, appliance performs the discovery of configuration 
 - After the completion of discovery, you can go to your Azure Migrate project and review all the discovered inventory in **All inventory** under **Explore inventory**. 
 - You can review the collected dependency data in your project through **Dependency analysis** under **Explore applications**. Here you can visualize dependencies across all discovered servers in your Azure Migrate project. 
 - The visualization shows logically spread server nodes with their connections, indicating their network affinity to help you identify applications running in your datacenter. [Learn more](how-to-create-group-machine-dependencies-agentless.md)
-- You can **add or edit tags** on the servers, you identify to be part of same application group. Tags can help you define application entity in the Azure Migrate project.
+- You can **add or edit tags** on the servers, you identify to be part of the same application group. Tags can help you define application entity in the Azure Migrate project.
 
 ## Define applications
 
@@ -87,7 +87,7 @@ You can start defining the applications running in your datacenter. Here are the
     > The type **Packaged** refers to the Commercial-off-the-shelf (COTS) applications you are running in your datacenter.
 
 2. In the next step, you can link the workloads that are hosting this application. You can select **Link workloads** to go to the All inventory view, which helps you select the workloads that you want to add to this new application. 
-3. You can scope the All inventory view by searching for specific workloads or filtering workloads by Category, Type, OS name etc and **Add** the selected workloads.
+3. You can scope the All inventory view by searching for specific workloads or filtering workloads by Category, Type, OS name etc. and **Add** the selected workloads.
 
     >[!Note]
     > The **Application** column in the All inventory view indicates if a workload has already been grouped as part of another application. A workload can be shared between multiple applications.
@@ -98,13 +98,13 @@ You can start defining the applications running in your datacenter. Here are the
     --- | --- | --- | ---
     Business criticality | Yes | Specify the criticality of the application to your business | Choose from **High**, **Medium**, **Low**
     Complexity | Yes | Specify the complexity in terms of workloads and dependencies | Choose from **High**, **Medium**, **Low**
-    Publisher | No (Optional) | Specify the names of the publisher of application (Packaged) or its workloads (custom) | For example, **SAP** if it is a Packaged application or **Microsoft** if it is a Custom application running on .NET IIS web application and SQL database
+    Publisher | No (Optional) | Specify the names of the publisher of application (Packaged) or its workloads (custom) | For example, **SAP** if it's a Packaged application or **Microsoft** if it's a Custom application running on .NET IIS web application and SQL database
     Technology stack | No (Optional) | Specify the technology used like runtimes, frameworks, languages etc. | For example, .NET, SQL, MySQL, Tomcat etc.
 
     >[!Note]
     > The **Properties** can help identify the application uniquely and can be used to filter and perform scoped migration planning for different types of applications.
 
-5. After adding the properties, you can add **tags** to the application you are creating.You can use tags to group and visualize similar applications based on specific tags, such as environment, department, or datacenter etc.
+5. After adding the properties, you can add **tags** to the application you are creating. You can use tags to group and visualize similar applications based on specific tags, such as environment, department, or datacenter etc.
 6. In the final step, you can **review** the details of the application and proceed to **Create** the application.
 
 
@@ -119,9 +119,9 @@ If you want to define applications at scale, you can select **Import application
     >[!Note]
     > The **Application names** are case-sensitive. You can add applications in multiple import operations but it is recommended to not trigger multiple import operations in parallel. 
 
-4. Afted adding the application names to the file, you can browse and select the CSV file. 
+4. After adding the application names to the file, you can browse and select the CSV file. 
 5. If the selected file passes the validation checks, you can select **Import** to upload the details of the applications, as added in the CSV file.
-6. After the import is complete, you can see the import status and review the **no of applications created** and check the **error** file in case of any failures. 
+6. After the import is complete, you can see the import status and review the **no of applications created** and check the **error** file if any failures occur. 
 
     >[!Note]
     > Currently, import applications only supports adding workloads to an application and not other details like Type (default set to Custom), properties like Criticality and Complexity or Tags. When the application is defined using import, you can see a warning icon against the application name indicating that you need to update the mandatory properties.
@@ -153,8 +153,8 @@ After defining the applications, you can review the applications any time from t
 
 - You can select one or more applications from the **Applications** view to delete the unwanted applications.
 - When you select **Delete**, a side pane opens with the names of applications you want to delete. 
-- Before deleting the applications, you should ensure that they are not part of any Assessment or Migration Wave as that can lead to change in assesment computation and execution planning for the workloads associted with the applications.
-- The delete action cleans up the application resource and **ungroup the workloads** associated with this application.
+- Before deleting the applications, you should ensure that they are not part of any Assessment or Migration Wave as that can lead to change in assessment computation and execution planning for the workloads associated with the applications.
+- The delete action cleans up the application resource and **ungroups the workloads** associated with this application.
 - You can confirm to "delete" the applications to proceed. Please note that this operation will permanently clean up the application resource and there is no way to retrieve it again.
 - After deleting the applications, you can refresh the **Applications** view for the change to take effect.
 
