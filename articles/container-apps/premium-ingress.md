@@ -247,7 +247,7 @@ You can configure the ingress for your environment after you create it.
 ::: zone-end
 
 ## Monitoring and metrics
-Ingress metrics are available in the Container App Environment -> Monitoring -> Metrics page. These are available with Default or Premium Ingress enabled. Additional metrics are in progress.
+Ingress metrics are available via the Azure portal in the Container Apps environment instance. Under *Monitoring*, select **Metrics**. These metrics are available with Default or Premium Ingress enabled. Additional metrics are in progress.
 
 - Ingress CPU Usage
 - Ingress Memory Usage Bytes
