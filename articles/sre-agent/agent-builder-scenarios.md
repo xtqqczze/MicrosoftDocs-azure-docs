@@ -8,7 +8,7 @@ ms.date: 11/05/2025
 ms.service: azure-sre-agent
 ---
 
-## Agent Builder scenarios in Azure SRE Agent
+# Agent Builder scenarios in Azure SRE Agent
 
 Agent Builder in Azure SRE Agent enables you to design, configure, and extend intelligent operational agents tailored to your organization's needs. With Agent Builder, you can seamlessly integrate data sources, manage and enrich knowledge bases, create specialized sub-agents, and automate workflows by using triggers and scheduled tasks. This article explores common scenarios and configuration patterns to help you maximize the value of Agent Builder for your site reliability engineering (SRE) operations.
 
