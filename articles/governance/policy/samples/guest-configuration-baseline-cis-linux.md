@@ -7,7 +7,7 @@ ms.author: pallakatos
 ms.topic: reference
 ms.custom: generated
 ---
-# CIS Security Benchmarks for Linux Workloads
+# [Public - Preview] CIS Security Benchmarks for Linux Workloads
 
 ## Introduction
 
@@ -62,6 +62,8 @@ The following Linux distributions and CIS benchmark versions are currently suppo
 The compliance engine is capable of interpreting dynamic parameters for rule evaluation, which means we are opening up flexible rule customization without requiring code changes. Parameters allow rules to be configured with different values while maintaining the same underlying audit logic.
 
 Parameters are exposed through both the user interface and in the final JSON configuration files which you can download through the Machine Configuration UX experience. However, **we haven't exposed all available parameters initially**, as some rules contain 5-10 or even up to 20 logical conditions and relevant parameters which could easily overwhelm users. Instead, we're taking a customer-driven approach - **enabling additional rule parameters based on customer feedback**. This ensures we prioritize the most valuable customization options while maintaining a clean user experience.
+
+### Requesting more parameters to be supported
 
 Please choose one of the following way to let us know which Rule /  CIS Benchmark / Distribution / Version you want to have which parameters enabled for customization:
 
