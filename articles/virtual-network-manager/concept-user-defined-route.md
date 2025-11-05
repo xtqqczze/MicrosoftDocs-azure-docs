@@ -151,7 +151,10 @@ This mode provides greater **control**, ensures **compliance with organizational
 | **Shared Tables** | If multiple subnets share a single route table, all will inherit AVNM routes—verify before enabling. |
 | **Subnet Associations** | AVNM does not automatically remove subnet associations from existing customer route tables. If a subnet is removed from the network group, its association remains intact, meaning the subnet will still be linked to the same route table. |
 
-
+### Route Table Sharing and Cleanup Behavior
+When multiple subnets from different network groups share the same route table, unintended routes may appear, as AVNM does not track which subnet adds specific routes. Customers must manually remove or dissociate subnets if undesired routes occur.
+If any subnet enables properties such as `DisableBgpRoutePropagation`, those settings apply to the entire shared table. Routes remain in the table until all contributing subnets are unmanaged.
+When a subnet is removed from a network group, AVNM stops managing it but does not modify the existing table association. AVNM removes its routes only when no remaining managed subnets depend on them. Customer-created route tables are never deleted, even when left empty after cleanup.
 
 ## Adding other virtual networks
 
