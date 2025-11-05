@@ -86,7 +86,7 @@ items:
           href: ./ag/application-gateway-customize-waf-rules-powershell.md
         - name: Azure CLI
           href: ./ag/application-gateway-customize-waf-rules-cli.md
-    - name: HTTP DDoS ruleset
+    - name: HTTP DDoS protection
       href: ./ag/ddos-ruleset.md
       items:
     - name: Bot protection
