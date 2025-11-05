@@ -20,17 +20,17 @@ ms.custom: mvc, engagement-fy25
 
 Public preview: Wave Planning in Azure Migrate provides a structured approach to cloud migration and modernization. It helps organizations break down large-scale migrations into manageable **waves** of workloads and applications. This capability accelerates timelines, reduces uncertainty, and minimizes risks through phased execution and logical grouping. [Learn more](overview.md).
 
-- Distribute workloads and applications into waves for high-fidelity planning, leveraging Azure Migrate’s discovery and assessment information. [Learn more](how-to-complete-wave-plan.md). 
+- Distribute workloads and applications into waves for high-fidelity planning, leveraging Azure Migrate’s discovery and assessment information. 
 
-- Sequence and prioritize migration waves based on business criticality, complexity of applications ensuring efficient and risk-mitigated execution. [Learn more](how-to-plan-create-waves.md). 
+- Sequence and prioritize migration waves based on business criticality, complexity of applications ensuring efficient and risk-mitigated execution. 
 
-- Visualize execution plans and timelines across all waves, providing clear visibility into migration progress and sequence. [Learn more](how-to-execute-track-waves.md).
+- Visualize execution plans and timelines across all waves, providing clear visibility into migration progress and sequence. 
  
-- Execute and centrally track migrations using integrated tools, for example, Server Migration for unified tracking. [Learn more](how-to-execute-track-waves.md). 
+- Execute and centrally track migrations using integrated tools, for example, Server Migration for unified tracking. 
 
-- Monitor progress as migrations proceed, with status updates. [Learn more](how-to-execute-track-waves.md).
+- Monitor progress as migrations proceed, with status updates.
 
-- Support both automated and manual migration scenarios, allowing for flexible execution and tracking regardless of workload type or migration tool. [Learn more](how-to-execute-track-waves.md). 
+- Support both automated and manual migration scenarios, allowing for flexible execution and tracking regardless of workload type or migration tool. 
 
 Wave Planning in Azure Migrate provides a scalable, transparent, and risk-aware migration experience, enabling organizations to modernize infrastructure with confidence and control. 
 
