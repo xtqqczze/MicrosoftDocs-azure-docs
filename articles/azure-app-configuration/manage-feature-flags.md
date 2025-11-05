@@ -34,30 +34,20 @@ Create a new feature flag in the Azure portal by following the steps below.
     :::image type="content" source="media/manage-feature-flags/create-feature-flag-menu.png" alt-text="Screenshot of the Azure portal that shows the Create feature flag feature.":::
 
 1. Under **What will you be using your feature flag for?**, choose one of the following purposes:
-   - **Switch** – Toggle features on/off with a simple switch.
-   - **Rollout** – Gradually enable the feature for a percentage of users.
-   - **Experiment** – Run controlled experiments with traffic allocation to determine the best-performing variant.
 
-    Choose a tab below to see guidance and recommended settings for scenario.
+   - **Switch** – Toggle features on/off with a simple switch. Use for short-lived operational toggles and scenarios where a single on/off control is sufficient.
+   - **Rollout** – Gradually enable the feature for a percentage of users. Use for gradual feature releases to reduce risk, and for canary or staged rollouts across environments or user segments.
+   - **Experiment** – Run controlled experiments with traffic allocation to determine the best-performing variant. Use for A/B testing, multivariate experiments, or metric-driven feature evaluation,, and other scenarios requiring statistical comparison.
 
     ### [Switch](#tab/switch)
     
-    Use **Switch** to enable or disable functionality instantly for all users. This is useful for:
-
-    - Minimal configuration: enable/disable state only, no audience targeting required.
-    - Emergency toggles and quick rollbacks.
-    - Feature flags that gate development or operational features (preview toggles, maintenance mode).
-
-    When to use:
-
-    - Short-lived operational toggles.
-    - Scenarios where a single on/off control is sufficient.
+    Use **Switch** to enable or disable functionality instantly for all users. 
     
     1. Configure **Basics** to set the core properties of your feature flag.
 
         | Setting                 | Example value  | Description                                                                                                                                                                                                                                                              |
         | ----------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-        | **Enable feature flag** | Toggle on | This option enables the feature flag upon creation. If you toggle this off, the new feature flag's configuration is saved but the new feature flag remains disabled.                                                                                   |
+        | **Enable feature flag** | Toggle on      | This option enables the feature flag upon creation. If you toggle this off, the new feature flag's configuration is saved but the new feature flag remains disabled.                                                                                   |
         | **Feature flag name**   | *Beta*         | The feature flag name is what you use to reference the flag in your code. It must be unique within an application.                                                                                                                                                       |
         | **Key**                 | *Beta*         | You can use the key to filter feature flags that are loaded in your application. The key is generated from the feature flag name by default, but you can also add a prefix or a namespace to group your feature flags, for example, *.appconfig.featureflag/Beta*. |
         | **Label**               | Leave empty    | You can use labels to create different feature flags for the same key and filter flags loaded in your application based on the label. By default, a feature flag has no label.                                                                                           |
@@ -71,27 +61,18 @@ Create a new feature flag in the Azure portal by following the steps below.
 
     ### [Rollout](#tab/rollout)
     
-    Use **Rollout** to progressively expose a feature to a percentage of users. Key guidance:
-
-    - Allocate a percentage (0–100%) to gradually increase exposure.
-    - Use a seed to ensure the same users are consistently allocated across related flags.
-    - Monitor usage and errors during the rollout and pause or rollback if issues appear.
-    
-    When to use:
-
-    - Gradual feature releases to reduce risk.
-    - Canary or staged rollouts across environments or user segments.
+    Use **Rollout** to progressively expose a feature to a percentage of users.
 
     1. Configure **Basics** to set the core properties of your feature flag.
 
         | Setting                 | Example value  | Description                                                                                                                                                                                                                                                              |
         | ----------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-        | **Enable feature flag** | Box is checked | This option enables the feature flag upon creation. If you leave this box unchecked, the new feature flag's configuration will be saved but the new feature flag will remain disabled.                                                                                   |
+        | **Enable feature flag** | Toggle on      | This option enables the feature flag upon creation. If you toggle this off, the new feature flag's configuration is saved but the new feature flag remains disabled.                                                                                   |
         | **Feature flag name**   | *Beta*         | The feature flag name is what you use to reference the flag in your code. It must be unique within an application.                                                                                                                                                       |
         | **Key**                 | *Beta*         | You can use the key to filter feature flags that are loaded in your application. The key is generated from the feature flag name by default, but you can also add a prefix or a namespace to group your feature flags, for example, *.appconfig.featureflag/myapp/Beta*. |
         | **Label**               | Leave empty    | You can use labels to create different feature flags for the same key and filter flags loaded in your application based on the label. By default, a feature flag has no label.                                                                                           |
         | **Description**         | Leave empty    | Leave empty or enter a description for your feature flag.                                                                                                                                                                                                                |
-
+        
         :::image type="content" source="media/manage-feature-flags/create-feature-flag-rollout.png" alt-text="Screenshot of the Azure portal that shows the Create feature flag feature - Rollout option.":::
     
    1. In the **Audience** tab, turn on a feature flag for a specified percentage, or explicitly include or exclude groups and users.
@@ -124,22 +105,13 @@ Create a new feature flag in the Azure portal by following the steps below.
 
     ### [Experiment](#tab/experiment)
     
-    Use **Experiment** to run A/B tests and compare variants. Guidance:
-
-    - Create feature flags and allocate traffic across variants (must total 100%).
-    - Optionally use group or user overrides for targeted experiments.
-    - Integrate telemetry/metrics to evaluate performance of each variant and choose a winner.
-    
-    When to use:
-
-    - A/B testing, multivariate experiments, or metric-driven feature evaluation.
-    - Scenarios requiring statistical comparison and traffic allocation.
+    Use **Experiment** to run A/B tests and compare variants.
 
     1. Configure **Basics** to set the core properties of your feature flag.
 
         | Setting                 | Example value  | Description                                                                                                                                                                                                                                                              |
         | ----------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-        | **Enable feature flag** | Box is checked | This option enables the feature flag upon creation. If you leave this box unchecked, the new feature flag's configuration will be saved but the new feature flag will remain disabled.                                                                                   |
+        | **Enable feature flag** | Toggle on      | This option enables the feature flag upon creation. If you toggle this off, the new feature flag's configuration is saved but the new feature flag remains disabled.                                                                                   |
         | **Feature flag name**   | *Beta*         | The feature flag name is what you use to reference the flag in your code. It must be unique within an application.                                                                                                                                                       |
         | **Key**                 | *Beta*         | You can use the key to filter feature flags that are loaded in your application. The key is generated from the feature flag name by default, but you can also add a prefix or a namespace to group your feature flags, for example, *.appconfig.featureflag/myapp/Beta*. |
         | **Label**               | Leave empty    | You can use labels to create different feature flags for the same key and filter flags loaded in your application based on the label. By default, a feature flag has no label.                                                                                           |
