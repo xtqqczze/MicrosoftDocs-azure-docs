@@ -216,7 +216,7 @@ Only virtual networks that contain at least one VM or Virtual Machine Scale Set 
 
 No. Connection Monitor selects up to three VMs per virtual network. The Network Watcher Extension is automatically enabled on these VMs when you create the connection or update an existing connection with Connection Monitor enabled. You can't manually choose which specific VMs are used.
 
-For more frequently asked questions about Connection Monitor, see [Connection Monitor FAQ](../network-watcher/frequently-asked-questions.md#connection-monitor).
+For more frequently asked questions about Connection Monitor, see [Connection Monitor FAQ](../network-watcher/frequently-asked-questions.yml#connection-monitor).
 
 ## Next steps
 
