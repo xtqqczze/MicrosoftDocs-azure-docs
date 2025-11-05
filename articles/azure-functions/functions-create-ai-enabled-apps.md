@@ -85,7 +85,7 @@ Here's a comparison of the current MCP server hosting options provided by Functi
 | Current support level |  GA |Preview<sup>*</sup> |
 | Programming model | [Functions triggers and bindings](./functions-triggers-bindings.md) | Standard MCP SDKs |
 | Stateful execution | Supported | Not currently supported | 
-| Languages currently supported | C# (isolated process)<br/>Python<br/>TypeScript<br/>JavaScript<br/>Java  | C# (isolated process)<br/>Python<br/>TypeScript<br/>JavaScript<br/>Java |
+| Languages currently supported | C# (isolated process)<br/>Python<br/>TypeScript<br/>JavaScript<br/>Java  | C# (isolated process)<br/>Python<br/>TypeScript<br/>Java |
 | Other requirements | None | Streamable HTTP transport |
 | How implemented | [MCP binding extension] | [Custom handlers](./functions-custom-handlers.md) |
 
@@ -100,7 +100,6 @@ Here are some options to help you get started hosting MCP servers in Functions:
 | ---- | ----- | ----- |
 | Documentation | [MCP binding extension](./functions-bindings-mcp.md?pivots=programming-language-csharp)  | n/a |
 | Samples | [Remote custom MCP server](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) | [Weather server](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet)  |
-| Copilot prompts<br/>(Visual Studio Code)| n/a | [Setup prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet/blob/main/ExistingServer.md)<sup>†</sup>  |
 | Templates | [HelloTool](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/McpToolTrigger-CSharp-Isolated)  | n/a |
 
 ::: zone-end  
@@ -110,7 +109,6 @@ Here are some options to help you get started hosting MCP servers in Functions:
 | ---- | ----- | ----- |
 | Documentation | [MCP binding extensions](./functions-bindings-mcp.md?pivots=programming-language-python)  | n/a |
 | Samples | [Remote custom MCP server](https://github.com/Azure-Samples/remote-mcp-functions-python) | [Weather server](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python)  |
-| Copilot prompts<br/>(Visual Studio Code)| n/a | [Setup prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python/blob/main/ExistingServer.md)<sup>†</sup>  |
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
@@ -119,7 +117,6 @@ Here are some options to help you get started hosting MCP servers in Functions:
 | ---- | ----- | ----- |
 | Documentation | [MCP binding extensions](./functions-bindings-mcp.md?pivots=programming-language-typescript)  | n/a |
 | Samples | [Remote custom MCP server](https://github.com/Azure-Samples/remote-mcp-functions-typescript) | [Weather server](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)  |
-| Copilot prompts<br/>(Visual Studio Code)| n/a | [Setup prompt](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node/blob/main/ExistingServer.md)<sup>†</sup>  |
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
@@ -127,7 +124,7 @@ Here are some options to help you get started hosting MCP servers in Functions:
 | Options  | MCP binding extensions | Self-hosted MCP servers |
 | ---- | ----- | ----- |
 | Documentation | [MCP binding extensions](./functions-bindings-mcp.md?pivots=programming-language-javascript)  | n/a |
-| Samples | n/a | [Weather server](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)  |
+| Samples | Not yet available | n/a |
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
@@ -141,8 +138,6 @@ Here are some options to help you get started hosting MCP servers in Functions:
 ::: zone pivot="programming-language-powershell"  
 PowerShell isn't currently supported for either MCP server hosting option.  
 ::: zone-end  
-
-<sup>†</sup>Currently consider the deployment helper chat prompt _experimental_.
 
 ## Agentic workflows
 
