@@ -12,7 +12,7 @@
       href: iot-hub-faq.md
     - name: Integration with Azure Device Registry (Preview)
       href: iot-hub-device-registry-overview.md
-    - name: certificate management (Preview)
+    - name: Certificate management (Preview)
       items:
         - name: Overview
           href: iot-hub-certificate-management-overview.md
