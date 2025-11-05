@@ -1,5 +1,5 @@
 ---
-title: Github Copilot tooling for app modernization and migration in Azure Container Apps
+title: GitHub Copilot tooling for app modernization and migration in Azure Container Apps
 description: Learn how GitHub Copilot and Azure Container Apps enable modernization of Java and .NET applications using AI-powered workflows.
 author: craigshoemaker
 ms.topic: overview
@@ -8,7 +8,7 @@ ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
-# Github Copilot tooling for app modernization and migration in Azure Container Apps
+# GitHub Copilot tooling for app modernization and migration in Azure Container Apps
 
 GitHub Copilot app modernization tooling streamlines end‑to‑end modernization of existing Java and .NET applications. Analysis includes assessing codebases, planning required upgrades, automating framework and dependency changes, validating builds and tests, and generating deployment assets.
 
