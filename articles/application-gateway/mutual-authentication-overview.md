@@ -36,7 +36,6 @@ In mutual TLS strict mode, Application Gateway enforces client certificate authe
 
 
 ## Details of configuring Mutual TLS Strict Mode 
-will then need
 To configure mutual authentication Strict Mode, a trusted client CA certificate is required to be uploaded as part of the client authentication portion of an SSL profile. The SSL profile then needs to be associated to a listener in order to complete configuration of mutual authentication. There must always be a root CA certificate in the client certificate that you upload. You can upload a certificate chain as well, but the chain must include a root CA certificate in addition to as many intermediate CA certificates as you'd like. The maximum size of each uploaded file must be 25 KB or less.
 
 For example, if your client certificate contains a root CA certificate, multiple intermediate CA certificates, and a leaf certificate, make sure that the root CA certificate and all the intermediate CA certificates are uploaded onto Application Gateway in one file. For more information on how to extract a trusted client CA certificate, see [how to extract trusted client CA certificates](./mutual-authentication-certificate-management.md).
