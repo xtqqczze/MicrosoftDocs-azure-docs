@@ -21,7 +21,7 @@ In this article, you learn how to set up, monitor, and troubleshoot with Azure S
 - An Azure Monitor Log Analytics workspace. To learn how to create a Log Analytics workspace, see [Quickstart: Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
 > [!IMPORTANT]
-> Azure NAT Gateway StandardV2 is currently in PREVIEW.
+> StandardV2 Azure NAT Gateway is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 ## Enable diagnostic settings to collect NAT gateway flow logs

@@ -274,9 +274,11 @@ To create the alert, use the following steps:
 
 ### Alerts for nearing total SNAT connection count limit
 
-Standard NAT gateway and StandardV2 NAT gateway each have a total active connection limit of 2 million connections. \
+Standard NAT gateway and StandardV2 NAT gateway each have a total active connection limit of 2 million connections. 
 
 The recommended guidance is to alert on NAT gateway’s Total SNAT Connection Count when it hits 80% of the total NAT gateway connection count limit, 1.6 million connections. 
+>[!Note]
+> The 80% threshold is a recommended starting point. You can adjust the threshold value based on your NAT gateway usage patterns and connection volume. Depending on the number of public IPs associated to your NAT gateway, and the amount of destination endpoints being reached, you could hit the connection limit sooner than 2 million. NAT gateway supports up to 50,000 connections per public IP address per destination endpoint.
 
 To set up a Total SNAT Connection count alert, follow these steps: 
 
