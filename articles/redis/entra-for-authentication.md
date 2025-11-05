@@ -96,7 +96,7 @@ If your application fails to access to the Azure Managed Redis instance through 
 
 [EntraTokenValidation](https://github.com/AzureManagedRedis/DiagnosticTools/tree/main/EntraTokenValidation)
 
-Use this PowerShell script to validate Microsoft Entra ID tokens for Azure Managed Redis Cache resources. It validates tokens and verifies access policies to help you diagnose authentication issues.
+Use this PowerShell script to validate Microsoft Entra ID tokens for Azure Managed Redis Cache resources. The script validates tokens and verifies access policies to help you diagnose authentication issues.
 
 If you're having trouble using Microsoft Entra ID to authenticate Redis connections, run this script to analyze your Microsoft Entra token and identify any issues.
 
