@@ -537,7 +537,7 @@ items:
         href: ../common/storage-failover-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Performance and scale
     items:
-    - name: Performance optimization checklist
+    - name: Performance checklist
       href: storage-performance-checklist.md
     - name: Optimizing data partitions
       href: Storage-performance-partitioning.md
@@ -1036,8 +1036,8 @@ items:
         href: storage-blob-event-quickstart.md
     - name: Data Movement library (.NET)
       href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Performance optimization
-      href: storage-performance-dev-guide.md
+    - name: Performance checklist for developers
+      href: storage-performance-checklist-developers.md
   - name: Troubleshooting
     href: /troubleshoot/azure/azure-storage/welcome-azure-storage?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Samples
