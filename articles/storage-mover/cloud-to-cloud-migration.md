@@ -322,7 +322,7 @@ $endpoint = Get-AzStorageMoverEndpoint `
 
 # Assign the RBAC role using the principal ID
 New-AzRoleAssignment `
-    -ObjectId $endpoint.IdentityPrincipalId `
+    -ObjectId $endpoint.Identity.PrincipalId `
     -RoleDefinitionName "Storage Blob Data Contributor" `
     -Scope "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/containers/migration-container"
 ```
