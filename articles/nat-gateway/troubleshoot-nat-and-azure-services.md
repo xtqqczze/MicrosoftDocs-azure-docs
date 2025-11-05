@@ -13,7 +13,6 @@ ms.author: alittleton
 # Troubleshoot outbound connectivity with NAT gateway and Azure services 
 
 This article provides guidance on how to troubleshoot connectivity issues when using NAT gateway with other Azure services, including:
-* [Known issues with StandardV2 NAT Gateway and VNet injection scenarios](#known-issues-with-standardv2-nat-gateway-and-vnet-injection-scenarios)
 
 * [Azure App Services](#azure-app-services)
 
@@ -22,8 +21,6 @@ This article provides guidance on how to troubleshoot connectivity issues when u
 * [Azure Firewall](#azure-firewall)
 
 * [Azure Databricks](#azure-databricks)
-
-* [Azure SQL Managed Instance](#azure-sql-managed-instance)
 
 > [!IMPORTANT]
 > Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
