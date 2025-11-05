@@ -14,20 +14,13 @@ ms.date: 10/23/2025
 
 In this quickstart, you deploy an instance of the de-identification service in your Azure subscription using the synchronous endpoint in Python. 
 
-- For **English data**, use the [Python SDK](#using-the-english-model-python).  
-- For **French, Spanish, and German data**, use the [multilingual model](#using-the-multilingual-model-french-spanish-german) with `curl` or PowerShell.
-
 ---
 
 ## Table of contents
 - [Prerequisites](#prerequisites)
 - [Create a resource](#create-a-resource)
 - [Set role-based access control (RBAC)](#set-role-based-access-control-rbac)
-- [Install the package (Python only)](#install-the-package-python-only)
-- [Using the English model (Python)](#using-the-english-model-python)
-- [Using the multilingual model (French, Spanish, German)](#using-the-multilingual-model-french-spanish-german)
-  - [Get an access token](#get-an-access-token)
-  - [Run the multilingual service](#run-the-multilingual-service)
+- [Running the service using the Python SDK](#running-the-service-using-the-python-sdk)
 - [Clean up resources](#clean-up-resources)
 - [Next steps](#next-steps)
 
@@ -85,27 +78,23 @@ Now that the resource is deployed, you need to assign yourself the following per
 
  **Tip:** If you want to use both the synchronous and asynchronous (batch) APIs, you need to also assign yourself the **DeID Batch Data Owner**.
 
-## Using the English model (Python)
+## Running the service using the Python SDK
 
-### Install the package (Python only)
-
-The following steps apply if you're looking to de-identify data in English with the Python SDK.
-Skip to [Using the multilingual model (French, Spanish, German)](#using-the-multilingual-model-french-spanish-german) for non-English data.
-
-Install the Azure Health Deidentification client library for Python. More information is available [here.](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview&preserve-view=true)
+1. Install the Azure Health Deidentification client library for Python. More information is available [here.](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview&preserve-view=true)
 
 ```Bash
 python -m pip install azure-health-deidentification
 ```
 
-## Test the service
+2. Test the service:
 In terminal, [log in to Microsoft Azure.](/cli/azure/authenticate-azure-cli) 
-The code below references the [python SDK for text.](https://github.com/Azure/azure-sdk-for-python/blob/azure-health-deidentification_1.0.0/sdk/healthdataaiservices/azure-health-deidentification/samples/deidentify_text_redact.py) 
+The code below references the [python SDK for text.](https://github.com/Azure/azure-sdk-for-python/blob/azure-health-deidentification_1.0.0/sdk/healthdataaiservices/azure-health-deidentification/samples/deidentify_text_redact.py)
 
-To use it, create a python file called "deidentify_text_redact.py" and paste the following code in. Run "python deidentify_text_redact.py".
+2.a. To use it, create a python file called "deidentify_text_redact.py" and paste the following code in. Run "python deidentify_text_redact.py".
 
-Be sure to replace `AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT` with the URL you noted when creating a resource. 
-You can also change the operation type between `REDACT`, `TAG`, or `SURROGATE`.
+2.b. Be sure to replace `AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT` with the URL you noted when creating a resource. 
+
+2.c. You can also change the operation type between `REDACT`, `TAG`, or `SURROGATE`. You can change the languale-locale pair to [other languages supported](languages-supported.md) by the service. 
 
 ```python
 
@@ -119,32 +108,37 @@ DESCRIPTION:
 USAGE:
     python deidentify_text_redact.py
 
-    Set the environment variables with your own values before running the sample:
-    1) AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT - the service URL endpoint for a de-identification service.
+    Set the `AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT` with your service's URL.
 """
-
 
 from azure.health.deidentification import DeidentificationClient
 from azure.health.deidentification.models import (
     DeidentificationContent,
     DeidentificationOperationType,
     DeidentificationResult,
+    DeidentificationCustomizationOptions,
 )
 from azure.identity import DefaultAzureCredential
 
 
 def deidentify_text_redact():
-    endpoint = AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT
+    endpoint = "<YOUR SERVICE'S URL>"
     credential = DefaultAzureCredential()
     client = DeidentificationClient(endpoint, credential)
 
-    # [START redact]
+    locale = "en-US"  # e.g., "fr-FR", "es-US", etc
+    customizations = DeidentificationCustomizationOptions(surrogate_locale=locale)
+
     body = DeidentificationContent(
-        input_text="It's great to work at Contoso.", operation_type=DeidentificationOperationType.SURROGATE
+        input_text="It's great to work at Contoso.",
+        operation_type=DeidentificationOperationType.SURROGATE,
+        customizations=customizations,
     )
+
     result: DeidentificationResult = client.deidentify_text(body)
-    print(f'\nOriginal Text:        "{body.input_text}"')
-    print(f'Redacted Text:   "{result.output_text}"')  # Redacted output: "It's great to work at [organization]."
+    print(f'\nOriginal Text:  "{body.input_text}"')
+    print(f'Locale:         {locale}')
+    print(f'Redacted Text:  "{result.output_text}"')
     # [END redact]
 
 
@@ -158,101 +152,6 @@ if __name__ == "__main__":
    | Input        | Output          |
    |----------------|---------|
    | Kimberly Brown is a 34 y.o. female presenting with bilateral eye discomfort. Last seen by her PCP 2/6/2025 Dr. Orlo at Contoso Clinics Downtown Bellevue PCP.           | Britt Macdonough is a 34 y.o. female presenting with bilateral eye discomfort. Last seen by her PCP 1/18/2025 Dr. Defiore at Cardston Hospital PCP.          |
-
-## Using the multilingual model (French, Spanish, German)
-
-The following steps apply if you're looking to de-identify data in French, Spanish, and German using curl or PowerShell.
-
-**Note:** SDKs for multilingual support aren't yet available. Use REST API calls with cURL or PowerShell instead.
-
-### Get an access token
-
-1. To get your token 
-
-```Bash
-az login
-az account get-access-token --scope https://deid.azure.com/.default --query accessToken -o tsv
-```
-
-2. To save your token
-
-```Bash
-echo "<token>" > token.txt
-```
-### Run the multilingual service
-
-You can use one of two methods:
-
-#### PowerShell script 
-
-1. Using PowerShell in terminal, run the file  
-
-```Bash
-DemoDeidentificationService.ps1 
-``` 
-
-2. Edit the text in the line ~121 by inserting the text you want to de-identify.  
-
-3. In terminal, run:  
-
-```Bash
-pwsh DemoDeidentificationService.ps1
-```
-
-#### cURL command 
-
-These examples cover the TAG, REDACT, and SURROGATE operations. To set the language in which the de-identification service needs to operate, set the following line [based on the list of supported language-locale pairs](languages-supported.md)
-
-Example:
-```Bash
-"InputLocale": "fr-CA"
-```
-
-**Note:** Replace `<your-service-url>` with your service URL and `token` with your access token in these examples.
-
-**TAG**
-```Bash
-curl -X POST \
-  -H "Authorization: Bearer $(<token.txt)" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "Operation": "tag",
-    "InputText": "Julie Tremblay a été consultée par Dr. Marc Lavoie  à l'Hôpital de la Cité-des-Prairies le 10 Janvier.",
-    "customizations": {
-      "InputLocale": "fr-CA"
-    }
-  }' \
-  https://<your-service-url>/deid?api-version=2024-12-15-preview
-```
-**REDACT**
-```Bash
-curl -X POST \
-  -H "Authorization: Bearer $(<token.txt)" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "Operation": "redact",
-    "InputText": "María Gómez fue ingresada para una cirugía el 29 de octubre.",
-    "customizations": {
-      "InputLocale": "es-US"
-    }
-  }' \
-  https://<your-service-url>/deid?api-version=2024-12-15-preview
-```
-
-**SURROGATE**
-```Bash
-curl -X POST \
-  -H "Authorization: Bearer $(<token.txt)" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "Operation": "surrogate",
-    "InputText": "Sein letzter Termin war bei Doktor Hibbert",
-    "customizations": {
-      "SurrogateLocale": "de-DE"
-    }
-  }' \
-  https://<your-service-url>/deid?api-version=2024-12-15-preview
-```
 
 ## Clean up resources
 
