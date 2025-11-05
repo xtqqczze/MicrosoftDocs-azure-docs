@@ -27,12 +27,12 @@ The following functions are available only in aggregate, pivot, unpivot, and win
 | [approxDistinctCount](data-flow-expressions-usage.md#approxDistinctCount) | Gets the approximate aggregate count of distinct values for a column. The optional second parameter is to control the estimation error.|
 | [avg](data-flow-expressions-usage.md#avg) | Gets the average of values of a column.  |
 | [avgIf](data-flow-expressions-usage.md#avgIf) | Gets the average of values of a column, based on criteria.  |
-| [collect](data-flow-expressions-usage.md#collect) | Collects all values of the expression in the aggregated group into an array. Structures can be collected and transformed to alternate structures during this process. The number of items is equal to the number of rows in that group and can contain null values. The number of collected items should be small.  |
-| [collectUnique](data-flow-expressions-usage.md#collectUnique) | Collects all values of the expression in the aggregated group into a unique array. Structures can be collected and transformed to alternate structures during this process. The number of items is smaller or equal to the number of rows in that group and can contain null values. The number of collected items should be small. |
+| [collect](data-flow-expressions-usage.md#collect) | Collects all values of the expression in the aggregated group into an array. During this process, you can collect and transform structures to alternate structures. The number of items is equal to the number of rows in that group and can contain null values. The number of collected items should be small.  |
+| [collectUnique](data-flow-expressions-usage.md#collectUnique) | Collects all values of the expression in the aggregated group into a unique array. During this process, you can collect and transform structures to alternate structures. The number of items is smaller or equal to the number of rows in that group and can contain null values. The number of collected items should be small. |
 | [count](data-flow-expressions-usage.md#count) | Gets the aggregate count of values. If the optional columns are specified, it ignores `NULL` values in the count.  |
-| [countAll](data-flow-expressions-usage.md#countAll) | Gets the aggregate count of values including `NULL` values.  |
+| [countAll](data-flow-expressions-usage.md#countAll) | Gets the aggregate count of values, including `NULL` values.  |
 | [countDistinct](data-flow-expressions-usage.md#countDistinct) | Gets the aggregate count of distinct values of a set of columns.  |
-| [countAllDistinct](data-flow-expressions-usage.md#countAllDistinct) | Gets the aggregate count of distinct values of a set of columns including `NULL` values.  |
+| [countAllDistinct](data-flow-expressions-usage.md#countAllDistinct) | Gets the aggregate count of distinct values of a set of columns, including `NULL` values.  |
 | [countIf](data-flow-expressions-usage.md#countIf) | Gets the aggregate count of values, based on criteria. If the optional column is specified, it ignores `NULL` values in the count.  |
 | [covariancePopulation](data-flow-expressions-usage.md#covariancePopulation) | Gets the population covariance between two columns.  |
 | [covariancePopulationIf](data-flow-expressions-usage.md#covariancePopulationIf) | Gets the population covariance of two columns, based on criteria.  |

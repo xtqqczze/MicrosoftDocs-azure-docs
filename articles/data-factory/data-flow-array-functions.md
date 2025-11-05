@@ -29,7 +29,7 @@ Array functions perform transformations on data structures that are arrays. Spec
 | Array function | Task |
 |----|----|
 | [array](data-flow-expressions-usage.md#array) | Creates an array of items. All items should be of the same type. If no items are specified, an empty string array is the default. Same as a [] creation operator.  |
-| [at](data-flow-expressions-usage.md#at) | Finds the element at an array index. The index is 1 based. Out-of-bounds index results in a null value. Finds a value in a map given a key. If the key isn't found, it returns null.|
+| [at](data-flow-expressions-usage.md#at) | Finds the element at an array index. The index is 1 based. Out-of-bounds index results in a null value. Finds a value in a map when given a key. If the key isn't found, it returns null.|
 | [contains](data-flow-expressions-usage.md#contains) | Returns true if any element in the provided array evaluates as true in the provided predicate. The `contains` function expects a reference to one element in the predicate function as `#item`.  |
 | [distinct](data-flow-expressions-usage.md#distinct) | Returns a distinct set of items from an array.|
 | [except](data-flow-expressions-usage.md#except) | Returns a difference set of one array from another dropping duplicates.|

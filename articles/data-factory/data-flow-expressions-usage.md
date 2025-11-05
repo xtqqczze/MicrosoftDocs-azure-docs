@@ -617,7 +617,7 @@ ___
 
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Gets the current date when this job starts to run. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone of the data factory's data center/region is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
+Gets the current date when this job starts to run. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, or `America/Cayman`. The local time zone of the data factory's data center/region is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``currentDate() == toDate('2250-12-31') -> false``  
 * ``currentDate('PST')  == toDate('2250-12-31') -> false``  
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``  
@@ -637,7 +637,7 @@ ___
 
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Gets the current time stamp as UTC. If you want your current time to be interpreted in a different time zone than your cluster time zone, you can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. It defaults to the current time zone. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. To convert the UTC time to a different time zone, use `fromUTC()`. 
+Gets the current time stamp as UTC. If you want your current time to be interpreted in a different time zone than your cluster time zone, you can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, or `America/Cayman`. It defaults to the current time zone. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. To convert the UTC time to a different time zone, use `fromUTC()`. 
 * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``  
 * ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
@@ -924,7 +924,7 @@ ___
 
 ### <code>fromUTC</code>
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts to the time stamp from UTC. You can optionally pass the time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. It defaults to the current time zone. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
+Converts to the time stamp from UTC. You can optionally pass the time zone in the form of `GMT`, `PST`, `UTC`, or `America/Cayman`. It defaults to the current time zone. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``fromUTC(currentTimestamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``fromUTC(currentTimestamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
@@ -1008,7 +1008,7 @@ ___
 
 ### <code>hour</code>
 <code><b>hour(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the hour value of a time stamp. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
+Gets the hour value of a time stamp. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, or `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``  
 * ``hour(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 12``  
 ___
@@ -1272,7 +1272,7 @@ ___
 
 ### <code>isTimestamp</code>
 <code><b>isTimestamp (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
-Checks if the input date string is a time stamp by using an optional input time stamp format. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. If the time stamp is omitted, the default pattern ``yyyy-[M]M-[d]d hh:mm:ss[.f...]`` is used. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The `timestamp` function supports up to millisecond accuracy with a value of `999`. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats.
+Checks if the input date string is a time stamp by using an optional input time stamp format. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. If the time stamp is omitted, the default pattern ``yyyy-[M]M-[d]d hh:mm:ss[.f...]`` is used. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, or `America/Cayman`. The `timestamp` function supports up to millisecond accuracy with a value of `999`. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats.
 * ``isTimestamp('2016-12-31 00:12:00') -> true``
 * ``isTimestamp('2016-12-31T00:12:00' -> 'yyyy-MM-dd\\'T\\'HH:mm:ss' -> 'PST') -> true``
 * ``isTimestamp('2012-8222.18') -> false``
@@ -1612,7 +1612,7 @@ ___
 
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the millisecond value of a date. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
+Gets the millisecond value of a date. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, or `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
 ___
 
@@ -1662,7 +1662,7 @@ ___
 
 ### <code>minute</code>
 <code><b>minute(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the minute value of a time stamp. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
+Gets the minute value of a time stamp. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, or `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58``  
 * ``minute(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 58``  
 ___
@@ -1709,7 +1709,7 @@ ___
 
 ### <code>monthsBetween</code>
 <code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;roundoff&gt;</i> : boolean], [<i>&lt;time zone&gt;</i> : string]) => double</b></code><br/><br/>
-Gets the number of months between two dates. You can round off the calculation. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
+Gets the number of months between two dates. You can round off the calculation. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, or `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``  
 ___
 
@@ -2046,7 +2046,7 @@ ___
 
 ### <code>second</code>
 <code><b>second(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the second value of a date. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
+Gets the second value of a date. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, or `America/Cayman`. The local time zone is used as the default. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59``  
 ___
 
@@ -2502,7 +2502,7 @@ Converts a primitive data type to a string. You can specify a format for numbers
 
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts a string to a time stamp when given an optional time-stamp format. If the time stamp is omitted, the default pattern `yyyy-[M]M-[d]d hh:mm:ss[.f...]` is used. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. The `timestamp` function supports up to millisecond accuracy with a value of `999`. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
+Converts a string to a time stamp when given an optional time-stamp format. If the time stamp is omitted, the default pattern `yyyy-[M]M-[d]d hh:mm:ss[.f...]` is used. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, or `America/Cayman`. The `timestamp` function supports up to millisecond accuracy with a value of `999`. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
@@ -2514,7 +2514,7 @@ ___
 
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts the time stamp to UTC. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, and `America/Cayman`. It defaults to the current time zone. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
+Converts the time stamp to UTC. You can pass an optional time zone in the form of `GMT`, `PST`, `UTC`, or `America/Cayman`. It defaults to the current time zone. Refer to Java's [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) class for available formats. 
 * ``toUTC(currentTimestamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``toUTC(currentTimestamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 

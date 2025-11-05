@@ -100,7 +100,7 @@ In Azure Data Factory and Azure Synapse Analytics pipelines, use the expression 
 | [multiply](data-flow-expressions-usage.md#multiply) | Multiplies a pair of numbers. Same as the `*` operator.  |
 | [negate](data-flow-expressions-usage.md#negate) | Negates a number. Turns positive numbers to negative and vice versa.  |
 | [nextSequence](data-flow-expressions-usage.md#nextSequence) | Returns the next unique sequence. The number is consecutive only within a partition and is prefixed by the partition ID.  |
-| [normalize](data-flow-expressions-usage.md#normalize) | Normalizes the string value to separate accented unicode characters.  |
+| [normalize](data-flow-expressions-usage.md#normalize) | Normalizes the string value to separate accented Unicode characters.  |
 | [not](data-flow-expressions-usage.md#not) | Uses the logical negation operator.  |
 | [notEquals](data-flow-expressions-usage.md#notEquals) | Uses the comparison not equals operator. Same as the `!=` operator.  |
 | [null](data-flow-expressions-usage.md#null) | Returns a `NULL` value. Use the function `syntax(null())` if there's a column named `null`. Any operation that uses it results in a `NULL`.  |
