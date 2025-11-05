@@ -1,10 +1,11 @@
 ---
-title: VMware VM multi-tenant disaster recovery with Azure Site Recovery 
+title: VMware VM multi-tenant disaster recovery with Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: Provides an overview of Azure Site Recovery support for VMware disaster recovery to Azure in a multi-tenant environment (CSP) program.
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 09/06/2024
+ms.date: 11/05/2025
 ms.author: v-gajeronika
 
 # Customer intent: "As a cloud service provider, I want to implement multi-tenant disaster recovery for VMware VMs to Azure, so that I can ensure tenant isolation and efficient resource management while providing reliable failover and failback support."
@@ -33,7 +34,7 @@ The basic requirement in a multi-tenant scenario is that tenants must be isolate
 
 The architecture is shown in the following diagram.
 
-![Shared HSP with one vCenter](./media/vmware-azure-multi-tenant-overview/shared-hosting-scenario.png)  
+:::image type="content" source="./media/vmware-azure-multi-tenant-overview/shared-hosting-scenario.png" alt-text="Screenshot of shared HSP with one vCenter.":::
 
 **Shared-hosting with one vCenter server**
 
@@ -61,7 +62,7 @@ Configure the configuration server with an account that has a special role assig
 
 - The role assignment must be applied to the vCenter access account for each vCenter object, and not propagated to the child objects. This configuration ensures tenant isolation, because access propagation can result in accidental access to other objects.
 
-    ![The Propagate to Child Objects option](./media/vmware-azure-multi-tenant-overview/assign-permissions-without-propagation.png)
+    :::image type="content" source="./media/vmware-azure-multi-tenant-overview/assign-permissions-without-propagation.png" alt-text="Screenshot of  the Propagate to Child Objects option.":::
 
 - The alternative approach is to assign the user account and role at the datacenter object, and propagate them to the child objects. Then give the account a **No access** role for every object (such as VMs that belong to other tenants) that should be inaccessible to a particular tenant. This configuration is cumbersome. It exposes accidental access controls, because every new child object is also automatically granted access that's inherited from the parent. Therefore, we recommend that you use the first approach.
 
@@ -80,19 +81,19 @@ Configure the configuration server with an account that has a special role assig
    * **VM - Provisioning** > Allow virtual machine download, Allow virtual machine files upload
    * **VM - Snapshot management** > Remove snapshots
 
-       ![The Edit Role dialog box](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+       :::image type="content" source="./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png" alt-text="Screenshot of the Edit Role dialog box.":::
 
 3. Assign access levels to the vCenter account (used in the tenant configuration server) for various objects, as follows:
 
->| Object | Role | Remarks |
->| --- | --- | --- |
->| vCenter | Read-Only | Needed only to allow vCenter access for managing different objects. You can remove this permission if the account is never going to be provided to a tenant or used for any management operations on the vCenter. |
->| Datacenter | Azure_Site_Recovery |  |
->| Host and host cluster | Azure_Site_Recovery | Re-ensures that access is at the object level, so that only accessible hosts have tenant VMs before failover and after failback. |
->| Datastore and datastore cluster | Azure_Site_Recovery | Same as preceding. |
->| Network | Azure_Site_Recovery |  |
->| Management server | Azure_Site_Recovery | Includes access to all components (CS, PS, and MT) outside the CS machine. |
->| Tenant VMs | Azure_Site_Recovery | Ensures that any new tenant VMs of a particular tenant also get this access, or they will not be discoverable through the Azure portal. |
+| Object | Role | Remarks |
+| --- | --- | --- |
+| vCenter | Read-Only | Needed only to allow vCenter access for managing different objects. You can remove this permission if the account is never going to be provided to a tenant or used for any management operations on the vCenter. |
+| Datacenter | Azure_Site_Recovery |  |
+| Host and host cluster | Azure_Site_Recovery | Re-ensures that access is at the object level, so that only accessible hosts have tenant VMs before failover and after failback. |
+| Datastore and datastore cluster | Azure_Site_Recovery | Same as preceding. |
+| Network | Azure_Site_Recovery |  |
+| Management server | Azure_Site_Recovery | Includes access to all components (CS, PS, and MT) outside the CS machine. |
+| Tenant VMs | Azure_Site_Recovery | Ensures that any new tenant VMs of a particular tenant also get this access, or they will not be discoverable through the Azure portal. |
 
 The vCenter account access is now complete. This step fulfills the minimum permissions requirement to complete failback operations. You can also use these access permissions with your existing policies. Just modify your existing permissions set to include role permissions from step 2, detailed previously.
 
@@ -109,7 +110,7 @@ To restrict disaster recovery operations up until failover only (that is, withou
 3. Register the CS for the tenant by using the vault registration key.
 4. Enter the credentials for the two access accounts, the account to access the vCenter server, and the account to access the VM.
 
-	![Manager configuration server accounts](./media/vmware-azure-multi-tenant-overview/config-server-account-display.png)
+	:::image type="content" source="./media/vmware-azure-multi-tenant-overview/config-server-account-display.png" alt-text="Screenshot of Manager configuration server accounts.":::
 
 ### Register servers in the vault
 
@@ -121,14 +122,14 @@ To restrict disaster recovery operations up until failover only (that is, withou
 
 As shown in the following diagram, the architectural difference in a dedicated hosting solution is that each tenant’s infrastructure is set up for that tenant only.
 
-![Diagram that shows the architectural difference in a dedicated hosting solution is that each tenant’s infrastructure is set up for that tenant only.](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
+:::image type="content" source="./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png" alt-text="Diagram that shows the architectural difference in a dedicated hosting solution is that each tenant’s infrastructure is set up for that tenant only.":::
 **Dedicated hosting scenario with multiple vCenters**
 
 ## Managed service solution
 
 As shown in the following diagram, the architectural difference in a managed service solution is that each tenant’s infrastructure is also physically separate from other tenants' infrastructure. This scenario usually exists when the tenant owns the infrastructure and wants a solution provider to manage disaster recovery.
 
-![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
+:::image type="content" source="./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png" alt-text="Diagram of architecture shared hsp.":::
 **Managed service scenario with multiple vCenters**
 
 ## Next steps
