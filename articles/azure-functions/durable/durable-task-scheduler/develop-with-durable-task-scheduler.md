@@ -79,6 +79,8 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
 
 1. Using the `durabletask` CLI extension, create a scheduler.
 
+   #### [Dedicated SKU](#tab/dedicated)
+
     ```azurecli
     az durabletask scheduler create --name "YOUR_SCHEDULER" --resource-group "YOUR_RESOURCE_GROUP" --location "LOCATION" --ip-allowlist "[0.0.0.0/0]" --sku-name "dedicated" --sku-capacity "1"
     ```
@@ -116,6 +118,49 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
         "tags": {}
     }
     ```
+
+   #### [Consumption SKU](#tab/consumption)
+
+   > [!NOTE]
+   > The Consumption SKU is currently in preview. [Learn more about the SKU and orchestration framework combinations recommended for production use.](./choose-orchestration-framework.md#orchestration-framework-options)
+
+    ```azurecli
+    az durabletask scheduler create --name "YOUR_SCHEDULER" --resource-group "YOUR_RESOURCE_GROUP" --location "LOCATION" --ip-allowlist "[0.0.0.0/0]" --sku-name "consumption"
+    ```
+
+    The creation process may take up to 15 minutes to complete.
+
+    *Output*
+
+    ```json
+    {
+        "id": "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/YOUR_RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/YOUR_SCHEDULER",
+        "location": "northcentralus",
+        "name": "YOUR_SCHEDULER",
+        "properties": {
+            "endpoint": "https://YOUR_SCHEDULER.northcentralus.durabletask.io",
+            "ipAllowlist": [
+                "0.0.0.0/0"
+            ],
+            "provisioningState": "Succeeded",
+            "sku": {
+                "name": "Consumption",
+                "redundancyState": "None"
+            }
+        },
+        "resourceGroup": "YOUR_RESOURCE_GROUP",
+        "systemData": {
+            "createdAt": "2025-01-06T21:22:59Z",
+            "createdBy": "YOUR_EMAIL@example.com",
+            "createdByType": "User",
+            "lastModifiedAt": "2025-01-06T21:22:59Z",
+            "lastModifiedBy": "YOUR_EMAIL@example.com",
+            "lastModifiedByType": "User"
+        },
+        "tags": {}
+    }
+    ```
+    ---
 
 1. Create a task hub.
 
