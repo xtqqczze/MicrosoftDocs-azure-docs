@@ -20,7 +20,7 @@ In this quickstart, learn how to create a Standard V2 Azure NAT Gateway by using
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE]
-> Azure CLI is currently unavailable. Use the Azure portal or Azure PowerShell to create a Standard V2 NAT Gateway.
+> Terraform is currently unavailable. Use the Azure preview portal, CLI, or Azure PowerShell to create a Standard V2 NAT Gateway.
 
 ## Prerequisites
 
@@ -46,7 +46,9 @@ Create a resource group to contain all resources for this quickstart.
 
 ### [Portal](#tab/portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure preview portal](https://preview.portal.azure.com).
+> [!NOTE]
+>  StandardV2 SKU NAT Gateway can be deployed through the Azure preview portal only at this time.
 
 1. In the search box at the top of the portal enter **Resource group**. Select **Resource groups** in the search results.
 

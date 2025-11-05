@@ -13,7 +13,6 @@ ms.author: alittleton
 # Troubleshoot outbound connectivity with NAT gateway and Azure services 
 
 This article provides guidance on how to troubleshoot connectivity issues when using NAT gateway with other Azure services, including:
-* [Known issues with StandardV2 NAT Gateway and VNet injection scenarios](#known-issues-with-standardv2-nat-gateway-and-vnet-injection-scenarios)
 
 * [Azure App Services](#azure-app-services)
 
@@ -23,18 +22,23 @@ This article provides guidance on how to troubleshoot connectivity issues when u
 
 * [Azure Databricks](#azure-databricks)
 
-* [Azure SQL Managed Instance](#azure-sql-managed-instance)
-
 > [!IMPORTANT]
 > Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Known issues with StandardV2 NAT Gateway and VNet injection scenarios
+## Known limitations with StandardV2 NAT Gateway and VNet injection scenarios
 
-StandardV2 NAT Gateway breaks outbound connectivity in VNet injection scenarios used by certain Azure services. For these scenarios, Standard NAT Gateway should be used instead. StandardV2 NAT Gateway is not supported to provide outbound connectivity for these services:
-  * Azure Container Instances
-  * Azure Stream Analytics
-  * Azure Web Apps
+* StandardV2 NAT Gateway doesn't support and can't be attached to delegated subnets for the following services: 
+    * Azure SQL Managed Instance 
+    * Azure Container Instances 
+    * Azure Database for PostgreSQL - Flexible Server 
+    * Azure Database for MySQL - Flexible Server 
+    * Azure Database for MySQL  
+    * Azure Data Factory - Data Movement 
+    * Microsoft Power Platform services 
+    * Azure Stream Analytics 
+    * Azure Web Apps 
+    * Azure DNS Private Resolver 
 
 ## Azure App Services 
 
@@ -157,12 +161,6 @@ NAT gateway can be used to connect outbound from your databricks cluster when yo
 * When you enable [Secure Cluster Connectivity (No Public IP)](/azure/databricks/security/secure-cluster-connectivity#use-secure-cluster-connectivity) on the default virtual network that Azure Databricks creates, Azure Databricks automatically deploys a NAT gateway to connect outbound from your workspace's subnets to the internet. Azure Databricks creates this NAT gateway resource within the managed resource group and you can't modify this resource group or any other resources deployed in it.
 
 * After you deploy Azure Databricks workspace in your own virtual network (via [virtual network injection](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)), you can deploy and configure NAT gateway to both of your workspace’s subnets to ensure outbound connectivity through the NAT gateway. You can implement this solution using an [Azure template](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#advanced-configuration-using-azure-resource-manager-templates) or in the portal. 
-
-## Azure SQL Managed Instance
-
-### NAT gateway can't be attached to the subnet used for Azure SQL Managed Instance
-
-NAT gateway can’t be deployed to a subnet that contains SQL managed instances. NAT gateway attachment isn't supported. StandardV2 NAT Gateway associated with a source virtual network doesn't provide outbound connectivity for subnets containing SQL Managed Instances.
 
 ## Next steps
 

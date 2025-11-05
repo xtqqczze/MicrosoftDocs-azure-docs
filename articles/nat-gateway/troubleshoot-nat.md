@@ -6,7 +6,7 @@ services: virtual-network
 author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: troubleshooting
-ms.date: 09/08/2025
+ms.date: 11/04/2025
 ms.author: alittleton
 ms.customs: references_regions
 # Customer intent: "As a network engineer, I want to troubleshoot configuration and connectivity issues with the NAT gateway, so that I can ensure reliable outbound internet access for my virtual network resources."
@@ -58,12 +58,9 @@ StandardV2 NAT Gateway isn't available in the following Azure regions:
 * Chile Central
 * Indonesia Central
 * Israel Northwest
-* Jio India West
 * Malaysia West
 * Qatar Central
-* Sweden South
 * UAE Central
-* West India
 
 ### How to validate connectivity
 
@@ -88,7 +85,7 @@ Refer to the following table for tools to use to validate NAT gateway connectivi
 
 ### How to analyze outbound connectivity
 
-To analyze outbound traffic from NAT gateway, use virtual network (VNet) flow logs. VNet flow logs provide connection information for your virtual machines. The connection information contains the source IP and port and the destination IP and port and the state of the connection. The traffic flow direction and the size of the traffic in number of packets and bytes sent is also logged. The source IP and port specified in the VNet flow log is for the virtual machine and not the NAT gateway.
+To analyze outbound traffic from Standard NAT gateway, use virtual network (VNet) flow logs. VNet flow logs provide connection information for your virtual machines. The connection information contains the source IP and port and the destination IP and port and the state of the connection. The traffic flow direction and the size of the traffic in number of packets and bytes sent is also logged. The source IP and port specified in the VNet flow log is for the virtual machine and not the NAT gateway.
 
 * To learn more about VNet flow logs, see [Virtual network flow logs overview](../network-watcher/vnet-flow-logs-overview.md).
 
@@ -97,6 +94,8 @@ To analyze outbound traffic from NAT gateway, use virtual network (VNet) flow lo
 * It's recommended to access the log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 * For more information on the VNet flow log schema, see [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md).
+
+StandardV2 NAT Gateway supports NAT gateway flow logs through Azure Monitor. NAT gateway flow logs provide visibility into the traffic flowing through the NAT Gateway. For more information, see [Analyze NAT Gateway traffic with flow logs](./nat-gateway-flow-logs.md).
 
 ## NAT gateway in a failed state
 
@@ -112,9 +111,12 @@ You can experience outbound connectivity failure if your NAT gateway resource is
 
 1. You can then proceed with other actions as the resource is out of failed state. 
 
-## Virtual network or subnet in a failed state with StandardV2 NAT gateway
+## Virtual network or NAT gateway in a failed state with StandardV2 NAT gateway
 
-Associating a StandardV2 NAT Gateway to an empty virtual network or subnet without any virtual machines may cause the virtual network or subnet to go into a failed state. To return the virtual network to a succeeded state, create a virtual machine in the subnet or virtual network that the StandardV2 NAT gateway is attached.
+Associating a StandardV2 NAT Gateway to an empty subnet or virtual network that was created before April 2025 and that doesn't contain any virtual machines may cause either the virtual network or the NAT gateway to go into a failed state. To resolve the issue, follow these steps:
+1. Remove the StandardV2 NAT gateway from the subnet or virtual network.
+1. Create a virtual machine in the subnet.
+1. Reattach the StandardV2 NAT gateway to the subnet or virtual network.
 
 ## Add or remove NAT gateway 
 
@@ -141,10 +143,6 @@ NAT gateway isn't compatible with basic resources, such as Basic Load Balancer o
 ### NAT gateway can't be attached to a gateway subnet
 
 NAT gateway can't be deployed in a gateway subnet. A gateway subnet is used by a VPN gateway for sending encrypted traffic between an Azure virtual network and on-premises location. See [VPN gateway overview](../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used by VPN gateway. To use a NAT gateway, attach it to any other subnet within the same virtual network.
-
-### NAT gateway can't be attached to a subnet containing SQL managed instances
-
-NAT gateway can't be deployed to a subnet that contains SQL managed instances. NAT gateway attachment isn't supported.
 
 ### Can't attach NAT gateway to a subnet that contains a virtual machine network interface in a failed state
 
@@ -218,9 +216,6 @@ The following IP prefix sizes can be used with NAT gateway:
 
 Standard SKU [NAT gateway](nat-overview.md) supports IPv4 UDP and TCP protocols. Standard SKU NAT gateway can't be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. 
 
-> [!IMPORTANT]
-> StandardV2 NAT Gateway support for IPv6 public IPs is in public preview in select Azure regions. For more information, see [NAT Gateway SKUs](nat-sku.md).
-
 ### Can't add Standard SKU public IPs to StandardV2 SKU NAT Gateway
 Standard SKU public IPs aren't supported with StandardV2 SKU NAT Gateway. Only StandardV2 SKU public IPs can be added to StandardV2 NAT Gateway.  
 
@@ -265,9 +260,9 @@ NAT gateway doesn't support public IP addresses with DDoS protection enabled. DD
 
 ### Virtual machine NICs still have default outbound IPs despite NAT gateway is present
 
-There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound IP is allocated to a virtual machine or virtual machine scale set instance. 
+There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if a default outbound IP is allocated to a virtual machine or virtual machine scale set instance.
 
-In some cases, a default outbound IP is still assigned to virtual machines in a nonprivate subnet, even when an explicit outbound method—such as a NAT Gateway or a UDR directing traffic to an NVA/firewall—is configured. Default outbound IPs aren't used for egress unless those explicit methods are removed. Remove the default outbound IPs by making the subnet private and perform a stop and deallocate on the virtual machines.
+In some cases, a default outbound IP is still assigned to virtual machines in a non-private subnet, even when an explicit outbound method—such as a NAT Gateway or a UDR directing traffic to an NVA/firewall—is configured. Default outbound IPs aren't used for egress unless those explicit methods are removed. Remove the default outbound IPs by making the subnet private and perform a stop and deallocate on the virtual machines.
 
 ## More troubleshooting guidance
 

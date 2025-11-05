@@ -36,8 +36,6 @@ You observe a drop in the datapath availability of NAT gateway, which coincides 
   
 * Removal of public IP addresses or subnets from NAT Gateway.
 
-* StandardV2 NAT gateway deployed in a VNet injection scenario with certain Azure services.
-
 **Troubleshoot steps**
 
 * Assess the health of the NAT gateway by checking the [datapath availability metric](/azure/nat-gateway/nat-metrics#datapath-availability). 
@@ -51,11 +49,6 @@ You observe a drop in the datapath availability of NAT gateway, which coincides 
 * Adjust the [Transmission Control Protocol (TCP) idle timeout timer](./nat-gateway-resource.md#tcp-idle-timeout) settings as needed. An idle timeout timer set higher than the default (4 minutes) holds on to flows longer, and can create [extra pressure on SNAT port inventory](./nat-gateway-resource.md#timers).
   
 * Check NAT Gateway public IP and subnet configurations and if any public IPs or subnets have been removed from the NAT Gateway recently.
-
-* StandardV2 NAT Gateway breaks outbound connectivity in VNet injection scenarios used by certain Azure services. For these scenarios, Standard NAT Gateway should be used instead. StandardV2 NAT Gateway is not supported to provide outbound connectivity for these services:
-  * Azure Container Instances
-  * Azure Stream Analytics
-  * Azure Web Apps
 
 ### Possible solutions for SNAT port exhaustion or hitting simultaneous connection limits
 
@@ -94,9 +87,6 @@ Any active connections associated with a public IP address terminate when the pu
 
 When the source virtual network is removed from the StandardV2 NAT Gateway, all subnets in the virtual network will see a disruption in outbound connectivity. 
 
-### Solution for VNet injection scenarios
-For VNet injection scenarios with Azure Container Instances, Azure Stream Analytics, or Azure Web Apps, use Standard NAT Gateway instead of StandardV2 NAT Gateway to provide outbound connectivity.
-
 ## Datapath availability drop on NAT gateway but no connection failures
 
 **Scenario**
@@ -133,15 +123,10 @@ You observe no outbound connectivity on your NAT gateway.
 
 * Domain Name System (DNS) misconfiguration.
 
-* StandardV2 NAT gateway deployed in a VNet injection scenario with certain Azure services.
-
 **Troubleshooting steps**
 
 * Check that NAT gateway is configured with at least one public IP address or prefix and attached to a subnet. NAT gateway isn't operational until a public IP and subnet are attached. For more information, see [NAT gateway configuration basics](/azure/nat-gateway/troubleshoot-nat#nat-gateway-configuration-basics).
 
-* Check if StandardV2 NAT Gateway is configured with a source virtual network and the virtual network contains a Bastion subnet. StandardV2 NAT Gateway causes disruption for Bastion connectivity when associated with a source virtual network. If you're using Bastion to access your virtual machines, attach StandardV2 NAT Gateway directly to subnets instead.
-
-* Check if StandardV2 NAT Gateway has been associated with an empty virtual network or subnet without any virtual machines. Create a virtual machine in the subnet or virtual network that the StandardV2 NAT gateway is attached to return the virtual network to a successful state.
 
 * Check the routing table of the subnet attached to NAT gateway. Any 0.0.0.0/0 traffic being force-tunneled to a Network Virtual Appliance (NVA), ExpressRoute, or VPN Gateway will take priority over NAT gateway. For more information, see [how Azure selects a route](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route).
 
@@ -151,20 +136,11 @@ You observe no outbound connectivity on your NAT gateway.
 
 * Check your DNS settings if DNS isn't resolving properly.
 
-* StandardV2 NAT Gateway breaks outbound connectivity in VNet injection scenarios used by certain Azure services. For these scenarios, Standard NAT Gateway should be used instead. StandardV2 NAT Gateway is not supported to provide outbound connectivity for these services:
-  * Azure Container Instances
-  * Azure Stream Analytics
-  * Azure Web Apps
-
 ### Possible solutions for loss of outbound connectivity due to misconfiguration on NAT gateway
 
 * Attach a public IP address or prefix to NAT gateway. Also make sure that NAT gateway is attached to subnets from the same virtual network. [Validate that NAT gateway can connect outbound](/azure/nat-gateway/troubleshoot-nat#how-to-validate-connectivity).
 
 * If using an IPv6 public IP address, check that the virtual network or subnet associated with the StandardV2 NAT Gateway is dual stack. If it’s not dual stack, either add an IPv6 address space to the virtual network or add an IPv4 public IP address to the NAT gateway. 
-
-* If StandardV2 NAT Gateway is associated with a source virtual network and your virtual network contains a Bastion subnet, your Bastion connectivity may be impacted. To resolve, attach StandardV2 NAT gateway to each individual subnet that needs outbound connectivity, and exclude the Bastion subnet. After StandardV2 NAT gateway is associated with each subnet, remove the source virtual network.  
-
-* If StandardV2 NAT Gateway is associated to an empty subnet or virtual network, add a virtual machine in order to return the subnet or virtual network to a successful state.
 
 * Carefully consider your traffic routing requirements before making any changes to traffic routes for your virtual network. User Defined Routes (UDRs) that send 0.0.0.0/0 traffic to a virtual appliance or virtual network gateway override NAT gateway. See [custom routes](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) to learn more about how custom routes affect the routing of network traffic. 
 
