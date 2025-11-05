@@ -33,7 +33,7 @@ It's recommended to use SSO and/or multifactor authentication for all SAP applic
 SAML is a well established industry standard but OIDC is a newer solution. This article contains a good comparison between the two technologies [OIDC vs. SAML your hybrid SAP Landscape: What You Need to Know](https://community.sap.com/t5/technology-blog-posts-by-sap/oidc-vs-saml-your-hybrid-sap-landscape-what-you-need-to-know/ba-p/13797204)
 
 ### SAPGUI – X.509 or Kerberos Tickets
-SAP Secure Login Client - SNC certificate X.509 and Kerberos Tickets are documented here [SNC X.509 Configuration | SAP Help Portal]("https://help.sap.com/docs/SAP SECURE LOGIN SERVICE/c35917ca71e941c5a97a11d2c55dcacd/767e439cf7764fcaab165416a00e2a6f.html")   
+SAP Secure Login Client - SNC certificate X.509 and Kerberos Tickets are documented here [SNC X.509 Configuration | SAP Help Portal](https://help.sap.com/docs/SAP%20SECURE%20LOGIN%20SERVICE/c35917ca71e941c5a97a11d2c55dcacd/767e439cf7764fcaab165416a00e2a6f.html)   
 
 Additional information is available here 
 - [Exploring SAP Secure Login Service for SAP GUI: A Comprehensive Review](https://community.sap.com/t5/technology-blog-posts-by-members/exploring-sap-secure-login-service-for-sap-gui-a-comprehensive-review/ba-p/13573382)
