@@ -3,7 +3,7 @@ title: Schedule tasks with SRE Agent (Preview)
 description: Learn how to use scheduled tasks in SRE Agent to automate monitoring, enforce security, and validate recovery.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 10/27/2025
+ms.date: 11/05/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -11,7 +11,6 @@ ms.service: azure-sre-agent
 # Scheduled tasks in Azure SRE Agent (Preview)
 
 Scheduled tasks in Azure SRE Agent let you automate workflows such as monitoring, maintenance, and security checks on a schedule you define. You can create these tasks manually, request them during a chat with the agent, or allow the agent to generate them autonomously as part of [incident response](incident-response-plan.md). Scheduled tasks helps you move from reacting to problems to being proactive with tasks that run consistently and without manual effort.
-
 
 The following scenarios show you some common use cases for using scheduled tasks:
 
@@ -59,18 +58,34 @@ The following examples demonstrate a few sample sets of custom instructions you 
 
 # [Health check](#tab/health-check)
 
-Create a health check task designed to run after an incident mitigation where a PostgreSQL DB was down. The task runs to check if the database remains healthy for the next 30 minutes after mitigation.
-This task runs autonomously every 1 minute for up to 30 
-executions to validate post-recovery health after DB startup.
+```prompt
+Create a health check task designed to run after an 
+incident mitigation where a PostgreSQL DB was down. 
 
-- On failure, it collects logs, notifies, and escalates if the database is down.
+The task runs to check if the database remains healthy 
+for the next 30 minutes after mitigation.
+
+This task runs autonomously every 1 minute for up 
+to 30 executions to validate post-recovery health 
+after DB startup.
+
+- On failure, it collects logs, notifies, and 
+    escalates if the database is down.
+
 - On success, it records a summary.
-- At completion, it generates a PDF report with metrics, logs, and a pass/fail summary.
 
+- At completion, it generates a PDF report with 
+    metrics, logs, and a pass/fail summary.
+```
 
 # [Security analysis](#tab/security-analysis)
 
-Create a security check task that runs every week to perform security review of my application <APPLICATION_NAME>, focusing on authentication, secrets, access controls, infrastructure, and dependencies.
+```prompt
+Create a security check task that runs every week 
+to perform security review of my application <APPLICATION_NAME>, 
+focusing on authentication, secrets, access controls, 
+infrastructure, and dependencies.
+```
 
 ---
 
