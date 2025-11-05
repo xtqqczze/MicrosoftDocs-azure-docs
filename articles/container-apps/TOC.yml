@@ -163,6 +163,10 @@
               items:
               - name: JavaScript Code interpreter (preview)
                 href: sessions-tutorial-nodejs.md
+              - name: Shell session (preview)
+                href: sessions-tutorial-shell.md
+              - name: Shell session with MCP (preview)
+                href: sessions-tutorial-shell-mcp.md
         - name: Custom container sessions
           href: sessions-custom-container.md
     - name: Event-driven processing
