@@ -30,9 +30,10 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension requires [Azure Functions Core Tools](functions-run-local.md). When this tool isn't available locally, the extension tries to install it by using a package-based installer. You can also install or update the Core Tools package by running `Azure Functions: Install or Update Azure Functions Core Tools` from the command palette. If you don't have npm or Homebrew installed on your local computer, you must instead [manually install or update Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
-+ [Azurite storage emulator](../articles/storage/common/storage-install-azurite.md?tabs=npm#install-azurite) 
++ [Azurite storage emulator](../storage/common/storage-install-azurite.md#install-azurite) 
 
 + The [Azure Developer CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) for Visual Studio Code.
+::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 + [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
 ::: zone-end  
