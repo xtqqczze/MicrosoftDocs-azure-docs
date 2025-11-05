@@ -26,18 +26,19 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-+ [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
++ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-+ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
-::: zone-end  
-::: zone pivot="programming-language-csharp"  
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension requires [Azure Functions Core Tools](functions-run-local.md). When this tool isn't available locally, the extension tries to install it by using a package-based installer. You can also install or update the Core Tools package by running `Azure Functions: Install or Update Azure Functions Core Tools` from the command palette. If you don't have npm or Homebrew installed on your local computer, you must instead [manually install or update Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
 + [Azurite storage emulator](../articles/storage/common/storage-install-azurite.md?tabs=npm#install-azurite) 
+
++ The [Azure Developer CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) for Visual Studio Code.
+::: zone pivot="programming-language-csharp"  
++ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Java 17 Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure)
-    + If you use another [supported version of Java](../articles/azure-functions/supported-languages.md?pivots=programming-language-java#languages-by-runtime-version), you must update the project's pom.xml file. 
+    + If you use another [supported version of Java](supported-languages.md?pivots=programming-language-java#languages-by-runtime-version), you must update the project's pom.xml file. 
     + Set the `JAVA_HOME` environment variable to the install location of the correct version of the Java Development Kit (JDK).
 + [Apache Maven 3.8.x](https://maven.apache.org)  
 ::: zone-end  
@@ -55,8 +56,6 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 -->
 ::: zone pivot="programming-language-python" 
 + [Python 3.11](https://www.python.org/)
-
-+ [Azurite storage emulator](../articles/storage/common/storage-use-azurite.md)
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
 + A secure HTTP test tool for sending requests to your MCP endpoints. This article uses `curl` and MCP Inspector.
@@ -64,9 +63,12 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 ## Initialize the project
 
 Use the `azd init` command to create a local Azure Functions code project from a template.
+
+1. In Visual Studio Code, open a folder or workspace in which you want to create your project.
+
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
+1. In the Terminal, run this `azd init` command in an empty folder:
  
     ```console
     azd init --template remote-mcp-functions-dotnet -e mcpserver-dotnet
@@ -101,34 +103,6 @@ Use the `azd init` command to create a local Azure Functions code project from a
     The `src/main/java/com/function/` folder contains the function code for your MCP server.
 ::: zone-end
 
-::: zone pivot="programming-language-JavaScript"  
-> [!NOTE]  
-> JavaScript support for MCP servers isn't available yet. Use TypeScript instead for a similar development experience with Node.js.
-::: zone-end
-
-::: zone pivot="programming-language-PowerShell"  
-> [!NOTE]  
-> PowerShell support for MCP servers isn't available yet. Consider using C# or Python for similar development capabilities.
-::: zone-end
-
-::: zone pivot="programming-language-python"  
-1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
- 
-    ```console
-    azd init --template remote-mcp-functions-python -e mcpserver-python
-    ```
-
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-python) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the name of the resource group you create in Azure. 
-
-1. Run this command to navigate to the `src` app folder:
-
-    ```console
-    cd src
-    ```
-
-    This folder contains the function code for your MCP server.
-::: zone-end
-
 ::: zone pivot="programming-language-typescript"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
@@ -146,22 +120,40 @@ Use the `azd init` command to create a local Azure Functions code project from a
 
     The `src` folder contains the function code for your MCP server.
 ::: zone-end
-
-## Prepare your local environment
-
-The MCP server sample saves and retrieves code snippets from Azure Blob Storage, so you need a local storage emulator.
-
-1. Start Azurite by using Docker:
-
-    ```shell
-    docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 \
-        mcr.microsoft.com/azure-storage/azurite
+::: zone pivot="programming-language-python"  
+1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
+ 
+    ```console
+    azd init --template remote-mcp-functions-python -e mcpserver-python
     ```
 
-    > [!NOTE]
-    > If you use the Azurite VS Code extension, run **Azurite: Start** from the command palette instead.
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-python) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the name of the resource group you create in Azure. 
 
-## Run your MCP server locally
+1. Run this command to navigate to the `src` app folder:
+
+    ```console
+    cd src
+    ```
+
+    This folder contains the function code for your MCP server.
+
+::: zone-end
+
+## Set up local storage emulator
+
+Use the Azurite emulator to run your code project locally before having to create and use Azure resources.
+
+1. If you haven't already, [install Azurite](/azure/storage/common/storage-use-azurite#install-azurite).
+
+1. Press <kbd>F1</kbd>. In the command palette, search for and run the command `Azurite: Start` to start the local storage emulator.
+
+## Run your MCP server locally 
+
+Visual Studio Code integrates with [Azure Functions Core tools](functions-run-local.md) to let you run this project on your local development computer by using the Azurite emulator.
+
+1. To start the function locally, press <kbd>F5</kbd> or the **Run and Debug** icon in the left-hand side Activity bar. The **Terminal** panel displays the output from Core Tools. Your app starts in the **Terminal** panel, and you can see the name of the function that's running locally.
+
+    If you have trouble running on Windows, make sure that the default terminal for Visual Studio Code isn't set to **WSL Bash**.
 
 ::: zone pivot="programming-language-csharp"
 1. From the `src` folder, run this command to start the Functions host locally:
@@ -198,9 +190,6 @@ The MCP server sample saves and retrieves code snippets from Azure Blob Storage,
     ```console
     pip install -r requirements.txt
     ```
-
-    > [!TIP]
-    > It's a best practice to create a virtual environment before installing dependencies. See [Python environments in VS Code](https://code.visualstudio.com/docs/python/environments#_creating-environments) for more information.
 
 1. Start the Functions host locally:
 
