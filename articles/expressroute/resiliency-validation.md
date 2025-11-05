@@ -104,43 +104,43 @@ The dashboard provides a detailed overview of all ExpressRoute circuits connecte
 
 1. Why can't I see the Resiliency Validation feature in my ExpressRoute gateway?
 
-This feature is only available for ExpressRoute virtual network gateways configured in a Max Resiliency model. It isn't supported for Virtual WAN ExpressRoute gateways.
+   This feature is only available for ExpressRoute virtual network gateways configured in a Max Resiliency model. It isn't supported for Virtual WAN ExpressRoute gateways.
 
 1. Why is the Route List not updated to the latest?
 
-The **Route List** tab is designed to flag missing route redundancy. It retrieves route resiliency status from Resiliency Insights, so it might display cached results for up to one hour after the last update.
+   The **Route List** tab is designed to flag missing route redundancy. It retrieves route resiliency status from Resiliency Insights, so it might display cached results for up to one hour after the last update.
 
 1. Does the feature support Microsoft Peering or VPN connectivity?
 
-No, the Resiliency Insights feature supports only ExpressRoute Private Peering connectivity. It doesn't support Microsoft Peering or VPN connectivity.
+   No, the Resiliency Insights feature supports only ExpressRoute Private Peering connectivity. It doesn't support Microsoft Peering or VPN connectivity.
 
-1. Can control the gateway validation tests other than the Azure portal?
+1. Can I control the gateway validation tests other than the Azure portal?
 
-Yes, you can use REST API, PowerShell, and CLI to start and stop the gateway resiliency validation tests.
+   Yes, you can use REST API, PowerShell, and CLI to start and stop the gateway resiliency validation tests.
 
 1. What happens if I don't terminate a test?
 
-The test continues to run indefinitely.
+   The test continues to run indefinitely.
 
 1. What metrics or alerts can I monitor during the resiliency validation test?
 
-To ensure network resilience during outages, configure redundant connections. During a failover, if the backup circuit exceeds 100% of its bandwidth, packet drops might occur. Use [Circuit QoS](monitor-expressroute-reference.md#category-circuit-qos) metrics to monitor packet drops caused by rate limiting. Additionally, the **Test Status** tab in the Resiliency Validation feature provides traffic monitoring for the connections. Make sure alerts are configured to validate their effectiveness during the test.
+   To ensure network resilience during outages, configure redundant connections. During a failover, if the backup circuit exceeds 100% of its bandwidth, packet drops might occur. Use [Circuit QoS](monitor-expressroute-reference.md#category-circuit-qos) metrics to monitor packet drops caused by rate limiting. Additionally, the **Test Status** tab in the Resiliency Validation feature provides traffic monitoring for the connections. Make sure alerts are configured to validate their effectiveness during the test.
 
 1. Can I control traffic on demand using the gateway resiliency validation tool?
 
-Yes, if the routes are advertised redundantly through circuits in different peering locations, the gateway resiliency validation tool allows you to control traffic on demand by failing traffic over to connections in an alternative site.
+   Yes, if the routes are advertised redundantly through circuits in different peering locations, the gateway resiliency validation tool allows you to control traffic on demand by failing traffic over to connections in an alternative site.
 
 1. Does this feature support FastPath and Private Link?
 
-For FastPath, while the data path bypasses the gateway, the gateway still handles control plane activities like route management. During a disconnect between the ExpressRoute circuit and the gateway, routes are withdrawn from the affected circuit. However, if redundant circuits are properly configured, connectivity for failover connections to FastPath and Private Link is maintained during the failover.
+   For FastPath, while the data path bypasses the gateway, the gateway still handles control plane activities like route management. During a disconnect between the ExpressRoute circuit and the gateway, routes are withdrawn from the affected circuit. However, if redundant circuits are properly configured, connectivity for failover connections to FastPath and Private Link is maintained during the failover.
 
 1. Is packet loss expected during a failover simulation?
 
-A brief connectivity disruption occurs during the failover simulation as BGP (Border Gateway Protocol) reconverges. Performance tests using iPerf on TCP (up to 500 Mbps) show no packet loss during the simulation. However, in an actual outage scenario, some packet loss can occur until traffic successfully fails over.
+   A brief connectivity disruption occurs during the failover simulation as BGP (Border Gateway Protocol) reconverges. Performance tests using iPerf on TCP (up to 500 Mbps) show no packet loss during the simulation. However, in an actual outage scenario, some packet loss can occur until traffic successfully fails over.
 
 1. How long does a failover take?
 
-After the simulation begins, traffic failover typically completes within 15 seconds.
+   After the simulation begins, traffic failover typically completes within 15 seconds.
 
 ## Next steps
 
