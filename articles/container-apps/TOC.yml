@@ -163,11 +163,11 @@
               items:
               - name: JavaScript code interpreter
                 href: sessions-tutorial-nodejs.md
-              - name: Shell session (preview)
+              - name: Shell session
                 href: sessions-tutorial-shell.md
-              - name: Shell session with MCP (preview)
+              - name: Shell session with MCP
                 href: sessions-tutorial-shell-mcp.md
-              - name: Python code interpreter with MCP (preview)
+              - name: Python code interpreter with MCP
                 href: sessions-tutorial-python-mcp.md
         - name: Custom container sessions
           href: sessions-custom-container.md
