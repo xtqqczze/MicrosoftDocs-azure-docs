@@ -240,7 +240,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
     Finalizing replication removes all the peering information on Azure NetApp Files. Manually confirm that all replication data is removed on the ONTAP cluster. If any peering information remains, run the `cluster peer delete` command. 
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 The portal version of the migration assistant is currently in preview.
 
@@ -276,7 +276,7 @@ The portal version of the migration assistant is currently in preview.
 
     **Cancel migration**
 
-    Cancels the migration process and deletes the destination volume. The peering relationship between the ONTAP cluster and Azure NetApp Files will be remove if it is not used by any other migration volume.
+    Cancels the migration process and deletes the destination volume. The peering relationship between the ONTAP cluster and Azure NetApp Files will be removed if it is not used by any other migration volume.
 
     **View migration details**
 
