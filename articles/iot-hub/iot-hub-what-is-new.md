@@ -27,7 +27,7 @@ Integration of IoT hubs with ADR is essential to leverage the latest enhancement
 
 X.509 certificates are undoubtedly the gold standard for IoT security. IoT Hub now introduces certificate management for managing device certificates using Microsoft-managed PKI with X.509 certificates.
 
-certificate management is an optional feature of ADR that enables you to issue X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each of your ADR namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub.
+Certificate management is an optional feature of ADR that enables you to issue X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each of your ADR namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub.
 
 These X.509 certificates are strictly operational certificates which the devices uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. 
 

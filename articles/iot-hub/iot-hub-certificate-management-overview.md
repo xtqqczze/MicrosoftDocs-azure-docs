@@ -13,7 +13,7 @@ ms.date: 11/07/2025
 
 # What is certificate management (Preview)?
 
-certificate management is a built-in feature of Azure Device Registry (ADR) that enables you to issue X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each of your ADR namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR Namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub. 
+Certificate management is an optional feature of Azure Device Registry (ADR) that enables you to issue X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each of your ADR namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR Namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub.
 
 Using certificate management requires you to also use IoT Hub, [Azure Device Registry (ADR)](iot-hub-device-registry-setup.md), and [Device Provisioning Service (DPS)](../iot-dps/index.yml). certificate management is currently in public preview.
 
@@ -36,14 +36,14 @@ The following features are supported with certificate management for IoT Hub dev
 
 ## How certificate management works
 
-certificate management consists of several integrated components that work together to streamline the deployment of public key infrastructure (PKI) across IoT devices. To use certificate management with IoT Hub, you must set up both:
+Certificate management consists of several integrated components that work together to streamline the deployment of public key infrastructure (PKI) across IoT devices. To use certificate management with IoT Hub, you must set up both:
 
 - Azure Device Registry (ADR) namespace
 - Device Provisioning Service (DPS) instance.
 
 ### Azure Device Registry integration
 
-certificate management uses [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) to manage device certificates. ADR is a service that provides secure device identity and authentication for IoT solutions. It integrates with IoT Hub and Device Provisioning Service (DPS) to provide a seamless experience for managing device identities and certificates.
+Certificate management uses [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) to manage device certificates. ADR is a service that provides secure device identity and authentication for IoT solutions. It integrates with IoT Hub and Device Provisioning Service (DPS) to provide a seamless experience for managing device identities and certificates.
 
 The following image illustrates the X.509 certificate hierarchy used to authenticate IoT devices in Azure IoT Hub through the ADR namespace.
 
@@ -87,9 +87,11 @@ Due to the wide variety of IoT devices, each device is responsible for monitorin
 
 ## Disable a device
 
-certificate management doesn't support certificate revocation during public preview. To remove the connection of a device that uses an X.509 operational certificate, you can disable the device in the IoT hub registry. To disable a device, see [Disable or delete a device](create-connect-device.md#disable-or-delete-a-device).
+Certificate management doesn't support certificate revocation during public preview. To remove the connection of a device that uses an X.509 operational certificate, you can disable the device in the IoT hub registry. To disable a device, see [Disable or delete a device](create-connect-device.md#disable-or-delete-a-device).
 
 ## Limits and quotas
+
+See [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits) for the latest information about IoT Hub limits and quotas.
 
 The following table lists the default limits and quotas for certificate management:
 

@@ -20,7 +20,7 @@ From November 2025, IoT Hub introduces two major innovations: Azure Device Regis
 
 - **Azure Device Registry (ADR)**: A centralized device registry that allows you to manage devices across multiple IoT hubs using namespaces. You can create a link between an existing ADR namespace to your IoT Hub or create a new namespace and create the link. For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
 
-- **certificate management**: IoT Hub introduces built-in support for managing device certificates using Microsoft-managed PKI with X.509 certificates. These X.509 certificates are strictly operational certificates which the devices uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. certificate management is an optional feature. For more information, see [What is certificate management?](iot-hub-certificate-management-overview.md).
+- **Certificate management**: IoT Hub introduces built-in support for managing device certificates using Microsoft-managed PKI with X.509 certificates. These X.509 certificates are strictly operational certificates which the devices uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. Certificate management is an optional feature. For more information, see [What is certificate management?](iot-hub-certificate-management-overview.md).
 
 ## Are my existing IoT hubs affected by these changes?
 

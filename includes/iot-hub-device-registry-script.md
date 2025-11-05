@@ -28,16 +28,7 @@ The script includes the following resources:
 ## Prerequisites
 
 - Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-- A resource group to hold your resources. You can create a new resource group or use an existing one. If you want to create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command:
-
-   ```azurecli
-   az group create --name <RESOURCE_GROUP_NAME> --location "<REGION>"
-   ```
-- A Device Provisioning Service (DPS) instance. If you don't have a DPS instance, use the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command to create one:
-
-   ```azurecli
-   az iot dps create --name <DPS_NAME> --resource-group <RESOURCE_GROUP_NAME> --location "<REGION>"
-   ```
+- Install [PowerShell 7+](/powershell/scripting/install/installing-powershell).
 
 ## Prepare Your Environment
 

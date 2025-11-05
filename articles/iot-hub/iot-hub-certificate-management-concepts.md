@@ -13,7 +13,7 @@ ms.date: 10/20/2025
 
 # Key concepts for certificate management (Preview)
 
-certificate management in Azure IoT Hub is designed to simplify the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication in IoT Hub. For more information, see [What is certificate management (Preview)?](iot-hub-certificate-management-overview.md).
+Certificate management in Azure IoT Hub is designed to simplify the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication in IoT Hub. For more information, see [What is certificate management (Preview)?](iot-hub-certificate-management-overview.md).
 
 [!INCLUDE [public-preview-banner](includes/public-preview-banner.md)]
 
@@ -21,16 +21,16 @@ certificate management in Azure IoT Hub is designed to simplify the management o
 
 PKI is a system that uses digital certificates to authenticate and encrypt data between devices and services. PKI certificates are essential for securing various scenarios, such as VPN, Wi-Fi, email, web, and device identity. In IoT settings, managing PKI certificates can be challenging, costly, and complex, especially for organizations that have a large number of devices and strict security requirements. You can use certificate management to enhance the security of your devices and accelerate your digital transformation to a fully managed cloud PKI service. 
 
-## Microsoft vs third-party PKI
+## Microsoft vs. third-party PKI
 
 While IoT Hub supports two types of PKI providers for X.509 certificate authentication, certificate management currently only supports Microsoft-managed PKI. For information about using third-party PKI providers, see [Authenticate devices with X.509 CA certificates](authenticate-authorize-x509.md).
 
-| PKI provider | Integration required | ADR required | 
-|--------------|----------------------|-------------------|
-| Microsoft-managed PKI | No. Configure certificate authorities directly in Azure Device Registry (ADR).| Yes |
-| Third-party PKI (DigiCert, GlobalSign, etc.) | Yes. Manual integration required.  | No |
+| PKI provider | Integration required | ADR required | DPS required |
+|--------------|----------------------|-------------------| --------------|
+| Microsoft-managed PKI | No. Configure certificate authorities directly in Azure Device Registry (ADR).| Yes | Yes |
+| Third-party PKI (DigiCert, GlobalSign, etc.) | Yes. Manual integration required.  | No | No |
 
-## Authentication vs authorization
+## Authentication vs. authorization
 
 *Authentication* is the process of proving that you're who you say you are. Authentication verifies the identity of a user or device to IoT Hub. It's sometimes shortened to *AuthN*. 
 
@@ -60,7 +60,7 @@ There are two general categories of X.509 certificates:
 
 - **End-entity certificates:** These certificates, which can be individual or leaf device certificates, are signed by CA certificates and are issued to users, servers, or devices.
 
-## Onboarding vs operational certificates
+## Onboarding vs. operational certificates
 
 Today, certificate management only supports issuance and renewal for end-entity operational certificates. 
 

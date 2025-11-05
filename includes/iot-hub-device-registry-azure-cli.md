@@ -182,30 +182,28 @@ To allow the user-assigned managed identity (UAMI) to access the ADR namespace, 
     ```azurecli-interactive
     az iot hub show --name <HUB_NAME> --resource-group <RESOURCE_GROUP> --query identity --output json
     ```
+## Assign IoT Hub roles to access the ADR namespace
 
-    > [!NOTE]
-    > If you run into error or warning messages during role assignment, you need to manually assign the following roles to the hub for the ADR namespace's system-assigned identity:
-    > 
-    > 1. Retrieve the principal ID of the ADR Namespace's managed identity. This identity needs permissions to interact with the IoT hub.
-    > 
-    >  ```azurecli-interactive
-    >  ADR_PRINCIPAL_ID=$(az iot adr ns show --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP> --query identity.principalId -o tsv)
-    >  ```
-    > 1. Retrieve the resource ID of the IoT hub. This ID is used as the scope for role assignments.
-    > 
-    >  ```azurecli-interactive
-    >  HUB_RESOURCE_ID=$(az iot hub show --name <HUB_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
-    >  ```
-    > 1. Assign the "Contributor" role to the ADR identity. This grants the ADR namespace's managed identity Contributor access to the IoT hub. This role allows broad access, including managing resources, but not assigning roles.
-    >
-    >  ```azurecli-interactive
-    >  az role assignment create --assignee $ADR_PRINCIPAL_ID --role "Contributor" --scope $HUB_RESOURCE_ID
-    >  ```
-    > 1. Assign the "IoT Hub Registry Contributor" role to the ADR identity. This grants more specific permissions to manage device identities in the IoT hub. This is essential for ADR to register and manage devices in the hub.
-    >
-    >  ```azurecli-interactive
-    >  az role assignment create --assignee $ADR_PRINCIPAL_ID --role "IoT Hub Registry Contributor" --scope $HUB_RESOURCE_ID
-    >  ```
+1. Retrieve the principal ID of the ADR Namespace's managed identity. This identity needs permissions to interact with the IoT hub.
+
+    ```azurecli-interactive
+    ADR_PRINCIPAL_ID=$(az iot adr ns show --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP> --query identity.principalId -o tsv)
+    ```
+1. Retrieve the resource ID of the IoT hub. This ID is used as the scope for role assignments.
+
+    ```azurecli-interactive
+    HUB_RESOURCE_ID=$(az iot hub show --name <HUB_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
+    ```
+1. Assign the "Contributor" role to the ADR identity. This grants the ADR namespace's managed identity Contributor access to the IoT hub. This role allows broad access, including managing resources, but not assigning roles.
+
+    ```azurecli-interactive
+    az role assignment create --assignee $ADR_PRINCIPAL_ID --role "Contributor" --scope $HUB_RESOURCE_ID
+    ```
+1. Assign the "IoT Hub Registry Contributor" role to the ADR identity. This grants more specific permissions to manage device identities in the IoT hub. This is essential for ADR to register and manage devices in the hub.
+
+    ```azurecli-interactive
+    az role assignment create --assignee $ADR_PRINCIPAL_ID --role "IoT Hub Registry Contributor" --scope $HUB_RESOURCE_ID
+    ```
 
 ## Create a Device Provisioning Service instance with ADR namespace integration
 
