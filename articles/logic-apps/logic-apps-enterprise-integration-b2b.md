@@ -109,7 +109,7 @@ Now add the B2B actions for this example, which uses the AS2 and X12 actions.
 
       `triggerOutputs()['Headers']`
 
-      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/as2-header-expression.png" alt-text="Screenshot showing multi-tenant designer and the "Message headers" box with the @triggerOutputs()['Headers'] token.":::
+      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/header-expression.png" alt-text="Screenshot showing multi-tenant designer and the "Message headers" box with the @triggerOutputs()['Headers'] token.":::
 
 <a name="add-response-action"></a>
 
