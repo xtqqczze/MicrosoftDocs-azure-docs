@@ -62,14 +62,6 @@
       href: application-lifecycle-management.md
     - name: Jobs
       href: jobs.md
-    - name: Dynamic sessions
-      items:
-      - name: Overview
-        href: sessions.md
-      - name: Usage
-        href: sessions-usage.md
-      - name: Session pools
-        href: session-pool.md
     - name: Microservices
       href: microservices.md
     - name: Planned maintenance
@@ -92,11 +84,6 @@
       href: tutorial-update-from-code.md
     - name: Connect to apps & services
       items:
-        - name: Connect to services
-          items:
-            - name: Overview
-              href: services.md
-              displayName: Connecting to services overview
         - name: Communicate between multiple apps
           href: connect-apps.md
         - name: Connect to a cloud service using Service Connector
@@ -193,6 +180,30 @@
             href: troubleshoot-container-start-failures.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+- name: AI integration
+  items:
+    - name: AI integration
+      href: ai-integration.md
+    - name: GPUs
+      items:
+        - name: Serverless GPUs
+          href: gpu-serverless-overview.md
+        - name: GPU types
+          href: gpu-types.md
+        - name: Tutorials
+          items:
+          - name: Generate images with serverless GPUs
+            href: gpu-image-generation.md
+          - name: Deploy an NVIDIA Llama3 NIM
+            href: serverless-gpu-nim.md
+    - name: Dynamic sessions
+      items:
+      - name: Overview
+        href: sessions.md
+      - name: Usage
+        href: sessions-usage.md
+      - name: Session pools
+        href: session-pool.md
 - name: Observability
   items:
     - name: Overview
@@ -226,6 +237,8 @@
       href: alerts.md
     - name: OpenTelemetry agents
       href: opentelemetry-agents.md
+    - name: Grafana dashboards
+      href: grafana-dashboards.md
 - name: Scaling & performance
   items:
     - name: Overview
@@ -303,18 +316,6 @@
           href: workload-profiles-manage-cli.md
         - name: Portal
           href: workload-profiles-manage-portal.md
-- name: GPUs
-  items:
-    - name: Serverless GPUs
-      href: gpu-serverless-overview.md
-    - name: GPU types
-      href: gpu-types.md
-    - name: Tutorials
-      items:
-      - name: Generate images with serverless GPUs
-        href: gpu-image-generation.md
-      - name: Deploy an NVIDIA Llama3 NIM
-        href: serverless-gpu-nim.md
 - name: Microservices
   items:
     - name: Developing with Dapr
@@ -356,12 +357,10 @@
           href: microservices-dapr-bindings.md
         - name: Microservices communication using Dapr Service Invocation
           href: microservices-dapr-service-invoke.md
-- name: Networking, ingress, and network security
+- name: Networking and ingress
   items:
-    - name: Architecture overview
+    - name: Overview
       href: networking.md
-    - name: Use a custom virtual network
-      href: vnet-custom.md
     - name: Ingress
       items:
         - name: Overview
@@ -385,8 +384,18 @@
         - name: CORS
           href: cors.md
           displayName: Cross origin resource sharing
-    - name: Security
+    - name: Virtual network configuration
+      href: custom-virtual-networks.md
+    - name: Managing outbound connections with Azure Firewall
+      href: use-azure-firewall.md
+    - name: Private endpoints and DNS
+      href: private-endpoints-with-dns.md
+    - name: Securing a custom VNET with an NSG
+      href: firewall-integration.md
+    - name: Tutorials
       items:
+        - name: Use a custom virtual network
+          href: vnet-custom.md
         - name: Configure WAF Application Gateway
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
@@ -395,10 +404,8 @@
           items:
           - name: Use rule-based routing
             href: rule-based-routing.md
-          - name: Configure a custom domain
+          - name: Use a custom domain with rule-based routing
             href: rule-based-routing-custom-domain.md
-        - name: Securing a custom VNET with an NSG
-          href: firewall-integration.md
         - name: Use a private endpoint
           href: how-to-use-private-endpoint.md
         - name: Use mTLS

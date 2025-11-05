@@ -6,6 +6,7 @@ ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 12/01/2022
 ms.author: normesta
+# Customer intent: As a data analyst, I want to analyze and visualize blob inventory reports using Azure Synapse and Power BI, so that I can optimize storage use and manage costs effectively.
 ---
 
 # Tutorial: Analyze blob inventory reports
@@ -25,7 +26,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - An Azure storage account - [create a storage account](../common/storage-account-create.md) 
   

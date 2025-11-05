@@ -1,12 +1,11 @@
 ---
 title: Microsoft Sentinel service limits
 description: This article provides a list of service limits for Microsoft Sentinel, divided into the different service areas.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.date: 03/19/2025
-ms.author: yelevin
 ms.service: microsoft-sentinel
-
 
 #Customer intent: As a security architect, I want to understand the service limits of Microsoft Sentinel so that I can effectively manage and optimize my organization's security monitoring and incident response activities.
 
@@ -64,6 +63,16 @@ The following limits apply to incidents in Microsoft Sentinel.
 **Number of incidents per day:** There isn't a formal, hard limit on the number of incidents that can be created per day. A workspace's actual capacity for incidents depends on the storage capacity of the incident database, so the size of the incidents is as much a factor as their number.
 
 However, a SOC that experiences the creation of more than *around* 3,000 new incidents per day will most likely find itself unable to keep up, and the database capacity will quickly be reached. In this situation, the SOC needs to find and fix any rules that create large numbers of incidents, to get the count of daily new incidents to manageable levels.
+
+## Case management limits
+
+The following limits apply to case management in Microsoft Sentinel.
+
+| Description        | Limit                                   | Dependency |
+|--------------------|-----------------------------------------|------------|
+| Cases per tenant   | 100,000 cases                 | None       |
+| Attachments per tenant    | 500 GB         | None       |
+| Linked incidents per case  | 100 incidents       | None       |
 
 ## Machine learning-based limits
 

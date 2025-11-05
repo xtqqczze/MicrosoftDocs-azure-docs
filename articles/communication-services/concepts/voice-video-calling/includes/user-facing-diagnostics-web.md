@@ -6,7 +6,7 @@ author: sloanster
 ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 06/27/2025
+ms.date: 09/03/2025
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -15,10 +15,8 @@ ms.subservice: calling
 ## Local vs Remote User Facing Diagnostics
 User Facing Diagnostics (UFD) are enabled to expose user-impacting events happening on a users calling device via a programmatic API. Within Azure Communication Services, there are two methods for consuming and generating UFDs: **local UFDs** and **remote UFDs**. **Local UFDs** are generated on the local user's phone browser or desktop browser. **Remote UFDs** are events occurring in a remote participant's environment, which enables a local user to consume and view those remote user impacting events locally.
 
-[!INCLUDE [Public Preview Disclaimer](../../../includes/private-preview-include.md)]
-
 > [!NOTE]  
-> [Version 1.34.1-beta.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.34.1-beta.2) and higher of the public preview calling SDK support sending Remote UFDs from the WebJS calling SDK. Local UFDs emitted by the calling SDK are in general availability (GA).
+> [Version 1.38.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.38.1) and higher of the general availability and [Version 1.34.1-beta.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.34.1-beta.2) calling SDK support sending Remote UFDs from the WebJS calling SDK. Local UFDs emitted by the calling SDK are in general availability (GA).
 
 User Facing Diagnostics (UFD) enable you to see when local or remote participants are experiencing issues that affect audio-video call quality. UFD provides real-time diagnostics on network conditions, device functionality, and media performance. This diagnostic information helps developers identify problems such as poor connectivity, muted microphones, or low bandwidth. While UFDs doesn't automatically fix these issues, it enables applications to offer proactive feedback to users, suggesting solutions like checking their internet connection or adjusting device settings. Based on this data, users can either correct the issue themselves (such as turn-off video when the network is weak) or display the information through the User Interface.
 
@@ -32,8 +30,6 @@ There are some minor differences in using **remote UFDs** and **local UFDs**. Th
 The following user-facing diagnostics are available:
 
 ### Network values
-
-
 | Name | Description | Possible values | Location | Use cases | Mitigation steps |
 | --- | --- | --- | --- | --- | --- |
 | noNetwork | There's no network available. | - Set to `True` when a call fails to start because there's no network available. <br/> - Set to `False` when there are ICE candidates present. | Local <br/> Remote | Device isn't connected to a network. | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network optimization](../network-requirements.md#network-optimization) section. |
@@ -41,10 +37,9 @@ The following user-facing diagnostics are available:
 | networkReconnect | The connection was lost and the client is reconnecting to the network. | - Set to`Bad` when the network is disconnected <br/> - Set to `Poor`when the media transport connectivity is lost <br/> - Set to `Good` when a new session is connected. | Local <br/> Remote | Low bandwidth, no internet | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section. |
 | networkReceiveQuality | An indicator regarding incoming stream quality. | - Set to `Bad` when there's a severe problem with receiving the stream. <br/> - Set to `Poor` when there's a mild problem with receiving the stream. <br/> - Set to `Good` when there's no problem with receiving the stream. | Local <br/> Remote | Low bandwidth | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section. Suggest that the end user turn-off their camera to conserve available internet bandwidth. |
 | networkSendQuality | An indicator regarding outgoing stream quality. | - Set to `Bad` when there's a severe problem with sending the stream. <br/> - Set to `Poor` when there's a mild problem with sending the stream. <br/> - Set to `Good` when there's no problem with sending the stream. | Local <br/> Remote | Low bandwidth | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section. Also, suggest that the end user turn-off their camera to conserve available internet bandwidth. |
+| serverConnection | It shows whether a remote participant has unexpectedly disconnected from the call due to server loosing connection to client. | - Set to `Bad` when there's a severe problem with sending the stream. <br/> - Set to `Good` when there's no problem with sending the stream. | Remote | No internet connection between client and server infrastructure | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section.|
 
 ### Audio values
-
-
 | Name | Description | Possible values | Location | Use cases | Mitigation steps |
 | --- | --- | --- | --- | --- | --- |
 | noSpeakerDevicesEnumerated | there's no audio output device (speaker) on the user's system. | - Set to `True` when there are no speaker devices on the system, and speaker selection is supported. <br/> - Set to `False` when there's a least one speaker device on the system, and speaker selection is supported. | Local | All speakers are unplugged | When value set to `True`, consider giving visual notification to end user that their current call session doesn't have any speakers available. |
@@ -55,8 +50,6 @@ The following user-facing diagnostics are available:
 | microphonePermissionDenied | there's low volume from device or it's almost silent on macOS. | - Set to `True` when audio permission is denied from the system settings (audio). <br/> - Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS. | Local | Microphone permissions are disabled in the Settings. | When value is set to `True`, give visual notification to end user that they didn't enable permission to use microphone for an Azure Communication Services call. |
 
 ### Camera values
-
-
 | Name | Description | Possible values | Location | Use cases | Mitigation steps |
 | --- | --- | --- | --- | --- | --- |
 | cameraFreeze | Camera stops producing frames for more than 5 seconds. | - Set to `True` when the local video stream is frozen. This diagnostic means that the remote side is seeing your video frozen on their screen or it means that the remote participants aren't rendering your video on their screen. <br/> - Set to `False` when the freeze ends and users can see your video as per normal. | Local <br/> Remote | The Camera was lost during the call, or bad network caused the camera to freeze. | When value is set to `True`, consider giving notification to end user that the remote participant network might be bad. Suggest that the user turn-off their camera to conserve bandwidth. For more information, see [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section on needed internet abilities for an Azure Communication Services call. |
@@ -66,8 +59,6 @@ The following user-facing diagnostics are available:
 | cameraStoppedUnexpectedly | Camera malfunction | - Set to `True` when camera enters stopped state unexpectedly. <br/> - Set to `False` when camera starts to successfully send video stream again. | Local <br/> Remote | Check camera is functioning correctly. | When value is set to `True`, give visual notification to end user that their camera is possibly having problems. (When value is set back to `False` remove notification). |
 
 ### Miscellaneous values
-
-
 | Name | Description | Possible values | Location | Use cases | Mitigation Steps |
 | --- | --- | --- | :--- | --- | --- |
 | screenshareRecordingDisabled | System screen sharing was denied from the preferences in Settings. | - Set to `True` when screen sharing permission is denied from the system settings (sharing). <br/> - Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS.Chrome. | Local <br/> Remote | Screen recording is disabled in Settings. | When value is set to `True`, give visual notification to end user that they didn't enable permission to share their screen for an Azure Communication Services call. |
@@ -78,6 +69,85 @@ The following user-facing diagnostics are available:
 ## Accessing diagnostics
 
 User-facing diagnostics is an extended feature of the core [`Call`](/javascript/api/azure-communication-services/@azure/communication-calling/call?view=azure-communication-services-js&preserve-view=true) API. You can understand more about the `UserFacingDiagnosticsFeature` interface [here](/javascript/api/azure-communication-services/@azure/communication-calling/userfacingdiagnosticsfeature?view=azure-communication-services-js&preserve-view=true).
+
+Here’s a comprehensive tree structure that maps out the `UserFacingDiagnosticsFeature` interface along with its related dependencies, properties, and methods. Each diagnostic module (Network, Media, Remote) has event listeners for changes and provides the latest diagnostic snapshot.
+
+```
+UserFacingDiagnosticsFeature (Interface)
+├── Inherits: CallFeature
+├── Properties
+│   ├── network: NetworkDiagnostics
+│   ├── media: MediaDiagnostics
+│   └── remote: RemoteDiagnostics
+│
+├── Dependencies
+│   ├── NetworkDiagnostics
+│   │   ├── Methods
+│   │   │   ├── getLatest(): LatestNetworkDiagnostics
+│   │   │   ├── on('diagnosticChanged', listener): void
+│   │   │   └── off('diagnosticChanged', listener): void
+│   │   └── Types
+│   │       ├── NetworkDiagnosticChangedEventArgs
+│   │       │   ├── value: DiagnosticQuality | DiagnosticFlag
+│   │       │   ├── valueType: DiagnosticValueType
+│   │       │   └── diagnostic: NetworkDiagnosticType
+│   │       ├── NetworkDiagnosticType = keyof LatestNetworkDiagnostics
+│   │       └── LatestNetworkDiagnostics
+│   │           ├── networkReconnect?: LatestDiagnosticValue
+│   │           ├── networkReceiveQuality?: LatestDiagnosticValue
+│   │           ├── networkSendQuality?: LatestDiagnosticValue
+│   │           ├── noNetwork?: LatestDiagnosticValue
+│   │           └── networkRelaysNotReachable?: LatestDiagnosticValue
+│   │
+│   ├── MediaDiagnostics
+│   │   ├── Methods
+│   │   │   ├── getLatest(): LatestMediaDiagnostics
+│   │   │   ├── on('diagnosticChanged', listener): void
+│   │   │   └── off('diagnosticChanged', listener): void
+│   │   └── Types
+│   │       ├── MediaDiagnosticChangedEventArgs
+│   │       │   ├── value: DiagnosticQuality | DiagnosticFlag
+│   │       │   ├── valueType: DiagnosticValueType
+│   │       │   └── diagnostic: MediaDiagnosticType
+│   │       ├── MediaDiagnosticType = keyof LatestMediaDiagnostics
+│   │       └── LatestMediaDiagnostics
+│   │           ├── speakingWhileMicrophoneIsMuted?: LatestDiagnosticValue
+│   │           ├── noSpeakerDevicesEnumerated?: LatestDiagnosticValue
+│   │           ├── noMicrophoneDevicesEnumerated?: LatestDiagnosticValue
+│   │           ├── cameraFreeze?: LatestDiagnosticValue
+│   │           ├── cameraStartFailed?: LatestDiagnosticValue
+│   │           ├── cameraStartTimedOut?: LatestDiagnosticValue
+│   │           ├── capturerStartFailed?: LatestDiagnosticValue
+│   │           ├── microphoneNotFunctioning?: LatestDiagnosticValue
+│   │           ├── microphoneMuteUnexpectedly?: LatestDiagnosticValue
+│   │           ├── cameraStoppedUnexpectedly?: LatestDiagnosticValue
+│   │           ├── capturerStoppedUnexpectedly?: LatestDiagnosticValue
+│   │           ├── screenshareRecordingDisabled?: LatestDiagnosticValue
+│   │           ├── microphonePermissionDenied?: LatestDiagnosticValue
+│   │           └── cameraPermissionDenied?: LatestDiagnosticValue
+│   │
+│   └── RemoteDiagnostics
+│       ├── Properties
+│       │   └── isSendingDiagnosticsEnabled: boolean
+│       ├── Methods
+│       │   ├── startSendingDiagnostics(): void
+│       │   ├── stopSendingDiagnostics(): void
+│       │   ├── getLatest(): RemoteParticipantDiagnosticsData
+│       │   ├── on('diagnosticChanged', listener): void
+│       │   └── off('diagnosticChanged', listener): void
+│       └── Types
+│           ├── RemoteParticipantDiagnosticsData
+│           │   └── diagnostics: RemoteDiagnostic[]
+│           └── RemoteDiagnostic
+│               ├── participantId: string
+│               ├── rawId: string
+│               ├── remoteParticipant?: RemoteParticipant
+│               ├── diagnostic: NetworkDiagnosticType | MediaDiagnosticType | ServerDiagnosticType
+│               ├── value: DiagnosticQuality | DiagnosticFlag
+│               └── valueType: DiagnosticValueType
+│           └── ServerDiagnosticType = 'serverConnection'
+```
+
 
 To utilize user facing diagnostics, first thing you must do is instantiate the user facing diagnostics feature from the call.
 ```js
@@ -126,9 +196,9 @@ To transmit remote UFDs to all participants on a call, you need to enable the fu
 
 ```js
 // Start the local client to send its local UFD to all remote participants (send local UFD to remote clients).
-remoteUfdsFeature.startSendingDiagnostics();
+userFacingDiagnostics.remote.startSendingDiagnostics();
 // Stop sending local UFDs to remote clients.
-remoteUfdsFeature.stopSendingDiagnostics();
+userFacingDiagnostics.remote.stopSendingDiagnostics();
 ```
 
 For the code sample below, `RemoteParticipantDiagnosticsData` has the following data associated with it:
@@ -255,60 +325,7 @@ console.log(
 Here's sample code to generate the latest Remote UFD value delivered to the calling SDK. If a diagnostic is undefined, it means the UFD hasn't been raised from the remote client SDK.
 ```js
 const latestRemoteDiagnostics = userFacingDiagnostics.remote.getLatest();
-
-console.log(
-  `noNetwork: ${latestRemoteDiagnostics.noNetwork.value}, ` +
-    `value type = ${latestRemoteDiagnostics.noNetwork.valueType}`
-);
-
-console.log(
-  `networkReconnect: ${latestRemoteDiagnostics.networkReconnect.value}, ` +
-    `value type = ${latestRemoteDiagnostics.networkReconnect.valueType}`
-);
-
-console.log(
-  `networkReceiveQuality: ${latestRemoteDiagnostics.networkReceiveQuality.value}, ` +
-    `value type = ${latestRemoteDiagnostics.networkReceiveQuality.valueType}`
-);
-
-console.log(
-  `networkSendQuality: ${latestRemoteDiagnostics.networkSendQuality.value}, ` +
-    `value type = ${latestRemoteDiagnostics.networkSendQuality.valueType}`
-);
-
-console.log(
-  `cameraStartFailed: ${latestRemoteDiagnostics.cameraStartFailed.value}, ` +
-    `value type = ${latestRemoteDiagnostics.cameraStartFailed.valueType}`
-);
-
-console.log(
-  `microphoneNotFunctioning: ${latestRemoteDiagnostics.microphoneNotFunctioning.value}, ` +
-    `value type = ${latestRemoteDiagnostics.microphoneNotFunctioning.valueType}`
-);
-
-console.log(
-  `microphoneMuteUnexpectedly: ${latestRemoteDiagnostics.microphoneMuteUnexpectedly.value}, ` +
-    `value type = ${latestRemoteDiagnostics.microphoneMuteUnexpectedly.valueType}`
-);
-
-console.log(
-  `cameraFreeze: ${latestRemoteDiagnostics.cameraFreeze.value}, ` +
-    `value type = ${latestRemoteDiagnostics.cameraFreeze.valueType}`
-);
-
-console.log(
-  `cameraStartFailed: ${latestRemoteDiagnostics.cameraStartFailed.value}, ` +
-    `value type = ${latestRemoteDiagnostics.cameraStartFailed.valueType}`
-);
-
-console.log(
-  `cameraStartTimedOut: ${latestRemoteDiagnostics.cameraStartTimedOut.value}, ` +
-    `value type = ${latestRemoteDiagnostics.cameraStartTimedOut.valueType}`
-);
-
-console.log(
-  `cameraStoppedUnexpectedly: ${latestRemoteDiagnostics.cameraStoppedUnexpectedly.value}, ` +
-    `value type = ${latestRemoteDiagnostics.cameraStoppedUnexpectedly.valueType}`
-);
-
+for (const diagnostic of latestRemoteDiagnostics.diagnostics) { 
+    console.error(`Remote participant ${diagnostic.participantId} diagnostic: ${diagnostic.diagnostic} = ${diagnostic.value}`); 
+}  
 ```
