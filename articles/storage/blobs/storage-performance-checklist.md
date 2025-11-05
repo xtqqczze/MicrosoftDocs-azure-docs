@@ -16,13 +16,18 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 
 # Performance checklist for Blob Storage
 
-You can use the checklists in this article to reduce latency and improve the throughput of object transfers to, from, and between Azure storage accounts. 
+You can use the checklists in this article to reduce _latency_ and improve the _throughput_ of object transfers to, from, and between Azure storage accounts. _Latency_ is the amount of time that a client must wait for a request to complete. It's measured as input/output operations per second (IOPS). _Throughput_ is amount of data transferred per second and is calculated by multiplying the request rate (IOPS) by the request size. 
 
-## Reduce latency
+Optimize your data estate not only to reduce latency and increase throughput, but also to align with Azure Storage scale and performance _targets_. They are called _targets_ and not _limits_ because some numbers can be increased by request. The following articles lists all performance targets and identifies which targets can be increased by contacting support:
 
-Latency is the amount of time that a client must wait for a request to complete. It's measured as input/output operations per second (IOPS). See [Latency in Blob Storage](storage-blobs-latency.md).
+- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json)
+- [Scalability and performance targets for Blob storage](scalability-targets.md)
 
-Use these recommendations to reduce latency, and to align your data estate with optimal scale targets. To learn more about scale targets, see the [About scale targets](#about-scale-targets) section of this article.
+If clients approach or exceed targets such as the default maximum request rate or the default maximum ingress or egress in GB per second, then latency might increase, and requests might be throttled by the server. When Azure Storage throttles your clients, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes.
+
+You don't have to reduce performance to meet these scale targets. The recommendations in this article can help you achieve maximum latency and throughput while ensuring that your data estate and workload demands align with targets. 
+
+## Checklist of recommendations
 
 > [!div class="checklist"]
 >
@@ -39,12 +44,6 @@ Use these recommendations to reduce latency, and to align your data estate with 
 > - **Data transfer tools** - The AzCopy command-line utility is a simple and efficient option for bulk transfer of blobs to, from, and across storage accounts. AzCopy is optimized for this scenario, and can achieve high transfer rates. AzCopy version 10 uses the `Put Block From URL` operation to copy blob data across storage accounts. AzCopy also performs uploads in parallel by default. Uploading in parallel is faster than uploading single blobs at a time with parallel block uploads because it spreads the upload across multiple partitions of the storage service. For more information, see [Copy or move data to Azure Storage by using AzCopy v10](../common/storage-use-azcopy-v10.md).Put something here for storage mover. For importing large volumes of data into Blob storage, consider using the Azure Data Box family for offline transfers. Microsoft-supplied Data Box devices are a good choice for moving large amounts of data to Azure when you're limited by time, network availability, or costs. For more information, see the [Azure DataBox Documentation](../../databox/index.yml). For more information about choosing a migration data tool, see put link here. 
 >
 > - **Optimize custom code** - Reduce latency by modifying the code of custom applications that you build or maintain, see [Performance checklist for developers (Azure Blob Storage)](storage-performance-checklist-developers.md).
-
-## Optimize throughput
-
-Something here about throughput.
-
-> [!div class="checklist"]
 >
 > - **Block size** - When uploading blobs or blocks, use blob or block sizes greater than 4 MiB for standard storage accounts and 256 KiB for premium storage accounts. Larger blob or block sizes automatically activate high-throughput block blobs. High-throughput block blobs provide high-performance ingest that isn't affected by partition naming.  
 >
@@ -52,29 +51,11 @@ Something here about throughput.
 >
 > - **Network link quality** - Use WireShark or NetMon to monitor for errors and packet loss which can slow network throughput.
 
-## About scale targets
-
-Azure Storage publishes scale and performance _targets_ . They are called _targets_ and not _limits_ because some numbers can be increased by request. See [Storage account scale targets](../common/scalability-targets-standard-account.md) and [Blob Storage scale targets](scalability-targets.md).
-
-If clients approach or exceed the request rate of the account, the request rate of a single blob, or the maximum GB per second on ingress or egress, they might encounter increased transaction latencies or throttling. When Azure Storage throttles your clients, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes. 
-
-If you believe that your workloads will exceed these limits, or you are beginning to observe increases in latency or throttling, consider any of these suggestions:
-
-- Use premium block blob storage accounts
-
-- Use an Azure CDN to distribute content
-
-- Copy blobs to multiple storage accounts. 
-
-- Optimize any code in applications that you build or maintain a custom application by using REST or an Azure Storage SDK. 
-
-  See [Performance checklist for developers (Azure Blob Storage)](storage-performance-checklist-developers.md) 
-
-- Contact support for further guidance. Some scale limits can be increased.
-
 ## Next steps
 
 - [Scalability and performance targets for Blob storage](scalability-targets.md)
 - [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json)
+- [Performance checklist for developers (Azure Blob Storage)](storage-performance-checklist-developers.md)
+- [Latency in Blob Storage](storage-blobs-latency.md)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)
 
