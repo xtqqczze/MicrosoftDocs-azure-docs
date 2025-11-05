@@ -6,7 +6,7 @@ services: virtual-network
 author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: concept-article
-ms.date: 09/23/2025
+ms.date: 11/04/2025
 ms.author: alittleton
 #Customer intent: For customers who want to understand how to use NAT gateway with availability zones.
 # Customer intent: "As a network architect, I want to understand how to deploy NAT gateway with availability zones, so that I can ensure resilient outbound connectivity for my virtual networks against potential zonal outages."
@@ -67,12 +67,12 @@ If no zone is selected at the time that the Standard NAT gateway resource is dep
 ### Design considerations
 
 StandardV2 NAT Gateway provides a dimension of reliability that Standard does not. StandardV2 is zone-redundant by default, and can survive a single zone failure. StandardV2 NAT Gateway must be deployed with StandardV2 Public IP which is also zone-redundant resource by default. 
-If Standard SKU is deployed, you will not be protected from zonal outages. If the NAT gateway availability zone goes down, the outbound connectivity across all subnets and all zones will go down.
+When Standard SKU is deployed, if the NAT gateway availability zone goes down, the outbound connectivity across all subnets and all zones will go down.
 
 
 ### Integration of inbound with a standard load balancer  
 
-StandardV2 NAT gateway should be deployed with Azure Load balancer as the recommended deployment to provide inbound and outbound connectivity for an Azure virtual network. To learn about integrating a Load balancer and NAT gateway, see the following tutorials for [public load balancer](./tutorial-nat-gateway-load-balancer-public-portal.md) and [internal load balancer](./tutorial-nat-gateway-load-balancer-internal-portal.md). 
+To learn about integrating a Load balancer and NAT gateway, see the following tutorials for [public load balancer](./tutorial-nat-gateway-load-balancer-public-portal.md) and [internal load balancer](./tutorial-nat-gateway-load-balancer-internal-portal.md). 
 
 ## Limitations
 

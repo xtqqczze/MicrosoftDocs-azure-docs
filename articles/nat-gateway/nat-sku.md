@@ -1,7 +1,7 @@
 ---
 title: Azure NAT Gateway SKUs
 description: Overview of available NAT Gateway SKUs and their differences.
-ms.date: 09/05/2025
+ms.date: 11/04/2025
 ms.topic: article
 ms.service: azure-nat-gateway
 author: alittleton
@@ -27,10 +27,10 @@ Azure Network Address Translation (NAT) Gateway has two stock-keeping units (SKU
 | | Idle timeout timer | Supported | Supported |
 | | Port reuse timer | Supported | Supported |
 | | Protocols | TCP, UDP | TCP, UDP |
-| | Public IP version| IPv4, IPv6 - in public preview | IPv4 |
+| | Public IP version| IPv4, IPv6 | IPv4 |
 | | Attach point | Subnet, virtual network (all subnets) | Subnet |
-| Scalability | Public IP Addresses | 16 IPv4 addresses, 16 IPv6 addresses - in public preview | 16 IPv4 addresses |
-| | Public IP Prefixes | /28 IPv4 Prefix, /28 IPv6 Prefix - in public preview | /28 IPv4 Prefix |
+| Scalability | Public IP Addresses | 16 IPv4 addresses, 16 IPv6 addresses | 16 IPv4 addresses |
+| | Public IP Prefixes | /28 IPv4 Prefix, /124 IPv6 Prefix | /28 IPv4 Prefix |
 | | Virtual networks | 1 | 1 |
 | | Subnets | 800 - attached at subnet level, 3,000 attached at virtual network level | 800 |
 | Monitoring | Metrics | Supported | Supported |
@@ -40,9 +40,7 @@ Azure Network Address Translation (NAT) Gateway has two stock-keeping units (SKU
 | | Total connections | 2 million | 2 million | 
 
 ## Pricing and Service Level Agreement (SLA)
-Standard and StandardV2 NAT Gateway are the same price. For more information, see NAT Gateway pricing. 
-
-For Azure NAT Gateway pricing, see [NAT Gateway pricing](https://azure.microsoft.com/pricing/details/azure-nat-gateway/).
+Standard and StandardV2 NAT Gateway are the same price. For Azure NAT Gateway pricing, see [NAT Gateway pricing](https://azure.microsoft.com/pricing/details/azure-nat-gateway/).
 
 For information on the Service Level Agreement (SLA), see [SLA for Azure NAT Gateway](https://azure.microsoft.com/support/legal/sla/virtual-network-nat/v1_0/).
 
@@ -64,10 +62,11 @@ StandardV2 NAT Gateway supports subnet level attachment and also has the added c
 
 ### IPv6 support
 
-StandardV2 SKU NAT Gateway support for IPv6 public IPs is currently in **public preview**. StandardV2 NAT Gateway can be attached to 16 IPv6 public IPs and 16 IPv4 public IPs simultaneously in order to provide highly scalable dual-stack outbound connectivity to the internet.  
+StandardV2 NAT Gateway can be attached to 16 IPv6 public IPs and 16 IPv4 public IPs simultaneously in order to provide highly scalable dual-stack outbound connectivity to the internet.  
 
-> [!IMPORTANT]
-> IPv6 support for StandardV2 NAT Gateway is now in public preview in select Azure regions. Refer to [known limitations](#known-limitations) to see the regions StandardV2 NAT Gateway isn't available in.
+### Flow logs 
+
+StandardV2 NAT Gateway supports flow logs through Azure Monitor. Flow logs provide visibility into the traffic flowing through the NAT Gateway. For more information, see [Analyze NAT Gateway traffic with flow logs](./nat-gateway-flow-logs.md). 
 
 ## Known limitations 
 
@@ -90,36 +89,32 @@ StandardV2 SKU NAT Gateway support for IPv6 public IPs is currently in **public 
 
     * Israel Northwest  
 
-    * Jio India West  
-
     * Malaysia West  
 
-    * Qatar Central  
-
-    * Sweden South  
+    * Qatar Central   
 
     * UAE Central
-      
-    * West India
 
 * StandardV2 NAT Gateway can’t be deployed as a managed NAT Gateway for Azure Kubernetes Service (AKS) workloads. It's only supported when configured as a user-assigned NAT Gateway. For more information, see [Create NAT Gateway for your AKS cluster](/azure/aks/nat-gateway).
 
-* Terraform and CLI don't yet support StandardV2 NAT Gateway and StandardV2 Public IP deployments. 
+* Terraform doesn't yet support StandardV2 NAT Gateway and StandardV2 Public IP deployments.
+
+* StandardV2 NAT Gateway doesn't support and can't be attached to delegated subnets for the following services: 
+    * Azure SQL Managed Instance 
+    * Azure Container Instances 
+    * Azure Database for PostgreSQL - Flexible Server 
+    * Azure Database for MySQL - Flexible Server 
+    * Azure Database for MySQL  
+    * Azure Data Factory - Data Movement 
+    * Microsoft Power Platform services 
+    * Azure Stream Analytics 
+    * Azure Web Apps 
+    * Azure DNS Private Resolver 
 
 ## Known issues 
-
-* StandardV2 NAT Gateway breaks outbound connectivity in VNet injection scenarios used by certain Azure services. For these scenarios, Standard NAT Gateway should be used instead. StandardV2 NAT Gateway is not supported to provide outbound connectivity for these services:
-  * Azure Container Instances
-  * Azure Stream Analytics
-  * Azure Web Apps
-
 * StandardV2 NAT Gateway disrupts outbound connections made with Load balancer outbound rules for IPv6 traffic only. Standard SKU NAT gateway can be used to provide outbound for IPv4 traffic while Load balancer outbound rules is used for IPv6 outbound traffic. If you see disruption to outbound connectivity for IPv6 outbound traffic with Load balancer outbound rules, remove the StandardV2 NAT Gateway from the subnet or virtual network. Use Load balancer outbound rules to provide outbound connectivity for both IPv4 and IPv6 traffic. Or use Standard SKU NAT Gateway to provide outbound connectivity for IPv4 traffic and Load balancer outbound rules for IPv6 traffic.
 
-* StandardV2 NAT Gateway associated with a source virtual network disrupts Azure Bastion connectivity. If you're using Azure Bastion to access your virtual machines, attach StandardV2 NAT Gateway directly to subnets instead. 
-
-* StandardV2 NAT Gateway associated with a source virtual network doesn't provide outbound connectivity for subnets containing SQL Managed Instances. 
-
-* Attaching a StandardV2 NAT Gateway to an empty virtual network or subnet without any virtual machines may cause the virtual network or subnet to go into a failed state. To return the virtual network or subnet to a successful state, create a virtual machine in the subnet.
+* Attaching a StandardV2 NAT Gateway to an empty virtual network or subnet created before April 2025 without any virtual machines may cause the virtual network or subnet to go into a failed state. To return the virtual network or subnet to a successful state, remove StandardV2 NAT Gateway, create and add a virtual machine to the subnet and then reattach the StandardV2 NAT Gateway. 
 
 ## Standard NAT Gateway features
 
