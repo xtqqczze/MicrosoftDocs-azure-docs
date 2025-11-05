@@ -63,13 +63,13 @@ To start the workflow in this example, add the request trigger.
 
 1. In the trigger, leave the **Request Body JSON Schema** box empty, because the trigger receives an X12 message in flat file format.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/request-trigger-consumption.png" alt-text="Screenshot showing multi-tenant designer and Request trigger properties.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/request-trigger.png" alt-text="Screenshot showing multi-tenant designer and Request trigger properties.":::
 
 1. When you're done, on the designer toolbar, select **Save**.
 
    This step generates the **HTTP POST URL** that you later use to send a request that triggers logic app workflow.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/request-trigger-generated-url-consumption.png" alt-text="Screenshot showing multi-tenant designer and generated URL for Request trigger.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/request-trigger-generated-url.png" alt-text="Screenshot showing multi-tenant designer and generated URL for Request trigger.":::
 
 1. Copy and save the URL to use later.
 
@@ -85,7 +85,7 @@ Now add the B2B actions for this example, which uses the AS2 and X12 actions.
 
    - To select from a list that shows the available trigger outputs, select inside the **Message to decode** box. Then select the lightning icon to open the dynamic content list. Under **When an HTTP request is received**, select **Body** property value:
 
-     :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/select-trigger-output-body-consumption.png" alt-text="Screenshot showing multi-tenant designer with dynamic content list and Body property selected.":::
+     :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/select-trigger-output-body.png" alt-text="Screenshot showing multi-tenant designer with dynamic content list and Body property selected.":::
 
      > [!TIP]
      >
@@ -103,13 +103,13 @@ Now add the B2B actions for this example, which uses the AS2 and X12 actions.
 
    1. To enter an expression that references the trigger's `headers` output, select **Switch Message headers to text mode**.
 
-      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/switch-text-mode-consumption.png" alt-text="Screenshot showing multi-tenant designer with Switch Message headers to text mode selected.":::
+      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/switch-text-mode.png" alt-text="Screenshot showing multi-tenant designer with Switch Message headers to text mode selected.":::
 
    1. Select inside the **Message headers** box. Select the Expression icon. In the expression editor, enter the following expression, and select **Add**:
 
       `triggerOutputs()['Headers']`
 
-      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/as2-header-expression-consumption.png" alt-text="Screenshot showing multi-tenant designer and the "Message headers" box with the @triggerOutputs()['Headers'] token.":::
+      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/as2-header-expression.png" alt-text="Screenshot showing multi-tenant designer and the "Message headers" box with the @triggerOutputs()['Headers'] token.":::
 
 <a name="add-response-action"></a>
 
@@ -121,7 +121,7 @@ You can notify the trading partner that the message was received. Return a respo
 
    The condition shape appears, including the paths that determine whether the condition is met.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/added-condition-action-consumption.png" alt-text="Screenshot showing multi-tenant designer and the condition shape with empty paths.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/added-condition-action.png" alt-text="Screenshot showing multi-tenant designer and the condition shape with empty paths.":::
 
 1. Specify the condition to evaluate. In the **Choose a value** box, enter the following expression:
 
@@ -131,7 +131,7 @@ You can notify the trading partner that the message was received. Return a respo
 
 1. Save your logic app workflow.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/evaluate-condition-expression-consumption.png" alt-text="Screenshot showing multi-tenant designer and the condition shape with an operation.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/evaluate-condition-expression.png" alt-text="Screenshot showing multi-tenant designer and the condition shape with an operation.":::
 
 1. Specify the responses to return based on whether the **AS2 Decode** action succeeds or not.
 
@@ -147,7 +147,7 @@ You can notify the trading partner that the message was received. Return a respo
 
         `@body('AS2_Decode')?['OutgoingMdn']?['Content']`
 
-      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/response-success-resolved-expression-consumption.png" alt-text="Screenshot showing multi-tenant designer and resolved expression to access AS2 MDN.":::
+      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/response-success-resolved-expression.png" alt-text="Screenshot showing multi-tenant designer and resolved expression to access AS2 MDN.":::
 
    1. For the case when the **AS2 Decode** action fails, in the **False** shape, select **Add an action**. Under the **Choose an operation** search box, enter `response`, and select **Response**. Set up the **Response** action to return the status and error that you want.
 
