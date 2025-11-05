@@ -456,7 +456,7 @@ To reference a parameter's value, use the [parameters](template-functions-deploy
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2021-06-01-preview",
+      "apiVersion": "2025-05-01",
       "name": "[parameters('vaultName')]",
       ...
     }

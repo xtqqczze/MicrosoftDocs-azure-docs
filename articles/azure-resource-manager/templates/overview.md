@@ -35,8 +35,8 @@ If you're trying to decide between using ARM templates and one of the other infr
         "defaultValue": "[resourceGroup().location]"
       }
     },
-    "resources": {
-      "mystore": {
+    "resources": [
+      {
         "type": "Microsoft.Storage/storageAccounts",
         "apiVersion": "2025-06-01",
         "name": "mystorageaccount",
@@ -46,7 +46,7 @@ If you're trying to decide between using ARM templates and one of the other infr
         },
         "kind": "StorageV2"
       }
-    }
+    ]
   }
   ```
 

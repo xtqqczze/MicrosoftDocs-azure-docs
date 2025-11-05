@@ -350,7 +350,7 @@ The following ARM template creates a container instance and a file share, and th
         ]
       },
       "dependsOn": [
-        "storageAccount"
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
       ]
     }
   ]
