@@ -44,7 +44,7 @@ Migrate web apps using GitHub Copilot to accelerate modernization with AI-powere
 
 Deploying containerized applications with Azure DevOps automates building, testing, and deploying containerized apps to cloud or Kubernetes environments.
 
-- Automate continuous deployment of containerized applications with Azure DevOps pipelines that build Docker images, push to Azure Container Registry, and deploy to AKS or App Service. [Learn more](/azure/migrate/tutorial-app-containerization-azure-pipeline).
+- Automate continuous deployment of containerized applications with Azure pipelines that build Docker images, push to Azure Container Registry, and deploy to AKS or App Service. [Learn more](/azure/migrate/tutorial-app-containerization-azure-pipeline).
 
 ## Next steps
 
