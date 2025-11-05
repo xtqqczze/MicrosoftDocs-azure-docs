@@ -254,8 +254,8 @@ The resources allocated to the ingress in each mode are:
 
 | Mode     | Instances                | CPU                | Memory         | CPU Scale Threshold | Memory Scale Threshold |
 |----------|--------------------------|--------------------|---------------|--------------------|-----------------------|
-| Default  | 2-10                     | 1 core             | 2 GB          | 75%                | 50%                   |
-| Premium  | One per node (min 2)     | 90% of node cores  | 90% of node memory | 50% of node cores  | 50% of node memory    |
+| **Default**  | 2-10                     | 1 core             | 2 GB          | 75%                | 50%                   |
+| **Premium**  | One per node (min 2)     | 90% of node cores  | 90% of node memory | 50% of node cores  | 50% of node memory    |
 
 ## Clean up resources
 
