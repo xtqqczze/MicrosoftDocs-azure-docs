@@ -102,9 +102,25 @@ This article helps you create a connection to link a virtual network (virtual ne
 
     **High/Standard resiliency**
 
-    For high or standard resiliency, you only need to enter information for one connection. For high resiliency the connection you need to attach a metro circuit.  For standard resiliency the connection you need to attach a regular (non-metro) circuit.  
+    For high or standard resiliency, you only need to enter information for one connection. For high resiliency the connection you need to attach a metro circuit.  For standard resiliency the connection you need to attach a regular (non-metro) circuit.
 
-7. After your connection has been successfully configured, your connection object will show the information for the connection.
+7. (Optional) Select **Next: Monitoring >** to configure Connection Monitor for your ExpressRoute connection. Connection Monitor tracks the health and performance of your connection by continuously testing network paths between on-premises and Azure endpoints.
+
+    :::image type="content" source="./media/how-to-configure-connection-monitor/connection-monitor.png" alt-text="Screenshot showing the Monitoring tab configuration page for Connection Monitor settings." lightbox="./media/how-to-configure-connection-monitor/connection-monitor.png":::
+
+    Configure the following settings:
+    * **Enable Connection Monitor**: Selected by default. Clear this checkbox if you don't want to enable monitoring.
+    * **On-premises endpoint**: Select your Azure Arc-enabled server or enter an external IP address.
+    * **Azure endpoint**: Select your Azure Virtual Machine or Virtual Machine Scale Set.
+    * **Protocol**: TCP is used for testing connectivity.
+    * **Destination port**: Enter the port your application uses.
+    * **Test Frequency**: Select how often Connection Monitor checks your connection.
+    
+    For detailed configuration guidance, see [Configure Connection Monitor](configure-connection-monitor.md).
+
+8. Select **Review + create** and then select **Create** after validation completes.
+
+9. After your connection has been successfully configured, your connection object will show the information for the connection.
 
 ## Connect a virtual network to a circuit - different subscription
 

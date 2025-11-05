@@ -48,6 +48,15 @@ You can connect a virtual network gateway to an ExpressRoute circuit by using th
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
+**Configure Connection Monitor**
+
+After creating your ExpressRoute connection, you can configure Connection Monitor to track the health and performance of your connection. Connection Monitor continuously tests network paths between on-premises and Azure endpoints using synthetic traffic.
+
+To configure Connection Monitor for an existing connection using the Azure portal, see [Configure Connection Monitor](configure-connection-monitor.md). The portal experience provides a guided workflow for selecting endpoints and configuring test settings.
+
+> [!TIP]
+> When creating a new connection through the Azure portal, you can configure Connection Monitor directly on the **Monitoring** tab during the connection creation process.
+
 ## Connect a virtual network in a different subscription to a circuit
 
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
