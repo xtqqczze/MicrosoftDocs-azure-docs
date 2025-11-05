@@ -142,7 +142,7 @@ If using Microsoft managed shipping, follow these steps.
 
 ### [Japan](#tab/in-japan)
 
-1. Unplug disks and remove all connecting cables. Double-check that all accessories (cables, adapters) are present to avoid additional charges.
+1. Unplug disks and remove all connecting cables. Double-check that all accessories (cables, adapters) are present to avoid extra charges.
 2. Place each disk in an individual bubble-wrap bag. Package disks and all accessories in the original shipping box. Ensure a snug fit to minimize movement inside the box.
 3. Email adbops@microsoft.com using the following template to schedule return pickup
     * If you have multiple orders, email to ensure individual pickup.
@@ -156,7 +156,7 @@ If using Microsoft managed shipping, follow these steps.
     -  Collection Address:
     -  Preferred Collection Date and Time:
     ```
-4. Once the pickup collection is scheduled, the carrier will bring the shipping label (if not already provided).
+4. Once the pickup collection is scheduled, the carrier brings the shipping label (if not already provided).
 
 5. If you encounter pickup issues:
    * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
@@ -165,7 +165,7 @@ If using Microsoft managed shipping, follow these steps.
 
 ### [Korea](#tab/in-korea)
 
-1. Unplug disks and remove all connecting cables. Double-check that all accessories (cables, adapters) are present to avoid additional charges.
+1. Unplug disks and remove all connecting cables. Double-check that all accessories (cables, adapters) are present to avoid extra charges.
 2. Place each disk in an individual bubble-wrap bag. Package disks and all accessories in the original shipping box. Ensure a snug fit to minimize movement inside the box.
 3. Email adbops@microsoft.com using the following template to schedule return pickup
     * If you have multiple orders, email to ensure individual pickup.
@@ -179,7 +179,7 @@ If using Microsoft managed shipping, follow these steps.
     -  Collection Address:
     -  Preferred Collection Date and Time:
     ```
-4. Once the pickup collection is scheduled, the carrier will bring the shipping label (if not already provided).
+4. Once the pickup collection is scheduled, the carrier brings the shipping label (if not already provided).
 
 5. If you encounter pickup issues:
    * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
@@ -189,7 +189,7 @@ If using Microsoft managed shipping, follow these steps.
 
 ### [Singapore](#tab/in-singapore)
 
-1. Unplug disks and remove all connecting cables. Double-check that all accessories (cables, adapters) are present to avoid additional charges.
+1. Unplug disks and remove all connecting cables. Double-check that all accessories (cables, adapters) are present to avoid extra charges.
 2. Place each disk in an individual bubble-wrap bag. Package disks and all accessories in the original shipping box. Ensure a snug fit to minimize movement inside the box.
 3. Email adbops@microsoft.com using the following template to schedule return pickup
     * If you have multiple orders, email to ensure individual pickup.
@@ -203,7 +203,7 @@ If using Microsoft managed shipping, follow these steps.
     -  Collection Address:
     -  Preferred Collection Date and Time:
     ```
-4. Once the pickup collection is scheduled, the carrier will bring the shipping label (if not already provided).
+4. Once the pickup collection is scheduled, the carrier brings the shipping label (if not already provided).
 
 5. If you encounter pickup issues:
    * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
