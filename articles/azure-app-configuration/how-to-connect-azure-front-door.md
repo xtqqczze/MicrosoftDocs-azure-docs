@@ -64,7 +64,7 @@ Create a new Azure Front Door profile and connect it to your App Configuration s
 
    For a detailed overview and comparison of Azure Front Door pricing tiers, see [Compare pricing between Azure Front Door tiers](/azure/frontdoor/understanding-pricing).
 
-1. Create an endpoint that uses this App Configuration store as origin, and configure the following settings:
+1. Create an endpoint that uses this App Configuration store as origin, and configure the following settings.
 
 #### Endpoint configuration settings
 
@@ -72,8 +72,7 @@ Create a new Azure Front Door profile and connect it to your App Configuration s
 
       - **Endpoint name**: Enter a descriptive name for your endpoint
       - **Endpoint host name**: Automatically generated based on your endpoint name
-      - **Origin host name**: Select your App Configuration store and any replicas from the dropdown. These are added to the origin group so Azure Front Door can route traffic to them. For details on how origin groups improve availability and performance, see [Azure Front Door routing methods](/azure/frontdoor/routing-methods).
-
+      - **Origin host name**: Select your App Configuration store and any replicas from the dropdown. These are added to the origin group so Azure Front Door can route traffic to them. For details on how origin groups improve availability and performance, see [Azure Front Door routing methods](/azure/frontdoor/routing-methods)
         :::image type="content" source="../articles/azure-app-configuration/media/how-to-connect-azure-front-door/endpoint-details.png" alt-text="Screenshot showing  Azure Front Door endpoint details in the App Configuration store."
 
    - **Identity type**: Choose the managed identity type for Azure Front Door to access your App Configuration store:
@@ -103,11 +102,11 @@ Create a new Azure Front Door profile and connect it to your App Configuration s
 
 1. Select **Connect** to establish the connection.
 
-1. After successful connection, you see your subscription information, the connected Azure Front Door profile name as a clickable link, and an **Existing Endpoints** section. Any endpoints in the connected Azure Front Door profile that use this App Configuration store or its replicas as an origin appear here.
+1. After successful connection, you see your subscription information, the connected Azure Front Door profile name as a clickable link, and an **Existing endpoints** section. Any endpoints in the connected Azure Front Door profile that use this App Configuration store or its replicas as an origin appear here.
 
-1. To create additional endpoints, select **Create endpoint**, [configure the endpoint](#endpoint-configuration-settings), and select **Create**.
+1. To create an additional endpoint, select **Create endpoint**, then [configure the endpoint](#endpoint-configuration-settings), and select **Create**.
 
-Endpoints appear in the **Existing endpoints** table, showing the endpoint URL, origin URL, origin location, and any configuration warnings that need attention.
+Endpoints appear in the **Existing endpoints** table, showing endpoint URL, origin URL, origin location, and any configuration warnings that need attention.
 
 ## Manage endpoints
 
@@ -115,7 +114,7 @@ Endpoints appear in the **Existing endpoints** table, showing the endpoint URL, 
 
 Use the **Existing endpoints** table to monitor your Azure Front Door endpoints and identify configuration issues.
 
-:::image type="content" source="media/how-to-connect-azure-front-door/existing-connections.png" alt-text="Screenshot showing Azure Front Door connections in the App Configuration store." lightbox="media/how-to-connect-azure-front-door/existing-connections.png":::
+:::image type="content" source="media/how-to-connect-azure-front-door/existing-connections.png" alt-text="Screenshot showing Azure Front Door connections in the App Configuration store." lightbox="media/how-to-connect-azure-front-door/existing-connection.png":::
 
 The table displays:
 - **Azure Front Door Endpoint**: The endpoint URL (clickable link)
