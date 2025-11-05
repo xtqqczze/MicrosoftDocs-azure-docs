@@ -85,7 +85,7 @@ Create a new Azure Front Door profile and connect it to your App Configuration s
    - **Filter Configuration to scope the request**: Configure one or more filters to control which requests pass through Azure Front Door. This prevents accidental exposure of sensitive configuration and ensures only the settings your application needs are accessible. The filters here must exactly match those used in your application code; otherwise, requests will be rejected by Azure Front Door.
       
       > [!NOTE]
-      > To setup the right scoping filters, you need to know what filters are used in your application to load key-values or snapshots from App Configuration. For example, if your application needs to load keys that start with the *App1:* prefix, and a snapshot whose name is *MySnapshot*, enter those values in the Key and Snapshot name filters.
+      > To set up the right scoping filters, you need to know what filters are used in your application to load key-values or snapshots from App Configuration. For example, if your application needs to load keys that start with the *App1:* prefix, and a snapshot whose name is *MySnapshot*, enter those values in the Key and Snapshot name filters.
    
       - **Key**: The key filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), and backslash (`\`) must be escaped using a backslash (`\`) when filtering multiple key-values.
       - **Label**: The label filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), and backslash (`\`) must be escaped using a backslash (`\`) when filtering multiple key-values.
@@ -147,7 +147,7 @@ If you encounter issues while connecting Azure Front Door to your App Configurat
 - Ensure that you have sufficient permissions to create and manage Front Door resources (Contributor or equivalent)
 - Ensure that you have sufficient permissions to assign roles (Owner or User Access Administrator).
 - Ensure that the selected managed identity has the App Configuration Data Reader role assignment.
-- From Front Door portal, make sure that the origin is correctly setup to be able to authenticate with the App Configuration origin. Learn how to [use managed identities to authenticate to origins](/azure/frontdoor/origin-authentication-with-managed-identities)
+- From Front Door portal, make sure that the origin is correctly set up to be able to authenticate with the App Configuration origin. Learn how to [use managed identities to authenticate to origins](/azure/frontdoor/origin-authentication-with-managed-identities)
 - Verify that the Azure Front Door resource provider is registered in your subscription.
 
 ## Related content
