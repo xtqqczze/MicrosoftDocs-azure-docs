@@ -136,7 +136,7 @@ Create a new feature flag in the Azure portal by following the steps below.
         | **Distribution (seed)**              | Use custom seed: *12345*                        | By default the percentile distribution is randomized. Provide a fixed seed to produce deterministic (repeatable) allocations across feature flags that share the same seed value.        |
 
         > [!IMPORTANT]
-        > If feature evaluations occur in a client application (for example, a web browser), feature flag data — including user names specified here — may be exposed to end users. For more information, see [Client applications in App Configuration](/azure/azure-app-configuration/howto-best-practices.md#client-applications-in-app-configuration).
+        > If feature evaluations occur in a client application (for example, a web browser), feature flag data — including user names specified here — may be exposed to end users. For more information, see [Client applications in App Configuration](./howto-best-practices.md#client-applications-in-app-configuration).
         
     1. Configure **Conditions** to limit exposure, schedule changes, and manage custom constraints for serving your features.
 
