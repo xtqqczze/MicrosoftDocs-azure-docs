@@ -3,23 +3,26 @@ title: Overview of Azure SRE Agent Preview
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 11/03/2025
+ms.date: 11/05/2025
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
-# What is Azure SRE Agent Preview?
+# Overview of Azure SRE Agent Preview
 
-Azure SRE Agent Preview is an AI-powered reliability assistant that helps teams diagnose and resolve production issues, reduce operational toil, and lower mean time to resolution (MTTR).
+Azure SRE Agent is designed to automate operational work and reduce toil, enabling developers and operators to focus on high-value tasks. By streamlining repetitive and complex processes, SRE Agent accelerates innovation and improves reliability across cloud and hybrid environments.
 
-Ask questions in natural language, get explainable root-cause analysis (RCA), and orchestrate incident workflows with human-in-the-loop approvals or autonomous execution within scoped guardrails. You can configure the service's agent to follow customized instructions and runbooks, and to enable consistent and scalable incident response aligned with your team's operational practices.
+Typical operational tasks often include managing multiple Azure resources along with on-prem and SaaS systems. These tasks are often repetitive or require orchestrating together multiple tools to provide the insights you need. SRE Agent lets gives you AI-driven platform to connect to those systems together and automate the workflow end-to-end.
 
-## What you can do with SRE Agent
+## What is SRE Agent?
 
-| Ask and understand | Automate incidents | Stay proactive |
-|---|---|---|
-| Ask plain-language questions about Azure resources, incidents, and health. | Diagnose, mitigate, and resolve incidents across Azure Monitor or integrated tools. The agent works autonomously or with approvals. | Agent sends daily summaries of environment health, flags spikes in CPU/memory usage, and identifies resources that don't follow security best practices. |
-| **Examples:**<br><br>* *What changed in production in last 24 hours?*<br><br>* *Which resources are unhealthy?*<br><br>* *What alerts are active now?* | **Examples:**<br><br>* Incidents from ServiceNow or PagerDuty<br><br>* 500 error alerts from Azure Monitor<br><br> * Custom incident resolution workflows | **Examples:**<br><br>* Daily health summary for production<br><br>* CPU spike detection<br><br>* Security compliance violations |
+SRE Agent is a service that brings automation and intelligence to site reliability engineering practices. It helps you reduce manual effort, improve system uptime, and deliver consistent operational outcomes. As the agent integrates with both Azure services and external systems, it executes operational tasks with minimal human intervention.
+
+## Primary use cases
+
+- **Automate incidents**: Connect to incident management platforms to automate triage, mitigation, and resolution, reducing mean time to recovery (MTTR) and improving service availability.
+
+- **Automate scheduled workflows**: Set up proactive alerting and actions to automate routine and repetitive tasks that run on a defined schedule.
 
 Watch the following video to see SRE Agent in action.
 
@@ -27,15 +30,9 @@ Watch the following video to see SRE Agent in action.
 
 > [!VIDEO https://www.youtube.com/embed/DRWppVNOTqQ?si=FJ9dNk5uY1kUET-R]
 
-## Key capabilities
+## How does SRE Agent work?
 
-| Feature | Description |
-|---|---|
-| **Incident Automation** | Diagnose, enrich, and orchestrate workflows across Azure Monitor and supported tools with human-in-the-loop approvals or autonomous execution by using custom incident resolution plans. |
-| **Customizable incident handling** | Tailor the agent's behavior to follow your operational instructions and manage incidents in alignment with your team's site reliability engineering (SRE) best practices. |
-| **Explainable RCA** | Correlate metrics, logs, traces, and recent deployments to propose likely causes and safe mitigations. When the agent is attached to a source code repository, it can pinpoint code differences in RCA reports. |
-| **Dev work item creation** | Automatically create developer work items in GitHub or Azure DevOps to link incidents to commits, pull requests, and deployment history. Include repro steps, logs, and suspects to accelerate resolution. |
-| **Natural language insights** | Ask questions and issue commands in plain English. |
+SRE Agent combines fine-tuned Azure expertise with full customization capabilities. Out of the box, SRE Agent understands and manages Azure resources for specific services, providing intelligent defaults for common operational tasks. At the same time, it offers flexibility to incorporate domain-specific knowledge, custom runbooks, and integrations with tools and data sources such as observability and monitoring platforms. This extensibility ensures that SRE Agent can adapt to your environment and operational requirements.
 
 ## Integrations
 
@@ -49,27 +46,27 @@ Azure SRE Agent integrates with the following services:
 
 Use the following steps to start working with Azure SRE Agent.
 
-# [Explore](#tab/explore)
+# [Schedule a task](#tab/task)
 
-1. Create [a new agent](usage.md) in your subscription with [Reader](access-management.md) permissions.
+Create a schedule task to run on a schedule you define.
 
-1. Point the agent to the resource groups that you want to manage.
+1. Select the **Schedule tasks** tab.
 
-1. Try prompts like:
+1. Enter task details.
 
-    - *What's the CPU and memory utilization of my app?*
+1. Define the schedule to run your task.
 
-    - *Which resources are unhealthy?*
+1. Craft custom agent instructions for the task.
 
-    - *What changed in my web app last week?*
-
-1. Take action to proposed next steps.
+1. Select **Create scheduled task**.
 
 # [Handle an incident](#tab/incident)
 
 1. Enable integrations:  
 
-    - Incident management tools: Link to ServiceNow, link to PagerDuty, or use Azure Monitor alerts.  
+    - Incident management tools: Link to ServiceNow, link to PagerDuty, or use Azure Monitor alerts.
+  
+    - Create a new incident response plan with custom instructions detailing how to handle incidents.
 
     - Ticketing systems: Azure Boards.
 
