@@ -68,33 +68,35 @@ Create a new Azure Front Door profile and connect it to your App Configuration s
 
 #### Endpoint configuration settings
 
-   - Basic settings:
+1. Basic settings:
 
-      - **Endpoint name**: Enter a descriptive name for your endpoint
-      - **Endpoint host name**: Automatically generated based on your endpoint name
-      - **Origin host name**: Select your App Configuration store and any replicas from the dropdown. These are added to the origin group so Azure Front Door can route traffic to them. For details on how origin groups improve availability and performance, see [Azure Front Door routing methods](/azure/frontdoor/routing-methods)
-        :::image type="content" source="../articles/azure-app-configuration/media/how-to-connect-azure-front-door/endpoint-details.png" alt-text="Screenshot showing  Azure Front Door endpoint details in the App Configuration store."
+   - **Endpoint name**: Enter a descriptive name for your endpoint
+   - **Endpoint host name**: Automatically generated based on your endpoint name
+   - **Origin host name**: Select your App Configuration store and any replicas from the dropdown. These are added to the origin group so Azure Front Door can route traffic to them. For details on how origin groups improve availability and performance, see [Azure Front Door routing methods](/azure/frontdoor/routing-methods)
+     :::image type="content" source="media/how-to-connect-azure-front-door/endpoint-details.png" alt-text="Screenshot showing  Azure Front Door endpoint details in the App Configuration store."
 
-   - **Identity type**: Choose the managed identity type for Azure Front Door to access your App Configuration store:
+1. **Identity type**: Choose the managed identity type for Azure Front Door to access your App Configuration store:
 
-      - **System assigned managed identity**: Automatically enabled; no additional selection required.
-      - **User assigned managed identity**: Select the managed identity from the dropdown.
+   - **System assigned managed identity**: Automatically enabled; no additional selection required.
+   - **User assigned managed identity**: Select the managed identity from the dropdown.
 
-   - **Cache Duration for Azure Front Door**: Configure cache duration to balance performance and origin load. We recommend a minimum TTL of 10 minutes, but you can choose a value that fits your application. Content loaded from AFD will be eventually consistent. Setting the cache duration too short may increase origin requests and lead to throttling. For more details about caching, see [Caching with Azure Front Door](/azure/frontdoor/front-door-caching).
+1. **Cache Duration for Azure Front Door**: Configure cache duration to balance performance and origin load. We recommend a minimum TTL of 10 minutes, but you can choose a value that fits your application. Content loaded from AFD will be eventually consistent. Setting the cache duration too short may increase origin requests and lead to throttling. For more details about caching, see [Caching with Azure Front Door](/azure/frontdoor/front-door-caching).
 
-   - **Filter Configuration to scope the request**: Configure one or more filters to control which requests pass through Azure Front Door. This prevents accidental exposure of sensitive configuration and ensures only the settings your application needs are accessible. The filters here must exactly match those used in your application code; otherwise, requests will be rejected by Azure Front Door.
-      
-      > [!NOTE]
-      > To set up the right scoping filters, you need to know what filters are used in your application to load key-values or snapshots from App Configuration. For example, if your application needs to load keys that start with the *App1:* prefix, and a snapshot whose name is *MySnapshot*, enter those values in the Key and Snapshot name filters.
+1. **Filter Configuration to scope the request**: Configure one or more filters to control which requests pass through Azure Front Door. This prevents accidental exposure of sensitive configuration and ensures only the settings your application needs are accessible. The filters here must exactly match those used in your application code; otherwise, requests will be rejected by Azure Front Door.
    
-      - **Key**: The key filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), and backslash (`\`) must be escaped using a backslash (`\`) when filtering multiple key-values.
-      - **Label**: The label filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), and backslash (`\`) must be escaped using a backslash (`\`) when filtering multiple key-values.
-      - **Tags**: The tag name and value filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), backslash (`\`), and equals (`=`) must always be escaped using a backslash (`\`).
-      - **Snapshot name**: Name of snapshot whose content should be accessible through this Azure Front Door endpoint. You can select one or more snapshots to restrict access to specific snapshots.
+   > [!NOTE]
+   > To set up the right scoping filters, you need to know what filters are used in your application to load key-values or snapshots from App Configuration. For example, if your application needs to load keys that start with the *App1:* prefix, and a snapshot whose name is *MySnapshot*, enter those values in the Key and Snapshot name filters.
 
-   - Select **Create & Connect** to create the profile and establish the connection.
+   - **Key**: The key filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), and backslash (`\`) must be escaped using a backslash (`\`) when filtering multiple key-values.
+   - **Label**: The label filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), and backslash (`\`) must be escaped using a backslash (`\`) when filtering multiple key-values.
+   - **Tags**: The tag name and value filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), backslash (`\`), and equals (`=`) must always be escaped using a backslash (`\`).
+   - **Snapshot name**: Name of snapshot whose content should be accessible through this Azure Front Door endpoint. You can select one or more snapshots to restrict access to specific snapshots.
+
+1. Select **Create & Connect** to create the profile and establish the connection.
 
 ### Connect to an existing Azure Front Door profile
+
+Follow these steps to connect an existing Azure Front Door profile.
 
 1. In **Profile name**, select your existing Azure Front Door profile from the dropdown.
 
@@ -108,13 +110,11 @@ Create a new Azure Front Door profile and connect it to your App Configuration s
 
 Endpoints appear in the **Existing endpoints** table, showing endpoint URL, origin URL, origin location, and any configuration warnings that need attention.
 
-## Manage endpoints
-
-### Monitor endpoint status
+## Monitor endpoint status
 
 Use the **Existing endpoints** table to monitor your Azure Front Door endpoints and identify configuration issues.
 
-:::image type="content" source="media/how-to-connect-azure-front-door/existing-connections.png" alt-text="Screenshot showing Azure Front Door connections in the App Configuration store." lightbox="media/how-to-connect-azure-front-door/existing-connection.png":::
+:::image type="content" source="media/how-to-connect-azure-front-door/existing-connection.png" alt-text="Screenshot showing Azure Front Door connections in the App Configuration store." lightbox="media/how-to-connect-azure-front-door/existing-connection.png":::
 
 The table displays:
 - **Azure Front Door Endpoint**: The endpoint URL (clickable link)
