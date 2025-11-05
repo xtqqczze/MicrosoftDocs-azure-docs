@@ -81,7 +81,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
 1. Create a new ADR namespace. Your namespace `name` can only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, the name "msft-namespace" is valid. To enable a system-assigned managed identity for the ADR namespace, the `--enable-credential-policy` command creates credential (Root CA) for this namespace and `--policy-name` command creates a policy (issuing CA) that can issue certificates with a validity of 30 days.
 
     ```azurecli-interactive
-    az iot adr ns create --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME> --location <REGION> --enable-credential-policy true --policy-name "PolicyName"
+    az iot adr ns create --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME> --location <REGION> --enable-credential-policy true --policy-name <POLICY_NAME>
     ```
 
     > [!NOTE]
@@ -109,7 +109,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
 
     ```azurecli-interactive
     az iot adr ns credential show --namespace <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME>
-    az iot adr ns policy show --namespace <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME> --name "PolicyName"
+    az iot adr ns policy show --namespace <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME> --name <POLICY_NAME>
     ```
 
     > [!NOTE]
@@ -227,7 +227,7 @@ To provision devices with leaf certificates, you need to create an enrollment gr
 > If you created a policy with a different name from "default", ensure that you use that policy name after the `--credential-policy` parameter.
 
 ```azurecli-interactive
-az iot dps enrollment-group create --dps-name <DPS_NAME> --resource-group <RESOURCE_GROUP> --enrollment-id <ENROLLMENT_ID> --credential-policy default
+az iot dps enrollment-group create --dps-name <DPS_NAME> --resource-group <RESOURCE_GROUP> --enrollment-id <ENROLLMENT_ID> --credential-policy <POLICY_NAME>
 ```
 
 Your IoT hub with ADR and Certificate Management integration is now set up and ready to use.
