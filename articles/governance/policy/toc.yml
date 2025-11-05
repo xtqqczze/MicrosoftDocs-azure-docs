@@ -181,6 +181,8 @@
       href: ./samples/resource-graph-samples-guest-configuration.md
     - name: Compute security baselines
       items:
+      - name: CIS Security Benchmarks for Linux Workloads
+        href: ./samples/guest-configuration-baseline-cis-linux.md 
       - name: Docker host security baseline
         href: ./samples/guest-configuration-baseline-docker.md
       - name: Linux security baseline
