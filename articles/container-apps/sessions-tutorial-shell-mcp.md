@@ -41,31 +41,31 @@ Begin by preparing the Azure CLI with the latest updates and signing in to Azure
    az upgrade
    ```
 
-2. Register the `Microsoft.App` resource provider.
+1. Register the `Microsoft.App` resource provider.
 
    ```azurecli
    az provider register --namespace Microsoft.App
    ```
 
-3. Install the latest version of the Azure Container Apps CLI extension.
+1. Install the latest version of the Azure Container Apps CLI extension.
 
    ```azurecli
    az extension add --name containerapp --allow-preview true --upgrade
    ```
 
-4. Sign in to Azure.
+1. Sign in to Azure.
 
    ```azurecli
    az login
    ```
 
-5. Query for your Azure subscription ID and set the value to a variable.
+1. Query for your Azure subscription ID and set the value to a variable.
 
    ```azurecli
    SUBSCRIPTION_ID=$(az account show --query id --output tsv)
    ```
 
-6. Set the variables used in this procedure.
+1. Set the variables used in this procedure.
 
    Before you run the following command, make sure to replace the placeholders surrounded by `<>` with your own values.
 
@@ -77,13 +77,13 @@ Begin by preparing the Azure CLI with the latest updates and signing in to Azure
 
    You use these variables to create the resources in the following steps.
 
-7. Set the subscription you want to use for creating the resource group.
+1. Set the subscription you want to use for creating the resource group.
 
    ```azurecli
    az account set -s $SUBSCRIPTION_ID
    ```
 
-8. Create a resource group.
+1. Create a resource group.
 
    ```azurecli
    az group create --name $RESOURCE_GROUP --location $LOCATION
