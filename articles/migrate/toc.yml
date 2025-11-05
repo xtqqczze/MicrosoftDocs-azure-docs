@@ -15,6 +15,8 @@ items:
     href: quickstart-create-migrate-project.md
   - name: Create a project - Portal
     href: quickstart-create-project.md
+  - name: Evaluate migration readiness and savings for Arc resources
+    href: quickstart-evaluate-readiness-savings-for-arc-resources.md
   - name: Create a business case using imported inventory
     href: how-to-build-a-business-case.md
 - name: Key Concepts # Includes Glossary and key concepts for users to understand the terminologies and journey
@@ -101,6 +103,16 @@ items:
       #   href: how-to-discover-applications.md
         # - name: Create least privileged credentials for PostgreSQL discovery
         #   href: postgresql-least-privilege-configuration.md
+  - name: Discovery using Azure Arc
+    items:
+    - name: Overview
+      href: concepts-arc-resource-discovery.md
+    - name: Manage Arc resource sync
+      href: how-to-manage-arc-resource-sync.md
+    - name: Collect additional data about Arc enabled servers
+      href: how-to-enable-additional-data-collection-for-arc-servers.md
+    - name: Azure Migrate VM Extension for Arc-enabled servers
+      href: migrate-virtual-machine-extension-reference.md
   - name: Discover using inventory import
     items: 
       - name: CSV import
