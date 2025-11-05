@@ -58,7 +58,7 @@ This article helps you create a connection to link a virtual network (virtual ne
 
 4. Select the **Connection type** as **ExpressRoute** and then select **Next: Settings >**.
 
-5. Select the resiliency type for your connection. You can choose **Maximum resiliency** or **Standard resiliency**.
+5. Select the resiliency type for your connection. You can choose **Maximum resiliency**, **High resiliency**, or **Standard resiliency**.
 
     **Maximum resiliency (Recommended)** - This option provides the highest level of resiliency to your virtual network. It provides two redundant connections from the virtual network gateway to two different ExpressRoute circuits in different ExpressRoute locations.
     
@@ -78,9 +78,7 @@ This article helps you create a connection to link a virtual network (virtual ne
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/standard-resiliency.png" alt-text="Diagram of a virtual network gateway connected to a single ExpressRoute circuit via one peering location.":::
     
-6. Enter the following information for the respective resiliency type and then select **Review + create**. Then select **Create** after validation completes.
-
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-configuration.png" alt-text="Screenshot of the settings page for maximum resiliency ExpressRoute connections to a virtual network gateway.":::
+6. Enter the following information for the respective resiliency type:
 
     **Maximum resiliency**
 
@@ -118,7 +116,7 @@ This article helps you create a connection to link a virtual network (virtual ne
     
     For detailed configuration guidance, see [Configure Connection Monitor](configure-connection-monitor.md).
 
-8. Select **Review + create** and then select **Create** after validation completes.
+8. Select **Review + create** to validate your configuration. Review the settings and then select **Create** to deploy the connection.
 
 9. After your connection has been successfully configured, your connection object will show the information for the connection.
 
