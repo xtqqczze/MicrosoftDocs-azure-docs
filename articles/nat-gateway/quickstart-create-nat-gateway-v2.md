@@ -40,6 +40,10 @@ In this quickstart, learn how to create a Standard V2 Azure NAT Gateway by using
 
 ### [CLI](#tab/cli)
 
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
 ---
 
 ## Create a resource group
@@ -62,7 +66,7 @@ Create a resource group to contain all resources for this quickstart.
     | ------- | ----- |
     | Subscription | Select your subscription|
     | Resource group | test-rg |
-    | Region | **West US** |
+    | Region | **East US** |
 
 1. Select **Review + create**.
 
@@ -72,17 +76,27 @@ Create a resource group to contain all resources for this quickstart.
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named **test-rg** in the **westus** location:
+The following example creates a resource group named **test-rg** in the **eastus** location:
 
 ```azurepowershell-interactive
 $rsg = @{
     Name = 'test-rg'
-    Location = 'westus'
+    Location = 'eastus'
 }
 New-AzResourceGroup @rsg
 ```
 
 ### [CLI](#tab/cli)
+
+Create a resource group with [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+The following example creates a resource group named **test-rg** in the **eastus** location:
+
+```azurecli-interactive
+az group create \
+    --name test-rg \
+    --location eastus
+```
 
 ---
 
@@ -114,7 +128,7 @@ Azure NAT Gateway supports multiple deployment options for IP addresses and redu
     | Subscription | Select your subscription. |
     | Resource group | Select your resource group. The example uses **test-rg**. |
     | **Instance details** |   |
-    | Region | Select a region. This example uses **West US**. |
+    | Region | Select a region. This example uses **East US**. |
     | **Configuration details** |  |
     | Name | Enter **public-ip-nat**. |
     | IP version | Select **IPv4**. |
@@ -136,7 +150,7 @@ Azure NAT Gateway supports multiple deployment options for IP addresses and redu
     | Resource group | Select **test-rg** or your resource group. |
     | **Instance details** |  |
     | NAT gateway name | Enter **nat-gateway**. |
-    | Region | Select your region. This example uses **West US**. |
+    | Region | Select your region. This example uses **East US**. |
     | SKU | Select **Standard V2**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
@@ -159,7 +173,7 @@ Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
 $ip = @{
     Name = 'public-ip-nat'
     ResourceGroupName = 'test-rg'
-    Location = 'westus'
+    Location = 'eastus'
     Sku = 'StandardV2'
     AllocationMethod = 'Static'
     IpAddressVersion = 'IPv4'
@@ -177,7 +191,7 @@ $nat = @{
     Name = 'nat-gateway'
     IdleTimeoutInMinutes = '4'
     Sku = 'StandardV2'
-    Location = 'westus'
+    Location = 'eastus'
     PublicIpAddress = $publicIPIPv4
     Zone = 1,2,3
 }
@@ -185,6 +199,32 @@ $natGateway = New-AzNatGateway @nat
 ```
 
 ### [CLI](#tab/cli)
+
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a zone redundant IPv4 public IP address for the NAT gateway.
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group test-rg \
+    --name public-ip-nat \
+    --location eastus \
+    --sku StandardV2 \
+    --allocation-method Static \
+    --version IPv4 \
+    --zone 1 2 3
+```
+
+Use [az network nat gateway create](/cli/azure/network/nat/gateway#az-network-nat-gateway-create) to create the NAT gateway resource.
+
+```azurecli-interactive
+az network nat gateway create \
+    --resource-group test-rg \
+    --name nat-gateway \
+    --location eastus \
+    --public-ip-addresses public-ip-nat \
+    --idle-timeout 4 \
+    --sku StandardV2 \
+    --zone 1 2 3
+```
 
 ---
 
@@ -207,7 +247,7 @@ $natGateway = New-AzNatGateway @nat
    | Resource group | Select your resource group. This example uses **test-rg**. |
    | **Instance details** |   |
    | Name | Enter **public-ip-prefix-nat**. |
-   | Region | Select your region. This example uses **West US**. |
+   | Region | Select your region. This example uses **East US**. |
    | Sku | Select **Standard V2**. |
    | IP version | Select **IPv4**. |
    | Prefix ownership | Select **Microsoft owned**. |
@@ -228,7 +268,7 @@ $natGateway = New-AzNatGateway @nat
     | Resource group | Select **test-rg** or your resource group. |
     | **Instance details** |  |
     | NAT gateway name | Enter **nat-gateway**. |
-    | Region | Select your region. This example uses **West US**. |
+    | Region | Select your region. This example uses **East US**. |
     | SKU | Select **Standard V2**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
@@ -249,7 +289,7 @@ Use [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) t
 $ip = @{
     Name = 'public-ip-prefix-nat'
     ResourceGroupName = 'test-rg'
-    Location = 'westus'
+    Location = 'eastus'
     Sku = 'StandardV2'
     PrefixLength = '31'
     IpAddressVersion = 'IPv4'
@@ -267,7 +307,7 @@ $nat = @{
     Name = 'nat-gateway'
     IdleTimeoutInMinutes = '4'
     Sku = 'StandardV2'
-    Location = 'westus'
+    Location = 'eastus'
     PublicIpPrefix = $publicIPIPv4prefix
     Zone = 1,2,3
 }
@@ -275,6 +315,32 @@ $natGateway = New-AzNatGateway @nat
 ```
 
 ### [CLI](#tab/cli)
+
+Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) to create a zone redundant IPv4 public IP prefix for the NAT gateway.
+
+```azurecli-interactive
+az network public-ip prefix create \
+    --resource-group test-rg \
+    --name public-ip-prefix-nat \
+    --location eastus \
+    --length 31 \
+    --sku StandardV2 \
+    --version IPv4 \
+    --zone 1 2 3
+```
+
+Use [az network nat gateway create](/cli/azure/network/nat/gateway#az-network-nat-gateway-create) to create the NAT gateway resource.
+
+```azurecli-interactive
+az network nat gateway create \
+    --resource-group test-rg \
+    --name nat-gateway \
+    --location eastus \
+    --public-ip-prefixes public-ip-prefix-nat \
+    --idle-timeout 4 \
+    --sku StandardV2 \
+    --zone 1 2 3
+```
 
 ---
 
@@ -303,7 +369,7 @@ Create a public IP address or prefix to your preference from the previous steps,
     | Resource group | Select **test-rg** or your resource group. |
     | **Instance details** |  |
     | Name | Enter **vnet-1**. |
-    | Region | Select your region. This example uses **West US**. |
+    | Region | Select your region. This example uses **East US**. |
 
 1. Select the **IP Addresses** tab, or select **Next: Security**, then **Next: IP Addresses**.
 
@@ -345,7 +411,7 @@ Create a public IP address or prefix to your preference from the previous steps,
     | Resource group | Select **test-rg** or your resource group. |
     | **Instance details** |  |
     | NAT gateway name | Enter **nat-gateway**. |
-    | Region | Select your region. This example uses **West US**. |
+    | Region | Select your region. This example uses **East US**. |
     | SKU | Select **Standard V2**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
@@ -387,7 +453,7 @@ $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 $net = @{
     Name = 'vnet-1'
     ResourceGroupName = 'test-rg'
-    Location = 'westus'
+    Location = 'eastus'
     AddressPrefix = '10.0.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
@@ -408,7 +474,7 @@ $nat = @{
     IdleTimeoutInMinutes = '4'
     PublicIpAddress = $publicIPIPv4
     Sku = 'StandardV2'
-    Location = 'westus'
+    Location = 'eastus'
     SourceVirtualNetwork = $vnet
     Zone = 1,2,3
 }
@@ -425,7 +491,7 @@ $nat = @{
     IdleTimeoutInMinutes = '4'
     PublicIpPrefix = $publicIPIPv4prefix
     Sku = 'StandardV2'
-    Location = 'westus'
+    Location = 'eastus'
     SourceVirtualNetwork = $vnet
     Zone = 1,2,3
 }
@@ -433,6 +499,66 @@ $natGateway = New-AzNatGateway @nat
 ```
 
 ### [CLI](#tab/cli)
+
+Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create the virtual network. Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create the subnet configurations.
+
+```azurecli-interactive
+## Create the virtual network ##
+az network vnet create \
+    --resource-group test-rg \
+    --name vnet-1 \
+    --location eastus \
+    --address-prefix 10.0.0.0/16 \
+    --subnet-name subnet-1 \
+    --subnet-prefix 10.0.0.0/24
+
+## Create Azure Bastion subnet ##
+az network vnet subnet create \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --name AzureBastionSubnet \
+    --address-prefix 10.0.1.0/26
+```
+
+### Create the NAT gateway
+
+Use [az network nat gateway create](/cli/azure/network/nat/gateway#az-network-nat-gateway-create) to create the NAT gateway resource.
+
+#### Public IP address
+
+```azurecli-interactive
+## Create source VNet variable ##
+vnetId=$(az network vnet show --resource-group test-rg --name vnet-1 --query id -o tsv)
+sourceVnet="{\"id\":\"$vnetId\"}"
+
+az network nat gateway create \
+    --resource-group test-rg \
+    --name nat-gateway \
+    --location eastus \
+    --public-ip-addresses public-ip-nat \
+    --idle-timeout 4 \
+    --sku StandardV2 \
+    --source-vnet "$sourceVnet" \
+    --zone 1 2 3
+```
+
+#### Public IP prefix
+
+```azurecli-interactive
+## Create source VNet variable ##
+vnetId=$(az network vnet show --resource-group test-rg --name vnet-1 --query id -o tsv)
+sourceVnet="{\"id\":\"$vnetId\"}"
+
+az network nat gateway create \
+    --resource-group test-rg \
+    --name nat-gateway \
+    --location eastus \
+    --public-ip-prefixes public-ip-prefix-nat \
+    --idle-timeout 4 \
+    --sku StandardV2 \
+    --source-vnet "$sourceVnet" \
+    --zone 1 2 3
+```
 
 ---
 
@@ -455,7 +581,7 @@ Create the virtual network and subnets needed for this quickstart. You can skip 
     | Resource group | Select **test-rg** or your resource group. |
     | **Instance details** |  |
     | Name | Enter **vnet-1**. |
-    | Region | Select your region. This example uses **West US**. |
+    | Region | Select your region. This example uses **East US**. |
 
 1. Select the **IP Addresses** tab, or select **Next**, then **Next**.
 
@@ -511,7 +637,7 @@ $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 $net = @{
     Name = 'vnet-1'
     ResourceGroupName = 'test-rg'
-    Location = 'westus'
+    Location = 'eastus'
     AddressPrefix = '10.0.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
@@ -519,6 +645,34 @@ $vnet = New-AzVirtualNetwork @net
 ```
 
 ### [CLI](#tab/cli)
+
+Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create the virtual network. Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) and [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to create and configure the subnet.
+
+```azurecli-interactive
+## Create the virtual network ##
+az network vnet create \
+    --resource-group test-rg \
+    --name vnet-1 \
+    --location eastus \
+    --address-prefix 10.0.0.0/16 \
+    --subnet-name subnet-1 \
+    --subnet-prefix 10.0.0.0/24
+
+## Associate NAT gateway to subnet and disable default outbound access ##
+az network vnet subnet update \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --name subnet-1 \
+    --nat-gateway nat-gateway \
+    --default-outbound false
+
+## Create Azure Bastion subnet ##
+az network vnet subnet create \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --name AzureBastionSubnet \
+    --address-prefix 10.0.1.0/26
+```
 
 ---
 
@@ -541,7 +695,7 @@ Create an Azure Bastion host to securely connect to the virtual machine.
     | Resource group | Select **test-rg** or your resource group. |
     | **Instance details** |  |
     | Name | Enter **bastion**. |
-    | Region | Select your region. This example uses **West US**. |
+    | Region | Select your region. This example uses **East US**. |
     | Tier | Select **Developer**. |
     | Virtual network | Select **vnet-1**. |
     | Subnet | Select **AzureBastionSubnet**. |
@@ -557,7 +711,7 @@ Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the A
 $ip = @{
     Name = 'public-ip-bastion'
     ResourceGroupName = 'test-rg'
-    Location = 'westus'
+    Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'Static'
     Zone = 1,2,3
@@ -578,6 +732,28 @@ New-AzBastion @bastion
 ```
 
 ### [CLI](#tab/cli)
+
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address for the bastion host. Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create the Azure Bastion host.
+
+```azurecli-interactive
+## Create public IP address for bastion host ##
+az network public-ip create \
+    --resource-group test-rg \
+    --name public-ip-bastion \
+    --location eastus \
+    --sku Standard \
+    --allocation-method Static \
+    --zone 1 2 3
+
+## Create bastion host ##
+az network bastion create \
+    --resource-group test-rg \
+    --name bastion \
+    --location eastus \
+    --vnet-name vnet-1 \
+    --public-ip-address public-ip-bastion \
+    --sku Basic
+```
 
 ---
 
@@ -602,7 +778,7 @@ In this section, you create a virtual machine to test the NAT gateway and verify
     | Resource group | Select **test-rg** or your resource group. |
     | **Instance details** |  |
     | Virtual machine name | Enter **vm-1**. |
-    | Region | Select your region. This example uses **West US**. |
+    | Region | Select your region. This example uses **East US**. |
     | Availability options | Leave the default of **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
     | Image | Select **Ubuntu Server 24.04 LTS - Gen2**. |
@@ -640,7 +816,7 @@ $cred = Get-Credential
 $nic = @{
     Name = "nic-1"
     ResourceGroupName = 'test-rg'
-    Location = 'westus'
+    Location = 'eastus'
     Subnet = $vnet.Subnets[0]
 }
 $nicVM = New-AzNetworkInterface @nic
@@ -669,7 +845,7 @@ $vmConfig = New-AzVMConfig @vmsz `
 ## Create the virtual machine ##
 $vm = @{
     ResourceGroupName = 'test-rg'
-    Location = 'westus'
+    Location = 'eastus'
     VM = $vmConfig
     SshKeyName = 'ssh-key'
 }
@@ -677,6 +853,29 @@ New-AzVM @vm -GenerateSshKey
 ```
 
 ### [CLI](#tab/cli)
+
+Use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create a network interface for the virtual machine. Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
+
+```azurecli-interactive
+## Create network interface for virtual machine ##
+az network nic create \
+    --resource-group test-rg \
+    --name nic-1 \
+    --vnet-name vnet-1 \
+    --subnet subnet-1
+
+## Create the virtual machine ##
+az vm create \
+    --resource-group test-rg \
+    --name vm-1 \
+    --location eastus \
+    --nics nic-1 \
+    --image Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest \
+    --size Standard_DS1_v2 \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address ""
+```
 
 ---
 
@@ -740,6 +939,15 @@ Remove-AzResourceGroup -Name 'test-rg' -Force
 
 ### [CLI](#tab/cli)
 
+If you're not going to continue to use this application, delete the virtual network, virtual machine, and NAT gateway with the following command:
+
+```azurecli-interactive
+az group delete \
+    --name test-rg \
+    --yes \
+    --no-wait
+```
+
 ---
 
 ## Next steps
@@ -748,3 +956,4 @@ For more information on Azure NAT Gateway, see:
 > [!div class="nextstepaction"]
 > [Azure NAT Gateway overview](nat-overview.md)
 > [Azure NAT Gateway resource](nat-gateway-resource.md)
+
