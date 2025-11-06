@@ -12,10 +12,10 @@ ms.custom: generated
 **Supported Benchmarks**
 | Benchmark Title |
 | --- |
-| [CIS Ubuntu Linux 24.04 LTS Benchmark 1.0.0 Level 1 + 2 Server Profiles](#cis-ubuntu-linux-2404-lts-benchmark-100-level-1-2-server-profiles) |
+| [CIS Ubuntu Linux 24.04 LTS Benchmark 1.0.0 Level 1 + 2 Server Profiles](#cis-ubuntu-linux-2404-lts-benchmark-100-level-1--2-server-profiles) |
 
 ## CIS Ubuntu Linux 24.04 LTS Benchmark 1.0.0 Level 1 + 2 Server Profiles
-<a id="cis-ubuntu-linux-2404-lts-benchmark-100-level-2-server"></a>
+<a id="cis-ubuntu-linux-2404-lts-benchmark-100-level-1--2-server-profiles"></a>
 
 **Mismatched Rules**
 > **_NOTE:_** The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
@@ -83,3 +83,4 @@ ms.custom: generated
 | Ensure permissions on /etc/security/opasswd are configured | mask | 0177 |
 |  | owner | root |
 |  | group | root |
+

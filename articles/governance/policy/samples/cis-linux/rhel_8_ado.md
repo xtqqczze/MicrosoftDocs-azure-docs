@@ -12,10 +12,10 @@ ms.custom: generated
 **Supported Benchmarks**
 | Benchmark Title |
 | --- |
-| [CIS Red Hat Enterprise Linux 8 Benchmark 3.0.0 Level 1 + 2 Server Profiles](#cis-red-hat-enterprise-linux-8-benchmark-300-level-1-2-server-profiles) |
+| [CIS Red Hat Enterprise Linux 8 Benchmark 3.0.0 Level 1 + 2 Server Profiles](#cis-red-hat-enterprise-linux-8-benchmark-300-level-1--2-server-profiles) |
 
 ## CIS Red Hat Enterprise Linux 8 Benchmark 3.0.0 Level 1 + 2 Server Profiles
-<a id="cis-red-hat-enterprise-linux-8-benchmark-300-level-2-server"></a>
+<a id="cis-red-hat-enterprise-linux-8-benchmark-300-level-1--2-server-profiles"></a>
 
 **Mismatched Rules**
 > **_NOTE:_** The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.

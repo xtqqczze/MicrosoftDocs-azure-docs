@@ -12,10 +12,10 @@ ms.custom: generated
 **Supported Benchmarks**
 | Benchmark Title |
 | --- |
-| [CIS Debian Linux 12 Benchmark 1.1.0 Level 1 + 2 Server Profiles](#cis-debian-linux-12-benchmark-110-level-1-2-server-profiles) |
+| [CIS Debian Linux 12 Benchmark 1.1.0 Level 1 + 2 Server Profiles](#cis-debian-linux-12-benchmark-110-level-1--2-server-profiles) |
 
 ## CIS Debian Linux 12 Benchmark 1.1.0 Level 1 + 2 Server Profiles
-<a id="cis-debian-linux-12-benchmark-110-level-2-server"></a>
+<a id="cis-debian-linux-12-benchmark-110-level-1--2-server-profiles"></a>
 
 **Mismatched Rules**
 > **_NOTE:_** The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
