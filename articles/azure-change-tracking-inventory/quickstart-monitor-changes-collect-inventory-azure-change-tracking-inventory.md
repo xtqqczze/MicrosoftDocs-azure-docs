@@ -44,7 +44,7 @@ To enable Azure CTI for a single Azure VM using Azure portal, follow these steps
 
    :::image type="content" source="media/create-data-collection-rule/select-virtual-machine-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/create-data-collection-rule/select-virtual-machine-portal-expanded.png":::
 
-Select the virtual machine for which you want to enable Change Tracking.
+  Select the virtual machine for which you want to enable Change Tracking.
 
 1. In the search bar, enter **Change tracking**. Select **Change tracking** to view the **Change Tracking and Inventory** pane.
 
@@ -57,7 +57,7 @@ Select the virtual machine for which you want to enable Change Tracking.
    :::image type="content" source="media/create-data-collection-rule/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/create-data-collection-rule/deployment-success-expanded.png":::
     
 > [!NOTE]
-> - It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM.
+> It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM.
 
 #### Enable Azure CTI for a single Azure Arc-enabled VM using portal
 
