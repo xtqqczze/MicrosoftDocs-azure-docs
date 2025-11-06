@@ -61,7 +61,9 @@ To configure the ruleset, use the [preview portal](https://preview.portal.azure.
 > [!IMPORTANT]
 > The HTTP DDoS ruleset will be removed from the configuration if you make any changes to a managed ruleset using the production portal after assigning the HTTP DDoS ruleset.
 
-## Known limitations during the preview
+## Limitations
+
+The following limitations apply to the HTTP DDoS ruleset during the preview:
 
 - No ability for traffic from specific IP addresses to bypass the DDoS ruleset or penalty box 
 
