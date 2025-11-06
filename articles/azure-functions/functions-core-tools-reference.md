@@ -206,6 +206,9 @@ Returns a list of the functions in the specified function app.
 func azure functionapp list-functions <APP_NAME>
 ```
 
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **`--show-keys`** | The function endpoint URLs that are returned include function-level access keys values. |
 
 ## `func azure functionapp logstream`
 
