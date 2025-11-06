@@ -3,7 +3,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 0/02/2022
+ms.date: 11/05/2025
 ---
 The following table lists the limits associated with the different service tiers S1, S2, S3, and F1. For information about the cost of each *unit* in each tier, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -61,3 +61,26 @@ IoT Hub throttles requests when the following quotas are exceeded.
 | Jobs operations <br/> (create, update, list, and delete) | 83.33/sec/unit (5,000/min/unit) (for S3), 1.67/sec/unit (100/min/unit) (for S2), 1.67/sec/unit (100/min/unit) (for S1). |
 | Jobs per-device operation throughput | 50/sec/unit (for S3), maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1). |
 | Device stream initiation rate | 5 new streams/sec (for S1, S2, S3, and F1 only). |
+
+### IoT Hub preview resource limits
+
+The following table lists the limits that apply to IoT Hub integrated with [certificate management (preview)](iot-hub-certificate-management-overview.md) features.
+
+|Feature|Limit|
+|----------------------------------|-------------------------------|
+|Number of certificates issued by PKI (by a device DPS instance) during provisioning|500 per minute|
+|Number of certificate renewals|500 per minute|
+|Number of credential resources per tenant|2|
+|Number of credential resources per ADR namespace|1|
+|Number of policies per credential resource|1|
+|Protocols supported for Certificate provisioning|HTTP, MQTT, and MQTT-Web-Sockets protocols. |
+
+The following table lists the limits that apply to IoT Hub integrated with [Azure Device Registry (ADR)](../articles/iot-hub/iot-hub-device-registry-overview.md) features.
+
+| Feature	| Limit|
+|----------------------------------|-------------------------------|
+|Number of ADR namespaces per Azure subscription	| 100|
+|Number of device create per minute	| 1000 devices per minute per tenant|
+|Number of devices to be disabled per minute	| 1000|
+|Number of devices to be enabled per minute	| 1000|
+|Number of devices per subscription	| 10,000|

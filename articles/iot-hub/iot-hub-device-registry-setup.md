@@ -19,9 +19,10 @@ This article explains how to create a new IoT hub with [Azure Device Registry (A
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
 ## Prerequisites
-1. Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-2. If you don't have the Azure CLI installed, follow the steps to [install the Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli). 
-3. Install the **Azure IoT CLI extension with previews enabled** to access the ADR and Certificate Management functionalities. To install the extension, complete the following steps:
+
+- Have an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+- If you don't have the Azure CLI installed, follow the steps to [install the Azure CLI](/cli/azure/install-azure-cli). 
+- Install the **Azure IoT CLI extension with previews enabled** to access the ADR and Certificate Management functionalities. To install the extension, complete the following steps:
 
     Check for existing Azure CLI extension installations.
     
@@ -47,15 +48,13 @@ This article explains how to create a new IoT hub with [Azure Device Registry (A
     az extension list
     ```
 
-3. To complete this setup, you will need elevated permissions to perform role assignments (Ex: Owner, User Administrator). If you would like to use pre-built roles, you can use the following and scope them to your subscription or resource group:
-    - The user that will setup the resources (IoT Hub, ADR Namespace, DPS, and Managed Identity) can be assigned the "Azure Device Registry Onboarding" role.
-    - Later in this setup, you will also need to assign the "Azure Device Registry Contributor" role to the newly created User-Assigned Managed Identity. You will need elevated permissions (ex: Owner, User Administrator) to complete this.
-
+- You need elevated permissions to perform role assignments, such as Owner or User Administrator. To use pre-built roles, scope them to your subscription or resource group as needed:
+    - Assign the **Azure Device Registry Onboarding** role to the user who sets up resources like IoT Hub, ADR namespace, DPS, and Managed Identity.
+    - During setup, assign the **Azure Device Registry Contributor** role to the newly created user-assigned managed identity. Elevated permissions (for example, Owner or User Administrator) are required to complete this step.
 
 ## Choose a deployment method
 
 To use certificate management, you must also set up IoT Hub, ADR, and the [Device Provisioning Service (DPS)](../iot-dps/index.yml). If you prefer, you can choose not to enable certificate management and configure only IoT Hub with ADR.
-
 
 To set up your IoT hub with ADR and certificate management, you can use Azure CLI or a script that automates the setup process.
 
@@ -84,11 +83,10 @@ To set up your IoT hub with ADR and certificate management, you can use Azure CL
 At this point, your IoT hub with ADR and certificate management integration is set up and ready to use. You can now start onboarding your IoT devices to the hub using the Device Provisioning Service (DPS) instance and manage your IoT devices securely using the policies and enrollments you have set up.
 
 For more information on how to onboard devices, check out some the [DPS Device SDKs samples](../iot-dps/libraries-sdks.md#device-sdks). Certificate management is only supported in the following DPS Device SDKs: 
+
 - Embedded C:
-    - Bare metal: [Sample]
-    - Free RTOS: [Sample]
-- C:
-    - [Sample]
-- Python:
-    - [Sample]
+    - Bare metal: [Sample](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/README.md)
+    - Free RTOS: [Sample](https://github.com/Azure-Samples/iot-middleware-freertos-samples)
+- C: [Sample](https://github.com/Azure/azure-iot-sdk-c/tree/main/provisioning_client/samples)
+- Python: [Sample](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples)
 

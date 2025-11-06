@@ -84,20 +84,11 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
     az iot adr ns create --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME> --location <REGION> --enable-credential-policy true --policy-name <POLICY_NAME>
     ```
 
+    > [!TIP]
+    > You can optionally create a custom policy by adding the `--cert-subject` and `--cert-validity-days` parameters to the command above. For more information, see [Create a custom policy](#create-a-custom-policy).
+
     > [!NOTE]
     > The creation of the namespace with system-assigned managed identity might take up to 5 minutes.
-
-1. You can optionally create a custom policy using the `az iot adr ns policy create` command. Set the name, certificate subject, and validity period for the policy following these rules:
-
-    - The policy `name` value must be unique within the namespace. If you try to create a policy with a name that already exists, you receive an error message.
-    - The certificate subject `cert-subject` value must be unique across all policies in the namespace. If you try to create a policy with a subject that already exists, you receive an error message.
-    - The validity period `cert-validity-days` value must be between 1 and 3650 days (10 years). If you try to create a policy with a validity period outside this range, you receive an error message.
-    
-    The following example creates a policy named "custom-policy" with a subject of "CN=TestDevice" and a validity period of 30 days. 
-
-    ```azurecli-interactive
-    az iot adr ns policy create --name "custom-policy" --namespace <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME> --cert-subject "CN=TestDevice" --cert-validity-days "30"
-    ```
 
 1. Verify that the namespace with a system-assigned managed identity, or principal ID, is created.
 
@@ -292,9 +283,9 @@ Create a custom policy using the `az iot adr ns policy create` command. Set the 
 
 The following example creates a policy named "custom-policy" with a subject of "CN=TestDevice" and a validity period of 30 days. 
 
-    ```azurecli-interactive
-    az iot adr ns policy create --name "custom-policy" --namespace <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME> --cert-subject "CN=TestDevice" --cert-validity-days "30"
-    ```
+```azurecli-interactive
+az iot adr ns policy create --name "custom-policy" --namespace <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME> --cert-subject "CN=TestDevice" --cert-validity-days "30"
+```
 
 ### Delete resources
 

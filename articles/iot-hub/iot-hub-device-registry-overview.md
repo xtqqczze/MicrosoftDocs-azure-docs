@@ -39,15 +39,4 @@ Azure Device Registry offers three built-in roles designed to simplify and secur
 
 ## Limits and quotas
 
-The following table lists the default limits and quotas for Azure Device Registry:
-
-| Feature	| Limit|
-|----------------------------------|-------------------------------|
-|Number of ADR namespaces per Azure subscription	| 100|
-|Number of device create per minute	| 1000 devices per minute per tenant|
-|Number of devices to be disabled per minute	| 1000|
-|Number of devices to be enabled per minute	| 1000|
-|Number of devices per subscription	| 10,000|
-
-
-
+See [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-limits) for the latest information about limits and quotas for ADR with IoT Hub.
