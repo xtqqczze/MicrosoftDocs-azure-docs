@@ -33,9 +33,32 @@ ms.custom: generated
 - Ensure access to the su command is restricted
 
 **Configurable Parameters**
-| Rule | Parameter | Default Value |
-| --- | --- | --- |
-| Ensure dns server services are not in use | serviceName | named.service |
-|  | expectedUnitFileState | enabled |
-|  | expectedActiveState | active |
-|  | packageName | bind |
+
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Parameter</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="4">Ensure dns server services are not in use</td>
+<td>serviceName</td>
+<td>named.service</td>
+</tr>
+<tr>
+<td>expectedUnitFileState</td>
+<td>enabled</td>
+</tr>
+<tr>
+<td>expectedActiveState</td>
+<td>active</td>
+</tr>
+<tr>
+<td>packageName</td>
+<td>bind</td>
+</tr>
+</tbody>
+</table>
