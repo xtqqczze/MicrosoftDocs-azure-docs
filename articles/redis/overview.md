@@ -76,25 +76,29 @@ Storing some data on-disk using the Flash Optimized tier doesn't increase data r
 
 The following table helps describe some of the features supported by tier:
 
-| Feature Description                                                                                   | Memory Optimized  | Balanced          | Compute Optimized | Flash Optimized   |
-|-------------------------------------------------------------------------------------------------------|:-----------------:|:-----------------:|:-----------------:|:-----------------:|
-| Size (GB)                                                                                             | 12 - 1920         | 0.5 - 960         | 3 - 720           | 250 - 4500        |
-| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)            | Yes               | Yes               | Yes               | Yes               |
-| Data encryption in transit                                                                            | Yes (Private endpoint)              | Yes (Private endpoint)               | Yes (Private endpoint)               | Yes (Private endpoint)               |
-| [Replication and failover](failover.md)                                                 | Yes               | Yes               | Yes               | Yes               |
-| [Network isolation](private-link.md)                                                    | Yes               | Yes               | Yes               | Yes               |
-| [Microsoft Entra ID based authentication](entra-for-authentication.md)                             | Yes               | Yes               | Yes               | Yes               |
-| [Scaling](how-to-scale.md)                                                              | Yes               | Yes               | Yes               | Yes               |
-| [Data persistence](how-to-persistence.md)                                       | Yes               | Yes               | Yes               | Yes               |
-| [Zone redundancy](high-availability.md)                                                 | Yes               | Yes               | Yes               | Yes               |
-| [Geo-replication](how-to-active-geo-replication.md)                                     | Yes (Active)      | Yes (Active)      | Yes (Active)      | No                |
-| Non-clustered instances                                                               | Yes             | Yes               | Yes                 | No                |
-| [Connection audit logs](monitor-diagnostic-settings.md)                                 | Yes (Event-based) | Yes (Event-based) | Yes (Event-based) | Yes (Event-based) |
-| [JSON data structures(that is, Redis JSON)](redis-modules.md)                              | Yes               | Yes               | Yes               | Yes               |
-| [Search functionality (including vector search)](redis-modules.md)                      | Yes               | Yes               | Yes               | No                |
-| [Probabilistic data structures (that is, Redis Bloom)](redis-modules.md)                    | Yes               | Yes               | Yes               | Yes               |
-| [Time Series database capability (that is, Redis TimeSeries)](redis-modules.md)             | Yes               | Yes               | Yes               | Yes               |
-| [Import/Export](how-to-import-export-data.md)                                           | Yes               | Yes               | Yes               | Yes               |
+| Feature Description                                                                        | Memory Optimized       | Balanced               | Compute Optimized      | Flash Optimized        |
+|--------------------------------------------------------------------------------------------|:----------------------:|:----------------------:|:----------------------:|:----------------------:|
+| Size (GB)                                                                                  | 12 - 1920              | 0.5 - 960              | 3 - 720                | 250 - 4500             |
+| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) | Yes                    | Yes                    | Yes                    | Yes                    |
+| Data encryption in transit                                                                 | Yes (Private endpoint) | Yes (Private endpoint) | Yes (Private endpoint) | Yes (Private endpoint) |
+| [Replication and failover](failover.md)                                                    | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Network isolation](private-link.md)                                                       | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Microsoft Entra ID based authentication](entra-for-authentication.md)                     | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Scaling](how-to-scale.md)                                                                 | Yes                    | Yes                    | Yes                    | Yes                    |
+| High availability                                                                          | \*Yes                  | \*Yes                  | \*Yes                  | \*Yes                  |
+| [Data persistence](how-to-persistence.md)                                                  | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Geo-replication](how-to-active-geo-replication.md)                                        | Yes (Active)           | Yes (Active)           | Yes (Active)           | No                     |
+| Non-clustered instances                                                                    | Yes                    | Yes                    | Yes                    | No                     |
+| [Connection audit logs](monitor-diagnostic-settings.md)                                    | Yes (Event-based)      | Yes (Event-based)      | Yes (Event-based)      | Yes (Event-based)      |
+| [JSON data structures(that is, Redis JSON)](redis-modules.md)                              | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Search functionality (including vector search)](redis-modules.md)                         | Yes                    | Yes                    | Yes                    | No                     |
+| [Probabilistic data structures (that is, Redis Bloom)](redis-modules.md)                   | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Time Series database capability (that is, Redis TimeSeries)](redis-modules.md)            | Yes                    | Yes                    | Yes                    | Yes                    |
+| [Import/Export](how-to-import-export-data.md)                                              | Yes                    | Yes                    | Yes                    | Yes                    |
+
+\* When **High availability** is enabled, Azure Managed Redis is zone redundant in regions with multiple Availability Zones. 
+
+When you use High availability (HA), an Azure Managed Redis instance is deployed with primary and replica shards across two nodes. In regions without Availability Zones, the primary and replica shards are deployed across two nodes in the same zone.
 
 > [!IMPORTANT]
 > The Balanced B0 and B1 SKU options don't support active geo-replication.
@@ -104,12 +108,41 @@ The following table helps describe some of the features supported by tier:
 > Scaling down support is limited in some situations. For more information, see [Limitations of scaling Azure Managed Redis](how-to-scale.md#limitations-of-scaling-azure-managed-redis).
 >
 
-### Other considerations when picking a tier
+### Network performance
 
-- **Network performance**: If you have a workload that requires high throughput, network bandwidth might cause a bottleneck. You can increase bandwidth by moving up to a higher performance tier or by moving to a large instance size. Larger size instances have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that causes timeouts in your application. For more information on bandwidth performance, see [Performance testing](best-practices-performance.md)
-- **Maximum number of client connections**: Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. The following table shows the maximum client connections allowed per Azure Managed Redis SKU.
+If you have a workload that requires high throughput, network bandwidth might cause a bottleneck. You can increase bandwidth by moving up to a higher performance tier or by moving to a large instance size. Larger size instances have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that causes timeouts in your application. For more information on bandwidth performance, see [Performance testing](best-practices-performance.md)
 
- **High availability**: Azure Managed Redis provides high availability. The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). It's possible to disable high availability in an Azure Managed Redis instance. This lowers the price but results in data loss and downtime. We only recommend disabling high availability for dev/test scenarios.
+### Maximum number of client connections
+
+Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. The following table shows the maximum client connections allowed per Azure Managed Redis SKU.
+
+This table shows the max connections by tier and memory size.
+
+| Size (GB) | Memory<br>Optimized | Balanced | Compute<br>Optimized | Flash<br>Optimized<br>(preview) |
+|:---------:|:-------------------:|:--------:|:--------------------:|:-------------------------------:|
+| 0.5       | -                   | 15,000   | -                    | -                               |
+| 1         | -                   | 15,000   | -                    | -                               |
+| 3         | -                   | 15,000   | 30,000               | -                               |
+| 6         | -                   | 15,000   | 30,000               | -                               |
+| 12        | 15,000              | 30,000   | 75,000               | -                               |
+| 24        | 30,000              | 75,000   | 150,000              | -                               |
+| 60        | 75,000              | 150,000  | 200,000              | -                               |
+| 120       | 150,000             | 200,000  | 200,000              | -                               |
+| 180 *     | 200,000             | 200,000  | 200,000              | -                               |
+| 240 *     | 200,000             | 200,000  | 200,000              | 75,000                          |
+| 360 *     | 200,000             | 200,000  | 200,000              | -                               |
+| 480 *     | 200,000             | 200,000  | 200,000              | 150,000                         |
+| 720 *     | 200,000             | 200,000  | 200,000              | 200,000                         |
+| 960 *     | 200,000             | 200,000  | -                    | 200,000                         |
+| 1440 *    | 200,000             | -        | -                    | 200,000                         |
+| 1920 *    | 200,000             | -        | -                    | 200,000                         |
+| 4500 *    | -                   | -        | -                    | 200,000                         |
+
+\* The sizes with an asterisk are in Public Preview.
+
+### High availability
+
+Azure Managed Redis provides high availability. The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). It's possible to disable high availability in an Azure Managed Redis instance. This lowers the price but results in data loss and downtime. We only recommend disabling high availability for dev/test scenarios.
 
 ### Other pricing considerations
 
