@@ -195,7 +195,7 @@ az storage account update -n $storageAccountName -g $rgname --enable-blob-geo-pr
 
 ## Feature pricing
 
-Users begin paying for Geo priority replication feature as soon as they enable the feature. Prioritization of the backlog and new writes are also prioritized after the feature is enabled. Pricing for Geo priority replication is based on the amount of data written to the storage account and the volume of data transferred to the secondary region. For detailed pricing information, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
+Billing for geo priority replication will begin on January 1st, 2026. All existing accounts with geo priority replication enabled and new accounts that enable the feature will be billed as of January 1st, 2026. Enabling geo priority replication comes with a per-GB cost, for detailed pricing information, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!IMPORTANT]
 > When you disable Geo Priority Replication, the account is billed for 30 days beyond the date on which the feature was disabled.
