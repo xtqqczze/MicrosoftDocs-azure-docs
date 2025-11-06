@@ -13,7 +13,7 @@ ms.date: 11/07/2025
 
 # What is Microsoft-backed X.509 certificate management (preview)?
 
-Certificate management is an optional feature of Azure Device Registry (ADR) that enables you to issue and manage X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each of your ADR namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub.
+Certificate management is an optional feature of Azure Device Registry (ADR) that enables you to issue and manage X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each ADR namespace, without requiring any on-premises servers, connectors, or hardware. It manages the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub.
 
 Using certificate management requires you to also use IoT Hub, [Azure Device Registry (ADR)](iot-hub-device-registry-setup.md), and [Device Provisioning Service (DPS)](../iot-dps/index.yml). certificate management is currently in public preview.
 
@@ -97,7 +97,7 @@ The following diagram illustrates the end-to-end process of device provisioning 
 
 Certificate renewals are performed using the same mechanism as certificate issuance. When the device detects a need to renew its operational certificate, the device initiates another registration call to DPS, submitting a new Certificate Signing Request (CSR). The CSR is sent to the appropriate issuing certificate authority (ICA) to request a renewed leaf certificate. Once approved, the new operational certificate is returned to the device for continued secure authentication with IoT Hub. 
 
-Each device is responsible for monitoring the expiration date of its operational certificate and initiating a certificate renewal. The certificate includes its **expiration date**, which the device can track to identify when renewal is needed. 
+Each device is responsible for monitoring the expiration date of its operational certificate and initiating a certificate renewal. As a best practice, we recommend renewing a certificate before its expiration date to ensure uninterrupted communications. The certificate includes its **expiration date**, which the device can track to determine when renewal is needed. 
 
 ## Disable a device
 
