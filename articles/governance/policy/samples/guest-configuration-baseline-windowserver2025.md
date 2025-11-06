@@ -22,7 +22,7 @@ implementations:
 
 For the remediation checks and suggestions we took a best practices approach - however please always ensure that the commands will be tested and not applied blindly in any production environment.
 
-The new release of the policy for both audit and remediation is powered by [OSConfig](https://learn.microsoft.com/en-us/azure/osconfig/osconfig-overview)  our engine.
+The new release of the policy for both audit and remediation is powered by [OSConfig](https://learn.microsoft.com/azure/osconfig/osconfig-overview)  our engine.
 
 For more information, see [Azure Policy guest configuration](../concepts/guest-configuration.md) and
 [Overview of the Azure Security Benchmark (V2)](/azure/security/benchmarks/overview).
@@ -373,6 +373,6 @@ Additional articles about Azure Policy and Machine Configuration:
 
 - [Azure Policy guest configuration](../concepts/guest-configuration.md).
 - [Regulatory Compliance](../concepts/regulatory-compliance.md) overview.
-- Review other examples at [Azure Policy samples](./index.md).
+- Review the the baseline content for past Windows Server Editions [WS Baseline Content](../samples/guest-configuration-baseline-windows.md).
 - Review [Understanding policy effects](../concepts/effects.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
