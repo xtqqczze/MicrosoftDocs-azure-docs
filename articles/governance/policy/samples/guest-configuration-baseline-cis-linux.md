@@ -68,7 +68,7 @@ Parameters are exposed through both the user interface and in the final JSON con
 Please choose one of the following way to let us know which Rule /  CIS Benchmark / Distribution / Version you want to have which parameters enabled for customization:
 
 - [GitHub issue under azure-osconfig repository](https://github.com/Azure/azure-osconfig/issues)
-- [Azure Support Case](https://azure.microsoft.com/en-us/support/create-ticket)
+- [Azure Support Case](https://azure.microsoft.com/support/create-ticket)
 
 
 ### Practical Example: Cron Package Variations
@@ -80,19 +80,22 @@ The same way you can also apply changes to file permissions, groups, owners etc.
 
 #### Original Rule
 
-        {
-            "ruleId": "1249e006-cfa1-93cb-bece-8159bcfdd5d6",
-            "name": "Ensure permissions on /etc/cron.daily are configured;DesiredObjectValue",
-            "value": "mask=0077 owner=root group=root packageName=cron alternativePackageName=cronie"
-
-        }
+```json
+{
+    "ruleId": "1249e006-cfa1-93cb-bece-8159bcfdd5d6",
+    "name": "Ensure permissions on /etc/cron.daily are configured;DesiredObjectValue",
+    "value": "mask=0077 owner=root group=root packageName=cron alternativePackageName=cronie"
+}
+```
 #### Customized Rule
 
-        {
-            "ruleId": "1249e006-cfa1-93cb-bece-8159bcfdd5d6",
-            "name": "Ensure permissions on /etc/cron.daily are configured;DesiredObjectValue",
-            "value": "mask=0077 owner=root group=root packageName=bcron alternativePackageName=cronie"
-        }
+```json
+{
+    "ruleId": "1249e006-cfa1-93cb-bece-8159bcfdd5d6",
+    "name": "Ensure permissions on /etc/cron.daily are configured;DesiredObjectValue",
+    "value": "mask=0077 owner=root group=root packageName=bcron alternativePackageName=cronie"
+}
+```
 
 
 

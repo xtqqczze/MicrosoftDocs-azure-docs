@@ -12,7 +12,7 @@ ms.custom: generated
 **Supported Benchmarks**
 | Benchmark Title |
 | --- |
-| [CIS SUSE Linux Enterprise 15 Benchmark 2.0.1 Level 1 + 2 Server Profiles](#cis-suse-linux-enterprise-15-benchmark-201-level-1-2-server-profiles) |
+| [CIS SUSE Linux Enterprise 15 Benchmark 2.0.1 Level 1 + 2 Server Profiles](#cis-suse-linux-enterprise-15-benchmark-201-level-1--2-server-profiles) |
 
 ## CIS SUSE Linux Enterprise 15 Benchmark 2.0.1 Level 1 + 2 Server Profiles
 <a id="cis-suse-linux-enterprise-15-benchmark-201-level-1--2-server-profiles"></a>
