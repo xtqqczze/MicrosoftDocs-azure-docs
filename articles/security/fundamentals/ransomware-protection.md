@@ -15,11 +15,14 @@ ms.date: 05/01/2025
 
 Ransomware and extortion are a high profit, low-cost business, which has a debilitating impact on targeted organizations, national/regional security, economic security, and public health and safety. What started as simple, single-PC ransomware grew to include various extortion techniques directed at all types of corporate networks and cloud platforms.
 
-To ensure customers running on Azure are protected against ransomware attacks, Microsoft invests heavily on the security of our cloud platforms, and provides security controls you need to protect your Azure cloud workloads
+To ensure customers running on Azure are protected against ransomware attacks, Microsoft invests heavily in the security of our cloud platforms, and provides security controls you need to protect your Azure cloud workloads.
 
-By using Azure native ransomware protections and implementing the best practices recommended in this article, you're taking measures that positions your organization to prevent, protect, and detect potential ransomware attacks on your Azure assets.
+By using Azure native ransomware protections and implementing the best practices recommended in this article, you're taking measures that position your organization to prevent, protect, and detect potential ransomware attacks on your Azure assets.
 
 This article lays out key Azure native capabilities and defenses for ransomware attacks and guidance on how to proactively use these to protect your assets on Azure cloud.
+
+> [!TIP]
+> For comprehensive ransomware protection guidance across all Microsoft platforms and services, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware). For information about what ransomware is and how it works, see [What is ransomware?](/security/ransomware/human-operated-ransomware)
 
 ## A growing threat
 
@@ -97,11 +100,16 @@ Colonial Pipeline paid about $4.4 Million in ransom to have their data released.
 
 ## Next steps
 
-See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack).
+For comprehensive ransomware protection guidance across all Microsoft platforms, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware).
 
-Other articles in this series:
+Azure-specific ransomware protection articles:
 - [Prepare for a ransomware attack](ransomware-prepare.md)
 - [Detect and respond to ransomware attack](ransomware-detect-respond.md)
 - [Azure features and resources that help you protect, detect, and respond](ransomware-features-resources.md)
+- [Improve your security defenses for ransomware attacks with Azure Firewall Premium](ransomware-protection-with-azure-firewall.md)
+
+Additional resources:
+- [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack)
+- [What is ransomware?](/security/ransomware/human-operated-ransomware)
 
 

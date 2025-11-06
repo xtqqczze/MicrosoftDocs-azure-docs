@@ -1,6 +1,6 @@
 ---
 title: Prepare for a ransomware attack
-description: Prepare for a ransomware attack
+description: Prepare for a ransomware attack with Azure-specific guidance
 author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
@@ -10,6 +10,11 @@ ms.date: 04/23/2025
 ---
 
 # Prepare for a ransomware attack
+
+This article provides Azure-specific guidance for preparing your organization to defend against and recover from ransomware attacks.
+
+> [!TIP]
+> For comprehensive ransomware preparation guidance across all Microsoft platforms and services, see [Prepare your ransomware recovery plan](/security/ransomware/protect-against-ransomware-phase1). This article focuses specifically on Azure capabilities and best practices.
 
 ## Adopt a Cybersecurity framework
 
@@ -38,32 +43,38 @@ Ultimately, the Framework is aimed at reducing and better managing cybersecurity
 
 ## Prioritize mitigation
 
-Based on our experience with ransomware attacks, we find that prioritization should focus on:
-1. Prepare
-1. Limit
-1. Prevent
+Based on our experience with ransomware attacks on Azure environments, we find that prioritization should focus on:
+1. Prepare - Have backups and recovery plans for your Azure resources
+1. Limit - Protect privileged access to Azure resources
+1. Prevent - Harden Azure security controls
  
 This may seem counterintuitive, since most people want to prevent an attack and move on. Unfortunately, we must assume breach (a key Zero Trust principle) and focus on reliably mitigating the most damage first. This prioritization is critical because of the high likelihood of a worst-case scenario with ransomware. While it's not a pleasant truth to accept, we're facing creative and motivated human attackers who are adept at finding a way to control the complex real-world environments in which we operate. Against that reality, it's important to prepare for the worst and establish frameworks to contain and prevent attackers' ability to get what they're after.
 
 While these priorities should govern what to do first, we encourage organizations to run steps in parallel where possible, including pulling quick wins forward from step 1 when you can.
 
+For comprehensive guidance on the three-phase approach to ransomware protection, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware).
+
 ## Make it harder to get in
 
-Prevent a ransomware attacker from entering your environment and rapidly respond to incidents to remove attacker access before they can steal and encrypt data. This causes attackers to fail earlier and more often, undermining the profit of their attacks. While prevention is the preferred outcome, it's a continuous journey and may not be possible to achieve 100% prevention  and rapid response across a real-world organizations (complex multi-platform and multicloud estate with distributed IT responsibilities).
+Prevent a ransomware attacker from entering your Azure environment and rapidly respond to incidents to remove attacker access before they can steal and encrypt data. This causes attackers to fail earlier and more often, undermining the profit of their attacks. While prevention is the preferred outcome, it's a continuous journey and may not be possible to achieve 100% prevention and rapid response across a real-world organization's complex multi-platform and multicloud estate with distributed IT responsibilities.
 
-To achieve this, organizations should identify and execute quick wins to strengthen  security controls to prevent entry, and rapidly detect/evict attackers while implementing a sustained program that helps them stay secure. Microsoft recommends organizations follow the principles outlined in the Zero Trust strategy [here](https://aka.ms/zerotrust). Specifically, against Ransomware, organizations should prioritize:
-- Improving security hygiene by focusing efforts on attack surface reduction and threat and vulnerability management for assets in their estate. 
-- Implementing Protection, Detection and Response controls for their digital assets that can protect against commodity and advanced threats, provide visibility, and alerting on attacker activity and respond to active threats.
+To achieve this, organizations should identify and execute quick wins to strengthen security controls for their Azure resources to prevent entry, and rapidly detect/evict attackers while implementing a sustained program that helps them stay secure. Microsoft recommends organizations follow the principles outlined in the Zero Trust strategy. Specifically, for Azure resources, organizations should prioritize:
+- Improving security hygiene by focusing efforts on attack surface reduction and threat and vulnerability management for Azure resources. 
+- Implementing Protection, Detection and Response controls for Azure workloads that can protect against commodity and advanced threats, provide visibility, and alerting on attacker activity and respond to active threats.
+
+For comprehensive guidance on making it harder for attackers to access your environment, see [Defend against ransomware attacks](/security/ransomware/protect-against-ransomware-phase3).
 
 ## Limit scope of damage
 
-Ensure you have strong controls (prevent, detect, respond) for privileged accounts like IT Admins and other roles with control of business-critical systems. This slows and/or blocks attackers from gaining complete access to your resources to steal and encrypt them. Taking away the attackers' ability to use IT Admin accounts as a shortcut to resources drastically lowers the chances they're successful at attacking you and demanding payment / profiting.
+Ensure you have strong controls (prevent, detect, respond) for privileged accounts with access to your Azure resources like IT Admins and other roles with control of business-critical systems. This slows and/or blocks attackers from gaining complete access to your Azure resources to steal and encrypt them. Taking away the attackers' ability to use IT Admin accounts as a shortcut to resources drastically lowers the chances they're successful at attacking you and demanding payment / profiting.
 
-Organizations should have elevated security for privileged accounts (tightly protect, closely monitor, and rapidly respond to incidents related to these roles). See Microsoft's Security rapid modernization plan, which covers:
+Organizations should have elevated security for privileged accounts with Azure access (tightly protect, closely monitor, and rapidly respond to incidents related to these roles). See Microsoft's Security rapid modernization plan, which covers:
 - End to End Session Security (including multifactor authentication (MFA) for admins)
 - Protect and Monitor Identity Systems
 - Mitigate Lateral Traversal
 - Rapid Threat Response
+
+For comprehensive guidance on limiting the scope of damage, see [Limit the impact of ransomware attacks](/security/ransomware/protect-against-ransomware-phase2).
 
 ## Prepare for the worst
 
@@ -172,10 +183,13 @@ Built-in backups from Azure services
 
 ## What's Next
 
+For comprehensive ransomware protection guidance across all Microsoft platforms and services, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware).
+
 See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack).
 
-Other articles in this series:
+Other Azure ransomware articles:
 
 - [Ransomware protection in Azure](ransomware-protection.md)
 - [Detect and respond to ransomware attack](ransomware-detect-respond.md)
 - [Azure features and resources that help you protect, detect, and respond](ransomware-features-resources.md)
+- [Improve your security defenses for ransomware attacks with Azure Firewall Premium](ransomware-protection-with-azure-firewall.md)
