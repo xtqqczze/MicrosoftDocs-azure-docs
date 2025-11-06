@@ -4,9 +4,9 @@
 
 |Benchmark Title|
 |---|
-|[CIS Debian Linux 12 Benchmark 1.1.0 Level 2 - Server](#cis-debian-linux-12-benchmark-110-level-2---server)|
+|[CIS Debian Linux 12 Benchmark 1.1.0 Level 1 + Level 2 - Server](#cis-debian-linux-12-benchmark-110-level-1--level-2---server)|
 
-## CIS Debian Linux 12 Benchmark 1.1.0 Level 2 - Server
+## CIS Debian Linux 12 Benchmark 1.1.0 Level 1 + Level 2 - Server
 
 ### Mismatched Rules
 

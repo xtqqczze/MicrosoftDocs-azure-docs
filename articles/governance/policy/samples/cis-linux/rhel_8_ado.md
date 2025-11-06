@@ -4,9 +4,9 @@
 
 |Benchmark Title|
 |---|
-|[CIS Red Hat Enterprise Linux 8 Benchmark 3.0.0 Level 2 - Server](#cis-red-hat-enterprise-linux-8-benchmark-300-level-2---server)|
+|[CIS Red Hat Enterprise Linux 8 Benchmark 3.0.0 Level 1 + Level 2 - Server](#cis-red-hat-enterprise-linux-8-benchmark-300-level-1--level-2---server)|
 
-## CIS Red Hat Enterprise Linux 8 Benchmark 3.0.0 Level 2 - Server
+## CIS Red Hat Enterprise Linux 8 Benchmark 3.0.0 Level 1 + Level 2 - Server
 
 ### Mismatched Rules
 

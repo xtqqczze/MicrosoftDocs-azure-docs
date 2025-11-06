@@ -4,9 +4,9 @@
 
 |Benchmark Title|
 |---|
-|[CIS Ubuntu Linux 24.04 LTS Benchmark 1.0.0 Level 2 - Server](#cis-ubuntu-linux-2404-lts-benchmark-100-level-2---server)|
+|[CIS Ubuntu Linux 24.04 LTS Benchmark 1.0.0 Level 1 + Level 2 - Server](#cis-ubuntu-linux-2404-lts-benchmark-100-level-1--level-2---server)|
 
-## CIS Ubuntu Linux 24.04 LTS Benchmark 1.0.0 Level 2 - Server
+## CIS Ubuntu Linux 24.04 LTS Benchmark 1.0.0 Level 1 + Level 2 - Server
 
 ### Mismatched Rules
 

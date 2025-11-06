@@ -4,9 +4,9 @@
 
 |Benchmark Title|
 |---|
-|[CIS Rocky Linux 8 Benchmark 2.0.0 Level 2 - Server](#cis-rocky-linux-8-benchmark-200-level-2---server)|
+|[CIS Rocky Linux 8 Benchmark 2.0.0 Level 1 + Level 2 - Server](#cis-rocky-linux-8-benchmark-200-level-1--level-2---server)|
 
-## CIS Rocky Linux 8 Benchmark 2.0.0 Level 2 - Server
+## CIS Rocky Linux 8 Benchmark 2.0.0 Level 1 + Level 2 - Server
 
 ### Mismatched Rules
 
