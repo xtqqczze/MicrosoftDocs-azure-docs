@@ -17,7 +17,7 @@ ms.custom: generated
 This article details the configuration settings for Windows guests as applicable in the following
 implementations:
 
-- **\[Preview\]: Windows machines should meet requirements for the Azure compute security baseline**
+- **Windows machines should meet requirements for the Azure compute security baseline**
   Azure Policy guest configuration definition
 - **Vulnerabilities in security configuration on your machines should be remediated** in Azure
   Security Center
