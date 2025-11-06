@@ -1,10 +1,10 @@
 ---
 title: Agent Builder in Azure SRE Agent overview
-description: Learn how to use Agent Builder in Azure SRE Agent to create, customize, and manage intelligent agents for automating operational workflows, integrating data sources, and improving incident response.
+description: Learn how to use Agent Builder in Azure SRE Agent to create and manage intelligent agents for automating operational workflows.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: how-to
-ms.date: 11/05/2025
+ms.date: 11/06/2025
 ms.service: azure-sre-agent
 ---
 
@@ -16,25 +16,25 @@ Agent Builder is a configuration tool in Azure SRE Agent that helps you create, 
 
 Agent Builder empowers you to create sophisticated automation solutions for your operational workflows:
 
-| Capability | Description | Example Use Cases |
-|--|--|--|
-| Custom agents | Build specialized agents with tailored instructions and behaviors | • RCA specialists for specific services<br>• Monitoring agents for resource health<br>• Compliance checkers for security policies |
-| Data Integration | Connect your observability tools and knowledge sources | • Azure Monitor for metrics and logs<br>• File uploads for documentation<br>• External APIs through MCP connectors |
-| Automated Triggers | Set up incident response plans and scheduled tasks | • Automatic incident investigation<br>• Daily health reports<br>• Weekly compliance scans |
+| Capability | Description | Example use cases | Actions |
+|--|--|--|--|
+| Custom agents | Build specialized agents with tailored instructions and behaviors | • RCA specialists for specific services<br>• Monitoring agents for resource health<br>• Compliance checkers for security policies |  |
+| Data integration | Connect your observability tools and knowledge sources | • Azure Monitor for metrics and logs<br>• File uploads for documentation<br>• External APIs through MCP connectors |  |
+| Automated triggers | Set up incident response plans and scheduled tasks | • Automatic incident investigation<br>• Daily health reports<br>• Weekly compliance scans |  |
 
 ## Work with Agent Builder
 
-To create a new agent, you begin by defining the agent’s primary purpose and operational scope so its responsibilities are clear. Then you connect the data sources the agent uses to expand its content. Potential sources include observability connectors or organizational knowledge (runbooks, procedures).
+To create a new subagent, start by defining the agent’s primary purpose and operational scope so its responsibilities are clear. Then connect the data sources the agent uses to expand its content. Potential sources include observability connectors or organizational knowledge (runbooks, procedures).
 
-You can extend the agent's capabilities by associating system tools and any MCP integrations, and provide custom instructions that guide analytical and operational behavior. Finally,  you can define handoff rules that control when processing should transition to other agents or human operators.
+You can extend the subagent's capabilities by associating system tools and any MCP integrations, and provide custom instructions that guide analytical and operational behavior. Finally, define handoff rules that control when processing should transition to other subagents or human operators.
 
-Agents are triggered via incident response plans or as scheduled tasks.
+Incident response plans or scheduled tasks trigger subagents.
 
-Once running, make sure to continuously monitor and refine your agent. Regularly review performance and decision quality, adjust instructions, tune tool selections, and expand capabilities as needs evolve.
+Once running, continuously monitor and refine your subagent. Regularly review performance and decision quality, adjust instructions, tune tool selections, and expand capabilities as needs evolve.
 
-## Create your first agent
+## Create your first subagent
 
-Agent Builder makes it easy to design and deploy your first intelligent agent in just a few steps. The following section, shows you how to create a new agent, configure its core properties, and connect it to the tools and data sources it needs to operate effectively.
+Agent Builder makes it easy to design and deploy your first intelligent subagent in just a few steps. The following section shows you how to create a new subagent and connect it to tools and data sources.
 
 ### Prerequisites
 
@@ -44,7 +44,7 @@ Before using Agent Builder, ensure you have:
 - **Operational context**: An understanding of your incident response procedures and operational workflows.
 - **Data sources**: Access to observability tools and knowledge repositories.
 
-### Create the agent
+### Create the subagent
 
 1. Go to your Azure SRE Agent in the Azure portal.
 
@@ -58,12 +58,12 @@ Before using Agent Builder, ensure you have:
 
     | Property | Value |
     |--|--|
-    | Agent Name | Enter a name for your agent. |
-    | Instructions | Enter custom instructions telling the agent how you want it to behave. |
-    | Handoff Description | Describe when and why other agents should hand off processing to this agent. |
-    | Extended Tools (optional) | Select one or more tools for the agent to use during processing. |
-    | System Tools (optional) | Select one or more system tools to make available to the agent.  |
-    | Handoff Agents (optional) | Select the next agent you want to pick up processing once this agent is done executing. |
+    | Agent Name | Enter a name for your subagent. |
+    | Instructions | Enter custom instructions telling the subagent how you want it to behave. |
+    | Handoff Description | Describe when and why other subagents should hand off processing to this subagent. |
+    | Extended Tools (optional) | Select one or more tools for the subagent to use during processing. |
+    | System Tools (optional) | Select one or more system tools to make available to the subagent. |
+    | Handoff Agents (optional) | Select the next subagent you want to pick up processing once this subagent is done executing. |
 
 ## Related content
 
