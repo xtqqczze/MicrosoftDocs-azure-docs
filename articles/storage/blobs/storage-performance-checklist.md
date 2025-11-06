@@ -16,11 +16,9 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 
 # Performance checklist for Blob Storage
 
-Use the checklist in this article to reduce _latency_, increase _throughput_, and align with Azure Storage scale and performance _targets_. 
+Use this checklist to reduce _latency_, increase _throughput_, and align with Azure Storage scale and performance _targets_. 
 
-Azure Storage publishes [standard storage account targets](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json) and [Blob Storage targets](scalability-targets.md). These values are called _targets_ rather than _limits_ because some values can be increased upon request.  
-
-When clients approach or exceed these targets, Azure Storage might throttle requests, which increases latency. However, you can align with targets without sacrificing performance by following this checklist.
+Azure Storage publishes [standard storage account targets](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json) and [Blob Storage targets](scalability-targets.md). These values are called _targets_ rather than _limits_ because some values can be increased upon request. When clients approach or exceed these targets, Azure Storage might throttle requests, which increases latency. However, you can align with targets without sacrificing performance by following this checklist.
 
 ## Performance checklist
 
