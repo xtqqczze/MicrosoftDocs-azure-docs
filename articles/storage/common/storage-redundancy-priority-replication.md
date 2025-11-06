@@ -21,11 +21,9 @@ Current: 99 (975/1)
 
 # Azure Storage Geo Priority Replication
 
-Azure Blob Storage Geo Priority Replication is designed to meet the stringent compliance and business continuity requirements of Azure Blob users. The feature prioritizes the replication traffic of Block Blob data for storage accounts with geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) enabled. This prioritization accelerates data replication between the primary and secondary regions of these geo-redundant accounts. 
+Azure Blob Storage Geo Priority Replication is designed to meet the stringent compliance and business continuity requirements of Azure Blob users. The feature prioritizes the replication of blob data for storage accounts with geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) enabled. This prioritization accelerates data replication between the primary and secondary regions of these geo-redundant accounts. 
 
-A Service Level Agreement (SLA) backs geo priority replication, and applies to any account that has Geo priority replication enabled. It guarantees that the Last Sync Time (LST) for your account's Block Blob data remains lagged 15 minutes or less for 99.0% of the billing month. In addition to prioritized replication traffic, the feature includes enhanced monitoring and detailed telemetry.
-
-You can monitor your geo lag via Azure portal's **Metrics** pane.
+For supported workloads, a Service Level Agreement (SLA) also backs geo priority replication, and applies to any account that has Geo priority replication enabled. It guarantees that the Last Sync Time (LST) for your account's Block Blob data remains lagged 15 minutes or less for 99.0% of the billing month. In addition to prioritized replication traffic, the feature includes enhanced monitoring and detailed telemetry.
 
 <!--
 > [!IMPORTANT]
@@ -48,8 +46,8 @@ You can monitor your geo lag via Azure portal's **Metrics** pane.
 While there are many benefits to using geo priority replication, it's especially beneficial, for example, in the following scenarios:
 
 - Meeting compliance regulations that require a strict Recovery Point Objective (RPO) for storage data.
-- Recovering from a storage related outage in the primary region where initiating an [unplanned failover](storage-failover-customer-managed-unplanned.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) is required. Users can guarantee that all their Block Blob data is replicated to their secondary region within 15 minutes or less. As a result, any Block Blob data written within 15 minutes of an unplanned failover can be fully recovered after the unplanned failover is completed.
-- Strengthening your disaster recovery planning to meet both compliance and business requirements. Users with business-critical data and a need for high availability and disaster recovery receive a significant benefit.
+- The guaranteed sync time, provides confidence about data durability and availability, especially if there is an unexpected outage and an [unplanned failover](storage-failover-customer-managed-unplanned.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) is required in the primary region.
+
 
 <!--
 ## SLA terms and guarantees
@@ -73,6 +71,7 @@ While Geo Priority Replication introduces an SLA-backed capability for Azure Blo
 
 - Other blob types, such as page blobs and append blobs. The SLA applies exclusively to Block Blob data. If these unsupported blob types contribute to geo lag, the affected time window is excluded from SLA eligibility,
 - Storage accounts where Append or Page Blob API calls were made within the last 30 days,
+    - This might impact users that have features enabled on their account that create append or page blobs. For example, Change Feed, Object Replication or
 - Storage accounts with a Last Sync Time greater than 15 minutes lagged during the enablement of Geo priority replication. Data replication prioritization begins immediately after enabling the feature, but the SLA might not apply during this initial sync period. If the account's Last Sync Time exceeds 15 minutes during this time, the SLA doesn't apply until the Last Sync Time is consistently at or below 15 minutes lagged. Customers can [monitor their LST](last-sync-time-get.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) and replication status through Azure's provided metrics and dashboards.
 - During time periods where:
     - Your storage account data transfer rate exceeds 1 gigabit per second (Gbps) and the resulting back log of writes are being replicated, or
@@ -83,6 +82,19 @@ These limitations are critical to understanding how and when the SLA applies, an
 > [!IMPORTANT]
 > Certain operational scenarios can also disrupt SLA coverage. For example, an unplanned failover will automatically disable Geo Priority Replication, requiring you to re-enable the feature manually after geo-redundancy is restored. By comparison, planned failovers and account conversions between GRS and geo zone redundant storage (GZRS) don't affect SLA eligibility, provided the account remains within guardrails.
 
+## Monitor compliance
+
+> [!IMPORTANT]
+> Geo Blob Lag metrics are currently in PREVIEW and available in all regions where Geo priority replication is supported.
+> To opt in to the preview, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowGeoPriorityReplicationMetricsInPortal as the feature name. The provider name for this preview feature is Microsoft.Storage.
+> 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+To ensure transparency and empower customers to track the performance of Geo priority replication, Azure provides a new monitoring tool integrated directly into Azure Monitor Metrics. After geo priority replication is enabled, you have the ability to view the new **Geo Blob Lag metric (preview)** for Blob data on a per-account basis. You can check your "Geo blob lag" performance throughout the month via the **Redundancy** and **Metrics** panes. The **Geo Blob Lag metric (preview)** allows you to monitor the lag, or the number of seconds since the last full data copy between the primary and secondary regions, of your block blob data. This metric allows you to assess the performance trends and identify potential SLA breaches for your account.
+
+After geo priority replication is enabled and you register for the Geo Blob Lag metric (preview) you have the ability to view the new metric.
+
+:::image type="content" source="media/storage-redundancy-priority-replication/replication-enabled-sml.png" alt-text="Screenshot showing the geo priority replication enabled status for existing accounts." lightbox="media/storage-redundancy-priority-replication/replication-enabled-lrg.png":::
 
 ## Enable and disable Geo-Redundant Storage replication
 
@@ -197,16 +209,6 @@ az storage account update -n $storageAccountName -g $rgname --enable-blob-geo-pr
 ```
 
 ---
-
-## Monitor compliance
-
-> [!IMPORTANT]
-> Geo Blob Lag metrics are currently in PREVIEW and available in all regions where Geo priority replication is supported.
-> To opt in to the preview, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowGeoPriorityReplicationMetricsInPortal as the feature name. The provider name for this preview feature is Microsoft.Storage.
-> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-To ensure transparency and empower customers to track the performance of Geo priority replication, Azure provides a new monitoring tool integrated directly into Azure Monitor Metrics. After geo priority replication is enabled, you have the ability to view the new **Geo Blob Lag metric (preview)** for Blob data on a per-account basis. You can check your "Geo blob lag" performance throughout the month via the **Redundancy** and **Metrics** panes. The **Geo Blob Lag metric (preview)** allows you to monitor the lag, or the number of seconds since the last full data copy between the primary and secondary regions, of your block blob data. Geo blob lag can be viewed over the course of a specified time range, up to 12 months. This metric allows you to assess the performance trends and identify potential SLA breaches for your account. 
 
 ## Feature pricing
 
