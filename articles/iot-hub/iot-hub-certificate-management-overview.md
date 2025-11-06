@@ -62,16 +62,16 @@ Certificate management uses [Azure Device Registry (ADR)](iot-hub-device-registr
 The following image illustrates the X.509 certificate hierarchy used to authenticate IoT devices in Azure IoT Hub through the ADR namespace.
 
 - Each ADR namespace (cloud) has a unique root CA credential managed by Microsoft. This credential acts as the top-most certificate authority in the chain.
-- Each policy within the ADR namespace defines an issuing CA (ICA) that is signed by the root CA. Each policy can issue end-entity/leaf certificates for devices registered within that ADR namespace and with Hubs linked to the namespace. You can configure the validity period of the issued certificates for each policy.
+- Each policy within the ADR namespace defines one issuing CA (ICA) that is signed by the root CA. Each policy can only share its CA certificate with Hubs linked to the namespace. And, each policy can only issue leaf certificates to devices registered within that namespace. You can configure the validity period of the issued certificates for each policy. The minimum validity period is 1 day and the maximum validity period is 30 days.
 - Once you have created your credential and policies, you can sync these CA certificates directly with IoT Hub. IoT Hub will now be able to authenticate devices that present this certificate chain.
 
 :::image type="content" source="media/certificate-management/device-registry-certificate-management.png" alt-text="Diagram showing how Azure Device Registry integrates with IoT Hub and DPS for certificate management." lightbox="media/certificate-management/device-registry-certificate-management.png":::
 
 ### Device Provisioning Service integration
 
-For devices to receive leaf certificates, devices must be provisioned through [Device Provisioning Service (DPS)](../iot-dps/index.yml). You need to configure either **individual or group enrollment**, which includes defining:
+For devices to receive leaf certificates, devices must be provisioned through [Device Provisioning Service (DPS)](../iot-dps/index.yml). You need to configure either an [individual or group enrollment](https://learn.microsoft.com/en-us/azure/iot-dps/concepts-service#enrollment), which includes defining:
 
-- The specific [attestation method for device onboarding](../iot-dps/concepts-service.md#attestation-mechanism). Supported methods are Trusted Platform Module (TPM), symmetric keys, or X.509 certificates.
+- The specific type of [onboarding credential](../iot-dps/concepts-service.md#attestation-mechanism) for that enrollment. Supported methods are Trusted Platform Module (TPM), symmetric keys, or X.509 certificates.
 - The specific policy that was created within your ADR namespace. This policy will sign and issue leaf certificates to devices provisioned by this enrollment.
 
 Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT devices generate a **Certificate Signing Request (CSR)** containing their public key and identity to prove key ownership. The CSR is sent to DPS and the PKI, which validates the request and forwards it to the appropriate **issuing CA (ICA)** to issue signed X.509 certificate. For more information on DPS Certificate Signing Request, check out some the [DPS Device SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
