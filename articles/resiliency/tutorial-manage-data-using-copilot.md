@@ -16,6 +16,9 @@ This article describes how to use Resiliency in Azure Copilot to make your resil
 
 [!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
 
+>[!Note]
+>Current service URLs in Copilot interactions still reference Business Continuity Center. These URLs will migrate soon to Resiliency.
+
 ## What is Resiliency Copilot? 
 
 The Resiliency Copilot feature assists you to protect and recover your resources. The key use cases for the Resiliency Copilot are prioritized by the four resiliency pillars:
