@@ -69,11 +69,11 @@ To configure the ruleset, use the [preview portal](https://preview.portal.azure.
 
 - Once HTTP DDoS ruleset is assigned to a Web Application Firewall policy, any changes made to other managed rulesets using the production portal will remove the HTTP DDoS ruleset from the WAF Policy.
 
-- PowerShell and CLI are currently not supported.
+- PowerShell and CLI aren't currently supported.
 
 ## Related content
 
-- [Policy settings for Azure Application Gateway WAF](/azure/web-application-firewall/ag/waf-application-gateway-policy-settings)
-- [Managed rules for Azure Front Door WAF](/azure/web-application-firewall/afds/waf-front-door-drs)
-- [Custom rules for Azure Front Door WAF](/azure/web-application-firewall/afds/waf-front-door-custom-rules)
+- [Azure Application Gateway WAF policy](/azure/web-application-firewall/ag/policy-overview)
+- [Managed rules for Application Gateway WAF](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules)
+- [Custom rules for Application Gateway WAF](/azure/web-application-firewall/ag/custom-waf-rules-overview)
 
