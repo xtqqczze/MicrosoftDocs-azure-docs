@@ -108,7 +108,7 @@ The same way you can also apply changes to file permissions, groups, owners etc.
 
 ### Current Release
 - **Version**: 1.0.0
-- **Release Date**: June 2025
+- **Release Date**: November 2025
 - **Features**:
   - Initial release of CIS Linux baselines for Azure Policy
   - Support for 12 Linux distributions
