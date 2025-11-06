@@ -75,7 +75,7 @@ To create a resource group, role, and permissions for your IoT solution, complet
 
 ## Create a new ADR namespace
 
-Create a new ADR namespace with a system-assigned managed identity. We will also create a root CA, known as a credential, and an issuing CA, known as a policy. [Certificate Management](../articles/iot-hub/iot-hub-certificate-management-overview.md) uses these credentials and policies to onboard devices to the namespace.
+First, create a new ADR namespace with a system-assigned managed identity. This will also create a root CA, known as a credential, achained to an issuing CA, known as a policy. [Certificate Management](../articles/iot-hub/iot-hub-certificate-management-overview.md) uses these credentials and policies to sign leaf certificates that devices receive when provisioned.
 
 > [!NOTE]
 > Credentials are optional. You can also create a namespace without a managed identity by omitting the `--enable-credential-policy` and `--policy-name` flags.
@@ -215,9 +215,9 @@ az iot hub certificate list --hub-name <HUB_NAME> --resource-group <RESOURCE_GRO
 
 ## Create an enrollment in DPS
 
-To provision devices with leaf certificates, you need to create an enrollment and assign it to the appropriate policy. The allocation-policy defines the onboarding authentication mechanism DPS uses before issuing a leaf certificate. 
+To provision devices with leaf certificates, you will create an enrollment in DPS. Using `--credential-policy`, you must assign it to the appropriate policy. 
 
-We will create an enrollment group using the default attestation mechanism of symmetric key.
+This command will create an enrollment group using the default attestation mechanism of symmetric key.
 
 > [!NOTE]
 > If you created a policy with a different name from "default", ensure that you use that policy name after the `--credential-policy` parameter.
