@@ -202,7 +202,7 @@ When you create a business case, by default, servers remaining on-premises are a
 
 ## Next steps
 
-- [Build a business case](./build-business-case.md)
-- [View business case reports](./view-business-case.md)
+- [Build a business case](./how-to-build-a-business-case.md)
+- [View business case reports](./how-to-a-view-business-case.md)
 
 

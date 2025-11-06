@@ -24,7 +24,7 @@ This article describes how to build a Business case for on-premises servers and 
 
 - Once you've created a project, the Azure Migrate: Discovery and assessment tool is automatically added to the project.
 
-- Before you build the Business case, you need to first discover your IT estate. You can choose one of the two [discovery sources](./concepts-business-case-calculation.md#discovery-sources-to-create-a-business-case) based on your use case.
+- Before you build the Business case, you need to first discover your IT estate. You can choose one of the two [discovery sources](./concepts-business-case-calculation.md#discovery-sources) based on your use case.
 
 
 ## Business case overview
