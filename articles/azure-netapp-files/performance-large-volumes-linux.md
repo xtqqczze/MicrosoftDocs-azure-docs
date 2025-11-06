@@ -20,7 +20,7 @@ This article describes the tested performance capabilities of a single [Azure Ne
 
 * The Azure NetApp Files large volumes feature offers [four service levels](azure-netapp-files-service-levels.md), each with throughput limits. The service levels can be scaled up or down nondisruptively as your performance needs change.  
 
-    * Standard, Preimium, and Ultra service levels: 12,800 MiB/s
+    * Standard, Premium, and Ultra service levels: 12,800 MiB/s
     * [Flexible service](azure-netapp-files-service-levels.md#Flexible): The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS
 
     The Ultra service level was used in these tests. 
