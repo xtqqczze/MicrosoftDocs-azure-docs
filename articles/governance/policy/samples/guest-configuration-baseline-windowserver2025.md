@@ -367,6 +367,8 @@ For more information, see [Azure Policy guest configuration](../concepts/guest-c
 > Availability of specific Azure Policy Machine Configuration settings may vary in Azure Government
 > and other national clouds.
 
+If you'd like to download this list of rules check out this link [Security Basline Ruleset](https://github.com/microsoft/osconfig/tree/main/security)
+
 ## Next steps
 
 Additional articles about Azure Policy and Machine Configuration:
