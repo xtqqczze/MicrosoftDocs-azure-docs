@@ -179,6 +179,9 @@ To update ASR agent manually, follow these steps:
 
 1. Upgrade Linux OS and navigate to the **Replicated Items** page of the VM in the Azure portal.  
 2. Select **Update Agent to support new OS version detected on VM**.
+  
+     :::image type="content" source="./media/azure-to-azure-support-matrix/replicated-items.png" alt-text="Screenshot of replicated items.":::
+
 3. Review the details in the context pane and proceed with the agent upgrade as prompted.  
 
 >[!NOTE]
