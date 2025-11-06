@@ -6,11 +6,11 @@ ms.topic: overview
 ms.author: russellkirk
 author: krussell09
 recommendations: false
-ms.date: 11/03/2025
+ms.date: 11/05/2025
 ---
 ## Microsoft Azure Government Product Availability 
 
-Last Update: November 03, 2025
+Last Update: November 05, 2025
 
 Explore an overview of the Microsoft product portfolio, including Offerings, SKUs, and Features, available in **Microsoft Azure for U.S. Government** and **Microsoft Azure for U.S. Government Secret.**
 
@@ -57,36 +57,35 @@ Both environments were built from the ground up using the same foundational prin
 | App Service | ✔ | ✔ | ✔ | ✔ |
 | App Service : App Service Basic : App Service Linux | ✔ | ✔ | ✔ | ✔ |
 | App Service : App Service Basic : Web App for Containers | ✔ | ✔ | ✔ | ✔ |
-| App Service : App Service Environments | ✔ | ✔ | ✔ |  |
+| App Service : App Service Environments | ✔ | ✔ | ✔ | ✔ |
 | App Service : App Service Environments : App Service Environments v3 | ✔ | ✔ | ✔ |  |
-| App Service : App Service Free | ✔ | ✔ | ✔ |  |
+| App Service : App Service Free | ✔ | ✔ | ✔ | ✔ |
 | App Service : App Service Premium v3 | ✔ | ✔ | ✔ | ✔ |
 | App Service : App Service Premium v3 : Windows Containers | ✔ | ✔ | ✔ |  |
 | Application Gateway | ✔ | ✔ | ✔ | ✔ |
 | Application Gateway : Application Gateway v2 | ✔ | ✔ | ✔ | ✔ |
 | Automation | ✔ | ✔ | ✔ | ✔ |
 | Automation : Change Tracking | ✔ | ✔ | ✔ | Forecasted |
-| Azure Active Directory B2C |  | Planned | Planned |  |
 | Azure Advisor | ✔ | ✔ | ✔ | ✔ |
 | Azure AI Foundry | ✔ | ✔ | ✔ | ✔ |
 | Azure AI Foundry : Azure AI Content Moderator | ✔ | ✔ | ✔ |  |
 | Azure AI Foundry : Azure AI Custom Vision | ✔ | ✔ | ✔ |  |
-| Azure AI Foundry : Azure AI Document Intelligence | ✔ | ✔ | ✔ |  |
+| Azure AI Foundry : Azure AI Document Intelligence | ✔ | ✔ | ✔ | Awaiting Review |
 | Azure AI Foundry : Azure AI Foundry Agent Service​ | Forecasted | Forecasted | Forecasted |  |
-| Azure AI Foundry : Azure AI Language | ✔ | ✔ | ✔ |  |
+| Azure AI Foundry : Azure AI Language | ✔ | ✔ | ✔ | Awaiting Review |
 | Azure AI Foundry : Azure AI Language : Conversational Language Understanding | ✔ | ✔ | ✔ |  |
 | Azure AI Foundry : Azure AI Language Understanding | ✔ | ✔ | ✔ |  |
 | Azure AI Foundry : Azure AI QnA Maker | ✔ | ✔ | ✔ |  |
 | Azure AI Foundry : Azure AI Speech | ✔ | ✔ | ✔ | ✔ |
 | Azure AI Foundry : Azure AI Translator | ✔ | ✔ | ✔ | ✔ |
 | Azure AI Foundry : Azure AI Vision | ✔ | ✔ | ✔ | ✔ |
-| Azure AI Foundry : Azure AI Vision Face API | ✔ | ✔ | ✔ |  |
+| Azure AI Foundry : Azure AI Vision Face API | ✔ | ✔ | ✔ | Awaiting Review |
 | Azure AI Foundry : Form Recognizer | ✔ | ✔ | ✔ |  |
 | Azure AI Foundry : Personalizer | ✔ | ✔ | ✔ |  |
-| Azure AI Foundry Portal |  |  |  | Planned |
+| Azure AI Foundry Portal |  |  |  | Awaiting Review |
 | Azure AI Search | ✔ | ✔ | ✔ | ✔ |
 | Azure AI Search : AI Enrichment | ✔ | ✔ | ✔ | ✔ |
-| Azure AI Search : Semantic Ranker | ✔ | ✔ | ✔ |  |
+| Azure AI Search : Semantic Ranker | ✔ | ✔ | ✔ | Awaiting Review |
 | Azure App Configuration | ✔ | ✔ | ✔ | ✔ |
 | Azure Arc Appliance | Forecasted | Forecasted | Forecasted | Forecasted |
 | Azure Arc enabled Kubernetes | ✔ | ✔ | ✔ | Forecasted |
@@ -97,8 +96,8 @@ Both environments were built from the ground up using the same foundational prin
 | Azure Bot Service | ✔ | ✔ | Planned |  |
 | Azure Cosmos DB | ✔ | ✔ | ✔ | ✔ |
 | Azure Data Box : Data Box | ✔ | ✔ | ✔ | ✔ |
-| Azure Data Box : Data Box 120 | ✔ | ✔ | ✔ |  |
-| Azure Data Box : Data Box 525 | ✔ | ✔ | ✔ |  |
+| Azure Data Box : Data Box 120 | ✔ | ✔ | ✔ | ✔ |
+| Azure Data Box : Data Box 525 | ✔ | ✔ | ✔ | ✔ |
 | Azure Data Box : Data Box Disk | ✔ | ✔ | ✔ |  |
 | Azure Data Explorer | ✔ | ✔ | ✔ | ✔ |
 | Azure Data Transfer : Batch Transfer : Gov to Secret |  |  |  | ✔ |
@@ -106,15 +105,15 @@ Both environments were built from the ground up using the same foundational prin
 | Azure Data Transfer : Streaming Transfer : Gov to Secret |  |  |  | Forecasted |
 | Azure Database for MySQL | ✔ | ✔ | ✔ |  |
 | Azure Database for MySQL : Azure Database for MySQL - Flexible Server | ✔ | ✔ | ✔ |  |
-| Azure Database for PostgreSQL | ✔ | ✔ | ✔ |  |
+| Azure Database for PostgreSQL | ✔ | ✔ | ✔ | ✔ |
 | Azure Database for PostgreSQL : Azure Database for PostgreSQL - Flexible Server | ✔ | ✔ | ✔ | ✔ |
 | Azure Database Migration Service | ✔ | ✔ | ✔ | Awaiting Review |
 | Azure Databricks | ✔ | ✔ | ✔ |  |
-| Azure DDoS Protection | ✔ | ✔ | ✔ | Planned |
+| Azure DDoS Protection | ✔ | ✔ | ✔ | Awaiting Review |
 | Azure Dedicated HSM | ✔ | ✔ | ✔ |  |
 | Azure DevTest Labs | ✔ | ✔ | ✔ |  |
 | Azure DNS | ✔ | ✔ | ✔ | ✔ |
-| Azure DNS : Azure DNS Private Resolver | ✔ | ✔ | ✔ |  |
+| Azure DNS : Azure DNS Private Resolver | ✔ | ✔ | ✔ | Awaiting Review |
 | Azure DNS : Azure DNS Private Zones | ✔ | ✔ | ✔ | ✔ |
 | Azure DNS : Azure DNS Public Zones | ✔ | ✔ | ✔ | ✔ |
 | Azure Files | ✔ | ✔ | ✔ | ✔ |
@@ -135,7 +134,7 @@ Both environments were built from the ground up using the same foundational prin
 | Azure Machine Learning | ✔ | ✔ | ✔ | ✔ |
 | Azure Managed Applications | ✔ | ✔ | ✔ |  |
 | Azure Maps | ✔ | ✔ | ✔ |  |
-| Azure Migrate | ✔ | ✔ | ✔ | Planned |
+| Azure Migrate | ✔ | ✔ | ✔ | Awaiting Review |
 | Azure Monitor | ✔ | ✔ | ✔ | ✔ |
 | Azure Monitor : Application Insights | ✔ | ✔ | ✔ | ✔ |
 | Azure Monitor : Azure Monitor Essentials | ✔ | ✔ | ✔ | ✔ |
@@ -164,8 +163,8 @@ Both environments were built from the ground up using the same foundational prin
 | Azure Stack Edge | ✔ | ✔ | ✔ | ✔ |
 | Azure Stack Edge : Azure Data Box Gateway | ✔ |  |  |  |
 | Azure Stream Analytics | ✔ | ✔ | ✔ | Awaiting Review |
-| Azure Stream Analytics : Stream Analytics Dedicated | ✔ | ✔ | ✔ |  |
-| Azure Stream Analytics : Stream Analytics Jobs | ✔ | ✔ | ✔ |  |
+| Azure Stream Analytics : Stream Analytics Dedicated | ✔ | ✔ | ✔ | Awaiting Review |
+| Azure Stream Analytics : Stream Analytics Jobs | ✔ | ✔ | ✔ | Awaiting Review |
 | Azure Synapse Analytics | ✔ | ✔ | ✔ | ✔ |
 | Azure Synapse Analytics : Default : Workspace | ✔ | ✔ | ✔ |  |
 | Azure Virtual Desktop | ✔ | ✔ | ✔ | ✔ |
@@ -214,7 +213,7 @@ Both environments were built from the ground up using the same foundational prin
 | IP Services : Azure Public IP Address Standard | ✔ | ✔ | ✔ |  |
 | IP Services : Azure Public IP Prefix | ✔ | ✔ | ✔ |  |
 | Key Vault | ✔ | ✔ | ✔ | ✔ |
-| Key Vault : Azure Key Vault Managed HSM | ✔ | ✔ | ✔ |  |
+| Key Vault : Azure Key Vault Managed HSM | ✔ | ✔ | ✔ | Planned |
 | Key Vault : Premium |  |  |  | ✔ |
 | Logic Apps (Consumption) | ✔ | ✔ | ✔ | ✔ |
 | Logic Apps : Azure Logic Apps Standard | ✔ | ✔ | ✔ | ✔ |
@@ -224,7 +223,7 @@ Both environments were built from the ground up using the same foundational prin
 | Microsoft 365 Defender | ✔ | ✔ | ✔ | ✔ |
 | Microsoft Azure Attestation | Planned | Planned | Planned | Planned |
 | Microsoft Azure Portal | ✔ | ✔ | ✔ | ✔ |
-| Microsoft Copilot Studio | ✔ | ✔ | Planned |  |
+| Microsoft Copilot Studio | ✔ | ✔ | Awaiting Review |  |
 | Microsoft Defender for Cloud | ✔ | ✔ | ✔ | ✔ |
 | Microsoft Defender for Cloud Apps | ✔ | ✔ | ✔ |  |
 | Microsoft Defender for Endpoint | ✔ | ✔ | ✔ | ✔ |
@@ -254,11 +253,11 @@ Both environments were built from the ground up using the same foundational prin
 | Service Bus | ✔ | ✔ | ✔ | ✔ |
 | Service Bus : Premium | ✔ | ✔ | ✔ | ✔ |
 | Service Fabric | ✔ | ✔ | ✔ | ✔ |
-| Site Recovery | ✔ | ✔ | ✔ | Planned |
+| Site Recovery | ✔ | ✔ | ✔ | Awaiting Review |
 | SQL Server on Azure Virtual Machines | ✔ | ✔ | ✔ | Awaiting Review |
 | SQL Server Registry | ✔ | ✔ | ✔ |  |
 | Storage | ✔ | ✔ | ✔ | ✔ |
-| Storage : Archive Storage | ✔ | ✔ | ✔ |  |
+| Storage : Archive Storage | ✔ | ✔ | ✔ | Awaiting Review |
 | Storage : Azure Data Lake Storage Gen2 | ✔ | ✔ | ✔ | ✔ |
 | Storage : Azure Data Lake Storage Gen2 : Premium tier for Azure Data Lake Storage | ✔ | ✔ | ✔ | ✔ |
 | Storage : Azure File Sync | ✔ | ✔ | ✔ | ✔ |
@@ -280,36 +279,32 @@ Both environments were built from the ground up using the same foundational prin
 | Virtual Machines : Azure Disk Encryption | ✔ | ✔ | ✔ |  |
 | Virtual Machines : B-Series | ✔ | ✔ | ✔ | ✔ |
 | Virtual Machines : D*v4-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : DCadsv6-series |  |  |  | Forecasted |
-| Virtual Machines : DCasv6-series |  |  |  | Forecasted |
 | Virtual Machines : Ddsv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Ddsv5-Series | ✔ | ✔ | ✔ |  |
+| Virtual Machines : Ddsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
 | Virtual Machines : Ddv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : DDv5-Series | ✔ | ✔ | ✔ |  |
-| Virtual Machines : Dldsv5-Series | ✔ | ✔ | ✔ |  |
-| Virtual Machines : Dlsv5-Series | ✔ | ✔ | ✔ |  |
+| Virtual Machines : DDv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
+| Virtual Machines : Dldsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
+| Virtual Machines : Dlsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
 | Virtual Machines : DSv2-Series | ✔ | ✔ | ✔ | ✔ |
 | Virtual Machines : DSv3-Series | ✔ | ✔ | ✔ | ✔ |
 | Virtual Machines : Dsv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Dsv5-Series | ✔ | ✔ | ✔ |  |
+| Virtual Machines : Dsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
 | Virtual Machines : Dv2-Series | ✔ | ✔ | ✔ | ✔ |
 | Virtual Machines : Dv3-Series | ✔ | ✔ | ✔ | ✔ |
 | Virtual Machines : Dv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Dv5-Series | ✔ | ✔ | ✔ |  |
+| Virtual Machines : Dv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
 | Virtual Machines : E*v4-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Ebdsv5-Series | ✔ | ✔ | ✔ |  |
-| Virtual Machines : Ebsv5-Series | ✔ | ✔ | ✔ |  |
-| Virtual Machines : ECadsv6-series |  |  |  | Forecasted |
-| Virtual Machines : ECasv6-series |  |  |  | Forecasted |
+| Virtual Machines : Ebdsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
+| Virtual Machines : Ebsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
 | Virtual Machines : Edsv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Edsv5-Series | ✔ | ✔ | ✔ |  |
+| Virtual Machines : Edsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
 | Virtual Machines : Edv4-series | ✔ | ✔ | ✔ | ✔ |
 | Virtual Machines : ESv3-Series | ✔ | ✔ | ✔ | ✔ |
 | Virtual Machines : Esv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Esv5-Series | ✔ | ✔ | ✔ |  |
+| Virtual Machines : Esv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
 | Virtual Machines : Ev3-Series | ✔ | ✔ | ✔ | ✔ |
 | Virtual Machines : Ev4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Ev5-Series | ✔ | ✔ | ✔ |  |
+| Virtual Machines : Ev5-Series | ✔ | ✔ | ✔ | Awaiting Review |
 | Virtual Machines : F-Series |  |  |  | ✔ |
 | Virtual Machines : FS-Series |  |  |  | ✔ |
 | Virtual Machines : FSv2-Series | ✔ | ✔ | ✔ | ✔ |
@@ -321,10 +316,9 @@ Both environments were built from the ground up using the same foundational prin
 | Virtual Machines : M-Series | ✔ | ✔ | ✔ |  |
 | Virtual Machines : Msv2 Medium Memory Series | ✔ | ✔ | ✔ |  |
 | Virtual Machines : NCv3-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : NDs H200 v5-Series |  |  |  | Forecasted |
 | Virtual Machines : NVv3-Series | ✔ | ✔ | ✔ | ✔ |
 | Virtual Machines : Reserved IP |  |  |  | ✔ |
-| Virtual Machines : Serial Console | ✔ | ✔ | ✔ |  |
+| Virtual Machines : Serial Console | ✔ | ✔ | ✔ | Awaiting Review |
 | Virtual Machines : Shared Image Gallery | ✔ | ✔ | ✔ | ✔ |
 | Virtual Machines : Spot Virtual Machines | ✔ | ✔ | ✔ |  |
 | Virtual Machines : Trusted Launch | ✔ | ✔ | ✔ | ✔ |
