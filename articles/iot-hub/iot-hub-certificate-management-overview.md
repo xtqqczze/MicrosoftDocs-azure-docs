@@ -95,9 +95,9 @@ The following diagram illustrates the end-to-end process of device provisioning 
 
 ## Renewal of certificates
 
-Certificate renewals are performed using the same mechanism as certificate issuance. When the device detects a need to renew its operational certificate, device initiates another provisioning call to DPS, submitting a new Certificate Signing Request (CSR). The CSR is sent to the appropriate issuing certificate authority (ICA) to request a new leaf certificate. Once approved, the new operational certificate is returned to the device for continued secure authentication with IoT Hub. 
+Certificate renewals are performed using the same mechanism as certificate issuance. When the device detects a need to renew its operational certificate, the device initiates another registration call to DPS, submitting a new Certificate Signing Request (CSR). The CSR is sent to the appropriate issuing certificate authority (ICA) to request a renewed leaf certificate. Once approved, the new operational certificate is returned to the device for continued secure authentication with IoT Hub. 
 
-Due to the wide variety of IoT devices, each device is responsible for monitoring the expiration date of its operational certificate and determining when renewal is required. The certificate includes its **expiration date**, which the device can track to identify when renewal is needed. 
+Each device is responsible for monitoring the expiration date of its operational certificate and initiating a certificate renewal. The certificate includes its **expiration date**, which the device can track to identify when renewal is needed. 
 
 ## Disable a device
 
