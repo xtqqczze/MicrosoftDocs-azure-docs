@@ -25,18 +25,6 @@ This guide shows how to create a Consumption or Standard logic app workflow usin
 
 For a high-level overview about agentic workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
-> [!NOTE]
->
-> Consumption logic apps don't require you to separately deploy an AI model in Azure AI Foundry. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model that's automatically hosted in your subscription and logic app region.   Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
-
->
-> Standard logic apps require that you create an Azure OpenAI resource and deploy an Azure OpenAI Service model.
-
-
-    By default, the connection between your agent and AI model uses [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) for authentication and authorization.
-
-
-
 ## Prerequisites
 
 Based on whether you want to create a Consumption or Standard logic app, the following prerequisites apply:
@@ -45,13 +33,15 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
 - An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- A Consumption logic app resource that uses the workflow type named **Autonomous Agents**.
+- A Consumption logic app resource that uses the workflow type named **Autonomous Agents**. See [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
-  For more information, see [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md).
+  Consumption autonomous agent workflows don't require a separately deployed AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model, which is automatically hosted in your subscription and logic app region. Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
 
   > [!NOTE]
   >
-  > For Consumption logic apps and autonomous agent workflows, only the Azure portal experience is available. Support for Visual Studio Code is unavailable.
+  > For Consumption autonomous agent workflows, only the Azure portal experience is available. Support for Visual Studio Code is unavailable.
+
+For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2).
 
 ### [Standard](#tab/standard)
 
