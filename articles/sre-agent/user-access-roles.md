@@ -1,5 +1,5 @@
 ---
-title: Role based access control to SRE Agent Preview
+title: Role based access control to SRE Agent
 description: Learn how users with different roles can interact with SRE Agent.
 author: craigshoemaker
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
-# Role based access control to SRE Agent Preview
+# Role based access control to SRE Agent
 
 Collaborative environments require user access Azure SRE Agent without compromising governance or security. SRE Agent enforces a role-based access control (RBAC) model that defines how users interact with the agent based on their responsibilities. Whether you're monitoring incidents, triaging and requesting actions, or approving and executing remediations, each role is designed to enforce principle of least privilege access. This model ensures the agent remains secure, auditable, and aligned with your organization’s trust boundaries.
 

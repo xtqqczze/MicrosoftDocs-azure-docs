@@ -1,5 +1,5 @@
 ---
-title: Connect external services to Azure SRE Agent (Preview)
+title: Connect external services to Azure SRE Agent
 description: Learn to connect external resources to Azure SRE Agent for data consumption and outbound communication.
 author: craigshoemaker
 ms.author: cshoe
@@ -8,7 +8,7 @@ ms.date: 11/03/2025
 ms.service: azure-sre-agent
 ---
 
-# Connect external services to Azure SRE Agent (Preview)
+# Connect external services to Azure SRE Agent
 
 Connectors in Azure SRE Agent let you integrate external services for communication and data ingestion. Use connectors to send notifications, receive updates, and pull telemetry from monitoring platforms. This article explains connector types, how they work, and how to set them up.
 
