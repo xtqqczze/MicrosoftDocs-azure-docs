@@ -4,6 +4,7 @@ description: Learn how to discover on-premises servers, applications, and depend
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
 ms.date: 05/12/2025
 ms.service: azure-migrate
@@ -26,10 +27,15 @@ In this tutorial, you learn how to:
 > * Set up the Azure Migrate appliance.
 > * Start continuous discovery.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+
+Watch the following video to learn how to discover on-premises servers running in a VMware environment as part of your migration to Azure. 
+
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=edbc7f22-2ba1-44cd-a534-465dfd426a14]
+
 > [!NOTE]
 > Tutorials show you the quickest path for trying out a scenario. They use default options where possible. This scenario is also applicable for discovery of VM servers from AVS.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 ## Prerequisites
 
@@ -42,41 +48,7 @@ Requirement | Details
 **Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based) <br /><br /> For discovery of installed applications and for agentless dependency analysis, VMware Tools (version 10.2.1 or later) must be installed and running on servers. Windows servers must have PowerShell version 2.0 or later installed.<br /><br /> For Linux servers, SSH key-based authentication supports discovery of configuration and performance data, installed applications, agentless dependency analysis, and workload discovery. <br /><br > To discover Linux servers using SSH key-based authentication, the appliance needs a direct connection to the target servers. <br /><br /> To discover SQL Server instances and databases, check [supported SQL Server and Windows OS versions and editions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) and Windows authentication mechanisms.<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md).<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
 **SQL Server access** | To discover SQL Server instances and databases, the Windows account, or SQL Server account [requires these permissions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) for each SQL Server instance. You can use the [account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 
-## Prepare an Azure user account
-
-To create a project and register the Azure Migrate appliance, you must have an Azure account that has these permissions:
-
-- Contributor or Owner permissions in the Azure subscription.
-- Permissions to register Microsoft Entra apps.
-- Owner or Contributor and User Access Administrator permissions at subscription level to create an instance of Azure Key Vault, which is used during agentless server migration.
-
-If you created a free Azure account, by default, you're the owner of the Azure subscription. If you're not the subscription owner, work with the owner to assign permissions.
-
-To set Contributor or Owner permissions in the Azure subscription:
-
-1. In the Azure portal, search for **Subscriptions**. Under **Services** in the search results, select **Subscriptions**.
-
-    :::image type="content" source="./media/tutorial-discover-vmware/search-subscription.png" alt-text="Screenshot that shows how to search for an Azure subscription in the search box.":::
-
-1. In **Subscriptions**, select the subscription in which you want to create a project. 
-1. Select **Access control (IAM)**. 
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
-
-
-
-    | Setting | Value |
-    | --- | --- |
-    | Role | Contributor or Owner |
-    | Assign access to | User |
-    | Members | azmigrateuser |
-
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
-
-    To give the account the required permissions to register Microsoft Entra apps:
-
-1. In the portal, go to **Microsoft Entra ID** > **Users**. 
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+[!INCLUDE [migrate-rbac-permissions](includes/migrate-rbac-permissions.md)]
 
 ## Prepare VMware
 
@@ -108,7 +80,7 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 > [!NOTE]
 > Lightweight Directory Access Protocol (LDAP) accounts are not supported for discovery.
 
-Refer to security best practices to set up user accounts. 
+Refer to [security best practices](least-privilege-credentials.md) to set up user accounts. 
 
 > [!NOTE]
 > You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can add multiple domains, Windows (non-domain), Linux (non-domain), Linux (SSH-key) or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
@@ -321,6 +293,7 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 * Discovery of installed applications might take longer than 15 minutes. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
 * [Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Migrate will perform web apps discovery on the server. Web apps configuration data is updated once every 24 hours.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
+* Along with software inventory, pending updates for Windows and Linux servers are gathered. No additional permissions are required for identifying pending updates. Software and pending updates metadata is processed further to generate [Insights](/azure/migrate/insights-overview?view=migrate), that provides security risks in the datacenter.
 * Web apps and SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
 * By default, Azure Migrate uses the most secure way of connecting to SQL instances that is, Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses TLS to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
