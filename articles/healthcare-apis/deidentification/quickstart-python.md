@@ -87,14 +87,16 @@ python -m pip install azure-health-deidentification
 ```
 
 2. Test the service:
-In terminal, [log in to Microsoft Azure.](/cli/azure/authenticate-azure-cli) 
-The code below references the [python SDK for text.](https://github.com/Azure/azure-sdk-for-python/blob/azure-health-deidentification_1.0.0/sdk/healthdataaiservices/azure-health-deidentification/samples/deidentify_text_redact.py)
 
-2.a. To use it, create a python file called "deidentify_text_redact.py" and paste the following code in. Run "python deidentify_text_redact.py".
+The following steps will walk you through how to test the service for the `REDACT` operation.
+While testing, you can change the languale-locale pair to [other languages supported](languages-supported.md) by the service.
 
-2.b. Be sure to replace `AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT` with the URL you noted when creating a resource. 
+### Redact text
 
-2.c. You can also change the operation type between `REDACT`, `TAG`, or `SURROGATE`. You can change the languale-locale pair to [other languages supported](languages-supported.md) by the service. 
+1. In terminal, [log in to Microsoft Azure.](/cli/azure/authenticate-azure-cli) 
+
+2. The code below references the [python SDK for text.](https://github.com/Azure/azure-sdk-for-python/blob/azure-health-deidentification_1.0.0/sdk/healthdataaiservices/azure-health-deidentification/samples/deidentify_text_redact.py). To use it, create a python file called "deidentify_text_redact.py" and paste the following code in. Run "python deidentify_text_redact.py".
+Be sure to replace `AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT` with the URL you noted when creating a resource. 
 
 ```python
 
@@ -116,7 +118,6 @@ from azure.health.deidentification.models import (
     DeidentificationContent,
     DeidentificationOperationType,
     DeidentificationResult,
-    DeidentificationCustomizationOptions,
 )
 from azure.identity import DefaultAzureCredential
 
@@ -127,12 +128,10 @@ def deidentify_text_redact():
     client = DeidentificationClient(endpoint, credential)
 
     locale = "en-US"  # e.g., "fr-FR", "es-US", etc
-    customizations = DeidentificationCustomizationOptions(surrogate_locale=locale)
 
     body = DeidentificationContent(
         input_text="It's great to work at Contoso.",
-        operation_type=DeidentificationOperationType.SURROGATE,
-        customizations=customizations,
+        operation_type=DeidentificationOperationType.REDACT,    
     )
 
     result: DeidentificationResult = client.deidentify_text(body)
