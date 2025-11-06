@@ -18,7 +18,7 @@ In this tutorial, you deploy a containerized application to Azure Container Apps
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account with an active subscription. If you don't already have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Visual Studio Code, available as a [free download](https://code.visualstudio.com/).
 - The following Visual Studio Code extensions installed:
     - The [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
@@ -56,7 +56,7 @@ In this tutorial, you deploy a containerized application to Azure Container Apps
 
 ## Create and deploy to Azure Container Apps
 
-The Azure Container Apps extension for Visual Studio Code enables you to choose existing Container Apps resources, or create new ones to deploy your applications to. In this scenario, you create a new Container App environment and container app to host your application. After installing the Container Apps extension, you can access its features under the Azure control panel in Visual Studio Code.
+The Azure Container Apps extension for Visual Studio Code enables you to choose an existing Container Apps resource or create new ones to deploy your applications. In this scenario, you create a new Container App environment and container app to host your application. After installing the Container Apps extension, you can access its features under the Azure control panel in Visual Studio Code.
 
 1. Select <kbd>F1</kbd> to open the command palette and run the **Azure Container Apps: Deploy Project from Workspace** command.
 
