@@ -9,6 +9,11 @@ ms.custom: generated
 ---
 # Windows security baseline
 
+> [!NOTE]
+> This page applies specifically to the Azure Security Baseline for Windows Server 2022, 2019, 2016, and 2012 — **not** for any other server editions.
+> Windows Server 2022 SKUs support the new Customizeable Machine Configuration Security Baseline experience so you may modify the content of the baseline from including/excluding rules to setting different values. ***We currently do not support the other editions listed above.***
+
+
 This article details the configuration settings for Windows guests as applicable in the following
 implementations:
 
