@@ -9,6 +9,10 @@ ms.custom: generated
 ---
 # Windows security baseline for Windows Server 2025
 
+> [!NOTE]
+> This page applies specifically to the Azure Security Baseline for Windows Server 2025 and **not** for any other server editions.
+> This baseline supports the new Customizeable Machine Configuration Security Baseline experience so you may modify the content of the baseline from including/excluding rules to setting different values. 
+
 This article details the configuration settings for Linux guests as applicable in the following
 implementations:
 
