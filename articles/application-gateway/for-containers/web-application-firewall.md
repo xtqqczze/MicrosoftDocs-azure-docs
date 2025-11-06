@@ -145,3 +145,7 @@ The following functionality is not supported on an Azure Web Application Firewal
 - **Microsoft Security Copilot**: The Security Copilot is not supported on Application Gateway for Containers WAF.
 - **Custom Block Response**: Setting a custom block response in your WAF policy is not supported on Application Gateway for Containers WAF.
 - **X-Forwarded-For Header (XFF)**: Application Gateway for Conatiners WAF does not support the XFF variable in custom rules.
+
+## Pricing
+
+You can learn more about Application Gateway for Containers WAF pricing [here](understanding-pricing.md).
