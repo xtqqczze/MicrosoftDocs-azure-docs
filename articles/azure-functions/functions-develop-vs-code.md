@@ -4,10 +4,18 @@ description: Learn how to develop and test Azure Functions by using the Azure Fu
 ms.topic: how-to
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devdivchpfy22, vscode-azure-extension-update-complete, devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, devx-track-ts
 ms.date: 05/27/2025
 
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devdivchpfy22
+  - vscode-azure-extension-update-complete
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
+  - devx-track-ts
+  - sfi-ropc-nochange
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
 
@@ -24,32 +32,32 @@ The Azure Functions extension provides these benefits:
 ::: zone pivot="programming-language-csharp"
 >You're viewing the C# version of this article. Make sure to select your preferred Functions programming language at the start of the article.
  
-If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](create-first-function-vs-code-csharp.md).
+If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](how-to-create-function-vs-code.md?pivot=programming-language-csharp).
 ::: zone-end
 ::: zone pivot="programming-language-java"
 >You're viewing the Java version of this article. Make sure to select your preferred Functions programming language at the start of the article.
 
-If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](create-first-function-vs-code-java.md).
+If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](how-to-create-function-vs-code.md?pivot=programming-language-java).
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 >You're viewing the JavaScript version of this article. Make sure to select your preferred Functions programming language at the start of the article.
  
-If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](create-first-function-vs-code-node.md).
+If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](how-to-create-function-vs-code.md?pivot=programming-language-javascript).
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 >You're viewing the PowerShell version of this article. Make sure to select your preferred Functions programming language at the start of the article.
  
-If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](create-first-function-vs-code-powershell.md).
+If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](how-to-create-function-vs-code.md?pivot=programming-language-powershell).
 ::: zone-end
 ::: zone pivot="programming-language-python"
 >You're viewing the Python version of this article. Make sure to select your preferred Functions programming language at the start of the article.
  
-If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](create-first-function-vs-code-python.md).
+If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](how-to-create-function-vs-code.md?pivot=programming-language-python).
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
 >You're viewing the TypeScript version of this article. Make sure to select your preferred Functions programming language at the start of the article.
  
-If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](./create-first-function-vs-code-typescript.md).
+If you're new to Functions, you might want to first complete the [Visual Studio Code quickstart article](./how-to-create-function-vs-code.md?pivot=programming-language-typescript).
 ::: zone-end
 
 > [!IMPORTANT]
@@ -612,7 +620,6 @@ The Azure Functions extension provides a useful graphical interface in the area 
 | **Decrypt Settings** | Decrypts [local settings](#local-settings) that have been encrypted by **Azure Functions: Encrypt Settings**.  |
 | **Delete Function App** | Removes a function app from your subscription in Azure. When there are no other apps in the App Service plan, you're given the option to delete that too. Other resources, like storage accounts and resource groups, aren't deleted. To remove all resources, you should instead [delete the resource group](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). Your local project isn't affected. |
 |**Delete Function**  | Removes an existing function from a function app in Azure. Because this deletion doesn't affect your local project, instead consider removing the function locally and then [republishing your project](#republish-project-files). |
-| **Delete Proxy** | Removes an Azure Functions proxy from your function app in Azure. To learn more about proxies, see [Work with Azure Functions Proxies](functions-proxies.md). |
 | **Delete Setting** | Deletes a function app setting in Azure. This deletion doesn't affect settings in your local.settings.json file. |
 | **Disconnect from Repo**  | Removes the [continuous deployment](functions-continuous-deployment.md) connection between a function app in Azure and a source control repository. |
 | **Download Remote Settings** | Downloads settings from the chosen function app in Azure into your local.settings.json file. If the local file is encrypted, it's decrypted, updated, and encrypted again. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed. Be sure to save changes to your local.settings.json file before you run this command. |
