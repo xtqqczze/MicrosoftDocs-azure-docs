@@ -1,5 +1,5 @@
 ---
-title: What is New in Azure IoT Hub?
+title: What is New in Azure IoT Hub? (Preview)
 titleSuffix: Azure IoT Hub
 description: This article explains the new features and improvements in Azure IoT Hub.
 author: SoniaLopezBravo
@@ -11,7 +11,7 @@ ms.date: 11/07/2025
 #Customer intent: As a developer new to IoT Hub, I want to understand the new features and improvements in Azure IoT Hub.
 ---
 
-# What is new in Azure IoT Hub?
+# What is new in Azure IoT Hub? (preview)
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 

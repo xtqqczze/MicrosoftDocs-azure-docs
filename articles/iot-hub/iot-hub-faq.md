@@ -1,5 +1,5 @@
 ---
-title: "FAQ: What is new in Azure IoT Hub?"
+title: "FAQ: What is New in Azure IoT Hub? (Preview)"
 titleSuffix: Azure IoT Hub
 description: Learn about the new features and improvements in Azure IoT Hub.
 author: SoniaLopezBravo
@@ -10,7 +10,7 @@ ms.date: 11/04/2025
 #Customer intent: As a developer using IoT Hub, I want to understand the new features and improvements in Azure IoT Hub and how they affect my existing deployments.
 ---
 
-# FAQ: What is new in Azure IoT Hub?
+# FAQ: What is new in Azure IoT Hub? (preview)
 
 Azure IoT Hub introduces advanced capabilities to improve security and unify operations across cloud and edge-connected deployments. This FAQ addresses common questions about the new generation of IoT Hub.
 
