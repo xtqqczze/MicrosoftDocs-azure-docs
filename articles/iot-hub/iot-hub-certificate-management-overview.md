@@ -28,7 +28,8 @@ The following features are supported with certificate management for IoT Hub dev
 | Create multiple certificate authorities (CA) in an ADR namespace | Create two-tier PKI hierarchy with root and issuing CA in the cloud. |
 | Create a unique root certificate authority (CA) per ADR namespace | Create up to 1 root CA, also known as a credential, in your ADR namespace |
 | Create up to one issuing CA per policy | Create up to 1 issuing CA, also known as a policy, in your ADR namespace and customize validity periods for issued certificates. |
-| Signing and Encryption algorithms | The issuing CA will sign end-entity certificates using the following key type: ECC NistP384 |
+| Signing and Encryption algorithms | Certificate management supports ECC (ECDSA) and curve NIST P-384|
+| Hash algorithms | Certificate management supports SHA-384 |
 | HSM keys (signing and encryption) | Keys are provisioned using [Azure Managed Hardware Security Module (Azure Managed HSM)](/azure/key-vault/managed-hsm/overview). CAs created within your ADR namespace automatically use HSM signing and encryption keys. No Azure subscription is required for Azure HSM. |
 | End-entity certificate issuance and renewal | End-entity certificates, also known as leaf certificates or device certificates, are signed by the issuing CA and delivered to the device. Leaf certificates can also be renewed by the issuing CA.|
 | At-scale provisioning of leaf certificates | The policies defined in your ADR namespace are directly linked to a Device Provisioning Service enrollment group to be used at the time of certificate provisioning.|
@@ -36,26 +37,32 @@ The following features are supported with certificate management for IoT Hub dev
 
 ## How certificate management works
 
-Certificate management consists of several integrated components that work together to streamline the deployment of public key infrastructure (PKI) across IoT devices. To use certificate management with IoT Hub, you must set up both:
+Certificate management consists of several integrated components that work together to streamline the deployment of public key infrastructure (PKI) across IoT devices. To use certificate management, you must set up:
 
+- IoT Hub (preview) SKU
 - Azure Device Registry (ADR) namespace
 - Device Provisioning Service (DPS) instance.
 
+### IoT Hub (preview) integration
+
+IoT Hubs that are linked to an Azure Device Registry (ADR) Namespace can take advantage of the new certificate management capabilities. You can now sync your CA certificates from ADR Namespace to all of your IoT Hubs, so that each IoT Hub can authenticate any IoT device that attempts to connect with issued certificate chain.
+
+
 ### Azure Device Registry integration
 
-Certificate management uses [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) to manage device certificates. ADR is a service that provides secure device identity and authentication for IoT solutions. It integrates with IoT Hub and Device Provisioning Service (DPS) to provide a seamless experience for managing device identities and certificates.
+Certificate management uses [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) to manage CA certificates. ADR is a service that provides secure device identity and authentication for IoT solutions. It integrates with IoT Hub and Device Provisioning Service (DPS) to provide a seamless experience for managing device identities and CA certificates.
 
 The following image illustrates the X.509 certificate hierarchy used to authenticate IoT devices in Azure IoT Hub through the ADR namespace.
 
 - Each ADR namespace (cloud) has a unique root CA credential managed by Microsoft. This credential acts as the primary certificate authority in the chain.
 - Each policy within the ADR namespace defines an issuing CA (ICA) signed by the root CA. Each policy can issue leaf certificates for devices registered within that ADR namespace and with Hubs linked to the namespace. This structure enables scalable identity management and policy enforcement across device groups.
-- Each device (field) is authenticated using an X.509 leaf certificate issued and signed by one of the ICAs defined in the policy. The leaf certificate is used for secure communication with IoT Hub.
+- Once you have created your credential and policies, you can sync them directly to your IoT Hubs, thereby sharing the CA certificates.
 
 :::image type="content" source="media/certificate-management/device-registry-certificate-management.png" alt-text="Diagram showing how Azure Device Registry integrates with IoT Hub and DPS for certificate management." lightbox="media/certificate-management/device-registry-certificate-management.png":::
 
 ### Device Provisioning Service integration
 
-To use certificate management, devices must be provisioned through [Device Provisioning Service (DPS)](../iot-dps/index.yml). You need to configure either individual or group enrollment, which includes:
+For devices to receive leaf certificates, devices must be provisioned through [Device Provisioning Service (DPS)](../iot-dps/index.yml). You need to configure either individual or group enrollment, which includes:
 
 1. Selecting the specific method for device onboarding authentication. Supported methods are Trusted Platform Module (TPM), symmetric keys, or X.509 certificates.
 2. Linking a policy created within your ADR namespace to manage certificate issuance and lifecycle at-scale.
@@ -65,7 +72,7 @@ Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT 
 > [!NOTE]
 > While a PKI is configured for each of your ADR namespaces, it's not exposed as an external Azure resource.
 
-### End-to-end device provisioning with certificate management
+### End-to-end device provisioning with certificate management (Runtime Experience)
 
 The following diagram illustrates the end-to-end process of device provisioning with certificate management:
 
@@ -73,7 +80,7 @@ The following diagram illustrates the end-to-end process of device provisioning 
 2. DPS authenticates the device using its onboarding credentials and assigns it to an IoT Hub based on its enrollment group. The device is also registered in the ADR namespace for certificate lifecycle management.
 3. The device identity is created in IoT Hub and linked to the appropriate ADR namespace.
 4. DPS requests an X.509 operational certificate from Microsoft PKI using the CSR and the policy defined by the enrollment group.
-5. Microsoft PKI returns the signed operational certificate to DPS.
+5. The Microsoft-backed PKI returns the signed operational certificate to DPS.
 6. DPS sends the operational certificate and IoT Hub connection details back to the device.
 7. The device now authenticates with IoT Hub by sending the full issuing certificate chain to IoT Hub.
 

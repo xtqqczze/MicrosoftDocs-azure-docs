@@ -32,7 +32,7 @@ The script includes the following resources:
 
 ## Prepare Your Environment
 
-1. Navigate to the [GitHub repository](https://github.com/Azure/hubgen2-certmgmt/tree/main/Scripts) and download the **Scripts** folder, which contains the script file (.ps1).
+1. Navigate to the [GitHub repository](https://github.com/Azure-Samples/iot-hub-adr-cert-mgmt-preview/tree/main/scripts) and download the **Scripts** folder, which contains the script file, `iothub-adr-certs-setup-preview.ps1`.
 
 ## Customize the script variables
 
@@ -52,8 +52,8 @@ Set values for the following variables in the variables section
 
 ## Run the script interactively
 
-1. Open the script and run in **PowerShell 7+** as an administrator. You can navigate to the folder and run `.\cmsSetupCli.ps1`.
-1. If you run into an execution policy issue, try running `powershell -ExecutionPolicy Bypass -File .\cmsSetupCli.ps1`.
+1. Open the script and run in **PowerShell 7+** as an administrator. Navigate to the folder containing your script and run `.\iothub-adr-certs-setup-preview.ps1`.
+1. If you run into an execution policy issue, try running `powershell -ExecutionPolicy Bypass -File .\iothub-adr-certs-setup-preview.ps1`.
 1. Follow the guided prompts:
 
     - Press `Enter` to proceed with a step
@@ -66,10 +66,9 @@ Set values for the following variables in the variables section
 ## Monitor execution and validate the resources
 
 1. The script continues execution when warnings are encountered and only stops if a command returns a non-zero exit code. Monitor the console for red **ERROR** messages, which indicate issues that require attention.
-1. Once the script completes, validate the creation of your resources:
+1. Once the script completes, validate the creation of your resources by visiting your new Resource Group on the Azure Portal:
 
     - IoT Hub
     - DPS
     - ADR Namespace
     - User-Assigned Managed Identity (UAMI)
-    - ADR Role Assignments
