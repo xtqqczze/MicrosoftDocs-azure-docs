@@ -1,6 +1,6 @@
 ---
-title: Starter Prompts for Azure SRE Agent Preview
-description: Review prompts that you can use with Azure SRE Agent Preview.
+title: Starter Prompts for Azure SRE Agent
+description: Review prompts that you can use with Azure SRE Agent.
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/24/2025
@@ -8,9 +8,9 @@ ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
-# Starter prompts for Azure SRE Agent Preview
+# Starter prompts for Azure SRE Agent
 
-Azure SRE Agent Preview helps you manage and troubleshoot your Azure resources through natural language conversations. This article provides a collection of starter prompts to help you use SRE Agent effectively.
+Azure SRE Agent helps you manage and troubleshoot your Azure resources through natural language conversations. This article provides a collection of starter prompts to help you use SRE Agent effectively.
 
 An agent can provide detailed information about aspects of your apps and resources. The following examples demonstrate the types of questions that you might ask your agent:
 

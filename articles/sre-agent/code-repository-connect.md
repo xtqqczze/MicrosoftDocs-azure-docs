@@ -1,6 +1,6 @@
 ---
-title: Connect a code repository to resources in Azure SRE Agent Preview
-description: Learn to connect resources managed by Azure SRE Agent Preview to a code repository for detailed root cause analysis and summary reports.
+title: Connect a code repository to resources in Azure SRE Agent
+description: Learn to connect resources managed by Azure SRE Agent to a code repository for detailed root cause analysis and summary reports.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: concept-article
@@ -9,7 +9,7 @@ ms.service: azure-sre-agent
 zone_pivot_groups: sre-agent-code-repo
 ---
 
-# Connect a code repository to resources in Azure SRE Agent Preview
+# Connect a code repository to resources in Azure SRE Agent
 
 By connecting your monitored resources to a source code repository through Azure SRE Agent, you create a direct link between the agent and your code base for detailed analysis, reporting, and issue management and mitigation.
 
