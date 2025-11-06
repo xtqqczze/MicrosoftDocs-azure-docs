@@ -53,20 +53,15 @@ There are two general categories of X.509 certificates:
     
     - **Root certificates:** A root certificate is a top-level, self-signed certificate from a trusted CA that can be used to sign intermediate CAs. 
     
-    - **Intermediate certificates:**  An intermediate certificate is a CA certificate that is signed by a trusted root certificate. You can use intermediate certificates to sign end-entity certificates, such as individual or leaf device certificates. 
+    - **Intermediate/Issuing certificates:**  An intermediate certificate is a CA certificate that is signed by a trusted root certificate. You can use intermediate certificates to sign end-entity certificates, such as individual or leaf device certificates, in which case you could call this an Issuing certificate.
+
+    - **Issuing 
 
     > [!NOTE]
     > It might be helpful to use different intermediate certificates for different sets or groups of devices, such as devices from different manufacturers or different models of devices. The reason to use different certificates is to reduce the total security impact if any particular certificate is compromised. 
 
 - **End-entity certificates:** These certificates, which can be individual or leaf device certificates, are signed by CA certificates and are issued to users, servers, or devices.
 
-## Onboarding vs. operational certificates
-
-Today, certificate management only supports issuance and renewal for end-entity operational certificates. 
-
-- **Onboarding Credential:** To use certificate management, devices must be provisioned via Device Provisioning Service. The device must onboard and authenticate using one of the existing supported methods: including X.509 certificates (procured from a third-party CA), symmetric keys, and Trusted Platform Modules (TPM) [Include links to DPS sections for these]. Currently, certificate management only supports HTTP, MQTT, and MQTT-Web-Sockets protocols.  
-
-- **Operational Certificate:** An operational certificate is an end-entity certificate issued by an intermediate CA during a device’s provisioning process. Once the device is provisioned, the operational certificate can be used to authenticate directly with IoT Hub. Today, certificate management will issue an the operational certificate to authenticate a device in its daily operations. These certificates are typically short-lived and renewed as needed during device operation. 
 
 
 

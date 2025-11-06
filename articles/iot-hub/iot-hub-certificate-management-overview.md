@@ -35,6 +35,14 @@ The following features are supported with certificate management for IoT Hub dev
 | At-scale provisioning of leaf certificates | The policies defined in your ADR namespace are directly linked to a Device Provisioning Service enrollment group to be used at the time of certificate provisioning.|
 | Syncing of CA chains with IoT Hubs | The policies defined in your ADR namespace will be synced to the appropriate IoT Hub. This will enable IoT Hub to trust any devices authenticating with an end-entity certificate. |
 
+## Onboarding vs Operational Credentials
+
+Today, certificate management supports issuance and renewal for end-entity **operational certificates**.
+
+- **Onboarding Credential:** To use certificate management, devices must be provisioned via Device Provisioning Service (DPS). For a device to provision with DPS, it must onboard and authenticate using one of the supported types of [onboarding credentials](https://learn.microsoft.com/en-us/azure/iot-dps/concepts-service#attestation-mechanism), which includes X.509 certificates (procured from a third-party CA), symmetric keys, and Trusted Platform Modules (TPM). These credentials are conventionally installed onto the device before it is shipped.
+
+- **Operational Certificate:** An end-entity operational certificate is a type of operational credential that is issued by an issuing CA once the device has been authenticated by DPS using its onboarding credential. Unlike onboarding credentials, these certificates are typically short-lived and renewed frequently or as needed during device operation. Once the device is provisioned, the device can use its operational certificate to authenticate directly with IoT Hub. Today, certificate management will only provide the operational certificate.
+
 ## How certificate management works
 
 Certificate management consists of several integrated components that work together to streamline the deployment of public key infrastructure (PKI) across IoT devices. To use certificate management, you must set up:
@@ -67,7 +75,7 @@ For devices to receive leaf certificates, devices must be provisioned through [D
 1. Selecting the specific method for device onboarding authentication. Supported methods are Trusted Platform Module (TPM), symmetric keys, or X.509 certificates.
 2. Linking a policy created within your ADR namespace to manage certificate issuance and lifecycle at-scale.
 
-Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT devices generate a **Certificate Signing Request (CSR)** containing their public key and identity to prove key ownership. The CSR is sent to the PKI, which validates it and forwards it to an **Issuing CA (ICA)** to issue an X.509 certificate. For more information on DPS Certificate Signing Request, check out some the [Device DPS SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
+Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT devices generate a **Certificate Signing Request (CSR)** containing their public key and identity to prove key ownership. The CSR is sent to DPS and eventually the PKI, which validates it and forwards it to an **Issuing CA (ICA)** to issue an X.509 certificate. For more information on DPS Certificate Signing Request, check out some the [Device DPS SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
 
 > [!NOTE]
 > While a PKI is configured for each of your ADR namespaces, it's not exposed as an external Azure resource.
@@ -109,3 +117,4 @@ The following table lists the default limits and quotas for certificate manageme
 |Number of credential resources per tenant|2|
 |Number of credential resources per ADR namespace|1|
 |Number of policies per credential resource|1|
+|Protocols supported for Certificate provisioning|HTTP, MQTT, and MQTT-Web-Sockets protocols. 
