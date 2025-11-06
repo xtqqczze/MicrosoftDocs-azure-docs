@@ -1,3 +1,12 @@
+---
+title: Reference - Release Notes - CIS Benchmark - Alma Linux 9
+description: Details of Release Notes - CIS Benchmark - Alma Linux 9
+ms.date: 11/05/2025
+author: pallakatos
+ms.author: pallakatos
+ms.topic: reference
+ms.custom: generated
+---
 # Release Notes - CIS Benchmark - Alma Linux 9
 
 **Supported Benchmarks**
@@ -60,16 +69,16 @@
 |  | group | root |
 | Ensure permissions on /etc/shadow are configured | mask | 0137 |
 |  | owner | root |
-|  | group | root|shadow |
+|  | group | root\|shadow |
 | Ensure permissions on /etc/shadow- are configured | mask | 0137 |
 |  | owner | root |
-|  | group | root|shadow |
+|  | group | root\|shadow |
 | Ensure permissions on /etc/gshadow are configured | mask | 0137 |
 |  | owner | root |
-|  | group | shadow|root |
+|  | group | shadow\|root|
 | Ensure permissions on /etc/gshadow- are configured | mask | 0137 |
 |  | owner | root |
-|  | group | shadow|root |
+|  | group | shadow\|root |
 | Ensure permissions on /etc/shells are configured | mask | 0133 |
 |  | owner | root |
 |  | group | root |

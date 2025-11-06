@@ -1,3 +1,12 @@
+---
+title: Reference - Release Notes - CIS Benchmark - Ubuntu Linux 24.04
+description: Details of Release Notes - CIS Benchmark - Ubuntu Linux 24.04
+ms.date: 11/05/2025
+author: pallakatos
+ms.author: pallakatos
+ms.topic: reference
+ms.custom: generated
+---
 # Release Notes - CIS Benchmark - Ubuntu 24.04 LTS + Pro
 
 **Supported Benchmarks**

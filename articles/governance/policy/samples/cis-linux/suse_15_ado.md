@@ -1,3 +1,12 @@
+---
+title: Reference - Release Notes - CIS Benchmark - SUSE Linux Enterprise 15
+description: Details of Release Notes - CIS Benchmark - SUSE Linux Enterprise 15
+ms.date: 11/05/2025
+author: pallakatos
+ms.author: pallakatos
+ms.topic: reference
+ms.custom: generated
+---
 # Release Notes - CIS Benchmark - SUSE Linux Enterprise 15
 
 **Supported Benchmarks**
