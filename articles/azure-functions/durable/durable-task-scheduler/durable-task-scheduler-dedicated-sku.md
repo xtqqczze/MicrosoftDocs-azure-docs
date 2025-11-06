@@ -2,7 +2,7 @@
 title: Use the Dedicated SKU for Azure Functions Durable Task Scheduler (preview)
 description: Learn about how the Dedicated SKU in Azure Functions Durable Task Scheduler.
 ms.topic: conceptual
-ms.date: 10/30/2025
+ms.date: 11/05/2025
 ms.author: franlanglois
 ---
 # Azure Functions Durable Task Scheduler Pricing and SKU Options
@@ -70,7 +70,7 @@ The Dedicated SKU provides  performance and pricing through preallocated Capacit
 
 #### Calculating Capacity Units for the Dedicated SKU
 
-#### Example 1
+##### Example 1
 
 You have an orchestration with 5 activities, plus error handling, and averaging 12 actions per orchestration (orchestrator and activity invocations). Let's calculate running 20 million orchestrations per month.
 
@@ -80,7 +80,7 @@ You have an orchestration with 5 activities, plus error handling, and averaging 
 | Actions per second | 240,000,000 ÷ 2,628,000 (seconds in a month) | ≈ 91 actions/second |
 | Required CUs | 91 ÷ 2,000 | 240,000,000 actions<br>CUs needed: 0.046 → **1 CU sufficient** |
 
-#### Example 2
+##### Example 2
 
 A large enterprise runs 500 million complex orchestrations monthly, with an average of 15 actions per orchestration (multiple activities with orchestrator coordination). 
 
@@ -90,7 +90,7 @@ A large enterprise runs 500 million complex orchestrations monthly, with an aver
 | Actions per second | 6.5 billion ÷ 2,628,000 | ≈ 2,473 actions/second |
 | Required CUs | 2,473 ÷ 2,000 | 240,000,000 actions<br>CUs needed: 1.23 → **2 CUs sufficient** |
 
-#### Example 3
+##### Example 3
 
 A Software as a Service (SaaS) platform supports 800 million orchestrations monthly, each with an average of 15 actions (user interactions, background processing, and external API calls).
 
@@ -116,7 +116,7 @@ The Consumption SKU offers a pay-as-you-use model, ideal for variable workloads 
 | SLA | 99.9% uptime guarantee |  
 | Data retention | 30-day maximum retention |  
 
-#### Example 1
+##### Example 1
 
 A development team is testing simple orchestrations, each with three actions (using [the "Hello City" pattern](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/quickstarts/durable-functions/dotnet/HelloCities)), and runs 10,000 orchestrations per month.
 
@@ -125,7 +125,7 @@ A development team is testing simple orchestrations, each with three actions (us
 | Monthly actions | 10,000 × 3 | 30,000 actions |
 | Cost | 30,000 × $0.003 | **$90/month** |
 
-#### Example 2
+##### Example 2
 
 An e-commerce application experiences dynamic workload scaling during promotional sales events, especially on weekends. It uses an orchestration comprising seven total actions, which executes approximately 20,000 times per month.
 

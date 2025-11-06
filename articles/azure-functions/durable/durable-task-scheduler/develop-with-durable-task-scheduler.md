@@ -2,7 +2,7 @@
 title: Develop with Durable Task Scheduler
 description: Learn how to develop with the Durable Task Scheduler using the Azure CLI for both Durable Functions and Durable Task Scheduler.
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.date: 11/05/2025
 zone_pivot_groups: dts-devexp
 ---
 
@@ -247,11 +247,11 @@ You can see the list of scheduler resources created in all subscriptions you hav
 
 ::: zone pivot="az-cli" 
 
-1. Retrieve a list of task hubs in a specific scheduler by running: 
+Retrieve a list of task hubs in a specific scheduler by running: 
 
-    ```azurecli
-    az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
-    ```
+```azurecli
+az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
+```
 ::: zone-end
 
 ::: zone pivot="az-portal"
