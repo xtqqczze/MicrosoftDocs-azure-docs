@@ -36,9 +36,9 @@ The HTTP DDoS ruleset is the first ruleset evaluated by the Azure WAF, even befo
 
 The HTTP DDoS ruleset currently has two rules, each configurable with different sensitivity and action settings. Each rule maintains separate traffic baselines for traffic that matches its criteria.
 
-- **Rule 500100: Anomaly detected on high rate of client requests** This rule tracks and establishes a baseline for all traffic on the profile to which a policy is attached. When a client exceeds the established threshold, the corresponding configured action is triggered.
+- **Rule 500100: Anomaly detected on high rate of client requests:** This rule tracks and establishes a baseline for all traffic on the profile to which a policy is attached. When a client exceeds the established threshold, the corresponding configured action is triggered.
 
-- **Rule 500110: Suspected bots sending high rates of requests** This rule allows you to set different sensitivity levels based on traffic classified as bots by Microsoft Threat Intelligence. For suspected bots, the default threshold is stricter than the default threshold for all other IP addresses. Bots classified as high risk are blocked immediately by this rule when the global profile threshold is breached.
+- **Rule 500110: Suspected bots sending high rates of requests:** This rule allows you to set different sensitivity levels based on traffic classified as bots by Microsoft Threat Intelligence. For suspected bots, the default threshold is stricter than the default threshold for all other IP addresses. Bots classified as high risk are blocked immediately by this rule when the global profile threshold is breached.
 
 ## Monitoring the HTTP DDoS ruleset
 
