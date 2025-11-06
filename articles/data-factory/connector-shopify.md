@@ -247,7 +247,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| Version 1.0 | End of support announced | / |  
+| Version 1.0 | End of support | / |  
 | Version 2.0 | Public Preview |• Table and column names retain the Shopify GraphQL structure. <br><br> • Support GraphQL query only. <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. |
 
 ### <a name="upgrade-the-shopify-connector-from-version-10-to-version-20"></a> Upgrade the Shopify connector from version 1.0 to version 2.0 (Preview)
