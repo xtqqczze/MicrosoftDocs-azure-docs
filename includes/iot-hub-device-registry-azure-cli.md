@@ -1,6 +1,6 @@
 ---
-title: Create an IoT hub with Certificate Management in Azure Device Registry using Azure CLI
-description: This article explains how to create an IoT hub with Azure Device Registry and Certificate Management integration using the Azure CLI.
+title: Create an IoT Hub with Certificate Management in Azure Device Registry using Azure CLI
+description: This article explains how to create an IoT Hub with ADR integration and certificate management using the Azure CLI.
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
@@ -10,7 +10,7 @@ ms.date: 11/05/2025
 
 ## Overview
 
-Use the Azure CLI commands to create an IoT hub with Azure Device Registry and Certificate Management integration.
+Use the Azure CLI commands to create an IoT Hub with ADR integration and certificate management.
 
 The setup process in this article includes the following steps:
 
@@ -23,7 +23,7 @@ The setup process in this article includes the following steps:
 1. Create an enrollment group and link to your policy to enable device onboarding.
 
 > [!IMPORTANT]
-> During the preview period, IoT Hub with ADR and Certificate Management features enabled on top of IoT Hub are available **free of charge**. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+> During the preview period, IoT Hub with ADR integration and certificate management features enabled on top of IoT Hub are available **free of charge**. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## Prepare your environment
 
@@ -128,9 +128,9 @@ To allow the user-assigned managed identity (UAMI) to access the ADR namespace, 
     az role assignment create --assignee $UAMI_PRINCIPAL_ID --role "a5c3590a-3a1a-4cd4-9648-ea0a32b15137" --scope $NAMESPACE_RESOURCE_ID
     ```
 
-## Create an IoT hub with ADR namespace integration
+## Create an IoT Hub with ADR integration
 
-1. Create a new IoT hub instance linked to the ADR namespace and with the user-assigned identity.
+1. Create a new IoT Hub instance linked to the ADR namespace and with the user-assigned identity.
 
     ```azurecli-interactive
     az iot hub create --name <HUB_NAME> --resource-group <RESOURCE_GROUP> --location <HUB_LOCATION> --sku GEN2 --mi-user-assigned $UAMI_RESOURCE_ID --ns-resource-id $NAMESPACE_RESOURCE_ID --ns-identity-id $UAMI_RESOURCE_ID
@@ -138,35 +138,35 @@ To allow the user-assigned managed identity (UAMI) to access the ADR namespace, 
 
     [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-1. Verify that the IoT hub has correct identity and ADR properties configured.
+1. Verify that the IoT Hub has correct identity and ADR properties configured.
 
     ```azurecli-interactive
     az iot hub show --name <HUB_NAME> --resource-group <RESOURCE_GROUP> --query identity --output json
     ```
 ## Assign IoT Hub roles to access the ADR namespace
 
-1. Retrieve the principal ID of the ADR Namespace's managed identity. This identity needs permissions to interact with the IoT hub.
+1. Retrieve the principal ID of the ADR namespace's managed identity. This identity needs permissions to interact with the IoT Hub.
 
     ```azurecli-interactive
     ADR_PRINCIPAL_ID=$(az iot adr ns show --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP> --query identity.principalId -o tsv)
     ```
-1. Retrieve the resource ID of the IoT hub. This ID is used as the scope for role assignments.
+1. Retrieve the resource ID of the IoT Hub. This ID is used as the scope for role assignments.
 
     ```azurecli-interactive
     HUB_RESOURCE_ID=$(az iot hub show --name <HUB_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
     ```
-1. Assign the "Contributor" role to the ADR identity. This grants the ADR namespace's managed identity Contributor access to the IoT hub. This role allows broad access, including managing resources, but not assigning roles.
+1. Assign the "Contributor" role to the ADR identity. This grants the ADR namespace's managed identity Contributor access to the IoT Hub. This role allows broad access, including managing resources, but not assigning roles.
 
     ```azurecli-interactive
     az role assignment create --assignee $ADR_PRINCIPAL_ID --role "Contributor" --scope $HUB_RESOURCE_ID
     ```
-1. Assign the "IoT Hub Registry Contributor" role to the ADR identity. This grants more specific permissions to manage device identities in the IoT hub. This is essential for ADR to register and manage devices in the hub.
+1. Assign the "IoT Hub Registry Contributor" role to the ADR identity. This grants more specific permissions to manage device identities in the IoT Hub. This is essential for ADR to register and manage devices in the hub.
 
     ```azurecli-interactive
     az role assignment create --assignee $ADR_PRINCIPAL_ID --role "IoT Hub Registry Contributor" --scope $HUB_RESOURCE_ID
     ```
 
-## Create a Device Provisioning Service instance with ADR namespace integration
+## Create a Device Provisioning Service instance with ADR integration
 
 1. Create a new DPS instance linked to your ADR namespace created in the previous sections. Your DPS instance must be located in the same region as your ADR namespace.
 
@@ -180,15 +180,15 @@ To allow the user-assigned managed identity (UAMI) to access the ADR namespace, 
     az iot dps show --name <DPS_NAME> --resource-group <RESOURCE_GROUP> --query identity --output json
     ```
 
-## Link your IoT hub to the Device Provisioning Service instance
+## Link your IoT Hub to the Device Provisioning Service instance
 
-1. Link the IoT hub to DPS.
+1. Link the IoT Hub to DPS.
 
     ```azurecli-interactive
     az iot dps linked-hub create --dps-name <DPS_NAME> --resource-group <RESOURCE_GROUP> --hub-name <HUB_NAME>
     ```
 
-1. Verify that the IoT hub appears in the list of linked hubs for the DPS.
+1. Verify that the IoT Hub appears in the list of linked hubs for the DPS.
 
     ```azurecli-interactive
     az iot dps linked-hub list --dps-name <DPS_NAME> --resource-group <RESOURCE_GROUP>
@@ -202,9 +202,9 @@ To enable IoT Hub to register the CA certificates and trust any issued leaf cert
 az iot adr ns credential sync --namespace <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP>
 ```
 
-## Validate the hub Certificate
+## Validate the hub certificate
 
-Validate that your IoT hub has registered its CA certificate.
+Validate that your IoT Hub has registered its CA certificate.
 
 ```azurecli-interactive
 az iot hub certificate list --hub-name <HUB_NAME> --resource-group <RESOURCE_GROUP>
@@ -221,7 +221,7 @@ To provision devices with leaf certificates, you need to create an enrollment gr
 az iot dps enrollment-group create --dps-name <DPS_NAME> --resource-group <RESOURCE_GROUP> --enrollment-id <ENROLLMENT_ID> --credential-policy <POLICY_NAME>
 ```
 
-Your IoT hub with ADR and Certificate Management integration is now set up and ready to use.
+Your IoT Hub with ADR integration and certificate management is now set up and ready to use.
 
 ## Manage and clean up resources
 
@@ -261,7 +261,7 @@ The following commands help you manage your ADR namespaces, disable devices, cre
 
 ### Disable devices
 
-1. List all devices in your IoT hub.
+1. List all devices in your IoT Hub.
 
     ```azurecli-interactive
     az iot hub device-identity list --hub-name <HUB_NAME> --resource-group <RESOURCE_GROUP_NAME>
@@ -291,7 +291,7 @@ az iot adr ns policy create --name "custom-policy" --namespace <NAMESPACE_NAME> 
 
 ### Delete resources
 
-To delete your ADR namespace, you must first delete any IoT hubs and DPS instances linked to the namespace.
+To delete your ADR namespace, you must first delete any IoT Hubs and DPS instances linked to the namespace.
 
 ```azurecli-interactive
 az iot hub delete --name <HUB_NAME> --resource-group <RESOURCE_GROUP_NAME>

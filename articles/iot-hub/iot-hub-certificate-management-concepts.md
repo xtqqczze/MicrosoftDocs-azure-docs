@@ -1,5 +1,5 @@
 ---
-title: Key concepts for certificate management (Preview)
+title: Key Concepts for Certificate Management (Preview)
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of certificate management in Azure IoT Hub.
 author: SoniaLopezBravo
