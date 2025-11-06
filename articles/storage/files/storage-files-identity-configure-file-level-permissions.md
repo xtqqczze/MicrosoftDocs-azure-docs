@@ -161,7 +161,10 @@ $context = New-AzStorageContext -StorageAccountName $AccountName -StorageAccount
 Add-AzFileAce -Context $context -FileShareName test -FilePath "/" -Type Allow -Principal "testUser@contoso.com" -AccessRights Read,Synchronize -InheritanceFlags ObjectInherit,ContainerInherit 
 ```
 
-### Configure Windows ACLs with icacls (hybrid identities only)
+### Configure Windows ACLs with icacls
+
+> [!IMPORTANT]
+> Using icacls doesn't work for cloud-only identities.
 
 To grant full permissions to all directories and files under the file share, including the root directory, run the following Windows command from a machine that has unimpeded network connectivity to the AD domain controller. Remember to replace the placeholder values in the example with your own values. If your AD source is Microsoft Entra Domain Services, then `<user-upn>` is `<user-email>`.
 
@@ -171,12 +174,12 @@ icacls <mapped-drive-letter>: /grant <user-upn>:(f)
 
 For more information on how to use icacls to set Windows ACLs and on the different types of supported permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).
 
-### Configure Windows ACLs with Windows File Explorer (hybrid identities only)
+### Configure Windows ACLs with Windows File Explorer
 
 If you're signed in to a domain-joined Windows client, you can use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory. Using File Explorer only works for hybrid identities; it doesn't work for cloud-only identities.
 
 > [!IMPORTANT]
-> If your client isn't domain joined, or if your environment has multiple AD forests, don't use Windows Explorer to configure ACLs. [Use icacls](#configure-windows-acls-with-icacls) instead. This restriction exists because Windows File Explorer ACL configuration requires the client to be domain joined to the AD domain that the storage account is joined to.
+> Using Windows File Explorer doesn't work for cloud-only identities. If your client isn't domain joined, or if your environment has multiple AD forests, don't use Windows Explorer to configure ACLs. [Use icacls](#configure-windows-acls-with-icacls) instead. This restriction exists because Windows File Explorer ACL configuration requires the client to be domain joined to the AD domain that the storage account is joined to.
 
 Follow these steps to configure ACLs using Windows File Explorer.
 
