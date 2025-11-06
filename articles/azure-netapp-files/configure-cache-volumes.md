@@ -12,7 +12,7 @@ ms.custom: sfi-image-nochange
 ---
 # Configure a cache volume for Azure NetApp Files (preview)
 
-The purpose of this article is to provide users of Azure NetApp Files with cache volumes that simplify file distribution, reduce WAN latency, and lower WAN/ExpressRoute bandwidth costs. Azure NetApp Files cache volumes are currently designed to be peered with external sources--origin volumes in on-premises ONTAP, Cloud Volumes ONTAP, or Amazon FSx for NetApp.
+The purpose of this article is to provide users of Azure NetApp Files with cache volumes that simplify file distribution, reduce WAN latency, and lower WAN/ExpressRoute bandwidth costs. Azure NetApp Files cache volumes are currently designed to be peered with external sources—origin volumes in on-premises ONTAP, Cloud Volumes ONTAP, or Amazon FSx for NetApp.
 
 Azure NetApp Files cache volumes are cloud-based caches of an external origin volume, containing only the most actively accessed data on the volume. Cache volumes accept both reads and writes but operate at faster speeds with reduced latency. When a cache volume receives a read request of the hot data it contains, it can respond faster than the origin volume because the data doesn't need to travel as far to reach the client. If a cache volume receives a read request for infrequently read data (cold data), it retrieves the needed data from the origin volume and then stores the data before serving the client request. Subsequent read requests for that data are then served directly from the cache volume. After the first request, the data no longer needs to travel across the network or be served from a heavily loaded system.
 
@@ -22,13 +22,13 @@ Write-back allows the write to be committed to stable storage at the cache and a
 
 * Cache volumes are currently only supported with the REST API (new caches endpoint).
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for data access to one or more cache volumes.
-    * Ensure that the delegated subnet address space is sized appropriately to accommodate the Azure NetApp Files network interfaces. Review the [guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.
-* When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created cache volumes in the subscription. This is done to try to reduce the number of NICs/IPs consumed in the delegated subnet. If this isn't possible, another 6+1 NICs are consumed.
+    * Ensure the delegated subnet address space is sized appropriately to accommodate the Azure NetApp Files network interfaces. Review the [guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.
+* When creating each cache volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created cache volumes in the subscription to reduce the number of NICs/IPs consumed in the delegated subnet. If this isn't possible, another 6+1 NICs are consumed.
 * You can't use the same source cluster for multiple subscriptions for creating cache volumes in the same availability zone in the same region. 
 * If enabling write-back on the external origin volume:
     * You must be running ONTAP 9.15.1P5 or later on the system hosting the external origin volume. 
-    * Each external origin system node has at least 128GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it requires more CPUs and RAM.
-    * Testing is executed for files smaller than 100GB and WAN round-trip times between the cache and origin not exceeding 100 ms. Any workloads outside of these limits might result in unexpected performance characteristics.
+    * Each external origin system node has at least 128 GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it requires more CPUs and RAM.
+    * Testing is executed for files smaller than 100 GB and WAN roundtrip times between the cache and origin not exceeding 100 milliseconds. Any workloads outside of these limits might result in unexpected performance characteristics.
     * The external origin must remain less than 80% full. Cache volumes aren't granted exclusive lock delegations if there isn't at least 20% space remaining in the origin volume. Calls to a write-back-enabled cache are forwarded to the origin in this situation. This helps prevent running out of space at the origin, which would result in leaving dirty data orphaned at a write-back-enabled cache.
     * You shouldn't configure qtree, user, or group quotas at an origin volume with write-back enabled cache volumes. This may incur a significant latency increase.
 * You should be aware of the supported and unsupported features for cache volumes in Azure NetApp Files.
@@ -40,16 +40,16 @@ Write-back allows the write to be committed to stable storage at the cache and a
         * Azure NetApp Files backup
         * Cross-region, cross-zone, and cross-zone-region replication
         * Snapshot policies
-        * Application Volume Groups
+        * Application volume groups
     * Supported features:
-        * NFS, SMB, and dual protocols
+        * NFSv3 and NFSv4.1, SMB, and dual-protocol (NFS and SMB)
         * Lightweight Directory Access Protocol (LDAP)
         * Kerberos
         * Availability zone volume placement
         * Customer-managed keys
 * The Azure NetApp Files cache volume must be deployed in an availability zone. To populate a new or existing volume in an availability zone, see [Manage availability zones in Azure NetApp Files](manage-availability-zone-volume-placement.md). 
 * Cache volumes only support Standard network features. Basic network features can't be configured on cache volumes. 
-* When creating a cache volume, ensure that there's sufficient space in the capacity pool to accommodate the new cache volume.
+* When creating a cache volume, ensure there's sufficient space in the capacity pool to accommodate the new cache volume.
 * You can't move a cache volume to another capacity pool.
 * You can't transition noncustomer managed key cache volumes to customer managed key (CMK).
 * You should ensure that the protocol type is the same for the cache volume and origin volume. The security style and the Unix permissions are inherited from the origin volume. For example, creating a cache volume with NFSv3 or NFSv4 when origin is UNIX, and SMB when the origin is NTFS.
@@ -93,7 +93,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 1.	Initiate the cache volume creation using the PUT caches API call.
 
-2.  Monitor if the cache state is available for cluster peering using the GET caches API call.
+2.  Monitor if the cache state is available for cluster peering with a GET request. 
 
     When the `cacheState = ClusterPeeringOfferSent`, execute the POST `listPeeringPassphrases` call to obtain the command and passphrase necessary to complete the cluster peering.
 
@@ -106,13 +106,14 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     "vserverPeeringCommand": "vserver peer accept -vserver vserver1 -peer-vserver cache_volume_svm"
     }
     ```
-    Execute the clusterPeeringCommand on the ONTAP system that contains the external origin volume and when prompted, enter the clusterPeeringPassphrase.  
+
+    Execute the `clusterPeeringCommand` on the ONTAP system that contains the external origin volume and when prompted, enter the clusterPeeringPassphrase.  
 
     > [!NOTE]
-    > You have 30 minutes after the `cacheState` transitions to `ClusterPeeringOfferSent` to execute the `clusterPeeringCommand`. If you don't execute the command in 30 minutes, cache creation fails. You will need to delete the cache volume and initiate a new PUT call.
+    > You have 30 minutes after the `cacheState` transitions to `ClusterPeeringOfferSent` to execute the `clusterPeeringCommand`. If you don't execute the command within 30 minutes, cache creation fails. You'll need to delete the cache volume and initiate a new PUT call.
 
     > [!NOTE]
-    > Replace `IP-SPACE-NAME` with the `IP space` that the IC LIFs use on the external origin volume’s ONTAP system.
+    > Replace `IP-SPACE-NAME` with the IP space that the IC LIFs use on the external origin volume’s ONTAP system.
 
     > [!NOTE]
     > Don't execute the `vserverPeeringCommand` until the next step.
@@ -120,7 +121,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     > [!NOTE]
     > If cache volumes are already created using this ONTAP system, then the existing cluster peer is reused. There can be situations where a different Azure NetApp Files cluster may be used which would require a new cluster peer.
 
-3.	Monitor if the cache state is available for storage VM peering using the GET caches API call.
+3.	Monitor if the cache state is available for storage VM peering using a GET request.
 
     When the `cacheState = VserverPeeringOfferSent`, go to the ONTAP system that contains the external origin volume and execute the `vserver peer show` command until an entry appears where the remote storage VM displays the `<value of the -peer-vserver in the vserverPeeringCommand>`. The Peer State shows "pending".
 
@@ -134,7 +135,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 4.	Complete the cache volume creation.
 
-    Once the peering completes, the cache volume is created. Monitor the `cacheState` and `provisioningState` of the cache volume using the GET caches API call. When the cacheState and provisioningState transition to "Succeeded," the cache volume is ready for use.
+    Once the peering completes, the cache volume is created. Monitor the `cacheState` and `provisioningState` of the cache volume with a GET request. When the cacheState and provisioningState transition to "Succeeded," the cache volume is ready for use.
 
 ## Cache creation request body examples
 
@@ -325,6 +326,6 @@ Example patch request body to update a cache volume:
 
 ## Delete a cache volume
 
-You can delete a cache volume if it's no longer required using the delete cache API call.
+You can delete a cache volume if it's no longer required using a DELETE API call.
 
 If the cache volume has `writeBack` enabled, issue a PATCH call to disable `writeBack` then issue the DELETE request. 
