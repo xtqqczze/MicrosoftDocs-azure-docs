@@ -53,7 +53,7 @@ Certificate management consists of several integrated components that work toget
 
 ### IoT Hub (preview) integration
 
-IoT Hubs that are linked to an Azure Device Registry (ADR) Namespace can take advantage of the new certificate management capabilities. You can now sync your CA certificates from ADR Namespace to all of your IoT Hubs, so that each IoT Hub can authenticate any IoT device that attempts to connect with issued certificate chain.
+IoT Hubs that are linked to an Azure Device Registry (ADR) Namespace can take advantage of the new certificate management capabilities. You can now sync your CA certificates from ADR namespace to all of your IoT Hubs, so that each IoT Hub can authenticate any IoT device that attempts to connect with issued certificate chain.
 
 
 ### Azure Device Registry integration
@@ -80,7 +80,7 @@ Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT 
 > [!NOTE]
 > While a PKI is configured for each of your ADR namespaces, it's not exposed as an external Azure resource.
 
-### End-to-end device provisioning with certificate management (Runtime Experience)
+### End-to-end device provisioning with certificate management (runtime experience)
 
 The following diagram illustrates the end-to-end process of device provisioning with certificate management:
 

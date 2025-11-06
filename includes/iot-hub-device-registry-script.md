@@ -1,6 +1,6 @@
 ---
-title: Create an IoT hub with Certificate Management in Azure Device Registry using a script
-description: This article explains how to create an IoT hub with Azure Device Registry and Certificate Management integration using a script.
+title: Create an IoT Hub with Certificate Management in Azure Device Registry using a script
+description: This article explains how to create an IoT Hub with Azure Device Registry and Certificate Management integration using a script.
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
@@ -10,7 +10,7 @@ ms.date: 11/05/2025
 
 ## Overview
 
-Use the provided PowerShell script to automate the setup of your IoT hub with Azure Device Registry integration. The script performs all the necessary steps to create the required resources and link them together.
+Use the provided PowerShell script to automate the setup of your IoT Hub with Azure Device Registry integration. The script performs all the necessary steps to create the required resources and link them together.
 
 The script includes the following resources:
 
@@ -25,7 +25,7 @@ The script includes the following resources:
 > [!IMPORTANT]
 > During the preview period, IoT Hub with ADR and Certificate Management features enabled on top of IoT Hub are available **free of charge**. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-## Prepare Your Environment
+## Prepare your Environment
 
 Navigate to the [GitHub repository](https://github.com/Azure-Samples/iot-hub-adr-cert-mgmt-preview/tree/main/scripts) and download the **Scripts** folder, which contains the script file, `iothub-adr-certs-setup-preview.ps1`.
 

@@ -56,7 +56,7 @@ This article explains how to create a new IoT Hub with [Azure Device Registry (A
 
 To use certificate management, you must also set up IoT Hub, ADR, and the [Device Provisioning Service (DPS)](../iot-dps/index.yml). If you prefer, you can choose not to enable certificate management and configure only IoT Hub with ADR.
 
-To set up your IoT Hub with ADR and certificate management, you can use Azure CLI or a script that automates the setup process.
+To set up your IoT Hub with ADR integration and certificate management, you can use Azure CLI or a script that automates the setup process.
 
 | Deployment method | Description |
 |-------------------|-------------|
@@ -80,7 +80,7 @@ To set up your IoT Hub with ADR and certificate management, you can use Azure CL
 
 ## Next steps
 
-At this point, your IoT Hub with ADR and certificate management integration is set up and ready to use. You can now start onboarding your IoT devices to the hub using the Device Provisioning Service (DPS) instance and manage your IoT devices securely using the policies and enrollments you have set up.
+At this point, your IoT Hub with ADR integration and certificate management is set up and ready to use. You can now start onboarding your IoT devices to the hub using the Device Provisioning Service (DPS) instance and manage your IoT devices securely using the policies and enrollments you have set up.
 
 For more information on how to onboard devices, check out some the [DPS Device SDKs samples](../iot-dps/libraries-sdks.md#device-sdks). Certificate management is only supported in the following DPS Device SDKs: 
 
