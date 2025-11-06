@@ -69,16 +69,16 @@ ms.custom: generated
 |  | group | root |
 | Ensure permissions on /etc/shadow are configured | mask | 0137 |
 |  | owner | root |
-|  | group | root|shadow |
+|  | group | root\|shadow |
 | Ensure permissions on /etc/shadow- are configured | mask | 0137 |
 |  | owner | root |
-|  | group | root|shadow |
+|  | group | root\|shadow |
 | Ensure permissions on /etc/gshadow are configured | mask | 0137 |
 |  | owner | root |
-|  | group | shadow|root |
+|  | group | shadow\|root |
 | Ensure permissions on /etc/gshadow- are configured | mask | 0137 |
 |  | owner | root |
-|  | group | shadow|root |
+|  | group | shadow\|root |
 | Ensure permissions on /etc/shells are configured | mask | 0133 |
 |  | owner | root |
 |  | group | root |

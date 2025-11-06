@@ -75,7 +75,7 @@ ms.custom: generated
 |  | group | root\|shadow |
 | Ensure permissions on /etc/gshadow are configured | mask | 0137 |
 |  | owner | root |
-|  | group | shadow\|root|
+|  | group | shadow\|root |
 | Ensure permissions on /etc/gshadow- are configured | mask | 0137 |
 |  | owner | root |
 |  | group | shadow\|root |
