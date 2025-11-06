@@ -62,10 +62,10 @@ Estimated costs are used for the East US 2 region.
 
 | Meter | Price | Price with WAF |
 | ----- | ----- | ----- |
-| Application Gateway for Container | $0.017 per application gateway for container-hour | $0.??? per applicatoin gateway for conatienr WAF-hour |
-| Frontend | $0.01 per frontend-hour | $0.?? per frontend WAF-hour |
-| Association | $0.12 per association-hour | $0.?? per association WAF-hour |
-| Capacity Unit | $0.008 per capacity unit-hour | $0.??? per capacity unit WAF-hour |
+| Application Gateway for Container | $0.017 per application gateway for container-hour | $0.031 per applicatoin gateway for conatienr WAF-hour |
+| Frontend | $0.01 per frontend-hour | $0.018 per frontend WAF-hour |
+| Association | $0.12 per association-hour | $0.216 per association WAF-hour |
+| Capacity Unit | $0.008 per capacity unit-hour | $0.014 per capacity unit WAF-hour |
 
 For the latest pricing information according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
 
