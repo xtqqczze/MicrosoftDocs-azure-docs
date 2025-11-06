@@ -15,90 +15,137 @@ ms.author: mbaldwin
 
 ## Overview
 
-We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of its wide array of security tools and capabilities. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform. Microsoft Azure provides confidentiality, integrity, and availability of customer data, while also enabling transparent accountability.
+Security is critical in today's cloud environment. Cyber threats are constantly evolving, and protecting your data, applications, and infrastructure requires a comprehensive, multi-layered approach. We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security.
 
 This article provides a comprehensive look at the security available with Azure. For an end-to-end view of Azure security organized by protection, detection, and response capabilities, see [End-to-end security in Azure](end-to-end.md).
 
-### Azure platform
+### Azure's defense-in-depth security approach
 
-Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases, and devices. It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java, and Node.js; build back-ends for iOS, Android, and Windows devices.
+Azure employs a defense-in-depth strategy, providing multiple layers of security protection across the entire stack—from physical datacenters to compute, storage, networking, applications, and identity. This multi-layered approach ensures that if one layer is compromised, additional layers continue to protect your resources.
 
-Azure public cloud services support the same technologies millions of developers and IT professionals already rely on and trust. When you build on or migrate IT assets to a public cloud service provider, you rely on that organization’s ability to protect your applications and data. They provide services and controls to manage the security of your cloud-based assets.
+Azure's infrastructure is meticulously crafted from the ground up, encompassing everything from physical facilities to applications, to securely host millions of customers simultaneously. This robust foundation empowers businesses to confidently meet their security requirements. For information on how Microsoft secures the Azure platform itself, see [Azure infrastructure security](infrastructure.md). For details on physical datacenter security, see [Azure physical security](physical-security.md).
 
-Azure's infrastructure is meticulously crafted from the ground up, encompassing everything from physical facilities to applications, to securely host millions of customers simultaneously. This robust foundation empowers businesses to confidently meet their security requirements.
+Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases, and devices. It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java, and Node.js; build back-ends for iOS, Android, and Windows devices. Azure public cloud services support the same technologies millions of developers and IT professionals already rely on and trust.
 
-In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your organization’s deployments. This document helps you understand how Azure security capabilities can help you fulfill these requirements.
+### Built-in platform security
+
+Azure provides default security protections built into the platform that help protect your resources from the moment they're deployed. For comprehensive information on Azure's platform security capabilities, see [Azure platform security overview](platform.md).
+
+- **Network Protection**: Azure DDoS Protection automatically shields your resources from distributed denial-of-service attacks
+- **Encryption by Default**: Data encryption at rest is enabled by default for Azure Storage, SQL Database, and many other services
+- **Identity Security**: Microsoft Entra ID provides secure authentication and authorization for all Azure services
+- **Threat Detection**: Built-in threat detection monitors for suspicious activities across your Azure resources
+- **Compliance**: Azure maintains the largest compliance portfolio in the industry, helping you meet regulatory requirements
+
+These foundational security controls work continuously in the background to protect your cloud infrastructure, with no additional configuration required for basic protection.
+
+### Shared responsibility in the cloud
+
+While Azure provides robust platform security, security in the cloud is a shared responsibility between Microsoft and our customers. The division of responsibilities depends on your deployment model (IaaS, PaaS, or SaaS):
+
+- **Microsoft's responsibility**: Azure secures the underlying infrastructure, including physical datacenters, hardware, network infrastructure, and the host operating system
+- **Your responsibility**: You're responsible for securing your data, applications, identities, and access management
+
+Every workload and application is different, with unique security requirements based on industry regulations, data sensitivity, and business needs. This is where Azure's advanced security services come into play. For more information about the shared responsibility model, see [Shared responsibility in the cloud](shared-responsibility.md).
 
 > [!Note]
 > The primary focus of this document is on customer-facing controls that you can use to customize and increase security for your applications and services.
->
-> For information on how Microsoft secures the Azure platform itself, see [Azure infrastructure security](infrastructure.md).
 
-## Summary of Azure security capabilities
+### Advanced security services for every workload
 
-Depending on the cloud service model, there's variable responsibility for who is responsible for managing the security of the application or service. For more information about the shared responsibility model, see [Shared responsibility in the cloud](shared-responsibility.md). There are capabilities available in the Azure Platform to assist you in meeting these responsibilities through built-in features, and through partner solutions that can be deployed into an Azure subscription.
+To meet your unique security requirements, Azure provides a comprehensive suite of advanced security services that you can configure and customize for your specific needs. These services are organized across six functional areas: Operations, Applications, Storage, Networking, Compute, and Identity. For a comprehensive catalog of security services and technologies, see [Azure security services and technologies](services-technologies.md).
 
-The built-in capabilities are organized in six functional areas: Operations, Applications, Storage, Networking, Compute, and Identity. More detail on the features and capabilities available in the Azure Platform in these six areas are provided through summary information.
+In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your organization's deployments. This document helps you understand how Azure security capabilities can help you fulfill these requirements.
 
-For a structured view of Azure security controls and baselines, see the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction), which provides comprehensive security guidance for Azure services.
+For a structured view of Azure security controls and baselines, see the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction), which provides comprehensive security guidance for Azure services. For information on Azure's technical security capabilities, see [Azure security technical capabilities](technical-capabilities.md).
 
-## Operations
+## Compute security
 
-This section provides additional information regarding key features in security operations and summary information about these capabilities. For comprehensive coverage of security management and monitoring, see [Azure security management and monitoring overview](management-monitoring-overview.md).
+Securing your virtual machines and compute resources is fundamental to protecting your workloads in Azure. Azure provides multiple layers of compute security, from hardware-based protections to software-based threat detection. For detailed virtual machine security information, see [Azure Virtual Machines security overview](virtual-machines-overview.md).
 
-### Microsoft Sentinel
+### Trusted launch
 
-[Microsoft Sentinel](/azure/sentinel/overview) is a scalable, cloud-native security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for attack detection, threat visibility, proactive hunting, and threat response.
+[Trusted launch](/azure/virtual-machines/trusted-launch) is the default for newly created Generation 2 Azure VMs and Virtual Machine Scale Sets. Trusted launch protects against advanced and persistent attack techniques including boot kits, rootkits, and kernel-level malware.
 
-Microsoft Sentinel is now available in the Microsoft Defender portal for all customers, offering a unified security operations experience that streamlines workflows and enhances visibility. The integration with Security Copilot enables analysts to interact with Microsoft Sentinel data using natural language, generate hunting queries, and automate investigations for faster threat response.
+Trusted launch provides:
 
-### Microsoft Defender for Cloud
+* **Secure Boot**: Protects against installation of malware-based rootkits and boot kits by ensuring only signed operating systems and drivers can boot
+* **vTPM (virtual Trusted Platform Module)**: A dedicated secure vault for keys and measurements that enables attestation and boot integrity verification
+* **Boot Integrity Monitoring**: Uses attestation through Microsoft Defender for Cloud to verify boot chain integrity and alert on failures
 
-[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. Microsoft Defender for Cloud provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+Trusted launch can be enabled on existing VMs and Virtual Machine Scale Sets.
 
-Microsoft Defender for Cloud offers comprehensive protection with workload-specific plans including:
-- **Defender for Servers** - Advanced threat protection for Windows and Linux servers
-- **Defender for Containers** - Security for containerized applications and Kubernetes
-- **Defender for Storage** - Threat detection with malware scanning and sensitive data discovery
-- **Defender for Databases** - Protection for Azure SQL, Azure Database for MySQL, and PostgreSQL
-- **Defender for AI Services** - Runtime protection for Azure AI services against jailbreak attempts, data exposure, and suspicious access patterns
-- **Defender CSPM** - Cloud Security Posture Management with attack path analysis, security governance, and AI security posture management
+### Azure confidential computing
 
-In addition, Defender for Cloud helps with security operations by providing you with a single dashboard that surfaces alerts and recommendations that can be acted upon immediately. Security Copilot integration provides AI-generated summaries, remediation scripts, and delegation capabilities to accelerate risk remediation.
+[Azure confidential computing](/azure/confidential-computing/overview-azure-products) provides the final, missing piece, of the data protection puzzle. It allows you to keep your data encrypted always. While at rest, when in motion through the network, and now, even while loaded in memory and in use. Additionally, by making [Remote Attestation](/azure/attestation/overview) possible, it allows you to cryptographically verify that the VM you deploy booted securely and is configured correctly, before unlocking your data.
 
-For comprehensive threat detection capabilities across Azure, see [Azure threat protection](threat-detection.md).
+The spectrum of options ranges from enabling "lift and shift" scenarios of existing applications, to full control of security features. For Infrastructure as a Service (IaaS), you can use:
 
-### Azure Resource Manager
+- **[Confidential virtual machines powered by AMD SEV-SNP](/azure/confidential-computing/confidential-vm-overview)**: Hardware-based memory encryption with up to 256 GB encrypted memory
+- **[Confidential VMs with Intel TDX](/azure/confidential-computing/tdx-confidential-vm-overview)**: Intel Trust Domain Extensions providing enhanced performance and security
+- **[Confidential VMs with NVIDIA H100 GPUs](/azure/confidential-computing/confidential-vm-overview)**: GPU-accelerated confidential computing for AI/ML workloads
+- **[Confidential application enclaves with Intel SGX](/azure/confidential-computing/application-development)**: Application-level isolation for sensitive code and data
 
-[Azure Resource Manager](/azure/azure-resource-manager/management/overview) enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use an [Azure Resource Manager template](/azure/azure-resource-manager/templates/overview) for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
+For Platform as a Service (PaaS), Azure offers multiple [container-based confidential computing options](/azure/confidential-computing/choose-confidential-containers-offerings), including integrations with [Azure Kubernetes Service (AKS)](/azure/confidential-computing/confidential-nodes-aks-overview).
 
-Azure Resource Manager template-based deployments help improve the security of solutions deployed in Azure because standard security control settings and can be integrated into standardized template-based deployments. Templates reduce the risk of security configuration errors that might take place during manual deployments.
+### Antimalware & Antivirus
 
-### Application Insights
+With Azure IaaS, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to protect your virtual machines from malicious files, adware, and other threats. [Microsoft Antimalware](antimalware.md) for Azure Virtual Machines is a protection capability that helps identify and remove viruses, spyware, and other malicious software. Microsoft Antimalware provides configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems. Microsoft Antimalware can also be deployed using Microsoft Defender for Cloud.
 
-[Application Insights](/azure/azure-monitor/app/app-insights-overview) is a flexible Application Performance Management (APM) service designed for web developers. It enables you to monitor your live web applications and automatically detect performance issues. With powerful analytics tools, you can diagnose problems and gain insights into user interactions with your apps. Application Insights monitors your application continuously, from development through testing and into production.
+> [!NOTE]
+> For modern protection, consider [Microsoft Defender for Servers](/azure/defender-for-cloud/plan-defender-for-servers) which provides advanced threat protection including endpoint detection and response (EDR) through integration with Microsoft Defender for Endpoint.
 
-Application Insights generates insightful charts and tables that reveal peak user activity times, app responsiveness, and the performance of any external services it relies on.
+### Hardware Security Module
 
-If there are crashes, failures, or performance issues, you can search through the data in detail to diagnose the cause. And the service sends you emails if there are any changes in the availability and performance of your app. Application Insight thus becomes a valuable security tool because it helps with the availability in the confidentiality, integrity, and availability security triad.
+Encryption and authentication don't improve security unless the keys themselves are protected. You can simplify the management and security of your critical secrets and keys by storing them in [Azure Key Vault](/azure/key-vault/general/overview). Key Vault provides the option to store your keys in hardware Security modules (HSMs) certified to [FIPS 140-3 Level 3](/azure/key-vault/keys/about-keys#compliance) standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Microsoft Entra ID](/entra/identity/).
 
-### Azure Monitor
+For comprehensive information on key management options including Azure Key Vault, Managed HSM, and Payment HSM, see [Key management in Azure](key-management.md).
 
-[Azure Monitor](/azure/azure-monitor/overview) offers visualization, query, routing, alerting, auto scale, and automation on data both from the Azure subscription ([Activity Log](/azure/azure-monitor/essentials/platform-logs-overview)) and each individual Azure resource ([Resource Logs](/azure/azure-monitor/essentials/platform-logs-overview)). You can use Azure Monitor to alert you on security-related events that are generated in Azure logs.
+### Virtual machine backup
 
-### Azure Monitor logs
+[Azure Backup](/azure/backup/backup-overview) is a solution that protects your application data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications that can lead to security issues. With Azure Backup, your virtual machines running Windows and Linux are protected.
 
-[Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) – Provides an IT management solution for both on-premises and third-party cloud-based infrastructure (such as Amazon Web Services) in addition to Azure resources. Data from Azure Monitor can be routed directly to Azure Monitor logs so you can see metrics and logs for your entire environment in one place.
+### Azure Site Recovery
 
-Azure Monitor logs can be a useful tool in forensic and other security analysis, as the tool enables you to quickly search through large amounts of security-related entries with a flexible query approach. In addition, on-premises [firewall and proxy logs can be exported into Azure and made available for analysis using Azure Monitor logs.](/azure/azure-monitor/agents/agent-windows)
+An important part of your organization's [business continuity/disaster recovery (BCDR)](/azure/reliability/cross-region-replication-azure) strategy is figuring out how to keep corporate workloads and apps up and running when planned and unplanned outages occur. [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) helps orchestrate replication, failover, and recovery of workloads and apps so that they're available from a secondary location if your primary location goes down.
 
-### Azure Advisor
+### SQL VM TDE
 
-[Azure Advisor](/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you to optimize your Azure deployments. It analyzes your resource configuration and usage data. It then recommends solutions to help improve the [performance](/azure/advisor/advisor-performance-recommendations), [security](/azure/advisor/advisor-security-recommendations), and [reliability](/azure/advisor/advisor-high-availability-recommendations) of your resources while looking for opportunities to [reduce your overall Azure spend](/azure/advisor/advisor-cost-recommendations). Azure Advisor provides security recommendations, which can significantly improve your overall security posture for solutions you deploy in Azure. These recommendations are drawn from security analysis performed by [Microsoft Defender for Cloud.](/azure/defender-for-cloud/defender-for-cloud-introduction)
+Transparent data encryption (TDE) and column level encryption (CLE) are SQL server encryption features. This form of encryption requires customers to manage and store the cryptographic keys you use for encryption.
 
-## Applications
+The Azure Key Vault (AKV) service is designed to improve the security and management of these keys in a secure and highly available location. The SQL Server Connector enables SQL Server to use these keys from Azure Key Vault.
 
-The section provides additional information regarding key features in application security and summary information about these capabilities. For secure application development guidance, see [Develop secure applications on Azure](/azure/security/develop/secure-develop). For PaaS-specific security best practices, see [Securing PaaS deployments](paas-deployments.md).
+If you're running SQL Server with on-premises machines, there are steps you can follow to access Azure Key Vault from your on-premises SQL Server instance. But for SQL Server in Azure VMs, you can save time by using the Azure Key Vault Integration feature. With a few Azure PowerShell cmdlets to enable this feature, you can automate the configuration necessary for a SQL VM to access your key vault.
+
+For a comprehensive list of database security best practices, see [Azure database security checklist](database-security-checklist.md).
+
+### VM Disk Encryption
+
+[!INCLUDE [Azure Disk Encryption retirement notice](~/reusable-content/ce-skilling/azure/includes/security/azure-disk-encryption-retirement.md)]
+
+For modern virtual machine encryption, Azure offers:
+
+- **Encryption at host**: Provides end-to-end encryption for VM data, including temp disks and OS/data disk caches
+- **Confidential disk encryption**: Available with confidential VMs for hardware-based encryption
+- **Server-side encryption with customer-managed keys**: Manage your own encryption keys through Azure Key Vault
+
+For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
+
+### Virtual networking
+
+Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is isolated from all other Azure Virtual Networks. This isolation helps ensure that network traffic in your deployments isn't accessible to other Microsoft Azure customers.
+
+### Patch Updates
+
+Patch Updates provide the basis for finding and fixing potential problems and simplify the software update management process, both by reducing the number of software updates you must deploy in your enterprise and by increasing your ability to monitor compliance.
+
+### Security policy management and reporting
+
+[Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated Security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+
+## Application security
+
+Application security focuses on protecting your applications from threats throughout their lifecycle—from development to deployment and runtime. Azure provides comprehensive tools for secure development, testing, and protection of applications. For secure application development guidance, see [Develop secure applications on Azure](/azure/security/develop/secure-develop). For PaaS-specific security best practices, see [Securing PaaS deployments](paas-deployments.md). For IaaS deployment security, see [Security best practices for IaaS workloads in Azure](iaas.md).
 
 ### Penetration Testing
 
@@ -122,9 +169,9 @@ The first new feature is real-time state information about application pools, wo
 
 To enable the collection of these trace events, IIS 7 can be configured to automatically capture comprehensive trace logs in XML format for specific requests. The collection can be based on elapsed time or error response codes.
 
-## Storage
+## Storage security
 
-The section provides additional information regarding key features in Azure storage security and summary information about these capabilities. For detailed information on data encryption, see [Azure encryption overview](encryption-overview.md). For key management options, see [Key management in Azure](key-management.md).
+Storage security is essential for protecting your data at rest and in transit. Azure provides multiple layers of encryption, access controls, and monitoring capabilities to ensure your data remains secure. For detailed information on data encryption, see [Azure encryption overview](encryption-overview.md). For key management options, see [Key management in Azure](key-management.md). For data encryption best practices, see [Azure data security and encryption best practices](data-encryption-best-practices.md).
 
 ### Azure role-based access control (Azure RBAC)
 You can secure your storage account with [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce Security policies for data access. These access rights are granted by assigning the appropriate Azure role to groups and applications at a certain scope. You can use [Azure built-in roles](../../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users. Access to the storage keys for a storage account using the [Azure Resource Manager](../../storage/blobs/security-recommendations.md#data-protection) model can be controlled through Azure RBAC.
@@ -165,9 +212,9 @@ For many organizations, data encryption at rest is a mandatory step towards data
 
 Azure storage services now support CORS so that once you set the CORS rules for the service, a properly authenticated request made against the service from a different domain is evaluated to determine whether it's allowed according to the rules you have specified.
 
-## Networking
+## Network security
 
-The section provides additional information regarding key features in Azure network security and summary information about these capabilities. For comprehensive network security information, see [Azure network security overview](network-overview.md).
+Network security controls how traffic flows to and from your Azure resources. Azure provides a comprehensive set of network security services, from basic firewalling to advanced threat protection and global load balancing. For comprehensive network security information, see [Azure network security overview](network-overview.md). For network security best practices, see [Azure network security best practices](network-best-practices.md).
 
 ### Network Layer Controls
 
@@ -359,85 +406,88 @@ These features are divided into two main pillars:
 
 - **Security**: For clusters using Azure CNI Powered by Cilium, network policies include fully qualified domain name (FQDN) filtering for solving the complexities of maintaining configuration.
 
-- **Observability**: This feature of the Advanced Container Networking Services suite brings the power of Hubble’s control plane to both Cilium and non-Cilium Linux data planes, providing enhanced visibility into networking and performance.
+- **Observability**: This feature of the Advanced Container Networking Services suite brings the power of Hubble's control plane to both Cilium and non-Cilium Linux data planes, providing enhanced visibility into networking and performance.
 
-## Compute
+## Security operations and management
 
-The section provides additional information regarding key features in this area and summary information about these capabilities. For detailed virtual machine security information, see [Azure Virtual Machines security overview](virtual-machines-overview.md).
+Managing and monitoring the security of your Azure environment is essential for maintaining a strong security posture. Azure provides comprehensive tools for security operations, threat detection, and incident response. For detailed coverage of security management and monitoring, see [Azure security management and monitoring overview](management-monitoring-overview.md). For operational security best practices, see [Azure operational security best practices](operational-best-practices.md). For comprehensive operational security overview, see [Azure operational security overview](operational-overview.md).
 
-### Trusted launch
+### Microsoft Sentinel
 
-[Trusted launch](/azure/virtual-machines/trusted-launch) is the default for newly created Generation 2 Azure VMs and Virtual Machine Scale Sets. Trusted launch protects against advanced and persistent attack techniques including boot kits, rootkits, and kernel-level malware.
+[Microsoft Sentinel](/azure/sentinel/overview) is a scalable, cloud-native security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for attack detection, threat visibility, proactive hunting, and threat response.
 
-Trusted launch provides:
+Microsoft Sentinel is now available in the Microsoft Defender portal for all customers, offering a unified security operations experience that streamlines workflows and enhances visibility. The integration with Security Copilot enables analysts to interact with Microsoft Sentinel data using natural language, generate hunting queries, and automate investigations for faster threat response.
 
-* **Secure Boot**: Protects against installation of malware-based rootkits and boot kits by ensuring only signed operating systems and drivers can boot
-* **vTPM (virtual Trusted Platform Module)**: A dedicated secure vault for keys and measurements that enables attestation and boot integrity verification
-* **Boot Integrity Monitoring**: Uses attestation through Microsoft Defender for Cloud to verify boot chain integrity and alert on failures
+### Microsoft Defender for Cloud
 
-Trusted launch can be enabled on existing VMs and Virtual Machine Scale Sets.
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. Microsoft Defender for Cloud provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-### Azure confidential computing
+Microsoft Defender for Cloud offers comprehensive protection with workload-specific plans including:
+- **Defender for Servers** - Advanced threat protection for Windows and Linux servers
+- **Defender for Containers** - Security for containerized applications and Kubernetes
+- **Defender for Storage** - Threat detection with malware scanning and sensitive data discovery
+- **Defender for Databases** - Protection for Azure SQL, Azure Database for MySQL, and PostgreSQL
+- **Defender for AI Services** - Runtime protection for Azure AI services against jailbreak attempts, data exposure, and suspicious access patterns
+- **Defender CSPM** - Cloud Security Posture Management with attack path analysis, security governance, and AI security posture management
 
-[Azure confidential computing](/azure/confidential-computing/overview-azure-products) provides the final, missing piece, of the data protection puzzle. It allows you to keep your data encrypted always. While at rest, when in motion through the network, and now, even while loaded in memory and in use. Additionally, by making [Remote Attestation](/azure/attestation/overview) possible, it allows you to cryptographically verify that the VM you deploy booted securely and is configured correctly, before unlocking your data.
+In addition, Defender for Cloud helps with security operations by providing you with a single dashboard that surfaces alerts and recommendations that can be acted upon immediately. Security Copilot integration provides AI-generated summaries, remediation scripts, and delegation capabilities to accelerate risk remediation.
 
-The spectrum of options ranges from enabling "lift and shift" scenarios of existing applications, to full control of security features. For Infrastructure as a Service (IaaS), you can use:
+For comprehensive threat detection capabilities across Azure, see [Azure threat protection](threat-detection.md).
 
-- **[Confidential virtual machines powered by AMD SEV-SNP](/azure/confidential-computing/confidential-vm-overview)**: Hardware-based memory encryption with up to 256 GB encrypted memory
-- **[Confidential VMs with Intel TDX](/azure/confidential-computing/tdx-confidential-vm-overview)**: Intel Trust Domain Extensions providing enhanced performance and security
-- **[Confidential VMs with NVIDIA H100 GPUs](/azure/confidential-computing/confidential-vm-overview)**: GPU-accelerated confidential computing for AI/ML workloads
-- **[Confidential application enclaves with Intel SGX](/azure/confidential-computing/application-development)**: Application-level isolation for sensitive code and data
+### Azure Resource Manager
 
-For Platform as a Service (PaaS), Azure offers multiple [container-based confidential computing options](/azure/confidential-computing/choose-confidential-containers-offerings), including integrations with [Azure Kubernetes Service (AKS)](/azure/confidential-computing/confidential-nodes-aks-overview).
+[Azure Resource Manager](/azure/azure-resource-manager/management/overview) enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use an [Azure Resource Manager template](/azure/azure-resource-manager/templates/overview) for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
 
-### Antimalware & Antivirus
+Azure Resource Manager template-based deployments help improve the security of solutions deployed in Azure because standard security control settings and can be integrated into standardized template-based deployments. Templates reduce the risk of security configuration errors that might take place during manual deployments.
 
-With Azure IaaS, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to protect your virtual machines from malicious files, adware, and other threats. [Microsoft Antimalware](antimalware.md) for Azure Virtual Machines is a protection capability that helps identify and remove viruses, spyware, and other malicious software. Microsoft Antimalware provides configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems. Microsoft Antimalware can also be deployed using Microsoft Defender for Cloud.
+### Application Insights
 
-> [!NOTE]
-> For modern protection, consider [Microsoft Defender for Servers](/azure/defender-for-cloud/plan-defender-for-servers) which provides advanced threat protection including endpoint detection and response (EDR) through integration with Microsoft Defender for Endpoint.
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is a flexible Application Performance Management (APM) service designed for web developers. It enables you to monitor your live web applications and automatically detect performance issues. With powerful analytics tools, you can diagnose problems and gain insights into user interactions with your apps. Application Insights monitors your application continuously, from development through testing and into production.
 
-### Hardware Security Module
+Application Insights generates insightful charts and tables that reveal peak user activity times, app responsiveness, and the performance of any external services it relies on.
 
-Encryption and authentication don't improve security unless the keys themselves are protected. You can simplify the management and security of your critical secrets and keys by storing them in [Azure Key Vault](/azure/key-vault/general/overview). Key Vault provides the option to store your keys in hardware Security modules (HSMs) certified to [FIPS 140-3 Level 3](/azure/key-vault/keys/about-keys#compliance) standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Microsoft Entra ID](/entra/identity/).
+If there are crashes, failures, or performance issues, you can search through the data in detail to diagnose the cause. And the service sends you emails if there are any changes in the availability and performance of your app. Application Insight thus becomes a valuable security tool because it helps with the availability in the confidentiality, integrity, and availability security triad.
 
-For comprehensive information on key management options including Azure Key Vault, Managed HSM, and Payment HSM, see [Key management in Azure](key-management.md).
+### Azure Monitor
 
-### Virtual machine backup
+[Azure Monitor](/azure/azure-monitor/overview) offers visualization, query, routing, alerting, auto scale, and automation on data both from the Azure subscription ([Activity Log](/azure/azure-monitor/essentials/platform-logs-overview)) and each individual Azure resource ([Resource Logs](/azure/azure-monitor/essentials/platform-logs-overview)). You can use Azure Monitor to alert you on security-related events that are generated in Azure logs.
 
-[Azure Backup](/azure/backup/backup-overview) is a solution that protects your application data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications that can lead to security issues. With Azure Backup, your virtual machines running Windows and Linux are protected.
+### Azure Monitor logs
 
-### Azure Site Recovery
+[Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) provides an IT management solution for both on-premises and third-party cloud-based infrastructure (such as Amazon Web Services) in addition to Azure resources. Data from Azure Monitor can be routed directly to Azure Monitor logs so you can see metrics and logs for your entire environment in one place.
 
-An important part of your organization's [business continuity/disaster recovery (BCDR)](/azure/reliability/cross-region-replication-azure) strategy is figuring out how to keep corporate workloads and apps up and running when planned and unplanned outages occur. [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) helps orchestrate replication, failover, and recovery of workloads and apps so that they're available from a secondary location if your primary location goes down.
+Azure Monitor logs can be a useful tool in forensic and other security analysis, as the tool enables you to quickly search through large amounts of security-related entries with a flexible query approach. In addition, on-premises [firewall and proxy logs can be exported into Azure and made available for analysis using Azure Monitor logs.](/azure/azure-monitor/agents/agent-windows)
 
-### SQL VM TDE
+### Azure Advisor
 
-Transparent data encryption (TDE) and column level encryption (CLE) are SQL server encryption features. This form of encryption requires customers to manage and store the cryptographic keys you use for encryption.
+[Azure Advisor](/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you to optimize your Azure deployments. It analyzes your resource configuration and usage data. It then recommends solutions to help improve the [performance](/azure/advisor/advisor-performance-recommendations), [security](/azure/advisor/advisor-security-recommendations), and [reliability](/azure/advisor/advisor-high-availability-recommendations) of your resources while looking for opportunities to [reduce your overall Azure spend](/azure/advisor/advisor-cost-recommendations). Azure Advisor provides security recommendations, which can significantly improve your overall security posture for solutions you deploy in Azure. These recommendations are drawn from security analysis performed by [Microsoft Defender for Cloud.](/azure/defender-for-cloud/defender-for-cloud-introduction)
 
-The Azure Key Vault (AKV) service is designed to improve the security and management of these keys in a secure and highly available location. The SQL Server Connector enables SQL Server to use these keys from Azure Key Vault.
+## Identity and access management
 
-If you're running SQL Server with on-premises machines, there are steps you can follow to access Azure Key Vault from your on-premises SQL Server instance. But for SQL Server in Azure VMs, you can save time by using the Azure Key Vault Integration feature. With a few Azure PowerShell cmdlets to enable this feature, you can automate the configuration necessary for a SQL VM to access your key vault.
+Identity is the primary security perimeter in cloud computing. Protecting identities and controlling access to resources is fundamental to securing your Azure environment. Microsoft Entra ID provides comprehensive identity and access management capabilities. For detailed information, see [Azure identity management overview](identity-management-overview.md). For identity management best practices, see [Azure identity management and access control security best practices](identity-management-best-practices.md). For guidance on securing identity infrastructure, see [Five steps to securing your identity infrastructure](steps-secure-identity.md).
 
-For a comprehensive list of database security best practices, see [Azure database security checklist](database-security-checklist.md).
+### Microsoft Entra ID
 
-### VM Disk Encryption
+[Microsoft Entra ID](/entra/identity/) is Microsoft's cloud-based identity and access management service. It provides:
 
-[!INCLUDE [Azure Disk Encryption retirement notice](~/reusable-content/ce-skilling/azure/includes/security/azure-disk-encryption-retirement.md)]
+- **Single Sign-On (SSO)**: Enable users to access multiple applications with one set of credentials
+- **Multi-Factor Authentication (MFA)**: Require multiple forms of verification to sign in
+- **Conditional Access**: Control access to resources based on user, device, location, and risk
+- **Identity Protection**: Detect and respond to identity-based risks
+- **Privileged Identity Management (PIM)**: Provide just-in-time privileged access to Azure resources
+- **Identity Governance**: Manage identity lifecycle and access rights
 
-For modern virtual machine encryption, Azure offers:
+### Role-Based Access Control (RBAC)
 
-- **Encryption at host**: Provides end-to-end encryption for VM data, including temp disks and OS/data disk caches
-- **Confidential disk encryption**: Available with confidential VMs for hardware-based encryption
-- **Server-side encryption with customer-managed keys**: Manage your own encryption keys through Azure Key Vault
+Azure role-based access control (RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. RBAC provides fine-grained access management for Azure resources, enabling you to grant users only the rights they need to perform their jobs.
 
-For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
+### Microsoft Entra Privileged Identity Management
 
-### Virtual networking
+[Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/) enables you to manage, control, and monitor access to important resources in your organization. PIM provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions.
 
-Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is isolated from all other Azure Virtual Networks. This isolation helps ensure that network traffic in your deployments isn't accessible to other Microsoft Azure customers.
+### Managed Identities for Azure Resources
 
-### Patch Updates
+[Managed identities](/entra/identity/managed-identities-azure-resources/overview) for Azure resources provides Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code.
 
 Patch Updates provide the basis for finding and fixing potential problems and simplify the software update management process, both by reducing the number of software updates you must deploy in your enterprise and by increasing your ability to monitor compliance.
 
@@ -447,7 +497,7 @@ Patch Updates provide the basis for finding and fixing potential problems and si
 
 ## Identity and access management
 
-Securing systems, applications, and data begins with identity-based access controls. The identity and access management features that are built into Microsoft business products and services help protect your organizational and personal information from unauthorized access while making it available to legitimate users whenever and wherever they need it. For comprehensive identity management information, see [Azure identity management security overview](identity-management-overview.md).
+Securing systems, applications, and data begins with identity-based access controls. The identity and access management features that are built into Microsoft business products and services help protect your organizational and personal information from unauthorized access while making it available to legitimate users whenever and wherever they need it. For comprehensive identity management information, see [Azure identity management security overview](identity-management-overview.md). For identity management best practices, see [Azure identity management and access control security best practices](identity-management-best-practices.md). For guidance on securing identity infrastructure, see [Five steps to securing your identity infrastructure](steps-secure-identity.md).
 
 ### Secure Identity
 Microsoft uses multiple security practices and technologies across its products and services to manage identity and access.
