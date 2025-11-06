@@ -126,7 +126,7 @@ To associate the data collection rule to the Arc-enabled VMs, follow these steps
     
    :::image type="content" source="media/create-data-collection-rule/select-resources.png" alt-text="Screenshot showing the menu option to select resources from the data collection rule pane." lightbox="media/create-data-collection-rule/select-resources.png":::
     
-On the **Select a scope**, from **Resource types**, select *Machines-Azure Arc* that is connected to the subscription and then select **Apply** to associate the *ctdcr* to the Arc-enabled machine.
+   On the **Select a scope**, from **Resource types**, select *Machines-Azure Arc* that is connected to the subscription and then select **Apply** to associate the *ctdcr* to the Arc-enabled machine.
     
    :::image type="content" source="media/create-data-collection-rule/scope-select-arc-machines.png" alt-text="Screenshot showing the selection of Arc-enabled machines from the scope." lightbox="media/create-data-collection-rule/scope-select-arc-machines.png":::
     
@@ -142,7 +142,7 @@ To enable Change Tracking on a Linux machine using Azure Connected Machine exten
 
    **Windows**
 
-To enable Change Tracking on a Windows machine using Azure Connected Machine extension, use Azure CLI syntax for the below command:
+   To enable Change Tracking on a Windows machine using Azure Connected Machine extension, use Azure CLI syntax for the below command:
 
    ```azurecli
    az connectedmachine extension create  --name ChangeTracking-Windows  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
