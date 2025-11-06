@@ -18,7 +18,7 @@ Custom Windows containers don't have these restrictions. Developers can use cust
 Here's what you need to get started:
 
 - An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
-- [Azure Container Registry](/container-registry/container-registry-get-started-portal)
+- [Azure Container Registry](/azure/container-registry/container-registry-get-started-portal)
 - The [Azure CLI](/cli/azure/install-azure-cli)
 - [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 - To [Switch Docker to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
@@ -132,12 +132,12 @@ The App Service app pulls from the container registry each time it starts. If yo
 
 - [Configure a custom container](../../configure-custom-container.md)
 - [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
-- [Application monitoring for Azure App Service overview](/azure-monitor/app/azure-web-apps)
-- [Azure Monitor overview](/azure-monitor/overview)
+- [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Secure with a custom domain and certificate](../../tutorial-secure-domain-certificate.md)
 - [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
 - [Use private endpoints for App Service apps](../../networking/private-endpoint.md)
-- [Use Azure Container Registry with Azure Private Link](/container-registry/container-registry-private-link)
+- [Use Azure Container Registry with Azure Private Link](/azure/container-registry/container-registry-private-link)
 - [Migrate to a Windows container in Azure](../../tutorial-custom-container.md)
 - [Deploy a container with Azure Pipelines](../../deploy-container-azure-pipelines.md)
 - [Deploy a container with GitHub Actions](../../deploy-container-github-action.md)

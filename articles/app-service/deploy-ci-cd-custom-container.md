@@ -175,7 +175,7 @@ Select **Save** to save your settings.
 
 ## How CI/CD works with GitHub Actions
 
-If you select **GitHub Actions** from the [Select code source](#2-select-code-source) dropdown menu, App Service sets up CI/CD in the following ways:
+If you select **GitHub Actions** from the [Select code source](select-code-source) dropdown menu, App Service sets up CI/CD in the following ways:
 
 * It deposits a GitHub Actions workflow file into your GitHub repository to handle build and deploy tasks to App Service.
 * It adds the credentials for your private registry as GitHub secrets. The generated workflow file runs the [`Azure/docker-login`](https://github.com/Azure/docker-login) action to sign in with your private registry. It then runs `docker push` to deploy to it.
