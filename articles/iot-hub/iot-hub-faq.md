@@ -44,11 +44,11 @@ No, certificate management isn't available in existing hubs. You must create a n
 
 ## Can I use Azure Device Registry without certificate management?
 
-Yes. certificate management is an optional feature, you can use ADR to manage devices across multiple IoT hubs and choose to use other authentication methods, such as symmetric keys or third-party X.509 certificates. 
+Yes. Certificate management is an optional feature, you can use ADR to manage devices across multiple IoT hubs and choose to use other authentication methods, such as symmetric keys or third-party X.509 certificates. 
 
 ## Can I use certificate management without Azure Device Registry?
 
-No. certificate management is an optional feature of ADR, and thus it requires using ADR to manage device certificates. You must set up an ADR namespace and link it to your IoT Hub and DPS instance to use certificate management. For more information, see the section [How certificate management works](iot-hub-certificate-management-overview.md#how-certificate-management-works) in [What is certificate management?](iot-hub-certificate-management-overview.md).
+No. Certificate management is an optional feature of ADR, and thus it requires using ADR to manage device certificates. You must set up an ADR namespace and link it to your IoT Hub and DPS instance to use certificate management. For more information, see the section [How certificate management works](iot-hub-certificate-management-overview.md#how-certificate-management-works) in [What is certificate management?](iot-hub-certificate-management-overview.md).
 
 ## Can I use certificate management without Device Provisioning Service (DPS)?
 
@@ -56,15 +56,15 @@ No, certificate management relies on the Device Provisioning Service (DPS) for d
 
 ## What is the pricing model for IoT Hub with ADR and certificate management?
 
-During the preview period, IoT Hub with ADR and certificate management features enabled on top of IoT Hub are available **free of charge**. After the preview period, pricing details will be provided. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+During the preview period, IoT Hub with ADR integration and certificate management features enabled on top of IoT Hub are available **free of charge**. After the preview period, pricing details will be provided. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## What are the quotas and limits for IoT Hub with ADR and certificate management?
 
-IoT Hub with ADR and certificate management is only available in the **Free and S1 tiers**. For more information, see the standard tier operations section in [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md#standard-tier-operations).
+IoT Hub with ADR integration and certificate management is only available in the **Free and S1 tiers**. For more information, see the standard tier operations section in [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md#standard-tier-operations).
 
 ## What are the supported regions for IoT Hub with ADR and certificate management?
 
-IoT Hub with ADR and certificate management is available in the following regions:
+IoT Hub with ADR integration and certificate management is available in the following regions:
 
 - East US
 - East US 2
@@ -72,6 +72,3 @@ IoT Hub with ADR and certificate management is available in the following region
 - West US 2
 - West Europe
 - North Europe
-
-
-
