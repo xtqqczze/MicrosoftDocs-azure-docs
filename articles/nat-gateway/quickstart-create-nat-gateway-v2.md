@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: quickstart 
-ms.date: 09/08/2025
+ms.date: 11/06/2025
 ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
 # Customer intent: As a cloud engineer, I want to create a NAT gateway using various deployment methods, so that I can facilitate outbound internet connectivity for virtual machines in Azure.
 ---
@@ -37,6 +37,8 @@ In this quickstart, learn how to create a Standard V2 Azure NAT Gateway by using
   The steps in this quickstart run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
   You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
+
+### [CLI](#tab/cli)
 
 ---
 
@@ -77,6 +79,8 @@ $rsg = @{
 }
 New-AzResourceGroup @rsg
 ```
+
+### [CLI](#tab/cli)
 
 ---
 
@@ -178,6 +182,8 @@ $nat = @{
 $natGateway = New-AzNatGateway @nat
 ```
 
+### [CLI](#tab/cli)
+
 ---
 
 ### Zone redundant IPv4 prefix
@@ -265,6 +271,8 @@ $nat = @{
 }
 $natGateway = New-AzNatGateway @nat
 ```
+
+### [CLI](#tab/cli)
 
 ---
 
@@ -422,6 +430,8 @@ $nat = @{
 $natGateway = New-AzNatGateway @nat
 ```
 
+### [CLI](#tab/cli)
+
 ---
 
 ## Create virtual network and subnet configurations
@@ -505,6 +515,8 @@ $net = @{
 }
 $vnet = New-AzVirtualNetwork @net
 ```
+
+### [CLI](#tab/cli)
 
 ---
 
