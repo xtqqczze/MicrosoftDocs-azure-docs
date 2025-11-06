@@ -3413,7 +3413,7 @@ Sample response:
 }
 ```
 ## Troubleshooting
-To troubleshoot issues, review the `OEPDataplaneLogs` diagnostic logs in your Log Analytics workspace. These logs provide detailed information about RAFS DDMS operations and can help identify errors or unexpected behavior.
+To troubleshoot issues, review the `OEPDataplaneLogs` diagnostic logs in your Log Analytics workspace. These logs provide detailed information about RAFS DDMS operations and can help identify errors or unexpected behavior. In the Azure portal, navigate to your Azure Data Manager for Energy resource, select **Diagnostic settings** under the **Monitoring** section, and then choose the `Rock and Fluid Samples DDMS Logs` category.
 
 **Sample Kusto query:**
 
