@@ -96,11 +96,11 @@ App Service appends the string in **Startup File** to [the end of the `docker ru
 
 ::: zone-end
 
-1. If you select a private image, specify the **Login** (username) and **Password** values for the Docker account.
+2. If you select a private image, specify the **Login** (username) and **Password** values for the Docker account.
 
 ::: zone pivot="container-windows"
 
-1. Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can choose to type the startup command in **Startup File**.
+3. Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can choose to type the startup command in **Startup File**.
 
 ::: zone-end
 ::: zone pivot="container-linux"
@@ -122,7 +122,7 @@ App Service appends the string in **Startup File** to [the end of the `docker ru
 
 ::: zone pivot="container-windows"
 
-1. Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can type the startup command in **Startup File**.
+3. Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can type the startup command in **Startup File**.
 
 ::: zone-end
 ::: zone pivot="container-linux"
