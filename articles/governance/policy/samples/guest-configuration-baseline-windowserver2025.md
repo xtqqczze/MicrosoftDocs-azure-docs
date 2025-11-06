@@ -7,7 +7,7 @@ ms.author: amirbredy
 ms.topic: reference
 ms.custom: generated
 ---
-# Windows security baseline for Server 2025
+# Windows security baseline for Windows Server 2025
 
 This article details the configuration settings for Linux guests as applicable in the following
 implementations:
@@ -18,7 +18,7 @@ implementations:
 
 For the remediation checks and suggestions we took a best practices approach - however please always ensure that the commands will be tested and not applied blindly in any production environment.
 
-The new release of the policy for both audit and remediation is powered by [OSConfig](https://learn.microsoft.com/en-us/azure/osconfig/osconfig-overview)  our open-source engine.
+The new release of the policy for both audit and remediation is powered by [OSConfig](https://learn.microsoft.com/en-us/azure/osconfig/osconfig-overview)  our engine.
 
 For more information, see [Azure Policy guest configuration](../concepts/guest-configuration.md) and
 [Overview of the Azure Security Benchmark (V2)](/azure/security/benchmarks/overview).
