@@ -165,8 +165,10 @@ Enhanced churn support for 500 MB/s is currently available in the following regi
 - West Central US
 - Central US
 - North Central US
-- West US, East US 2
+- West US
 - West US 2
+- West US 3
+- East US 2
 - East Asia
 - Southeast Asia
 - Australia East
