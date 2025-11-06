@@ -11,12 +11,14 @@ ms.custom: generated
 
 ## Introduction
 
-The Center for Internet Security (CIS) benchmarks are globally recognized security configuration guidelines for hardening systems and applications. CIS benchmarks provide two implementation levels:
+The Center for Internet Security (CIS) Benchmarks are globally recognized security configuration guidelines for hardening systems and applications. CIS benchmarks provide two implementation levels:
 
 - **Level 1 (L1)**: Essential security configurations that provide a clear security benefit without significant impact on functionality
 - **Level 2 (L2)**: More stringent security configurations intended for environments requiring higher security, potentially with some impact on functionality or usability
 
 This page documents Azure's new capability offering built-in CIS Benchmarks to your workloads which you can tailor to your needs.
+
+Our implementation is in parity with what has been published at the CIS website and you can find the benchmark contents under the following [link](https://www.cisecurity.org/cis-benchmarks). 
 
 ## Using CIS Benchmarks in Azure
 
