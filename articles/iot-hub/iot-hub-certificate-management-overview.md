@@ -35,13 +35,13 @@ The following features are supported with certificate management for IoT Hub dev
 | At-scale provisioning of leaf certificates | The policies defined in your ADR namespace are directly linked to a Device Provisioning Service enrollment group to be used at the time of certificate provisioning.|
 | Syncing of CA chains with IoT Hubs | The policies defined in your ADR namespace will be synced to the appropriate IoT Hub. This will enable IoT Hub to trust any devices authenticating with an end-entity certificate. |
 
-## Onboarding vs. Operational Credentials
+## Onboarding vs. operational credentials
 
 Today, certificate management supports issuance and renewal for end-entity **operational certificates**.
 
-- **Onboarding Credential:** To use certificate management, devices must be provisioned via Device Provisioning Service (DPS). For a device to provision with DPS, it must onboard and authenticate using one of the supported types of [onboarding credentials](../iot-dps/concepts-service.md#attestation-mechanism), which includes X.509 certificates (procured from a third-party CA), symmetric keys, and Trusted Platform Modules (TPM). These credentials are conventionally installed onto the device before it is shipped.
+- **Onboarding credential:** To use certificate management, devices must be provisioned via Device Provisioning Service (DPS). For a device to provision with DPS, it must onboard and authenticate using one of the supported types of [onboarding credentials](../iot-dps/concepts-service.md#attestation-mechanism), which includes X.509 certificates (procured from a third-party CA), symmetric keys, and Trusted Platform Modules (TPM). These credentials are conventionally installed onto the device before it is shipped.
 
-- **Operational Certificate:** An end-entity operational certificate is a type of operational credential issued to the device by an issuing CA once the device has been provisioned by DPS. Unlike onboarding credentials, these certificates are typically short-lived and renewed frequently or as needed during device operation. Once the device is provisioned, the device can use its operational certificate chain to authenticate directly with IoT Hub and conduct operations. Today, certificate management only provides the operational certificate.
+- **Operational certificate:** An end-entity operational certificate is a type of operational credential issued to the device by an issuing CA once the device has been provisioned by DPS. Unlike onboarding credentials, these certificates are typically short-lived and renewed frequently or as needed during device operation. Once the device is provisioned, the device can use its operational certificate chain to authenticate directly with IoT Hub and conduct operations. Today, certificate management only provides the operational certificate.
 
 ## How certificate management works
 
