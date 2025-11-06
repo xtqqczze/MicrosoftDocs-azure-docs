@@ -533,6 +533,6 @@ Additional articles about Azure Policy and guest configuration:
 
 - [Azure Policy guest configuration](../concepts/guest-configuration.md).
 - [Regulatory Compliance](../concepts/regulatory-compliance.md) overview.
-- Review baseline content for Windows Server 2025[Azure Policy samples](/azure/governance/policy/samples/guest-configuration-baseline-windowserver2025.md).
+- Review baseline content for Windows Server 2025 [Windows 2025 Security](azure-docs-pr/articles/governance/policy/samples/guest-configuration-baseline-windowserver2025.md).
 - Review [Understanding policy effects](../concepts/effects.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
