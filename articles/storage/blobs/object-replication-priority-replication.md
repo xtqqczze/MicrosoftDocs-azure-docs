@@ -49,7 +49,7 @@ When Object Replication Priority Replication is enabled, users benefit from prio
 Refer to the official [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
 
 > [!IMPORTANT]
-> Although a storage account can have up to two object replication policies, priority replication can only be enabled on one object replication policy per storage account. Users should plan accordingly when deciding to opt out of Priority replication, especially if the feature was enabled for critical workloads.
+> Although a storage account can have up to two object replication policies, priority replication can only be enabled on one object replication policy per source storage account. Users should plan accordingly when deciding to opt out of Priority replication, especially if the feature was enabled for critical workloads.
 
 ## Feature pricing
 
@@ -110,7 +110,7 @@ $srcAccountResourceID = "<source-account-resourceID"
 $srcContainer         = "<source-container-name>"
 $destContainer        = "<destination-container-name>"
 
-# Create a new destination poilcy with priority replication enabled 
+# Create a new destination policy with priority replication enabled
 $rule1 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainer `
     -DestinationContainer $destContainer 
 $destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
@@ -119,7 +119,7 @@ $destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
     -Rule $rule1 -EnableMetric $true -EnablePriorityReplication $true
  
 # Set OR policy on the source account
-$srcPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -StorageAccountName $srcAccountName -InputObject $destPolicy -Debug
+$srcPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -StorageAccountName $srcAccountName -InputObject $destPolicy
  
 # Confirm OR priority replication is enabled
 $srcPolicy.PriorityReplication.Enabled
@@ -193,7 +193,7 @@ $rgname               = "<resource-group-name>"
 $newAccountName       = "<new-account-name>"
 $destAccountName      = "<destination-account-name>"
 $srcAccountName       = "<source-account-name>"
-$srcAccountResourceID = "<Source-account-ResourceID"
+$srcAccountResourceID = "<source-account-resourceID"
 $srcContainer         = "<source-container-name>"
 $destContainer        = "<destination-container-name>"
 
@@ -211,7 +211,7 @@ $destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -S
  
 $srcPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -StorageAccountName $srcAccountName -InputObject $destPolicy -Debug
  
-#Confirm OR Priority Replication is Enabled
+#Confirm OR Priority Replication is enabled
 $srcPolicy.PriorityReplication.Enabled
 
 ```
@@ -228,7 +228,7 @@ $destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -S
  
 $srcPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -StorageAccountName $srcAccountName -InputObject $destPolicy -Debug
  
-#Confirm that OR Priority Replication is Disabled
+#Confirm that OR Priority Replication is disabled
 $srcPolicy.PriorityReplication.Enabled
 
 ```

@@ -53,7 +53,11 @@ Object replication is not supported for blobs that are uploaded by using [Data L
 Object replication asynchronously copies block blobs in a container according to rules that you configure. The contents of the blob, any versions associated with the blob, and the blob's metadata and properties are all copied from the source container to the destination container.
 
 > [!IMPORTANT]
-> Because block blob data is replicated asynchronously, the source account and destination account are not immediately in sync. There's currently no SLA on how long it takes to replicate data to the destination account. You can check the replication status on the source blob to determine whether replication is complete. For more information, see [Check the replication status of a blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
+> Because block blob data is replicated asynchronously, the source account and destination account are not immediately in sync. 
+>
+> OR now supports priority replication which prioritizes the replication of the operations in a OR Policy. This is backed by an SLA when the source and destination account of the OR policy are located within the same continent. To learn more about priority replication, visit the [Object Replication Priority Replication](object-replication-priority-replication.md) article.
+>
+> You can also check the replication status on the source blob to determine whether replication is complete. For more information, see [Check the replication status of a blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
 
 ### Blob versioning
 
@@ -195,11 +199,6 @@ By default, the **AllowCrossTenantReplication** property is set to false for a s
 You can use Azure Policy to audit a set of storage accounts to ensure that the **AllowCrossTenantReplication** property is set to prevent cross-tenant object replication. You can also use Azure Policy to enforce governance for a set of storage accounts. For example, you can create a policy with the deny effect to prevent a user from creating a storage account where the **AllowCrossTenantReplication** property is set to *true*, or from modifying an existing storage account to change the property value to *true*.
 
 ## Replication metrics
-> [!IMPORTANT]
-> Object replication metrics is currently in PREVIEW and available in all regions.
-> To opt in to the preview, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowObjectReplicationMetrics as the feature name. The provider name for this preview feature is Microsoft.Storage.
-> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Object replication supports two metrics to provide you with insights into the replication progress:
 
