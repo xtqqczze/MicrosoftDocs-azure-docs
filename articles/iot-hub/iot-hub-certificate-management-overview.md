@@ -69,10 +69,10 @@ The following image illustrates the X.509 certificate hierarchy used to authenti
 
 ### Device Provisioning Service integration
 
-For devices to receive leaf certificates, devices must be provisioned through [Device Provisioning Service (DPS)](../iot-dps/index.yml). You need to configure either **individual or group enrollment**, which includes:
+For devices to receive leaf certificates, devices must be provisioned through [Device Provisioning Service (DPS)](../iot-dps/index.yml). You need to configure either **individual or group enrollment**, which includes defining:
 
-- Selecting the specific method for device [onboarding authentication](../iot-dps/concepts-service.md#attestation-mechanism). Supported methods are Trusted Platform Module (TPM), symmetric keys, or X.509 certificates.
-- Selecting a policy that was created within your ADR namespace. This policy will sign and issue leaf certificates to devices provisioned by this enrollment.
+- The specific [attestation method for device onboarding](../iot-dps/concepts-service.md#attestation-mechanism). Supported methods are Trusted Platform Module (TPM), symmetric keys, or X.509 certificates.
+- The specific policy that was created within your ADR namespace. This policy will sign and issue leaf certificates to devices provisioned by this enrollment.
 
 Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT devices generate a **Certificate Signing Request (CSR)** containing their public key and identity to prove key ownership. The CSR is sent to DPS and the PKI, which validates the request and forwards it to the appropriate **issuing CA (ICA)** to issue signed X.509 certificate. For more information on DPS Certificate Signing Request, check out some the [DPS Device SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
 
