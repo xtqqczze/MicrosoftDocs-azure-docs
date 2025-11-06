@@ -23,7 +23,7 @@ The setup process in this article includes the following steps:
 1. Create an enrollment group and link to your policy to enable device onboarding.
 
 > [!IMPORTANT]
-> During the preview period, IoT Hub with ADR and Certificate Management features enabled on top of IoT Hub are available **free of charge**. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+> During the preview period, IoT Hub with ADR integration and certificate management features enabled on top of IoT Hub are available **free of charge**. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## Prepare your environment
 
@@ -221,7 +221,7 @@ To provision devices with leaf certificates, you need to create an enrollment gr
 az iot dps enrollment-group create --dps-name <DPS_NAME> --resource-group <RESOURCE_GROUP> --enrollment-id <ENROLLMENT_ID> --credential-policy <POLICY_NAME>
 ```
 
-Your IoT Hub with ADR and Certificate Management integration is now set up and ready to use.
+Your IoT Hub with ADR integration and certificate management is now set up and ready to use.
 
 ## Manage and clean up resources
 
