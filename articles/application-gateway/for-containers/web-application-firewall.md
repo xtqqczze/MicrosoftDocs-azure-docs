@@ -135,9 +135,13 @@ spec:
 
 The following functionality is not supported on an Azure Web Application Firewall policy that's associated with Application Gateway for Containers:
 
-* Azure Web Application Firewall integration in Microsoft Security Copilot
-* JavaScript challenge actions
-* Core Rule Set (CRS) 3.2 and earlier rule sets
-
-> [!NOTE]
-> The association of Application Gateway for Containers with Azure Web Application Firewall is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+- **Cross-region, cross-subscription policy**: Your WAF policy must be in the same subscription and region as your Application Gateway for Containers resource.
+- **Core Rule Set (CRS) managed rules**: An Application Gateway for Containers WAF supports only Default Rule Set (DRS) managed rule sets.
+- **Default Rule Set (DRS) 2.2 managed ruleset**: Default Ruleset 2.2 isn't supported, but earlier versions of the DRS ruleset are supported.
+- **Legacy Bot Manager Rule Set**: Bot Manager Ruleset 0.1 isn't supported, but all newer Bot Manager Ruleset versions are supported.
+- **DDoS Managed Ruleset**: DDoS Managed Ruleset isn't supported, you will not be able to use this ruleset with your Application Gateway for Containers WAF resource.
+- **JavaScript challenge actions on Bot Manager rules**: You can't set the action on a Bot Manager rule to JavaScript challenge.
+- **Captcha challenge actions on Bot Manager rules**: You can't set the action on a Bot Manager rule to Captcha.
+- **Microsoft Security Copilot**: The Security Copilot is not supported on Application Gateway for Containers WAF.
+- **Custom Block Response**: Setting a custom block response in your WAF policy is not supported on Application Gateway for Containers WAF.
+- **X-Forwarded-For Header (XFF)**: Application Gateway for Conatiners WAF does not support the XFF variable in custom rules.
