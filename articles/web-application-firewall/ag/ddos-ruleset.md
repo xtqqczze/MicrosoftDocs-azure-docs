@@ -12,24 +12,22 @@ ms.date: 11/18/2025
 # HTTP DDoS ruleset (preview)
 
 > [!IMPORTANT]
-> HTTP DDoS ruleset in the Application Gateway Web Application Firewall (WAF) is currently in PREVIEW.
+> HTTP DDoS ruleset in the Azure Application Gateway Web Application Firewall (WAF) is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-
-HTTP‑layer floods remain the most frequent driver of application availability incidents, and static controls (IP/geo filters, fixed rate limits) often can’t keep pace with distributed botnets. The new HTTP DDoS ruleset is Azure WAF's first automated layer 7 protection model that learns, detects, and defends with minimal user configuration. Once assigned, the ruleset continuously baselines normal traffic for each application gateway and when surges indicate an attack, selectively blocks offending clients with no emergency tuning required.
+HTTP‑layer floods remain the most frequent driver of application availability incidents, and static controls (IP/geo filters, fixed rate limits) often can't keep pace with distributed botnets. The new HTTP DDoS ruleset is Azure Web Application Firewall's (WAF) first automated layer 7 protection model that learns, detects, and defends with minimal user configuration. Once assigned, the ruleset continuously baselines normal traffic for each application gateway and when surges indicate an attack, selectively blocks offending clients with no emergency tuning required.
 
 ## How HTTP DDoS ruleset works
 
 Once the HTTP DDoS ruleset is applied to a policy that's attached to a gateway, traffic baselines are learned for a minimum of 24 hours. The ruleset doesn't detect or block attacks until the 24-hour learning phase is completed.
 
-Request thresholds are learned at the global gateway level. If a single WAF policy configured with the HTTP DDoS ruleset is assigned to multiple gateways, the traffic thresholds are computed separately for each gateway the policy is attached to.
+Request thresholds are learned at the global gateway level. If a single WAF policy configured with the HTTP DDoS ruleset is assigned to multiple gateways, the traffic thresholds are computed separately for each gateway to which the policy is attached.
 
 The HTTP DDoS ruleset learns both a global gateway threshold and individual IP-based thresholds. IP-based thresholds are only enforced when the global gateway threshold for requests is exceeded. Once the gateway threshold is breached, any IP address that exceeds its learned baseline is placed in the penalty box. This design prevents the ruleset from blocking spikes from individual IP addresses when the total request rate to the gateway doesn't cross the threshold.
 
-Each rule in the HTTP DDoS ruleset has three sensitivity levels, each corresponding to different detection thresholds. A high sensitivity setting means to have a lower threshold for that rule, and a low sensitivity means to have a higher threshold. Medium sensitivity is the default and recommended setting.
+Each rule in the HTTP DDoS ruleset offers three sensitivity levels, each corresponding to a different threshold. A higher sensitivity setting applies a lower threshold for that rule, while a lower sensitivity setting applies a higher threshold. Medium sensitivity is the default and recommended setting.
 
-The HTTP DDoS ruleset is the first ruleset evaluated by the Azure WAF, even before the custom rules.
-
+The HTTP DDoS ruleset is the first ruleset evaluated by the Azure WAF, even before custom rules.
 
 > [!IMPORTANT]
 > Any custom rules configured with *Allow* action won't bypass the HTTP DDoS ruleset, but will bypass all other WAF inspections.
