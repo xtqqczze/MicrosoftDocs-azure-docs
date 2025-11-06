@@ -43,7 +43,7 @@ landingContent:
         links:
           - text: Create Data Collection Rule
             url: create-data-collection-rule.md
-          - text: Enable Azure CTI from machines pane
+          - text: Enable Azure CTI at scale using Azure portal
             url: enable-change-tracking-at-scale-machines-blade.md
           - text: Enable CTI at scale using Azure policy
             url: enable-change-tracking-at-scale-policy.md

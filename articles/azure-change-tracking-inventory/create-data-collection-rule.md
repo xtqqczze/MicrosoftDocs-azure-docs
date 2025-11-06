@@ -17,7 +17,7 @@ When you enable Change Tracking in the Azure portal using the Azure Monitoring A
 
 This article explains how to explicitly create a Data Collection Rule for Azure Change Tracking and Inventory (CTI).
 
-To enable Azure CTI from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
+To enable Azure CTI from the Azure portal, see [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
 
 ## Create DCR
 
@@ -52,5 +52,5 @@ To create a DCR, follow these steps:
 
 ## Next steps
 
-- For details of working with the feature, see [Create DCR](../azure-change-tracking-inventory/create-data-collection-rule.md).
+- For detailed information on how to create the DCR, see [Create DCR](../azure-change-tracking-inventory/create-data-collection-rule.md).
 - To troubleshoot general problems with the feature, see [Troubleshoot Azure CTI issues](../automation/troubleshoot/change-tracking.md).

@@ -44,7 +44,7 @@ To enable Azure CTI for a single Azure VM using Azure portal, follow these steps
 
    :::image type="content" source="media/create-data-collection-rule/select-virtual-machine-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/create-data-collection-rule/select-virtual-machine-portal-expanded.png":::
 
-1. Select the virtual machine for which you want to enable Change Tracking.
+Select the virtual machine for which you want to enable Change Tracking.
 
 1. In the search bar, enter **Change tracking**. Select **Change tracking** to view the **Change Tracking and Inventory** pane.
 
@@ -104,7 +104,7 @@ To enable Azure CTI for multiple Azure VMs using portal, follow these steps:
 
 1. On the **Enable Change Tracking** pane, you can view the list of machines that are enabled, ready to be enabled and the ones that you can't enable. You can use the filters to select the **Subscription**, **Location**, and **Resource groups**. You can select a maximum of three resource groups.
 
-   :::image type="content" source="media/create-data-collection-rule/change-tracking-status-inline.png" alt-text="Screenshot showing the status of multiple VM." lightbox="media/create-data-collection-rule/change-tracking-status-expanded.png":::
+   :::image type="content" source="media/create-data-collection-rule/change-tracking-status-inline.png" alt-text="Screenshot showing the status of multiple VMs." lightbox="media/create-data-collection-rule/change-tracking-status-expanded.png":::
 
 1. Select **Enable** to initiate the deployment. This step initiates the setup because, during enablement, the customer assigns a DCR, which defines the logging rules required to begin data collection.
 
@@ -116,7 +116,7 @@ To enable the Azure CTI on Arc-enabled servers, ensure that the custom Change Tr
 
 To associate the data collection rule to the Arc-enabled VMs, follow these steps:
 
-1. [Create Change Tracking Data collection rule](/azure/automation/change-tracking/enable-vms-monitoring-agent?tabs=singlevm%2Cmultiplevms&pivots=single-portal&branch=pr-en-us-307064#create-data-collection-rule). You can also use an existing DCR that collects data for Change Tracking and Inventory. These rules are part of Azure Monitor, which helps you manage and monitor your systems.
+1. [Create Change Tracking Data collection rule](create-data-collection-rule.md). You can also use an existing DCR that collects data for Change Tracking and Inventory. These rules are part of Azure Monitor, which helps you manage and monitor your systems.
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Monitor** and under **Settings**, select **Data Collection Rules**.
       
    :::image type="content" source="media/create-data-collection-rule/monitor-menu-data-collection-rules.png" alt-text="Screenshot showing the menu option to access data collection rules from Azure Monitor." lightbox="media/create-data-collection-rule/monitor-menu-data-collection-rules.png":::
@@ -134,7 +134,7 @@ On the **Select a scope**, from **Resource types**, select *Machines-Azure Arc* 
     
    **Linux**
 
-To enable Change Tracking on a Linux machine using Azure Connected Machine extension, run the following command:
+To enable Change Tracking on a Linux machine using Azure Connected Machine extension, use Azure CLI syntax for the below command:
        
    ```azurecli
    az connectedmachine extension create  --name ChangeTracking-Linux  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Linux  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
@@ -142,7 +142,7 @@ To enable Change Tracking on a Linux machine using Azure Connected Machine exten
 
    **Windows**
 
-To enable Change Tracking on a Windows machine using Azure Connected Machine extension, run the following command:
+To enable Change Tracking on a Windows machine using Azure Connected Machine extension, use Azure CLI syntax for the below command:
 
    ```azurecli
    az connectedmachine extension create  --name ChangeTracking-Windows  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
@@ -152,5 +152,5 @@ To enable Change Tracking on a Windows machine using Azure Connected Machine ext
 
 ## Next steps
 
-* To create data collection rule (DCR), see [Create data collection rule](/azure/automation/change-tracking/enable-vms-monitoring-agent?tabs=singlevm%2Cmultiplevms&pivots=single-portal&branch=pr-en-us-307064#create-data-collection-rule).
+* To create data collection rule (DCR), see [Create data collection rule](create-data-collection-rule.md).
 * To track changes on both Windows and Linux, see [support matrix and regions](../azure-change-tracking-inventory/change-tracking-inventory-support-matrix.md).

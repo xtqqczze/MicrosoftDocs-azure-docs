@@ -45,7 +45,7 @@ Here are the key benefits:
 - **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](/azure/azure-monitor/agents/azure-monitor-agent-migration) so that all VMs point to a single workspace for data collection and maintenance.
 - **Rules management** – Uses [Data Collection Rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
 
-For information on supported operating systems, see [support matrix](../azure-change-tracking-inventory/change-tracking-inventory-support-matrix.md) for Azure CTI.
+For information on supported operating systems, see [support matrix and regions](../azure-change-tracking-inventory/change-tracking-inventory-support-matrix.md) for Azure CTI.
 
 ## Enable Azure Change Tracking and Inventory
 

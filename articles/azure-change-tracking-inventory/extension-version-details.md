@@ -17,7 +17,7 @@ author: jasminemehndir
 This article provides the release notes for Azure Change Tracking and Inventory extensions.
 
 
-## Release Notes for Extension
+## Release notes for extension
 
 ### Extension version 2.29.0.0
 

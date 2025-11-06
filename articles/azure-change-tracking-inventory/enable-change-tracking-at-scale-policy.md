@@ -18,7 +18,7 @@ This article provides detailed procedure on how to enable Azure Change Tracking 
 
 ## Prerequisite
 
-Before you enable Azure CTI, ensure you create a data collection rule (DCR) or have some existing:
+Before you enable Azure CTI, ensure you create a data collection rule (DCR) or use an existing one:
 
 [Create the data collection rule](create-data-collection-rule.md).
 
@@ -57,7 +57,7 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 
 
 1. Select **Enable Change Tracking and Inventory for virtual machines** to enable the change tracking on Azure virtual machines.
-   This initiative includes three policies, each determined by the operating system type of the selected machine:
+   This step includes three policies, each determined by the operating system type of the selected machine:
 
    - Assign Built in User-Assigned Managed identity to Virtual machines
    - Configure ChangeTracking Extension for Windows virtual machines

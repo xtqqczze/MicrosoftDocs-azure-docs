@@ -175,8 +175,8 @@ The following table lists the supported regions and mappings:
 |**US Gov** <sup>1</sup>| US Gov Virginia </br> US Gov Arizona |
 |**US**| East US</br> East US2</br> West US </br> West US2 </br> North Central US </br> Central US </br> South Central US </br> West Central US|
 
-<sup>1</sup> Currently, in this region, we support onboarding via Azure portal and onboarding via policy will soon be supported.
+<sup>1</sup> Currently, onboarding is supported only through the Azure portal.
 
 ## Next steps
 
-To enable Azure CTI from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](/azure/azure-change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory).
+To enable Azure CTI from the Azure portal, see [Quickstart: Enable Azure Change Tracking and Inventory](/azure/azure-change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory).

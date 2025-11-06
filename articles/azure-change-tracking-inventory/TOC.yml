@@ -20,7 +20,7 @@
   items:
     - name: Create Data Collection Rule
       href: create-data-collection-rule.md
-    - name: Enable Azure CTI from machines pane
+    - name: Enable Azure CTI at scale using Azure portal
       href: enable-change-tracking-at-scale-machines-blade.md
     - name: Enable Azure CTI at scale using Azure policy
       href: enable-change-tracking-at-scale-policy.md
