@@ -40,9 +40,8 @@ To review the pool association recommendations for your unmanaged virtual networ
 1. Navigate to your network manager instance.
 1. Select the IP Address Management dropdown from the left-hand menu, then select **Pool Association Recommendation**.
 1. You see a list of unmanaged virtual networks along with recommended IPAM pools for association.
-1. Select a virtual network from the list to view detailed recommendations.
 
-The available recommendations include:
+The possible recommendation outcomes are:
 
 - **Single pool recommended** - A single pool recommended containing the entire address space of the virtual network
 - **Two pools recommended** - Two pools recommended, one to contain the entire IPv4 space, and the second to contain the entire IPv6 space, of the dual-stack virtual network
@@ -54,7 +53,7 @@ To associate virtual networks to the recommended IPAM pools, follow these steps:
 
 1. Select the virtual networks you want to associate with the recommended IPAM pools. This can be done individually or by bulk selection using the checkbox in the table header.
     1. You can select up to 100 virtual networks to associate in bulk.
-1. After selecting your desired virtual network, select **Associate** in the top left hand corner. If the association request doesn't overlap with other concurrent requests, it succeeds and displays a success message in your notifications.
+1. After selecting your desired virtual networks' pool recommendations, select **Associate** in the top left hand corner. If the association request doesn't overlap with other concurrent requests, it succeeds and displays a success message in your notifications.
 
 ### Observe new associations
 
@@ -67,13 +66,11 @@ After initiating the association process, follow these steps to monitor the prog
 
 To change the pool recommendation for a specific unmanaged virtual network, use the following steps:
 
-1. In the **Pool association recommendation** window, select the virtual network you want to change the recommendation for from the table.
+1. In the **Pool association recommendation** window, select the pool recommendation you want to change from the table.
 1. In the **Edit Recommended Pool(s)** window, select new pool association from the list. Choose one option for each IP version. 
 1. Select **Save** to apply your changes.
 
 ### Filter recommendations
-
-You can customize the view of your pool association recommendations using various filters. This helps you quickly find specific virtual networks or focus on certain criteria.
 
 You can filter the recommendations you see by using one or more of the following criteria:
 
