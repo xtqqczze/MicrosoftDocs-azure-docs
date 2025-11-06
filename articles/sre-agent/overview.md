@@ -36,11 +36,41 @@ SRE Agent combines fine-tuned Azure expertise with full customization capabiliti
 
 ## Integrations
 
-Azure SRE Agent integrates with the following services:
+Azure SRE Agent integrates with your operational ecosystem: 
 
-- **Incidents and work**: [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview), [PagerDuty](https://www.pagerduty.com/), [ServiceNow](https://www.servicenow.com/)
+**Monitoring & Observability:** 
 
-- **Source code**: GitHub, Azure DevOps
+- Azure Monitor (metrics, logs, alerts, workbooks) 
+
+- Application Insights 
+
+- Log Analytics 
+
+- Grafana 
+
+
+**Incident Management:**
+
+- Azure Monitor Alerts 
+
+- PagerDuty 
+
+- ServiceNow 
+
+
+**Source Control & CI/CD:**
+
+- GitHub (repositories, issues) 
+
+- Azure DevOps (repos, work items) 
+
+
+**Data Sources:**
+
+- Azure Data Explorer (Kusto) clusters 
+
+- Model Context Protocol (MCP) servers
+  
 
 ## Get started
 
@@ -75,6 +105,16 @@ Create a schedule task to run on a schedule you define.
 1. Send a test incident to validate enrichment, RCA, and automation flow.
 
 1. Review incident context, RCA timeline, and proposed mitigations.
+
+# [Build a Sub-Agent](#tab/subagent)
+Build custom operational agents, tools, and integrations using a visual no-code interface. Extend the agent's capabilities with specialized sub-agents for different operational domains. 
+
+- Create purpose-built sub-agents for specific operational areas (database, network, security)
+- Connect your observability tools and knowledge sources via Model Context Protocol (MCP) servers
+- Build custom tools that query Kusto, or integrate with internal/external systems via MCP servers
+- Define agent handoff workflows for complex multi-domain incidents
+- Test your sub-agent's performance using the playground feature inside Sub-Agent Builder
+- Refine the sub-agent workflow until your operational needs are met
 
 ---
 
