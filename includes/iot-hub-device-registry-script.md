@@ -25,7 +25,7 @@ The script includes the following resources:
 > [!IMPORTANT]
 > During the preview period, IoT Hub with ADR integration and certificate management features enabled on top of IoT Hub are available **free of charge**. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-## Prepare your Environment
+## Prepare your environment
 
 Navigate to the [GitHub repository](https://github.com/Azure-Samples/iot-hub-adr-cert-mgmt-preview/tree/main/scripts) and download the **Scripts** folder, which contains the script file, `iothub-adr-certs-setup-preview.ps1`.
 
