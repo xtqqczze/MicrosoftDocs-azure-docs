@@ -4,20 +4,23 @@ titleSuffix: Azure Application Gateway
 description: Learn how to configure JSON Web Token (JWT) validation in Azure Application Gateway to enforce authentication and authorization policies.
 author: rnautiyal
 ms.author: rnautiyal
-ms.service: application-gateway
+ms.reviewer: mbender
+ms.service: azure-application-gateway
 ms.topic: conceptual
-ms.date: 10/22/2025
+ms.date: 11/06/2025
 ---
 
 # JSON Web Token (JWT) validation in Azure Application Gateway (Preview)
 
 ## Overview
-Azure Application Gateway provides built-in JSON Web Token (JWT) validation at the gateway routing layer. This capability verifies the integrity and validity of tokens in incoming requests and makes an allow-or-deny decision before forwarding traffic to backend services. Upon successful validation, the gateway adds the `x-msft-entra-identity` header and passes it to the backend.
 
-By performing token validation at the edge, Application Gateway helps simplify application architecture and enhance overall security posture. JWT validation in Application Gateway is stateless—each request must include a valid token for access to be granted. No session or cookie-based state is maintained, ensuring consistent token checks and compliance with Zero Trust principles.
+[Azure Application Gateway](/azure/application-gateway/) provides built-in JSON Web Token (JWT) validation at the gateway routing layer. This capability verifies the integrity and validity of tokens in incoming requests and makes an allow-or-deny decision before forwarding traffic to backend services. Upon successful validation, the gateway adds the `x-msft-entra-identity` header and passes it to the backend.
+
+By performing token validation at the edge, Application Gateway helps simplify application architecture and enhance overall security. JWT validation in Application Gateway is stateless—each request must include a valid token for access to be granted. The gateway doesn't maintain any session or cookie-based state, ensuring consistent token checks and compliance with [Zero Trust](/security/zero-trust/overview) principles.
 
 With JWT validation, Application Gateway can:
-- Verify token integrity using a trusted issuer and signing keys.
+
+- Verify token integrity by using a trusted issuer and signing keys.
 - Validate claims such as audience, issuer, and expiration.
 - Block requests with invalid or missing tokens before they reach your backend.
 
@@ -33,51 +36,60 @@ With JWT validation, Application Gateway can:
 - Provide an allow-or-deny decision based on token validity.
 - Integrate with Web Application Firewall (WAF) policies for layered security.
 
-
-
 ## Configure JWT validation
 
+This section provides a step-by-step guide to configure JWT validation in Azure Application Gateway.
+
 ### Step 1: Register an application in Microsoft Entra ID
-1. Go to [Azure Portal → App registrations](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
-2. Select **New registration**.
-3. Enter:
+
+To issue JWTs for testing, register an application in [Microsoft Entra](/entra/fundamentals/what-is-entra) ID:
+
+1. Go to [Azure portal → App registrations](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
+1. Select **New registration**.
+1. Enter:
    - **Name:** `appgw-jwt-demo`
    - **Supported account types:** *Accounts in this organizational directory only*.
-4. Select **Register**.
-5. Copy:
+1. Select **Register**.
+1. Copy:
    - **Application (client) ID** → `CLIENT_ID`
    - **Directory (tenant) ID** → `TENANT_ID`.
 
 ### Step 2: Configure JWT validation in Application Gateway
+
+Use the Azure portal to create a JWT validation configuration in Application Gateway:
+
 1. Open the preview configuration portal:  
    [App Gateway JWT Config Portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&amp;Microsoft_Azure_HybridNetworking=flight23&amp;feature.applicationgatewayjwtvalidation=true).
-2. Select **JWT validation configuration**.
-3. Provide the following details:
+1. Select **JWT validation configuration**.
+1. Provide the following details:
 
 | Field                    | Example                        | Description                                                              |
 | ------------------------ | ------------------------------ | ------------------------------------------------------------------------ |
 | **Name**                 | `jwt-validation-demo`          | Friendly name for the validation configuration                           |
 | **Unauthorized Request** | Deny                           | Reject requests with missing or invalid JWTs                             |
 | **Tenant ID**            | `<your-tenant-id>`             | Must be a valid GUID or one of `common`, `organizations`, or `consumers` |
-| **Client ID**            | `<your-client-id>`             | GUID of the app registered in Entra                                      |
+| **Client ID**            | `<your-client-id>`             | GUID of the app registered in Microsoft Entra                                      |
 | **Audiences**            | (Optional) `api://<client-id>` | Expected audience claim matching scope                                   |
 
-4. Associate the configuration with a **Routing rule** (see next section).
-
-
+1. Associate the configuration with a **Routing rule** (see next section).
 
 ### Step 3: Create an HTTPS routing rule
+
+Use the Azure portal to create an HTTPS listener and routing rule that uses the JWT validation configuration:
+
 1. Go to **Application Gateway → Rules → Add Routing rule**.
-2. Configure:
-   - **Listener:** Protocol `HTTPS`, assign certificate or Key Vault secret.
+1. Configure the rule:
+   - **Listener:** Protocol `HTTPS`, assign certificate, or Key Vault secret.
    - **Backend target:** Select or create a backend pool.
    - **Backend settings:** Use appropriate HTTP/HTTPS port.
-   - **Rule name:** e.g., `jwt-route-rule`.
-3. Link this rule to your JWT validation configuration.
+   - **Rule name:** For example, `jwt-route-rule`.
+1. Link this rule to your JWT validation configuration.
 
 Your JWT validation configuration is now attached to a secure HTTPS listener and routing rule.
 
 ### Step 4: Retrieve an access token using Azure CLI
+
+Use the Azure CLI to get a JWT access token for testing:
 
 ```bash
 az login --tenant "<TENANT_ID>"
@@ -100,21 +112,19 @@ curl -H "Authorization: Bearer $TOKEN" https://appgwFrontendIpOrDns:configuredPo
 
 ```
 
-Expected behavior:
+## Expected behavior
 
-You should receive a 401 Unauthorized response if:
+When you test the Application Gateway with JWT validation enabled, expect the following responses:
 
-No token is provided.
-The token is invalid.
+**401 Unauthorized response** occurs when:
+- No token is provided in the request
+- The token is invalid or expired
 
-The backend target should receive the request with an additional header:
-x-msft-entra-identity
+**Successful validation** results in:
+- The request forwarded to the backend target
+- An additional `x-msft-entra-identity` header included in the forwarded request
 
 ### Next steps
 
-To learn more about JWT validation and related identity features in Azure:
-
-https://learn.microsoft.com/azure/active-directory/develop/jwt
-https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis
-https://learn.microsoft.com/azure/application-gateway/
-https://learn.microsoft.com/security/zero-trust/overview
+- [Learn about JSON Web Tokens (JWT)](/entra/identity-platform/access-token-claims-reference)
+- [Discover the fundamentals of identity with Microsoft Entra](/entra/fundamentals/what-is-entra)
