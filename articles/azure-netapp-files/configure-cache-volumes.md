@@ -109,10 +109,10 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     Execute the clusterPeeringCommand on the ONTAP system that contains the external origin volume and when prompted, enter the clusterPeeringPassphrase.  
 
     > [!NOTE]
-    > You have 30 minutes after the `cacheState` transitions to `ClusterPeeringOfferSent` to execute the `clusterPeeringCommand`. If you don't execute the command in 30 minues, cache creation fails. You will need to delete the cache volume and initiate a new PUT call.
+    > You have 30 minutes after the `cacheState` transitions to `ClusterPeeringOfferSent` to execute the `clusterPeeringCommand`. If you don't execute the command in 30 minutes, cache creation fails. You will need to delete the cache volume and initiate a new PUT call.
 
     > [!NOTE]
-    > Replace `IP-SPACE-NAME` with the ipspace that the IC LIFs use on the external origin volume’s ONTAP system.
+    > Replace `IP-SPACE-NAME` with the `IP space` that the IC LIFs use on the external origin volume’s ONTAP system.
 
     > [!NOTE]
     > Don't execute the `vserverPeeringCommand` until the next step.
@@ -122,7 +122,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 3.	Monitor if the cache state is available for storage VM peering using the GET caches API call.
 
-    When the `cacheState = VserverPeeringOfferSent`, go to the ONTAP system that contains the external origin volume and execute the `vserver peer show` command until an entry appears where the Remote Vserver displays  `<value of the -peer-vserver in the vserverPeeringCommand>`. The Peer State shows "pending".
+    When the `cacheState = VserverPeeringOfferSent`, go to the ONTAP system that contains the external origin volume and execute the `vserver peer show` command until an entry appears where the remote storage VM displays the `<value of the -peer-vserver in the vserverPeeringCommand>`. The Peer State shows "pending".
 
     Execute the `vserverPeeringCommand` on the ONTAP system that contains the external origin volume. The peer state should transition to "peered".
 
