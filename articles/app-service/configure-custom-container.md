@@ -24,7 +24,7 @@ Learn about key concepts and get instructions for containerization of Windows ap
 
 Learn about key concepts and get instructions for containerization of Linux apps in App Service. New users should first follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md). For sidecar containers, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md).
 
-::: zone-end-
+::: zone-end
 
 ::: zone pivot="container-windows"
 
