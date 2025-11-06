@@ -15,10 +15,11 @@ This tutorial demonstrates how to deploy a shell session pool in Azure Container
 
 In this tutorial you:
 
- [!div class="checklist"]
-* Deploy a shell session pool using ARM templates
-* Create a user-assigned managed identity with appropriate permissions
-* Execute shell commands via the Dynamic Sessions API
+> [!div class="checklist"]
+>
+> * Deploy a shell session pool using ARM templates
+> * Create a user-assigned managed identity with appropriate permissions
+> * Execute shell commands via the Dynamic Sessions API
 
 ## Prerequisites
 
@@ -171,7 +172,7 @@ Refer to [Assign a managed identity to a container app](/azure/container-apps/ma
 
 To interact with the session pool's API, you must assign the `Azure ContainerApps Session Executor` role to your managed identity.
 
-1. Wait for identity propagation, then assign the role to the managed identity.
+Wait for identity propagation, then assign the role to the managed identity.
 
    ```azurecli
    az role assignment create --assignee $UAMI_PRINCIPAL --role "Azure ContainerApps Session Executor" --scope $POOL_ID
