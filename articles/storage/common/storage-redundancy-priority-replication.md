@@ -48,23 +48,6 @@ While there are many benefits to using geo priority replication, it's especially
 - Meeting compliance regulations that require a strict Recovery Point Objective (RPO) for storage data.
 - The guaranteed sync time, provides confidence about data durability and availability, especially if there is an unexpected outage and an [unplanned failover](storage-failover-customer-managed-unplanned.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) is required in the primary region.
 
-
-<!--
-## SLA terms and guarantees
-
-The SLA defines the specific conditions under which GRS Priority Replication features are guaranteed. It also describes the service credit tiers and billing scope associated with SLA violations.
-
-Microsoft guarantees that the Last Sync Time (LST) is within 15 minutes across **99.0% of a billing month**. Failure to meet this performance guarantee results in Priority Replication and Geo Data Transfer fee credits for all write transactions during a specific billing month.
-
-The following list specifies the credit tiers that apply if this guarantee isn't met:
-
-| Percent of billing month | Service Credit  |
-|--------------------------|-----------------|
-| 99.0% to 98.0%           | **10% credit**  |
-| 98.0% to 95.0%           | **25% credit**  |
-| Below 95.0%              | **100% credit** |
--->
-
 ## SLA eligibility and exclusions
 
 While Geo Priority Replication introduces an SLA-backed capability for Azure Blob Storage, it comes with several important exclusions. Users benefit from prioritized replication along with the improved visibility into their Blob Geo Lag while Geo priority replication is enabled. However, there are workloads and time periods where users aren't eligible for the Service Level Agreement for Geo priority replication. These limitations include:
