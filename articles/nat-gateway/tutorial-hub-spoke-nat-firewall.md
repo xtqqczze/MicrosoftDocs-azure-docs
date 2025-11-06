@@ -372,8 +372,8 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
    | Region | Select **West US**. |
    | Name | Enter **public-ip-nat**. |
    | IP version | Select **IPv4**. |
-   | SKU | Select **Standard V2**. |
-   | Availability zone | Select the default of **Zone-redundant**. |
+   | SKU | Select **Standard**. |
+   | Availability zone | Select **Zone-redundant**. |
    | Tier | Select **Regional**. |
 
 1. Select **Review + create** and then select **Create**.
@@ -392,7 +392,7 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
     | **Instance details** |  |
     | NAT gateway name | Enter **nat-gateway**. |
     | Region | Select **West US**. |
-    | SKU | Select **Standard V2**. |
+    | SKU | Select **Standard**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
 1. Select **Next**.
@@ -421,7 +421,7 @@ $ip = @{
     Name = 'public-ip-nat'
     ResourceGroupName = 'test-rg'
     Location = 'westus'
-    Sku = 'StandardV2'
+    Sku = 'Standard'
     AllocationMethod = 'Static'
     IpAddressVersion = 'IPv4'
     Zone = 1,2,3
@@ -437,10 +437,10 @@ $nat = @{
     ResourceGroupName = 'test-rg'
     Name = 'nat-gateway'
     IdleTimeoutInMinutes = '4'
-    Sku = 'StandardV2'
+    Sku = 'Standard'
     Location = 'westus'
     PublicIpAddress = $publicIPIPv4
-    Zone = 1,2,3
+    Zone = 1
 }
 $natGateway = New-AzNatGateway @nat
 ```

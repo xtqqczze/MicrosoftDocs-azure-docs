@@ -23,10 +23,6 @@ Azure NAT Gateway is the recommended method for outbound connectivity. A NAT gat
 
 For more information about Azure NAT Gateway, see [What is Azure NAT Gateway?](nat-overview.md)
 
-> [!IMPORTANT]
-> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -83,8 +79,8 @@ In this section, you learn how to change your outbound connectivity method from 
    | Region | Select a region. This example uses **East US 2**. |
    | Name | Enter **public-ip-nat**. |
    | IP version | Select **IPv4**. |
-   | SKU | Select **Standard V2**. |
-   | Availability zone | Select the default of **Zone-redundant**. |
+   | SKU | Select **Standard**. |
+   | Availability zone | Select **Zone-redundant**. |
    | Tier | Select **Regional**. |
 
 1. Select **Review + create** and then select **Create**.
@@ -103,7 +99,7 @@ In this section, you learn how to change your outbound connectivity method from 
     | **Instance details** |  |
     | NAT gateway name | Enter **nat-gateway**. |
     | Region | Select your region. This example uses **East US 2**. |
-    | SKU | Select **Standard V2**. |
+    | SKU | Select **Standard**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
 1. Select **Next**.
@@ -164,7 +160,7 @@ In this section, you create a NAT gateway with the IP address previously used fo
     | **Instance details** |  |
     | NAT gateway name | Enter **nat-gateway**. |
     | Region | Select your region. This example uses **East US 2**. |
-    | SKU | Select **Standard V2**. |
+    | SKU | Select **Standard**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
 1. Select **Next**.

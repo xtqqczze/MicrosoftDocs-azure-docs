@@ -6,7 +6,7 @@ ms.author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.customs: references_regions
-ms.date: 09/09/2025
+ms.date: 11/04/2025
 # Customer intent: "As a network architect, I want to design virtual networks using a NAT gateway so that I can ensure efficient outbound connectivity and manage SNAT port inventory for scalable production workloads."
 ---
 
@@ -122,7 +122,7 @@ Service tagged public IP addresses can be used with NAT gateway for providing ou
 
 ## Monitor outbound network traffic with VNet flow logs
 
- [Virtual network (VNet) flow logs](../network-watcher/vnet-flow-logs-overview.md) are a feature of Azure Network Watcher that logs information about IP traffic flowing through a virtual network. To monitor outbound traffic flowing from the virtual machine behind your NAT gateway, enable VNet flow logs.
+  To gather traffic insights for your Standard SKU NAT Gateway, it's recommended to use Virtual network flow logs. [Virtual network (VNet) flow logs](../network-watcher/vnet-flow-logs-overview.md) are a feature of Azure Network Watcher that logs information about IP traffic flowing through a virtual network. To monitor outbound traffic flowing from the virtual machine behind your NAT gateway, enable VNet flow logs.
 
 For guides on how to enable VNet flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md).
 
@@ -132,6 +132,8 @@ For more information on the VNet flow log schema, see [Traffic analytics schema 
 
 > [!NOTE]
 > Virtual network flow logs only show the private IPs of your VM instances connecting outbound to the internet. VNet flow logs don't show you which NAT gateway public IP address the VM’s private IP has SNATed to for connecting outbound.
+
+StandardV2 NAT Gateway supports NAT gateway flow logs through Azure Monitor. NAT gateway flow logs provide IP level traffic information for traffic flowing through the StandardV2 NAT Gateway. For more information, see [Analyze NAT Gateway traffic with flow logs](./nat-gateway-flow-logs.md). 
 
 ## NAT gateway and user defined routes 
 
@@ -178,12 +180,9 @@ Certain services don’t function on a virtual machine in a private subnet witho
     * Chile Central   
     * Indonesia Central   
     * Israel Northwest   
-    * Jio India West   
     * Malaysia West   
     * Qatar Central   
-    * Sweden South   
     * UAE Central  
-    * West India 
 
 ## Related content
 

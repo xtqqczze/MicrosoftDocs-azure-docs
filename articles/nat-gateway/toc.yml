@@ -31,8 +31,6 @@ items:
         href: tutorial-migrate-outbound-nat.md
       - name: Migrate a virtual machine public IP address
         href: tutorial-migrate-ilip-nat.md
-      - name: Migrate from Standard to StandardV2 NAT Gateway - Guidance
-        href: nat-gateway-v2-migrate.md
       - name: Use deployment templates to create StandardV2 NAT Gateway
         href: quickstart-create-nat-gateway-v2-templates.md
   - name: Secure
@@ -55,6 +53,10 @@ items:
         href: region-move-nat-gateway.md
       - name: Metrics and alerts
         href: nat-metrics.md
+      - name: Manage Standard V2 NAT gateway flow logs
+        href: nat-gateway-flow-logs.md
+      - name: Monitor Standard V2 NAT gateway flow logs
+        href: monitor-nat-gateway-flow-logs.md
   - name: Troubleshoot
     items:
       - name: Troubleshoot NAT gateway
