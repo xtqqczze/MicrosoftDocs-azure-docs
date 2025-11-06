@@ -60,7 +60,7 @@ The following functionality isn't supported on a WAF policy that's associated wi
 
 ## Pricing
 
-For pricing details, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
+For pricing details, see [Application Gateway pricing](../../application-gateway/for-containers/understanding-pricing.md).
 
 ## Related content
 
