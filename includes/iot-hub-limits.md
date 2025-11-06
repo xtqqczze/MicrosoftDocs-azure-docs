@@ -64,7 +64,7 @@ IoT Hub throttles requests when the following quotas are exceeded.
 
 ### IoT Hub preview resource limits
 
-The following table lists the limits that apply to IoT Hub integrated with [certificate management (preview)](iot-hub-certificate-management-overview.md) features.
+The following table lists the limits that apply to IoT Hub integrated with [certificate management (preview)](../articles/iot-hub/iot-hub-certificate-management-overview.md) features.
 
 |Feature|Limit|
 |----------------------------------|-------------------------------|
