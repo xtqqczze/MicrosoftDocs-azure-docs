@@ -66,7 +66,7 @@ If you have used access keys in the past for authentication, you need to update 
 
 ## Troubleshooting Microsoft Entra ID and your cache
 
-If your application fails to access to the Azure Managed Redis instance through Microsoft Entra ID, use this PowerShell script:
+If your application fails to access the Azure Managed Redis instance through Microsoft Entra ID, use this PowerShell script:
 
 [EntraTokenValidation](https://github.com/AzureManagedRedis/DiagnosticTools/tree/main/EntraTokenValidation)
 
