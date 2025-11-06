@@ -27,9 +27,9 @@ When you call `continue-as-new`, the orchestration instance restarts itself with
 
 Keep these considerations in mind when using the `continue-as-new` method in an orchestration:
 
-+ When an orchestrator function gets reset by using the `continue-as-new` method, the Durable Task Framework maintains the same instance ID but internally it creates and uses a new *execution ID* going forward. This execution ID isn't exposed externally, but it can be useful when debugging orchestration execution.
++ When an orchestrator function gets reset by using the `continue-as-new` method, the Durable Task Framework maintains the same instance ID but internally it creates and uses a new *execution ID* going forward. This execution ID isn't exposed externally, but it can be useful when debugging orchestration execution. 
 
-+ When an unhandled exception occurs during execution, the orchestration enters a *failed* state and execution completes. In this case, a call to `continue-as-new` made from the `finally` block of a try-catch statement can't restart the orchestration. Because of this, you must catch and properly handle all errors that could occur during an eternal orchestration.
++ When an unhandled exception occurs during execution, the orchestration enters a _failed_ state and execution terminates. In this state, a call to `continue-as-new` made from the `finally` block of a try-catch statement can't restart the orchestration. 
 
 ## Periodic work example
 
