@@ -63,7 +63,6 @@ The Dedicated SKU provides  performance and pricing through preallocated Capacit
 | - | - |
 | Base cost | Fixed monthly cost per CU (regional pricing). Not "per action" billing. |
 | Performance | Each CU supports up to 2,000 actions per second and 50GB of orchestration data storage |
-| Enterprise SLA | 99.95% uptime |  
 | Orchestration data retention | Up to 90 days |  
 | Custom scaling | Configure CUs to match your workload needs. 1 CU required per deployment. |  
 | High availability | High availability with multi-CU deployments. A minimum of 3 CUs is required.
@@ -113,7 +112,6 @@ The Consumption SKU offers a pay-as-you-use model, ideal for variable workloads 
 | - | - |
 | Pay-Per-Use | Only pay for actions dispatched. No upfront costs, minimum commitments, or base fees |
 | Performance | Up to 500 actions per second. |
-| SLA | 99.9% uptime guarantee |  
 | Data retention | 30-day maximum retention |  
 
 ##### Example 1
