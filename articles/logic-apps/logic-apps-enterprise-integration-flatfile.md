@@ -149,7 +149,7 @@ After you create your schema, upload the schema based on the following scenario:
 
 1. From the **Schema Name** list, select your schema.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema.png" alt-text="Screenshot showing workflow designer and opened Schema Name list with selected schema for decoding." lightbox="./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema.png:::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema.png" alt-text="Screenshot showing workflow designer and opened Schema Name list with selected schema for decoding." lightbox="./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema.png":::
 
    > [!NOTE]
    >
@@ -183,4 +183,5 @@ To trigger your workflow, follow these steps:
 ## Related content
 
 - Learn more about the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+
 
