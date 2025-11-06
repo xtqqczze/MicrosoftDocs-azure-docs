@@ -41,7 +41,7 @@ Today, certificate management supports issuance and renewal for end-entity **ope
 
 - **Onboarding credential:** To use certificate management, devices must be provisioned via Device Provisioning Service (DPS). For a device to provision with DPS, it must onboard and authenticate using one of the supported types of [onboarding credentials](../iot-dps/concepts-service.md#attestation-mechanism), which includes X.509 certificates (procured from a third-party CA), symmetric keys, and Trusted Platform Modules (TPM). These credentials are conventionally installed onto the device before it is shipped.
 
-- **Operational certificate:** An end-entity operational certificate is a type of operational credential issued to the device by an issuing CA once the device has been provisioned by DPS. Unlike onboarding credentials, these certificates are typically short-lived and renewed frequently or as needed during device operation. Once the device is provisioned, the device can use its operational certificate chain to authenticate directly with IoT Hub and conduct operations. Today, certificate management only provides the operational certificate.
+- **Operational certificate:** An end-entity operational certificate is a type of operational credential. This certificate is issued to the device by an issuing CA once the device has been provisioned by DPS. Unlike onboarding credentials, these certificates are typically short-lived and renewed frequently or as needed during device operation. The device can use its operational certificate chain to authenticate directly with IoT Hub and conduct operations. Today, certificate management only provides the operational certificate.
 
 ## How certificate management works
 
@@ -95,7 +95,7 @@ The following diagram illustrates the end-to-end process of device provisioning 
 
 ## Renewal of certificates
 
-Certificate renewals are performed using the same mechanism as certificate issuance. When the device detects a need to renew its operational certificate, device initiates another provisioning call to DPS, submitting a new Certificate Signing Request (CSR) signed by its private key. The CSR is sent to the appropriate intermediate certificate authority (ICA) to request a new leaf certificate. Once approved, the new operational certificate is returned to the device for continued secure authentication with IoT Hub. 
+Certificate renewals are performed using the same mechanism as certificate issuance. When the device detects a need to renew its operational certificate, device initiates another provisioning call to DPS, submitting a new Certificate Signing Request (CSR). The CSR is sent to the appropriate issuing certificate authority (ICA) to request a new leaf certificate. Once approved, the new operational certificate is returned to the device for continued secure authentication with IoT Hub. 
 
 Due to the wide variety of IoT devices, each device is responsible for monitoring the expiration date of its operational certificate and determining when renewal is required. The certificate includes its **expiration date**, which the device can track to identify when renewal is needed. 
 
