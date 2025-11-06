@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: tutorial
-ms.date: 10/31/2025
+ms.date: 11/05/2025
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 ms.custom: sfi-image-nochange
