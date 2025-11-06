@@ -29,9 +29,9 @@ For details on how Enterprise Agreement (EA) customers and pay-as-you-go custome
 The following Azure Managed Redis tiers support reservations:
 <!-- PM - can you update this table? -->
 
-| Feature                 | Basic and Standard | Premium | Enterprise and Enterprise Flash |
-|-------------------------|:------------------:|:-------:|:-------------------------------:|
-| **Reservation Support** | No                 | Yes     | Yes                             |
+| Feature                 | Memory Optimized | Balanced | Compute Optimized | Flash |
+|-------------------------|:----------------:|:--------:|:-----------------:|:-----:|
+| **Reservation Support** | Yes              | Yes      | Yes               | No    |
 
 ### Reservation increments
 
