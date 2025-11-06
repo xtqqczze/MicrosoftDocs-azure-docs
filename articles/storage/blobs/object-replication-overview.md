@@ -222,7 +222,7 @@ Each of the metrics listed previously can be viewed with the dimension of time b
 
 The following example image shows the pending operation and bytes metric for the previous seven days:
 
-:::image type="content" source="media/object-replication-overview/object-replication-example-sml.png" alt-text="Object replication metrics showing pending operations and pending bytes over a seven day duration" lightbox="media/object-replication-overview/object-replication-example-lrg.png":::
+:::image type="content" source="media/object-replication-overview/object-replication-metrics-example-sml.png" alt-text="Object replication metrics showing pending operations and pending bytes over a seven day duration" lightbox="media/object-replication-overview/object-replication-metrics-example-lrg.png":::
 
 You can enable replication metrics on the source account for monitoring pending bytes and pending operations. For more information, see [Configure replication metrics](object-replication-configure.md#configure-replication-metrics).
 
