@@ -87,7 +87,7 @@ Yes, you must enter the commands within a specific timeframe when using the migr
 
 ### What happens if I close the migration assistant tool page before the migrating volume workflow is complete?
 
-If you close the migration assistant tool page before the workflow is complete, you won't receive the cluster peering or storag VM peering commands. You will need to restart the workflow to complete it. 
+If you close the migration assistant tool page before the workflow is complete, you won't receive the cluster peering or storage VM peering commands. You will need to restart the workflow to complete it. 
 
 ### Are the inputs provided case-sensitive in the migration assistant tool?
 
@@ -99,7 +99,7 @@ No. If you want to use the existing subnet, you should clean up the IP addresses
 
 ### Can I enable cool access on a migration volume in the migration assistant tool?
 
-You should only enable cool access if you've finalized migration. Otherwise, use a different volume. Finalizing the migration make the volume a regular Azure NetApp Files volume allowing you to enable cool access.
+You should only enable cool access if you've finalized migration. Otherwise, use a different volume. Finalizing the migration converts the volume a regular Azure NetApp Files volume allowing you to enable cool access.
 
 ### Why am I not able to resume migrations after it has been paused from the migration assistant tool?
 

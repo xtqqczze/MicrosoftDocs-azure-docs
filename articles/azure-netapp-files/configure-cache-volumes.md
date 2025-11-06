@@ -28,7 +28,7 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * If enabling write-back on the external origin volume:
     * You must be running ONTAP 9.15.1P5 or later on the system hosting the external origin volume. 
     * Each external origin system node has at least 128 GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it requires more CPUs and RAM.
-    * Testing is executed for files smaller than 100 GB and WAN roundtrip times between the cache and origin not exceeding 100 miliseconds. Any workloads outside of these limits might result in unexpected performance characteristics.
+    * Testing is executed for files smaller than 100 GB and WAN roundtrip times between the cache and origin not exceeding 100 milliseconds. Any workloads outside of these limits might result in unexpected performance characteristics.
     * The external origin must remain less than 80% full. Cache volumes aren't granted exclusive lock delegations if there isn't at least 20% space remaining in the origin volume. Calls to a write-back-enabled cache are forwarded to the origin in this situation. This helps prevent running out of space at the origin, which would result in leaving dirty data orphaned at a write-back-enabled cache.
     * You shouldn't configure qtree, user, or group quotas at an origin volume with write-back enabled cache volumes. This may incur a significant latency increase.
 * You should be aware of the supported and unsupported features for cache volumes in Azure NetApp Files.
@@ -93,7 +93,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 1.	Initiate the cache volume creation using the PUT caches API call.
 
-2.  Monitor if the cache state is available for cluster peering using the GET caches API call.
+2.  Monitor if the cache state is available for cluster peering with a GET request. 
 
     When the `cacheState = ClusterPeeringOfferSent`, execute the POST `listPeeringPassphrases` call to obtain the command and passphrase necessary to complete the cluster peering.
 
@@ -106,10 +106,11 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     "vserverPeeringCommand": "vserver peer accept -vserver vserver1 -peer-vserver cache_volume_svm"
     }
     ```
-    Execute the clusterPeeringCommand on the ONTAP system that contains the external origin volume and when prompted, enter the clusterPeeringPassphrase.  
+
+    Execute the `clusterPeeringCommand` on the ONTAP system that contains the external origin volume and when prompted, enter the clusterPeeringPassphrase.  
 
     > [!NOTE]
-    > You have 30 minutes after the `cacheState` transitions to `ClusterPeeringOfferSent` to execute the `clusterPeeringCommand`. If you don't execute the command within 30 minutes, cache creation fails. You will need to delete the cache volume and initiate a new PUT call.
+    > You have 30 minutes after the `cacheState` transitions to `ClusterPeeringOfferSent` to execute the `clusterPeeringCommand`. If you don't execute the command within 30 minutes, cache creation fails. You'll need to delete the cache volume and initiate a new PUT call.
 
     > [!NOTE]
     > Replace `IP-SPACE-NAME` with the IP space that the IC LIFs use on the external origin volume’s ONTAP system.
@@ -120,7 +121,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     > [!NOTE]
     > If cache volumes are already created using this ONTAP system, then the existing cluster peer is reused. There can be situations where a different Azure NetApp Files cluster may be used which would require a new cluster peer.
 
-3.	Monitor if the cache state is available for storage VM peering using the GET caches API call.
+3.	Monitor if the cache state is available for storage VM peering using a GET request.
 
     When the `cacheState = VserverPeeringOfferSent`, go to the ONTAP system that contains the external origin volume and execute the `vserver peer show` command until an entry appears where the remote storage VM displays the `<value of the -peer-vserver in the vserverPeeringCommand>`. The Peer State shows "pending".
 
@@ -134,7 +135,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 4.	Complete the cache volume creation.
 
-    Once the peering completes, the cache volume is created. Monitor the `cacheState` and `provisioningState` of the cache volume using the GET caches API call. When the cacheState and provisioningState transition to "Succeeded," the cache volume is ready for use.
+    Once the peering completes, the cache volume is created. Monitor the `cacheState` and `provisioningState` of the cache volume with a GET request. When the cacheState and provisioningState transition to "Succeeded," the cache volume is ready for use.
 
 ## Cache creation request body examples
 
@@ -325,6 +326,6 @@ Example patch request body to update a cache volume:
 
 ## Delete a cache volume
 
-You can delete a cache volume if it's no longer required using the delete cache API call.
+You can delete a cache volume if it's no longer required using a DELETE API call.
 
 If the cache volume has `writeBack` enabled, issue a PATCH call to disable `writeBack` then issue the DELETE request. 
