@@ -54,7 +54,7 @@ For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with M
   | Azure portal | A Standard logic app resource. See [Create Standard workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md). |
   | Visual Studio Code | A Standard logic app project. See [Create Standard workflows in Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code). Make sure you have the latest Azure Logic Apps extension. |
 
-  After you open the workflow designer, the experience in the portal and Visual Studio Code are mostly similar, but some interactions have minor differences.
+  After you open the workflow designer, the experiences in the portal and in Visual Studio Code are mostly similar, but some interactions have minor differences.
 
   The examples in this guide use the Azure portal.
 
