@@ -48,9 +48,10 @@ This article explains how to create a new IoT Hub with [Azure Device Registry (A
     az extension list
     ```
 
-- You need elevated permissions to perform role assignments, such as Owner or User Administrator. To use pre-built roles, scope them to your subscription or resource group as needed:
-    - Assign the **Azure Device Registry Onboarding** role to the user who sets up resources like IoT Hub, ADR namespace, DPS, and Managed Identity.
-    - During setup, assign the **Azure Device Registry Contributor** role to the newly created user-assigned managed identity. Elevated permissions (for example, Owner or User Administrator) are required to complete this step.
+- To complete this setup, you must perform various role assignments. Performing role assignments in Azure requires a [privileged role](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#privileged), such as Owner or User Access Administrator at the appropriate scope. 
+- Optionally, we offer various pre-built roles for certificate management:
+    -You can assign the [Azure Device Registry Onboarding](https://review.learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/internet-of-things?branch=pr-en-us-306976#azure-device-registry-onboarding) role to the user who sets up resources like IoT Hub, ADR namespace, DPS, and Managed Identity. This role will **not** allow you to perform additional role assignments that are required to complete this setup. 
+    - You can assign the [Azure Device Registry Credentials Contributor](https://review.learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/internet-of-things?branch=pr-en-us-306976#azure-device-registry-credentials-contributor) role to the user that will manage the ADR credentials and policies. This role will **not** allow you to perform additional role assignments that are required to complete this setup. 
 
 ## Choose a deployment method
 

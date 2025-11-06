@@ -49,13 +49,13 @@ To prepare your environment to use Azure Device Registry, complete the following
 
 To create a resource group, role, and permissions for your IoT solution, complete the following steps:
 
-1. Create a resource group to hold your resources:
+1. Create a resource group to hold your resources. 
 
     ```azurecli-interactive
     az group create --name <RESOURCE_GROUP_NAME> --location <REGION>
     ```
 
-1. Assign a contributor role to IoT Hub on the resource group level. The `AppId` value, which is the principal ID for IoT Hub, is `89d10474-74af-4874-99a7-c23c2f643083` and it's the same for all Hub apps.
+1. Assign a Contributor role to IoT Hub on the resource group level. The `AppId` value, which is the principal ID for IoT Hub, is `89d10474-74af-4874-99a7-c23c2f643083` and it's the same for all Hub apps.
 
     ```azurecli-interactive
     az role assignment create --assignee "89d10474-74af-4874-99a7-c23c2f643083" --role "Contributor" --scope "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>"
@@ -110,7 +110,7 @@ Set up a new ADR namespace with a system-assigned managed identity. Creating nam
 
 ## Assign UAMI role to access the ADR namespace
 
-To allow the user-assigned managed identity (UAMI) to access the ADR namespace, you need to assign the **Azure Device Registry Contributor** role to the UAMI for the ADR namespace.
+To allow the user-assigned managed identity (UAMI) to access the ADR namespace, you need to assign the [Azure Device Registry Contributor](https://review.learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/internet-of-things?branch=pr-en-us-306976#azure-device-registry-contributor) role to the UAMI scoped for the ADR namespace.
 
 1. Retrieve the principal ID of the User-Assigned Managed Identity. This ID is needed to assign roles to the identity.
 
@@ -124,7 +124,7 @@ To allow the user-assigned managed identity (UAMI) to access the ADR namespace, 
     NAMESPACE_RESOURCE_ID=$(az iot adr ns show --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
     ```
 
-1. Assign the **Azure Device Registry Contributor** role to the managed identity for the ADR namespace. This grants the managed identity the necessary permissions, scoped to the namespace.
+1. Assign the [Azure Device Registry Contributor](https://review.learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/internet-of-things?branch=pr-en-us-306976#azure-device-registry-contributor) role to the managed identity scoped for the ADR namespace. This grants the managed identity the necessary permissions, scoped to the namespace.
 
     ```azurecli-interactive
     az role assignment create --assignee $UAMI_PRINCIPAL_ID --role "a5c3590a-3a1a-4cd4-9648-ea0a32b15137" --scope $NAMESPACE_RESOURCE_ID
