@@ -99,7 +99,7 @@ The `--enable-credential-policy` command creates credential (root CA) and defaul
     az iot adr ns show --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME>
     ```
 
-1. Verify that a credential named "default" and policy named "PolicyName" are created.
+1. Verify that a credential and policy named are created.
 
     ```azurecli-interactive
     az iot adr ns credential show --namespace <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME>
@@ -107,11 +107,11 @@ The `--enable-credential-policy` command creates credential (root CA) and defaul
     ```
 
     > [!NOTE]
-    > If you don't assign a policy name, the policy is created with the name "default".
+    > If you did not assign a policy name, the policy is created with the name "default".
 
 ## Assign UAMI role to access the ADR namespace
 
-To allow the user-assigned managed identity (UAMI) to access the ADR namespace, you need to assign the [Azure Device Registry Contributor](https://review.learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/internet-of-things?branch=pr-en-us-306976#azure-device-registry-contributor) role to the UAMI scoped for the ADR namespace.
+In this step, we will assign the [Azure Device Registry Contributor](https://review.learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/internet-of-things?branch=pr-en-us-306976#azure-device-registry-contributor) role to the managed identity and scope it to the namespace. This custom role will allow for full access to IoT devices to IoT devices within the ADR namespace.
 
 1. Retrieve the principal ID of the User-Assigned Managed Identity. This ID is needed to assign roles to the identity.
 
@@ -119,13 +119,13 @@ To allow the user-assigned managed identity (UAMI) to access the ADR namespace, 
     UAMI_PRINCIPAL_ID=$(az identity show --name <USER_IDENTITY> --resource-group <RESOURCE_GROUP> --query principalId -o tsv)
     ```
 
-1. Retrieve the resource ID of the ADR namespace. This ID is used as the scope when assigning the custom ADR role to the user-assigned managed identity.
+1. Retrieve the Resource ID of the ADR Namespace. This ID is used as the scope for the role assignment.
 
     ```azurecli-interactive
     NAMESPACE_RESOURCE_ID=$(az iot adr ns show --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
     ```
 
-1. Assign the [Azure Device Registry Contributor](https://review.learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/internet-of-things?branch=pr-en-us-306976#azure-device-registry-contributor) role to the managed identity scoped for the ADR namespace. This grants the managed identity the necessary permissions, scoped to the namespace.
+1. Assign the [Azure Device Registry Contributor](https://review.learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/internet-of-things?branch=pr-en-us-306976#azure-device-registry-contributor) role to the managed identity. This grants the managed identity the necessary permissions, scoped to the namespace.
 
     ```azurecli-interactive
     az role assignment create --assignee $UAMI_PRINCIPAL_ID --role "a5c3590a-3a1a-4cd4-9648-ea0a32b15137" --scope $NAMESPACE_RESOURCE_ID
@@ -133,7 +133,7 @@ To allow the user-assigned managed identity (UAMI) to access the ADR namespace, 
 
 ## Create an IoT Hub with ADR integration
 
-1. Create a new IoT Hub instance linked to the ADR namespace and with the user-assigned identity.
+1. Create a new IoT Hub that is linked to the ADR namespace and with the User-Assigned Identity created earlier.
 
     ```azurecli-interactive
     az iot hub create --name <HUB_NAME> --resource-group <RESOURCE_GROUP> --location <HUB_LOCATION> --sku GEN2 --mi-user-assigned $UAMI_RESOURCE_ID --ns-resource-id $NAMESPACE_RESOURCE_ID --ns-identity-id $UAMI_RESOURCE_ID
@@ -185,7 +185,7 @@ To allow the user-assigned managed identity (UAMI) to access the ADR namespace, 
 
 ## Link your IoT Hub to the Device Provisioning Service instance
 
-1. Link the IoT Hub to DPS.
+1. Link the IoT Hub to your DPS.
 
     ```azurecli-interactive
     az iot dps linked-hub create --dps-name <DPS_NAME> --resource-group <RESOURCE_GROUP> --hub-name <HUB_NAME>
@@ -199,13 +199,13 @@ To allow the user-assigned managed identity (UAMI) to access the ADR namespace, 
 
 ## Run ADR credential synchronization
 
-To enable IoT Hub to register the CA certificates and trust any issued leaf certificates, sync your credential and all its child policies to the ADR namespace.
+In this step, you will sync the our policies to the IoT Hub. This will enable IoT Hub to register the CA certificates and trust any issued leaf certificates.
 
 ```azurecli-interactive
 az iot adr ns credential sync --namespace <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP>
 ```
 
-## Validate the hub certificate
+## Validate the hub CA certificate
 
 Validate that your IoT Hub has registered its CA certificate.
 
@@ -213,9 +213,11 @@ Validate that your IoT Hub has registered its CA certificate.
 az iot hub certificate list --hub-name <HUB_NAME> --resource-group <RESOURCE_GROUP>
 ```
 
-## Create an enrollment group in DPS
+## Create an enrollment in DPS
 
-To provision devices with leaf certificates, you need to create an enrollment group and assign it to the appropriate policy. The allocation-policy defines the onboarding authentication mechanism DPS uses before issuing a leaf certificate. The default attestation mechanism is a symmetric key.
+To provision devices with leaf certificates, you need to create an enrollment and assign it to the appropriate policy. The allocation-policy defines the onboarding authentication mechanism DPS uses before issuing a leaf certificate. 
+
+We will create an enrollment group using the default attestation mechanism of symmetric key.
 
 > [!NOTE]
 > If you created a policy with a different name from "default", ensure that you use that policy name after the `--credential-policy` parameter.
@@ -226,7 +228,7 @@ az iot dps enrollment-group create --dps-name <DPS_NAME> --resource-group <RESOU
 
 Your IoT Hub with ADR integration and certificate management is now set up and ready to use.
 
-## Manage and clean up resources
+## Optional Commands
 
 The following commands help you manage your ADR namespaces, disable devices, create custom policies, and delete resources when they are no longer needed.
 
@@ -284,7 +286,7 @@ Create a custom policy using the `az iot adr ns policy create` command. Set the 
 
 - The policy `name` value must be unique within the namespace. If you try to create a policy with a name that already exists, you receive an error message.
 - The certificate subject `cert-subject` value must be unique across all policies in the namespace. If you try to create a policy with a subject that already exists, you receive an error message.
-- The validity period `cert-validity-days` value must be between 1 and 3650 days (10 years). If you try to create a policy with a validity period outside this range, you receive an error message.
+- The validity period `cert-validity-days` value must be between 1 and 30 days. If you try to create a policy with a validity period outside this range, you receive an error message.
 
 The following example creates a policy named "custom-policy" with a subject of "CN=TestDevice" and a validity period of 30 days. 
 
