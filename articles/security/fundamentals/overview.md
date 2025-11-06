@@ -493,10 +493,6 @@ Patch Updates provide the basis for finding and fixing potential problems and si
 
 [Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated Security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-## Identity and access management
-
-Securing systems, applications, and data begins with identity-based access controls. The identity and access management features that are built into Microsoft business products and services help protect your organizational and personal information from unauthorized access while making it available to legitimate users whenever and wherever they need it. For comprehensive identity management information, see [Azure identity management security overview](identity-management-overview.md). For identity management best practices, see [Azure identity management and access control security best practices](identity-management-best-practices.md). For guidance on securing identity infrastructure, see [Five steps to securing your identity infrastructure](steps-secure-identity.md).
-
 ### Secure Identity
 Microsoft uses multiple security practices and technologies across its products and services to manage identity and access.
 
