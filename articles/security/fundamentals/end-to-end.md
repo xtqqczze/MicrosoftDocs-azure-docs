@@ -3,13 +3,12 @@ title: End-to-end security in Azure | Microsoft Docs
 description: This article provides an overview of Azure security architecture organized by protection, detection, and response capabilities, with links to detailed domain-specific documentation.
 services: security
 author: msmbaldwin
-manager: rkarlin
 
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.date: 11/04/2025
+ms.date: 11/06/2025
 ms.author: mbaldwin
 
 ---
@@ -17,7 +16,7 @@ ms.author: mbaldwin
 
 Azure provides comprehensive security capabilities across all layers of your cloud deployments. Microsoft Azure delivers confidentiality, integrity, and availability of customer data while enabling transparent accountability. This article introduces Azure's security architecture organized by protection, detection, and response capabilities.
 
-For detailed implementation guidance and best practices, refer to the domain-specific security overview articles linked throughout this document.
+For a comprehensive introduction to Azure security capabilities organized by functional area, see [Introduction to Azure security](overview.md). For detailed implementation guidance and best practices, refer to the domain-specific security overview articles linked throughout this document.
 
 
 ## Microsoft security architecture
@@ -55,7 +54,7 @@ Azure provides layered security controls across identity, infrastructure, networ
 
 ### Threat protection
 
-[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides unified security management with continuous assessment and advanced threat protection. For comprehensive coverage, see [Azure threat protection](/azure/security/fundamentals/threat-detection).
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides unified security management with continuous assessment and advanced threat protection. For comprehensive coverage, see [Azure threat protection](threat-detection.md).
 
 ### Identity and access
 
@@ -63,7 +62,7 @@ Azure provides layered security controls across identity, infrastructure, networ
 - [Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) - Just-in-time privileged access
 - [Microsoft Entra ID Protection](/entra/id-protection/overview-identity-protection) - Automated risk detection and remediation
 
-For details, see [Azure identity management security overview](/azure/security/fundamentals/identity-management-overview).
+For details, see [Azure identity management security overview](identity-management-overview.md).
 
 ### Network security
 
@@ -73,23 +72,23 @@ For details, see [Azure identity management security overview](/azure/security/f
 - [Azure Front Door](/azure/frontdoor/front-door-overview) - Global load balancer with integrated WAF
 - [Azure Private Link](/azure/private-link/private-link-overview) - Private connectivity to Azure services
 
-For details, see [Azure network security overview](/azure/security/fundamentals/network-overview).
+For details, see [Azure network security overview](network-overview.md).
 
 ### Data protection
 
-- [Azure Key Vault](/azure/key-vault/general/overview) - Secure key and secret storage (FIPS 140-2 Level 1 Standard, FIPS 140-3 Level 3 Premium)
-- [Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) - Single-tenant FIPS 140-2 Level 3 HSM
+- [Azure Key Vault](/azure/key-vault/general/overview) - Secure key and secret storage with FIPS 140-2 Level 1 (Standard tier) and FIPS 140-3 Level 3 (Premium tier) validated HSMs
+- [Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) - Single-tenant FIPS 140-3 Level 3 HSM
 - [Azure Storage Service Encryption](/azure/storage/common/storage-service-encryption) - Automatic encryption at rest
 - [Azure Backup](/azure/backup/backup-overview) - Independent and isolated backups
-- [Azure confidential computing](/azure/confidential-computing/overview) - Hardware-based data protection in use
+- [Azure confidential computing](/azure/confidential-computing/overview) - Hardware-based data protection in use with AMD SEV-SNP, Intel TDX, and NVIDIA H100 GPU support
 
-For details, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview) and [Key management in Azure](/azure/security/fundamentals/key-management).
+For details, see [Azure encryption overview](encryption-overview.md) and [Key management in Azure](key-management.md).
 
 ### Governance
 
 - [Azure Policy](/azure/governance/policy/overview) - Enforce standards and assess compliance
 
-For details, see [Azure security management and monitoring overview](/azure/security/fundamentals/management-monitoring-overview).
+For details, see [Azure security management and monitoring overview](management-monitoring-overview.md).
 
 ## Detect threats
 
@@ -101,7 +100,7 @@ Azure threat detection services identify suspicious activities and security inci
 - [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) - Network monitoring and diagnostics
 - [Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps) - Cloud access security broker (CASB)
 
-For comprehensive threat detection capabilities, see [Azure threat protection](/azure/security/fundamentals/threat-detection).
+For comprehensive threat detection capabilities, see [Azure threat protection](threat-detection.md).
 
 ## Investigate and respond
 
@@ -112,11 +111,12 @@ Azure provides tools to analyze security events and respond to incidents.
 - [What is Microsoft Entra monitoring and health?](/entra/identity/monitoring-health/overview-monitoring-health) - Activity logs and audit history
 - [Microsoft Defender for Cloud Apps](/defender-cloud-apps/investigate) - Cloud environment investigation tools
 
-For monitoring and operational guidance, see [Azure security management and monitoring overview](/azure/security/fundamentals/management-monitoring-overview).
+For monitoring and operational guidance, see [Azure security management and monitoring overview](management-monitoring-overview.md).
 
 ## Next steps
 
-- Review [Azure security services and technologies](/azure/security/fundamentals/services-technologies) for a comprehensive list of security capabilities
-- Understand [shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility)
-- Explore [Azure security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns)
+- Review [Introduction to Azure security](overview.md) for a comprehensive overview organized by functional area
+- Review [Azure security services and technologies](services-technologies.md) for a comprehensive list of security capabilities
+- Understand [shared responsibility in the cloud](shared-responsibility.md)
+- Explore [Azure security best practices and patterns](best-practices-and-patterns.md)
 - Learn about [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
