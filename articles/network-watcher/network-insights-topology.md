@@ -36,7 +36,7 @@ Topology supports the following resource types:
 - Azure DNS zones
 - Azure Firewalls
 - Azure Front Door profiles
-- Azure Kuberenetes Service clusters (preview)
+- Azure Kubernetes Service clusters (preview)
 - Azure NAT Gateways
 - Connections
 - DNS Private Resolvers
