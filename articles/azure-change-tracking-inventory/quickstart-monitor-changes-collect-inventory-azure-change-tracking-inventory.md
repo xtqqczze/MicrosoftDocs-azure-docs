@@ -38,7 +38,7 @@ This section provides detailed procedure on how you can enable change tracking o
 
 #### Enable Azure CTI for a single Azure VM using portal
 
-To enable Azure CTI for a single Azure VM using Azure – portal, follow these steps: 
+To enable Azure CTI for a single Azure VM using Azure portal, follow these steps: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Virtual machines**.
 
@@ -61,7 +61,7 @@ To enable Azure CTI for a single Azure VM using Azure – portal, follow these s
 
 #### Enable Azure CTI for a single Azure Arc-enabled VM using portal
 
-To enable Azure CTI for a single Azure Arc VM – portal, follow these steps:
+To enable Azure CTI for a single Azure Arc-enabled VM using portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Search for **Machines-Azure Arc**.
 
@@ -85,7 +85,7 @@ This section provides detailed procedure on how you can enable Azure CTI on mult
 
 #### Multiple Azure VMs using portal
 
-To enable Azure CTI for multiple Azure VMs – portal, follow these steps:
+To enable Azure CTI for multiple Azure VMs using portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Virtual machines**.
 

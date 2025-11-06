@@ -6,8 +6,6 @@
   items:
     - name: Azure Change Tracking and Inventory release notes
       href: extension-version-details.md
-    - name: Supported regions and mappings
-      href: region-mappings-monitoring-agent.md
     - name: Support matrix for Azure Change Tracking and Inventory
       href: change-tracking-inventory-support-matrix.md
 - name: Quickstarts
@@ -22,9 +20,9 @@
   items:
     - name: Create Data Collection Rule
       href: create-data-collection-rule.md
-    - name: Enable from machines pane
+    - name: Enable Azure CTI from machines pane
       href: enable-change-tracking-at-scale-machines-blade.md
-    - name: Enable CTI at scale using Azure policy
+    - name: Enable Azure CTI at scale using Azure policy
       href: enable-change-tracking-at-scale-policy.md
     - name: Disable Change Tracking and Inventory
       href: disable-azure-change-tracking-inventory-monitoring-agent.md
