@@ -104,6 +104,8 @@
       "source_path": "articles/business-continuity-center/business-continuity-center-overview.md",
       "redirect_url": "/azure/resiliency/resiliency-overview",
       "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-azure-enhanced-soft-delete-tutorial.md",
       "redirect_url": "/azure/backup/secure-by-default",
       "redirect_document_id": false
