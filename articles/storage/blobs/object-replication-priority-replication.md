@@ -88,11 +88,11 @@ To enable OR Priority Replication when creating a new OR policy, complete the fo
 
     :::image type="content" source="media/object-replication-priority-replication/replication-new-accounts-sml.png" alt-text="Screenshot showing the location of the priority replication checkbox for a new storage account." lightbox="media/object-replication-priority-replication/replication-new-accounts-lrg.png":::
 
-1. In the **Create replication rules** pane, select your chosen **Destination subscription** and **Destination storage account**. Select the checkbox for **Enable priority replication** as shown.
+1. In the **Create replication rules** pane, select your chosen **Destination subscription** and **Destination storage account**. Select the **Enable priority replication** checkbox as shown.
 
     :::image type="content" source="media/object-replication-priority-replication/create-replication-rules-sml.png" alt-text="Screenshot showing the location of the Enable Priority Replication and Enable Replication Monitoring checkboxes in the replication rules pane." lightbox="media/object-replication-priority-replication/create-replication-rules-lrg.png":::
 
-1. Complete the remaining fields and select **Add rule** to update the new OR policy with priority replication enabled.
+1. Create your container pair by selecting the **Source container** and **Destination container** values from the dropdown menus. Finally, select **Create** to add the new OR policy with priority replication enabled.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -102,21 +102,27 @@ To enable OR Priority Replication when creating a new OR policy, complete the fo
 Connect-AzAccount
 
 # Set variables
-$rgname          = "<resource-group-name>"
-$newAccountName  = "<new-account-name>"
-$destAccountName = "<destination-account-name>"
-$srcAccountName  = "<source-account-name>"
-$srcContainer    = "<source-container-name>"
-$destContainer   = "<destination-container-name>"
+$rgname               = "<resource-group-name>"
+$newAccountName       = "<new-account-name>"
+$destAccountName      = "<destination-account-name>"
+$srcAccountName       = "<source-account-name>"
+$srcAccountResourceID = "<source-account-resourceID"
+$srcContainer         = "<source-container-name>"
+$destContainer        = "<destination-container-name>"
 
-# Set OR policy on destination account with priority replication enabled
-$rule1 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainer ` 
-    -DestinationContainer $destContainer
+# Create a new destination poilcy with priority replication enabled 
+$rule1 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainer `
+    -DestinationContainer $destContainer 
 $destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
     -StorageAccountName $destAccountName -PolicyId default `
-    -SourceAccount $srcAccountName -Rule $rule1 -EnableMetric $true `
-    -EnablePriorityReplication $true
-$destPolicy.PriorityReplication.Enabled
+    -SourceAccount $srcAccountResourceID -Rule $rule1 -EnableMetric $true `
+    -Rule $rule1 -EnableMetric $true -EnablePriorityReplication $true
+ 
+# Set OR policy on the source account
+$srcPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -StorageAccountName $srcAccountName -InputObject $destPolicy -Debug
+ 
+# Confirm OR priority replication is enabled
+$srcPolicy.PriorityReplication.Enabled
 
 ```
 
@@ -155,7 +161,7 @@ In the Azure portal, navigate to the storage account you want to modify. In the 
 
 #### Enable priority replication
 
-1. Locate the OR policy to which you want to add priority replication, and select the **Enable** link in the **Priority replication** column as shown in the following screenshot.
+1. Locate the OR policy to which you want to add priority replication. Select the **Enable** link in the **Priority replication** column as shown in the following screenshot.
 
     :::image type="content" source="media/object-replication-priority-replication/enable-existing-policy-sml.png" alt-text="Screenshot showing how to locate the Enable Priority Replication option for existing replication rules." lightbox="media/object-replication-priority-replication/enable-existing-policy-lrg.png":::
 
@@ -193,25 +199,9 @@ $destContainer        = "<destination-container-name>"
 
 ```
 
-#### Create a new OR Policy with Priority Replication Enabled
-
-```powershell
- 
-# Set OR Policy on Destination Storage Account
-$rule1 = New-AzStorageObjectReplicationPolicyRule -SourceContainer $srcContainer -DestinationContainer $destContainer 
-$destPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -StorageAccountName $destAccountName `
-    -PolicyId default -SourceAccount $srcAccountResourceID `
-    -Rule $rule1 -EnableMetric $true -EnablePriorityReplication $true
-
-# Set OR Policy on Source Account
-$srcPolicy = Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname -StorageAccountName $srcAccountName -InputObject $destPolicy -Debug
- 
-# Confirm OR Priority Replication is Enabled
-$srcPolicy.PriorityReplication.Enabled
-
-```
-
 #### Enable Priority Replication on an existing OR Policy
+
+The following example PowerShell script demonstrates how to enable priority replication on an existing OR policy.
 
 ```powershell
 
@@ -227,6 +217,8 @@ $srcPolicy.PriorityReplication.Enabled
 ```
  
 #### Disable Priority Replication
+
+The following example PowerShell script demonstrates how to disable priority replication on an existing OR policy.
 
 ```powershell
  
