@@ -1,3 +1,12 @@
+---
+title: Reference - CIS Security Benchmarks for SUSE Linux Enterprise 15
+description: Reference - CIS Security Benchmarks for SUSE Linux Enterprise
+ms.date: 11/05/2025
+author: pallakatos
+ms.author: pallakatos
+ms.topic: reference
+ms.custom: generated
+---
 # Release Notes - SUSE Linux Enterprise 15
 
 ## Supported Benchmarks

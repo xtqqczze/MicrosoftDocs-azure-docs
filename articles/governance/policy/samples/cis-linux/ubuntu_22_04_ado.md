@@ -1,3 +1,12 @@
+---
+title: Reference - CIS Security Benchmarks for Ubuntu Linux 22.04
+description: Reference - CIS Security Benchmarks for Ubuntu Linux 22.04
+ms.date: 11/05/2025
+author: pallakatos
+ms.author: pallakatos
+ms.topic: reference
+ms.custom: generated
+---
 # Release Notes - Ubuntu Linux 22.04 LTS
 
 ## Supported Benchmarks

@@ -1,3 +1,12 @@
+---
+title: Reference - CIS Security Benchmarks for Rocky Linux 8
+description: Reference - CIS Security Benchmarks for Rocky Linux 8
+ms.date: 11/05/2025
+author: pallakatos
+ms.author: pallakatos
+ms.topic: reference
+ms.custom: generated
+---
 # Release Notes - Rocky Linux 8
 
 ## Supported Benchmarks

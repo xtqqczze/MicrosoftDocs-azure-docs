@@ -1,3 +1,12 @@
+---
+title: Reference - CIS Security Benchmarks for Debian Linux 12
+description: Reference - CIS Security Benchmarks for Debian Linux 12
+ms.date: 11/05/2025
+author: pallakatos
+ms.author: pallakatos
+ms.topic: reference
+ms.custom: generated
+---
 # Release Notes - Debian Linux 12
 
 ## Supported Benchmarks

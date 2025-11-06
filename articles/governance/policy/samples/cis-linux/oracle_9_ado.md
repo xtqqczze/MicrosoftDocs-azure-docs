@@ -1,3 +1,12 @@
+---
+title: Reference - CIS Security Benchmarks for Oracle Linux 9
+description: Reference - CIS Security Benchmarks for Oracle Linux 9
+ms.date: 11/05/2025
+author: pallakatos
+ms.author: pallakatos
+ms.topic: reference
+ms.custom: generated
+---
 # Release Notes - Oracle Linux 9
 
 ## Supported Benchmarks
