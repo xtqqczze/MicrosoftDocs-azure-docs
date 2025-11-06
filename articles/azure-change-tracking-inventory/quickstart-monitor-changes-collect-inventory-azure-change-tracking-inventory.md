@@ -44,7 +44,7 @@ To enable Azure CTI for a single Azure VM using Azure portal, follow these steps
 
    :::image type="content" source="media/create-data-collection-rule/select-virtual-machine-portal-inline.png" alt-text="Screenshot showing how to select virtual machine from the portal." lightbox="media/create-data-collection-rule/select-virtual-machine-portal-expanded.png":::
 
-  Select the virtual machine for which you want to enable Change Tracking.
+   Select the virtual machine for which you want to enable Change Tracking.
 
 1. In the search bar, enter **Change tracking**. Select **Change tracking** to view the **Change Tracking and Inventory** pane.
 
@@ -134,7 +134,7 @@ To associate the data collection rule to the Arc-enabled VMs, follow these steps
     
    **Linux**
 
-To enable Change Tracking on a Linux machine using Azure Connected Machine extension, use Azure CLI syntax for the below command:
+   To enable Change Tracking on a Linux machine using Azure Connected Machine extension, use Azure CLI syntax for the below command:
        
    ```azurecli
    az connectedmachine extension create  --name ChangeTracking-Linux  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Linux  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
