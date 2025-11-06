@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 10/14/2025
+ms.date: 11/04/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -23,7 +23,25 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now support cache volumes, which are cloud-based caches of an external origin volume, containing only the most actively accessed data on the volume. This brings data and files closer to the user for faster throughput with a smaller footprint. Azure NetApp Files cache volumes simplify file distribution, reduces WAN latency, and lowers WAN/ExpressRoute bandwidth costs.
 
+* [Large volumes breakthrough mode](large-volumes-requirements-considerations.md#register-for-breakthrough-mode) (preview)
+
+    Breakthrough mode in Azure NetApp Files enables extreme performance and scalability for demanding HPC and EDA workloads. It supports large volumes up to 2 PiB, delivering throughput up to 50 GiB/second, depending on workload characteristics. Breakthrough mode uses six storage endpoints for each large volume, ensuring consistent performance. Storage systems hosting breakthrough mode volumes are reserved for each customer to provide peak performance and not compete with other workloads. Key benefits include: 
+
+    * High-capacity scaling for large-scale, latency-sensitive workloads 
+    * Simplified network management with multiple storage endpoints per volume 
+    * Dedicated capacity stamps to eliminate noisy neighbor interference and maintain predictable performance 
+
+    This feature is supported in [all regions that support large volumes](large-volumes-requirements-considerations.md#supported-regions). Breakthrough mode is currently in preview. 
+    
 ## October 2025
+
+* [Restore individual files using single-file restore from backup](restore-single-file-backup.md) is now generally available (GA)
+
+  With Azure NetApp Files single file restore from backup, you can restore individual files from Azure NetApp Files backup vault without needing to restore an entire volume. By restoring only the necessary files, you can save cost and time needed for restoring data. 
+
+* [Backup support for large volumes](large-volumes-requirements-considerations.md) is now generally available (GA)
+
+    [Azure NetApp Files backup](backup-requirements-considerations.md) now supports large volumes by moving point-in-time snapshot copy data to low-cost Azure storage to address long-term retention, data protection, and compliance needs. Azure NetApp Files backup employs an efficient data mover to backup data at high speeds for both initial and incremental subsequent backups. You must register the large volumes AFEC to use Azure NetApp Files backup on large volumes. 
 
 * [Object REST API](object-rest-api-access-configure.md) (preview)
 
