@@ -49,9 +49,14 @@ The following functionality isn't supported on a WAF policy that's associated wi
 
 - **Cross-region, cross-subscription policy**: Your WAF policy must be in the same subscription and region as your Application Gateway for Containers resource.
 - **Core Rule Set (CRS) managed rules**: An Application Gateway for Containers WAF supports only Default Rule Set (DRS) managed rule sets.
-- **Legacy Bot Manager Rule Set**: Bot Manager Rule Set 0.1 isn't supported, but all newer Bot Manager Rule Set versions are supported.
+- **Default Rule Set (DRS) 2.2 managed ruleset**: Default Ruleset 2.2 isn't supported, but earlier versions of the DRS ruleset are supported.
+- **Legacy Bot Manager Rule Set**: Bot Manager Ruleset 0.1 isn't supported, but all newer Bot Manager Ruleset versions are supported.
+- **DDoS Managed Ruleset**: DDoS Managed Ruleset isn't supported, you will not be able to use this ruleset with your Application Gateway for Containers WAF resource.
 - **JavaScript challenge actions on Bot Manager rules**: You can't set the action on a Bot Manager rule to JavaScript challenge.
-- **Microsoft Security Copilot**: This offering isn't supported.
+- **Captcha challenge actions on Bot Manager rules**: You can't set the action on a Bot Manager rule to Captcha.
+- **Microsoft Security Copilot**: The Security Copilot is not supported on Application Gateway for Containers WAF.
+- **Custom Block Response**: Setting a custom block response in your WAF policy is not supported on Application Gateway for Containers WAF.
+- **X-Forwarded-For Header (XFF)**: Application Gateway for Conatiners WAF does not support the XFF variable in custom rules.
 
 ## Pricing
 
