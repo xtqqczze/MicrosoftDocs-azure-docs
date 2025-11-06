@@ -35,7 +35,7 @@ The following features are supported with certificate management for IoT Hub dev
 | At-scale provisioning of leaf certificates | The policies defined in your ADR namespace are directly linked to a Device Provisioning Service enrollment group to be used at the time of certificate provisioning.|
 | Syncing of CA chains with IoT Hubs | The policies defined in your ADR namespace will be synced to the appropriate IoT Hub. This will enable IoT Hub to trust any devices authenticating with an end-entity certificate. |
 
-## Onboarding vs Operational Credentials
+## Onboarding vs. Operational Credentials
 
 Today, certificate management supports issuance and renewal for end-entity **operational certificates**.
 
