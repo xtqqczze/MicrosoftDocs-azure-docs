@@ -63,7 +63,7 @@ The following image illustrates the X.509 certificate hierarchy used to authenti
 
 - Each ADR namespace (cloud) has a unique root CA credential managed by Microsoft. This credential acts as the primary certificate authority in the chain.
 - Each policy within the ADR namespace defines an issuing CA (ICA) signed by the root CA. Each policy can issue end-entity/leaf certificates for devices registered within that ADR namespace and with Hubs linked to the namespace. This structure enables scalable identity management and policy enforcement across device groups.
-- Once you have created your credential and policies, you can sync your CA certificates directly with IoT Hub. IoT Hub will now be able to authenticate devices that present this ;eaf certificate.
+- Once you have created your credential and policies, you can sync these CA certificates directly with IoT Hub. IoT Hub will now be able to authenticate devices that present this ;eaf certificate.
 
 :::image type="content" source="media/certificate-management/device-registry-certificate-management.png" alt-text="Diagram showing how Azure Device Registry integrates with IoT Hub and DPS for certificate management." lightbox="media/certificate-management/device-registry-certificate-management.png":::
 
@@ -83,11 +83,11 @@ Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT 
 
 The following diagram illustrates the end-to-end process of device provisioning with certificate management:
 
-1. The IoT device connects to DPS using an onboarding credential and sends a certificate signing request (CSR). The CSR contains information about the device, such as its public key and other identifying details.
-1. DPS authenticates the device using its onboarding credentials and assigns it to an IoT Hub based on its enrollment group. The device is also registered in the ADR namespace for certificate lifecycle management.
-1. The device identity is created in IoT Hub and linked to the appropriate ADR namespace.
-1. DPS requests an X.509 operational certificate from Microsoft PKI using the CSR and the policy defined by the enrollment group.
-1. The Microsoft-backed PKI returns the signed operational certificate to DPS.
+1. The IoT device connects to DPS endpoint, authenticating using its pre-configured onboarding credential. As part of this registration call, the device sends a certificate signing request (CSR). The CSR contains information about the device, such as its public key and other identifying details.
+1. DPS verifies the onboarding credential and authenticates the device, thereby assigning it to an IoT Hub based on its DPS enrollment.
+1. The device identity is created in IoT Hub and registered to the appropriate ADR namespace.
+1. Using the CSR, DPS requests a signed operational certificate from the policy (issuing CA) that was linked to the DPS enrollment.
+1. The policy returns the signed operational certificate to DPS.
 1. DPS sends the operational certificate and IoT Hub connection details back to the device.
 1. The device now authenticates with IoT Hub by sending the full issuing certificate chain to IoT Hub.
 
