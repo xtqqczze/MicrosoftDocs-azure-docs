@@ -1,18 +1,18 @@
 ---
-title: Configure registry endpoints in Azure IoT Operations
+title: Configure Registry Endpoints in Azure IoT Operations (Preview)
 description: Learn how to configure registry endpoints for container registries in Azure IoT Operations data flow graphs.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 07/22/2025
+ms.date: 08/14/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure registry endpoints in Azure IoT Operations so that I can pull WASM modules and graph definitions from container registries.
 ---
 
-# Configure registry endpoints
+# Configure registry endpoints (preview)
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
@@ -20,7 +20,7 @@ Data flow graphs use registry endpoints to pull WebAssembly (WASM) modules and g
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
+- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), version 1.2 preview or later
 - Access to a container registry, such as Azure Container Registry
 
 ## Registry endpoint overview
@@ -28,7 +28,7 @@ Data flow graphs use registry endpoints to pull WebAssembly (WASM) modules and g
 A registry endpoint defines the connection details and authentication method for accessing a container registry. Registry endpoints are used by:
 
 - **Data flow graphs**: To pull WASM modules and graph definitions
-- **Akri connectors**: To pull custom discovery handlers and protocol adapters
+- **Akri connectors**: To pull custom connector templates
 
 Registry endpoints support authentication through:
 - System-assigned managed identity

@@ -86,7 +86,7 @@ With the premium ingress mode enabled, you can also configure the following sett
 | Setting | Description | Minimum | Maximum | Default |
 |---|---|---|---|---|
 | Termination grace period | The amount of time (in seconds) for the container app to finish processing requests before they're canceled during shutdown. | 0 | 3,600 | 500 |
-| Idle request timeout | Idle request time-out in minutes. | 1 | 60 | 4 |
+| Idle request timeout | Idle request time-out in minutes. | 4 | 30 | 4 |
 | Request header count | Increase this setting if you have clients that send a large number of request headers. | 1 | N/A | 100 |
 
 You should only increase these settings as needed, because raising them could lead to your ingress proxy instances consuming more resources for longer periods of time, becoming more vulnerable to resource exhaustion and denial of service attacks.
@@ -112,7 +112,7 @@ You can configure the ingress for your environment after you create it.
 
 1. Select **Apply**.
 
-## Rule-based routing (preview)
+## Rule-based routing
 
 With rule-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request. This offers the following benefits.
 
