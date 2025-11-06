@@ -1,6 +1,6 @@
 ---
-title: Reference - Azure Policy guest configuration baseline for Linux
-description: Details of the Linux baseline on Azure implemented through Azure Policy guest configuration.
+title: Reference - Built-in CIS Security Benchmarks for Linux Workloads via Machine Configuration
+description: Reference - Built-in CIS Security Benchmarks for Linux Workloads via Machine Configuration
 ms.date: 11/05/2025
 author: pallakatos
 ms.author: pallakatos
