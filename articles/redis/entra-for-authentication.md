@@ -11,20 +11,18 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Use Microsoft Entra for cache authentication with Azure Managed Redis
+# Use Microsoft Entra ID for cache authentication with Azure Managed Redis
 
-Azure Managed Redis offers two methods to [authenticate](configure.md#authentication) to your cache instance: access keys and Microsoft Entra. Azure Managed Redis cache use managed identity by default. When you create a new cache, managed identity is enabled.
+Azure Managed Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis). Azure Managed Redis caches use Microsoft Entra ID by default. When you create a new cache, managed identity is enabled.
 
-Although access key authentication is simple, it comes with a set of challenges around security and password management. For contrast, in this article, you learn how to use a Microsoft Entra token for cache authentication.
-
-Azure Managed Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra](/azure/active-directory/fundamentals/active-directory-whatis). The Entra ID configured to connect with Azure Managed Redis is assigned the same permissions as when using Access Keys.
+Although access key authentication is still available, it comes with a set of challenges around security and password management. For contrast, in this article, you learn how to use a Microsoft Entra token for cache authentication.
 
 In this article, you learn how to use your service principal or managed identity to connect to your Redis instance.
 
 ## Prerequisites and limitations
 
 - Microsoft Entra authentication is supported for SSL connections only.
-- Microsoft Entra groups are not supported.
+- Microsoft Entra groups aren't supported.
 - Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Managed Redis](best-practices-client-libraries.md#blocked-commands).
 
 > [!IMPORTANT]
@@ -32,11 +30,11 @@ In this article, you learn how to use your service principal or managed identity
 
 ## Configure your Redis client to use Microsoft Entra
 
-Because most Azure Managed Redis clients assume that a password and access key are used for authentication, you likely need to update your client workflow to support authentication by using Microsoft Entra. In this section, you learn how to configure your client applications to connect to Azure Managed Redis by using a Microsoft Entra token.
+If you have used access keys in the past for authentication, you need to update your client workflow to support authentication by using Microsoft Entra ID. In this section, you learn how to connect to Azure Managed Redis using a Microsoft Entra ID.
 
 ### Add users or System principal to your cache
 
-1. Connect to your cache in the Azure portal
+1. Connect to your cache in the Azure portal.
 
 1. On the Resource menu, select **Authentication**.
 
@@ -55,7 +53,7 @@ Because most Azure Managed Redis clients assume that a password and access key a
    - `User` = Object ID of your managed identity or service principal
    - `Password` = Microsoft Entra token that you acquired by using MSAL
 
-1. Ensure that your client executes a Redis [AUTH command](https://redis.io/commands/auth/) automatically before your Microsoft Entra token expires by using:
+1. Ensure that your client executes a Redis [`AUTH` command](https://redis.io/commands/auth/) automatically before your Microsoft Entra token expires by using:
 
    - `User` = Object ID of your managed identity or service principal
    - `Password` = Microsoft Entra token refreshed periodically
@@ -68,7 +66,7 @@ Because most Azure Managed Redis clients assume that a password and access key a
 
 ## Troubleshooting Microsoft Entra ID and your cache
 
-If your application fails to access to the Azure Managed Redis instance through Entra ID, use this PowerShell script:
+If your application fails to access to the Azure Managed Redis instance through Microsoft Entra ID, use this PowerShell script:
 
 [EntraTokenValidation](https://github.com/AzureManagedRedis/DiagnosticTools/tree/main/EntraTokenValidation)
 
@@ -97,9 +95,7 @@ The following table includes links to code samples. They demonstrate how to conn
 
 If you have a cache using access keys, we recommend switching to Microsoft Entra ID as the secure way to connect your cache and disabling access keys.
 
-New Azure Managed Redis caches don't use access keys by default.
-
-If a access keys have been enabled, when you disable access key for a cache, all existing client connections are terminated, whether they use access keys or Microsoft Entra ID authentication. 
+When you disable access keys, the system terminates all existing client connections, regardless of whether they use access keys or Microsoft Entra ID authentication.
 
 Before you disable access keys on geo-replicated caches, you must:
    1. Unlink the caches.
