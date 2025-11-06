@@ -447,7 +447,7 @@ groups:
   - id: azure-cli
     title: Azure CLI
   - id: script
-    title: Powershell script
+    title: PowerShell script
 - id: service-portal-azcli-powershell
   title: App Service deployment method
   prompt: Choose a deployment method

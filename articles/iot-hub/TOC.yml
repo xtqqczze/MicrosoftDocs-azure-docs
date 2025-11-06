@@ -18,7 +18,7 @@
           href: iot-hub-certificate-management-overview.md
         - name: Key concepts for certificate management
           href: iot-hub-certificate-management-concepts.md
-    - name: Get started with ADR and certificate management in IoT Hub (Preview)
+    - name: Get started with IoT Hub (Preview)
       href: iot-hub-device-registry-setup.md
   expanded: true
 - name: Quickstarts
