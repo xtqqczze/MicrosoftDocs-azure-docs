@@ -21,89 +21,109 @@ The following example workflow uses an agent to get the current weather and send
 
 :::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, workflow designer, and example autonomous agent." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
 
-This guide shows how to create a Standard or Consumption logic app workflow using the **Autonomous Agents** workflow type. This workflow runs without human interaction and uses tools that you build to automatically complete tasks.
+This guide shows how to create a Consumption or Standard logic app workflow using the **Autonomous Agents** workflow type. This workflow runs without human interaction and uses tools that you build to automatically complete tasks.
 
 For a high-level overview about agentic workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
-## Prerequisites
+> [!NOTE]
+>
+> Consumption logic apps don't require you to separately deploy an AI model in Azure AI Foundry. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model that's automatically hosted in your subscription and logic app region.   Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
 
-- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+>
+> Standard logic apps require that you create an Azure OpenAI resource and deploy an Azure OpenAI Service model.
 
-- A Standard or Consumption logic app resource, which has different requirements:
-
-  | Logic app | Requirement |
-  |-----------|-------------|
-  | Standard | Based on your development environment: <br><br>- Azure portal: A Standard logic app resource that has public access enabled for testing or a private endpoint in production. If you don't have this resource, see [Create Standard workflows in the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal). <br><br>- Visual Studio Code: A Standard logic app project. If you don't have this project, see [Create Standard workflows in Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code), and make sure that you have the latest extension. <br><br>After you open the workflow designer, the steps for the designer are mostly similar between the portal and Visual Studio Code. Some interactions have minor differences. |
-  | Consumption (preview) | Azure portal only: A Consumption logic app resource that uses the workflow type named **Autonomous Agents**. For more information, see [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md). <br><br>**Note**: Visual Studio Code support is unavailable. |
-
-  The examples in this guide use the Azure portal.
-
-- Based on your logic app, you might or might not need to create and deploy an LLM.
-
-  - **Consumption**
-  
-    You don't need to bring or deploy a separate AI model. By default, your workflow includes an agent and Azure OpenAI Service model that's automatically hosted in your subscription and logic app region.
-
-  - **Standard**
-  
-    You need one of the following AI models:
-
-    | Model source | Description |
-    |--------------|-------------|
-    | [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models) | You need the resource name when you connect to your deployed model in Azure OpenAI Service from an agent in your workflow. If you don't have this resource and model, see the following articles: <br><br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br><br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) <br><br>Agent workflows support only specific models. For more information, see [Supported models](#supported-models-for-agent-workflows). |
-    | [Azure OpenAI Service resource](/azure/ai-services/openai/overview) connected to an [Azure AI Foundry project](/azure/ai-foundry/what-is-azure-ai-foundry) and a deployed [Azure OpenAI model in Azure AI Foundry](/azure/ai-foundry/openai/concepts/models) | Make sure that you have a Foundry project, not a Hub based project. If you don't have this project, resource, and model, see the following articles: <br><br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal)<br><br>- [Create a project for Azure AI Foundry](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry) <br><br>- [Connect Azure AI services after you create a project](/azure/ai-services/connect-services-ai-foundry-portal#connect-azure-ai-services-after-you-create-a-project) or [Create a new connection in Azure AI Foundry portal](/azure/ai-foundry/how-to/connections-add?tabs=aoai%2Cblob%2Cserp&pivots=fdp-project#create-a-new-connection) <br><br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) <br><br>Agent workflows support only specific models. For more information, see [Supported models](#supported-models-for-agent-workflows). |
-
-- The authentication to use when you set up your agent with an AI model, based on your logic app:
-
-  - **Consumption**
 
     By default, the connection between your agent and AI model uses [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) for authentication and authorization.
 
-  - **Standard**
 
-    - Managed identity authentication
 
-      > [!NOTE]
-      >
-      > For Azure AI Foundry projects, you must use managed identity authentication.
+## Prerequisites
 
-      This connection supports authentication by using Microsoft Entra ID with a [managed identity](/entra/identity/managed-identities-azure-resources/overview). In production scenarios, Microsoft strongly recommends that you use a managed identity when possible. This option provides optimal and superior security at no extra cost. Azure manages this identity for you, so you don't have to provide or manage sensitive information such as credentials or secrets. This information isn't even accessible to individual users. You can use managed identities to authenticate access for any resource that supports Microsoft Entra authentication.
+Based on whether you want to create a Consumption or Standard logic app, the following prerequisites apply:
 
-      To use managed identity authentication, your Standard logic app resource must enable the system-assigned managed identity. By default, the system-assigned managed identity is enabled on a Standard logic app. This release currently doesn't support using the user-assigned managed identity.
+### [Consumption (preview)](#tab/consumption)
 
-      > [!NOTE]
-      >
-      > If the system-assigned identity is disabled, [reenable the identity](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard#enable-system-assigned-identity-in-the-azure-portal). 
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-      The system-assigned identity requires one of the following roles for Microsoft Entra role-based access control (RBAC), based on the [principle of least privilege](/entra/identity-platform/secure-least-privileged-access):
+- A Consumption logic app resource that uses the workflow type named **Autonomous Agents**.
 
-      | Model source | Role |
-      |--------------|------|
-      | Azure OpenAI Service resource | - **Cognitive Services OpenAI User** (least privileged) <br>- **Cognitive Services OpenAI Contributor** |
-      | Azure AI Foundry project | **Azure AI User** |
+  For more information, see [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
-      For more information about managed identity setup, see:
+  > [!NOTE]
+  >
+  > For Consumption logic apps and autonomous agent workflows, only the Azure portal experience is available. Support for Visual Studio Code is unavailable.
 
-      - [Authenticate access and connections with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard)
-      - [Role-based access control for Azure OpenAI Service](/azure/ai-services/openai/how-to/role-based-access-control)
-      - [Role-based access control for Azure AI Foundry](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
-      - [Best practices for Microsoft Entra roles](/entra/identity/role-based-access-control/best-practices)
+### [Standard](#tab/standard)
 
-    - URL and key-based authentication
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-      This connection supports authentication by using the endpoint URL and API key for your deployed AI model. However, you don't have to manually find these values before you create the connection. The values automatically appear when you select your model source.
+- A Standard logic app resource or project, based on your development experience:
 
-      > [!IMPORTANT]
-      >
-      > Use this authentication option only for the examples in this guide, exploratory scenarios, nonproduction scenarios, or if your organization's policy specifies that you can't use managed identity authentication.
-      >
-      > In general, make sure that you secure and protect sensitive data and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information with the highest available or supported level of security. Don't hardcode sensitive data, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets in the case they become compromised.
-      >
-      > For more information, see:
-      >
-      > - [Best practices for protecting secrets](/azure/security/fundamentals/secrets-best-practices)
-      > - [Secrets in Azure Key Vault](/azure/key-vault/secrets/) 
-      > - [Automate secrets rotation in Azure Key Vault](/azure/key-vault/secrets/tutorial-rotation)
+  | Experience | Requirement |
+  |------------|-------------|
+  | Azure portal | A Standard logic app resource. See [Create Standard workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md). |
+  | Visual Studio Code | A Standard logic app project. See [Create Standard workflows in Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code). Make sure you have the latest Azure Logic Apps extension. |
+
+  After you open the workflow designer, the experience in the portal and Visual Studio Code are mostly similar, but some interactions have minor differences.
+
+  The examples in this guide use the Azure portal.
+
+- An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with one of the following AI model sources: 
+
+  > [!NOTE]
+  >
+  > Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
+
+  | Model source | Description |
+  |--------------|-------------|
+  | A deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models) | You need the resource name when you connect from the agent in your workflow to the deployed model in Azure OpenAI Service. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
+  | An [Azure AI Foundry project](/azure/ai-foundry/what-is-azure-ai-foundry) connected to a deployed [Azure OpenAI model in Azure AI Foundry](/azure/ai-foundry/openai/concepts/models) | Make sure that you have a Foundry project, not a Hub based project. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Create a project for Azure AI Foundry](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry) <br>- [Connect Azure AI services after you create a project](/azure/ai-services/connect-services-ai-foundry-portal#connect-azure-ai-services-after-you-create-a-project) <br>- [Create a new connection in Azure AI Foundry portal](/azure/ai-foundry/how-to/connections-add?tabs=aoai%2Cblob%2Cserp&pivots=fdp-project#create-a-new-connection) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
+
+- The authentication to use when you connect your agent to your deployed AI model.
+
+  Azure AI Foundry projects require that you use managed identity authentication.
+
+  - Managed identity authentication
+
+    This connection supports authentication using Microsoft Entra ID with a [managed identity](/entra/identity/managed-identities-azure-resources/overview). In production scenarios, Microsoft strongly recommends that you use a managed identity when possible. This option provides optimal and superior security at no extra cost. Azure manages this identity for you, so you don't have to provide or manage sensitive information such as credentials or secrets. This information isn't even accessible to individual users. You can use managed identities to authenticate access for any resource that supports Microsoft Entra authentication.
+
+    To use managed identity authentication, your Standard logic app resource must enable the system-assigned managed identity. By default, the system-assigned managed identity is enabled on a Standard logic app. This release currently doesn't support using the user-assigned managed identity.
+
+    > [!NOTE]
+    >
+    > If the system-assigned identity is disabled, [reenable the identity](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard#enable-system-assigned-identity-in-the-azure-portal). 
+
+    The system-assigned identity requires one of the following roles for Microsoft Entra role-based access control (RBAC), based on the [principle of least privilege](/entra/identity-platform/secure-least-privileged-access):
+
+    | Model source | Role |
+    |--------------|------|
+    | Azure OpenAI Service resource | - **Cognitive Services OpenAI User** (least privileged) <br>- **Cognitive Services OpenAI Contributor** |
+    | Azure AI Foundry project | **Azure AI User** |
+
+    For more information about managed identity setup, see:
+
+    - [Authenticate access and connections with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard)
+    - [Role-based access control for Azure OpenAI Service](/azure/ai-services/openai/how-to/role-based-access-control)
+    - [Role-based access control for Azure AI Foundry](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
+    - [Best practices for Microsoft Entra roles](/entra/identity/role-based-access-control/best-practices)
+
+  - URL and key-based authentication
+
+    This connection supports authentication by using the endpoint URL and API key for your deployed AI model. However, you don't have to manually find these values before you create the connection. The values automatically appear when you select your model source.
+
+    > [!IMPORTANT]
+    >
+    > Use this authentication option only for the examples in this guide, exploratory scenarios, nonproduction scenarios, or if your organization's policy specifies that you can't use managed identity authentication.
+    >
+    > In general, make sure that you secure and protect sensitive data and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information with the highest available or supported level of security. Don't hardcode sensitive data, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets in the case they become compromised.
+    >
+    > For more information, see:
+    >
+    > - [Best practices for protecting secrets](/azure/security/fundamentals/secrets-best-practices)
+    > - [Secrets in Azure Key Vault](/azure/key-vault/secrets/) 
+    > - [Automate secrets rotation in Azure Key Vault](/azure/key-vault/secrets/tutorial-rotation)
+
+---
 
 - To follow along with the examples, you need an email account to send email.
 
@@ -131,7 +151,7 @@ The following sections describe current limitations and any known issues in this
 
 The following section shows how to start creating your autonomous agent workflow.
 
-### [Consumption](#tab/consumption)
+### [Consumption (preview)](#tab/consumption)
 
 For a Consumption logic app, the **Autonomous Agents** workflow type creates a partial workflow that starts with the **Request** trigger. The workflow also includes an **Agent** action.
 
@@ -227,7 +247,7 @@ If you have an existing **Stateful** workflow, you can add an **Agent** action t
 
 Follow the corresponding steps to set up your agent with the AI model that you want to use.
 
-### [Consumption](#tab/consumption)
+### [Consumption (preview)](#tab/consumption)
 
 1. On the designer, select the title bar on the **Default Agent** action to open the information pane.
 
@@ -337,7 +357,7 @@ For the best results, provide prescriptive instructions and be prepared to itera
 
 To make sure your workflow doesn't have errors at this stage, follow these steps:
 
-### [Consumption](#tab/consumption)
+### [Consumption (preview)](#tab/consumption)
 
 1. On the designer toolbar, select **Run** > **Run**.
 
