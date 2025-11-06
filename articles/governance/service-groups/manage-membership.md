@@ -473,9 +473,6 @@ OutputsString           :
 Successfully deployed serviceGroupMember for storageAcccountnum4.
 ```
 
-
-
-
 ## Related content
 * [What are Azure Service Groups?](overview.md)
 * [Review available rest APIs for Service Group Members](manage-service-groups.md#create-a-service-group-member)

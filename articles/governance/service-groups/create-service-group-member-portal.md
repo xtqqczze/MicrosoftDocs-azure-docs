@@ -84,4 +84,3 @@ To learn more about service groups and how to manage your service group hierarch
 
 > [!div class="nextstepaction"]
 > [Manage your resources with service groups](manage-service-groups.md)
-
