@@ -11,16 +11,16 @@ ms.date: 10/28/2025
 
 # Manage Service Group Membership at scale
 
-Azure **Service Groups** provide a flexible way to organize and manage resources. Membership for Service Groups are managed via the 'Microsoft.Relationship/serviceGroupMember' extension resource, which follows the lifecycle of the resource that is a member, and points to the desired Service Group via the `targetId` property. You can review the [available rest APIs](./manage-service-groups.md#create-a-service-group-member) or follow the [quickstart to adding members in portal](./create-service-group-member-portal.md).
+Azure **Service Groups** provide a flexible way to organize and manage resources. Memberships within a Service Group are represented as extension resource of type 'Microsoft.Relationship/serviceGroupMember'. These extension resources follow the lifecycle of the associated member resource and reference the target Service Group through the `targetId` property. To explore this further or create a Service Group member, review the [available REST APIs](./manage-service-groups.md#create-a-service-group-member) and the [QuickStart guide for adding members in the portal](./create-service-group-member-portal.md).
 
-By automating membership and deploying service groups with defined memberships, organizations can streamline scenarios built on Service Groups. This guide provides a starting point to ease of management of memberships for one or multiple groups. 
+Memberships can be managed individually or at scale. By automating membership management through code and deploying Service Groups with predefined memberships, organizations can streamline scenarios that depend on Service Groups. This guide provides a starting point to ease membership management across one or multiple Service Groups.
 
 ## Sample consolidated template for creating Service Group and Members 
 
-For organizations that deploy and managing resource lifecycles in a CI/CD fashion, it would be ideal to couple the service group and/or membership creation within the same template. This Bicep template shows the deployment of two storage accounts, a new Service Group, and adds those resources as members to the Service Group. 
+Organizations that manage resource lifecycles using a CI/CD approach can couple service group and membership creation within the same deployment template. The following Bicep template deploys two storage accounts, creates a new service group, and adds the storage accounts as members of that group.
 
 >[!Note]
-> To run this template, the user must have Service Group Administrator role on the parent Service Group and have storage account creation permissions at the desired scope. 
+> To run this template, the user must have [Service Group Administrator role](../../role-based-access-control/built-in-roles/management-and-governance.md) on the parent Service Group and have storage account creation permissions at the desired scope. 
 
 ```bicep 
 param serviceGroupId string = 'SGID'
@@ -63,9 +63,9 @@ resource rel0 'Microsoft.Relationships/serviceGroupMember@2023-09-01-preview' = 
 
 ## Using Azure Policy for automatic membership 
 
-Often Service Group membership can be defined by a rule. Common examples are resources following a naming convention that contains `appCode` or resource having a tag with a specific `costCode` values. 
+Service Group membership can be defined by a rule. Common examples are resources following a naming convention that contains `appCode` or resource having a tag with a specific `costCode` values. 
 
-To automate the creation of service group membership, you can define an Azure Policy definition that can deploy the Service Group memberships relationships based on the rule. 
+To automate the creation of service group membership, you can define an **Azure Policy definition** that can deploy the Service Group memberships relationships based on the rule. 
 
 >[!Note]
 > Azure Policy will not delete relationships for resources that do not meet the rule. 
@@ -155,7 +155,9 @@ To automate the creation of service group membership, you can define an Azure Po
 
 ## Creating memberships based on a Resource Graph query 
 
- Membership to a service group could be captured via an Azure Resource Graph query. Examples include resources that need to be grouped together for job to be done. In the example below, we will group storage accounts that need to enable soft delete. We denote my selected storage accounts via an Resource Graph query that gather resources based on tag values. 
+Service Group memberships can be created in bulk using results from an Azure Resource Graph (ARG) query. For example, resources required for a job to be done may need to be grouped together, and these resources can be detected using ARG.
+
+The example below groups storage accounts that need to enable soft delete. The script first runs an ARG query to select the storage accounts that should become members of the Service Group based on their tag values. Then it loops through each resource identified in the query and deploys a 'Microsoft.Relationships/serviceGroupMember' to represent the membership.
 
 >!Note
 > This is an example powershell command on how to use a Resource Group query to create Service Groups members for that point in time. 
@@ -299,30 +301,30 @@ foreach ($resource in $resources) {
 The parameter `$query` can be updated to the desired query. Here is an example response: 
 
 ```txt
-PS C:\> .\src\New-ServiceGroupMembershipFromTags.ps1 -TagName "richang" -tenantId "XXXXXXXXXXXXXX" -ServiceGroupId "XXXXXXXX" -Subscription "XXXXXXXXXXXX"
+PS C:\> .\src\New-ServiceGroupMembershipFromTags.ps1 -TagName "TagName" -tenantId "XXXXXXXXXXXXXX" -ServiceGroupId "XXXXXXXX" -Subscription "XXXXXXXXXXXX"
 Please select the account you want to login with.
 
 Retrieving subscriptions for the selection...
 
-Found 4 resources with tag 'richang'.
+Found 4 resources with tag 'TagName'.
 Resources:
 id                                                                                                                                              name                 type
 --                                                                                                                                              ----                 ----
-/subscriptions/{subID}/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10283num1 richangtest10283num1 microsoft....
-/subscriptions/{subID}/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10283num2 richangtest10283num2 microsoft....
-/subscriptions/{subID}/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10301num1 richangtest10301num1 microsoft....
-/subscriptions/{subID}/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10301num2 richangtest10301num2 microsoft....
+/subscriptions/{subID}/resourceGroups/{RGName}/providers/Microsoft.Storage/storageAccounts/storageAcccountnum1 storageAccountnum1 microsoft....
+/subscriptions/{subID}/resourceGroups/{RGName}/providers/Microsoft.Storage/storageAccounts/storageAcccountnum2 storageAccountnum2 microsoft....
+/subscriptions/{subID}/resourceGroups/{RGName}/providers/Microsoft.Storage/storageAccounts/storageAcccountnum3 storageAcccountnum3 microsoft....
+/subscriptions/{subID}/resourceGroups/{RGName}/providers/Microsoft.Storage/storageAccounts/storageAccountnum4 storageAccountnum4 microsoft....
 
 
 
-Deploying serviceGroupMember for resource: richangtest10283num1 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXXXXXXXXX in resource group: richangtest
+Deploying serviceGroupMember for resource: storageAcccountnum1 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXXXXXXXXX in resource group: XXXXXXXXXXXXX
 Using template:     {
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": [
         {
           "type": "Microsoft.Relationships/serviceGroupMember",
-          "scope": "/subscriptions/{subID}/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10283num1",
+          "scope": "/subscriptions/{subID}/resourceGroups/{RGName}/providers/Microsoft.Storage/storageAccounts/storageAcccountnum1",
           "apiVersion": "2023-09-01-preview",
           "name": "sgm-0",
           "properties": {
@@ -335,10 +337,10 @@ Subscription name        Tenant
 -----------------        ------
 {subscription name}      {Tenant Name}
 
-ResourceGroupName       : richangtest
+ResourceGroupName       : RG Name
 OnErrorDeployment       :
 DeploymentName          : tmp9832.tmp
-CorrelationId           : 07b14325-151e-4069-a0d8-51cba344c679
+CorrelationId           : 07b14325-151e-4069-a0d8
 ProvisioningState       : Succeeded
 Timestamp               : 10/30/2025 8:44:18 PM
 Mode                    : Incremental
@@ -351,15 +353,15 @@ ParametersString        :
 Outputs                 :
 OutputsString           :
 
-Successfully deployed serviceGroupMember for richangtest10283num1.
-Deploying serviceGroupMember for resource: richangtest10283num2 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXX in resource group: richangtest
+Successfully deployed serviceGroupMember for storageAcccountnum1.
+Deploying serviceGroupMember for resource: storageAcccountnum2 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXX in resource group: RGName
 Using template:     {
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": [
         {
           "type": "Microsoft.Relationships/serviceGroupMember",
-          "scope": "/subscriptions/{subID}/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10283num2",
+          "scope": "/subscriptions/{subID}/resourceGroups/{RGName}/providers/Microsoft.Storage/storageAccounts/storageAcccountnum2",
           "apiVersion": "2023-09-01-preview",
           "name": "sgm-1",
           "properties": {
@@ -369,10 +371,10 @@ Using template:     {
       ]
     }
 
-ResourceGroupName       : richangtest
+ResourceGroupName       : RGName
 OnErrorDeployment       :
 DeploymentName          : tmpF70C.tmp
-CorrelationId           : 9d792775-8a83-4c89-b98d-9c9a74fb3574
+CorrelationId           : 9d792775-8a83-4c89-b98d
 ProvisioningState       : Succeeded
 Timestamp               : 10/30/2025 8:44:41 PM
 Mode                    : Incremental
@@ -385,15 +387,15 @@ ParametersString        :
 Outputs                 :
 OutputsString           :
 
-Successfully deployed serviceGroupMember for richangtest10283num2.
-Deploying serviceGroupMember for resource: richangtest10301num1 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXXXX in resource group: richangtest
+Successfully deployed serviceGroupMember for storageAcccountnum2.
+Deploying serviceGroupMember for resource: storageAcccountnum3 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXXXX in resource group: RGName
 Using template:     {
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": [
         {
           "type": "Microsoft.Relationships/serviceGroupMember",
-          "scope": "/subscriptions/XXXXXXXXXXXXXX/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10301num1",
+          "scope": "/subscriptions/XXXXXXXXXXXXXX/resourceGroups/{RGName}/providers/Microsoft.Storage/storageAccounts/storageAcccountnum3",
           "apiVersion": "2023-09-01-preview",
           "name": "sgm-2",
           "properties": {
@@ -410,7 +412,7 @@ Subscription Name Microsoft
 
 Name               : Subscription Name (SubID) - Tenant ID - User ID
 Subscription       : XXXXXXXXXXXXXXXX
-Account            : richang@microsoft.com
+Account            : user@microsoft.com
 Environment        : AzureCloud
 Tenant             : XXXXXXXXXXXXXXXX
 TokenCache         :
@@ -418,10 +420,10 @@ VersionProfile     :
 ExtendedProperties : {}
 
 
-ResourceGroupName       : richangtest
+ResourceGroupName       : RGName
 OnErrorDeployment       :
 DeploymentName          : tmp55E7.tmp
-CorrelationId           : 301044aa-f0ec-4e6b-9e2a-dc8935419a91
+CorrelationId           : 301044aa-f0ec-4e6b-9e2a
 ProvisioningState       : Succeeded
 Timestamp               : 10/30/2025 8:51:43 PM
 Mode                    : Incremental
@@ -434,15 +436,15 @@ ParametersString        :
 Outputs                 :
 OutputsString           :
 
-Successfully deployed serviceGroupMember for richangtest10301num1.
-Deploying serviceGroupMember for resource: richangtest10301num2 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXXX in resource group: richangtest
+Successfully deployed serviceGroupMember forstorageAcccountnum3.
+Deploying serviceGroupMember for resource: storageAcccountnum4 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXXX in resource group: RGName
 Using template:     {
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": [
         {
           "type": "Microsoft.Relationships/serviceGroupMember",
-          "scope": "/subscriptions/XXXXXXXXXXXXXX/resourceGroups/richangtest/providers/Microsoft.Storage/storageAccounts/richangtest10301num2",
+          "scope": "/subscriptions/XXXXXXXXXXXXXX/resourceGroups/{RGName}/providers/Microsoft.Storage/storageAccounts/storageAcccountnum4",
           "apiVersion": "2023-09-01-preview",
           "name": "sgm-3",
           "properties": {
@@ -452,10 +454,10 @@ Using template:     {
       ]
     }
 
-ResourceGroupName       : richangtest
+ResourceGroupName       : RGName
 OnErrorDeployment       :
 DeploymentName          : tmpBB4C.tmp
-CorrelationId           : 85bed56d-251e-4737-b91f-ad06b4b02bec
+CorrelationId           : 85bed56d-251e-4737-b91f
 ProvisioningState       : Succeeded
 Timestamp               : 10/30/2025 8:52:03 PM
 Mode                    : Incremental
@@ -468,7 +470,7 @@ ParametersString        :
 Outputs                 :
 OutputsString           :
 
-Successfully deployed serviceGroupMember for richangtest10301num2.
+Successfully deployed serviceGroupMember for storageAcccountnum4.
 ```
 
 
