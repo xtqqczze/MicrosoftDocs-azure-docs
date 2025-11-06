@@ -47,7 +47,7 @@ Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entit
 
 ## 1. Create a legal tag
 
-Legal tags are essential for compliance purpose and will be used in subsequent records.
+Legal tags are essential for compliance purposes and are used in subsequent records.
 
 ```bash
 curl --request POST \
