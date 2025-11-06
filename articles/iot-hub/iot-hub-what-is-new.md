@@ -15,7 +15,7 @@ ms.date: 11/07/2025
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
-From November 2025, Azure IoT Hub introduces two new **preview** features: integration with Azure Device Registry (ADR) and enhanced Microsoft-backed X.509 certificate management. These features are designed to improve security, simplify device management, and streamline operations for IoT deployments.
+Starting November 2025, Azure IoT Hub introduces two new **preview** features: integration with Azure Device Registry (ADR) and enhanced Microsoft-backed X.509 certificate management. These features are designed to improve security, simplify device management, and streamline operations for IoT deployments.
 
 ## Manage your devices in a unified registry with Azure Device Registry
 
