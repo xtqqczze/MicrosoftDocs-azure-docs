@@ -160,7 +160,7 @@ Source Disk must be of Premium v1 SSD or Premium v2 or Ultra disk type.
 
 Source region and target region must be in the following regions only. 
 
-Enhanced churn support for 700 MB/s is currently available in the following regions: 
+Enhanced churn support for 500 MB/s is currently available in the following regions: 
 
 - West Central US
 - Central US
