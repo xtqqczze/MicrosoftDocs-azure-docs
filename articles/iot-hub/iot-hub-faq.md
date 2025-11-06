@@ -18,17 +18,17 @@ Azure IoT Hub introduces advanced capabilities to improve security and unify ope
 
 From November 2025, IoT Hub introduces two major innovations: Azure Device Registry (ADR) and certificate management. These features are in **preview** and designed to enhance security, simplify device management, and streamline operations for IoT deployments.
 
-- **Azure Device Registry (ADR)**: A centralized device registry that allows you to manage devices across multiple IoT hubs using namespaces. You can create a link between an existing ADR namespace to your IoT Hub or create a new namespace and create the link. For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
+- **Azure Device Registry (ADR)**: A centralized device registry that allows you to manage devices across multiple IoT Hubs using namespaces. You can create a link between an existing ADR namespace to your IoT Hub or create a new namespace and create the link. For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
 
 - **Certificate management**: IoT Hub introduces built-in support for managing device certificates using Microsoft-managed PKI with X.509 certificates. These X.509 certificates are strictly operational certificates which the devices uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. Certificate management is an optional feature. For more information, see [What is certificate management?](iot-hub-certificate-management-overview.md).
 
-## Are my existing IoT hubs affected by these changes?
+## Are my existing IoT Hubs affected by these changes?
 
-No, existing IoT hubs without ADR and certificate management integration remain fully functional. You can continue to use them as before without any changes. The new features are in preview and require creating new IoT hub instances with ADR integration. 
+No, existing IoT Hubs without ADR and certificate management integration remain fully functional. You can continue to use them as before without any changes. The new features are in preview and require creating new IoT Hub instances with ADR integration. 
 
-## Can I upgrade my existing IoT hubs to use Azure Device Registry and certificate management?
+## Can I upgrade my existing IoT Hubs to use Azure Device Registry and certificate management?
 
-No, upgrade from existing IoT hubs to IoT hubs with ADR and certificate management isn't currently supported. You must create a new IoT Hub instance and link it to an ADR namespace. The ability to upgrade an existing IoT Hub instance to use the new features is coming soon. For more information, see [Get started with ADR and certificate management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
+No, upgrade from existing IoT Hubs to IoT Hubs with ADR and certificate management isn't currently supported. You must create a new IoT Hub instance and link it to an ADR namespace. The ability to upgrade an existing IoT Hub instance to use the new features is coming soon. For more information, see [Get started with ADR and certificate management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
 
 ## What happens to the built-in IoT Hub Device Registry if I setup a new IoT hub with ADR and certificate management enabled?
 
@@ -36,7 +36,7 @@ IoT Hub Device Registry continues to exist, and all the existing functionalities
 
 ## Can I use namespaces and Azure Device Registry in my existing hubs?
 
-No, namespaces and Azure Device Registry aren't available in existing hubs. You must create a new IoT hub instance and link it to an ADR namespace. For more information, see [Get started with ADR and certificate management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
+No, namespaces and Azure Device Registry aren't available in existing hubs. You must create a new IoT Hub instance and link it to an ADR namespace. For more information, see [Get started with ADR and certificate management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
 
 ## Can I use certificate management in my existing hubs?
 
@@ -44,7 +44,7 @@ No, certificate management isn't available in existing hubs. You must create a n
 
 ## Can I use Azure Device Registry without certificate management?
 
-Yes. Certificate management is an optional feature, you can use ADR to manage devices across multiple IoT hubs and choose to use other authentication methods, such as symmetric keys or third-party X.509 certificates. 
+Yes. Certificate management is an optional feature, you can use ADR to manage devices across multiple IoT Hubs and choose to use other authentication methods, such as symmetric keys or third-party X.509 certificates. 
 
 ## Can I use certificate management without Azure Device Registry?
 

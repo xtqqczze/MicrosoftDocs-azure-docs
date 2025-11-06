@@ -11,9 +11,9 @@ ms.date: 10/20/2025
 #Customer intent: As a developer new to IoT, I want to understand the fundamental concepts of certificate management in Azure IoT Hub, so that I can effectively implement secure device authentication in my IoT solutions.
 ---
 
-# Key concepts for certificate management (Preview)
+# Key concepts for certificate management (preview)
 
-Certificate management in Azure IoT Hub is designed to simplify the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication in IoT Hub. For more information, see [What is certificate management (Preview)?](iot-hub-certificate-management-overview.md).
+Certificate management in Azure IoT Hub is designed to simplify the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication in IoT Hub. For more information, see [What is certificate management (preview)?](iot-hub-certificate-management-overview.md).
 
 [!INCLUDE [public-preview-banner](includes/public-preview-banner.md)]
 
