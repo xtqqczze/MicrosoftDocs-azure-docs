@@ -36,7 +36,7 @@ This article explains how to create a new IoT Hub with [Azure Device Registry (A
     az extension remove --name azure-iot
     ```
     
-    Install the preview version of the azure-iot extension.
+    Install the azure-iot extension with previews enabled.
     
     ```azurecli-interactive
     az extension add --name azure-iot --allow-preview
