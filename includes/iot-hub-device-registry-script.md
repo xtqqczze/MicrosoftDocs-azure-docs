@@ -27,11 +27,11 @@ The script includes the following resources:
 
 ## Prepare Your Environment
 
-1. Navigate to the [GitHub repository](https://github.com/Azure-Samples/iot-hub-adr-cert-mgmt-preview/tree/main/scripts) and download the **Scripts** folder, which contains the script file, `iothub-adr-certs-setup-preview.ps1`.
+Navigate to the [GitHub repository](https://github.com/Azure-Samples/iot-hub-adr-cert-mgmt-preview/tree/main/scripts) and download the **Scripts** folder, which contains the script file, `iothub-adr-certs-setup-preview.ps1`.
 
 ## Customize the script variables
 
-Set values for the following variables in the variables section
+Open the script file in a text editor and modify the following variables to match your desired configuration.
 
 - `TenantId`: Your tenant ID. You can find this value by running `az account show` in your terminal.
 - `SubscriptionId`: Your subscription ID. You can find this value by running `az account show` in your terminal.
@@ -56,14 +56,15 @@ Set values for the following variables in the variables section
     - Press `Ctrl` + `C` to abort
 
 > [!NOTE]
-> The creation of your ADR Namespace, IoT Hub, DPS, and other resources may take up to 5 minutes each.
+> The creation of your ADR namespace, IoT Hub, DPS, and other resources may take up to 5 minutes each.
 
 ## Monitor execution and validate the resources
 
 1. The script continues execution when warnings are encountered and only stops if a command returns a non-zero exit code. Monitor the console for red **ERROR** messages, which indicate issues that require attention.
-1. Once the script completes, validate the creation of your resources by visiting your new Resource Group on the Azure Portal:
+1. Once the script completes, validate the creation of your resources by visiting your new **Resource Group** on the [Azure Portal](https://portal.azure.com). You should see the following resources created:
 
-    - IoT Hub
-    - DPS
-    - ADR Namespace
+    - IoT Hub instance
+    - Device Provisioning Service (DPS) instance
+    - Azure Device Registry (ADR) namespace
     - User-Assigned Managed Identity (UAMI)
+    

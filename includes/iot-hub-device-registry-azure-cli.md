@@ -225,6 +225,8 @@ Your IoT hub with ADR and Certificate Management integration is now set up and r
 
 ## Manage and clean up resources
 
+The following commands help you manage your ADR namespaces, disable devices, create custom policies, and delete resources when they are no longer needed.
+
 ### Manage your namespaces
 
 1. List all namespaces in your resource group.
