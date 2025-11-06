@@ -13,7 +13,7 @@ ms.date: 10/20/2025
 
 # What is Azure Device Registry?
 
-IoT Hub allows integration with Azure Device Registry (ADR) to provide a unified device registry for managing all your IoT devices.
+Azure IoT Hub with Azure Device Registry (ADR) integration (preview) provides a unified device registry for managing all your IoT devices.
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 

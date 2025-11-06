@@ -14,6 +14,9 @@ zone_pivot_groups: service-azcli-script
 
 # Get started with ADR integration and Microsoft-backed X.509 certificate management in IoT Hub (preview)
 
+
+Azure IoT Hub with ADR integration and Microsoft-backed X.509 certificate management (preview)
+
 This article explains how to create a new IoT hub with [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) integration and [Microsoft-backed X.509 certificate management](iot-hub-certificate-management-overview.md). 
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
