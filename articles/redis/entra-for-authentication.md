@@ -95,20 +95,18 @@ The following table includes links to code samples. They demonstrate how to conn
 
 ## Disable access key authentication on your cache
 
-Using Microsoft Entra is the secure way to connect your cache. We recommend that you use Microsoft Entra and disable access keys.
+If you have a cache using access keys, we recommend switching to Microsoft Entra ID as the secure way to connect your cache and disabling access keys.
 
-When you disable access key authentication for a Redis instance, all existing client connections are terminated, whether they use access keys or Microsoft Entra authentication. Follow the recommended Redis client best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections, if any.
+New Azure Managed Redis caches don't use access keys by default.
 
-Before you disable access keys:
+If a access keys have been enabled, when you disable access key for a cache, all existing client connections are terminated, whether they use access keys or Microsoft Entra ID authentication. 
 
-- Microsoft Entra authentication must be enabled.
-
-- For geo-replicated caches, you must:
+Before you disable access keys on geo-replicated caches, you must:
    1. Unlink the caches.
    1. Disable access keys.
    1. Relink the caches.
 
-If you have a cache where you want to disable access keys, follow this procedure:
+To disable access keys, follow this procedure:
 
 1. In the Azure portal, select the Azure Managed Redis instance where you want to disable access keys.
 
@@ -121,7 +119,7 @@ If you have a cache where you want to disable access keys, follow this procedure
 1. Confirm that you want to update your configuration by selecting **Yes**.
 
     > [!IMPORTANT]
-    > When the **Disable Access Keys Authentication** setting is changed for a cache, all existing client connections, using access keys or Microsoft Entra, are terminated. Follow the best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections. For more information, see [Connection resilience](best-practices-connection.md).
+    > When the **Access Keys Authentication** setting is changed for a cache, all existing client connections, using access keys or Microsoft Entra, are terminated. Follow the best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections. For more information, see [Connection resilience](best-practices-connection.md).
 
 ## Related content
 
