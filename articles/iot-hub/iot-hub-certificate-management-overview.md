@@ -71,8 +71,8 @@ The following image illustrates the X.509 certificate hierarchy used to authenti
 
 For devices to receive leaf certificates, devices must be provisioned through [Device Provisioning Service (DPS)](../iot-dps/index.yml). You need to configure either **individual or group enrollment**, which includes:
 
-- Selecting the specific method for device onboarding authentication. Supported methods are Trusted Platform Module (TPM), symmetric keys, or X.509 certificates.
-- Linking a policy created within your ADR namespace to manage certificate issuance and lifecycle at-scale.
+- Selecting the specific method for device [onboarding authentication](../iot-dps/concepts-service.md#attestation-mechanism). Supported methods are Trusted Platform Module (TPM), symmetric keys, or X.509 certificates.
+- Selecting a policy that was created within your ADR namespace. This policy will sign and issue leaf certificates to devices provisioned by this enrollment.
 
 Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT devices generate a **Certificate Signing Request (CSR)** containing their public key and identity to prove key ownership. The CSR is sent to DPS and eventually the PKI, which validates it and forwards it to an **Issuing CA (ICA)** to issue an X.509 certificate. For more information on DPS Certificate Signing Request, check out some the [DPS Device SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
 
@@ -83,10 +83,10 @@ Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT 
 
 The following diagram illustrates the end-to-end process of device provisioning with certificate management:
 
-1. The IoT device connects to DPS endpoint, authenticating using its pre-configured onboarding credential. As part of this registration call, the device sends a certificate signing request (CSR). The CSR contains information about the device, such as its public key and other identifying details.
-1. DPS verifies the onboarding credential and authenticates the device, thereby assigning it to an IoT Hub based on its DPS enrollment.
+1. The IoT device connects to the DPS endpoint and authenticates with the service using its pre-configured onboarding credential. As part of this registration call, the device sends a certificate signing request (CSR). The CSR contains information about the device, such as its public key and other identifying details.
+1. DPS assigns the IoT device to an IoT Hub based on the linked Hubs in its DPS enrollment.
 1. The device identity is created in IoT Hub and registered to the appropriate ADR namespace.
-1. Using the CSR, DPS requests a signed operational certificate from the policy (issuing CA) that was linked to the DPS enrollment.
+1. Using the CSR, DPS requests a signed operational certificate from the policy (issuing CA) linked to the DPS enrollment.
 1. The policy returns the signed operational certificate to DPS.
 1. DPS sends the operational certificate and IoT Hub connection details back to the device.
 1. The device now authenticates with IoT Hub by sending the full issuing certificate chain to IoT Hub.
