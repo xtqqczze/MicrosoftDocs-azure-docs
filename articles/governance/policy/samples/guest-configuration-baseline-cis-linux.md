@@ -18,7 +18,9 @@ The Center for Internet Security (CIS) Benchmarks are globally recognized securi
 
 This page documents Azure's new capability offering built-in CIS Benchmarks to your workloads which you can tailor to your needs.
 
-Our implementation is in parity with what has been published at the CIS website and you can find the benchmark contents under the following [link](https://www.cisecurity.org/cis-benchmarks). 
+The content of the benchmarks we support is in parity with what has been published at the CIS website and you can find the benchmark contents under the following [link](https://www.cisecurity.org/cis-benchmarks). 
+
+The azure-osconfig engine has satisfied the requirements of [CIS Certification and is awarded CIS Benchmark Assessment Certified](https://www.cisecurity.org/partner/microsoft) for the benchmarks listed below.
 
 ## Using CIS Benchmarks in Azure
 
