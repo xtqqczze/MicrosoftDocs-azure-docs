@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/09/2025
+ms.date: 11/06/2025
 ms.author: anfdocs
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to create a cache volume in Azure NetApp Files, so that I can leverage scalable storage solutions and reduce cost.
@@ -80,7 +80,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Before you begin
 
-You must create Express Route or VPN resources to ensure network connectivity from the external NetApp ONTAP cluster to the target Azure NetApp Files cluster. The connectivity can be accomplished in many ways with the goal being that the source cluster has connectivity to the Azure NetApp Files delegated subnet. Connectivity includes this set of firewall rules (bidirectional for all):
+You must create ExpressRoute or VPN resources to ensure network connectivity from the external NetApp ONTAP cluster to the target Azure NetApp Files cluster. The connectivity can be accomplished in many ways with the goal being that the source cluster has connectivity to the Azure NetApp Files delegated subnet. Connectivity includes this set of firewall rules (bidirectional for all):
 
 * ICMP
 * TCP 11104 
@@ -95,9 +95,9 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 2.  Monitor if the cache state is available for cluster peering using the GET caches API call.
 
-    When the cacheState = ClusterPeeringOfferSent, execute the POST listPeeringPassphrases call to obtain the command and passphrase necessary to complete the cluster peering.
+    When the `cacheState = ClusterPeeringOfferSent`, execute the POST `listPeeringPassphrases` call to obtain the command and passphrase necessary to complete the cluster peering.
 
-    Example listPeeringPassphrases output:
+    Example `listPeeringPassphrases` output:
 
     ```
     {
@@ -109,32 +109,32 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     Execute the clusterPeeringCommand on the ONTAP system that contains the external origin volume and when prompted, enter the clusterPeeringPassphrase.  
 
     > [!NOTE]
-    > The user will have 30 minutes after the cacheState transitions to "ClusterPeeringOfferSent" to complete execution of the clusterPeeringCommand.  If 30 minutes is exceeded, then cache creation fails and the user will need to delete the cache volume and initiate a new PUT call.
+    > You have 30 minutes after the `cacheState` transitions to `ClusterPeeringOfferSent` to execute the `clusterPeeringCommand`. If you don't execute the command in 30 minues, cache creation fails. You will need to delete the cache volume and initiate a new PUT call.
 
     > [!NOTE]
-    > Replace "IP-SPACE-NAME" with the ipspace that the IC LIFs use on the external origin volume’s ONTAP system.
+    > Replace `IP-SPACE-NAME` with the ipspace that the IC LIFs use on the external origin volume’s ONTAP system.
 
     > [!NOTE]
-    > Don't execute the vserverPeeringCommand at this time.  This will be executed in the next step.
+    > Don't execute the `vserverPeeringCommand` until the next step.
 
     > [!NOTE]
     > If cache volumes are already created using this ONTAP system, then the existing cluster peer is reused. There can be situations where a different Azure NetApp Files cluster may be used which would require a new cluster peer.
 
-3.	Monitor if the cache state is available for Vserver peering using the GET caches API call.
+3.	Monitor if the cache state is available for storage VM peering using the GET caches API call.
 
-    When the cacheState = VserverPeeringOfferSent, go to the ONTAP system that contains the external origin volume and execute the “vserver peer show” command until an entry appears where the Remote Vserver = <value of the -peer-vserver in the vserverPeeringCommand>. The Peer State shows "pending".
+    When the `cacheState = VserverPeeringOfferSent`, go to the ONTAP system that contains the external origin volume and execute the `vserver peer show` command until an entry appears where the Remote Vserver displays  `<value of the -peer-vserver in the vserverPeeringCommand>`. The Peer State shows "pending".
 
-    Execute the vserverPeeringCommand on the ONTAP system that contains the external origin volume.  The Peer State should transition to "peered".
+    Execute the `vserverPeeringCommand` on the ONTAP system that contains the external origin volume. The peer state should transition to "peered".
 
     > [!NOTE]
-    > The user has 12 minutes after the cacheState transitions to "VserverPeeringOfferSent" to complete execution of the vserverPeeringCommand. If 12 minutes is exceeded, then cache creation fails, and the user will need to delete the cache volume and initiate a new PUT call.
+    > You have 12 minutes after the `cacheState` transitions to `VserverPeeringOfferSent` to complete execution of the `vserverPeeringCommand`. If you don't execute the command within 12 minutes, cache creation fails. You will need to delete the cache volume and initiate a new PUT request.
 
     > [!NOTE]
     > If cache volumes are already created using this ONTAP system and the cluster peer was reused, then the existing vserver peer may be reused. If that happens, then step 3 will be skipped and the next step will be executed.
 
 4.	Complete the cache volume creation.
 
-    Once the peering is complete, the cache volume is created. Monitor the cacheState and provisioningState of the cache volume using the GET caches API call. When the cacheState and provisioningState transition to "Succeeded," the cache volume is ready for use.
+    Once the peering completes, the cache volume is created. Monitor the `cacheState` and `provisioningState` of the cache volume using the GET caches API call. When the cacheState and provisioningState transition to "Succeeded," the cache volume is ready for use.
 
 ## Cache creation request body examples
 
@@ -214,7 +214,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 }
 ```
 
-# [Dual Protocol](#tab/DualProtocol)
+# [Dual-protocol](#tab/DualProtocol)
 
 ```
 {
@@ -327,5 +327,4 @@ Example patch request body to update a cache volume:
 
 You can delete a cache volume if it's no longer required using the delete cache API call.
 
-If the cache volume has writeBack enabled, then a patch call needs to be made first to disable writeBack, then the delete call can be made.
-
+If the cache volume has `writeBack` enabled, issue a PATCH call to disable `writeBack` then issue the DELETE request. 
