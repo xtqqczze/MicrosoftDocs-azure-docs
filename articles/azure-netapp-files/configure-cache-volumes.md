@@ -87,7 +87,6 @@ You must create Express Route or VPN resources to ensure network connectivity fr
 * TCP 11105 
 * HTTPS
   
-
 The network connectivity must be in place for all intercluster (IC) LIFs on the source cluster to all IC LIFs on the Azure NetApp Files endpoint.
 
 ## Create a cache volume

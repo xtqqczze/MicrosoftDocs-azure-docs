@@ -4,7 +4,7 @@ description: Understand what is Azure NetApp Files cache volumes and the benefit
 author: netapp-manishc
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 11/03/2025
+ms.date: 11/06/2025
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a cloud administrator, I want to understand about Azure NetApp Files cache volumes and the benefits of using Azure NetApp Files cache volumes. 
@@ -38,7 +38,7 @@ Cache volumes unlock a range of scenarios by combining on-premises data "gravity
 
 * **Hybrid Cloud Bursting**
 
-    Burst on-premises workloads into Azure on demand, without lengthy data copies. Only needed data is fetched into Azure in real time, minimizing setup time and network loa.
+    Burst on-premises workloads into Azure on demand, without lengthy data copies. Only needed data is fetched into Azure in real time, minimizing setup time and network load.
 
 * **Global workload relocation** 
 
@@ -52,11 +52,11 @@ Cache volumes unlock a range of scenarios by combining on-premises data "gravity
 
 ## Seamless Integration 
 
-Cache volumes require no special hardware or proxies and use standard protocols, so applications need no modification. Azure NetApp Files cache volumes handles all cache synchronization and consistency, and permissions from the origin volume are preserved. This bridges on-premises and Azure environments securely and intuitively. 
+Cache volumes require no special hardware or proxies and use standard protocols, so applications need no modification. Azure NetApp Files cache volumes handle all cache synchronization and consistency, and permissions from the origin volume are preserved. This bridges on-premises and Azure environments securely and intuitively. 
 
 ## Supported regions 
 
-Cache volumes is supported in the following regions: 
+Cache volumes are supported in the following regions: 
 
 * Australia Central
 * Australia Central 2
