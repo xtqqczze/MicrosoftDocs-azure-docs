@@ -18,13 +18,69 @@ Application Gateway for Containers is an application-layer (Layer 7) solution fo
 
 Azure Web Application Firewall provides real-time protection for these application-layer workloads through a set of proprietary managed rule sets and a framework for the creation of user-generated custom rules. All of these protections exist as part of a web application firewall (WAF) policy that's attached to your Application Gateway for Containers deployment via a `SecurityPolicy` resource. You can apply these protections at the listener or route path level.
 
-## Configuration
+### Security policy
 
-To use Azure Web Application Firewall on your Application Gateway for Containers deployment, you need to attach your [WAF policy](create-waf-policy-ag.md) via a `SecurityPolicy` resource. This new Azure Resource Manager child resource is part of the Application Gateway for Containers integration. It's referenced by your Application Load Balancer (ALB) Controller and helps define the scope of how your WAF policy is applied to your application's traffic.
+Application Gateway for Containers introduces a new child resource called `SecurityPolicy` in Azure Resource Manager. The `SecurityPolicy` resource brings scope to which Azure Web Application Firewall policies the ALB Controller can reference.
 
-Application Gateway for Containers also introduces a new resource called `WebApplicationFirewallPolicy`. This custom resource defines at which point the WAF policy is applied. You can configure it at the listener or route path level, via your Kubernetes resource's YAML file.
+### Kubernetes custom resource
 
-Here's an example YAML configuration that shows targeting a specific path called `pathA` on an `HTTPRoute` resource:
+Application Gateway for Containers introduces a new custom resource called `WebApplicationFirewallPolicy`. The custom resource is responsible for defining which Azure Web Application Firewall policy should be used at which scope.
+
+The WebApplicationFirewallPolicy resource can target the following Kubernetes resources:
+
+* `Gateway`
+* `HTTPRoute`
+
+The WebApplicationFirewallPolicy resource can also reference the following sections by name for further granularity:
+
+* `Gateway`: `Listener`
+
+### Example implementations
+
+#### Scope a policy to a Gateway resource
+
+Here's an example YAML configuration that shows targeting a Gateway resource, which would apply to all listeners on a given Application Gateway for Containers' frontend resource.
+
+```yaml
+apiVersion: alb.networking.azure.io/v1
+kind: WebApplicationFirewallPolicy
+metadata:
+  name: sample-waf-policy
+  namespace: test-infra
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: contoso-waf-route
+    namespace: test-infra
+  webApplicationFirewall:
+    id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
+```
+
+#### Scope policy to a specific listener of a Gateway resource
+
+Within a `Gateway` resource, you may have different hostnames defined by different listeners (e.g. contoso.com and fabrikam.com). If contoso.com is a hostname of listenerA and fabrikam.com is a hostname of listenerB, you can define the `sectionNames` property to select the proper listener (for example, listenerA for contoso.com).
+
+```yaml
+apiVersion: alb.networking.azure.io/v1
+kind: WebApplicationFirewallPolicy
+metadata:
+  name: sample-waf-policy
+  namespace: test-infra
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: contoso-waf-route
+    namespace: test-infra
+    sectionNames: ["contoso-listener"]
+  webApplicationFirewall:
+    id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
+```
+
+#### Scope policy across all routes and paths
+
+This example shows how to target a defined HTTPRoute resource to apply the policy to any routing rules and paths within a given HTTPRoute resource.
 
 ```yaml
 apiVersion: alb.networking.azure.io/v1
@@ -36,11 +92,44 @@ spec:
   targetRef:
     group: gateway.networking.k8s.io
     kind: HTTPRoute
-    name: contoso-waf-route
+    name: contoso-pathA
     namespace: test-infra
-    sectionNames: ["pathA"]
   webApplicationFirewall:
     id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
+  ```
+
+#### Scope policy to a particular path
+
+To use different WAF policies to different paths of the same `Gateway` or Gateway -> Listener sectionName, you can define two HTTPRoute resources, each with a unique path, that each references its applicable WAF policy.
+
+```yaml
+apiVersion: alb.networking.azure.io/v1
+kind: WebApplicationFirewallPolicy
+metadata:
+  name: sample-waf-policy-A
+  namespace: test-infra
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: contoso-pathA
+    namespace: test-infra
+  webApplicationFirewall:
+    id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
+---
+apiVersion: alb.networking.azure.io/v1
+kind: WebApplicationFirewallPolicy
+metadata:
+  name: sample-waf-policy-B
+  namespace: test-infra
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: contoso-pathB
+    namespace: test-infra
+  webApplicationFirewall:
+    id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-1
 ```
 
 ## Limitations
@@ -50,7 +139,7 @@ The following functionality isn't supported on a WAF policy that's associated wi
 - **Cross-region, cross-subscription policy**: Your WAF policy must be in the same subscription and region as your Application Gateway for Containers resource.
 - **Core Rule Set (CRS) managed rules**: An Application Gateway for Containers WAF supports only Default Rule Set (DRS) managed rule sets.
 - **Default Rule Set (DRS) 2.2 managed ruleset**: Default Ruleset 2.2 isn't supported, but earlier versions of the DRS ruleset are supported.
-- **Legacy Bot Manager Rule Set**: Bot Manager Ruleset 0.1 isn't supported, but all newer Bot Manager Ruleset versions are supported.
+- **Legacy Bot Manager Rule Set**: Bot Manager Ruleset 0.1 isn't supported, but Bot Manager Ruleset versions 1.0 and 1.1 are supported.
 - **DDoS Managed Ruleset**: DDoS Managed Ruleset isn't supported, you will not be able to use this ruleset with your Application Gateway for Containers WAF resource.
 - **JavaScript challenge actions on Bot Manager rules**: You can't set the action on a Bot Manager rule to JavaScript challenge.
 - **Captcha challenge actions on Bot Manager rules**: You can't set the action on a Bot Manager rule to Captcha.
