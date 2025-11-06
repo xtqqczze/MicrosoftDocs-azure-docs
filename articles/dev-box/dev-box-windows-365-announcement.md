@@ -36,12 +36,7 @@ Effective November 1, 2025, the following changes will take place:
 
 All core workflows and value props remain intact - including managing development teams through the Dev Center/Project platform in Azure, configuring guardrails, providing self-serve capabilities for developers, and offering ready-to-code machines with imaging and customizations, as well as custom network support. 
 
-As new developer capabilities are released in Windows 365, Microsoft will provide resources and tools to ensure a smooth transition.  
-
-## Key Actions for Customers 
-
-- **Stay Informed:** Monitor communications from Microsoft and your account team for updates. 
-- **Interested in Previewing New Features?** Express your interest to your Microsoft account team. 
+As new developer capabilities are released in Windows 365, Microsoft will provide resources and tools to ensure a smooth transition.   
 
 ## Frequently Asked Questions (FAQs) 
 
