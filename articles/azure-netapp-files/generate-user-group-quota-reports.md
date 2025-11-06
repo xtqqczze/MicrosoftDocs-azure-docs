@@ -11,7 +11,7 @@ ms.date: 09/16/2025
 ---
 # Generate user and group quota reports for a volume (preview)
 
-This article explains the considerations and steps for generating user and group quota reports on Azure NetApp Files volumes. To help with capacity management on volumes shared among multiple users, individual user and group quotas in Azure NetApp Files provide a way to restrict capacity usage on NFS, SMB, and dual-protocol volumes. Checking actual usage against the defined user and group quotas on a given volume has previously required using host-based methods. The addition of quota reporting in Azure NetApp Files allows administrators to generate usage reports for an existing volume with quota rules independent of host-based tooling, without having to mount the volume.
+This article explains the considerations and steps for generating user and group quota reports on Azure NetApp Files volumes. To help with capacity management on volumes shared among multiple users, individual user and group quotas in Azure NetApp Files provide a way to restrict capacity usage on NFS, SMB, and dual-protocol volumes. Checking actual usage against the defined user and group quotas on a given volume has previously required using [host-based methods](default-individual-user-group-quotas-introduction.md#observing-user-quota-settings-and-consumption). The addition of quota reporting in Azure NetApp Files allows administrators to generate usage reports for an existing volume with quota rules independent of host-based tooling, without having to mount the volume.
 
 For more information and considerations related to capacity management, see [Understand default and individual user and group quotas](default-individual-user-group-quotas-introduction.md).
 
@@ -22,7 +22,7 @@ For more information and considerations related to capacity management, see [Und
 * Quota reports are supported on regular and large volumes.
 * Quota reports are compiled on-demand. They aren't persisted.
 * The entries in the quota report are sorted by percentage used in descending order.
-* The number of entries in the quota report are capped at 1,000 entries in this private preview.
+* The number of entries in the quota report are capped at 1,000 entries in this preview.
 * The number of entries in the quota report can be larger than the number of quota rules on the volume. Users that are subjected to default quota are reported as individual quota report entries.
 * When using quota reporting on data protection volumes:
     * Quota report is unavailable for data protection volumes when the mirror state of the replication is in mirrored state. Use the quota report on the source volume instead.
@@ -31,6 +31,7 @@ For more information and considerations related to capacity management, see [Und
 * When requesting quota reports for multiple volumes in the same subscription, these quota report requests are processed sequentially. When using the API, check responses (specifically percentComplete) for status. The quota report slide out in the Azure portal automatically retrieves the quota report in the background. Stay on the page until the quota report is successfully retrieved.
 * Quota reports take 5 seconds on average to generate.
 * If the quota report is an empty list or the quota report API calls fail on a volume with quota rules, retry generating the quota report after 5 minutes.
+* If quota rules are not aligned with 4KiB, the quota limit will be incorrectly reported in the quota report. This happens because the field is always rounded up to the nearest multiple of 4KiB to match disk space limits, which are translated into 4KiB chunks. 
 
 
 ## Register  the feature
@@ -39,7 +40,9 @@ The feature must be registered on your subscription before using it for the firs
 
 1. Register the feature:
 
+    ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFetchQuotaReport
+    ```
 
 2. Check the status of the feature registration: 
 
@@ -85,7 +88,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     
         Displays information with quota usage equal to greater than the % used
 
-3. You can apply filters for “Quota Target”. “Quota Type”, and “%Used” to view the specific quota report.
+3. You can apply filters for **Quota Target**, **Quota Type**, and **%Used** to view a specific subset of quota report.
 
 > [!IMPORTANT]
 > When using the Quota Target filter, you must first select a Quota Type value. The Quota Target is dependent on the Quota Type and cannot be applied independently.
