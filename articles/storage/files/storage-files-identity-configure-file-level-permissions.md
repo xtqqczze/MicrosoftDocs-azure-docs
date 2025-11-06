@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/04/2025
+ms.date: 11/06/2025
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to configure directory and file-level permissions for Azure file shares using Windows ACLs, so that I can ensure granular access control and enhance security for users accessing shared files."
 ---
@@ -18,7 +18,7 @@ Before you begin this article, make sure you [assign share-level permissions to 
 After you assign share-level permissions, you can configure Windows access control lists (ACLs), also known as NTFS permissions, at the root, directory, or file level.
 
 > [!IMPORTANT]
-> To configure Windows ACLs for hybrid identities, you need a client machine running Windows that has unimpeded network connectivity to the domain controller. If you authenticate with Azure Files using Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos for hybrid identities, you need unimpeded network connectivity to the on-premises AD. If you use Microsoft Entra Domain Services, the client machine must have unimpeded network connectivity to the domain controllers for the domain that's managed by Microsoft Entra Domain Services, which are located in Azure. None of this applies to cloud-only identities.
+> To configure Windows ACLs for hybrid identities, you need a client machine running Windows that has unimpeded network connectivity to the domain controller. If you authenticate with Azure Files using Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos for hybrid identities, you need unimpeded network connectivity to the on-premises AD. If you use Microsoft Entra Domain Services, the client machine must have unimpeded network connectivity to the domain controllers for the domain that's managed by Microsoft Entra Domain Services, which are located in Azure. For cloud-only identities (preview), there's no dependency on domain controllers, but the device must be joined to Microsoft Entra ID.
 
 ## How Azure RBAC and Windows ACLs work together
 
@@ -39,7 +39,7 @@ The following table shows how the combination of share-level permissions and Win
    | **NTFS - Full**         | Access Denied | Read                       | Read, Write, Run, Delete      | Read, Write, Run, Delete, Apply permissions to anyone's folders/files |
 
 > [!NOTE]
-> Taking ownership of folders or files for ACL configuration requires an additional RBAC permission. With the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin), you can grant this by assigning a built-in RBAC role that includes the `takeOwnership` permission.
+> Taking ownership of folders or files for ACL configuration requires an additional RBAC permission. With the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin), you can grant this by assigning the built-in RBAC role **Storage File Data SMB Admin**, which includes the `takeOwnership` permission.
 
 ## Supported Windows ACLs
 
@@ -69,7 +69,7 @@ For more information on these permissions, see [the command-line reference for i
 
 Before you configure Windows ACLs, mount the file share with admin-level access. You can take two approaches:
 
-- **Use the Windows permission model for SMB admin (preview)**: Assign a built-in RBAC role with the required permissions to users who configure ACLs. Then mount the file share using [identity-based authentication](storage-files-active-directory-overview.md) and configure ACLs. This approach is more secure because it doesn't require your storage account key to mount the file share.
+- **Use the Windows permission model for SMB admin**: Assign the built-in RBAC role **Storage File Data SMB Admin**, which includes the required permissions for users who configure ACLs. Then mount the file share using [identity-based authentication](storage-files-active-directory-overview.md) and configure ACLs. This approach is more secure because it doesn't require your storage account key to mount the file share.
 
 - **Use the storage account key (not recommended)**: Use your storage account key to mount the file share and then configure ACLs. The storage account key is a sensitive credential. For security reasons, use this option only if you can't use identity-based authentication.
 
@@ -78,9 +78,9 @@ Before you configure Windows ACLs, mount the file share with admin-level access.
 
 ### Use the Windows permission model for SMB admin
 
-We recommend using the Windows permission model for SMB admin (preview) instead of using the storage account key. This feature lets you assign a built-in RBAC role to users, allowing them to take ownership of a file or directory for the purpose of configuring ACLs.
+We recommend using the Windows permission model for SMB admin instead of using the storage account key. This feature lets you assign the built-in RBAC role **Storage File Data SMB Admin** to users, allowing them to take ownership of a file or directory for the purpose of configuring ACLs.
 
-The built-in RBAC role includes the following three data actions:
+The **Storage File Data SMB Admin** RBAC role includes the following three data actions:
 
    - `Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action`
    - `Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action`
@@ -88,7 +88,7 @@ The built-in RBAC role includes the following three data actions:
 
 To use the Windows permission model for SMB admin, follow these steps:
 
-1. Assign the RBAC role to users who configure ACLs. For instructions on how to assign a role, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+1. Assign the **Storage File Data SMB Admin** RBAC role to users who configure ACLs. For instructions on how to assign a role, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. Have users mount the file share using their domain identity. As long as [identity-based authentication](storage-files-active-directory-overview.md) is configured for your storage account, you can mount the share and configure and edit Windows ACLs without using your storage account key.
 
@@ -103,7 +103,7 @@ To use the Windows permission model for SMB admin, follow these steps:
 ### Mount the file share using your storage account key (not recommended)
 
 > [!WARNING]
-> If possible, use the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin) (preview) to mount the share instead of using the storage account key.
+> If possible, use the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin) to mount the share instead of using the storage account key.
 
 Sign in to a domain-joined device or a device that has unimpeded network connectivity to the domain controllers (as a Microsoft Entra user if your AD source is Microsoft Entra Domain Services). Open a Windows command prompt, and mount the file share by running the following command. Replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 
@@ -115,26 +115,18 @@ net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /use
 
 ## Configure Windows ACLs
 
-You can configure the Windows ACLs using icacls, or you can use Windows File Explorer (hybrid identities only). You can also use the Azure portal or the [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command.
+The process for configuring Windows ACLs is different depending on whether you're authenticating hybrid or cloud-only identities.
 
-If you have directories or files in on-premises file servers with Windows ACLs configured against the AD DS identities, you can copy them over to Azure Files while preserving the ACLs by using traditional file copy tools like Robocopy or the latest version of [Azure AzCopy](https://github.com/Azure/azure-storage-azcopy/releases). If you tier directories and files to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
+- For cloud-only identities (preview), you must use the Azure portal or PowerShell. Windows File Explorer and icacls aren't currently supported for cloud-only identities.
+
+- For hybrid identities, you can configure Windows ACLs using icacls, or you can use Windows File Explorer. You can also use the [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command. If you have directories or files in on-premises file servers with Windows ACLs configured against the AD DS identities, you can copy them over to Azure Files while preserving the ACLs by using traditional file copy tools like Robocopy or the latest version of [Azure AzCopy](https://github.com/Azure/azure-storage-azcopy/releases). If you tier directories and files to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
 
 > [!IMPORTANT]
 > **If you're using Microsoft Entra Kerberos to authenticate hybrid identities, the hybrid identities must be synced to Microsoft Entra ID in order for ACLs to be enforced.** You can set file and directory level ACLs for identities that aren't synced to Microsoft Entra ID. However, these ACLs aren't enforced because the Kerberos ticket used for authentication and authorization doesn't contain the not-synced identities. If you're using on-premises AD DS as your AD source, you can include not-synced identities in the ACLs. AD DS puts those SIDs in the Kerberos ticket, and ACLs are enforced.
 
-### Configure Windows ACLs with icacls
-
-To grant full permissions to all directories and files under the file share, including the root directory, run the following Windows command from a machine that has unimpeded network connectivity to the AD domain controller. Remember to replace the placeholder values in the example with your own values. If your AD source is Microsoft Entra Domain Services, then `<user-upn>` is `<user-email>`.
-
-```
-icacls <mapped-drive-letter>: /grant <user-upn>:(f)
-```
-
-For more information on how to use icacls to set Windows ACLs and on the different types of supported permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).
-
 ### Configure Windows ACLs using the Azure portal
 
-Follow these steps to configure Windows ACLs per Entra user or group using the Azure portal. This method works for both hybrid and cloud-only identities.
+If you're using Microsoft Entra Kerberos as your identity source, you can configure Windows ACLs per Entra user or group using the Azure portal. This method works for both hybrid and cloud-only identities when Microsoft Entra Kerberos is used as the identity source.
 
 1. Sign in to the Azure portal and navigate to the file share for which you want to configure Windows ACLs.
 
@@ -168,6 +160,16 @@ $AccountKey = "<storage-account-key>" # replace with the storage account key
 $context = New-AzStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey 
 Add-AzFileAce -Context $context -FileShareName test -FilePath "/" -Type Allow -Principal "testUser@contoso.com" -AccessRights Read,Synchronize -InheritanceFlags ObjectInherit,ContainerInherit 
 ```
+
+### Configure Windows ACLs with icacls (hybrid identities only)
+
+To grant full permissions to all directories and files under the file share, including the root directory, run the following Windows command from a machine that has unimpeded network connectivity to the AD domain controller. Remember to replace the placeholder values in the example with your own values. If your AD source is Microsoft Entra Domain Services, then `<user-upn>` is `<user-email>`.
+
+```
+icacls <mapped-drive-letter>: /grant <user-upn>:(f)
+```
+
+For more information on how to use icacls to set Windows ACLs and on the different types of supported permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).
 
 ### Configure Windows ACLs with Windows File Explorer (hybrid identities only)
 

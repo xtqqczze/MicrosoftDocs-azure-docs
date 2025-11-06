@@ -1,26 +1,26 @@
 ---
 title: Microsoft Entra Kerberos Authentication for Azure Files
-description: Learn how to enable identity-based Kerberos authentication over Server Message Block (SMB) for Azure Files through Microsoft Entra ID. Your users can then access Azure file shares by using their Microsoft Entra credentials.
+description: Learn how to enable identity-based Kerberos authentication over Server Message Block (SMB) for Azure Files through Microsoft Entra ID. Hybrid and cloud-only users can then access Azure file shares by using their Microsoft Entra credentials.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/31/2025
+ms.date: 11/06/2025
 ms.author: kendownie
 recommendations: false
-# Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication on Azure Files, so that users can securely access file shares with their Microsoft Entra credentials without requiring connectivity to on-premises domain controllers.
+# Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication on Azure Files, so that hybrid and cloud-only users can securely access file shares with their Microsoft Entra credentials.
 ---
 
-# Enable Microsoft Entra Kerberos authentication on Azure Files
+# Enable Microsoft Entra Kerberos authentication for hybrid and cloud-only identities (preview) on Azure Files
 
 **Applies to:** :heavy_check_mark: SMB Azure file shares
 
 This article focuses on enabling and configuring Microsoft Entra ID (formerly Azure AD) for authenticating [hybrid](../../active-directory/hybrid/whatis-hybrid-identity.md) or cloud-only identities (preview).
 
-- Hybrid identities are on-premises Active Directory Domain Services (AD DS) identities that are synced to Microsoft Entra ID using either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). 
+- Hybrid identities are on-premises Active Directory Domain Services (AD DS) identities that are synced to Microsoft Entra ID using either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md).
 
 - Cloud-only identities are created and managed only in Microsoft Entra ID.
 
-Enabling Microsoft Entra Kerberos authentication allows users to access Azure file shares using Kerberos authentication. Microsoft Entra ID issues the necessary Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares without requiring unimpeded network connectivity to on-premises domain controllers. However, for hybrid identities, configuring Windows access control lists (ACLs) and directory/file-level permissions for a user or group requires unimpeded network connectivity to the on-premises domain controller.
+Enabling Microsoft Entra Kerberos authentication allows users to access Azure file shares using Kerberos authentication. Microsoft Entra ID issues the necessary Kerberos tickets to access the file share with the SMB protocol. For cloud-only users, this means that Azure file shares no longer need a domain controller for authorization or authentication (preview). However, for hybrid identities, configuring Windows access control lists (ACLs) and directory/file-level permissions for a user or group requires unimpeded network connectivity to the on-premises domain controller.
 
 For more information, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md) and [this deep dive](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889).
 
@@ -188,7 +188,7 @@ For guidance on disabling MFA, see the following:
 
 When you enable identity-based access, for each share you must assign which users and groups have access to that particular share. Once a user or group is allowed access to a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This allows for fine-grained control over permissions, similar to an SMB share on a Windows server.
 
-To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md).
+To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md). Cloud-only identities can only be assigned a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities) that applies to all authenticated identities.
 
 ## Configure directory and file-level permissions
 
