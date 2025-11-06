@@ -126,9 +126,11 @@ The process for configuring Windows ACLs is different depending on whether you'r
 
 ### Configure Windows ACLs using the Azure portal
 
-If you're using Microsoft Entra Kerberos as your identity source, you can configure Windows ACLs per Entra user or group using the Azure portal. This method works for both hybrid and cloud-only identities when Microsoft Entra Kerberos is used as the identity source.
+If you have Microsoft Entra Kerberos configured as your identity source, you can configure Windows ACLs per Entra user or group using the Azure portal. This method works for both hybrid and cloud-only identities only when Microsoft Entra Kerberos is used as the identity source.
 
-1. Sign in to the Azure portal and navigate to the file share for which you want to configure Windows ACLs.
+1. Sign in to the Azure portal using this specific URL: [https://aka.ms/portal/fileperms](https://aka.ms/portal/fileperms)
+
+1. Navigate to the file share for which you want to configure Windows ACLs.
 
 1. From the service menu, select **Browse**. If you want to set an ACL at the root folder, select **Manage access** from the top menu.
 
