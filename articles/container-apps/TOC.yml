@@ -110,6 +110,8 @@
           displayName: Deploy Azure DevOps (Azure Pipelines) agents and GitHub Actions runners
     - name: Revision management
       href: revisions-manage.md
+    - name: Deployment labels
+      href: deployment-labels.md
     - name: Environment Variables
       href: environment-variables.md
     - name: Use health probes
