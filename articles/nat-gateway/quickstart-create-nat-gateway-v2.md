@@ -575,6 +575,8 @@ $bastion = @{
 New-AzBastion @bastion
 ```
 
+### [CLI](#tab/cli)
+
 ---
 
 The bastion host can take several minutes to deploy. Wait for the bastion host to deploy before moving on to the next section.
@@ -672,6 +674,8 @@ $vm = @{
 New-AzVM @vm -GenerateSshKey
 ```
 
+### [CLI](#tab/cli)
+
 ---
 
 Wait for the virtual machine creation to complete before moving on to the next section.
@@ -731,6 +735,8 @@ If you're not going to continue to use this application, delete the virtual netw
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name 'test-rg' -Force
 ```
+
+### [CLI](#tab/cli)
 
 ---
 
