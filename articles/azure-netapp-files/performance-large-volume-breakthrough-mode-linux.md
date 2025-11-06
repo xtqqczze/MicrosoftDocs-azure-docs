@@ -25,7 +25,7 @@ This article describes the tested performance capabilities of a single Azure N
 
     Flexible Service Level was used in these tests.
 
-* Metadata-heavy workloads are advantageous for Azure NetApp File large volumes breakthrough mode due to the large volume breakthrough modes’ increased parallelism. Performance benefits are noticeable in workloads heavy in file creation, unlink, and file renames which are typical of EDA workloads with high file counts. For more information on performance of high metadata workloads, see [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
+* Metadata-heavy workloads are advantageous for Azure NetApp File large volumes breakthrough mode due to the large volume breakthrough modes’ increased parallelism. Performance benefits are noticeable in workloads heavy in file creation, unlink, and file renames which are typical of EDA workloads with high file counts. For more information on performance of high metadata workloads, see [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md).
 
 * [FIO](https://fio.readthedocs.io/en/latest/fio_doc.html), a synthetic workload generator designed as a storage stress test, was used to drive these test results. There are fundamentally two models of storage performance testing: 
 
@@ -33,7 +33,7 @@ This article describes the tested performance capabilities of a single Azure N
 
     * **Scale-up compute**, which refers to using a large VM to test the upper boundaries of a single client on a single Azure NetApp Files volume. 
 
-For Large volume breakthrough mode, only the scale out tests were performed to ascertain the performance of a single large volume in break through mode. 
+For Large volume breakthrough mode, only the scale-out tests were performed to ascertain the performance of a single large volume in break through mode. 
 
 
 ##  Linux scale-out tests on large volume breakthrough mode 
