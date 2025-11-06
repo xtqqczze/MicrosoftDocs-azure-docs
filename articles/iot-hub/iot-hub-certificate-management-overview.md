@@ -47,9 +47,9 @@ Today, certificate management supports issuance and renewal for end-entity **ope
 
 Certificate management consists of several integrated components that work together to streamline the deployment of public key infrastructure (PKI) across IoT devices. To use certificate management, you must set up:
 
-- IoT Hub (preview) SKU
+- IoT Hub (preview)
 - Azure Device Registry (ADR) namespace
-- Device Provisioning Service (DPS) instance.
+- Device Provisioning Service (DPS) instance
 
 ### IoT Hub (preview) integration
 
