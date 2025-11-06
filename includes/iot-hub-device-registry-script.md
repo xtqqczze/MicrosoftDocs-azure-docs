@@ -10,17 +10,17 @@ ms.date: 11/05/2025
 
 ## Overview
 
-Use the provided PowerShell script to automate the setup of your IoT Hub with Azure Device Registry integration. The script performs all the necessary steps to create the required resources and link them together.
+Use the provided PowerShell script to automate the setup of your IoT Hub with Azure Device Registry integration. The script performs all the necessary steps to create the required resources and link them together, including:
 
-The script includes the following resources:
-
-1. Assign an ADR role, setup the right privileges, and create a user-assigned managed identity.
-1. Create an ADR namespace.
-1. Create a credential and policy and associate them to the namespace.
-1. Create an IoT Hub SKU with linked namespace.
-1. Create a DPS with linked ADR namespace and Hub.
-1. Sync your credential and policies to ADR namespace.
-1. Create an enrollment group and link to your policy to enable device onboarding.
+1. Create a resource group
+1. Configure the necessary app privileges
+1. Create a user-assigned managed identity
+1. Create an ADR namespace with system-assigned managed identity
+1. Create a credential (root CA) and policy (issuing CA) scoped to that namespace
+1. Create an IoT Hub (preview) with linked namespace and managed identity
+1. Create a DPS with linked IoT Hub and namespace
+1. Sync your credential and policies (CA certificates) to ADR namespace
+1. Create an enrollment group and link to your policy to enable certificate provisioning
 
 > [!IMPORTANT]
 > During the preview period, IoT Hub with ADR integration and certificate management features enabled on top of IoT Hub are available **free of charge**. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
@@ -47,7 +47,7 @@ Open the script file in a text editor and modify the following variables to matc
 
 ## Run the script interactively
 
-1. Open the script and run in **PowerShell 7+** as an administrator. Navigate to the folder containing your script and run `.\iothub-adr-certs-setup-preview.ps1`.
+1. Open the script and run in **PowerShell 7+ as an administrator**. Navigate to the folder containing your script and run `.\iothub-adr-certs-setup-preview.ps1`.
 1. If you run into an execution policy issue, try running `powershell -ExecutionPolicy Bypass -File .\iothub-adr-certs-setup-preview.ps1`.
 1. Follow the guided prompts:
 
