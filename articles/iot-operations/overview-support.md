@@ -48,7 +48,7 @@ Azure IoT Operations depends on these support services and features:
 * [Azure Container Storage enabled by Azure Arc (optional)](/azure/azure-arc/container-storage/overview)
 * [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension)
 * [Azure Monitor pipeline](/azure/azure-monitor/essentials/edge-pipeline-configure)
-* Workload identity federation in Azure Arc-enabled Kubernetes
+* [Workload identity federation in Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-workload-identity)
 
 > [!NOTE]
 > These features and services, when used as dependencies of or in conjunction with Azure IoT Operations systems, inherit general availability status from the Azure IoT Operations product license.
