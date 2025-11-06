@@ -37,6 +37,8 @@ ExpressRoute Global Reach is available in the following locations:
 
 - Australia
 - Belgium
+- Brazil South
+
 - Canada
 - Denmark
 - France
