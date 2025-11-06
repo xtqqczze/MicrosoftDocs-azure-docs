@@ -16,7 +16,7 @@ ms.date: 11/06/2025
 
 [Azure Application Gateway](/azure/application-gateway/) provides built-in JSON Web Token (JWT) validation at the gateway routing layer. This capability verifies the integrity and validity of tokens in incoming requests and makes an allow-or-deny decision before forwarding traffic to backend services. Upon successful validation, the gateway adds the `x-msft-entra-identity` header and passes it to the backend.
 
-By performing token validation at the edge, Application Gateway helps simplify application architecture and enhance overall security. JWT validation in Application Gateway is stateless—each request must include a valid token for access to be granted. The gateway doesn't maintain any session or cookie-based state, ensuring consistent token checks and compliance with [Zero Trust](/security/zero-trust/overview) principles.
+By performing token validation at the edge, Application Gateway helps simplify application architecture and enhance overall security. JWT validation in Application Gateway is stateless—each request must include a valid token for access to be granted. The gateway doesn't maintain any session or cookie-based state, ensuring consistent token checks and compliance with [Zero Trust](/security/zero-trust/zero-trust-overview) principles.
 
 With JWT validation, Application Gateway can:
 
