@@ -79,7 +79,7 @@ No. Azure Import/Export service does not support Azure NetApp Files currently.
 
 ### Is there a specific timeframe for users to provide commands for migration?
 
-Yes, the user enter the commands within the specific timeframe. For example: The passphrase is valid only for 60 minutes from the time it is generated and the SVM peering command is valid only for 10 minutes.
+Yes, the user enters the commands within the specific timeframe. For example: The passphrase is valid only for 60 minutes from the time it is generated and the SVM peering command is valid only for 10 minutes.
 
 ### What happens if I close the Migration assistant tool page before the migrating volume workflow is  complete?
 
