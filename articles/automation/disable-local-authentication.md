@@ -16,7 +16,7 @@ author: jasminemehndir
 
 > [!IMPORTANT]
 > - Update Management patching will not work when local authentication is disabled. 
-> - When you disable local authentication, it impacts the starting a runbook using a webhook, source control auto sync, Automation Desired State Configuration and agent-based Hybrid Runbook Workers. For more information, see the [available alternatives](#compatibility).
+> - When you disable local authentication, it impacts starting a runbook using a webhook, source control auto sync, Automation Desired State Configuration, and agent-based Hybrid Runbook Workers. For more information, see the [available alternatives](#compatibility).
 
 Azure Automation provides Microsoft Entra authentication support for all Automation service public endpoints. This critical security enhancement removes certificate dependencies and gives organizations control to disable local authentication methods. This feature provides you with seamless integration when centralized control and management of identities and resource credentials through Microsoft Entra ID is required.
 
