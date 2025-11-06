@@ -3,11 +3,11 @@ author: msangapu-msft
 ms.service: azure-app-service
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 002/14/2025
+ms.date: 02/14/2025
 ms.author: msangapu
 ---
 
-In this Quickstart, you learn how to deploy an ASP.NET app in a Windows image from [Microsoft Artifact Registry](https://mcr.microsoft.com/) to Azure App Service.
+In this quickstart, you learn how to deploy an ASP.NET app in a Windows image from [Microsoft Artifact Registry](https://mcr.microsoft.com/) to Azure App Service.
 
 [Azure App Service](../../overview.md) provides predefined application stacks on Windows that run on Internet Information Services (IIS). The preconfigured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). 
 

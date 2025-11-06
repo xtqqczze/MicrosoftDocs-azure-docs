@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Run a custom container on App Service'
+title: 'Quickstart: Run a Custom Container on App Service'
 description: Learn how to run custom containers by using Azure App Service.
 author: msangapu-msft
 ms.author: msangapu
@@ -26,7 +26,7 @@ ms.service: azure-app-service
 ::: zone-end
 
 :::zone pivot="container-windows-azure-portal"
-[!INCLUDE [quickstart-custom-container-windows-azure-portal-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-windows-azure-portal-pivot.md)]'''''''
+[!INCLUDE [quickstart-custom-container-windows-azure-portal-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-windows-azure-portal-pivot.md)]
 ::: zone-end
 
 :::zone pivot="container-windows-powershell"

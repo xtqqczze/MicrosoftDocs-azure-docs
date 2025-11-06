@@ -9,7 +9,7 @@ ms.author: cephalin
 
 In this quickstart, you learn how to deploy an ASP.NET app in a Windows image to [Azure Container Registry](/azure/container-registry/container-registry-intro) from Visual Studio. You run the app in a custom container in Azure App Service.
 
-[Azure App Service](../../overview.md) provides predefined application stacks on Windows that run on Internet Information Services (IIS). These preconfigured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). 
+[Azure App Service](../../overview.md) provides predefined application stacks on Windows that run on Internet Information Services (IIS). These preconfigured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md).
 
 Custom Windows containers don't have these restrictions. Developers can use custom containers to give containerized applications full access to Windows functionality.
 
@@ -19,7 +19,7 @@ Here's what you need to get started:
 
 - [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 - [Switch Docker to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
-- [Install Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads. In *Visual Studio 2022 Community*, ensure that you select the **.NET Framework project and item templates** component with **ASP.NET and web development workload**. 
+- [Install Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads. In *Visual Studio 2022 Community*, ensure that you select the **.NET Framework project and item templates** component with **ASP.NET and web development workload**.
 
 If you already installed Visual Studio 2022:
 
