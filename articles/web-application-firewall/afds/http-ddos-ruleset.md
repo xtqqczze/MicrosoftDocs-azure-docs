@@ -64,3 +64,9 @@ The following limitations apply to the HTTP DDoS ruleset during the preview:
 
 - No metrics are recorded for IP addresses in the penalty box.
 
+## Related content
+
+- [Policy settings for Azure Front Door WAF](/azure/web-application-firewall/afds/waf-front-door-policy-settings)
+- [Managed rules for Azure Front Door WAF](/azure/web-application-firewall/afds/waf-front-door-drs)
+- [Custom rules for Azure Front Door WAF](/azure/web-application-firewall/afds/waf-front-door-custom-rules)
+
