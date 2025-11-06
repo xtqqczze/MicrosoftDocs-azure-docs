@@ -34,7 +34,7 @@ While IoT Hub supports two types of PKI providers for X.509 certificate authenti
 
 An X.509 certificate is a digital document to bind a public key to the identity of an entity, such as a device, user, or service. Certificate-based authentication offers these benefits over less secure methods or device authentication:
 
-- Certificates use public/private key cryptography (asymmetric). While the public key is shared freely, the private key never leaves the device and can live inside TPMs or secure element.
+- Certificates use public/private key cryptography. While the public key is shared freely, the private key never leaves the device and can live inside TPMs or secure element. This ensures attackers cannot impersonate the device.
 - Certificates are issued and validated through a CA hierarchy, allowing millions of devices to be trusted via single CA without managing per-device secrets.
 - Devices can authenticate to the cloud and the cloud can authenticate to the device, enabling mutual TLS authentication.
 - Certificates can have defined validity periods and can be centrally renewed or revoked.

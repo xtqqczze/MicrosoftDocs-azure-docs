@@ -82,7 +82,7 @@ To set up your IoT Hub with ADR integration and certificate management, you can 
 
 At this point, your IoT Hub with ADR integration and certificate management is set up and ready to use. You can now start onboarding your IoT devices to the hub using the Device Provisioning Service (DPS) instance and manage your IoT devices securely using the policies and enrollments you have set up.
 
-For more information on how to onboard devices, check out some the [DPS Device SDKs samples](../iot-dps/libraries-sdks.md#device-sdks). Certificate management is only supported in the following DPS Device SDKs: 
+**New**: Certificate Signing Requests are now supported in select DPS Device SDKs. For more information on how to onboard devices, check out some the [DPS Device SDKs samples](../iot-dps/libraries-sdks.md#device-sdks). Certificate management is only supported in the following DPS Device SDKs: 
 
 - Embedded C:
     - Bare metal: [Sample](https://github.com/Azure/azure-sdk-for-c/blob/master/sdk/samples/iot/README.md)
