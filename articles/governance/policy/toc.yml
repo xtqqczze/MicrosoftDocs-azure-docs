@@ -183,31 +183,6 @@
       items:
       - name: CIS Security Benchmarks for Linux Workloads
         href: ./samples/guest-configuration-baseline-cis-linux.md
-        items:
-        - name: Alma Linux 8
-          href: ./samples/cis-linux/alma_8_ado.md
-        - name: Alma Linux 9
-          href: ./samples/cis-linux/alma_9_ado.md
-        - name: Debian Linux 12
-          href: ./samples/cis-linux/debian_12_ado.md
-        - name: Oracle Linux 8
-          href: ./samples/cis-linux/oracle_8_ado.md
-        - name: Oracle Linux 9
-          href: ./samples/cis-linux/oracle_9_ado.md
-        - name: RedHat Enterprise Linux 8
-          href: ./samples/cis-linux/rhel_8_ado.md
-        - name: RedHat Enterprise Linux 9
-          href: ./samples/cis-linux/rhel_9_ado.md
-        - name: Rocky Linux 8
-          href: ./samples/cis-linux/rocky_8_ado.md
-        - name: Rocky Linux 9
-          href: ./samples/cis-linux/rocky_9_ado.md
-        - name: SUSE Linux Enterprise 15
-          href: ./samples/cis-linux/suse_15_ado.md
-        - name: Ubuntu 22.04 LTS + Pro
-          href: ./samples/cis-linux/ubuntu_22_04_ado.md
-        - name: Ubuntu 24.04 LTS + Pro
-          href: ./samples/cis-linux/ubuntu_24_04_ado.md
       - name: Docker host security baseline
         href: ./samples/guest-configuration-baseline-docker.md
       - name: Linux security baseline
