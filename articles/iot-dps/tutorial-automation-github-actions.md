@@ -33,8 +33,8 @@ In this tutorial, you learn how to:
 * The Azure CLI
 
   * Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
-   :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
-  * Or, If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider [running Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
+     :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+  * Or, if you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider [running Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
     * If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 
@@ -44,13 +44,13 @@ In this tutorial, you learn how to:
 
 ## 1 - Create repository secrets
 
-The workflow that you define in the next section requires access to your Azure subscription to create and manage resources. You don't want to put that information in an unprotected file where it could be discovered, so instead we use repository secrets to store this information but still make it accessible as an environment variable in the workflow. For more information, see [Encrypted secrets](https://docs.github.com/actions/security-guides/encrypted-secrets).
+The workflow that you define in the next section requires access to your Azure subscription to create and manage resources. You don't want to put that information in an unprotected file where it could be discovered, so instead we use repository secrets to store this information but still make it accessible as an environment variable in the workflow. For more information, see [Using secrets in GitHub Actions](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
 
 Only repository owners and admins can manage repository secrets.
 
 ### Create a service principal
 
-Rather than providing your personal access credentials, we create a service principal and then add those credentials as repository secrets. Use the Azure CLI to create a new service principal. For more information, see [Create an Azure service principal](/cli/azure/create-an-azure-service-principal-azure-cli).
+Rather than providing your personal access credentials, we create a service principal and then add those credentials as repository secrets. Use the Azure CLI to create a new service principal. For more information, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 1. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a service principal with *contributor* access to a specific resource group. Replace `<SUBSCRIPTION_ID>` and `<RESOURCE_GROUP_NAME>` with your own information.
 
@@ -128,7 +128,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
    name: DPS Tutorial
    ```
 
-1. Add the [on.workflow_dispatch](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs) parameter. The `on` parameter defines when a workflow runs. The `workflow_dispatch` parameter indicates that we want to manually trigger the workflow. With this parameter, we could define `inputs` that would be passed to the workflow at each run, but we don't use `inputs` for this tutorial.
+1. Add the [on.workflow_dispatch](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatch) parameter. The `on` parameter defines when a workflow runs. The `workflow_dispatch` parameter indicates that we want to manually trigger the workflow. With this parameter, we could define `inputs` that would be passed to the workflow at each run, but we don't use `inputs` for this tutorial.
 
    ```yml
    on: workflow_dispatch
@@ -378,4 +378,4 @@ Use the Azure portal:
 Learn how to provision DPS instances with other automation tools.
 
 > [!div class="nextstepaction"]
-> [Set up DPS with Bicep](tutorial-custom-allocation-policies.md)
+> [Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)](tutorial-custom-allocation-policies.md)

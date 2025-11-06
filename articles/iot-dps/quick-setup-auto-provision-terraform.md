@@ -37,12 +37,12 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](~/azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+- Complete the steps in [Quickstart: Install and Configure Terraform](/azure/developer/terraform/quickstart-configure).
 
 ## Implement the Terraform code
 
 > [!NOTE]
-> The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/developer/terraform/)
+> The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/). For more information, including articles and sample code showing how to use Terraform to manage Azure resources, see [Terraform on Azure documentation](/azure/developer/terraform/)
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
