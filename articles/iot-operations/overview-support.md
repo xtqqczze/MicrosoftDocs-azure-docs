@@ -57,7 +57,7 @@ Azure IoT Operations depends on these support services and features:
 > For the *Azure Device Registry* and *Schema registry* capabilities, Azure IoT Operations is the only product under which these  services are licensed for production use.
 
 > [!NOTE]
-> *Azure Container Storage enabled by Azure Arc* is an optional dependency. Connectors like the *media connector* can use this storage option to synchronize captured data to cloud storage.
+> *Azure Container Storage enabled by Azure Arc* is an optional dependency. Connectors like the *media connector* and the data flow endpoint *local storage* can use this option to synchronize captured data to cloud storage.
 
 ## Licensing
 
