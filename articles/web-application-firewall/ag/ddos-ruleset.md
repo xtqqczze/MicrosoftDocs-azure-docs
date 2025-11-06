@@ -38,9 +38,9 @@ The HTTP DDoS ruleset is the first ruleset evaluated by the Azure WAF, even befo
 
 The HTTP DDoS ruleset currently has two rules, and each can be configured with different sensitivity and action settings. Each rule maintains different traffic baselines for traffic that matches the rule criteria.
 
-- **Rule 500100:** Anomaly detected on high rate of client requests. This rule tracks and establishes a baseline for all traffic on the Application Gateway a policy is attached to. When a client exceeds the established threshold, it's placed in the penalty box and blocked for the defined time (15 minutes).
+- **Rule 500100: Anomaly detected on high rate of client requests:** This rule tracks and establishes a baseline for all traffic on the Application Gateway a policy is attached to. When a client exceeds the established threshold, it's placed in the penalty box and blocked for the defined time (15 minutes).
 
-- **Rule 501100:** Suspected bots sending high rates of requests. This rule tracks and establishes a baseline for traffic that's coming from suspected bots based on Microsoft Threat Intelligence. Generally, the thresholds for this traffic are much stricter than the thresholds for traffic in rule 500100. When bot's requests exceed the established threshold, it's placed in the penalty box and blocked for the defined time (15 minutes). Bots classified as High Risk are blocked immediately by this rule while the Global Gateway Attack Threshold is breached.
+- **Rule 501100: Suspected bots sending high rates of requests:** This rule tracks and establishes a baseline for traffic that's coming from suspected bots based on Microsoft Threat Intelligence. Generally, the thresholds for this traffic are much stricter than the thresholds for traffic in rule 500100. When bot's requests exceed the established threshold, it's placed in the penalty box and blocked for the defined time (15 minutes). Bots classified as high risk are blocked immediately by this rule when the global gateway threshold is breached.
 
 ## The penalty box
 
@@ -70,4 +70,10 @@ To configure the ruleset, use the [preview portal](https://preview.portal.azure.
 - Once HTTP DDoS ruleset is assigned to a Web Application Firewall policy, any changes made to other managed rulesets using the production portal will remove the HTTP DDoS ruleset from the WAF Policy.
 
 - PowerShell and CLI are currently not supported.
+
+## Related content
+
+- [Policy settings for Azure Application Gateway WAF](/azure/web-application-firewall/ag/waf-application-gateway-policy-settings)
+- [Managed rules for Azure Front Door WAF](/azure/web-application-firewall/afds/waf-front-door-drs)
+- [Custom rules for Azure Front Door WAF](/azure/web-application-firewall/afds/waf-front-door-custom-rules)
 
