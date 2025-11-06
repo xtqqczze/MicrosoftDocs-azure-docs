@@ -62,7 +62,7 @@ If you have used access keys in the past for authentication, you need to update 
 
 - Configure private links or firewall rules to protect your cache from a denial of service attack.
 - Ensure that your client application sends a new Microsoft Entra token at least three minutes before token expiry to avoid connection disruption.
-- When you call the Redis server `AUTH` command periodically, consider adding a jitter so that the `AUTH` commands are staggered. In this way, your Redis server doesn't receive too many `AUTH` commands at the same time.   - 
+- When you call the Redis server `AUTH` command periodically, consider adding a jitter so that the `AUTH` commands are staggered. In this way, your Redis server doesn't receive too many `AUTH` commands at the same time.
 
 ## Troubleshooting Microsoft Entra ID and your cache
 
