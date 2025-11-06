@@ -25,7 +25,7 @@ Resiliency in Azure consolidates all aspects of resiliency into one platform:
 
 - **Infrastructure Resiliency**: Protect from infrastructure outages with zonal resiliency.
 - **Data Resiliency**: Ensure backup and disaster recovery meet Recovery Point Objective (RPO)/Recovery Time Objective (RTO).
-- **Cyber Resiliency**: Secure backups and enable at-scale recovery during cyberattacks.
+- **Cyber Recovery**: Secure backups and enable at-scale recovery during cyberattacks.
 
 Existing Azure Business Continuity Center capabilities continue to be available. Resiliency in Azure can be used to manage backup and disaster recovery at scale from a single interface across environments and solutions. It allows configuration of backups and replication, defining protection policies, monitoring operations, and reviewing configurations. Security features include immutability, soft delete, Multi-user authorization, Private endpoint, Customer Managed keys (CMK), and the Threat Detection for Virtual Machines (VMs) to help protect datasources from ransomware.
 
