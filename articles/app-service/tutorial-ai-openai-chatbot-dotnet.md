@@ -175,7 +175,7 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
     - Adding the Cognitive Services OpenAI Contributor role to the managed identity for the Azure OpenAI resource.
     - Adding the `AZURE_OPENAI_ENDPOINT` app setting to your web app.
 
-    Your app is now deployed and connected to Azure OpenAI with managed identity. I reads the `AZURE_OPENAI_ENDPOINT` app setting through the [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) injection.
+    Your app is now deployed and connected to Azure OpenAI with managed identity. It reads the `AZURE_OPENAI_ENDPOINT` app setting through the [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) injection.
 
 3. Open the deployed web app in the browser. Find the URL of the deployed web app in the terminal output. Open your web browser and navigate to it.
 
