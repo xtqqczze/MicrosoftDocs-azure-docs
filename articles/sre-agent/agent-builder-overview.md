@@ -1,5 +1,5 @@
 ---
-title: Agent builder in Azure SRE Agent overview
+title: Agent Builder in Azure SRE Agent overview
 description: Learn how to use Agent Builder in Azure SRE Agent to create, customize, and manage intelligent agents for automating operational workflows, integrating data sources, and improving incident response.
 author: craigshoemaker
 ms.author: cshoe
@@ -8,7 +8,7 @@ ms.date: 11/05/2025
 ms.service: azure-sre-agent
 ---
 
-# Agent builder in Azure SRE Agent overview
+# Agent Builder in Azure SRE Agent overview
 
 Agent Builder is a configuration tool in Azure SRE Agent that helps you create, customize, and manage intelligent agents for your operational workflows. Use Agent Builder to design agents that can automatically respond to incidents, run scheduled tasks, connect to observability tools, and use your organization's knowledge base to improve decision-making.
 
