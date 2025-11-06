@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 11/03/2025
+ms.date: 11/18/2025
 
 # Customer intent: As an Azure administrator, I want to understand the capabilities of the Connection troubleshoot tool so that I can effectively diagnose and resolve network connectivity issues in my cloud infrastructure.
 ---
@@ -27,9 +27,9 @@ Connection troubleshoot reduces the Mean Time To Resolution (MTTR) by providing 
 
 ## Agentless (preview)
 
-Connection Troubleshoot now supports an agentless experience (currently in preview). You no longer need to install the Network Watcher agent VM extension on your virtual machines to run connectivity tests. Features and functionality may change before general availability.
+Connection troubleshoot now supports an agentless experience (currently in preview). You no longer need to install the Network Watcher agent VM extension on your virtual machines to run connectivity tests. Features and functionality may change before general availability.
 
-Previously, connectivity tests with Connection Troubleshoot required that the source virtual machine had the Network Watcher agent VM extension installed. This extension was necessary to run tests from the VM.
+Previously, connectivity tests with Connection troubleshoot required that the source virtual machine had the Network Watcher agent VM extension installed. This extension was necessary to run tests from the VM.
 
 ### What's new
 
