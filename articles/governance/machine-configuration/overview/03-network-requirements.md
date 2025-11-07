@@ -1,9 +1,11 @@
 ---
 description: Configure network connectivity, endpoints, and private link settings for Azure Machine Configuration across Azure and hybrid environments.
 ms.date: 11/07/2025
-ms.topic: how-to-guide
+ms.topic: how-to
 title: Azure Machine Configuration network requirements
 ---
+
+# Azure Machine Configuration network requirements
 
 ## Network requirements
 
