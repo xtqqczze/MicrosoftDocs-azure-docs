@@ -252,7 +252,7 @@ After you complete these steps, you're ready to send or receive RosettaNet messa
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Message** | Yes | The RosettaNet message to encode  |
+   | **RosettaNet process (PIP) instance identity** | Yes | The RosettaNet message to encode  |
    | **Host partner** | Yes | The host partner name |
    | **Guest partner** | Yes | The guest partner name |
    | **PIP code** | Yes | The PIP code |
