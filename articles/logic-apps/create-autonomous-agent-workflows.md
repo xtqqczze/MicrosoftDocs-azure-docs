@@ -8,22 +8,25 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 11/18/2025
 ms.update-cycle: 180-days
-# Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks using AI agents and other AI capabilities without human intervention in my integration solutions.
+# Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks using AI agents, large language models (LLMs), natural language, and other AI capabilities that work without human intervention in my integration solutions.
 ---
 
 # Create autonomous agent workflows without human interactions in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When you need AI-powered automation that runs independently, create *autonomous agent* workflows in Azure Logic Apps. These workflows use agents connected to *large language models* (LLMs) to automatically make decisions and complete tasks without requiring human intervention. Autonomous agent workflows also work well for automation that needs to run for a long time, requires stronger governance, isolation, and supports automated rollback or compensation strategies.
+When you need AI-powered automation that runs independently, create *autonomous agent* workflows in Azure Logic Apps. These workflows use agents connected to *large language models* (LLMs) so they can make decisions and complete tasks indepently without human intervention. These workflows also work well for automation that might run a long time, require stronger governance, isolation, or support automated rollback or compensation strategies.
 
 The following example workflow uses an agent to get the current weather and send email notifications:
 
-:::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, workflow designer, and example autonomous agent." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
+:::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, workflow designer, and example autonomous agent workflow." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
 
-This guide shows how to create a Consumption or Standard logic app workflow using the **Autonomous Agents** workflow type. This workflow runs without human interaction and uses tools that you build to automatically complete tasks.
+This guide shows how to create a Consumption or Standard logic app that uses the **Autonomous Agents** workflow type. This workflow runs without human interaction and uses tools that you build to automatically complete tasks. For a high-level overview about agentic workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
-For a high-level overview about agentic workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
+> [!IMPORTANT]
+>
+> Consumption autonomous agent workflows are in preview and is subject to the 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -35,13 +38,11 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
 - A Consumption logic app resource that uses the workflow type named **Autonomous Agents**. See [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
-  Consumption autonomous agent workflows don't require a separately deployed AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model, which is automatically hosted in your subscription and logic app region. Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
+  Consumption autonomous agent workflows don't require a separately deployed AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. Agent workflows support only [specific models](#supported-models-for-agent-workflows).
 
   > [!NOTE]
   >
   > For Consumption autonomous agent workflows, only the Azure portal experience is available. Support for Visual Studio Code is unavailable.
-
-For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2).
 
 ### [Standard](#tab/standard)
 
@@ -94,7 +95,6 @@ For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with M
 
     - [Authenticate access and connections with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard)
     - [Role-based access control for Azure OpenAI Service](/azure/ai-services/openai/how-to/role-based-access-control)
-    - [Role-based access control for Azure AI Foundry](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
     - [Best practices for Microsoft Entra roles](/entra/identity/role-based-access-control/best-practices)
 
   - URL and key-based authentication
@@ -123,19 +123,19 @@ For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with M
 
 ## Billing
 
-- Consumption: Billing is charged using the pay-as-you-go model, based on the number of tokens used for each agent action.
+- Consumption: Billing uses the pay-as-you-go model, based on the number of tokens used for each agent action.
 
 - Standard: Although agent workflows don't incur extra charges, AI model usage incurs charges. For more information, see the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Limitations and known issues
 
-The following sections describe current limitations and any known issues in this release, based on your logic app resource type.
+The following table describes current limitations and any known issues in this release, based on your logic app resource type.
 
 | Logic app | Limitations or known issues |
 |-----------|-----------------------------|
 | Both | To create tools for your agent, the following limitations apply: <br><br>- You can add only actions, not triggers. <br>- A tool must start with an action and always contains at least one action. <br>- A tool works only inside the agent where that tool exists. <br>- Control flow actions are unsupported. |
 | Consumption | The **Agent** action is throttled based on the number of tokens used. |
-| Standard | - Unsupported workflow types: **Stateless** <br><br>- Authentication: For managed identity authentication, only the system-assigned managed identity is supported. User-assigned managed identity is currently unsupported. <br><br>**Note**: Azure AI Foundry projects require that you use managed identity authentication. <br><br>- For general limits in Azure OpenAI Service, Azure AI Foundry, and Azure Logic Apps, see: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Azure AI Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
+| Standard | - Unsupported workflow types: **Stateless** <br><br>**Note**: Azure AI Foundry projects require that you use managed identity authentication. <br><br>- For general limits in Azure OpenAI Service, Azure AI Foundry, and Azure Logic Apps, see: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Azure AI Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
 ## Create an autonomous agent workflow
 
@@ -143,7 +143,7 @@ The following section shows how to start creating your autonomous agent workflow
 
 ### [Consumption (preview)](#tab/consumption)
 
-For a Consumption logic app, the **Autonomous Agents** workflow type creates a partial workflow that starts with the **Request** trigger. The workflow also includes an **Agent** action.
+The **Autonomous Agents** workflow type creates a partial workflow that starts with the **Request** trigger. The workflow also includes an empty **Default Agent** action.
 
 To open this partial workflow, follow these steps:
 
@@ -151,15 +151,15 @@ To open this partial workflow, follow these steps:
 
 1. On the resource sidebar, under **Development Tools**, select the designer to open the partial agentic workflow.
 
-   The designer shows a partial workflow with the trigger named **When an HTTP request is received**. Under the workflow, an **Agent** action named **Default Agent** appears. For this scenario, you don't need any other trigger setup.
+   The designer shows a partial workflow with the trigger named **When an HTTP request is received**. Under the trigger, an empty **Agent** action named **Default Agent** appears. For this scenario, you don't need any other trigger setup.
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-consumption.png" alt-text="Screenshot shows workflow designer with trigger When an HTTP request is received and empty Default Agent." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-consumption.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-consumption.png" alt-text="Screenshot shows workflow designer with a Request trigger and an empty Default Agent action." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-consumption.png":::
 
 1. Continue to the next section to set up your agent.
 
 ### [Standard](#tab/standard)
 
-For a Standard logic app, start by creating a new workflow or [add an agent to a nonagent **Stateful** workflow](#add-agent-nonagent-workflow).
+Start by creating a new workflow or [add an agent to a nonagent **Stateful** workflow](#add-agent-nonagent-workflow).
 
 #### Create a new workflow
 
@@ -169,7 +169,7 @@ To create a workflow with an empty **Agent**, follow these steps:
 
 1. On the resource sidebar, under **Workflows**, select **Workflows**.
 
-1. On the **Workflows** page toolbar, select **Add** > **Add**.
+1. On the **Workflows** page toolbar, select **Create** > **Create**.
 
 1. On the **Create workflow** pane, complete the following steps:
 
@@ -179,15 +179,15 @@ To create a workflow with an empty **Agent**, follow these steps:
 
       :::image type="content" source="media/create-autonomous-agent-workflows/select-autonomous-agents.png" alt-text="Screenshot shows Standard logic app with open Workflows page and Create workflow pane with workflow name, selected Autonomous Agents option, and Create button." lightbox="media/create-autonomous-agent-workflows/select-autonomous-agents.png":::
 
-      The designer opens and shows a partial workflow, which includes an empty **Agent** action that you need to set up later. 
+      The designer opens and shows a partial workflow, which includes an empty **Agent** action that you need to set up later.
 
-      :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Agent." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png":::
+      :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png" alt-text="Screenshot shows workflow designer with Add a trigger and and empty Agent action." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png":::
 
    Before you can save your workflow, you must complete the following setup tasks for the **Agent** action:
 
    - Connect your agent to your AI model. You complete this task in a later section.
 
-   - Provide agent instructions that describe the roles that the agent plays, the tasks that the agent can perform, and other information to help the agent better understand how to operate. You also complete this task in a later section.
+   - Provide agent instructions that use natural language to describe the roles that the agent plays, the tasks that the agent can perform, and other information to help the agent better understand how to operate. You also complete this task in a later section.
 
 1. Add a trigger to your workflow.
 

@@ -1,84 +1,81 @@
 ---
 title: Create Conversational AI Agent Workflows
-description: Learn to build AI agent workflows that support chat conversations with people in Azure Logic Apps.
+description: Learn to build conversational automation workflows with AI agents and LLMs that support human chat interactions in Azure Logic Apps.
 service: ecfan
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 10/08/2025
+ms.date: 11/18/2025
 ms.update-cycle: 180-days
-# Customer intent: As an AI developer, I want to build workflows that complete tasks by using AI agents, large language models (LLMs), natural language, and chat conversations for my integration solutions in Azure Logic Apps.
+# Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks by using AI agents, large language models (LLMs), natural language, and chat capabilities in my integration solutions.
 ---
 
-# Create conversational agent workflows to support chat interactions in Azure Logic Apps (Preview)
+# Create conversational agent workflows with chat interactions in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
+When you need AI-powered automation that interacts with humans, create *conversational agent* workflows in Azure Logic Apps. These workflows use natural language and agents connected to *large language models* (LLMs) so they can make decisions and complete tasks based on human-provided prompots. These workflows work best for automation that's user-driven, short-lived, or session-based.
+
+The following example workflow uses an agent to get the current weather and send email notifications:
+
+:::image type="content" source="media/create-conversational-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, workflow designer, and example conversational agent workflow." lightbox="media/create-conversational-agent-workflows/weather-example.png":::
+
+This guide shows how to create a Consumption or Standard logic app that uses the **Conversational Agents** workflow type. This workflow runs using human-provided questions and inputs, or *prompts*. For a high-level overview about agentic workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
 > [!IMPORTANT]
 >
-> This capability is in preview and is subject to the 
+> Consumption conversational agent workflows are in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-When your solution requires workflows that support natural language, interact with humans, and use agents connected to large language models (LLMs) to complete tasks, create a *conversational* agent workflow in Azure Logic Apps. This workflow type is the best option for such scenarios and is typically user-driven, short-lived, or session-based.
-
-All agent workflows perform tasks by using an agent connected to an LLM. The agent uses an iterative looped process to solve complex, multi-step problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction. An agent workflow lets you separate an agent's decision logic, which includes the LLM, prompts, and orchestration, from the integration and task execution components.
-
-An agent provides the following capabilities and benefits when connected to a model:
-
-- Accepts instructions about the agent's role, how to operate, and how to respond.
-- Receives and responds to instructions and requests, or *prompts*.
-- Processes inputs, analyze data, and make choices, based on available information.
-- Chooses tools to complete the tasks necessary to fulfill requests. A *tool* is a sequence with one or more actions that complete a task.
-- Adapts to environments that require flexibility and are fluid, dynamic, unpredictable, or unstable.
-
-With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that provide actions that you can use to create tools for an agent to use, conversational agent workflows support a vast range of scenarios that can greatly benefit from AI capabilities.
-
-The following screenshot shows an example conversational agent workflow that you create in this guide. The workflow uses an agent to get the current weather and send that information in email. The diagram shows the agent information pane where you set up the agent and provide instructions through a chat interface for the agent to follow:
-
-For the high-level steps that describe how the agent works and more overview information about agent workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
-
-This guide shows how to create an example Standard logic app workflow with the **Conversational Agents** type, which works through human-provided interactions or inputs. To fulfill requests, the agent uses tools that you build to complete the necessary tasks in real-world services and systems.
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+Based on whether you want to create a Consumption or Standard logic app, the following prerequisites apply:
 
-- A new or existing Standard logic app resource or project. You can work in either development environment:
+### [Consumption (preview)](#tab/consumption)
 
-  - Azure portal: A Standard logic app resource.
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-    If you don't have this resource, see [Create an example Standard workflow in the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal).
+- A Consumption logic app resource that uses the workflow type named **Conversational Agents**. See [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
-  - Visual Studio Code: A Standard logic app project.
+  Consumption conversational agent workflows don't require a separately deployed AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
 
-    Make sure that you have the latest **Azure Logic Apps (Standard) extension for Visual Studio Code**. If you don't have this project, see [Create Standard workflows in Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code).
+  > [!NOTE]
+  >
+  > The steps to set up conversational chat are available only for the Azure portal. Support for Visual Studio Code is unavailable.
 
-  The examples in this guide use the Azure portal. However, after you open the workflow designer, the steps to use the designer are mostly similar between the portal and Visual Studio Code. Some interactions have minor differences.
+For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2).
 
-- For your model source, you need an [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models).
+### [Standard](#tab/standard)
 
-  - Agent workflows support only specific models. For more information, see [Supported models](#supported-models-for-agent-workflows).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-  - You need the resource name when you create a connection to your deployed model in Azure OpenAI Service from an agent in your workflow.
+- A Standard logic app resource or project, based on your development experience:
 
-  If you don't have this resource and model, see the following articles: 
+  | Experience | Requirement |
+  |------------|-------------|
+  | Azure portal | A Standard logic app resource. See [Create Standard workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md). |
+  | Visual Studio Code | A Standard logic app project. See [Create Standard workflows in Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code). Make sure you have the latest Azure Logic Apps extension. |
+
+  > [!NOTE]
+  >
+  > The steps to set up conversational chat are mostly the same for both Azure portal and Visual Studio Code. The examples in this guide show the instructions for each experience where the process differs.
+
+- An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models). Agent workflows support only [specific models](#supported-models-for-agent-workflows).
+
+  You need the resource name when you connect from the agent in your workflow to the deployed model in Azure OpenAI Service.
+  
+  For more information, see:
 
   - [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal)
   - [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model)
 
-  > [!IMPORTANT]
-  >
-  > Although agent workflows don't incur extra charges in Azure Logic Apps, 
-  > model usage incurs charges. For more information, see the Azure 
-  > [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
-
-- The authentication to use when you create a new connection between an agent and your deployed model.
+- The authentication to use when you connect your agent to your deployed AI model.
 
   - Managed identity authentication
 
-    This connection supports authentication by using Microsoft Entra ID with a [managed identity](/entra/identity/managed-identities-azure-resources/overview). In production scenarios, Microsoft strongly recommends that you use a managed identity when possible because this option provides optimal and superior security at no extra cost. Azure manages this identity for you, so you don't have to provide or manage sensitive information such as credentials or secrets. This information isn't even accessible to individual users. You can use managed identities to authenticate access for any resource that supports Microsoft Entra authentication.
+    This connection supports authentication using Microsoft Entra ID with a [managed identity](/entra/identity/managed-identities-azure-resources/overview). In production scenarios, Microsoft strongly recommends that you use a managed identity when possible. This option provides optimal and superior security at no extra cost. Azure manages this identity for you, so you don't have to provide or manage sensitive information such as credentials or secrets. This information isn't even accessible to individual users. You can use managed identities to authenticate access for any resource that supports Microsoft Entra authentication.
 
     To use managed identity authentication, your Standard logic app resource must enable the system-assigned managed identity. By default, the system-assigned managed identity is enabled on a Standard logic app. This release currently doesn't support using the user-assigned managed identity.
 
@@ -92,60 +89,84 @@ This guide shows how to create an example Standard logic app workflow with the *
     |--------------|------|
     | Azure OpenAI Service resource | - **Cognitive Services OpenAI User** (least privileged) <br>- **Cognitive Services OpenAI Contributor** |
 
-    For more information about managed identity setup, see the following resources:
+    For more information about managed identity setup, see:
 
     - [Authenticate access and connections with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard)
     - [Role-based access control for Azure OpenAI Service](/azure/ai-services/openai/how-to/role-based-access-control)
+    - [Role-based access control for Azure AI Foundry](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
     - [Best practices for Microsoft Entra roles](/entra/identity/role-based-access-control/best-practices)
 
   - URL and key-based authentication
 
-    This connection supports authentication by using the endpoint URL and API key for your deployed model. However, you don't have to manually find these values before you create the connection. The values automatically appear when you select your model source.
+    This connection supports authentication by using the endpoint URL and API key for your deployed AI model. However, you don't have to manually find these values before you create the connection. The values automatically appear when you select your model source.
 
     > [!IMPORTANT]
     >
-    > Use this authentication option only for the examples in this guide, exploratory scenarios, 
-    > nonproduction scenarios, or if your organization's policy specifies that you can't use 
-    > managed identity authentication.
+    > Use this authentication option only for the examples in this guide, exploratory scenarios, nonproduction scenarios, or if your organization's policy specifies that you can't use managed identity authentication.
     >
-    > In general, make sure that you secure and protect sensitive data and personal 
-    > data, such as credentials, secrets, access keys, connection strings, certificates, 
-    > thumbprints, and similar information with the highest available or supported level 
-    > of security. Don't hardcode sensitive data, share with other users, or save in plain 
-    > text anywhere that others can access. Set up a plan to rotate or revoke secrets in 
-    > the case they become compromised. For more information, see the following resources:
+    > In general, make sure that you secure and protect sensitive data and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information with the highest available or supported level of security. Don't hardcode sensitive data, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets in the case they become compromised.
+    >
+    > For more information, see:
     >
     > - [Best practices for protecting secrets](/azure/security/fundamentals/secrets-best-practices)
     > - [Secrets in Azure Key Vault](/azure/key-vault/secrets/) 
     > - [Automate secrets rotation in Azure Key Vault](/azure/key-vault/secrets/tutorial-rotation)
 
+---
+
 - To follow along with the examples, you need an email account to send email.
 
-  The examples in this guide use an Outlook.com account. For your own scenarios, you can use any supported email service or messaging app in Azure Logic Apps, such as Office 365 Outlook, Microsoft Teams, Slack, and so on. The setup for other email services or apps are generally similar to the examples, but have minor differences.
+  The examples in this guide use an Outlook.com account. For your own scenarios, you can use any supported email service or messaging app in Azure Logic Apps, such as Office 365 Outlook, Microsoft Teams, Slack, and so on. The setup for other email services or apps are similar to the examples, but have minor differences.
 
 [!INCLUDE [supported-models](includes/supported-models.md)]
+
+## Billing
+
+- Consumption: Billing uses the pay-as-you-go model, based on the number of tokens used for each agent action.
+
+- Standard: Although agent workflows don't incur extra charges, AI model usage incurs charges. For more information, see the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Limitations and known issues
 
 The following table describes the current limitations and any known issues in this release.
 
-| Limitation | Description |
-|------------|-------------|
-| Supported workflow types | To create a conversational agent workflow, you must select the **Conversational Agents** workflow type. You can't start with the **Stateful** or **Stateless** workflow type, and then add an agent. |
-| Authentication | For managed identity authentication, you can use only the system-assigned managed identity at this time. Support is currently unavailable for the user-assigned managed identity. |
-| Agent tools | - To create tools, you can use only actions, not triggers. <br><br>- A tool starts with action and always contains at least one action. <br><br>- A tool works only inside the agent where that tool exists. <br><br>- Control flow actions are currently unsupported. |
-| Documentation | This guide covers the basic steps to create a conversational agent workflow. Documentation for advanced features is in progress. |
-| General limits | For general information about the limits in Azure OpenAI Service and Azure Logic Apps, see the following articles: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
+| Logic app | Limitations or known issues |
+|-----------|-----------------------------|
+| Both | To create tools for your agent, the following limitations apply: <br><br>- You can add only actions, not triggers. <br>- A tool must start with an action and always contains at least one action. <br>- A tool works only inside the agent where that tool exists. <br>- Control flow actions are unsupported. |
+| Consumption | The **Agent** action is throttled based on the number of tokens used. |
+| Standard | - Unsupported workflow types: **Stateless** <br><br>- For general limits in Azure OpenAI Service and Azure Logic Apps, see: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
 ## Create a conversational agent workflow
 
-Follow these steps to create a workflow with an empty **Agent**.
+The following section shows how to start creating your conversational agent workflow.
+
+### [Consumption (preview)](#tab/consumption)
+
+The **Conversational Agents** workflow type creates a partial workflow that starts with the required trigger named **When a new chat session starts**. The workflow also includes an empty **Default Agent** action.
+
+To open this partial workflow, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
+
+1. On the resource sidebar, under **Development Tools**, select the designer to open the partial agentic workflow.
+
+   The designer shows a partial workflow that starts with the required trigger named **When a new chat session starts**. Under the trigger, an empty **Agent** action named **Default Agent** appears. For this scenario, you don't need any other trigger setup.
+
+   :::image type="content" source="media/create-conversational-agent-workflows/workflow-start-consumption.png" alt-text="Screenshot shows Consumption workflow designer with required chat conversation trigger and an empty Default Agent action." lightbox="media/create-conversational-agent-workflows/workflow-start-consumption.png":::
+
+1. Continue to the next section to set up your agent.
+
+### [Standard](#tab/standard)
+
+Based on the development experience that you use, start by creating a new workflow or [add an agent to a nonagent **Stateful** workflow](#add-agent-nonagent-workflow).
+
+### [Portal](#tab/azure-portal/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the logic app menu, under **Workflows**, select **Workflows**.
+1. On the resource sidebar, under **Workflows**, select **Workflows**.
 
-1. On the **Workflows** page toolbar, select **Add** > **Add**.
+1. On the **Workflows** page toolbar, select **Create** > **Create**.
 
 1. On the **Create workflow** pane, complete the following steps:
 
@@ -153,26 +174,52 @@ Follow these steps to create a workflow with an empty **Agent**.
 
    1. Select **Conversational Agents** > **Create**.
 
-   :::image type="content" source="media/create-conversational-agent-workflows/select-conversational-agents.png" alt-text="Screenshot shows Standard logic app resource with open Workflows page and Create workflow pane with workflow name, selected Conversational Agents option, and Create button." lightbox="media/create-conversational-agent-workflows/select-conversational-agents.png":::
+      :::image type="content" source="media/create-conversational-agent-workflows/select-conversational-agents.png" alt-text="Screenshot shows Standard logic app resource with open Workflows page and Create workflow pane with workflow name, selected Conversational Agents option, and Create button." lightbox="media/create-conversational-agent-workflows/select-conversational-agents.png":::
 
-   The designer opens and shows a workflow that starts with the required trigger named **When a new chat session starts** and an empty **Agent** action that you need to set up later. Before you can save your workflow, you must complete the following setup tasks for the **Agent** action:
+      The designer opens and shows a partial workflow that starts with the required trigger named **When a new chat session starts** and an empty **Agent** action that you need to set up later. 
 
-   - Create a connection to your deployed model. You complete this task in a later section.
+      :::image type="content" source="media/create-conversational-agent-workflows/workflow-start-standard-portal.png" alt-text="Screenshot shows Standard workflow designer with required chat conversation trigger and an empty Agent action." lightbox="media/create-conversational-agent-workflows/workflow-start-standard-portal.png":::
 
-   - Provide system instructions that describe the roles that the agent plays, the tasks that the agent can perform, and other information to help the agent better understand how to operate. You also complete this task in a later section.
+  Before you can save your workflow, you must complete the following setup tasks for the **Agent** action:
 
-   :::image type="content" source="media/create-conversational-agent-workflows/agent-workflow-start.png" alt-text="Screenshot shows workflow designer with default trigger and empty Agent." lightbox="media/create-conversational-agent-workflows/agent-workflow-start.png":::
+  - Connect your agent to your AI model. You complete this task in a later section.
 
-1. Continue to the next section so you can set up the connection between your agent and your model.
+  - Provide agent instructions that use natural language to describe the roles that the agent plays, the tasks that the agent can perform, and other information to help the agent better understand how to operate. You also complete this task in a later section.
 
-   > [!NOTE]
-   >
-   > If you try to save the workflow now, the designer toolbar shows a red dot on the **Errors** 
-   > button. The designer alerts you to this error condition because the agent requires setup 
-   > before you can save any changes. However, you don't have to set up the agent now. You can 
-   > continue to create your workflow. Just remember to set up the agent before you save your workflow.
-   >
-   > :::image type="content" source="media/create-conversational-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar with Errors button with red dot and error in the agent action information pane." lightbox="media/create-conversational-agent-workflows/error-missing-agent-settings.png":::
+1. Continue to the next section to set up your agent.
+
+### [Visual Studio Code](#tab/visual-studio-code/standard)
+
+1. In Visual Studio Code, open the workspace for your Standard logic app project.
+
+1. On the Activity Bar, select the files icon, which opens the Explorer window to show your project.
+
+1. In the Explorer window, from your project folder shortcut menu, select **Create workflow**.
+
+1. Select the workflow template named **Conversational agent**.
+
+1. Provide a name for your workflow, and press Enter.
+
+   A new workflow folder now appears in your project. This folder contains a *workflow.json* file, which contains the workflow's underlying JSON definition.
+
+1. From the *workflow.json* file's shortcut menu, select **Open designer**.
+
+   The designer opens and shows a partial workflow that starts with the required trigger named **When a new chat session starts** and an empty **Default Agent** action that you need to set up later. 
+
+   :::image type="content" source="media/create-conversational-agent-workflows/workflow-start-standard-visual-studio-code.png" alt-text="Screenshot shows workflow designer with required chat conversation trigger and an empty Default Agent action." lightbox="media/create-conversational-agent-workflows/workflow-start-standard-visual-studio-code.png":::
+
+1. Continue to the next section to set up your agent.
+
+---
+
+> [!NOTE]
+>
+> If you try to save the workflow now, the designer toolbar shows a red dot on the **Errors** 
+> button. The designer alerts you to this error condition because the agent requires setup 
+> before you can save any changes. However, you don't have to set up the agent now. You can 
+> continue to create your workflow. Just remember to set up the agent before you save your workflow.
+>
+> :::image type="content" source="media/create-conversational-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar and Errors button with red dot and error in the agent action information pane." lightbox="media/create-conversational-agent-workflows/error-missing-agent-settings.png":::
 
 ## Connect the agent to your model
 
