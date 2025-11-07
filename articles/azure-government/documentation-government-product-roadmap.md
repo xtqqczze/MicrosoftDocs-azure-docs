@@ -2,341 +2,331 @@
 title: Azure Government product General Availability (GA) roadmap
 description: Overview of Azure Government product General Availability (GA) by authorization level
 ms.service: azure-government
-ms.topic: article-concept
+ms.topic: conceptual
 ms.author: russellkirk
 author: krussell09
 recommendations: false
-ms.date: 11/05/2025
+ms.date: 11/07/2025
 ---
-# Microsoft Azure Government product General Availability roadmap
 
+# Microsoft Azure Government product General Availability (GA) roadmap
 
-The **Product Availability Roadmap** outlines purchasable Microsoft Azure products across multiple levels. 
-	
-Explore an overview of the Microsoft product portfolio, including Offerings, SKUs, and Features, available in **Microsoft Azure for U.S. Government** and **Microsoft Azure for U.S. Government Secret.**
+This article provides a General Availability (GA) roadmap for current and upcoming Microsoft products across Azure Government cloud environments.
 
+Microsoft Azure for U.S. Government offers two distinct cloud environments:
 
-The roadmap below outlines current and upcoming product availability across two dedicated cloud environment designed exclusively for U.S. Government customers and their supporting partners: **Microsoft Azure for U.S. Government** and **Microsoft Azure for U.S. Government Secret. **
+- **Azure Government**: A dedicated cloud for U.S. government agencies and their partners, authorized under *FedRAMP High* and compliant with *Department of Defense (DoD) Impact Levels 4 and 5* requirements.
 
+- **Azure Government Secret**: An air-gapped environment designed exclusively for U.S. agencies and cleared partners working with Secret-level classified data. This environment is fully isolated from public networks with strict access controls and meets *DoD Impact Level 6* requirements.
 
-Both environments were built from the ground up using the same foundational principles and architecture as Azure commercial clouds, while meeting rigorous security and compliance requirements. Products within these clouds are protected and managed in accordance with multiple regulatory standards, including **FedRAMP High and the Department of Defense Security Requirements Guide (DoD SRG) Impact Levels 2, 4, 5, and 6**, as well as other applicable frameworks. 
+Both environments are built on the same foundational principles and architecture as Azure commercial clouds while meeting rigorous security and compliance requirements in accordance with multiple regulatory standards, including *FedRAMP High* and the *Department of Defense Security Requirements Guide (DoD SRG)*.
 
-
-**Microsoft Azure for U.S. Government Secret** is an air-gapped environment designed exclusively U.S. agencies and cleared partners working with data classified at the Secret level. It is fully isolated from public networks and accessible only to authorized personnel under strict access controls. 
-
-## Available at Multiple Compliance Levels
-
-Microsoft products are designed to meet rigorous U.S. Government compliance requirements through formal assessments and authorizations.  
-
-Products available in **Azure Government** are authorized under **FedRAMP High** and comply with the **Department of Defense (DoD) Impact Levels 4 and 5** requirements. 
-
-Products in **Azure Government Secret** meet the **DoD Impact Level 6** requirements. 
-
-For more information on compliance in Azure Government clouds, see **[Azure Government Compliance](https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-plan-compliance)**.
-
+For comprehensive information about compliance in Azure Government clouds, see [Azure Government Compliance](/azure/azure-government/documentation-government-plan-compliance).
 
 ## Legend
 	
 | GA Status | Description |
 |---|---|
-|✔ | Currently GA |
-| Awaiting review |GA authorization is submitted.|
+|:::image alt-text="GA" type="content" source="media/icon-checkmark.svg":::| Currently GA. |
+| Awaiting review | GA authorization is submitted. |
 | Forecasted | GA date is set. |
-| Planned | GA is in progress, but no date is set.|
-| Blank | GA is neither in progress, nor is planned.|
+| Planned | GA is in progress, but no date is set. |
+| Blank | GA is neither in progress nor planned. |
 
 >[!NOTE]
->In the product roadmap table, a colon (:) is used to indicate a hierarchical relationship between offerings. It helps break down broader services into a more specific SKU or feature within a broader offering. Each level after a colon represents a distinct capability or purchasable component within the service.  
+>**Product hierarchy notation**: In the product roadmap table, colons (:) indicate hierarchical relationships between services and their components:
 >
->For example, *App Service : App Service Premium v3 : Windows Containers*, means:
-> -  App Service is the general service category.
-> -  App Service Premium v3 is a specific pricing tier within App Service.
-> -  Windows Containers is a specialized deployment option within the Premium v3 tier
+>- **Service** : **Tier/SKU** : **Feature/Component**
+>
+>**Example**: *App Service : App Service Premium v3 : Windows Containers*
+>- **App Service** = Base service category
+>- **App Service Premium v3** = Specific pricing tier
+>- **Windows Containers** = Specialized deployment option within that tier
 
 
-## Product GA Roadmap
+## General Availability roadmap
 
 
-| Product | Azure Government FedRAMP High | Azure Government DoD IL4 | Azure Government DoD IL5 | Azure Secret DoD IL6 |
+| Product | FedRAMP High | DoD IL4 | DoD IL5 | DoD IL6 (Secret) |
 | :--- | :---: | :---: | :---: | :---: |
-| API Management | ✔ | ✔ | ✔ | ✔ |
-| App Service | ✔ | ✔ | ✔ | ✔ |
-| App Service : App Service Basic : App Service Linux | ✔ | ✔ | ✔ | ✔ |
-| App Service : App Service Basic : Web App for Containers | ✔ | ✔ | ✔ | ✔ |
-| App Service : App Service Environments | ✔ | ✔ | ✔ | ✔ |
-| App Service : App Service Environments : App Service Environments v3 | ✔ | ✔ | ✔ |  |
-| App Service : App Service Free | ✔ | ✔ | ✔ | ✔ |
-| App Service : App Service Premium v3 | ✔ | ✔ | ✔ | ✔ |
-| App Service : App Service Premium v3 : Windows Containers | ✔ | ✔ | ✔ |  |
-| Application Gateway | ✔ | ✔ | ✔ | ✔ |
-| Application Gateway : Application Gateway v2 | ✔ | ✔ | ✔ | ✔ |
-| Automation | ✔ | ✔ | ✔ | ✔ |
-| Automation : Change Tracking | ✔ | ✔ | ✔ | Forecasted |
-| Azure Advisor | ✔ | ✔ | ✔ | ✔ |
-| Azure AI Foundry | ✔ | ✔ | ✔ | ✔ |
-| Azure AI Foundry : Azure AI Content Moderator | ✔ | ✔ | ✔ |  |
-| Azure AI Foundry : Azure AI Custom Vision | ✔ | ✔ | ✔ |  |
-| Azure AI Foundry : Azure AI Document Intelligence | ✔ | ✔ | ✔ | Awaiting Review |
+| API Management | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| App Service | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| App Service : App Service Basic : App Service Linux | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| App Service : App Service Basic : Web App for Containers | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| App Service : App Service Environments | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| App Service : App Service Environments : App Service Environments v3 | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| App Service : App Service Free | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| App Service : App Service Premium v3 | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| App Service : App Service Premium v3 : Windows Containers | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Application Gateway | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Application Gateway : Application Gateway v2 | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Automation | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Automation : Change Tracking | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Forecasted |
+| Azure Advisor | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure AI Foundry | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure AI Foundry : Azure AI Content Moderator | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure AI Foundry : Azure AI Custom Vision | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure AI Foundry : Azure AI Document Intelligence | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
 | Azure AI Foundry : Azure AI Foundry Agent Service​ | Forecasted | Forecasted | Forecasted |  |
-| Azure AI Foundry : Azure AI Language | ✔ | ✔ | ✔ | Awaiting Review |
-| Azure AI Foundry : Azure AI Language : Conversational Language Understanding | ✔ | ✔ | ✔ |  |
-| Azure AI Foundry : Azure AI Language Understanding | ✔ | ✔ | ✔ |  |
-| Azure AI Foundry : Azure AI QnA Maker | ✔ | ✔ | ✔ |  |
-| Azure AI Foundry : Azure AI Speech | ✔ | ✔ | ✔ | ✔ |
-| Azure AI Foundry : Azure AI Translator | ✔ | ✔ | ✔ | ✔ |
-| Azure AI Foundry : Azure AI Vision | ✔ | ✔ | ✔ | ✔ |
-| Azure AI Foundry : Azure AI Vision Face API | ✔ | ✔ | ✔ | Awaiting Review |
-| Azure AI Foundry : Form Recognizer | ✔ | ✔ | ✔ |  |
-| Azure AI Foundry : Personalizer | ✔ | ✔ | ✔ |  |
+| Azure AI Foundry : Azure AI Language | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Azure AI Foundry : Azure AI Language : Conversational Language Understanding | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure AI Foundry : Azure AI Language Understanding | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure AI Foundry : Azure AI QnA Maker | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure AI Foundry : Azure AI Speech | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure AI Foundry : Azure AI Translator | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure AI Foundry : Azure AI Vision | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure AI Foundry : Azure AI Vision Face API | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Azure AI Foundry : Form Recognizer | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure AI Foundry : Personalizer | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
 | Azure AI Foundry Portal |  |  |  | Awaiting Review |
-| Azure AI Search | ✔ | ✔ | ✔ | ✔ |
-| Azure AI Search : AI Enrichment | ✔ | ✔ | ✔ | ✔ |
-| Azure AI Search : Semantic Ranker | ✔ | ✔ | ✔ | Awaiting Review |
-| Azure App Configuration | ✔ | ✔ | ✔ | ✔ |
+| Azure AI Search | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure AI Search : AI Enrichment | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure AI Search : Semantic Ranker | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Azure App Configuration | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
 | Azure Arc Appliance | Forecasted | Forecasted | Forecasted | Forecasted |
-| Azure Arc enabled Kubernetes | ✔ | ✔ | ✔ | Forecasted |
-| Azure Arc-Enabled Servers | ✔ | ✔ | ✔ | Forecasted |
+| Azure Arc enabled Kubernetes | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Forecasted |
+| Azure Arc-Enabled Servers | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Forecasted |
 | Azure Arc-enabled SQL Server | Planned |  |  | Forecasted |
-| Azure Automanage Machine Configuration | ✔ | ✔ | ✔ | Planned |
-| Azure Bastion | ✔ | ✔ | ✔ | ✔ |
-| Azure Bot Service | ✔ | ✔ | Planned |  |
-| Azure Cosmos DB | ✔ | ✔ | ✔ | ✔ |
-| Azure Data Box : Data Box | ✔ | ✔ | ✔ | ✔ |
-| Azure Data Box : Data Box 120 | ✔ | ✔ | ✔ | ✔ |
-| Azure Data Box : Data Box 525 | ✔ | ✔ | ✔ | ✔ |
-| Azure Data Box : Data Box Disk | ✔ | ✔ | ✔ |  |
-| Azure Data Explorer | ✔ | ✔ | ✔ | ✔ |
-| Azure Data Transfer : Batch Transfer : Gov to Secret |  |  |  | ✔ |
-| Azure Data Transfer : Messaging Transfer : Gov to Secret |  |  |  | ✔ |
+| Azure Automanage Machine Configuration | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |
+| Azure Bastion | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Bot Service | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |  |
+| Azure Cosmos DB | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Data Box : Data Box | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Data Box : Data Box 120 | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Data Box : Data Box 525 | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Data Box : Data Box Disk | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure Data Explorer | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Data Transfer : Batch Transfer : Gov to Secret |  |  |  | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Data Transfer : Messaging Transfer : Gov to Secret |  |  |  | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
 | Azure Data Transfer : Streaming Transfer : Gov to Secret |  |  |  | Forecasted |
-| Azure Database for MySQL | ✔ | ✔ | ✔ |  |
-| Azure Database for MySQL : Azure Database for MySQL - Flexible Server | ✔ | ✔ | ✔ |  |
-| Azure Database for PostgreSQL | ✔ | ✔ | ✔ | ✔ |
-| Azure Database for PostgreSQL : Azure Database for PostgreSQL - Flexible Server | ✔ | ✔ | ✔ | ✔ |
-| Azure Database Migration Service | ✔ | ✔ | ✔ | Awaiting Review |
-| Azure Databricks | ✔ | ✔ | ✔ |  |
-| Azure DDoS Protection | ✔ | ✔ | ✔ | Awaiting Review |
-| Azure Dedicated HSM | ✔ | ✔ | ✔ |  |
-| Azure DevTest Labs | ✔ | ✔ | ✔ |  |
-| Azure DNS | ✔ | ✔ | ✔ | ✔ |
-| Azure DNS : Azure DNS Private Resolver | ✔ | ✔ | ✔ | Awaiting Review |
-| Azure DNS : Azure DNS Private Zones | ✔ | ✔ | ✔ | ✔ |
-| Azure DNS : Azure DNS Public Zones | ✔ | ✔ | ✔ | ✔ |
-| Azure Files | ✔ | ✔ | ✔ | ✔ |
-| Azure Firewall | ✔ | ✔ | ✔ | ✔ |
-| Azure Firewall : Azure Firewall Premium | ✔ | ✔ | ✔ | ✔ |
-| Azure Firewall : Azure Firewall Standard | ✔ | ✔ | ✔ | ✔ |
-| Azure Firewall Manager | ✔ | ✔ | ✔ | Planned |
-| Azure Front Door | ✔ | ✔ | ✔ | ✔ |
-| Azure Front Door : Azure Front Door Premium | ✔ | ✔ | ✔ |  |
-| Azure Front Door : Azure Front Door Standard | ✔ | ✔ | ✔ |  |
+| Azure Database for MySQL | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure Database for MySQL : Azure Database for MySQL - Flexible Server | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure Database for PostgreSQL | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Database for PostgreSQL : Azure Database for PostgreSQL - Flexible Server | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Database Migration Service | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Azure Databricks | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure DDoS Protection | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Azure Dedicated HSM | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure DevTest Labs | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure DNS | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure DNS : Azure DNS Private Resolver | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Azure DNS : Azure DNS Private Zones | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure DNS : Azure DNS Public Zones | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Files | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Firewall | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Firewall : Azure Firewall Premium | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Firewall : Azure Firewall Standard | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Firewall Manager | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |
+| Azure Front Door | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Front Door : Azure Front Door Premium | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure Front Door : Azure Front Door Standard | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
 | Azure Grafana Service |  | Awaiting Review |  | Forecasted |
-| Azure Information Protection | ✔ | ✔ | ✔ | ✔ |
-| Azure Kubernetes Service (AKS) | ✔ | ✔ | ✔ | ✔ |
-| Azure Lighthouse | ✔ | ✔ | ✔ | ✔ |
-| Azure Load Balancer | ✔ | ✔ | ✔ | ✔ |
-| Azure Load Balancer : Standard | ✔ | ✔ | ✔ | ✔ |
-| Azure Local | ✔ | ✔ | ✔ | Forecasted |
-| Azure Machine Learning | ✔ | ✔ | ✔ | ✔ |
-| Azure Managed Applications | ✔ | ✔ | ✔ |  |
-| Azure Maps | ✔ | ✔ | ✔ |  |
-| Azure Migrate | ✔ | ✔ | ✔ | Awaiting Review |
-| Azure Monitor | ✔ | ✔ | ✔ | ✔ |
-| Azure Monitor : Application Insights | ✔ | ✔ | ✔ | ✔ |
-| Azure Monitor : Azure Monitor Essentials | ✔ | ✔ | ✔ | ✔ |
-| Azure Monitor : Azure Monitor Essentials : Action Groups | ✔ | ✔ | ✔ | ✔ |
-| Azure Monitor : Azure Monitor Essentials : Activity Log | ✔ | ✔ | ✔ | ✔ |
-| Azure Monitor : Azure Monitor Essentials : Alerts | ✔ | ✔ | ✔ | ✔ |
-| Azure Monitor : Azure Monitor Essentials : AutoScale | ✔ | ✔ | ✔ |  |
-| Azure Monitor : Azure Monitor Essentials : Diagnostic Logs | ✔ | ✔ | ✔ | ✔ |
-| Azure Monitor : Azure Monitor Essentials : Metrics | ✔ | ✔ | ✔ | ✔ |
+| Azure Information Protection | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Kubernetes Service (AKS) | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Lighthouse | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Load Balancer | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Load Balancer : Standard | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Local | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Forecasted |
+| Azure Machine Learning | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Managed Applications | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure Maps | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure Migrate | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Azure Monitor | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Monitor : Application Insights | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Monitor : Azure Monitor Essentials | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Monitor : Azure Monitor Essentials : Action Groups | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Monitor : Azure Monitor Essentials : Activity Log | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Monitor : Azure Monitor Essentials : Alerts | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Monitor : Azure Monitor Essentials : AutoScale | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure Monitor : Azure Monitor Essentials : Diagnostic Logs | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Monitor : Azure Monitor Essentials : Metrics | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
 | Azure Monitor : Azure Monitor Managed Service for Prometheus |  |  |  | Forecasted |
-| Azure Monitor : Log Analytics | ✔ | ✔ | ✔ | ✔ |
-| Azure Monitor : Log Analytics : Container Insights | ✔ | ✔ | ✔ | ✔ |
-| Azure Monitor : Log Analytics : Service Map and VM Insights | ✔ | ✔ | ✔ | ✔ |
-| Azure NetApp Files | ✔ | ✔ | ✔ |  |
-| Azure OpenAI Service | ✔ | ✔ | ✔ | ✔ |
-| Azure Policy | ✔ | ✔ | ✔ | ✔ |
-| Azure Private Link | ✔ | ✔ | ✔ | ✔ |
-| Azure Red Hat OpenShift (ARO) | ✔ | ✔ | Awaiting Review |  |
-| Azure Resource Graph | ✔ | ✔ | ✔ | ✔ |
-| Azure Resource Manager | ✔ | ✔ | ✔ | ✔ |
-| Azure Route Server | ✔ | ✔ | ✔ | Forecasted |
-| Azure SignalR Service | ✔ | ✔ | ✔ | ✔ |
-| Azure SQL Database | ✔ | ✔ | ✔ | ✔ |
-| Azure SQL Managed Instance | ✔ | ✔ | ✔ | Awaiting Review |
-| Azure Stack | ✔ | ✔ | ✔ | ✔ |
-| Azure Stack Edge | ✔ | ✔ | ✔ | ✔ |
-| Azure Stack Edge : Azure Data Box Gateway | ✔ |  |  |  |
-| Azure Stream Analytics | ✔ | ✔ | ✔ | Awaiting Review |
-| Azure Stream Analytics : Stream Analytics Dedicated | ✔ | ✔ | ✔ | Awaiting Review |
-| Azure Stream Analytics : Stream Analytics Jobs | ✔ | ✔ | ✔ | Awaiting Review |
-| Azure Synapse Analytics | ✔ | ✔ | ✔ | ✔ |
-| Azure Synapse Analytics : Default : Workspace | ✔ | ✔ | ✔ |  |
-| Azure Virtual Desktop | ✔ | ✔ | ✔ | ✔ |
+| Azure Monitor : Log Analytics | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Monitor : Log Analytics : Container Insights | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Monitor : Log Analytics : Service Map and VM Insights | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure NetApp Files | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure OpenAI Service | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Policy | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Private Link | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Red Hat OpenShift (ARO) | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |  |
+| Azure Resource Graph | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Resource Manager | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Route Server | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Forecasted |
+| Azure SignalR Service | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure SQL Database | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure SQL Managed Instance | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Azure Stack | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Stack Edge | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Stack Edge : Azure Data Box Gateway | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |  |  |
+| Azure Stream Analytics | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Azure Stream Analytics : Stream Analytics Dedicated | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Azure Stream Analytics : Stream Analytics Jobs | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Azure Synapse Analytics | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Azure Synapse Analytics : Default : Workspace | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure Virtual Desktop | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
 | Azure Virtual Enclaves | Forecasted | Forecasted | Forecasted | Forecasted |
 | Azure VM Image Builder |  |  | Planned | Forecasted |
-| Azure VMware Solution | ✔ | ✔ | ✔ |  |
-| Azure Web Application Firewall | ✔ | ✔ | ✔ | Planned |
-| Backup | ✔ | ✔ | ✔ | ✔ |
-| Bandwidth | ✔ | ✔ | ✔ | ✔ |
-| Batch | ✔ | ✔ | ✔ | ✔ |
-| Chat for Dynamics 365 | ✔ | ✔ | Planned |  |
-| Cloud Services | ✔ | ✔ | ✔ | ✔ |
-| Cloud Shell | ✔ | ✔ | ✔ | ✔ |
-| Container Instances | ✔ | ✔ | ✔ | ✔ |
-| Container Registry | ✔ | ✔ | ✔ | ✔ |
-| Content Delivery Network | ✔ | ✔ | ✔ | ✔ |
-| Cost Management | ✔ | ✔ | ✔ |  |
-| Customer Lockbox for Microsoft Azure | ✔ | ✔ | ✔ | Planned |
-| Data Factory | ✔ | ✔ | ✔ | ✔ |
-| Dataverse | ✔ | ✔ | Planned | Awaiting Review |
+| Azure VMware Solution | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Azure Web Application Firewall | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |
+| Backup | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Bandwidth | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Batch | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Chat for Dynamics 365 | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |  |
+| Cloud Services | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Cloud Shell | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Container Instances | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Container Registry | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Content Delivery Network | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Cost Management | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Customer Lockbox for Microsoft Azure | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |
+| Data Factory | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Dataverse | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned | Awaiting Review |
 | Dynamics 365 Commerce |  | Planned |  |  |
-| Dynamics 365 Customer Insights | ✔ | ✔ |  |  |
-| Dynamics 365 Customer Service | ✔ | ✔ | Planned |  |
-| Dynamics 365 Customer Voice | ✔ | ✔ |  |  |
-| Dynamics 365 Field Service | ✔ | ✔ | Planned |  |
-| Dynamics 365 Finance | ✔ | ✔ | Planned |  |
-| Dynamics 365 Sales | ✔ | ✔ |  |  |
-| Dynamics 365 Supply Chain Management | ✔ | ✔ | Planned |  |
-| Event Grid | ✔ | ✔ | ✔ | ✔ |
-| Event Hubs | ✔ | ✔ | ✔ | ✔ |
-| Event Hubs : Azure Event Hubs Premium SKU | ✔ | ✔ | ✔ |  |
-| ExpressRoute | ✔ | ✔ | ✔ | ✔ |
-| ExpressRoute : ExpressRoute Gateways | ✔ | ✔ | ✔ | ✔ |
-| Functions | ✔ | ✔ | ✔ | ✔ |
-| Functions : Consumption Plan | ✔ | ✔ | ✔ | ✔ |
-| Functions : Consumption Plan Linux | ✔ | ✔ | ✔ |  |
-| Functions : Dedicated Plan | ✔ | ✔ | ✔ | ✔ |
-| Functions : Dedicated Plan Linux | ✔ | ✔ | ✔ | ✔ |
-| Functions : Premium Plan | ✔ | ✔ | ✔ | ✔ |
-| Functions : Premium Plan Linux | ✔ | ✔ | ✔ | ✔ |
-| HDInsight | ✔ | ✔ | ✔ |  |
-| IoT Hub | ✔ | ✔ | ✔ |  |
-| IoT Hub : IoT Hub Device Provisioning Service | ✔ | ✔ | ✔ |  |
-| IP Services | ✔ | ✔ | ✔ | Awaiting Review |
-| IP Services : Azure Public IP Address Basic | ✔ | ✔ | ✔ |  |
-| IP Services : Azure Public IP Address Standard | ✔ | ✔ | ✔ |  |
-| IP Services : Azure Public IP Prefix | ✔ | ✔ | ✔ |  |
-| Key Vault | ✔ | ✔ | ✔ | ✔ |
-| Key Vault : Azure Key Vault Managed HSM | ✔ | ✔ | ✔ | Planned |
-| Key Vault : Premium |  |  |  | ✔ |
-| Logic Apps (Consumption) | ✔ | ✔ | ✔ | ✔ |
-| Logic Apps : Azure Logic Apps Standard | ✔ | ✔ | ✔ | ✔ |
-| Logic Apps : Logic Apps Integration Service Environment | ✔ | ✔ | ✔ |  |
-| Media Services | ✔ | ✔ | ✔ |  |
-| Media Services : Video Indexer | ✔ | ✔ | ✔ |  |
-| Microsoft 365 Defender | ✔ | ✔ | ✔ | ✔ |
+| Dynamics 365 Customer Insights | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |  |
+| Dynamics 365 Customer Service | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |  |
+| Dynamics 365 Customer Voice | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |  |
+| Dynamics 365 Field Service | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |  |
+| Dynamics 365 Finance | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |  |
+| Dynamics 365 Sales | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |  |
+| Dynamics 365 Supply Chain Management | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |  |
+| Event Grid | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Event Hubs | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Event Hubs : Azure Event Hubs Premium SKU | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| ExpressRoute | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| ExpressRoute : ExpressRoute Gateways | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Functions | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Functions : Consumption Plan | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Functions : Consumption Plan Linux | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Functions : Dedicated Plan | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Functions : Dedicated Plan Linux | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Functions : Premium Plan | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Functions : Premium Plan Linux | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| HDInsight | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| IoT Hub | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| IoT Hub : IoT Hub Device Provisioning Service | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| IP Services | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| IP Services : Azure Public IP Address Basic | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| IP Services : Azure Public IP Address Standard | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| IP Services : Azure Public IP Prefix | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Key Vault | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Key Vault : Azure Key Vault Managed HSM | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |
+| Key Vault : Premium |  |  |  | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Logic Apps (Consumption) | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Logic Apps : Azure Logic Apps Standard | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Logic Apps : Logic Apps Integration Service Environment | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Media Services | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Media Services : Video Indexer | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Microsoft 365 Defender | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
 | Microsoft Azure Attestation | Planned | Planned | Planned | Planned |
-| Microsoft Azure Portal | ✔ | ✔ | ✔ | ✔ |
-| Microsoft Copilot Studio | ✔ | ✔ | Awaiting Review |  |
-| Microsoft Defender for Cloud | ✔ | ✔ | ✔ | ✔ |
-| Microsoft Defender for Cloud Apps | ✔ | ✔ | ✔ |  |
-| Microsoft Defender for Endpoint | ✔ | ✔ | ✔ | ✔ |
-| Microsoft Defender for Identity | ✔ | ✔ | ✔ | ✔ |
-| Microsoft Defender for IoT | ✔ | ✔ | ✔ |  |
-| Microsoft Entra Domain Services | ✔ | ✔ | ✔ | Planned |
-| Microsoft Entra ID | ✔ | ✔ | ✔ | ✔ |
-| Microsoft Entra ID : Multi-Factor Authentication | ✔ | ✔ | ✔ | ✔ |
-| Microsoft Entra ID : Premium P1 | ✔ | ✔ | ✔ | ✔ |
-| Microsoft Entra ID : Premium P2 | ✔ | ✔ | ✔ | ✔ |
-| Microsoft Entra ID : Workload Identities | ✔ | ✔ | ✔ |  |
+| Microsoft Azure Portal | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Microsoft Copilot Studio | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |  |
+| Microsoft Defender for Cloud | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Microsoft Defender for Cloud Apps | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Microsoft Defender for Endpoint | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Microsoft Defender for Identity | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Microsoft Defender for IoT | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Microsoft Entra Domain Services | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |
+| Microsoft Entra ID | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Microsoft Entra ID : Multi-Factor Authentication | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Microsoft Entra ID : Premium P1 | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Microsoft Entra ID : Premium P2 | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Microsoft Entra ID : Workload Identities | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
 | Microsoft Fabric | Forecasted | Forecasted | Forecasted | Forecasted |
-| Microsoft Graph | ✔ | ✔ | ✔ | ✔ |
-| Microsoft Sentinel | ✔ | ✔ | ✔ | ✔ |
-| Microsoft Stream | ✔ | ✔ | ✔ |  |
-| Network Watcher | ✔ | ✔ | ✔ | ✔ |
-| Network Watcher : Traffic Analytics | ✔ | ✔ | ✔ | ✔ |
-| Notification Hubs | ✔ | ✔ | ✔ |  |
-| Planned Maintenance | ✔ | ✔ | ✔ |  |
-| Power Apps Premium | ✔ | ✔ | Planned | Awaiting Review |
-| Power Automate Premium | ✔ | ✔ | Planned | Awaiting Review |
-| Power BI | ✔ | ✔ | ✔ | ✔ |
-| Power BI Embedded | ✔ | ✔ | ✔ | Planned |
-| Power Pages | ✔ | ✔ | Planned |  |
-| Quota+ Usage blade | ✔ | ✔ | ✔ |  |
-| Redis Cache | ✔ | ✔ | ✔ | ✔ |
-| Service Bus | ✔ | ✔ | ✔ | ✔ |
-| Service Bus : Premium | ✔ | ✔ | ✔ | ✔ |
-| Service Fabric | ✔ | ✔ | ✔ | ✔ |
-| Site Recovery | ✔ | ✔ | ✔ | Awaiting Review |
-| SQL Server on Azure Virtual Machines | ✔ | ✔ | ✔ | Awaiting Review |
-| SQL Server Registry | ✔ | ✔ | ✔ |  |
-| Storage | ✔ | ✔ | ✔ | ✔ |
-| Storage : Archive Storage | ✔ | ✔ | ✔ | Awaiting Review |
-| Storage : Azure Data Lake Storage Gen2 | ✔ | ✔ | ✔ | ✔ |
-| Storage : Azure Data Lake Storage Gen2 : Premium tier for Azure Data Lake Storage | ✔ | ✔ | ✔ | ✔ |
-| Storage : Azure File Sync | ✔ | ✔ | ✔ | ✔ |
-| Storage : Azure Premium Files | ✔ | ✔ | ✔ | ✔ |
-| Storage : Blobs (incl. Azure Data Lake Storage Gen2) | ✔ | ✔ | ✔ | ✔ |
-| Storage : Disk Storage | ✔ | ✔ | ✔ | ✔ |
-| Storage : Hot/Cool/Cold Blob Storage Tiers | ✔ | ✔ | ✔ | ✔ |
-| Storage : Managed Disks |  |  |  | ✔ |
-| Storage : Premium Block Blobs | ✔ | ✔ | ✔ | ✔ |
-| Storage : Queues | ✔ | ✔ | ✔ | ✔ |
-| Storage : Tables | ✔ | ✔ | ✔ | ✔ |
-| Storage : Ultra Disk Storage | ✔ | ✔ | ✔ |  |
-| Traffic Manager | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machine Scale Sets | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machine Scale Sets : Flexible Orchestration Mode | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Av2-Series |  |  |  | ✔ |
-| Virtual Machines : Azure Dedicated Host | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Azure Disk Encryption | ✔ | ✔ | ✔ |  |
-| Virtual Machines : B-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : D*v4-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Ddsv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Ddsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
-| Virtual Machines : Ddv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : DDv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
-| Virtual Machines : Dldsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
-| Virtual Machines : Dlsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
-| Virtual Machines : DSv2-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : DSv3-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Dsv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Dsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
-| Virtual Machines : Dv2-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Dv3-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Dv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Dv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
-| Virtual Machines : E*v4-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Ebdsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
-| Virtual Machines : Ebsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
-| Virtual Machines : Edsv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Edsv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
-| Virtual Machines : Edv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : ESv3-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Esv4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Esv5-Series | ✔ | ✔ | ✔ | Awaiting Review |
-| Virtual Machines : Ev3-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Ev4-series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Ev5-Series | ✔ | ✔ | ✔ | Awaiting Review |
-| Virtual Machines : F-Series |  |  |  | ✔ |
-| Virtual Machines : FS-Series |  |  |  | ✔ |
-| Virtual Machines : FSv2-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : HBv2-Series | ✔ | ✔ | ✔ |  |
-| Virtual Machines : HCv1-Series | ✔ | ✔ | ✔ |  |
-| Virtual Machines : Instance Level IPs |  |  |  | ✔ |
-| Virtual Machines : LSv2-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Mdsv2 Medium Memory Series | ✔ | ✔ | ✔ |  |
-| Virtual Machines : M-Series | ✔ | ✔ | ✔ |  |
-| Virtual Machines : Msv2 Medium Memory Series | ✔ | ✔ | ✔ |  |
-| Virtual Machines : NCv3-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : NVv3-Series | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Reserved IP |  |  |  | ✔ |
-| Virtual Machines : Serial Console | ✔ | ✔ | ✔ | Awaiting Review |
-| Virtual Machines : Shared Image Gallery | ✔ | ✔ | ✔ | ✔ |
-| Virtual Machines : Spot Virtual Machines | ✔ | ✔ | ✔ |  |
-| Virtual Machines : Trusted Launch | ✔ | ✔ | ✔ | ✔ |
-| Virtual Network | ✔ | ✔ | ✔ | ✔ |
-| Virtual Network : Global Vnet Peering | ✔ | ✔ | ✔ | ✔ |
-| Virtual Network : Virtual Network Peering | ✔ | ✔ | ✔ | ✔ |
-| Virtual Network NAT | ✔ | ✔ | ✔ |  |
-| Virtual WAN | ✔ | ✔ | ✔ | ✔ |
-| Virtual WAN : ExpressRoute | ✔ | ✔ | ✔ | ✔ |
-| Virtual WAN : Point-to-Site VPN Gateway | ✔ | ✔ | ✔ | ✔ |
-| Virtual WAN : Site-to-Site VPN Gateway | ✔ | ✔ | ✔ | ✔ |
-| VPN Gateway | ✔ | ✔ | ✔ | ✔ |
+| Microsoft Graph | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Microsoft Sentinel | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Microsoft Stream | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Network Watcher | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Network Watcher : Traffic Analytics | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Notification Hubs | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Planned Maintenance | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Power Apps Premium | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned | Awaiting Review |
+| Power Automate Premium | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned | Awaiting Review |
+| Power BI | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Power BI Embedded | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |
+| Power Pages | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Planned |  |
+| Quota+ Usage blade | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Redis Cache | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Service Bus | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Service Bus : Premium | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Service Fabric | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Site Recovery | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| SQL Server on Azure Virtual Machines | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| SQL Server Registry | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Storage | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Storage : Archive Storage | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Storage : Azure Data Lake Storage Gen2 | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Storage : Azure Data Lake Storage Gen2 : Premium tier for Azure Data Lake Storage | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Storage : Azure File Sync | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Storage : Azure Premium Files | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Storage : Blobs (incl. Azure Data Lake Storage Gen2) | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Storage : Disk Storage | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Storage : Hot/Cool/Cold Blob Storage Tiers | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Storage : Managed Disks |  |  |  | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Storage : Premium Block Blobs | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Storage : Queues | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Storage : Tables | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Storage : Ultra Disk Storage | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Traffic Manager | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machine Scale Sets | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machine Scale Sets : Flexible Orchestration Mode | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Av2-Series |  |  |  | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Azure Dedicated Host | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Azure Disk Encryption | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Virtual Machines : B-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : D*v4-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Ddsv4-series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Ddsv5-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Virtual Machines : Ddv4-series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : DDv5-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Virtual Machines : Dldsv5-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Virtual Machines : Dlsv5-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Virtual Machines : DSv2-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : DSv3-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Dsv4-series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Dsv5-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Virtual Machines : Dv2-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Dv3-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Dv4-series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Dv5-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Virtual Machines : E*v4-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Ebdsv5-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Virtual Machines : Ebsv5-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Virtual Machines : Edsv4-series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Edsv5-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Virtual Machines : Edv4-series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : ESv3-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Esv4-series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Esv5-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Virtual Machines : Ev3-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Ev4-series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Ev5-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Virtual Machines : F-Series |  |  |  | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : FS-Series |  |  |  | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : FSv2-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : HBv2-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Virtual Machines : HCv1-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Virtual Machines : Instance Level IPs |  |  |  | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : LSv2-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Mdsv2 Medium Memory Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Virtual Machines : M-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Virtual Machines : Msv2 Medium Memory Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Virtual Machines : NCv3-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : NVv3-Series | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Reserved IP |  |  |  | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Serial Console | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | Awaiting Review |
+| Virtual Machines : Shared Image Gallery | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Machines : Spot Virtual Machines | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Virtual Machines : Trusted Launch | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Network | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Network : Global Vnet Peering | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Network : Virtual Network Peering | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual Network NAT | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |  |
+| Virtual WAN | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual WAN : ExpressRoute | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual WAN : Point-to-Site VPN Gateway | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| Virtual WAN : Site-to-Site VPN Gateway | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
+| VPN Gateway | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
 
 ---
 
