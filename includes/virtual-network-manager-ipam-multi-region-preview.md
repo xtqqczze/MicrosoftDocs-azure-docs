@@ -11,7 +11,7 @@
 ---
 
 > [!IMPORTANT]
-> LoadBalancerHealthEvent logs for Azure Load Balancer is currently in preview and is available in all Azure public regions. While in preview, functionality, availability, and other aspects of this feature might change in response to feedback.
+> Managing IP address spaces across multiple regions with Azure Virtual Network Manager is currently in preview and is available in all Azure public regions. While in preview, functionality, availability, and other aspects of this feature might change in response to feedback.
 > 
 > During the preview, you can associate virtual networks from the preview regions listed in the following section to a pool in different regions. The preview regions are:
 >
