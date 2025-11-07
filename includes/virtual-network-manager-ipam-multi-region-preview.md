@@ -11,9 +11,9 @@
 ---
 
 > [!IMPORTANT]
-> LoadBalancerHealthEvent logs for Azure Load Balancer is currently in Preview and is available in all Azure public regions. While in Preview, functionality, availability, and other aspects of this feature may change in response to feedback.
+> LoadBalancerHealthEvent logs for Azure Load Balancer is currently in preview and is available in all Azure public regions. While in preview, functionality, availability, and other aspects of this feature might change in response to feedback.
 > 
-> During the preview, You can associate virtual networks from the preview regions below to a pool in different regions. The preview regions are:
+> During the preview, you can associate virtual networks from the preview regions listed in the following section to a pool in different regions. The preview regions are:
 >
 > - West Europe
 > - East US
@@ -21,5 +21,5 @@
 > - North Europe
 > - US Central
 > 
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> This preview version is provided without a service level agreement, and isn't recommended for production workloads. Certain features might not be supported or can have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
