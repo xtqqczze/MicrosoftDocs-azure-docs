@@ -3,7 +3,6 @@ title: Improve your security defenses for ransomware attacks with Azure Firewall
 description: In this article, you learn how Azure Firewall Premium can help you protect against ransomware.
 services: security
 author: elazulai
-manager: rkarlin
 
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
