@@ -42,25 +42,32 @@ CIS benchmarks are defined per distribution/version. A single JSON file may cont
 ### Example
 
 ```json
-{  
-"standard": "CIS",  
-"baselineSettings": [  
-{  
-"name": "CIS Oracle Linux 8",  
-"version": "3.0.0",  
-"settings": [  
-{ "ruleId": "cis-ssh-5.2.1", "name": "Ensure SSH Protocol is set to 2", "value": "2" },  
-{ "ruleId": "cis-audit-4.1", "name": "Ensure auditing for processes that start prior to auditd", "value": "1" },
-
-// ....  
-]  
-},  
-{  
-"name": "CIS AlmaLinux 8",  
-"version": "3.0.0",  
-"settings": [] // apply all settings as default  
-}  
-]  
+{
+  "standard": "CIS",
+  "baselineSettings": [
+    {
+      "name": "CIS Oracle Linux 8",
+      "version": "3.0.0",
+      "settings": [
+        {
+          "ruleId": "cis-ssh-5.2.1",
+          "name": "Ensure SSH Protocol is set to 2",
+          "value": "2"
+        },
+        {
+          "ruleId": "cis-audit-4.1",
+          "name": "Ensure auditing for processes that start prior to auditd",
+          "value": "1"
+        }
+        // ....
+      ]
+    },
+    {
+      "name": "CIS AlmaLinux 8",
+      "version": "3.0.0",
+      "settings": [] // apply all settings as default
+    }
+  ]
 }
 ```
 
@@ -97,23 +104,22 @@ WindowsServer\2025\DomainController:1;WindowsServer\2025\MemberServer:1;WindowsS
 ### Example
 
 ```json
-{  
-"standard": "Microsoft",  
-"baselineSettings": [  
-{  
-"name": "Azure Security Baseline for Windows",  
-"version": "1.0.0",  
-"settings": [  
-{  
-"ruleId": "ab12cd34-5678-90ef-gh12-3456789ijklm",  
-"name": "Ensure Windows Firewall is enabled for all profiles",  
-"value": "WindowsServer\2025\*:1"  
-},
-
-// .....  
-]  
-}  
-]  
+{
+  "standard": "Microsoft",
+  "baselineSettings": [
+    {
+      "name": "Azure Security Baseline for Windows",
+      "version": "1.0.0",
+      "settings": [
+        {
+          "ruleId": "ab12cd34-5678-90ef-gh12-3456789ijklm",
+          "name": "Ensure Windows Firewall is enabled for all profiles",
+          "value": "WindowsServer\\2025\\*:1"
+        }
+        // .....
+      ]
+    }
+  ]
 }
 ```
 
@@ -125,23 +131,22 @@ Rules are defined per control with expected values.
 ### Example
 
 ```json
-{  
-"standard": "Microsoft",  
-"baselineSettings": [  
-{  
-"name": "Azure Security Baseline for Linux",  
-"version": "1.0.0",  
-"settings": [  
-{  
-"ruleId": "35868e8c-97eb-4981-ab79-99b25101cc86",  
-"name": "Ensure that the SSH protocol is configured;DesiredObjectValue",  
-"value": "1"  
-},
-
-// ...  
-]  
-}  
-]  
+{
+  "standard": "Microsoft",
+  "baselineSettings": [
+    {
+      "name": "Azure Security Baseline for Linux",
+      "version": "1.0.0",
+      "settings": [
+        {
+          "ruleId": "35868e8c-97eb-4981-ab79-99b25101cc86",
+          "name": "Ensure that the SSH protocol is configured;DesiredObjectValue",
+          "value": "1"
+        }
+        // ...
+      ]
+    }
+  ]
 }
 ```
 
