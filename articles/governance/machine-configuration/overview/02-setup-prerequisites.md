@@ -1,9 +1,11 @@
 ---
 description: Configure the required components, extensions, and identities needed to enable Azure Machine Configuration on your virtual machines.
 ms.date: 11/07/2025
-ms.topic: how-to-guide
-title: Set up Azure Machine Configuration prerequisites
+ms.topic: how-to
+title: Azure Machine Configuration prerequisites
 ---
+
+# Azure Machine Configuration prerequisites
 
 ## Enable machine configuration
 
@@ -117,8 +119,8 @@ status is then written to Azure Resource Graph.
 [14]: /entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm
 [15]: /powershell/dsc/overview
 [16]: https://www.chef.io/inspec/
-[17]: ../policy/how-to/get-compliance-data.md#evaluation-triggers
-[45]: ../policy/overview.md
+[17]: ../../policy/how-to/get-compliance-data.md#evaluation-triggers
+[45]: ../../policy/overview.md
 [01]: /azure/azure-arc/servers/overview
 [25]: /azure/active-directory/managed-identities-azure-resources/managed-identities-faq#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request
 [26]: https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e
