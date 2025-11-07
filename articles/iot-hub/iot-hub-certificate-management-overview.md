@@ -15,7 +15,7 @@ ms.date: 11/07/2025
 
 Certificate management is an optional feature of Azure Device Registry (ADR) that enables you to issue and manage X.509 certificates for your IoT devices. It configures a dedicated, cloud-based public key infrastructure (PKI) for each ADR namespace, without requiring any on-premises servers, connectors, or hardware. It manages the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub.
 
-Using certificate management requires you to also use IoT Hub, [Azure Device Registry (ADR)](iot-hub-device-registry-setup.md), and [Device Provisioning Service (DPS)](../iot-dps/index.yml). certificate management is currently in public preview.
+Using certificate management requires you to also use IoT Hub, [Azure Device Registry (ADR)](iot-hub-device-registry-setup.md), and [Device Provisioning Service (DPS)](../iot-dps/index.yml). Certificate management is currently in public preview.
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
@@ -41,7 +41,7 @@ Today, certificate management supports issuance and renewal for end-entity **ope
 
 - **Onboarding credential:** To use certificate management, devices must be provisioned via Device Provisioning Service (DPS). For a device to provision with DPS, it must onboard and authenticate using one of the supported types of [onboarding credentials](../iot-dps/concepts-service.md#attestation-mechanism), which includes X.509 certificates (procured from a third-party CA), symmetric keys, and Trusted Platform Modules (TPM). These credentials are conventionally installed onto the device before it is shipped.
 
-- **Operational certificate:** An end-entity operational certificate is a type of operational credential. This certificate is issued to the device by an issuing CA once the device has been provisioned by DPS. Unlike onboarding credentials, these certificates are typically short-lived and renewed frequently or as needed during device operation. The device can use its operational certificate chain to authenticate directly with IoT Hub and conduct operations. Today, certificate management only provides the operational certificate.
+- **Operational certificate:** An end-entity operational certificate is a type of operational credential. This certificate is issued to the device by an issuing CA once the device has been provisioned by DPS. Unlike onboarding credentials, these certificates are typically short-lived and renewed frequently or as needed during device operation. The device can use its operational certificate chain to authenticate directly with IoT Hub and perform typical operations. Today, certificate management only provides the operational certificate.
 
 ## How certificate management works
 
@@ -74,7 +74,7 @@ For devices to receive leaf certificates, devices must be provisioned through [D
 - The specific type of [onboarding credential](../iot-dps/concepts-service.md#attestation-mechanism) for that enrollment. Supported methods are Trusted Platform Module (TPM), symmetric keys, or X.509 certificates.
 - The specific policy that was created within your ADR namespace. This policy signs and issues leaf certificates to devices provisioned by this enrollment.
 
-Device Provisioning Service now accepts Certificate Signing Requests (CSR). IoT devices generate a **Certificate Signing Request (CSR)** containing their public key and identity to prove key ownership. The CSR is sent to DPS and the PKI, which validates the request and forwards it to the appropriate **issuing CA (ICA)** to issue signed X.509 certificate. For more information on DPS Certificate Signing Request, check out some the [DPS Device SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
+Device Provisioning Service now accepts Certificate Signing Requests (CSR) as part of the Registration call. IoT devices generate a **Certificate Signing Request (CSR)**, a file containing their identifier, public key, and digital signature created using the private key. The CSR is sent to DPS and the PKI, which validates the request and forwards it to the appropriate **issuing CA (ICA)** to issue signed X.509 certificate. For more information on DPS Certificate Signing Request, check out some the [DPS Device SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
 
 > [!NOTE]
 > While a PKI is configured for each of your ADR namespaces, it's not exposed as an external Azure resource.
