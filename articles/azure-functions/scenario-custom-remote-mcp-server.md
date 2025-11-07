@@ -238,7 +238,7 @@ This project is configured to use the `azd up` command to deploy this project to
 
 ## Connect to your remote MCP server
 
-Your MCP server is now running in Azure. When you access the tools, you need to include a system key in your request. After you get this key, you can connect GitHub Copilot to your remote server.
+Your MCP server is now running in Azure. When you access the tools, you need to include a system key in your request. This key provides a degree of access control for clients accessing your remote MCP server. After you get this key, you can connect GitHub Copilot to your remote server.
 
 1. Run this script that uses `azd` and the Azure CLI to print out both the MCP server URL and the system key (`mcp_extension`) required to access the tools:
 
@@ -252,7 +252,7 @@ Your MCP server is now running in Azure. When you access the tools, you need to 
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette, search for and run the command `MCP: Open Workspace Folder MCP Configuraton`, which opens the `mcp.json` configuration file.
 
-1. In the `mcp.json` configuration, find the named MCP server you added earlier, change the `url` value to your remote MCP server URL, and add a `headers.x-functions-key` element with the MCP server key, as in this example:   
+1. In the `mcp.json` configuration, find the named MCP server you added earlier, change the `url` value to your remote MCP server URL, and add a `headers.x-functions-key` element, which contains your copied MCP server access key, as in this example:   
 
     ```json
     {
