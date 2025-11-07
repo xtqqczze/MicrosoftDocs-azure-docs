@@ -68,7 +68,7 @@ In this article, you learn how to use premium ingress with Azure Container Apps.
       --resource-group my-resource-group \
       --location centralus
     ```
-1. Configure a workload profile for the environment if none exist.
+1. Configure a workload profile for the environment if none exists.
     ```azurecli
     az containerapp env workload-profile add \
       --resource-group my-resource-group \
@@ -92,7 +92,8 @@ Your workload profile must have at least two nodes to use premium ingress.
         --request-idle-timeout 4 \
         --header-count-limit 100
     ```
-    The following table describes the parameters you can set when configuring premium ingress settings for your Container Apps environment.
+
+The following table describes the parameters you can set when configuring premium ingress settings for your Container Apps environment.
 
 | Parameter | Description | Default | Minimum | Maximum |
 |--|--|--|--|--|
