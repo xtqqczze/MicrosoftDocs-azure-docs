@@ -99,7 +99,7 @@ Soft delete retention is the retention period (in days) of a deleted item in sof
 >[!Note]
 > - Soft delete retention for *14 days* involves no cost. However, regular backup charges apply for additional retention days.
 > - By default, soft delete retention is set to 14 days, and you can change it any time. However, the *soft delete retention period* that is active at the time of the deletion governs retention of the item in soft deleted state.
-> - Soft-deleted operational backups are not cleaned automatically after the *soft delete retention period* if the associated vault was also soft deleted - you must delete these manually.
+> - Soft-deleted operational backups aren't cleaned automatically after the *soft delete retention period* if the associated vault was also soft deleted. You must manually delete these soft-deleted operational backups.
 
 ## Pricing
 
