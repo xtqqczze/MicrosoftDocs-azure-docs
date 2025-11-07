@@ -22,7 +22,7 @@ The new Azure Policy Settings Picker experience streamlines this process, allowi
 
 2.  Select the **Definitions** tab.
 
-![Image](../../media/specify-custom-parameters-for-baseline-policy/img-70552accb81b064d8eb5154e3db0a07883f3e336.png)
+![Azure portal showing Policy Machine Configuration Definitions tab](../../media/specify-custom-parameters-for-baseline-policy/img-70552accb81b064d8eb5154e3db0a07883f3e336.png)
 
 3.  Choose one of the built-in baselines:
 
@@ -34,17 +34,17 @@ The new Azure Policy Settings Picker experience streamlines this process, allowi
 
 4.  Click **Modify settings**.
 
-![Image](../../media/specify-custom-parameters-for-baseline-policy/img-af335da50e8c406e8da1a6a767b38c324bef2edf.png)
+![Modify settings button for security baseline configuration](../../media/specify-custom-parameters-for-baseline-policy/img-af335da50e8c406e8da1a6a767b38c324bef2edf.png)
 
 ## Select baselines and versions
 
 The configuration experience differs slightly between Linux and Windows baselines:
 
 - **CIS Benchmarks for Linux:** You can enable one or more supported distributions (such as RHEL, Alma Linux, Rocky Linux, or Ubuntu). Unselected distributions are excluded from evaluation. For each enabled distro, select the CIS Benchmark version you want to apply.  
-  ![Image](../../media/specify-custom-parameters-for-baseline-policy/img-88df9e6de728e403ee3db6580e616049c3744a72.png)
+  ![CIS Benchmarks Linux distribution selection with version options](../../media/specify-custom-parameters-for-baseline-policy/img-88df9e6de728e403ee3db6580e616049c3744a72.png)
 
 - **For Azure Baselines (Windows or Linux):** These baselines apply uniformly across operating systems and don't require distro selection. Simply confirm the baseline version under **Basics** and continue.  
-  ![Image](../../media/specify-custom-parameters-for-baseline-policy/img-ee20054ef65f2587d2090949b1175dc5f00c0385.png)
+  ![Azure Security Baseline version selection interface](../../media/specify-custom-parameters-for-baseline-policy/img-ee20054ef65f2587d2090949b1175dc5f00c0385.png)
 
 ## Modify settings
 
@@ -52,13 +52,13 @@ On the **Modify settings** tab, review and adjust configuration rules for your s
 
 - Use the checkbox next to each rule to include or exclude it from evaluation.
 
-- For configurable rules, edit the **Parameter value** field to define your organization’s required state.
+- For configurable rules, edit the **Parameter value** field to define your organization's required state.
 
-![Image](../../media/specify-custom-parameters-for-baseline-policy/img-045f78dbb4cced276113efc11ed26093f3ebaee7.png)
+![Security baseline rules list with checkboxes and parameter value fields](../../media/specify-custom-parameters-for-baseline-policy/img-045f78dbb4cced276113efc11ed26093f3ebaee7.png)
 
 - View per rule Metadata by clicking on a highlighted rule, which will open the context pane showing details such as **Rule ID**, **Description**, **Severity**, and **Compliance Standard**.
 
-![Image](../../media/specify-custom-parameters-for-baseline-policy/img-325b504563492223316abbbfd8aa3c59341a1174.png)
+![Rule metadata context pane showing details like Rule ID and compliance standard](../../media/specify-custom-parameters-for-baseline-policy/img-325b504563492223316abbbfd8aa3c59341a1174.png)
 
 These features are available uniformly for all benchmarks and baselines in Machine Configuration.
 
@@ -80,7 +80,7 @@ serviceName=named.service expectedUnitFileState=enabled expectedActiveState=acti
 
 This enables fine-grained control, allowing you to model complex configurations that align with your existing Linux environment.
 
-![Image](../../media/specify-custom-parameters-for-baseline-policy/img-da620a40a5b0afb02dc2e6a321b2e3c3fc95aed3.png)
+![CIS Linux benchmark parameter with structured input format example](../../media/specify-custom-parameters-for-baseline-policy/img-da620a40a5b0afb02dc2e6a321b2e3c3fc95aed3.png)
 
 ### Custom Input for Azure Security Baseline (Windows)
 
@@ -103,7 +103,7 @@ WindowsServer\2025\DomainController:1;WindowsServer\2025\MemberServer:1;WindowsS
 
 This provides precise scoping for your rule application—for example, applying a setting only to *Domain Controllers* on *Windows Server 2025*, or across all roles on *Windows Server 2022*.
 
-![Image](../../media/specify-custom-parameters-for-baseline-policy/img-61888be031b1619545527d02c423351ff1eacb9c.png)
+![Windows Security Baseline parameter with formatted string input for server roles](../../media/specify-custom-parameters-for-baseline-policy/img-61888be031b1619545527d02c423351ff1eacb9c.png)
 
 ## Review and download
 
@@ -113,7 +113,7 @@ After completing your changes:
 
 2.  Review any edited or excluded settings.
 
-![Image](../../media/specify-custom-parameters-for-baseline-policy/img-8214ea961e6a47de263b9fd1a47c1530662ccc74.png)
+![Review and download tab showing customized baseline settings summary](../../media/specify-custom-parameters-for-baseline-policy/img-8214ea961e6a47de263b9fd1a47c1530662ccc74.png)
 
 3.  Click **Download All Baselines** to export your customized configuration as a JSON file.
 
@@ -129,7 +129,7 @@ This JSON artifact defines all active settings for your baseline, making it easy
 - [Discover and assign built-in Machine Configuration policies][05]
 
 <!-- Link reference definitions -->
-[01]: https://learn.microsoft.com/en-us/azure/azure-arc/overview
+[01]: https://learn.microsoft.com/azure/azure-arc/overview
 [02]: ./deploy-a-baseline-policy-assignment.md
 [03]: ./understand-the-baseline-json-format.md
 [04]: ../view-compliance.md
