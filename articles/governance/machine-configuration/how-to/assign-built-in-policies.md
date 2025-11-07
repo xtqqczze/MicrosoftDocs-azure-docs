@@ -24,7 +24,7 @@ To view and explore these built-in policies:
 
 3.  Open the **Category** filter and select **Guest Configuration** and **Built-in** on Policy Type to display all built-in policies related to OS auditing and compliance.
 
-![Image](../media/discover-and-assign-built-in-machine-configuration-policies/img-3f3ce788ba90429512e3fee4e20276cb966e4538.png)
+![Azure Policy Definitions page with Guest Configuration filter applied showing built-in policies](../media/discover-and-assign-built-in-machine-configuration-policies/img-3f3ce788ba90429512e3fee4e20276cb966e4538.png)
 
 4.  Browse the list to review available definitions, such as:
 
@@ -42,7 +42,7 @@ To view and explore these built-in policies:
 
     3.  Metadata such as category, mode, and required providers
 
-![Image](../media/discover-and-assign-built-in-machine-configuration-policies/img-2ad297ad1246e4c27f777c98825b67a1bafda438.png)
+![Policy definition details page showing JSON definition and parameters for a Machine Configuration policy](../media/discover-and-assign-built-in-machine-configuration-policies/img-2ad297ad1246e4c27f777c98825b67a1bafda438.png)
 
 ## Assign a Built-In Machine Configuration Policy
 
@@ -64,17 +64,17 @@ Let’s use one of the built-in Machine Configuration policies—**Audit Windows
 
     2.  Confirm that **Machine Configuration prerequisites** are deployed. (A link to deploy prerequisites appears automatically if not.)
 
-    3.  Optionally specify exclusions if certain resources shouldn’t be evaluated.
+    3.  Optionally specify exclusions if certain resources shouldn't be evaluated.
 
-![Image](../media/discover-and-assign-built-in-machine-configuration-policies/img-85d4e71787ec57907ee20ed9d74e68b576f1f36f.png)
+![Policy assignment Basics tab showing scope selection and prerequisites configuration](../media/discover-and-assign-built-in-machine-configuration-policies/img-85d4e71787ec57907ee20ed9d74e68b576f1f36f.png)
 
 4.  In the **Parameters** tab:
 
     1.  Set **Include Arc connected servers** to true if your environment includes Arc-enabled machines.
 
-    2.  Choose the desired **Time zone** (for example, “Pacific Time (US & Canada)”).
+    2.  Choose the desired **Time zone** (for example, "Pacific Time (US & Canada)").
 
-![Image](../media/discover-and-assign-built-in-machine-configuration-policies/img-2b911c2eff35ab65d1c208c98d84a30c23fb4d3b.png)
+![Policy assignment Parameters tab showing Arc servers option and time zone selection](../media/discover-and-assign-built-in-machine-configuration-policies/img-2b911c2eff35ab65d1c208c98d84a30c23fb4d3b.png)
 
 5.  Review your configuration under **Review + create**, then click **Create**.
 
@@ -105,12 +105,12 @@ After assigning your policy, you can:
 - [Deploy Machine Configuration prerequisites][09]
 
 <!-- Link reference definitions -->
-[01]: /articles/governance/policy/assign-policy-azurecli.md
+[01]: ../../policy/assign-policy-azurecli.md
 [02]: https://learn.microsoft.com/powershell/module/az.policyinsights.md
 [03]: https://learn.microsoft.com/rest/api/policy
 [04]: https://learn.microsoft.com/rest/api/guestconfiguration
-[05]: /articles/governance/policy/how-to/get-compliance-data.md
+[05]: ../../policy/how-to/get-compliance-data.md
 [06]: ./view-compliance.md
 [07]: ./assign-security-baselines/overview-page.md
-[08]: /articles/governance/policy/concepts/definition-structure.md
-[09]: /articles/governance/policy/concepts/guest-configuration.md
+[08]: ../../policy/concepts/definition-structure.md
+[09]: ../../policy/concepts/guest-configuration.md
