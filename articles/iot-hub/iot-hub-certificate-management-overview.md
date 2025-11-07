@@ -74,7 +74,10 @@ For devices to receive leaf certificates, devices must be provisioned through [D
 - The specific type of [onboarding credential](../iot-dps/concepts-service.md#attestation-mechanism) for that enrollment. Supported methods are Trusted Platform Module (TPM), symmetric keys, or X.509 certificates.
 - The specific policy that was created within your ADR namespace. This policy signs and issues leaf certificates to devices provisioned by this enrollment.
 
-Device Provisioning Service now accepts Certificate Signing Requests (CSR) as part of the Registration call. IoT devices generate a **Certificate Signing Request (CSR)**, a file containing their identifier, public key, and digital signature created using the private key. The CSR is sent to DPS and the PKI, which validates the request and forwards it to the appropriate **issuing CA (ICA)** to issue signed X.509 certificate. For more information on DPS Certificate Signing Request, check out some the [DPS Device SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
+Device Provisioning Service now accepts Certificate Signing Requests (CSR) as part of the Registration call. IoT devices generate a **Certificate Signing Request (CSR)**, a file containing their identifier, public key, and digital signature created using the private key. The CSR is sent to DPS and the PKI, which validates the request and forwards it to the appropriate **issuing CA (ICA)** to issue signed X.509 certificate. 
+
+Certificate management currently supports the following protocols during provisioning: HTTP and MQTT.
+For more information on DPS Certificate Signing Request, check out some the [DPS Device SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
 
 > [!NOTE]
 > While a PKI is configured for each of your ADR namespaces, it's not exposed as an external Azure resource.
