@@ -41,7 +41,7 @@ The key benefits of soft delete are:
 - **Secure by Default**: Soft delete is automatically enabled by default for recovery points, backup items, and vaults. It operates in a single, enforced state across all onboarded regions, eliminating the need to disable soft delete under any circumstances. All newly created vaults have soft delete permanently enabled, ensuring enhanced protection and enforcing a **Good** security level by default.
 
 >[!Note]
->You cannot disable soft delete in the regions where secure by default assurance is in public preview for Recovery Services Vaults and Backup Vaults.
+>You can't disable soft delete in the regions where secure by default assurance is in preview for Recovery Services vaults and Backup vaults.
 
 - **Data recoverability**: Azure Backup promises to keep your data recoverable for up to 14 days by default at no extra cost. You don't need to take any action to configure secure by default state for your backup data.
 
