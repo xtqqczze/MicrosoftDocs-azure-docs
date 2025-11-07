@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication over Ser
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/06/2025
+ms.date: 11/07/2025
 ms.author: kendownie
 recommendations: false
 # Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication on Azure Files, so that hybrid and cloud-only users can securely access file shares with their Microsoft Entra credentials.
