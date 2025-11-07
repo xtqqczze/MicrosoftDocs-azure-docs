@@ -16,17 +16,21 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
+## Update (November 2025)
+
+Public preview: Azure Migrate now supports adding code insights using GitHub Copilot assessment to enhance web app assessments. This capability helps you evaluate migration readiness more accurately and get recommend migration strategy for Azure Kubernetes Service (AKS) or Azure App Service. You can add code insights by either uploading a ZIP file of reports or requesting a report through a GitHub connection. [Learn more](add-copilot-code-insights.md).
+
 ## Update (October 2025)
 
 ### Public Preview - Insights in Azure Migrate
  
-Azure Migrate offers integrated **Security insights**, allowing customers to assess potential risks within their on-premises environment. The solution delivers actionable recommendations to effectively mitigate these risks as part of the migration planning. It uses improved Software inventory to identify use of multiple security tools and suggests consolidation with Microsoft Defender for Cloud. [Learn more](/azure/migrate/insights-overview?view=migrate).
+Azure Migrate offers integrated **Security insights**, allowing customers to assess potential risks within their on-premises environment. The solution delivers actionable recommendations to effectively mitigate these risks as part of the migration planning. It uses improved Software inventory to identify use of multiple security tools and suggests consolidation with Microsoft Defender for Cloud. [Learn more](insights-overview.md).
  
 Notable aspects of the solution:
 - Built-in dashboard view summarizing security risks in discovered Servers and Software.
 - Auto-detects security risks such as unsupported operating systems and software, pending security and critical updates, known vulnerabilities (CVEs) associated with software versions currently in use, and servers lacking security or patch management software.
 - Recommends mitigation strategies for secure migration by configuring Microsoft Defender for Cloud and Azure Update Manager.
-- Highlights fragmentation in security tooling in the environment through [classification](/azure/migrate/how-to-discover-applications?view=migrate#software-classification--potential-targets) of Security software
+- Highlights fragmentation in security tooling in the environment through [classification](/azure/migrate/how-to-discover-applications) of Security software
 
 ### Software inventory enhancements
 These following enhancements will help improve the usability of the inventory and assist customers in planning for the migration of these software as part of their overall migration planning for their workloads. [Learn more](how-to-discover-applications.md)

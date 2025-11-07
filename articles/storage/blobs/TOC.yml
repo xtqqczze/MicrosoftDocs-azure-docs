@@ -572,6 +572,8 @@ items:
       items:
       - name: Object replication
         href: object-replication-overview.md
+      - name: Object replication priority replication
+        href: object-replication-priority-replication.md
       - name: Configure object replication policies
         href: object-replication-configure.md
       - name: Prevent object replication across tenants
