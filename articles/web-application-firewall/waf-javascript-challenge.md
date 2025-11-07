@@ -46,7 +46,7 @@ The WAF policy setting defines the JavaScript challenge cookie validity lifetime
 
 - **AJAX and API calls aren't supported**: JavaScript challenge doesn't apply to AJAX and API requests.
 
-- **POST body size restriction**: The first request that triggers a JavaScript challenge is blocked if its POST body exceeds 128 KB.
+- **POST body size restriction**: The first request that triggers a JavaScript challenge is blocked if its POST body exceeds 64 KB on Azure Front Door and 128 KB on Azure Application Gateway.
 
 - **Non-HTML embedded resources**: JavaScript challenge is designed for HTML resources. Challenges for non-HTML resources embedded in a page, such as images, CSS, JavaScript files, or similar resources, aren't supported. However, if there was a prior successful JavaScript challenge request, those limitations are lifted. 
 
@@ -54,7 +54,7 @@ The WAF policy setting defines the JavaScript challenge cookie validity lifetime
 
 - **Rate limit isn't supported**: The JavaScript challenge action on Application Gateway isn't supported for *Rate Limit* type custom rules during the public preview.
 
-- **Application Gateway for Containers WAF**: During the public preview of Application Gateway for Containers WAF JavaScript challenge is not supported.
+- **Application Gateway for Containers WAF**: Application Gateway for Containers WAF does not support JavaScript challenge.
 
 ## Related content
 

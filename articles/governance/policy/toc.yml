@@ -190,6 +190,8 @@
         href: ./samples/guest-configuration-baseline-linux.md
       - name: Windows security baseline
         href: ./samples/guest-configuration-baseline-windows.md
+      - name: Windows security 2025 baseline
+        href: ./samples/guest-configuration-baseline-windows-server-2025.md  
 - name: Concepts
   items:
   - name: Definition structure
@@ -283,6 +285,9 @@
   - name: Design Azure Policy as Code workflows
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./concepts/policy-as-code.md
+  - name: System Policy
+    displayName: system policy, system restriction
+    href: ./concepts/systempolicy.md
   - name: Security
     items:
     - name: Security baseline for Azure Security Benchmark
