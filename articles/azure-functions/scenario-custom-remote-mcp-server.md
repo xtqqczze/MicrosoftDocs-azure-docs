@@ -1,8 +1,11 @@
 ---
 title: Build a custom remote MCP server using Azure Functions
-description: "Learn how to create and deploy a custom Model Context Protocol (MCP) server using the Functions MCP Server extension, which enables AI clients to access custom tools hosted on Azure. The sample uses the Azure Developer CLI (azd) to create Azure resources and deploy a custom MCP server project to a Flex Consumption plan in Azure."
+description: "Learn how to create and deploy a custom Model Context Protocol (MCP) server using Azure Functions. This quickstart uses the Azure Developer CLI to deploy an MCP server project that enables AI clients to access custom tools hosted on Azures Flex Consumption plan."
 ms.date: 11/04/2025
 ms.topic: quickstart
+ai-usage: ai-assisted
+ms.collection: 
+  - ce-skilling-ai-copilot
 ms.custom:
   - ignite-2024
 zone_pivot_groups: programming-languages-set-functions
@@ -11,11 +14,9 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Quickstart: Build a custom remote MCP server using Azure Functions
 
-In this quickstart, you use the Azure Developer CLI (`azd`) to create a custom remote Model Context Protocol (MCP) server from a template project. The MCP server uses the Azure Functions MCP server extension to provide tools for AI models, agents, and assistants, like GitHub Copilot. After running the project locally, you deploy it to a new serverless Flex Consumption plan app in Azure Functions. 
+In this quickstart, you create a custom remote Model Context Protocol (MCP) server from a template project using the Azure Developer CLI (`azd`). The MCP server uses the Azure Functions MCP server extension to provide tools for AI models, agents, and assistants. After running the project locally and verifying your code using GitHub Copilot, you deploy it to a new serverless function app in Azure Functions that follows current best practices for secure and scalable deployments.
 
-The project source uses the Azure Developer CLI (azd) to simplify creating Azure resources and deploying your code. This deployment follows current best practices for secure and scalable Azure Functions deployments.
-
-By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Because the new app runs on the Flex Consumption plan, which follows a _pay-for-what-you-use_ billing model, completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ::: zone pivot="programming-language-javascript,programming-language-powershell"  
 > [!IMPORTANT]  
@@ -40,7 +41,7 @@ This article supports version 2 of the Python programming model for Azure Functi
 
 + The [Azure Developer CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) for Visual Studio Code.
 
-+ [Azure CLI](/cli/azure/install-azure-cli). You can also run Azure CLI commands in [Azure Cloud Shell](../cloud-shell/overview.md)..
++ [Azure CLI](/cli/azure/install-azure-cli). You can also run Azure CLI commands in [Azure Cloud Shell](../cloud-shell/overview.md).
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 + [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
@@ -83,7 +84,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the name of the resource group you create in Azure. 
 
-3. In Explorer, go to the `src` project folder, which contains the function code for your custom MCP server.    
+3. In Explorer, go to the `src` project folder, which contains the function code for your custom MCP server.        
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 2. In your local terminal or command prompt, run this `azd init` command:
@@ -105,7 +106,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-typescript) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the name of the resource group you create in Azure. 
 
-1. In Explorer, go to the `src` folder, which contains the function code for your custom MCP server.  
+3. In Explorer, go to the `src` folder, which contains the function code for your custom MCP server.  
 ::: zone-end
 ::: zone pivot="programming-language-python"  
 2. In your local terminal or command prompt, run this `azd init` command:
@@ -116,7 +117,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-python) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the name of the resource group you create in Azure. 
 
-1. In Explorer, go to the `src` folder, which contains the function code for your custom MCP server.  
+3. In Explorer, go to the `src` folder, which contains the function code for your custom MCP server.  
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
 ## Start the storage emulator
@@ -132,18 +133,21 @@ Use the Azurite emulator to run your code project locally before creating and us
 Visual Studio Code integrates with [Azure Functions Core tools](functions-run-local.md) to let you run this project on your local development computer by using the Azurite emulator.
 
 1. To start the function locally, press <kbd>F5</kbd> or the **Run and Debug** icon in the left-hand side Activity bar. The **Terminal** panel displays the output from Core Tools. Your app starts in the **Terminal** panel, and you can see the name of the functions that are running locally.
-
-Make a note of the local MCP server endpoint (like `http://localhost:7071/runtime/webhooks/mcp`), which you use to configure GitHub Copilot in Visual Studio Code. 
-
+::: zone pivot="programming-language-csharp"
+2. Make a note of the local MCP server endpoint (like `http://localhost:7071/runtime/webhooks/mcp`), which you use to configure GitHub Copilot in Visual Studio Code. 
+::: zone-end  
+::: zone pivot="programming-language-java,programming-language-python,programming-language-typescript"
+2. Make a note of the local MCP server endpoint (like `http://localhost:7071/runtime/webhooks/mcp/sse`), which you use to configure GitHub Copilot in Visual Studio Code. 
+::: zone-end  
 ## Verify using GitHub Copilot
 
-To add the running project as an MCP server in your Visual Studio Code and verify your server: 
+To verify your code, add the running project as an MCP server for GitHub Copilot in Visual Studio Code: 
 
 1. Press <kbd>F1</kbd>. In the command palette, search for and run **MCP: Add Server**.
 
 1. Choose **HTTP (Server-Sent Events)** for the transport type.
 
-1. Enter the URL of the MCP endpoint you copied in previous step.
+1. Enter the URL of the MCP endpoint you copied in the previous step.
 
 1. Use the generated **Server ID** and select **Workspace** to save the MCP server connection to your Workspace settings.
 
@@ -268,7 +272,7 @@ Your MCP server is now running in Azure. When you access the tools, you need to 
     ```
 ::: zone-end
 ::: zone pivot="programming-language-java,programming-language-python,programming-language-typescript"
-1. Run this script that uses `azd` and the Azure CLI to print out both the MCP server URL and the system key (`mcp_extension`) required to access the tools:
+1. Run this script that uses `azd` and the Azure CLI to print both the MCP server URL and the system key (`mcp_extension`) required to access the tools:
 
     ```bash
     eval $(azd env get-values --output dotenv)
