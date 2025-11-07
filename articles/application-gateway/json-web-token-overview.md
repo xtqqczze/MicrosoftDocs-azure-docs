@@ -63,13 +63,13 @@ Use the Azure portal to create a JWT validation configuration in Application Gat
 1. Select **JWT validation configuration**.
 1. Provide the following details:
 
-| Field                    | Example                        | Description                                                              |
-| ------------------------ | ------------------------------ | ------------------------------------------------------------------------ |
-| **Name**                 | `jwt-validation-demo`          | Friendly name for the validation configuration                           |
-| **Unauthorized Request** | Deny                           | Reject requests with missing or invalid JWTs                             |
-| **Tenant ID**            | `<your-tenant-id>`             | Must be a valid GUID or one of `common`, `organizations`, or `consumers` |
-| **Client ID**            | `<your-client-id>`             | GUID of the app registered in Microsoft Entra                                      |
-| **Audiences**            | (Optional) `api://<client-id>` | Expected audience claim matching scope                                   |
+    | Field                    | Example                        | Description                                                              |
+    | ------------------------ | ------------------------------ | ------------------------------------------------------------------------ |
+    | **Name**                 | `jwt-validation-demo`          | Friendly name for the validation configuration                           |
+    | **Unauthorized Request** | Deny                           | Reject requests with missing or invalid JWTs                             |
+    | **Tenant ID**            | `<your-tenant-id>`             | Must be a valid GUID or one of `common`, `organizations`, or `consumers` |
+    | **Client ID**            | `<your-client-id>`             | GUID of the app registered in Microsoft Entra                                      |
+    | **Audiences**            | (Optional) `api://<client-id>` | Expected audience claim matching scope                                   |
 
 1. Associate the configuration with a **Routing rule** (see next section).
 
