@@ -1,18 +1,18 @@
 ---
 title: Discover And Assign Built In Machine Configuration Policies
-description: Azure Policy provides a unified framework for defining and enforcing governance rules across your Azure resources.
+description: Learn how to discover, configure, and assign built-in Azure Machine Configuration policies to audit and enforce compliance across Windows and Linux machines in your environment.
 ms.date: 11/07/2025
 ms.topic: conceptual
 ---
 
-# **Discover and Assign Built-In Machine Configuration Policies**
+# Discover and Assign Built-In Machine Configuration Policies
 
 Azure Policy provides a unified framework for defining and enforcing governance rules across your Azure resources.  
-Machine Configuration extends this capability to the **guest OS level**, allowing you to audit and enforce configurations *inside* Windows and Linux machines—helping ensure your workloads remain secure and compliant with internal and industry standards.
+Machine Configuration extends this capability to the guest OS level, allowing you to audit and enforce configurations *inside* Windows and Linux machines—helping ensure your workloads remain secure and compliant with internal and industry standards.
 
-This section explains how to discover built-in Machine Configuration policies, understand what they do, and assign them to your environment. We’ll also walk through an example—using the **Audit Windows Time Zone** policy—to illustrate how parameters are used to tailor configurations to your organization’s needs.
+This section explains how to discover built-in Machine Configuration policies, understand what they do, and assign them to your environment. We'll also walk through an example—using the Audit Windows Time Zone policy—to illustrate how parameters are used to tailor configurations to your organization's needs.
 
-## **1. Discover Built-In Machine Configuration Policies**
+## Discover Built-In Machine Configuration Policies
 
 Azure Policy definitions describe *what* is being evaluated and *how* compliance is determined. Built-in definitions are maintained by Microsoft and automatically updated to align with current security and compliance standards.
 
@@ -44,14 +44,12 @@ To view and explore these built-in policies:
 
 ![Image](../media/discover-and-assign-built-in-machine-configuration-policies/img-2ad297ad1246e4c27f777c98825b67a1bafda438.png)
 
-**Read more:** Understand Azure Policy definitions and initiatives
-
-## **2. Assign a Built-In Machine Configuration Policy**
+## Assign a Built-In Machine Configuration Policy
 
 A **policy assignment** determines *where* and *how* a policy definition is applied—whether to a management group, subscription, or resource group.  
 When you assign a Machine Configuration policy, Azure evaluates all in-scope machines and reports compliance directly in the **Azure Policy → Compliance** blade.
 
-### **Example: Assigning the “Audit Windows Time Zone” Policy**
+### Example: Assigning the "Audit Windows Time Zone" Policy
 
 Let’s use one of the built-in Machine Configuration policies—**Audit Windows machines that are not set to the specified time zone**—as an example.
 
@@ -85,39 +83,36 @@ Once assigned, the policy will automatically begin evaluating machines within sc
 *Note:* The same process applies to other built-in Machine Configuration policies—such as those auditing Linux baselines, password settings, or required applications.  
 Parameters vary by definition and allow you to customize the audit scope without creating new policies.
 
-**Read more:** [Assign a policy definition to your resources](https://learn.microsoft.com/en-us/azure/governance/policy/assign-policy-portal)
-
-## **3. Programmatic Access and Automation**
+## Programmatic Access and Automation
 
 While this guide focuses on portal-based workflows, you can also assign and manage Machine Configuration policies programmatically through CLI, PowerShell, or REST API.
 
 | **Interface** | **Command/Reference** | **Documentation** |
 |----|----|----|
-| **Azure CLI** | az policy definition list and az policy assignment create | [Assign policy via Azure CLI](https://learn.microsoft.com/en-us/azure/governance/policy/assign-policy-azurecli) |
-| **PowerShell** | Get-AzPolicyDefinition and New-AzPolicyAssignment | [Assign policy via PowerShell](https://learn.microsoft.com/en-us/powershell/module/az.policyinsights) |
-| **REST API** | Microsoft.Authorization/policyAssignments | Azure Policy REST API Reference |
-| **Guest Configuration** | az guestconfig assignment list | [Guest Configuration REST API Reference](https://learn.microsoft.com/en-us/rest/api/guestconfiguration/) |
-| **Azure Resource Graph** | Query guestconfigurationresources table for compliance results | [Query Guest Configuration with Resource Graph](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data) |
+| **Azure CLI** | az policy definition list and az policy assignment create | [Assign policy via Azure CLI][01] |
+| **PowerShell** | Get-AzPolicyDefinition and New-AzPolicyAssignment | [Assign policy via PowerShell][02] |
+| **REST API** | Microsoft.Authorization/policyAssignments | [Azure Policy REST API Reference][03] |
+| **Guest Configuration** | az guestconfig assignment list | [Guest Configuration REST API Reference][04] |
+| **Azure Resource Graph** | Query guestconfigurationresources table for compliance results | [Query Guest Configuration with Azure Resource Graph][05] |
 
-## **Next Steps**
+## Next Steps
 
 After assigning your policy, you can:
 
-- **View compliance** in Azure Policy’s Compliance view.
-
-- **Drill down to machine-level evidence** through the Guest Assignments page.
-
-- **Query compliance at scale** using Azure Resource Graph.
-
-Continue to: *\[View Compliance Results across Policy, ARG, and Guest Assignments\]* (next section)
-
-
-## Next steps
-
-- Review the converted content for accuracy
-- Update any placeholder content
-- Add relevant links and references
+- [View Machine Configuration compliance reporting][06]
+- [Assign security baseline policies][07]
+- [Understand Azure Policy definitions and initiatives][08]
+- [Deploy Machine Configuration prerequisites][09]
 
 ## References
 
-- (none)
+<!-- Link reference definitions -->
+[01]: /articles/governance/policy/assign-policy-azurecli
+[02]: https://learn.microsoft.com/powershell/module/az.policyinsights
+[03]: https://learn.microsoft.com/rest/api/policy
+[04]: https://learn.microsoft.com/rest/api/guestconfiguration
+[05]: /articles/governance/policy/how-to/get-compliance-data
+[06]: ./view-compliance.md
+[07]: ./assign-security-baselines/overview-page.md
+[08]: /articles/governance/policy/concepts/definition-structure
+[09]: /articles/governance/policy/concepts/guest-configuration

@@ -1,19 +1,19 @@
 ---
 title: View Machine Configuration Compliance Reporting
-description: Once you’ve deployed your configuration, compliance results are available across three key surfaces in Azure: **Policy Assignments**, **Guest Assignments**, ...
+description: Learn how to view and analyze Azure Machine Configuration compliance results across Policy Assignments, Guest Assignments, and Azure Resource Graph for comprehensive governance reporting.
 ms.date: 11/07/2025
 ms.topic: conceptual
 ---
 
-# **View Machine Configuration Compliance Reporting** 
+# View Machine Configuration Compliance Reporting
 
-Once you’ve deployed your configuration, compliance results are available across three key surfaces in Azure: **Policy Assignments**, **Guest Assignments**, and **Azure Resource Graph (ARG)**. Each surface serves a distinct purpose — from high-level policy compliance to deep machine-level evidence and large-scale reporting.
+Once you've deployed your configuration, compliance results are available across three key surfaces in Azure: Policy Assignments, Guest Assignments, and Azure Resource Graph (ARG). Each surface serves a distinct purpose — from high-level policy compliance to deep machine-level evidence and large-scale reporting.
 
-## **Policy Compliance Page**
+## Policy Compliance Page
 
-Use this view to validate which policies are deployed, where they’re scoped, and how they’re performing at a policy level.
+Use this view to validate which policies are deployed, where they're scoped, and how they're performing at a policy level.
 
-### **View Assigned Policies**
+### View Assigned Policies
 
 - Navigate to **Azure Policy → Compliance.**
 
@@ -25,12 +25,12 @@ Use this view to validate which policies are deployed, where they’re scoped, a
 
 *Use **Export to CSV** to generate quick audit reports or share assignment inventories with your compliance team.*
 
-### **View Compliance Summary**
+### View Compliance Summary
 
 Open **Azure Policy → Compliance** to monitor compliance by initiative or policy definition.  
 The **Overall resource compliance** chart summarizes compliant vs. non-compliant resources at a glance. Select any initiative or policy assignment to view resource-level results.
 
-### **Drill Down to Machine-Level Evidence**
+### Drill Down to Machine-Level Evidence
 
 From the Compliance view:
 
@@ -48,11 +48,11 @@ This opens the corresponding **Guest Assignment**, providing traceability betwee
 
 *This connection bridges policy intent (defined in Azure Policy) with real machine state (reported by the Machine Configuration agent).*
 
-## **2. Guest Assignments**
+## Guest Assignments
 
-Use this view to investigate **machine-level compliance** for each assigned policynand pinpoint exactly which rules are passing or failing.
+Use this view to investigate machine-level compliance for each assigned policy and pinpoint exactly which rules are passing or failing.
 
-### **View All Guest Assignments**
+### View All Guest Assignments
 
 - Navigate to **Machine Configuration → Guest Assignments**.
 
@@ -62,7 +62,7 @@ Use this view to investigate **machine-level compliance** for each assigned poli
 
 ![Image](../media/view-machine-configuration-compliance-reporting/img-a671227d7b1dc5d0814326abbe41b47c16eeaaa2.png)
 
-### **Explore Rule-Level Results**
+### Explore Rule-Level Results
 
 Click a Guest Assignment name (e.g., *AzureLinuxBaseline*) to open detailed results.  
 The results table includes:
@@ -77,16 +77,16 @@ The results table includes:
 
 ![Image](../media/view-machine-configuration-compliance-reporting/img-d96eaa8a8f7d9606a2f13df37b037138fb682532.png)
 
-### **Relationship to Azure Policy**
+### Relationship to Azure Policy
 
 Every Machine Configuration Azure Policy assignment creates a Guest Assignment for each machine within the scope of the policy. This ensures that machines inherit their baseline definitions consistently from the assigned policy, maintaining alignment between governance intent and technical enforcement.
 
-## **3. Azure Resource Graph (ARG)**
+## Azure Resource Graph (ARG)
 
-For large-scale reporting and automation, you can query Machine Configuration results directly using **Azure Resource Graph (ARG)**.  
+For large-scale reporting and automation, you can query Machine Configuration results directly using Azure Resource Graph (ARG).  
 This enables you to build dashboards, automate compliance summaries, and integrate Machine Configuration insights into existing compliance tooling.
 
-### **View All Guest Assignments in ARG**
+### View All Guest Assignments in ARG
 
 1.  Open **Resource Graph Explorer** in the Azure portal.
 
@@ -96,12 +96,14 @@ This enables you to build dashboards, automate compliance summaries, and integra
 
 ![Image](../media/view-machine-configuration-compliance-reporting/img-29cb9141f8ce1454c010b868cd2c8317d3cc07c6.png)
 
-### **Example Query: Identify Non-Compliant Machines**
+### Example Query: Identify Non-Compliant Machines
 
+```kusto
 guestconfigurationresources  
-\| where type =~ "microsoft.guestconfiguration/guestconfigurationassignments"  
-\| project properties.targetResourceId, name, properties.complianceStatus, properties.policyAssignmentId  
-\| where properties_complianceStatus =~ "NonCompliant"
+| where type =~ "microsoft.guestconfiguration/guestconfigurationassignments"  
+| project properties.targetResourceId, name, properties.complianceStatus, properties.policyAssignmentId  
+| where properties_complianceStatus =~ "NonCompliant"
+```
 
 This query lists:
 
@@ -113,7 +115,7 @@ This query lists:
 
 - **Policy Assignment ID** – the Azure Policy that triggered the Guest Assignment
 
-### **Filter and Extend**
+### Filter and Extend
 
 You can extend your queries by filtering for:
 
@@ -125,56 +127,38 @@ You can extend your queries by filtering for:
 
 Results can be **exported to CSV** or integrated into **Power BI** dashboards for organizational compliance tracking.
 
-*Reference: Query Guest Configuration compliance data with Resource Graph*
-
-### **Other Programmatic Access**
+### Other Programmatic Access
 
 While this guide focuses on portal-based experiences, all compliance and assignment data can also be accessed programmatically through the following APIs, SDKs, and reference guides.
 
-<table>
-<colgroup>
-<col style="width: 29%" />
-<col style="width: 70%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: center;"><strong>Surface</strong></th>
-<th style="text-align: center;"><strong>Documentation Reference</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Azure Policy</strong></td>
-<td>- Azure Policy documentation overview<br />
-- az policy CLI reference<br />
-- Azure Policy REST API reference</td>
-</tr>
-<tr>
-<td><strong>Machine Configuration / Guest Assignments</strong></td>
-<td>- Azure Machine Configuration documentation<br />
-- Guest Configuration REST API reference<br />
-- az guestconfig CLI reference<br />
-- Get-AzGuestConfigurationAssignment PowerShell cmdlet</td>
-</tr>
-<tr>
-<td><strong>Azure Resource Graph (ARG)</strong></td>
-<td>- Azure Resource Graph overview<br />
-- Query examples and schema reference<br />
-- az graph CLI reference<br />
-- Azure Resource Graph REST API reference</td>
-</tr>
-</tbody>
-</table>
+| **Surface** | **Documentation Reference** |
+|----|----|
+| **Azure Policy** | [Azure Policy documentation overview][01]<br />[az policy CLI reference][02]<br />[Azure Policy REST API reference][03] |
+| **Machine Configuration / Guest Assignments** | [Azure Machine Configuration documentation][04]<br />[Guest Configuration REST API reference][05]<br />[az guestconfig CLI reference][06]<br />[Get-AzGuestConfigurationAssignment PowerShell cmdlet][07] |
+| **Azure Resource Graph (ARG)** | [Azure Resource Graph overview][08]<br />[Query examples and schema reference][09]<br />[az graph CLI reference][10]<br />[Azure Resource Graph REST API reference][11] |
 
-These APIs enable you to automate compliance data collection, integrate results with existing reporting pipelines, and build dashboards that combine **policy-level visibility**, **machine-level detail**, and **cross-environment trends**.
+These APIs enable you to automate compliance data collection, integrate results with existing reporting pipelines, and build dashboards that combine policy-level visibility, machine-level detail, and cross-environment trends.
 
+## Next Steps
 
-## Next steps
+- [Assign built-in Machine Configuration policies][12]
+- [Deploy security baseline policy assignments][13]
+- [Query compliance data with Azure Resource Graph][14]
+- [Understand Azure Policy compliance][15]
 
-- Review the converted content for accuracy
-- Update any placeholder content
-- Add relevant links and references
-
-## References
-
-- (none)
+<!-- Link reference definitions -->
+[01]: /articles/governance/policy
+[02]: https://learn.microsoft.com/cli/azure/policy
+[03]: https://learn.microsoft.com/rest/api/policy
+[04]: /articles/governance/machine-configuration
+[05]: https://learn.microsoft.com/rest/api/guestconfiguration
+[06]: https://learn.microsoft.com/cli/azure/guestconfig
+[07]: https://learn.microsoft.com/powershell/module/az.guestconfiguration/get-azguestconfigurationassignment
+[08]: /articles/governance/resource-graph
+[09]: /articles/governance/resource-graph/samples/starter
+[10]: https://learn.microsoft.com/cli/azure/graph
+[11]: https://learn.microsoft.com/rest/api/azure-resourcegraph
+[12]: ./assign-built-in-policies.md
+[13]: ./assign-security-baselines/deploy-a-baseline-policy-assignment.md
+[14]: ../view-compliance.md
+[15]: /articles/governance/policy/how-to/get-compliance-data

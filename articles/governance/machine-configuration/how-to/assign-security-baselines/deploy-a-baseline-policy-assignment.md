@@ -121,8 +121,6 @@ This view lists all baseline policy assignments, including their policy definiti
 - [Discover and assign built-in Machine Configuration policies][06]
 - [Policy as Code with Azure Policy][07]
 
-## References
-
 <!-- Link reference definitions -->
 [01]: https://learn.microsoft.com/en-us/azure/azure-arc/overview
 [02]: ../../overview.md
