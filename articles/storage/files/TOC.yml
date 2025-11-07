@@ -61,8 +61,6 @@
         href: storage-files-identity-assign-share-level-permissions.md
       - name: Configure directory/file-level permissions
         href: storage-files-identity-configure-file-level-permissions.md
-    - name: Mount file share
-      href: storage-files-identity-mount-file-share.md
   - name: Linux identity-based authentication (SMB)
     href: storage-files-identity-auth-linux-kerberos-enable.md
   - name: Authorize access to file data
