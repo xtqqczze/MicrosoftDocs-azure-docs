@@ -12,6 +12,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:06/12/2025
+  - references_regions
 ---
 
 # What is IP address management (IPAM) in Azure Virtual Network Manager?
@@ -87,6 +88,54 @@ Additionally, it shows details for pools and resources associated with pools, gi
 When you create CIDR-supporting resources like virtual networks, CIDRs are automatically allocated from the selected pool, simplifying the resource creation process.
 
 The system ensures that the automatically allocated CIDRs don't overlap within the pool, maintaining network integrity and preventing conflicts.
+
+
+## Managing IP address spaces across multiple regions (Preview)
+
+[!INCLUDE [virtual-network-manager-ipam-multi-region-preview](../../includes/virtual-network-manager-ipam-multi-region-preview.md)]
+
+You can now associate a single IPAM pool with virtual networks in multiple regions, simplifying governance and ensuring consistent CIDR allocation globally. This capability is supported using Azure PowerShell and Azure CLI in the preview regions listed in the note above.
+
+### Create a Virtual Network in Region A and associate with an IPAM pool located in Region B
+
+In the following example, a virtual network is created in *Region A* and associated with an IPAM pool located in *Region B*.
+
+```azurecli
+
+$ipamAllocation = '[{ 
+  "numberOfIpAddresses": 100, 
+  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkManagers/<network-manager-name>/ipamPools/<ipam-pool-name-region-b>" 
+}]' 
+
+
+az network vnet create `
+    --name "<virtual-network-name>" `
+    --resource-group "<resource-group-name>" `
+    --ipam-allocations $ipamAllocation `
+    --location "Region A"
+```
+
+### Associate a Virtual Network in Region A with an IPAM pool located in Region B
+
+In the following example, an existing virtual network in *Region A* is associated with an IPAM pool located in *Region B*:
+
+
+```azurecli
+
+$ipamAllocation = '[{ 
+  "numberOfIpAddresses": 100, 
+  "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkManagers/<network-manager-name>/ipamPools/<ipam-pool-name-region-b>" 
+
+}]' 
+
+az network vnet update ` 
+  --name "<virtual-network-name>" ` 
+  --resource-group "<resource-group-name>" ` 
+  --ipam-allocations $ipamAllocation ` 
+  --location "Region A"
+
+```
+
 
 ## Permission requirements for IPAM in Azure Virtual Network Manager
 
