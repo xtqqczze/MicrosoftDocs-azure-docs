@@ -25,21 +25,7 @@ Azure Blob Storage Geo Priority Replication is designed to meet the stringent co
 
 For supported workloads, a Service Level Agreement (SLA) also backs geo priority replication, and applies to any account that has Geo priority replication enabled. It guarantees that the Last Sync Time (LST) for your account's Block Blob data remains lagged 15 minutes or less for 99.0% of the billing month. In addition to prioritized replication traffic, the feature includes enhanced monitoring and detailed telemetry.
 
-<!--
-> [!IMPORTANT]
-> This feature is generally available but is currently only offered in a limited number of regions.
->
-> Priority replication is available only within the following regions:
-> - East US 2
-> - West US 2
-> - North Europe
-> - West Europe
-> - Japan East
-> - Japan West
-> - Central India
-> - Switzerland North
-> - UAE North
--->
+[!INCLUDE [replication-disclaimer](includes/replication-disclaimer.md)]
 
 ## Benefits of geo priority replication
 
@@ -76,6 +62,9 @@ To ensure transparency and empower customers to track the performance of Geo pri
 
 After geo priority replication is enabled and you register for the Geo Blob Lag metric (preview) you have the ability to view the new metric.
 
+> [!IMPORTANT]
+> Geo Blob Lag metrics can take up to 24 hours to begin displaying after registering for the feature.
+
 :::image type="content" source="media/storage-redundancy-priority-replication/replication-enabled-sml.png" alt-text="Screenshot showing the geo priority replication enabled status for existing accounts." lightbox="media/storage-redundancy-priority-replication/replication-enabled-lrg.png":::
 
 ## Enable and disable Geo-Redundant Storage replication
@@ -111,6 +100,8 @@ $account = New-AzStorageAccount -ResourceGroupName $rgname `
 
 ```
 # [Azure CLI](#tab/cli)
+
+Before running the following commands, ensure you have the latest Azure CLI installed. You can find installation instructions at [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 
