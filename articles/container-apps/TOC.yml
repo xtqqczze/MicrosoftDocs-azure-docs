@@ -410,10 +410,12 @@
           href: user-defined-routes.md
         - name: Rule based routing
           items:
-            - name: Use rule-based routing
-              href: rule-based-routing.md
-            - name: Use a custom domain with rule-based routing
-              href: rule-based-routing-custom-domain.md
+          - name: Use rule-based routing
+            href: rule-based-routing.md
+          - name: Use a custom domain with rule-based routing
+            href: rule-based-routing-custom-domain.md
+        - name: Use premium ingress
+          href: premium-ingress.md
         - name: Use a private endpoint
           href: how-to-use-private-endpoint.md
         - name: Use mTLS
