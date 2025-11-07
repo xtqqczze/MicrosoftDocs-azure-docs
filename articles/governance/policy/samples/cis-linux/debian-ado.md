@@ -1,23 +1,23 @@
 ---
-title: Reference - CIS Security Benchmarks for Oracle Linux 8 via Machine Configuration
-description: Reference - CIS Security Benchmarks for Oracle Linux 8 via Machine Configuration
-ms.date: 11/05/2025
+title: Reference - CIS Security Benchmarks for Debian Linux via Machine Configuration
+description: Reference - CIS Security Benchmarks for Debian Linux via Machine Configuration
+ms.date: 11/07/2025
 author: pallakatos
 ms.author: pallakatos
 ms.topic: reference
 ms.custom: generated
 ---
-# Release notes - Oracle Linux 8
+# Release notes - Debian Linux
 
-This article provides detailed information about the CIS Security Benchmarks for Oracle Linux 8, including supported benchmarks, mismatched rules, and configurable parameters.
+This article provides detailed information about the CIS Security Benchmarks for Debian Linux, including supported benchmarks, mismatched rules, and configurable parameters across all supported versions.
 
 ## Supported benchmarks
 
-|Benchmark Title|
-|---|
-|[CIS Oracle Linux 8 Benchmark 3.0.0 Level 1 + Level 2 - Server](#cis-oracle-linux-8-benchmark-300-level-1--level-2---server)|
+|Debian Version|Benchmark Title|
+|---|---|
+|Debian 12|[CIS Debian Linux 12 Benchmark 1.0.0 Level 1 + Level 2 - Server](#cis-debian-linux-12-benchmark-100-level-1--level-2---server)|
 
-## CIS Oracle Linux 8 Benchmark 3.0.0 Level 1 + Level 2 - Server
+## CIS Debian Linux 12 Benchmark 1.0.0 Level 1 + Level 2 - Server
 
 ### Mismatched rules
 
@@ -26,10 +26,6 @@ This article provides detailed information about the CIS Security Benchmarks for
 
 - Ensure only one logging system is in use
 
-### Not implemented rules
-
-- Ensure access to the su command is restricted
-
 ### Configurable parameters
 
 |Rule|Parameter|Default Value|
@@ -37,7 +33,7 @@ This article provides detailed information about the CIS Security Benchmarks for
 |Ensure dns server services are not in use|serviceName|named.service|
 ||expectedUnitFileState|enabled|
 ||expectedActiveState|active|
-||packageName|bind|
+||packageName|bind9|
 |Ensure permissions on /etc/crontab are configured|mask|0177|
 ||owner|root|
 ||group|root|
@@ -48,14 +44,12 @@ This article provides detailed information about the CIS Security Benchmarks for
 ||owner|root|
 ||group|root|
 ||packageName|cron|
-||alternativePackageName|cronie|
 |Ensure permissions on /etc/cron.weekly are configured|mask|0077|
 ||owner|root|
 ||group|root|
 |Ensure permissions on /etc/cron.monthly are configured|mask|0077|
 ||owner|root|
 ||group|root|
-||alternativePackageName|cronie|
 |Ensure permissions on /etc/cron.d are configured|mask|0077|
 ||owner|root|
 ||group|root|

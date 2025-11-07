@@ -1,23 +1,23 @@
 ---
-title: Reference - CIS Security Benchmarks for Rocky Linux 9 via Machine Configuration
-description: Reference - CIS Security Benchmarks for Rocky Linux 9 via Machine Configuration
-ms.date: 11/05/2025
+title: Reference - CIS Security Benchmarks for SUSE Linux Enterprise via Machine Configuration
+description: Reference - CIS Security Benchmarks for SUSE Linux Enterprise via Machine Configuration
+ms.date: 11/07/2025
 author: pallakatos
 ms.author: pallakatos
 ms.topic: reference
 ms.custom: generated
 ---
-# Release notes - Rocky Linux 9
+# Release notes - SUSE Linux Enterprise
 
-This article provides detailed information about the CIS Security Benchmarks for Rocky Linux 9, including supported benchmarks, mismatched rules, and configurable parameters.
+This article provides detailed information about the CIS Security Benchmarks for SUSE Linux Enterprise, including supported benchmarks, mismatched rules, and configurable parameters across all supported versions.
 
 ## Supported benchmarks
 
-|Benchmark Title|
-|---|
-|[CIS Rocky Linux 9 Benchmark 1.0.0 Level 1 + Level 2 - Server](#cis-rocky-linux-9-benchmark-100-level-1--level-2---server)|
+|SUSE Version|Benchmark Title|
+|---|---|
+|SUSE Linux Enterprise 15|[CIS SUSE Linux Enterprise 15 Benchmark 2.0.0 Level 1 + Level 2 - Server](#cis-suse-linux-enterprise-15-benchmark-200-level-1--level-2---server)|
 
-## CIS Rocky Linux 9 Benchmark 1.0.0 Level 1 + Level 2 - Server
+## CIS SUSE Linux Enterprise 15 Benchmark 2.0.0 Level 1 + Level 2 - Server
 
 ### Mismatched rules
 
@@ -48,14 +48,12 @@ This article provides detailed information about the CIS Security Benchmarks for
 ||owner|root|
 ||group|root|
 ||packageName|cron|
-||alternativePackageName|cronie|
 |Ensure permissions on /etc/cron.weekly are configured|mask|0077|
 ||owner|root|
 ||group|root|
 |Ensure permissions on /etc/cron.monthly are configured|mask|0077|
 ||owner|root|
 ||group|root|
-||alternativePackageName|cronie|
 |Ensure permissions on /etc/cron.d are configured|mask|0077|
 ||owner|root|
 ||group|root|
