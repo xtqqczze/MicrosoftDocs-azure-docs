@@ -111,7 +111,7 @@ The `--enable-credential-policy` command creates credential (root CA) and defaul
 
 ## Assign UAMI role to access the ADR namespace
 
-In this step, we will assign the [Azure Device Registry Contributor](https://review.learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/internet-of-things?branch=pr-en-us-306976#azure-device-registry-contributor) role to the managed identity and scope it to the namespace. This custom role will allow for full access to IoT devices to IoT devices within the ADR namespace.
+In this step, we will assign the [Azure Device Registry Contributor](../articles/role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-contributor) role to the managed identity and scope it to the namespace. This custom role will allow for full access to IoT devices to IoT devices within the ADR namespace.
 
 1. Retrieve the principal ID of the User-Assigned Managed Identity. This ID is needed to assign roles to the identity.
 
@@ -125,7 +125,7 @@ In this step, we will assign the [Azure Device Registry Contributor](https://rev
     NAMESPACE_RESOURCE_ID=$(az iot adr ns show --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
     ```
 
-1. Assign the [Azure Device Registry Contributor](https://review.learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/internet-of-things?branch=pr-en-us-306976#azure-device-registry-contributor) role to the managed identity. This grants the managed identity the necessary permissions, scoped to the namespace.
+1. Assign the [Azure Device Registry Contributor](../articles/role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-contributor) role to the managed identity. This grants the managed identity the necessary permissions, scoped to the namespace.
 
     ```azurecli-interactive
     az role assignment create --assignee $UAMI_PRINCIPAL_ID --role "a5c3590a-3a1a-4cd4-9648-ea0a32b15137" --scope $NAMESPACE_RESOURCE_ID
