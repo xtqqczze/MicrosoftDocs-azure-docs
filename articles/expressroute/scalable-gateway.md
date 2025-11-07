@@ -90,11 +90,7 @@ ErGwScale is available in most Azure regions except:
 
 ## Pricing
 
-| SKU                | Price per hour per scale unit |
-|-------------------------|------------------------------|
-| **ErGwScale**   | **$0.21**                    |
-
-For more information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
+For more information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/). Select the **ExpressRoute Gateway** tab to view pricing for the ErGwScale SKU.
 
 
 ## Related content

@@ -16,6 +16,7 @@ A virtual network gateway connects your Azure virtual network to your on-premise
 
 This article explains gateway types, gateway SKUs, estimated performance by SKU, and key features. It also covers ExpressRoute [FastPath](#fastpath), which enables network traffic from your on-premises network to bypass the virtual network gateway for improved performance.
 
+<a name="gwsku"></a>
 ## Gateway SKUs
 
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
@@ -59,6 +60,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ## Gateway limitations and performance
 
+<a name="gatewayfeaturesupport"></a>
 ### Feature support by gateway SKU
 
 The following table shows the features that each gateway SKU supports and the maximum number of ExpressRoute circuit connections.
@@ -73,6 +75,7 @@ The following table shows the features that each gateway SKU supports and the ma
 > [!NOTE]
 > The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
 
+<a name="aggthroughput"></a>
 ### Estimated performance by gateway SKU
 
 [!INCLUDE [expressroute-gateway-performance-include](../../includes/expressroute-gateway-performance-include.md)]
@@ -126,6 +129,7 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 > - Ensure your on-premises configuration (routers and firewalls) is set up so packets for the same IP 5-tuple use a single next hop (Microsoft Enterprise Edge router) unless there's a maintenance event. Frequent next hop switching can cause connectivity problems.
 > - Enable [network policies](../private-link/disable-private-endpoint-network-policy.md) (at minimum, for user-defined route support) on subnets where private endpoints are deployed.
 
+<a name="private-endpoint-connectivity-and-planned-maintenance-events"></a>
 ### Private endpoint connectivity during maintenance
 
 Private endpoint connectivity is stateful. When you establish a connection to a private endpoint over ExpressRoute private peering, the gateway infrastructure routes inbound and outbound connections through one of its back-end instances. During maintenance events, back-end instances reboot one at a time, which can cause intermittent connectivity problems.

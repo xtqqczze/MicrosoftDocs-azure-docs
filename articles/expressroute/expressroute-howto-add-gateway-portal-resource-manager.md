@@ -49,6 +49,7 @@ This article uses the following example values for reference. You can use these 
 - **Gateway name**: myERGwScale
 - **Gateway type**: ExpressRoute
 
+<a name="create-the-gateway-subnet"></a>
 ## Create a gateway subnet
 
 Before you create a virtual network gateway, you need to create a gateway subnet in your virtual network.
@@ -74,6 +75,7 @@ Before you create a virtual network gateway, you need to create a gateway subnet
 
 1. Select **Save** to create the gateway subnet.
 
+<a name="create-the-virtual-network-gateway"></a>
 ## Create a virtual network gateway
 
 1. In the Azure portal, select **Create a resource**.
@@ -116,6 +118,7 @@ Before you create a virtual network gateway, you need to create a gateway subnet
 
 The deployment can take up to 45 minutes to complete.
 
+<a name="enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute"></a>
 ## Enable VNet-to-VNet or VNet-to-Virtual WAN traffic
 
 By default, virtual network-to-virtual network (VNet-to-VNet) and VNet-to-Virtual WAN traffic is disabled through ExpressRoute. You can enable this connectivity using the following steps.
@@ -135,6 +138,7 @@ By default, virtual network-to-virtual network (VNet-to-VNet) and VNet-to-Virtua
 
 1. Select **Save** to apply your changes.
 
+<a name="upgrade-the-gateway-sku"></a>
 ## Upgrade a gateway SKU
 
 You can upgrade your gateway SKU to a higher-performance SKU without deleting and recreating the gateway.
