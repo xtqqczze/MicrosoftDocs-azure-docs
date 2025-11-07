@@ -21,4 +21,4 @@ items:
     - name: Troubleshoot
       href: /troubleshoot/azure/partner-solutions
     - name: FAQ
-      href: faq.md
+      href: faq.yml
