@@ -122,7 +122,7 @@ This view lists all baseline policy assignments, including their policy definiti
 - [Policy as Code with Azure Policy][07]
 
 <!-- Link reference definitions -->
-[01]: https://learn.microsoft.com/azure/azure-arc/overview
+[01]: /azure/azure-arc/servers/overview
 [02]: ../../overview.md
 [03]: ../../../policy/assign-policy-portal.md
 [04]: ../../../policy/assign-policy-azurecli.md

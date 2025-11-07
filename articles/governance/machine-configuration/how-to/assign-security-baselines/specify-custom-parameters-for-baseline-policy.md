@@ -41,7 +41,7 @@ The new Azure Policy Settings Picker experience streamlines this process, allowi
 The configuration experience differs slightly between Linux and Windows baselines:
 
 - **CIS Benchmarks for Linux:** You can enable one or more supported distributions (such as RHEL, Alma Linux, Rocky Linux, or Ubuntu). Unselected distributions are excluded from evaluation. For each enabled distro, select the CIS Benchmark version you want to apply.  
-  ![CIS Benchmarks Linux distribution selection with version options](../../media/specify-custom-parameters-for-baseline-policy/cis-linux-distribution-selection-versions.png)
+  ![CIS Benchmarks Linux distribution selection with version options](../../media/specify-custom-parameters-for-baseline-policy/center-internet-security-linux-distribution-selection-versions.png)
 
 - **For Azure Baselines (Windows or Linux):** These baselines apply uniformly across operating systems and don't require distro selection. Simply confirm the baseline version under **Basics** and continue.  
   ![Azure Security Baseline version selection interface](../../media/specify-custom-parameters-for-baseline-policy/azure-security-baseline-version-selection.png)
@@ -54,7 +54,7 @@ On the **Modify settings** tab, review and adjust configuration rules for your s
 
 - For configurable rules, edit the **Parameter value** field to define your organization's required state.
 
-![Security baseline rules list with checkboxes and parameter value fields](../../media/specify-custom-parameters-for-baseline-policy/security-baseline-rules-list-checkboxes.png)
+![Security baseline rules list with checkboxes and parameter value fields](../../media/specify-custom-parameters-for-baseline-policy/security-baseline-rules-list-with-checkboxes.png)
 
 - View per rule Metadata by clicking on a highlighted rule, which will open the context pane showing details such as **Rule ID**, **Description**, **Severity**, and **Compliance Standard**.
 
@@ -80,7 +80,7 @@ serviceName=named.service expectedUnitFileState=enabled expectedActiveState=acti
 
 This enables fine-grained control, allowing you to model complex configurations that align with your existing Linux environment.
 
-![CIS Linux benchmark parameter with structured input format example](../../media/specify-custom-parameters-for-baseline-policy/cis-linux-parameter-structured-input-format.png)
+![CIS Linux benchmark parameter with structured input format example](../../media/specify-custom-parameters-for-baseline-policy/center-internet-security-linux-parameter-structured-input-format.png)
 
 ### Custom Input for Azure Security Baseline (Windows)
 
@@ -129,8 +129,8 @@ This JSON artifact defines all active settings for your baseline, making it easy
 - [Discover and assign built-in Machine Configuration policies][05]
 
 <!-- Link reference definitions -->
-[01]: https://learn.microsoft.com/azure/azure-arc/overview
+[01]: /azure/azure-arc/servers/overview
 [02]: ./deploy-a-baseline-policy-assignment.md
-[03]: ./understand-the-baseline-settings-parameter.md
+[03]: ./understand-baseline-settings-parameter.md
 [04]: ../view-compliance.md
 [05]: ../assign-built-in-policies.md

@@ -94,7 +94,7 @@ This enables you to build dashboards, automate compliance summaries, and integra
 
 3.  Search for the **guestconfigurationresources** table.
 
-![Azure Resource Graph Explorer showing guestconfigurationresources table selection](../media/view-machine-configuration-compliance-reporting/azure-resource-graph-explorer-guestconfig.png)
+![Azure Resource Graph Explorer showing guestconfigurationresources table selection](../media/view-machine-configuration-compliance-reporting/azure-resource-graph-explorer-guest-configuration.png)
 
 ### Example Query: Identify Non-Compliant Machines
 

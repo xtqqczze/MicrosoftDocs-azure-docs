@@ -75,11 +75,11 @@ The end-to-end experience for configuring Customizable Security Baselines follow
 - [Discover and assign built-in Machine Configuration policies][08]
 
 <!-- Link reference definitions -->
-[01]: https://learn.microsoft.com/azure/azure-arc/overview
+[01]: /azure/azure-arc/servers/overview
 [02]: /azure/virtual-machines/linux/endorsed-distros
 [03]: https://www.cisecurity.org/
 [04]: ./deploy-a-baseline-policy-assignment.md
 [05]: ./specify-custom-parameters-for-baseline-policy.md
-[06]: ./understand-the-baseline-settings-parameter.md
+[06]: ./understand-baseline-settings-parameter.md
 [07]: ../view-compliance.md
 [08]: ../assign-built-in-policies.md
