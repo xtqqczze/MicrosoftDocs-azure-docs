@@ -31,28 +31,28 @@ In this article, you learn how to use premium ingress with Azure Container Apps.
 az login
 ````
 
-2. (Optional) Upgrade the Azure CLI to the latest version.
+2. Upgrade the Azure CLI to the latest version.
 
 ````azurecli
 az upgrade
 ````
 
-3. Register required resource providers.
+3. Register the required resource providers.
 
 ````azurecli
 az provider register --namespace Microsoft.App
 az provider register --namespace Microsoft.OperationalInsights
 ````
 
-4. Create a resource group.
+4. Create a resource group using the following command:
 
 ````azurecli
 az group create --name my-container-apps --location centralus
 ````
 
-## Create the Container Apps environment
+## Create the environment
 
-1. Create the container apps environment.
+To create the container apps environment, run the following command:
 
 ````azurecli
 az containerapp env create \
@@ -79,7 +79,7 @@ Your workload profile must have at least two nodes to use premium ingress.
 
 ## Configure premium ingress
 
-Add premium ingress settings to the environment.
+Add premium ingress settings to the environment using the following command:
 
 ````azurecli
 az containerapp env premium-ingress add \
@@ -100,7 +100,7 @@ The following table describes the parameters you can set when configuring premiu
 | `header-count-limit` | The maximum number of HTTP headers allowed per request. | 100 | 1 | n/a |
 
 
-Once configured, you see an output of the settings you just applied.
+Once configured, you'll see an output of the settings you just applied.
 
 ````json
 {
@@ -113,7 +113,7 @@ Once configured, you see an output of the settings you just applied.
 
 ## Update and manage premium ingress
 
-- Update the premium ingress settings for the environment:
+To update the premium ingress settings for the environment, run the following command:
 
 ````azurecli
 az containerapp env premium-ingress update \
@@ -127,7 +127,7 @@ az containerapp env premium-ingress update \
   --header-count-limit 100
 ````
 
-- Show the premium ingress settings for the environment:
+To show the premium ingress settings for the environment, run the following command:
 
 ````azurecli
 az containerapp env premium-ingress show \
@@ -135,7 +135,7 @@ az containerapp env premium-ingress show \
   --name my-container-apps-env
 ````
 
-- Remove the premium ingress settings for the environment:
+To remove the premium ingress settings for the environment, run the following command:
 
 ````azurecli
 az containerapp env premium-ingress remove \
@@ -143,7 +143,7 @@ az containerapp env premium-ingress remove \
   --name my-container-apps-env
 ````
 
-- Remove the workload profile from the environment:
+To remove the workload profile from the environment, run the following command:
 
 ````azurecli
 az containerapp env workload-profile remove \
