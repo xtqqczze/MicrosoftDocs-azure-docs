@@ -6,7 +6,13 @@ items:
   expanded: true
   items:
     - name: What is Azure Machine Configuration?
-      href: ./overview.md
+      href: ./overview/01-overview-concepts.md
+    - name: Prerequisites and Environment Setup
+      href: ./overview/02-setup-prerequisites.md
+    - name: Network Requirements
+      href: ./overview/03-network-requirements.md
+    - name: Troubleshooting Machine Configuration
+      href: ./overview/04-operations-troubleshooting.md
     # Planned, not yet written
     # - name: Glossary
     #   href: ./glossary.md
