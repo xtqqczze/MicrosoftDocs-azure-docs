@@ -1,6 +1,6 @@
 ---
-title: "Manage Service Group membership at scale" 
-description: "Learn how to create, manage, and update membership at scale"
+title: "Manage Azure Service Group membership at scale" 
+description: "Learn how to create, manage, and update membership for Azure Service Groups at scale"
 author: kenieva
 ms.author: kenieva
 ms.service: azure-policy 
@@ -9,7 +9,7 @@ ms.date: 10/28/2025
 
 ---
 
-# Manage Service Group Membership at scale
+# Manage Azure Service Group Membership at scale
 
 Azure **Service Groups** provide a flexible way to organize and manage resources. Memberships within a Service Group are represented as extension resource of type 'Microsoft.Relationship/serviceGroupMember'. These extension resources follow the lifecycle of the associated member resource and reference the target Service Group through the `targetId` property. To explore this further or create a Service Group member, review the [available REST APIs](./manage-service-groups.md#create-a-service-group-member) and the [QuickStart guide for adding members in the portal](./create-service-group-member-portal.md).
 
