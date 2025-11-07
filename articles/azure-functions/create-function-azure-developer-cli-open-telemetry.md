@@ -1,10 +1,11 @@
 ---
 title: Create functions with OpenTelemetry using the Azure Developer CLI
-description: "Learn how to use the Azure Developer CLI (azd) to create a Python function app with OpenTelemetry distributed tracing. Deploy your app to a Flex Consumption plan on Azure."
+description: "Learn how to use the Azure Developer CLI (azd) to create a function app with OpenTelemetry distributed tracing. Deploy your app to a Flex Consumption plan on Azure."
 ms.date: 10/8/2025
 ms.topic: quickstart
 ms.custom:
   - ignite-2025
+zone_pivot_groups: programming-languages-set-functions-otel
 ---
 
 # Quickstart: Create and deploy functions with OpenTelemetry to Azure Functions using the Azure Developer CLI
@@ -21,11 +22,29 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 
 + [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 
+::: zone pivot="programming-language-python"
+
 + [Python 3.11 or later](https://www.python.org/downloads/)
+
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+
++ [Node.js 18.x or later](https://nodejs.org/)
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
++ [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+
+::: zone-end
 
 ## Initialize the project
 
 You can use the `azd init` command to create a local Azure Functions code project from a template that includes OpenTelemetry distributed tracing.
+
+::: zone pivot="programming-language-python"
 
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
@@ -35,11 +54,39 @@ You can use the `azd init` command to create a local Azure Functions code projec
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-azd-otel) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. The environment name also appears in the name of the resource group you create in Azure.
 
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+
+1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
+ 
+    ```console
+    azd init --template functions-quickstart-typescript-azd-otel -e flexquickstart-otel
+    ```
+
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-otel) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. The environment name also appears in the name of the resource group you create in Azure.
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
+ 
+    ```console
+    azd init --template functions-quickstart-dotnet-azd-otel -e flexquickstart-otel
+    ```
+
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-otel) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. The environment name also appears in the name of the resource group you create in Azure.
+
+::: zone-end
+
 ## Review the code
 
 This template creates a complete distributed tracing scenario with three functions that work together. Let's examine the key OpenTelemetry-related aspects:
 
 ### OpenTelemetry configuration
+
+::: zone pivot="programming-language-python,programming-language-typescript"
 
 The `src/host.json` file enables OpenTelemetry for the Functions host:
 
@@ -61,7 +108,33 @@ The `src/host.json` file enables OpenTelemetry for the Functions host:
 
 The key setting `"telemetryMode": "OpenTelemetry"` enables distributed tracing across function calls.
 
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+The `src/OTelSample/host.json` file enables OpenTelemetry for the Functions host:
+
+```json
+{
+  "version": "2.0",
+  "telemetryMode": "OpenTelemetry",
+  "logging": {
+    "OpenTelemetry": {
+      "logLevel": {
+        "Host.General": "Warning"
+      }
+    }
+  }
+}
+```
+
+The key setting `"telemetryMode": "OpenTelemetry"` enables distributed tracing across function calls.
+
+::: zone-end
+
 ### Dependencies for OpenTelemetry
+
+::: zone pivot="programming-language-python"
 
 The `src/requirements.txt` file includes the necessary packages for OpenTelemetry integration:
 
@@ -73,7 +146,44 @@ requests
 
 The `azure-monitor-opentelemetry` package provides the OpenTelemetry integration with Application Insights.
 
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+
+The `src/package.json` file includes the necessary packages for OpenTelemetry integration:
+
+```json
+{
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "@azure/functions-opentelemetry-instrumentation": "^0.1.0",
+    "@azure/monitor-opentelemetry-exporter": "^1.0.0",
+    "axios": "^1.6.0"
+  }
+}
+```
+
+The `@azure/functions-opentelemetry-instrumentation` and `@azure/monitor-opentelemetry-exporter` packages provide the OpenTelemetry integration with Application Insights.
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+The `.csproj` file includes the necessary packages for OpenTelemetry integration:
+
+```xml
+<PackageReference Include="Azure.Monitor.OpenTelemetry.Exporter" Version="1.4.0" />
+<PackageReference Include="Microsoft.Azure.Functions.Worker.OpenTelemetry" Version="1.4.0" />
+<PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.10.0" />
+```
+
+These packages provide the OpenTelemetry integration with Application Insights and HTTP instrumentation for distributed tracing.
+
+::: zone-end
+
 ### Function implementation
+
+::: zone pivot="programming-language-python"
 
 The functions in `src/function_app.py` demonstrate a distributed tracing flow:
 
@@ -139,15 +249,265 @@ def servicebus_queue_trigger(azservicebus: func.ServiceBusMessage):
     logging.info('Python ServiceBus Queue trigger end processing a message')
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+
+The OpenTelemetry configuration is set up in `src/index.ts`:
+
+```typescript
+import { AzureFunctionsInstrumentation } from '@azure/functions-opentelemetry-instrumentation';
+import { AzureMonitorTraceExporter, AzureMonitorLogExporter } from '@azure/monitor-opentelemetry-exporter';
+import { getNodeAutoInstrumentations, getResourceDetectors } from '@opentelemetry/auto-instrumentations-node';
+import { registerInstrumentations } from '@opentelemetry/instrumentation';
+import { detectResources } from '@opentelemetry/resources';
+import { LoggerProvider, SimpleLogRecordProcessor } from '@opentelemetry/sdk-logs';
+import { NodeTracerProvider, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-node';
+
+const resource = detectResources({ detectors: getResourceDetectors() });
+
+const tracerProvider = new NodeTracerProvider({ 
+  resource, 
+  spanProcessors: [new SimpleSpanProcessor(new AzureMonitorTraceExporter())] 
+});
+tracerProvider.register();
+
+const loggerProvider = new LoggerProvider({
+  resource,
+  processors: [new SimpleLogRecordProcessor(new AzureMonitorLogExporter())],
+});
+
+registerInstrumentations({
+    tracerProvider,
+    loggerProvider,
+    instrumentations: [getNodeAutoInstrumentations(), new AzureFunctionsInstrumentation()],
+});
+```
+
+The functions are defined in the `src/functions` folder:
+
+#### First HTTP Function
+
+```typescript
+export async function firstHttpFunction(
+  request: HttpRequest,
+  context: InvocationContext
+): Promise<HttpResponseInit> {
+  context.log("TypeScript HTTP trigger function (first) processed a request.");
+
+  try {
+    // Call the second function
+    const baseUrl = request.url.split("/api/")[0];
+    const secondFunctionUrl = `${baseUrl}/api/second_http_function`;
+
+    const response = await axios.get(secondFunctionUrl);
+    const secondFunctionResult = response.data;
+
+    const result = {
+      message: "Hello from the first function!",
+      second_function_response: secondFunctionResult,
+    };
+
+    return {
+      status: 200,
+      body: JSON.stringify(result),
+      headers: { "Content-Type": "application/json" },
+    };
+  } catch (error) {
+    return {
+      status: 500,
+      body: JSON.stringify({ error: "Failed to process request" }),
+    };
+  }
+}
+```
+
+#### Second HTTP Function
+
+```typescript
+export async function secondHttpFunction(
+  request: HttpRequest,
+  context: InvocationContext
+): Promise<HttpResponseInit> {
+  context.log("TypeScript HTTP trigger function (second) processed a request.");
+
+  const message = "This is the second function responding.";
+
+  // Send a message to the Service Bus queue
+  const queueMessage =
+    "Message from second HTTP function to trigger ServiceBus queue processing";
+  
+  context.extraOutputs.set(serviceBusOutput, queueMessage);
+  context.log("Sent message to ServiceBus queue:", queueMessage);
+
+  return {
+    status: 200,
+    body: message,
+  };
+}
+```
+
+#### Service Bus Queue Trigger
+
+```typescript
+export async function serviceBusQueueTrigger(
+  message: unknown,
+  context: InvocationContext
+): Promise<void> {
+  context.log("TypeScript ServiceBus Queue trigger start processing a message:", message);
+
+  // Simulate processing time
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+
+  context.log("TypeScript ServiceBus Queue trigger end processing a message");
+}
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+The OpenTelemetry configuration is set up in `src/OTelSample/Program.cs`:
+
+```csharp
+using Azure.Monitor.OpenTelemetry.Exporter;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.OpenTelemetry;
+using OpenTelemetry.Trace;
+
+var builder = FunctionsApplication.CreateBuilder(args);
+
+builder.ConfigureFunctionsWebApplication();
+
+builder.Logging.AddOpenTelemetry(logging =>
+{
+    logging.IncludeFormattedMessage = true;
+    logging.IncludeScopes = true;
+});
+
+builder.Services.AddOpenTelemetry()    
+    .WithTracing(tracing =>
+    {
+        tracing.AddHttpClientInstrumentation();
+    });
+
+builder.Services.AddOpenTelemetry().UseAzureMonitorExporter();
+builder.Services.AddOpenTelemetry().UseFunctionsWorkerDefaults();
+
+builder.Services.AddHttpClient();
+
+builder.Build().Run();
+```
+
+The functions are defined in separate class files:
+
+#### First HTTP Function
+
+```csharp
+public class FirstHttpTrigger
+{
+    private readonly ILogger<FirstHttpTrigger> _logger;
+    private readonly IHttpClientFactory _httpClientFactory;
+
+    public FirstHttpTrigger(ILogger<FirstHttpTrigger> logger, IHttpClientFactory httpClientFactory)
+    {
+        _logger = logger;
+        _httpClientFactory = httpClientFactory;
+    }
+
+    [Function("first_http_function")]
+    public async Task<IActionResult> Run(
+         [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
+    {
+        _logger.LogInformation("first_http_function function processed a request.");
+
+        var baseUrl = $"{req.Url.AbsoluteUri.Split("/api/")[0]}/api";
+        var targetUri = $"{baseUrl}/second_http_function";
+
+        var client = _httpClientFactory.CreateClient();
+        var response = await client.GetAsync(targetUri);
+        var content = await response.Content.ReadAsStringAsync();
+
+        return new OkObjectResult($"Called second_http_function, status: {response.StatusCode}, content: {content}");
+    }
+}
+```
+
+#### Second HTTP Function
+
+```csharp
+public class SecondHttpTrigger
+{
+    private readonly ILogger<SecondHttpTrigger> _logger;
+
+    public SecondHttpTrigger(ILogger<SecondHttpTrigger> logger)
+    {
+        _logger = logger;
+    }
+
+    [Function("second_http_function")]
+    public MultiResponse Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
+    {
+        _logger.LogInformation("second_http_function function processed a request.");
+
+        return new MultiResponse
+        {
+            Messages = new string[] { "Hello" },
+            HttpResponse = req.CreateResponse(System.Net.HttpStatusCode.OK)
+        };
+    }
+}
+
+public class MultiResponse
+{
+    [ServiceBusOutput("%ServiceBusQueueName%", Connection = "ServiceBusConnection")]
+    public string[]? Messages { get; set; }
+
+    [HttpResult]
+    public HttpResponseData? HttpResponse { get; set; }
+}
+```
+
+#### Service Bus Queue Trigger
+
+```csharp
+public class ServiceBusQueueTrigger
+{
+    private readonly ILogger<ServiceBusQueueTrigger> _logger;
+
+    public ServiceBusQueueTrigger(ILogger<ServiceBusQueueTrigger> logger)
+    {
+        _logger = logger;
+    }
+
+    [Function("servicebus_queue_trigger")]
+    public async Task Run(
+        [ServiceBusTrigger("%ServiceBusQueueName%", Connection = "ServiceBusConnection")]
+        ServiceBusReceivedMessage message,
+        ServiceBusMessageActions messageActions)
+    {
+        _logger.LogInformation("Message ID: {id}", message.MessageId);
+        _logger.LogInformation("Message Body: {body}", message.Body);
+
+        // Complete the message
+        await messageActions.CompleteMessageAsync(message);
+    }
+}
+```
+
+::: zone-end
+
 ### Distributed Tracing Flow
 
 This architecture creates a complete distributed tracing scenario:
 
 1. **First HTTP function** receives an HTTP request and calls the second HTTP function
 2. **Second HTTP function** responds and sends a message to Service Bus
-3. **Service Bus trigger** processes the message with a 5-second delay to simulate processing work
+3. **Service Bus trigger** processes the message with a delay to simulate processing work
 
 Key aspects of the OpenTelemetry implementation:
+
+::: zone pivot="programming-language-python"
 
 + **OpenTelemetry integration**: The `host.json` file enables OpenTelemetry with `"telemetryMode": "OpenTelemetry"`
 + **Function chaining**: The first function calls the second using HTTP requests, creating correlated traces
@@ -155,6 +515,32 @@ Key aspects of the OpenTelemetry implementation:
 + **Anonymous authentication**: The HTTP functions use `auth_level=func.AuthLevel.ANONYMOUS`, so no function keys are required
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-python-azd-otel).
+
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+
++ **OpenTelemetry integration**: The `index.ts` file configures OpenTelemetry with Azure Monitor exporters for traces and logs
++ **Function chaining**: The first function calls the second using axios with automatic trace propagation
++ **Service Bus integration**: The second function outputs to Service Bus using output bindings, which triggers the third function
++ **Managed identity**: All Service Bus connections use managed identity instead of connection strings
++ **Processing simulation**: The 5-second delay in the Service Bus trigger simulates message processing work
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-otel).
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
++ **OpenTelemetry integration**: The `Program.cs` file configures OpenTelemetry with Azure Monitor exporter
++ **Function chaining**: The first function calls the second using HttpClient with OpenTelemetry instrumentation
++ **Service Bus integration**: The second function outputs to Service Bus using output bindings, which triggers the third function
++ **Managed identity**: All Service Bus connections use managed identity instead of connection strings
++ **.NET 8 Isolated Worker**: Uses the latest Azure Functions .NET Isolated Worker model for better performance and flexibility
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-otel).
+
+::: zone-end
 
 After you verify your functions locally, it's time to publish them to Azure.
 
