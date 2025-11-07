@@ -165,8 +165,9 @@ You can configure the API permissions from the [Azure portal](https://portal.azu
 1. Select **Grant admin consent for [Directory Name]** to grant consent for the three requested API permissions (openid, profile, and User.Read) for all accounts in the directory.
 1. Select **Yes** to confirm.
 
-  > [!IMPORTANT]
-  > If you're connecting to a storage account via a private endpoint/private link using Microsoft Entra Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Microsoft Entra application. For instructions, see the entry in our [troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
+If you're connecting to a storage account via a private endpoint/private link using Microsoft Entra Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Microsoft Entra application. For instructions, see our [troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
+
+If you have more than 1,010 security identifiers (SIDs) in a Microsoft Entra group, you might need to take [additional steps](/troubleshoot/windows-server/windows-security/logging-on-user-account-fails) in order to overcome the Kerberos ticket limit.
 
 ## Disable multifactor authentication on the storage account
 
