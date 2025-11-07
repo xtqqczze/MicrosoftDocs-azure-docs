@@ -20,8 +20,11 @@ In this article, you learn how to use premium ingress with Azure Container Apps.
 - Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
+
 ::: zone pivot="bicep"
+
 - Install [Bicep](/azure/azure-resource-manager/bicep/install)
+- 
 :: zone-end
 
 ::: zone pivot="azure-cli"
@@ -226,5 +229,58 @@ azd down
 # View deployment logs
 azd logs
 ```
-
 ::: zone-end
+
+You can configure the ingress for your environment after you create it.
+
+1. Go to your Container Apps environment in the Azure portal.
+
+1. Under *Settings*, select **Networking**.
+
+1. Select the **Ingress settings** tab.
+
+1. Configure your ingress settings according to the following settings.
+
+    | Setting | Value |
+    |---|---|
+    | Ingress Mode| Select **Premium**. |
+    | Workload profile size | Select a size from **D4** to **D32**. |
+    | Minimum node instances | Enter the minimum workload profile node instances. |
+    | Maximum node instances | Enter the maximum workload profile node instances. |
+    | Termination grace period |Enter the termination grace period in minutes. |
+    | Idle request timeout| Enter the idle request time-out in minutes. |
+    | Request header count | Enter the request header count. |
+
+1. Select **Apply**.
+
+## Monitoring and metrics
+Ingress metrics are available via the Azure portal in the Container Apps environment instance. Under *Monitoring*, select **Metrics**. These metrics are available with Default or Premium Ingress enabled. Additional metrics are in progress.
+
+- Ingress CPU Usage
+- Ingress Memory Usage Bytes
+
+Benchmarks show that the ingress can handle around 3000 requests per second per CPU core, but that capacity varies by application usage. Memory only tends to become a bottleneck if the application is receiving requests quicker than  the environment can handle and requests get queued at the ingress layer.
+
+The resources allocated to the ingress in each mode are:
+
+| Mode     | Instances                | CPU                | Memory         | CPU Scale Threshold | Memory Scale Threshold |
+|----------|--------------------------|--------------------|---------------|--------------------|-----------------------|
+| **Default**  | 2-10                     | 1 core             | 2 GB          | 75%                | 50%                   |
+| **Premium**  | One per node (min 2)     | 90% of node cores  | 90% of node memory | 50% of node cores  | 50% of node memory    |
+
+## Clean up resources
+
+If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
+
+> [!CAUTION]
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they'll also be deleted.
+
+```azurecli
+az group delete --name my-container-apps
+```
+
+## Related content
+
+- [Azure CLI reference](/cli/azure/containerapp/env/http-route-config)
+- [Bicep reference](/azure/templates/microsoft.app/2024-10-02-preview/managedenvironments/httprouteconfigs?pivots=deployment-language-bicep)
+- [ARM template reference](/azure/templates/microsoft.app/2024-10-02-preview/managedenvironments/httprouteconfigs?pivots=deployment-language-arm-template)
