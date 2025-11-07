@@ -77,14 +77,14 @@ This how-to guide shows how to add metadata to an integration account artifact. 
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Artifact Type** | Yes | **Schema**, **Map**, **Partner**, **Agreement**, or a custom type | The type for the artifact you want to get |
-   | **Artifact Name** | Yes | <*artifact-name*> | The name for the artifact you want to get |
+   | **artifactName** | Yes | <*artifact-name*> | The name for the artifact you want to get |
+   | **artifactType** | Yes | **Schema**, **Map**, **Partner**, **Agreement**, or a custom type | The type for the artifact you want to get |
+
 
    This example gets the metadata for a trading partner artifact by following these steps:
 
-   1. For **Artifact Type**, select **Partner**.
-
-   1. For **Artifact Name**, click inside the edit box. When the dynamic content list appears, select the **name** output from the trigger.
+   1. For **artifactName**, click inside the edit box. When the dynamic content list appears, select the **name** output from the trigger.
+   1. For **artifactType**, select **Partner**.
 
    :::image type="content" source="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png" alt-text="Screenshot of the 'Integration Account Artifact Lookup' action with the 'Artifact Type' and 'Artifact Name' properties highlighted.":::
 
@@ -98,8 +98,8 @@ This how-to guide shows how to add metadata to an integration account artifact. 
 
    | Property | Required | Value | Description | Example value |
    |----------|----------|-------|-------------|---------------|
+   | **URI** | Yes | <*metadata-location*> | The endpoint where you want to send the outgoing request. | To reference the `routingUrl` metadata value from the artifact that you retrieved, follow these steps: <br><br>1. Click inside the **URI** box. <br><br>2. In the dynamic content list that opens, select **Expression**. <br><br>3. In the expression editor, enter an expression like the following example:<br><br>`outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']` <br><br>4. When you're done, select **Add**. |
    | **Method** | Yes | <*operation-to-run*> | The HTTP operation to run on the artifact. | Use the **GET** method for this HTTP action. |
-   | **URI** | Yes | <*metadata-location*> | The endpoint where you want to send the outgoing request. | To reference the `routingUrl` metadata value from the artifact that you retrieved, follow these steps: <br><br>1. Click inside the **URI** box. <br><br>2. In the dynamic content list that opens, select **Expression**. <br><br>3. In the expression editor, enter an expression like the following example:<br><br>`outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']` <br><br>4. When you're done, select **OK**. |
    | **Headers** | No | <*header-values*> | Any header outputs from the trigger that you want to pass to the HTTP action. | To pass in the `Content-Type` value from the trigger header, follow these steps for the first row under **Headers**: <br><br>1. In the first column, enter `Content-Type` as the header name. <br><br>2. In the second column, use the expression editor to enter the following expression as the header value: <br><br>`triggeroutputs()['headers']['Content-Type']` <br><br>To pass in the `Host` value from the trigger header, follow these steps for the second row under **Headers**: <br><br>1. In the first column, enter `Host` as the header name. <br><br>2. In the second column, use the expression editor to enter the following expression as the header value: <br><br>`triggeroutputs()['headers']['Host']` |
    | **Body** | No | <*body-content*> | Any other content that you want to pass through the HTTP action's `body` property. | To pass the artifact's `properties` values to the HTTP action: <br><br>1. Click inside the **Body** box to open the dynamic content list. If no properties appear, select **See more**. <br><br>2. From the dynamic content list, under **Integration Account Artifact Lookup**, select **Properties**. |
 
