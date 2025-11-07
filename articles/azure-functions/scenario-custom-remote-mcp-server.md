@@ -238,8 +238,8 @@ This project is configured to use the `azd up` command to deploy this project to
 ## Connect to your remote MCP server
 
 Your MCP server is now running in Azure. When you access the tools, you need to include a system key in your request. After you get this key, you can connect GitHub Copilot to your remote server.
-
-::: zone pivot="programming-language-csharp"
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
 1. Run this script that uses `azd` and the Azure CLI to print out both the MCP server URL and the system key (`mcp_extension`) required to access the tools:
 
     ```bash
