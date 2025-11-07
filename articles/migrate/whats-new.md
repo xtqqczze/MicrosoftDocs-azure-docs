@@ -22,7 +22,7 @@ ms.custom: mvc, engagement-fy25
 
   The three new built-in roles are:
   - **[Azure Migrate Owner](prepare-azure-accounts.md#azure-migrate-owner)**: Permissions to perform end-to-end operations across all migration phases (Decide, Plan, and Execute). A user must be assigned the Azure Migrate Owner role or a higher privileged role to create an Azure Migrate project.
-  - **[Azure Migrate Decide & Plan Expert](prepare-azure-accounts.md#azure-migrate-decide--plan-expert)**: Provides limited permissions to perform scoped operations in the Decide and Plan phases of migration.
+  - **[Azure Migrate Decide & Plan Expert](prepare-azure-accounts.md#azure-migrate-decide-and-plan-expert)**: Provides limited permissions to perform scoped operations in the Decide and Plan phases of migration.
   - **[Azure Migrate Execute Expert](prepare-azure-accounts.md#azure-migrate-execute-expert)**: Permissions for executing migrations and monitoring progress during the Execute phase.
 
   This enhanced security model follows Azure security best practices and enables organizations to implement granular access control for their migration teams.
