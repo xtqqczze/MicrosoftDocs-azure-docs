@@ -18,7 +18,21 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (November 2025)
 
-Public preview: Azure Migrate now supports adding code insights using GitHub Copilot assessment to enhance web app assessments. This capability helps you evaluate migration readiness more accurately and get recommend migration strategy for Azure Kubernetes Service (AKS) or Azure App Service. You can add code insights by either uploading a ZIP file of reports or requesting a report through a GitHub connection. [Learn more](add-copilot-code-insights.md).
+Public preview: Wave Planning in Azure Migrate provides a structured approach to cloud migration and modernization. It helps organizations break down large-scale migrations into manageable **waves** of workloads and applications. This capability accelerates timelines, reduces uncertainty, and minimizes risks through phased execution and logical grouping. [Learn more](overview.md).
+
+- Distribute workloads and applications into waves for high-fidelity planning, leveraging Azure Migrate’s discovery and assessment information. 
+
+- Sequence and prioritize migration waves based on business criticality, complexity of applications ensuring efficient and risk-mitigated execution. 
+
+- Visualize execution plans and timelines across all waves, providing clear visibility into migration progress and sequence. 
+ 
+- Execute and centrally track migrations using integrated tools, for example, Server Migration for unified tracking. 
+
+- Monitor progress as migrations proceed, with status updates.
+
+- Support both automated and manual migration scenarios, allowing for flexible execution and tracking regardless of workload type or migration tool. 
+
+Wave Planning in Azure Migrate provides a scalable, transparent, and risk-aware migration experience, enabling organizations to modernize infrastructure with confidence and control. 
 
 ## Update (October 2025)
 
@@ -30,13 +44,13 @@ Notable aspects of the solution:
 - Built-in dashboard view summarizing security risks in discovered Servers and Software.
 - Auto-detects security risks such as unsupported operating systems and software, pending security and critical updates, known vulnerabilities (CVEs) associated with software versions currently in use, and servers lacking security or patch management software.
 - Recommends mitigation strategies for secure migration by configuring Microsoft Defender for Cloud and Azure Update Manager.
-- Highlights fragmentation in security tooling in the environment through [classification](/azure/migrate/how-to-discover-applications) of Security software
+- Highlights fragmentation in security tooling in the environment through [classification](how-to-discover-applications.md#software-classification--potential-targets).
 
 ### Software inventory enhancements
-These following enhancements will help improve the usability of the inventory and assist customers in planning for the migration of these software as part of their overall migration planning for their workloads. [Learn more](how-to-discover-applications.md)
+These following enhancements will help improve the usability of the inventory and assist customers in planning for the migration of this software as part of their overall migration planning for their workloads. [Learn more](how-to-discover-applications.md)
 
 - **Review software discovery across the project:** The enhancement enables users to review the software discovered across all servers, discovered from their datacenter.
-- **Sanitized and classified software inventory:** The software inventory metadata is sanitized and classified into Categories & Subcategories that helps you easily review key software & their insights across categories of Security, Monitoring, IT Management, Web hosting, Data platforms, Business Applications etc.
+- **Sanitized and classified software inventory:** The software inventory metadata is sanitized and classified into Categories & Subcategories that help you easily review key software & their insights across categories of Security, Monitoring, IT Management, Web hosting, Data platforms, Business Applications etc.
 - **Software insights:** In addition to the software metadata you can now find software insights such as Support status and Vulnerabilities for all software discovered from your datacenter.
 - **Potential Azure Targets:** You can also review the list of Potential Targets that have been suggested (mapped to a subcategory of software) to plan the migration of their software to the Azure 1P services or 3P ISV services available as [Azure Native integrations](/azure/partner-solutions/partners) through Azure Marketplace.
 - **Security insights**: These enhancements power key security insights which help customers understand their overall security posture. [Learn more](insights-overview.md)
