@@ -1,29 +1,30 @@
 ---
-title: Azure Government product General Availability (GA)
-description: Overview of Azure Government product availability by authorization level
+title: Azure Government product General Availability (GA) roadmap
+description: Overview of Azure Government product General Availability (GA) by authorization level
 ms.service: azure-government
-ms.topic: overview
+ms.topic: article-concept
 ms.author: russellkirk
 author: krussell09
 recommendations: false
 ms.date: 11/05/2025
 ---
-## Microsoft Azure Government Product Availability 
+# Microsoft Azure Government product General Availability roadmap
 
-Last Update: November 05, 2025
-
-Explore an overview of the Microsoft product portfolio, including Offerings, SKUs, and Features, available in **Microsoft Azure for U.S. Government** and **Microsoft Azure for U.S. Government Secret.**
-
----
-
-#### Detailed Product Availability 
 
 The **Product Availability Roadmap** outlines purchasable Microsoft Azure products across multiple levels. 
+	
+Explore an overview of the Microsoft product portfolio, including Offerings, SKUs, and Features, available in **Microsoft Azure for U.S. Government** and **Microsoft Azure for U.S. Government Secret.**
 
-If a product title includes a colon **:** it denotes a more specific SKU or Feature within a broader Offering, reflecting a distinct capability or purchasable component of the service.
+
+The roadmap below outlines current and upcoming product availability across two dedicated cloud environment designed exclusively for U.S. Government customers and their supporting partners: **Microsoft Azure for U.S. Government** and **Microsoft Azure for U.S. Government Secret. **
 
 
-#### Available at Multiple Compliance Levels
+Both environments were built from the ground up using the same foundational principles and architecture as Azure commercial clouds, while meeting rigorous security and compliance requirements. Products within these clouds are protected and managed in accordance with multiple regulatory standards, including **FedRAMP High and the Department of Defense Security Requirements Guide (DoD SRG) Impact Levels 2, 4, 5, and 6**, as well as other applicable frameworks. 
+
+
+**Microsoft Azure for U.S. Government Secret** is an air-gapped environment designed exclusively U.S. agencies and cleared partners working with data classified at the Secret level. It is fully isolated from public networks and accessible only to authorized personnel under strict access controls. 
+
+## Available at Multiple Compliance Levels
 
 Microsoft products are designed to meet rigorous U.S. Government compliance requirements through formal assessments and authorizations.  
 
@@ -33,23 +34,28 @@ Products in **Azure Government Secret** meet the **DoD Impact Level 6** requirem
 
 For more information on compliance in Azure Government clouds, see **[Azure Government Compliance](https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-plan-compliance)**.
 
----
 
-#### Product Roadmap for Microsoft Azure for U.S. Government and Microsoft Azure for U.S. Government Secret
+## Legend
+	
+| GA Status | Description |
+|---|---|
+|✔ | Currently GA |
+| Awaiting review |GA authorization is submitted.|
+| Forecasted | GA date is set. |
+| Planned | GA is in progress, but no date is set.|
+| Blank | GA is neither in progress, nor is planned.|
 
-The roadmap below outlines current and upcoming product availability across two dedicated cloud environment designed exclusively for U.S. Government customers and their supporting partners: **Microsoft Azure for U.S. Government** and **Microsoft Azure for U.S. Government Secret. **
+>[!NOTE]
+>In the product roadmap table, a colon (:) is used to indicate a hierarchical relationship between offerings. It helps break down broader services into a more specific SKU or feature within a broader offering. Each level after a colon represents a distinct capability or purchasable component within the service.  
+>
+>For example, *App Service : App Service Premium v3 : Windows Containers*, means:
+> -  App Service is the general service category.
+> -  App Service Premium v3 is a specific pricing tier within App Service.
+> -  Windows Containers is a specialized deployment option within the Premium v3 tier
 
 
-Both environments were built from the ground up using the same foundational principles and architecture as Azure commercial clouds, while meeting rigorous security and compliance requirements. Products within these clouds are protected and managed in accordance with multiple regulatory standards, including **FedRAMP High and the Department of Defense Security Requirements Guide (DoD SRG) Impact Levels 2, 4, 5, and 6**, as well as other applicable frameworks. 
+## Product GA Roadmap
 
-
- **Microsoft Azure for U.S. Government Secret** is an air-gapped environment designed exclusively U.S. agencies and cleared partners working with data classified at the Secret level. It is fully isolated from public networks and accessible only to authorized personnel under strict access controls. 
-
----
-
-#### Product Availability
-
-**Legend**: ✔ = GA; ‘Awaiting Review’, ‘Forecasted’, or ‘Planned’ as shown. Blank = not GA.
 
 | Product | Azure Government FedRAMP High | Azure Government DoD IL4 | Azure Government DoD IL5 | Azure Secret DoD IL6 |
 | :--- | :---: | :---: | :---: | :---: |
