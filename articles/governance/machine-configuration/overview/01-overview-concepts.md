@@ -5,7 +5,7 @@ ms.topic: overview
 title: Azure Machine Configuration overview and core concepts
 ---
 
-# Understanding Azure Machine Configuration
+# Azure Machine Configuration: Core Concepts and Overview
 
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
@@ -107,11 +107,11 @@ Machine configuration built-in policy samples are available in the following loc
 <!-- Link reference definitions -->
 [01]: /azure/azure-arc/servers/overview
 [02]: /azure/azure-resource-manager/management/extension-resource-types
-[03]: ./concepts/assignments.md#manually-creating-machine-configuration-assignments
+[03]: ../concepts/assignments.md#manually-creating-machine-configuration-assignments
 [04]: /azure/automanage
-[05]: ./concepts/assignments.md
-[06]: ../policy/assign-policy-portal.md
-[07]: ../policy/how-to/determine-non-compliance.md
+[05]: ../concepts/assignments.md
+[06]: ../../policy/assign-policy-portal.md
+[07]: ../../policy/how-to/determine-non-compliance.md
 [08]: https://youtu.be/t9L8COY-BkM
 [09]: /azure/azure-resource-manager/management/resource-providers-and-types#azure-portal
 [10]: /azure/azure-resource-manager/management/resource-providers-and-types#azure-powershell
@@ -120,7 +120,7 @@ Machine configuration built-in policy samples are available in the following loc
 [14]: /entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm
 [15]: /powershell/dsc/overview
 [16]: https://www.chef.io/inspec/
-[17]: ../policy/how-to/get-compliance-data.md#evaluation-triggers
+[17]: ../../policy/how-to/get-compliance-data.md#evaluation-triggers
 [18]: /azure/virtual-network/manage-network-security-group#create-a-security-rule
 [19]: /azure/virtual-network/service-tags-overview
 [20]: https://www.microsoft.com/download/details.aspx?id=56519
@@ -135,20 +135,19 @@ Machine configuration built-in policy samples are available in the following loc
 [29]: /azure/reliability/cross-region-replication-azure
 [30]: /azure/virtual-machines/availability#availability-sets
 [31]: /azure/site-recovery/site-recovery-overview
-[32]: ../policy/troubleshoot/general.md
-[33]: ./how-to/develop-custom-package/overview.md
-[34]: ./how-to/develop-custom-package/3-test-package.md
+[32]: ../../policy/troubleshoot/general.md
+[33]: ../how-to/develop-custom-package/overview.md
+[34]: ../how-to/develop-custom-package/3-test-package.md
 [35]: /azure/virtual-machines/windows/run-command
 [36]: /azure/virtual-machines/linux/run-command
 [37]: https://github.com/azure/nxtools#getting-started
-[38]: ../policy/samples/built-in-policies.md#guest-configuration
-[39]: ../policy/samples/built-in-initiatives.md#guest-configuration
+[38]: ../../policy/samples/built-in-policies.md#guest-configuration
+[39]: ../../policy/samples/built-in-initiatives.md#guest-configuration
 [40]: https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration
 [41]: https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules
-[42]: ./how-to/develop-custom-package/overview.md
-[43]: ./how-to/create-policy-definition.md
-[44]: ../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration
-[45]: ../policy/overview.md
+[42]: ../how-to/develop-custom-package/overview.md
+[43]: ../how-to/create-policy-definition.md
+[44]: ../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration
+[45]: ../../policy/overview.md
 [46]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration
-[47]: ../policy/concepts/exemption-structure.md
-[46]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration
+[47]: ../../policy/concepts/exemption-structure.md
