@@ -148,16 +148,16 @@ These APIs enable you to automate compliance data collection, integrate results 
 
 <!-- Link reference definitions -->
 [01]: ../../policy/index.yml
-[02]: https://learn.microsoft.com/cli/azure/policy
-[03]: https://learn.microsoft.com/rest/api/policy
+[02]: /cli/azure/policy
+[03]: /rest/api/policy
 [04]: ../index.yml
-[05]: https://learn.microsoft.com/rest/api/guestconfiguration
-[06]: https://learn.microsoft.com/cli/azure/guestconfig
-[07]: https://learn.microsoft.com/powershell/module/az.guestconfiguration/get-azguestconfigurationassignment
+[05]: /rest/api/guestconfiguration
+[06]: /cli/azure/guestconfig
+[07]: /powershell/module/az.guestconfiguration/get-azguestconfigurationassignment
 [08]: ../../resource-graph/index.yml
 [09]: ../../resource-graph/samples/starter.md
-[10]: https://learn.microsoft.com/cli/azure/graph
-[11]: https://learn.microsoft.com/rest/api/azure-resourcegraph
+[10]: /cli/azure/graph
+[11]: /rest/api/azure-resourcegraph
 [12]: ./assign-built-in-policies.md
 [13]: ./assign-security-baselines/deploy-a-baseline-policy-assignment.md
 [14]: ../../policy/how-to/get-compliance-data.md

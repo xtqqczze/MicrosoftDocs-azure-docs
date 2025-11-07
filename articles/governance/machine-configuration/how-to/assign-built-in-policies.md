@@ -106,9 +106,9 @@ After assigning your policy, you can:
 
 <!-- Link reference definitions -->
 [01]: ../../policy/assign-policy-azurecli.md
-[02]: https://learn.microsoft.com/powershell/module/az.policyinsights.md
-[03]: https://learn.microsoft.com/rest/api/policy
-[04]: https://learn.microsoft.com/rest/api/guestconfiguration
+[02]: /powershell/module/az.policyinsights
+[03]: /rest/api/policy
+[04]: /rest/api/guestconfiguration
 [05]: ../../policy/how-to/get-compliance-data.md
 [06]: ./view-compliance.md
 [07]: ./assign-security-baselines/overview-page.md
