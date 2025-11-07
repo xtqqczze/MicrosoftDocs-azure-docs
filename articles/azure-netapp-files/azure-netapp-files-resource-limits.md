@@ -58,11 +58,7 @@ The following table describes resource limits for Azure NetApp Files:
 
 \* [!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
-<<<<<<< HEAD
 \** Extend sizes for [large volumes](large-volumes-requirements-considerations.md) are available on request depending on regional dedicated capacity availability. To explore availability, contact your account team. 
-=======
-\** You can increase the size of your large volume with [breakthrough mode](large-volumes-requirements-considerations.md#requirements-and-considerations-for-breakthrough-mode-preview).
->>>>>>> d72c8d8ea6f2fb78f2248f7b10516c0bab2bea82
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 

@@ -74,22 +74,22 @@ The following requirements and considerations apply to large volumes. For perfor
 
 * Cool access is supported with large volumes. You must be [registered to use cool access](manage-cool-access.md#register-the-feature) before creating a cool access-enabled large volume. 
 
+### Requirements and considerations for breakthrough mode (preview)
 
-#### Requirements and considerations for large volumes up to 7.2 PiB (preview)
+Large volumes breakthrough mode are currently in preview and you must request the feature before using it for the first time. 
 
-<<<<<<< HEAD
-* In some cases, you can create large volume with cool access enabled at sizes between 2,400 GiB and 7.2 PiB.
-  * If you're using the Flexible, Premium, or Ultra service levels, you must also [register to use those service levels with cool access](manage-cool-access.md#register-the-feature).
-* With these large volumes, more than 80% of the data should reside in the cool tier.  
-* If you plan to use cross-region replication for a large volume up to 7.2 PiB, you need to ensure there is sufficient capacity in both regions and that the stamp for large volumes up to 7.2 PiB is on volumes in the source and destination. 
-=======
 * Breakthrough mode large volumes are supported at sizes between 2,400 GiB up to 2,400 TiB (2 PiB). 
 * With breakthrough mode, you can achieve up 50 GiB/s throughput depending on your workload's characteristics and system placement.
 * The [migration assistant](migrate-volumes.md) isn't supported for large volumes with breakthrough mode. 
 * Breakthrough mode is supported on the Flexible, Standard, Premium, and Ultra service levels. 
 * Cool access can only be enabled on large volumes in breakthrough mode _after_ the volume has been created.
 
->>>>>>> d72c8d8ea6f2fb78f2248f7b10516c0bab2bea82
+#### Requirements and considerations for large volumes up to 7.2 PiB (preview)
+
+* In some cases, you can create large volume with cool access enabled at sizes between 2,400 GiB and 7.2 PiB.
+  * If you're using the Flexible, Premium, or Ultra service levels, you must also [register to use those service levels with cool access](manage-cool-access.md#register-the-feature).
+* With these large volumes, more than 80% of the data should reside in the cool tier.  
+* If you plan to use cross-region replication for a large volume up to 7.2 PiB, you need to ensure there is sufficient capacity in both regions and that the stamp for large volumes up to 7.2 PiB is on volumes in the source and destination. 
 
 ## About 64-bit file IDs
 
@@ -163,23 +163,25 @@ Check the status of the feature registration:
     
 You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
 
+### Register for breakthrough mode
+
+To use breakthrough mode with large volumes, you must first register for the feature using the [waitlist form](https://forms.cloud.microsoft/r/P11Zn9zHMY).
+
+Check the status of the feature registration: 
+
+```azurepowershell-interactive
+Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBreakthroughMode 
+```
+
+You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
+
 ### Register for large volumes up to 7.2 PiB
 
-<<<<<<< HEAD
 >[!NOTE]
 >You must be registered to use [large volumes](#register-the-feature) and, if you're using the Flexible, Premium, or Ultra service level, [cool access](manage-cool-access.md#register-the-feature) before registering for the larger volume size. 
 
 Extra large volumes are currently in preview. Submit a waitlist request for access to the feature. 
 <!-- insert waitlist -->
-=======
-To use breakthrough mode with large volumes, you must first register for the feature using the [waitlist form](https://aka.ms/ANFlargevolumebreakthroughmodesignup).
- 
-Check the status of the feature registration: 
-    
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBreakthroughMode 
-```
->>>>>>> d72c8d8ea6f2fb78f2248f7b10516c0bab2bea82
 
 You can check the status of your feature registration with the following command:
 
