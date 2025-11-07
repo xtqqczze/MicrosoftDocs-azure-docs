@@ -12,16 +12,14 @@
     href: create-service-group-rest-api.md
   - name: Add service group members with REST API
     href: create-service-group-member-rest-api.md
-- name: Samples
-  items:
-  - name: Azure Resource Graph queries
-    href: ./resource-graph-samples.md
-- name: How-to guides
-  items:
   - name: How to use service groups to manage resources
     href: manage-service-groups.md
   - name: Manage membership at scale
     href: manage-membership.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Reference
   items:
   - name: Resource Manager templates
