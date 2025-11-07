@@ -221,6 +221,8 @@ Based on the development experience that you use, start by creating a new workfl
 >
 > :::image type="content" source="media/create-conversational-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar and Errors button with red dot and error in the agent action information pane." lightbox="media/create-conversational-agent-workflows/error-missing-agent-settings.png":::
 
+---
+
 ## Connect the agent to your model
 
 Now, create a connection between the agent and your deployed model by following these steps:
