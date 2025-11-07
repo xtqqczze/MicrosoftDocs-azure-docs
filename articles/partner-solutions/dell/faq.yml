@@ -38,7 +38,7 @@ sections:
           Use the Azure portal to view, configure, and manage your Dell PowerScale resource. The **Get Started** tab provides links to Dell documentation, the OneFS portal for deployment and maintenance, and Dell AIOps for observability. For more information, see [Manage your resource](manage.md).
       - question: How do I delete my Dell PowerScale resource?
         answer: |
-          In the Azure portal, select your Dell PowerScale deployment, go to **Overview**, and select **Delete**. Confirm the deletion to permanently remove the resource and associated data. Note that this action isn't reversible. The data contained in the file system is permanently deleted if you delete the resource.
+          For instructions on how to delete a resource, see [Delete a resource](manage.md#delete-a-resource). Note that this action isn't reversible. The data contained in the file system is permanently deleted if you delete the resource.
       - question: Where can I find more documentation and support?
         answer: |
           Visit the Dell documentation hub and support resources for information about configuration, management, and troubleshooting. See [PowerScale for Public Cloud](https://www.dell.com/support/product-details/en-us/product/apex-file-storage-public-cloud/resources/manuals).
