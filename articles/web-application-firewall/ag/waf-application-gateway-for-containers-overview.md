@@ -143,7 +143,7 @@ The following functionality isn't supported on a WAF policy that's associated wi
 - **Captcha challenge actions on Bot Manager rules**: You can't set the action on a Bot Manager rule to Captcha.
 - **Microsoft Security Copilot**: The Security Copilot is not supported on Application Gateway for Containers WAF.
 - **Custom Block Response**: Setting a custom block response in your WAF policy is not supported on Application Gateway for Containers WAF.
-- **X-Forwarded-For Header (XFF)**: Application Gateway for Conatiners WAF does not support the XFF variable in custom rules.
+- **X-Forwarded-For Header (XFF)**: Application Gateway for Containers WAF doesn't support the XFF variable in custom rules.
 
 ## Pricing
 
