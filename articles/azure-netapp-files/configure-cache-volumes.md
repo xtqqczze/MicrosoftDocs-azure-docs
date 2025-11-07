@@ -51,7 +51,7 @@ If you're enabling write-back on the external origin volume:
 
 You can't use cache volumes if the following features are configured on the source or destination: 
 
-#### Unsupoorted features
+#### Unsupported features
 
 The following features can't be used with Azure NetApp Files cache volumes:
 
@@ -143,15 +143,15 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 3.	Monitor if the cache state is available for storage VM peering using a GET request.
 
-    When the `cacheState = VserverPeeringOfferSent`, go to the ONTAP system that contains the external origin volume and execute the `vserver peer show` command until an entry appears where the remote storage VM displays the `<value of the -peer-vserver in the vserverPeeringCommand>`. The peer state shows "pending".
+    When the `cacheState = VserverPeeringOfferSent`, go to the ONTAP system that contains the external origin volume and execute the `vserver peer show` command until an entry appears where the remote storage VM displays the `<value of the -peer-vserver in the vserverPeeringCommand>`. The peer state shows "pending."
 
-    Execute the `vserverPeeringCommand` on the ONTAP system that contains the external origin volume. The peer state should transition to "peered".
-
-    > [!NOTE]
-    > You have 12 minutes after the `cacheState` transitions to `VserverPeeringOfferSent` to complete execution of the `vserverPeeringCommand`. If you don't execute the command within 12 minutes, cache creation fails. You will need to delete the cache volume and initiate a new PUT request.
+    Execute the `vserverPeeringCommand` on the ONTAP system that contains the external origin volume. The peer state should transition to "peered."
 
     > [!NOTE]
-    > If cache volumes are already created using this ONTAP system and the cluster peer was reused, then the existing vserver peer may be reused. If that happens, then step 3 will be skipped and the next step will be executed.
+    > You have 12 minutes after the `cacheState` transitions to `VserverPeeringOfferSent` to complete execution of the `vserverPeeringCommand`. If you don't execute the command within 12 minutes, cache creation fails. You'll need to delete the cache volume and initiate a new PUT request.
+
+    > [!NOTE]
+    > If cache volumes are already created using this ONTAP system and the cluster peer was reused, then the existing vserver peer may be reused. If that happens, you'll skip step three and the next step will be executed.
 
 4.	Complete the cache volume creation.
 
