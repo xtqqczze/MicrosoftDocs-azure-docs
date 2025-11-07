@@ -21,6 +21,9 @@ Use this checklist to reduce _latency_, increase _throughput_, and align with Az
 
 Azure Storage publishes [standard storage account targets](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json) and [Blob Storage targets](scalability-targets.md). These values are called _targets_ rather than _limits_ because some values can be increased upon request. When clients approach or exceed these targets, Azure Storage might throttle requests, which increases latency. Use the checklist in this article to align with targets without sacrificing performance.
 
+> [!NOTE]
+> This article applies only to all clients. For recommendations that apply only to custom applications, review the [Performance checklist for developers](storage-performance-checklist-developers.md). 
+
 ## Performance checklist
 
 > [!div class="checklist"]
@@ -32,8 +35,6 @@ Azure Storage publishes [standard storage account targets](../common/scalability
 > - **Locate data near clients** - Reduce network latency by placing storage accounts in the same Azure region as clients. For non-Azure clients, use a region closer to them. For multiple regions with different data needs, consider using separate storage accounts per region. For shared data, use object replication policies to move data closer to clients. For web content distribution, consider [Azure Front Door](../../frontdoor/front-door-overview.md) CDN.
 >
 > - **Use performance-optimized data transfer tools** - Use AzCopy for bulk transfers with high transfer rates and parallel uploads. See [Get started with AzCopy](../common/storage-use-azcopy-v10.md). For large offline data imports when limited by time, network, or costs, use [Azure Data Box](../../databox/index.yml). 
->
-> - **Optimize custom code** - If you build or maintain a custom application using REST or an Azure Storage SDK, see the [Performance checklist for developers (Azure Blob Storage)](storage-performance-checklist-developers.md).
 >
 > - **Activate high-throughput block blobs** - Configure clients to upload blob or block sizes greater than 4 MiB for standard storage accounts and 256 KiB for premium storage accounts. Larger blob or block sizes automatically activate high-throughput block blobs, which provide high-performance ingest that isn't affected by partition naming.  
 >
