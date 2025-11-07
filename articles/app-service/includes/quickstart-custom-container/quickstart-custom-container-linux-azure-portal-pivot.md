@@ -8,7 +8,7 @@ ms.date: 02/14/2025
 ms.author: cephalin
 ---
 
-In this Quickstart, you learn how to deploy an image from Azure Container Registry to Azure App Service.
+In this quickstart, you learn how to deploy an image from Azure Container Registry to Azure App Service.
 
 [Azure App Service](../../overview.md) on Linux provides predefined application stacks on Linux with support for languages such as .NET, Java, Node.js, and PHP. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure.
 
@@ -117,7 +117,7 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 
 :::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-linux.png" alt-text="Screenshot that shows the deployed application.":::
 
-The App Service app pulls from the container registry each time it starts. If you rebuild your image, just push it to your container registry. The app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
+The App Service app pulls from the container registry each time it starts. If you rebuild your image, push it to your container registry. The app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
 
 ## Clean up resources
 

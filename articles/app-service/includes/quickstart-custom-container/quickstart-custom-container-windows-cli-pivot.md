@@ -18,11 +18,11 @@ Custom Windows containers don't have these restrictions. Developers can use cust
 Here's what you need to get started:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- The [Azure CLI](/cli/azure/install-azure-cli)
+- The [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Connect to Azure
 
-Sign into your Azure account by using the [`az login`](/cli/azure/authenticate-azure-cli) command and following the prompt:
+Sign in to your Azure account. Use the [`az login`](/cli/azure/authenticate-azure-cli) command and follow the prompt:
 
 ```bash
 az login

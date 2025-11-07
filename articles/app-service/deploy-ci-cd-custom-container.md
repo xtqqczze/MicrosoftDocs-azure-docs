@@ -49,7 +49,7 @@ This article explains how to configure continuous integration and continuous del
 1. To deploy a multi-container (Docker Compose) app, select **Docker Compose** in **Container Type**. If you don't see the **Container Type** dropdown list, scroll back up to **Source** and select **Container Registry**.
 ::: zone-end
 
-1. In **Registry source**, select the location of your container registry. If it's not Azure Container Registry or Docker Hub, select **Private registry**.
+2. In **Registry source**, select the location of your container registry. If it's not Azure Container Registry or Docker Hub, select **Private registry**.
 
 ::: zone pivot="container-linux"
 > [!NOTE]

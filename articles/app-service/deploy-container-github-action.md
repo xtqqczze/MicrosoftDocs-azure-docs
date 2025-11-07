@@ -64,8 +64,11 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 # [Service principal](#tab/service-principal)
 
 1. Create a Microsoft Entra application with a service principal by using the [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal), the [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
+
 1. Create a client secret for your service principal by using the [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret), the [Azure CLI](/cli/azure/azure-cli-sp-tutorial-2?branch=main#create-a-service-principal-containing-a-password), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?#password-based-authentication).
+
 1. Copy the values for **Client ID**, **Client Secret**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+
 1. Assign an appropriate role to your service principal by using the [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#assign-a-role-to-the-application), the [Azure CLI](/cli/azure/azure-cli-sp-tutorial-5#create-or-remove-a-role-assignment), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#manage-service-principal-roles).
 
 # [OpenID Connect](#tab/openid)
@@ -77,15 +80,21 @@ To use the [Azure Login action](https://github.com/marketplace/actions/azure-log
 ## Option 1: Use a Microsoft Entra application
 
 1. Create a Microsoft Entra application with a service principal by using the [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal), the [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
+
 1. Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+
 1. Assign an appropriate role to your service principal by using the [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#assign-a-role-to-the-application), the [Azure CLI](/cli/azure/azure-cli-sp-tutorial-5#create-or-remove-a-role-assignment), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#manage-service-principal-roles).
+
 1. [Configure a federated identity credential on a Microsoft Entra application](/entra/workload-id/workload-identity-federation-create-trust) to trust tokens that GitHub Actions issues to your GitHub repository.
 
 ## Option 2: Use a user-assigned managed identity
 
 1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+
 1. Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+
 1. [Assign an appropriate role to your user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#manage-access-to-user-assigned-managed-identities).
+
 1. [Configure a federated identity credential on a user-assigned managed identity](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity) to trust tokens that GitHub Actions issues to your GitHub repository.
 
 ---
@@ -132,9 +141,9 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
     |GitHub secret  | Active Directory application  |
     |---------|---------|
-    |AZURE_CLIENT_ID     |      Application (client) ID   |
-    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
-    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
+    |`AZURE_CLIENT_ID`     |      Application (client) ID   |
+    |`AZURE_TENANT_ID`     |     Directory (tenant) ID    |
+    |`AZURE_SUBSCRIPTION_ID`     |     Subscription ID    |
 
 1. Save each secret by selecting **Add secret**.
 
@@ -262,10 +271,10 @@ To deploy your image to a custom container in App Service, use the `azure/webapp
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
-| `app-name` | (Required) Name of the App Service app |
-| `publish-profile` | (Optional) Used with web apps (Windows and Linux) and web app containers (Linux). Multi-container scenario not supported. Publish profile `\*.publishsettings` file contents with Web Deploy secrets. |
+| `app-name` | (Required) Name of the App Service app. |
+| `publish-profile` | (Optional) Used with web apps (Windows and Linux) and web app containers (Linux). Multi-container scenario not supported. Publish profile `\*.publishsettings` file contents with web deploy secrets. |
 | `slot-name` | (Optional) Enter an existing slot other than the production slot. |
-| `package` | (Optional) Used only with web apps: Path to package or folder. `\*.zip`, `\*.war`, `\*.jar`, or a folder to deploy |
+| `package` | (Optional) Used only with web apps: Path to package or folder. `\*.zip`, `\*.war`, `\*.jar`, or a folder to deploy. |
 | `images` | (Required) Used only with web app containers: Specify the fully qualified container image name. For example, `myregistry.azurecr.io/nginx:latest` or `python:3.7.2-alpine/`. For a multi-container app, multiple container image names can be provided (multi-line separated). |
 | `configuration-file` | (Optional) Used only with web app containers: Path of the Docker Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container apps. |
 | `startup-command` | (Optional) Enter the startup command. For example: `dotnet run` or `dotnet filename.dll`. |

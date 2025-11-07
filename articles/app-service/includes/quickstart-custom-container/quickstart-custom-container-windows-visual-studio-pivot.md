@@ -17,9 +17,9 @@ Custom Windows containers don't have these restrictions. Developers can use cust
 
 Here's what you need to get started:
 
-- [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
-- [Switch Docker to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
-- [Install Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads. In *Visual Studio 2022 Community*, ensure that you select the **.NET Framework project and item templates** component with **ASP.NET and web development workload**.
+- [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/).
+- [Switch Docker to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-10).
+- [Install Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads. In **Visual Studio 2022 Community**, ensure that you select the **.NET Framework project and item templates** component with **ASP.NET and web development workload**.
 
 If you already installed Visual Studio 2022:
 
@@ -46,7 +46,7 @@ Create an ASP.NET web app by following these steps:
 
    :::image type="content" source="../../media/quickstart-custom-container/select-mvc-template-for-container.png" alt-text="Screenshot that shows the create ASP.NET Web Application dialog box.":::
 
-1. If the `Dockerfile` file doesn't automatically open, open it by selecting **Solution Explorer**.
+1. If the Dockerfile doesn't automatically open, open it by selecting **Solution Explorer**.
 
 1. You need a [supported parent image](../../configure-custom-container.md#supported-parent-images). Change the parent image by replacing the `FROM` line with the following code, and then save the file:
 
@@ -177,7 +177,7 @@ To update locally and redeploy, follow these steps:
 
    :::image type="content" source="../../media/quickstart-custom-container/portal-restart-app.png" alt-text="Screenshot that shows App Service Overview with the Restart button highlighted.":::
 
-1. [Browse to the custom container](#browse-to-the-custom-container) again. As you refresh the page, the app should first revert to the *Starting up* page. It should then display the updated page.
+1. Browse again [to the custom container](#browse-to-the-custom-container). As you refresh the page, the app should first revert to the *Starting up* page. It should then display the updated page.
 
    :::image type="content" source="../../media/quickstart-custom-container/azure-web-app-updated.png" alt-text="Screenshot that shows the updated web app in Azure.":::
 

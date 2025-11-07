@@ -100,7 +100,7 @@ Use the following steps to configure your web app to pull from Azure Container R
    - *\<principal-id>* with the service principal ID from the `az webapp identity assign` command
    - *\<registry-resource-id>* with the ID of your container registry from the `az acr show` command
 
-   For more information about these permissions, see [What is Azure role-based access control](../role-based-access-control/overview.md).
+   For more information about these permissions, see [What is Azure role-based access control?](../role-based-access-control/overview.md).
 
 1. Configure your app to use the managed identity to pull from Azure Container Registry.
 
@@ -113,7 +113,7 @@ Use the following steps to configure your web app to pull from Azure Container R
    - *\<app-name>* with the name of your web app.
 
    > [!TIP]
-   > If you use PowerShell console to run the commands, escape the strings in the `--generic-configurations` argument in this step and the next step. For example: `--generic-configurations '{\"acrUseManagedIdentityCreds\": true'`
+   > If you use PowerShell console to run the commands, escape the strings in the `--generic-configurations` argument in this step and the next step. For example: `--generic-configurations '{\"acrUseManagedIdentityCreds\": true'`.
 
 1. (Optional) If your app uses a [user-assigned managed identity](overview-managed-identity.md#add-a-user-assigned-identity), make sure the identity is configured on the web app and then set the `acrUserManagedIdentityID` property to specify its client ID:
 
@@ -190,7 +190,7 @@ See a [full example](https://github.com/azureossd/docker-container-ssh-examples/
 If your app uses images from a private registry or from Docker Hub, the credentials you use to access the repository are saved in environment variables: `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME`, and `DOCKER_REGISTRY_SERVER_PASSWORD`. Because of security risks, none of these reserved variable names are exposed to the application.
 
 ::: zone pivot="container-windows"
-For Internet Information Services (IIS)- or .NET Framework- (4.0 or later) based containers, credentials are automatically injected into `System.ConfigurationManager` as .NET app settings and connection strings by App Service. For all other languages or frameworks, they're provided as environment variables for the process, with one of the following prefixes:
+For Internet Information Services (IIS) or .NET Framework (4.0 or later) containers, credentials are automatically injected into `System.ConfigurationManager` as .NET app settings and connection strings by App Service. For all other languages or frameworks, they're provided as environment variables for the process, with one of the following prefixes:
 
 - `APPSETTING_`
 - `SQLCONTR_`
@@ -270,7 +270,7 @@ The front ends are located inside Azure data centers. If you use TLS with your a
 
  During the container start, keys are automatically generated and injected into the container as the machine keys for ASP.NET cryptographic routines. You can [find these keys in your container](#connect-to-the-container) by looking for the following environment variables: `MACHINEKEY_Decryption`, `MACHINEKEY_DecryptionKey`, `MACHINEKEY_ValidationKey`, and `MACHINEKEY_Validation`.
 
-The new keys generated during each restart might reset ASP.NET forms authentication and view state, if your app depends on them. To prevent the automatic regeneration of keys, [set them manually as App Service app settings](#configure-environment-variables).
+The new keys that generate during each restart might reset ASP.NET forms authentication and view state, if your app depends on them. To prevent the automatic regeneration of keys, [set them manually as App Service app settings](#configure-environment-variables).
 
 ## Connect to the container
 
@@ -293,7 +293,7 @@ You can access Docker logs in several ways:
 
 ### In the Azure portal
 
-Docker logs are displayed in the Azure portal, in the **Container Settings** pane of your app. The logs are truncated. To download all the logs, select **Download**.
+Docker logs are displayed in the Azure portal in the **Container Settings** pane of your app. The logs are truncated. To download all the logs, select **Download**.
 
 ### From Kudu
 
@@ -336,7 +336,7 @@ In PowerShell, use the following command:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITE_MEMORY_LIMIT_MB"=2000}
 ```
 
-The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8 GB of RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps can't exceed 8 GB. For more information on how much memory is available, see Premium v3 service plan in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/).
+The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8 GB of RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps can't exceed 8 GB. For more information on how much memory is available, see the Premium v3 service plan in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 ## Customize the number of compute cores
 
@@ -362,7 +362,7 @@ Get-ComputerInfo | ft CsNumberOfLogicalProcessors # Total number of enabled logi
 Get-ComputerInfo | ft CsNumberOfProcessors # Number of physical processors.
 ```
 
-The processors might be multicore or hyper-threading processors. To find out how many cores are available, see Premium v3 service plan in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/).
+The processors might be multicore or hyper-threading processors. To find out how many cores are available, see the Premium v3 service plan in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 ## Customize health ping behavior
 
@@ -421,8 +421,8 @@ You can use Secure Shell (SSH) to remotely run administrative commands from a co
    > This file configures OpenSSH and must include the following items to comply with the Azure portal SSH feature:
    >
    > - The `Port` value must be set to `2222`.
-   > - The `Ciphers` values must include at least one item in this list: `aes128-cbc,3des-cbc,aes256-cbc`.
-   > - The `MACs` values must include at least one item in this list: `hmac-sha1,hmac-sha1-96`.
+   > - The `Ciphers` values must include at least one item in this list: `aes128-cbc`, `3des-cbc`, or `aes256-cbc`.
+   > - The `MACs` values must include at least one item in this list: `hmac-sha1` or `hmac-sha1-96`.
 
 1. Create an entrypoint script named `entrypoint.sh` or change any existing entrypoint file. Add the command to start the SSH service, along with the application startup command. The following example demonstrates starting a Python application. Replace the last command according to the project language or stack:
 
@@ -489,7 +489,7 @@ You can use Secure Shell (SSH) to remotely run administrative commands from a co
 
 1. Rebuild and push the Docker image to the registry, and then test the **Web App SSH** feature in the Azure portal.
 
-For more troubleshooting information, see the Azure App Service blog: [Enable SSH on a Linux web app for containers](https://azureossd.github.io/2022/04/27/2022-Enabling-SSH-on-Linux-Web-App-for-Containers/index.html#troubleshooting)
+For more troubleshooting information, see the Azure App Service blog: [Enable SSH on a Linux web app for containers](https://azureossd.github.io/2022/04/27/2022-Enabling-SSH-on-Linux-Web-App-for-Containers/index.html#troubleshooting).
 
 ## Access diagnostic logs
 
@@ -539,7 +539,7 @@ Multi-container is currently in preview. The following App Service platform feat
 
 ### Docker Compose options
 
-The following lists show supported and unsupported Docker Compose configuration options:
+The following sections show supported and unsupported Docker Compose configuration options.
 
 #### Supported options
 
@@ -559,7 +559,7 @@ The following lists show supported and unsupported Docker Compose configuration 
 - Networks (ignored)
 - Secrets (ignored)
 - Ports other than `80` and `8080` (ignored)
-- Default environment variables like `$variable and ${variable}` (unlike in Docker)
+- Default environment variables like `$variable` and `${variable}` (unlike in Docker)
 
 #### Syntax limitations
 
@@ -578,13 +578,6 @@ The following lists show supported and unsupported Docker Compose configuration 
 ## Related content
 
 - [Tutorial: Migrate custom software to Azure App Service by using a custom container](tutorial-custom-container.md)
-- [Environment variables and app settings reference](reference-app-settings.md)
-- [Load certificates in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers)
-
-::: zone pivot="container-linux"
-
 - [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md)
 - [Environment variables and app settings reference](reference-app-settings.md)
 - [Load certificates in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers)
-
-::: zone-end
