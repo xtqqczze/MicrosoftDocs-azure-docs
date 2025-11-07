@@ -83,13 +83,12 @@ To set up your IoT Hub with ADR integration and certificate management, you can 
 
 At this point, your IoT Hub with ADR integration and certificate management is set up and ready to use. You can now start onboarding your IoT devices to the hub using the Device Provisioning Service (DPS) instance and manage your IoT devices securely using the policies and enrollments you have set up.
 
-**New**: Certificate management is now supported in select DPS Device SDKs:
+**New**: Certificate management is now supported across select DPS Device SDKs:
 
 - Embedded C:
-    - Bare metal: [Sample](https://github.com/Azure/azure-sdk-for-c/blob/feature/dps-csr-20250701-private-preview/sdk/samples/iot/paho_iot_provisioning_csr_sample.c)
-    - Free RTOS: [Sample](https://github.com/Azure-Samples/iot-middleware-freertos-samples/tree/feature/dps-csr-20250701-private-preview/demos/projects/PC/linux)
-- C: [Sample](https://github.com/Azure/azure-iot-sdk-c/tree/feature/dps-csr-20250701-private-preview/provisioning_client/samples/prov_dev_client_ll_x509_csr_sample
-)
-- Python: [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/feature/dps-csr-20250701-private-preview/azure-iot-device/samples/dps-cert-mgmt/provisioning_client_certificate_issuance.py)
+    - Bare metal: [Sample](Https://github.com/Azure/azure-sdk-for-c/blob/feature/dps-csr-preview/sdk/samples/iot/paho_iot_provisioning_csr_sample.c)
+    - Free RTOS: [Sample](https://github.com/Azure-Samples/iot-middleware-freertos-samples/tree/feature/dps-csr-preview/demos/projects/PC/linux)
+- C: [Sample](https://github.com/Azure/azure-iot-sdk-c/tree/feature/dps-csr-preview/provisioning_client/samples/prov_dev_client_ll_x509_csr_sample)
+- Python: [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/feature/dps-csr-preview/azure-iot-device/samples/dps-cert-mgmt/provisioning_client_certificate_issuance.py)
 
 For more information on how to onboard devices using the DPS Device SDKs, check out some the other [samples](../iot-dps/libraries-sdks.md#device-sdks). 
