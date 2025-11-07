@@ -25,11 +25,18 @@ In this article, you learn how to configure dev center imaging for your developm
 To complete the steps in this article, you need:
 
 - A dev center with an existing dev box definition and network connection. If you don't have a dev center, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create it.
-- A team customization file that you want to use to create a dev box. If you don't have a customization file, see [Write a customization file for a dev box](./how-to-write-customization-file.md).
+- A team customization file that you want to use to create a dev box. If you don't have a customization file, see [Configure team customizations](how-to-configure-team-customizations.md).
 
 ## Permissions required to configure customizations
   
-[!INCLUDE [permissions-for-customizations](includes/permissions-for-customizations.md)]
+To perform the required actions for creating and applying customizations to a dev box, you need the following permissions:
+
+| Action | Permission/Role |
+| --- | --- |
+| Enable project-level catalogs for a dev center. | Platform engineer with write access on the subscription. |
+| Enable catalog sync settings for a project. | Platform engineer with write access on the subscription. |
+| Attach a catalog to a project. | Project Admin or Contributor permissions on the project. |
+| Add tasks to a catalog. | Permission to add to the repository that hosts the catalog. |
 
 To manage a dev box pool, you need the following permissions:
 
@@ -39,7 +46,7 @@ To manage a dev box pool, you need the following permissions:
 
 ## Enable project-level catalogs
 
-To attach a catalog to a project, you must enable project-level catalogs. For more information, see [Configure project-level catalogs](https://aka.ms/deployment-environments/project-catalog).
+To attach a catalog to a project, you must enable project-level catalogs. For more information, see [Add and manage catalogs in Microsoft Dev Box](how-to-configure-catalog.md).
 
 ## Configure catalog sync settings for the project
 
@@ -156,7 +163,7 @@ You can make adjustments to the customization file and create a new dev box to t
 
 You can build an image from the customization file to create a reusable image for your team. This image applies to all dev boxes created from the pool. The DevCenter service creates a dev box behind the scenes, applies your customizations, and exports the resulting image to an Azure Compute Gallery in a managed resource group.
 
-There are two ways to build images: automatic or manual. By default, images are automatically built whenever a new image definition is detected or an existing one is updated. To control when images are built, disable automatic image builds and manually trigger builds. For more information, see [Configure automatic image builds](#configure-automatic-image-builds).
+There are two ways to build images: automatic or manual. By default, images are automatically built whenever a new image definition is detected or an existing one is updated. To control when images are built, you can disable automatic image builds and manually trigger builds.
 
 ### Configure automatic image builds
 
@@ -178,7 +185,7 @@ By default, images are automatically built for catalogs containing image definit
 
 1. Select **Save** to apply your changes.
  
-:::image type="content" source="media/how-to-configure-dev-center-imaging/dev-box-add-catalog-auto-build-image.png" alt-text="Screenshot showing the automatically build an image option in catalog settings.":::
+   :::image type="content" source="media/how-to-configure-dev-center-imaging/dev-box-add-catalog-auto-build-image.png" alt-text="Screenshot showing the automatically build an image option in catalog settings.":::
 
 #### Disable automatic image builds during catalog creation
 
@@ -202,15 +209,23 @@ By default, images are automatically built for catalogs containing image definit
 
 1. Clear the **Automatically build an image** checkbox to disable automatic image builds for this catalog.
 
-   :::image type="content" source="media/how-to-configure-dev-center-imaging/dev-box-add-catalog-auto-build-image.png" alt-text="Screenshot showing the automatically build an image option in catalog settings.":::
-
 1. Select **Add** to create the catalog.
 
 When automatic image builds are disabled, you must manually trigger image builds when you want to create or update reusable images from your image definitions.
 
 ### Build an image manually
 
-During the image build process, Dev Box creates a temporary storage account in your subscription to store a snapshot. This storage account doesn't allow anonymous blob access and can only be accessed by identities with Storage Blob Reader access. The storage account must be accessible from public networks so the Dev Box service can export your snapshot. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription your DevCenter project is in.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box, enter **dev centers** or **projects**. In the list of results, select the appropriate resource type.
+
+1. Open the dev center or project that contains the catalog you want to configure.
+
+1. On the left menu, select **Catalogs**.
+
+1. From the list of catalogs, select the catalog that contains image definitions.
+
+1. On the catalog details page, select **Image definitions**.
 
 1. On the **Image definitions** pane, select the image that you want to build.
 
@@ -223,6 +238,8 @@ During the image build process, Dev Box creates a temporary storage account in y
 1. Track the build progress in the **Status** column.
 
    :::image type="content" source="./media/how-to-configure-dev-center-imaging/customizations-image-build-progress-small.png" alt-text="Screenshot of the pane that lists image definitions, with the in-progress status highlighted for a selected image definition." lightbox="./media/how-to-configure-dev-center-imaging/customizations-image-build-progress.png":::  
+
+During the image build process, Dev Box creates a temporary storage account in your subscription to store a snapshot. This storage account doesn't allow anonymous blob access and can only be accessed by identities with Storage Blob Reader access. The storage account must be accessible from public networks so the Dev Box service can export your snapshot. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription your DevCenter project is in.
 
 > [!IMPORTANT]
 > The dev box created during image optimization is connected to a virtual network that Microsoft manages. Tasks that require access to on-premises resources might fail.
