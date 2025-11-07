@@ -5,8 +5,9 @@ description: Describes how to protect your Azure Virtual Machines having high ch
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 11/04/2025
+ms.date: 11/07/2025
 ms.author: v-gajeronika
+ms.custom: references_regions 
 # Customer intent: As a cloud administrator, I want to enable High Churn support for Azure Virtual Machines, so that I can effectively protect high churning workloads and achieve better disaster recovery performance.
 ---
 
@@ -112,12 +113,12 @@ The following table summarizes Site Recovery limits:
 >- You can only enable High Churn only when you enable replication while configuring Azure Site Recovery on a virtual machine.
 >- If you want to enable High Churn support for virtual machines already protected by Azure Site Recovery, disable replication for those virtual machines and select **High Churn** while enabling replication again. Similarly, disable and enable replication again to switch back to **Normal Churn**.
 
-## Cost Implications  
+## Cost implications  
 
 - **High Churn** uses *Premium Block Blob* storage accounts, which may have higher cost implications as compared to **Normal Churn** which uses *Standard* storage accounts. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 - For High churn virtual machines, more data changes may get replicated to target for **High churn** compared to **Normal churn**. This may lead to more network cost.
 
-## Enhanced Churn Support up to 500 MB/s per VM (preview)
+## Enhanced Churn support up to 500 MB/s per VM (preview)
 
 - **Enhanced Churn Support**: With Azure Site Recovery, you can now protect workloads with churn (data change) rates up to 250 MB/s per disk and upto 500 MB/s per VM. This allows increased flexibility, makes it easier to run high throughput, demanding workloads while ensuring their protection. 
 
@@ -125,19 +126,19 @@ The following table summarizes Site Recovery limits:
 
 - **Updated Disk performance limits**: Based on the disk size of your replicated disks, the [supported churn](#updated-limits-by-source-disk-size-and-io-size) changes. 
 
-### Support Matrix 
+### Support matrix 
 
 - **Scenario**: This is only for Azure-to-Azure disaster recovery scenario. 
 - **Region availability**: This capability is currently available in [selected Azure regions](#region-availability).
-- **RAM**: Azure VM must have RAM of 256 GB or more to support churn up to 500 MB/s. If RAM is less than 256 GB, churn limit will be 100 MB/s. ASR reserves up to 6.25% of RAM, maximum of 16 GB. 
+- **RAM**: Azure VM must have RAM of 256 GB or more to support churn up to 500 MB/s. If RAM is less than 256 GB, churn limit will be 100 MB/s. Site Recovery reserves up to 6.25% of RAM, maximum of 16 GB. 
 - **Operating System**: Windows. Linux – RHEL 9, SLES 15, Ubuntu 24.04. 
 - **Disk size**: Churn limit is based on [source disk type and size](#updated-limits-by-source-disk-size-and-io-size).
-- **Networking and CPU** – Ensure there is enough networking and CPU on Azure VM for ASR to be able to replicate data changes from the source.
+- **Networking and CPU** – Ensure there is enough networking and CPU on Azure VM for Site Recovery to be able to replicate data changes from the source.
 
 >[!NOTE]
->If you already have an Azure VM protected using Azure Site Recovery High Churn option before to this Preview, its churn limit will be 100 MB/s only even if it is meeting all support requirements. If you want to get churn support up to 500 MB/s (Preview), you need to disable ASR and re-enable ASR with **High Churn** option as documented [here](#enable-preview). 
+>If you already have an Azure VM protected using Azure Site Recovery High Churn option before to this Preview, its churn limit will be 100 MB/s only even if it is meeting all support requirements. If you want to get churn support up to 500 MB/s (Preview), you need to disable Site Recovery and re-enable Site Recovery with **High Churn** option as documented [here](#enable-preview). 
 
-#### Updated Limits by Source Disk size and IO Size 
+#### Updated limits by Source disk size and IO size 
 
 Source Disk must be of Premium v1 SSD or Premium v2 or Ultra disk type.
 
@@ -156,7 +157,7 @@ Source Disk must be of Premium v1 SSD or Premium v2 or Ultra disk type.
 >[!NOTE]
 >The maximum churn supported in Public Preview is **500 MB/s per VM**, but actual limits depend on the disk size and type for the source disks. 
 
-### Region Availability
+### Region availability
 
 Source region and target region must be in the following regions only. 
 
@@ -174,7 +175,7 @@ Enhanced churn support for 500 MB/s is currently available in the following regi
 - Australia East
 - Australia Southeast 
 
-### Enable Preview 
+### Enable preview 
 
 Use the same configuration steps as documented [here](/azure/site-recovery/concepts-azure-to-azure-high-churn-support#enable-high-churn-support) and select High Churn. 
 
