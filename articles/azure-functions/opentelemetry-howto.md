@@ -87,7 +87,7 @@ Azure Functions supports any environment variables defined in the [OpenTelemetry
 + Provider-specific environment variables
 + Any additional setup steps
 
-Add all required environment variables as [application settings](functions-reference.md#environment-variables) in your function app.
+Add all required environment variables as application settings in your function app.
 
 You should remove the `APPLICATIONINSIGHTS_CONNECTION_STRING` setting, unless you also want OpenTelemetry output from the host sent to Application Insights. 
 
