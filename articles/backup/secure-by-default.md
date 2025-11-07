@@ -117,7 +117,7 @@ When you restore a soft-deleted backup item, it becomes active again, and standa
 
 ## API Considerations for soft delete
 
-Secure by default with soft delete is now enabled by default with the latest API versions during public preview for Recovery Services Vault and Backup Vault. 
+Secure by default with soft delete is now enabled by default with the latest API versions during preview for Recovery Services vault and Backup vault. 
 
 >[!Note]
 >You can still use older API versions to immediately disable soft delete and delete backup items, if required. However, only the new API version behaviour (similar to Azure Portal) will be allowed once the feature reaches General Availability (GA).
