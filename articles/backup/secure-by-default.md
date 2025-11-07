@@ -23,7 +23,7 @@ Secure by default with soft delete for Azure Backup allows you to recover your b
 ## Supported scenarios
 - Soft delete is now enforced by default, and soft delete state can no longer be modified from the Azure portal. This enforcement ensures reliable recovery from any accidental or malicious deletions.
 - Secure by default with soft delete for Recovery Services Vaults is available in public preview in all Azure public regions.
-- Secure by default with soft delete for Backup Vaults is available in public preview in selected regions: Australia East, West Central US, East Asia.
+- Secure by default with soft delete for Backup vaults is available in preview in selected regions: Australia East, West Central US, East Asia.
 - With secure by default, soft delete is also applied at the vault level. When a vault is deleted, it automatically transitions into a soft-deleted state, enabling recovery if required.
 
 ## What's soft delete?
