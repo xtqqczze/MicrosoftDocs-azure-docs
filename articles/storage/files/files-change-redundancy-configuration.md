@@ -330,7 +330,7 @@ The following table lists the redundancy options available for storage account t
 | SSD provisioned v1 | &#x2705; | &#x2705; | &#x2705; | &#x2705; <sup>1</sup> | &#x2705; |
 | HDD pay-as-you-go | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 
-<sup>1</sup> Customer-initiated conversion can be undertaken using [Azure Portal](../common/redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](../common/redundancy-migration.md?tabs=powershell#customer-initiated-conversion) or the [Azure CLI](../common/redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
+<sup>1</sup> Customer-initiated conversion can be undertaken using [Azure portal](../common/redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](../common/redundancy-migration.md?tabs=powershell#customer-initiated-conversion) or the [Azure CLI](../common/redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
 
 ### Protocol support
 
