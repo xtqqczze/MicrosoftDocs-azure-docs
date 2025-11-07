@@ -6,15 +6,18 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: concept-article
-ms.date: 10/30/2025
+ms.date: 11/06/2025
 ms.author: anfdocs
 # Customer intent: As a storage administrator, I want to review the requirements and limitations of large volumes in Azure NetApp Files, so that I can effectively plan the deployment and management of storage solutions to meet my organization's data capacity and performance needs.
 ---
 # Requirements and considerations for Azure NetApp Files large volumes
 
-Large volumes are Azure NetApp Files volumes with a size of 50 TiB to 1,024 TiB. With cool access enabled, large volumes can scale to 7.2 PiB in certain situations; for more information, see [large volumes up to 7.2 PiB](#requirements-and-considerations-for-large-volumes-up-to-72-pib-preview).
+Large volumes are Azure NetApp Files volumes with a size of 50 TiB to 1,024 TiB.
 
-This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
+With breakthrough mode, you can create large volumes at sizes between 2,400 GiB and 2,400 TiB. You must [request the feature](#register-for-breakthrough-mode) before using it for the first time. With cool access enabled, large volumes can scale to 7.2 PiB in certain situations; for more information, see [large volumes up to 7.2 PiB](#requirements-and-considerations-for-large-volumes-up-to-72-pib-preview).
+
+There are requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
+Azure NetApp Files support [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) at sizes between 50 TiB and 1,024 TiB.
 
 ## Requirements and considerations
 
@@ -74,10 +77,19 @@ The following requirements and considerations apply to large volumes. For perfor
 
 #### Requirements and considerations for large volumes up to 7.2 PiB (preview)
 
+<<<<<<< HEAD
 * In some cases, you can create large volume with cool access enabled at sizes between 2,400 GiB and 7.2 PiB.
   * If you're using the Flexible, Premium, or Ultra service levels, you must also [register to use those service levels with cool access](manage-cool-access.md#register-the-feature).
 * With these large volumes, more than 80% of the data should reside in the cool tier.  
 * If you plan to use cross-region replication for a large volume up to 7.2 PiB, you need to ensure there is sufficient capacity in both regions and that the stamp for large volumes up to 7.2 PiB is on volumes in the source and destination. 
+=======
+* Breakthrough mode large volumes are supported at sizes between 2,400 GiB up to 2,400 TiB (2 PiB). 
+* With breakthrough mode, you can achieve up 50 GiB/s throughput depending on your workload's characteristics and system placement.
+* The [migration assistant](migrate-volumes.md) isn't supported for large volumes with breakthrough mode. 
+* Breakthrough mode is supported on the Flexible, Standard, Premium, and Ultra service levels. 
+* Cool access can only be enabled on large volumes in breakthrough mode _after_ the volume has been created.
+
+>>>>>>> d72c8d8ea6f2fb78f2248f7b10516c0bab2bea82
 
 ## About 64-bit file IDs
 
@@ -153,11 +165,21 @@ You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to re
 
 ### Register for large volumes up to 7.2 PiB
 
+<<<<<<< HEAD
 >[!NOTE]
 >You must be registered to use [large volumes](#register-the-feature) and, if you're using the Flexible, Premium, or Ultra service level, [cool access](manage-cool-access.md#register-the-feature) before registering for the larger volume size. 
 
 Extra large volumes are currently in preview. Submit a waitlist request for access to the feature. 
 <!-- insert waitlist -->
+=======
+To use breakthrough mode with large volumes, you must first register for the feature using the [waitlist form](https://aka.ms/ANFlargevolumebreakthroughmodesignup).
+ 
+Check the status of the feature registration: 
+    
+```azurepowershell-interactive
+Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBreakthroughMode 
+```
+>>>>>>> d72c8d8ea6f2fb78f2248f7b10516c0bab2bea82
 
 You can check the status of your feature registration with the following command:
 

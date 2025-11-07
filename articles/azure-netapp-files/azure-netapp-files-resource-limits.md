@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 06/10/2025
+ms.date: 11/05/2025
 ms.author: anfdocs
 # Customer intent: As an IT administrator managing Azure NetApp Files, I want to understand the resource limits and how to request limit increases, so that I can effectively plan and allocate storage resources for my organization’s needs.
 ---
@@ -36,7 +36,7 @@ The following table describes resource limits for Azure NetApp Files:
 | Minimum size of a large volume up to 7.2 PiB | 2,400 GiB | No |
 | Large volume size increase | 30% of lowest provisioned size | Yes |
 |  Maximum size of a single [large volume](large-volumes-requirements-considerations.md)    | 1 PiB |    Yes**    |
-| Maximum size of a single large volume on dedicated capacity (preview) | 2 PiB | No |
+| Maximum size of a single large volume with breakthrough mode (preview) | 2,400 TiB | No |
 | Maximum size of a large volume up to 7.2 PiB | 7.2 PiB | Yes** |
 |  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
@@ -58,7 +58,11 @@ The following table describes resource limits for Azure NetApp Files:
 
 \* [!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
+<<<<<<< HEAD
 \** Extend sizes for [large volumes](large-volumes-requirements-considerations.md) are available on request depending on regional dedicated capacity availability. To explore availability, contact your account team. 
+=======
+\** You can increase the size of your large volume with [breakthrough mode](large-volumes-requirements-considerations.md#requirements-and-considerations-for-breakthrough-mode-preview).
+>>>>>>> d72c8d8ea6f2fb78f2248f7b10516c0bab2bea82
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 
