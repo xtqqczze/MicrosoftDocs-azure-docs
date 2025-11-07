@@ -1,40 +1,39 @@
 ---
-title: Reference - CIS Security Benchmarks for Red Hat Enterprise Linux 9
-description: Reference - CIS Security Benchmarks for Red Hat Enterprise Linux 9
+title: Reference - CIS Security Benchmarks for Ubuntu 24.04 via Machine Configuration
+description: Reference - CIS Security Benchmarks for Ubuntu 24.04 via Machine Configuration
 ms.date: 11/05/2025
 author: pallakatos
 ms.author: pallakatos
 ms.topic: reference
 ms.custom: generated
 ---
-# Release Notes - Red Hat Enterprise Linux 9
+# Release notes - Ubuntu 24.04
 
-## Supported Benchmarks
+This article provides detailed information about the CIS Security Benchmarks for Ubuntu 24.04, including supported benchmarks, mismatched rules, and configurable parameters.
+
+## Supported benchmarks
 
 |Benchmark Title|
 |---|
-|[CIS Red Hat Enterprise Linux 9 Benchmark 2.0.0 Level 1 + Level 2 - Server](#cis-red-hat-enterprise-linux-9-benchmark-200-level-1--level-2---server)|
+|[CIS Ubuntu Linux 24.04 LTS Benchmark 1.0.0 Level 1 + Level 2 - Server](#cis-ubuntu-linux-2404-lts-benchmark-100-level-1--level-2---server)|
 
-## CIS Red Hat Enterprise Linux 9 Benchmark 2.0.0 Level 1 + Level 2 - Server
+## CIS Ubuntu Linux 24.04 LTS Benchmark 1.0.0 Level 1 + Level 2 - Server
 
-### Mismatched Rules
+### Mismatched rules
 
-> **_NOTE:_** The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
+> [!NOTE]
+> The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
 
 - Ensure only one logging system is in use
 
-### Unimplemented rules
-
-- Ensure access to the su command is restricted
-
-### Configurable Parameters
+### Configurable parameters
 
 |Rule|Parameter|Default Value|
 |---|---|---|
 |Ensure dns server services are not in use|serviceName|named.service|
 ||expectedUnitFileState|enabled|
 ||expectedActiveState|active|
-||packageName|bind|
+||packageName|bind9|
 |Ensure permissions on /etc/crontab are configured|mask|0177|
 ||owner|root|
 ||group|root|
@@ -45,14 +44,12 @@ ms.custom: generated
 ||owner|root|
 ||group|root|
 ||packageName|cron|
-||alternativePackageName|cronie|
 |Ensure permissions on /etc/cron.weekly are configured|mask|0077|
 ||owner|root|
 ||group|root|
 |Ensure permissions on /etc/cron.monthly are configured|mask|0077|
 ||owner|root|
 ||group|root|
-||alternativePackageName|cronie|
 |Ensure permissions on /etc/cron.d are configured|mask|0077|
 ||owner|root|
 ||group|root|

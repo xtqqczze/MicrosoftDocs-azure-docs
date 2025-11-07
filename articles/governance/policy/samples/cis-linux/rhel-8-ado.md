@@ -1,39 +1,43 @@
 ---
-title: Reference - CIS Security Benchmarks for Debian Linux 12
-description: Reference - CIS Security Benchmarks for Debian Linux 12
+title: Reference - CIS Security Benchmarks for Red Hat Enterprise Linux 8 via Machine Configuration
+description: Reference - CIS Security Benchmarks for Red Hat Enterprise Linux 8 via Machine Configuration
 ms.date: 11/05/2025
 author: pallakatos
 ms.author: pallakatos
 ms.topic: reference
 ms.custom: generated
 ---
-# Release Notes - Debian Linux 12
+# Release notes - Red Hat Enterprise Linux 8
 
-## Supported Benchmarks
+This article provides detailed information about the CIS Security Benchmarks for Red Hat Enterprise Linux 8, including supported benchmarks, mismatched rules, and configurable parameters.
+
+## Supported benchmarks
 
 |Benchmark Title|
 |---|
-|[CIS Debian Linux 12 Benchmark 1.1.0 Level 1 + Level 2 - Server](#cis-debian-linux-12-benchmark-110-level-1--level-2---server)|
+|[CIS Red Hat Enterprise Linux 8 Benchmark 3.0.0 Level 1 + Level 2 - Server](#cis-red-hat-enterprise-linux-8-benchmark-300-level-1--level-2---server)|
 
-## CIS Debian Linux 12 Benchmark 1.1.0 Level 1 + Level 2 - Server
+## CIS Red Hat Enterprise Linux 8 Benchmark 3.0.0 Level 1 + Level 2 - Server
 
-### Mismatched Rules
+### Mismatched rules
 
-> **_NOTE:_** The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
+> [!NOTE]
+> The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
 
-- Ensure world writable files and directories are secured
 - Ensure only one logging system is in use
-- Ensure a single firewall configuration utility is in use
 
-### Unimplemented rules
+### Not implemented rules
 
-- Ensure cryptographic mechanisms are used to protect the integrity of audit tools
 - Ensure access to the su command is restricted
 
-### Configurable Parameters
+### Configurable parameters
 
 |Rule|Parameter|Default Value|
 |---|---|---|
+|Ensure dns server services are not in use|serviceName|named.service|
+||expectedUnitFileState|enabled|
+||expectedActiveState|active|
+||packageName|bind|
 |Ensure permissions on /etc/crontab are configured|mask|0177|
 ||owner|root|
 ||group|root|

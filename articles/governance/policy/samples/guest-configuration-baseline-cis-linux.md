@@ -42,18 +42,18 @@ The following Linux distributions and CIS benchmark versions are currently suppo
 
 | Distribution | CIS Benchmark Version | Profiles | CIS Certified | Audit | Auto-Remediation |
 |--------------|----------------------|----------|---------------|-------|------------------|
-| [Ubuntu 22.04 LTS + Pro](cis-linux/ubuntu_22_04_ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
-| [Ubuntu 24.04 LTS + Pro](cis-linux/ubuntu_24_04_ado.md) | v1.0.0 | L1 + L2 Server | ✓ | ✓ | X |
-| [RedHat Enterprise Linux 8](cis-linux/rhel_8_ado.md) | v3.0.0 | L1 + L2 Server | ✓ | ✓ | X |
-| [RedHat Enterprise Linux 9](cis-linux/rhel_9_ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
-| [Alma Linux 8](cis-linux/alma_8_ado.md) | v3.0.0 | L1 + L2 Server | ✓ | ✓ | X |
-| [Alma Linux 9](cis-linux/alma_9_ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
-| [Rocky Linux 8](cis-linux/rocky_8_ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
-| [Rocky Linux 9](cis-linux/rocky_9_ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
-| [Oracle Linux 8](cis-linux/oracle_8_ado.md) | v3.0.0 | L1 + L2 Server | ✓ | ✓ | X |
-| [Oracle Linux 9](cis-linux/oracle_9_ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
-| [Debian Linux 12](cis-linux/debian_12_ado.md) | v1.1.0 | L1 + L2 Server | ✓ | ✓ | X |
-| [SUSE Linux Enterprise 15](cis-linux/suse_15_ado.md) | v2.0.1 | L1 + L2 Server | ✓ | ✓ | X |
+| [Ubuntu 22.04 LTS + Pro](cis-linux/ubuntu-22-04-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Ubuntu 24.04 LTS + Pro](cis-linux/ubuntu-24-04-ado.md) | v1.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [RedHat Enterprise Linux 8](cis-linux/rhel-8-ado.md) | v3.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [RedHat Enterprise Linux 9](cis-linux/rhel-9-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Alma Linux 8](cis-linux/alma-8-ado.md) | v3.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Alma Linux 9](cis-linux/alma-9-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Rocky Linux 8](cis-linux/rocky-8-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Rocky Linux 9](cis-linux/rocky-9-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Oracle Linux 8](cis-linux/oracle-8-ado.md) | v3.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Oracle Linux 9](cis-linux/oracle-9-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Debian Linux 12](cis-linux/debian-12-ado.md) | v1.1.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [SUSE Linux Enterprise 15](cis-linux/suse-15-ado.md) | v2.0.1 | L1 + L2 Server | ✓ | ✓ | X |
 
 Auto-remediation capabilities are planned for future releases and will be marked with ✓ when available.
 	
@@ -131,6 +131,6 @@ For questions or support regarding CIS Benchmarks for Linux in Azure Machine Con
 
 For questions, suggestions or any feedback on the rules, evaluations, distro coverage, feature requests - you can also use the Azure Support - or open a [GitHub issue under azure-osconfig repository](https://github.com/Azure/azure-osconfig/issues).
 
-[!IMPORTANT]
-CIS Security Benchmarks for Linux Workloads is currently in PREVIEW.
-See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> [!IMPORTANT]
+> CIS Security Benchmarks for Linux Workloads is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

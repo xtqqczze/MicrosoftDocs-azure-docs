@@ -1,36 +1,43 @@
 ---
-title: Reference - CIS Security Benchmarks for Rocky Linux 9
-description: Reference - CIS Security Benchmarks for Rocky Linux 9
+title: Reference - CIS Security Benchmarks for Rocky Linux 9 via Machine Configuration
+description: Reference - CIS Security Benchmarks for Rocky Linux 9 via Machine Configuration
 ms.date: 11/05/2025
 author: pallakatos
 ms.author: pallakatos
 ms.topic: reference
 ms.custom: generated
 ---
-# Release Notes - Rocky Linux 9
+# Release notes - Rocky Linux 9
 
-## Supported Benchmarks
+This article provides detailed information about the CIS Security Benchmarks for Rocky Linux 9, including supported benchmarks, mismatched rules, and configurable parameters.
+
+## Supported benchmarks
 
 |Benchmark Title|
 |---|
-|[CIS Rocky Linux 9 Benchmark 2.0.0 Level 1 + Level 2 - Server](#cis-rocky-linux-9-benchmark-200-level-1--level-2---server)|
+|[CIS Rocky Linux 9 Benchmark 1.0.0 Level 1 + Level 2 - Server](#cis-rocky-linux-9-benchmark-100-level-1--level-2---server)|
 
-## CIS Rocky Linux 9 Benchmark 2.0.0 Level 1 + Level 2 - Server
+## CIS Rocky Linux 9 Benchmark 1.0.0 Level 1 + Level 2 - Server
 
-### Mismatched Rules
+### Mismatched rules
 
-> **_NOTE:_** The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
+> [!NOTE]
+> The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
 
 - Ensure only one logging system is in use
 
-### Unimplemented rules
+### Not implemented rules
 
 - Ensure access to the su command is restricted
 
-### Configurable Parameters
+### Configurable parameters
 
 |Rule|Parameter|Default Value|
 |---|---|---|
+|Ensure dns server services are not in use|serviceName|named.service|
+||expectedUnitFileState|enabled|
+||expectedActiveState|active|
+||packageName|bind|
 |Ensure permissions on /etc/crontab are configured|mask|0177|
 ||owner|root|
 ||group|root|
