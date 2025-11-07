@@ -104,15 +104,13 @@ After assigning your policy, you can:
 - [Understand Azure Policy definitions and initiatives][08]
 - [Deploy Machine Configuration prerequisites][09]
 
-## References
-
 <!-- Link reference definitions -->
-[01]: /articles/governance/policy/assign-policy-azurecli
-[02]: https://learn.microsoft.com/powershell/module/az.policyinsights
+[01]: /articles/governance/policy/assign-policy-azurecli.md
+[02]: https://learn.microsoft.com/powershell/module/az.policyinsights.md
 [03]: https://learn.microsoft.com/rest/api/policy
 [04]: https://learn.microsoft.com/rest/api/guestconfiguration
-[05]: /articles/governance/policy/how-to/get-compliance-data
+[05]: /articles/governance/policy/how-to/get-compliance-data.md
 [06]: ./view-compliance.md
 [07]: ./assign-security-baselines/overview-page.md
-[08]: /articles/governance/policy/concepts/definition-structure
-[09]: /articles/governance/policy/concepts/guest-configuration
+[08]: /articles/governance/policy/concepts/definition-structure.md
+[09]: /articles/governance/policy/concepts/guest-configuration.md

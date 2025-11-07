@@ -147,18 +147,18 @@ These APIs enable you to automate compliance data collection, integrate results 
 - [Understand Azure Policy compliance][15]
 
 <!-- Link reference definitions -->
-[01]: /articles/governance/policy
+[01]: /articles/governance/policy.md
 [02]: https://learn.microsoft.com/cli/azure/policy
 [03]: https://learn.microsoft.com/rest/api/policy
-[04]: /articles/governance/machine-configuration
+[04]: /articles/governance/machine-configuration.md
 [05]: https://learn.microsoft.com/rest/api/guestconfiguration
 [06]: https://learn.microsoft.com/cli/azure/guestconfig
 [07]: https://learn.microsoft.com/powershell/module/az.guestconfiguration/get-azguestconfigurationassignment
-[08]: /articles/governance/resource-graph
-[09]: /articles/governance/resource-graph/samples/starter
+[08]: /articles/governance/resource-graph.md
+[09]: /articles/governance/resource-graph/samples/starter.md
 [10]: https://learn.microsoft.com/cli/azure/graph
 [11]: https://learn.microsoft.com/rest/api/azure-resourcegraph
 [12]: ./assign-built-in-policies.md
 [13]: ./assign-security-baselines/deploy-a-baseline-policy-assignment.md
 [14]: ../view-compliance.md
-[15]: /articles/governance/policy/how-to/get-compliance-data
+[15]: /articles/governance/policy/how-to/get-compliance-data.md

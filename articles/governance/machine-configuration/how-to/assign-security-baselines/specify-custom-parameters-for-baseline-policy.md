@@ -128,8 +128,6 @@ This JSON artifact defines all active settings for your baseline, making it easy
 - [View Machine Configuration compliance reporting][04]
 - [Discover and assign built-in Machine Configuration policies][05]
 
-## References
-
 <!-- Link reference definitions -->
 [01]: https://learn.microsoft.com/en-us/azure/azure-arc/overview
 [02]: ./deploy-a-baseline-policy-assignment.md
