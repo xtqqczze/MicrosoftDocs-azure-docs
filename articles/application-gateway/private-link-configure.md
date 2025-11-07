@@ -159,11 +159,7 @@ Add-AzApplicationGatewayPrivateLinkConfiguration `
 # Associate Private Link configuration with Frontend IP
 $agwPip = ($agw | Select -ExpandProperty FrontendIpConfigurations| Where-Object {$_.Name -eq 'appGwPublicFrontendIp'}).PublicIPAddress.Id
 $privateLinkConfiguration = ($agw | Select -ExpandProperty PrivateLinkConfigurations | Where-Object {$_.Name -eq 'privateLinkConfig01'}).Id
-Set
--AzApplicationGatewayFrontendIPConfig 
--ApplicationGateway $agw -Name "appGwPublicFrontendIp" 
--PublicIPAddressId $agwPip 
--PrivateLinkConfigurationId $privateLinkConfiguration
+Set-AzApplicationGatewayFrontendIPConfig -ApplicationGateway $agw -Name "appGwPublicFrontendIp" -PublicIPAddressId $agwPip -PrivateLinkConfigurationId $privateLinkConfiguration
 
 # Apply changes to Application Gateway
 Set-AzApplicationGateway -ApplicationGateway $agw
