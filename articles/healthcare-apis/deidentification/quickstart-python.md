@@ -14,18 +14,6 @@ ms.date: 10/23/2025
 
 In this quickstart, you deploy an instance of the de-identification service in your Azure subscription using the synchronous endpoint in Python. 
 
----
-
-## Table of contents
-- [Prerequisites](#prerequisites)
-- [Create a resource](#create-a-resource)
-- [Set role-based access control (RBAC)](#set-role-based-access-control-rbac)
-- [Running the service using the Python SDK](#running-the-service-using-the-python-sdk)
-- [Clean up resources](#clean-up-resources)
-- [Next steps](#next-steps)
-
----
-
 ## Prerequisites
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
