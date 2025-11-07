@@ -91,6 +91,9 @@
     - name: OpenAI
       displayName: Connect to OpenAI, text completion
       href: functions-add-openai-text-completion.md
+    - name: OpenTelemetry
+      href: create-function-azure-developer-cli-open-telemetry.md
+    
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
