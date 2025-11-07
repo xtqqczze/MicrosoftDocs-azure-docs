@@ -40,7 +40,7 @@ param functionAppName string = 'fn-${uniqueString(resourceGroup().id)}'
 var appServicePlanName = 'MyPlan'
 var applicationInsightsName = 'MyApplicationInsights'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageAccountName
 }
 
@@ -157,7 +157,7 @@ When you use Bicep modules, you can provide secure parameters by using [the `get
 You can also reference a key vault defined in another resource group by using the `existing` and `scope` keywords together. In the following example, the Bicep file is deployed to a resource group named _Networking_. The value for the module's parameter _mySecret_ is defined in a key vault named _contosonetworkingsecrets_, which is located in the _Secrets_ resource group:
 
 ```bicep
-resource networkingSecretsKeyVault 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+resource networkingSecretsKeyVault 'Microsoft.KeyVault/vaults@2025-05-01' existing = {
   scope: resourceGroup('Secrets')
   name: 'contosonetworkingsecrets'
 }

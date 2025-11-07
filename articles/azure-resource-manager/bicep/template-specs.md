@@ -133,7 +133,7 @@ resource createTemplateSpecVersion 'Microsoft.Resources/templateSpecs/versions@2
       'resources': [
         {
           'type': 'Microsoft.Storage/storageAccounts'
-          'apiVersion': '2023-04-01'
+          'apiVersion': '2025-06-01'
           'name': 'store$uniquestring(resourceGroup().id)'
           'location': resourceGroup().location
           'kind': 'StorageV2'

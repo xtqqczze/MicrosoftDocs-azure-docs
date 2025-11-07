@@ -254,7 +254,7 @@ storageAccount.properties.primaryEndpoints.blob
 To get a property from an existing resource that isn't deployed in the template:
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageAccountName
 }
 

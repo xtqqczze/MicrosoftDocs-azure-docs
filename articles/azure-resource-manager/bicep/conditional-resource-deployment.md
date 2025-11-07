@@ -69,7 +69,7 @@ resource saNew 'Microsoft.Storage/storageAccounts@2025-06-01' = if (newOrExistin
   kind: 'StorageV2'
 }
 
-resource saExisting 'Microsoft.Storage/storageAccounts@2023-04-01' existing = if (newOrExisting == 'existing') {
+resource saExisting 'Microsoft.Storage/storageAccounts@2025-06-01' existing = if (newOrExisting == 'existing') {
   name: storageAccountName
 }
 

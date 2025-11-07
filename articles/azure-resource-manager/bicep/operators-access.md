@@ -109,7 +109,7 @@ Two functions - [getSecret](bicep-functions-resource.md#getsecret) and [list*](b
 The following example references an existing key vault, then uses `getSecret` to pass a secret to a module.
 
 ```bicep
-resource kv 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+resource kv 'Microsoft.KeyVault/vaults@2025-05-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }

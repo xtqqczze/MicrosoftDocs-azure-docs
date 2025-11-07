@@ -37,7 +37,7 @@ param location string = resourceGroup().location
 
 param storageAccountName string = uniqueString(resourceGroup().id)
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageAccountName
 }
 
@@ -90,7 +90,7 @@ param location string = resourceGroup().location
 
 param storageAccountName string = uniqueString(resourceGroup().id)
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageAccountName
 }
 
