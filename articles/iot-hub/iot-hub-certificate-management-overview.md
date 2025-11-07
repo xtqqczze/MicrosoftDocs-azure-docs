@@ -33,7 +33,7 @@ The following features are supported with certificate management for IoT Hub dev
 | HSM keys (signing and encryption) | Keys are provisioned using [Azure Managed Hardware Security Module (Azure Managed HSM)](/azure/key-vault/managed-hsm/overview). CAs created within your ADR namespace automatically use HSM signing and encryption keys. No Azure subscription is required for Azure HSM. |
 | End-entity certificate issuance and renewal | End-entity certificates, also known as leaf certificates or device certificates, are signed by the issuing CA and delivered to the device. Leaf certificates can also be renewed by the issuing CA.|
 | At-scale provisioning of leaf certificates | The policies defined in your ADR namespace are directly linked to a Device Provisioning Service enrollment group to be used at the time of certificate provisioning.|
-| Syncing of CA chains with IoT Hubs | The policies defined in your ADR namespace will be synced to the appropriate IoT Hub. This will enable IoT Hub to trust any devices authenticating with an end-entity certificate. |
+| Syncing of CA certificates with IoT Hubs | The policies defined in your ADR namespace will be synced to the appropriate IoT Hub. This will enable IoT Hub to trust any devices authenticating with an end-entity certificate. |
 
 ## Onboarding vs. operational credentials
 
