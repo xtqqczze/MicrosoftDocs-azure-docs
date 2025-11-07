@@ -9,15 +9,15 @@ ms.topic: concept-article
 ms.date: 11/18/2025
 ---
 
-# HTTP DDoS ruleset (preview)
+# Microsoft HTTP DDoS Ruleset (preview)
 
 > [!IMPORTANT]
-> HTTP DDoS ruleset in the Azure Application Gateway Web Application Firewall (WAF) is currently in PREVIEW.
+> The Microsoft HTTP DDoS Ruleset in the Azure Application Gateway Web Application Firewall (WAF) v2 is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 HTTP‑layer floods remain the most frequent driver of application availability incidents, and static controls (IP/geo filters, fixed rate limits) often can't keep pace with distributed botnets. The new HTTP DDoS ruleset is Azure Web Application Firewall's (WAF) first automated layer 7 protection model that learns, detects, and defends with minimal user configuration. Once assigned, the ruleset continuously baselines normal traffic for each application gateway and when surges indicate an attack, selectively blocks offending clients with no emergency tuning required.
 
-## How HTTP DDoS ruleset works
+## How the HTTP DDoS ruleset works
 
 Once the HTTP DDoS ruleset is applied to a policy that's attached to a gateway, traffic baselines are learned for a minimum of 24 hours. The ruleset doesn't detect or block attacks until the 24-hour learning phase is completed.
 
@@ -48,15 +48,12 @@ When an IP address exceeds a threshold, a rule hit for the HTTP DDoS ruleset is 
 
 ## Monitoring the HTTP DDoS ruleset
 
-Some monitoring capabilities are limited during preview. The following monitoring options are currently available for the HTTP DDoS ruleset:
-
-- When an IP address breaches a threshold, a log entry is recorded with a *Block* action for the HTTP DDoS ruleset, and the WAF Managed Rule Match metric is incremented by one. Subsequent blocked requests from that IP address aren't logged and don't increment the Managed Rule Match metric while the IP is in the penalty box.
-
-- You can monitor the number of blocks using the Response Status Metric on the Application Gateway and splitting the metric by HTTP Status and viewing how many *4xx* responses are returned to the client. 
+- When an IP address breaches a threshold, a log entry is recorded with a *Block* action for the HTTP DDoS ruleset, and the WAF Managed Rule Match metric is incremented by one. Each Subsequent blocked requests from an IP in the Penalry Box is logged increamnts the WAF Managed Rule match metric
+- Two new metrics have also been introduced for Azure monitor, Penalty box size and Penalry box blocks.  These metrics track the number of IPs currently in the penalty box as well as the number of blocks that occur due to IPs in the penalty box.
 
 ## Accessing the preview
 
-To configure the ruleset, use the [preview portal](https://preview.portal.azure.com). You can also use ARM template and Bicep deployments to configure the ruleset.
+To configure the ruleset, use the [preview portal](https://preview.portal.azure.com). You can also use ARM template and Bicep deployments to configure the ruleset as well as CLI and PowerShell
 
 > [!IMPORTANT]
 > The HTTP DDoS ruleset will be removed from the configuration if you make any changes to a managed ruleset using the production portal after assigning the HTTP DDoS ruleset.
@@ -69,7 +66,6 @@ The following limitations apply to the HTTP DDoS ruleset during the preview:
 
 - Once HTTP DDoS ruleset is assigned to a Web Application Firewall policy, any changes made to other managed rulesets using the production portal will remove the HTTP DDoS ruleset from the WAF Policy.
 
-- PowerShell and CLI aren't currently supported.
 
 ## Related content
 
