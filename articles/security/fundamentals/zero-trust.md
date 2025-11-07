@@ -105,8 +105,6 @@ Additional detailed guidance is available for specific domains:
 - **Threat detection** - [Azure threat detection overview](threat-detection.md)
 - **Management and monitoring** - [Azure security management and monitoring overview](management-monitoring-overview.md)
 
-For a comprehensive catalog of security services and technologies, see [Azure security services and technologies](services-technologies.md).
-
 ## Application development and Zero Trust
 
 Applications deployed on Azure must authenticate and authorize every request rather than relying on implicit trust from network location. Key principles include using Microsoft Entra ID for identity verification, requesting minimum permissions, protecting sensitive data, and using managed identities instead of stored credentials. For comprehensive guidance, see [Develop using Zero Trust principles](/security/zero-trust/develop/overview) and [Build Zero Trust-ready apps using Microsoft identity platform](../../active-directory/develop/zero-trust-for-developers.md).
