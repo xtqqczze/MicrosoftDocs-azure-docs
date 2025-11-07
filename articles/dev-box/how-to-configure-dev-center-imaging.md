@@ -164,18 +164,49 @@ By default, images are automatically built for catalogs containing image definit
 
 #### Disable automatic image builds for existing catalogs
 
-1. Navigate to your dev center or project in the Azure portal.
-1. Select **Catalogs**.
-1. Select the catalog containing the image definitions.
-1. Locate the automatically build an image toggle in the catalog settings.
-1. Disable the toggle to stop automatic image generation.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box, enter **dev centers** or **projects**. In the list of results, select the appropriate resource type.
+
+1. Open the dev center or project that contains the catalog you want to configure.
+
+1. On the left menu, select **Catalogs**.
+
+1. From the list of catalogs, select the catalog that contains image definitions.
+
+1. On the catalog details page, clear the **Automatically build an image** checkbox.
+
+1. Select **Save** to apply your changes.
  
 :::image type="content" source="media/how-to-configure-dev-center-imaging/dev-box-add-catalog-auto-build-image.png" alt-text="Screenshot showing the automatically build an image option in catalog settings.":::
 
 #### Disable automatic image builds during catalog creation
 
-1. During catalog creation, locate the automatically build an image option.
-1. Uncheck or disable the setting before finalizing the catalog setup.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box, enter **dev centers** or **projects**. In the list of results, select the appropriate resource type.
+
+1. Open the dev center or project where you want to add the catalog.
+
+1. On the left menu, select **Catalogs**, and then select **Add**.
+
+1. On the **Add catalog** pane, enter the following information:
+
+   | Setting | Value |
+   |---|---|
+   | **Name** | Enter a name for the catalog. |
+   | **Catalog source** | Select **GitHub** or **Azure DevOps**. |
+   | **Repo** | Select or enter the URL for your repository. |
+   | **Branch** | Enter the repository branch to connect to. |
+   | **Folder path** | Enter the folder path relative to the repository root that contains your image definitions. |
+
+1. Clear the **Automatically build an image** checkbox to disable automatic image builds for this catalog.
+
+   :::image type="content" source="media/how-to-configure-dev-center-imaging/dev-box-add-catalog-auto-build-image.png" alt-text="Screenshot showing the automatically build an image option in catalog settings.":::
+
+1. Select **Add** to create the catalog.
+
+When automatic image builds are disabled, you must manually trigger image builds when you want to create or update reusable images from your image definitions.
 
 ### Build an image manually
 
