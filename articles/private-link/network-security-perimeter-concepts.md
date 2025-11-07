@@ -124,11 +124,12 @@ Network security perimeter supports the following access rule types:
 
 | Direction | Access rule type | 
 |---------------------------|---------------|
-| Inbound | Subscription based rules |
-| Inbound | IP based rules (check respective onboarded private link resources for v6 support)| 
-| Outbound | FQDN based rules |
+| Inbound | Subscription-based rules |
+| Inbound | IP-based rules (check respective onboarded private link resources for v6 support)| 
+| Outbound | FQDN-based rules |
 
-Note: Intra perimeter traffic and inbound access rules that are subscription based do not support authentication using SAS Token. Requests using SAS Token for these scenarios will be rejected with an authentication error. Please use alternative supported authentication methods as documented for your specific resource.
+> [!NOTE]
+> Intra-perimeter traffic and inbound access rules that are subscription-based don't support authentication via shared access signature (SAS) token. In these scenarios, requests that use an SAS token are rejected and display an authentication error. Use an alternative supported authentication method per your specific resource.
 
 ## Limitations of a network security perimeter
 
