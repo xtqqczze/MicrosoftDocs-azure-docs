@@ -16,40 +16,40 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-To send and receive RosettaNet messages in workflows that you create using Azure Logic Apps, you can use the RosettaNet connector, which provides actions that manage and support communication that follows RosettaNet standards. RosettaNet is a non-profit consortium that has established standard processes for sharing business information. These standards are commonly used for supply chain processes and are widespread in the semiconductor, electronics, and logistics industries. The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs), which provide common business process definitions for all RosettaNet message exchanges. RosettaNet is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for communication between companies. For more information, visit the [RosettaNet site](https://www.gs1us.org/resources/rosettanet).
+To send and receive RosettaNet messages in workflows that you create using Azure Logic Apps, you can use the RosettaNet connector. That connector provides actions that manage and support communication that follows RosettaNet standards. RosettaNet is a non-profit consortium that established standard processes for sharing business information. These standards are commonly used for supply chain processes and are widespread in the semiconductor, electronics, and logistics industries. The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs), which provide common business process definitions for all RosettaNet message exchanges. RosettaNet is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for communication between companies. For more information, visit the [RosettaNet site](https://www.gs1us.org/resources/rosettanet).
 
 The connector is based on the RosettaNet Implementation Framework (RNIF) version 2.0.01 and supports all PIPs defined by this version. RNIF is an open network application framework that enables business partners to collaboratively run RosettaNet PIPs. This framework defines the message structure, the need for acknowledgments, Multipurpose Internet Mail Extensions (MIME) encoding, and the digital signature. Communication with the partner can be synchronous or asynchronous. The connector provides the following capabilities:
 
-* Receive or decode RosettaNet messages.
-* Send or encode RosettaNet messages.
-* Wait for the response and generation of Notification of Failure.
+- Receive or decode RosettaNet messages.
+- Send or encode RosettaNet messages.
+- Wait for the response and generation of Notification of Failure.
 
 This how-to guide shows how to send and receive RosettaNet messages in workflows using Azure Logic Apps and the RosettaNet connector by completing the following tasks: 
 
-* Add a PIP process configuration, if you don't have one already.
-* Create a RosettaNet agreement.
-* Add an action that receives or decodes RosettaNet messages.
-* Add an action that sends or encodes RosettaNet messages.
+- Add a PIP process configuration, if you don't have one already.
+- Create a RosettaNet agreement.
+- Add an action that receives or decodes RosettaNet messages.
+- Add an action that sends or encodes RosettaNet messages.
 
 ## RosettaNet concepts
 
 The following concepts and terms are unique to the RosettaNet specification and are important to know when you build RosettaNet-based integration workflows:
 
-* **PIP**
+- **PIP**
 
   The RosettaNet organization creates and maintains PIPs, which provide common business process definitions for all RosettaNet message exchanges. Each PIP specification provides a document type definition (DTD) file and a message guideline document. The DTD file defines the service-content message structure. The message guideline document, which is a human-readable HTML file, specifies element-level constraints. Together, these files provide a complete definition of the business process.
 
    PIPs are categorized by a high-level business function, or cluster, and a subfunction, or segment. For example, "3A4" is the PIP for Purchase Order, while "3" is the Order Management function, and "3A" is the Quote & Order Entry subfunction. For more information, visit the [RosettaNet site](https://www.gs1us.org/resources/rosettanet).
 
-* **Action**
+- **Action**
 
   Part of a PIP, action messages are business messages that are exchanged between partners.
 
-* **Signal**
+- **Signal**
 
    Part of a PIP, signal messages are acknowledgments that are sent in response to action messages.
 
-* **Single action and double action**
+- **Single action and double action**
 
   For a single-action PIP, the only response is an acknowledgment signal message. For a double-action PIP, the initiator receives a response message and replies with an acknowledgment in addition to the single-action message flow.
 
@@ -75,25 +75,25 @@ The **RosettaNet** connector has no triggers. The following table describes the 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* The Consumption logic app resource and workflow where you want to use the RosettaNet operations.
+- The Consumption logic app resource and workflow where you want to use the RosettaNet operations.
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for storing your agreement and other business-to-business (B2B) artifacts.
+- An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for storing your agreement and other business-to-business (B2B) artifacts.
 
   > [!IMPORTANT]
   >
   > To work together, both your integration account and logic app resource must exist in the same Azure subscription and Azure region. 
   > To use integration account artifacts in your workflow, make sure to [link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
 
-* At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) defined in your integration account and use the **DUNS** qualifier under **Business Identities** in the Azure portal.
+- At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) defined in your integration account and use the **DUNS** qualifier under **Business Identities** in the Azure portal.
 
   > [!NOTE]
   >
   > Make sure that you select **DUNS** as the qualifier, which you can find near the 
   > bottom of the **Qualifier** list, and not **1 - D-U-N-S (Dun & Bradstreet)**.
 
-* Optional [certificates](../logic-apps/logic-apps-enterprise-integration-certificates.md) for encrypting, decrypting, or signing the messages that you upload to the integration account. Certificates are required only if you use signing or encryption.
+- Optional [certificates](../logic-apps/logic-apps-enterprise-integration-certificates.md) for encrypting, decrypting, or signing the messages that you upload to the integration account. Certificates are required only if you use signing or encryption.
 
 <a name="add-pip"></a>
 
@@ -225,7 +225,7 @@ After you complete these steps, you're ready to send or receive RosettaNet messa
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Message** | Yes | The RosettaNet message to decode  |
-   | **Headers** | Yes | The HTTP headers that provide the values for the version, which is the RNIF version, and the response type, which indicates the communication type between the partners and can be synchronous or asynchronous |
+   | **Headers** | Yes | The HTTP headers that provide the values for the version and response type. The version is the RNIF version. The response type indicates the communication type between the partners. It can be synchronous or asynchronous |
    | **Role** | Yes | The role of the host partner in the PIP |
 
    The output of the RosettaNet Decode action includes **Outbound signal**. You can encode this output and return it to the partner, or you can take any other action on this output.
@@ -283,8 +283,8 @@ To accelerate development and recommend integration patterns, you can use Consum
 
 :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/decode-encode-rosettanet-templates.png" alt-text="Screenshot of the designer. The Enterprise Integration category and templates for decoding and encoding RosettaNet messages are selected.":::
 
-## Next steps
+## Related content
 
-* [Managed connector reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-* [About managed connectors in Azure Logic Apps](../connectors/managed.md)
-* [About built-in connectors for Azure Logic Apps](../connectors/built-in.md)
+- [Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)
+- [Managed connectors in Azure Logic Apps](../connectors/managed.md)
+- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md)
