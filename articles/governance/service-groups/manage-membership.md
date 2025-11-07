@@ -436,7 +436,7 @@ ParametersString        :
 Outputs                 :
 OutputsString           :
 
-Successfully deployed serviceGroupMember forstorageAcccountnum3.
+Successfully deployed serviceGroupMember for storageAcccountnum3.
 Deploying serviceGroupMember for resource: storageAcccountnum4 of type microsoft.storage/storageaccounts in subscription: XXXXXXXXXXX in resource group: RGName
 Using template:     {
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
