@@ -1,6 +1,6 @@
 ---
 title: Server redeploy
-description: Learn how to prepare Windows Server 2003 servers for migration with Azure Migrate.
+description: Learn how to automate Windows Server redeployment to Azure using Infrastructure as Code (IaC) with Azure Migrate.
 author: piyushdhore-microsoft 
 ms.author: piyushdhore
 ms.manager: kmadnani
@@ -46,7 +46,7 @@ Follow these steps to generate Infrastructure as Code (IaC) for your assessed wo
 
 1. The portal redirects you to the IaC generation flow, where you review and select details before generating the code.
 
-:::image type="content" source="./media/server-repdeploy/iac-generation-flow.png" alt-text="The screenshot shows how to redirect to iac generation flow to review and select details before generating the code." lightbox="./media/server-repdeploy/iac-generation-flow.png":::
+:::image type="content" source="./media/server-repdeploy/generation-flow.png" alt-text="The screenshot shows how to redirect to iac generation flow to review and select details before generating the code." lightbox="./media/server-repdeploy/generation-flow.png":::
 
 1. IaC generation currently supports only IaaS (Infrastructure as a Service) targets.
 1. For workload assessments, select the workloads you want to include in the generated application code. 
@@ -57,7 +57,18 @@ Follow these steps to generate Infrastructure as Code (IaC) for your assessed wo
 
 1. Review the workloads and select **Next**.
 
-:::image type="content" source="./media/server-repdeploy/generate-iac-for-one-application.png" alt-text="The screenshot shows how to iac for one application." lightbox="./media/server-repdeploy/generate-iac-for-one-application.png":::
+:::image type="content" source="./media/server-repdeploy/generate-for-one-application.png" alt-text="The screenshot shows how to iac for one application." lightbox="./media/server-repdeploy/generate-for-one-application.png":::
 
 1. Select **Next** again to go to the **Generate and Download** page, and review the base architecture.
 
+1. The IaC generation feature currently supports only one architecture—a basic three-tier design with frontend, backend, and database layers optimized for development applications. This architecture also includes CAF-aligned security best practices.
+
+:::image type="content" source="./media/server-repdeploy/supported-architecture.png" alt-text="The screenshot shows the supported architecture." lightbox="./media/server-repdeploy/supported-architecture.png":::
+
+1. Select Generate Code after you finish reviewing the architecture. The assessment’s baseline architecture generates your IaC and automatically adds the selected workloads.
+
+:::image type="content" source="./media/server-repdeploy/generate-code.png" alt-text="The screenshot shows how to select generate code after review is complete.." lightbox="./media/server-repdeploy/generate-code.png":::
+
+1. When the download completes, extract the ZIP file and open the folder in an IDE such as **Visual Studio Code** to explore the generated code.
+
+## Deploy the IaaS application IaC 
