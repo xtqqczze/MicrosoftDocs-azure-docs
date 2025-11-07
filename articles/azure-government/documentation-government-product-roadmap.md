@@ -1,5 +1,5 @@
 ---
-title: Azure Government Product Availability
+title: Azure Government product General Availability (GA)
 description: Overview of Azure Government product availability by authorization level
 ms.service: azure-government
 ms.topic: overview
