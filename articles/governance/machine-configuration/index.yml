@@ -60,4 +60,4 @@ landingContent:
           - text: Specify custom parameters for baseline policy
             url: ./how-to/assign-security-baselines/specify-custom-parameters-for-baseline-policy.md
           - text: Understand the baseline JSON format
-            url: ./how-to/assign-security-baselines/understand-the-baseline-json-format.md
+            url: ./how-to/assign-security-baselines/understand-the-baseline-settings-parameter.md

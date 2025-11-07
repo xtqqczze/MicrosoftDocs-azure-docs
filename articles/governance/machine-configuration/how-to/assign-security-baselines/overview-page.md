@@ -80,6 +80,6 @@ The end-to-end experience for configuring Customizable Security Baselines follow
 [03]: https://www.cisecurity.org/
 [04]: ./deploy-a-baseline-policy-assignment.md
 [05]: ./specify-custom-parameters-for-baseline-policy.md
-[06]: ./understand-the-baseline-json-format.md
+[06]: ./understand-the-baseline-settings-parameter.md
 [07]: ../view-compliance.md
 [08]: ../assign-built-in-policies.md

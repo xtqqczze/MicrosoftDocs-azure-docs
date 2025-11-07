@@ -24,7 +24,7 @@ To view and explore these built-in policies:
 
 3.  Open the **Category** filter and select **Guest Configuration** and **Built-in** on Policy Type to display all built-in policies related to OS auditing and compliance.
 
-![Azure Policy Definitions page with Guest Configuration filter applied showing built-in policies](../media/discover-and-assign-built-in-machine-configuration-policies/img-3f3ce788ba90429512e3fee4e20276cb966e4538.png)
+![Azure Policy Definitions page with Guest Configuration filter applied showing built-in policies](../media/discover-and-assign-built-in-machine-configuration-policies/azure-policy-definitions-guest-config-filter.png)
 
 4.  Browse the list to review available definitions, such as:
 
@@ -42,7 +42,7 @@ To view and explore these built-in policies:
 
     3.  Metadata such as category, mode, and required providers
 
-![Policy definition details page showing JSON definition and parameters for a Machine Configuration policy](../media/discover-and-assign-built-in-machine-configuration-policies/img-2ad297ad1246e4c27f777c98825b67a1bafda438.png)
+![Policy definition details page showing JSON definition and parameters for a Machine Configuration policy](../media/discover-and-assign-built-in-machine-configuration-policies/policy-definition-details-json-parameters.png)
 
 ## Assign a Built-In Machine Configuration Policy
 
@@ -66,7 +66,7 @@ Let’s use one of the built-in Machine Configuration policies—**Audit Windows
 
     3.  Optionally specify exclusions if certain resources shouldn't be evaluated.
 
-![Policy assignment Basics tab showing scope selection and prerequisites configuration](../media/discover-and-assign-built-in-machine-configuration-policies/img-85d4e71787ec57907ee20ed9d74e68b576f1f36f.png)
+![Policy assignment Basics tab showing scope selection and prerequisites configuration](../media/discover-and-assign-built-in-machine-configuration-policies/policy-assignment-basics-scope-prerequisites.png)
 
 4.  In the **Parameters** tab:
 
@@ -74,7 +74,7 @@ Let’s use one of the built-in Machine Configuration policies—**Audit Windows
 
     2.  Choose the desired **Time zone** (for example, "Pacific Time (US & Canada)").
 
-![Policy assignment Parameters tab showing Arc servers option and time zone selection](../media/discover-and-assign-built-in-machine-configuration-policies/img-2b911c2eff35ab65d1c208c98d84a30c23fb4d3b.png)
+![Policy assignment Parameters tab showing Arc servers option and time zone selection](../media/discover-and-assign-built-in-machine-configuration-policies/policy-assignment-parameters-arc-timezone.png)
 
 5.  Review your configuration under **Review + create**, then click **Create**.
 

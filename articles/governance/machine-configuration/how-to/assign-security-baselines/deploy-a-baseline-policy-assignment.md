@@ -63,7 +63,7 @@ Use this file later when creating the assignment.
 
 3.  Under the **Parameters** tab, locate **Baseline Settings**. You may need to uncheck *"Only show parameters that need input or review"*
 
-![Baseline Settings parameter configuration](../../media/deploy-a-baseline-policy-assignment/img-ac7fbee604f41b62c868a5bb65c0e4db3a063efd.png)
+![Baseline Settings parameter configuration](../../media/deploy-a-baseline-policy-assignment/baseline-settings-parameter-configuration.png)
 
 4.  Click **Browse** → Upload the JSON file you downloaded earlier.
 
@@ -107,7 +107,7 @@ You can find other examples in [Assign policy with Azure CLI][04].
 
 After deploying your customized baseline, you can verify its status and scope in the **Assignments** tab under **Policy → Machine Configuration** in the Azure portal.
 
-![Policy assignments view showing deployed baseline policies](../../media/deploy-a-baseline-policy-assignment/img-6c568abe762c9bc5c6174a54f3b93ccae84db8b4.png)
+![Policy assignments view showing deployed baseline policies](../../media/deploy-a-baseline-policy-assignment/policy-assignments-view-deployed-baselines.png)
 
 This view lists all baseline policy assignments, including their policy definition, management group or subscription, and resource group. You can use filters (for example, by policy name, subscription, or scope) to quickly locate your assignment. Selecting a specific assignment opens its details, where you can review parameter input (such as your imported JSON file), scope, and compliance status once evaluations complete.
 

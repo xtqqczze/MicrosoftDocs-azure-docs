@@ -46,7 +46,7 @@ items:
         - name: Specify custom parameters for baseline policy
           href: ./how-to/assign-security-baselines/specify-custom-parameters-for-baseline-policy.md
         - name: Understand the baseline settings parameter format
-          href: ./how-to/assign-security-baselines/understand-the-baseline-json-format.md
+          href: ./how-to/assign-security-baselines/understand-the-baseline-settings-parameter.md
         - name: Deploy a baseline policy assignment
           href: ./how-to/assign-security-baselines/deploy-a-baseline-policy-assignment.md
     - name: Develop a custom package
