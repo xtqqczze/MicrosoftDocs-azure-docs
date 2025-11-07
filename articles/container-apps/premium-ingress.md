@@ -15,19 +15,13 @@ zone_pivot_groups: azure-cli-bicep
 
 In this article, you learn how to use premium ingress with Azure Container Apps. With premium ingress, you can define how ingress is scaled and configured to better handle higher demand workloads. 
 
+::: zone pivot="azure-cli"
+
 ## Prerequisites
 
 - Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
-
-::: zone pivot="bicep"
-
-- Install [Bicep](/azure/azure-resource-manager/bicep/install)
-- 
-:: zone-end
-
-::: zone pivot="azure-cli"
 
 ## Create resource group
 
@@ -161,6 +155,13 @@ az containerapp env workload-profile remove \
 ::: zone-end
 
 ::: zone pivot="bicep"
+
+## Prerequisites
+
+- Azure account with an active subscription.
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+- Install the [Azure CLI](/cli/azure/install-azure-cli).
+- Install [Bicep](/azure/azure-resource-manager/bicep/install)
 
 ## Deploy with Bicep
 
