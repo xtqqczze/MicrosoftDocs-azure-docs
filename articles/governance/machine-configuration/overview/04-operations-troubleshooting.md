@@ -1,9 +1,11 @@
 ---
 description: Monitor, troubleshoot, and manage Azure Machine Configuration deployments including availability, data residency, and common issues.
 ms.date: 11/07/2025
-ms.topic: troubleshoot
-title: Azure Machine Configuration operations and troubleshooting
+ms.topic: how-to
+title: Troubleshooting Azure Machine Configuration 
 ---
+
+# Troubleshooting Azure Machine Configuration
 
 ## Availability
 
@@ -162,10 +164,10 @@ _don't_ accept PRs for this project, and support is best effort.
 [29]: /azure/reliability/cross-region-replication-azure
 [30]: /azure/virtual-machines/availability#availability-sets
 [31]: /azure/site-recovery/site-recovery-overview
-[32]: ../policy/troubleshoot/general.md
-[33]: ./how-to/develop-custom-package/overview.md
-[34]: ./how-to/develop-custom-package/3-test-package.md
+[32]: ../../policy/troubleshoot/general.md
+[33]: ../how-to/develop-custom-package/overview.md
+[34]: ../how-to/develop-custom-package/3-test-package.md
 [35]: /azure/virtual-machines/windows/run-command
 [36]: /azure/virtual-machines/linux/run-command
 [37]: https://github.com/azure/nxtools#getting-started
-[47]: ../policy/concepts/exemption-structure.md
+[47]: ../../policy/concepts/exemption-structure.md
