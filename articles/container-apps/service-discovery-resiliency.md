@@ -482,7 +482,7 @@ From the *Monitoring* menu of your container app, select **Metrics**. In the Met
 - The **Standard metrics** metrics namespace.
 - The resiliency metrics from the drop-down menu.
 - How you'd like the data aggregated in the results (by average, by maximum, and so on).
-- The time duration (for example, last 30 minutes,or last 24 hours).
+- The time duration (for example, last 30 minutes, or last 24 hours).
 
 :::image type="content" source="media/service-discovery-resiliency/resiliency-metrics-pane.png" alt-text="Screenshot demonstrating how to access the resiliency metrics filters for your container app.":::
 
