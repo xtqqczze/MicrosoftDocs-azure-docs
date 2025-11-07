@@ -1,83 +1,145 @@
 ---
-title: Zero Trust security in Azure
-description: Learn about the guiding principles of Zero Trust and find resources to help you implement Zero Trust.
+title: Apply Zero Trust principles to Azure services
+description: Learn how to apply Zero Trust principles to Azure infrastructure and services with practical guidance for securing your Azure environment.
 author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
-ms.topic: article
+ms.topic: overview
 ms.author: mbaldwin
-ms.date: 07/31/2025
+ms.date: 11/06/2025
 ---
 
-# Zero Trust security
+# Apply Zero Trust principles to Azure services
 
-Zero Trust is a security model that assumes breach and verifies each request as though it originated from an uncontrolled network. In this article, you'll learn about the guiding principles of Zero Trust and find resources to help you implement Zero Trust.
+Zero Trust is a security strategy that assumes breach and verifies each request as though it originated from an uncontrolled network. This article provides guidance on applying Zero Trust principles specifically to Microsoft Azure services and infrastructure.
 
-## Guiding principles of Zero Trust
+For comprehensive information about Zero Trust as a security model, including its principles and broader application across Microsoft products, see [What is Zero Trust?](/security/zero-trust/zero-trust-overview).
 
-Today, organizations need a new security model that effectively adapts to the complexity of the modern environment, embraces the mobile workforce, and protects people, devices, applications, and data wherever they are located.
+## Zero Trust principles
 
-To address this new world of computing, Microsoft highly recommends the Zero Trust security model, which is based on these guiding principles:
+Zero Trust is based on three core principles:
 
 - **Verify explicitly** - Always authenticate and authorize based on all available data points, including user identity, location, device health, and service or workload.
 - **Use least privilege access** - Limit user access with Just-In-Time and Just-Enough-Access (JIT/JEA), risk-based adaptive policies, and data protection.
 - **Assume breach** - Minimize blast radius and segment access. Verify end-to-end encryption and use analytics to get visibility, drive threat detection, and improve defenses.
 
-For more information about Zero Trust, see [Microsoft's Zero Trust Guidance Center](/security/zero-trust).
+## Applying Zero Trust to Azure
 
-## Zero Trust architecture
+Applying Zero Trust to Azure requires a multi-disciplinary approach that addresses infrastructure, networking, identity, and data protection. The following sections provide guidance on how to implement Zero Trust across your Azure environment.
 
-A Zero Trust approach extends throughout the entire digital estate and serves as an integrated security philosophy and end-to-end strategy.
+### Azure infrastructure services
 
-This illustration provides a representation of the primary elements that contribute to Zero Trust.
+To apply Zero Trust principles to Azure infrastructure components, you must understand the architectural patterns and systematically apply security controls across each layer.
 
-![Zero Trust architecture](./media/zero-trust/zero-trust-architecture.png)
+For comprehensive guidance on applying Zero Trust to Azure IaaS workloads, see:
 
-In the illustration:
+- [Apply Zero Trust principles to Azure IaaS overview](/security/zero-trust/azure-infrastructure-overview)
+  - [Azure storage](/security/zero-trust/azure-infrastructure-storage)
+  - [Virtual machines](/security/zero-trust/azure-infrastructure-virtual-machines)
+  - [Spoke virtual networks](/security/zero-trust/azure-infrastructure-iaas)
+  - [Hub virtual networks](/security/zero-trust/azure-infrastructure-networking)
+  - [Spoke virtual networks with Azure PaaS services](/security/zero-trust/azure-infrastructure-paas)
+- [Azure Virtual Desktop](/security/zero-trust/azure-infrastructure-avd)
+- [Azure Virtual WAN](/security/zero-trust/azure-virtual-wan)
 
-- Security policy enforcement is at the center of a Zero Trust architecture. This includes multifactor authentication with conditional access that takes into account user account risk, device status, and other criteria and policies that you set.
-- [Identities](/security/zero-trust/deploy/identity), [devices](/security/zero-trust/deploy/endpoints) (also called endpoints), [data](/security/zero-trust/deploy/data), [applications](/security/zero-trust/deploy/applications), [network](/security/zero-trust/deploy/networks), and other [infrastructure](/security/zero-trust/deploy/infrastructure) components are all configured with appropriate security. Policies that are configured for each of these components are coordinated with your overall Zero Trust strategy. For example, device policies determine the criteria for healthy devices and conditional access policies require healthy devices for access to specific apps and data.
-- Threat protection and intelligence monitors the environment, surfaces current risks, and takes automated action to remediate attacks.
+For a comprehensive overview of all Azure service guidance, see [Apply Zero Trust principles to Azure services](/security/zero-trust/apply-zero-trust-azure-services-overview).
 
-For more information about deploying technology components of the Zero Trust architecture, see Microsoft's [Deploying Zero Trust solutions](/security/zero-trust/deploy/overview).
+### Azure networking
 
-As an alternative to deployment guidance that provides configuration steps for each of the technology components protected by Zero Trust principles, [Rapid Modernization Plan (RaMP)](/security/zero-trust/zero-trust-ramp-overview) guidance is based on initiatives and gives you a set of deployment paths to more quickly implement key layers of protection.
+Network security is fundamental to Zero Trust implementation in Azure. Apply Zero Trust principles to Azure networking through encryption, segmentation, visibility, and modern security controls.
 
-## From security perimeter to Zero Trust
+For detailed guidance on Azure networking security aligned with Zero Trust principles, see:
 
-The traditional approach of access control for IT has been based on restricting access to a corporate network and then supplementing it with more controls as appropriate. This model restricts all resources to a corporate owned network connection and has become too restrictive to meet the needs of a dynamic enterprise.
+- [Apply Zero Trust principles to Azure networking](/security/zero-trust/azure-networking-overview)
+  - [Encrypt your network traffic](/security/zero-trust/azure-networking-encryption)
+  - [Segment your network traffic](/security/zero-trust/azure-networking-segmentation)
+  - [Gain visibility into your network traffic](/security/zero-trust/azure-networking-visibility)
+  - [Discontinue legacy network security technology](/security/zero-trust/azure-networking-legacy)
 
-![Shift from traditional network perimeter to Zero Trust approach ](./media/zero-trust/zero-trust-shift.png)
+For comprehensive information on Azure network security capabilities and services, see [Azure network security overview](network-overview.md).
 
-Organizations must embrace a Zero Trust approach to access control as they embrace remote work and use cloud technology to digitally transform their business model, customer engagement model, employee engagement, and empowerment model.
+### Identity and access management
 
-Zero Trust principles help establish and continuously improve security assurances, while maintaining flexibility to keep pace with this new world. Most Zero Trust journeys start with access control and focus on identity as a preferred and primary control while they continue to embrace network security technology as a key element. Network technology and the security perimeter tactic are still present in a modern access control model, but they aren't the dominant and preferred approach in a complete access control strategy.
+Identity is the control plane for Zero Trust in Azure. Microsoft Entra ID provides the foundation for verifying explicitly and enforcing least privilege access.
 
-For more information on the Zero Trust transformation of access control, see the Cloud Adoption Framework's [access control](/azure/cloud-adoption-framework/secure/access-control).
+Key identity security capabilities include:
 
-## Conditional access with Zero Trust
+- **Conditional Access** - The primary policy engine for Zero Trust in Azure, enabling risk-based access decisions. See [Conditional Access](/entra/identity/conditional-access/overview) and [Conditional Access for Zero Trust](/azure/architecture/guide/security/conditional-access-design).
+- **Privileged Identity Management** - Just-in-time privileged access to Azure resources
+- **Microsoft Entra ID Protection** - Automated risk detection and remediation
 
-The Microsoft approach to Zero Trust includes [Conditional Access](../../active-directory/conditional-access/overview.md) as the main policy engine. Conditional Access is used as the policy engine for a Zero Trust architecture that covers both policy definition and policy enforcement. Based on various signals or conditions, Conditional Access can block or give limited access to resources.
+For comprehensive identity security guidance, see [Azure identity management security overview](identity-management-overview.md).
 
-To learn more about creating an access model based on Conditional Access that's aligned with the guiding principles of Zero Trust, see [Conditional Access for Zero Trust](/azure/architecture/guide/security/conditional-access-design).
+### Data protection and encryption
 
-## Develop apps using Zero Trust principles
+Protecting data is central to the "assume breach" principle. Azure provides multiple layers of encryption and data protection.
 
-Zero Trust is a security framework that does not rely on the implicit trust afforded to interactions behind a secure network perimeter. Instead, it uses the principles of explicit verification, least privileged access, and assuming breach to keep users and data secure while allowing for common scenarios like access to applications from outside the network perimeter.
+Key data protection capabilities:
 
-As a developer, it is essential that you use Zero Trust principles to keep users safe and data secure. App developers can improve app security, minimize the impact of breaches, and ensure that their applications meet their customers' security requirements by adopting Zero Trust principles.
+- **Azure Key Vault** - Secure storage and management of secrets, keys, and certificates
+- **Encryption at rest** - Default encryption for Azure Storage, SQL Database, and other services
+- **Encryption in transit** - TLS/SSL for data in motion
+- **Confidential computing** - Protection of data during processing
 
-For more information on best practices key to keeping your apps secure, see:
+For detailed encryption guidance, see:
 
-- [Microsoft's Building apps with a Zero Trust approach to identity](/security/zero-trust/develop/identity#top-recommendations-for-zero-trust)
-- [Build Zero Trust-ready apps using Microsoft identity platform features and tools](../../active-directory/develop/zero-trust-for-developers.md)
+- [Azure encryption overview](encryption-overview.md)
+- [Azure data encryption at rest](encryption-atrest.md)
+- [Azure Key Vault security overview](key-management.md)
 
-## Zero Trust and Microsoft 365
+### Threat protection and detection
 
-Microsoft 365 is built with many security and information protection capabilities to help you build Zero Trust into your environment. Many of the capabilities can be extended to protect access to other SaaS apps your organization uses and the data within these apps. See [deploying Zero Trust for Microsoft 365](/microsoft-365/security/microsoft-365-zero-trust#deploying-zero-trust-for-microsoft-365) to learn more.
+The "assume breach" principle requires continuous monitoring and threat detection across your Azure environment.
 
-To learn about recommendations and core concepts for deploying secure email, docs, and apps policies and configurations for Zero Trust access to Microsoft 365, see [Zero Trust identity and device access configurations](/microsoft-365/security/office-365-security/microsoft-365-policies-configurations).
+**Microsoft Defender for Cloud** provides unified security management and advanced threat protection for Azure resources. Defender for Cloud should be enabled across all Azure subscriptions and works together with Microsoft Defender XDR for comprehensive protection.
+
+For detailed threat protection guidance, see:
+
+- [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
+- [Azure threat detection overview](threat-detection.md)
+- [Microsoft Sentinel and Microsoft Defender XDR](/security/operations/siem-xdr-overview)
+
+### Protecting against cyberattacks
+
+Beyond daily security operations, organizations must prepare for destructive cyberattacks that target Azure resources.
+
+For guidance on protecting Azure resources from cyberattacks, implementing detection, and preparing incident response plans, see [Protect your Azure resources from destructive cyberattacks](/security/zero-trust/azure-protect-resources-cyberattacks).
+
+## Azure security services and capabilities
+
+Azure provides comprehensive security services organized by functional area. Rather than listing all services, this article focuses on Zero Trust implementation patterns. For detailed information about specific security services, see:
+
+- [Introduction to Azure security](overview.md) - Comprehensive overview of Azure security organized by functional area
+- [End-to-end security in Azure](end-to-end.md) - Security architecture organized by protection, detection, and response
+- [Azure platform security overview](platform.md) - Built-in platform security capabilities
+- [Azure security services and technologies](services-technologies.md) - Comprehensive catalog of security services
+
+For service-specific security guidance, see:
+
+- [Virtual machines security overview](virtual-machines-overview.md)
+- [Database security checklist](database-security-checklist.md)
+- [Azure PaaS deployments best practices](paas-deployments.md)
+- [Management and monitoring overview](management-monitoring-overview.md)
+
+## Shared responsibility and the Cloud Adoption Framework
+
+Security in Azure is a shared responsibility between Microsoft and customers. For guidance on how responsibilities are divided and how to implement Zero Trust as part of your cloud adoption journey, see:
+
+- [Shared responsibility in the cloud](shared-responsibility.md)
+- [Cloud Adoption Framework - Access control](/azure/cloud-adoption-framework/secure/access-control)
+- [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction)
+
+## Developer guidance
+
+Application developers play a critical role in Zero Trust implementation. For guidance on building Zero Trust-ready applications, see:
+
+- [Develop using Zero Trust principles](/security/zero-trust/develop/overview)
+- [Building apps with a Zero Trust approach to identity](/security/zero-trust/develop/identity)
+- [Build Zero Trust-ready apps using Microsoft identity platform](../../active-directory/develop/zero-trust-for-developers.md)
 
 ## Next steps
 
-- To learn how to enhance your security solutions by integrating with Microsoft products, see [Integrate with Microsoft's Zero Trust solutions](/security/zero-trust/integrate/overview)
+- [Apply Zero Trust principles to Azure services overview](/security/zero-trust/apply-zero-trust-azure-services-overview)
+- [Apply Zero Trust principles to Azure IaaS overview](/security/zero-trust/azure-infrastructure-overview)
+- [Apply Zero Trust principles to Azure networking](/security/zero-trust/azure-networking-overview)
+- [What is Zero Trust?](/security/zero-trust/zero-trust-overview)
