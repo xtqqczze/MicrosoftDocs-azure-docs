@@ -53,7 +53,7 @@ When an IP address exceeds a threshold, a rule hit for the HTTP DDoS ruleset is 
 
 ## Accessing the preview
 
-To configure the ruleset, use the [preview portal](https://preview.portal.azure.com). You can also use ARM template and Bicep deployments to configure the ruleset as well as CLI and PowerShell
+To configure the ruleset, use the [preview portal](https://preview.portal.azure.com). You can also use PowerShell, Azure CLI, ARM template, and Bicep deployments to configure the ruleset.
 
 > [!IMPORTANT]
 > The HTTP DDoS ruleset will be removed from the configuration if you make any changes to a managed ruleset using the production portal after assigning the HTTP DDoS ruleset.
