@@ -165,9 +165,9 @@ You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to re
 
 ### Register for breakthrough mode
 
-To use breakthrough mode with large volumes, you must first register for the feature using the [waitlist form](https://forms.cloud.microsoft/r/P11Zn9zHMY).
+To use breakthrough mode with large volumes, you submit a request using the [waitlist form](https://forms.cloud.microsoft/r/P11Zn9zHMY).
 
-Check the status of the feature registration: 
+You can check the status of feature registration with the command: 
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBreakthroughMode 
@@ -180,10 +180,9 @@ You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to re
 >[!NOTE]
 >You must be registered to use [large volumes](#register-the-feature) and, if you're using the Flexible, Premium, or Ultra service level, [cool access](manage-cool-access.md#register-the-feature) before registering for the larger volume size. 
 
-Extra large volumes are currently in preview. Submit a waitlist request for access to the feature. 
-<!-- insert waitlist -->
+Large volumes up to 7.2 PiB are currently in preview. [Submit a waitlist request](https://forms.office.com/r/WfBqxqayzM) for access to the feature. 
 
-You can check the status of your feature registration with the following command:
+You can check the status of your feature registration with the command:
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFExtraLargeVolumes
