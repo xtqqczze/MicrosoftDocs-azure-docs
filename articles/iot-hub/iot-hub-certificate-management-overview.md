@@ -93,9 +93,9 @@ The following diagram illustrates the end-to-end process of device provisioning 
 
 :::image type="content" source="media/certificate-management/operational-diagram.png" alt-text="Diagram showing how Azure Device Registry integrates with IoT Hub and DPS for certificate management during provisioning." lightbox="media/certificate-management/operational-diagram.png":::
 
-## Renewal of certificates
+## Renewal of leaf certificates
 
-Certificate renewals are performed using the same mechanism as certificate issuance. When the device detects a need to renew its operational certificate, the device initiates another registration call to DPS, submitting a new Certificate Signing Request (CSR). The CSR is sent to the appropriate issuing certificate authority (ICA) to request a renewed leaf certificate. Once approved, the new operational certificate is returned to the device for continued secure authentication with IoT Hub. 
+End-entity leaf certificates can be renewed using the same mechanism as first-time certificate issuance. When the device detects a need to renew its operational certificate, it must initiate another registration call to DPS, submitting a new Certificate Signing Request (CSR). The CSR is sent to the appropriate issuing certificate authority (ICA) to request a renewed leaf certificate. Once approved, the new operational certificate is returned to the device for continued secure authentication with IoT Hub. 
 
 Each device is responsible for monitoring the expiration date of its operational certificate and initiating a certificate renewal. As a best practice, we recommend renewing a certificate before its expiration date to ensure uninterrupted communications. The certificate includes its **expiration date**, which the device can track to determine when renewal is needed. 
 
