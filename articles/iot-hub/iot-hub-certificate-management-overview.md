@@ -57,7 +57,7 @@ IoT Hubs that are linked to an ADR namespace can take advantage of certificate m
 
 ### Azure Device Registry integration
 
-Certificate management uses [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) to manage CA certificates. ADR is a service that provides secure device identity and authentication for IoT solutions. It integrates with IoT Hub and Device Provisioning Service (DPS) to provide a seamless experience for managing device identities and CA certificates.
+Certificate management uses [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) to manage CA certificates. ADR is a service that can project IoT devices as Azure resources in the cloud within a single registry. It integrates with IoT Hub and Device Provisioning Service (DPS) to provide a seamless experience for managing device identities and CA certificates.
 
 The following image illustrates the X.509 certificate hierarchy used to authenticate IoT devices in Azure IoT Hub through the ADR namespace.
 
@@ -74,7 +74,7 @@ For devices to receive leaf certificates, devices must be provisioned through [D
 - The specific type of [onboarding credential](../iot-dps/concepts-service.md#attestation-mechanism) for that enrollment. Supported methods are Trusted Platform Module (TPM), symmetric keys, or X.509 certificates.
 - The specific policy that was created within your ADR namespace. This policy signs and issues leaf certificates to devices provisioned by this enrollment.
 
-Device Provisioning Service now accepts [Certificate Signing Request (CSR)](https://review.learn.microsoft.com/en-us/azure/iot-hub/iot-hub-certificate-management-concepts?branch=pr-en-us-306976#certificate-signing-request) during provisioning. The CSR is sent to DPS and the PKI, which validates the request and forwards it to the appropriate **issuing CA (ICA)** to issue signed X.509 certificate. 
+Device Provisioning Service now accepts [Certificate Signing Request (CSR)](iot-hub-certificate-management-concepts.md) during provisioning. The CSR is sent to DPS and the PKI, which validates the request and forwards it to the appropriate issuing CA (ICA) to issue signed X.509 certificate. 
 
 Certificate management currently supports the following protocols during provisioning: HTTP and MQTT.
 For more information on DPS Certificate Signing Request, check out some the [DPS Device SDKs samples](../iot-dps/libraries-sdks.md#device-sdks).
