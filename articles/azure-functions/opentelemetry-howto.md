@@ -472,7 +472,7 @@ When using Microsoft Entra authentication with OpenTelemetry, you must configure
 
 To configure authentication for the host process, see [Require Microsoft Entra authentication](configure-monitoring.md#require-microsoft-entra-authentication).
 
-To configure authentication for the worker process, see [Enable Microsoft Entra authentication](../azure-monitor/app/azure-ad-authentication.md).
+To configure authentication for the worker process, see [Enable Microsoft Entra authentication](/azure/azure-monitor/app/azure-ad-authentication).
 
 ### Resource attributes support
 
