@@ -143,22 +143,6 @@ If you create more than 70 data flows for a single data flow profile, deployment
 
 To work around this issue, create multiple data flow profiles and distribute the data flows across them. Don't exceed 70 data flows per profile.
 
-### The request persistence flag is not set for MQTT sessions created for data flow graphs (WASM)
-
----
-
-Issue ID: 6415
-
----
-
-Log signature: N/A
-
----
-
-When you create a data flow graph using the WASM, the MQTT session doesn't have the request persistence flag set.
-
-To work around this issue, set MQTT broker **Retained messages** mode to `All`. For more information, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
-
 ### Data flow graphs only support specific endpoint types
 
 ---
