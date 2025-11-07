@@ -42,7 +42,49 @@ Register the portable VCF details on your Azure VMware Solution private cloud th
 This can be done in one of two ways: 
 1. Configure portable VCF (BYOL) while creating a new Azure VMware Solution private cloud.
 2. Enable portable VCF (BYOL) on an existing Azure VMware Solution private cloud.
-3. 
+
+### Configure portable VCF (BYOL) while creating a new Azure VMware Solution private cloud
+
+When you create a new AVS Private Cloud via the Azure portal, you will be presented with an option to provide VCF license information. See image below: 
+<insert-image>
+
+Click on the “Configure” and provide all the required details: 
+1. VCF license/subscription key (the 25-character key from Broadcom) <<insert link to which key>>
+2. Number of cores you wish to bring to this AVS Private Cloud (Note: this cannot exceed the cores purchased under the provided VCF key from Broadcom). 
+3. License expiration date (the end date of your VCF subscription purchased from Broadcom). 
+4. Broadcom Site ID associated with your contract. 
+
+ Where to find the all the above requirement information: <<insert Broadcom links to help>>
+
+ <inser-image>
+ 
+
+To use VMware vDefend Firewall add-on on Azure VMware Solution private cloud you must have pre-purchased vDefend Firewall add-on from Broadcom. vDefend Firewall add-on license key update can also be done once your Azure VMware Solution private cloud is created is created. More info in the following section <inser-section-name>. 
+
+## Enable portable VCF (BYOL) on an existing Azure VMware Solution private cloud
+You can convert an already running AVS Private Cloud to use your own VCF without any downtime or interruption on your deployment. In the Azure Portal, navigate to your AVS Private Cloud resource and look for the “Portable VCF (BYOL)” under Manage.  
+
+<insert-image>
+
+Click on the “Configure” under “VCF license details” and provide all the required details: 
+1. VCF license/subscription key (the 25-character key from Broadcom) <<insert link to which key>>
+2. Number of cores you wish to bring to this AVS Private Cloud (Note: this cannot exceed the cores purchased under the provided VCF key from Broadcom). 
+3. License expiration date (the end date of your VCF subscription purchased from Broadcom). 
+4. Broadcom Site ID associated with your contract.
+
+After saving, your existing hosts will switch to the portable VCF (BYOL) pricing going forward. 
+
+Tip: If you want to take advantage of cost savings with reserved pricing, purchase an Azure VMware Solution RI with “VCF BYOL” for the corresponding host type. 
+
+## Using VMware vDefend Firewall on Azure VMware Solution private cloud
+
+The VMware vDefend Firewall is an add-on feature for Azure VMware Solution. Customers with active RIs that included VCF and enabled the vDefend Firewall prior to October 16th may continue to use the same number of eligible vDefend firewall cores until their Reservation expires. After your Reservation expires, or if your vDefend Firewall core usage exceeds the eligible VCF-included cores as of October 15th, 2025, you must provide your own VCF vDefend Firewall add-on license key for continued or additional usage. 
+
+This applies to all host types: VCF-included hosts and portable VCF (BYOL) hosts.  
+
+If you attempt to enable firewall features without having a Broadcom firewall subscription (or without registering it), you will be out of compliance. Microsoft holds the right to suspend your Azure VMware Solution private cloud under these circumstances until resolution.  
+
+More information on the VMware vDefend Firewall feature set can be found on Broadcom documention <insert-link>.  Please note that all listed firewall features may not be supported on Azure VMware Solution. Please check with the Microsoft team for additional details. 
 
 ## What's changing?
 
