@@ -215,6 +215,8 @@ items:
 #         href: assessment-properties.md
 #       - name: Review assessment report
 #         href: review-azure-vmware-solution-assessment.md
+        - name: Enhance web app assessment by adding code scan report
+          href: add-copilot-code-insights.md
       - name: AVS assessment
         items:
         - name: Create an AVS assessment
