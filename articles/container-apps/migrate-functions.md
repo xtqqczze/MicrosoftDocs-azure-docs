@@ -39,7 +39,7 @@ When you move to V2 you simplify management, unlock native features, and align w
 
 ## Limitations of Functions V1
 
-Functions V1 on Azure Container Apps has several limitations that can impact scalability, management, and feature availability. Understanding these constraints helps clarify the benefits of migrating to the V2 model.
+Functions V1 on Azure Container Apps has several limitations that can affect scalability, management, and feature availability. Understanding these constraints helps clarify the benefits of migrating to the V2 model.
 
 ### Feature gaps
 
@@ -64,7 +64,7 @@ Dapr and .NET isolated Functions can conflict during build or runtime because of
 
 ## Benefits of Functions V2
 
-Functions V2 provisions a native container app resource directly. This approach removes proxy indirection and enables full Azure Container Apps capabilities.
+Functions V2 creates a native container app resource directly. This approach removes proxy indirection and enables full Azure Container Apps capabilities.
 
 Key benefits:
 
