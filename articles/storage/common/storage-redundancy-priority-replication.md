@@ -25,7 +25,7 @@ Azure Blob Storage Geo Priority Replication is designed to meet the stringent co
 
 For supported workloads, a Service Level Agreement (SLA) also backs geo priority replication, and applies to any account that has Geo priority replication enabled. It guarantees that the Last Sync Time (LST) for your account's Block Blob data remains lagged 15 minutes or less for 99.0% of the billing month. In addition to prioritized replication traffic, the feature includes enhanced monitoring and detailed telemetry.
 
-Refer to the official [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements. 
+Refer to the official [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
 
 [!INCLUDE [replication-disclaimer](includes/replication-disclaimer.md)]
 
@@ -103,7 +103,7 @@ $account = New-AzStorageAccount -ResourceGroupName $rgname `
 ```
 # [Azure CLI](#tab/cli)
 
-Before running the following commands, ensure you have the latest Azure CLI installed. You can find installation instructions at [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
+Before running the following commands, ensure you have the latest Azure CLI installed. You can find installation instructions at [Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 
