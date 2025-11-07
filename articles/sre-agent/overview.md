@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure SRE Agent Preview
+title: Overview of Azure SRE Agent
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: overview
@@ -8,9 +8,9 @@ ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
-# What is Azure SRE Agent Preview?
+# What is Azure SRE Agent?
 
-Azure SRE Agent Preview is an AI-powered reliability assistant that helps teams diagnose and resolve production issues, reduce operational toil, and lower mean time to resolution (MTTR).
+Azure SRE Agent is an AI-powered reliability assistant that helps teams diagnose and resolve production issues, reduce operational toil, and lower mean time to resolution (MTTR).
 
 Ask questions in natural language, get explainable root-cause analysis (RCA), and orchestrate incident workflows with human-in-the-loop approvals or autonomous execution within scoped guardrails. You can configure the service's agent to follow customized instructions and runbooks, and to enable consistent and scalable incident response aligned with your team's operational practices.
 
@@ -86,23 +86,14 @@ Use the following steps to start working with Azure SRE Agent.
 Keep in mind the following considerations as you use Azure SRE Agent:
 
 - English is the only supported language in the chat interface.
-- During the preview, you can deploy the agent to the *Sweden Central*, *East US 2*, and *Australia East* regions, but the agent can monitor and remediate issues for services in any Azure region.
 - For more information on how data is managed in Azure SRE Agent, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
 - Availability varies by region and tenant configuration.  
-- Preview [billing](billing.md) begins *September 1, 2025*, via Azure agent units (AAUs).
 
 When you create an agent, following resources are also automatically created for you:
 
 - Azure Application Insights
 - Log Analytics workspace
 - Managed Identity
-
-## Preview access
-
-While access to SRE Agent was previously only available to customers via a waitlist, the agent is now available to all customers through the [Azure portal](https://aka.ms/sreagent/portal).
-
-> [!NOTE]
-> By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Next step
 
