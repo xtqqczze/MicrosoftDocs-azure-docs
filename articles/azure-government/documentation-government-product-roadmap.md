@@ -34,17 +34,10 @@ For comprehensive information about compliance in Azure Government clouds, see [
 | n/a | GA is neither in progress nor planned. |
 
 >[!NOTE]
->**Product hierarchy notation**: In the product roadmap table, colons (:) indicate hierarchical relationships between services and their components:
->
->- **Service** : **Tier/SKU** : **Feature/Component**
->
->**Example**: *App Service : App Service Premium v3 : Windows Containers*
->- *App Service* is the base service.
->- *App Service Premium v3* is a specific pricing tier of App Service.
->- *Windows Containers* is a specialized component within the Premium v3 tier.
+>In the Product General Availability roadmap table, colons (:) indicate hierarchical relationships between services and their components. For example, *App Service : App Service Premium v3 : Windows Containers* refers to a specialized component within the App Service Premium v3 tier.
 
 
-## General Availability roadmap
+## Product General Availability roadmap
 
 
 | Product | FedRAMP High | DoD IL4 | DoD IL5 | DoD IL6 (Secret) |
@@ -328,3 +321,14 @@ For comprehensive information about compliance in Azure Government clouds, see [
 | Virtual WAN : Site-to-Site VPN Gateway | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
 | VPN Gateway | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg"::: |
 
+## Related content
+
+- [Azure Government overview](./documentation-government-welcome.md)
+- [Azure Government compliance](./documentation-government-plan-compliance.md)
+- [Azure and other Microsoft services compliance offerings](/azure/compliance/offerings/)
+- [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md)
+- [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md)
+- [Azure Government isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md)
+- [Azure Government DoD overview](./documentation-government-overview-dod.md)
+- [Azure security fundamentals documentation](../security/fundamentals/index.yml)
+- [Azure Policy regulatory compliance built-in initiatives](/azure/governance/policy/samples/index#regulatory-compliance)
