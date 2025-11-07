@@ -133,12 +133,9 @@ Use the Azurite emulator to run your code project locally before creating and us
 Visual Studio Code integrates with [Azure Functions Core tools](functions-run-local.md) to let you run this project on your local development computer by using the Azurite emulator.
 
 1. To start the function locally, press <kbd>F5</kbd> or the **Run and Debug** icon in the left-hand side Activity bar. The **Terminal** panel displays the output from Core Tools. Your app starts in the **Terminal** panel, and you can see the name of the functions that are running locally.
-::: zone pivot="programming-language-csharp"
-2. Make a note of the local MCP server endpoint (like `http://localhost:7071/runtime/webhooks/mcp`), which you use to configure GitHub Copilot in Visual Studio Code. 
-::: zone-end  
-::: zone pivot="programming-language-java,programming-language-python,programming-language-typescript"
-2. Make a note of the local MCP server endpoint (like `http://localhost:7071/runtime/webhooks/mcp/sse`), which you use to configure GitHub Copilot in Visual Studio Code. 
-::: zone-end  
+
+1. Make a note of the local MCP server endpoint (like `http://localhost:7071/runtime/webhooks/mcp`), which you use to configure GitHub Copilot in Visual Studio Code. 
+
 ## Verify using GitHub Copilot
 
 To verify your code, add the running project as an MCP server for GitHub Copilot in Visual Studio Code: 
@@ -242,13 +239,13 @@ This project is configured to use the `azd up` command to deploy this project to
 ## Connect to your remote MCP server
 
 Your MCP server is now running in Azure. When you access the tools, you need to include a system key in your request. After you get this key, you can connect GitHub Copilot to your remote server.
-::: zone-end  
-::: zone pivot="programming-language-csharp"  
+
 1. Run this script that uses `azd` and the Azure CLI to print out both the MCP server URL and the system key (`mcp_extension`) required to access the tools:
 
     ```bash
     eval $(azd env get-values --output dotenv)
-    MCP_EXTENSION_KEY=$(az functionapp keys list --resource-group $AZURE_RESOURCE_GROUP --name $AZURE_FUNCTION_NAME --query "systemKeys.mcp_extension" -o tsv)
+    MCP_EXTENSION_KEY=$(az functionapp keys list --resource-group $AZURE_RESOURCE_GROUP \
+        --name $AZURE_FUNCTION_NAME --query "systemKeys.mcp_extension" -o tsv)
     printf "MCP Server URL: %s\n" "https://$SERVICE_API_NAME.azurewebsites.net/runtime/webhooks/mcp"
     printf "MCP Server key: %s\n" "$MCP_EXTENSION_KEY"
     ```
@@ -270,36 +267,9 @@ Your MCP server is now running in Azure. When you access the tools, you need to 
         }
     }
     ```
-::: zone-end
-::: zone pivot="programming-language-java,programming-language-python,programming-language-typescript"
-1. Run this script that uses `azd` and the Azure CLI to print both the MCP server URL and the system key (`mcp_extension`) required to access the tools:
 
-    ```bash
-    eval $(azd env get-values --output dotenv)
-    MCP_EXTENSION_KEY=$(az functionapp keys list --resource-group $AZURE_RESOURCE_GROUP --name $AZURE_FUNCTION_NAME --query "systemKeys.mcp_extension" -o tsv)
-    printf "MCP Server URL: %s\n" "https://$SERVICE_API_NAME.azurewebsites.net/runtime/webhooks/mcp/sse"
-    printf "MCP Server key: %s\n" "$MCP_EXTENSION_KEY"
-    ```
+1. Select the **Start** button above your server name in the open `mcp.json` to restart the remote MCP server, this time using your deployed app. 
 
-1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette, search for and run the command `MCP: Open Workspace Folder MCP Configuraton`, which opens the `mcp.json` configuration file.
-
-1. In the `mcp.json` configuration, find the named MCP server you added earlier, change the `url` value to your remote MCP server URL, and add a `headers.x-functions-key` element with the MCP server key, as in this example:    
-
-    ```json
-    {
-        "servers": {
-            "remote-mcp-function": {
-                "type": "http",
-                "url": "https://contoso.azurewebsites.net/runtime/webhooks/mcp/sse",
-                "headers": {
-                    "x-functions-key": "A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u..."
-                }
-            }
-        }
-    }
-    ```
-::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
 ## Verify your deployment
 
 You can now have GitHub Copilot use your remote MCP tools just as you did locally, but now the code runs securely in Azure. Replay the same commands you used earlier to ensure everything works correctly.
@@ -315,11 +285,8 @@ azd down --no-prompt
 > [!NOTE]  
 > The `--no-prompt` option instructs `azd` to delete your resource group without confirmation from you. This command doesn't affect your local code project.
 ::: zone-end  
-## Related content
+## Next steps
 
-+ [Azure Functions scenarios](functions-scenarios.md)
-+ [Flex Consumption plan](flex-consumption-plan.md)
-+ [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/)
-+ [Model Context Protocol](https://modelcontextprotocol.io/)
-+ [Azure Functions Core Tools reference](functions-core-tools-reference.md)
-+ [Code and test Azure Functions locally](functions-develop-local.md)
+> [!div class="nextstepaction"]
+> [Configure built-in MCP server authorization](../app-service/configure-authentication-mcp.md)
+
