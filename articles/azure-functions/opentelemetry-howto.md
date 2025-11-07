@@ -65,16 +65,29 @@ Create specific application settings in your function app based on the OpenTelem
 ::: zone-end
 
 ### [OTLP Exporter](#tab/otlp-export) 
- 
-**[OTEL_EXPORTER_OTLP_ENDPOINT](functions-app-settings.md#otel_exporter_otlp_endpoint)**: an OTLP exporter endpoint URL. 
 
-**[OTEL_EXPORTER_OTLP_HEADERS](functions-app-settings.md#otel_exporter_otlp_headers)**: (Optional) list of headers to apply to all outgoing data. This setting is used by many endpoints to pass an API key.
+Azure Functions supports exporting OpenTelemetry data to any OTLP-compliant endpoint. The specific environment variables you need to configure depend on your chosen observability provider (such as Datadog, New Relic, Grafana, or others). 
+
+Most providers require:
+
+**[OTEL_EXPORTER_OTLP_ENDPOINT](functions-app-settings.md#otel_exporter_otlp_endpoint)**: the OTLP endpoint URL provided by your observability provider.
+
+Many providers also require:
+
+**[OTEL_EXPORTER_OTLP_HEADERS](functions-app-settings.md#otel_exporter_otlp_headers)**: headers for authentication credentials like API keys.
 
 ::: zone pivot="programming-language-python"
 **[PYTHON_ENABLE_OPENTELEMETRY](./functions-app-settings.md#python_applicationinsights_enable_telemetry)**: set to `true` so that the Functions host allows the Python worker process to stream OpenTelemetry logs directly, which prevents duplicate host-level entries.
 ::: zone-end
 
-If your endpoint requires you to set other environment variables, you need to also add them to your application settings. For more information, see the [OTLP Exporter Configuration documentation](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/). 
+Azure Functions supports any environment variables defined in the [OpenTelemetry SDK configuration documentation](https://opentelemetry.io/docs/languages/sdk-configuration/). However, the specific variables and values required vary by provider. Consult your observability provider's documentation for:
+
++ Required endpoint URLs and authentication methods
++ Recommended configuration settings
++ Provider-specific environment variables
++ Any additional setup steps
+
+Add all required environment variables as [application settings](functions-reference.md#environment-variables) in your function app.
 
 You should remove the `APPLICATIONINSIGHTS_CONNECTION_STRING` setting, unless you also want OpenTelemetry output from the host sent to Application Insights. 
 
