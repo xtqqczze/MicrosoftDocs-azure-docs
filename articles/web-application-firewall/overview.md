@@ -39,6 +39,7 @@ Azure Web Application Firewall on Azure Content Delivery Network and Azure Web A
 ## Related content
 
 - [What is Azure Web Application Firewall on Azure Application Gateway?](./ag/ag-overview.md)
+- [Azure Web Application Firewall on Azure Application Gateway for Containers?](/azure/application-gateway/for-containers/web-application-firewall)
 - [Azure Web Application Firewall on Azure Front Door](./afds/afds-overview.md)
 - [Azure Web Application Firewall on Azure Content Delivery Network](./cdn/cdn-overview.md)
 - [Introduction to Azure Web Application Firewall](/training/modules/introduction-azure-web-application-firewall/) (training module)
