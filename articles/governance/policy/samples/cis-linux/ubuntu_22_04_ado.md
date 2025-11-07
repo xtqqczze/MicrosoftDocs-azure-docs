@@ -23,7 +23,7 @@ ms.custom: generated
 
 - Ensure world writable files and directories are secured
 
-### Not Implemented Rules
+### Unimplemented rules
 
 - None
 

@@ -25,7 +25,7 @@ ms.custom: generated
 - Ensure world writable files and directories are secured
 - Ensure only one logging system is in use
 
-### Not Implemented Rules
+### Unimplemented rules
 
 - Ensure cryptographic mechanisms are used to protect the integrity of audit tools
 

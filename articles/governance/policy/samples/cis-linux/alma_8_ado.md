@@ -29,7 +29,7 @@ ms.custom: generated
 - Ensure /etc/shadow password fields are not empty
 - Ensure audit configuration files are owned by root
 
-### Not Implemented Rules
+### Unimplemented rules
 
 - Ensure only authorized groups are assigned ownership of audit log files
 - Ensure cryptographic mechanisms are used to protect the integrity of audit tools

@@ -26,7 +26,7 @@ ms.custom: generated
 - Ensure password history is enforced for the root user
 - Ensure only one logging system is in use
 
-### Not Implemented Rules
+### Unimplemented rules
 
 - Ensure access to the su command is restricted
 

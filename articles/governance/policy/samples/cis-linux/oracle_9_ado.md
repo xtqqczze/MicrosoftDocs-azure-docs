@@ -24,7 +24,7 @@ ms.custom: generated
 - Ensure only one logging system is in use
 - Ensure active authselect profile includes pam modules
 
-### Not Implemented Rules
+### Unimplemented rules
 
 - Ensure access to the su command is restricted
 

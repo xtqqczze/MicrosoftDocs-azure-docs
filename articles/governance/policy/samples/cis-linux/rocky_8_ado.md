@@ -29,7 +29,7 @@ ms.custom: generated
 - Ensure sshd MaxStartups is configured
 - Ensure root is the only UID 0 account
 
-### Not Implemented Rules
+### Unimplemented rules
 
 - Ensure cryptographic mechanisms are used to protect the integrity of audit tools
 - Ensure only authorized groups are assigned ownership of audit log files

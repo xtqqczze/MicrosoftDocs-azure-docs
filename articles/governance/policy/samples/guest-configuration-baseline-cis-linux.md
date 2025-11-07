@@ -7,7 +7,7 @@ ms.author: pallakatos
 ms.topic: reference
 ms.custom: generated
 ---
-# [Public - Preview] CIS Security Benchmarks for Linux Workloads
+# CIS Security Benchmarks for Linux Workloads (Preview)
 
 ## Introduction
 
@@ -38,7 +38,7 @@ All of the supported Benchmarks are powered by **[azure-osconfig's](https://gith
 
 ## Supported Benchmarks and Versions
 
-The following Linux distributions and CIS benchmark versions are currently supported, all certified by CIS for benchmark assessment:
+The following Linux distributions and CIS benchmark versions are currently supported, all certified by CIS for benchmark assessment.
 
 | Distribution | CIS Benchmark Version | Profiles | CIS Certified | Audit | Auto-Remediation |
 |--------------|----------------------|----------|---------------|-------|------------------|
@@ -55,32 +55,39 @@ The following Linux distributions and CIS benchmark versions are currently suppo
 | [Debian Linux 12](cis-linux/debian_12_ado.md) | v1.1.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [SUSE Linux Enterprise 15](cis-linux/suse_15_ado.md) | v2.0.1 | L1 + L2 Server | ✓ | ✓ | X |
 
-**Note**: Auto-remediation capabilities are planned for future releases and will be marked with ✓ when available.
-
-**Note**: You can use these benchmarks against your hardened images - we are working with the vendors to minimise deviations.
-
-**Note** You can also use these benchmarks against custom images you've built based on top of Vanilla distros as long as the **/etc/os-release** is intact with the original content.
+Auto-remediation capabilities are planned for future releases and will be marked with ✓ when available.
+	
+You can use these benchmarks against your hardened images. We are working with the vendors to minimize deviations.
+	
+You can also use these benchmarks against custom images you've built based on top of vanilla distros as long as the **/etc/os-release** is intact with the original content.
 
 ## Custom Parameters
 
 The compliance engine is capable of interpreting dynamic parameters for rule evaluation, which means we are opening up flexible rule customization without requiring code changes. Parameters allow rules to be configured with different values while maintaining the same underlying audit logic.
 
-Parameters are exposed through both the user interface and in the final JSON configuration files which you can download through the Machine Configuration UX experience. However, **we haven't exposed all available parameters initially**, as some rules contain 5-10 or even up to 20 logical conditions and relevant parameters which could easily overwhelm users. Instead, we're taking a customer-driven approach - **enabling additional rule parameters based on customer feedback**. This ensures we prioritize the most valuable customization options while maintaining a clean user experience.
+Parameters are exposed through both the user interface and in the final JSON configuration files which you can download through the Machine Configuration UX experience. 
+
+**We haven't exposed all available parameters initially.**, Some rules contain 5-10 or even up to 20 logical conditions and relevant parameters which could easily overwhelm users. Instead, we're taking a customer-driven approach - **enabling additional rule parameters based on customer feedback which we are asking you to do so following the instructions below.** This ensures we prioritize the most valuable customization options while maintaining a clean user experience.
+
+The existing parameters we have enabled and some deviations if there are any compared to CIS official toolset results are highlighted under the distribution specific pages which you can find in the table above.
 
 ### Requesting more parameters to be supported
 
-Please choose one of the following way to let us know which Rule /  CIS Benchmark / Distribution / Version you want to have which parameters enabled for customization:
+Please use one of the following ways to let us know the rule, CIS Benchmark version, distribution and/or version for which you want parameters enabled for customization and couple of words about your use case.
 
-- [GitHub issue under azure-osconfig repository](https://github.com/Azure/azure-osconfig/issues)
-- [Azure Support Case](https://azure.microsoft.com/support/create-ticket)
+- [Create a GitHub issue under the azure-osconfig repository](https://github.com/Azure/azure-osconfig/issues)
+- [Open an Azure support case](https://azure.microsoft.com/support/create-ticket)
 
+### Examples
 
-### Practical Example: Cron Package Variations
-Consider the ***Ensure permissions on /etc/cron.daily are configured*** rule. Some customers may choose to use different cron implementations (e.g., cron, cronie, or bcron). The CIS rule defines by default the package name to be "cron" - however the parameters allow you to customize the package names:
+This is a practical example for cron package variations.
 
-Default: packageName: "cron" and alternativePackageName: "cronie"
-Custom: Change packageName to "bcron" for systems using the bcron implementation
-The same way you can also apply changes to file permissions, groups, owners etc.
+Consider the ***Ensure permissions on /etc/cron.daily are configured*** rule. Some customers may choose to use different cron implementations (e.g., cron, cronie, or bcron). The CIS rule defines by default the package name to be "cron" - however, the parameters allow you to customize the package names. For example:
+
+- Default: packageName: "cron" and alternativePackageName: "cronie"
+- Custom: Change packageName to "bcron" for systems using the bcron implementation
+
+Follow this same method to apply changes to file permissions, groups, owners, etc.
 
 #### Original Rule
 
@@ -123,3 +130,7 @@ The same way you can also apply changes to file permissions, groups, owners etc.
 For questions or support regarding CIS Benchmarks for Linux in Azure Machine Configuration, please refer to this documentation or contact Azure support.
 
 For questions, suggestions or any feedback on the rules, evaluations, distro coverage, feature requests - you can also use the Azure Support - or open a [GitHub issue under azure-osconfig repository](https://github.com/Azure/azure-osconfig/issues).
+
+[!IMPORTANT]
+CIS Security Benchmarks for Linux Workloads is currently in PREVIEW.
+See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

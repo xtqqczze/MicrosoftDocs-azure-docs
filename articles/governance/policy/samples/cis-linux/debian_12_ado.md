@@ -25,7 +25,7 @@ ms.custom: generated
 - Ensure only one logging system is in use
 - Ensure a single firewall configuration utility is in use
 
-### Not Implemented Rules
+### Unimplemented rules
 
 - Ensure cryptographic mechanisms are used to protect the integrity of audit tools
 - Ensure access to the su command is restricted

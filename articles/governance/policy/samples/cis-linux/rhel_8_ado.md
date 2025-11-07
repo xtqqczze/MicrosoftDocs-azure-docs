@@ -29,7 +29,7 @@ ms.custom: generated
 - Ensure audit configuration files are 640 or more restrictive
 - Ensure root is the only UID 0 account
 
-### Not Implemented Rules
+### Unimplemented rules
 
 - Ensure only authorized groups are assigned ownership of audit log files
 - Ensure cryptographic mechanisms are used to protect the integrity of audit tools

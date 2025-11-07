@@ -23,7 +23,7 @@ ms.custom: generated
 
 - Ensure only one logging system is in use
 
-### Not Implemented Rules
+### Unimplemented rules
 
 - Ensure access to the su command is restricted
 
