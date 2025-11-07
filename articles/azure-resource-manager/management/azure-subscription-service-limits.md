@@ -354,6 +354,10 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
 
+## Azure Device Registry limits
+
+[!INCLUDE [device-registry-limits](../../iot-operations/includes/device-registry-limits.md)]
+
 ## Azure Device Update for IoT Hub limits
 
 [!INCLUDE [device-update-for-iot-hub-limits](../../../includes/device-update-for-iot-hub-limits.md)]
