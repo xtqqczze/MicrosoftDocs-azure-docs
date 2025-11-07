@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 10/23/2025
 ---
 
-# Quickstart: Deploy the de-identification service synchronous endpoint (English and Multilingual)
+# Quickstart: Deploy the de-identification service synchronous endpoint (English and multilingual)
 
 In this quickstart, you deploy an instance of the de-identification service in your Azure subscription using the synchronous endpoint in Python. 
 
@@ -72,7 +72,7 @@ Now that the resource is deployed, you need to assign yourself the following per
 
 1. On the left panel, select **Access control (IAM).** 
 2. Click **Add** and **Add role assignment.** 
-3. Select **DeID Data Owner** and **DeID Realtime Data User**, then select **Members** on the top panel. 
+3. Select **DeID Data Owner** and **DeID Real-Time Data User**, then select **Members** on the top panel. 
 4. Select **+ Select members,** and a panel appears. Search for your own name and press **Select.** 
 5. Back in the **Members** panel, select **Review + assign** at the bottom left.
 
@@ -150,8 +150,8 @@ if __name__ == "__main__":
 
 | Operation  | Language-Locale pair | Input                                                                                                                                                                    | Output                                                                                                               |
 |-------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| Redaction   | en-US               | Kimberly Brown is a 34 y.o. female presenting with bilateral eye discomfort. Last seen by her PCP 2/6/2025 Dr. Orlo at Contoso Clinics Downtown Bellevue PCP.             | [patient] is a [age] y.o. female presenting with bilateral eye discomfort. Last seen by her PCP [date] [doctor] at [hospital] PCP. |
-| Redaction   | fr-CA               | André, un ingénieur âgé de 45 ans, a été admis à l'Hôpital de Laval le 23 avril 2025 après une évaluation avec Dr Jeanne Dubuc.                                         | [patient], un ingénieur âgé de [age], a été admis à l'[hospital] le [date] après une évaluation avec [doctor].      |
+| Redaction   | en-US               | `Kimberly Brown is a 34 y.o. female presenting with bilateral eye discomfort. Last seen by her PCP 2/6/2025 Dr. Orlo at Contoso Clinics Downtown Bellevue PCP.`           | `[patient] is a [age] y.o. female presenting with bilateral eye discomfort. Last seen by her PCP [date] [doctor] at [hospital] PCP.` |
+| Redaction   | fr-CA               | `André, un ingénieur âgé de 45 ans, a été admis à l'Hôpital de Laval le 23 avril 2025 après une évaluation avec Dr Jeanne Dubuc.`                                         | `[patient], un ingénieur âgé de [age], a été admis à l'[hospital] le [date] après une évaluation avec [doctor].`    |
 
 
 ## Clean up resources
