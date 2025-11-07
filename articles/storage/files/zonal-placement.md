@@ -1,10 +1,10 @@
 ---
-title: Zonal Placement for Classic Azure File Shares
+title: Zonal Placement for Azure File Shares
 description: Learn to use zonal placement for Azure storage accounts so you can choose the specific availability zone for your SSD file shares.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/04/2025
+ms.date: 11/06/2025
 ms.author: kendownie
 ms.custom:
   - references_regions
