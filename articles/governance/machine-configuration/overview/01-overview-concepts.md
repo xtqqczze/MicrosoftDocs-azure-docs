@@ -2,10 +2,10 @@
 description: Learn the core concepts of Azure Policy's machine configuration feature and understand key scenarios for configuration management and compliance.
 ms.date: 11/07/2025
 ms.topic: overview
-title: Azure Machine Configuration overview and core concepts
+title: What is Azure Machine Configuration?
 ---
 
-# Azure Machine Configuration: Core Concepts and Overview
+# What is Azure Machine Configuration?
 
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
@@ -141,8 +141,8 @@ Machine configuration built-in policy samples are available in the following loc
 [35]: /azure/virtual-machines/windows/run-command
 [36]: /azure/virtual-machines/linux/run-command
 [37]: https://github.com/azure/nxtools#getting-started
-[38]: ../../policy/samples/built-in-policies.md#guest-configuration
-[39]: ../../policy/samples/built-in-initiatives.md#guest-configuration
+[38]: /azure/governance/policy/samples/built-in-policies#guest-configuration
+[39]: /azure/governance/policy/samples/built-in-initiatives#guest-configuration
 [40]: https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration
 [41]: https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration/package-samples/resource-modules
 [42]: ../how-to/develop-custom-package/overview.md
