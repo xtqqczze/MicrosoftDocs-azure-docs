@@ -160,7 +160,7 @@ To open this partial workflow, follow these steps:
 
 Based on the development experience that you use, start by creating a new workflow or [add an agent to a nonagent **Stateful** workflow](#add-agent-nonagent-workflow).
 
-### [Portal](#tab/azure-portal/standard)
+#### [Portal](#tab/azure-portal/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -188,7 +188,7 @@ Based on the development experience that you use, start by creating a new workfl
 
 1. Continue to the next section to set up your agent.
 
-### [Visual Studio Code](#tab/visual-studio-code/standard)
+#### [Visual Studio Code](#tab/visual-studio-code/standard)
 
 1. In Visual Studio Code, open the workspace for your Standard logic app project.
 
