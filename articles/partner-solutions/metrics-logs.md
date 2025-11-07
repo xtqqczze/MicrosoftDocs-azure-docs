@@ -1,6 +1,6 @@
 ---
-title: Monitoring Azure with partner integrations: metrics and logs
-description: "Overview of telemetry (metrics, resource logs, subscription activity, Microsoft Entra) collected by Azure partner integrations and key operational considerations."
+title: Azure Native Integrations monitoring overview
+description: "Overview of telemetry (metrics, resource logs, subscription activity, Microsoft Entra) for Azure Native Integrations and key operational considerations."
 author: GitHub Copilot
 ms.author: azteam-ps
 ms.service: Azure Monitor
@@ -11,12 +11,14 @@ ms.date: 11/07/2025
 
 ---
 
+## Monitoring Azure Native Integrations
+
 Monitoring and observability are essential for managing modern cloud environments. Azure integrates with leading partner solutions to provide comprehensive metrics and logs collection. These integrations enable centralized visibility, actionable insights, and streamlined troubleshooting across your Azure resources. 
 
 ## What Data Is Collected?
 
 | Feature | Datadog | Dynatrace | New Relic | Elastic |
-|---|---:|---:|---:|---:|
+|---|---|---|---|---|
 | Metrics Collection | Yes | Yes | Yes | No |
 | Logs Collection | Yes | Yes | Yes | Yes |
 | Tag-based Filtering | Yes (metrics/logs) | Yes (metrics/logs) | Yes (metrics/logs) | Yes (logs only) |
@@ -37,7 +39,7 @@ Optionally, you can limit metric collection for Azure VMs and App Service plans 
 
 For metrics, a system managed identity is created automatically and associated with the resource on Azure. The Monitoring Reader role is provided to the system managed identity as part of the setup. This role gives the partner service the ability to pull metrics for resources in your subscription from Azure Monitor.
 
-> ![Warning]
+> [!WARNING]
 > Removing the system managed identity or the Monitoring Reader role assignment will prevent the partner from collecting metrics from your Azure resources.
 
 ### Tag rules for sending metrics
