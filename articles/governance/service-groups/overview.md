@@ -26,11 +26,11 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 
 
 ### Example Scenarios
-Customers can create many different views that support how they organize their resources.   
+Customers can create many different views that support how they organize their resources.  
 
-* Aggregating  Metrics
-   * Organizations with multiple applications and environments can use Service Groups to aggregate  metrics across different environments. Member resources or resource containers could be from various environments within different management groups or subscriptions, can be linked to a single Service Group providing a unified view of metrics.
-   * Since Service Groups don't inherit permissions to the members, customers can apply least privileges to assign permissions on the Service Groups that allow viewing of metrics. This capability provides a solution where two users can be assigned access to the same Service Group, but only one is allowed to see certain resources.
+* Unified View of Resources
+   * Organizations with multiple applications and environments can use Service Groups to create a centralized view of resource information across different environments. Member resources or resource containers from various environments within different management groups or subscriptions can be linked to a single Service Group, providing a unified reference point for resource details.
+   * Since Service Groups don’t inherit permissions from their members, customers can apply least-privilege principles to assign permissions on the Service Groups that allow viewing of resource information. This capability enables scenarios where two users can access the same Service Group, but only one is allowed to see certain resources.
         
 * Creating Inventory
     * Customers can connect resources to the Service Groups to get a consolidated view of all the resources of a particular type or function in the entire environment.
@@ -96,8 +96,10 @@ There are three built-in roles definitions to support Service Groups in the prev
 - [Service Group Contributor](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-contributor): This built-in role should be given to users when they need to create or manage the lifecycle of a Service Group. This role allows for all actions except for Role Assignment capabilities.  
 
 
-- [Service Group Reader](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-reader): This built-in role provides read-only access to service group information and can be assigned to other resources in order to view the connected relationships.  
+- [Service Group Reader](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-reader): This built-in role provides read-only access to service group information and can be assigned to other resources in order to view the connected relationships.
 
+
+Anyone with valid permissions within the tenant is able to create a service group under the root. The user who creates the service group becomes the 'Service Group Administrator'. In order to edit the service group or create children service groups, a user must have 'Service Group Contributor' at that service group. To add members, users must have 'Service Group Contributor' on the service group and Microsoft.Relationship/write on the resource. 
 
 
 ## Related content

@@ -7,7 +7,7 @@ ms.manager: ronai
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
-ms.date: 11/6/2025
+ms.date: 02/07/2025
 ms.custom:
   - mvc
   - subject-rbac-steps
