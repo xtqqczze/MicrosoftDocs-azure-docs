@@ -55,22 +55,24 @@ You can't use cache volumes if the following features are configured on the sour
 
 The following features can't be used with Azure NetApp Files cache volumes:
 
-* NFSv4.2
-* Ransomware protection
-* FlexCache disaster recovery
-* S3 Buckets
+* Application volume groups
 * Azure NetApp Files backup
 * Cross-region, cross-zone, and cross-zone-region replication
+* FlexCache disaster recovery
+* NFSv4.2
+* Ransomware protection
 * Snapshot policies
-* Application volume groups
+* S3 Buckets
+
+#### Supported features
 
 The following features are supported with cache volumes:
 
-* NFSv3 and NFSv4.1, SMB, and dual-protocol (NFS and SMB)
-* Lightweight Directory Access Protocol (LDAP)
-* Kerberos
 * Availability zone volume placement
 * Customer-managed keys
+* Lightweight Directory Access Protocol (LDAP)
+* NFSv3 and NFSv4.1, SMB, and dual-protocol (NFS and SMB)
+* Kerberos
 
 >[!NOTE]
 >You can't transition noncustomer managed key cache volumes to customer managed key.
@@ -137,11 +139,11 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     > Don't execute the `vserverPeeringCommand` until the next step.
 
     > [!NOTE]
-    > If cache volumes are already created using this ONTAP system, then the existing cluster peer is reused. There can be situations where a different Azure NetApp Files cluster may be used which would require a new cluster peer.
+    > If cache volumes are already created using this ONTAP system, then the existing cluster peer is reused. There can be situations where a different Azure NetApp Files cluster might be used, which requires a new cluster peer.
 
 3.	Monitor if the cache state is available for storage VM peering using a GET request.
 
-    When the `cacheState = VserverPeeringOfferSent`, go to the ONTAP system that contains the external origin volume and execute the `vserver peer show` command until an entry appears where the remote storage VM displays the `<value of the -peer-vserver in the vserverPeeringCommand>`. The Peer State shows "pending".
+    When the `cacheState = VserverPeeringOfferSent`, go to the ONTAP system that contains the external origin volume and execute the `vserver peer show` command until an entry appears where the remote storage VM displays the `<value of the -peer-vserver in the vserverPeeringCommand>`. The peer state shows "pending".
 
     Execute the `vserverPeeringCommand` on the ONTAP system that contains the external origin volume. The peer state should transition to "peered".
 
