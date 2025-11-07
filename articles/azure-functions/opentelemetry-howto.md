@@ -393,9 +393,11 @@ These instructions only apply for an OTLP exporter:
 
 When you export your data using OpenTelemetry, keep these current considerations in mind.
 
-+ At this time, only HTTP, Service Bus and Event Hubs triggers are supported with OpenTelemetry outputs. 
++ `Recent function invocation` traces on the Azure portal is only supported if the telemetry is being sent to Azure Monitor.
 
-+ When the host is configured to use OpenTelemetry, the Azure portal doesn't support log streaming or recent function invocation traces.
++ When the host is configured to use OpenTelemetry, the Azure portal doesn't support log streaming.
+
++ Any configuration defined in `logging.applicationInsights` section in host.json won't apply when `telemetryMode` is set to `OpenTelemetry`.
 ::: zone pivot="programming-language-java" 
 + Custom spans automatically include all resource attributes and use the exporters configured in your app.
 
