@@ -33,6 +33,16 @@ To manage your resource, select the links next to the corresponding details.
 
 Below the essentials, you can navigate to other details about your resource by selecting the links.
 
+## Delete a resource
+
+To delete a resource:
+
+1. In the menu at the top of the page for the resource, select **Delete**.
+1. In the **Delete a resource** pane, select **Delete**.
+1. Select **Delete** again to confirm deletion.
+
+After the resource is deleted, all billing for that resource through Azure Marketplace stops.
+
 ## Get support
 
 You can request support from the Azure portal, or go to the [Dell support page](https://www.dell.com/support/home/).
