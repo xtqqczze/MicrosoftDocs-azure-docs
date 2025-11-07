@@ -25,15 +25,13 @@ Azure Storage publishes [standard storage account targets](../common/scalability
 
 > [!div class="checklist"]
 >
-> - **Review primary performance checklist**: Description goes here. See [Performance checklist for Blob Storage](storage-performance-checklist.md).
+> - **Start with general performance best practices**: Review the [Performance checklist for Blob Storage](storage-performance-checklist.md) for recommendations that apply to all clients including a custom application such as a workload or utility. The recommendations in that article don't appear in this article and visa versa. 
 > 
-> - **Leverage client libraries**: For best performance, always use the latest client libraries and tools provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Microsoft actively develops these client libraries with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally.
+> - **Use Azure Storage client libraries**: For best performance, transfer objects by using latest client libraries provided by Microsoft. Azure Storage client libraries are available for a variety of languages. Microsoft actively develops these client libraries with performance in mind, keeps them up-to-date with the latest service versions, and ensures that they handle many of the proven performance practices internally.
 >
-> - **Optimize the performance of custom code**: Consider using Storage SDKs instead of creating your own wrappers for blob REST operations. Azure SDKs are optimized for performance and provide mechanisms to fine-tune performance. 
+> - **Initial transfer size** - something here.
 >
-> - **Tune the performance of data transfers**: When an application transfers data using the Azure Storage client library, there are several factors that can affect speed, memory usage, and even the success or failure of the request. To maximize performance and reliability for data transfers, it's important to be proactive in configuring client library transfer options based on the environment your app runs in. Mention some of the subtopics such as increasing default connection limit and increasing the number of threads. Also adjusting the transfer size of each operation and the maximum number of parallel requests that can occur. To learn more, see any of these articles: link for each language
->
-> - **Leverage AzCopy to upload many blobs quickly**: To upload many blobs quickly, upload **blobs** in parallel. Uploading blobs in parallel is faster than uploading single blobs at a time with parallel **block** uploads because it spreads the upload across multiple partitions of the storage service. [AzCopy](../common/storage-use-azcopy-v10.md) performs uploads in parallel by default.
+> - **Maximum transfer size** - something here.
 >
 > - **Upload blocks in parallel**: To upload large blobs quickly, a client application can upload its blocks or pages in parallel, being mindful of the scalability targets for individual blobs and the storage account as a whole. The Azure Storage client libraries support uploading in parallel. Client libraries for other supported languages provide similar options.
 >
