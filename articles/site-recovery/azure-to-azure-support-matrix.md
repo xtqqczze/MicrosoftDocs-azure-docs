@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 11/04/2025
+ms.date: 11/07/2025
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -165,7 +165,7 @@ Azure Site Recovery (ASR) now supports major version upgrades for Linux OS witho
 
 When you upgrade Linux OS to a new major version, ASR detects the change and prompts to update the Mobility Agent as needed. This ensures that replication continues seamlessly and disaster recovery setup remains protected.  
 
-### Supported Linux Distributions  
+### Supported Linux distributions  
 
 - Red Hat Enterprise Linux (RHEL) - Upgrade from RHEL 7 to RHEL 8, Upgrade from RHEL 8 to RHEL 9. 
 - SUSE Linux Enterprise Server (SLES) - Upgrade from SLES 12 to SLES 15.
@@ -180,7 +180,7 @@ To update ASR agent manually, follow these steps:
 1. Upgrade Linux OS and navigate to the **Replicated Items** page of the VM in the Azure portal.  
 2. Select **Update Agent to support new OS version detected on VM**.
   
-     :::image type="content" source="./media/azure-to-azure-support-matrix/replicated-items.png" alt-text="Screenshot of replicated items.":::
+     :::image type="content" source="./media/azure-to-azure-support-matrix/replicated-items.png" alt-text="Screenshot of replicated items." lightbox="./media/azure-to-azure-support-matrix/replicated-items.png":::
 
 3. Review the details in the context pane and proceed with the agent upgrade as prompted.  
 
