@@ -18,6 +18,11 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (November 2025)
 
+- Public preview: Azure Migrate now supports adding code insights using GitHub Copilot assessment to enhance web app assessments. This capability helps you evaluate migration readiness more accurately and get recommend migration strategy for Azure Kubernetes Service (AKS) or Azure App Service. You can add code insights by either uploading a ZIP file of reports or requesting a report through a GitHub connection. [Learn more](add-copilot-code-insights.md).
+
+- Public preview: Azure Migrate now supports Arc-based discovery, enabling you to assess on-premises servers and SQL Server instances that are already Azure Arc-enabled—without deploying additional infrastructure. This integration accelerates migration planning by leveraging existing Arc data to generate business cases and assessments within an hour. [Learn more](concepts-arc-resource-discovery.md). 
+    - The VM extension is an optional component that collects performance data from Arc-enabled servers to provide right sized recommendations in assessments and business cases. [Learn more](migrate-virtual-machine-extension-reference.md).
+
 Public preview: Wave Planning in Azure Migrate provides a structured approach to cloud migration and modernization. It helps organizations break down large-scale migrations into manageable **waves** of workloads and applications. This capability accelerates timelines, reduces uncertainty, and minimizes risks through phased execution and logical grouping. [Learn more](overview.md).
 
 - Distribute workloads and applications into waves for high-fidelity planning, leveraging Azure Migrate’s discovery and assessment information. 
@@ -33,6 +38,7 @@ Public preview: Wave Planning in Azure Migrate provides a structured approach to
 - Support both automated and manual migration scenarios, allowing for flexible execution and tracking regardless of workload type or migration tool. 
 
 Wave Planning in Azure Migrate provides a scalable, transparent, and risk-aware migration experience, enabling organizations to modernize infrastructure with confidence and control. 
+
 
 ## Update (October 2025)
 
