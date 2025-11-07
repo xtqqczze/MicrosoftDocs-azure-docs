@@ -18,7 +18,7 @@ This article describes how to manage Azure Backup Immutable vault operations for
 
 > [!NOTE]
 > - Immutable WORM storage is generally available for Recovery Services vaults in the following regions: Australia Central 2, Switzerland West, South Africa West, Korea Central, Germany North, Korea South, Spain Central, Israel Central, India South, India West, Mexico Central, Norway West, Poland Central, Japan East.
-> - Immutable WORM storage is currently in public preview for Backup Vaults in the following regions: South Africa West, Korea Central, India South, India West, Poland Central
+> - Immutable WORM storage is currently in preview for Backup vaults in the following regions: South Africa West, Korea Central, India South, India West, Poland Central
 
 ## Enable Immutable vault
 
