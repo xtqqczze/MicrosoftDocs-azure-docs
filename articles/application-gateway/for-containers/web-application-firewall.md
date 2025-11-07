@@ -148,4 +148,4 @@ The following functionality is not supported on an Azure Web Application Firewal
 
 ## Pricing
 
-You can learn more about Application Gateway for Containers WAF pricing [here](understanding-pricing.md).
+For pricing details, see [Understanding pricing for Application Gateway for Containers](understanding-pricing.md).
