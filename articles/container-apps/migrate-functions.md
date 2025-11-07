@@ -115,7 +115,7 @@ Before migrating:
 
 Azure CLI example:
 
-```bash
+```azurecli
 az containerapp create \
   --name my-func-v2 \
   --resource-group <RESOURCE_GROUP_NAME> \
