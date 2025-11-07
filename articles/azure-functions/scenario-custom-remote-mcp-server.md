@@ -242,6 +242,8 @@ Your MCP server is now running in Azure. When you access the tools, you need to 
 
 1. Run this script that uses `azd` and the Azure CLI to print out both the MCP server URL and the system key (`mcp_extension`) required to access the tools:
 
+    ### [Linux/macOS](#tab/linux)
+
     ```bash
     eval $(azd env get-values --output dotenv)
     MCP_EXTENSION_KEY=$(az functionapp keys list --resource-group $AZURE_RESOURCE_GROUP \
@@ -249,6 +251,22 @@ Your MCP server is now running in Azure. When you access the tools, you need to 
     printf "MCP Server URL: %s\n" "https://$SERVICE_API_NAME.azurewebsites.net/runtime/webhooks/mcp"
     printf "MCP Server key: %s\n" "$MCP_EXTENSION_KEY"
     ```
+
+    ### [Windows](#tab/windows-cmd)
+
+    ```powershell
+    azd env get-values --output dotenv | ForEach-Object { 
+        if ($_ -match "^([^=]+)=(.*)$") { 
+            Set-Variable -Name $matches[1] -Value ($matches[2] -replace '"', '')
+        } 
+    }
+    $MCP_EXTENSION_KEY = az functionapp keys list --resource-group $AZURE_RESOURCE_GROUP `
+        --name $AZURE_FUNCTION_NAME --query "systemKeys.mcp_extension" -o tsv
+    Write-Host "MCP Server URL: https://$SERVICE_API_NAME.azurewebsites.net/runtime/webhooks/mcp"
+    Write-Host "MCP Server key: $MCP_EXTENSION_KEY"
+    ```
+
+    ---
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette, search for and run the command `MCP: Open Workspace Folder MCP Configuraton`, which opens the `mcp.json` configuration file.
 
