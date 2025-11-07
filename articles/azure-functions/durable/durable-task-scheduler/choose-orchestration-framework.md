@@ -55,7 +55,7 @@ The following table shows what client experience is fit for production use.
 | ---------- | ------------- | --------------- |
 | Durable Functions extension in all languages | Generally available | Preview |
 | Durable Task .NET SDK | Generally available | Preview |
-| Durable Task Python SDK | Preview | Preview |
+| Durable Task Python SDK | Generally available | Preview |
 | Durable Task Java SDK | Preview | Preview |
 
 ### Durable Functions
@@ -109,7 +109,7 @@ The Durable Task SDKs are client SDKs that must be used with the Durable Task Sc
 - Azure App Service
 - Virtual Machines (VMs) on-premises
 
-The [Durable Task Scheduler](./durable-task-scheduler.md) (some languages currently in preview) plays the role of both the orchestration engine and the storage backend for orchestration state persistence. The Durable Task Scheduler:
+The [Durable Task Scheduler](./durable-task-scheduler.md) (Java SDK currently in preview) plays the role of both the orchestration engine and the storage backend for orchestration state persistence. The Durable Task Scheduler:
 - Is fully managed by Azure, thus removing management overhead
 - Provides high orchestration throughput
 - Offers an out-of-the-box dashboard for orchestration monitoring and debugging

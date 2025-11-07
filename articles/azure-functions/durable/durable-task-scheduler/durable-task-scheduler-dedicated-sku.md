@@ -1,5 +1,5 @@
 ---
-title: Use the Dedicated SKU for Azure Functions Durable Task Scheduler (preview)
+title: Use the Dedicated SKU for Azure Functions Durable Task Scheduler
 description: Learn about how the Dedicated SKU in Azure Functions Durable Task Scheduler.
 ms.topic: conceptual
 ms.date: 11/05/2025
