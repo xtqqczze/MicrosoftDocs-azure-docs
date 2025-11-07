@@ -20,3 +20,5 @@ items:
       href: https://www.dell.com/support/home/
     - name: Troubleshoot
       href: /troubleshoot/azure/partner-solutions
+    - name: FAQ
+      href: faq.md
