@@ -191,7 +191,7 @@
       - name: Windows security baseline
         href: ./samples/guest-configuration-baseline-windows.md
       - name: Windows security 2025 baseline
-        href: ./samples/guest-configuration-baseline-windowserver2025.md  
+        href: ./samples/guest-configuration-baseline-windows-server-2025.md  
 - name: Concepts
   items:
   - name: Definition structure
