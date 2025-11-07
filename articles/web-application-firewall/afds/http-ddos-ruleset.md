@@ -50,7 +50,7 @@ Some monitoring capabilities are limited during the preview. The following monit
 
 ## Accessing the preview
 
-Currently, the HTTP DDoS Ruleset on Azure Frontdoor is in gated preview.  In order to participate in the preview, please fill out the [signup form](https://go.microsoft.com/fwlink/?linkid=2338493). A member of the product team will reach out to you with further instructions once the form is submitted.
+Currently, the HTTP DDoS Ruleset on Azure Front Door is in limited preview. To participate in the preview, fill out the [signup form](https://go.microsoft.com/fwlink/?linkid=2338493). After you submit the form, a member of the product team will contact you with further instructions.
 
 ## Limitations
 
