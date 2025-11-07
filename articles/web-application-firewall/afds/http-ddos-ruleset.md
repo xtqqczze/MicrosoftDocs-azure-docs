@@ -9,17 +9,17 @@ ms.topic: concept-article
 ms.date: 11/18/2025
 ---
 
-# HTTP DDoS ruleset (preview)
+# Microsoft HTTP DDoS Ruleset (preview)
 
 > [!IMPORTANT]
-> HTTP DDoS ruleset in the Front Door Web Application Firewall (WAF) is currently in PREVIEW.
+> The Microsoft HTTP DDoS Ruleset in the Front Door Web Application Firewall (WAF) is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 HTTP‑layer floods remain the most frequent driver of application availability incidents, and static controls (IP/geo filters, fixed rate limits) often can’t keep pace with distributed botnets. The new HTTP DDoS ruleset is Azure Web Application Firewall's (WAF) first automated layer 7 protection model that learns, detects, and defends with minimal user configuration. Once assigned, the ruleset continuously baselines normal traffic for each Azure Front Door profile and when surges indicate an attack, selectively blocks offending clients with no emergency tuning required.
 
-## How HTTP DDoS ruleset works
+## How the HTTP DDoS ruleset works
 
-Once the DDoS ruleset is applied to a policy attached to an Azure Front Door Premium profile, traffic baselines are calculated using a rolling window. For profiles that have received traffic for at least 50% of the past seven days, the ruleset immediately calculates baselines and begins detecting spikes. If the Front Door profile hasn't received sufficient traffic (less than 50% of the past seven days), the ruleset won't detect or block attacks until enough traffic is present to establish reliable baselines.
+Once the DDoS ruleset is applied to a policy attached to an Azure Front Door Premium profile, traffic baselines are calculated using a rolling window. For profiles that have received traffic for at least 50% of the past seven days, the ruleset will calculate baselines and begins detecting spikes within 24 to 36 hours. If the Front Door profile hasn't received sufficient traffic (less than 50% of the past seven days), the ruleset won't detect or block attacks until enough traffic is present to establish reliable baselines.
 
 Request thresholds are learned at the global profile level. If a single WAF policy configured with the HTTP DDoS ruleset is assigned to multiple Azure Front Door profiles, traffic thresholds are computed separately for each profile to which the policy is attached.
 
@@ -50,7 +50,7 @@ Some monitoring capabilities are limited during the preview. The following monit
 
 ## Accessing the preview
 
-The ruleset must be enabled in each subscription where it will be used. To configure the ruleset, use the [preview portal](https://preview.portal.azure.com)
+Currently, the HTTP DDoS Ruleset on Azure Frontdoor is in gated preview.  In order to participate in the preview, please fill out the [signup form](https://go.microsoft.com/fwlink/?linkid=2338493). A member of the product team will reach out to you with further instructions once the form is submitted.
 
 ## Limitations
 
@@ -58,11 +58,7 @@ The following limitations apply to the HTTP DDoS ruleset during the preview:
 
 - There's no ability to allow traffic from specific IP addresses to bypass the DDoS ruleset or penalty box.
 
-- After the HTTP DDoS ruleset is assigned to a WAF policy, any changes made to other managed rulesets using the production portal remove the HTTP DDoS ruleset from the WAF policy.
-
-- PowerShell and CLI aren't currently supported.
-
-- No metrics are recorded for IP addresses in the penalty box.
+- After the HTTP DDoS ruleset is assigned to a WAF policy, any changes made to other managed rulesets using the production portal will remove the HTTP DDoS ruleset from the WAF policy.
 
 ## Related content
 
