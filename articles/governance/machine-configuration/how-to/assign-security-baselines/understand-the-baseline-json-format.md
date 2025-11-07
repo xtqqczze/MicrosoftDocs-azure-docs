@@ -8,30 +8,30 @@ ms.topic: conceptual
 # Understand the Baseline Settings Parameter Format
 
 This article explains how to read and author the baseline parameter used by Azure Machine Configuration for CIS Linux Benchmarks and Azure Security Baseline (ASB).  
-It covers how *"apply-all"* works, how settings *exclusions* are expressed, and provides concise JSON examples for CIS Benchmarks (Linux) and Azure Security Baseline (Windows and Linux).
+It covers how *"apply all"* works, how settings *exclusions* are expressed, and provides concise JSON examples for CIS Benchmarks (Linux) and Azure Security Baseline (Windows and Linux).
 
 ## Schema at a Glance
 
-- **standard** — "CIS" or "Microsoft" — identifies the baseline source.
-- **baselineSettings\[\]** — One or more baselines included in the payload.
-- **name** — Name of the baseline (e.g., *CIS Oracle Linux 8*, *Azure Security Baseline for Windows*).
-- **version** — Baseline version string.
-- **settings\[\]** — Optional list of rule entries. When empty (\[\]), all rules apply.
+- **standard**—"CIS" or "Microsoft"—identifies the baseline source.
+- **baselineSettings\[\]**—One or more baselines included in the payload.
+- **name**—Name of the baseline (for example, CIS Oracle Linux 8, Azure Security Baseline for Windows).
+- **version**—Baseline version string.
+- **settings\[\]**—Optional list of rule entries. When empty (\[\]), all rules apply.
 
 ### Interpreting the "settings" array
 
-- **settings: \[\]** — Apply **all** rules for the specified baseline/OS ("apply-all").
-- **settings: \[{ … }\]** — Apply **only the specified** rules or values; all other rules are excluded.
-- **Baseline block omitted** — **Exclude** that OS or distribution completely (0 rules apply).
+- **settings: \[\]**—Apply **all** rules for the specified baseline/OS ("apply all").
+- **settings: \[{ … }\]**—Apply **only the specified** rules or values; all other rules are excluded.
+- **Baseline block omitted**—**Exclude** that OS or distribution completely (0 rules apply).
 
 > [!IMPORTANT]
-> "Apply-all default settings" is signaled by including the distributions benchmark block with an empty settings array. Exclusion is signaled by omitting the entire baseline block.
+> "Apply all default settings" is signaled by including the distributions benchmark block with an empty settings array. Exclusion is signaled by omitting the entire baseline block.
 
 ## CIS Benchmarks (Linux)
 
-CIS benchmarks are defined per distribution/version. A single JSON file may contain multiple distro blocks (e.g., AlmaLinux, Oracle Linux, RHEL).
+CIS benchmarks are defined per distribution/version. A single JSON file may contain multiple distro blocks (for example, AlmaLinux, Oracle Linux, RHEL).
 
-### Reading CIS benchmark settings artefact
+### Reading CIS benchmark settings artifact
 
 - settings: \[\] → Apply **all** default CIS rules for that distro/version). This approach keeps the payload minimal.
 
@@ -71,7 +71,7 @@ CIS benchmarks are defined per distribution/version. A single JSON file may cont
 }
 ```
 
-In the example above:
+In this example:
 
 - **Oracle Linux 8:** Only two rules are evaluated.
 
@@ -83,7 +83,7 @@ In the example above:
 
 Azure Security Baseline (ASB) is published separately for Windows and Linux and follows a similar schema structure. 
 
-### Reading the Windows ASB settings artefact
+### Reading the Windows ASB settings artifact
 
 ASB for Windows allows complex scoping of rule values per Windows Server year and role using the following pattern:
 
@@ -123,7 +123,7 @@ WindowsServer\2025\DomainController:1;WindowsServer\2025\MemberServer:1;WindowsS
 }
 ```
 
-### Reading the Linux ASB settings artefact
+### Reading the Linux ASB settings artifact
 
 ASB for Linux follows the same structure but omits Windows-specific scoping.  
 Rules are defined per control with expected values.
