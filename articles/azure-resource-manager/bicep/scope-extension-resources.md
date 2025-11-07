@@ -95,7 +95,7 @@ var role = {
 }
 var uniqueStorageName = 'storage${uniqueString(resourceGroup().id)}'
 
-resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueStorageName
   location: location
   sku: {

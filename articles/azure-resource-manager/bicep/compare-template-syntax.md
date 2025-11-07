@@ -134,7 +134,7 @@ targetScope = 'subscription'
 To declare a resource:
 
 ```bicep
-resource virtualMachine 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   ...
 }
 ```
@@ -152,7 +152,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2024-03-01' = {
 To conditionally deploy a resource:
 
 ```bicep
-resource virtualMachine 'Microsoft.Compute/virtualMachines@2024-03-01' = if(deployVM) {
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2025-04-01' = if(deployVM) {
   ...
 }
 ```
@@ -213,11 +213,11 @@ For Bicep, you can set an explicit dependency but this approach isn't recommende
 The following shows a network interface with an implicit dependency on a network security group. It references the network security group with `netSecurityGroup.id`.
 
 ```bicep
-resource netSecurityGroup 'Microsoft.Network/networkSecurityGroups@2024-05-01' = {
+resource netSecurityGroup 'Microsoft.Network/networkSecurityGroups@2025-01-01' = {
   ...
 }
 
-resource nic1 'Microsoft.Network/networkInterfaces@2024-05-01' = {
+resource nic1 'Microsoft.Network/networkInterfaces@2025-01-01' = {
   name: nic1Name
   location: location
   properties: {

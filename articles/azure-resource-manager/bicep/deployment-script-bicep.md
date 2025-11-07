@@ -172,7 +172,7 @@ resource storageBlobDataReaderRoleDef 'Microsoft.Authorization/roleDefinitions@2
 }
 
 @description('The user identity for the deployment script.')
-resource scriptIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-07-31-preview' = {
+resource scriptIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2025-01-31-preview' = {
   name: 'script-identity'
   location: location
 }

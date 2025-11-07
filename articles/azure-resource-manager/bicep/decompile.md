@@ -108,7 +108,7 @@ param location string = resourceGroup().location
 
 var storageAccountName = 'store${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -132,7 +132,7 @@ To rename across the file, right-click the name, and then select **Rename symbol
 The resource has a symbolic name that you might want to change. Instead of `storageAccountName` for the symbolic name, use `exampleStorage`.
 
 ```bicep
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
 ```
 
 The complete file is:
@@ -152,7 +152,7 @@ param location string = resourceGroup().location
 
 var uniqueStorageName = 'store${uniqueString(resourceGroup().id)}'
 
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueStorageName
   location: location
   sku: {

@@ -196,7 +196,7 @@ Output from the example:
 Typically, you use the property accessor with a resource deployed in the Bicep file. The following example creates a public IP address and uses property accessors to return a value from the deployed resource.
 
 ```bicep
-resource publicIp 'Microsoft.Network/publicIPAddresses@2023-11-01' = {
+resource publicIp 'Microsoft.Network/publicIPAddresses@2025-01-01' = {
   name: publicIpResourceName
   location: location
   properties: {

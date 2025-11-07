@@ -34,7 +34,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing 
   name: storageAccountName
 }
 
-resource customScriptExtension 'Microsoft.HybridCompute/machines/extensions@2023-10-03-preview' = {
+resource customScriptExtension 'Microsoft.HybridCompute/machines/extensions@2025-02-19-preview' = {
   name: '${vmName}/CustomScriptExtension'
   location: location
   properties: {
@@ -61,7 +61,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing 
   name: storageAccountName
 }
 
-resource customScriptExtension 'Microsoft.HybridCompute/machines/extensions@2023-10-03-preview' = {
+resource customScriptExtension 'Microsoft.HybridCompute/machines/extensions@2025-02-19-preview' = {
   name: '${vmName}/CustomScriptExtension'
   location: location
   properties: {

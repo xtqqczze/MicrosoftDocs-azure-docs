@@ -41,7 +41,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' existing 
   name: storageAccountName
 }
 
-resource cluster 'Microsoft.HDInsight/clusters@2024-08-01-preview' = {
+resource cluster 'Microsoft.HDInsight/clusters@2025-01-15-preview' = {
   name: clusterName
   location: location
   properties: {
@@ -94,7 +94,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' existing 
   name: storageAccountName
 }
 
-resource cluster 'Microsoft.HDInsight/clusters@2024-08-01-preview' = {
+resource cluster 'Microsoft.HDInsight/clusters@2025-01-15-preview' = {
   name: clusterName
   location: location
   properties: {

@@ -63,7 +63,7 @@ The following example shows a simple Bicep file for creating a storage account i
 ])
 param storageAccountType string = 'Standard_LRS'
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name:  'store${uniqueString(resourceGroup().id)}'
   location: resourceGroup().location
   sku: {
