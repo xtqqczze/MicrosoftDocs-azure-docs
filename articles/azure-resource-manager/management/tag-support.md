@@ -1248,7 +1248,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | images | Yes | Yes |
 > | payloadGroups | No | No |
 > | proximityPlacementGroups | Yes | Yes |
-> | restorePointCollections | Yes | Yes |
+> | restorePointCollections | Yes | No |
 > | restorePointCollections / restorePoints | No | No |
 > | restorePointCollections / restorePoints / diskRestorePoints | No | No |
 > | sharedVMExtensions | Yes | Yes |
@@ -4069,7 +4069,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
+> | accounts | Yes | No |
 > | accounts / privateEndpointConnections | No | No |
 > | accounts / privateLinkResources | No | No |
 

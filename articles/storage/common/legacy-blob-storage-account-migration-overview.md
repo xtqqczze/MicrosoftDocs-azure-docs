@@ -6,7 +6,7 @@ Services: storage
 author: gtrossell
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/22/2025
+ms.date: 10/15/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -94,16 +94,16 @@ If you see a storage account that is part of a **Databricks-managed resource gro
 ### How to identify DBFS accounts
 - Most DBFS accounts start with the prefix `dbstorage`.  
 Examples:  
-- `dbstoragezeoppf6waviqm`
-- `dbstorageb3qvu2dqsbsrg`
-- `dbstorageolaatsgryngy6`
+   - `dbstoragezeoppf6waviqm`
+   -`dbstorageb3qvu2dqsbsrg`
+   - `dbstorageolaatsgryngy6`
 
 - These accounts are typically found under resource groups named like:
-- `databricks-rg---`
+   - `databricks-rg---`
 
 > [!IMPORTANT]
-> While `dbstorage*` is the most common pattern, it is **not a reserved name**, so there may be exceptions.  
-> The most reliable way to confirm:
+> Although dbstorage* is a common naming pattern, it’s not a reserved name, so exceptions may exist.
+To confirm reliably:
 > - The account is in a **Databricks Managed Resource Group**.
 > - You have **read-only permissions** (cannot modify or delete the account).
 
