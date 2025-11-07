@@ -88,7 +88,7 @@ This template creates a complete distributed tracing scenario with three functio
 
 ::: zone pivot="programming-language-python,programming-language-typescript"
 
-The `src/host.json` file enables OpenTelemetry for the Functions host:
+The `src/otel-sample/host.json` file enables OpenTelemetry for the Functions host:
 
 ```json
 {
@@ -136,7 +136,7 @@ The key setting `"telemetryMode": "OpenTelemetry"` enables distributed tracing a
 
 ::: zone pivot="programming-language-python"
 
-The `src/requirements.txt` file includes the necessary packages for OpenTelemetry integration:
+The `src/otel-sample/requirements.txt` file includes the necessary packages for OpenTelemetry integration:
 
 ```text
 azure-functions
@@ -150,7 +150,7 @@ The `azure-monitor-opentelemetry` package provides the OpenTelemetry integration
 
 ::: zone pivot="programming-language-typescript"
 
-The `src/package.json` file includes the necessary packages for OpenTelemetry integration:
+The `src/otel-sample/package.json` file includes the necessary packages for OpenTelemetry integration:
 
 ```json
 {
@@ -185,7 +185,7 @@ These packages provide the OpenTelemetry integration with Application Insights a
 
 ::: zone pivot="programming-language-python"
 
-The functions in `src/function_app.py` demonstrate a distributed tracing flow:
+The functions in `src/otel-sample/function_app.py` demonstrate a distributed tracing flow:
 
 #### First HTTP Function
 
@@ -253,7 +253,7 @@ def servicebus_queue_trigger(azservicebus: func.ServiceBusMessage):
 
 ::: zone pivot="programming-language-typescript"
 
-The OpenTelemetry configuration is set up in `src/index.ts`:
+The OpenTelemetry configuration is set up in `src/otel-sample/index.ts`:
 
 ```typescript
 import { AzureFunctionsInstrumentation } from '@azure/functions-opentelemetry-instrumentation';
@@ -284,7 +284,7 @@ registerInstrumentations({
 });
 ```
 
-The functions are defined in the `src/functions` folder:
+The functions are defined in the `src/otel-sample/src/functions` folder:
 
 #### First HTTP Function
 
