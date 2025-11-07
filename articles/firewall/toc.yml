@@ -232,6 +232,8 @@ items:
   items:
   - name: Known issues and limitations
     href: firewall-known-issues.md
+  - name: Take a packet capture on Azure Firewall
+    href: packet-capture.md
 - name: Reference
   items:
   - name: Azure CLI

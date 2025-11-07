@@ -1,18 +1,18 @@
 ---
-title: Use packet capture to troubleshoot Azure Firewall
+title: Use Packet Capture to Troubleshoot Azure Firewall
 ms.reviewer: duau
-description: Learn how to troubleshoot Azure Firewall connectivity issues using packet capture. Configure filters, capture traffic, and analyze results for effective debugging.
+description: Learn how to use Azure Firewall's packet capture capability to capture and analyze network traffic. Configure filters, capture traffic, and analyze results for troubleshooting and debugging.
 author: varunkalyana
 ms.author: varunkalyana
 ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 11/03/2025
-#customer intent: As a network administrator, I want to troubleshoot Azure Firewall connectivity issues so that I can resolve network disruptions effectively.
+#customer intent: As a network administrator, I want to capture network traffic on Azure Firewall so that I can analyze traffic flows and troubleshoot connectivity issues.
 ---
 
 # Use packet capture to troubleshoot Azure Firewall
 
-This article shows you how to use packet capture to troubleshoot connectivity issues in Azure Firewall. You configure filters, capture network traffic, and analyze the results.
+Azure Firewall includes a built-in packet capture capability that allows you to capture network traffic flowing through the firewall. This article shows you how to use packet capture on Azure Firewall to capture, filter, and analyze network traffic for troubleshooting connectivity issues. You configure capture filters, capture network traffic, and analyze the results.
 
 ## Prerequisites
 
