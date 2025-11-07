@@ -164,48 +164,6 @@ To work around this issue, use one of the supported endpoint types:
 
 For more information about data flow graphs, see [Use WebAssembly (WASM) with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
 
-### Complex data might be flattened when enriching data in a data flow
-
----
-
-Issue ID: 7385
-
----
-
-Log signature: N/A
-
----
-
-When enriching data using complex object DSS reference data, the output might be moved to the root level instead of preserving the original structure.
-
-For example, if you have a complex object with properties like:
-
-```json
-{
-  "complex_property_1": {
-      "field1": 12,
-      "field2": 13 
-  },
-  "complex_property_2": {
-     "field2": 24
-  }
-}
-```
-
-The output might look like:
-
-```json
-{
-  "property_1": 2,
-  "property_2": 3,
-  "field1": 12,
-  "field2": 24,
-}
-```
-
-The complex properties are flattened to the root, and the original structure is lost. If fields with the same name exist in the complex objects or the root, the values might overwrite the root values. In the example, `field2` from `complex_property_2` overwrites the `field2` from `complex_property_1`.
-
-
 ### Can't use the same graph definition multiple times in a chained graph scenario
 
 ---
