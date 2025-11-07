@@ -19,7 +19,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## November 2025
 
-* [Large volumes up to 7.2 PiB with cool access](large-volumes-requirements-considerations.md#register-for-extra-large-volumes) (preview)
+* [Large volumes up to 7.2 PiB with cool access](large-volumes-requirements-considerations.md#register-for-large-volumes-up-to-72-pib) (preview)
 
    Azure NetApp Files now supports large volumes up to 7.2 PiB on dedicated capacity, designed for workloads where most data is infrequently accessed. This enhancement extends cool access support beyond the previous 2 PiB limit, giving you a new scale option for large deployments. By combining petabyte-scale capacity, cool-tier economics, and enterprise-grade performance, organizations can store massive datasets cost-effectively without compromising efficiency. 
 
