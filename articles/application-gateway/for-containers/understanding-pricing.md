@@ -32,7 +32,7 @@ Application Gateway for Containers consists of four billable items:
 - Association resource 
 - Capacity units
 
-When you enable Web Application Firewall (WAF) on your Application Gateway for Containers resource you are billed at the higher WAF rates for each meter and will incur higher capacity unit usage to run the WAF.
+When you enable Web Application Firewall (WAF) on your Application Gateway for Containers resource you're billed at the higher WAF rates for each meter and will incur higher capacity unit usage to run the WAF.
 
 #### Application Gateway for Containers hour
 
