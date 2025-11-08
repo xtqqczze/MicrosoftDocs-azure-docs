@@ -92,9 +92,9 @@ To enable OR Priority Replication when creating a new OR policy, complete the fo
 
 # [Azure PowerShell](#tab/powershell)
 
-Before running the following commands, ensure you have the latest Azure PowerShell installed. You can find installation instructions at [Azure PowerShell](/powershell/azure/install-azure-powershell?view=azps-14.5.0).
+Before running the following commands, ensure you have the latest Azure PowerShell version installed. You can find installation instructions at [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
-You can use the `Set-AzStorageObjectReplicationPolicy` cmdlet together with the `New-AzStorageObjectReplicationPolicyRule` cmdlet to enable OR Priority Replication on a new policy. Use the example script below, or refer to the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy?view=azps-14.6.0) for more details.
+You can use the `Set-AzStorageObjectReplicationPolicy` cmdlet together with the `New-AzStorageObjectReplicationPolicyRule` cmdlet to enable OR Priority Replication on a new policy. Use the example script below, or refer to the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy?view=azps-14.6.0&preserve-view=true) for more details.
 
 ```powershell
 
@@ -128,9 +128,9 @@ $srcPolicy.PriorityReplication.Enabled
 
 # [Azure CLI](#tab/cli)
 
-Before running the following commands, ensure you have the latest Azure CLI installed. You can find installation instructions at [Azure CLI](/cli/azure/install-azure-cli).
+Before running the following commands, ensure you have the latest Azure CLI version installed. You can find installation instructions at [Azure CLI](/cli/azure/install-azure-cli).
 
-You can use the `az storage account or-policy create` command to create a new Object Replication policy with priority replication enabled. Use the example script below, or refer to the [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) documentation for more details.
+You can use the `az storage account or-policy create` command to create a new Object Replication policy with priority replication enabled. Use the example script below, or refer to the [az storage account create](/cli/azure/storage/account?view=azure-cli-latest&preserve-view=true#az-storage-account-create) documentation for more details.
 
 ```azurecli-interactive
 
@@ -185,9 +185,9 @@ In the Azure portal, navigate to the storage account you want to modify. In the 
 
 # [Azure PowerShell](#tab/powershell)
 
-Before running the following commands, ensure you have the latest Azure PowerShell installed. You can find installation instructions at [Azure PowerShell](/powershell/azure/install-azure-powershell?view=azps-14.5.0).
+Before running the following commands, ensure you have the latest Azure PowerShell version installed. You can find installation instructions at [Azure PowerShell](/powershell/azure/install-azure-powershell?view=azps-14.5.0).
 
-You can use the `Set-AzStorageObjectReplicationPolicy` cmdlet to enable or disable OR Priority Replication on an existing policy. Use the example script below, or refer to the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy?view=azps-14.6.0) for more details.
+You can use the `Set-AzStorageObjectReplicationPolicy` cmdlet to enable or disable OR Priority Replication on an existing policy. Use the example script below, or refer to the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy?view=azps-14.6.0&preserve-view=true) for more details.
 
 ```powershell
 
@@ -241,9 +241,9 @@ $srcPolicy.PriorityReplication.Enabled
 
 # [Azure CLI](#tab/cli)
 
-Before running the following commands, ensure you have the latest Azure CLI installed. You can find installation instructions at [Azure CLI](/cli/azure/install-azure-cli).
+Before running the following commands, ensure you have the latest Azure CLI version installed. You can find installation instructions at [Azure CLI](/cli/azure/install-azure-cli).
 
-You can use the `az storage account or-policy update` command to enable or disable an existing Object Replication policy. Use the example script below, or refer to the [az storage account update](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-update) documentation for more details.
+You can use the `az storage account or-policy update` command to enable or disable an existing Object Replication policy. Use the example script below, or refer to the [az storage account update](/cli/azure/storage/account?view=azure-cli-latest&preserve-view=true#az-storage-account-update) documentation for more details.
 
 ```azurecli-interactive
 
