@@ -16,7 +16,7 @@ ms.update-cycle: 180-days
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When you need AI-powered automation that interacts with humans, create *conversational agent* workflows in Azure Logic Apps. These workflows use natural language and agents connected to *large language models* (LLMs) so they can make decisions and complete tasks based on human-provided prompots. These workflows work best for automation that's user-driven, short-lived, or session-based.
+When you need AI-powered automation that interacts with humans, create *conversational agent* workflows in Azure Logic Apps. These workflows use natural language and agents connected to *large language models* (LLMs) so they can make decisions and complete tasks based on human-provided prompts. These workflows work best for automation that's user-driven, short-lived, or session-based.
 
 The following example workflow uses an agent to get the current weather and send email notifications:
 
@@ -95,7 +95,6 @@ For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with M
 
     - [Authenticate access and connections with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard)
     - [Role-based access control for Azure OpenAI Service](/azure/ai-services/openai/how-to/role-based-access-control)
-    - [Role-based access control for Azure AI Foundry](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
     - [Best practices for Microsoft Entra roles](/entra/identity/role-based-access-control/best-practices)
 
   - URL and key-based authentication
@@ -182,11 +181,11 @@ Based on the development experience that you use, start by creating a new workfl
 
       :::image type="content" source="media/create-conversational-agent-workflows/workflow-start-standard-portal.png" alt-text="Screenshot shows Standard workflow designer with required chat conversation trigger and an empty Agent action." lightbox="media/create-conversational-agent-workflows/workflow-start-standard-portal.png":::
 
-  Before you can save your workflow, you must complete the following setup tasks for the **Agent** action:
+   Before you can save your workflow, you must complete the following setup tasks for the **Agent** action:
 
-  - Connect your agent to your AI model. You complete this task in a later section.
+   - Connect your agent to your AI model. You complete this task in a later section.
 
-  - Provide agent instructions that use natural language to describe the roles that the agent plays, the tasks that the agent can perform, and other information to help the agent better understand how to operate. You also complete this task in a later section.
+   - Provide agent instructions that use natural language to describe the roles that the agent plays, the tasks that the agent can perform, and other information to help the agent better understand how to operate. You also complete this task in a later section.
 
 1. Continue to the next section to set up your agent.
 
@@ -295,34 +294,38 @@ Update the agent name to clearly identify the agent's purpose by following these
 
 ## Set up agent instructions
 
-The agent requires *system instructions* that describe the roles that the agent can play and the tasks that the agent can perform. To help the agent learn and understand these responsibilities, you can also include the following information:
+The agent requires instructions that describe the roles that the agent can play and the tasks that the agent can perform. To help the agent learn and understand these responsibilities, you can also include the following information:
 
 - Workflow structure
 - Available actions
 - Any restrictions or limitations
 - Interactions for specific scenarios or special cases
 
-To get the best results, make sure that your system instructions are prescriptive and that you're willing to refine these instructions over multiple iterations.
+For the best results, provide prescriptive instructions and be prepared to iteratively refine your instructions.
 
-1. Under **Instructions for agent**, in the **System instructions** box, enter all the information that the agent needs to understand its role and tasks.
-
-   > [!NOTE]
-   >
-   > Conversational agents can accept extra input through the chat interface at runtime.
+1. In the **Instructions for agent** box, enter the instructions that the agent needs to understand its role and tasks.
 
    For this example, the weather agent example uses the following sample instructions where you later ask questions and provide your own email address for testing:
 
-   **You're an AI agent that answers questions about the weather for a specified location. You can also send a weather report in email if you're provided email address. If no address is provided, ask for an email address.**
+   ```
+   You're an AI agent that answers questions about the weather for a specified location. You can also send a weather report in email if you're provided email address. If no address is provided, ask for an email address.
 
-   **Format the weather report with bullet lists where appropriate. Make your response concise and useful, but use a conversational and friendly tone. You can include suggestions like "Carry an umbrella" or "Dress in layers".**
+   Format the weather report with bullet lists where appropriate. Make your response concise and useful, but use a conversational and friendly tone. You can include suggestions like "Carry an umbrella" or "Dress in layers".
 
-   Here's how the example looks with the system instructions for the agent:
+   Here's an example:
 
    :::image type="content" source="media/create-conversational-agent-workflows/system-instructions-weather-agent.png" alt-text="Screenshot shows workflow designer, and agent with system instructions." lightbox="media/create-conversational-agent-workflows/system-instructions-weather-agent.png":::
 
 1. Now, you can save your workflow. On the designer toolbar, select **Save**.
 
-1. To make sure your workflow doesn't have errors at this stage, follow these steps:
+## Check for errors
+
+To make sure your workflow doesn't have errors at this stage, follow these steps:
+
+### [Consumption (preview)](#tab/consumption)
+
+
+### [Standard](#tab/standard)
 
    1. On the designer toolbar, select **Chat**.
 
@@ -352,6 +355,8 @@ To get the best results, make sure that your system instructions are prescriptiv
       However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email, until you create tools that the agent needs to complete their tasks. You might even get an email that your email server rejected the message.
 
 1. Return to the designer. On the monitoring view toolbar, select **Edit**.
+
+---
 
 <a name="create-tool-weather"></a>
 
