@@ -26,7 +26,7 @@ This guide shows how to create a Consumption or Standard logic app that uses the
 
 > [!IMPORTANT]
 >
-> Consumption conversational agent workflows are in preview and is subject to the 
+> Consumption conversational agent workflows are in preview and subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites

@@ -15,7 +15,7 @@ ms.update-cycle: 180-days
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When you need AI-powered automation that runs independently, create *autonomous agent* workflows in Azure Logic Apps. These workflows use agents connected to *large language models* (LLMs) so they can make decisions and complete tasks indepently without human intervention. These workflows also work well for automation that might run a long time, require stronger governance, isolation, or support automated rollback or compensation strategies.
+When you need AI-powered automation that runs independently, create *autonomous agent* workflows in Azure Logic Apps. These workflows use agents connected to *large language models* (LLMs) so they can make decisions and complete tasks without human intervention. These workflows also work well for automation that might run a long time, require stronger governance, isolation, or support automated rollback or compensation strategies.
 
 The following example workflow uses an agent to get the current weather and send email notifications:
 
@@ -25,7 +25,7 @@ This guide shows how to create a Consumption or Standard logic app that uses the
 
 > [!IMPORTANT]
 >
-> Consumption autonomous agent workflows are in preview and is subject to the 
+> Consumption autonomous agent workflows are in preview and subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
@@ -185,7 +185,7 @@ To create a workflow with an empty **Agent**, follow these steps:
 
       The designer opens and shows a partial workflow, which includes an empty **Agent** action that you need to set up later.
 
-      :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png" alt-text="Screenshot shows workflow designer with Add a trigger and and empty Agent action." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png":::
+      :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Agent action." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png":::
 
    Before you can save your workflow, you must complete the following setup tasks for the **Agent** action:
 
