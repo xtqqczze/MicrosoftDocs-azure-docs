@@ -6,7 +6,7 @@ author: cgardin
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: tutorial
+ms.topic: concept-article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 10/07/2025 
 ms.author: cgardin
@@ -114,7 +114,7 @@ Several SAP security solution products are now end of life. Microsoft and SAP ha
 - [Migrate identity management scenarios from SAP IDM to Microsoft Entra | Microsoft Learn](/entra/id-governance/scenarios/migrate-from-sap-idm)
 SAP IDM 8.0 – End of Life December 2027. Documentation on the migration path can be found here 
 - [Update on the SAP Identity Management migration to Microsoft Entra](https://community.sap.com/t5/technology-blog-posts-by-sap/update-on-the-sap-identity-management-migration-to-microsoft-entra/ba-p/13742820)
-- [Preparing for SAP Identity Management’s End-of-Maintenance in 2027](https://community.sap.com/t5/technology-blog-posts-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101)
+- [Preparing for SAP Identity Management's End-of-Maintenance in 2027](https://community.sap.com/t5/technology-blog-posts-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101)
 
 SAP SSO Server (Java) – SAP has announced the End of Life December 2027  [SAP GUI MFA with Microsoft Entra (Part I): Integration - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-i-integration-with-sap-secure-login/ba-p/13605383)
 
