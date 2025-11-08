@@ -62,15 +62,17 @@ For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with M
   >
   > The steps to set up conversational chat are mostly the same for both Azure portal and Visual Studio Code. The examples in this guide show the instructions for each experience where the process differs.
 
-- An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models). Agent workflows support only [specific models](#supported-models-for-agent-workflows).
+- One of the following AI model sources: 
 
-  You need the resource name when you connect from the agent in your workflow to the deployed model in Azure OpenAI Service.
-  
-  For more information, see:
+  > [!NOTE]
+  >
+  > Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
 
-  - [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal)
-  - [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model)
-
+  | Model source | Description |
+  |--------------|-------------|
+  | **Azure OpenAI** | An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models). <br><br>You need the resource name when you connect from the agent in your workflow to the deployed model in Azure OpenAI Service. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
+  | **APIM Gen AI Gateway** | An [Azure API Management account](../api-management/genai-gateway-capabilities) with the LLM API to use. <br><br>For more information, see: <br>- [AI gateway in Azure API Management](/azure/api-management/genai-gateway-capabilities) <br>- [Import an Azure AI Foundry API](/azure/api-management/azure-ai-foundry-api) <br>- [Import an Azure OpenAI API](/azure/api-management/azure-openai-api-from-specification) |
+ 
 - The authentication to use when you connect your agent to your deployed AI model.
 
   - Managed identity authentication
@@ -158,7 +160,7 @@ To open this partial workflow, follow these steps:
 
 ### [Standard](#tab/standard)
 
-Based on the development experience that you use, start by creating a new workflow or [add an agent to a nonagent **Stateful** workflow](#add-agent-nonagent-workflow).
+Based on the development experience that you use, start by creating a new workflow.
 
 #### Create agent workflow in portal
 
@@ -223,9 +225,29 @@ Based on the development experience that you use, start by creating a new workfl
 
 ---
 
-## Connect the agent to your model
+<a name="connect-agent-to-model"></a>
 
-Now, create a connection between the agent and your deployed model by following these steps:
+## Set up the agent with an AI model
+
+Set up your agent with the AI model that you want to use by following the corresponding steps:
+
+### [Consumption (preview)](#tab/consumption)
+
+1. On the designer, select the title bar on the **Default Agent** action to open the information pane.
+
+1. On the **Parameters** tab, provide the following information:
+
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Model Id** | Yes | <*model-version*> | The Azure OpenAI model to use. Some regions support **gpt-4o-mini**, while others support **gpt-5o-mini**. |
+
+   The agent information pane now shows the selected AI model, for example:
+
+   :::image type="content" source="media/create-conversational-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows Consumption example connected deployed AI model." lightbox="media/create-conversational-agent-workflows/connected-model-consumption.png":::
+
+1. Continue to the next section to rename the agent.
+
+### [Standard](#tab/standard)
 
 1. On the designer, select the title bar on the **Agent** action to open the **Create connection** pane.
 
@@ -235,13 +257,15 @@ Now, create a connection between the agent and your deployed model by following 
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection to your deployed model. <br><br>This example uses **fabrikam-azure-ai-connection**. |
-   | **Agent Model Source** | Yes | **Azure OpenAI** | The source for the deployed model. |
-   | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your deployed model. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your deployed model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
-   | **Subscription** | Yes | <*Azure-subscripton*> | Select the Azure subscription associated with your Azure OpenAI Service resource. |
+   | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection to your deployed AI model. <br><br>This example uses `fabrikam-azure-ai-connection`. |
+   | **Agent Model Source** | Yes | - **Azure OpenAI** <br>- **APIM Gen AI Gateway** | The source for the deployed AI model in your Azure OpenAI Service resource, or API in your Azure API Management account. |
+   | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your deployed AI model. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your deployed AI model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
+   | **Subscription** | Yes | <*Azure-subscription*> | Select the Azure subscription for your Azure OpenAI Service resource or Azure API Management account. |
    | **Azure OpenAI Resource** | Yes, only when **Agent Model Source** is **Azure OpenAI** | <*Azure-OpenAI-Service-resource-name*> | Select your Azure OpenAI Service resource. |
-   | **API Endpoint** | Yes | Automatically populated | The endpoint URL for your deployed model in Azure OpenAI Service. <br><br>This example uses **`https://fabrikam-azureopenai.openai.azure.com/`**. |
-   | **API Key** | Yes, only when **Authentication Type** is **URL and key-based authentication** | Automatically populated | The API key for your deployed model in Azure OpenAI Service. |
+   | **Azure API Management Service** (preview) | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | Select your Azure API Management account. | |
+   | **Azure API Management Service APIs** | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | Select your API in Azure API Management. |
+   | **API Endpoint** | Yes | Automatically populated | The endpoint URL for your deployed model in Azure OpenAI Service or API in Azure API Management. <br><br>This example uses `https://fabrikam-azureopenai.openai.azure.com/`. |
+   | **API Key** | Yes, only when **Authentication Type** is **URL and key-based authentication** | Automatically populated | The API key for your deployed model in Azure OpenAI Service or API in Azure API Management. |
 
    For example, if you select **Azure OpenAI** as your model source and **Managed identity** for authentication, your connection information looks like the following sample:
 
@@ -249,27 +273,27 @@ Now, create a connection between the agent and your deployed model by following 
 
 1. When you're done, select **Create new**.
 
-   If you want to create another connection, on the **Parameters** tab, scroll down to the bottom, and select **Change connection**.
-
-1. Continue to the next section.
-
-## Rename the agent
-
-Clearly identify the agent's purpose by updating the agent name in following steps:
-
-1. If the agent information pane isn't open, on the designer, select the agent title bar to open the pane.
-
-1. On the agent information pane, select the agent name, and enter the new name, for example, **Weather agent**.
-
-   :::image type="content" source="media/create-conversational-agent-workflows/rename-agent.png" alt-text="Screenshot shows workflow designer, workflow trigger, and renamed agent." lightbox="media/create-conversational-agent-workflows/rename-agent.png":::
+   If you want to create a different connection, on the **Parameters** tab, scroll down to the bottom, and select **Change connection**.
 
    > [!NOTE]
    >
-   > If the connection to your model is incorrect, the **Deployment Model Name** list appears unavailable.
+   > If the connection to your model is incorrect, the **AI Model** list appears unavailable.
 
-1. Continue to the next section to provide system instructions for the agent.
+1. Continue to the next section to rename the agent.
 
-## Set up system instructions for the agent
+## Rename the agent
+
+Update the agent name to clearly identify the agent's purpose by following these steps:
+
+1. On the designer, select the agent title bar to open the agent information pane.
+
+1. On the information pane, select the agent name, and enter the new name, for example, `Weather agent`.
+
+   :::image type="content" source="media/create-conversational-agent-workflows/rename-agent.png" alt-text="Screenshot shows workflow designer, workflow trigger, and renamed agent." lightbox="media/create-conversational-agent-workflows/rename-agent.png":::
+
+1. Continue to the next section to provide instructions for the agent.
+
+## Set up agent instructions
 
 The agent requires *system instructions* that describe the roles that the agent can play and the tasks that the agent can perform. To help the agent learn and understand these responsibilities, you can also include the following information:
 
@@ -280,7 +304,7 @@ The agent requires *system instructions* that describe the roles that the agent 
 
 To get the best results, make sure that your system instructions are prescriptive and that you're willing to refine these instructions over multiple iterations.
 
-1. Under **Instructions for Agent**, in the **System instructions** box, enter all the information that the agent needs to understand its role and tasks.
+1. Under **Instructions for agent**, in the **System instructions** box, enter all the information that the agent needs to understand its role and tasks.
 
    > [!NOTE]
    >

@@ -70,6 +70,10 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
   | A deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models) | You need the resource name when you connect from the agent in your workflow to the deployed model in Azure OpenAI Service. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
   | An [Azure AI Foundry project](/azure/ai-foundry/what-is-azure-ai-foundry) connected to a deployed [Azure OpenAI model in Azure AI Foundry](/azure/ai-foundry/openai/concepts/models) | Make sure that you have a Foundry project, not a Hub based project. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Create a project for Azure AI Foundry](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry) <br>- [Connect Azure AI services after you create a project](/azure/ai-services/connect-services-ai-foundry-portal#connect-azure-ai-services-after-you-create-a-project) <br>- [Create a new connection in Azure AI Foundry portal](/azure/ai-foundry/how-to/connections-add?tabs=aoai%2Cblob%2Cserp&pivots=fdp-project#create-a-new-connection) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
 
+    | **Azure API Management Service** (preview) | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | Select your Azure API Management account. |
+   | **Azure API Management Service APIs** | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | Select your API in Azure API Management. |
+ 
+
 - The authentication to use when you connect your agent to your deployed AI model.
 
   Azure AI Foundry projects require that you use managed identity authentication.
@@ -201,7 +205,7 @@ To create a workflow with an empty **Agent**, follow these steps:
 
       :::image type="content" source="media/create-autonomous-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Agent action." lightbox="media/create-autonomous-agent-workflows/request-trigger.png":::
 
-   1. Skip the next section so you can set up your agent with an AI model.
+1. Skip the next section so you can set up your agent with an AI model.
 
 <a name="add-agent-nonagent-workflow"></a>
 
@@ -235,7 +239,7 @@ If you have an existing **Stateful** workflow, you can add an **Agent** action t
 
 ## Set up the agent with an AI model
 
-Follow the corresponding steps to set up your agent with the AI model that you want to use.
+Set up your agent with the AI model that you want to use by following the corresponding steps:
 
 ### [Consumption (preview)](#tab/consumption)
 
@@ -249,7 +253,7 @@ Follow the corresponding steps to set up your agent with the AI model that you w
 
    The agent information pane now shows the selected AI model, for example:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows example connected deployed AI model." lightbox="media/create-autonomous-agent-workflows/connected-model-consumption.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows Consumption example connected deployed AI model." lightbox="media/create-autonomous-agent-workflows/connected-model-consumption.png":::
 
 1. Continue to the next section to rename the agent.
 
@@ -266,7 +270,7 @@ Follow the corresponding steps to set up your agent with the AI model that you w
    | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection to your deployed AI model. <br><br>This example uses **fabrikam-azure-ai-connection**. |
    | **Agent Model Source** | Yes | - **Azure OpenAI** <br>- **Foundry Agent Service** | The source for the deployed AI model. |
    | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your deployed AI model. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your deployed AI model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
-   | **Subscription** | Yes | <*Azure-subscripton*> | Select the Azure subscription associated with your Azure OpenAI Service resource. |
+   | **Subscription** | Yes | <*Azure-subscription*> | Select the Azure subscription associated with your Azure OpenAI Service resource. |
    | **Azure OpenAI Resource** | Yes, only when **Agent Model Source** is **Azure OpenAI** | <*Azure-OpenAI-Service-resource-name*> | Select your Azure OpenAI Service resource. |
    | **AI Foundry Project** | Yes, only when **Agent Model Source** is **Foundry Agent Service** | <*Azure-AI-Foundry-project-name*> | Select your project in Azure AI Foundry. <br><br>**Note**: If you recently assigned the necessary role on your project, you might experience a delay before role permissions take effect. Meanwhile, an error message appears that you don't have correct permissions on the project. |
    | **API Endpoint** | Yes | Automatically populated | The endpoint URL for your deployed AI model in Azure OpenAI Service. <br><br>This example uses **`https://fabrikam-azureopenai.openai.azure.com/`**. |
@@ -288,6 +292,10 @@ Follow the corresponding steps to set up your agent with the AI model that you w
 
    If you want to create a different connection, on the **Parameters** tab, scroll down to the bottom, and select **Change connection**.
 
+   > [!NOTE]
+   >
+   > If the connection to your model is incorrect, the **AI Model** list appears unavailable.
+
 1. Continue to the next section to rename the agent.
 
 ---
@@ -302,7 +310,7 @@ Update the agent name to clearly identify the agent's purpose by following these
 
    :::image type="content" source="media/create-autonomous-agent-workflows/rename-agent.png" alt-text="Screenshot shows workflow designer, workflow trigger, and renamed agent." lightbox="media/create-autonomous-agent-workflows/rename-agent.png":::
 
-1. Continue to the next section to provide instructions for the agent.
+1. Continue to the next section to provide agent instructions for the agent.
 
 ## Set up agent instructions
 
