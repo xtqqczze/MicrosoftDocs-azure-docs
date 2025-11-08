@@ -62,61 +62,56 @@ Follow these steps to create an appyour Managed Instance plan:
 
 # [Azure portal](#tab/portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **+ Create a resource**.
-1. Search for **managed instance**
-1. Select **Web App (for Managed Instance) (preview)** in the results.
-1. Select **Create** to start the create process.
-
-### Complete Basics tab
-
-On the Basic tab, provide the following details.
+    1. Sign in to the [Azure portal](https://portal.azure.com).
+    1. Select **+ Create a resource**.
+    1. Search for **managed instance**
+    1. Select **Web App (for Managed Instance) (preview)** in the results.
+    1. Select **Create** to start the create process.
+    
+    On the Basic tab, provide the following details.
 
 #### Project details
 
-| Setting | Value |
-|-------|----------|
-| Subscription | Your Azure subscription |
-| Resource Group | **rg-managed-instance** |
+    | Setting | Value |
+    |-------|----------|
+    | Subscription | Your Azure subscription |
+    | Resource Group | **rg-managed-instance** |
 
 #### App details
 
-| Setting | Value |
-|-------|----------|
-| Name | **contoso-mi-app** |
-| Runtime stack | **.NET 9 (STS)** |
-| Region | A region near you |
+    | Setting | Value |
+    |-------|----------|
+    | Name | **contoso-mi-app** |
+    | Runtime stack | **.NET 9 (STS)** |
+    | Region | A region near you |
 
 #### Pricing plans
-| Setting | Value |
-|-------|----------|
-| Windows Plan | Use default plan or create new (for example, 'contoso-mi-plan')|
-| Pricing plans* | Select a pricing plan. If the Pv4 / Pmv4 SKU isn't visible in _pricing plans_, confirm region availability or request more quota.|
-
-### Complete Advanced tab
+    | Setting | Value |
+    |-------|----------|
+    | Windows Plan | Use default plan or create new (for example, 'contoso-mi-plan')|
+    | Pricing plans* | Select a pricing plan. If the Pv4 / Pmv4 SKU isn't visible in _pricing plans_, confirm region availability or request more quota.|
 
 On the Advanced tab, provide the following details.
 
 #### Configuration script
-| Setting | Value |
-|-------|----------|
-| Storage Account | Use default plan or create new (for example, 'contoso-mi-plan')|
-| Container | **scripts** |
-| Zip file | **scripts.zip** |
-| Value | Verify this is correct |
-| Identity | Select the managed identity that was created earlier|
 
-### Complete Deployment tab
-
-On the Deployment tab, select **continuous deployment** in _Continuous deployment settings_. The provide the following details.
+    | Setting | Value |
+    |-------|----------|
+    | Storage Account | Use default plan or create new (for example, 'contoso-mi-plan')|
+    | Container | **scripts** |
+    | Zip file | **scripts.zip** |
+    | Value | Verify this is correct |
+    | Identity | Select the managed identity that was created earlier|
+    
+    On the Deployment tab, select **continuous deployment** in _Continuous deployment settings_. The provide the following details.
 
 #### GitHub settings
 
-| Setting | Value |
-|-------|----------|
-| Organization | **msangapu-msft** |
-| Repository | **learn-quickstart-managed-instance** |
-| Branch | **sampleapp** |
+    | Setting | Value |
+    |-------|----------|
+    | Organization | **msangapu-msft** |
+    | Repository | **learn-quickstart-managed-instance** |
+    | Branch | **sampleapp** |
 
 1. Select **Review + create** and then select **Create**.
 
@@ -183,8 +178,12 @@ In the left menu under __Settings__, select **Configuration** to view the config
 
 # [Azure portal](#tab/portal)
 
-[!INCLUDE [Clean-up Portal web app resources](../../includes/clean-up-section-portal-web-app.md)]
-
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group.
+ 
+1. From your web app's **Overview** page in the Azure portal, select the **myResourceGroup** link under **Resource group**.
+1. On the resource group page, make sure that the listed resources are the ones you want to delete.
+1. Select **Delete resource group**, type **myResourceGroup** in the text box, and then select **Delete**.
+1. Confirm again by selecting **Delete**.
 
 # [Cloud Shell](#tab/shell)
 
