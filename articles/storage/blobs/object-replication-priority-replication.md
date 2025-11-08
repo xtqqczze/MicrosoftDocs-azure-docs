@@ -185,7 +185,7 @@ In the Azure portal, navigate to the storage account you want to modify. In the 
 
 # [Azure PowerShell](#tab/powershell)
 
-Before running the following commands, ensure you have the latest Azure PowerShell version installed. You can find installation instructions at [Azure PowerShell](/powershell/azure/install-azure-powershell?view=azps-14.5.0).
+Before running the following commands, ensure you have the latest Azure PowerShell version installed. You can find installation instructions at [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 You can use the `Set-AzStorageObjectReplicationPolicy` cmdlet to enable or disable OR Priority Replication on an existing policy. Use the example script below, or refer to the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy?view=azps-14.6.0&preserve-view=true) for more details.
 
