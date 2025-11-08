@@ -86,6 +86,10 @@ To enable Geo Priority Replication when creating a new storage account, complete
 
 # [Azure PowerShell](#tab/powershell)
 
+Before running the following commands, ensure you have the latest Azure PowerShell installed. You can find installation instructions at [Azure PowerShell](/powershell/azure/install-azure-powershell?view=azps-14.5.0).
+
+You can use the `New-AzStorageAccount` cmdlet to create a new storage account with Geo Priority Replication enabled. Use the example script below, or refer to the [New-AzStorageAccount documentation](/powershell/module/az.storage/new-azstorageaccount?view=azps-14.6.0#example-22-create-a-storage-account-with-blob-geo-priority-replication-enabled) for more details.
+
 ```powershell
 
 # Login to your Azure account
@@ -104,6 +108,8 @@ $account = New-AzStorageAccount -ResourceGroupName $rgname `
 # [Azure CLI](#tab/cli)
 
 Before running the following commands, ensure you have the latest Azure CLI installed. You can find installation instructions at [Azure CLI](/cli/azure/install-azure-cli).
+
+You can use the `az storage account create` command to create a new storage account with Geo Priority Replication enabled. Use the example script below, or refer to the [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) documentation for more details.
 
 ```azurecli-interactive
 
@@ -151,6 +157,10 @@ To enable or disable Geo Priority Replication for an existing storage account, c
 
 # [Azure PowerShell](#tab/powershell)
 
+Before running the following commands, ensure you have the latest Azure PowerShell installed. You can find installation instructions at [Azure PowerShell](/powershell/azure/install-azure-powershell?view=azps-14.5.0).
+
+You can use the `Set-AzStorageAccount` cmdlet to enable Geo Priority Replication on an existing storage account. Use the example script below, or refer to the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount?view=azps-14.6.0#-enableblobgeopriorityreplication) documentation for more details.
+
 ```powershell
 # Login to your Azure account
 Connect-AzAccount
@@ -167,6 +177,10 @@ $account = Set-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $
 ```
 
 # [Azure CLI](#tab/cli)
+
+Before running the following commands, ensure you have the latest Azure CLI installed. You can find installation instructions at [Azure CLI](/cli/azure/install-azure-cli).
+
+You can use the `az storage account update` command to enable or disable Geo Priority Replication on an existing storage account. Use the example script below, or refer to the [az storage account update](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-update) documentation for more details.
 
 ```azurecli-interactive
 
