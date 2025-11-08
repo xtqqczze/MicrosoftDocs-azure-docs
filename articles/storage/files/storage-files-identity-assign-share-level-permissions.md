@@ -46,6 +46,7 @@ There are built-in Azure role-based access control (RBAC) roles for Azure Files,
 |[Storage File Data SMB Share Elevated Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-elevated-contributor)     |Allows for read, write, delete, and modify ACLs on files and directories in Azure file shares. This role is analogous to a file share ACL of change on Windows file servers.         |
 |[Storage File Data Privileged Contributor](../../role-based-access-control/built-in-roles/storage.md#storage-file-data-privileged-contributor) |Allows read, write, delete, and modify ACLs in Azure file shares by overriding existing ACLs. |
 |[Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles/storage.md#storage-file-data-privileged-reader) |Allows read access in Azure file shares by overriding existing ACLs. |
+|[Storage File Data SMB Admin](../../role-based-access-control/built-in-roles/storage.md#storage-file-data-smb-admin) |Allows for admin access equivalent to storage account key for end users over SMB. |
 
 <a name='share-level-permissions-for-specific-azure-ad-users-or-groups'></a>
 
