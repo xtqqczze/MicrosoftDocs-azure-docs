@@ -123,6 +123,24 @@ Isolate your app in a new App Service plan when:
 > [!NOTE]
 > An active slot is also classified as an active app because it's competing for resources in the same App Service plan.
 
+## Managed Instance on Azure App Service (preview)
+Managed Instance is a plan-scoped hosting option for Windows web apps that require operating system customization, optional private networking, and legacy Windows component support. It's designed for "lift and improve" migrations of infrastructure-dependent workloads that need COM components, registry access, MSI installers, or IIS customization while retaining App Service's managed platform features.
+
+Key features:
+
+- PowerShell configuration scripts for persistent OS and middleware setup
+- Plan-level virtual network integration with private DNS
+- Azure Key Vault-backed registry adapters for secure configuration
+- Storage mounts (Azure Files, UNC paths, local temporary storage)
+- Just-in-time RDP access via Azure Bastion for diagnostics
+- Plan-level managed identities for infrastructure authentication
+- Pre-installed .NET Framework (3.5, 4.8) and .NET 8 with support for custom runtimes
+- Best for: Legacy .NET Framework apps requiring Windows-specific dependencies, gradual modernization without complete rewrites, and plan-level network isolation for compliance.
+
+Current limitations (preview): Windows only, Pv4/Pmv4 SKUs, available in East Asia, West Central US, North Europe, and East US. Not available for Linux, containers, or in App Service Environment.
+
+[Learn more about Managed Instance](overview-managed-instance.md)
+
 ## Related content
 
 - [Manage an App Service plan](app-service-plan-manage.md)
