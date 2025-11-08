@@ -47,7 +47,7 @@ Create a storage account and obtain a SAS URL for a container where the captured
 1. After you create the container, select **...** (ellipsis) next to it and select **Generate SAS**.
 1. On the **Generate SAS** page, under **Permissions**, clear the **Read** permission and select **Write**.
 
-   :::image type="content" source="media/packet-capture/generate-sas.png" alt-text="Screenshot of the Generate SAS page showing the Permissions section with Write permission selected and Read permission cleared.":::
+   :::image type="content" source="media/packet-capture/generate-shared-access-signature.png.png" alt-text="Screenshot of the Generate SAS page showing the Permissions section with Write permission selected and Read permission cleared.":::
 
 1. Select **Generate SAS token and URL** and copy the generated SAS URL.
 
@@ -151,8 +151,6 @@ Each packet capture contains incoming and outgoing packet pairs. For every packe
    | [Virtual network to virtual network (with SNAT)<br>Virtual network to on-premises (with SNAT)<br>Virtual network to Internet | Source: Client<br>Destination: Server | Source: Firewall<br>Destination: Server<br><br>Layer 3 source IP changes due to SNAT. Layer 4 and above remain unchanged. |
    | Application rule flows | Source: Client<br>Destination: Server | Source: Firewall<br>Destination: Server<br><br>Layer 4 and above differ because the firewall proxies the connection, establishing a new session to the destination.<br><br>Use HTTP or TLS keys to match incoming and outgoing packets. Layer 7 remains the same. |
    | DNAT flows | Source: Client<br>Destination: Firewall public IP | Source: Firewall<br>Destination: DNATed private IP <br><br>Layer 3 destination IP differs from the incoming packet due to DNAT, while Layer 4 remains the same. |
-
-For detailed instructions on these scenarios, see [Using packet capture for troubleshooting Azure Firewall flows](https://techcommunity.microsoft.com/blog/azurenetworksecurityblog/using-packet-capture-for-troubleshooting-azure-firewall-flows).
 
 ## Frequently asked questions
 
