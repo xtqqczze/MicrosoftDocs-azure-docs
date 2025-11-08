@@ -1,6 +1,6 @@
 ---
 title: Managed Instance on App Service overview (preview)
-description: Managed Instance on Azure App Service is a specialized hosting option that provides isolation, advanced customization, and secure integration with Azure resources, ideal for legacy and infrastructure-dependent web apps.
+description: Managed Instance on Azure App Service is a specialized hosting option that provides isolation, customization, and secure integration with Azure resources, ideal for legacy, and infrastructure-dependent web apps.
 keywords: app service, azure app service, managed instance, isolation, vnet integration, registry, COM, RDP, installation scripts, key vault, pv4, pmv4, windows services, GAC, third-party dependencies
 ms.topic: overview
 ms.date: 11/05/2025
@@ -11,10 +11,10 @@ ms.service: azure-app-service
 
 # Managed Instance on Azure App Service (preview)
 
-Managed Instance on Azure App Service (preview) is a dedicated, plan‑scoped hosting option for Windows web apps that need deep OS/middleware customization, optional private networking, and secure integration with Azure resources. It targets legacy or infrastructure‑dependent workloads (COM, registry, MSI) while retaining App Service’s managed patching, scaling, diagnostics, and identity features.
+Managed Instance on Azure App Service (preview) is a dedicated, plan‑scoped hosting option for Windows web apps that need deep OS/middleware customization, optional private networking, and secure integration with Azure resources. It targets legacy or infrastructure‑dependent workloads (Component Object Model, registry, Microsoft/Windows Installer) while retaining App Service’s managed patching, scaling, diagnostics, and identity features.
 
 > [!IMPORTANT]
-> Managed Instance is in public preview, available in select regions and limited to Pv4 and PMV4 pricing plans. Linux and containers aren't supported.
+> Managed Instance is in public preview, available in select regions and limited to Pv4 and Pmv4 pricing plans. Linux and containers aren't supported.
 
 ## Key capabilities
 
@@ -23,7 +23,7 @@ The following table summarizes the main capabilities that Managed Instance offer
 | Capability | Description |
 |-----------|-------------|
 | Network isolation | Plan-level virtual network integration with private endpoints, custom routing, and NSG support |
-| Custom component support | PowerShell install scripts for COM, registry, IIS configuration, ACLs, MSI installers (Ex. third-party components; Windows services; install components into Global Assembly Cache (GAC), enable additional Windows features (Ex. MSMQ Client)) |
+| Custom component support | PowerShell install scripts for Component Object Model (COM), registry, Internet Information Services (IIS) configuration, ACLs, Microsoft/Windows Installers (MSI) (Ex. third-party components; Windows services; install components into Global Assembly Cache (GAC), enable additional Windows features (Ex. Message Queuing (MSMQ) client) |
 | Registry adapters | Registry keys that Azure Key Vault backs for secure configuration |
 | Storage flexibility | Azure Files with Key Vault, UNC paths, and local ephemeral storage (default 2 GB) |
 | Managed identity | System and user-assigned identities for secure resource access |
