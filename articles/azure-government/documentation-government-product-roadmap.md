@@ -9,7 +9,7 @@ recommendations: false
 ms.date: 11/07/2025
 ---
 
-# Microsoft Azure Government product General Availability (GA) roadmap
+# Microsoft Azure Government product General Availability roadmap
 
 This article provides a General Availability (GA) roadmap for current and upcoming Microsoft products across Azure Government cloud environments.
 
