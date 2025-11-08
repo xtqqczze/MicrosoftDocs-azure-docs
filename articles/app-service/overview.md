@@ -53,29 +53,29 @@ For information about which Azure compute services best fit your scenario, see [
 ## Managed Instance on App Service (preview)
 
 > [!NOTE]
-> Managed Instance (preview) adds customization with plan-scoped isolation for legacy or infrastructure-bound web apps requiring COM components, registry access, MSI installers, drive mapping, or stricter network boundaries.
+> Managed Instance (preview) adds customization with plan-scoped isolation for legacy or infrastructure-bound web apps requiring Component Object Model (COM), registry access, Windows/Microsoft Installers (MSI), drive mapping, or stricter network boundaries.
 
 Key points:
 - Startup PowerShell install scripts enable COM, registry, IIS, ACL updates, MSI execution.
 - Registry adapters: Plan-level registry key definitions with secret values stored in Azure Key Vault.
-- Network share access: Configure access to SMB/UNC paths for legacy components (map or reference as supported).
+- Drive letter access: Configure access to SMB/UNC paths for legacy components (map or reference as supported).
 - RDP (via Azure Bastion): Diagnostics only—script persistent configuration.
 - Supports: Windows workloads (.NET, Java), COM/registry/MSI, drive mapping, managed identity, VNet integration, MSMQ client, CI/CD, Entra ID auth.
-- Not supported: Linux, containers, remote debugging (preview), non-PV4/PMV4 SKUs.
+- Not supported: Linux, containers, ASE, remote debugging (preview), non-PV4/PMV4 SKUs.
 
 > [!IMPORTANT]
-> Validate telemetry (Application Insights), certificate automation, and operational processes before production adoption. Persistent changes must be scripted; RDP sessions are non-durable.
+> Validate telemetry (Application Insights/logging), certificate automation, and operational processes before production adoption. Persistent changes must be scripted using configuration (install) scripts; Changes made during RDP sessions are not persisted.
 
 ### Quick decision guide snapshot
 
 Choose [Managed Instance](quickstart-managed-instance.md) if:
 - Legacy dependencies (COM, registry, MSI, drive mapping) exist.
 - Plan-level enforced network isolation needed for a focused set of apps.
-- Diagnostics RDP access (scripted persistence) desired.
+- Diagnostics RDP access desired.
 
 Choose a standard [App Service plan](getting-started.md) if:
 - You need Linux or container support.
-- You want broad runtime flexibility with minimal OS customization.
+- You want broad runtime flexibility with automatic OS/runtime management and patching.
 
 Choose [ASE](./environment/ase-multi-tenant-comparison.md) if:
 - You require large-scale isolation for many apps rather than deep per-plan OS customization.

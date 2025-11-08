@@ -12,9 +12,9 @@ ms.service: azure-app-service
 # Deploy Managed Instance on Azure App Service (preview)
 
 > [!IMPORTANT]
-> Managed Instance is in public preview, limited to select regions and the **Pv4** / **Pmv4** SKUs. Linux and containers are not supported. Validate functionality before production use.
+> Managed Instance is in preview, available for Windows web apps in select regions, and limited to Pv4 and Pmv4 [pricing plans](https://azure.microsoft.com/pricing/calculator/). Linux and containers aren't supported.
 
-Managed Instance on Azure App Service combines the simplicity of platform-as-a-service with the flexibility of infrastructure-level control. It is designed for applications that require  isolation, advanced customization, and secure network integration.
+Managed Instance on Azure App Service combines the simplicity of platform-as-a-service with the flexibility of infrastructure-level control. It is designed for applications that require plan-level isolation, advanced customization, and secure network integration.
 
 In this quickstart you complete the following:
 1. Use Azure Developer CLI to deploy Azure resources.
@@ -26,18 +26,17 @@ In this quickstart you complete the following:
 
 * **Azure account**: You need an Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * **Access to the approved regions**: During the preview, the only allowed regions for Managed Instance are the *East Asia*, *East US*, *North Europe*, and *West Central US* regions.
-* **Azure CLI 2.79.0 or later**. See [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
 
 * Managed identity
 
 * Storage account and storage container (blob)
 
-* Configuration scripts (PowerShell script named `Install.ps1`) in a compressed .zip file
+* Configuration (install) scripts (PowerShell script named `Install.ps1`) in a compressed .zip file
 
 
 ## Skip to the end
 
-You can quickly deploy all the necessary resrouces in this quickstart using Azure Developer CLI and see it running on Azure. Just run the following commands in the Azure Cloud Shell, and follow the prompts:
+You can quickly deploy all the necessary resources in this quickstart using Azure Developer CLI and see it running on Azure. Just run the following commands in the Azure Cloud Shell, and follow the prompts:
 
 ```bash
 mkdir managed-instance-quickstart
@@ -62,62 +61,63 @@ Follow these steps to create an appyour Managed Instance plan:
 
 # [Azure portal](#tab/portal)
 
-    1. Sign in to the [Azure portal](https://portal.azure.com).
-    1. Select **+ Create a resource**.
-    1. Search for **managed instance**
-    1. Select **Web App (for Managed Instance) (preview)** in the results.
-    1. Select **Create** to start the create process.
-    
-    On the Basic tab, provide the following details.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select **+ Create a resource**.
+1. Search for **managed instance**
+1. Select **Web App (for Managed Instance) (preview)** in the results.
+1. Select **Create** to start the create process.
+
+On the Basic tab, provide the following details.
 
 #### Project details
 
-    | Setting | Value |
-    |-------|----------|
-    | Subscription | Your Azure subscription |
-    | Resource Group | **rg-managed-instance** |
+| Setting | Value |
+|-------|----------|
+| Subscription | Your Azure subscription |
+| Resource Group | **rg-managed-instance** |
 
 #### App details
 
-    | Setting | Value |
-    |-------|----------|
-    | Name | **contoso-mi-app** |
-    | Runtime stack | **.NET 9 (STS)** |
-    | Region | A region near you |
+| Setting | Value |
+|-------|----------|
+| Name | **contoso-mi-app** |
+| Runtime stack | **.NET 9 (STS)** |
+| Region | A region near you |
 
 #### Pricing plans
-    | Setting | Value |
-    |-------|----------|
-    | Windows Plan | Use default plan or create new (for example, 'contoso-mi-plan')|
-    | Pricing plans* | Select a pricing plan. If the Pv4 / Pmv4 SKU isn't visible in _pricing plans_, confirm region availability or request more quota.|
+
+| Setting | Value |
+|-------|----------|
+| Windows Plan | Use default plan or create new (for example, 'contoso-mi-plan')|
+| Pricing plans* | Select a pricing plan. If the Pv4 / Pmv4 SKU isn't visible in _pricing plans_, confirm region availability or request more quota.|
 
 On the Advanced tab, provide the following details.
 
-#### Configuration script
+#### Configuration (install) script
 
-    | Setting | Value |
-    |-------|----------|
-    | Storage Account | Use default plan or create new (for example, 'contoso-mi-plan')|
-    | Container | **scripts** |
-    | Zip file | **scripts.zip** |
-    | Value | Verify this is correct |
-    | Identity | Select the managed identity that was created earlier|
+| Setting | Value |
+|-------|----------|
+| Storage Account | Use default plan or create new (for example, 'contoso-mi-plan')|
+| Container | **scripts** |
+| Zip file | **scripts.zip** |
+| Value | Verify this is correct |
+| Identity | Select the managed identity that was created earlier|
     
-    On the Deployment tab, select **continuous deployment** in _Continuous deployment settings_. The provide the following details.
+On the Deployment tab, select **continuous deployment** in _Continuous deployment settings_. The provide the following details.
 
 #### GitHub settings
 
-    | Setting | Value |
-    |-------|----------|
-    | Organization | **msangapu-msft** |
-    | Repository | **learn-quickstart-managed-instance** |
-    | Branch | **sampleapp** |
+| Setting | Value |
+|-------|----------|
+| Organization | **msangapu-msft** |
+| Repository | **learn-quickstart-managed-instance** |
+| Branch | **sampleapp** |
 
 1. Select **Review + create** and then select **Create**.
 
 # [Cloud Shell](#tab/shell)
 
-The following command creates the Managed Instance plan with a configuration script.
+The following command creates the Managed Instance plan with a configuration (install) script.
 
 ```bash
 az deployment group create \
