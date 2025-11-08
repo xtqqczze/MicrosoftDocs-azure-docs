@@ -27,7 +27,7 @@ For supported workloads, a Service Level Agreement (SLA) also backs geo priority
 
 Refer to the official [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
 
-[!INCLUDE [replication-disclaimer](includes/replication-disclaimer.md)]
+[!INCLUDE [replication-disclaimer](includes/geo-replication-alert.md)]
 
 ## Benefits of geo priority replication
 
