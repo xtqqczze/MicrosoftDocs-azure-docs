@@ -11,32 +11,32 @@ ms.service: azure-app-service
 
 # Deploy Managed Instance on Azure App Service (preview)
 
+Managed Instance on Azure App Service combines the simplicity of platform-as-a-service with the flexibility of infrastructure-level control. It's designed for applications that require plan-level isolation, customization, and secure network integration.
+
 > [!IMPORTANT]
 > Managed Instance is in preview, available for Windows web apps in select regions, and limited to Pv4 and Pmv4 [pricing plans](https://azure.microsoft.com/pricing/calculator/). Linux and containers aren't supported.
 
-Managed Instance on Azure App Service combines the simplicity of platform-as-a-service with the flexibility of infrastructure-level control. It is designed for applications that require plan-level isolation, advanced customization, and secure network integration.
-
-In this quickstart you complete the following:
+In this quickstart, you complete the following steps:
 1. Use Azure Developer CLI to deploy Azure resources.
-1. Use Azure portal to create a Managed Instance on Azure App Service (preview).
+1. Use Azure portal or Cloud Shell to create a Managed Instance on Azure App Service (preview).
 1. Deploy a sample app to the plan.
 1. Verify the deployment.
 
 ## Prerequisites
 
 * **Azure account**: You need an Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-* **Access to the approved regions**: During the preview, the only allowed regions for Managed Instance are the *East Asia*, *East US*, *North Europe*, and *West Central US* regions.
 
-* Managed identity
+* **Access to the approved regions**: During preview, allowed regions for Managed Instance include: *East Asia*, *East US*, *North Europe*, and *West Central US*.
 
-* Storage account and storage container (blob)
+* [Managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity)
+
+* [Storage account and storage container (blob)](/azure/storage/blobs/storage-quickstart-blobs-portal.md)
 
 * Configuration (install) scripts (PowerShell script named `Install.ps1`) in a compressed .zip file
 
+## Deploy resources for Managed Instance
 
-## Skip to the end
-
-You can quickly deploy all the necessary resources in this quickstart using Azure Developer CLI and see it running on Azure. Just run the following commands in the Azure Cloud Shell, and follow the prompts:
+You can quickly deploy all the necessary resources in this quickstart using Azure Developer CLI and see it running on Azure. The Azure Developer CLI template used in this quickstart is from [Azure samples](). Just run the following commands in the Azure Cloud Shell, and follow the prompts:
 
 ```bash
 mkdir managed-instance-quickstart
@@ -46,18 +46,31 @@ azd env set AZURE_LOCATION eastus
 azd up
 ```
 
-The `azd up` command completes the following steps:
-- Create a user-assigned managed identity.
-- Create Azure Storage Blob.
-- Assign the managed identity to the storage container.
-- Grant Storage-Blob-Data-Contributor access.
-- Compress fonts directory into scripts.zip.
+The `azd up` command completes the following steps from the template:
+
+- Creates a user-assigned managed identity.
+- Creates an Azure Storage Blob.
+- Assigns the managed identity to the storage container and Managed Instance plan.
+- Grants Storage-Blob-Data-Contributor access on the storage container.
+- Compresses /fonts directory into scripts.zip.
 - Upload scripts.zip to the storage container.
 - Display values for `Storage Account`, `Container Name`, and `Managed Identity`.
 
+The final output of `azd up` should look similar to the following example.
+
+```text
+=== Deployment Complete ===
+Storage Account: stgpjqep6fdlfv6
+Container Name: scripts
+Managed Identity Client name: id-gpjqep6fdlfv6
+Resource Group: rg-managed-instance
+```
+
+The values for `Storage Account`, `Container Name`, `Managed Identity Client name`, and `Resource Group` are used later.
+
 ## Deploy an app on Managed Instance
 
-Follow these steps to create an appyour Managed Instance plan:
+Follow these steps to create a Managed Instance plan and deploy an app to it:
 
 # [Azure portal](#tab/portal)
 
@@ -89,7 +102,7 @@ On the Basic tab, provide the following details.
 | Setting | Value |
 |-------|----------|
 | Windows Plan | Use default plan or create new (for example, 'contoso-mi-plan')|
-| Pricing plans* | Select a pricing plan. If the Pv4 / Pmv4 SKU isn't visible in _pricing plans_, confirm region availability or request more quota.|
+| Pricing plans* | Select a pricing plan. If Pv4 or Pmv4 isn't visible in _pricing plans_, confirm region availability or request more quota.|
 
 On the Advanced tab, provide the following details.
 
@@ -100,9 +113,9 @@ On the Advanced tab, provide the following details.
 | Storage Account | Use default plan or create new (for example, 'contoso-mi-plan')|
 | Container | **scripts** |
 | Zip file | **scripts.zip** |
-| Value | Verify this is correct |
+| Value | Verify the .zip URL is correct|
 | Identity | Select the managed identity that was created earlier|
-    
+
 On the Deployment tab, select **continuous deployment** in _Continuous deployment settings_. The provide the following details.
 
 #### GitHub settings
@@ -117,7 +130,18 @@ On the Deployment tab, select **continuous deployment** in _Continuous deploymen
 
 # [Cloud Shell](#tab/shell)
 
-The following command creates the Managed Instance plan with a configuration (install) script.
+1. The following command configures variables for needed resources to create the Managed Instance plan.
+
+```bash
+$RG = 'rg-managed-instance'
+$LOCATION = 'eastus'
+$PLAN_NAME = 'rg-mi-plan'
+$IDENTITY_ID = 
+$SCRIPT_URI =
+$APP_NAME =
+```
+
+2. The following command creates the Managed Instance plan with a configuration (install) script.
 
 ```bash
 az deployment group create \
@@ -132,6 +156,10 @@ az deployment group create \
     skuCapacity=1
 ```
 
+Deployment takes several minutes while resources provisioned.
+
+
+3. The following creates a web app on the Managed Instance plan.
 
 ```bash
 az webapp create \
@@ -141,6 +169,8 @@ az webapp create \
   --runtime "DOTNET|9"
 ```
 
+4. The following assigns a Managed Identity to the web app.
+
 ```bash
 # Assign managed identity to web app
 echo "Assigning managed identity to web app..."
@@ -149,6 +179,8 @@ az webapp identity assign \
   --resource-group "$RG" \
   --identities "$IDENTITY_ID"
 ```
+
+5. The following deploys a sample .NET app to the web app.
 
 ```bash
 echo "== Deploying application code =="
@@ -194,12 +226,12 @@ az group delete
 ---
 
 
-Deployment takes several minutes while resources provisioned.
+
 
 
 ## Next steps
 
+- [Configure Managed Instance](configure-managed-instance.md)
 - [App Service overview](overview.md)
-- [Managed Instance Quickstart](quickstart-managed-instance.md)
 - [Security in App Service](overview-security.md)
 - [App Service Environment comparison](./environment/overview.md)

@@ -58,12 +58,12 @@ To add a configuration script:
 
 In the _Configuration script_ section, begin by configuring your script.
 
-    | Setting | Value |
-    |--|--|
-    | Storage Account | Select your storage account |
-    | Container | Enter the name of your container |
-    | Zip file | Enter the name of the zip file |
-    | Value | Verify this is correct |
+| Setting | Value |
+|--|--|
+| Storage Account | Select your storage account |
+| Container | Enter the name of your container |
+| Zip file | Enter the name of the zip file |
+| Value | Verify this is correct |
 
 1. Select Apply to save the changes.
 
@@ -72,8 +72,6 @@ In the _Configuration script_ section, begin by configuring your script.
 - Make scripts idempotent (check before install).
 - Guard destructive operations (avoid modifying protected Windows system directories).
 - Stagger heavy installations to reduce startup latency.
-
-
 
 Example minimal zip structure:
 
@@ -96,8 +94,6 @@ try {
 }
 ```
 
-
-
 ## Configure storage mounts
 
 Storage mounts provide persistent external storage (for example Azure Files) accessible to your app. Use for legacy code needing shared filesystem access, not for secrets (use Key Vault). While local (temporary) storage is also available, persistent changes require storage mounts.
@@ -114,15 +110,15 @@ To configure storage mounts:
 
 Provide the following details to configure the storage mount:
 
-    | Setting | Value |
-    |--|--|
-    | Name | Enter a mount mame |
-    | Storage type | Azure files, Custom, or Local (temporary storage)|
-    | Storage account | Select or enter a storage account |
-    | File share| Seleft a file share|
-    | Value | Select a Key vault |
-    | Secret | Select the key vault secret |
-    | Mount drive letter | Select drive letter path |
+| Setting | Value |
+|--|--|
+| Name | Enter a mount mame |
+| Storage type | Azure files, Custom, or Local (temporary storage)|
+| Storage account | Select or enter a storage account |
+| File share| Seleft a file share|
+| Value | Select a Key vault |
+| Secret | Select the key vault secret |
+| Mount drive letter | Select drive letter path |
 
 You can mount external storage to your Managed Instance. Mounted storage is persistent across restarts and accessible from your app’s file system.
 
@@ -158,12 +154,12 @@ To configure registry keys:
 1. Select **+ Add**.
 1. Select new Azure storage mount.
 
-    | Setting | Value |
-    |--|--|
-    | Path | Enter the registry path |
-    | Vault | Enter an existing vault name|
-    | Secret | Select or enter the key vault secret|
-    | Type | String or DWORD |
+| Setting | Value |
+|--|--|
+| Path | Enter the registry path |
+| Vault | Enter an existing vault name|
+| Secret | Select or enter the key vault secret|
+| Type | String or DWORD |
 
 1. Select **Add** to add the registry key.
 
@@ -173,9 +169,7 @@ To configure registry keys:
 
 ## Configure RDP (Bastion) access
 
-Bastion lets you securely connect to your VM instance(s) through Remote Desktop Protocol (RDP). RDP via Azure Bastion is for transient diagnostics (log inspection, quick validation). If you intend to use Bastion via the portal, then upgrade your Bastion resource to standard pricing tier and select "Native Client Support and IP-Based Connection. port 3389 must be allowed from the Bastion subnet's NSG to the App Service Plan subnet's NSG?
-
-Bastion quickstart: https://learn.microsoft.com/en-us/azure/bastion/quickstart-host-portal
+[Azure Bastion](/azure/bastion/quickstart-host-portal.md) lets you securely connect to your VM instance(s) through Remote Desktop Protocol (RDP). RDP via Azure Bastion is for transient diagnostics (log inspection, quick validation). If you intend to use Bastion via the portal, then upgrade your Bastion resource to standard pricing tier and select "Native Client Support and IP-Based Connection".
 
 You need the following for Bastion/RDP access:
 
@@ -211,7 +205,6 @@ To configure Bastion:
 - [My Managed Instance on App Service plan has multiple web applications can I restart a single web application?](#my-managed-instance-on-app-service-plan-has-multiple-web-applications-can-i-restart-a-single-web-application)
 - [Can I assign Managed Identity to my web application within the Managed Instance on App Service plan?](#can-i-assign-managed-identity-to-my-web-application-within-the-managed-instance-on-app-service-plan)
 - [Is there a limitation on number of adapters that I can create for Managed Instance on App Service plan?](#is-there-a-limitation-on-number-of-adapters-that-i-can-create-for-managed-instance-on-app-service-plan)
-
 
 ### What operating system (os) is running on Managed Instance on Azure App Service?
 
@@ -266,7 +259,7 @@ The addressable memory of a Managed Instance on Azure App Service worker instanc
 
 ## Which Azure Storage service should I use to upload a configuration (install) script?
 
-Use Azure Storage blob service for uploading the script and required dependencies. 
+Use Azure Storage blob service for uploading the script and required dependencies.
 
 ## Is there a restriction on naming and format for the configuration (install) script?
 
@@ -282,7 +275,7 @@ Yes, adding or editing Managed Instance plan adapters (configuration (install) s
 
 ## My Managed Instance plan has multiple instances can I restart a single instance?
 
-Yes, browse to the Managed Instance and select Instances in the left menu. Then select restart next to the instance name. 
+Yes, browse to the Managed Instance and select Instances in the left menu. Then select restart next to the instance name.
 
 ## My Managed Instance on App Service plan has multiple web applications can I restart a single web application?
 
@@ -290,13 +283,14 @@ Yes, browse to the app's **Overview** page and select **Restart**.
 
 ## Can I assign Managed Identity to my web application within the Managed Instance on App Service plan?
 
-Yes, you can assign a _different_ Managed identity to a web application within the Managed Instance. Follow the guidance here https://learn.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=portal%2Chttp 
+Yes, you can assign a _different_ Managed identity to a web application within the Managed Instance. Follow the [Managed Identity guidance](overview-managed-identity.md?tabs=portal%2Chttp)
 
 ## Is there a limitation on number of adapters that I can create for Managed Instance on App Service plan?
 
-No, there is no limit on number of Storage and Registry adapters. You can only create a single configuraiton (install) script adapter for Managed Instance on App Service plan.  Note that the increasing the number of adapters could impact provisioning time for Managed Instance.
+No, there is no limit on the number of storage or registry adapters. You can only create a single configuraiton (install) script adapter for Managed Instance on App Service plan.  Note that the increasing the number of adapters could impact provisioning time for Managed Instance.
 
 ## Next steps
 
 - [Overview of Managed Instance on Azure App Service](overview-managed-instance.md)
-- [Deploy using Azure CLI](quickstart-managed-instance.md)
+- [Deploy Managed Instance on Azure App Service](quickstart-managed-instance.md)
+- [App Service overview](overview.md)
