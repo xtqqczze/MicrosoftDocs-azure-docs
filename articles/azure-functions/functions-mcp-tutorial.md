@@ -209,7 +209,7 @@ There are two server authentication options for your remote MCP server:
 
 ## Disable host-based authentication  
 
-The built-in server authorization and authentication is a feature separate from Azure Functions. To configure it, you must first disable Functions host-based authentication and allow anonymous access. 
+The built-in server authorization feature is a component separate from Azure Functions. To configure it, you must first disable Functions host-based authentication and allow anonymous access. 
 
 ### [MCP extension server](#tab/extension)
 To do that in MCP extension servers, set authentication level to anonymous:
@@ -369,6 +369,8 @@ Follow the instructions below to connect to server depending on how you've confi
 
 1. Stop server when finish testing.
 
+To understand in details what happens when Visual Studio Code tries to connect to the remote MCP server, see [Server authorization protocol](#server-authorization-protocol). 
+
 ### With access key
 
 If you didn't enable built-in authentication and authorization and instead wanted to connect to your MCP server using access key, modify the _mcp.json_ to pass in the Functions access key in the connection request header: 
@@ -464,13 +466,29 @@ You can configure an agent on Azure AI Foundry to leverage tools exposed by MCP 
 
 1. Test by asking a question that can be answered with the help of a server tool in the chat window. 
 
+## Server authorization protocol
+
+In the debug output from Visual Studio Code, you see a series of requests and responses as the MCP client and server interact. When built-in MCP server authorization is used, you should see the following sequence of events:
+
+1. The editor sends an initialization request to the MCP server.
+1. The MCP server responds with an error indicating that authorization is required. The response includes a pointer to the protected resource metadata (PRM) for the application. The built-in authorization feature generates the PRM for the server app.
+1. The editor fetches the PRM and uses it to identify the authorization server.
+1. The editor attempts to obtain authorization server metadata (ASM) from a well-known endpoint on the authorization server.
+1. Microsoft Entra ID doesn't support ASM on the well-known endpoint, so the editor falls back to using the OpenID Connect metadata endpoint to obtain the ASM. It tries to discover this using by inserting the well-known endpoint before any other path information.
+1. The OpenID Connect specifications actually defined the well-known endpoint as being after path information, and that is where Microsoft Entra ID hosts it. So the editor tries again with that format.
+1. The editor successfully retrieves the ASM. It then uses this information in conjunction with its own client ID to perform a login. At this point, the editor prompts you to sign in and consent to the application.
+1. Assuming you successfully sign in and consent, the editor completes the login. It repeats the intialization request to the MCP server, this time including an authorization token in the request. This re-attempt isn't visible at the Debug output level, but you can see it in the Trace output level.
+1. The MCP server validates the token and responds with a successful response to the initialization request. The standard MCP flow continues from this point, ultimately resulting in discovery of the MCP tool defined in this sample.
+
+You can learn more about the full protocol in the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
+
+## Next steps
+
+Learn how to [register](./functions-mcp-integration.md) Azure Functions-hosted MCP servers on Azure API Center.
+
 ## Troubleshooting
 
 ### Self-hosted servers
 
 - For C# servers, ensure that the value of the `arguments` property in _host.json_ is the path to the compiled DLL, e.g. `["HelloWorld.dll"]`
 - If your server is not deploying properly or the deployed server doesn't work, ensure that the required [app setting](#deploy-the-mcp-server-project) are added. Also remember to add the [authorization scope](#set-authorization-scope-related-app-setting) related setting. 
-
-## Next steps
-
-- Learn how to [register](./functions-mcp-integration.md) Azure Functions-hosted MCP servers on Azure API Center.
