@@ -203,12 +203,12 @@ There are two server authentication options for your remote MCP server:
 
 1. _Built-in server authorization and authentication (recommended)_
     The built-in feature implements the requirements of the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) protocol, such as issuing 401 challenge and hosting the Protected Resource Metadata (PRM). When the feature is enabled, clients attempting to access the server would be redirected to identity providers like Microsoft Entra ID for authentication before connecting. Continue following instructions in the next section to enable this built-in feature.
-    
-    >[!NOTE]
-    > You may also see the built-in server authorization and authentication feature referred to as _App Service Authentication_ in other articles. 
 
 1. _Host-based authentication with access key_
     This approach requires an access key in the client request header when connecting to the MCP server. If this approach is sufficient for your needs, you don't need to follow the sections below. Skip directly to [Create the function app in Azure](#create-the-function-app-in-azure).
+
+>[!NOTE]
+>This tutorial contains detailed configuration instructions for the built-in server authorization and authentication feature, which may also be referred to as _App Service Authentication_ in other articles. You can find an overview of the feature and some usage guidance in the [Configure built-in server authorization (preview)](../app-service/configure-authentication-mcp.md) article.
 
 ## Disable host-based authentication  
 
