@@ -202,7 +202,10 @@ Open a new terminal (``Ctrl+Shift+` ``), start the server by running the followi
 There are two server authentication options for your remote MCP server:
 
 1. _Built-in server authorization and authentication (recommended)_
-    The built-in feature implements the requirements of the MCP authorization specification, such as issuing 401 challenge and hosting the Protected Resource Metadata (PRM). When the feature is enabled, clients attempting to access the server would be redirected to identity providers like Microsoft Entra ID for authentication before connecting. Continue following instructions in the next section to enable this built-in feature.
+    The built-in feature implements the requirements of the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) protocol, such as issuing 401 challenge and hosting the Protected Resource Metadata (PRM). When the feature is enabled, clients attempting to access the server would be redirected to identity providers like Microsoft Entra ID for authentication before connecting. Continue following instructions in the next section to enable this built-in feature.
+    
+    >[!NOTE]
+    > You may also see the built-in server authorization and authentication feature referred to as _App Service Authentication_ in other articles. 
 
 1. _Host-based authentication with access key_
     This approach requires an access key in the client request header when connecting to the MCP server. If this approach is sufficient for your needs, you don't need to follow the sections below. Skip directly to [Create the function app in Azure](#create-the-function-app-in-azure).
@@ -321,7 +324,7 @@ The following instruction shows how to enable the built-in authorization and aut
 
 1. Click **Add application**
 
-### Set authorization scope related app setting
+### Configure protected resource metatdata (preview)
 
 1. In the same **Expose an API** view, find the "Scopes" section and copy the scope that allows admins and users to consent to the Entra app. The value looks like `api://abcd123-efg456-hijk-7890123/user_impersonation`
 
@@ -479,8 +482,6 @@ In the debug output from Visual Studio Code, you see a series of requests and re
 1. The editor successfully retrieves the ASM. It then uses this information in conjunction with its own client ID to perform a login. At this point, the editor prompts you to sign in and consent to the application.
 1. Assuming you successfully sign in and consent, the editor completes the login. It repeats the intialization request to the MCP server, this time including an authorization token in the request. This re-attempt isn't visible at the Debug output level, but you can see it in the Trace output level.
 1. The MCP server validates the token and responds with a successful response to the initialization request. The standard MCP flow continues from this point, ultimately resulting in discovery of the MCP tool defined in this sample.
-
-You can learn more about the full protocol in the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
 
 ## Next steps
 
