@@ -40,7 +40,7 @@ For comprehensive information about compliance in Azure Government clouds, see [
 ## Product General Availability roadmap
 
 
-| Product | FedRAMP High | DoD IL4 | DoD IL5 | DoD IL6 (Secret) |
+| Product | FedRAMP High | DoD IL4 | DoD IL5 | DoD IL6 (Azure Secret) |
 | :--- | :---: | :---: | :---: | :---: |
 | API Management | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg" border="false" ::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg" border="false" ::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg" border="false" ::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg" border="false" ::: |
 | App Service | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg" border="false" ::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg" border="false" ::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg" border="false" ::: | :::image alt-text="GA" type="content" source="media/icon-checkmark.svg" border="false" ::: |
