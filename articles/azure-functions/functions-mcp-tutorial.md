@@ -1,11 +1,13 @@
 ---
-title: Hosting MCP on Azure Functions tutorial
+title: Hosting MCP servers on Azure Functions tutorial
 description: "E2E tutorial on hosting MCP servers on Azure Functions"
 ms.topic: how-to
 ms.date: 10/31/2025
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I want to learn how to create and host remote and secured MCP servers on Azure Functions. 
 ---
+
+# Hosting MCP servers on Azure Functions tutorial
 
 In this tutorial, you'll learn how to create and host remote MCP ([Model Context Protocol]()) servers on Azure Functions. You'll also see how to leverage a feature called Easy Auth to configure server authorization. 
 
@@ -201,7 +203,7 @@ Open a new terminal (``Ctrl+Shift+` ``), start the server by running the followi
 
 There are two server authentication options for your remote MCP server:
 
-1. _Built-in server authorization and authentication (recommended)_
+1. _Built-in server authorization and authentication (preview)_
     The built-in feature implements the requirements of the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) protocol, such as issuing 401 challenge and hosting the Protected Resource Metadata (PRM). When the feature is enabled, clients attempting to access the server would be redirected to identity providers like Microsoft Entra ID for authentication before connecting. Continue following instructions in the next section to enable this built-in feature.
 
 1. _Host-based authentication with access key_
