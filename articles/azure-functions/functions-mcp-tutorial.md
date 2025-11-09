@@ -37,7 +37,7 @@ The choice of which to use depends on your scenario and preference. If you're an
 ## Create a local MCP server project 
 In this section, you use Visual Studio Code to create a local MCP server project in your preferred language. Later in the article, you update, run, and then publish your server to Azure.
 
-### [MCP extension server](#tab/extension)
+### [MCP extension server](#tab/mcp-extension)
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create New Project...`.
 
@@ -79,7 +79,7 @@ In this section, you use Visual Studio Code to create a local MCP server project
 
 Using this information, Visual Studio Code generates a code project for Azure Functions with an MCP trigger. You can view the local project files in the Explorer.
 
-### [Self-hosted server](#tab/extension)
+### [Self-hosted server](#tab/self-hosted)
 
 Self-hosted MCP servers are deployed as [custom handlers](./functions-custom-handlers.md) in Azure Functions. You can think of custom handlers as lightweight web servers that receive events from the Azure Functions host.    
 
@@ -136,7 +136,7 @@ Self-hosted MCP servers are deployed as [custom handlers](./functions-custom-han
 
 ## Start the MCP server locally 
 
-### [MCP extension server](#tab/extension)
+### [MCP extension server](#tab/mcp-extension)
 
 Function apps need a storage component to run, so before starting the server you need to start the local storage emulator: 
 
@@ -148,7 +148,7 @@ Function apps need a storage component to run, so before starting the server you
 
 1. To start running locally, press <kbd>F5</kbd>. 
 
-### [Self-hosted server](#tab/extension)
+### [Self-hosted server](#tab/self-hosted)
 
 Open a new terminal (``Ctrl+Shift+` ``), start the server by running the following command: 
 
@@ -216,7 +216,7 @@ There are two server authentication options for your remote MCP server:
 
 The built-in server authorization feature is a component separate from Azure Functions. To configure it, you must first disable Functions host-based authentication and allow anonymous access. 
 
-### [MCP extension server](#tab/extension)
+### [MCP extension server](#tab/mcp-extension)
 To do that in MCP extension servers, set authentication level to anonymous:
 
 ::: zone pivot="programming-language-python" 
@@ -228,7 +228,7 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 ::: zone pivot="programming-language-csharp" 
 ::: zone-end  
 
-### [Self-hosted server](#tab/extension)
+### [Self-hosted server](#tab/self-hosted)
 To do that for self-hosted MCP servers, add the following in the `customHandler` section:
 
     ```json
@@ -248,10 +248,10 @@ Create a [Function app in the Azure portal](./functions-create-function-app-port
 
 ## Deploy the MCP server project 
 
-### [MCP extension server](#tab/extension)
+### [MCP extension server](#tab/mcp-extension)
 [!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
-### [Self-hosted server](#tab/extension)
+### [Self-hosted server](#tab/self-hosted)
 Before deploying the server, you need to add the required apps settings: 
 
 1. Log into your account and pick your subscription: 
@@ -380,7 +380,7 @@ To understand in details what happens when Visual Studio Code tries to connect t
 
 If you didn't enable built-in authentication and authorization and instead wanted to connect to your MCP server using access key, modify the _mcp.json_ to pass in the Functions access key in the connection request header: 
 
-### [MCP extension server](#tab/extension)
+### [MCP extension server](#tab/mcp-extension)
 ```json
 {
 	"servers": {
@@ -409,7 +409,7 @@ If you didn't enable built-in authentication and authorization and instead wante
 }
 ```
 
-### [Self-hosted server](#tab/extension)
+### [Self-hosted server](#tab/self-hosted)
 
 ```json
 {
