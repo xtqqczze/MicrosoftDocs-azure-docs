@@ -71,7 +71,7 @@ For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with M
   | Model source | Description |
   |--------------|-------------|
   | **Azure OpenAI** | An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models). <br><br>You need the resource name when you connect from the agent in your workflow to the deployed model in Azure OpenAI Service. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
-  | **APIM Gen AI Gateway** | An [Azure API Management account](../api-management/genai-gateway-capabilities) with the LLM API to use. <br><br>For more information, see: <br>- [AI gateway in Azure API Management](/azure/api-management/genai-gateway-capabilities) <br>- [Import an Azure AI Foundry API](/azure/api-management/azure-ai-foundry-api) <br>- [Import an Azure OpenAI API](/azure/api-management/azure-openai-api-from-specification) |
+  | **APIM Gen AI Gateway** | An [Azure API Management account](/azure/api-management/genai-gateway-capabilities) with the LLM API to use. <br><br>For more information, see: <br>- [AI gateway in Azure API Management](/azure/api-management/genai-gateway-capabilities) <br>- [Import an Azure AI Foundry API](/azure/api-management/azure-ai-foundry-api) <br>- [Import an Azure OpenAI API](/azure/api-management/azure-openai-api-from-specification) |
  
 - The authentication to use when you connect your agent to your AI model.
 
@@ -347,7 +347,7 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
 
    The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent instructions that you provided earlier. The pane also shows the agent's response.
 
-   :::image type="content" source="media/create-conversational-agent-workflows/agent-only-test-consumption.png" alt-text="Screenshot shows monitoring view for Consumption workflow, operation status, and agent log." lightbox="media/create-conversational-agent-workflows/agent-only-test-consumption.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/agent-only-run-history-consumption.png" alt-text="Screenshot shows monitoring view for Consumption workflow, operation status, and agent log." lightbox="media/create-conversational-agent-workflows/agent-only-run-history-consumption.png":::
 
    The agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete tasks.
 
@@ -379,7 +379,7 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
 
    The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent instructions that you provided earlier. The pane also shows the agent's response.
 
-   :::image type="content" source="media/create-conversational-agent-workflows/agent-only-run-history.png" alt-text="Screenshot shows monitoring view, operation status, and agent log." lightbox="media/create-conversational-agent-workflows/agent-only-run-history.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/agent-only-run-history-standard.png" alt-text="Screenshot shows monitoring view, operation status, and agent log." lightbox="media/create-conversational-agent-workflows/agent-only-run-history-standard.png":::
 
    However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email, until you create tools that the agent needs to complete their tasks. You might even get an email that your email server rejected the message.
 
