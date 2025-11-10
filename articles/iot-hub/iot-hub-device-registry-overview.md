@@ -34,6 +34,10 @@ ADR provides a unified registry, allowing applications and services to interact 
 
 Namespaces also help maintain separation between different environments, such as development, testing, and production, reducing the risk of accidental changes across boundaries.
 
+The following diagram illustrates how multiple IoT Hub instances and devices link to a single ADR namespace for unified device management.
+
+:::image type="content" source="media/device-registry/namespaces-iot-hub.svg" alt-text="Mermaid diagram showing two IoT Hub instances with multiple devices linked to a single ADR namespace." lightbox="media/device-registry/namespaces-iot-hub.svg":::
+
 ## Representation and management of IoT Hub devices as ARM resources
 
 ADR represents IoT Hub devices as ARM resources, assigning each device an ARM resource ID. This enables consistent governance through RBAC, tags, and resource groups. With ADR integration, devices appear in the Azure management plane, supporting cross-hub queries via Azure Resource Graph and streamlined operations such as metadata updates, auditing, and lifecycle management—all through a single, uniform at-scale interface.
