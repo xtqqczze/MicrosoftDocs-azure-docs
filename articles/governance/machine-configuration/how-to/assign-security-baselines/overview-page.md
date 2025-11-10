@@ -36,14 +36,13 @@ Integrate baselines into CI/CD pipelines or configuration management workflows. 
 | **Azure Compute Security Baseline for Windows** | Applies customized values for Windows Server 2022 and Windows Server 2025. |
 | **Azure Compute Security Baseline for Linux** | Enforces consistent security controls aligned with Azure Compute guidance. |
 
-Additional standards (for example, STIG), operating systems, and remediation capabilities are planned for future releases.
 
 ## Availability
 
 All public Azure regions are supported.
 
 > [!NOTE]
-> Support for Azure Government and Sovereign Clouds will be added closer to General Availability.
+> Support for Azure Government and Sovereign Clouds is not supported for Public Preview.
 
 ## Getting Started
 
