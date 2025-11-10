@@ -70,7 +70,7 @@ For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with M
 
   | Model source | Description |
   |--------------|-------------|
-  | **Azure OpenAI** | An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models). <br><br>You need the resource name when you connect from the agent in your workflow to the deployed model in Azure OpenAI Service. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
+  | **Azure OpenAI** | An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models). <br><br>You need the resource name when you connect from the agent in your workflow to the deployed AI model in Azure OpenAI Service. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
   | **APIM Gen AI Gateway** | An [Azure API Management account](/azure/api-management/genai-gateway-capabilities) with the LLM API to use. <br><br>For more information, see: <br>- [AI gateway in Azure API Management](/azure/api-management/genai-gateway-capabilities) <br>- [Import an Azure AI Foundry API](/azure/api-management/azure-ai-foundry-api) <br>- [Import an Azure OpenAI API](/azure/api-management/azure-openai-api-from-specification) |
  
 - The authentication to use when you connect your agent to your AI model.
@@ -255,14 +255,14 @@ Set up your agent with the AI model that you want to use by following the corres
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
    | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection to your AI model. <br><br>This example uses `fabrikam-azure-ai-connection`. |
-   | **Agent Model Source** | Yes | - **Azure OpenAI** <br>- **APIM Gen AI Gateway** | The source for the AI model in your Azure OpenAI Service resource, or API in your Azure API Management account. |
+   | **Agent Model Source** | Yes | - **Azure OpenAI** <br>- **APIM Gen AI Gateway** | The source for the AI model in your Azure OpenAI Service resource or your LLM API in your Azure API Management account. |
    | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your AI model. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your AI model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
    | **Subscription** | Yes | <*Azure-subscription*> | Select the Azure subscription for your Azure OpenAI Service resource or Azure API Management account. |
    | **Azure OpenAI Resource** | Yes, only when **Agent Model Source** is **Azure OpenAI** | <*Azure-OpenAI-Service-resource-name*> | Select your Azure OpenAI Service resource. |
-   | **Azure API Management Service** (preview) | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | Select your Azure API Management account. | |
-   | **Azure API Management Service APIs** | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | Select your API in Azure API Management. |
-   | **API Endpoint** | Yes | Automatically populated | The endpoint URL for your deployed model in Azure OpenAI Service or API in Azure API Management. <br><br>This example uses `https://fabrikam-azureopenai.openai.azure.com/`. |
-   | **API Key** | Yes, only when **Authentication Type** is **URL and key-based authentication** | Automatically populated | The API key for your deployed model in Azure OpenAI Service or API in Azure API Management. |
+   | **Azure API Management Service** (preview) | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | <*API-Management-account*> | Select your Azure API Management account. |
+   | **Azure API Management Service APIs** | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | <*API-Management-LLM-API*> | Select your LLM API in Azure API Management. |
+   | **API Endpoint** | Yes | Automatically populated | The endpoint URL for your AI model in Azure OpenAI Service or LLM API in Azure API Management. <br><br>This example uses `https://fabrikam-azureopenai.openai.azure.com/`. |
+   | **API Key** | Yes, only when **Authentication Type** is **URL and key-based authentication** | Automatically populated | The API key for your AI model in Azure OpenAI Service or your LLM API in Azure API Management. |
 
    For example, if you select **Azure OpenAI** as your model source and **Managed identity** for authentication, your connection information looks like the following sample:
 

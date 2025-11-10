@@ -59,7 +59,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
   The examples in this guide use the Azure portal.
 
-- An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with one of the following AI model sources: 
+- One of the following AI model sources: 
 
   > [!NOTE]
   >
@@ -67,12 +67,9 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
   | Model source | Description |
   |--------------|-------------|
-  | A deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models) | You need the resource name when you connect from the agent in your workflow to the deployed model in Azure OpenAI Service. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
-  | An [Azure AI Foundry project](/azure/ai-foundry/what-is-azure-ai-foundry) connected to a deployed [Azure OpenAI model in Azure AI Foundry](/azure/ai-foundry/openai/concepts/models) | Make sure that you have a Foundry project, not a Hub based project. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Create a project for Azure AI Foundry](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry) <br>- [Connect Azure AI services after you create a project](/azure/ai-services/connect-services-ai-foundry-portal#connect-azure-ai-services-after-you-create-a-project) <br>- [Create a new connection in Azure AI Foundry portal](/azure/ai-foundry/how-to/connections-add?tabs=aoai%2Cblob%2Cserp&pivots=fdp-project#create-a-new-connection) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
-
-    | **Azure API Management Service** (preview) | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | Select your Azure API Management account. |
-   | **Azure API Management Service APIs** | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | Select your API in Azure API Management. |
- 
+  | **Azure OpenAI** | An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models). <br><br>You need the resource name when you connect from the agent in your workflow to the deployed AI model in Azure OpenAI Service. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
+  | **Foundry Agent Service** (Preview) | An [Azure AI Foundry project](/azure/ai-foundry/what-is-azure-ai-foundry) connected to a deployed [Azure OpenAI model in Azure AI Foundry](/azure/ai-foundry/openai/concepts/models) | Make sure that you have a Foundry project, not a Hub based project. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Create a project for Azure AI Foundry](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry) <br>- [Connect Azure AI services after you create a project](/azure/ai-services/connect-services-ai-foundry-portal#connect-azure-ai-services-after-you-create-a-project) <br>- [Create a new connection in Azure AI Foundry portal](/azure/ai-foundry/how-to/connections-add?tabs=aoai%2Cblob%2Cserp&pivots=fdp-project#create-a-new-connection) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
+  | **APIM Gen AI Gateway** (Preview) | An [Azure API Management account](/azure/api-management/genai-gateway-capabilities) with the LLM API to use. <br><br>For more information, see: <br>- [AI gateway in Azure API Management](/azure/api-management/genai-gateway-capabilities) <br>- [Import an Azure AI Foundry API](/azure/api-management/azure-ai-foundry-api) <br>- [Import an Azure OpenAI API](/azure/api-management/azure-openai-api-from-specification) |
 
 - The authentication to use when you connect your agent to your AI model.
 
@@ -273,16 +270,18 @@ Set up your agent with the AI model that you want to use by following the corres
    | **Subscription** | Yes | <*Azure-subscription*> | Select the Azure subscription associated with your Azure OpenAI Service resource. |
    | **Azure OpenAI Resource** | Yes, only when **Agent Model Source** is **Azure OpenAI** | <*Azure-OpenAI-Service-resource-name*> | Select your Azure OpenAI Service resource. |
    | **AI Foundry Project** | Yes, only when **Agent Model Source** is **Foundry Agent Service** | <*Azure-AI-Foundry-project-name*> | Select your project in Azure AI Foundry. <br><br>**Note**: If you recently assigned the necessary role on your project, you might experience a delay before role permissions take effect. Meanwhile, an error message appears that you don't have correct permissions on the project. |
+   | **Azure API Management Service** (preview) | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | <*API-Management-account*> | Select your Azure API Management account. |
+   | **Azure API Management Service APIs** | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | <*API-Management-LLM-API*> | Select your LLM API in Azure API Management. |
    | **API Endpoint** | Yes | Automatically populated | The endpoint URL for your AI model in Azure OpenAI Service. <br><br>This example uses **`https://fabrikam-azureopenai.openai.azure.com/`**. |
    | **API Key** | Yes, only when **Authentication Type** is **URL and key-based authentication** | Automatically populated | The API key for your AI model in Azure OpenAI Service. |
 
    For example, if you select **Azure OpenAI** as your model source and **Managed identity** for authentication, your connection information looks like the following sample:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/connection-azure-openai.png" alt-text="Screenshot shows example connection details for deployed model in Azure OpenAI Service." lightbox="media/create-autonomous-agent-workflows/connection-azure-openai.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/connection-azure-openai.png" alt-text="Screenshot shows example connection details for a deployed model in Azure OpenAI Service." lightbox="media/create-autonomous-agent-workflows/connection-azure-openai.png":::
 
    If you select **Foundry Agent Service** as your model source with **Managed identity** for authentication, your connection information looks like the following sample:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/connection-ai-foundry.png" alt-text="Screenshot shows example connection details for deployed model in Azure AI Foundry." lightbox="media/create-autonomous-agent-workflows/connection-ai-foundry.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/connection-ai-foundry.png" alt-text="Screenshot shows example connection details for a deployed model in Azure AI Foundry." lightbox="media/create-autonomous-agent-workflows/connection-ai-foundry.png":::
 
 1. When you're done, select **Create new**.
 
