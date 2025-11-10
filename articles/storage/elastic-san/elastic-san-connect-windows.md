@@ -37,9 +37,9 @@ When you deploy a VM or a Virtual Machine Scale Set, you can use an Elastic SAN 
 1. Create a new VM, fill in all the required values, and navigate to the **Extensions tab** during VM deployment.
 1. Select the **Elastic SAN VM extension** from the Marketplace.
 1. Fill in the required parameters for the Elastic SAN's name, the volume group name, the number of sessions, and the connection mode.
-- Connection mode (e.g., read/write)
+- After the VM is deployed, navigate to that VM's **Extensions + applications** and update any settings as needed.
 
-#### Post-Deployment Configuration
+#### Post-deployment configuration
 
 - Go to the VM’s Extensions + applications blade.
 - Select the Elastic SAN extension and update the settings as needed.
