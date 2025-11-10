@@ -633,25 +633,18 @@ When you're ready to release your agent workflow into production, make sure to f
 
 1. Optionally, lock down any trigger endpoint URLs by disabling or regenerating any unused SAS URLs.
 
-1. Get the [chat client URL](set-up-authentication-agent-workflows.md#external-chat-client) so you can embed an external chat client interface wherever you want to support human interactions.
+1. To embed an external chat client interface wherever you want to support human interactions, get the chat client:
 
    1. On the designer toolbar or workflow sidebar, select **Chat**.
 
-      The internal chat interface no longer appears on the **Chat** page.
-
    1. In the **Essentials** section, select the **Chat Client URL** link, which opens a new browser tab.
 
-      > [!TIP]
-      >
-      > You can embed the chat client URL in an [*iFrame* HTML element](https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/iframe) that you can use with your website where you want to provide the chat client, for example:
-      >
-      > **Consumption workflow**
-      >
-      > `<iframe src="https://agents.<region>.logic.azure.com/scaleunits/CU04/flows/A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u/agentChat/IFrame" title="<chat-client-name>"></iframe>`
-      >
-      > **Standard workflow**
-      >
-      > `<iframe src="https://<logic-app-name>.azurewebsites.net/api/agentsChat/<workflow-name>/IFrame" title="<chat-client-name>"></iframe>`
+   1. Embed the chat client URL in an [*iFrame* HTML element](https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/iframe) on your website or wherever you want to provide the chat client, for example:
+
+      | Workflow | iFrame HTML element |
+      |----------|---------------------|
+      | Consumption | `<iframe src="https://agents.<region>.logic.azure.com/scaleunits/CU04/flows/A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u/agentChat/IFrame" title="<chat-client-name>"></iframe>` |
+      | Standard | `<iframe src="https://<logic-app-name>.azurewebsites.net/api/agentsChat/<workflow-name>/IFrame" title="<chat-client-name>"></iframe>` |
 
 ### Troubleshoot authentication migration
 
