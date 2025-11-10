@@ -23,7 +23,7 @@ This article shows how to use the Standard workflow designer in the Azure portal
 
 ## Access the workflow designer
 
-Use the steps below to open the workflow designer for a specific workflow so you can view and edit its cards.
+Follow these steps to open the workflow designer.
 
 1. In the [Azure portal](https://portal.azure.com), open your [*logic app* resource](logic-apps-overview.md#logic-app-concepts).
 
@@ -35,12 +35,15 @@ Use the steps below to open the workflow designer for a specific workflow so you
 
 From here, you can [create a new workflow](#create-a-new-workflow) or [access an existing workflow](#edit-an-existing-workflow). 
 
+
 ## Create a new workflow
+
+Follow these steps to create a new workflow in your Logic App.
 
 1. On the **Workflows** page, select the **+ Create** button to create a new workflow.
 
-1. The Create workflow options appear. 
- 
+1. The Create workflow options appear.
+
 1. Provide a name for your workflow.
 
 1. Select from the available workflow types:
@@ -52,7 +55,7 @@ From here, you can [create a new workflow](#create-a-new-workflow) or [access an
 
    | Feature | Stateful | Stateless |
    |---|---|---|
-   | Support for agents | Yes | - |
+   | Support for agents | Yes | — |
    | Support Agent-to-Agent (A2A) protocol | Yes | — |
    | Multi-agent patterns | Yes | — |
    | Any available trigger | Yes | Yes |
@@ -68,7 +71,9 @@ From here, you can [create a new workflow](#create-a-new-workflow) or [access an
 
    The designer displays the selected workflow as editable cards where you can visually edit steps, run the draft, switch to Code view, or open Run history.
 
-## Edit an existing workflow
+## Access an existing workflow
+
+Follow these steps to access an existing workflow in your Logic App.
 
 1. On the **Workflows** page, select the workflow that you want.
 
