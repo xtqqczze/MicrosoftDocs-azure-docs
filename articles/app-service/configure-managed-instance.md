@@ -43,7 +43,7 @@ To add a Managed Identity to Managed Instance plan:
 
 Configuration (install) scripts run at instance startup to apply persistent customization. Examples include, Component Object Model (COM) registration, Microsoft/Windows Installers (MSI) installs, Internet Information Services (IIS Server) config, ACL changes, enabling Windows Features, setting environment variables.
 
-The need the following to use configuration (install) scripts:
+You need the following to use configuration (install) scripts:
 
 1. A managed identity assigned to the App Service plan
 1. A storage account with a Blob container holding the configuration (install) script package (zip).
@@ -153,7 +153,6 @@ You need the following to configure registry keys:
 To configure registry keys:
 1. Go to **Configuration** > **Registry Keys**.
 1. Select **+ Add**.
-1. Select new Azure storage mount.
 
 | Setting | Value |
 |--|--|
