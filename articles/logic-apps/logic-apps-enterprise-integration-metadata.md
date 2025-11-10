@@ -75,7 +75,7 @@ This article shows you how to add metadata to an integration account artifact an
 
 1. For **artifactType**, select **Partner**.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png" alt-text="Screenshot of the Integration Account Artifact Lookup action with the artifact type and artifact name properties highlighted.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png" alt-text="Screenshot of the Integration Account Artifact Lookup action with the artifact type and artifact name properties highlighted." lightbox="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png":::
 
 1. Use the same [general steps](create-workflow-with-trigger-or-action.md#add-action) to add an action to use the metadata. This example continues with the built-in **HTTP** action.
 
@@ -92,13 +92,13 @@ This article shows you how to add metadata to an integration account artifact an
 
    The following screenshot shows the example values:
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/add-http-action-values.png" alt-text="Screenshot of the designer with an HTTP action, with some property values highlighted and the dynamic content list open with Properties highlighted.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/add-http-action-values.png" alt-text="Screenshot of the designer with an HTTP action, with some property values highlighted and the dynamic content list open with Properties highlighted." lightbox="media/logic-apps-enterprise-integration-metadata/add-http-action-values.png":::
 
 1. To check the information that you provided for the HTTP action, you can view your workflow's JSON definition. On the designer toolbar, select **Code view**.
 
    The workflow's JSON definition appears, as shown in the following example:
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/finished-http-action-definition.png" alt-text="Screenshot of the HTTP action's JSON definition with the body, headers, method, and URI properties highlighted.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/finished-http-action-definition.png" alt-text="Screenshot of the HTTP action's JSON definition with the body, headers, method, and URI properties highlighted." lightbox="media/logic-apps-enterprise-integration-metadata/finished-http-action-definition.png":::
 
 1. On the code view toolbar, select **Designer**.
 
