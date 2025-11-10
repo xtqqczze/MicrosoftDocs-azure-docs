@@ -33,6 +33,8 @@ Use the steps below to open the workflow designer for a specific workflow so you
    > To enable the new Logic Apps designer experience, select the **Enable preview** button from the ribbon banner.
    > :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
 
+From here, you can [create a new workflow](#create-a-new-workflow) or [access an existing workflow](#edit-an-existing-workflow). 
+
 ### Create a new workflow
 
 1. On the **Workflows** page, select the **+ Create** button to create a new workflow.
@@ -50,7 +52,7 @@ Use the steps below to open the workflow designer for a specific workflow so you
 
    | Feature | Stateful | Stateless |
    |---|---|---|
-   Support for agents | Yes | - |
+   | Support for agents | Yes | - |
    | Support Agent-to-Agent (A2A) protocol | Yes | — |
    | Multi-agent patterns | Yes | — |
    | Any available trigger | Yes | Yes |
