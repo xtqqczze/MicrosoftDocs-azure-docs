@@ -53,7 +53,6 @@ The `azd up` command completes the following steps from the template:
 - Grants Storage-Blob-Data-Contributor access on the storage container.
 - Compresses included fonts and Install.ps1 into scripts.zip.
 - Upload scripts.zip to the storage container.
-- Display values for `Storage Account`, `Container Name`, and `Managed Identity`.
 
 > [!NOTE]
 > The configuration script package (`scripts.zip`) deployed with the sample resources contains `Install.ps1`, which copies Microsoft Aptos font files into C:\Windows\Fonts. The sample app you deploy later renders text into an image using these fonts. This process demonstrates how a Managed Instance configuration (install) script can lay down OS-level or framework dependencies before app code runs.
