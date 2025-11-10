@@ -211,6 +211,8 @@ Follow these steps:
 
 3. Select the vault of your choice to view the overview and the soft deleted backup items inside the vault.
 
+---
+
 ## Recover soft deleted vaults
 
 If a vault and its backup items are soft-deleted, you can recover them by undeleting the vault and then restoring the backup items before permanent deletion.
@@ -254,6 +256,8 @@ Follow these steps:
 > In this case, you can manually assign a new managed identity to the vault after the undelete operation.
 
 5. After undeleting the vault, you must recover and undelete the backup items separately.
+
+---
 
 ## Manage Customer-Managed Keys (CMKs) After Undeletion:
 
