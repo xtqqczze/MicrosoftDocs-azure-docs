@@ -258,4 +258,4 @@ scheduled_task:
 
 ## Related content
 
-- [Create subagents in Azure SRE Agent](./agent-builder-overview.md)
+- [Create subagents in Azure SRE Agent](./subagent-builder-overview.md)

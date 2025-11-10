@@ -70,4 +70,4 @@ Before using subagent builder, ensure you have:
 
 ## Related content
 
-- [agent builder scenarios](./agent-builder-scenarios.md)
+- [agent builder scenarios](./subagent-builder-scenarios.md)
