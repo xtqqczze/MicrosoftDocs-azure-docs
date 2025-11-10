@@ -308,11 +308,37 @@ public static async Task<List<string>> MyOrchestrator(
 ```
 # [JavaScript (PM3)](#tab/javascript-v3)
 
+```javascript
+df.app.orchestration("counterOrchestration", function* (context) {
+    const entityId = new df.EntityId(counterEntityName, "myCounter");
 
+    try {
+        const currentValue = yield context.df.callEntity(entityId, "get");
+        if (currentValue < 10) {
+            yield context.df.callEntity(entityId, "add", 1);
+        }
+    } catch (err) {
+        context.log(`Entity call failed: ${err.message ?? err}`);
+    }
+});
+```
 
 # [JavaScript (PM4)](#tab/javascript-v4)
 
+```javascript
+df.app.orchestration("counterOrchestration", function* (context) {
+    const entityId = new df.EntityId(counterEntityName, "myCounter");
 
+    try {
+        const currentValue = yield context.df.callEntity(entityId, "get");
+        if (currentValue < 10) {
+            yield context.df.callEntity(entityId, "add", 1);
+        }
+    } catch (err) {
+        context.log(`Entity call failed: ${err.message ?? err}`);
+    }
+});
+```
 
 # [Python](#tab/python)
 
@@ -753,6 +779,11 @@ When running Durable Task workflows in the .NET Isolated model, task failures ar
 
 Starting with Microsoft.Azure.Functions.Worker.Extensions.DurableTask [v1.9.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.9.0), You can extend this behavior by implementing an IExceptionPropertiesProvider (defined in the Microsoft.DurableTask.Worker starting from [v1.16.1](https://www.nuget.org/packages/Microsoft.DurableTask.Worker/1.16.1)package). This provider defines which exception types and which of their properties should be included in the FailureDetails.Properties dictionary.
 
+> [!NOTE]  
+> - This feature is available in **.NET Isolated** only. Support for Java will be added in a future release.  
+> - Make sure you're using **Microsoft.Azure.Functions.Worker.Extensions.DurableTask v1.9.0** or later.  
+> - Make sure you're using **Microsoft.DurableTask.Worker v1.16.1** or later.
+
 ### Implement an Exception Properties Provider
 Implement a custom IExceptionPropertiesProvider to extract and return selected properties for the exceptions you care about. The returned dictionary will be serialized into the Properties field of FailureDetails when a matching exception type is thrown.
 
@@ -816,11 +847,6 @@ When an exception occurs that matches your provider’s configuration, the orche
   }
 }
 ```
-
-> [!NOTE]  
-> - This feature is available in **.NET Isolated** only. Support for Java will be added in a future release.  
-> - Make sure you're using **Microsoft.Azure.Functions.Worker.Extensions.DurableTask v1.9.0** or later.  
-> - Make sure you're using **Microsoft.DurableTask.Worker v1.16.1** or later.  
 
 ## Next steps
 
