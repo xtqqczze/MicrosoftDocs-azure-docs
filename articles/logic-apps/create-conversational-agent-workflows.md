@@ -33,9 +33,9 @@ This guide shows how to create a Consumption or Standard logic app that uses the
 
 Based on whether you want to create a Consumption or Standard logic app, the following prerequisites apply:
 
-### [Consumption (preview)](#tab/consumption)
-
 - An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
+### [Consumption (preview)](#tab/consumption)
 
 - A Consumption logic app resource that uses the workflow type named **Conversational Agents**. See [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
@@ -43,9 +43,9 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
   > [!NOTE]
   >
-  > The steps to set up conversational chat are available only for the Azure portal. Support for Visual Studio Code is unavailable.
+  > You can use only the Azure portal to build conversational agent workflows, not Visual Studio Code.
 
-For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2).
+For external chat authentication and authorization, Consumption conversational agent workflows use [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2).
 
 ### [Standard](#tab/standard)
 
@@ -119,14 +119,6 @@ For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with M
 
   The examples in this guide use an Outlook.com account. For your own scenarios, you can use any supported email service or messaging app in Azure Logic Apps, such as Office 365 Outlook, Microsoft Teams, Slack, and so on. The setup for other email services or apps are similar to the examples, but have minor differences.
 
-[!INCLUDE [supported-models](includes/supported-models.md)]
-
-## Billing
-
-- Consumption: Billing uses the pay-as-you-go model, based on the number of tokens used for each agent action.
-
-- Standard: Although agent workflows don't incur extra charges, AI model usage incurs charges. For more information, see the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
-
 ## Limitations and known issues
 
 The following table describes the current limitations and any known issues in this release.
@@ -134,8 +126,16 @@ The following table describes the current limitations and any known issues in th
 | Logic app | Limitations or known issues |
 |-----------|-----------------------------|
 | Both | To create tools for your agent, the following limitations apply: <br><br>- You can add only actions, not triggers. <br>- A tool must start with an action and always contains at least one action. <br>- A tool works only inside the agent where that tool exists. <br>- Control flow actions are unsupported. |
-| Consumption | The **Agent** action is throttled based on the number of tokens used. |
-| Standard | - Unsupported workflow types: **Stateless** <br><br>- For general limits in Azure OpenAI Service and Azure Logic Apps, see: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
+| Consumption | - Only the Azure portal is available to build conversational agent workflows, not Visual Studio Code. <br>- The **Agent** action is throttled based on the number of tokens used. |
+| Standard | - Unsupported workflow types: **Stateless** <br><br>For general limits in Azure OpenAI Service and Azure Logic Apps, see: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
+
+[!INCLUDE [supported-models](includes/supported-models.md)]
+
+## Billing
+
+- Consumption: Billing uses the pay-as-you-go model, based on the number of tokens used for each agent action.
+
+- Standard: Although agent workflows don't incur extra charges, AI model usage incurs charges. For more information, see the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Create a conversational agent workflow
 
@@ -609,21 +609,49 @@ For nonproduction activities, such as design, development, and quick testing, th
 
 - Treat the developer key strictly and only as a design-time convenience for authentication and authorization.
 
-- Before you expose your workflow to agents, automation, or wider user populations, migrate to Easy Auth or signed SAS with network restrictions.
+- Before you expose your conversational agent to other agents, automation, or wider user populations, migrate to signed SAS with network restrictions or the following authentication and authorization methods for external chat, based on your conversational agent workflow type:
 
-  Basically, if anyone or anything outside your Azure portal session needs to call your logic app workflow, the developer key is no longer appropriate. Make sure that you enable Easy Auth or use managed identity–based flows instead.
+  | Workflow | Authentication |
+  |----------|----------------|
+  | Consumption | Managed identity, [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) |
+  | Standard | Managed identity, [Easy Auth (App Service Authentication)](set-up-authentication-agent-workflows.md) |
 
-When you're ready to release your agent workflow into production, make sure to follow the [migration steps to prepare for production authentication and authorization](#migrate-to-production-authentication). For more information, see the [Authentication and authorization](agent-workflows-concepts.md#authentication-and-authorization).
+  Basically, if anyone or anything outside your Azure portal session needs to call or interact with your workflow, the developer key is no longer appropriate.
+
+When you're ready to release your agent workflow into production, make sure to follow the [migration steps to prepare for production authentication and authorization](#migrate-to-production-authentication). For more information, see [Authentication and authorization](agent-workflows-concepts.md#authentication-and-authorization).
 
 ## Migrate to production authentication
 
-1. On your logic app resource, [set up Easy Auth for authentication and authorization](set-up-authentication-agent-workflows.md).
+1. On your logic app resource, set up the following authentication, based on your workflow type:
+
+   | Workflow | Authentication |
+   |----------|----------------|
+   | Consumption | Managed identity, [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) plus an [authorization policy on your logic app resource](logic-apps-securing-a-logic-app.md?tabs=azure-portal#enable-azure-ad-inbound) |
+   | Standard | Managed identity, [Easy Auth (App Service Authentication)](set-up-authentication-agent-workflows.md) |
 
 1. Enforce any authentication required access patterns.
 
 1. Optionally, lock down any trigger endpoint URLs by disabling or regenerating any unused SAS URLs.
 
-1. For conversational agent workflows, get the [chat client URL](set-up-authentication-agent-workflows.md#external-chat-client) so you can embed an external chat client interface wherever you want to support human interactions.
+1. Get the [chat client URL](set-up-authentication-agent-workflows.md#external-chat-client) so you can embed an external chat client interface wherever you want to support human interactions.
+
+   1. On the designer toolbar or workflow sidebar, select **Chat**.
+
+      The internal chat interface no longer appears on the **Chat** page.
+
+   1. In the **Essentials** section, select the **Chat Client URL** link, which opens a new browser tab.
+
+      > [!TIP]
+      >
+      > You can embed the chat client URL in an [*iFrame* HTML element](https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/iframe) that you can use with your website where you want to provide the chat client, for example:
+      >
+      > **Consumption workflow**
+      >
+      > `<iframe src="https://agents.<region>.logic.azure.com/scaleunits/CU04/flows/A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u/agentChat/IFrame" title="<chat-client-name>"></iframe>`
+      >
+      > **Standard workflow**
+      >
+      > `<iframe src="https://<logic-app-name>.azurewebsites.net/api/agentsChat/<workflow-name>/IFrame" title="<chat-client-name>"></iframe>`
 
 ### Troubleshoot authentication migration
 
@@ -631,9 +659,9 @@ The following table describes common problems you might encounter when you try t
 
 | Symptom | Likely cause | Action |
 |---------|--------------|--------|
-| Portal tests work, but external calls get **401** response. | External calls don't have a valid Easy Auth access token or signed SAS tokens. | Set up Easy Auth or use a workflow trigger URL with a signed SAS. |
-| Designer tests work, but Azure API Management calls fail. | API Management calls are missing expected header information. | Add OAuth 2.0 token acquisition in API Management policy or use managed identity. |
-| Access is inconsistent after a role changes. | Cached session in the Azure portal | - Sign out and sign back in. <br><br>Get a fresh token. |
+| Portal tests work, but external calls get **401** response. | External calls don't have a valid signed SAS token or Easy Auth access token (Standard workflows only). | Use a workflow trigger URL with a signed SAS or Set up Easy Auth (Standard workflows only). |
+| Designer tests work, but Azure API Management calls fail. | API Management calls are missing expected header information. | Add OAuth 2.0 token acquisition in API Management policy or use managed identity authentication. |
+| Access is inconsistent after a role changes. | Cached session in the Azure portal | - Sign out and sign back in. <br><br>- Get a fresh token. |
 
 [!INCLUDE [troubleshoot-agent-workflows](includes/troubleshoot-agent-workflows.md)]
 
