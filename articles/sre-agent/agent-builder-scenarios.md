@@ -1,37 +1,36 @@
 ---
-title: Agent Builder scenarios in Azure SRE Agent
-description: Learn how you can use Agent Builder in Azure SRE Agent to connect observability tools, manage knowledge bases, configure specialized subagents, and automate operational workflows using triggers and scheduled tasks.
+title: Scenarios for building subagents in Azure SRE Agent
+description: Learn how you can use agent builder in Azure SRE Agent to connect observability tools, manage knowledge bases, configure specialized subagents, and automate operational workflows using triggers and scheduled tasks.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: how-to
-ms.date: 11/05/2025
+ms.date: 11/10/2025
 ms.service: azure-sre-agent
 ---
 
-# Agent Builder scenarios in Azure SRE Agent
+# Scenarios for building subagents in Azure SRE Agent
 
-Agent Builder in Azure SRE Agent enables you to design, configure, and extend intelligent operational agents tailored to your organization's needs. With Agent Builder, you can seamlessly integrate data sources, manage and enrich knowledge bases, create specialized subagents, and automate workflows by using triggers and scheduled tasks. This article explores common scenarios and configuration patterns to help you maximize the value of Agent Builder for your site reliability engineering (SRE) operations.
+Azure SRE Agent features an agent builder to help you to design, configure, and extend intelligent operational subagents tailored to your organization's needs. With agent builder, you can seamlessly integrate data sources, manage and enrich knowledge bases, create specialized subagents, and automate workflows by using triggers and scheduled tasks. This article explores common scenarios and configuration patterns to help you maximize the value of agent builder for your site reliability engineering (SRE) operations.
 
 ### Bring your own data sources (observability tools)
 
-Agent Builder enables you to connect your existing observability infrastructure to enhance your agents' capabilities.
+Agent builder enables you to connect your existing observability infrastructure to enhance your subagents' capabilities.
 
 #### Supported data connectors
 
-SRE Agent supports the following data connectors that interface with Agent Builder:
+SRE Agent supports the following data connectors that interface with agent builder:
 
 - **Model Context Protocol (MCP)**: Connect to external data sources and APIs.
 - **Microsoft Teams**: Post messages to Teams channels.
 - **Outlook**: Send email notifications.
 
-
 #### Configuration process
 
-Use the following steps to configure your agent.
+Use the following steps to configure your subagent.
 
 1. Navigate to data connectors.
 
-    In Agent Builder, select the **Settings > Connectors** tab.
+    In agent builder, select the **Settings > Connectors** tab.
 
 1. Choose connector type.
 
@@ -45,13 +44,13 @@ Use the following steps to configure your agent.
 
     Validate connectivity and permissions before saving.
 
-1. Associate with agents.
+1. Associate with subagents.
 
-    Link data sources to specific agents based on their operational focus.
+    Link data sources to specific subagents based on their operational focus.
 
 ### File upload and knowledge base management
 
-Enhance your agents' knowledge by uploading organizational documentation, runbooks, and procedural guides.
+Enhance your subagents' knowledge by uploading organizational documentation, runbooks, and procedural guides.
 
 #### Supported file types
 
@@ -71,12 +70,12 @@ Enhance your agents' knowledge by uploading organizational documentation, runboo
 
 1. Organize content by adding tags and descriptions for better searchability.
 
-1. Enable agent access by configuring which agents can access specific knowledge sources.
+1. Enable subagent access by configuring which subagents can access specific knowledge sources.
 
-1. Monitor usage by tracking how agents utilize uploaded knowledge in their responses.
+1. Monitor usage by tracking how subagents use uploaded knowledge in their responses.
 
 > [!NOTE]
-> Uploaded files are automatically indexed and made searchable by your agents. The system supports up to 1,000 files per agent instance.
+> Uploaded files are automatically indexed and made searchable by your subagents. The system supports up to 1,000 files per subagent instance.
 
 ### Build your subagents
 
@@ -84,25 +83,25 @@ Create specialized subagents that focus on specific operational domains or techn
 
 #### Subagent types
 
-Examples of specialized agents include:
+Examples of specialized subagents include:
 
-- **Database specialists**: Focus on database performance and connectivity diagnostics
+- **Database specialists**: Focus on database performance and connectivity diagnostics.
 
-- **Network analysts**: Specialize in connectivity and performance issues
+- **Network analysts**: Specialize in connectivity and performance issues.
 
-- **Security investigators**: Trained on security incidents and compliance checks
+- **Security investigators**: Trained on security incidents and compliance checks.
 
-- **Application monitors**: Experts in specific application stacks or frameworks
+- **Application monitors**: Experts in specific application stacks or frameworks.
 
 #### Subagent configuration
 
-- **Define agent purpose**: Clearly specify the agent's operational focus and expertise
+- **Define purpose**: Clearly specify the subagent's operational focus and expertise.
 
-- **Select tools**: Choose relevant system tools and data connectors for the agent's domain
+- **Select tools**: Choose relevant system tools and data connectors for the subagent's domain.
 
-- **Customize instructions**: Provide domain-specific guidance and operational procedures
+- **Customize instructions**: Provide domain-specific guidance and operational procedures.
 
-- **Set handoff rules**: Configure how the subagent escalates to human operators or other agents
+- **Set handoff rules**: Configure how the subagent escalates to human operators or other subagents.
 
 - **Test capabilities**: Validate the subagent's performance on domain-specific scenarios
 
@@ -111,7 +110,7 @@ Example subagent configuration:
 ```yml
 agent: 
   name: "WebApp-Performance-Specialist" 
-  description: "Specialized agent for web application performance analysis" 
+  description: "Specialized subagent for web application performance analysis" 
   instructions: | 
     You are a specialist in diagnosing web application performance and reliability issues. 
 
@@ -131,7 +130,7 @@ agent:
 
 ### Extended tools (built-in data connectors and MCP tools)
 
-Expand your agents' capabilities with a comprehensive toolkit for operational tasks.
+Expand your subagents' capabilities with a comprehensive toolkit for operational tasks.
 
 #### Built-in system tools
 
@@ -157,27 +156,27 @@ Expand your agents' capabilities with a comprehensive toolkit for operational ta
 
 #### Model Context Protocol (MCP) integration
 
-MCP enables your agents to connect with external systems and APIs beyond Azure's native capabilities.
+MCP enables your subagents to connect with external systems and APIs beyond Azure's native capabilities.
 
 - **MCP connection setup**:
 
-  - **Configure MCP server**: Set up the external service endpoint
+  - **Configure MCP server**: Set up the external service endpoint.
   
-  - **Authentication**: Provide necessary credentials and access tokens
+  - **Authentication**: Provide necessary credentials and access tokens.
   
-  - **Tool discovery**: Import available tools and functions from the MCP server
+  - **Tool discovery**: Import available tools and functions from the MCP server.
   
-  - **Agent assignment**: Associate MCP tools with specific agents
+  - **Assignment**: Associate MCP tools with specific subagents.
 
 - **Supported MCP scenarios**
 
-  - **Custom APIs**: Internal tools and services specific to your organization
+  - **Custom APIs**: Internal tools and services specific to your organization.
   
-  - **Third-party integrations**: ServiceNow, Jira, Slack, and other operational tools
+  - **Third-party integrations**: ServiceNow, Jira, Slack, and other operational tools.
   
-  - **Specialized databases**: Time-series databases, document stores, and analytics platforms
+  - **Specialized databases**: Time-series databases, document stores, and analytics platforms.
   
-  - **Monitoring systems**: Grafana, Prometheus, and custom dashboards
+  - **Monitoring systems**: Grafana, Prometheus, and custom dashboards.
 
 > [!IMPORTANT]
 > MCP connections require proper network configuration and authentication.
@@ -188,7 +187,7 @@ Automate your operational workflows with intelligent triggering mechanisms.
 
 #### Incident triggers
 
-Automatically activate agents when specific incident conditions are met by adjusting the following configuration options:
+Automatically activate subagents when specific incident conditions are met by adjusting the following configuration options:
 
 - **Platform integration**: Azure Monitor, PagerDuty, or ServiceNow.
 
@@ -257,4 +256,4 @@ scheduled_task:
 
 ## Related content
 
-- [Agent Builder overview](./agent-builder-overview.md)
+- [Create subagents in Azure SRE Agent](./agent-builder-overview.md)
