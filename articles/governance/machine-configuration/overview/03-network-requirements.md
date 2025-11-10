@@ -3,6 +3,7 @@ description: Configure network connectivity, endpoints, and private link setting
 ms.date: 11/07/2025
 ms.topic: how-to
 title: Azure Machine Configuration network requirements
+ms.custom: references_regions
 ---
 
 # Azure Machine Configuration network requirements

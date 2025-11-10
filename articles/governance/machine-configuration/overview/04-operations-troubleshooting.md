@@ -3,6 +3,7 @@ description: Monitor, troubleshoot, and manage Azure Machine Configuration deplo
 ms.date: 11/07/2025
 ms.topic: how-to
 title: Troubleshooting Azure Machine Configuration 
+ms.custom: references_regions
 ---
 
 # Troubleshooting Azure Machine Configuration

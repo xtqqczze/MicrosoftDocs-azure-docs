@@ -29,19 +29,19 @@ To view and explore these built-in policies:
 
 4.  Browse the list to review available definitions, such as:
 
-    1.  *Audit Linux machines that have the specified applications installed*
+    - *Audit Linux machines that have the specified applications installed*
 
-    2.  *Audit Windows machines that are not set to the specified time zone*
+    - *Audit Windows machines that are not set to the specified time zone*
 
-    3.  *Windows machines should meet requirements for the Azure compute security baseline*
+    - *Windows machines should meet requirements for the Azure compute security baseline*
 
 5.  Click any policy name to open its details page. You can inspect:
 
-    1.  The JSON definition
+    - The JSON definition
 
-    2.  Available parameters and versions
+    - Available parameters and versions
 
-    3.  Metadata such as category, mode, and required providers
+    - Metadata such as category, mode, and required providers
 
 [![Screenshot of policy definition details page showing JSON definition and parameters.](../media/discover-and-assign-built-in-machine-configuration-policies/policy-definition-details-json-parameters.png)](../media/discover-and-assign-built-in-machine-configuration-policies/policy-definition-details-json-parameters.png#lightbox)
 

@@ -3,9 +3,12 @@ description: Configure the required components, extensions, and identities neede
 ms.date: 11/07/2025
 ms.topic: how-to
 title: Azure Machine Configuration prerequisites
+ms.custom: references_regions
 ---
 
 # Azure Machine Configuration prerequisites
+
+Azure Machine Configuration provides native capability to audit or configure operating system settings as code, both for machines running in Azure and hybrid Arc-enabled machines. Before you can use machine configuration to manage your environment, you must enable the prerequisites for the service.
 
 ## Enable machine configuration
 

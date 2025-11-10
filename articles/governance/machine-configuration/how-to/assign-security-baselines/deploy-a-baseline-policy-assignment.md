@@ -33,11 +33,11 @@ The portal provides the most direct path to create or test a baseline assignment
 
 2.  Under **Definitions**, choose your desired baseline—for example:
 
-    1.  *\[Preview\]* Official CIS Security Benchmarks for Linux Workloads
+    - *\[Preview\]* Official CIS Security Benchmarks for Linux Workloads
 
-    2.  *Azure Security Baseline for Windows*
+    - *Azure Security Baseline for Windows*
 
-    3.  *Azure Security Baseline for Linux*
+    - *Azure Security Baseline for Linux*
 
 ### Step 2—Select and Customize
 
@@ -58,9 +58,9 @@ Use this file later when creating the assignment.
 
 2.  In the page, define:
 
-    1.  **Scope** (subscription or management group)
+    - **Scope** (subscription or management group)
 
-    2.  **Assignment name** and optional description
+    - **Assignment name** and optional description
 
 3.  Under the **Parameters** tab, locate **Baseline Settings**. You may need to uncheck *"Only show parameters that need input or review"*
 
