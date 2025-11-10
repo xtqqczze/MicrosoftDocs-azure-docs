@@ -54,7 +54,7 @@ On the **Modify settings** tab, review and adjust configuration rules for your s
 
 - For configurable rules, edit the **Parameter value** field to define your organization's required state.
 
-[![Screenshot of security baseline rules list with checkboxes and parameter value fields.](../../media/specify-custom-parameters-for-baseline-policy/security-baseline-rules-list-with-checkboxes.png)](../../media/specify-custom-parameters-for-baseline-policy/security-baseline-rules-list-with-checkboxes.png#lightbox)
+[![Screenshot of security baseline rules list with checkboxes and parameter value fields.](../../media/specify-custom-parameters-for-baseline-policy/security-baseline-rules-list-with-checked-boxes.png)](../../media/specify-custom-parameters-for-baseline-policy/security-baseline-rules-list-with-checked-boxes.png#lightbox)
 
 - View per rule Metadata by clicking on a highlighted rule. This action opens the context pane showing details such as **Rule ID**, **Description**, **Severity**, and **Compliance Standard**.
 

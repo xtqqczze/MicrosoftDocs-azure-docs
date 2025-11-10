@@ -158,6 +158,12 @@ packages.
 To provide feedback about this functionality, open an issue on the documentation. We currently
 _don't_ accept PRs for this project, and support is best effort.
 
+## Next steps
+
+Now that you understand operations and troubleshooting, you're ready to start working with machine configuration policies:
+
+[Discover and assign built-in policies for Azure Machine Configuration][48]
+
 
 <!-- Link reference definitions -->
 [28]: /azure/virtual-machines/availability
@@ -171,3 +177,4 @@ _don't_ accept PRs for this project, and support is best effort.
 [36]: /azure/virtual-machines/linux/run-command
 [37]: https://github.com/azure/nxtools#getting-started
 [47]: ../../policy/concepts/exemption-structure.md
+[48]: ../how-to/assign-built-in-policies.md

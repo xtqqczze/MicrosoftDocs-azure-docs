@@ -96,6 +96,7 @@ Machine configuration built-in policy samples are available in the following loc
 
 ## Next steps
 
+- Discover and assign [built-in policies for Azure Machine Configuration][48]
 - Set up a custom machine configuration package [development environment][33].
 - [Create a package artifact][42] for machine configuration.
 - [Test the package artifact][34] from your development environment.
@@ -151,3 +152,4 @@ Machine configuration built-in policy samples are available in the following loc
 [45]: ../../policy/overview.md
 [46]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration
 [47]: ../../policy/concepts/exemption-structure.md
+[48]: ../how-to/assign-built-in-policies.md

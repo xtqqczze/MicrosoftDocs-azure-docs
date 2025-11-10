@@ -113,6 +113,12 @@ When you use [private link with Arc-enabled servers][24], built-in policy packag
 automatically downloaded over the private link. You don't need to set any tags on the Arc-enabled
 server to enable this feature.
 
+## Next steps
+
+Now that you understand the network requirements, continue to the next article to learn about operations and troubleshooting:
+
+[Troubleshooting Machine Configuration][25]
+
 
 <!-- Link reference definitions -->
 [01]: /azure/azure-arc/servers/overview
@@ -123,3 +129,4 @@ server to enable this feature.
 [22]: /azure/virtual-network/what-is-ip-address-168-63-129-16
 [23]: /azure/azure-arc/servers/network-requirements
 [24]: /azure/azure-arc/servers/private-link-security
+[25]: ./04-operations-troubleshooting.md

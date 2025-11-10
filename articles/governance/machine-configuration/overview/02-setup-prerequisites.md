@@ -110,6 +110,12 @@ properties. An on-demand Azure Policy evaluation retrieves the latest value from
 configuration resource provider. However, it doesn't trigger a new activity within the machine. The
 status is then written to Azure Resource Graph.
 
+## Next steps
+
+Now that you understand the setup prerequisites, continue to the next article to learn about network requirements:
+
+> [Network requirements][28]
+
 
 <!-- Link reference definitions -->
 [09]: /azure/azure-resource-manager/management/resource-providers-and-types#azure-portal
@@ -125,3 +131,4 @@ status is then written to Azure Resource Graph.
 [25]: /azure/active-directory/managed-identities-azure-resources/managed-identities-faq#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request
 [26]: https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e
 [27]: https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6
+[28]: ./03-network-requirements.md
