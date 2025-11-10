@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 11/07/2025
+ms.date: 11/10/2025
 
 #customer intent: As a Dev Center Admin or Project Admin, I want to configure dev box pools to use image definition files so that my development teams can create customized dev boxes.
 ---
@@ -64,7 +64,10 @@ To attach a catalog to a project, you must enable project-level catalogs. For mo
 
 ## Attach a catalog that contains the definition file
 
-Before you can use a customization file as an image definition, attach a catalog that contains the definition file to your dev center or project. The catalog can be from GitHub or Azure Repos. For more information, see [Add and configure a catalog from GitHub or Azure Repos](../dev-box/how-to-configure-catalog.md).
+Before you can use a customization file as an image definition, attach a catalog that contains the definition file to your project. The catalog can be from GitHub or Azure Repos. For more information, see [Add and configure a catalog from GitHub or Azure Repos](../dev-box/how-to-configure-catalog.md).
+
+> [!NOTE]
+> Image definitions are only supported at the project level. You must attach catalogs containing image definitions to a project, not to a dev center.
 
 The **Image definitions** pane lists the image definitions that your project can access.
 
@@ -72,7 +75,7 @@ The **Image definitions** pane lists the image definitions that your project can
 
 ## Configure a dev box pool to use an image definition
 
-To make customizations available to your development teams, configure a dev box pool to use an image definition. Store the customization file (imagedefinition.yaml) in a repository linked to a catalog in your dev center or project. When you specify this file as the image definition for the pool, the customizations are applied to new dev boxes.
+To make customizations available to your development teams, configure a dev box pool to use an image definition. Store the customization file (imagedefinition.yaml) in a repository linked to a catalog in your project. When you specify this file as the image definition for the pool, the customizations are applied to new dev boxes.
 
 ### Create a dev box pool
 
@@ -161,39 +164,42 @@ You can make adjustments to the customization file and create a new dev box to t
 
 ## Build a reusable image
 
-You can build an image from the customization file to create a reusable image for your team. This image applies to all dev boxes created from the pool. The DevCenter service creates a dev box behind the scenes, applies your customizations, and exports the resulting image to an Azure Compute Gallery in a managed resource group.
+You can build a reusable image from the customization file to optimize performance and enhance reliability. This image applies to all dev boxes created from the pool. The DevCenter service creates a dev box behind the scenes, applies your customizations, and exports the resulting image to an Azure Compute Gallery in a managed resource group.
 
 There are two ways to build images: automatic or manual. By default, images are automatically built whenever a new image definition is detected or an existing one is updated. To control when images are built, you can disable automatic image builds and manually trigger builds.
 
 ### Configure automatic image builds
 
-By default, images are automatically built for catalogs containing image definitions. This feature helps prevent stale configurations and improves dev box reliability. However, image builds incur costs through dev box meters during runtime when customizations are applied.
+By default, images are automatically built for catalogs containing image definitions. This feature helps prevent stale configurations and improves dev box reliability. 
 
-#### Disable automatic image builds for existing catalogs
+> [!NOTE]
+> Image builds incur costs through dev box meters during runtime when customizations are applied.
+
+#### Configure automatic image builds for existing catalogs
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **dev centers** or **projects**. In the list of results, select the appropriate resource type.
+1. In the search box, enter **projects**. In the list of results, select **Projects**.
 
-1. Open the dev center or project that contains the catalog you want to configure.
+1. Open the project that contains the catalog you want to configure.
 
 1. On the left menu, select **Catalogs**.
 
 1. From the list of catalogs, select the catalog that contains image definitions.
 
-1. On the catalog details page, clear the **Automatically build an image** checkbox.
+1. On the catalog details page, enable or disable the use of automatic image builds by using the **Automatically build an image** checkbox.</br>We recommend enabling auto-builds to take advantage of the reliability and performance improvements Dev Center imaging provides.
 
-1. Select **Save** to apply your changes.
+1. Select **Save** to apply your changes. The auto-build capability flattens customizations into a reusable image that dramatically enhances dev box creation performance and reliability
  
    :::image type="content" source="media/how-to-configure-dev-center-imaging/dev-box-add-catalog-auto-build-image.png" alt-text="Screenshot showing the automatically build an image option in catalog settings.":::
 
-#### Disable automatic image builds during catalog creation
+#### Configure automatic image builds during catalog creation
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **dev centers** or **projects**. In the list of results, select the appropriate resource type.
+1. In the search box, enter **projects**. In the list of results, select **Projects**.
 
-1. Open the dev center or project where you want to add the catalog.
+1. Open the project where you want to add the catalog.
 
 1. On the left menu, select **Catalogs**, and then select **Add**.
 
@@ -207,7 +213,7 @@ By default, images are automatically built for catalogs containing image definit
    | **Branch** | Enter the repository branch to connect to. |
    | **Folder path** | Enter the folder path relative to the repository root that contains your image definitions. |
 
-1. Clear the **Automatically build an image** checkbox to disable automatic image builds for this catalog.
+1. Enable or disable the use of automatic image builds by using the **Automatically build an image** checkbox.</br>We recommend enabling auto-builds to take advantage of the reliability and performance improvements Dev Center imaging provides.
 
 1. Select **Add** to create the catalog.
 
@@ -217,9 +223,9 @@ When automatic image builds are disabled, you must manually trigger image builds
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, enter **dev centers** or **projects**. In the list of results, select the appropriate resource type.
+1. In the search box, enter **projects**. In the list of results, select **Projects**.
 
-1. Open the dev center or project that contains the catalog you want to configure.
+1. Open the project that contains the catalog you want to configure.
 
 1. On the left menu, select **Catalogs**.
 
@@ -242,7 +248,7 @@ When automatic image builds are disabled, you must manually trigger image builds
 During the image build process, Dev Box creates a temporary storage account in your subscription to store a snapshot. This storage account doesn't allow anonymous blob access and can only be accessed by identities with Storage Blob Reader access. The storage account must be accessible from public networks so the Dev Box service can export your snapshot. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription your DevCenter project is in.
 
 > [!IMPORTANT]
-> The dev box created during image optimization is connected to a virtual network that Microsoft manages. Tasks that require access to on-premises resources might fail.
+> When you're optimizing your image definition into an image, a dev box is created to run your customization file and generate an image. During this process, this dev box is connected to a virtual network that Microsoft manages. Use the the [network configuration](./how-to-configure-dev-center-imaging.md#network-configuration) capability in image definitions for tasks that need access to on-premises or private resources to ensure image generation would be successful.
 
 When the build finishes successfully, the dev box pool automatically uses the image for new dev boxes. You don't need extra configuration to assign the image to the pool. You can now create dev boxes from the pool with the customizations applied.
 
