@@ -11,6 +11,8 @@ ms.date: 11/18/2025
 
 # Clone Consumption workflows to Standard workflows (Preview)
 
+[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
+
 > [!IMPORTANT]
 > 
 > This capability is in preview and is subject to the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, **this capability is only available in Azure public regions**.
