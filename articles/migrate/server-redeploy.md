@@ -88,7 +88,7 @@ Use the Server Migration tool in Azure Migrate to move your on-premises servers 
 
 ## Detach data disks with disk migration script and generate IaC configuration
 
-1. Use the disk migration script in this repository to detach the data disk from the [migrated VM](/azure/azmigrate-hydration/tree/asr-am-support-scripts/post). The script generates the disk-config.json file, which contains the disk’s Infrastructure as Code (IaC) details. [Link](https://github.com/Azure/AzMigrate-Hydration/tree/asr-am-support-scripts/Post%20Migration%20Customization)
+1. Use the disk migration script in this repository to detach the data disk from the [migrated VM](https://github.com/Azure/AzMigrate-Hydration/tree/asr-am-support-scripts/Post%20Migration%20Customizationhttps://github.com/Azure/AzMigrate-Hydration/tree/asr-am-support-scripts/Post%20Migration%20Customization). The script generates the disk-config.json file, which contains the disk’s Infrastructure as Code (IaC) details. 
 1. Follow the instructions in the readme.md file included in the downloaded folder to complete the detachment process.
 
 ## Merge disk IaC with application IaC
@@ -110,3 +110,5 @@ Follow the instructions in the readme.md file included with the Application IaC 
 
 ## Next steps
 
+- Learn more [Migrate VMware VMs to Azure (agentless)](tutorial-migrate-vmware.md).
+- Learn more [Migrate VMware vSphere VMs to Azure (agent-based)](tutorial-migrate-vmware-agent.md).
