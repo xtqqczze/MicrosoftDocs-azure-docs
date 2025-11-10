@@ -41,16 +41,12 @@ When you deploy a VM or a Virtual Machine Scale Set, you can use an Elastic SAN 
 
 #### Post-deployment configuration
 
-- Go to the VM’s Extensions + applications blade.
-- Select the Elastic SAN extension and update the settings as needed.
-
-
-### Supported Scenarios
-The extension supports both single VM deployments and VM Scale Sets. For single VMs, it connects Elastic SAN volumes automatically during provisioning. For VM Scale Sets, applying the extension at the scale set level ensures uniform volume connectivity across all instances.
 
 
 
-## Connect to Elastic SAN volumes - Windows
+
+
+## Manually connect to Elastic SAN volumes
 
 This section explains how to connect to an Elastic storage area network (SAN) volume from an individual Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN volumes - Linux](elastic-san-connect-linux.md).
 
