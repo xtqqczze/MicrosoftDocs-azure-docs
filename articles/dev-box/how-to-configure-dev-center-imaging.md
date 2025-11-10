@@ -187,7 +187,7 @@ By default, images are automatically built for catalogs containing image definit
 
 1. From the list of catalogs, select the catalog that contains image definitions.
 
-1. On the catalog details page, enable or disable the use of automatic image builds by using the **Automatically build an image** checkbox.</br>We recommend enabling auto-builds to take advantage of the reliability and performance improvements Dev Center imaging provides.
+1. On the catalog details page, enable or disable the use of automatic image builds by using the **Automatically build an image** checkbox. </br>We recommend enabling auto-builds to take advantage of the reliability and performance improvements Dev Center imaging provides.
 
 1. Select **Save** to apply your changes. The auto-build capability flattens customizations into a reusable image that dramatically enhances dev box creation performance and reliability
  
@@ -213,7 +213,7 @@ By default, images are automatically built for catalogs containing image definit
    | **Branch** | Enter the repository branch to connect to. |
    | **Folder path** | Enter the folder path relative to the repository root that contains your image definitions. |
 
-1. Enable or disable the use of automatic image builds by using the **Automatically build an image** checkbox.</br>We recommend enabling auto-builds to take advantage of the reliability and performance improvements Dev Center imaging provides.
+1. Enable or disable the use of automatic image builds by using the **Automatically build an image** checkbox. </br>We recommend enabling auto-builds to take advantage of the reliability and performance improvements Dev Center imaging provides.
 
 1. Select **Add** to create the catalog.
 
@@ -248,7 +248,7 @@ When automatic image builds are disabled, you must manually trigger image builds
 During the image build process, Dev Box creates a temporary storage account in your subscription to store a snapshot. This storage account doesn't allow anonymous blob access and can only be accessed by identities with Storage Blob Reader access. The storage account must be accessible from public networks so the Dev Box service can export your snapshot. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription your DevCenter project is in.
 
 > [!IMPORTANT]
-> When you're optimizing your image definition into an image, a dev box is created to run your customization file and generate an image. During this process, this dev box is connected to a virtual network that Microsoft manages. Use the the [network configuration](./how-to-configure-dev-center-imaging.md#network-configuration) capability in image definitions for tasks that need access to on-premises or private resources to ensure image generation would be successful.
+> When you're optimizing your image definition into an image, a dev box is created to run your customization file and generate an image. During this process, this dev box is connected to a virtual network that Microsoft manages. Use the [network configuration](./how-to-configure-dev-center-imaging.md#network-configuration) capability in image definitions for tasks that need access to on-premises or private resources to ensure image generation would be successful.
 
 When the build finishes successfully, the dev box pool automatically uses the image for new dev boxes. You don't need extra configuration to assign the image to the pool. You can now create dev boxes from the pool with the customizations applied.
 
