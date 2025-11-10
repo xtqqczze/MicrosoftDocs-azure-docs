@@ -3,6 +3,7 @@ title: View Machine Configuration Compliance Reporting
 description: Learn how to view and analyze Azure Machine Configuration compliance results across Policy Assignments, Guest Assignments, and Azure Resource Graph for comprehensive governance reporting.
 ms.date: 11/07/2025
 ms.topic: conceptual
+ms.custom: references_regions
 ---
 
 # View Machine Configuration Compliance Reporting
@@ -21,7 +22,7 @@ Use this view to validate which policies are deployed, where they're scoped, and
 
 - Use filters such as **Policy definition equals all,** or **Subscription ID equals all** to narrow the list.
 
-![Azure Policy Compliance page showing policy assignments with filters and export options](../media/view-machine-configuration-compliance-reporting/azure-policy-compliance-page-filters-export.png)
+[![Screenshot of Azure Policy Compliance page showing policy assignments with filters and export options.](../media/view-machine-configuration-compliance-reporting/azure-policy-compliance-page-filters-export.png)](../media/view-machine-configuration-compliance-reporting/azure-policy-compliance-page-filters-export.png#lightbox)
 
 *Use **Export to CSV** to generate quick audit reports or share assignment inventories with your compliance team.*
 
@@ -36,13 +37,13 @@ From the Compliance view:
 
 1.  Select a policy assignment.
 
-![Policy assignment selection showing compliance status and resource details](../media/view-machine-configuration-compliance-reporting/policy-assignment-compliance-status-resources.png)
+[![Screenshot of policy assignment selection showing compliance status and resource details.](../media/view-machine-configuration-compliance-reporting/policy-assignment-compliance-status-resources.png)](../media/view-machine-configuration-compliance-reporting/policy-assignment-compliance-status-resources.png#lightbox)
 
 2.  In the **Resource compliance** tab, click "**Details**" next to the resource name.
 
 3.  In the details pane, select **Last evaluated resource**.
 
-![Resource compliance details pane with Last evaluated resource link highlighted](../media/view-machine-configuration-compliance-reporting/resource-compliance-details-evaluated-link.png)
+[![Screenshot of resource compliance details pane with Last evaluated resource link highlighted.](../media/view-machine-configuration-compliance-reporting/resource-compliance-details-evaluated-link.png)](../media/view-machine-configuration-compliance-reporting/resource-compliance-details-evaluated-link.png#lightbox)
 
 This opens the corresponding **Guest Assignment**, providing traceability between the Azure Policy rule and on-machine configuration evidence.
 
@@ -60,7 +61,7 @@ Use this view to investigate machine-level compliance for each assigned policy a
 
 - The **Status** column indicates whether the machine is *Compliant*, *NonCompliant*, or *Pending*.
 
-![Guest Assignments list showing machines with compliance status indicators](../media/view-machine-configuration-compliance-reporting/guest-assignments-list-compliance-indicators.png)
+[![Screenshot of Guest Assignments list showing machines with compliance status indicators.](../media/view-machine-configuration-compliance-reporting/guest-assignments-list-compliance-indicators.png)](../media/view-machine-configuration-compliance-reporting/guest-assignments-list-compliance-indicators.png#lightbox)
 
 ### Explore Rule-Level Results
 
@@ -75,7 +76,7 @@ The results table includes:
 
 *Use this view to perform root-cause analysis and prepare evidence for internal or external security audits.*
 
-![Detailed rule-level compliance results showing configuration items and benchmark references](../media/view-machine-configuration-compliance-reporting/detailed-rule-compliance-results-benchmarks.png)
+[![Screenshot of detailed rule-level compliance results showing configuration items and benchmark references.](../media/view-machine-configuration-compliance-reporting/detailed-rule-compliance-results-benchmarks.png)](../media/view-machine-configuration-compliance-reporting/detailed-rule-compliance-results-benchmarks.png#lightbox)
 
 ### Relationship to Azure Policy
 
@@ -94,7 +95,7 @@ This enables you to build dashboards, automate compliance summaries, and integra
 
 3.  Search for the **guestconfigurationresources** table.
 
-![Azure Resource Graph Explorer showing guestconfigurationresources table selection](../media/view-machine-configuration-compliance-reporting/azure-resource-graph-explorer-guest-configuration.png)
+[![Screenshot of Azure Resource Graph Explorer showing guestconfigurationresources table selection.](../media/view-machine-configuration-compliance-reporting/azure-resource-graph-explorer-guest-configuration.png)](../media/view-machine-configuration-compliance-reporting/azure-resource-graph-explorer-guest-configuration.png#lightbox)
 
 ### Example Query: Identify Non-Compliant Machines
 

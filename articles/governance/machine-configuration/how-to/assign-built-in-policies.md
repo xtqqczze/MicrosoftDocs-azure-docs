@@ -3,6 +3,7 @@ title: Discover And Assign Built In Machine Configuration Policies
 description: Learn how to discover, configure, and assign built-in Azure Machine Configuration policies to audit and enforce compliance across Windows and Linux machines in your environment.
 ms.date: 11/07/2025
 ms.topic: conceptual
+ms.custom: references_regions
 ---
 
 # Discover and Assign Built-In Machine Configuration Policies
@@ -24,7 +25,7 @@ To view and explore these built-in policies:
 
 3.  Open the **Category** filter and select **Guest Configuration** and **Built-in** on Policy Type to display all built-in policies related to OS auditing and compliance.
 
-![Azure Policy Definitions page with Guest Configuration filter applied showing built-in policies](../media/discover-and-assign-built-in-machine-configuration-policies/azure-policy-definitions-guest-config-filter.png)
+[![Screenshot of Azure Policy Definitions page with Guest Configuration filter applied.](../media/discover-and-assign-built-in-machine-configuration-policies/azure-policy-definitions-guest-config-filter.png)](../media/discover-and-assign-built-in-machine-configuration-policies/azure-policy-definitions-guest-config-filter.png#lightbox)
 
 4.  Browse the list to review available definitions, such as:
 
@@ -42,7 +43,7 @@ To view and explore these built-in policies:
 
     3.  Metadata such as category, mode, and required providers
 
-![Policy definition details page showing JSON definition and parameters for a Machine Configuration policy](../media/discover-and-assign-built-in-machine-configuration-policies/policy-definition-details-json-parameters.png)
+[![Screenshot of policy definition details page showing JSON definition and parameters.](../media/discover-and-assign-built-in-machine-configuration-policies/policy-definition-details-json-parameters.png)](../media/discover-and-assign-built-in-machine-configuration-policies/policy-definition-details-json-parameters.png#lightbox)
 
 ## Assign a Built-In Machine Configuration Policy
 
@@ -66,7 +67,7 @@ Let’s use one of the built-in Machine Configuration policies—**Audit Windows
 
     3.  Optionally specify exclusions if certain resources shouldn't be evaluated.
 
-![Policy assignment Basics tab showing scope selection and prerequisites configuration](../media/discover-and-assign-built-in-machine-configuration-policies/policy-assignment-basics-scope-prerequisites.png)
+[![Screenshot of policy assignment Basics tab showing scope selection and prerequisites.](../media/discover-and-assign-built-in-machine-configuration-policies/policy-assignment-basics-scope-prerequisites.png)](../media/discover-and-assign-built-in-machine-configuration-policies/policy-assignment-basics-scope-prerequisites.png#lightbox)
 
 4.  In the **Parameters** tab:
 
@@ -74,14 +75,14 @@ Let’s use one of the built-in Machine Configuration policies—**Audit Windows
 
     2.  Choose the desired **Time zone** (for example, "Pacific Time (US & Canada)").
 
-![Policy assignment Parameters tab showing Arc servers option and time zone selection](../media/discover-and-assign-built-in-machine-configuration-policies/policy-assignment-parameters-arc-timezone.png)
+[![Screenshot of policy assignment Parameters tab showing Arc servers option and time zone selection.](../media/discover-and-assign-built-in-machine-configuration-policies/policy-assignment-parameters-arc-timezone.png)](../media/discover-and-assign-built-in-machine-configuration-policies/policy-assignment-parameters-arc-timezone.png#lightbox)
 
 5.  Review your configuration under **Review + create**, then click **Create**.
 
 Once assigned, the policy will automatically begin evaluating machines within scope. Compliance results will surface in the **Policy → Compliance** view, where you can drill down to specific resources or export results.
 
-*Note:* The same process applies to other built-in Machine Configuration policies—such as those auditing Linux baselines, password settings, or required applications.  
-Parameters vary by definition and allow you to customize the audit scope without creating new policies.
+> [!NOTE]
+> The same process applies to other built-in Machine Configuration policies—such as those auditing Linux baselines, password settings, or required applications. Parameters vary by definition and allow you to customize the audit scope without creating new policies.
 
 ## Programmatic Access and Automation
 
