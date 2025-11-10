@@ -19,9 +19,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## November 2025
 
-* [Generate user and quota reports](generate-user-group-quota-reports.md)
+* [User and group quota reporting](generate-user-group-quota-reports.md) (preview)
 
-    Azure NetApp Files support user and group quota reporting on actual capacity usage on NFS, SMB, and dual-protocol volumes against defined individual and group quotas. Users can generate quota reports for existing volumes with quota rules using the Azure API independent of host-based tooling or without having to mount the volume.
+    For organizations leveraging individual user and group quotas in Azure NetApp Files to manage capacity on NFS, SMB, and dual-protocol volumes, the user and group quota reporting feature offers clear visibility into key metrics such as quota limits, used capacity, and percentage utilization for each target user and group of a quota rule. Administrators can generate quota usage reports and modify quota rules directly within the Azure portal for any volume with quota rules — removing the previous dependency on host-based tools and the need to mount the volume for reporting.
 
 * [Azure NetApp Files cache volumes](configure-cache-volumes.md) (preview)
 
