@@ -5,11 +5,11 @@ services: application gateway
 author: jaesoni
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/04/2025
+ms.date: 11/10/2025
 ms.author: greglin
 ---
 
-# FIPS 140-2 in Application Gateway
+# FIPS mode in Application Gateway
 
 Application Gateway V2 SKUs can run in a FIPS (Federal Information Processing Standard) 140 approved mode of operation, which is commonly referred to as "FIPS mode." With FIPS mode, Application Gateway supports cryptographic modules and data encryption. The FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled.
 
@@ -62,7 +62,7 @@ Application Gateway offers two mechanisms for controlling TLS policy. You can us
 
 Due to the restricted compatibility of TLS policies, enabling FIPS automatically selects AppGwSslPolicy20220101 for both "SSL Policy" and "SSL Profile." It can be modified to use other FIPS-compliant TLS policies later. To support legacy clients with other noncompliant cipher suites, it's possible to disable the FIPS mode, although it isn't recommended for resources within the scope of FedRAMP infrastructure.
 
-## Enabling FIPS 104-2 mode in V2 SKU
+## Enabling FIPS mode in V2 SKU
 
 **Azure portal**
 
@@ -70,7 +70,7 @@ To control the FIPS mode setting through Azure portal,
 
 1. Navigate to your application gateway resource.
 2. Open the Configuration blade in the left menu pane.
-3. Switch the FIPS 140-2 mode toggle to Enabled.
+3. Switch the FIPS mode toggle as "Enabled".
 
 ## Next steps
 
