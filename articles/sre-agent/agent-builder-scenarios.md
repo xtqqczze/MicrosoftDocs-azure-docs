@@ -1,29 +1,28 @@
 ---
-title: Agent Builder scenarios in Azure SRE Agent
-description: Learn how you can use Agent Builder in Azure SRE Agent to connect observability tools, manage knowledge bases, configure specialized subagents, and automate operational workflows using triggers and scheduled tasks.
+title: Scenarios for building subagents in Azure SRE Agent
+description: Learn how you can use agent builder in Azure SRE Agent to connect observability tools, manage knowledge bases, configure specialized subagents, and automate operational workflows using triggers and scheduled tasks.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: how-to
-ms.date: 11/05/2025
+ms.date: 11/10/2025
 ms.service: azure-sre-agent
 ---
 
-# Agent Builder scenarios in Azure SRE Agent
+# Scenarios for building subagents in Azure SRE Agent
 
-Agent Builder in Azure SRE Agent enables you to design, configure, and extend intelligent operational agents tailored to your organization's needs. With Agent Builder, you can seamlessly integrate data sources, manage and enrich knowledge bases, create specialized subagents, and automate workflows by using triggers and scheduled tasks. This article explores common scenarios and configuration patterns to help you maximize the value of Agent Builder for your site reliability engineering (SRE) operations.
+Azure SRE Agent features an agent builder in Azure SRE Agent enables you to design, configure, and extend intelligent operational agents tailored to your organization's needs. With agent builder, you can seamlessly integrate data sources, manage and enrich knowledge bases, create specialized subagents, and automate workflows by using triggers and scheduled tasks. This article explores common scenarios and configuration patterns to help you maximize the value of agent builder for your site reliability engineering (SRE) operations.
 
 ### Bring your own data sources (observability tools)
 
-Agent Builder enables you to connect your existing observability infrastructure to enhance your agents' capabilities.
+Agent builder enables you to connect your existing observability infrastructure to enhance your agents' capabilities.
 
 #### Supported data connectors
 
-SRE Agent supports the following data connectors that interface with Agent Builder:
+SRE Agent supports the following data connectors that interface with agent builder:
 
 - **Model Context Protocol (MCP)**: Connect to external data sources and APIs.
 - **Microsoft Teams**: Post messages to Teams channels.
 - **Outlook**: Send email notifications.
-
 
 #### Configuration process
 
@@ -31,7 +30,7 @@ Use the following steps to configure your agent.
 
 1. Navigate to data connectors.
 
-    In Agent Builder, select the **Settings > Connectors** tab.
+    In agent builder, select the **Settings > Connectors** tab.
 
 1. Choose connector type.
 
@@ -257,4 +256,4 @@ scheduled_task:
 
 ## Related content
 
-- [Agent Builder overview](./agent-builder-overview.md)
+- [Create subagents in Azure SRE Agent](./agent-builder-overview.md)
