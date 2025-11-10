@@ -253,6 +253,8 @@ items:
     href: tutorial-migrate-vmware.md
   - name: Agent-based migration using portal
     href: tutorial-migrate-vmware-agent.md
+  - name: Redeploy servers using IaC 
+    href: server-redeploy.md
   - name: Support Matrix
     items:
     - name: VMware vSphere migration requirements 

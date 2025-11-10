@@ -18,7 +18,9 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (November 2025)
 
-- Public preview: Azure Migrate now supports adding code insights using GitHub Copilot assessment to enhance web app assessments. This capability helps you evaluate migration readiness more accurately and get recommend migration strategy for Azure Kubernetes Service (AKS) or Azure App Service. You can add code insights by either uploading a ZIP file of reports or requesting a report through a GitHub connection. [Learn more](add-copilot-code-insights.md).
+- Public preview: Azure Migrate now enables **Windows Server redeployment to Azure using Infrastructure as Code (IaC)**. Generate IaC templates for assessed workloads, deploy application landing zones, and integrate disk configurations for complete, repeatable migrations—reducing manual effort and improving consistency. [Learn more](server-redeploy.md).
+
+- Public preview: Azure Migrate now supports adding code insights using GitHub Copilot assessment to enhance web app assessments. This capability helps you evaluate migration readiness more accurately and get the recommended migration strategy for Azure Kubernetes Service (AKS) or Azure App Service. You can add code insights by either uploading a ZIP file of reports or requesting a report through a GitHub connection. [Learn more](add-copilot-code-insights.md).
 
 - Public preview: Azure Migrate now supports Arc-based discovery, enabling you to assess on-premises servers and SQL Server instances that are already Azure Arc-enabled—without deploying additional infrastructure. This integration accelerates migration planning by leveraging existing Arc data to generate business cases and assessments within an hour. [Learn more](concepts-arc-resource-discovery.md). 
     - The VM extension is an optional component that collects performance data from Arc-enabled servers to provide right sized recommendations in assessments and business cases. [Learn more](migrate-virtual-machine-extension-reference.md).
