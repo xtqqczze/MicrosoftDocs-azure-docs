@@ -58,7 +58,7 @@ You must use a cluster manager when connecting an individual elastic SAN volume 
 
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - [Deploy an Elastic SAN](elastic-san-create.md)
-- [Configure a virtual network endpoint](elastic-san-networking.md)
+- Either [configure private endpoints](elastic-san-configure-private-endpoints.md) or [configure service endpoints](elastic-san-configure-service-endpoints.md)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
 ### Connect to volumes
