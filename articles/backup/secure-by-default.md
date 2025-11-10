@@ -154,6 +154,7 @@ The following table outlines the behavior of the **_Delete Protected Item_** act
 |------------------------------------------------|---------------------------------------------------------|
 | **Azure Portal / Powershell / CLI / REST API** | Backup items go into soft deleted state for **all** modules/API versions |
 
+---
 
 ### Delete Vault
 
@@ -175,6 +176,9 @@ The following table outlines the behavior of the ***Delete Vault*** action acros
 |---------------------------------------|--------------------------------------------------------|
 | **Azure Portal / Powershell / CLI / REST API** | Soft delete of vault is allowed when vault is either empty or has only soft deleted backup items/containers for **all** modules/API versions. |
 
+---
+
+
 ### **Disable Soft Delete for Vault**
 
 The following table describes the behavior of the **_Disable Soft Delete_** action across various clients and API versions.
@@ -194,6 +198,8 @@ The following table describes the behavior of the **_Disable Soft Delete_** acti
 | **Clients**                                    | **Behavior**                                                     |
 |------------------------------------------------|------------------------------------------------------------------|
 | **Azure Portal / Powershell / CLI / REST API** | Disable soft delete is **not allowed** for any module/API versions   |
+
+---
 
 ## Next steps
 
