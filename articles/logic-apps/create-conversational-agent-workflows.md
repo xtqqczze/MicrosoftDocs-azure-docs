@@ -222,8 +222,6 @@ Based on the development experience that you use, start by creating a new workfl
 >
 > :::image type="content" source="media/create-conversational-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar and Errors button with red dot and error in the agent action information pane." lightbox="media/create-conversational-agent-workflows/error-missing-agent-settings.png":::
 
----
-
 <a name="connect-agent-to-model"></a>
 
 ## Set up the agent with an AI model
@@ -279,6 +277,8 @@ Set up your agent with the AI model that you want to use by following the corres
    > If the connection to your model is incorrect, the **AI Model** list appears unavailable.
 
 1. Continue to the next section to rename the agent.
+
+---
 
 ## Rename the agent
 
