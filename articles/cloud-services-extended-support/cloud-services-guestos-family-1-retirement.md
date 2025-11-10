@@ -3,16 +3,21 @@ title: Guest OS family 1 retirement notice | Microsoft Docs
 description: Provides information about when the Azure Guest OS Family 1 retirement happened and how to determine if its retirement affects you.
 services: cloud-services
 ms.subservice: guest-os-patching
-author: raiye
+author: SivaSun
 manager: timlt
 ms.service: azure-cloud-services-classic
-ms.topic: article
-ms.date: 04/03/2025
-ms.author: raiye
+ms.topic: concept-article
+ms.date: 04/07/2025
+ms.update-cycle: 3650-days
+ms.author: ssundara
 ms.custom: compute-evergreen
+# Customer intent: As a cloud service administrator, I want to migrate my services from Guest OS Family 1 to a supported OS Family, so that I can ensure the stability and continued support of my applications before the retirement deadline.
 ---
 
 # Guest OS Family 1 retirement notice
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 The retirement of OS Family 1 was first announced on June 1, 2013.
 

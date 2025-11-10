@@ -89,6 +89,8 @@
     href: application-gateway-ssl-policy-overview.md
   - name: Mutual authentication
     href: mutual-authentication-overview.md
+  - name: JSON Web Token (JWT) Configuration
+    href: json-web-token-overview.md
   - name: Using Key Vault
     href: key-vault-certs.md
   - name: SSL certificate management
