@@ -54,7 +54,7 @@ Enhance your subagents' knowledge by uploading organizational documentation, run
 
 #### Supported file types
 
-- **Documents**: PDF, DOCX, TXT files containing operational procedures
+- **Documents**: Markdown and text files containing operational procedures
 
 - **Runbooks**: Step-by-step incident resolution guides
 
