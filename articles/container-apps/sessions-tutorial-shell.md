@@ -217,7 +217,7 @@ Now that you have a bearer token to establish the security context, you can send
     {
       "codeInputType": "inline",
       "executionType": "synchronous",
-      "shellCommand": ["/bin/bash", "-c", "echo 'hello world'; echo 'hi'"],
+      "shellCommand": "echo Hello world!",
       "timeoutInSeconds": 600
     }
     EOF
