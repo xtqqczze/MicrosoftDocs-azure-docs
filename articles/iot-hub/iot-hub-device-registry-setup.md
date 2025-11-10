@@ -23,59 +23,36 @@ This article explains how to create a new IoT Hub with [Azure Device Registry (A
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 - If you don't have the Azure CLI installed, follow the steps to [install the Azure CLI](/cli/azure/install-azure-cli). 
 - Install the **Azure IoT CLI extension with previews enabled** to access the ADR integration and certificate management functionalities for IoT Hub:
-    - **Option 1:** Download the Azure IoT CLI extension with previews enabled directly from the index.
 
-        Check for existing Azure CLI extension installations.
-        
+    1. Check for existing Azure CLI extension installations.
+    
         ```azurecli-interactive
         az extension list
         ```
-        
-        Remove any existing azure-iot installations.
-        
+    
+    1. Remove any existing azure-iot installations.
+    
         ```azurecli-interactive
         az extension remove --name azure-iot
         ```
         
-        Install the azure-iot extension with previews enabled.
-        
+    1. Install the azure-iot extension from the index with previews enabled, 
+    
         ```azurecli-interactive
         az extension add --name azure-iot --allow-preview
         ```
-        
-        After the install, validate your azure-iot extension version is greater than **0.30.0b1**.
-        
-        ```azurecli-interactive
-        az extension list
-        ```
-        
-        
-    - **Option 2:** Download the Azure IoT CLI extension directly from GitHub with previews already enabled.
 
-        Check for existing Azure CLI extension installations.
-        
-        ```azurecli-interactive
-        az extension list
-        ```
-        
-        Remove any existing azure-iot installations.
-        
-        ```azurecli-interactive
-        az extension remove --name azure-iot
-        ```
-
-        Install the latest extension.
+        or download the wheel file from the GitHub releases page and install the extension manually:
 
         ```azurecli-interactive
         az extension add --upgrade --source https://github.com/Azure/azure-iot-cli-extension/releases/download/v0.30.0b1/azure_iot-0.30.0b1-py3-none-any.whl
         ```
-        After the install, validate your azure-iot extension version is greater than **0.30.0b1**.
-        
+    
+    1. After the install, validate your azure-iot extension version is greater than **0.30.0b1**.
+    
         ```azurecli-interactive
         az extension list
-        ```
-    
-    
+        ``` 
 
 - Ensure that you have the privilege to perform role assignments within your target scope. Performing role assignments in Azure requires a [privileged role](../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope. 
 
