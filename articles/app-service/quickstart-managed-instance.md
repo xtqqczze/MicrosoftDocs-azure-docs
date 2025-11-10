@@ -45,14 +45,14 @@ azd env set AZURE_LOCATION northeurope
 azd up
 ```
 
-The `azd up` command completes the following steps from the template:
+The `azd up` command does the following actions:
 
-- Creates a user-assigned managed identity.
-- Creates an Azure Storage Blob.
-- Assigns the managed identity to the storage container and Managed Instance plan.
-- Grants Storage-Blob-Data-Contributor access on the storage container.
-- Compresses included fonts and Install.ps1 into scripts.zip.
-- Upload scripts.zip to the storage container.
+1. Creates a user-assigned managed identity.
+1. Creates an Azure Storage Blob.
+1. Assigns the managed identity to the storage container and Managed Instance plan.
+1. Grants Storage-Blob-Data-Contributor access on the storage container.
+1. Compresses included fonts and Install.ps1 into scripts.zip.
+1. Upload scripts.zip to the storage container.
 
 > [!NOTE]
 > The configuration script package (`scripts.zip`) deployed with the sample resources contains `Install.ps1`, which copies Microsoft Aptos font files into C:\Windows\Fonts. The sample app you deploy later renders text into an image using these fonts. This process demonstrates how a Managed Instance configuration (install) script can lay down OS-level or framework dependencies before app code runs.
