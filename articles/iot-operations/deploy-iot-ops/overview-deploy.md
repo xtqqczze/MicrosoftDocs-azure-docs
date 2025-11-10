@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: conceptual
 ms.custom:
-ms.date: 07/16/2025
+ms.date: 11/10/2025
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
@@ -122,6 +122,19 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
   * Event Grid: [Troubleshoot connectivity issues - Azure Event Grid](/azure/event-grid/troubleshoot-network-connectivity).
   * Azure Data Lake Storage Gen 2: [Storage account standard endpoints](/azure/storage/common/storage-account-overview#standard-endpoints).
 
+## Data residency
+
+Azure Resource Manager lets you manage and control your Azure IoT Operations instance in your Kubernetes cluster from the cloud using the Azure portal or Azure CLI. While you must deploy the Azure Resource Manager resources for Azure IoT Operations to a [currently supported region](../overview-support.md#supported-regions), you choose where your operational workloads and data physically reside. The Azure IoT Operations runtime and compute remain on your premises and under your control.​
+
+​This architecture ensures the following:​
+
+* All operational processes and workloads run on your own local infrastructure.
+* To comply with your data residency requirements, choose the Azure region for any data storage or data processing resources your solution uses.
+* Data transfers directly between your local infrastructure and your Azure storage and processing resources. Your data doesn't pass through the Azure IoT Operations resources in the cloud.​
+* The location of the Azure Resource Manager for your Azure IoT Operations instance is a logical reference for management and orchestration.​
+* No customer production data is relocated. Some system telemetry, such as metrics and logs, used for service improvement and proactive identification of infrastructure issues might flow to the Azure region where your Azure IoT Operations resources are located.​
+
+The following diagram shows an example deployment where the Azure IoT Operations resources are deployed in the West US region, operational workloads and data remain on-premises, and data storage and processing resources are deployed in the Canada Central region to meet data residency requirements.
 
 ## Next steps
 
