@@ -93,12 +93,12 @@ A dev box pool has the following properties:
 | Property | Description |
 |----------|-------------|
 | **Definition** | Determines the definition used for dev boxes in this pool. You can select an existing dev box definition or image definition when you create a dev box pool.</br>- **Dev Box Definitions** define the base image and size for dev boxes. </br>- **Image definitions** specify the software and configuration for the dev boxes. |
-| **Hibernation** |Hibernation is supported when the source image and compute size are both compatible. |
+| **Hibernation** | Hibernation is supported when the source image and compute size are both compatible. |
 | **Region** | The region where the dev boxes in the pool are deployed. Choose a region close to your expected dev box users for the optimal user experience. |
 | **Network connection** | Determines the network that the dev boxes in the pool connect to. </br> - **Microsoft Hosted Network**: You can choose to deploy dev boxes to a Microsoft-hosted network. </br> - **Azure joined network**: You can choose to deploy dev boxes to an Azure joined network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). |
 | **Licensing** | You can apply Azure Hybrid Benefit licenses to the dev boxes in the pool. Select the checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 | **Roles** | You can assign users to be either Local Administrators or Standard Users on the dev boxes they create. |
-| **Access** | Determines how users can access their dev boxes.</br> - **Single Sign-On (SSO)**: Enable single sign-on (SSO) to allow users to sign in to their dev boxes by using their organizational credentials. </br> - **Headless connections**: Enable headless connections to allow developers to open a dev box in Visual Studio Code without a full desktop experience. |
+| **Access** | Determines how users can access their dev boxes. </br> - **Single Sign-On (SSO)**: Enable single sign-on (SSO) to allow users to sign in to their dev boxes by using their organizational credentials. </br> - **Headless connections**: Enable headless connections to allow developers to open a dev box in Visual Studio Code without a full desktop experience. |
 | **Cost controls** | You can configure cost controls to help manage the costs of running dev boxes in the pool. </br> - **Auto-stop schedule**: Set an autostop schedule to automatically stop or hibernate dev boxes at a specified time. </br> - **Hibernate**: Configure dev boxes to hibernate after a specified grace period when no one is connected or when they have never been connected. |
 
 The following steps show you how to create a dev box pool in a project. 
@@ -189,7 +189,7 @@ By default, images are automatically built for catalogs containing image definit
 
 1. On the catalog details page, enable or disable the use of automatic image builds by using the **Automatically build an image** checkbox. </br>We recommend enabling auto-builds to take advantage of the reliability and performance improvements Dev Center imaging provides.
 
-1. Select **Save** to apply your changes. The auto-build capability flattens customizations into a reusable image that dramatically enhances dev box creation performance and reliability
+1. Select **Save** to apply your changes. The auto-build capability flattens customizations into a reusable image that dramatically enhances dev box creation performance and reliability.
  
    :::image type="content" source="media/how-to-configure-dev-center-imaging/dev-box-add-catalog-auto-build-image.png" alt-text="Screenshot showing the automatically build an image option in catalog settings.":::
 
@@ -213,7 +213,7 @@ By default, images are automatically built for catalogs containing image definit
    | **Branch** | Enter the repository branch to connect to. |
    | **Folder path** | Enter the folder path relative to the repository root that contains your image definitions. |
 
-1. Enable or disable the use of automatic image builds by using the **Automatically build an image** checkbox. </br>We recommend enabling auto-builds to take advantage of the reliability and performance improvements Dev Center imaging provides.
+1. Enable or disable the use of automatic image builds by using the **Automatically build an image** checkbox. </br>We recommend enabling auto-builds to take advantage of the reliability and performance improvements that Dev Center imaging provides.
 
 1. Select **Add** to create the catalog.
 
@@ -245,10 +245,10 @@ When automatic image builds are disabled, you must manually trigger image builds
 
    :::image type="content" source="./media/how-to-configure-dev-center-imaging/customizations-image-build-progress-small.png" alt-text="Screenshot of the pane that lists image definitions, with the in-progress status highlighted for a selected image definition." lightbox="./media/how-to-configure-dev-center-imaging/customizations-image-build-progress.png":::  
 
-During the image build process, Dev Box creates a temporary storage account in your subscription to store a snapshot. This storage account doesn't allow anonymous blob access and can only be accessed by identities with Storage Blob Reader access. The storage account must be accessible from public networks so the Dev Box service can export your snapshot. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription your DevCenter project is in.
+During the image build process, Dev Box creates a temporary storage account in your subscription to store a snapshot. This storage account doesn't allow anonymous blob access and can only be accessed by identities with Storage Blob Reader access. The storage account must be accessible from public networks so the Dev Box service can export your snapshot. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription that your DevCenter project is in.
 
 > [!IMPORTANT]
-> When you're optimizing your image definition into an image, a dev box is created to run your customization file and generate an image. During this process, this dev box is connected to a virtual network that Microsoft manages. Use the [network configuration](./how-to-configure-dev-center-imaging.md#network-configuration) capability in image definitions for tasks that need access to on-premises or private resources to ensure image generation would be successful.
+> When you're optimizing your image definition into an image, a dev box is created to run your customization file and generate an image. During this process, the dev box is connected to a virtual network that Microsoft manages. Use the [network configuration](./how-to-configure-dev-center-imaging.md#network-configuration) capability in image definitions for tasks that need access to on-premises or private resources to ensure that image generation is successful.
 
 When the build finishes successfully, the dev box pool automatically uses the image for new dev boxes. You don't need extra configuration to assign the image to the pool. You can now create dev boxes from the pool with the customizations applied.
 
