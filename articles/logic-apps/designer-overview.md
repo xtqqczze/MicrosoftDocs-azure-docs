@@ -21,7 +21,7 @@ This article shows how to use the Standard workflow designer in the Azure portal
 - A *Standard* logic app resource [in single-tenant Azure Logic Apps](single-tenant-overview-compare.md). For more information, see [Create an example Standard logic app workflow in single-tenant Azure Logic Apps using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 - A workflow for your Standard logic app resource.
 
-## Open the workflow designer
+## Access the workflow designer
 
 Use the steps below to open the workflow designer for a specific workflow so you can view and edit its cards.
 
