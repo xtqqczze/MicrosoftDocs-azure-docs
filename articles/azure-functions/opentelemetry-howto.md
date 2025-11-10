@@ -12,8 +12,6 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Use OpenTelemetry with Azure Functions
 
-[!INCLUDE [functions-opentelemetry-preview-note](../../includes/functions-opentelemetry-preview-note.md)]
-
 This article shows you how to configure your function app to export log and trace data in an OpenTelemetry format. Azure Functions generates telemetry data on your function executions from both the Functions host process and the language-specific worker process in which your function code runs. By default, this telemetry data is sent to Application Insights using the Application Insights SDK. However, you can choose to export this data using OpenTelemetry semantics. While you can still use an OpenTelemetry format to send your data to Application Insights, you can now also export the same data to any other OpenTelemetry-compliant endpoint.  
 
 > [!TIP]  
