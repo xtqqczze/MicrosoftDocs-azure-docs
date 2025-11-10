@@ -50,7 +50,7 @@ The following example fails because the output name contains 'password', indicat
 output accountPassword string = '...'
 ```
 
-To fix it, you need to remove the secret data from the output.  The recommended practice is to output the resourceId of the resource containing the secret and retrieve the secret when the resource needing the information is created or updated.  Secrets may also be stored in KeyVault for more complex deployment scenarios.
+To fix it, you need to remove the secret data from the output. The recommended practice is to output the resourceId of the resource containing the secret and retrieve the secret when the resource needing the information is created or updated. Secrets may also be stored in KeyVault for more complex deployment scenarios.
 
 The following example shows a secure pattern for retrieving a storageAccount key from a module.
 
