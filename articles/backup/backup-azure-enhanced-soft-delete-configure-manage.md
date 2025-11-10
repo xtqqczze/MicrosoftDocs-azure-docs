@@ -181,10 +181,6 @@ Follow these steps:
 
    The impacted recovery points don't have the *soft deleted* label and can't in soft-deleted state. If there are recovery points that are still beyond the increased retention duration, these would continue to be in the soft-deleted state unless the retention is further increased.
 
-## Soft delete a Recovery Services Vault
-
-When you initiate delete on a Recovery Services Vault after fulfilling all the dependencies, the vault moves into a soft deleted state and will be permenantly deleted after all the soft deleted items in the vault are permenently deleted based on the configured retention period. [learn how to soft delete a vault](backup-azure-delete-vault.md)
-
 ## Manage soft deleted vaults
 
 When vaults are moved to a soft deleted state, you can view, manage and undelete them before its permanently deleted.
