@@ -30,12 +30,12 @@ Follow these steps to open the workflow designer.
 1. On the Logic App menu, under **Workflows**, select **Workflows**.
 
    > [!NOTE]
-   > To enable the new Logic Apps designer experience, select the **Enable preview** button from the ribbon banner.
+   > To enable the new [Logic Apps designer experience](#changes-in-the-new-designer), select the **Enable preview** button from the ribbon banner.
    > :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
 
 From here, you can [create a new workflow](#create-a-new-workflow) or [access an existing workflow](#access-an-existing-workflow).
 
-### Create a new workflow
+## Create a new workflow
 
 Follow these steps to create a new workflow in your Logic App.
 
@@ -70,7 +70,7 @@ Follow these steps to create a new workflow in your Logic App.
 
    The designer displays the selected workflow as editable cards where you can visually edit steps, run the draft, switch to Code view, or open Run history.
 
-### Access an existing workflow
+## Access an existing workflow
 
 Follow these steps to access an existing workflow in your Logic App.
 
@@ -79,6 +79,22 @@ Follow these steps to access an existing workflow in your Logic App.
 1. The workflow designer opens.
 
    The designer displays the selected workflow as editable cards where you can visually edit steps, run the draft, switch to Code view, or open Run history.
+
+## Add steps to workflows
+
+The workflow designer provides a visual way to add, edit, and delete steps in your workflow. As the first step in your workflow, always add a [*trigger*](logic-apps-overview.md#logic-app-concepts). Then, complete your workflow by adding one or more [*actions*](logic-apps-overview.md#logic-app-concepts).
+
+To add a trigger or an action to your Standard workflow, see [Build a workflow with a trigger or action in Azure Logic Apps](create-workflow-with-trigger-or-action.md).
+
+1. Configure your trigger or action as needed.
+
+   - Mandatory fields have a red asterisk (&ast;) in front of the name.
+
+   - Some triggers and actions might require you to create a connection to another service. You might need to sign into an account, or enter credentials for a service. For example, if you want to use the Office 365 Outlook connector to send an email, you need to authorize your Outlook email account.
+
+   - Some triggers and actions use dynamic content, where you can select variables instead of entering information or expressions.
+
+   - Changes are saved automatically to the draft version as you edit. To validate and push your changes to production, select **Publish** in the designer upper-right. Use the Run button at the bottom of the designer to run the draft. If Save/Auto-save errors occur, the designer shows validation messages inline.
 
 ## Changes in the new designer
 
@@ -134,22 +150,6 @@ In the new designer, many workflow actions are now found in the vertical ellipsi
 | Run history | Sidebar Tools > **Run history** | Designer top > **Run history** (then select a run to open monitoring view) |
 | Run workflow | Workflow toolbar: **Run** / **Run with payload** | At the bottom of the designer: **Run** / **Run with payload** |
 | View production version | N/A | Next to **Publish**, ellipsis menu > **Switch to published version** |
-
-## Add steps to workflows
-
-The workflow designer provides a visual way to add, edit, and delete steps in your workflow. As the first step in your workflow, always add a [*trigger*](logic-apps-overview.md#logic-app-concepts). Then, complete your workflow by adding one or more [*actions*](logic-apps-overview.md#logic-app-concepts).
-
-To add a trigger or an action to your Standard workflow, see [Build a workflow with a trigger or action in Azure Logic Apps](create-workflow-with-trigger-or-action.md).
-
-1. Configure your trigger or action as needed.
-
-   - Mandatory fields have a red asterisk (&ast;) in front of the name.
-
-   - Some triggers and actions might require you to create a connection to another service. You might need to sign into an account, or enter credentials for a service. For example, if you want to use the Office 365 Outlook connector to send an email, you need to authorize your Outlook email account.
-
-   - Some triggers and actions use dynamic content, where you can select variables instead of entering information or expressions.
-
-   - Changes are saved automatically to the draft version as you edit. To validate and push your changes to production, select **Publish** in the designer upper-right. Use the Run button at the bottom of the designer to run the draft. If Save/Auto-save errors occur, the designer shows validation messages inline.
 
 ## Next steps
 
