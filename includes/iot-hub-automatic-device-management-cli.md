@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli
 
 * An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](../articles/iot-hub/create-hub.md).
 
-* [Azure CLI](/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
+* [Azure CLI](/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or later. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
 
 * The [IoT extension for Azure CLI](https://github.com/Azure/azure-cli).
 
@@ -60,7 +60,7 @@ Here's a basic target content sample for an automatic device configuration:
 }
 ```
 
-Automatic module configurations behave very similarly, but you target `moduleContent` instead of `deviceContent`.
+Automatic module configurations behave similarly, but you target `moduleContent` instead of `deviceContent`.
 
 ```json
 {
@@ -110,17 +110,17 @@ You configure target devices by creating a configuration that consists of the ta
      --metrics [metric queries]
 ```
 
-* --**config-id** - The name of the configuration that will be created in the IoT hub. Give your configuration a unique name that is up to 128 characters long. Lowercase letters and the following special characters are allowed: `-+%_*!'`. Spaces are not allowed.
+* --**config-id** - The name of the configuration created in the IoT hub. Give your configuration a unique name that is up to 128 characters long. Lowercase letters and the following special characters are allowed: `-+%_*!'`. Spaces aren't allowed.
 
 * --**labels** - Add labels to help track your configuration. Labels are Name, Value pairs that describe your deployment. For example, `HostPlatform, Linux` or `Version, 3.0.1`
 
 * --**content** - Inline JSON or file path to the target content to be set as twin desired properties. 
 
-* --**hub-name** - Name of the IoT hub in which the configuration will be created. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
+* --**hub-name** - Name of the IoT hub in which the configuration is created. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
 
-* --**target-condition** - Enter a target condition to determine which devices or modules will be targeted with this configuration. For automatic device configuration, the condition is based on device twin tags or device twin desired properties and should match the expression format. For example, `tags.environment='test'` or `properties.desired.devicemodel='4000x'`. For automatic module configuration, the condition is based on module twin tags or module twin desired properties.. For example, `from devices.modules where tags.environment='test'` or `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
+* --**target-condition** - Enter a target condition to determine which devices or modules will be targeted with this configuration. For automatic device configuration, the condition is based on device twin tags or device twin desired properties and should match the expression format. For example, `tags.environment='test'` or `properties.desired.devicemodel='4000x'`. For automatic module configuration, the condition is based on module twin tags or module twin desired properties. For example, `from devices.modules where tags.environment='test'` or `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
-* --**priority** - A positive integer. In the event that two or more configurations are targeted at the same device or module, the configuration with the highest numerical value for Priority will apply.
+* --**priority** - A positive integer. In the event that two or more configurations are targeted at the same device or module, the configuration with the highest numerical value for Priority applies.
 
 * --**metrics** - Filepath to the metric queries. Metrics provide summary counts of the various states that a device or module may report back after applying configuration content. For example, you may create a metric for pending settings changes, a metric for errors, and a metric for successful settings changes. 
 
@@ -135,7 +135,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**config-id** - The name of the configuration that exists in the IoT hub.
 
-* --**hub-name** - Name of the IoT hub in which the configuration exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
+* --**hub-name** - Name of the IoT hub in which the configuration exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`.
 
 Inspect the configuration in the command window. The **metrics** property lists a count for each metric that is evaluated by each hub:
 
@@ -143,7 +143,7 @@ Inspect the configuration in the command window. The **metrics** property lists
 
 * **appliedCount** - A system metric specifies the number of devices or modules that have had the target content applied.
 
-* **Your custom metric** - Any metrics you've defined are user metrics.
+* **Your custom metric** - Any metrics you defined are user metrics.
 
 You can show a list of device IDs, module IDs, or objects for each of the metrics by using the following command:
 
