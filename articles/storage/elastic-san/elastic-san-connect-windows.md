@@ -27,7 +27,6 @@ When you deploy a VM or a Virtual Machine Scale Set, you can use an Elastic SAN 
 ### Prerequisites
 
 - [Deploy an Elastic SAN](elastic-san-create.md)
-- Permissions to deploy VMs and install extensions in your subscription.
 - Either [configure private endpoints](elastic-san-configure-private-endpoints.md) or [configure service endpoints](elastic-san-configure-service-endpoints.md)
   
 ### How to Use the VM Extension
