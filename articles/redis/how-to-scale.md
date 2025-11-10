@@ -34,21 +34,22 @@ Azure Managed Redis supports scaling in two dimensions:
 
 There are four tiers of Azure Managed Redis available, each with different performance characteristics and price levels.
 
-Three tiers are for in-memory data:
-
-- _Memory Optimized_ - Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (8:1) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
-- _Balanced (Memory + Compute)_ - Offers a balanced memory-to-vCPU (4:1) ratio, making it ideal for standard workloads. It provides a healthy balance of memory and compute resources.
-- _Compute Optimized_ - Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (2:1) ratio. It's ideal for applications that demand the highest performance.
-
-One tier stores data both in-memory and on-disk:
-
-- _Flash Optimized_ (preview) - Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
-
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
 
-## Tiers and SKUs at glance
+### Tiers and SKUs at a glance
 
-:::image type="content" source="media/how-to-scale/tier-diagram.png" alt-text="Table showing the different memory and vCPU configurations for each SKU and tier of Azure Managed Redis.":::
+Here are three tiers store that store data in memory:
+- **Memory Optimized** Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (8:1) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
+- **Balanced (Memory + Compute)** Offers a balanced memory-to-vCPU (4:1) ratio, making it ideal for standard workloads. This tier provides a healthy balance of memory and compute resources.
+- **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (2:1) ratio. It's ideal for applications that demand the highest performance.
+
+    :::image type="content" source="media/how-to-scale/sku-tiers.png" alt-text="An image of a table that shows a comparison of skus and tiers." lightbox="media/how-to-scale/sku-tiers-large.png":::
+
+Here is the tier that stores data both in-memory and on-disk:
+- **Flash Optimized (preview)** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
+
+    :::image type="content" source="media/how-to-scale/flash-tier.png" alt-text="Screenshot of the Flash Optimized tiers in a table showing storage usage." lightbox="media/how-to-scale/flash-tier-large.png":::image type="content" source="media/how-to-scale/flash-tier-large.png" alt-text="" lightbox="media/how-to-scale/flash-tier-large.png":::" lightbox="media/overview/flash-tier.png":::
+
 
 ## Performance (Throughput and Latency)
 
@@ -96,18 +97,10 @@ In this section, we describe how to scale an Azure Managed Redis Cache.
 
 1. To scale your cache, [browse to the cache](configure.md#configure-azure-managed-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** from the Resource menu.
 
-   <!-- :::image type="content" source="media/how-to-scale/managed-redis-enterprise-scale.png" alt-text="Screenshot showing Scale selected in the Resource menu for an Enterprise cache."::: -->
-
 1. To scale your vCPUs, choose a different **Cache type** and then choose **Save**.
 
    > [!IMPORTANT]
    > If you select a SKU that can't be scaled to, the **Save** option is disabled. Review the [Limitations of scaling Azure Managed Redis](#limitations-of-scaling-azure-managed-redis) section for details on which scaling options are allowed.
-
-   <!-- :::image type="content" source="media/how-to-scale/managed-redis-enterprise-scale-up.png" alt-text="Screenshot showing the Enterprise tiers in the working pane."::: -->
-
-1. While the cache is scaling to the new tier, a **Scaling Redis Cache** notification is displayed.
-
-    <!-- :::image type="content" source="media/how-to-scale/managed-redis-enterprise-notifications.png" alt-text="Screenshot showing notification of scaling an Enterprise cache."::: -->
 
 1. When scaling is complete, the status changes from **Scaling** to **Running** when viewing the **Overview** section of the Resource menu.
 

@@ -48,16 +48,18 @@ There are four tiers of Azure Managed Redis available, each with different perfo
 
 ### Tiers and SKUs at a glance
 
-:::image type="content" source="media/overview/sku-tiers.png" alt-text="An image of a table that shows a comparison of skus and tiers." lightbox="media/overview/sku-tiers-large.png":::
-
-Three tiers store in-memory data:
+Here are three tiers store that store data in memory:
 - **Memory Optimized** Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (8:1) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
 - **Balanced (Memory + Compute)** Offers a balanced memory-to-vCPU (4:1) ratio, making it ideal for standard workloads. This tier provides a healthy balance of memory and compute resources.
 - **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (2:1) ratio. It's ideal for applications that demand the highest performance.
 
-One tier stores data both in-memory and on-disk:
+    :::image type="content" source="media/overview/sku-tiers.png" alt-text="An image of a table that shows a comparison of skus and tiers." lightbox="media/overview/sku-tiers-large.png":::
 
+Here is the tier that stores data both in-memory and on-disk:
 - **Flash Optimized (preview)** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
+
+    :::image type="content" source="media/overview/flash-tier.png" alt-text="Screenshot of the Flash Optimized tiers in a table showing storage usage." lightbox="media/overview/flash-tier-large.png":::image type="content" source="media/overview/flash-tier-large.png" alt-text="" lightbox="media/overview/flash-tier-large.png":::" lightbox="media/overview/flash-tier.png":::
+
 
 You can also use the [data persistence](how-to-persistence.md) feature to store data on-disk for the in-memory tiers. Data persistence stores a backup copy of data on-disk for quick recovery if you experience  an unexpected outage. This is different than the Flash Optimized tier, which is designed to store data on-disk for typical operations.
 
@@ -116,7 +118,9 @@ If you have a workload that requires high throughput, network bandwidth might ca
 
 Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. The following table shows the maximum client connections allowed per Azure Managed Redis SKU.
 
-This table shows the max connections by tier and memory size.
+#### Memory optimized, Balanced, and Compute optimized SKUs
+
+This table shows the max connections by tier and memory size in the Memory Optimized, Balanced, and Compute SKUs.
 
 | Size (GB) | Memory<br>Optimized | Balanced | Compute<br>Optimized | Flash<br>Optimized<br>(preview) |
 |:---------:|:-------------------:|:--------:|:--------------------:|:-------------------------------:|
@@ -128,8 +132,8 @@ This table shows the max connections by tier and memory size.
 | 24        | 30,000              | 75,000   | 150,000              | -                               |
 | 60        | 75,000              | 150,000  | 200,000              | -                               |
 | 120       | 150,000             | 200,000  | 200,000              | -                               |
-| 180       | 200,000             | 200,000  | 200,000              | -                               |
-| 240       | 200,000             | 200,000  | 200,000              | 75,000                          |
+| 175       | 200,000             | 200,000  | 200,000              | -                               |
+| 235       | 200,000             | 200,000  | 200,000              | 75,000                          |
 | 360 *     | 200,000             | 200,000  | 200,000              | -                               |
 | 480 *     | 200,000             | 200,000  | 200,000              | 150,000                         |
 | 720 *     | 200,000             | 200,000  | 200,000              | 200,000                         |
@@ -137,6 +141,22 @@ This table shows the max connections by tier and memory size.
 | 1440 *    | 200,000             | -        | -                    | 200,000                         |
 | 1920 *    | 200,000             | -        | -                    | 200,000                         |
 | 4500 *    | -                   | -        | -                    | 200,000                         |
+
+\* The sizes with an asterisk are in Public Preview.
+
+#### Flash optimized SKU
+
+This table shows the max connections by tier and memory size in the Flash optimized (preview) SKU.
+
+| Size (GB) | Flash<br>Optimized<br>(preview) |
+|:---------:|:-------------------------------:|
+| 235 *     | 75,000                          |
+| 480 *     | 150,000                         |
+| 720 *     | 200,000                         |
+| 960 *     | 200,000                         |
+| 1440 *    | 200,000                         |
+| 1920 *    | 200,000                         |
+| 4500 *    | 200,000                         |
 
 \* The sizes with an asterisk are in Public Preview.
 
