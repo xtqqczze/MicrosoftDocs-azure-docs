@@ -35,7 +35,7 @@ Use the steps below to open the workflow designer for a specific workflow so you
 
 From here, you can [create a new workflow](#create-a-new-workflow) or [access an existing workflow](#edit-an-existing-workflow). 
 
-### Create a new workflow
+## Create a new workflow
 
 1. On the **Workflows** page, select the **+ Create** button to create a new workflow.
 
@@ -68,7 +68,7 @@ From here, you can [create a new workflow](#create-a-new-workflow) or [access an
 
    The designer displays the selected workflow as editable cards where you can visually edit steps, run the draft, switch to Code view, or open Run history.
 
-### Edit an existing workflow
+## Edit an existing workflow
 
 1. On the **Workflows** page, select the workflow that you want.
 
