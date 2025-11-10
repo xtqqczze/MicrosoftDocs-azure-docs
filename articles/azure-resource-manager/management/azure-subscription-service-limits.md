@@ -536,7 +536,7 @@ See [VM Applications overview](/azure/virtual-machines/vm-applications) for more
 
 A limit of 5,000 disk encryption sets are allowed per region and per subscription. [Contact Azure support](../../communications-gateway/request-changes.md) to increase the quota. 
 
-See the following documentation to learn more about about encryption restrictions:
+See the following documentation to learn more about encryption restrictions:
 
 - [Linux](/azure/virtual-machines/disk-encryption#restrictions)
 - [Windows](/azure/virtual-machines/disk-encryption#restrictions) virtual machines
