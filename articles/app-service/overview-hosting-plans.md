@@ -18,9 +18,7 @@ An *Azure App Service plan* defines a set of compute resources for a web app to 
 
 When you create an App Service plan in a certain region, you create a set of compute resources for that plan in that region. Whatever apps you put into the App Service plan run on those compute resources, as defined in the plan.
 
-> [!NOTE]
-> Managed Instance on Azure App Service (preview) is a new hosting option that extends the capabilities of App Service plans, providing advanced customization and isolation. See [Managed Instance on Azure App Service](overview-hosting-plans.md) for details.
->
+[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
 
 Each App Service plan defines:
 

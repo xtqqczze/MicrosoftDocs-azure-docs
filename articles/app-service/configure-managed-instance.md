@@ -19,8 +19,7 @@ Managed Instance on Azure App Service (preview) is a plan‑scoped hosting optio
 - Registry keys
 - Remote Desktop Protocol (RDP) access
 
-> [!IMPORTANT]
-> Managed Instance is in preview, available for Windows web apps in select regions, and limited to Pv4 and Pmv4 [pricing plans](https://azure.microsoft.com/pricing/calculator/). Linux and containers aren't supported.
+[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
 
 ## Add a Managed identity (to the App Service plan)
 

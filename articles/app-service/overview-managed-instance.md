@@ -13,8 +13,7 @@ ms.service: azure-app-service
 
 Managed Instance on Azure App Service (preview) is a plan‑scoped hosting option for Windows web apps that need Operating System (OS) customization, optional private networking, and secure integration with Azure resources. It targets legacy or infrastructure‑dependent workloads (Component Object Model (COM), registry, Microsoft/Windows Installer (MSI)) while retaining App Service’s managed patching, scaling, diagnostics, and identity features.
 
-> [!IMPORTANT]
-> Managed Instance is in preview, available for Windows web apps in select regions, and limited to Pv4 and Pmv4 [pricing plans](https://azure.microsoft.com/pricing/calculator/). Linux and containers aren't supported.
+[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
 
 ## Key capabilities
 

@@ -13,8 +13,7 @@ ms.service: azure-app-service
 
 Managed Instance on Azure App Service combines the simplicity of platform-as-a-service with the flexibility of infrastructure-level control. It's designed for applications that require plan-level isolation, customization, and secure network integration.
 
-> [!IMPORTANT]
-> Managed Instance is in preview, available for Windows web apps in select regions, and limited to Pv4 and Pmv4 [pricing plans](https://azure.microsoft.com/pricing/calculator/). Linux and containers aren't supported.
+[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
 
 In this quickstart, you complete the following steps:
 1. Use Azure Developer CLI to deploy Azure resources.
@@ -34,7 +33,7 @@ In this quickstart, you complete the following steps:
 
 * Configuration (install) scripts (PowerShell script named `Install.ps1`) in a compressed .zip file
 
-## Deploy resources for Managed Instance
+## Deploy sample resources
 
 You can quickly deploy all the necessary resources in this quickstart using Azure Developer CLI and see it running on Azure. The Azure Developer CLI template used in this quickstart is from [Azure samples](). Just run the following commands in the Azure Cloud Shell, and follow the prompts:
 
@@ -52,9 +51,13 @@ The `azd up` command completes the following steps from the template:
 - Creates an Azure Storage Blob.
 - Assigns the managed identity to the storage container and Managed Instance plan.
 - Grants Storage-Blob-Data-Contributor access on the storage container.
-- Compresses /fonts directory into scripts.zip.
+- Compresses included fonts and Install.ps1 into scripts.zip.
 - Upload scripts.zip to the storage container.
 - Display values for `Storage Account`, `Container Name`, and `Managed Identity`.
+
+> [!NOTE]
+> The configuration script package (`scripts.zip`) deployed with the sample resources contains `Install.ps1`, which copies Microsoft Aptos font files into C:\Windows\Fonts. The sample app you deploy later renders text into an image using these fonts. This demonstrates how a Managed Instance configuration (install) script can lay down OS-level or framework dependencies before app code runs.
+>
 
 The final output of `azd up` should look similar to the following example.
 
@@ -69,6 +72,8 @@ Resource Group: rg-managed-instance
 The values for `Storage Account`, `Container Name`, `Managed Identity Client name`, and `Resource Group` are used later.
 
 ## Deploy an app on Managed Instance
+
+In this quickstart, the Managed Instance plan uses a configuration script that was deployd along with the sample resources you created earlier. `scripts.zip` , copies Microsoft Aptos fonts to C:\Windows\Fonts directory. Later, the sample app deployed makes use of the Aptos font to render text into an image.
 
 Follow these steps to create a Managed Instance plan and deploy an app to it:
 
@@ -133,12 +138,12 @@ On the Deployment tab, select **continuous deployment** in _Continuous deploymen
 1. The following command configures variables for needed resources to create the Managed Instance plan.
 
 ```bash
-$RG = 'rg-managed-instance'
-$LOCATION = 'eastus'
-$PLAN_NAME = 'rg-mi-plan'
-$IDENTITY_ID = 
-$SCRIPT_URI =
-$APP_NAME =
+RG=rg-managed-instance
+LOCATION=<LOCATION OF PLAN>
+PLAN_NAME=rg-mi-plan
+IDENTITY_ID=<SET-IDENTITIY-ID>
+SCRIPT_URI=<LOCATION OF SCRIPT>
+APP_NAME=<APP-NAME>
 ```
 
 2. The following command creates the Managed Instance plan with a configuration (install) script.
@@ -158,7 +163,6 @@ az deployment group create \
 
 Deployment takes several minutes while resources provisioned.
 
-
 3. The following creates a web app on the Managed Instance plan.
 
 ```bash
@@ -173,28 +177,36 @@ az webapp create \
 
 ```bash
 # Assign managed identity to web app
-echo "Assigning managed identity to web app..."
 az webapp identity assign \
   --name "$APP_NAME" \
   --resource-group "$RG" \
   --identities "$IDENTITY_ID"
 ```
 
-5. The following deploys a sample .NET app to the web app.
+5. The following downloads the sample app to Cloud Shell.
+```bash
+curl -L -o app.zip https://raw.githubusercontent.com/msangapu-msft/aptos-testing/default/app.zip
+```
+
+6. The following deploys the web app to your Managed Instance plan.
 
 ```bash
-echo "== Deploying application code =="
-az webapp deployment source config-zip \
+az webapp deploy \
   --resource-group "$RG" \
   --name "$APP_NAME" \
-  --src app.zip
+  --src-path app.zip \
+  --type zip
 ```
 
 -----
 
 ## Browse to the app
 
-To browse to the created app, select the **default domain** in the **Overview** page. If you see the message *Your web app is running and waiting for your content*, GitHub deployment is still running. Wait a couple of minutes and refresh the page.
+To browse to the created app, select the **default domain** in the **Overview** page.
+
+The .NET app is running on a Managed Instance plan and reading fonts from C:\Windows\Fonts directory.
+
+:::image type="content" source="media/quickstart-managed-instance/hello-world-aptos-font.png" alt-text="Screenshot that shows the sample app using C:\Windows\Fonts\Aptos.TTF.":::
 
 ## Manage the Managed Instance plan
 
@@ -211,7 +223,7 @@ In the left menu under __Settings__, select **Configuration** to view the config
 # [Azure portal](#tab/portal)
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group.
- 
+
 1. From your web app's **Overview** page in the Azure portal, select the **myResourceGroup** link under **Resource group**.
 1. On the resource group page, make sure that the listed resources are the ones you want to delete.
 1. Select **Delete resource group**, type **myResourceGroup** in the text box, and then select **Delete**.
@@ -224,10 +236,6 @@ az group delete
 ```
 
 ---
-
-
-
-
 
 ## Next steps
 
