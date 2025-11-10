@@ -51,7 +51,7 @@ Before using agent builder, ensure you have:
 
 1. Select the **Subagent builder** tab.
 
-1. Select **Create Your First Entity**.
+1. Select **Create**.
 
 1. Select **Subagent**.
 
@@ -62,8 +62,8 @@ Before using agent builder, ensure you have:
     | Agent Name | Enter a name for your subagent. |
     | Instructions | Enter custom instructions telling the subagent how you want it to behave. |
     | Handoff Description | Describe when and why other subagents should hand off processing to this subagent. |
-    | Extended Tools (optional) | Select one or more tools for the subagent to use during processing. |
-    | System Tools (optional) | Select one or more system tools to make available to the subagent. |
+    | Custom Tools (optional) | Select one or more tools for the subagent to use during processing. |
+    | Built-in Tools (optional) | Select one or more system tools to make available to the subagent. |
     | Handoff Agents (optional) | Select the next subagent you want to pick up processing once this subagent is done executing. |
 
 ## Related content
