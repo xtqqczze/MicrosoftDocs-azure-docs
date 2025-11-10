@@ -71,7 +71,7 @@ The designer opens and displays the workflow cards.
 1. On the Logic App menu, under **Workflows**, select **Workflows**.
 
    > [!NOTE]
-   > To enable the new Logic Apps experience, select the **Enable preview** button from the ribbon banner.
+   > To enable the new Logic Apps designer experience, select the **Enable preview** button from the ribbon banner.
    > :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
 
 1. On the **Workflows** page, select the workflow that you want.
