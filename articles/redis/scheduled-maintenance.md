@@ -2,12 +2,12 @@
 title: Scheduling time for cache maintenance
 description: Scheduling time for cache maintenance
 #customer intent: As a developer, I want to understand how to prepare my application for maintenance so that I can ensure connectivity resilience during updates.
-ms.date: 11/07/2025
+ms.date: 11/17/2025
 ms.topic: concept-article
 ai-usage: ai-assisted
 ---
 
-# Create a scheduled maintenance window for a cache
+# Scheduled maintenance window for cache operations
 
 Azure Managed Redis scheduled maintenance windows allow you to define specific time periods when maintenance activities can occur on your Redis instances. You control when Redis server updates and operating system patches are applied, minimizing unexpected disruptions to your applications.
 
