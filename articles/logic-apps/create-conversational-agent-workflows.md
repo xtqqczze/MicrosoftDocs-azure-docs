@@ -587,24 +587,6 @@ To build this tool, follow these steps:
 
 ## Create agent parameters for 'Send an email (V2)' action
 
-The steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-get-weather), except that you set up different agent parameters for the **Send an email (V2)** action.
-
-1. Follow the earlier steps to create the following agent parameters for the action parameter values in the action named **Send an email (V2)**.
-
-   The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
-
-   When you're done, the example action uses the previously defined agent parameters as shown here:
-
-   :::image type="content" source="media/create-autonomous-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-autonomous-agent-workflows/send-email-action.png":::
-
-   The finished **Send email** tool looks like the following example:
-
-   :::image type="content" source="media/create-autonomous-agent-workflows/send-email-tool-complete.png" alt-text="Screenshot shows the agent and finished Send email tool." lightbox="media/create-autonomous-agent-workflows/send-email-tool-complete.png":::
-
-1. Save your workflow.
-
-## Create agent parameters for 'Send an email (V2)' action
-
 Except for the different agent parameters to set up for the **Send an email (V2)** action, the steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-get-weather).
 
 1. Follow the earlier general steps to create agent parameters for the parameter values in the **Send an email (V2)** action.
