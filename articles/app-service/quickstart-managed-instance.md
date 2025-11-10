@@ -25,7 +25,7 @@ In this quickstart, you complete the following steps:
 
 * **Azure account**: You need an Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* **Access to the approved regions**: During preview, regions for Managed Instance include: *East Asia*, *East US*, *North Europe*, and *West Central US*. Additional regions to follow.
+* **Access to the approved regions**: During preview, regions for Managed Instance include: *East Asia*, *East US*, *North Europe*, and *West Central US*. More regions to follow.
 
 * [Managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity)
 

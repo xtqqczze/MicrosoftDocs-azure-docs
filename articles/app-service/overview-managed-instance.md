@@ -23,7 +23,7 @@ The following table summarizes the main capabilities that Managed Instance offer
 |-----------|-------------|
 | Network isolation | Plan-level virtual network integration (optional, can be added after creation):<br>• Private endpoints and custom routing<br>• Network Security Groups (NSG) support, NAT gateways, and route tables<br>• Private Domain Name Server (DNS) for internal name resolution |
 | Compute isolation | • Plan-scoped isolation with full control over network boundaries<br>• Dedicated compute for predictable performance |
-| Custom component support | PowerShell install scripts for:<br>• COM components<br>• Registry and persistent registry values<br>• IIS configuration and ACLs<br>• MSI installers<br>• Non-Microsoft components and Windows services<br>• Global Assembly Cache (GAC) installations<br>• Windows features (MSMQ client, server roles)<br>• Custom frameworks (customer-managed patching) |
+| Custom component support | PowerShell install scripts for:<br>• COM components<br>• Registry and persistent registry values<br>• Internet Information Services (IIS Server) configuration and ACLs<br>• MSI installers<br>• Non-Microsoft components and Windows services<br>• Global Assembly Cache (GAC) installations<br>• Windows features (MSMQ client, server roles)<br>• Custom frameworks (customer-managed patching) |
 | Registry adapters | Azure Key Vault-backed registry keys for secure configuration |
 | Storage flexibility | • Azure Files with Key Vault integration<br>• UNC paths and network share access<br>• Scripted drive mapping<br>• Local temporary storage (2 GB, non-persistent) |
 | Managed identity | • System-assigned and user-assigned identities at the plan level<br>• Keyless authentication to Azure resources |

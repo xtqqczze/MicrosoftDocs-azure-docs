@@ -41,7 +41,7 @@ To add a Managed Identity to Managed Instance plan:
 
 ## Add configuration (install) scripts
 
-Configuration (install) scripts run at instance startup to apply persistent customization. Examples include, COM registration, MSI installs, IIS config, ACL changes, enabling Windows Features, setting environment variables.
+Configuration (install) scripts run at instance startup to apply persistent customization. Examples include, Component Object Model (COM) registration, Microsoft/Windows Installers (MSI) installs, Internet Information Services (IIS Server) config, ACL changes, enabling Windows Features, setting environment variables.
 
 The need the following to use configuration (install) scripts:
 
@@ -165,7 +165,7 @@ To configure registry keys:
 1. Select **Add** to add the registry key.
 
 > [!CAUTION]
-> Be cautious when modifying system-critical registry paths. Incorrect changes may impact instance stability.
+> Be cautious when modifying system-critical registry paths. Incorrect changes can affect instance stability.
 >
 
 ## Configure RDP (Bastion) access
@@ -213,7 +213,7 @@ Windows Server 2022.
 
 ### Can I enable more Windows roles and features?
 
-Yes, through a configuration script. However, features [removed from a future release of Windows Server](https://learn.microsoft.com/windows-server/get-started/removed-deprecated-features-windows-server?tabs=ws25), won't unavailable in Managed Instance.
+Yes, through a configuration script. However, features [removed from a future release of Windows Server](https://learn.microsoft.com/windows-server/get-started/removed-deprecated-features-windows-server?tabs=ws25), won't be unavailable in Managed Instance.
 
 ### Does Managed Instance on Azure App Service receive regular platform and application stack updates?
 
@@ -289,7 +289,7 @@ Yes, you can assign a _different_ Managed identity to a web application within t
 
 ## Is there a limitation on number of adapters that I can create for Managed Instance on App Service plan?
 
-No, there's no limit on the number of storage or registry adapters. You can only create a single configuration (install) script adapter for Managed Instance on App Service plan.  The increasing the number of adapters could affect provisioning time for Managed Instance.
+No, there's no limit on the number of storage or registry adapters. You can only create a single configuration (install) script adapter for Managed Instance on App Service plan. The increasing the number of adapters could affect provisioning time for Managed Instance.
 
 ## Next steps
 
