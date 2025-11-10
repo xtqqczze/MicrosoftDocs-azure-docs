@@ -17,7 +17,7 @@ Based on the region that you selected for your logic app resource, you can selec
 - gpt-4o-mini
 - gpt-5o-mini
 
-### [Standard)](#tab/standard)
+### [Standard](#tab/standard)
 
 You can select one of the following models:
 

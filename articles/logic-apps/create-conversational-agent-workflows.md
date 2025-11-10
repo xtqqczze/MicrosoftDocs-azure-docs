@@ -39,7 +39,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
 - A Consumption logic app resource that uses the workflow type named **Conversational Agents**. See [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
-  Consumption conversational agent workflows don't require you to manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. You only need to select the version to use. Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
+  Consumption conversational agent workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. You only need to select the version to use. Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
 
   > [!NOTE]
   >
