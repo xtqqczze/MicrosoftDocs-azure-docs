@@ -79,7 +79,7 @@ The designer opens and displays the workflow cards.
 1. The workflow designer opens.
 
    - To visually develop, edit, and run your workflow, select the **Workflow** view. 
-   - To edit the workflow in JSON, select [**Code**](#code-view). You can switch between the workflow view and code view at any time.
+   - To edit the workflow in JSON, select [**Code**]. You can switch between the workflow view and code view at any time.
        > [!TIP]
        > The **Code** view is also an easy way to find and copy the workflow definition, instead of using the Azure CLI or other methods.
    - To review your logs, select the **Run history** view. 
