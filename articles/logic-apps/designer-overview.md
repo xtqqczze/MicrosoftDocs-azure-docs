@@ -117,6 +117,8 @@ If you prefer to use the classic designer, select the [ellipsis menu](#ellipsis-
 
 The view selector (Workflow, Code, and Run history) is at the top of the designer—select a view to switch between visual editing, code, and run history.
 
+:::image type="content" source="media/designer-overview/view-selector.png" alt-text="Screenshot showing the view selector at the top of the new designer.":::
+
 - To visually develop, edit, and run your workflow, select the **Workflow** view.
 - To edit the workflow in JSON, select **Code**. You can switch between the workflow view and code view at any time.
 
