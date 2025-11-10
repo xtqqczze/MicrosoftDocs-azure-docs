@@ -152,6 +152,8 @@ Each packet capture contains incoming and outgoing packet pairs. For every packe
    | Application rule flows | Source: Client<br>Destination: Server | Source: Firewall<br>Destination: Server<br><br>Layer 4 and above differ because the firewall proxies the connection, establishing a new session to the destination.<br><br>Use HTTP or TLS keys to match incoming and outgoing packets. Layer 7 remains the same. |
    | DNAT flows | Source: Client<br>Destination: Firewall public IP | Source: Firewall<br>Destination: DNATed private IP <br><br>Layer 3 destination IP differs from the incoming packet due to DNAT, while Layer 4 remains the same. |
 
+For detailed instructions on these scenarios, see [Using packet capture for troubleshooting Azure Firewall flows](https://techcommunity.microsoft.com/blog/azurenetworksecurityblog/using-packet-capture-for-troubleshooting-azure-firewall-flows/4466692).
+
 ## Frequently asked questions
 
 ### Can I capture traffic on all ports by setting the destination port to 0?
