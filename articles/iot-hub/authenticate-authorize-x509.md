@@ -35,7 +35,7 @@ Public key infrastructure (PKI) uses digital certificates to authenticate and en
 
 IoT Hub supports two types of PKI providers for X.509 certificate authentication: 
 
-| PKI provider | Integration required | ADR required | DPS required |
+| PKI provider | Integration required | Azure Device Registry (ADR) required | Device Provisioning Service (DPS) required |
 |--------------|----------------------|-------------------| --------------|
 | Microsoft-managed PKI | No. Configure certificate authorities directly in Azure Device Registry (ADR).| Yes | Yes |
 | Third-party PKI (DigiCert, GlobalSign, etc.) | Yes. Manual integration required.  | No | No |
@@ -68,7 +68,7 @@ az resource update -n <iothubName> -g <resourceGroupName> --resource-type Micros
 
 ## Benefits of X.509 CA certificate authentication
 
-IoT requires a unique identity for every device that connects. For certificate-based authentication, these identities are in the form of certificates.
+IoT Hub requires a unique identity for every device that connects. For certificate-based authentication, these identities are in the form of certificates.
 
 A valid but inefficient way to provide a unique certificate on each device is to pregenerate certificates and to give all supply chain partners the corresponding private keys. This method comes with challenges that must be overcome to ensure trust, as follows:
 

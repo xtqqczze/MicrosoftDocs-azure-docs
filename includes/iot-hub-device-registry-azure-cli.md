@@ -1,6 +1,6 @@
 ---
 title: Create an IoT Hub with Certificate Management in Azure Device Registry using Azure CLI
-description: This article explains how to create an IoT Hub with ADR integration and certificate management using the Azure CLI.
+description: This article explains how to create an IoT Hub with Azure Device Registry (ADR) integration and certificate management using the Azure CLI.
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
@@ -34,7 +34,7 @@ To prepare your environment to use Azure Device Registry, complete the following
 1. Open a terminal window.
 1. To sign in to your Azure account, run `az login`.
 1. To list all subscriptions and tenants you have access to, run `az account list`.
-1. If you have access to multiple Azure subscriptions, set your active subscription where your IoT devices will be created by running the following command.
+1. If you have access to multiple Azure subscriptions, set your active subscription where your IoT devices are created by running the following command.
 
     ```azurecli-interactive
     az account set --subscription "<your subscription name or ID>"
@@ -61,7 +61,7 @@ To create a resource group, role, and permissions for your IoT solution, complet
     az role assignment create --assignee "89d10474-74af-4874-99a7-c23c2f643083" --role "Contributor" --scope "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>"
     ```
 
-1. Create a new user-assigned managed identity.
+1. Create a new user-assigned managed identity (UAMI).
 
     ```azurecli-interactive
     az identity create --name <USER_IDENTITY> --resource-group <RESOURCE_GROUP_NAME> --location <REGION>
@@ -75,7 +75,7 @@ To create a resource group, role, and permissions for your IoT solution, complet
 
 ## Create a new ADR namespace
 
-First, create a new ADR namespace with a system-assigned managed identity. This will also create a root CA, known as a credential, achained to an issuing CA, known as a policy. [Certificate Management](../articles/iot-hub/iot-hub-certificate-management-overview.md) uses these credentials and policies to sign leaf certificates that devices receive when provisioned.
+In this section, you create a new ADR namespace with a system-assigned managed identity. This process automatically generates a root CA credential and an issuing CA policy for the namespace. For more information on how credentials and policies are used to sign device leaf certificates during provisioning, see [Certificate Management](../articles/iot-hub/iot-hub-certificate-management-overview.md).
 
 > [!NOTE]
 > Credentials are optional. You can also create a namespace without a managed identity by omitting the `--enable-credential-policy` and `--policy-name` flags.
@@ -88,7 +88,7 @@ The `--enable-credential-policy` command creates credential (root CA) and defaul
     ```
 
     > [!TIP]
-    > You can optionally create a custom policy by adding the `--cert-subject` and `--cert-validity-days` parameters to the command above. For more information, see [Create a custom policy](#create-a-custom-policy).
+    > You can optionally create a custom policy by adding the `--cert-subject` and `--cert-validity-days` parameters. For more information, see [Create a custom policy](#create-a-custom-policy).
 
     > [!NOTE]
     > The creation of the ADR namespace with system-assigned managed identity might take up to 5 minutes.
@@ -111,7 +111,7 @@ The `--enable-credential-policy` command creates credential (root CA) and defaul
 
 ## Assign UAMI role to access the ADR namespace
 
-In this step, we will assign the [Azure Device Registry Contributor](../articles/role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-contributor) role to the managed identity and scope it to the namespace. This custom role will allow for full access to IoT devices to IoT devices within the ADR namespace.
+In this section, you assign the [Azure Device Registry Contributor](../articles/role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-contributor) role to the managed identity and scope it to the namespace. This custom role allows for full access to IoT devices within the ADR namespace.
 
 1. Retrieve the principal ID of the User-Assigned Managed Identity. This ID is needed to assign roles to the identity.
 
@@ -125,7 +125,7 @@ In this step, we will assign the [Azure Device Registry Contributor](../articles
     NAMESPACE_RESOURCE_ID=$(az iot adr ns show --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
     ```
 
-1. Assign the [Azure Device Registry Contributor](../articles/role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-contributor) role to the managed identity. This grants the managed identity the necessary permissions, scoped to the namespace.
+1. Assign the [Azure Device Registry Contributor](../articles/role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-contributor) role to the managed identity. This role grants the managed identity the necessary permissions, scoped to the namespace.
 
     ```azurecli-interactive
     az role assignment create --assignee $UAMI_PRINCIPAL_ID --role "a5c3590a-3a1a-4cd4-9648-ea0a32b15137" --scope $NAMESPACE_RESOURCE_ID
@@ -133,7 +133,7 @@ In this step, we will assign the [Azure Device Registry Contributor](../articles
 
 ## Create an IoT Hub with ADR integration
 
-1. Create a new IoT Hub that is linked to the ADR namespace and with the User-Assigned Identity created earlier.
+1. Create a new IoT Hub that is linked to the ADR namespace and with the UAMI created earlier.
 
     ```azurecli-interactive
     az iot hub create --name <HUB_NAME> --resource-group <RESOURCE_GROUP> --location <HUB_LOCATION> --sku GEN2 --mi-user-assigned $UAMI_RESOURCE_ID --ns-resource-id $NAMESPACE_RESOURCE_ID --ns-identity-id $UAMI_RESOURCE_ID
@@ -153,16 +153,19 @@ In this step, we will assign the [Azure Device Registry Contributor](../articles
     ```azurecli-interactive
     ADR_PRINCIPAL_ID=$(az iot adr ns show --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP> --query identity.principalId -o tsv)
     ```
+
 1. Retrieve the resource ID of the IoT Hub. This ID is used as the scope for role assignments.
 
     ```azurecli-interactive
     HUB_RESOURCE_ID=$(az iot hub show --name <HUB_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
     ```
+
 1. Assign the "Contributor" role to the ADR identity. This grants the ADR namespace's managed identity Contributor access to the IoT Hub. This role allows broad access, including managing resources, but not assigning roles.
 
     ```azurecli-interactive
     az role assignment create --assignee $ADR_PRINCIPAL_ID --role "Contributor" --scope $HUB_RESOURCE_ID
     ```
+
 1. Assign the "IoT Hub Registry Contributor" role to the ADR identity. This grants more specific permissions to manage device identities in the IoT Hub. This is essential for ADR to register and manage devices in the hub.
 
     ```azurecli-interactive
@@ -199,7 +202,7 @@ In this step, we will assign the [Azure Device Registry Contributor](../articles
 
 ## Run ADR credential synchronization
 
-In this step, you will sync the our policies to the IoT Hub. This will enable IoT Hub to register the CA certificates and trust any issued leaf certificates.
+Synchronize your credential and policies to the IoT Hub. This step ensures that the IoT Hub registers the CA certificates and trusts any leaf certificates issued by your configured policies.
 
 ```azurecli-interactive
 az iot adr ns credential sync --namespace <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP>
@@ -215,9 +218,9 @@ az iot hub certificate list --hub-name <HUB_NAME> --resource-group <RESOURCE_GRO
 
 ## Create an enrollment in DPS
 
-To provision devices with leaf certificates, you will create an enrollment in DPS. Using `--credential-policy`, you must assign it to the appropriate policy. 
+To provision devices using leaf certificates, create an enrollment group in DPS and assign it to the appropriate credential policy with the `--credential-policy` parameter.
 
-This command will create an enrollment group using the default attestation mechanism of symmetric key.
+The following command creates an enrollment group, using symmetric key attestation by default:
 
 > [!NOTE]
 > If you created a policy with a different name from "default", ensure that you use that policy name after the `--credential-policy` parameter.

@@ -13,21 +13,19 @@ zone_pivot_groups: service-portal-azcli
 
 # Automatic IoT device and module management
 
-Automatic device management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets. With automatic device management, you can target a set of devices based on their properties, define a desired configuration, and then let IoT Hub update the devices when they come into scope. 
-
-This update is done using an _automatic device configuration_ or _automatic module configuration_, which lets you summarize completion and compliance, handle merging and conflicts, and roll out configurations in a phased approach.
+Azure IoT Hub automatic device management streamlines the process of managing large fleets of devices by automating repetitive and complex tasks. With automatic device and module configurations, you can target devices based on their properties, specify desired settings, and let IoT Hub apply updates as devices meet the defined criteria. This approach enables you to monitor configuration status, resolve conflicts, and roll out changes in phases for greater control and compliance.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 ## Overview of automatic device management
 
-Automatic device management works by updating a set of device twins or module twins with desired properties and reporting a summary that's based on twin reported properties.  It introduces a new class and JSON document called a _Configuration_ that has three parts:
+Automatic device management operates by applying desired properties to groups of device twins or module twins and summarizing results using reported properties. This process uses a specialized JSON document called a _Configuration_, which consists of three main components:
 
 * The **target condition** defines the scope of device twins or module twins to be updated. The target condition is specified as a query on twin tags and/or reported properties.
 
 * The **target content** defines the desired properties to be added or updated in the targeted device twins or module twins. The content includes a path to the section of desired properties to be changed.
 
-* The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on twin reported properties.  System metrics are the default metrics that measure twin update status, such as the number of twins that are targeted and the number of twins that have been successfully updated.
+* The **metrics** component provides summary counts for configuration states like **Success**, **In Progress**, and **Error**. You can define custom metrics using queries on twin reported properties, while system metrics automatically track update status, including how many twins are targeted and how many are successfully updated.
 
 Automatic configurations run for the first time shortly after the configuration is created and then at five minute intervals. Metrics queries run each time the automatic configuration runs. A maximum of 100 automatic configurations is supported on standard tier IoT hubs; ten on free tier IoT hubs. Throttling limits also apply. To learn more, see [Quotas and Throttling](iot-hub-devguide-quotas-throttling.md).
 

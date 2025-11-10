@@ -49,13 +49,14 @@ There are five steps to create a configuration. The following sections walk thro
 
 ### Name and label
 
-1. Give your configuration a unique name that is up to 128 characters long. Lowercase letters and the following special characters are allowed: `-+%_*!'`. Spaces are not allowed.
-1. Add labels to help track your configurations. Labels are **Name**, **Value** pairs that describe your configuration. For example, `HostPlatform, Linux` or `Version, 3.0.1`.
-1. Select **Next** to move to the next step. 
+1. Enter a unique name for your configuration. The name can be up to 128 characters and may include lowercase letters and the following special characters: `-+%_*!'`. Spaces aren't allowed.
+1. Add labels to organize and describe your configuration. Labels are key-value pairs, such as `HostPlatform, Linux` or `Version, 3.0.1`.
+1. Select **Next** to continue.
 
 ### Twin settings
 
-This section defines the content to be set in targeted device twin or module twin desired properties. There are two inputs for each set of settings. The first is the twin path, which is the path to the JSON section within the twin desired properties that will be set. The second is the JSON content to be inserted in that section. 
+Set the content in the targeted device twin or module twin desired properties by providing two inputs for each setting. First, specify the twin path, which points to the JSON section within the twin desired properties to update. Next, enter the JSON content to insert at that location.
+
 
 For example, you could set the twin path to `properties.desired.chiller-water` and then provide the following JSON content: 
 
@@ -70,7 +71,7 @@ For example, you could set the twin path to `properties.desired.chiller-water` a
 
 You can also set individual settings by specifying the entire twin path and providing the value with no brackets. For example, with the twin path `properties.desired.chiller-water.temperature`, set the content to `66`. Then create a new twin setting for the pressure property. 
 
-If two or more configurations target the same twin path, the content from the highest priority configuration will apply (priority is defined in step 4).
+If two or more configurations target the same twin path, the content from the highest priority configuration applies (priority is defined in step 4).
 
 If you wish to remove an existing property, specify the property value to `null`.
 
@@ -84,8 +85,8 @@ Automatic device configurations can only target device twin tags, and automatic 
 
 Since multiple configurations may target the same device or module, each configuration needs a priority number. If there's ever a conflict, the configuration with the highest priority wins. 
 
-1. Enter a positive integer for the configuration **Priority**. The highest numerical value is considered the highest priority. If two configurations have the same priority number, the one that was created most recently wins. 
-1. Enter a **Target condition** to determine which devices or modules will be targeted with this configuration. The condition is based on twin tags or twin reported properties and should match the expression format. 
+1. Enter a positive integer for the configuration **Priority**. The highest numerical value is considered the highest priority. If two configurations have the same priority number, the one created most recently wins. 
+1. Enter a **Target condition** to determine which devices or modules are targeted with this configuration. The condition is based on twin tags or twin reported properties and should match the expression format. 
 
    - For automatic device configuration, you can specify just the tag or reported property to target. For example, `tags.environment='test'` or `properties.reported.chillerProperties.model='4000x'`. You can specify `*` to target all devices. 
    
@@ -98,7 +99,7 @@ Metrics provide summary counts of the various states that a device or module may
 Each configuration can have up to five custom metrics. 
 
 1. Enter a name for **Metric Name**.
-1. Enter a query for **Metric Criteria**.  The query is based on device twin reported properties.  The metric represents the number of rows returned by the query.
+1. Enter a query for **Metric Criteria**. The query is based on device twin reported properties. The metric represents the number of rows returned by the query.
 
    For example:
 
