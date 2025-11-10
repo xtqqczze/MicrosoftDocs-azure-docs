@@ -77,7 +77,7 @@ Follow these steps to add set-up your customer service agent:
 
 1. On the information pane that opens, select the default action name, and rename the action to **Customer service agent**.
 
-1. If you don't have a connection between the agent action and the LLM that you want to use, follow these steps to [connect the agent action to your LLM](create-conversational-agent-workflows.md#connect-the-agent-to-your-model).
+1. If you don't have a connection between the agent action and the LLM that you want to use, follow these steps to [connect the agent action to your LLM](create-conversational-agent-workflows.md#connect-agent-to-model).
 
 1. On the **Parameters** tab, in the **System instructions** box, provide the following information:
 

@@ -44,7 +44,7 @@ This guide shows how to set up the OBO authorization, delegated permissions, and
 
 - A Standard logic app resource and conversational agent workflow
 
-  Make sure that you have a deployed *large language model* (LLM) per the [prerequisites for conversational agent workflows](create-conversational-agent-workflows.md#prerequisites) and that you [connect your agent to that model](create-conversational-agent-workflows.md#connect-the-agent-to-your-model).
+  Make sure that you have a deployed *large language model* (LLM) per the [prerequisites for conversational agent workflows](create-conversational-agent-workflows.md#prerequisites) and that you [connect your agent to that model](create-conversational-agent-workflows.md#connect-agent-to-model).
   
   This example uses **Admin agent** as the agent name, for example:
 
