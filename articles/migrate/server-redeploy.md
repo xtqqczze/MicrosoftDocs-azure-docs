@@ -18,12 +18,12 @@ This article helps you redeploy **Windows and Linux Servers to Azure using Infra
 Azure Migrate supports server redeployment through Infrastructure as Code (IaC).
 You can automate the process of rebuilding and configuring servers in Azure using declarative scripts instead of manual steps. By leveraging this feature, you can:
 
-1. Create IaaS application IaC based on assessment.
-1. Deploy the IaaS application IaC.
-1. Migrate the server using the Server Migration tool.
-1. Detach the data disk using the disk migration script to generate disk IaC.
-1. Merge disk IaC with application IaC.
-1. Reapply the application IaC script.
+- Create IaaS application IaC based on assessment.
+- Deploy the IaaS application IaC.
+- Migrate the server using the Server Migration tool.
+- Detach the data disk using the disk migration script to generate disk IaC.
+- Merge disk IaC with application IaC.
+- Reapply the application IaC script.
 
 
 ## Create IaaS application IaC
@@ -46,18 +46,18 @@ Follow the steps to generate Infrastructure as Code (IaC) for your assessed work
 
 3. The portal redirects you to the IaC generation flow, where you review and select details before generating the code.
 
-:::image type="content" source="./media/server-redeploy/generation-flow.png" alt-text="The screenshot shows how to redirect to iac generation flow to review and select details before generating the code." lightbox="./media/server-redeploy/generation-flow.png":::
+:::image type="content" source="./media/server-redeploy/generation-flow.png" alt-text="The screenshot shows how to redirect to IaC generation flow to review and select details before generating the code." lightbox="./media/server-redeploy/generation-flow.png":::
 
 4. IaC generation currently supports only IaaS (Infrastructure as a Service) targets.
 5. For workload assessments, select the workloads you want to include in the generated application code. 
 6. For application assessments, select the application you want to generate IaC for. You can generate code for only one application at a time.
 
 
-:::image type="content" source="./media/server-redeploy/generate-application.png" alt-text="The screenshot shows how to select application to generate Iac for." lightbox="./media/server-redeploy/generate-application.png":::
+:::image type="content" source="./media/server-redeploy/generate-application.png" alt-text="The screenshot shows how to select application to generate IaC for one application at a time." lightbox="./media/server-redeploy/generate-application.png":::
 
 7. Review the workloads and select **Next**.
 
-:::image type="content" source="./media/server-redeploy/generate-for-one-application.png" alt-text="The screenshot shows how to iac for one application." lightbox="./media/server-redeploy/generate-for-one-application.png":::
+:::image type="content" source="./media/server-redeploy/generate-for-one-application.png" alt-text="The screenshot shows how to generate code for IaC  application." lightbox="./media/server-redeploy/generate-for-one-application.png":::
 
 8. Select **Next** again to go to the **Generate and Download** page, and review the base architecture.
 
@@ -67,7 +67,7 @@ Follow the steps to generate Infrastructure as Code (IaC) for your assessed work
 
 10. Select Generate Code after you finish reviewing the architecture. The assessment’s baseline architecture generates your IaC and automatically adds the selected workloads.
 
-:::image type="content" source="./media/server-redeploy/generate-code.png" alt-text="The screenshot shows how to select generate code after review is complete.." lightbox="./media/server-redeploy/generate-code.png":::
+:::image type="content" source="./media/server-redeploy/generate-code.png" alt-text="The screenshot shows how to select Generate Code after review is complete." lightbox="./media/server-redeploy/generate-code.png":::
 
 11. When the download completes, extract the ZIP file and open the folder in an IDE such as **Visual Studio Code** to explore the generated code.
 
@@ -86,7 +86,7 @@ Use the Server Migration tool in Azure Migrate to move your on-premises servers 
 - Agentless migration for VMware environments.
 - Agent-based migration for Hyper-V or physical servers.
 
-## “Detach data disks and generate IaC configuration with Azure Migrate
+## Detach data disks and generate IaC configuration with Azure Migrate
 
 1. Use the disk migration script in this [repository](https://github.com/Azure/AzMigrate-Hydration/tree/asr-am-support-scripts/Post%20Migration%20Customization) to detach the data disk from the migrated VM. The script generates the `disk-config.json` file, which contains the disk’s Infrastructure as Code (IaC) details. 
 1. Follow the instructions in the readme.md file included in the downloaded folder to complete the detachment process.
@@ -97,7 +97,8 @@ After generating the disk Infrastructure as Code (IaC) configuration, you need t
 
 ### Steps to merge disk IaC
 
-Follow the steps to merge the disck IaC:
+Follow the steps to merge the disk IaC:
+
 1. **Copy disk configuration file**: Locate the `disk-config.json` file generated in step 4 and copy it into the folder that contains your Application IaC code.
 1. **Update Terraform variables**: Open the terraform.tfvars file in the Application IaC folder.
     - Uncomment the following line: 
