@@ -21,7 +21,7 @@ agent builder empowers you to create sophisticated automation solutions for your
 | Custom subagents | Build specialized subagents with tailored instructions and behaviors | • RCA specialists for specific services<br>• Monitoring subagents for resource health<br>• Compliance checkers for security policies |
 | Data integration | Connect your observability tools and knowledge sources | • Azure Monitor for metrics and logs<br>• File uploads for documentation<br>• External APIs through MCP connectors |
 | Automated triggers | Set up incident response plans and scheduled tasks | • Automatic incident investigation<br>• Daily health reports<br>• Weekly compliance scans |
-| Actions | • Send email with Outlook<br>• Send Teams notifications<br>• Integrate with custom MCP tools on other SaaS systems | Communicating with external resources once the agent is done processing an incident. |
+| Actions | Communicate with external resources. | • Send email with Outlook<br>• Send Teams notifications<br>• Integrate with custom MCP tools on other SaaS systems |
 
 ## Work with agent builder
 
