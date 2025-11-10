@@ -25,7 +25,7 @@ To use the de-identification service, the input raw, unstructured text, can be s
 
 ## Use cases
 ### Intended uses
-The de-identification service was built specifically for health and life sciences organizations within the United States subject to HIPAA. Expanded support for additional languages and locales is published in [this page](languages-supported.md) to help support compliance with unlinked pseudonymization that follow GDPR principles. We do not recommend this service for non-medical applications. Some common customer motivations for using the de-identification service include:
+The de-identification service was built specifically for health and life sciences organizations within the United States subject to HIPAA. Expanded support for additional languages and locales is published in [this page](languages-supported.md) to help support compliance with unlinked pseudonymization that follows GDPR principles. We do not recommend this service for non-medical applications. Some common customer motivations for using the de-identification service include:
 
 - Developing de-identified data for a test or research environment
 - Developing de-identified datasets for data analytics without revealing confidential information
@@ -46,7 +46,7 @@ There are various cases that would impact the de-identification service’s perf
 
 - Coverage: Unstructured text may contain information that reveals identifying characteristics about an individual that alone, or in combination with external information, reveals the identity of the individual. For example, a clinical record could state that a patient is the only known living person diagnosed with a particular rare disease. The unstructured text alone, or in combination with external information, may reveal that patient’s clinical records.
 - Languages: Currently, the de-identification service is enabled for the languages and locales list in [this page](languages-supported.md).
-- Spelling: Incorrect spelling might affect the output. If a word or the surrounding words are misspelled the system might or might not have enough information to recognize that the text is PHI.
+- Spelling: Incorrect spelling might affect the output. If a word or the surrounding words are misspelled, the system might or might not have enough information to recognize that the text is PHI.
 - Data Format: The service performs best on unstructured text, such as clinical notes, transcripts, or messages. Structured text without context of surrounding words may or may not have enough information to recognize that the text is PHI.
 - Performance: Potential error types are outlined in the System performance section.
 - Surrogation: As stated above, the service offers consistent surrogation, or a continuous mapping of surrogate replacements across documents. Consistent surrogation is available by submitting files in batches to the API using the asynchronous endpoint. Submitting the same files in different batches or through the real-time endpoint results in different surrogates used in place of the PHI values.
