@@ -331,7 +331,7 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
 
 1. Check that the response is what you expect, for example:
 
-   :::image type="content" source="media/create-conversational-agent-workflows/test-chat-portal.png" alt-text="Screenshot shows the portal-integrated chat interface for a Consumption agent workflow." lightbox="media/create-conversational-agent-workflows/test-chat-portal.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/test-chat-portal-consumption.png" alt-text="Screenshot shows the portal-integrated chat interface for a Consumption agent workflow." lightbox="media/create-conversational-agent-workflows/test-chat-portal-consumption.png":::
 
 1. Return to your workflow in the designer.
 
@@ -363,7 +363,7 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
 
 1. Check that the response is what you expect, for example:
 
-   :::image type="content" source="media/create-conversational-agent-workflows/test-chat-portal.png" alt-text="Screenshot shows the portal-integrated chat interface for a Standard agent workflow." lightbox="media/create-conversational-agent-workflows/test-chat-portal.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/test-chat-portal-standard.png" alt-text="Screenshot shows the portal-integrated chat interface for a Standard agent workflow." lightbox="media/create-conversational-agent-workflows/test-chat-portal-standard.png":::
 
 1. Return to your workflow in the designer.
 
