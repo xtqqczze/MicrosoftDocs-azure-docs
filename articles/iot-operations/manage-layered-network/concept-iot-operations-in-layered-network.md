@@ -32,7 +32,8 @@ This guidance covers:
 
 - Kubernetes-based configuration and compatibility with networking primitives
 - Connecting devices in layered networks at scale to [Azure Arc](/azure/azure-arc/) for remote management and configuration from a single Azure control plane
-- Security and governance across network levels for devices and services with URL and IP allow lists and connection auditing
+- Security and governance across network levels for devices and services with URL and IP allowlists and connection auditing
+
 
 > [!NOTE]
 > The guidance doesn't recommend specific practices or provide production-ready implementation, configuration, or operations details. The guidance doesn't make recommendations about production networking architecture.
