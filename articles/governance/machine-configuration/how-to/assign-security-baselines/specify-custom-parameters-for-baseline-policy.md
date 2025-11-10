@@ -28,9 +28,9 @@ The new Azure Policy Settings Picker experience streamlines this process. It all
 
     -  **Official CIS Benchmarks for Linux Workloads**
 
-    2.  **Azure Security Baseline for Windows**
+    -  **Azure Security Baseline for Windows**
 
-    3.  **Azure Security Baseline for Linux**
+    -  **Azure Security Baseline for Linux**
 
 4.  Click **Modify settings**.
 
