@@ -14,7 +14,7 @@ With built-in security baselines, you can customize security controls to meet yo
 The new Azure Policy Settings Picker experience streamlines this process. It allows you to select which settings to evaluate and adjust configuration parameters for granular control. The experience supports advanced input formats for Linux and Windows and exports your customized baseline as a reusable JSON artifact. This flexibility ensures that policy enforcement is consistent, precise, and adaptable to complex enterprise needs, regardless of where your workloads run.
 
 > [!NOTE]
-> Ensure the *Machine Configuration prerequisites* initiative has been assigned to your subscription.
+> Ensure the *Machine Configuration prerequisites* initiative is assigned to your subscription.
 
 ## Open the Machine Configuration blade
 
