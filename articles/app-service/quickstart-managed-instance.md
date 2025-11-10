@@ -29,7 +29,7 @@ In this quickstart, you complete the following steps:
 
 * [Managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity)
 
-* [Storage account and storage container (blob)](/azure/storage/blobs/storage-quickstart-blobs-portal.md)
+* [Storage account and storage container (blob)](/storage/blobs/storage-quickstart-blobs-portal.md)
 
 * Configuration (install) scripts (PowerShell script named `Install.ps1`) in a compressed .zip file
 
@@ -224,7 +224,7 @@ To browse to the created app, select the **default domain** in the **Overview** 
 
 The .NET app is running on a Managed Instance plan and reading fonts from C:\Windows\Fonts directory.
 
-:::image type="content" source="media/quickstart-managed-instance/hello-world-aptos-font.png" alt-text="Screenshot that shows the sample app using C:\Windows\Fonts\Aptos.TTF.":::
+:::image type="content" source="media/quickstart-managed-instance/hello-world.png" alt-text="Screenshot that shows the sample app using C:\Windows\Fonts\Aptos.TTF.":::
 
 ## Manage the Managed Instance plan
 
