@@ -49,11 +49,11 @@ Before using agent builder, ensure you have:
 
 1. Go to your Azure SRE Agent in the Azure portal.
 
-1. Select the **Sub-agent builder** tab.
+1. Select the **Subagent builder** tab.
 
 1. Select **Create Your First Entity**.
 
-1. Select **Sub-Agent**.
+1. Select **Subagent**.
 
 1. Provide values for the following settings:
 
