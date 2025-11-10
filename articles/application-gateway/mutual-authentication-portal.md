@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 02/18/2022
+ms.date: 11/18/2025
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to configure mutual authentication on my Application Gateway using the portal, so that I can securely validate client requests through client certificates."
 ---

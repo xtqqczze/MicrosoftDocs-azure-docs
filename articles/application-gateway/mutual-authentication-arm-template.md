@@ -5,7 +5,7 @@ description: Deploy an Azure Application Gateway with mutual TLS (mTLS) passthro
 services: application-gateway
 author: mbender-ms
 ms.author: mbender
-ms.date: 10/31/2025
+ms.date: 11/18/2025
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
