@@ -11,7 +11,7 @@ ms.service: azure-app-service
 
 # Deploy Managed Instance on Azure App Service (preview)
 
-Managed Instance on Azure App Service combines the simplicity of platform-as-a-service with the flexibility of infrastructure-level control. It's designed for applications that require plan-level isolation, customization, and secure network integration.
+Managed Instance on Azure App Service combines the simplicity of platform-as-a-service with the flexibility of infrastructure-level control. Managed Instance is designed for applications that require plan-level isolation, customization, and secure network integration.
 
 [!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
 
@@ -56,8 +56,28 @@ The `azd up` command completes the following steps from the template:
 - Display values for `Storage Account`, `Container Name`, and `Managed Identity`.
 
 > [!NOTE]
-> The configuration script package (`scripts.zip`) deployed with the sample resources contains `Install.ps1`, which copies Microsoft Aptos font files into C:\Windows\Fonts. The sample app you deploy later renders text into an image using these fonts. This demonstrates how a Managed Instance configuration (install) script can lay down OS-level or framework dependencies before app code runs.
+> The configuration script package (`scripts.zip`) deployed with the sample resources contains `Install.ps1`, which copies Microsoft Aptos font files into C:\Windows\Fonts. The sample app you deploy later renders text into an image using these fonts. This process demonstrates how a Managed Instance configuration (install) script can lay down OS-level or framework dependencies before app code runs.
 >
+
+The following PowerShell code is the configuration (install) script used in the template.
+
+```powershell
+# Install.ps1 - Copy and register fonts on Managed Instance
+Write-Host "Installing custom fonts on Managed Instance..." -ForegroundColor Green
+
+# Copy all TTF and OTF fonts to Windows Fonts folder and register them
+Get-ChildItem -Recurse -Include *.ttf, *.otf | ForEach-Object {
+    $FontFullName = $_.FullName
+    $FontName = $_.BaseName + " (TrueType)"
+    $Destination = "$env:windir\Fonts\$($_.Name)"
+
+    Write-Host "Installing font: $($_.Name)"
+    Copy-Item $FontFullName -Destination $Destination -Force
+    New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts" -Name $FontName -PropertyType String -Value $_.Name -Force | Out-Null
+}
+
+Write-Host "Font installation completed." -ForegroundColor Green
+```
 
 The final output of `azd up` should look similar to the following example.
 
@@ -72,8 +92,6 @@ Resource Group: rg-managed-instance
 The values for `Storage Account`, `Container Name`, `Managed Identity Client name`, and `Resource Group` are used later.
 
 ## Deploy an app on Managed Instance
-
-In this quickstart, the Managed Instance plan uses a configuration script that was deployd along with the sample resources you created earlier. `scripts.zip` , copies Microsoft Aptos fonts to C:\Windows\Fonts directory. Later, the sample app deployed makes use of the Aptos font to render text into an image.
 
 Follow these steps to create a Managed Instance plan and deploy an app to it:
 
@@ -121,7 +139,7 @@ On the Advanced tab, provide the following details.
 | Value | Verify the .zip URL is correct|
 | Identity | Select the managed identity that was created earlier|
 
-On the Deployment tab, select **continuous deployment** in _Continuous deployment settings_. The provide the following details.
+On the Deployment tab, select **continuous deployment** in _Continuous deployment settings_. Then provide the following details.
 
 #### GitHub settings
 
@@ -163,7 +181,7 @@ az deployment group create \
 
 Deployment takes several minutes while resources provisioned.
 
-3. The following creates a web app on the Managed Instance plan.
+3. The following command creates a web app on the Managed Instance plan.
 
 ```bash
 az webapp create \
@@ -173,7 +191,7 @@ az webapp create \
   --runtime "DOTNET|9"
 ```
 
-4. The following assigns a Managed Identity to the web app.
+4. The following command assigns a Managed Identity to the web app.
 
 ```bash
 # Assign managed identity to web app
@@ -183,12 +201,12 @@ az webapp identity assign \
   --identities "$IDENTITY_ID"
 ```
 
-5. The following downloads the sample app to Cloud Shell.
+5. The following command downloads the sample app to Cloud Shell.
 ```bash
 curl -L -o app.zip https://raw.githubusercontent.com/msangapu-msft/aptos-testing/default/app.zip
 ```
 
-6. The following deploys the web app to your Managed Instance plan.
+6. The following command deploys the web app to your Managed Instance plan.
 
 ```bash
 az webapp deploy \

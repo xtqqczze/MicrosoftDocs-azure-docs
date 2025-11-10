@@ -11,7 +11,7 @@ ms.service: azure-app-service
 
 # Configure Managed Instance on Azure App Service (preview)
 
-Managed Instance on Azure App Service (preview) is a plan‑scoped hosting option for Windows web apps that need operating system customization, optional private networking, and secure integration with Azure resources. This article explains how to configure Managed Instance in key areas:
+Managed Instance on Azure App Service (preview) is a plan‑scoped hosting option for Windows web apps that need Operating System (OS) customization, optional private networking, and secure integration with Azure resources. This article explains how to configure Managed Instance in key areas:
 
 - Managed identity
 - Configuration (install) scripts
@@ -23,12 +23,12 @@ Managed Instance on Azure App Service (preview) is a plan‑scoped hosting optio
 
 ## Add a Managed identity (to the App Service plan)
 
-Plan-level managed identities enable authentication for infrastructure operations that occur at the platform layer, such as configuration (install) scripts accessing Azure Storage during VM startup, registry adapters pulling secrets from Key Vault, and storage mounts authenticating to Azure Files. These are shared resources that multiple apps on the plan consume, so a plan-level identity allows Managed Instance to authenticate once for infrastructure components while individual apps maintain their own identities for app-specific resources like databases and application secrets.
+Plan-level managed identities enable authentication for infrastructure operations that occur at the platform layer, such as configuration (install) scripts accessing Azure Storage during startup, registry adapters pulling secrets from Key Vault, and storage mounts authenticating to Azure Files. These components are shared resources that multiple apps on the plan consume. For example, a plan-level identity allows Managed Instance to authenticate once for infrastructure components while individual apps maintain their own identities for app-specific resources like databases and application secrets.
 
 Managed identities for the App Service plan are required in the following scenarios:
 
 - To securely access and retrieve your configuration script from Azure Storage.
-- Access Key Vault(s) to supply credentials and values for Storage Mounts and Registry Key Adapters.
+- Access Key Vaults to supply credentials and values for Storage Mounts and Registry Key Adapters.
  
 See [manage user-assigned managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity) to create a managed identity.
 
@@ -41,7 +41,7 @@ To add a Managed Identity to Managed Instance plan:
 
 ## Add configuration (install) scripts
 
-Configuration (install) scripts run at instance startup to apply persistent customization (COM registration, MSI installs, IIS config, ACL changes, enabling Windows Features, setting environment variables).
+Configuration (install) scripts run at instance startup to apply persistent customization. Examples include, COM registration, MSI installs, IIS config, ACL changes, enabling Windows Features, setting environment variables.
 
 The need the following to use configuration (install) scripts:
 
@@ -62,7 +62,7 @@ In the _Configuration script_ section, begin by configuring your script.
 | Storage Account | Select your storage account |
 | Container | Enter the name of your container |
 | Zip file | Enter the name of the zip file |
-| Value | Verify this is correct |
+| Value | Verify this value is correct |
 
 1. Select Apply to save the changes.
 
@@ -111,10 +111,10 @@ Provide the following details to configure the storage mount:
 
 | Setting | Value |
 |--|--|
-| Name | Enter a mount mame |
+| Name | Enter a mount name |
 | Storage type | Azure files, Custom, or Local (temporary storage)|
 | Storage account | Select or enter a storage account |
-| File share| Seleft a file share|
+| File share| Select a file share|
 | Value | Select a Key vault |
 | Secret | Select the key vault secret |
 | Mount drive letter | Select drive letter path |
@@ -134,7 +134,7 @@ To configure an Azure Files storage mount:
 
 ### Configure storage mounts with custom UNC
 
-Use this for SMB shares hosted elsewhere (on-premises, VM, or third-party). Ensure network connectivity (VNet integration / private endpoints / firewalls).
+Use mounts for SMB shares hosted elsewhere (on-premises, VM, or non-Microsoft). Ensure network connectivity (virtual network integration / private endpoints / firewalls).
 
 1. If credentials are needed, store them in a Key Vault secret in the format: `username=<user>,password=<password>`
    - Avoid domain admin accounts; use a least‑privilege service identity.
@@ -142,7 +142,7 @@ Use this for SMB shares hosted elsewhere (on-premises, VM, or third-party). Ensu
 
 ## Configure registry keys
 
-Some applications depend on values read from the Windows Registry. Using a Registry Key adapter, customers can create registry keys and use secrets from Azure Key Vault as the value.
+Some applications depend on values read from the Windows Registry. With a Registry Key adapter, you can create registry keys and use secrets from Azure Key Vault as the value.
 
 You need the following to configure registry keys:
 - Managed identity (for Key Vault access)  
@@ -168,12 +168,12 @@ To configure registry keys:
 
 ## Configure RDP (Bastion) access
 
-[Azure Bastion](/azure/bastion/quickstart-host-portal.md) lets you securely connect to your VM instance(s) through Remote Desktop Protocol (RDP). RDP via Azure Bastion is for transient diagnostics (log inspection, quick validation). If you intend to use Bastion via the portal, then upgrade your Bastion resource to standard pricing tier and select "Native Client Support and IP-Based Connection".
+[Azure Bastion](/azure/bastion/quickstart-host-portal.md) lets you securely connect to your VM instances through Remote Desktop Protocol (RDP). RDP via Azure Bastion is for transient diagnostics (log inspection, quick validation). If you intend to use Bastion via the portal, then upgrade your Bastion resource to standard pricing tier and select **Native Client Support and IP-Based Connection**.
 
-You need the following for Bastion/RDP access:
+You need the following resources for Bastion/RDP access:
 
-- Managed Instance must be [virtual network (VNet) integrated](configure-vnet-integration-enable.md)
-- Target VNet has (or will have) an Azure Bastion host
+- Managed Instance must be [virtual network integrated](configure-vnet-integration-enable.md)
+- Azure Bastion host on the target virtual network
 - Port 3389 must be allowed from the Bastion subnet NSG to the App Service Plan subnet NSG
 
 To configure Bastion:
@@ -183,7 +183,7 @@ To configure Bastion:
 1. Select **Allow Remote Desktop (via Bastion)**.
 
 > [!CAUTION]
-> Don't apply manual installers or configuration changes solely through RDP—they'll be lost on recycle or create configuration drift.
+> Don't apply manual installers or configuration changes solely through RDP. Changes are lost on recycle or create configuration drift.
 
 ## Frequently Asked Questions (FAQ)
 
@@ -199,7 +199,7 @@ To configure Bastion:
 - [Which Azure Storage service should I use to upload a configuration (install) script?](#which-azure-storage-service-should-i-use-to-upload-a-configuration-install-script)
 - [Is there a restriction on naming and format for the configuration (install) script?](#is-there-a-restriction-on-naming-and-format-for-the-configuration-install-script)
 - [Is there a size limit for the dependencies that I can upload as part of the zip file?](#is-there-a-size-limit-for-the-dependencies-that-i-can-upload-as-part-of-the-zip-file)
-- [Does adding or editing Managed Instance on App Service plan adapters restart the plan instance(s)?](#does-adding-or-editing-managed-instance-on-app-service-plan-adapters-restart-the-plan-instances)
+- [Does adding or editing Managed Instance on App Service plan adapters restart the plan instances?](#does-adding-or-editing-managed-instance-on-app-service-plan-adapters-restart-the-plan-instances)
 - [My Managed Instance plan has multiple instances can I restart a single instance?](#my-managed-instance-plan-has-multiple-instances-can-i-restart-a-single-instance)
 - [My Managed Instance on App Service plan has multiple web applications can I restart a single web application?](#my-managed-instance-on-app-service-plan-has-multiple-web-applications-can-i-restart-a-single-web-application)
 - [Can I assign Managed Identity to my web application within the Managed Instance on App Service plan?](#can-i-assign-managed-identity-to-my-web-application-within-the-managed-instance-on-app-service-plan)
@@ -211,11 +211,11 @@ Windows Server 2022.
 
 ### Can I enable more Windows roles and features?
 
-Yes, through a configuration script. However, if a feature is [removed from a future release of Windows Server](https://learn.microsoft.com/windows-server/get-started/removed-deprecated-features-windows-server?tabs=ws25), it will also be unavailable in Managed Instance.
+Yes, through a configuration script. However, features [removed from a future release of Windows Server](https://learn.microsoft.com/windows-server/get-started/removed-deprecated-features-windows-server?tabs=ws25), won't unavailable in Managed Instance.
 
 ### Does Managed Instance on Azure App Service receive regular platform and application stack updates?
 
-Yes, instances receive routine platform updates and maintenance. Preinstalled application stacks are also updated regularly. Any more components installed via configuration (install) scripts must be maintained by you.
+Yes, instances receive routine platform updates and maintenance. Preinstalled application stacks are also updated regularly. You're required to maintain any components installed via configuration (install) scripts.
 
 ### Which programming languages are installed on Managed Instance on Azure App Service?
 
@@ -225,7 +225,7 @@ Microsoft .NET Framework 3.5, 4.8, and Microsoft .NET 8.0.
 
 ### What are limitations on the configuration (install) scripts?
 
-Configuration (install) scripts can install dependencies, enable roles and features, and customize the operating system. However, destructive operations (for example, deleting `Windows\System32`) are **not supported** and may result in instance instability.
+Configuration (install) scripts can install dependencies, enable roles and features, and customize the operating system. However, destructive operations (for example, deleting `Windows\System32`) are **not supported** and can result in instance instability.
 
 ### At what permission level is a configuration (install) script executed?
 
@@ -237,14 +237,15 @@ Operators connecting via Bastion have **Administrator** privileges during the se
 
 ## How do I troubleshoot failures with my configuration (install) script or registry/storage adapters?
 
-Configuration (install) script logs can be found on the Managed Instance workers in the directory c:\InstallScripts\Scriptn\Install.log or alternatively if outputting App Service Console Logs to Azure Monitor and Log Analytics, you can query directly.  
+To troubleshoot, review the logs for configuration (install) scripts. They can be found in C:\InstallScripts\Script\Install.log on the instance (not the web app). Alternatively, App Service console logs can be shipped to Azure Monitor and Log Analytics.
+
 Adapter logs can be found in the root of the machine, alternatively they're logged into App Service Platform Logs.
 
 ## What is the addressable memory of a Managed Instance on Azure App Service worker instance?
 
-The addressable memory of a Managed Instance on Azure App Service worker instance varies dependent on the SKU chosen.  The table below lists the addressable memory for the Managed Instance on Azure App Service worker instance.  It's important to consider if you have a configuration script which installs more components, services etc., these have an impact of memory available for use by your web applications.
+The addressable memory of a Managed Instance on Azure App Service worker instance varies dependent on the pricing plan chosen. The following table lists the addressable memory for the Managed Instance on Azure App Service worker instance. It's important to consider if you have a configuration script that installs more components, services, etc. These resources affect the amount of memory available for use by your web apps.
 
-| SKU | Cores | Memory (MB) |
+| Pricing plan | Cores | Memory (MB) |
 |---|---|---|
 | P0v4 | 1 | 2048 |
 | P1v4 | 2 | 5952 |
@@ -262,15 +263,15 @@ Use Azure Storage blob service for uploading the script and required dependencie
 
 ## Is there a restriction on naming and format for the configuration (install) script?
 
-Yes, the script must be named `Install.ps1`. Only PowerShell is supported. Ensure to upload configuration (install) script and dependencies as a single .zip file. There is no forced naming format for the Zip file.
+Yes, the script must be named `Install.ps1`. Only PowerShell is supported. Ensure to upload configuration (install) script and dependencies as a single .zip file.
 
 ## Is there a size limit for the dependencies that I can upload as part of the zip file?
 
-No size limit is enforced. Remember that the overall size of dependencies impact the instance provisioning time.
+No size limit is enforced. Remember that the overall size of dependencies impacts the instance provisioning time.
 
-## Does adding or editing Managed Instance on App Service plan adapters restart the plan instance(s)?
+## Does adding or editing Managed Instance on App Service plan adapters restart the plan instances?
 
-Yes, adding or editing Managed Instance plan adapters (configuration (install) script/storage/registry) do restart the underlying instance(s) and may impact all the web apps deployed to the plan. Remember that instance restarts removes all changes made via RDP session. Always use configuration (install) script to persist dependencies installation or other configuration changes required.
+Yes, adding or editing Managed Instance plan adapters (configuration script/storage/registry) restart the underlying instances and affect all web apps deployed to the plan. Remember that instance restarts removes all changes made via RDP session. Always use configuration (install) script to persist dependencies installation or other configuration changes required.
 
 ## My Managed Instance plan has multiple instances can I restart a single instance?
 
@@ -286,7 +287,7 @@ Yes, you can assign a _different_ Managed identity to a web application within t
 
 ## Is there a limitation on number of adapters that I can create for Managed Instance on App Service plan?
 
-No, there is no limit on the number of storage or registry adapters. You can only create a single configuraiton (install) script adapter for Managed Instance on App Service plan.  Note that the increasing the number of adapters could impact provisioning time for Managed Instance.
+No, there's no limit on the number of storage or registry adapters. You can only create a single configuration (install) script adapter for Managed Instance on App Service plan.  The increasing the number of adapters could affect provisioning time for Managed Instance.
 
 ## Next steps
 
