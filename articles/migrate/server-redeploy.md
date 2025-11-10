@@ -63,7 +63,7 @@ Follow the steps to generate Infrastructure as Code (IaC) for your assessed work
 
 9. The IaC generation feature currently supports only one architecture—a basic three-tier design with frontend, backend, and database layers optimized for non-critical development applications. This architecture also includes Cloud Adoption Framework (CAF)-aligned security best practices.
 
-:::image type="content" source="./media/server-redeploy/supported-architecture.png" alt-text="The screenshot shows the supported architecture." lightbox="./media/server-redeploy/supported-architecture.png":::
+:::image type="content" source="./media/server-redeploy/supported-architecture.png" alt-text="The diagram shows the supported architecture." lightbox="./media/server-redeploy/supported-architecture.png":::
 
 10. Select Generate Code after you finish reviewing the architecture. The assessment’s baseline architecture generates your IaC and automatically adds the selected workloads.
 
