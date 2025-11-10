@@ -16,11 +16,11 @@ Use this view to validate which policies are deployed, where they're scoped, and
 
 ### View Assigned Policies
 
-- Navigate to **Azure Policy → Compliance.**
+1. Navigate to **Azure Policy → Compliance.**
 
-- Each entry shows a deployed assignment and its target scope (subscription, management group, or resource group).
+2. View each entry, which shows a deployed assignment and its target scope (subscription, management group, or resource group).
 
-- Use filters such as **Policy definition equals all,** or **Subscription ID equals all** to narrow the list.
+3. If needed, use filters such as **Policy definition equals all,** or **Subscription ID equals all** to narrow the list.
 
 [![Screenshot of Azure Policy Compliance page showing policy assignments with filters and export options.](../media/view-machine-configuration-compliance-reporting/azure-policy-compliance-page-filters-export.png)](../media/view-machine-configuration-compliance-reporting/azure-policy-compliance-page-filters-export.png#lightbox)
 
@@ -55,11 +55,11 @@ Use this view to investigate machine-level compliance for each assigned policy a
 
 ### View All Guest Assignments
 
-- Navigate to **Machine Configuration → Guest Assignments**.
+1. Navigate to **Machine Configuration → Guest Assignments**.
 
-- Each row represents a machine's evaluation against an assigned policy.
+2. View each row represents a machine's evaluation against an assigned policy.
 
-- The **Status** column indicates whether the machine is *Compliant*, *NonCompliant*, or *Pending*.
+3. Observe the **Status** column, which indicates whether the machine is *Compliant*, *NonCompliant*, or *Pending*.
 
 [![Screenshot of Guest Assignments list showing machines with compliance status indicators.](../media/view-machine-configuration-compliance-reporting/guest-assignments-list-compliance-indicators.png)](../media/view-machine-configuration-compliance-reporting/guest-assignments-list-compliance-indicators.png#lightbox)
 

@@ -82,7 +82,7 @@ Let’s use one of the built-in Machine Configuration policies—**Audit Windows
 Once assigned, the policy will automatically begin evaluating machines within scope. Compliance results will surface in the **Policy → Compliance** view, where you can drill down to specific resources or export results.
 
 > [!NOTE]
-> The same process applies to other built-in Machine Configuration policies—such as those auditing Linux baselines, password settings, or required applications. Parameters vary by definition and allow you to customize the audit scope without creating new policies.
+> The same process is applicable to other built-in Machine Configuration policies—such as those auditing Linux baselines, password settings, or required applications. Parameters vary by definition and allow you to customize the audit scope without creating new policies.
 
 ## Programmatic Access and Automation
 
