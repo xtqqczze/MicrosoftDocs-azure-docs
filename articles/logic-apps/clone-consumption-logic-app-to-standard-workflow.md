@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, wsilveiranz, azla
 ms.topic: how-to
-ms.date: 10/20/2025
+ms.date: 11/18/2025
 #Customer intent: As an integration developer working with Azure Logic Apps, I want to migrate a Consumption logic app to a Standard logic app by cloning resources.
 ---
 
