@@ -44,7 +44,7 @@ In the new designer, many workflow actions are now found in the vertical ellipsi
 
 :::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot showing the ellipsis menu next to the Publish button in the new designer.":::
 
-## Where to find common actions
+### Where to find common actions
 
  Use the table to quickly find where each common task is performed.
 
