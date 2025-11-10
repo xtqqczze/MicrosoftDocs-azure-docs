@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/defender-for-iot/organizations/custom-columns-sample-script.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/custom-columns-sample-script",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-azure-enhanced-soft-delete-tutorial.md",
       "redirect_url": "/azure/backup/secure-by-default",
       "redirect_document_id": false
