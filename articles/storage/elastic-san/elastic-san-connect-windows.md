@@ -61,7 +61,6 @@ You must use a cluster manager when connecting an individual elastic SAN volume 
 - Either [configure private endpoints](elastic-san-configure-private-endpoints.md) or [configure service endpoints](elastic-san-configure-service-endpoints.md)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
-### Connect to volumes
 
 ### Set up your client environment
 #### Enable iSCSI Initiator
@@ -99,7 +98,7 @@ Enable-MSDSMAutomaticClaim -BusType iSCSI
 mpclaim -L -M 2
 ```
 
-### Attach Volumes to the client
+#### Attach volumes to the client
 
 You can use the following script to create your connections. To execute it, you require the following parameters: 
 - $rgname: Resource Group Name
@@ -119,13 +118,27 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
 #### Number of sessions
-You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
+
+You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume.
+
+
+```bash
+.\connect.ps1 ` 
+
+  -ResourceGroupName "<resource-group>" ` 
+
+  -ElasticSanName "<esan-name>" ` 
+
+  -VolumeGroupName "<volume-group>" ` 
+
+  -VolumeName "<volume1>", "<volume2>" ` 
+
+  -NumSession “<value>”
 
 ## Next steps
 
 [Configure Elastic SAN networking](elastic-san-networking.md)
 
-  -VolumeName "<volume1>", "<volume2>" ` 
 
   -NumSession “<value>”
 ```
