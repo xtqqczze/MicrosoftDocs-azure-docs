@@ -13,12 +13,12 @@ ms.custom: engagement-fy25
 
 # Redeploy servers by using IaC
 
-This article helps you redeploy **Windows Servers to Azure using Infrastructure as Code (IaC)** with step-by-step guidance to generate templates, deploy landing zones, migrate servers, and integrate disk configurations for automated, repeatable migrations.
+This article helps you redeploy **Windows and Linux Servers to Azure using Infrastructure as Code (IaC)** with step-by-step guidance to generate templates, deploy landing zones, migrate servers, and integrate disk configurations for automated, repeatable migrations.
 
 Azure Migrate supports server redeployment through Infrastructure as Code (IaC).
-You can automate the process of rebuilding and configuring servers in Azure using declarative scripts instead of manual steps. By leveraging IaC, you can:
+You can automate the process of rebuilding and configuring servers in Azure using declarative scripts instead of manual steps. By leveraging this feature, you can:
 
-1. Create IaaS application IaC.
+1. Create IaaS application IaC based on assessment.
 1. Deploy the IaaS application IaC.
 1. Migrate the server using the Server Migration tool.
 1. Detach the data disk using the disk migration script to generate disk IaC.
@@ -32,7 +32,7 @@ Azure Migrate lets you generate Infrastructure as Code (IaC) templates for your 
 
 ### Prerequisites
 
-Before you begin, complete the Azure VM assessment in Azure Migrate.
+Before you begin, complete the Azure VM assessment in Azure Migrate either through workload assessment or application assessment.
 
 ### Generate Application Landing Zone IaC
 
@@ -61,7 +61,7 @@ Follow the steps to generate Infrastructure as Code (IaC) for your assessed work
 
 8. Select **Next** again to go to the **Generate and Download** page, and review the base architecture.
 
-9. The IaC generation feature currently supports only one architecture—a basic three-tier design with frontend, backend, and database layers optimized for development applications. This architecture also includes CAF-aligned security best practices.
+9. The IaC generation feature currently supports only one architecture—a basic three-tier design with frontend, backend, and database layers optimized for non-critical development applications. This architecture also includes Cloud Adoption Framework (CAF)-aligned security best practices.
 
 :::image type="content" source="./media/server-redeploy/supported-architecture.png" alt-text="The screenshot shows the supported architecture." lightbox="./media/server-redeploy/supported-architecture.png":::
 
@@ -88,7 +88,7 @@ Use the Server Migration tool in Azure Migrate to move your on-premises servers 
 
 ## Detach data disks with disk migration script and generate IaC configuration
 
-1. Use the disk migration script in this repository to detach the data disk from the [migrated VM](https://github.com/Azure/AzMigrate-Hydration/tree/asr-am-support-scripts/Post%20Migration%20Customizationhttps://github.com/Azure/AzMigrate-Hydration/tree/asr-am-support-scripts/Post%20Migration%20Customization). The script generates the disk-config.json file, which contains the disk’s Infrastructure as Code (IaC) details. 
+1. Use the disk migration script in this [repository](https://github.com/Azure/AzMigrate-Hydration/tree/asr-am-support-scripts/Post%20Migration%20Customization) to detach the data disk from the migrated VM. The script generates the `disk-config.json` file, which contains the disk’s Infrastructure as Code (IaC) details. 
 1. Follow the instructions in the readme.md file included in the downloaded folder to complete the detachment process.
 
 ## Merge disk IaC with application IaC
@@ -100,7 +100,8 @@ After generating the disk Infrastructure as Code (IaC) configuration, you need t
 Follow the steps to merge the disck IaC:
 1. **Copy disk configuration file**: Locate the `disk-config.json` file generated in step 4 and copy it into the folder that contains your Application IaC code.
 1. **Update Terraform variables**: Open the terraform.tfvars file in the Application IaC folder.
-    - Uncomment the following line: `disk_config_file = "./disk-config.json"`
+    - Uncomment the following line: 
+        - `disk_config_file = "./disk-config.json"`
     - This links the disk configuration to your application deployment.
 1. **Review integration instructions**: For detailed guidance on using the disk configuration file, refer to the readme.md file included in the Application IaC package generated in step 1. The README explains how Terraform processes the disk configuration and applies it during deployment.
 
