@@ -17,21 +17,16 @@ ms.collection:
 
 If you use Amazon API Gateway and want to migrate your workload to Azure, this guide helps you understand feature mappings, best practices, and the migration process. On Azure, [Azure API Management](api-management-key-concepts.md) provides API gateway capabilities. These capabilities include API request and response routing, authorization and access control, monitoring and governance, and API version management.
 
-You'll learn how to:
-
-- Assess your current Amazon API Gateway deployment
-- Plan and prepare the migration
-- Execute the transition while maintaining API availability and performance
-
 ## What you'll accomplish
 
-By following this guide, you'll:
+In this guide, you:
 
-- Map Amazon API Gateway to Azure API Management capabilities
-- Prepare your Amazon and Azure environments for a successful migration
-- Plan and execute a migration with minimal downtime
-- Validate that your migrated workload meets performance and reliability requirements
-- Learn to iterate on the architecture for future enhancements
+- Assess your current Amazon API Gateway deployment.
+- Map Amazon API Gateway capabilities to Azure API Management capabilities.
+- Prepare your Amazon and Azure environments for a successful migration.
+- Plan and execute a migration with minimal downtime.
+- Validate that your migrated workload meets performance and reliability requirements.
+- Learn how to iterate on the architecture for future enhancements.
 
 ## Example scenario: Multiple-backend health records system
 
