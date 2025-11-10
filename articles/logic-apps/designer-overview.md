@@ -50,20 +50,6 @@ Follow these steps to create a new workflow in your Logic App.
    - Stateless
    - Start from template
 
-   Compare workflow types to choose the pattern that fits your scenario.
-
-   | Feature | Stateful | Stateless |
-   |---|---|---|
-   | Support for agents | Yes | — |
-   | Support Agent-to-Agent (A2A) protocol | Yes | — |
-   | Multi-agent patterns | Yes | — |
-   | Any available trigger | Yes | Yes |
-   | Run fast | — | Yes |
-   | Store workflow run history | Yes | — |
-   | Run asynchronously | Yes | — |
-   | Support long-running workflows | Yes | — |
-   | Handle large data | Yes | — |
-
 1. Select **Create**.
 
 1. The workflow designer opens.
