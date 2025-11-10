@@ -35,7 +35,7 @@ Follow these steps to open the workflow designer.
 
 From here, you can [create a new workflow](#create-a-new-workflow) or [access an existing workflow](#access-an-existing-workflow).
 
-## Create a new workflow
+### Create a new workflow
 
 Follow these steps to create a new workflow in your Logic App.
 
@@ -70,7 +70,7 @@ Follow these steps to create a new workflow in your Logic App.
 
    The designer displays the selected workflow as editable cards where you can visually edit steps, run the draft, switch to Code view, or open Run history.
 
-## Access an existing workflow
+### Access an existing workflow
 
 Follow these steps to access an existing workflow in your Logic App.
 
