@@ -21,7 +21,7 @@ This article provides background on Azure Device Registry (ADR) integration with
 
 Azure Device Registry (ADR) represents industrial assets and IoT devices as Azure Resource Manager (ARM) resources, extending the Azure management plane to IoT. It provides a consistent experience for deployment, policy enforcement, querying, and control plane operations. ADR is generally available for Azure IoT Operations scenarios, while integration with Azure IoT Hub is currently in *preview*.
 
-In the IoT Hub context, ADR acts as a unified device registry for managing IoT Hub–connected devices. Each device is represented as an Azure resource, enabling management across multiple IoT Hub instances through ADR namespaces.When you [create a new IoT Hub instance](iot-hub-device-registry-setup.md), you can link it to an existing ADR namespace or create a new one. The IoT Hub instance uses the linked namespace as a registry for its devices. Multiple IoT Hub instances can share a namespace, supporting collective device management across IoT Hubs.
+In the IoT Hub context, ADR acts as a unified device registry for managing IoT Hub–connected devices. Each device is represented as an Azure resource, enabling management across multiple IoT Hub instances through ADR namespaces. When you [create a new IoT Hub instance](iot-hub-device-registry-setup.md), you can link it to an existing ADR namespace or create a new one. The IoT Hub instance uses the linked namespace as a registry for its devices. Multiple IoT Hub instances can share a namespace, supporting collective device management across IoT Hubs.
 
 > [!NOTE]
 > Azure Device Registry is already generally available (GA) with [Azure IoT Operations](/azure/iot-operations).

@@ -20,7 +20,7 @@ From November 2025, IoT Hub introduces two major innovations: Azure Device Regis
 
 - **Azure Device Registry (ADR)**: A centralized device registry that allows you to manage devices across multiple IoT Hubs using namespaces. You can create a link between an existing ADR namespace to your IoT Hub or create a new namespace and create the link. For more information, see [What is Azure Device Registry?](iot-hub-device-registry-overview.md).
 
-- **Certificate management**: IoT Hub introduces built-in support for managing device certificates using Microsoft-managed PKI with X.509 certificates. These X.509 certificates are strictly operational certificates which the devices uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. Certificate management is an optional feature. For more information, see [What is certificate management?](iot-hub-certificate-management-overview.md).
+- **Certificate management**: IoT Hub introduces built-in support for managing device certificates using Microsoft-managed public key infrastructure (PKI) with X.509 certificates. These X.509 certificates are strictly operational certificates that the devices uses to authenticate with IoT Hub for secure communications, after the device onboarded with a different credential. Certificate management is an optional feature. For more information, see [What is certificate management?](iot-hub-certificate-management-overview.md).
 
 ## Are my existing IoT Hubs affected by these changes?
 
@@ -44,7 +44,7 @@ No, certificate management isn't available in existing hubs. You must create a n
 
 ## Can I use Azure Device Registry without certificate management?
 
-Yes. Certificate management is an optional feature, you can use ADR to manage devices across multiple IoT Hubs and choose to use other authentication methods, such as symmetric keys or third-party X.509 certificates. 
+Yes. Certificate management is an optional feature. You can use ADR to manage devices across multiple IoT Hubs and choose to use other authentication methods, such as symmetric keys or third-party X.509 certificates. 
 
 ## Can I use certificate management without Azure Device Registry?
 
@@ -52,7 +52,7 @@ No. Certificate management is an optional feature of ADR, and thus it requires u
 
 ## Can I use certificate management without Device Provisioning Service (DPS)?
 
-No, certificate management relies on the Device Provisioning Service (DPS) for device registration and certificate management. You must use DPS in conjunction with ADR to utilize certificate management features. For more information, see the section [Device Provisioning Service integration](iot-hub-certificate-management-overview.md#device-provisioning-service-integration) in [What is certificate management?](iot-hub-certificate-management-overview.md).
+No, certificate management relies on the Device Provisioning Service (DPS) for device registration and certificate management. You must use DPS with ADR to utilize certificate management features. For more information, see the section [Device Provisioning Service integration](iot-hub-certificate-management-overview.md#device-provisioning-service-integration) in [What is certificate management?](iot-hub-certificate-management-overview.md).
 
 ## What is the pricing model for IoT Hub with ADR and certificate management?
 
