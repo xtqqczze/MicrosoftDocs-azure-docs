@@ -1,5 +1,5 @@
 ---
-title: FIPS 140-2 on Azure Application Gateway
+title: FIPS 140 on Azure Application Gateway
 description: Learn how to enable FIPS mode for Azure Application Gateway V2 SKU.
 services: application gateway
 author: jaesoni
@@ -9,15 +9,15 @@ ms.date: 05/04/2025
 ms.author: greglin
 ---
 
-# FIPS 140-2 in Application Gateway (Preview)
+# FIPS 140-2 in Application Gateway
 
-Application Gateway V2 SKUs can run in a FIPS (Federal Information Processing Standard) 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." With FIPS 140-2, Application Gateway supports cryptographic modules and data encryption with Level 2 validation. The FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled.
+Application Gateway V2 SKUs can run in a FIPS (Federal Information Processing Standard) 140 approved mode of operation, which is commonly referred to as "FIPS mode." With FIPS mode, Application Gateway supports cryptographic modules and data encryption. The FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled.
 
 ## Clouds and Regions
 
 | Cloud | Status  | Default behavior | 
 | ---------- | ---------- | ---------- |
-| Azure Government (Fairfax) | Supported (Preview) | Enabled |
+| Azure Government (Fairfax) | Supported | Enabled |
 | Public | Coming soon | Disabled |
 | Microsoft Azure operated by 21Vianet (Mooncake) | Coming soon | Disabled |
 
@@ -27,7 +27,7 @@ For rest of the clouds, customers must opt in to enable the FIPS mode.
 
 ## FIPS mode operation
 
-Application Gateway utilizes a rolling upgrade policy to implement configurations with the FIPS validated cryptographic module across all instances. The duration for enabling or disabling FIPS mode may range from 15 to 60 minutes, depending on the number of configured or currently running instances. Throughout this process, the gateway operates at a reduced capacity without requiring complete downtime. it's essential to plan this operation carefully to avoid any potential impact, in accordance with your business requirements.
+Application Gateway utilizes a rolling upgrade process to implement configurations with the FIPS validated cryptographic module across all instances. The duration for enabling or disabling FIPS mode may range from 15 to 60 minutes, depending on the number of configured or currently running instances.
 
 > [!IMPORTANT]
 > The FIPS mode configuration change can take anywhere between 15 to 60 minutes depending on the number of instances for your gateway.
