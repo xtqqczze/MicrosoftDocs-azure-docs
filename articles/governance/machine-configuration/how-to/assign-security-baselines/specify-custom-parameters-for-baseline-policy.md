@@ -26,7 +26,7 @@ The new Azure Policy Settings Picker experience streamlines this process. It all
 
 3.  Choose one of the built-in baselines:
 
-    1.  **Official CIS Benchmarks for Linux Workloads**
+    -  **Official CIS Benchmarks for Linux Workloads**
 
     2.  **Azure Security Baseline for Windows**
 
