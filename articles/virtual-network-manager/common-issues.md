@@ -22,13 +22,13 @@ These issues can prevent your configuration changes from being applied:
 
 ### The configuration isn't applied to the regions where virtual networks are located
 
-You need to check the regions where the virtual networks are located. The configuration is only applied to the regions where the virtual networks are located. If you have a Microsoft Azure Virtual Network (Virtual Network) in a region that isn't included in the configuration, the configuration isn't applied to that <==={Label}{Azure Virtual Network}====>.
+You need to check the regions where the virtual networks are located. The configuration is only applied to the regions where the virtual networks are located. If you have a Microsoft Azure Virtual Network (Virtual Network) in a region that isn't included in the configuration, the configuration isn't applied to that Azure Virtual Network.
 
-To resolve this issue, add the region where the Virtual Network is located to the configuration. 
+To resolve this issue, add the region where the virtual network is located to the configuration. 
 
 ### Configuration isn't deployed
 
-You need to deploy the configuration after you create or modify it. The configuration is only applied to the Virtual Networks after you deploy it.
+You need to deploy the configuration after you create or modify it. The configuration is only applied to the virtual networks after you deploy it.
 
 To resolve this issue, deploy the configuration after you create or modify it.
 
@@ -46,7 +46,7 @@ Here are common reasons why your connectivity configuration isn't working as exp
 
 ### The virtual network peering creation fails
 
-In a hub-and-spoke topology, if you enable the option to *use the hub as a gateway*, you need to have a gateway in the hub Virtual Network. Otherwise, the creation of the virtual network peering between the hub and the spoke Virtual Networks fails. 
+In a hub-and-spoke topology, if you enable the option to *use the hub as a gateway*, you need to have a gateway in the hub Virtual Network. Otherwise, the creation of the virtual network peering between the hub and the spoke virtual networks fails. 
 
 ### Members in the network group can't communicate with each other
 
@@ -90,9 +90,9 @@ To avoid issues with resource group creation in AVNM, consider the following bes
 
 To use high scale private endpoints in a mesh topology, you need to enable the high scale private endpoint feature for each Virtual Network in the configuration.
 
-### How to identify inactive Virtual Networks for high scale private endpoints
+### How to identify inactive virtual networks for high scale private endpoints
 
-The portal interface highlights which Virtual Networks are inactive for high scale private endpoints. This indication appears only when the high scale private endpoint feature is enabled.
+The portal interface highlights which virtual networks are inactive for high scale private endpoints. This indication appears only when the high scale private endpoint feature is enabled.
 
 :::image type="content" source="media/common-issues/verify-high-scale-private-endpoints.png" alt-text="Screenshot of enablement of high scale endpoints in network manager.":::
 
