@@ -36,7 +36,7 @@ Namespaces also help maintain separation between different environments, such as
 
 The following diagram illustrates how multiple IoT Hub instances and devices link to a single ADR namespace for unified device management.
 
-:::image type="content" source="media/device-registry/namespaces-iot-hub.svg" alt-text="Mermaid diagram showing two IoT Hub instances with multiple devices linked to a single ADR namespace." lightbox="media/device-registry/namespaces-iot-hub.svg":::
+:::image type="content" source="media/device-registry/namespaces-iot-hub.svg" alt-text="Mermaid diagram showing two IoT Hub instances with multiple devices linked to a single ADR namespace.":::
 
 ## Representation and management of IoT Hub devices as ARM resources
 
