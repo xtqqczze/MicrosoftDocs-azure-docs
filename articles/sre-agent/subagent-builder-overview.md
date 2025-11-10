@@ -1,6 +1,6 @@
 ---
 title: Create subagents in Azure SRE Agent overview
-description: Learn how to use agent builder in Azure SRE Agent to create and manage intelligent subagents for automating operational workflows.
+description: Learn how to use subagent builder in Azure SRE Agent to create and manage intelligent subagents for automating operational workflows.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: how-to
@@ -10,9 +10,9 @@ ms.service: azure-sre-agent
 
 # Create subagents in Azure SRE Agent overview
 
-Azure SRE Agent features an agent builder to help you create, customize, and manage intelligent subagents for your operational workflows. Use agent builder to design subagents that can automatically respond to incidents, run scheduled tasks, connect to observability tools, and use your organization's knowledge base to improve decision-making.
+Azure SRE Agent features an subagent builder to help you create, customize, and manage intelligent subagents for your operational workflows. Use subagent builder to design subagents that can automatically respond to incidents, run scheduled tasks, connect to observability tools, and use your organization's knowledge base to improve decision-making.
 
-## What you can build with agent builder
+## What you can build with subagent builder
 
 Agent builder empowers you to create sophisticated automation solutions for your operational workflows:
 
@@ -23,7 +23,7 @@ Agent builder empowers you to create sophisticated automation solutions for your
 | Automated triggers | Set up incident response plans and scheduled tasks | • Automatic incident investigation<br>• Daily health reports<br>• Weekly compliance scans |
 | Actions | Communicate with external resources. | • Send email with Outlook<br>• Send Teams notifications<br>• Integrate with custom MCP tools on other SaaS systems |
 
-## Work with agent builder
+## Work with subagent builder
 
 To create a new subagent, start by defining the subagent’s primary purpose and operational scope so its responsibilities are clear. Then connect the data sources the subagent uses to expand its content. Potential sources include observability connectors or organizational knowledge (runbooks, procedures).
 
@@ -39,7 +39,7 @@ agent builder makes it easy to design and deploy your first intelligent subagent
 
 ### Prerequisites
 
-Before using agent builder, ensure you have:
+Before using subagent builder, ensure you have:
 
 - **Azure subscription**: A subscription with permissions to create and manage SRE Agent resources.
 - **Operational context**: An understanding of your incident response procedures and operational workflows.
@@ -59,12 +59,14 @@ Before using agent builder, ensure you have:
 
     | Property | Value |
     |--|--|
-    | Agent Name | Enter a name for your subagent. |
-    | Instructions | Enter custom instructions telling the subagent how you want it to behave. |
-    | Handoff Description | Describe when and why other subagents should hand off processing to this subagent. |
-    | Custom Tools (optional) | Select one or more tools for the subagent to use during processing. |
-    | Built-in Tools (optional) | Select one or more system tools to make available to the subagent. |
-    | Handoff Agents (optional) | Select the next subagent you want to pick up processing once this subagent is done executing. |
+    | Name | Enter a descriptive name for your subagent. |
+    | Instructions | Provide clear, custom instructions that define how the subagent should behave. |
+    | Handoff Description | Explain the scenarios when other subagents should transfer processing to this subagent, and why. |
+    | Custom Tools (optional) | Choose one or more custom tools for the subagent to use during its operations. |
+    | Built-in Tools (optional) | Select any built-in system tools you want the subagent to have access to. |
+    | Handoff Agents (optional) | Specify which subagent should take over processing after this subagent completes its tasks. |
+
+    Optionally, you can enable the *Knowledge base* feature. This allows you to [upload files](subagent-builder-scenarios.md#supported-file-types) that your subagent can use as reference material when answering queries.
 
 ## Related content
 
