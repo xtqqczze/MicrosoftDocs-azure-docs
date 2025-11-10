@@ -73,6 +73,12 @@ The **Image definitions** pane lists the image definitions that your project can
 
 :::image type="content" source="media/how-to-configure-dev-center-imaging/team-customizations-image-definitions-small.png" alt-text="Screenshot of the Azure portal pane that lists accessible image definitions for a project." lightbox="media/how-to-configure-dev-center-imaging/team-customizations-image-definitions.png":::
 
+## Build a reusable image
+
+You can build a reusable image from the customization file to optimize performance and enhance reliability. This image applies to all dev boxes created from the pool. The DevCenter service creates a dev box behind the scenes, applies your customizations, and exports the resulting image to an Azure Compute Gallery in a managed resource group.
+
+There are two ways to build images: automatic or manual. By default, images are automatically built whenever a new image definition is detected or an existing one is updated. To control when images are built, you can disable automatic image builds and manually trigger builds.
+
 ## Configure a dev box pool to use an image definition
 
 To make customizations available to your development teams, configure a dev box pool to use an image definition. Store the customization file (imagedefinition.yaml) in a repository linked to a catalog in your project. When you specify this file as the image definition for the pool, the customizations are applied to new dev boxes.
@@ -162,20 +168,14 @@ To verify that customizations are applied correctly, create a dev box in the Mic
 
 You can make adjustments to the customization file and create a new dev box to test the changes. When the customizations are correct, you can build a reusable image.
 
-## Build a reusable image
-
-You can build a reusable image from the customization file to optimize performance and enhance reliability. This image applies to all dev boxes created from the pool. The DevCenter service creates a dev box behind the scenes, applies your customizations, and exports the resulting image to an Azure Compute Gallery in a managed resource group.
-
-There are two ways to build images: automatic or manual. By default, images are automatically built whenever a new image definition is detected or an existing one is updated. To control when images are built, you can disable automatic image builds and manually trigger builds.
-
-### Configure automatic image builds
+## Configure automatic image builds
 
 By default, images are automatically built for catalogs containing image definitions. This feature helps prevent stale configurations and improves dev box reliability. 
 
 > [!NOTE]
 > Image builds incur costs through dev box meters during runtime when customizations are applied.
 
-#### Configure automatic image builds for existing catalogs
+### Configure automatic image builds for existing catalogs
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -193,7 +193,7 @@ By default, images are automatically built for catalogs containing image definit
  
    :::image type="content" source="media/how-to-configure-dev-center-imaging/dev-box-add-catalog-auto-build-image.png" alt-text="Screenshot showing the automatically build an image option in catalog settings.":::
 
-#### Configure automatic image builds during catalog creation
+### Configure automatic image builds during catalog creation
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -219,7 +219,7 @@ By default, images are automatically built for catalogs containing image definit
 
 When automatic image builds are disabled, you must manually trigger image builds when you want to create or update reusable images from your image definitions.
 
-### Build an image manually
+## Build an image manually
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
