@@ -99,7 +99,7 @@ To build a business case, follow these steps:
 1. Select the currency in which you want to create the business case. 
 1. Review your selected inputs and then select **Build business case**.
 
-    :::image type="content" source="./media/how-to-build-a-business-case/review-and-build.png" alt-text="Screenshot shows to review and build a business case.":::
+    :::image type="content" source="./media/how-to-build-a-business-case/review-and-build.png" alt-text="Screenshot shows how to review and build a business case.":::
 
 ## Next steps
 - [Learn more](how-to-view-a-business-case.md) about how to review the Business case reports.
