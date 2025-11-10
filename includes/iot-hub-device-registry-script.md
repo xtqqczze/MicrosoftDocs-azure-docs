@@ -27,7 +27,7 @@ Use the provided PowerShell script to automate the setup of your IoT Hub with Az
 
 ## Prepare your environment
 
-1. Download [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.5) for Windows.
+1. Download [PowerShell 7](/powershell/scripting/install/installing-powershell-on-windows) for Windows.
 1. Navigate to the [GitHub repository](https://github.com/Azure-Samples/iot-hub-adr-cert-mgmt-preview/tree/main/scripts) and download the **Scripts** folder, which contains the script file, `iothub-adr-certs-setup-preview.ps1`.
 
 ## Customize the script variables
