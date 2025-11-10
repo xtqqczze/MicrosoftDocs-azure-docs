@@ -20,17 +20,6 @@ When you choose to store documents in Azure Blob Storage, you're charged based o
 
 This tutorial covers how to configure and run the service via the asynchronous (Batch) API.
 
-## Table of Contents
-
-- [Prerequisites](#prerequisites)  
-- [Create a storage account and container](#create-a-storage-account-and-container)  
-- [Upload a sample document](#upload-a-sample-document)  
-- [Grant the de-identification service access to the storage account](#grant-the-de-identification-service-access-to-the-storage-account)  
-- [Configure network isolation on the storage account](#configure-network-isolation-on-the-storage-account)  
-- [Running the service using the python SDK](#running-the-service-using-the-python-sdk)     
-- [Clean up resources](#clean-up-resources)  
-- [Next steps](#next-steps)
-
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
@@ -81,9 +70,10 @@ az storage blob upload --data $DocumentContent --account-name $StorageAccountNam
 ```
 
 - Example with French data:
+```powershell
 $DocumentContent = "Julie Tremblay a été consultée par Dr. Marc Lavoie  à l'Hôpital de la Cité-des-Prairies le 10 Janvier"
 az storage blob upload --data $DocumentContent --account-name $StorageAccountName --container-name deidtest --name deidsample_fr.txt --auth-mode login
-
+```
 
 ## Grant the de-identification service access to the storage account
 
@@ -92,12 +82,13 @@ In this step, you grant the de-identification service's system-assigned managed 
 You grant the **Storage Blob Data Contributor** role because the de-identification service reads the original document and writes the de-identified output documents. 
 
 Substitute the name of your de-identification service for the `<deid_service_name>` placeholder:
+
 ```powershell
 $DeidServicePrincipalId=$(az resource show -n <deid_service_name> -g $ResourceGroup --resource-type microsoft.healthdataaiservices/deidservices --query identity.principalId --output tsv)
 az role assignment create --assignee $DeidServicePrincipalId --role "Storage Blob Data Contributor" --scope $StorageAccountId
 ```
 
-**Note:** To verify that the de-identification service has access to the storage account, you can check on the Azure Portal under **storage accounts**. Under the **Storage center** and **Resources** tab, click your storage account name. Select **Access control (IAM)**. In the search bar, search for the name of your de-identification service ($ResourceGroup).
+> To verify that the de-identification service has access to the storage account, you can check on the Azure portal under **storage accounts**. Under the **Storage center** and **Resources** tab, click your storage account name. Select **Access control (IAM)**. In the search bar, search for the name of your de-identification service ($ResourceGroup). 
 
 ## Configure network isolation on the storage account
 
@@ -112,7 +103,8 @@ az storage account update --name $StorageAccountName --public-network-access Dis
 ## Running the service using the python SDK
 
 The code below contains a sample from the [Azure Health Deidentification SDK for Python](/python/api/overview/azure/health-deidentification). 
-**Note:** This example uses the French Canada language-locale pair. See the full list our service supports [here.](languages-supported.md)
+
+> This example uses the French Canada language-locale pair. See the full list our service supports [here.](languages-supported.md)
 
 ```Bash
 
@@ -192,11 +184,9 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
 ```
 
-
-3. Get job status
+Get job status:
 ```Bash
 curl -X GET \
   -H "Authorization: Bearer $(<token.txt)" \
