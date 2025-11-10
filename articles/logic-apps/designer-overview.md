@@ -39,11 +39,11 @@ From here, you can [create a new workflow](#create-a-new-workflow) or [access an
 
 Follow these steps to create a new workflow in your Logic App.
 
-1. On the **Workflows** page, select the **+ Create** button to create a new workflow.
+1. On the **Workflows** page, select **+ Create** to create a new workflow.
 
-1. The Create workflow options appear.
+1. The **Create workflow** options appear.
 
-1. Provide a name for your workflow.
+1. Enter a name for your workflow.
 
 1. Select from the available workflow types:
    - Stateful
@@ -64,7 +64,7 @@ Follow these steps to create a new workflow in your Logic App.
    | Support long-running workflows | Yes | — |
    | Handle large data | Yes | — |
 
-1. Select the **Create** button.
+1. Select **Create**.
 
 1. The workflow designer opens.
 
@@ -90,7 +90,7 @@ To add a trigger or an action to your Standard workflow, see [Build a workflow w
 
    - Mandatory fields have a red asterisk (&ast;) in front of the name.
 
-   - Some triggers and actions might require you to create a connection to another service. You might need to sign into an account, or enter credentials for a service. For example, if you want to use the Office 365 Outlook connector to send an email, you need to authorize your Outlook email account.
+   - Some triggers and actions might require you to create a connection to another service. You might need to sign in to an account, or enter credentials for a service. For example, if you want to use the Office 365 Outlook connector to send an email, you need to authorize your Outlook email account.
 
    - Some triggers and actions use dynamic content, where you can select variables instead of entering information or expressions.
 
@@ -119,7 +119,7 @@ If you prefer to use the classic designer, select the [ellipsis menu](#ellipsis-
 
 ### View selector
 
-The view selector (Workflow, Code, and Run history) is at the top of the designer—select a view to switch between visual editing, code, and run history.
+The view selector (Workflow, Code, and Run history) is at the top of the designer. Select a view to switch between visual editing, code, and run history.
 
 :::image type="content" source="media/designer-overview/view-selector.png" alt-text="Screenshot showing the view selector at the top of the new designer.":::
 
@@ -133,13 +133,13 @@ The view selector (Workflow, Code, and Run history) is at the top of the designe
 
 ### Ellipsis menu
 
-In the new designer, many workflow actions are now found in the vertical ellipsis menu (⋮) next to the **Publish** button at the top right. Select this menu to access options.
+In the new designer, you can find many workflow actions in the vertical ellipsis menu (⋮) next to the **Publish** button at the top right. Select this menu to access options.
 
 :::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot showing the ellipsis menu next to the Publish button in the new designer.":::
 
 ### Where to find common actions
 
- Use the table to quickly find where each common task is performed.
+ Use the table to quickly find where you can perform each common task.
 
 | Task | Classic designer | New designer |
 |---|---|---|
