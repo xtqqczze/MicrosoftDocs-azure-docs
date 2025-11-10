@@ -16,16 +16,16 @@ Managed Instance on Azure App Service combines the simplicity of platform-as-a-s
 [!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
 
 In this quickstart, you complete the following steps:
-1. Use Azure Developer CLI to deploy Azure resources.
-1. Use Azure portal or Cloud Shell to create a Managed Instance on Azure App Service (preview).
-1. Deploy a sample app to the plan.
+1. Use Azure Developer CLI to deploy sample resources.
+1. Create a Managed Instance on Azure App Service (preview).
+1. Deploy a sample app.
 1. Verify the deployment.
 
 ## Prerequisites
 
 * **Azure account**: You need an Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* **Access to the approved regions**: During preview, allowed regions for Managed Instance include: *East Asia*, *East US*, *North Europe*, and *West Central US*.
+* **Access to the approved regions**: During preview, regions for Managed Instance include: *East Asia*, *East US*, *North Europe*, and *West Central US*. Additional regions to follow.
 
 * [Managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity)
 
@@ -35,7 +35,7 @@ In this quickstart, you complete the following steps:
 
 ## Deploy sample resources
 
-You can quickly deploy all the necessary resources in this quickstart using Azure Developer CLI and see it running on Azure. The Azure Developer CLI template used in this quickstart is from [Azure samples](). Just run the following commands in the Azure Cloud Shell, and follow the prompts:
+You can quickly deploy all the necessary resources in this quickstart using Azure Developer CLI. The Azure Developer CLI template used in this quickstart is from [Azure samples](). Just run the following commands in the Azure Cloud Shell, and follow the prompts:
 
 ```bash
 mkdir managed-instance-quickstart
@@ -91,7 +91,7 @@ Resource Group: rg-managed-instance
 
 The values for `Storage Account`, `Container Name`, `Managed Identity Client name`, and `Resource Group` are used later.
 
-## Deploy an app on Managed Instance
+## Deploy a Managed Instance plan
 
 Follow these steps to create a Managed Instance plan and deploy an app to it:
 
@@ -117,7 +117,7 @@ On the Basic tab, provide the following details.
 | Setting | Value |
 |-------|----------|
 | Name | **contoso-mi-app** |
-| Runtime stack | **.NET 9 (STS)** |
+| Runtime stack | **ASPNET V4.8** |
 | Region | A region near you |
 
 #### Pricing plans
@@ -188,7 +188,7 @@ az webapp create \
   --name "$APP_NAME" \
   --resource-group "$RG" \
   --plan "$PLAN_NAME" \
-  --runtime "DOTNET|9"
+  --runtime "ASPNET:V4.8"
 ```
 
 4. The following command assigns a Managed Identity to the web app.
@@ -218,13 +218,15 @@ az webapp deploy \
 
 -----
 
+
+
 ## Browse to the app
 
 To browse to the created app, select the **default domain** in the **Overview** page.
 
-The .NET app is running on a Managed Instance plan and reading fonts from C:\Windows\Fonts directory.
+The .NET app is running on a Managed Instance plan. The app uses fonts from C:\Windows\Fonts directory.
 
-:::image type="content" source="media/quickstart-managed-instance/hello-world.png" alt-text="Screenshot that shows the sample app using C:\Windows\Fonts\Aptos.TTF.":::
+:::image type="content" source="media/quickstart-managed-instance/browse-app-hello-world.png" alt-text="Screenshot that shows the sample app using C:\Windows\Fonts\Aptos.TTF.":::
 
 ## Manage the Managed Instance plan
 
