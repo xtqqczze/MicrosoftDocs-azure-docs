@@ -1,6 +1,6 @@
 ---
 title: Scenarios for building subagents in Azure SRE Agent
-description: Learn how you can use agent builder in Azure SRE Agent to connect observability tools, manage knowledge bases, configure specialized subagents, and automate operational workflows using triggers and scheduled tasks.
+description: Learn how you can use subagent builder in Azure SRE Agent to connect observability tools, manage knowledge bases, configure specialized subagents, and automate operational workflows using triggers and scheduled tasks.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: how-to
@@ -10,15 +10,15 @@ ms.service: azure-sre-agent
 
 # Scenarios for building subagents in Azure SRE Agent
 
-Azure SRE Agent features an agent builder to help you to design, configure, and extend intelligent operational subagents tailored to your organization's needs. With agent builder, you can seamlessly integrate data sources, manage and enrich knowledge bases, create specialized subagents, and automate workflows by using triggers and scheduled tasks. This article explores common scenarios and configuration patterns to help you maximize the value of agent builder for your site reliability engineering (SRE) operations.
+Azure SRE Agent features an subagent builder to help you to design, configure, and extend intelligent operational subagents tailored to your organization's needs. With subagent builder, you can seamlessly integrate data sources, manage and enrich knowledge bases, create specialized subagents, and automate workflows by using triggers and scheduled tasks. This article explores common scenarios and configuration patterns to help you maximize the value of subagent builder for your site reliability engineering (SRE) operations.
 
 ### Bring your own data sources (observability tools)
 
-Agent builder enables you to connect your existing observability infrastructure to enhance your subagents' capabilities.
+Subgent builder enables you to connect your existing observability infrastructure to enhance your subagents' capabilities.
 
 #### Supported data connectors
 
-SRE Agent supports the following data connectors that interface with agent builder:
+SRE Agent supports the following data connectors that interface with subagent builder:
 
 - **Model Context Protocol (MCP)**: Connect to external data sources and APIs.
 - **Microsoft Teams**: Post messages to Teams channels.
@@ -30,7 +30,7 @@ Use the following steps to configure your subagent.
 
 1. Navigate to data connectors.
 
-    In agent builder, select the **Settings > Connectors** tab.
+    In subagent builder, select the **Settings > Connectors** tab.
 
 1. Choose connector type.
 
@@ -52,15 +52,17 @@ Use the following steps to configure your subagent.
 
 Enhance your subagents' knowledge by uploading organizational documentation, runbooks, and procedural guides.
 
+Examples:
+
+Architecture / System Design – diagrams and explanations of system components and data flows
+Troubleshooting Guide – steps to diagnose and fix recurring issues
+Runbooks / Standard Operating Procedures (SOPs) – workflows for routine operations and incidents
+Incident Reports / Postmortems – records and learnings from past outages
+Release Notes / Change Logs – summaries of product or service updates
+
 #### Supported file types
 
-- **Documents**: PDF, DOCX, TXT files containing operational procedures
-
-- **Runbooks**: Step-by-step incident resolution guides
-
-- **Configuration files**: YAML, JSON configurations for reference
-
-- **Example knowledge articles**: Internal documentation and best practices
+Any operational procedures in Markdown (`.md`) or text (`.txt`) format.
 
 #### File management workflow
 
@@ -256,4 +258,4 @@ scheduled_task:
 
 ## Related content
 
-- [Create subagents in Azure SRE Agent](./agent-builder-overview.md)
+- [Create subagents in Azure SRE Agent](./subagent-builder-overview.md)

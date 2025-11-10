@@ -93,7 +93,7 @@ Create a scheduled task to run on a schedule you define.
 
 # [Build a Subagent](#tab/subagent)
 
-Build [custom operational subagents](agent-builder-overview.md), tools, and integrations by using a visual no-code interface. You can extend the agent's capabilities with specialized subagents for different operational domains.
+Build [custom operational subagents](subagent-builder-overview.md), tools, and integrations by using a visual no-code interface. You can extend the agent's capabilities with specialized subagents for different operational domains.
 
 - Create purpose-built subagents for specific operational areas (database, network, security)
 
