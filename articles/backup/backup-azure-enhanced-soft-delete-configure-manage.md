@@ -6,6 +6,7 @@ ms.date: 05/26/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
+ms.custom: references_regions
 # Customer intent: As a backup administrator, I want to configure soft delete for my recovery services vault or backup vault, so that I can protect my backup data from accidental deletion and ensure its recoverability over a specified retention period.
 ---
 
@@ -252,18 +253,19 @@ Follow these steps:
 
 ---
 
-## Manage Customer-Managed Keys (CMKs) After Undeletion:
+## Manage customer-managed keys (CMKs) after undeletion
 
 To ensure CMKs are enabled after undeleting the vault, follow these steps:
 
 1. To reapply CMK settings, perform one of the following actions to activate CMK:
 
-   1. Choose a different key and apply CMK settings and then revert back to the original CMK key.
+   - Choose a different key and apply CMK settings and then revert back to the original CMK key.
 
-   1. Choose a different managed identity than the identity used for CMK encryption before vault undeletion and reapply CMK settings.
+   - Choose a different managed identity than the identity used for CMK encryption before vault undeletion and reapply CMK settings.
+
 These actions will reactivate CMK on the vault after it is undeleted.
 
-## Resume Backup for a Soft-Deleted Backup Item
+## Resume backup for a soft-deleted backup item
 
 To resume backup for a soft-deleted backup item, follow these steps:
 

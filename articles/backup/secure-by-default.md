@@ -5,7 +5,7 @@ ms.topic: overview
 ms.date: 11/10/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-ms.custom: engagement-fy24, ignite-2024
+ms.custom: engagement-fy24, ignite-2024, references_regions
 # Customer intent: As a data administrator, I want to utilize soft delete features in Azure Backup, so that I can ensure the recoverability of deleted backup data for up to 180 days and protect against accidental or malicious deletions.
 ---
 
@@ -143,16 +143,16 @@ The following table outlines the behavior of the **_Delete Protected Item_** act
 
 | **Client** | **Soft Delete – Enabled / Always On** | **Soft Delete – Disabled** |
 |-------------|----------------------------------------|-----------------------------|
-| **Azure Portal** | Backup items move to a soft-deleted state. | Backup items move to a soft-deleted state. |
+| **Azure portal** | Backup items move to a soft-deleted state. | Backup items move to a soft-deleted state. |
 | **PowerShell** | Backup items move to a soft-deleted state. | For PowerShell modules version **7.5.0** or later, backup items in Recovery Services vault move to a soft-deleted state. For earlier versions, backup items are deleted immediately.<br>Backup vault actions are independent of the module version. | 
 | **CLI** | Backup items move to a soft-deleted state. | For Azure CLI version **2.75.0** or later, backup items in Recovery Services vault move to a soft-deleted state. For earlier versions, backup items are deleted immediately.<br>Backup vault actions are independent of the module version. |
 | **REST API** | Backup items move to a soft-deleted state. | In Recovery Services vault, for API versions **2024-09-30-preview** or later, backup items move to a soft-deleted state. In Backup vault, for API versions **2025-09-01** or later, backup items move to a soft-deleted state.<br>For earlier API versions, backup items are deleted immediately. |
 
-# [General Availability](#tab/general-availability)
+# [General availability](#tab/general-availability)
 
 | **Clients**                                    | **Soft Delete – Enabled/AlwaysOn/Disabled.**                |
 |------------------------------------------------|---------------------------------------------------------|
-| **Azure Portal / Powershell / CLI / REST API** | Backup items go into soft deleted state for **all** modules/API versions |
+| **Azure portal / PowerShell / CLI / REST API** | Backup items go into soft deleted state for **all** modules/API versions |
 
 ---
 
@@ -164,13 +164,13 @@ The following table outlines the behavior of the ***Delete Vault*** action acros
 
 | **Client** | **Soft Delete – Disabled / Enabled / Always On** |
 |-------------|--------------------------------------------------|
-| **Azure Portal** | Soft deletion of the vault is allowed when the vault is either empty or contains only soft-deleted backup items or containers. |
+| **Azure portal** | Soft deletion of the vault is allowed when the vault is either empty or contains only soft-deleted backup items or containers. |
 | **PowerShell** | For PowerShell module versions **7.5.0** or later, soft deletion of the Recovery Services vault is allowed when it is either empty or contains only soft-deleted backup items or containers. For earlier versions, vault deletion is allowed only when the vault is completely empty.<br>Backup vault actions are independent of the module version. |
 | **CLI** | For Azure CLI versions **2.75.0** or later, soft deletion of the Recovery Services vault is allowed when the vault is either empty or contains only soft-deleted backup items or containers. For earlier versions, vault deletion is allowed only when the vault is completely empty.<br>Backup vault actions are independent of the module version. |
 | **REST API** | In Recovery Services vault, for API versions **2024-09-30-preview** or later, soft deletion of the vault is allowed when the vault is either empty or contains only soft-deleted backup items or containers. In Backup vault, for API versions **2025-09-01** or later, soft deletion of the vault is allowed when the vault is either empty or contains only soft-deleted backup items or containers.<br>For earlier API versions, vault deletion is allowed only when the vault is completely empty. |
 
 
-# [General Availability](#tab/general-availability)
+# [General availability](#tab/general-availability)
 
 | **Clients**                              | **Soft Delete – Disabled/Enabled/AlwaysOn**                |
 |---------------------------------------|--------------------------------------------------------|
@@ -187,17 +187,17 @@ The following table describes the behavior of the **_Disable Soft Delete_** acti
 
 | **Client** | **Behavior** |
 |-------------|--------------|
-| **Azure Portal** | Not allowed. |
+| **Azure portal** | Not allowed. |
 | **PowerShell** | Not allowed for PowerShell module versions **7.5.0** or later in Recovery Services vault. Allowed for earlier versions.<br>Backup vault actions are independent of the module version. |
 | **CLI** | Not allowed for Azure CLI versions **2.75.0** or later in Recovery Services vault. Allowed for earlier versions.<br>Backup vault actions are independent of the module version. |
 | **REST API** | Not allowed for API versions **2024-09-30-preview** or later in Recovery Services vault. Not allowed for API versions **2025-09-01** or later in Backup vault.<br>Allowed for earlier API versions. |
 
 
-# [General Availability](#tab/general-availability)
+# [General availability](#tab/general-availability)
 
 | **Clients**                                    | **Behavior**                                                     |
 |------------------------------------------------|------------------------------------------------------------------|
-| **Azure Portal / Powershell / CLI / REST API** | Disable soft delete is **not allowed** for any module/API versions   |
+| **Azure portal / PowerShell / CLI / REST API** | Disable soft delete is **not allowed** for any module/API versions   |
 
 ---
 
