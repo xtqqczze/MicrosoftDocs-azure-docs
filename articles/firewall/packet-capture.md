@@ -47,7 +47,7 @@ Create a storage account and obtain a SAS URL for a container where the captured
 1. After you create the container, select **...** (ellipsis) next to it and select **Generate SAS**.
 1. On the **Generate SAS** page, under **Permissions**, clear the **Read** permission and select **Write**.
 
-   :::image type="content" source="media/packet-capture/generate-shared-access-signature.png.png" alt-text="Screenshot of the Generate SAS page showing the Permissions section with Write permission selected and Read permission cleared.":::
+   :::image type="content" source="media/packet-capture/generate-shared-access-signature.png" alt-text="Screenshot of the Generate SAS page showing the Permissions section with Write permission selected and Read permission cleared.":::
 
 1. Select **Generate SAS token and URL** and copy the generated SAS URL.
 
