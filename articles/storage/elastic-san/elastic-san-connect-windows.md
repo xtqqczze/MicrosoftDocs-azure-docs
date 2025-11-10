@@ -10,34 +10,33 @@ ms.custom: references_regions
 ---
 # Connect to Elastic SAN volumes - Windows
 
-This article explains how to connect a Windows client to an Azure Elastic SAN volume.
+This article explains how to connect a Windows client to an Azure Elastic SAN volume. For details on connecting from a Linux client, see [Connect to Elastic SAN volumes - Linux](elastic-san-connect-linux.md).
 
 There are two connection options:
 
-- **Elastic SAN VM extension** – Use during VM or VM scale set deployment to automatically configure connectivity. This option reduces onboarding steps and is recommended when deploying new VMs at scale.
-- **Manual connect script** – Use after a VM is deployed to configure connectivity with specific parameters. This option provides flexibility for existing VMs and advanced configurations.
+- Elastic SAN VM extension – Use during virtual machine (VM) or Virtual Machine Scale Set deployment to automatically configure connectivity. Using a VM extension greatly simplifies onboarding and deployment, if this option meets your needs, you should use it. 
+- Manual connect script – If you need to configure connectivity with specific parameters, or you have an existing VM and an advanced configuration, use this option.
 
 Choose the option that best fits your deployment scenario. Both approaches require a deployed Elastic SAN resource and configured volume groups.
 
 ## Connect during VM deployment using the Elastic SAN VM extension
 
-You can now connect Elastic SAN volumes to your Windows virtual machines automatically during deployment using the Elastic SAN VM extension. This extension simplifies the setup process by eliminating the need for manual post-deployment configuration. The Elastic SAN VM extension installs and configures itself without requiring manual setup, streamlining deployment workflows. This is especially beneficial for storage-intensive workloads. 
+When you deploy a VM or a Virtual Machine Scale Set, you can use an Elastic SAN VM extension to greatly simplify the setup and configuration process for an Elastic SAN with that VM or the Virtual Machine Scale Set. When you apply the extension at the Virtual Machine Scale Set level, it ensures that all VMs in that scale set have uniform connectivity to your Elastic SAN. If you're going to create new infrastructure for an Elastic SAN, use the VM extension to configure the connections to your Elastic SAN.
 
 
 ### Prerequisites
 
-- An existing Elastic SAN resource with configured volume groups.
+- [Deploy an Elastic SAN](elastic-san-create.md)
 - Permissions to deploy VMs and install extensions in your subscription.
-
+- Either [configure private endpoints](elastic-san-configure-private-endpoints.md) or [configure service endpoints](elastic-san-configure-service-endpoints.md)
   
 ### How to Use the VM Extension
 #### During VM Creation
 
-1. In the Azure portal, navigate to the **Extensions tab** during VM setup.
-2. Select the **Elastic SAN VM extension** from the Marketplace.
-3. Provide the required configuration parameters:
- - Elastic SAN name
-- Volume group name
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Create a new VM, fill in all the required values, and navigate to the **Extensions tab** during VM deployment.
+1. Select the **Elastic SAN VM extension** from the Marketplace.
+1. Fill in the required parameters for the Elastic SAN's name, the volume group name, the number of sessions, and the connection mode.
 - Number of sessions
 - Connection mode (e.g., read/write)
 
