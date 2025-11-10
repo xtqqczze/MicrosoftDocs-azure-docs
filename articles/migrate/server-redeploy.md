@@ -103,7 +103,9 @@ Follow the steps to merge the disck IaC:
     - This links the disk configuration to your application deployment.
 1. **Review integration instructions**: For detailed guidance on using the disk configuration file, refer to the readme.md file included in the Application IaC package generated in step 1. The README explains how Terraform processes the disk configuration and applies it during deployment.
 
-
 ## Re-apply the application IaC script
 
 Follow the instructions in the readme.md file included with the Application IaC package to re-apply the script. This step ensures that the disk changes are incorporated and your migration is completed successfully.
+
+## Next steps
+
