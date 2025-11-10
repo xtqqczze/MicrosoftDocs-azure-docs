@@ -12,13 +12,13 @@ ms.custom: references_regions
 
 Customers designing a highly available solution should consider the redundancy planning
 requirements for [virtual machines][28] because guest assignments are extensions of machine
-resources in Azure. When guest assignment resources are provisioned into an Azure region that's
-[paired][29], you can view guest assignment reports if at least one region in the pair is
+resources in Azure. Guest assignment resources can be provisioned into Azure regions that are
+[paired][29]. You can view guest assignment reports if at least one region in the pair is
 available. When the Azure region isn't paired and it becomes unavailable, you can't access reports
 for a guest assignment. When the region is restored, you can access the reports again.
 
 It's best practice to assign the same policy definitions with the same parameters to all machines
-in the solution for highly available applications. This is especially true for scenarios where
+in the solution for highly available applications. These considerations are especially important for scenarios where
 virtual machines are provisioned in [Availability Sets][30] behind a load balancer solution. A
 single policy assignment spanning all machines has the least administrative overhead.
 
@@ -55,16 +55,16 @@ assignments:
 | /providers/Microsoft.Authorization/policyDefinitions/63594bb8-43bb-4bf0-bbf8-c67e5c28cb65 | [Preview]: Linux machines should meet STIG compliance requirement for Azure compute                         |
 | /providers/Microsoft.Authorization/policyDefinitions/50c52fc9-cb21-4d99-9031-d6a0c613361c | [Preview]: Windows machines should meet STIG compliance requirements for Azure compute                      |
 | /providers/Microsoft.Authorization/policyDefinitions/e79ffbda-ff85-465d-ab8e-7e58a557660f | [Preview]: Linux machines with OMI installed should have version 1.6.8-1 or later                           |
-| /providers/Microsoft.Authorization/policyDefinitions/934345e1-4dfb-4c70-90d7-41990dc9608b | Audit Windows machines that do not contain the specified certificates in Trusted Root                       |
-| /providers/Microsoft.Authorization/policyDefinitions/08a2f2d2-94b2-4a7b-aa3b-bb3f523ee6fd | Audit Windows machines on which the DSC configuration is not compliant                                      |
-| /providers/Microsoft.Authorization/policyDefinitions/c648fbbb-591c-4acd-b465-ce9b176ca173 | Audit Windows machines that do not have the specified Windows PowerShell execution policy                   |
-| /providers/Microsoft.Authorization/policyDefinitions/3e4e2bd5-15a2-4628-b3e1-58977e9793f3 | Audit Windows machines that do not have the specified Windows PowerShell modules installed                  |
-| /providers/Microsoft.Authorization/policyDefinitions/58c460e9-7573-4bb2-9676-339c2f2486bb | Audit Windows machines on which Windows Serial Console is not enabled                                       |
-| /providers/Microsoft.Authorization/policyDefinitions/e6ebf138-3d71-4935-a13b-9c7fdddd94df | Audit Windows machines on which the specified services are not installed and 'Running'                      |
-| /providers/Microsoft.Authorization/policyDefinitions/c633f6a2-7f8b-4d9e-9456-02f0f04f5505 | Audit Windows machines that are not set to the specified time zone                                          |
+| /providers/Microsoft.Authorization/policyDefinitions/934345e1-4dfb-4c70-90d7-41990dc9608b | Audit Windows machines that don't contain the specified certificates in Trusted Root                       |
+| /providers/Microsoft.Authorization/policyDefinitions/08a2f2d2-94b2-4a7b-aa3b-bb3f523ee6fd | Audit Windows machines on which the DSC configuration isn't compliant                                      |
+| /providers/Microsoft.Authorization/policyDefinitions/c648fbbb-591c-4acd-b465-ce9b176ca173 | Audit Windows machines that don't have the specified Windows PowerShell execution policy                   |
+| /providers/Microsoft.Authorization/policyDefinitions/3e4e2bd5-15a2-4628-b3e1-58977e9793f3 | Audit Windows machines that don't have the specified Windows PowerShell modules installed                  |
+| /providers/Microsoft.Authorization/policyDefinitions/58c460e9-7573-4bb2-9676-339c2f2486bb | Audit Windows machines on which Windows Serial Console isn't enabled                                       |
+| /providers/Microsoft.Authorization/policyDefinitions/e6ebf138-3d71-4935-a13b-9c7fdddd94df | Audit Windows machines on which the specified services aren't installed and 'Running'                      |
+| /providers/Microsoft.Authorization/policyDefinitions/c633f6a2-7f8b-4d9e-9456-02f0f04f5505 | Audit Windows machines that aren't set to the specified time zone                                          |
 
 > [!NOTE]
-> Please check this page periodically for updates to the list of built-in machine configuration
+> Check this page periodically for updates to the list of built-in machine configuration
 > policy definitions that support multiple assignments.
 
 ### Assignments to Azure management groups
@@ -73,7 +73,7 @@ Azure Policy definitions in the category `Guest Configuration` can be assigned t
 when the effect is `AuditIfNotExists` or `DeployIfNotExists`.
 
 > [!IMPORTANT]
-> When [policy exemptions][47] are created on a Machine Confgiguration policy, the associated guest assignment will need to be deleted in order to stop the agent from scanning.
+> When [policy exemptions][47] are created on a Machine Configuration policy, the associated guest assignment needs to be deleted to stop the agent from scanning.
 
 ### Client log files
 
@@ -81,7 +81,7 @@ The machine configuration extension writes log files to the following locations:
 
 Windows
 
-- Azure VM: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
+- Azure Virtual Machine: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 - Arc-enabled server: `C:\ProgramData\GuestConfig\arc_policy_logs\gc_agent.log`
 
 Linux
@@ -133,7 +133,7 @@ egrep -B $LINES_TO_INCLUDE_BEFORE_MATCH -A $LINES_TO_INCLUDE_AFTER_MATCH 'DSCEng
 ### Agent files
 
 The machine configuration agent downloads content packages to a machine and extracts the contents.
-To verify what content has been downloaded and stored, view the folder locations in the following
+To verify downloaded and stored content, view the folder locations in the following
 list.
 
 - Windows: `C:\ProgramData\guestconfig\configuration`
@@ -142,7 +142,7 @@ list.
 
 ### Open-source nxtools module functionality
 
-A new open-source [nxtools module][37] has been released to help make managing Linux systems easier
+A new open-source [nxtools module][37] is now available to help make managing Linux systems easier
 for PowerShell users.
 
 The module helps in managing common tasks such as:
