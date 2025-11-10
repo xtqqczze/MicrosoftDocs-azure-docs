@@ -109,7 +109,7 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
 
 1. On the **RosettaNet PIP** page, select **Add**. On the **Add Partner Interface Process** pane, enter your PIP details.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-rosettanet-pip.png" alt-text="Screenshot of the RosettaNet PIP page, with Add selected, and the Add Partner Interface Process pane that contains boxes for the name, code, and version.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-rosettanet-pip.png" alt-text="Screenshot of the RosettaNet PIP page, with Add selected, and the Add Partner Interface Process pane that contains boxes for the name, code, and version." lightbox="media/logic-apps-enterprise-integration-rosettanet/add-rosettanet-pip.png":::
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -125,7 +125,7 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
 
    All process configuration settings come from the PIP's specifications. Azure Logic Apps populates most of the settings with the default values that are the most typically used values.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/edit-rosettanet-pip.png" alt-text="Screenshot of the RosettaNet PIP page, with Edit as JSON and a PIP selected, with encoded PIP properties visible.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/edit-rosettanet-pip.png" alt-text="Screenshot of the RosettaNet PIP page, with Edit as JSON and a PIP selected, with encoded PIP properties visible." lightbox="media/logic-apps-enterprise-integration-rosettanet/edit-rosettanet-pip.png":::
 
 1. Confirm that the settings correspond to the values in the appropriate PIP specification and meet your business needs. If necessary, update the values in JSON and save those changes.
 
@@ -139,7 +139,7 @@ To send or receive RosettaNet messages, your integration account requires a PIP 
 
 1. On the **Agreements** page, select **Add**. Under **Add**, enter your agreement details.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png" alt-text="Screenshot shows Agreements page with Add option selected and entries for the agreement name and type and for partner information.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png" alt-text="Screenshot shows Agreements page with Add option selected and entries for the agreement name and type and for partner information." lightbox="media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png":::
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -216,7 +216,7 @@ After you complete these steps, you're ready to send or receive RosettaNet messa
 
 1. Enter the information for the action's properties:
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png" alt-text="Screenshot of the RosettaNet Decode action where boxes are available for the message, the headers, and the role.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png" alt-text="Screenshot of the RosettaNet Decode action where boxes are available for the message, the headers, and the role." lightbox="media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png":::
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -238,7 +238,7 @@ After you complete these steps, you're ready to send or receive RosettaNet messa
 
 1. Enter the information for the action's properties:
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/encode-action-details.png" alt-text="Screenshot of the RosettaNet Encode action where boxes appear for the message, the partners, PIP information, the message type, and the role.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/encode-action-details.png" alt-text="Screenshot of the RosettaNet Encode action where boxes appear for the message, the partners, PIP information, the message type, and the role." lightbox="media/logic-apps-enterprise-integration-rosettanet/encode-action-details.png":::
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -255,7 +255,7 @@ After you complete these steps, you're ready to send or receive RosettaNet messa
 
 1. To send the encoded message, the following example uses the **HTTP** action, which is renamed **HTTP - Send encoded message to partner**.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/send-rosettanet-message-to-partner.png" alt-text="Screenshot of the designer with an HTTP action renamed as HTTP - Send encoded message to partner, and the URI, header, and body values are entered.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/send-rosettanet-message-to-partner.png" alt-text="Screenshot of the designer with an HTTP action renamed as HTTP - Send encoded message to partner, and the URI, header, and body values are entered." lightbox="media/logic-apps-enterprise-integration-rosettanet/send-rosettanet-message-to-partner.png":::
 
    > [!NOTE]
    >
@@ -263,7 +263,7 @@ After you complete these steps, you're ready to send or receive RosettaNet messa
 
 1. After the host sends the encoded message to a partner, the host waits for the signal and acknowledgment. To accomplish this task, add the action named **RosettaNet wait for response**.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/rosettanet-wait-for-response-action.png" alt-text="Screenshot of a RosettaNet wait for response action where boxes are available for the body, PIP instance identity, retry count, and role.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/rosettanet-wait-for-response-action.png" alt-text="Screenshot of a RosettaNet wait for response action where boxes are available for the body, PIP instance identity, retry count, and role." lightbox="media/logic-apps-enterprise-integration-rosettanet/rosettanet-wait-for-response-action.png":::
 
    The duration to use for waiting and the number of retries are based on the PIP configuration. If the response isn't received, a *Notification of Failure* is generated. To handle retries, always put the **Encode** and **Wait for response** actions in an **Until** loop.
 
@@ -273,7 +273,7 @@ After you complete these steps, you're ready to send or receive RosettaNet messa
 
 To accelerate development and recommend integration patterns, you can use Consumption logic app templates for decoding and encoding RosettaNet messages. When you create a Consumption logic app workflow, you can select from the template gallery in the designer. You can also find these templates in the [GitHub repository for Azure Logic Apps](https://github.com/Azure/logicapps).
 
-:::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/decode-encode-rosettanet-templates.png" alt-text="Screenshot of the designer with the Enterprise Integration category and templates for decoding and encoding RosettaNet messages are selected.":::
+:::image type="content" source="media/logic-apps-enterprise-integration-rosettanet/decode-encode-rosettanet-templates.png" alt-text="Screenshot of the designer with the Enterprise Integration category and templates for decoding and encoding RosettaNet messages are selected." lightbox="media/logic-apps-enterprise-integration-rosettanet/decode-encode-rosettanet-templates.png":::
 
 ## Related content
 
