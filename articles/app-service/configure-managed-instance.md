@@ -45,24 +45,23 @@ Configuration (install) scripts run at instance startup to apply persistent cust
 
 You need the following to use configuration (install) scripts:
 
-1. A managed identity assigned to the App Service plan
-1. A storage account with a Blob container holding the configuration (install) script package (zip).
-1. A single zip file whose root contains `Install.ps1` (entry point)
-1. `Storage Blob Data Reader` role on the storage account, container, or resource group
+- A managed identity assigned to the App Service plan
+- A storage account with a Blob container holding the configuration (install) script package (zip).
+- A single zip file whose root contains `Install.ps1` (entry point)
+- `Storage Blob Data Reader` role on the storage account, container, or resource group
 
 To add a configuration script:
 
 1. Go to your Managed Instance App Service plan in the Azure portal.
 1. Select **Configuration** > **General Settings**.
+1. In the _Configuration script_ section, begin by configuring your script.
 
-In the _Configuration script_ section, begin by configuring your script.
-
-| Setting | Value |
-|--|--|
-| Storage Account | Select your storage account |
-| Container | Enter the name of your container |
-| Zip file | Enter the name of the zip file |
-| Value | Verify this value is correct |
+    | Setting | Value |
+    |--|--|
+    | Storage Account | Select your storage account |
+    | Container | Enter the name of your container |
+    | Zip file | Enter the name of the zip file |
+    | Value | Verify this value is correct |
 
 1. Select Apply to save the changes.
 
@@ -154,12 +153,12 @@ To configure registry keys:
 1. Go to **Configuration** > **Registry Keys**.
 1. Select **+ Add**.
 
-| Setting | Value |
-|--|--|
-| Path | Enter the registry path |
-| Vault | Enter an existing vault name|
-| Secret | Select or enter the key vault secret|
-| Type | String or DWORD |
+    | Setting | Value |
+    |--|--|
+    | Path | Enter the registry path |
+    | Vault | Enter an existing vault name|
+    | Secret | Select or enter the key vault secret|
+    | Type | String or DWORD |
 
 1. Select **Add** to add the registry key.
 
@@ -220,9 +219,7 @@ Yes, instances receive routine platform updates and maintenance. Preinstalled ap
 
 ### Which programming languages are installed on Managed Instance on Azure App Service?
 
-Microsoft .NET Framework 3.5, 4.8, and Microsoft .NET 8.0.
-
-> If you require other runtimes, you can install them using a configuration script. Note that these will not be maintained by the platform and must be updated manually.
+Microsoft .NET Framework 3.5, 4.8, and Microsoft .NET 8.0. If you require other runtimes, you can install them using a configuration script. Note that these will not be maintained by the platform and must be updated manually.
 
 ### What are limitations on the configuration (install) scripts?
 

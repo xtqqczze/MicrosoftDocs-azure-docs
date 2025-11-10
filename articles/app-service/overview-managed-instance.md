@@ -7,6 +7,7 @@ ms.date: 11/08/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.service: azure-app-service
+ms.custom: references_regions
 ---
 
 # Managed Instance on Azure App Service (preview)

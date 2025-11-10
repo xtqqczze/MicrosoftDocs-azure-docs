@@ -101,44 +101,41 @@ Follow these steps to create a Managed Instance plan and deploy an app to it:
 1. Search for **managed instance**
 1. Select **Web App (for Managed Instance) (preview)** in the results.
 1. Select **Create** to start the create process.
-
-On the Basic tab, provide the following details.
+1. On the Basic tab, provide the following details.
 
 #### Project details
 
-| Setting | Value |
-|-------|----------|
-| Subscription | Your Azure subscription |
-| Resource Group | **rg-managed-instance** |
+    | Setting | Value |
+    |-------|----------|
+    | Subscription | Your Azure subscription |
+    | Resource Group | **rg-managed-instance** |
 
 #### App details
 
-| Setting | Value |
-|-------|----------|
-| Name | **contoso-mi-app** |
-| Runtime stack | **ASPNET V4.8** |
-| Region | A region near you |
+    | Setting | Value |
+    |-------|----------|
+    | Name | **contoso-mi-app** |
+    | Runtime stack | **ASPNET V4.8** |
+    | Region | A region near you |
 
 #### Pricing plans
 
-| Setting | Value |
-|-------|----------|
-| Windows Plan | Use default plan or create new (for example, 'contoso-mi-plan')|
-| Pricing plans* | Select a pricing plan. If Pv4 or Pmv4 isn't visible in _pricing plans_, confirm region availability or request more quota.|
+    | Setting | Value |
+    |-------|----------|
+    | Windows Plan | Use default plan or create new (for example, 'contoso-mi-plan')|
+    | Pricing plans* | Select a pricing plan. If Pv4 or Pmv4 isn't visible in _pricing plans_, confirm region availability or request more quota.|
 
 On the Advanced tab, provide the following details.
 
 #### Configuration (install) script
 
-| Setting | Value |
-|-------|----------|
-| Storage Account | Use default plan or create new (for example, 'contoso-mi-plan')|
-| Container | **scripts** |
-| Zip file | **scripts.zip** |
-| Value | Verify the .zip URL is correct|
-| Identity | Select the managed identity that was created earlier|
-
-On the Deployment tab, select **continuous deployment** in _Continuous deployment settings_. Then provide the following details.
+    | Setting | Value |
+    |-------|----------|
+    | Storage Account | Use default plan or create new (for example, 'contoso-mi-plan')|
+    | Container | **scripts** |
+    | Zip file | **scripts.zip** |
+    | Value | Verify the .zip URL is correct|
+    | Identity | Select the managed identity that was created earlier|
 
 1. Select **Review + create** and then select **Create**.
 
@@ -161,7 +158,7 @@ az deployment group create \
 
 Deployment takes several minutes while resources provisioned.
 
-3. The following command creates a web app on the Managed Instance plan.
+2. The following command creates a web app on the Managed Instance plan.
 
 ```bash
 az webapp create \
@@ -171,7 +168,7 @@ az webapp create \
   --runtime "ASPNET:V4.8"
 ```
 
-4. The following command assigns a Managed Identity to the web app.
+3. The following command assigns a Managed Identity to the web app.
 
 ```bash
 az webapp identity assign \
@@ -186,7 +183,7 @@ az webapp identity assign \
 
 In this step, you use Cloud Shell to deploy a sample app that was included in the AZD template to Managed Instance.
 
-1. The following command deploys the web app to your Managed Instance plan. Update `<app-name>` and `<resource-group>` with your values.
+- The following command deploys the web app to your Managed Instance plan. Update `<app-name>` and `<resource-group>` with your values.
 
 ```bash
 az webapp deploy \
