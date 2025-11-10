@@ -141,14 +141,6 @@ On the Advanced tab, provide the following details.
 
 On the Deployment tab, select **continuous deployment** in _Continuous deployment settings_. Then provide the following details.
 
-#### GitHub settings
-
-| Setting | Value |
-|-------|----------|
-| Organization | **msangapu-msft** |
-| Repository | **learn-quickstart-managed-instance** |
-| Branch | **sampleapp** |
-
 1. Select **Review + create** and then select **Create**.
 
 # [Cloud Shell](#tab/shell)
@@ -194,19 +186,17 @@ az webapp create \
 4. The following command assigns a Managed Identity to the web app.
 
 ```bash
-# Assign managed identity to web app
 az webapp identity assign \
   --name "$APP_NAME" \
   --resource-group "$RG" \
   --identities "$IDENTITY_ID"
 ```
 
-5. The following command downloads the sample app to Cloud Shell.
-```bash
-curl -L -o app.zip https://raw.githubusercontent.com/msangapu-msft/aptos-testing/default/app.zip
-```
+## Deploy sample app to Managed Instance
 
-6. The following command deploys the web app to your Managed Instance plan.
+In this step, you use Cloud Shell to download and deploy a sample app to Managed Instance.
+
+1. The following command deploys the web app to your Managed Instance plan.
 
 ```bash
 az webapp deploy \
@@ -217,8 +207,6 @@ az webapp deploy \
 ```
 
 -----
-
-
 
 ## Browse to the app
 

@@ -130,7 +130,9 @@ To configure an Azure Files storage mount:
    Supported secret contents: (Ex: `DefaultEndpointsProtocol=...;AccountName=...;AccountKey=...;EndpointSuffix=core.windows.net`)
 1. Add the mount in Managed Instance (Azure portal or ARM/Bicep/Terraform).
 
-> Tip: Enforce share-level permissions via Azure RBAC + share ACLs for enhanced security.
+> [!TIP]
+> Enforce share-level permissions via Azure RBAC + share ACLs for enhanced security.
+>
 
 ### Configure storage mounts with custom UNC
 
@@ -162,7 +164,7 @@ To configure registry keys:
 
 1. Select **Add** to add the registry key.
 
-> [CAUTION]
+> [!CAUTION]
 > Be cautious when modifying system-critical registry paths. Incorrect changes may impact instance stability.
 >
 
