@@ -47,7 +47,7 @@ In the new designer, many workflow actions are now found in the vertical ellipsi
  Use the table below to quickly find where each common task is performed.
 
 | Task | Classic designer | New designer |
-|---|---:|---|
+|---|---|---|
 | Access keys | Sidebar Configuration > **Access keys** | Next to **Publish**, ellipsis menu > **Settings** (then **Access keys**) |
 | Code view (JSON) | Sidebar Tools > **Code** or toolbar > **Code view** | At the designer top > **Code** |
 | Connections | Workflow toolbar: **Connections** | Next to **Publish**, ellipsis menu > **Connections** |
