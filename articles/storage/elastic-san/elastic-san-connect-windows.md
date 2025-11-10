@@ -14,8 +14,8 @@ This article explains how to connect a Windows client to an Azure Elastic SAN vo
 
 There are two connection options:
 
-- Elastic SAN VM extension – Use during virtual machine (VM) or Virtual Machine Scale Set deployment to automatically configure connectivity. Using a VM extension greatly simplifies onboarding and deployment, if this option meets your needs, you should use it. 
-- Manual connect script – If you need to configure connectivity with specific parameters, or you have an existing VM and an advanced configuration, use this option.
+- Elastic SAN VM extension– Use when deploying new VMs or VM Scale Sets to automatically set up SAN connectivity for all instances. Ideal for large-scale, uniform environments, onboarding via the Azure portal, or when you want minimal manual steps.
+- Manual connect script – Use for existing VMs, advanced configurations, or when you need custom parameters (like specific session counts or unique volume mappings). Best for one-off setups or troubleshooting.
 
 Choose the option that best fits your deployment scenario. Both approaches require a deployed Elastic SAN resource and configured volume groups.
 
