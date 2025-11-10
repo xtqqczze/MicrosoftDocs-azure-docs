@@ -51,7 +51,7 @@ This section explains how to connect to an Elastic storage area network (SAN) vo
 
 In this section, you configure your client environment to connect to an Elastic SAN volume and establish a connection. For best performance, ensure that your VM and your Elastic SAN are in the same zone.
 
-You must use a cluster manager when connecting an individual elastic SAN volume to multiple clients. For details, see [Use clustered applications on Azure Elastic SAN](elastic-san-shared-volumes.md).
+When using the VM extension with VMSS, each VM in the scale set is automatically connected to the Elastic SAN volume. If multiple VMs will access the same volume, you must use a cluster manager to coordinate shared access and maintain data consistency. For details, see [Use clustered applications on Azure Elastic SAN](elastic-san-shared-volumes.md).
 
 ### Prerequisites
 
