@@ -159,7 +159,7 @@ Service Group memberships can be created in bulk using results from an Azure Res
 
 The example below groups storage accounts that need to enable soft delete. The script first runs an ARG query to select the storage accounts that should become members of the Service Group based on their tag values. Then it loops through each resource identified in the query and deploys a 'Microsoft.Relationships/serviceGroupMember' to represent the membership.
 
->!Note
+>[!Note]
 > This is an example powershell command on how to use a Resource Group query to create Service Groups members for that point in time. 
 
 ```ps1
@@ -340,7 +340,7 @@ Subscription name        Tenant
 ResourceGroupName       : RG Name
 OnErrorDeployment       :
 DeploymentName          : tmp9832.tmp
-CorrelationId           : 07b14325-151e-4069-a0d8
+CorrelationId           : 123456
 ProvisioningState       : Succeeded
 Timestamp               : 10/30/2025 8:44:18 PM
 Mode                    : Incremental
@@ -374,7 +374,7 @@ Using template:     {
 ResourceGroupName       : RGName
 OnErrorDeployment       :
 DeploymentName          : tmpF70C.tmp
-CorrelationId           : 9d792775-8a83-4c89-b98d
+CorrelationId           : 1234567
 ProvisioningState       : Succeeded
 Timestamp               : 10/30/2025 8:44:41 PM
 Mode                    : Incremental
@@ -423,7 +423,7 @@ ExtendedProperties : {}
 ResourceGroupName       : RGName
 OnErrorDeployment       :
 DeploymentName          : tmp55E7.tmp
-CorrelationId           : 301044aa-f0ec-4e6b-9e2a
+CorrelationId           : 12345678
 ProvisioningState       : Succeeded
 Timestamp               : 10/30/2025 8:51:43 PM
 Mode                    : Incremental
@@ -457,7 +457,7 @@ Using template:     {
 ResourceGroupName       : RGName
 OnErrorDeployment       :
 DeploymentName          : tmpBB4C.tmp
-CorrelationId           : 85bed56d-251e-4737-b91f
+CorrelationId           : 123456789
 ProvisioningState       : Succeeded
 Timestamp               : 10/30/2025 8:52:03 PM
 Mode                    : Incremental
