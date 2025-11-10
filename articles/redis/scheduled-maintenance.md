@@ -7,13 +7,19 @@ ms.topic: concept-article
 ai-usage: ai-assisted
 ---
 
-# Scheduled maintenance window for cache operations
+# Azure Managed Redis scheduled maintenance concepts
 
 Azure Managed Redis scheduled maintenance windows allow you to define specific time periods when maintenance activities can occur on your Redis instances. You control when Redis server updates and operating system patches are applied, minimizing unexpected disruptions to your applications.
 
 Azure Managed Redis automatically handles infrastructure maintenance, including security patches, Redis version updates, and operating system updates. Without scheduled maintenance windows, these updates occur at Azure's discretion, typically during off-peak hours for your region. When you configure scheduled maintenance windows, you gain control over this timing.
 
 This feature is currently in preview and provides a balance between necessary system updates and application availability requirements.
+
+## Prerequisites
+
+- An existing Azure Managed Redis instance
+- Knowledge of your application's usage patterns and low-traffic periods
+- Familiarity with Azure portal or Azure CLI for configuration management
 
 ## Maintenance window characteristics
 
