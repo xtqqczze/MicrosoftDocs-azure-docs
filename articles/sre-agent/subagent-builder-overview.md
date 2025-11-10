@@ -10,7 +10,7 @@ ms.service: azure-sre-agent
 
 # Create subagents in Azure SRE Agent overview
 
-Azure SRE Agent features an subagent builder to help you create, customize, and manage intelligent subagents for your operational workflows. Use subagent builder to design subagents that can automatically respond to incidents, run scheduled tasks, connect to observability tools, and use your organization's knowledge base to improve decision-making.
+Azure SRE Agent features a subagent builder to help you create, customize, and manage intelligent subagents for your operational workflows. Use subagent builder to design subagents that can automatically respond to incidents, run scheduled tasks, connect to observability tools, and use your organization's knowledge base to improve decision-making.
 
 ## What you can build with subagent builder
 
@@ -35,7 +35,7 @@ Once running, continuously monitor and refine your subagent. Regularly review pe
 
 ## Create your first subagent
 
-agent builder makes it easy to design and deploy your first intelligent subagent in just a few steps. The following section shows you how to create a new subagent and connect it to tools and data sources.
+Agent builder makes it easy to design and deploy your first intelligent subagent in just a few steps. The following section shows you how to create a new subagent and connect it to tools and data sources.
 
 ### Prerequisites
 
