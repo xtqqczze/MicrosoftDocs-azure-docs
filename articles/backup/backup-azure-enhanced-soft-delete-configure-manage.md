@@ -246,14 +246,11 @@ Follow these steps:
 
 4. Click **Undelete Vault** and confirm the vault details. This action moves the vault back to an active state.
 
- [!NOTE]
-> When a vault is deleted, its associated **system-assigned** and **user-assigned managed identities** are removed permanently.
->
-> During the undelete process, you have an option to assign a system-managed identity by default.  
-> - If you **leave the checkbox selected**, the vault will regain its system identity automatically.  
-> - If you **uncheck the checkbox**, the undelete action will succeed, but any attempt to resume backups will fail because the vault lacks an identity.  
->
-> In this case, you can manually assign a new managed identity to the vault after the undelete operation.
+>[!Note]
+> - When a vault is deleted, its associated **system-assigned** and **user-assigned managed identities** are removed permanently.
+> - During the undelete process, you have an option to assign a system-managed identity by default.
+>    -    If you **leave the checkbox selected**, the vault will regain its system identity automatically.
+>    -    If you **uncheck the checkbox**, the undelete action will succeed, but any attempt to resume backups will fail because the vault lacks an identity. In this case, you can manually assign a new managed identity to the vault after the undelete operation.
 
 5. After undeleting the vault, you must recover and undelete the backup items separately.
 
