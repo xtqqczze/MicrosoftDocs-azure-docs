@@ -106,5 +106,4 @@ Applications should implement connection resilience patterns including retry log
 ## Related content
 
 - [Failover and patching for Azure Cache for Redis](failover.md)
-- [Best practices for Azure Cache for Redis](best-practices.md)
 - [Connection resilience best practices](best-practices-connection.md)
