@@ -100,11 +100,15 @@ To add a trigger or an action to your Standard workflow, see [Build a workflow w
 
 This section summarizes the most important changes from the classic designer to help returning users get oriented quickly.
 
-- The new designer moves many familiar actions to new locations.
-      - The top of the designer contains the [view selector](#view-selector) (Workflow, Code, and Run history).
-      - The Run action is at the bottom of the designer canvas.
+The new designer moves many familiar actions to new locations:
+
+- The top of the designer contains the [view selector](#view-selector) (Workflow, Code, and Run history).
+
+- The Run action is at the bottom of the designer canvas.
+
 - Several actions that were in the workflow sidebar or toolbar are now available from the vertical [ellipsis menu](#ellipsis-menu) next to **Publish**.
-- The designer always shows and edits the draft version. All changes are automatically saved to the draft; there's no explicit Save button.
+
+The designer always shows and edits the draft version. All changes are automatically saved to the draft; there's no explicit Save button.
 
 > [!IMPORTANT]
 >
