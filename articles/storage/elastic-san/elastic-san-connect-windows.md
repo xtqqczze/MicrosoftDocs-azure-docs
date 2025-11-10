@@ -58,7 +58,6 @@ When using the VM extension with VMSS, each VM in the scale set is automatically
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - [Deploy an Elastic SAN](elastic-san-create.md)
 - Either [configure private endpoints](elastic-san-configure-private-endpoints.md) or [configure service endpoints](elastic-san-configure-service-endpoints.md)
-- [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
 
 ### Set up your client environment
