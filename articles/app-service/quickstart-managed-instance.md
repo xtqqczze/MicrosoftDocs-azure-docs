@@ -216,9 +216,9 @@ In the left menu under __Settings__, select **Configuration** to view the config
 
 ## Clean up resources
 
-# [Azure portal](#tab/portal)
-
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group.
+
+# [Azure portal](#tab/portal)
 
 1. From your web app's **Overview** page in the Azure portal, select the **myResourceGroup** link under **Resource group**.
 1. On the resource group page, make sure that the listed resources are the ones you want to delete.
