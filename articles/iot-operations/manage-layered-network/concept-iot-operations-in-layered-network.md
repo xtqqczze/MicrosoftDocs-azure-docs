@@ -34,12 +34,24 @@ This guidance covers:
 - Connecting devices in layered networks at scale to [Azure Arc](/azure/azure-arc/) for remote management and configuration from a single Azure control plane
 - Security and governance across network levels for devices and services with URL and IP allow lists and connection auditing
 
-:::image type="content" source="media/layered-network-architecture.png" alt-text="Diagram that shows layered networking architecture for industrial layered networks.":::
-
 > [!NOTE]
 > The guidance doesn't recommend specific practices or provide production-ready implementation, configuration, or operations details. The guidance doesn't make recommendations about production networking architecture.
 
 To learn more about how to prepare for a production-ready deployment of Azure IoT Operations, see the [Azure IoT Operations production checklist](../../iot-edge/production-checklist.md).
+
+## Example of Azure IoT Operations in a layered network
+
+The following diagram shows Azure IoT Operations deployed to multiple clusters in different network segments. In the Purdue Network architecture, level 4 is the enterprise network, level 3 is the operation and control layer, and level 2 is the controller system layer. Only level 4 has direct internet access, and the other levels can only communicate with their adjacent levels.
+
+:::image type="content" source="media/layered-network-architecture.png" alt-text="Diagram that shows layered networking architecture for industrial layered networks.":::
+
+In this example, Azure IoT Operations is deployed to levels 2 through 4. At levels 3 and 4, the Envoy Proxy is deployed, and levels 2 and 3 have Core DNS set up to resolve the whitelisted URI to the parent cluster, which directs them to the parent Envoy Proxy. This setup redirects traffic from the lower layer to the parent layer. It lets you Arc-enable clusters and keep an Arc-enabled cluster running.
+
+With extra configuration, you can use this technique to direct traffic east-west. This route lets Azure IoT Operations components send data to other components at upper levels and create data pipelines from the bottom layer to the cloud. In a multilayer network, you can deploy Azure IoT Operations components across layers based on your architecture and data flow needs. This example gives you general ideas about where to place individual components.
+
+- Place the connector for OPC UA at the lower layer, closer to your assets and OPC UA servers.
+- Transfer data toward the cloud through the MQTT Broker components in each layer.
+- Use the Data Flows component on nodes with enough compute resources, because it typically uses more compute.
 
 ## Key scenarios
 
