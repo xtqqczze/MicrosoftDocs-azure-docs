@@ -21,13 +21,66 @@ This article shows how to use the Standard workflow designer in the Azure portal
 - A *Standard* logic app resource [in single-tenant Azure Logic Apps](single-tenant-overview-compare.md). For more information, see [Create an example Standard logic app workflow in single-tenant Azure Logic Apps using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 - A workflow for your Standard logic app resource.
 
+## Open the workflow designer
+
+Use the steps below to open the workflow designer for a specific workflow so you can view and edit its cards.
+
+1. In the [Azure portal](https://portal.azure.com), open your [*logic app* resource](logic-apps-overview.md#logic-app-concepts).
+
+1. On the Logic App menu, under **Workflows**, select **Workflows**.
+
+   > [!NOTE]
+   > To enable the new Logic Apps designer experience, select the **Enable preview** button from the ribbon banner.
+   > :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
+
+### Create a new workflow
+
+1. On the **Workflows** page, select the **+ Create** button to create a new workflow.
+
+1. The Create workflow options appear. 
+ 
+1. Provide a name for your workflow.
+
+1. Select from the available workflow types:
+   - Stateful
+   - Stateless
+   - Start from template
+
+   Compare workflow types to choose the pattern that fits your scenario.
+
+   | Feature | Stateful | Stateless |
+   |---|---|---|
+   Support for agents | Yes | - |
+   | Support Agent-to-Agent (A2A) protocol | Yes | — |
+   | Multi-agent patterns | Yes | — |
+   | Any available trigger | Yes | Yes |
+   | Run fast | — | Yes |
+   | Store workflow run history | Yes | — |
+   | Run asynchronously | Yes | — |
+   | Support long-running workflows | Yes | — |
+   | Handle large data | Yes | — |
+
+1. Select the **Create** button.
+
+1. The workflow designer opens.
+
+   The designer displays the selected workflow as editable cards where you can visually edit steps, run the draft, switch to Code view, or open Run history.
+
+### Edit an existing workflow
+
+1. On the **Workflows** page, select the workflow that you want.
+
+1. The workflow designer opens.
+
+   The designer displays the selected workflow as editable cards where you can visually edit steps, run the draft, switch to Code view, or open Run history.
+
 ## Changes in the new designer
 
 This section summarizes the most important changes from the classic designer to help returning users get oriented quickly.
 
 - The new designer moves many familiar actions to new locations.
-   - The top of the designer contains the view selector (Workflow, Code, and Run history).
-   - The Run action is at the bottom of the designer canvas.
+      - The top of the designer contains the [view selector](#view-selector) (Workflow, Code, and Run history).
+      - The Run action is at the bottom of the designer canvas.
 - Several actions that were in the workflow sidebar or toolbar are now available from the vertical [ellipsis menu](#ellipsis-menu) next to **Publish**.
 - The designer always shows and edits the draft version. All changes are automatically saved to the draft; there's no explicit Save button.
 
@@ -37,6 +90,18 @@ This section summarizes the most important changes from the classic designer to 
 > - If you need to view the published (production) version as read-only, use **Switch to published version** from the [ellipsis menu](#ellipsis-menu).
 
 If you prefer to use the classic designer, select the [ellipsis menu](#ellipsis-menu) > **Revert to previous experience**.
+
+### View selector
+
+The view selector (Workflow, Code, and Run history) is at the top of the designer—select a view to switch between visual editing, code, and run history.
+
+- To visually develop, edit, and run your workflow, select the **Workflow** view.
+- To edit the workflow in JSON, select **Code**. You can switch between the workflow view and code view at any time.
+
+    > [!TIP]
+    > The **Code** view is also an easy way to find and copy the workflow definition, instead of using the Azure CLI or other methods.
+
+- To review your logs, select the **Run history** view.
 
 ### Ellipsis menu
 
@@ -63,28 +128,6 @@ In the new designer, many workflow actions are now found in the vertical ellipsi
 | Run history | Sidebar Tools > **Run history** | Designer top > **Run history** (then select a run to open monitoring view) |
 | Run workflow | Workflow toolbar: **Run** / **Run with payload** | At the bottom of the designer: **Run** / **Run with payload** |
 | View production version | N/A | Next to **Publish**, ellipsis menu > **Switch to published version** |
-
-## Open the workflow designer
-
-The designer opens and displays the workflow cards.
-
-1. In the [Azure portal](https://portal.azure.com), open your [*logic app* resource](logic-apps-overview.md#logic-app-concepts).
-
-1. On the Logic App menu, under **Workflows**, select **Workflows**.
-
-   > [!NOTE]
-   > To enable the new Logic Apps designer experience, select the **Enable preview** button from the ribbon banner.
-   > :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
-
-1. On the **Workflows** page, select the workflow that you want.
-
-1. The workflow designer opens.
-
-   - To visually develop, edit, and run your workflow, select the **Workflow** view. 
-   - To edit the workflow in JSON, select [**Code**]. You can switch between the workflow view and code view at any time.
-       > [!TIP]
-       > The **Code** view is also an easy way to find and copy the workflow definition, instead of using the Azure CLI or other methods.
-   - To review your logs, select the **Run history** view. 
 
 ## Add steps to workflows
 
