@@ -1,5 +1,5 @@
 ---
-title: Filtering in Virtual Network Flow Logs
+title: Filter virtual network flow logs
 titleSuffix: Azure Network Watcher
 description: Learn how to apply filtering in Azure Network Watcher virtual network flow logs to capture specific traffic based on flow state, actions, IP ranges, ports, protocols, and more.
 author: halkazwini
@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 11/18/2025
 ---
 
-# Filtering in virtual network flow logs
+# Filter virtual network flow logs
 
 Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [Virtual network flow logs overview](vnet-flow-logs-overview.md).
 
-In this article, you can learn about the new Filtering capability. The filtering capability provides users with options to record traffic within a virtual network (intra-VNet traffic) or with two or more virtual networks (inter-VNet traffic). It also helps users identify CIDR range-based traffic, inbound outbound traffic, internet traffic, and allowed/denied traffic. 
+In this article, you learn about virtual network flow logs filtering capability. The filtering capability provides users with options to record traffic within a virtual network (intra-VNet traffic) or with two or more virtual networks (inter-VNet traffic). It also helps users identify CIDR range-based traffic, inbound outbound traffic, internet traffic, and allowed/denied traffic. 
 
 ## Supported fields
 
@@ -30,22 +30,20 @@ In this article, you can learn about the new Filtering capability. The filtering
 
 All the fields can take comma separate value as input. All are case-insensitive.
 
-### Supported operations
+## Supported operations
 
 Virtual network flow logs support `=` and `!=` for every field.
 
-### Supported operands
+## Supported operands
 
 Virtual network flow logs support logical operands `&&` and `||` between any two fields.
 
-### Supported format
+## Supported format
 
 - Fields can be provided in any combination.
 - Brackets aren't currently supported.
 - Fields are evaluated honoring logical operand precedence (**AND before OR**) from left to right.
 - The maximum length of the filtering string can be **1000 characters**.
-
----
 
 ## Enable filtering
 
