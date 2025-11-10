@@ -105,37 +105,37 @@ Follow these steps to create a Managed Instance plan and deploy an app to it:
 
 #### Project details
 
-    | Setting | Value |
-    |-------|----------|
-    | Subscription | Your Azure subscription |
-    | Resource Group | **rg-managed-instance** |
+   | Setting | Value |
+   |-------|----------|
+   | Subscription | Your Azure subscription |
+   | Resource Group | **rg-managed-instance** |
 
 #### App details
 
-    | Setting | Value |
-    |-------|----------|
-    | Name | **contoso-mi-app** |
-    | Runtime stack | **ASPNET V4.8** |
-    | Region | A region near you |
+   | Setting | Value |
+   |-------|----------|
+   | Name | **contoso-mi-app** |
+   | Runtime stack | **ASPNET V4.8** |
+   | Region | A region near you |
 
 #### Pricing plans
 
-    | Setting | Value |
-    |-------|----------|
-    | Windows Plan | Use default plan or create new (for example, 'contoso-mi-plan')|
-    | Pricing plans* | Select a pricing plan. If Pv4 or Pmv4 isn't visible in _pricing plans_, confirm region availability or request more quota.|
+   | Setting | Value |
+   |-------|----------|
+   | Windows Plan | Use default plan or create new (for example, 'contoso-mi-plan')|
+   | Pricing plans* | Select a pricing plan. If Pv4 or Pmv4 isn't visible in _pricing plans_, confirm region availability or request more quota.|
 
 On the Advanced tab, provide the following details.
 
 #### Configuration (install) script
 
-    | Setting | Value |
-    |-------|----------|
-    | Storage Account | Use default plan or create new (for example, 'contoso-mi-plan')|
-    | Container | **scripts** |
-    | Zip file | **scripts.zip** |
-    | Value | Verify the .zip URL is correct|
-    | Identity | Select the managed identity that was created earlier|
+   | Setting | Value |
+   |-------|----------|
+   | Storage Account | Use default plan or create new (for example, 'contoso-mi-plan')|
+   | Container | **scripts** |
+   | Zip file | **scripts.zip** |
+   | Value | Verify the .zip URL is correct|
+   | Identity | Select the managed identity that was created earlier|
 
 1. Select **Review + create** and then select **Create**.
 
