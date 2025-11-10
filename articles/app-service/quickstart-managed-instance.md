@@ -35,7 +35,7 @@ In this quickstart, you complete the following steps:
 
 ## Deploy sample resources
 
-You can quickly deploy all the necessary resources in this quickstart using Azure Developer CLI. The Azure Developer CLI template used in this quickstart is from [Azure samples](). Just run the following commands in the Azure Cloud Shell, and follow the prompts:
+You can quickly deploy all the necessary resources in this quickstart using Azure Developer CLI (AZD). The AZD template used in this quickstart is from [Azure samples](https://github.com/Azure-Samples/managed-instance-azure-app-service-quickstart). Just run the following commands in the Azure Cloud Shell, and follow the prompts:
 
 ```bash
 mkdir managed-instance-quickstart
@@ -89,7 +89,7 @@ Managed Identity Client name: id-gpjqep6fdlfv6
 Resource Group: rg-managed-instance
 ```
 
-The values for `Storage Account`, `Container Name`, `Managed Identity Client name`, and `Resource Group` are used later.
+The values for `Storage Account`, `Container Name`, `Managed Identity Client name`, `Resource Group`, and `Script URI` are used later.
 
 ## Deploy a Managed Instance plan
 
@@ -145,28 +145,17 @@ On the Deployment tab, select **continuous deployment** in _Continuous deploymen
 
 # [Cloud Shell](#tab/shell)
 
-1. The following command configures variables for needed resources to create the Managed Instance plan.
-
-```bash
-RG=rg-managed-instance
-LOCATION=<LOCATION OF PLAN>
-PLAN_NAME=rg-mi-plan
-IDENTITY_ID=<SET-IDENTITIY-ID>
-SCRIPT_URI=<LOCATION OF SCRIPT>
-APP_NAME=<APP-NAME>
-```
-
-2. The following command creates the Managed Instance plan with a configuration (install) script.
+1. The following command creates the Managed Instance plan with a configuration (install) script.
 
 ```bash
 az deployment group create \
-  --resource-group "$RG" \
+  --resource-group "<resource-group-name>" \
   --template-file infra/app-service-plan-managed-instance.json \
   --parameters \
-    location="$LOCATION" \
-    appServicePlanName="$PLAN_NAME" \
-    userAssignedIdentityResourceId="$IDENTITY_ID" \
-    installScriptSourceUri="$SCRIPT_URI" \
+    location="<location>" \
+    appServicePlanName="<plan-name>" \
+    userAssignedIdentityResourceId="<identity-id>" \
+    installScriptSourceUri="<script-URI>" \
     skuName=P1V4 \
     skuCapacity=1
 ```
@@ -177,9 +166,9 @@ Deployment takes several minutes while resources provisioned.
 
 ```bash
 az webapp create \
-  --name "$APP_NAME" \
-  --resource-group "$RG" \
-  --plan "$PLAN_NAME" \
+  --name "<app-name>" \
+  --resource-group "<resource-group-name>" \
+  --plan "<plan-name>" \
   --runtime "ASPNET:V4.8"
 ```
 
@@ -187,26 +176,26 @@ az webapp create \
 
 ```bash
 az webapp identity assign \
-  --name "$APP_NAME" \
-  --resource-group "$RG" \
-  --identities "$IDENTITY_ID"
+  --name "<app-name>" \
+  --resource-group "<resource-group-name>" \
+  --identities "<identity-id>"
 ```
 
-## Deploy sample app to Managed Instance
+---
 
-In this step, you use Cloud Shell to download and deploy a sample app to Managed Instance.
+## Deploy a sample app to Managed Instance
 
-1. The following command deploys the web app to your Managed Instance plan.
+In this step, you use Cloud Shell to deploy a sample app that was included in the AZD template to Managed Instance.
+
+1. The following command deploys the web app to your Managed Instance plan. Update `<app-name>` and `<resource-group>` with your values.
 
 ```bash
 az webapp deploy \
-  --resource-group "$RG" \
-  --name "$APP_NAME" \
+  --resource-group "<resource-group-name>" \
+  --name "<app-name>" \
   --src-path app.zip \
   --type zip
 ```
-
------
 
 ## Browse to the app
 
