@@ -49,4 +49,7 @@ Azure Device Registry offers three built-in roles designed to simplify and secur
 
 ## Limits and quotas
 
-See [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-limits) for the latest information about limits and quotas for ADR with IoT Hub.
+See [IoT Hub preview resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-limits) for the latest information about limits and quotas for ADR with IoT Hub.
+
+For Azure subscription and service limits for Azure Device Registry in GA, see [Azure Device Registry limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-device-registry-limits).
+
