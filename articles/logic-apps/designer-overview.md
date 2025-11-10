@@ -33,8 +33,7 @@ Follow these steps to open the workflow designer.
    > To enable the new Logic Apps designer experience, select the **Enable preview** button from the ribbon banner.
    > :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
 
-From here, you can [create a new workflow](#create-a-new-workflow) or [access an existing workflow](#edit-an-existing-workflow). 
-
+From here, you can [create a new workflow](#create-a-new-workflow) or [access an existing workflow](#access-an-existing-workflow).
 
 ## Create a new workflow
 
