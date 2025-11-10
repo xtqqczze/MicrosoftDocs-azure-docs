@@ -1,6 +1,6 @@
 ---
-title: Scheduling time for cache maintenance
-description: Scheduling time for cache maintenance
+title: Scheduling Time for Cache Maintenance
+description: Learn how to configure scheduled maintenance windows for Azure Managed Redis to control when updates and patches are applied to minimize application disruptions.
 #customer intent: As a developer, I want to understand how to prepare my application for maintenance so that I can ensure connectivity resilience during updates.
 ms.date: 11/17/2025
 ms.topic: concept-article
