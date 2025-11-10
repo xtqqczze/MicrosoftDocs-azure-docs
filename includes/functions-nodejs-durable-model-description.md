@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Node.js v4 Programming Model
+description: Find information about the Node.js v4 programming model for Azure Functions, including its availability and the advantages it offers over the v3 model.
 author: ejizba
 ms.service: azure-functions
 ms.topic: include
