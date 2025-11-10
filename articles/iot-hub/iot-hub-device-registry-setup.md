@@ -52,10 +52,29 @@ This article explains how to create a new IoT Hub with [Azure Device Registry (A
         
     - **Option 2:** Download the Azure IoT CLI extension directly from GitHub with previews already enabled.
 
+        Check for existing Azure CLI extension installations.
+        
+        ```azurecli-interactive
+        az extension list
+        ```
+        
+        Remove any existing azure-iot installations.
+        
+        ```azurecli-interactive
+        az extension remove --name azure-iot
+        ```
+
+        Install the latest extension.
+
         ```azurecli-interactive
         az extension add --upgrade --source https://github.com/Azure/azure-iot-cli-extension/releases/download/v0.30.0b1/azure_iot-0.30.0b1-py3-none-any.whl
         ```
         After the install, validate your azure-iot extension version is greater than **0.30.0b1**.
+        
+        ```azurecli-interactive
+        az extension list
+        ```
+    
     
 
 - Ensure that you have the privilege to perform role assignments within your target scope. Performing role assignments in Azure requires a [privileged role](../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope. 
@@ -69,7 +88,7 @@ To set up your IoT Hub with ADR integration and certificate management, you can 
 | Deployment method | Description |
 |-------------------|-------------|
 | Select **Azure CLI** at the top of the page | Use the Azure CLI to create a new IoT Hub, DPS instance, and ADR namespace and configure all necessary settings. |
-| Select **PowerShell script** at the top of the page | Use a PowerShell script to automate the creation of a new IoT Hub, DPS instance, and ADR namespace and configure all necessary settings. |
+| Select **PowerShell script** at the top of the page | Use a PowerShell script (Windows only) to automate the creation of a new IoT Hub, DPS instance, and ADR namespace and configure all necessary settings. |
 
 > [!NOTE]
 > Azure portal support for creating IoT Hubs with ADR and certificate management is coming soon.
