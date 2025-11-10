@@ -1,5 +1,5 @@
 ---
-title: Server Redeploy
+title: Redeploy servers to Azure using Infrastructure as Code
 description: Learn how to automate Windows Server redeployment to Azure using Infrastructure as Code (IaC) with Azure Migrate.
 author: piyushdhore-microsoft 
 ms.author: piyushdhore
@@ -11,7 +11,7 @@ ms.custom: engagement-fy25
 # Customer intent: As a system administrator, I want to redeploy Windows Server 2003 machines to Azure using Infrastructure as Code so that I can automate the migration and reduce manual steps.
 ---
 
-# Redeploy servers by using IaC
+# Redeploy servers to Azure using Infrastructure as Code (IaC)
 
 This article helps you redeploy **Windows and Linux Servers to Azure using Infrastructure as Code (IaC)** with step-by-step guidance to generate templates, deploy landing zones, migrate servers, and integrate disk configurations for automated, repeatable migrations.
 
@@ -86,7 +86,7 @@ Use the Server Migration tool in Azure Migrate to move your on-premises servers 
 - Agentless migration for VMware environments.
 - Agent-based migration for Hyper-V or physical servers.
 
-## Detach data disks with disk migration script and generate IaC configuration
+## “Detach data disks and generate IaC configuration with Azure Migrate
 
 1. Use the disk migration script in this [repository](https://github.com/Azure/AzMigrate-Hydration/tree/asr-am-support-scripts/Post%20Migration%20Customization) to detach the data disk from the migrated VM. The script generates the `disk-config.json` file, which contains the disk’s Infrastructure as Code (IaC) details. 
 1. Follow the instructions in the readme.md file included in the downloaded folder to complete the detachment process.
