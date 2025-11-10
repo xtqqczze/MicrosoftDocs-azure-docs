@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 11/07/2025
+ms.date: 11/18/2025
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description

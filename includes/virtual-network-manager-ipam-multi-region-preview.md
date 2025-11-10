@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: azure-virtual-network-manager
- author: mbender
+ author: mbender-ms
  ms.service: azure-virtual-network-manager
  ms.topic: include
  ms.date: 11/18/2025
- ms.author: mbender-ms
+ ms.author: mbender
  ms.custom: include-file, references_regions
 ---
 

@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 11/18/2025
 ms.custom:
   - references_regions
   - ai-gen-docs-bap
@@ -43,13 +43,13 @@ The following are some key features of IPAM in Azure Virtual Network Manager:
 
 The IPAM feature in Azure Virtual Network Manager works through the following key components:
 
-- Managing IP address pools
+1. Managing IP address pools
 
-- Allocating IP addresses to Azure resources
+1. Allocating IP addresses to Azure resources
 
-- Delegating IPAM permissions
+1. Delegating IPAM permissions
 
-- Simplifying resource creation
+1. Simplifying resource creation
 
 ### Manage IP address pools
 
@@ -136,14 +136,13 @@ az network vnet update `
 
 ```
 
-
 ## Permission requirements for IPAM in Azure Virtual Network Manager
 
 The **IPAM Pool User** role alone is sufficient for delegation when using IPAM. If permission issues arise, you also need to grant **Network Manager Read** access to ensure full discoverability of IP address pools and virtual networks across the Network Manager's scope.
 
 Without this role, users with only the **IPAM Pool User** role don't see available pools and virtual networks.
 
-Learn more about [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
+Learn more about [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
 ## Next steps
 
