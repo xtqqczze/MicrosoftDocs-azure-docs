@@ -38,7 +38,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
 - A Consumption logic app resource that uses the workflow type named **Autonomous Agents**. See [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
-  Consumption autonomous agent workflows don't require a separately deployed AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. Agent workflows support only [specific models](#supported-models-for-agent-workflows).
+  Consumption autonomous agent workflows don't require you to manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry.  You only need to select the version to use. Agent workflows support only [specific models](#supported-models-for-agent-workflows).
 
   > [!NOTE]
   >
@@ -74,7 +74,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
    | **Azure API Management Service APIs** | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | Select your API in Azure API Management. |
  
 
-- The authentication to use when you connect your agent to your deployed AI model.
+- The authentication to use when you connect your agent to your AI model.
 
   Azure AI Foundry projects require that you use managed identity authentication.
 
@@ -103,7 +103,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
   - URL and key-based authentication
 
-    This connection supports authentication by using the endpoint URL and API key for your deployed AI model. However, you don't have to manually find these values before you create the connection. The values automatically appear when you select your model source.
+    This connection supports authentication by using the endpoint URL and API key for your AI model. However, you don't have to manually find these values before you create the connection. The values automatically appear when you select your model source.
 
     > [!IMPORTANT]
     >
@@ -253,7 +253,7 @@ Set up your agent with the AI model that you want to use by following the corres
 
    The agent information pane now shows the selected AI model, for example:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows Consumption example connected deployed AI model." lightbox="media/create-autonomous-agent-workflows/connected-model-consumption.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows Consumption example connected AI model." lightbox="media/create-autonomous-agent-workflows/connected-model-consumption.png":::
 
 1. Continue to the next section to rename the agent.
 
@@ -267,14 +267,14 @@ Set up your agent with the AI model that you want to use by following the corres
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection to your deployed AI model. <br><br>This example uses **fabrikam-azure-ai-connection**. |
-   | **Agent Model Source** | Yes | - **Azure OpenAI** <br>- **Foundry Agent Service** | The source for the deployed AI model. |
-   | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your deployed AI model. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your deployed AI model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
+   | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection to your AI model. <br><br>This example uses **fabrikam-azure-ai-connection**. |
+   | **Agent Model Source** | Yes | - **Azure OpenAI** <br>- **Foundry Agent Service** | The source for the AI model. |
+   | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your AI model. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your AI model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
    | **Subscription** | Yes | <*Azure-subscription*> | Select the Azure subscription associated with your Azure OpenAI Service resource. |
    | **Azure OpenAI Resource** | Yes, only when **Agent Model Source** is **Azure OpenAI** | <*Azure-OpenAI-Service-resource-name*> | Select your Azure OpenAI Service resource. |
    | **AI Foundry Project** | Yes, only when **Agent Model Source** is **Foundry Agent Service** | <*Azure-AI-Foundry-project-name*> | Select your project in Azure AI Foundry. <br><br>**Note**: If you recently assigned the necessary role on your project, you might experience a delay before role permissions take effect. Meanwhile, an error message appears that you don't have correct permissions on the project. |
-   | **API Endpoint** | Yes | Automatically populated | The endpoint URL for your deployed AI model in Azure OpenAI Service. <br><br>This example uses **`https://fabrikam-azureopenai.openai.azure.com/`**. |
-   | **API Key** | Yes, only when **Authentication Type** is **URL and key-based authentication** | Automatically populated | The API key for your deployed AI model in Azure OpenAI Service. |
+   | **API Endpoint** | Yes | Automatically populated | The endpoint URL for your AI model in Azure OpenAI Service. <br><br>This example uses **`https://fabrikam-azureopenai.openai.azure.com/`**. |
+   | **API Key** | Yes, only when **Authentication Type** is **URL and key-based authentication** | Automatically populated | The API key for your AI model in Azure OpenAI Service. |
 
    For example, if you select **Azure OpenAI** as your model source and **Managed identity** for authentication, your connection information looks like the following sample:
 
@@ -288,7 +288,7 @@ Set up your agent with the AI model that you want to use by following the corres
 
    The agent information pane now shows the connected AI model, for example:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-standard.png" alt-text="Screenshot shows example connected deployed AI model." lightbox="media/create-autonomous-agent-workflows/connected-model-standard.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-standard.png" alt-text="Screenshot shows example connected AI model." lightbox="media/create-autonomous-agent-workflows/connected-model-standard.png":::
 
    If you want to create a different connection, on the **Parameters** tab, scroll down to the bottom, and select **Change connection**.
 
@@ -335,7 +335,7 @@ For the best results, provide prescriptive instructions and be prepared to itera
 
    Here's an example:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/weather-agent-instructions.png" alt-text="Screenshot shows workflow designer, and agent instructions." lightbox="media/create-autonomous-agent-workflows/weather-agent-instructions.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/weather-agent-instructions.png" alt-text="Screenshot shows workflow designer and agent instructions." lightbox="media/create-autonomous-agent-workflows/weather-agent-instructions.png":::
 
 1. Optionally, you can provide user instructions that the agent uses as prompts.
 
@@ -471,10 +471,7 @@ For an action parameter that uses only model-generated outputs, create an agent 
 
    > [!NOTE]
    >
-   > Microsoft recommends that you follow the action's Swagger definition. For example, 
-   > for the **Get current weather** action, which is from the **MSN Weather** "shared" 
-   > connector hosted and managed by global, multitenant Azure, see the 
-   > [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather).
+   > Microsoft recommends that you follow the action's Swagger definition. For example, for the **Get current weather** action, which is from the **MSN Weather** "shared" connector hosted and managed by global, multitenant Azure, see the [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather).
 
 1. When you're ready, select **Create**.
 
@@ -526,11 +523,7 @@ For these scenarios, create the agent parameter on the tool by following these s
 
    > [!NOTE]
    >
-   > Microsoft recommends that you follow the action's Swagger definition. For example, 
-   > to find this information for the **Get current weather** action, see the 
-   > [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather). 
-   > The example action is provided by the **MSN Weather** managed "shared" connector, 
-   > which is hosted and run in global, multitenant Azure.
+   > Microsoft recommends that you follow the action's Swagger definition. For example, to find this information for the **Get current weather** action, see the [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather). The example action is provided by the **MSN Weather** managed "shared" connector, which is hosted and run in global, multitenant Azure.
   
    | Parameter | Value | Description |
    |-----------|-------|-------------|
@@ -546,7 +539,7 @@ For these scenarios, create the agent parameter on the tool by following these s
 
 1. From the **Agent parameters** list, select the agent parameter that you defined earlier.
 
-   The finished **Get weather** tool looks like the following example:
+   The finished **Get current weather** tool looks like the following example:
 
    :::image type="content" source="media/create-autonomous-agent-workflows/get-weather-tool-complete.png" alt-text="Screenshot shows agent and finished Get weather tool." lightbox="media/create-autonomous-agent-workflows/get-weather-tool-complete.png":::
 
@@ -558,9 +551,9 @@ For many scenarios, an agent usually needs more than one tool. In this example, 
 
 To build this tool, follow these steps:
 
-1. On the designer, inside the agent, next to the existing tool, select the plus sign (**+**) to add an action.
+1. On the designer, in the agent, next to the existing tool, select the plus sign (**+**) to add an action.
 
-1. On the **Add an action** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to select another action for your new tool.
+1. On the **Add an action** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action#add-action) to select another action for your new tool.
 
    This example uses the **Outlook.com** action named **Send an email (V2)**.
 
@@ -576,11 +569,11 @@ To build this tool, follow these steps:
 
 1. Save your workflow.
 
-## Create agent parameters for the 'Send an email (V2)' action
+## Create agent parameters for 'Send an email (V2)' action
 
-The steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-get-weather), except that you set up different agent parameters for the **Send an email (V2)** action.
+Except for the different agent parameters to set up for the **Send an email (V2)** action, the steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-get-weather).
 
-1. Follow the earlier steps to create the following agent parameters for the action parameter values in the action named **Send an email (V2)**.
+1. Follow the earlier general steps to create agent parameters for the parameter values in the **Send an email (V2)** action.
 
    The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
 

@@ -39,7 +39,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
 - A Consumption logic app resource that uses the workflow type named **Conversational Agents**. See [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
-  Consumption conversational agent workflows don't require a separately deployed AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
+  Consumption conversational agent workflows don't require you to manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. You only need to select the version to use. Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
 
   > [!NOTE]
   >
@@ -73,7 +73,7 @@ For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with M
   | **Azure OpenAI** | An [Azure OpenAI Service resource](/azure/ai-services/openai/overview) with a deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models). <br><br>You need the resource name when you connect from the agent in your workflow to the deployed model in Azure OpenAI Service. <br><br>For more information, see: <br>- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) <br>- [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) |
   | **APIM Gen AI Gateway** | An [Azure API Management account](../api-management/genai-gateway-capabilities) with the LLM API to use. <br><br>For more information, see: <br>- [AI gateway in Azure API Management](/azure/api-management/genai-gateway-capabilities) <br>- [Import an Azure AI Foundry API](/azure/api-management/azure-ai-foundry-api) <br>- [Import an Azure OpenAI API](/azure/api-management/azure-openai-api-from-specification) |
  
-- The authentication to use when you connect your agent to your deployed AI model.
+- The authentication to use when you connect your agent to your AI model.
 
   - Managed identity authentication
 
@@ -99,7 +99,7 @@ For authentication, Consumption autonomous agent workflows use [OAuth 2.0 with M
 
   - URL and key-based authentication
 
-    This connection supports authentication by using the endpoint URL and API key for your deployed AI model. However, you don't have to manually find these values before you create the connection. The values automatically appear when you select your model source.
+    This connection supports authentication by using the endpoint URL and API key for your AI model. However, you don't have to manually find these values before you create the connection. The values automatically appear when you select your model source.
 
     > [!IMPORTANT]
     >
@@ -161,7 +161,7 @@ To open this partial workflow, follow these steps:
 
 Based on the development experience that you use, start by creating a new workflow.
 
-#### Create agent workflow in portal
+#### Create agent workflow in Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -242,7 +242,7 @@ Set up your agent with the AI model that you want to use by following the corres
 
    The agent information pane now shows the selected AI model, for example:
 
-   :::image type="content" source="media/create-conversational-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows Consumption example connected deployed AI model." lightbox="media/create-conversational-agent-workflows/connected-model-consumption.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows Consumption example connected AI model." lightbox="media/create-conversational-agent-workflows/connected-model-consumption.png":::
 
 1. Continue to the next section to rename the agent.
 
@@ -256,9 +256,9 @@ Set up your agent with the AI model that you want to use by following the corres
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection to your deployed AI model. <br><br>This example uses `fabrikam-azure-ai-connection`. |
-   | **Agent Model Source** | Yes | - **Azure OpenAI** <br>- **APIM Gen AI Gateway** | The source for the deployed AI model in your Azure OpenAI Service resource, or API in your Azure API Management account. |
-   | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your deployed AI model. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your deployed AI model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
+   | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection to your AI model. <br><br>This example uses `fabrikam-azure-ai-connection`. |
+   | **Agent Model Source** | Yes | - **Azure OpenAI** <br>- **APIM Gen AI Gateway** | The source for the AI model in your Azure OpenAI Service resource, or API in your Azure API Management account. |
+   | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your AI model. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your AI model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
    | **Subscription** | Yes | <*Azure-subscription*> | Select the Azure subscription for your Azure OpenAI Service resource or Azure API Management account. |
    | **Azure OpenAI Resource** | Yes, only when **Agent Model Source** is **Azure OpenAI** | <*Azure-OpenAI-Service-resource-name*> | Select your Azure OpenAI Service resource. |
    | **Azure API Management Service** (preview) | Yes, only when **Agent Model Source** is **APIM Gen AI Gateway**. | Select your Azure API Management account. | |
@@ -311,84 +311,145 @@ For the best results, provide prescriptive instructions and be prepared to itera
    You're an AI agent that answers questions about the weather for a specified location. You can also send a weather report in email if you're provided email address. If no address is provided, ask for an email address.
 
    Format the weather report with bullet lists where appropriate. Make your response concise and useful, but use a conversational and friendly tone. You can include suggestions like "Carry an umbrella" or "Dress in layers".
+   ```
 
    Here's an example:
 
-   :::image type="content" source="media/create-conversational-agent-workflows/system-instructions-weather-agent.png" alt-text="Screenshot shows workflow designer, and agent with system instructions." lightbox="media/create-conversational-agent-workflows/system-instructions-weather-agent.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/weather-agent-instructions.png" alt-text="Screenshot shows workflow designer and agent instructions." lightbox="media/create-conversational-agent-workflows/weather-agent-instructions.png":::
 
 1. Now, you can save your workflow. On the designer toolbar, select **Save**.
 
 ## Check for errors
 
-To make sure your workflow doesn't have errors at this stage, follow these steps:
+To make sure your workflow doesn't have errors at this stage, follow these steps, based on your logic app and development environment.
 
 ### [Consumption (preview)](#tab/consumption)
 
+1. On the designer toolbar, select **Chat**.
+
+1. In the chat client interface, ask the following question: `What is the current weather in Seattle?`
+
+1. Check that the response is what you expect, for example:
+
+   :::image type="content" source="media/create-conversational-agent-workflows/test-chat-portal.png" alt-text="Screenshot shows the portal-integrated chat interface for a Consumption agent workflow." lightbox="media/create-conversational-agent-workflows/test-chat-portal.png":::
+
+1. Return to your workflow in the designer.
+
+1. On the workflow sidebar, under **Development Tools**, select **Run history**.
+
+1. On the **Run history** page, in the runs table, select the latest workflow run.
+
+   > [!NOTE]
+   >
+   > If the page doesn't show any runs, on the toolbar, select **Refresh**.
+   >
+   > If the **Status** column shows a **Running** status, the agent workflow is still working.
+
+   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent instructions that you provided earlier. The pane also shows the agent's response.
+
+   :::image type="content" source="media/create-conversational-agent-workflows/agent-only-test-consumption.png" alt-text="Screenshot shows monitoring view for Consumption workflow, operation status, and agent log." lightbox="media/create-conversational-agent-workflows/agent-only-test-consumption.png":::
+
+   The agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete tasks.
+
+1. Return to the designer. On the monitoring view toolbar, select **Edit**.
 
 ### [Standard](#tab/standard)
 
-   1. On the designer toolbar, select **Chat**.
+#### Check for errors in Azure portal
 
-   1. In the chat client interface, ask the following question: **What is the current weather in Seattle?**
+1. On the designer toolbar, select **Chat**.
 
-   1. Check that the response is what you expect, for example:
+1. In the chat client interface, ask the following question: `What is the current weather in Seattle?`
 
-      :::image type="content" source="media/create-conversational-agent-workflows/test-chat.png" alt-text="Screenshot shows integrate chat interface." lightbox="media/create-conversational-agent-workflows/test-chat.png":::
+1. Check that the response is what you expect, for example:
 
-   1. Return to your workflow in the designer.
+   :::image type="content" source="media/create-conversational-agent-workflows/test-chat-portal.png" alt-text="Screenshot shows the portal-integrated chat interface for a Standard agent workflow." lightbox="media/create-conversational-agent-workflows/test-chat-portal.png":::
 
-   1. On the workflow sidebar, under **Tools**, select **Run history**.
+1. Return to your workflow in the designer.
 
-   1. On the **Run history** page, on the **Run history** tab, in the **Identifier** column, select the latest workflow run.
+1. On the workflow sidebar, under **Tools**, select **Run history**.
 
-      > [!NOTE]
-      >
-      > If the page doesn't show any runs, on the toolbar, select **Refresh**.
-      >
-      > If the **Status** column shows a **Running** status, the agent workflow 
-      > is still working.
+1. On the **Run history** page, on the **Run history** tab, select the latest workflow run.
 
-      The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the system instructions that you provided earlier. The pane also shows the agent's response.
+   > [!NOTE]
+   >
+   > If the page doesn't show any runs, on the toolbar, select **Refresh**.
+   >
+   > If the **Status** column shows a **Running** status, the agent workflow is still working.
 
-      :::image type="content" source="media/create-conversational-agent-workflows/agent-only-run-history.png" alt-text="Screenshot shows monitoring view, operation status, and agent log." lightbox="media/create-conversational-agent-workflows/agent-only-run-history.png":::
+   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent instructions that you provided earlier. The pane also shows the agent's response.
 
-      However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email, until you create tools that the agent needs to complete their tasks. You might even get an email that your email server rejected the message.
+   :::image type="content" source="media/create-conversational-agent-workflows/agent-only-run-history.png" alt-text="Screenshot shows monitoring view, operation status, and agent log." lightbox="media/create-conversational-agent-workflows/agent-only-run-history.png":::
+
+   However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email, until you create tools that the agent needs to complete their tasks. You might even get an email that your email server rejected the message.
 
 1. Return to the designer. On the monitoring view toolbar, select **Edit**.
+
+#### Check for errors in Visual Studio Code
+
+1. In the Explorer window for your logic app project, expand the folder that has the workflow name, and go to the *workflow.json* file.
+
+1. From the file shortcut menu, select **Overview**, which starts a debugging session.
+
+1. On the **Overview** page, select **Chat**.
+
+1. In the chat client interface, ask the following question: `What is the current weather in Seattle?`
+
+1. Check that the response is what you expect, for example:
+
+   :::image type="content" source="media/create-conversational-agent-workflows/test-chat-visual-studio-code.png" alt-text="Screenshot shows the Visual Studio Code integrated chat interface for a Standard agent workflow." lightbox="media/create-conversational-agent-workflows/test-chat-visual-studio-code.png":::
+
+1. Return to the **Overview** page.
+
+1. Under **Run history**, select the latest workflow run.
+
+   > [!NOTE]
+   >
+   > If the page doesn't show any runs, on the toolbar, select **Refresh**.
+   >
+   > If the **Status** column shows a **Running** status, the agent workflow is still working.
+
+   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent instructions that you provided earlier. The pane also shows the agent's response.
+
+   However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email, until you create tools that the agent needs to complete their tasks. You might even get an email that your email server rejected the message.
+
+1. On the debugging toolbar, select **Stop** to close the debug session.
+
+1. Return to the designer.
 
 ---
 
 <a name="create-tool-weather"></a>
 
-## Create a tool to get current weather
+## Create a 'Get weather' tool
 
 For an agent to run prebuilt actions available in Azure Logic Apps, you must create one or more tools for the agent to use. A tool must contain at least one action and only actions. The agent calls the tool by using specific arguments.
 
-In this example, the agent needs a tool that gets the current weather. You can build this tool by following these steps:
+In this example, the agent needs a tool that gets the weather forecast. You can build this tool by following these steps:
 
 1. On the designer, inside the agent and under **Add tool**, select the plus sign (**+**) to open the pane where you can browse available actions.
 
-1. On the **Add an action** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to add an action for your scenario.
+1. On the **Add an action** pane, follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action#add-action) for your logic app to add an action that's best for your scenario.
 
    This example uses the **MSN Weather** action named **Get current weather**.
 
-   After you select the action, both the **Tool** and the action appear inside the agent on the designer at the same time. Both information panes also open at the same time.
+   After you select the action, both the **Tool** container and the selected action appear in the agent on the designer. Both information panes also open at the same time.
 
-   :::image type="content" source="media/create-conversational-agent-workflows/added-tool-get-weather.png" alt-text="Screenshot shows workflow designer with weather agent action, which contains a tool that includes the action named Get current weather." lightbox="media/create-conversational-agent-workflows/added-tool-get-weather.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/added-tool-get-current-weather.png" alt-text="Screenshot shows workflow designer with the renamed agent, which contains a tool that includes the action named Get current weather." lightbox="media/create-conversational-agent-workflows/added-tool-get-current-weather.png":::
 
-1. On the tool information pane, rename the tool to describe its purpose.
+1. On the tool information pane, rename the tool to describe its purpose. For this example, use `Get weather`.
 
-   This example uses **Get current weather**.
+1. On the **Details** tab, for **Description**, enter the tool description. For this example, use `Get the weather for the specified location.`
 
-1. On the **Details** tab, for **Description**, enter the tool description.
+   :::image type="content" source="media/create-conversational-agent-workflows/get-weather-tool.png" alt-text="Screenshot shows completed Get weather tool with description." lightbox="media/create-conversational-agent-workflows/get-weather-tool.png":::
 
-   This example uses **Gets the weather for the specified location.**
-
-   Under **Description**, the **Agent Parameters** section applies only for specific use cases. For more information, see [Create agent parameters](#create-agent-parameters-for-the-get-current-weather-action).
+   Under **Description**, the **Agent Parameters** section applies only for specific use cases. For more information, see [Create agent parameters](#create-agent-parameters-get-weather).
 
 1. Continue to the next section to learn more about agent parameters, their use cases, and how to create them, based on these use cases.
 
-## Create agent parameters for the 'Get current weather' action
+<a name="create-agent-parameters-get-weather"></a>
+
+## Create agent parameters for 'Get current weather' action
 
 Actions usually have parameters that require you to specify the values to use. Actions in tools are almost the same except for one difference. You can create agent parameters that the agent uses to specify the parameter values for actions in tools. You can specify model-generated outputs, values from nonmodel sources, or a combination. For more information, see [Agent parameters](agent-workflows-concepts.md#key-concepts).
 
@@ -428,16 +489,13 @@ For an action parameter that uses only model-generated outputs, create an agent 
 
    > [!NOTE]
    >
-   > Microsoft recommends that you follow the action's Swagger definition. For example, 
-   > for the **Get current weather** action, which is from the **MSN Weather** "shared" 
-   > connector hosted and managed by global, multitenant Azure, see the 
-   > [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather).
+   > Microsoft recommends that you follow the action's Swagger definition. For example, for the **Get current weather** action, which is from the **MSN Weather** "shared" connector hosted and managed by global, multitenant Azure, see the [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather).
 
 1. When you're ready, select **Create**.
 
-   The following diagram shows the example **Get current weather** action with the **Location** agent parameter:
+   The following example shows the **Get current weather** action with the **Location** agent parameter:
 
-   :::image type="content" source="media/create-conversational-agent-workflows/get-current-weather-action.png" alt-text="Screenshot shows the Weather agent, Get current weather tool, and selected action named Get current weather. The Location action parameter includes the created agent parameter." lightbox="media/create-conversational-agent-workflows/get-current-weather-action.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/get-current-weather-action.png" alt-text="Screenshot shows the Weather agent, Get weather tool, and selected action named Get current weather. The Location action parameter includes the created agent parameter." lightbox="media/create-conversational-agent-workflows/get-current-weather-action.png":::
 
 1. Save your workflow.
 
@@ -483,11 +541,7 @@ For these scenarios, create the agent parameter on the tool by following these s
 
    > [!NOTE]
    >
-   > Microsoft recommends that you follow the action's Swagger definition. For example, 
-   > to find this information for the **Get current weather** action, see the 
-   > [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather). 
-   > The example action is provided by the **MSN Weather** managed connector, 
-   > which is hosted and run in a shared cluster on multitenant Azure.
+   > Microsoft recommends that you follow the action's Swagger definition. For example, to find this information for the **Get current weather** action, see the [**MSN Weather** connector technical reference article](/connectors/msnweather/#get-current-weather). The example action is provided by the **MSN Weather** managed connector, which is hosted and run in a shared cluster on multitenant Azure.
   
    | Parameter | Value | Description |
    |-----------|-------|-------------|
@@ -503,51 +557,67 @@ For these scenarios, create the agent parameter on the tool by following these s
 
 1. From the **Agent parameters** list, select the agent parameter that you defined earlier.
 
-   For example, the finished **Get current weather** tool looks like the following example:
+   The finished **Get current weather** tool looks like the following example:
 
-   :::image type="content" source="media/create-conversational-agent-workflows/get-current-weather-tool.png" alt-text="Screenshot shows workflow designer with the agent and selected tool now named Get current weather." lightbox="media/create-conversational-agent-workflows/get-current-weather-tool.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/get-current-weather-tool.png" alt-text="Screenshot shows agent and finished Get weather tool." lightbox="media/create-conversational-agent-workflows/get-current-weather-tool.png":::
 
 1. Save your workflow.
 
-## Create a tool to send email
+## Create a 'Send email' tool
 
 For many scenarios, an agent usually needs more than one tool. In this example, the agent needs a tool that sends the weather report in email.
 
 To build this tool, follow these steps:
 
-1. On the designer, inside the agent action, next to the existing tool, select the plus sign (**+**) to add an action.
+1. On the designer, in the agent, next to the existing tool, select the plus sign (**+**) to add an action.
 
-1. On the **Add an action** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to select another action for your new tool.
+1. On the **Add an action** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action#add-action) to select another action for your new tool.
 
    The examples use the **Outlook.com** action named **Send an email (V2)**.
 
    Like before, after you select the action, both the new **Tool** and action appear inside the agent on the designer at the same time. Both information panes open at the same time.
 
-   :::image type="content" source="media/create-conversational-agent-workflows/added-tool-send-email.png" alt-text="Screenshot shows workflow designer with Weather agent, Get current weather tool, and new tool with action named Send an email (V2)." lightbox="media/create-conversational-agent-workflows/added-tool-send-email.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/added-tool-send-email.png" alt-text="Screenshot shows workflow designer with Weather agent, Get weather tool, and new tool with action named Send an email (V2)." lightbox="media/create-conversational-agent-workflows/added-tool-send-email.png":::
 
-1. On the tool information pane, make the tool's purpose obvious by updating the tool name.
+1. On the tool information pane, rename the tool to describe its purpose. For this example, use `Send email`.
 
-   The examples use **Send email**.
+1. On the **Details** tab, for **Description**, enter the tool description. For this example, use `Send current weather by email.`
 
-1. On the **Details** tab, provide the following information:
+   :::image type="content" source="media/create-conversational-agent-workflows/send-email-tool.png" alt-text="Screenshot shows completed Send email tool with description." lightbox="media/create-conversational-agent-workflows/send-email-tool.png":::
 
-   1. For **Description**, enter the tool description.
+## Create agent parameters for 'Send an email (V2)' action
 
-      This example uses **Send weather report in email.**
+The steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-get-weather), except that you set up different agent parameters for the **Send an email (V2)** action.
 
-The second example agent tool looks like the following example:
+1. Follow the earlier steps to create the following agent parameters for the action parameter values in the action named **Send an email (V2)**.
 
-:::image type="content" source="media/create-conversational-agent-workflows/send-email-tool-updated.png" alt-text="Screenshot shows the finished second tool inside the agent." lightbox="media/create-conversational-agent-workflows/send-email-tool-updated.png":::
+   The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
 
-## Create agent parameters for the 'Send an email (V2)' action
+   When you're done, the example action uses the previously defined agent parameters as shown here:
 
-For the **Send an email (V2)** action, the general steps to create agent parameters are similar to the steps in [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-for-the-get-current-weather-action) except for the different parameters.
+   :::image type="content" source="media/create-autonomous-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-autonomous-agent-workflows/send-email-action.png":::
 
-In the **Send an email (V2)** action, follow the [earlier general steps](#create-agent-parameters-for-the-get-current-weather-action) to create agent parameters for the **To**, **Subject**, and **Body** parameters. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
+   The finished **Send email** tool looks like the following example:
 
-When you're done, your **Send an email (V2)** action has agent parameters that look like the following example:
+   :::image type="content" source="media/create-autonomous-agent-workflows/send-email-tool-complete.png" alt-text="Screenshot shows the agent and finished Send email tool." lightbox="media/create-autonomous-agent-workflows/send-email-tool-complete.png":::
 
-:::image type="content" source="media/create-conversational-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-conversational-agent-workflows/send-email-action.png":::
+1. Save your workflow.
+
+## Create agent parameters for 'Send an email (V2)' action
+
+Except for the different agent parameters to set up for the **Send an email (V2)** action, the steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-get-weather).
+
+1. Follow the earlier general steps to create agent parameters for the parameter values in the **Send an email (V2)** action.
+
+   The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
+
+   When you're done, the example action uses the previously defined agent parameters as shown here:
+
+   :::image type="content" source="media/create-conversational-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-conversational-agent-workflows/send-email-action.png":::
+
+   The finished **Send email** tool looks like the following example:
+
+   :::image type="content" source="media/create-conversational-agent-workflows/send-email-tool-complete.png" alt-text="Screenshot shows the agent and finished Send email tool." lightbox="media/create-conversational-agent-workflows/send-email-tool-complete.png":::
 
 [!INCLUDE [best-practices-agent-workflows](includes/best-practices-agent-workflows.md)]
 
