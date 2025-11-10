@@ -91,9 +91,9 @@ Create a scheduled task to run on a schedule you define.
 
 1. Review incident context, RCA timeline, and proposed mitigations.
 
-# [Build a Sub-Agent](#tab/subagent)
+# [Build a Subagent](#tab/subagent)
 
-Build custom operational agents, tools, and integrations by using a visual no-code interface. You can extend the agent's capabilities with specialized subagents for different operational domains.
+Build [custom operational subagents](agent-builder-overview.md), tools, and integrations by using a visual no-code interface. You can extend the agent's capabilities with specialized subagents for different operational domains.
 
 - Create purpose-built subagents for specific operational areas (database, network, security)
 
@@ -103,7 +103,7 @@ Build custom operational agents, tools, and integrations by using a visual no-co
 
 - Define agent handoff workflows for complex multi-domain incidents
 
-- Test your subagent's performance by using the playground feature inside Sub-Agent Builder
+- Test your subagent's performance by using the playground feature inside agent builder
 
 - Refine the subagent workflow until your operational needs are met
 
