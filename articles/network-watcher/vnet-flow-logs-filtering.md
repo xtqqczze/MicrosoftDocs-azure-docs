@@ -65,7 +65,7 @@ New-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcher
     -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id `
     -FormatVersion 2 -EnabledFilteringCriteria 'dstip=20.252.145.59 || DstPort=54300-54400' `
     -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId `
-    -EnableRetention $true -RetentionPolicyDays 15 `
+    -EnableRetention $true -RetentionPolicyDays 15
 ```
   
 ## Update existing filtering
@@ -87,7 +87,7 @@ Set-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcher
     -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id `
     -FormatVersion 2 -EnabledFilteringCriteria 'dstip=20.252.145.59 || DstPort=443' `
     -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId `
-    -EnableRetention $true -RetentionPolicyDays 15 `
+    -EnableRetention $true -RetentionPolicyDays 15
 ```
 
 ## Related content
