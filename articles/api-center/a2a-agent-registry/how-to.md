@@ -26,24 +26,36 @@ The agent registry within Azure API Center provides a centralized platform for d
 
 Follow these task-oriented steps to add an A2A agent to the API Center inventory so it appears with the correct agent card and skills metadata.
 
-1. Azure portal
-1. Assets > APIs
+1. Sign in to the Azure portal, then navigate to your API center.
+
+1. In the sidebar menu, under Assets, select **APIs**. 
+
+1. In the Register an API page, select **+ Register an API**.
+
 1. Fill in the required form data. 
 
-    |Column1                   |Column2            |
-    |--------------------------|-------------------|
-    |API title                 |                   |
-    |Identification            |                   |
-    |API type                  |Select A2A         |
-    |Summary                   |                   |
-    |Description               |                   |  
-    |Version title             |                   |
-    |Version identification    |                   |
-    |Version lifecycle         |                   |
-    
-    License, External documentation, Contact information +Add fill in details and select add button. 
+1. In the **Register an API** page, add the following information:
 
-1. Select the **Create** button. 
+    |Setting|Description|
+    |-------|-----------|
+    |**API title**| Name you choose for the API  |
+    |**Identification**| Azure resource name for the API |
+    |**API type**| Choose **A2A**. |
+    | **Summary** | Summary description of the API  |
+    | **Description** | Description of the API |
+    | **Version** | |
+    |**Version title**|Name you choose for the API version |
+    |**Version identification**| Azure resource name for the version |
+    |**Version lifecycle**  | Lifecycle stage of the API version |
+    |**External documentation**     | Name, description, and URL of documentation for the API     |
+    |**License**         | Name, URL, and ID of a license for the API     |
+    |**Contact information**         | Name, email, and URL of a contact for the API     |
+    | **Line of business** | Custom metadata that identifies the business unit that owns the API  |
+    | **Public-facing**  | Custom metadata that identifies whether the API is public-facing or internal only    |
+
+    :::image type="content" source="./media/register-apis/register-api.png" alt-text="Screenshot of the dialog box to register an API in the Azure portal." lightbox="./media/register-apis/register-api.png":::
+
+1. Select **Create** to register the API.
 
 ## Discover A2A agents
 
