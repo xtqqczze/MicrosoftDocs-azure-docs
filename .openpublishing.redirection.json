@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "articles/automation/change-tracking/enable-change-tracking-at-scale-machines-blade.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/enable-change-tracking-at-scale-machines-blade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/enable-change-tracking-at-scale-policy.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/enable-change-tracking-at-scale-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/extension-version-details.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/extension-version-details",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/overview-monitoring-agent.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/overview-monitoring-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/region-mappings-monitoring-agent.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/change-tracking-inventory-support-matrix",
+      "redirect_document_id": false
+    },        
+    {
       "source_path": "articles/backup/backup-azure-enhanced-soft-delete-tutorial.md",
       "redirect_url": "/azure/backup/secure-by-default",
       "redirect_document_id": false
