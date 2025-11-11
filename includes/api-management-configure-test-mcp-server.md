@@ -87,6 +87,7 @@ After adding an MCP server in Visual Studio Code, you can use tools in agent mod
 
 | **Problem**                                | **Cause**                                 | **Solution**                                           |
 |-------------------------------------------|-------------------------------------------|--------------------------------------------------------|
+| `401 Unauthorized` error from backend           | Authorization header not forwarded        | If necessary, use `set-header` policy to manually attach token         |
 | API call works in API Management but fails in agent | Incorrect base URL or missing token       | Double-check security policies and endpoint            |
 | MCP server streaming fails when diagnostic logs are enabled | Logging of response body or accessing response body through policy interferes with MCP transport        | Disable response body logging at the All APIs scope - see [Prerequisites](#prerequisites) |
 
