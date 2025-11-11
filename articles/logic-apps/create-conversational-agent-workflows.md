@@ -1,6 +1,6 @@
 ---
 title: Create Conversational AI Agent Workflows
-description: Learn to build conversational automation workflows with AI agents and LLMs that support human chat interactions in Azure Logic Apps.
+description: Learn to build conversational automation workflows with AI agent loops and LLMs that support human chat interactions in Azure Logic Apps.
 service: ecfan
 services: logic-apps
 ms.suite: integration
@@ -9,20 +9,20 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 11/18/2025
 ms.update-cycle: 180-days
-# Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks by using AI agents, large language models (LLMs), natural language, and chat capabilities in my integration solutions.
+# Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks by using AI agent loops, large language models (LLMs), natural language, and chat capabilities in my integration solutions.
 ---
 
 # Create conversational agent workflows with chat interactions in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When you need AI-powered automation that interacts with humans, create *conversational agent* workflows in Azure Logic Apps. These workflows use natural language and agents connected to *large language models* (LLMs) so they can make decisions and complete tasks based on human-provided prompts. These workflows work best for automation that's user-driven, short-lived, or session-based.
+When you need AI-powered automation that interacts with humans, create *conversational agent* workflows in Azure Logic Apps. These workflows use natural language, agent *loops*, and *large language models* (LLMs) to make decisions and complete tasks based on human-provided inputs and questions, known as *prompts*. These workflows work best for automation that's user-driven, short-lived, or session-based.
 
-The following example workflow uses an agent to get the current weather and send email notifications:
+The following example workflow uses a conversational agent to get the current weather and send email notifications:
 
 :::image type="content" source="media/create-conversational-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, workflow designer, and example conversational agent workflow." lightbox="media/create-conversational-agent-workflows/weather-example.png":::
 
-This guide shows how to create a Consumption or Standard logic app that uses the **Conversational Agents** workflow type. This workflow runs using human-provided questions and inputs, or *prompts*. For a high-level overview about agentic workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
+This guide shows how to create a Consumption or Standard logic app using the **Conversational Agents** workflow type. This workflow runs using human-provided prompts and tools that you build to complete tasks. For a high-level overview about agent workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
 > [!IMPORTANT]
 >

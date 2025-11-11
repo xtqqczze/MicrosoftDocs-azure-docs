@@ -1,6 +1,6 @@
 ---
 title: Create Autonomous AI Agent Workflows
-description: Learn to build intelligent automation workflows with AI agents and LLMs that automatically perform tasks without human interactions in Azure Logic Apps.
+description: Learn to build intelligent automation workflows with AI agent loops and LLMs that automatically perform tasks without human interactions in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, divswa, krmitta, LogicApps
@@ -8,20 +8,20 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 11/18/2025
 ms.update-cycle: 180-days
-# Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks using AI agents, large language models (LLMs), natural language, and other AI capabilities that work without human intervention in my integration solutions.
+# Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks using AI agent loops, large language models (LLMs), natural language, and other AI capabilities that work without human intervention in my integration solutions.
 ---
 
 # Create autonomous agent workflows without human interactions in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When you need AI-powered automation that runs independently, create *autonomous agent* workflows in Azure Logic Apps. These workflows use agents connected to *large language models* (LLMs) so they can make decisions and complete tasks without human intervention. These workflows also work well for automation that might run a long time, require stronger governance, isolation, or support automated rollback or compensation strategies.
+When you need AI-powered automation that runs independently, create *autonomous agent* workflows in Azure Logic Apps. These workflows use agent *loops* and *large language models* (LLMs) to make decisions and complete tasks without human intervention. These workflows also work well for automation that might run a long time, require stronger governance, isolation, or support automated rollback or compensation strategies.
 
-The following example workflow uses an agent to get the current weather and send email notifications:
+The following example workflow uses an autonomous agent to get the current weather and send email notifications:
 
 :::image type="content" source="media/create-autonomous-agent-workflows/weather-example.png" alt-text="Screenshot shows Azure portal, workflow designer, and example autonomous agent workflow." lightbox="media/create-autonomous-agent-workflows/weather-example.png":::
 
-This guide shows how to create a Consumption or Standard logic app that uses the **Autonomous Agents** workflow type. This workflow runs without human interaction and uses tools that you build to automatically complete tasks. For a high-level overview about agentic workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
+This guide shows how to create a Consumption or Standard logic app that uses the **Autonomous Agents** workflow type. This workflow runs without human interaction and uses tools that you build to complete tasks. For a high-level overview about agentic workflows, see [AI agent workflows in Azure Logic Apps](/azure/logic-apps/agent-workflows-concepts).
 
 > [!IMPORTANT]
 >
@@ -38,11 +38,11 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
 - A Consumption logic app resource that uses the workflow type named **Autonomous Agents**. See [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
-  Consumption conversational agent workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. You only need to select the version to use. Agent workflows support only [specific models](#supported-models-for-agent-workflows).
+  Consumption autonomous agent workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
 
   > [!NOTE]
   >
-  > For Consumption autonomous agent workflows, only the Azure portal experience is available. Support for Visual Studio Code is unavailable.
+  > You can use only the Azure portal to build autonomous agent workflows, not Visual Studio Code.
 
 ### [Standard](#tab/standard)
 
