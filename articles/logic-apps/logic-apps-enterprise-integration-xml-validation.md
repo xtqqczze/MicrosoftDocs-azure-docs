@@ -47,7 +47,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
     >
     > Currently, only Consumption logic apps support [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. The Standard logic apps don't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
 
-## Add XML validation action
+## Add XML Validation action
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow in designer view.
 
