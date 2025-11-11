@@ -31,7 +31,7 @@ Microsoft has provided support for healthcare scenarios since the first releases
  
 The purpose of the HL7 standard is to facilitate communication in health care environments. Its primary goal is to provide standards for the exchange of data among health care applications that eliminate or substantially reduce the custom interface programming and program maintenance that may otherwise be required. The following diagram depict some of the most common HL7 message types:
 
-:::image type="content" source="media/connectors-healthcare/hl7messages.png" alt-text="Conceptual diagram shows how the HL7 messages." lightbox="media/connectors-healthcare/hl7messages.png":::
+:::image type="content" source="media/integrate-healthcare-systems/hl7messages.png" alt-text="Conceptual diagram shows how the HL7 messages." lightbox="media/integrate-healthcare-systems/hl7messages.png":::
 
 1. EPR: Electronic patient record
 1. ADT: Admits, Discharge, and Transfer message
@@ -121,19 +121,19 @@ Follow these steps to add an schema:
 
    This example shows the schema **ADT_A01_231_GLO_DEF** schema and dependencies: **datatypes_21.xsd**, **segments_21.xsd** and **tablevalues_21.xsd**.:
 
-   :::image type="content" source="media/connectors-healthcare/IntegrationSchemas.png" alt-text="Screenshot shows integration account with HL7 schemas." lightbox="media/connectors-healthcare/IntegrationSchemas.png"::: 
+   :::image type="content" source="media/integrate-healthcare-systems/IntegrationSchemas.png" alt-text="Screenshot shows integration account with HL7 schemas." lightbox="media/integrate-healthcare-systems/IntegrationSchemas.png"::: 
 
 1. Obtain the Integration Account callback URL. Go to Integration account and select **Callback URL**:
 
 For example:
 
-:::image type="content" source="media/connectors-healthcare/callbackurl.png" alt-text="Screenshot shows Callback URL for Integration account." lightbox="media/connectors-healthcare/callbackurl.png":::
+:::image type="content" source="media/integrate-healthcare-systems/callbackurl.png" alt-text="Screenshot shows Callback URL for Integration account." lightbox="media/integrate-healthcare-systems/callbackurl.png":::
 
 1. The Integration Account callback URL should be added as an environment variable in the Logic App. The name of the variable should be **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL**
 
 For example:
 
-:::image type="content" source="media/connectors-healthcare/EnvironmentIntegrationAcc.png" alt-text="Screenshot shows environment variable for Integration account." lightbox="media/connectors-healthcare/EnvironmentIntegrationAcc.png":::
+:::image type="content" source="media/integrate-healthcare-systems/EnvironmentIntegrationAcc.png" alt-text="Screenshot shows environment variable for Integration account." lightbox="media/integrate-healthcare-systems/EnvironmentIntegrationAcc.png":::
 
 ## Add an Encode action
 
@@ -144,7 +144,7 @@ Follow these steps to add an Encode action and configure the necessary parameter
 
    This example continues with the **Request** trigger named **When a HTTP request is received**:
 
-   :::image type="content" source="media/connectors-healthcare/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/connectors-healthcare/request-trigger.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/integrate-healthcare-systems/request-trigger.png":::
 
 1. To add the Encode action, follow [these general steps to add the **HL7** built-in connector action named **Encode**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
@@ -158,7 +158,7 @@ Follow these steps to add an Encode action and configure the necessary parameter
 
    For example:
 
-:::image type="content" source="media/connectors-healthcare/EncodeHL7.png" alt-text="Screenshot shows HL7 action's connection properties." lightbox="media/connectors-healthcare/EncodeHL7.png":::
+:::image type="content" source="media/integrate-healthcare-systems/EncodeHL7.png" alt-text="Screenshot shows HL7 action's connection properties." lightbox="media/integrate-healthcare-systems/EncodeHL7.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -172,7 +172,7 @@ Follow these steps to add a Decode action and configure the necessary parameters
 
    This example continues with the **Request** trigger named **When a HTTP request is received**:
 
-   :::image type="content" source="media/connectors-healthcare/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/connectors-healthcare/request-trigger.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/integrate-healthcare-systems/request-trigger.png":::
 
 1. To add the Decode action, follow [these general steps to add the **HL7** built-in connector action named **Decode**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
@@ -186,7 +186,7 @@ Follow these steps to add a Decode action and configure the necessary parameters
 
    For example:
 
-:::image type="content" source="media/connectors-healthcare/DecodeHL7.png" alt-text="Screenshot shows HL7 action's connection properties." lightbox="media/connectors-healthcare/DecodeHL7.png":::
+:::image type="content" source="media/integrate-healthcare-systems/DecodeHL7.png" alt-text="Screenshot shows HL7 action's connection properties." lightbox="media/integrate-healthcare-systems/DecodeHL7.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**. 
 
@@ -249,7 +249,7 @@ These steps use the Azure portal, but with the appropriate Azure Logic Apps exte
 
    For example:
 
-:::image type="content" source="media/connectors-healthcare/MLLPTriggerConnection.png" alt-text="Screenshot shows MLLP trigger." lightbox="media/connectors-healthcare/MLLPTriggerConnection.png":::
+:::image type="content" source="media/integrate-healthcare-systems/MLLPTriggerConnection.png" alt-text="Screenshot shows MLLP trigger." lightbox="media/integrate-healthcare-systems/MLLPTriggerConnection.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**. 
 
@@ -264,7 +264,7 @@ Follow these steps to add a MLLP send action and configure the necessary paramet
 
    This example continues with the **Request** trigger named **When a HTTP request is received**:
 
-   :::image type="content" source="media/connectors-healthcare/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/connectors-healthcare/request-trigger.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/integrate-healthcare-systems/request-trigger.png":::
 
 1. To add the MLLP Send action, follow [these general steps to add the **MLLP** built-in connector action named **Send**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
@@ -278,7 +278,7 @@ Follow these steps to add a MLLP send action and configure the necessary paramet
 
 For example:
 
-   :::image type="content" source="media/connectors-healthcare/MLLPTriggerConnection.png" alt-text="Screenshot shows MLLP connection properties." lightbox="media/connectors-healthcare/MLLPTriggerConnection.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/MLLPTriggerConnection.png" alt-text="Screenshot shows MLLP connection properties." lightbox="media/integrate-healthcare-systems/MLLPTriggerConnection.png":::
 
 1. When you're done, select **Create New**.
 
@@ -291,7 +291,7 @@ For example:
 
 For example:
 
-   :::image type="content" source="media/connectors-healthcare/SendMLLP.png" alt-text="Screenshot shows MLLP connection properties." lightbox="media/connectors-healthcare/SendMLLP.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/SendMLLP.png" alt-text="Screenshot shows MLLP connection properties." lightbox="media/integrate-healthcare-systems/SendMLLP.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**. 
 
@@ -300,4 +300,5 @@ For example:
 
 > [!div class="nextstepaction"]
 > [Create Standard logic app workflows for hybrid deployment on your own infrastructure](create-standard-workflows-hybrid-deployment.md)
+
 
