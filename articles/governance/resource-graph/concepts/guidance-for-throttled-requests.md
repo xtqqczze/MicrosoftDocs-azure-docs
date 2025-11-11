@@ -225,9 +225,32 @@ while (!string.IsNullOrEmpty(azureOperationResponse.Body.SkipToken))
 // Inspect throttling headers in query response and delay the next call if needed.
 }
 ```
+
 ## Differentiate between throttling requests for ARG and ARM
 
-It is important to understand the source of throttling in order to reach out to the right team for quota increases. If you receive the following error message, the source of throttling is due to ARM, *not* ARG: 
+It is important to understand the source of throttling in order to reach out to the right team for quota increases. 
+
+The following is an example of an **ARG throttling** error:
+
+```txt
+{
+    "error": {
+        "code": "RateLimiting",
+        "message": "Please provide below info when asking for support: timestamp = 2025-10-16T18:06:54.4721412Z, correlationId = a90921ec-4649-431a-9c92-7a4394a15883.",
+        "details": [
+            {
+                "code": "RateLimiting",
+                "message": "Client application has been throttled and should not attempt to repeat the request until an amount of time has elapsed. Please see https://aka.ms/resourcegraph-throttling for help."
+            }
+        ]
+    }
+}
+```
+
+On the other hand, the following is an example of an **ARM throttling** error:
+
+> [!NOTE]
+> ARM limits are **hard limits** that cannot be increased.
 
 ```txt
 <value>
@@ -235,7 +258,7 @@ Number of 'read' requests for subscription '{1}' actor '{2}' exceeded. Please tr
 </value>
 ```
 
-Please raise a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) for throttling requests related to ARM. 
+If you receive an ARM throttling error, we recommend that you **adjust your workload patterns by calling the ARG GET/LIST API** to reduce calls that are routed through ARM. You can also raise a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) for throttling requests related to ARM. 
 
 ## ARG GET/LIST API  
 
