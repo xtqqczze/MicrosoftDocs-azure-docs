@@ -12,7 +12,7 @@ ms.date: 11/11/2025
 
 Snapshot references are special key-values that point to a specific snapshot in an App Configuration store. They let you combine the safety of immutable configuration (snapshots) with the flexibility of dynamically changing which snapshot an application consumes at runtime.
 
-With direct snapshot usage, an application selects a snapshot by name in code. Changing the targeted snapshot requires a redeploy or config change in the code path that builds configuration. Snapshot references remove that constraint: you load a reference key-value once, and if its target snapshot name changes later, configuration providers automatically reload configuration to the new immutable set.
+With direct snapshot usage, an application selects a snapshot by name in code. Changing the targeted snapshot requires a new deployment or configuration change in the code path that builds configuration. Snapshot references remove that constraint: you load a reference key-value once, and if its target snapshot name changes later, configuration providers automatically reload configuration to the new immutable set.
 
 ## Why use snapshot references?
 
@@ -23,13 +23,7 @@ Snapshot references provide:
 
 ## How they work
 
-A snapshot reference is stored as a key-value whose value contains the name of the snapshot to consume. Configuration providers recognize snapshot reference key-values via a distinctive content type:
-
-```
-application/json; profile="https://azconfig.io/mime-profiles/snapshot-ref"; charset=utf-8
-```
-
-When a configuration provider loads key-values, any snapshot references among the selected items are automatically resolved. The referenced snapshot's key-values are merged into the application's configuration. If the reference changes to point to a different snapshot, the configuration provider refresh causes the new snapshot contents to be loaded.
+A snapshot reference is stored as a key-value whose value contains the name of the snapshot to consume. When a configuration provider loads key-values, any snapshot references among the selected items are automatically resolved. The referenced snapshot's key-values are merged into the application's configuration. If the reference changes to point to a different snapshot, the configuration provider refresh causes the new snapshot contents to be loaded.
 
 > [!NOTE]
 > You don't have to call a specialized API to opt into snapshot references. If you select the key-value that is a snapshot reference, resolution is automatic.
@@ -89,13 +83,30 @@ The following sequence demonstrates application behavior when an application is 
 5. The configuration provider re-resolves; The key-values of `Snapshot_A` are unloaded. The configuration reload yields the key-values of `Snapshot_B`.
 
 > [!NOTE]
-> This sequence assumes you have configured refresh for your application. For details on how to configure refresh, see [dynamic configuration](./broken-link.md)
+> This sequence assumes you have configured refresh for your application. For details on how to configure refresh, see [dynamic configuration](./enable-dynamic-configuration-aspnet-core.md)
+
+## Example snapshot reference
+
+The following example demonstrates a snapshot reference
+
+```json
+{
+    "key": "app1/snapshot-reference",
+    "value": "{\"snapshot_name\":\"referenced-snapshot\"}",
+    "content_type": "application/json; profile=\"https://azconfig.io/mime-profiles/snapshot-ref\"; charset=utf-8",
+    "tags": {}
+}
+```
+
+As mentioned, a snapshot reference is a normal key-value with some added constraints. Configuration providers identify snapshot references by their specific content type. The value of a snapshot reference is a json object with a name property that points to the target snapshot.
+
+Snapshot reference content type: `application/json; profile="https://azconfig.io/mime-profiles/snapshot-ref"; charset=utf-8`
 
 ## Considerations and edge cases
 
 * **Missing target snapshot**: If the reference points to a snapshot name that doesn't exist or is archived beyond retention, the provider ignores the reference.
 * **Multiple references**: If you load multiple snapshot references, their resolved key-values merge by key order; conflicting keys follow standard precedence (last one wins).
-* **Access control**: Reading a snapshot via a reference requires [snapshot read permissions](./broken-link.md), similarly to reading a snapshot directly.
+* **Access control**: Reading a snapshot via a reference requires [snapshot read permissions](./concept-snapshots.md#read-and-list-snapshots), similarly to reading a snapshot directly.
 * **Retention/archival**: Take care when referencing archived snapshots, as once the snapshot expires the app will no longer be able to access the contained configuration.
 
 ## Next steps
