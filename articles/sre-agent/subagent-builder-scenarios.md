@@ -50,15 +50,21 @@ Use the following steps to configure your subagent.
 
 ### File upload and knowledge base management
 
-Enhance your subagents' knowledge by uploading organizational documentation, runbooks, and procedural guides.
+You can enhance your subagents' knowledge by uploading documentation, runbooks, and procedural guides.
 
-Examples:
+Here's a short list of examples of files you could add to your agent:
 
-Architecture / System Design – diagrams and explanations of system components and data flows
-Troubleshooting Guide – steps to diagnose and fix recurring issues
-Runbooks / Standard Operating Procedures (SOPs) – workflows for routine operations and incidents
-Incident Reports / Postmortems – records and learnings from past outages
-Release Notes / Change Logs – summaries of product or service updates
+- **Architecture or System Design**: Diagrams and documentation that explain system components and data flows.
+
+- **Troubleshooting Guides**: Step-by-step instructions to diagnose and resolve common or recurring issues.
+
+- **Runbooks and standard operating procedures (SOPs)**: Detailed workflows for routine operations, maintenance, and incident response.
+
+- **Incident reports and postmortems**: Documentation of past outages, including root cause analysis and lessons learned.
+
+- **Release notes and change logs**: Summaries of product or service updates, including new features, bug fixes, and changes.
+
+These types of files help subagents provide accurate, context-aware responses and automate operational tasks more effectively.
 
 #### Supported file types
 
