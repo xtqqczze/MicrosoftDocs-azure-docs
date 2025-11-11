@@ -11,7 +11,7 @@ ms.date: 10/13/2025
 
 # Create a zone-redundant container app
 
-In this article, learn how to create a zone-redundant container app inside a virtual network. You create an Azure Container Apps Environment, enable zone redundancy, and configure it to use a new or preexisting virtual network that includes an infrastructure subnet.
+In this article, learn how to create a zone-redundant container app inside a virtual network. You create an Azure Container Apps Environment, enable zone redundancy, and configure it with a new or preexisting virtual network that includes an infrastructure subnet.
 
 For more information about how Container Apps supports zone redundancy, see [Reliability in Container Apps](../reliability/reliability-container-apps.md).
 
