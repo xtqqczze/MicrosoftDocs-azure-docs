@@ -81,7 +81,7 @@ Defender for Endpoint should be deployed on all NetWeaver, S/4HANA, HANA, and An
 In addition to antivirus and EDR protection, Defender can provide more protection through features and services:
 
 - For information about using and monitoring SAPXPG, see [Custom detection rules with advanced hunting: Protecting SAP external OS commands (SAPXPG)](/defender-endpoint/mde-sap-custom-detection-rules).
-- Defender Vulnerability Management can detect vulnerabilities in the operating system and database layer. Currently, it can't detect ABAP and Java vulnerabilities. For more information, see [Microsoft Defender Vulnerability Management dashboard](/defender-vulnerability-management/tvm-dashboard-insights).
+- Defender Vulnerability Management can detect vulnerabilities in the operating system and database layer. Currently, it can't detect Advanced Business Application Programming (ABAP) and Java vulnerabilities. For more information, see [Microsoft Defender Vulnerability Management dashboard](/defender-vulnerability-management/tvm-dashboard-insights).
 - For information about Defender for Storage, see [What is Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction).
 - For information about support for Server Message Block (SMB) in Azure Files, see the Microsoft blog post [Azure Files support and new updates in advanced threat protection for Azure Storage](https://azure.microsoft.com/blog/azure-files-support-and-new-updates-in-advanced-threat-protection-for-azure-storage/).
 
@@ -152,7 +152,7 @@ High-priority items for Linux operating systems include:
 - Use generation 2 VMs with Secure Boot.
 - Don't allow third-party repositories (to avoid supply chain attacks).
 - Use keys and disable password sign-in in `sshd_config`.
-- Use a managed identify for Pacemaker, not an SPN. For more information, see the Microsoft blog post [SAP on Azure high availability - change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/blog/sapapplications/sap-on-azure-high-availability-%E2%80%93-change-from-spn-to-msi-for-pacemaker-clusters-u/3609278).
+- Use a managed identity for Pacemaker, not a service principal name (SPN). For more information, see the Microsoft blog post [SAP on Azure high availability - change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/blog/sapapplications/sap-on-azure-high-availability-%E2%80%93-change-from-spn-to-msi-for-pacemaker-clusters-u/3609278).
 - Disable root sign-in.
 
 SELinux is supported with modern Red Hat Enterprise Linux (RHEL) releases. But Microsoft doesn't provide support for SELinux, and careful testing is required. For more information, see [SAP Note 3108302 for SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302/E).

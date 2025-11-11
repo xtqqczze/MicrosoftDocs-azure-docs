@@ -120,11 +120,11 @@ For helpful diagrams, see these resources:
 
 ## Global Secure Access with SAP GUI SNC
 
-The Global Secure Access client implements an [NDIS 6.0 lightweight filter (LWF) network driver](/windows-hardware/drivers/network/ndis-filter-drivers) to route any traffic to internal and external applications based on centrally defined access rules at the company's Microsft Entra ID tenant level.
+The Global Secure Access client implements an [NDIS 6.0 lightweight filter (LWF) network driver](/windows-hardware/drivers/network/ndis-filter-drivers) to route any traffic to internal and external applications based on centrally defined access rules at the company's Microsoft Entra ID tenant level.
 
-If you want to achieve network-level security, we recommend the video embedded in the following blog post: [SAP GUI MFA with Microsoft Entra (Part II): Integration - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-ii-integration-with-microsoft-entra/ba-p/13691141). The outcome is similar to operating a virual private network (VPN), without the overhead of installing and maintaining a full VPN on client devices.
+If you want to achieve network-level security, we recommend the video embedded in the following blog post: [SAP GUI MFA with Microsoft Entra (Part II): Integration - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-ii-integration-with-microsoft-entra/ba-p/13691141). The outcome is similar to operating a virtual private network (VPN), without the overhead of installing and maintaining a full VPN on client devices.
 
-For more information about using Gobal Secure Access with SAP, see the YouTube video [The one with SSO to SAP GUI using Global Secure Access](https://www.youtube.com/watch?v=42dj-lV-MDQ).
+For more information about using Global Secure Access with SAP, see the YouTube video [The one with SSO to SAP GUI using Global Secure Access](https://www.youtube.com/watch?v=42dj-lV-MDQ).
 
 ## SAP products approaching end of support
 
