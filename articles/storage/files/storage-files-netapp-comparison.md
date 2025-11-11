@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 10/28/2025
+ms.date: 11/11/2025
 ms.author: kendownie
 recommendations: false
 # Customer intent: "As a cloud architect, I want to compare Azure Files and Azure NetApp Files, so that I can choose the best file storage solution to meet my workload scalability and performance requirements."

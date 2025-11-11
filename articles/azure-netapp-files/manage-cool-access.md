@@ -39,7 +39,7 @@ There are several considerations to be aware of when using cool access.
 
 * Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
 * With cool access enabled, you can create large volumes at sizes between 2,400 GiB and 7.2 PiB. You must be [registered to use large volumes up to 7.2 PiB](large-volumes-requirements-considerations.md#register-for-large-volumes-up-to-72-pib).
-    * Large volumes up to 7.2 PiB are designed for volumes with the major of the data on the cool tier. More than 80% of the data must reside on the cool tier. 
+    * With large volumes up to 7.2 PiB, more than 80% of the data must reside on the cool tier. 
 
 ### Considerations for cool access-enabled capacity pools 
 

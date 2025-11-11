@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: concept-article
-ms.date: 11/06/2025
+ms.date: 11/11/2025
 ms.author: anfdocs
 # Customer intent: As a storage administrator, I want to review the requirements and limitations of large volumes in Azure NetApp Files, so that I can effectively plan the deployment and management of storage solutions to meet my organization's data capacity and performance needs.
 ---
@@ -16,8 +16,7 @@ Large volumes are Azure NetApp Files volumes with a size of 50 TiB to 1,024 TiB.
 
 With breakthrough mode, you can create large volumes at sizes between 2,400 GiB and 2,400 TiB. You must [request the feature](#register-for-breakthrough-mode) before using it for the first time. With cool access enabled, large volumes can scale to 7.2 PiB in certain situations; for more information, see [large volumes up to 7.2 PiB](#requirements-and-considerations-for-large-volumes-up-to-72-pib-preview).
 
-There are requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
-Azure NetApp Files support [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) at sizes between 50 TiB and 1,024 TiB.
+There are requirements and considerations you need to be aware of before using [large volumes](large-volumes.md).
 
 ## Requirements and considerations
 
@@ -89,7 +88,7 @@ Large volumes breakthrough mode is currently in preview. You must [request the f
 * In some cases, you can create large volume with cool access enabled at sizes between 2,400 GiB and 7.2 PiB.
   * If you're using the Flexible, Premium, or Ultra service levels, you must also [register to use those service levels with cool access](manage-cool-access.md#register-the-feature).
 * With these large volumes, more than 80% of the data should reside in the cool tier.  
-* If you plan to use cross-region replication for a large volume up to 7.2 PiB, you need to ensure there is sufficient capacity in both regions and that the stamp for large volumes up to 7.2 PiB is on volumes in the source and destination. 
+* If you plan to use cross-region replication for a large volume up to 7.2 PiB, you need to ensure there is sufficient capacity in both regions and that the stamp for large volumes up to 7.2 PiB is on volumes in _both_ the source and destination regions. 
 
 ## About 64-bit file IDs
 
@@ -165,9 +164,9 @@ You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to re
 
 ### Register for breakthrough mode
 
-To use breakthrough mode with large volumes, you submit a request using the [waitlist form](https://forms.cloud.microsoft/r/P11Zn9zHMY).
+Large volumes breakthrough mode is currently in preview. You must submit a [waitlist request](https://forms.cloud.microsoft/r/P11Zn9zHMY) to access the feature. 
 
-You can check the status of feature registration with the command: 
+After submitting the request, check the status of feature registration with the command: 
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBreakthroughMode 
@@ -178,11 +177,11 @@ You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to re
 ### Register for large volumes up to 7.2 PiB
 
 >[!NOTE]
->You must be registered to use [large volumes](#register-the-feature) and, if you're using the Flexible, Premium, or Ultra service level, [cool access](manage-cool-access.md#register-the-feature) before registering for the larger volume size. 
+>You must be registered to use [large volumes](#register-the-feature) and, if you're using the Flexible, Premium, or Ultra service level, [cool access](manage-cool-access.md#register-the-feature) before registering for the large volumes up to 7.2 PiB. 
 
 Large volumes up to 7.2 PiB are currently in preview. [Submit a waitlist request](https://forms.office.com/r/WfBqxqayzM) for access to the feature. 
 
-You can check the status of your feature registration with the command:
+After submitting the waitlist request, you can check the status of your feature registration with the command:
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFExtraLargeVolumes

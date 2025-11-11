@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: concept-article
-ms.date: 10/28/2025
+ms.date: 11/11/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud architect, I want to evaluate the capabilities and requirements of large volumes in Azure NetApp Files, so that I can choose the appropriate storage solution for scalable and high-performance workloads."
 ---
@@ -24,7 +24,7 @@ All resources in Azure NetApp files have [limits](azure-netapp-files-resource-li
 | File count | 2,147,483,632 |
 | Performance | <ul><li>Standard: 1,600 MiB/s</li><li>Flexible: 4,500 MiB/s</li><li>Premium: 4,500 MiB/s</li><li>Ultra: 4,500 MiB/s</li></ul> |
 
-Large volumes have the following limits. Note that with cool-access enabled, you can also create volumes up to 7.2 PiB.
+Large volumes have the following limits. With cool-access enabled, you can create volumes up to 7.2 PiB.
 
 | Limit type | Values | 
 | - | - | 
