@@ -71,7 +71,7 @@ Storing some data on-disk using the Flash Optimized tier doesn't increase data r
 >
 
 - For instructions on how to scale between tiers and SKUs, see [Scale an Azure Managed Redis instance](how-to-scale.md).
-- For pricing information, see the [Azure Managed Redis Pricing](https://aka.ms/amrpricing)
+- For pricing information, see the [Azure Managed Redis Pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
 
@@ -119,33 +119,33 @@ If you have a workload that requires high throughput, network bandwidth might ca
 
 Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. The following table shows the maximum client connections allowed per Azure Managed Redis SKU.
 
-#### Memory optimized, Balanced, and Compute optimized SKUs
+#### Memory Optimized, Balanced, and Compute Optimized SKUs
 
 This table shows the max connections by tier and memory size in the Memory Optimized, Balanced, and Compute SKUs.
 
-| Size (GB) | Memory<br>Optimized | Balanced | Compute<br>Optimized | Flash<br>Optimized<br>(preview) |
-|:---------:|:-------------------:|:--------:|:--------------------:|:-------------------------------:|
-| 0.5       | -                   | 15,000   | -                    | -                               |
-| 1         | -                   | 15,000   | -                    | -                               |
-| 3         | -                   | 15,000   | 30,000               | -                               |
-| 6         | -                   | 15,000   | 30,000               | -                               |
-| 12        | 15,000              | 30,000   | 75,000               | -                               |
-| 24        | 30,000              | 75,000   | 150,000              | -                               |
-| 60        | 75,000              | 150,000  | 200,000              | -                               |
-| 120       | 150,000             | 200,000  | 200,000              | -                               |
-| 175       | 200,000             | 200,000  | 200,000              | -                               |
-| 235       | 200,000             | 200,000  | 200,000              | 75,000                          |
-| 360 *     | 200,000             | 200,000  | 200,000              | -                               |
-| 480 *     | 200,000             | 200,000  | 200,000              | 150,000                         |
-| 720 *     | 200,000             | 200,000  | 200,000              | 200,000                         |
-| 960 *     | 200,000             | 200,000  | -                    | 200,000                         |
-| 1440 *    | 200,000             | -        | -                    | 200,000                         |
-| 1920 *    | 200,000             | -        | -                    | 200,000                         |
-| 4500 *    | -                   | -        | -                    | 200,000                         |
+| Size (GB) | Memory<br>Optimized | Balanced | Compute<br>Optimized |
+|:---------:|:-------------------:|:--------:|:--------------------:|
+| 0.5       | -                   | 15,000   | -                    |
+| 1         | -                   | 15,000   | -                    |
+| 3         | -                   | 15,000   | 30,000               |
+| 6         | -                   | 15,000   | 30,000               |
+| 12        | 15,000              | 30,000   | 75,000               |
+| 24        | 30,000              | 75,000   | 150,000              |
+| 60        | 75,000              | 150,000  | 200,000              |
+| 120       | 150,000             | 200,000  | 200,000              |
+| 175       | 200,000             | 200,000  | 200,000              |
+| 235       | 200,000             | 200,000  | 200,000              |
+| 360 *     | 200,000             | 200,000  | 200,000              |
+| 480 *     | 200,000             | 200,000  | 200,000              |
+| 720 *     | 200,000             | 200,000  | 200,000              |
+| 960 *     | 200,000             | 200,000  | -                    |
+| 1440 *    | 200,000             | -        | -                    |
+| 1920 *    | 200,000             | -        | -                    |
+| 4500 *    | -                   | -        | -                    |
 
 \* The sizes with an asterisk are in Public Preview.
 
-#### Flash optimized SKU
+#### Flash Optimized SKU
 
 This table shows the max connections by tier and memory size in the Flash optimized (preview) SKU.
 
