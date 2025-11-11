@@ -28,6 +28,7 @@ By default, Azure Container Storage creates *generic ephemeral volumes* when usi
 To maximize performance, Azure Container Storage automatically stripes data across all available local NVMe disks on a per-VM basis. Striping is a technique where data is divided into small chunks and evenly written across multiple disks simultaneously, which increases throughput and improves overall I/O performance. This behavior is enabled by default and cannot be disabled.
 
 Because performance aggregates across those striped devices, larger VM sizes that expose more NVMe drives can unlock substantially higher IOPS and bandwidth. Selecting a larger VM family lets your workloads benefit from the extra aggregate throughput without additional configuration.
+
 For example, the [Lsv3 series](/azure/virtual-machines/sizes/storage-optimized/lsv3-series?tabs=sizestoragelocal) scales from a single 1.92-TB NVMe drive on Standard_L8s_v3 (around 400,000 IOPS and 2,000 MB/s) up to 10 NVMe drives on Standard_L80s_v3 (about 3.8 million IOPS and 20,000 MB/s). 
 
 ## Prerequisites
