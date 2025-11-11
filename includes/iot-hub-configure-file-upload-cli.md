@@ -2,33 +2,22 @@
 title: Configure file upload to IoT Hub using Azure CLI
 description: How to configure file uploads to Azure IoT Hub using the cross-platform Azure CLI.
 author: SoniaLopezBravo
-
 ms.author: sonialopez
 ms.service: azure-iot-hub
-ms.topic: how-to
+ms.topic: include
 ms.date: 12/05/2024
 ms.custom: devx-track-azurecli
 ---
-
-# Configure IoT Hub file uploads using Azure CLI
-
-[!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
-
-This article shows you how to configure file uploads on your IoT hub using the Azure CLI. 
-
-To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.md), you must first associate an Azure storage account and blob container with your IoT hub. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files. In addition to the storage account and blob container, you can set the time-to-live for the SAS URI and the type of authentication that IoT Hub uses with Azure storage. You can also configure settings for the optional file upload notifications that IoT Hub can deliver to backend services.
 
 ## Prerequisites
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](../articles/iot-hub/create-hub.md).
 
-* An Azure Storage account with a blob container. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create a storage account](../storage/common/storage-account-create.md).
+* An Azure Storage account with a blob container. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create a storage account](../articles/storage/common/storage-account-create.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Sign in and set your Azure account
 
@@ -76,13 +65,13 @@ Make a note of the `connectionString` value. The connection string looks similar
 
 ### Identity-based authentication
 
-You can use system-assigned managed identities or user-assigned managed identities for identity-based authentication. For more information, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
+You can use system-assigned managed identities or user-assigned managed identities for identity-based authentication. For more information, see [IoT Hub support for managed identities](../articles/iot-hub//iot-hub-managed-identity.md).
 
-Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign a role to your managed identity. For more information, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md).
+Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign a role to your managed identity. For more information, see [Assign an Azure role for access to blob data](../articles/storage/blobs/assign-azure-role-data-access.md).
 
 ## Configure your IoT hub
 
-You can now configure your IoT hub to enable the ability to [upload files to the IoT hub](iot-hub-devguide-file-upload.md) using your storage account details.
+You can now configure your IoT hub to enable the ability to [upload files to the IoT hub](../articles/iot-hub/iot-hub-devguide-file-upload.md) using your storage account details.
 
 The configuration requires the following values:
 
@@ -137,7 +126,7 @@ az iot hub update --name {your iot hub name} \
     --fileupload-storage-auth-type keyBased
 ```
 
-The following command configures authentication using the IoT hub's system-assigned managed identity. Before you can run this command, you need to enable the system-assigned managed identity for your IoT hub and grant it the correct role-based access control role on your Azure Storage account. To learn how, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
+The following command configures authentication using the IoT hub's system-assigned managed identity. Before you can run this command, you need to enable the system-assigned managed identity for your IoT hub and grant it the correct role-based access control role on your Azure Storage account. To learn how, see [IoT Hub support for managed identities](../articles/iot-hub/iot-hub-managed-identity.md).
 
 ```azurecli
 az iot hub update --name {your iot hub name} \
@@ -145,7 +134,7 @@ az iot hub update --name {your iot hub name} \
     --fileupload-storage-identity [system] 
 ```
 
-The following commands retrieve the user-assigned managed identities configured on your IoT hub and configure authentication with one of them. Before you can use a user-assigned managed identity to authenticate, it must be configured on your IoT hub and granted an appropriate role-based access control role on your Azure Storage account. For more detail and steps, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
+The following commands retrieve the user-assigned managed identities configured on your IoT hub and configure authentication with one of them. Before you can use a user-assigned managed identity to authenticate, it must be configured on your IoT hub and granted an appropriate role-based access control role on your Azure Storage account. For more detail and steps, see [IoT Hub support for managed identities](../articles/iot-hub/iot-hub-managed-identity.md).
 
 To query for user-assigned managed identities on your IoT hub, use the [az iot hub identity show](/cli/azure/iot/hub/identity#az-iot-hub-identity-show) command.
 
@@ -208,9 +197,3 @@ az iot hub update --name {your iot hub name} \
   --set properties.messagingEndpoints.fileNotifications.ttlAsIso8601=PT1H0M0S
 ```
 
-## Next steps
-
-* [Upload files from a device overview](iot-hub-devguide-file-upload.md)
-* [IoT Hub support for managed identities](./iot-hub-managed-identity.md)
-* [File upload how-to guides](./file-upload-dotnet.md)
-* Azure CLI [az iot hub update](/cli/azure/iot/hub#az-iot-hub-update), [az iot hub identity show](/cli/azure/iot/hub/identity#az-iot-hub-identity-show), and [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) commands
