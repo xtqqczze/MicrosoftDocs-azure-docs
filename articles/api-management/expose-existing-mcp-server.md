@@ -4,7 +4,7 @@ description: Learn how to expose and govern an existing Model Context Protocol (
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/04/2025
+ms.date: 11/10/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -12,11 +12,9 @@ ms.custom:
 
 # Expose and govern an existing MCP server
 
-[!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 This article shows how to use API Management to expose and govern an existing remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server - a tool server hosted outside of API Management. Expose and govern the server's tools through API Management so that MCP clients can call them using the MCP protocol. 
-
-[!INCLUDE [preview-callout-mcp-servers](includes/preview/preview-callout-mcp-servers.md)]
 
 Example scenarios include:
 
@@ -34,23 +32,16 @@ Learn more about:
 
 ## Limitations
 
-The following limitations apply to this preview. Preview features are subject to change, so check back for updates.
+* The external MCP server must conform to MCP version `2025-06-18` or later. The server can support:
+    * Either no authorization, or authorization protocols that comply with the following standards: [https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance).
+    * Streamable HTTP or SSE transport types.
 
-* The external MCP server must conform to MCP version `2025-06-18` or later. The server must support:
-    * Either no authorization, or authorization protocols that comply with the following standards: [https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance) 
-    * Streamable HTTP transport
-
-    > [!IMPORTANT]
-    > Servers conforming to older MCP versions or using only SSE transport are not supported.
-
-* API Management supports MCP server tool capabilities, but not MCP resources or prompts.
+* API Management currently supports MCP server tool capabilities, but not MCP resources or prompts.
 * MCP server capabilities aren't supported in API Management [workspaces](workspaces-overview.md).
 
 ## Prerequisites
 
-+ If you don't already have an API Management instance, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md). 
-    + The following service tiers are supported for preview: classic Basic, Standard, Premium, Basic v2, Standard v2, or Premium v2.
-    + In the classic Basic, Standard, or Premium tier, you must join the **AI Gateway Early** [update group](configure-service-update-settings.md) to access MCP server features. Allow up to 2 hours for the update to be applied.
++ If you don't already have an API Management instance, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md). The instance must be in one of the service tiers that supports MCP servers.
 
 + Access to an external MCP-compatible server (for example, hosted in Azure Logic Apps, Azure Functions, LangServe, or other platforms).
 
@@ -58,11 +49,11 @@ The following limitations apply to this preview. Preview features are subject to
 
 + If you’ve enabled diagnostic logging via Application Insights or Azure Monitor at the global scope (All APIs) for your API Management service instance, ensure that the **Number of payload bytes to log** setting for Frontend Response is set to 0. This prevents unintended logging of response bodies across all APIs and helps ensure proper functioning of MCP servers. To log payloads selectively for specific APIs, configure the setting individually at the API scope, allowing targeted control over response logging.
 
-+ To test the MCP server, you can use Visual Studio Code with access to [GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup).
++ To test the MCP server, you can use Visual Studio Code with access to [GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup) or a tool such as MCP Inspector.
 
 ## Expose an existing MCP server
 
-Follow these steps to expose an existing MCP server is API Management:
+Follow these steps to expose an existing MCP server in API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left-hand menu, under **APIs**, select **MCP servers** > **+ Create MCP server**.

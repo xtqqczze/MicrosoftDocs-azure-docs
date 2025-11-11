@@ -4,7 +4,7 @@ description: Learn how Azure API Management enables secure, scalable access to r
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 08/04/2025
+ms.date: 11/10/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -12,7 +12,7 @@ ms.custom:
 
 # About MCP servers in Azure API Management
 
-[!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 This article introduces features in Azure API Management that you can use to manage Model Context Protocol (MCP) servers. MCP servers allow large language models (LLMs) and AI agents to access external data sources, such as databases or APIs, through a standardized protocol. 
 
@@ -65,14 +65,14 @@ MCP provides the following transport types and typical endpoints for remote serv
 
 Azure API Management supports the remote MCP server mode, using native features of API Management and [capabilities of the AI gateway](./genai-gateway-capabilities.md) to manage MCP server endpoints.
 
-In preview, API Management provides two built-in ways to expose MCP servers:
+API Management provides two built-in ways to expose MCP servers:
 
 | Source                                   | Description                                                                                   |
 |-------------------------------------------|-----------------------------------------------------------------------------------------------|
 | **REST API as MCP server**                    | Expose any REST API managed in API Management as an MCP server, including REST APIs imported from Azure resources. API operations become MCP tools. [Learn more](export-rest-mcp-server.md) |
 | **Existing MCP server**                       | Expose an MCP-compatible server (for example, LangChain, LangServe, Azure logic app, Azure function app) via API Management. [Learn more](expose-existing-mcp-server.md) |
 
-See the linked articles for step-by-step instructions and preview limitations.
+See the linked articles for step-by-step instructions and limitations.
 
 
 ## Govern MCP servers
@@ -89,7 +89,7 @@ Configure policies such as the following:
 
 ## Secure access to the MCP server
 
-You can secure either or both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server backend). Apply one or more security measures depending on your backends and your organization's security posture. 
+You can secure either or both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server backend). Apply one or more security measures, such as key-based or OAuth authentication, depending on your backends and your organization's security posture. 
 
 For more information and examples, see [Secure access to MCP servers](secure-mcp-servers.md). 
 
@@ -113,14 +113,17 @@ Use [Azure API Center](../api-center/register-discover-mcp-server.md) to registe
 
 ## Availability
 
-In preview, MCP servers in API Management are available in the following service tiers:
+MCP server management features are available in the following API Management service tiers:
 
-* **Classic tiers**: Basic, Standard, Premium
+* **Classic tiers**: Developer, Basic, Standard, Premium
 * **v2 tiers**: Basic v2, Standard v2, Premium v2
 
 > [!NOTE]
-> * In the classic tiers, access MCP server features by joining the [AI Gateway Early update group](configure-service-update-settings.md).
-> * MCP servers aren't currently supported in [workspaces](workspaces-overview.md) or the self-hosted gateway.
+> * The self-hosted gateway supports MCP server features.
+> * MCP servers aren't currently supported in [workspaces](workspaces-overview.md).
+<!-- confirm workspaces -->
+
+You can get early access to new MCP server and AI gateway features and capabilities through the *AI Gateway* release channel. This access lets you try out the latest AI gateway innovations before they're generally available and provide feedback to help shape the product. For more information, see [Configure service update settings for your API Management instances](configure-service-update-settings.md).
 
 ## Related content
 

@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 08/04/2025
+ms.date: 11/10/2025
 ms.author: danlep
 ---
 ## Configure policies for the MCP server
@@ -87,7 +87,6 @@ After adding an MCP server in Visual Studio Code, you can use tools in agent mod
 
 | **Problem**                                | **Cause**                                 | **Solution**                                           |
 |-------------------------------------------|-------------------------------------------|--------------------------------------------------------|
-| `401 Unauthorized` error from backend           | Authorization header not forwarded        | Use `set-header` policy to manually attach token         |
 | API call works in API Management but fails in agent | Incorrect base URL or missing token       | Double-check security policies and endpoint            |
 | MCP server streaming fails when diagnostic logs are enabled | Logging of response body or accessing response body through policy interferes with MCP transport        | Disable response body logging at the All APIs scope - see [Prerequisites](#prerequisites) |
 
