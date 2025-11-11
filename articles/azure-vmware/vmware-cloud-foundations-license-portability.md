@@ -50,22 +50,21 @@ When you create a new AVS Private Cloud via the Azure portal, you will be presen
 :::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-create-new-private-cloud-with-vcf-byol.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
 
 Click on the “Configure” and provide all the required details: 
-1. VCF license/subscription key (the 25-character key from Broadcom) <<insert link to which key>>
+1. VCF license/subscription key (the 25-character key from Broadcom) <insert-link-where-to-find-key-whats-the-right-key>
 2. Number of cores you wish to bring to this AVS Private Cloud (Note: this cannot exceed the cores purchased under the provided VCF key from Broadcom). 
 3. License expiration date (the end date of your VCF subscription purchased from Broadcom). 
 4. Broadcom Site ID associated with your contract. 
 
- Where to find the all the above requirement information: <<insert Broadcom links to help>>
+Where to find the all the above requirement information: <insert-link-to-brdcm-support>
 
- <inser-image>
- 
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-create-new-private-cloud-with-vcf-byol-side-pane.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
 
 To use VMware vDefend Firewall add-on on Azure VMware Solution private cloud you must have pre-purchased vDefend Firewall add-on from Broadcom. vDefend Firewall add-on license key update can also be done once your Azure VMware Solution private cloud is created is created. More info in the following section <inser-section-name>. 
 
 ## Enable portable VCF (BYOL) on an existing Azure VMware Solution private cloud
 You can convert an already running AVS Private Cloud to use your own VCF without any downtime or interruption on your deployment. In the Azure Portal, navigate to your AVS Private Cloud resource and look for the “Portable VCF (BYOL)” under Manage.  
 
-<insert-image>
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-pane.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
 
 Click on the “Configure” under “VCF license details” and provide all the required details: 
 1. VCF license/subscription key (the 25-character key from Broadcom) <<insert link to which key>>
@@ -87,7 +86,7 @@ If you attempt to enable firewall features without having a Broadcom firewall su
 
 More information on the VMware vDefend Firewall feature set can be found on Broadcom documention <insert-link>.  Please note that all listed firewall features may not be supported on Azure VMware Solution. Please check with the Microsoft team for additional details. 
 
-<insert-image>
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-firewall-configure.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
 
 This should be done in addition to the base VCF license registration. Once entered, your AVS private cloud is aware that firewall is BYOL-licensed as well. 
 
@@ -107,7 +106,7 @@ If you intend to utilize vDefend Firewall with Advanced Threat Prevention, pleas
 
 2. Mutiply the number of hosts by cores per host:
    * Example if you want to use portable VCF for 3 AV64 hosts in your Azure VMware Solution private cloud, the portable VCF cores required: 3 hosts * 64 cores per host = 192 cores
-<<Add note for mixed billing on a private cloud>>
+<Add-note-for-mixed-billing-on-a-private-cloud>
 
 >[!NOTE]
 > Always confirm your Broadcom license covers the total cores for your planned deployment. 
@@ -128,45 +127,35 @@ You can update your VCF BYOL configuration on your AVS Private Cloud at any time
 
 How to update your configuration: 
 
-In the Azure Portal, go to your AVS Private Cloud resource. 
+1. In the Azure Portal, go to your AVS Private Cloud resource.
+2. Under Manage, select Portable VCF (BYOL).
+3. Click Edit next to the section you want to update (VCF license details or Firewall add-on).
+4. Update the license key, number of cores, expiration date, or firewall details as needed.
+5. Save your changes. Updates take effect immediately – no disruption to your private cloud. 
 
-Under Manage, select Portable VCF (BYOL). 
+>[!NOTE] 
+> You can update your configuration as often as needed. For example, if you add more nodes, simply update the core count to reflect your new deployment. 
 
-Click Edit next to the section you want to update (VCF license details or Firewall add-on). 
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-edit.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
 
-Update the license key, number of cores, expiration date, or firewall details as needed. 
-
-Save your changes. Updates take effect immediately – no disruption to your private cloud. 
-
-Tip: You can update your configuration as often as needed. For example, if you add more nodes, simply update the core count to reflect your new deployment. 
-
-<insert-picture>
-
-Important! 
-
-You are responsible for ensuring that your total registered cores across all AVS Private Clouds do not exceed the number of cores purchased from Broadcom. The same applies to Firewall add-on licenses – ensure you have a valid Broadcom add-on license registered before enabling or updating firewall features. 
-
-If you are unsure about your configuration or compliance, reach out to your Microsoft account team or open a support ticket for clarification. Staying compliant avoids service interruptions. 
+>[!IMPORTANT] 
+> You are responsible for ensuring that your total registered cores across all AVS Private Clouds do not exceed the number of cores purchased from Broadcom. The same applies to Firewall add-on licenses – ensure you have a valid Broadcom add-on license registered before enabling or updating firewall features. 
+> If you are unsure about your configuration or compliance, reach out to your Microsoft account team or open a support ticket for clarification. Staying compliant avoids service interruptions. 
 
 ## Remove VCF BYOL from AVS Private Cloud 
 
 You can remove your VCF BYOL configuration from your AVS Private Cloud at any time. This action unregisters your VCF license and, if applicable, any associated Firewall add-on licenses from the selected private cloud. You can remove one or the other independently. 
 
 How to remove your configuration: 
+1. In the Azure Portal, open your AVS Private Cloud resource. 
+2. Under Manage, select Portable VCF (BYOL). 
+3. Click Remove next to the VCF license or Firewall add-on you wish to unregister. 
+4. Confirm the removal when prompted. 
 
-In the Azure Portal, open your AVS Private Cloud resource. 
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-remove.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
 
-Under Manage, select Portable VCF (BYOL). 
-
-Click Remove next to the VCF license or Firewall add-on you wish to unregister. 
-
-Confirm the removal when prompted. 
-
-<insert-picture>
-
-Important! 
-
-Removing your VCF BYOL configuration does NOT disrupt your AVS Private Cloud. It only moves your AVS Private Cloud from your VCF BYOL to Microsoft-managed VCF. Note that after the Broadcom policy change, switching away from BYOL may not be permitted for new deployments after Nov 1, 2025. If you don’t have an active VCF-included RI on your Azure subscription, this action may result in being out of compliance. Microsoft holds the right to suspend any Private Cloud not in compliance with the licensing policy. 
+>[!IMPORTANT] 
+> Removing your VCF BYOL configuration does NOT disrupt your AVS Private Cloud. It only moves your AVS Private Cloud from your VCF BYOL to Microsoft-managed VCF. Note that after the Broadcom policy change, switching away from BYOL may not be permitted for new deployments after Nov 1, 2025. If you don’t have an active VCF-included RI on your Azure subscription, this action may result in being out of compliance. Microsoft holds the right to suspend any Private Cloud not in compliance with the licensing policy. 
 
 Work with your Account Team to determine the best path forward. 
 
@@ -182,68 +171,51 @@ When a license key is deleted or de-configured (for example, when a customer upd
 
 ### Data Privacy and Compliance 
 
-Customer license data is handled in accordance with Microsoft’s data privacy and compliance standards. 
-
-Only authorized cloud administrators can view or edit VCF BYOL configurations. 
-
-All BYOL registrations and associated customer data are reported to Broadcom monthly, ensuring compliance with partner requirements. 
+Customer license data is handled in accordance with Microsoft’s data privacy and compliance standards. Only authorized cloud administrators can view or edit VCF BYOL configurations. All BYOL registrations and associated customer data are reported to Broadcom monthly, ensuring compliance with partner requirements. 
 
 ### Customer Responsibilities 
 
-Customers are accountable for managing their VCF subscription cores and ensuring compliance with their Broadcom entitlements across all AVS Private Clouds. 
-
-If you have questions about your configuration or compliance status, contact your Microsoft account team or open a support ticket for assistance. 
+Customers are accountable for managing their VCF subscription cores and ensuring compliance with their Broadcom entitlements across all AVS Private Clouds. If you have questions about your configuration or compliance status, contact your Microsoft account team or open a support ticket for assistance. 
 
 ## Customers using VCF BYOL on their Azure subscription before Nov 2025 
 If you are an existing AVS customer using VCF BYOL prior to November 2025 and registered your VCF keys through the registeravsvcfbyol@microsoft.com email, you will need to update your configuration through the new Azure Portal based VCF BYOL system latest by March 31, 2026. There will be NO disruption to your private cloud in this process.  
 
-Why is this important?  
+**Why is this important?  **
 
-This allows you to manage your VCF per AVS Private Cloud. 
-
-The new experience is built with deeper security, management, and support.  
+1. This allows you to manage your VCF per AVS Private Cloud.
+2. The new experience is built with deeper security, management, and support.  
 
 The following steps outline the migration process: 
+**
+Step 1: Access the Manage VCF BYOL Portal **
+1. Sign in to the Azure Portal and navigate to your AVS Private Cloud resource.
+2. Under Manage, select Portable VCF (BYOL). 
 
-Step 1: Access the Manage VCF BYOL Portal 
+**Step 2: Register Your VCF License **
+1. For each AVS Private Cloud, register your VCF BYOL license by entering:  
+   * Your VCF license key
+   * The number of licensed cores
+   * The VCF license end date
+   * If you have a Firewall add-on license, enter those details as well. 
+2. Review your configuration and save your changes. 
+3. Repeat this process for all AVS Private Clouds under the Azure subscription. 
 
-Sign in to the Azure Portal and navigate to your AVS Private Cloud resource. 
+>[!NOTE]
+> You can use the same VCF key (split cores) on multiple AVS Private Cloud. Make sure the net total cores registered on AVS do NOT exceed the cores purchased from Broadcom. 
 
-Under Manage, select Portable VCF (BYOL). 
-
-Step 2: Register Your VCF License 
-
-For each AVS Private Cloud, register your VCF BYOL license by entering:  
-
-Your VCF license key 
-
-The number of licensed cores 
-
-The VCF license end date 
-
-If you have a Firewall add-on license, enter those details as well. 
-
-Review your configuration and save your changes. 
-
-Repeat this process for all AVS Private Clouds under the Azure subscription. 
-
- 
-
-Note: You can use the same VCF key (split cores) on multiple AVS Private Cloud. Make sure the net total cores registered on AVS do NOT exceed the cores purchased from Broadcom. 
-
-Step 4: Provide Formal Sign-Off 
-
+**Step 3: Provide Formal Sign-Off **
 Once you have registered your BYOL licenses on all relevant AVS Private Clouds, send a formal sign-off email (using the same VCF registration email registeravsvcfbyol@microsoft.com or by opening a support ticket) to confirm that your migration is complete. 
 
 You will receive confirmation once your migration is complete. 
-Important! 
 
-Until you complete re-registration through Azure Portal, you will continue to receive support through the legacy system until March 31, 2026. 
+>[!IMPORTANT]
+> Until you complete re-registration through Azure Portal, you will continue to receive support through the legacy system until March 31, 2026. 
 
-Need Help? If you have questions or need assistance during migration, contact Microsoft support team. 
+> Need Help? If you have questions or need assistance during migration, contact Microsoft support team. 
 
 ## Resolving VCF BYOL registration failures 
-<insert-picture> 
+
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-error.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
 
 If your VCF BYOL registration fails – either during the create private cloud workflow or when updating in the Manage flow – you will see a “Failed” status in the Azure Portal. This failure is typically due to a system error on our side and not caused by any action from your end. 
 
