@@ -6,6 +6,7 @@ ms.topic: overview
 ms.custom:
   - ignite-2024
   - build-2025
+
 appliesto:
   - ✅ Azure Managed Redis
 ---
@@ -58,7 +59,7 @@ Here are three tiers store that store data in memory:
 Here is the tier that stores data both in-memory and on-disk:
 - **Flash Optimized (preview)** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
 
-    :::image type="content" source="media/overview/flash-tier.png" alt-text="Screenshot of the Flash Optimized tiers in a table showing storage usage." lightbox="media/overview/flash-tier-large.png":::image type="content" source="media/overview/flash-tier-large.png" alt-text="" lightbox="media/overview/flash-tier-large.png":::" lightbox="media/overview/flash-tier.png":::
+    :::image type="content" source="media/overview/flash-tier.png" alt-text="An image of a table that shows Flash Optimized tiers in a table showing storage usage." lightbox="media/overview/flash-tier-large.png":::
 
 
 You can also use the [data persistence](how-to-persistence.md) feature to store data on-disk for the in-memory tiers. Data persistence stores a backup copy of data on-disk for quick recovery if you experience  an unexpected outage. This is different than the Flash Optimized tier, which is designed to store data on-disk for typical operations.
