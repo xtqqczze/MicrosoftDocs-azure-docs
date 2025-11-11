@@ -30,7 +30,7 @@ Follow these steps to open the workflow designer.
 1. On the Logic App menu, under **Workflows**, select **Workflows**.
 
    > [!NOTE]
-   > To enable the new [Logic Apps designer experience](#changes-in-the-new-designer), select the **Enable preview** button from the ribbon banner.
+   > To enable the [new designer](#changes-in-the-new-designer) (preview), select the **Enable preview** button from the ribbon banner.
    > :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
 
 From here, you can [create a new workflow](#create-a-new-workflow) or [access an existing workflow](#access-an-existing-workflow).
@@ -80,7 +80,7 @@ To add a trigger or an action to your Standard workflow, see [Build a workflow w
 
 - Changes are saved automatically to the draft version as you edit. To validate and push your changes to production, select **Publish** in the designer upper-right. Use the Run button at the bottom of the designer to run the draft. If Save/Auto-save errors occur, the designer shows validation messages inline.
 
-## Changes in the new designer
+## Changes in the new designer (preview)
 
 This section summarizes the most important changes from the classic designer to help returning users get oriented quickly.
 
