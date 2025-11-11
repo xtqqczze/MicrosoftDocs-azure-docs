@@ -20,11 +20,11 @@ If your clients upload data by using _small_ block sizes, you can improve perfor
 
 The partition key for a blob is account name + container name + blob name. The partition key is used to partition data into ranges and these ranges are load-balanced across the system.
 
-You can help the system partition data more efficiently by using a hash prefix at the beginning of the blob partition key. If you plan to use timestamps in names, consider adding a seconds value to the beginning of that timestamp (for example: `ssyyyymmdd`).
+To help the system partition data more efficiently, avoid sequential naming schemes such as `log20160101`, `log20160102`, `log20160103`. These schemes concentrate traffic on one server, which can exceed scalability targets and cause latency issues. 
 
-Avoid sequential naming schemes such as `log20160101`, `log20160102`, `log20160103`. These schemes concentrate traffic on one server, which can exceed scalability targets and cause latency issues. 
+Instead, Add a hash character sequence (such as three digits) as early as possible in the partition key of a blob. If you plan to use timestamps in names, consider adding a seconds value to the beginning of that timestamp (for example: `ssyyyymmdd`).
 
-Also avoid append-only or prepend-only patterns when using timestamps or numerical identifiers. These patterns route all traffic to a single partition, which prevents load balancing. For example, daily operations that use `yyyymmdd` timestamps direct all daily traffic to one blob on one partition server, potentially exceeding scale targets of the server or the scale targets of a single blob. If you plan to use these patterns, consider splitting data into multiple blobs. 
+If you use timestamps or numerical identifiers, avoid append-only or prepend-only patterns. These patterns route all traffic to a single partition which prevents load balancing. However, if you plan to use these patterns, consider splitting data into multiple blobs. Apply a hash prefix to each blob that represents a time interval such as seconds (`ss`) or minutes (`mm`). That way traffic isn't repeatedly directed to a single blob on a single partition server which could exceed scalability limits.
 
 For more information on the partitioning scheme used in Azure Storage, see [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
