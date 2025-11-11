@@ -62,7 +62,7 @@ Open the script file in a text editor and modify the following variables to matc
 ## Monitor execution and validate the resources
 
 1. The script continues execution when warnings are encountered and only stops if a command returns a non-zero exit code. Monitor the console for red **ERROR** messages, which indicate issues that require attention.
-1. Once the script completes, validate the creation of your resources by visiting your new **Resource Group** on the [Azure Portal](https://portal.azure.com). You should see the following resources created:
+1. Once the script completes, validate the creation of your resources by visiting your new **Resource Group** on the [Azure portal](https://portal.azure.com). You should see the following resources created:
 
     - IoT Hub instance
     - Device Provisioning Service (DPS) instance

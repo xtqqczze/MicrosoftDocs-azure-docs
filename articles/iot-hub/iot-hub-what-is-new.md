@@ -8,6 +8,7 @@ ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
 ms.date: 11/07/2025
+ms.custom: references_regions
 #Customer intent: As a developer new to IoT Hub, I want to understand the new features and improvements in Azure IoT Hub.
 ---
 
@@ -27,7 +28,7 @@ For more information, see [What is Azure Device Registry?](iot-hub-device-regist
 
 IoT Hub now introduces certificate management for managing device certificates using Microsoft-managed public key infrastructure (PKI) with X.509 certificates. Certificate management is an optional feature of ADR that enables you to issue and manage X.509 certificates for your IoT devices. It configures a dedicated, cloud-based PKI for each of your ADR namespaces, without requiring any on-premises servers, connectors, or hardware. It handles the certificate of issuance and renewal for all IoT devices that have been provisioned to that ADR namespace. These X.509 certificates can be used for your IoT devices to authenticate with IoT Hub.
 
-These X.509 certificates are strictly operational certificates which the devices uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. 
+These X.509 certificates are strictly operational certificates that the device uses to authenticate with IoT Hub for secure communications, after the device has onboarded with a different credential. 
 
 To use certificate management, devices must be provisioned through [Device Provisioning Service (DPS)](../iot-dps/index.yml). 
 
