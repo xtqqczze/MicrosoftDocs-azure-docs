@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 11/12/2025
 ms.custom: sfi-image-nochange
 #Customer intent: As an integration developer who works with Azure Logic Apps, I want to exchange XML content between trading partners in B2B workflows.
 ---
@@ -16,9 +16,11 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Before you send XML content to a business partner in a business-to-business (B2B) scenario, you might want to encode that content. If you receive encoded XML content, you need to decode that content. When you build a logic app workflow in Azure Logic Apps, you can encode and decode flat files by using the **Flat File** built-in connector actions and a flat file schema for encoding and decoding. You can use **Flat File** actions in multitenant Consumption logic app workflows and single-tenant Standard logic app workflows.
+Before you send XML content to a business partner in a business-to-business (B2B) scenario, you might want to encode that content. If you receive encoded XML content, you need to decode that content.
 
-There are no **Flat File** triggers are available. You can use any trigger or action to feed the source XML content into your workflow. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
+When you build a logic app workflow in Azure Logic Apps, you can encode and decode flat files by using the **Flat File** built-in connector actions and a flat file schema for encoding and decoding. You can use **Flat File** actions in multitenant Consumption logic app workflows and single-tenant Standard logic app workflows.
+
+There are no **Flat File** triggers. You can use any trigger or action to feed the source XML content into your workflow. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
 
 This article shows how to add the **Flat File** encoding and decoding actions to your workflow.
 
@@ -76,7 +78,7 @@ After you create your schema, upload the schema based on the following scenario:
 
 - If you're working on a Consumption logic app workflow, [add your schema to your integration account](logic-apps-enterprise-integration-schemas.md?tabs=consumption#add-schema).
 
-- If you're working on a Standard logic app workflow, you can [add your schema to your integration account](logic-apps-enterprise-integration-schemas.md?tabs=consumption#add-schema), or [add your schema to your logic app resource](logic-apps-enterprise-integration-schemas.md?tabs=standard#add-schema).
+- If you're working on a Standard logic app workflow, you can [add your schema to your integration account](logic-apps-enterprise-integration-schemas.md?tabs=consumption#add-schema) or [add your schema to your logic app resource](logic-apps-enterprise-integration-schemas.md?tabs=standard#add-schema).
 
 ## Add a flat file encoding action
 
@@ -145,7 +147,7 @@ After you create your schema, upload the schema based on the following scenario:
 
    > [!NOTE]
    >
-   > If the **Body** property doesn't appear in the dynamic content list, select **See more** next to the **When an HTTP request is received** section label. You can also directly enter the content to encode in the **Content** box.
+   > If the **Body** property doesn't appear in the dynamic content list, select **See more** next to the **When an HTTP request is received** section label. You can also directly enter the content to decode in the **Content** box.
 
 1. From the **Schema Name** list, select your schema.
 
