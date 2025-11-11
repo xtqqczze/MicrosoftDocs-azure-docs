@@ -1,12 +1,12 @@
 ---
 title: What is Azure Managed Redis?
 description: Learn about Azure Managed Redis to enable cache-aside, content caching, user session caching, job and message queuing, and distributed transactions.
-ms.date: 09/19/2025
+ms.date: 11/10/2025
 ms.topic: overview
+ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
   - build-2025
-
 appliesto:
   - ✅ Azure Managed Redis
 ---
@@ -18,7 +18,7 @@ For more information on how Azure Managed Redis is built, see [Azure Managed Red
 
 Azure Managed Redis can improve the performance and scalability of an application that heavily uses backend data stores. It's able to process large volumes of application requests by keeping frequently accessed data in the server memory, which can be written to and read from quickly.
 
-Redis brings a critical low-latency and high-throughput data storage solution to modern applications. Additionally, Redis is increasingly used for noncaching applications, including data ingestion, deduplication, messaging, leaderboards, [semantic caching](tutorial-semantic-cache.md), and as a [vector database](overview-vector-similarity.md).
+Redis brings a critical low-latency and high-throughput data storage solution to modern applications. Additionally, Redis is increasingly used for noncaching applications, including data ingestion, deduplication, messaging, and leaderboards
 
 Azure Managed Redis can be deployed standalone, or deployed along with other Azure app or database services, such as Azure Container Apps, Azure App Service, Azure Functions, Azure SQL, or Azure Cosmos DB.
 
@@ -31,8 +31,6 @@ Azure Managed Redis improves application performance by supporting common applic
 | Data cache | Databases are often too large to load directly into a cache. It's common to use the [cache-aside](/azure/architecture/patterns/cache-aside) pattern to load data into the cache only as needed. When the system makes changes to the data, the system can also update the cache, which is then distributed to other clients. Additionally, the system can set an expiration on data, or use an eviction policy to trigger data updates into the cache.|
 | Content cache | Many web pages are generated from templates that use static content such as headers, footers, banners. These static items shouldn't change often. Using an in-memory cache provides quick access to static content compared to backend datastores. This pattern reduces processing time and server load, allowing web servers to be more responsive. It can allow you to reduce the number of servers needed to handle loads. Azure Managed Redis provides the Redis Output Cache Provider to support this pattern with ASP.NET.|
 | Session store | This pattern is commonly used with shopping carts and other user history data that a web application might associate with user cookies. Storing too much in a cookie can have a negative effect on performance as the cookie size grows and is passed and validated with every request. A typical solution uses the cookie as a key to query the data in a database. When you use an in-memory cache, like Azure Managed Redis, to associate information with a user is faster than interacting with a full relational database. |
-| [Vector similarity search](overview-vector-similarity.md) | A common AI use-case is to generate vector embeddings using a large language model (LLM). These vector embeddings need to be stored in a vector database and then compared to determine similarity. Azure Managed Redis has built-in functionality to both store and compare vector embeddings at high throughputs.|
-| [Semantic caching](tutorial-semantic-cache.md) | Using LLMs often introduces a high amount of latency (due to generation time) and cost (due to per token pricing) to an application. Caching can help solve these problems by storing the past output of an LLM so that it can quickly be retrieved again. However, because LLMs use natural language, storage can be difficult for typical caches to handle. Semantic caches like Azure Managed Redis are capable of caching not just a specific query, but the semantic meaning of a query, allowing it to be used much more naturally with LLMs.|
 | [Deduplication](https://redis.io/solutions/deduplication/) | Often, you need to determine if an action already happened in a system, such as determining if a username is taken or if a customer was already sent an email. In Azure Managed Redis, bloom filters can rapidly determine duplicates, and prevent problems. |
 | Leaderboards | Redis offers simple and powerful support for developing leaderboards of all kinds using the [sorted set](https://redis.io/solutions/leaderboards/) data structure. Additionally, using [active geo-replication](how-to-active-geo-replication.md) can allow one leaderboard to be shared globally. |
 | Job and message queuing | Applications often add tasks to a queue when the operations associated with the request take time to execute. Longer running operations are queued to be processed in sequence, often by another server. This method of deferring work is called task queuing. Azure Managed Redis provides a distributed queue to enable this pattern in your application.|
@@ -56,13 +54,13 @@ Here are three tiers store that store data in memory:
 
     :::image type="content" source="media/overview/sku-tiers.png" alt-text="An image of a table that shows a comparison of skus and tiers." lightbox="media/overview/sku-tiers-large.png":::
 
-Here is the tier that stores data both in-memory and on-disk:
+Here's the tier that stores data both in-memory and on-disk:
 - **Flash Optimized (preview)** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
 
     :::image type="content" source="media/overview/flash-tier.png" alt-text="An image of a table that shows Flash Optimized tiers in a table showing storage usage." lightbox="media/overview/flash-tier-large.png":::
 
 
-You can also use the [data persistence](how-to-persistence.md) feature to store data on-disk for the in-memory tiers. Data persistence stores a backup copy of data on-disk for quick recovery if you experience  an unexpected outage. This is different than the Flash Optimized tier, which is designed to store data on-disk for typical operations.
+You can also use the [data persistence](how-to-persistence.md) feature to store data on-disk for the in-memory tiers. Data persistence stores a backup copy of data on-disk for quick recovery if you experience  an unexpected outage. Data persistence is different from the Flash Optimized tier, which is designed to store data on-disk for typical operations.
 
 Storing some data on-disk using the Flash Optimized tier doesn't increase data resiliency. You can use data persistence on the Flash Optimized tier as well.
 
@@ -163,16 +161,16 @@ This table shows the max connections by tier and memory size in the Flash optimi
 
 ### High availability
 
-Azure Managed Redis provides high availability. The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). It's possible to disable high availability in an Azure Managed Redis instance. This lowers the price but results in data loss and downtime. We only recommend disabling high availability for dev/test scenarios.
+Azure Managed Redis provides high availability. The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). It's possible to disable high availability in an Azure Managed Redis instance. Disabling high availability lowers the price but results in data loss and downtime. We only recommend disabling high availability for dev/test scenarios.
 
 ### Other pricing considerations
 
 > [!IMPORTANT]
-> Azure Managed Redis Enterprise requires an IP address for each cache instance. Currently, the IP address charge is absorbed by Azure Managed Redis and not passed on to customers. This can change in the future. For more information, see [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
+> Azure Managed Redis Enterprise requires an IP address for each cache instance. Currently, the IP address charge is absorbed by Azure Managed Redis and not passed on to customers. Billing can change in the future. For more information, see [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 >
 
 > [!IMPORTANT]
-> Using active geo-replication produces data transfer between Azure regions. These bandwidth charges are currently absorbed by Azure Managed Redis and not passed on to customers. This might change in the future. For more information, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+> Using active geo-replication produces data transfer between Azure regions. These bandwidth charges are currently absorbed by Azure Managed Redis and not passed on to customers. Billing can change in the future. For more information, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 >
 
 ### Availability by region

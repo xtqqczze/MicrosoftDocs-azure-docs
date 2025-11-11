@@ -1,11 +1,13 @@
 ---
 title: Azure Managed Redis Architecture
 description: Learn how Azure Managed Redis is architected
-ms.date: 08/18/2025
+ms.date: 11/10/2025
 ms.topic: conceptual
+ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
   - build-2025
+
 appliesto:
   - ✅ Azure Managed Redis
 ---
@@ -83,7 +85,7 @@ In Active-Active databases, multi-key write commands (`DEL`, `MSET`, `UNLINK`) c
 
 Each SKU of Azure Managed Redis is configured to run a specific number of Redis server processes, _shards_ in parallel. The relationship between throughput performance, the number of shards, and number of vCPUs available on each instance is complicated. Adding shards generally increases performance as Redis operations can be run in parallel. However, if shards aren't able to run commands because no vCPUs are available to execute commands, performance can actually drop. The following table shows the sharding configuration for each Azure Managed Redis SKU. These shards are mapped to optimize the usage of each vCPU while reserving vCPU cycles for Redis Enterprise proxy, management agent, and OS system tasks which also affect performance.
 
->[!NOTE]
+> [!NOTE]
 > Azure Managed Redis optimizes performance over time by changing the number of shards and vCPUs used on each SKU.
 >
 
