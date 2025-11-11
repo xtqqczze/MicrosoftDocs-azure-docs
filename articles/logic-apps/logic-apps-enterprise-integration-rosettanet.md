@@ -16,17 +16,21 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
-To send and receive RosettaNet messages in workflows that you create using Azure Logic Apps, you can use *the RosettaNet connector*. That connector provides actions that manage and support communication that follows RosettaNet standards. RosettaNet is a non-profit consortium that established standard processes for sharing business information. These standards are commonly used for supply chain processes and are widespread in the semiconductor, electronics, and logistics industries.
+To send and receive RosettaNet messages in workflows that you create using Azure Logic Apps, you can use *the RosettaNet connector*. That connector provides actions that manage and support communication that follows RosettaNet standards.
 
-The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs), which provide common business process definitions for all RosettaNet message exchanges. RosettaNet is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for communication between companies. For more information, see the [RosettaNet site](https://www.gs1us.org/resources/rosettanet).
+The RosettaNet standards are commonly used for supply chain processes and are widespread in the semiconductor, electronics, and logistics industries. RosettaNet is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for communication between companies.
 
-The connector is based on the RosettaNet Implementation Framework (RNIF) version 2.0.01. It supports all PIPs defined by this version. RNIF is an open network application framework that enables business partners to collaboratively run RosettaNet PIPs. This framework defines the message structure, the need for acknowledgments, Multipurpose Internet Mail Extensions (MIME) encoding, and the digital signature. Communication with the partner can be synchronous or asynchronous. The connector provides the following capabilities:
+RosettaNet is a non-profit consortium that established standard processes for sharing business information. The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs), which provide common business process definitions for all RosettaNet message exchanges. For more information, see the [RosettaNet site](https://www.gs1us.org/resources/rosettanet).
+
+The connector is based on the RosettaNet Implementation Framework (RNIF) version 2.0.01. It supports all PIPs defined by this version. RNIF is an open network application framework that enables business partners to collaboratively run RosettaNet PIPs. This framework defines the message structure, the need for acknowledgments, Multipurpose Internet Mail Extensions (MIME) encoding, and the digital signature. Communication with the partner can be synchronous or asynchronous.
+
+The connector provides the following capabilities:
 
 - Receive or decode RosettaNet messages.
 - Send or encode RosettaNet messages.
 - Wait for the response and generation of Notification of Failure.
 
-This article shows how to send and receive RosettaNet messages in workflows using Azure Logic Apps and the RosettaNet connector. It describes these tasks: 
+This article shows you how to send and receive RosettaNet messages in workflows using Azure Logic Apps and the RosettaNet connector. It describes these tasks: 
 
 - Add a PIP process configuration, if you don't have one already.
 - Create a RosettaNet agreement.
@@ -35,7 +39,7 @@ This article shows how to send and receive RosettaNet messages in workflows usin
 
 ## Understand RosettaNet concepts
 
-The following concepts and terms are unique to the RosettaNet. Review them before you build RosettaNet-based integration workflows:
+The following concepts and terms are unique to the RosettaNet.
 
 - **PIP**
 
@@ -77,7 +81,7 @@ The **RosettaNet** connector has no triggers. The following table describes the 
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The Consumption logic app resource and workflow where you want to use the RosettaNet operations.
 
@@ -242,7 +246,7 @@ After you complete these steps, you're ready to send or receive RosettaNet messa
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **RosettaNet process (PIP) instance identity** | Yes | The RosettaNet message to encode  |
+   | **RosettaNet process (PIP) instance identity** | Yes | The instance ID of the message to encode  |
    | **Host partner** | Yes | The host partner name |
    | **Guest partner** | Yes | The guest partner name |
    | **PIP code** | Yes | The PIP code |
