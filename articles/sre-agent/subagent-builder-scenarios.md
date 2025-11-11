@@ -1,5 +1,5 @@
 ---
-title: Scenarios for building subagents in Azure SRE Agent
+title: Scenarios for building subagents in Azure SRE Agent Preview
 description: Learn how you can use subagent builder in Azure SRE Agent to connect observability tools, manage knowledge bases, configure specialized subagents, and automate operational workflows using triggers and scheduled tasks.
 author: craigshoemaker
 ms.author: cshoe
@@ -8,7 +8,7 @@ ms.date: 11/10/2025
 ms.service: azure-sre-agent
 ---
 
-# Scenarios for building subagents in Azure SRE Agent
+# Scenarios for building subagents in Azure SRE Agent Preview
 
 Azure SRE Agent features an subagent builder to help you to design, configure, and extend intelligent operational subagents tailored to your organization's needs. With subagent builder, you can seamlessly integrate data sources, manage and enrich knowledge bases, create specialized subagents, and automate workflows by using triggers and scheduled tasks. This article explores common scenarios and configuration patterns to help you maximize the value of subagent builder for your site reliability engineering (SRE) operations.
 
@@ -50,15 +50,21 @@ Use the following steps to configure your subagent.
 
 ### File upload and knowledge base management
 
-Enhance your subagents' knowledge by uploading organizational documentation, runbooks, and procedural guides.
+You can enhance your subagents' knowledge by uploading documentation, runbooks, and procedural guides.
 
-Examples:
+Here's a short list of examples of files you could add to your agent:
 
-Architecture / System Design – diagrams and explanations of system components and data flows
-Troubleshooting Guide – steps to diagnose and fix recurring issues
-Runbooks / Standard Operating Procedures (SOPs) – workflows for routine operations and incidents
-Incident Reports / Postmortems – records and learnings from past outages
-Release Notes / Change Logs – summaries of product or service updates
+- **Architecture or System Design**: Diagrams and documentation that explain system components and data flows.
+
+- **Troubleshooting Guides**: Step-by-step instructions to diagnose and resolve common or recurring issues.
+
+- **Runbooks and standard operating procedures (SOPs)**: Detailed workflows for routine operations, maintenance, and incident response.
+
+- **Incident reports and postmortems**: Documentation of past outages, including root cause analysis and lessons learned.
+
+- **Release notes and change logs**: Summaries of product or service updates, including new features, bug fixes, and changes.
+
+These types of files help subagents provide accurate, context-aware responses and automate operational tasks more effectively.
 
 #### Supported file types
 

@@ -1,5 +1,5 @@
 items:
-  - name: Azure SRE Agent documentation
+  - name: Azure SRE Agent Preview documentation
     href: index.yml
   - name: Get started
     items:

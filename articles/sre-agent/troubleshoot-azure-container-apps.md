@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Troubleshoot an App Using Azure SRE Agent and Azure Container Apps'
+title: 'Tutorial: Troubleshoot an App Using Azure SRE Agent and Azure Container Apps Preview'
 description: Deploy an automated agent to help monitor and resolve problems by using Azure SRE Agent and Azure Container Apps.
 author: craigshoemaker
 ms.topic: tutorial
@@ -8,7 +8,7 @@ ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
-# Tutorial: Troubleshoot a container app by using Azure SRE Agent
+# Tutorial: Troubleshoot a container app by using Azure SRE Agent Preview
 
 [Azure SRE Agent](../app-service/sre-agent-overview.md) helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents guide you in solving problems and building resilient, self-healing systems.
 

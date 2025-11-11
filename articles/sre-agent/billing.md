@@ -1,5 +1,5 @@
 ---
-title: Billing for Azure SRE Agent
+title: Billing for Azure SRE Agent Preview
 description: Learn how different agent actions are billed in Azure SRE Agent.
 author: craigshoemaker
 ms.author: cshoe
@@ -8,7 +8,7 @@ ms.date: 08/08/2025
 ms.service: azure-sre-agent
 ---
 
-# Billing for Azure SRE Agent
+# Billing for Azure SRE Agent Preview
 
 Azure SRE Agent works on your behalf in two ways.
 

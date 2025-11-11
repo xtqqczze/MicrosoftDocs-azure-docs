@@ -1,5 +1,5 @@
 ---
-title: Data residency and privacy in Azure SRE Agent
+title: Data residency and privacy in Azure SRE Agent Preview
 description: Learn how Azure SRE Agent handles your data.
 author: craigshoemaker
 ms.author: cshoe
@@ -8,7 +8,7 @@ ms.date: 11/05/2025
 ms.service: azure
 ---
 
-# Data residency and privacy in Azure SRE Agent
+# Data residency and privacy in Azure SRE Agent Preview
 
 This article explains how your data is handled by the SRE Agent, including where it is stored, how it is processed, and the privacy measures in place to protect your information.
 
