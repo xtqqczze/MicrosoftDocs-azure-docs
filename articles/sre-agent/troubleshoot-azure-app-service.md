@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Troubleshoot an App Using Azure SRE Agent and Azure App Service'
+title: 'Tutorial: Troubleshoot an App Using Azure SRE Agent and Azure App Service Preview'
 description: Learn how to use Azure SRE Agent and Azure App Service to identify and fix app problems through AI-assisted troubleshooting.
 author: craigshoemaker
 ms.author: cshoe
@@ -8,7 +8,7 @@ ms.date: 10/13/2025
 ms.service: azure-sre-agent
 ---
 
-# Tutorial: Troubleshoot an App Service app by using Azure SRE Agent
+# Tutorial: Troubleshoot an App Service app by using Azure SRE Agent Preview
 
 > [!NOTE]
 > Azure SRE Agent is in. By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azures](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

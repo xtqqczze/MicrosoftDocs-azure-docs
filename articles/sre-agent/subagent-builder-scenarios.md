@@ -1,5 +1,5 @@
 ---
-title: Scenarios for building subagents in Azure SRE Agent
+title: Scenarios for building subagents in Azure SRE Agent Preview
 description: Learn how you can use subagent builder in Azure SRE Agent to connect observability tools, manage knowledge bases, configure specialized subagents, and automate operational workflows using triggers and scheduled tasks.
 author: craigshoemaker
 ms.author: cshoe
@@ -8,7 +8,7 @@ ms.date: 11/10/2025
 ms.service: azure-sre-agent
 ---
 
-# Scenarios for building subagents in Azure SRE Agent
+# Scenarios for building subagents in Azure SRE Agent Preview
 
 Azure SRE Agent features an subagent builder to help you to design, configure, and extend intelligent operational subagents tailored to your organization's needs. With subagent builder, you can seamlessly integrate data sources, manage and enrich knowledge bases, create specialized subagents, and automate workflows by using triggers and scheduled tasks. This article explores common scenarios and configuration patterns to help you maximize the value of subagent builder for your site reliability engineering (SRE) operations.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SRE Agent frequently asked questions
+title: Azure SRE Agent Preview frequently asked questions
 description: Frequently asked questions in Azure SRE Agent.
 author: craigshoemaker
 ms.author: cshoe
@@ -8,7 +8,7 @@ ms.date: 10/13/2025
 ms.service: azure-sre-agent
 ---
 
-# Azure SRE Agent frequently asked questions
+# Azure SRE Agent Preview frequently asked questions
 
 This article covers common problems that you might face when you're working with Azure SRE Agent, along with practical solutions to resolve them. The problems are typically related to permissions, regional availability, and administrative access requirements.
 

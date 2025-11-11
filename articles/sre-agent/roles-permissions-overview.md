@@ -1,5 +1,5 @@
 ---
-title: Roles and permissions overview in Azure SRE Agent
+title: Roles and permissions overview in Azure SRE Agent Preview
 description: Learn about roles, permissions, and security models in Azure SRE Agent.
 author: craigshoemaker
 ms.topic: overview
@@ -8,7 +8,7 @@ ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
-# Roles and permissions overview in Azure SRE Agent
+# Roles and permissions overview in Azure SRE Agent Preview
 
 Azure SRE Agent helps you manage Azure resources by automating diagnostics, root cause analysis, and mitigation actions. The agent supports secure, multi-user access through a layered permission model. This security model governs both how users interact with the agent and how the agent acts on resources. With these controls, the agent operates in a safe and customizable context aligned with your governance needs and trust boundaries.
 
