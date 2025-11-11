@@ -62,6 +62,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 ### Usage notes
 
 * [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
+* In the v2 tiers, when defining this policy at more than one scope and using the same `counter-key` value, you must configure the same `renewal-period` and `calls` values in all instances of the policy. Otherwise, policy instances will behave unpredictably. This additional restriction is because of a change to the underlying rate-limiting implementation in the v2 tiers.
 * [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
 * [!INCLUDE [api-management-rate-limit-gateway-calls](../../includes/api-management-rate-limit-gateway-calls.md)]
 * When `increment-condition` or `increment-count` are defined using expressions, evaluation and increment of the rate limit counter are postponed to the end of outbound pipeline to allow for policy expressions based on the response. Limit exceeded condition is not evaluated at the same time in this case and will be evaluated on next incoming call. This leads to cases where `429 Too Many Requests` status code is returned 1 call later than usual.
