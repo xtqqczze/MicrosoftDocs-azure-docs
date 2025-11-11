@@ -1,6 +1,6 @@
 ---
 title: Connect to an Azure Elastic SAN volume - Windows
-description: Learn how to connect to an Azure Elastic SAN volume by using the Windows VM Extension or the manual connect script .
+description: Learn how to connect to an Azure Elastic SAN volume by using the Windows VM Extension or the manual connect script.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
@@ -14,7 +14,7 @@ This article explains how to connect a Windows client to an Azure Elastic SAN vo
 
 There are two connection options:
 
-- Elastic SAN VM extension– Use when deploying new VMs or VM Scale Sets to automatically set up SAN connectivity for all instances. Ideal for large-scale, uniform environments, onboarding via the Azure portal, or when you want minimal manual steps.
+- Elastic SAN VM extension– Use when deploying new VMs or Virtual Machine Scale Sets to automatically set up SAN connectivity for all instances. Ideal for large-scale, uniform environments, onboarding via the Azure portal, or when you want minimal manual steps.
 - Manual connect script – Use for existing VMs, advanced configurations, or when you need custom parameters (like specific session counts or unique volume mappings). Best for one-off setups or troubleshooting.
 
 Choose the option that best fits your deployment scenario. Both approaches require a deployed Elastic SAN resource and configured volume groups.
@@ -51,7 +51,7 @@ This section explains how to connect to an Elastic storage area network (SAN) vo
 
 In this section, you configure your client environment to connect to an Elastic SAN volume and establish a connection. For best performance, ensure that your VM and your Elastic SAN are in the same zone.
 
-When using the VM extension with VMSS, each VM in the scale set is automatically connected to the Elastic SAN volume. If multiple VMs will access the same volume, you must use a cluster manager to coordinate shared access and maintain data consistency. For details, see [Use clustered applications on Azure Elastic SAN](elastic-san-shared-volumes.md).
+When using the VM extension with Virtual Machine Scale Sets, each VM in the scale set is automatically connected to the Elastic SAN volume. If multiple VMs will access the same volume, you must use a cluster manager to coordinate shared access and maintain data consistency. For details, see [Use clustered applications on Azure Elastic SAN](elastic-san-shared-volumes.md).
 
 ### Prerequisites
 
