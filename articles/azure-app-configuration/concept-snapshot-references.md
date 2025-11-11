@@ -76,11 +76,11 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 The following sequence demonstrates application behavior when an application is using snapshot references and has refresh configured.
 
-1. The app starts up; the configuration provider fetches selected key-values including a snapshot reference.
+1. The app starts up. The configuration provider fetches selected key-values including a snapshot reference.
 2. The configuration provider resolves the reference to snapshot `Snapshot_A` and loads its key-values.
 3. Later, you update the snapshot reference's value to `Snapshot_B` (still immutable).
 4. The configuration provider detects the snapshot reference key-value has changed.
-5. The configuration provider re-resolves; The key-values of `Snapshot_A` are unloaded. The configuration reload yields the key-values of `Snapshot_B`.
+5. The configuration provider re-resolves. The key-values of `Snapshot_A` are unloaded. The configuration reload yields the key-values of `Snapshot_B`.
 
 > [!NOTE]
 > This sequence assumes you have configured refresh for your application. For details on how to configure refresh, see [dynamic configuration](./enable-dynamic-configuration-aspnet-core.md)
