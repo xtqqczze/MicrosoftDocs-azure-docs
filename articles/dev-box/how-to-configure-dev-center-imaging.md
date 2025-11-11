@@ -79,16 +79,15 @@ You can build a reusable image from an image definition to optimize performance 
 
 There are two ways to build images: automatic or manual. By default, images are automatically built whenever a new image definition is detected or an existing image definition is updated. To control when images are built, you can disable automatic image builds and manually trigger builds.
 
-## Configure automatic image builds
-
 By default, images are automatically built for catalogs containing image definitions. This feature helps prevent stale configurations and improves dev box reliability. 
 
 > [!NOTE]
 > Image builds incur costs through dev box meters during runtime when customizations are applied.
 
-# [Automatic image builds for existing catalogs](#tab/auto-builds-existing-catalogs)
+*Select the tabs below to learn how to configure automatic and manual image builds.*
 
-### Configure automatic image builds for existing catalogs
+# [Automatic image builds for existing catalogs](#tab/auto-builds-existing-catalogs)
+## Configure automatic image builds for existing catalogs
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -107,8 +106,7 @@ By default, images are automatically built for catalogs containing image definit
    :::image type="content" source="media/how-to-configure-dev-center-imaging/dev-box-add-catalog-auto-build-image.png" alt-text="Screenshot showing the automatically build an image option in catalog settings.":::
 
 # [Automatic image builds for new catalogs](#tab/auto-builds-new-catalogs)
-
-### Configure automatic image builds during catalog creation
+## Configure automatic image builds during catalog creation
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -135,7 +133,6 @@ By default, images are automatically built for catalogs containing image definit
 When automatic image builds are disabled, you must manually trigger image builds when you want to create or update reusable images from your image definitions.
 
 # [Manual image builds](#tab/manual-image-builds)
-
 ## Build an image manually
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -162,14 +159,14 @@ When automatic image builds are disabled, you must manually trigger image builds
 
    :::image type="content" source="./media/how-to-configure-dev-center-imaging/customizations-image-build-progress-small.png" alt-text="Screenshot of the pane that lists image definitions, with the in-progress status highlighted for a selected image definition." lightbox="./media/how-to-configure-dev-center-imaging/customizations-image-build-progress.png":::  
 
-During the image build process, Dev Box creates a temporary storage account in your subscription to store a snapshot. This storage account doesn't allow anonymous blob access and can only be accessed by identities with Storage Blob Reader access. The storage account must be accessible from public networks so the Dev Box service can export your snapshot. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription that your DevCenter project is in.
-
-> [!IMPORTANT]
-> When you're optimizing your image definition into an image, a dev box is created to run your customization file and generate an image. During this process, the dev box is connected to a virtual network that Microsoft manages. Use the [network configuration](./reference-dev-box-customizations.md#networkconnection) capability in image definitions for tasks that need access to on-premises or private resources to ensure that image generation is successful.
-
 When the build finishes successfully, the dev box pool automatically uses the built image for new dev boxes. You don't need extra configuration to assign the image to the pool. You can now create dev boxes from the pool with the customizations applied.
 
 ---
+
+During the image build process, Dev Box creates a temporary storage account in your subscription to store a snapshot. This storage account doesn't allow anonymous blob access and can only be accessed by identities with Storage Blob Reader access. The storage account must be accessible from public networks so the Dev Box service can export your snapshot. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription that your DevCenter project is in.
+
+> [!IMPORTANT]
+> When you're optimizing your image definition into an image, a dev box is created to run your image definition and generate an image. During this process, the dev box is connected to a virtual network that Microsoft manages. Use the [network configuration](./reference-dev-box-customizations.md#networkconnection) capability in image definitions for tasks that need access to on-premises or private resources to ensure that image generation is successful.
 
 ## Configure a dev box pool to use an image definition
 
