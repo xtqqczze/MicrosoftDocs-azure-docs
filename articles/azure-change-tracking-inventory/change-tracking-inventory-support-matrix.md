@@ -1,18 +1,18 @@
 ---
 title: Azure Change Tracking and Inventory Support matrix
 description: Get a summary of support settings and limitations for enabling Azure CTI and tracking changes.
-#customer intent: As a customer, I want to understand the supported operating systems for Azure Change Tracking and Inventory so that I can ensure compatibility with my environment.
 services: automation
-ms.date: 11/03/2025
+ms.date: 11/06/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
 author: jasminemehndir
+#customer intent: As a customer, I want to understand the supported operating systems and identify the supported regions for Azure Change Tracking and Inventory so that I can ensure compatibility with my environment.
 ---
 
-# Support matrix for Azure Change Tracking and Inventory
+# Support matrix and regions for Azure Change Tracking and Inventory
 
-Azure Change Tracking and Inventory (CTI) monitors changes and provide inventory logs for servers across Azure, on-premises, and other cloud environments. This article summarizes support settings and limitations when you enable Azure CTI and track changes.
+Azure Change Tracking and Inventory (CTI) monitors changes and provide inventory logs for servers across Azure, on-premises, and other cloud environments. This article summarizes support settings and limitations when you enable Azure CTI and track changes. It also provides information about the supported regions and mappings for Azure CTI using Azure Monitoring Agent.
 
 ## Support matrix
 
@@ -41,52 +41,6 @@ The following table shows the tracked item limits per machine for Azure CTI.
 Azure CTI is supported on all operating systems that meet Azure Monitor agent requirements. See [supported operating systems](/azure/azure-monitor/agents/agents-overview#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
 
 To understand client requirements for TLS, see [TLS for Azure Automation](../automation/automation-managing-data.md#tls-for-azure-automation).
-
-
-## Enable Azure Change Tracking and Inventory
-
-You can enable Azure CTI in the following ways:
-
-- Manually for non-Azure Arc-enabled machines, Refer to the Initiative *Enable Change Tracking and Inventory for Arc-enabled virtual machines* in **Policy > Definitions > Select Category = ChangeTrackingAndInventory**. To enable Azure CTI at scale, use the **DINE Policy** based solution. For more information, see [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
-
-- For a single Azure VM from the [Virtual machine pane](../automation/change-tracking/enable-vms-monitoring-agent.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
-
-- For [multiple Azure VMs](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md) by selecting them from the Virtual machines pane in the Azure portal.
-
-## Track file changes
-
-For tracking changes in files on both Windows and Linux, Azure CTI uses SHA256 hashes of the files. The feature uses the hashes to detect if changes have been made since the last inventory.
-
-## Track file content changes
-
-Azure CTI allows you to view the contents of a Windows or Linux file. For each change to a file, Azure CTI stores the contents of the file in an [Azure Storage account](../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. [Learn more](tutorial-change-workspace-configure-data-collection-rule.md).
-
-![Screenshot of viewing changes in a Windows or Linux file.](./media/overview/view-file-changes.png)
-
-## Track registry keys
-
-Azure CTI allows monitoring of changes to Windows registry keys. Monitoring allows you to pinpoint extensibility points where third-party code and malware can activate. The following table lists pre-configured (but not enabled) registry keys. To track these keys, you must enable each one.
-
-> [!div class="mx-tdBreakAll"]
-> |Registry Key | Purpose |
-> | --- | --- |
-> |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | Monitors scripts that run at startup.
-> |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitors scripts that run at shutdown.
-> |`HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitors keys that are loaded before the user signs in to the Windows account. The key is used for 32-bit applications running on 64-bit computers.
-> |`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitors changes to application settings.
-> |`HKEY_LOCAL_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitors context menu handlers that hook directly into Windows Explorer and usually run in-process with **explorer.exe**.
-> |`HKEY_LOCAL_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitors copy hook handlers that hook directly into Windows Explorer and usually run in-process with **explorer.exe**.
-> |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitors for icon overlay handler registration.
->|`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitors for icon overlay handler registration for 32-bit applications running on 64-bit computers.
-> |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current pane and to control navigation.
-> |`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current pane and to control navigation for 32-bit applications running on 64-bit computers.
-> |`HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons.
-> |`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons for 32-bit applications running on 64-bit computers.
-> |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitors 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc. Similar to the [drivers] section in the **system.ini** file.
-> |`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitors 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc for 32-bit applications running on 64-bit computers. Similar to the [drivers] section in the **system.ini** file.
-> |`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitors the list of known or commonly used system DLLs. Monitoring prevents people from exploiting weak application directory permissions by dropping in Trojan horse versions of system DLLs.
-> |`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitors the list of packages that can receive event notifications from **winlogon.exe**, the interactive logon support model for Windows.
-
 
 ## Recursion support
 
@@ -195,6 +149,34 @@ A key capability of Azure CTI is alerting on changes to the configuration state 
 |ConfigurationChange <br>&#124; where RegistryKey == @"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Useful for tracking changes to crucial antivirus keys.|
 |ConfigurationChange <br>&#124; where RegistryKey contains @"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Useful for tracking changes to firewall settings.|
 
+## Supported regions and mappings for Change Tracking and Inventory with Azure Monitoring Agent
+
+The following table lists the supported regions and mappings:
+
+|**Geography**| **Monitoring Agent workspace region**|
+|---| ---|
+|**Asia Pacific**| East Asia </br> Southeast Asia|
+|**Australia**| Australia East </br> Australia Southeast |
+|**Brazil**| Brazil South|
+|**Canada**| Canada Central|
+|**Europe**| North Europe </br> West Europe|
+|**France**| France Central|
+|**Germany** | Germany West Central|
+|**India**| Central India|
+|**Italy**| Italy North|
+|**Japan**| Japan East|
+|**Korea**| Korea Central|
+|**Norway**| Norway East|
+|**Spain**| Spain Central|
+|**Sweden** | Sweden Central|
+|**Switzerland**| Switzerland North|
+|**United Arab Emirates**| UAE North|
+|**United Kingdom**| UK South|
+|**US Gov** <sup>1</sup>| US Gov Virginia </br> US Gov Arizona |
+|**US**| East US</br> East US2</br> West US </br> West US2 </br> North Central US </br> Central US </br> South Central US </br> West Central US|
+
+<sup>1</sup> Currently, onboarding is supported only through the Azure portal.
+
 ## Next steps
 
-To enable Azure CTI from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](/azure/azure-change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory).
+To enable Azure CTI from the Azure portal, see [Quickstart: Enable Azure Change Tracking and Inventory](/azure/azure-change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory).

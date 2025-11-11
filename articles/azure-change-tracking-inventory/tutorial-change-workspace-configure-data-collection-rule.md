@@ -3,7 +3,7 @@ title: Tutorial - Change a workspace and configure data collection rule
 description: In this tutorial, learn how to change a workspace and configure data collection rule for Azure Change Tracking and Inventory.
 services: automation
 ms.custom: linux-related-content
-ms.date: 11/03/2025
+ms.date: 11/06/2025
 ms.topic: tutorial
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
@@ -19,9 +19,7 @@ This tutorial describes how to change a workspace and configure data collection 
 
 ## Prerequisites
 
-Before you change a workspace for your virtual machine and configure data collection rule, ensure you meet this prerequisite:
-
-You've enabled Change Tracking and Inventory on your VM. For detailed information on how you can create a Data Collection Rule (DCR), see [Create DCR](create-data-collection-rule.md).
+Before you change a workspace for your virtual machine and configure data collection rule, ensure you've enabled Change Tracking and Inventory on your VM using a data collection rule (DCR). For detailed information on how you can create a Data Collection Rule (DCR), see [Create DCR](create-data-collection-rule.md).
 
 ## Configure Windows, Linux files, and Windows Registry using Data Collection Rules
 
@@ -57,13 +55,13 @@ On the **Windows Files** tab > Select **+ Add** > **Add windows file setting** p
 |Enabled | True if the setting is applied, and false otherwise.|
 |Item Name | Friendly name of the file to be tracked. | 
 |Group | A group name to group files logically| 
-|Path | The path to check for the file, for example, **c:\temp\*.txt.** You can also use environment variables, such as %winDir%\System32\\\*.*. 
+|Path | The path to check for the file, for example, **c:\temp\*.txt**. You can also use environment variables, such as **%winDir%\System32\\\*.*.** |
 |Path Type | The type of path. Possible values are File and Folder.|
 |Recursion | True if recursion is used when looking for the item to be tracked, and False otherwise. |
 
 #### [Linux Files](#tab/linux)
 
-On the **Linux Files** tab > Select **+ Add** > **Add linux file setting** pane, enter the information for the file or directory to track, and then select **Add**. The following table describes the properties that you can use to enter the information. 
+On the **Linux Files** tab > Select **+ Add** > **Add Linux file setting** pane, enter the information for the file or directory to track, and then select **Add**. The following table describes the properties that you can use to enter the information. 
     
 |**Property**|**Description**|
 |---|---|
@@ -76,7 +74,7 @@ On the **Linux Files** tab > Select **+ Add** > **Add linux file setting** p
 
 #### [Windows Registry](#tab/windows-registry)
 
-On the **Windows Registry** tab > Select **+ Add** > **Add windows registry setting** pane, enter the information for the registry key to track, and then select **Add**. The following table describes the properties that you can use to enter the information.
+On the **Windows Registry** tab > Select **+ Add** > **Add Windows registry setting** pane, enter the information for the registry key to track, and then select **Add**. The following table describes the properties that you can use to enter the information.
 
 |**Property**|**Description**|
 |---|---|
@@ -159,4 +157,4 @@ To configure the monitoring of files and folders using wildcards, consider the f
 
 ## Next steps
 
-To enable Azure Change Tracking and Inventory (CTI) from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
+To enable Azure Change Tracking and Inventory (CTI) from the Azure portal, see [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).

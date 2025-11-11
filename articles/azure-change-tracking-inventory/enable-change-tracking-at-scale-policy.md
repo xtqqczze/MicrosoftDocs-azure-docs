@@ -3,7 +3,7 @@ title: Enable Change Tracking and Inventory at Scale for Azure VMs using Azure P
 description: Learn how to use Azure Policy to enable change tracking and inventory at scale for Windows and Linux VMs, including the Arc-enabled VMs and Azure Virtual Machine Scale Sets.
 #customer intent: As a customer, I want to enable Azure change tracking and inventory for Azure VMs at scale so that I can monitor configuration changes efficiently.
 services: automation
-ms.date: 11/03/2025
+ms.date: 11/06/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 author: jasminemehndir
@@ -18,7 +18,7 @@ This article provides detailed procedure on how to enable Azure Change Tracking 
 
 ## Prerequisite
 
-Before you enable CTI, ensure:
+Before you enable Azure CTI, ensure you create a data collection rule (DCR) or use an existing one:
 
 [Create the data collection rule](create-data-collection-rule.md).
 
@@ -56,8 +56,8 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
        :::image type="content" source="media/create-data-collection-rule/enable-for-virtual-machine-inline.png" alt-text="Screenshot showing the selection of virtual machines." lightbox="media/create-data-collection-rule/enable-for-virtual-machine-expanded.png":::
 
 
-1. Select *Enable Change Tracking and Inventory for virtual machines* to enable the change tracking on Azure virtual machines.
-   This initiative consists of three policies:
+1. Select **Enable Change Tracking and Inventory for virtual machines** to enable the change tracking on Azure virtual machines.
+   This step includes three policies, each determined by the operating system type of the selected machine:
 
    - Assign Built in User-Assigned Managed identity to Virtual machines
    - Configure ChangeTracking Extension for Windows virtual machines

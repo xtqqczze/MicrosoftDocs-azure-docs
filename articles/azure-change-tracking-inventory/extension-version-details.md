@@ -3,7 +3,7 @@ title: Azure Change Tracking extension version details and known issues
 description: This article describes the Change Tracking extension version details and the known issues.
 #customer intent: As a customer, I want to learn about the fixed vulnerabilities in recent extension updates so that I can maintain a secure environment.
 services: automation
-ms.date: 11/03/2025
+ms.date: 11/06/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-jasmineme
@@ -14,20 +14,24 @@ author: jasminemehndir
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: Windows Services & Linux Daemons
 
-This article explains the Azure Change Tracking and Inventory extension version details.
+This article provides the release notes for Azure Change Tracking and Inventory extensions.
 
 
-## Release Notes for Extension
+## Release notes for extension
 
 ### Extension version 2.29.0.0
 
-- **Windows** - For Windows Registry to work seamlessly, we recommend you move to extension version 2.29.0.0.
-- **Linux** - None
+| OS | Notes |
+| --- | --- |
+| **Windows** | For Windows Registry to work seamlessly, we recommend you move to extension version 2.29.0.0. |
+| **Linux** | None |
 
 ### Extension version 2.27.0.0
 
-- **Windows** - Removed some security vulnerabilities.
-- **Linux** - Removed some security vulnerabilities.
+| OS | Notes |
+| --- | --- |
+| **Windows** | Removed some security vulnerabilities. |
+| **Linux** | Removed some security vulnerabilities. |
 
 ### Extension version 2.24.0.0
 
@@ -35,8 +39,10 @@ This article explains the Azure Change Tracking and Inventory extension version 
 
 After you migrate from FIM based on AMA to ChangeTracking based on AMA, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
 
-- **Windows** - Fix the installation issues for the Arc-enabled machines having languages other than English.
-- **Linux** - Fix the installation issues for the Arc-enabled machines.
+| OS | Notes |
+| --- | --- |
+| **Windows** | Fix the installation issues for the Arc-enabled machines having languages other than English. |
+| **Linux** | Fix the installation issues for the Arc-enabled machines. |
 
 ### Extension version 2.23.0.0
 
@@ -44,8 +50,9 @@ After you migrate from FIM based on AMA to ChangeTracking based on AMA, the memo
 
 After you migrate from FIM based on AMA to ChangeTracking based on AMA, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
 
-- **Windows** - Add support for environment variables in file path.
-
+| OS | Notes |
+| --- | --- |
+| **Windows** | Add support for environment variables in file path. |
 
 ### Extension version 2.22.0.0
 
@@ -59,24 +66,25 @@ For Windows, **SvcDescription** field is coming as base64 encoded string. As a w
 
 **OS-specific issues:**
 
-- **Windows** - None
-
-- **Linux** - The Fix file content upload isn't working for Linux machines.
+| OS | Notes |
+| --- | --- |
+| **Windows** | None |
+| **Linux** | The Fix file content upload isn't working for Linux machines. |
 
 ### Extension Version 2.21.0.0
 
 #### Issues fixed
 
-- **SvcName** or **SoftwareName** are displayed as garbled string for Japanese or Chinese language VMs. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
+**SvcName** or **SoftwareName** are displayed as garbled string for Japanese or Chinese language VMs. The issue is fixed in latest version of AMA windows (1.24.0). We recommend that you upgrade to Azure Monitoring Agent.
 For Windows **SvcDescription** is coming as base64 encoded string. As a workaround, use base64_decode_tostring() kql function.
 
 **OS-specific issues:**
 
-- **Windows** - The Fix Windows services data isn't getting uploaded for machines in some languages (Japanese, Chinese).
-
-- **Linux** - None
-
+| OS | Notes |
+| --- | --- |
+| **Windows** | The Fix Windows services data isn't getting uploaded for machines in some languages (Japanese, Chinese). |
+| **Linux** | None |
 
 ## Next steps
 
-To enable Azure Change Tracking and Inventory from the Azure portal, see the Quickstart article [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
+To enable Azure Change Tracking and Inventory from the Azure portal, see [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
