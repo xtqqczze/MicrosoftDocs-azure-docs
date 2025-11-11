@@ -105,6 +105,8 @@ By default, images are automatically built for catalogs containing image definit
  
    :::image type="content" source="media/how-to-configure-dev-center-imaging/dev-box-add-catalog-auto-build-image.png" alt-text="Screenshot showing the automatically build an image option in catalog settings.":::
 
+When automatic image builds are disabled, you must manually trigger image builds when you want to create or update reusable images from your image definitions.
+
 # [Automatic image builds for new catalogs](#tab/auto-builds-new-catalogs)
 ## Configure automatic image builds during catalog creation
 
@@ -206,24 +208,6 @@ If you don't have an available dev center and project, follow the steps in [Quic
    | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
    :::image type="content" source="./media/how-to-configure-dev-center-imaging/dev-box-pool-create-basics-hibernation-image.png" alt-text="Screenshot of the Basics pane for creating a dev box pool." lightbox="./media/how-to-configure-dev-center-imaging/dev-box-pool-create-basics-hibernation-image.png":::
-
-1. On the **Management** tab, enter the following values:
-
-   | Setting | Value |
-   |---|---|
-   | **Roles** | |
-   | **Dev box Creator Privileges** | Select **Local Administrator** or **Standard User**. |
-   | **Access** | |
-   | **Enable single sign-on (SSO)** | Select to enable users to sign in to their dev boxes by using their organizational credentials. |
-   | **Headless connections** | Select to enable developers to open a dev box in Visual Studio Code without a full desktop experience. |
-   | **Cost controls** | |
-   | **Auto-stop on schedule** | Select the checkbox to enable an autostop schedule. You can also configure an autostop schedule after the pool is created. |
-   | **Stop time** | Select a time to shut down all the dev boxes in the pool. Dev boxes that support hibernation hibernate at the specified time. Dev boxes that don't support hibernation shut down.  |
-   | **Time zone** | Select the time zone for the stop time. |
-   | **Hibernate on disconnect** | Hibernates dev boxes that no one is connected to after a specified grace period. |
-   | **Grace period** | Hibernates dev boxes that have never been connected to after a specified grace period. |
-
-   :::image type="content" source="./media/how-to-configure-dev-center-imaging/dev-box-pool-create-management-hibernation.png" alt-text="Screenshot of the Management pane for creating a dev box pool." lightbox="./media/how-to-configure-dev-center-imaging/dev-box-pool-create-management-hibernation.png":::
 
 1. Select **Create**.
 
