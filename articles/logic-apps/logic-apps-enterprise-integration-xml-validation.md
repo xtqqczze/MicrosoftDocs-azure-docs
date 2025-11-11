@@ -59,7 +59,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
    The dynamic content list shows property tokens that represent the outputs from the previous steps in the workflow.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-xml-validation/open-dynamic-content-list.png" alt-text="Screenshot showing the designer with opened dynamic content list, cursor in Content box, and opened dynamic content list.":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-xml-validation/open-dynamic-content-list.png" alt-text="Screenshot showing the designer with opened dynamic content list, cursor in Content box, and opened dynamic content list." lightbox="./media/logic-apps-enterprise-integration-xml-validation/open-dynamic-content-list.png":::
 
    If the list doesn't show an expected property, select the trigger or action heading in the list and select **See more**.
 
@@ -77,7 +77,7 @@ To test your validation action, trigger and run your workflow. For example, for 
 
 The **XML Validation** action runs after your workflow is triggered and when XML content is available for validation.
 
-## Related concepts
+## Related content
 
 - [Add schemas for XML validation in Azure Logic Apps](logic-apps-enterprise-integration-schemas.md)
 - [Transform XML for workflows in Azure Logic Apps](logic-apps-enterprise-integration-transform.md)
