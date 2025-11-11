@@ -11,6 +11,10 @@ ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 
 # Cloud-to-device communications guidance
 
+This article helps you choose the appropriate cloud-to-device communication option in Azure IoT Hub based on your scenario requirements. IoT Hub supports three primary options for cloud-to-device communication: direct methods, device twin's desired properties, and cloud-to-device messages.
+
+## Ways to communicate from cloud to device
+
 IoT Hub provides three options for device apps to expose functionality to a back-end app:
 
 * [Direct methods](iot-hub-devguide-direct-methods.md) for communications that require immediate confirmation of the result. Direct methods are often used for interactive control of devices such as turning on a fan.
@@ -23,7 +27,7 @@ To learn how [Azure IoT Plug and Play](../iot/overview-iot-plug-and-play.md) use
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-## Overview of cloud-to-device communication options
+## Comparison of cloud-to-device communication options
 
 The following table compares the various cloud-to-device communication options in IoT Hub based on common factors.
 

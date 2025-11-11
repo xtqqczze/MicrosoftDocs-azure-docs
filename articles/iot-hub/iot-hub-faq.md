@@ -31,7 +31,7 @@ No, existing IoT Hubs without ADR and certificate management integration remain 
 
 No, upgrade from existing IoT Hubs to IoT Hubs with ADR and certificate management isn't supported. You must create a new IoT Hub instance and link it to an ADR namespace. For more information, see [Get started with ADR and certificate management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
 
-## What happens to the built-in IoT Hub Device Registry if I setup a new IoT hub with ADR and certificate management enabled?
+## What happens to the built-in IoT Hub Device Registry if I set up a new IoT hub with ADR and certificate management enabled?
 
 IoT Hub Device Registry continues to exist, and all the existing functionalities are all available within the built-in registry while in preview. Azure Device Registry integration is an additional ARM representation that you can use for listing devices across IoT Hubs in your ADR namespace. ADR integration enables you to use out-of-box Azure capabilities more seamlessly.
 

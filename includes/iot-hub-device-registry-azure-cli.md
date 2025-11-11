@@ -231,7 +231,7 @@ az iot dps enrollment-group create --dps-name <DPS_NAME> --resource-group <RESOU
 
 Your IoT Hub with ADR integration and certificate management is now set up and ready to use.
 
-## Optional Commands
+## Optional commands
 
 The following commands help you manage your ADR namespaces, disable devices, create custom policies, and delete resources when they are no longer needed.
 
