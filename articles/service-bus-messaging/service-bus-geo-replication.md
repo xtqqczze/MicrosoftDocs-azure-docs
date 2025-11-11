@@ -200,10 +200,10 @@ In the portal, click on the **Promote** icon, and follow the instructions in the
 
 ### Using Azure CLI
 
-Execute the Azure CLI command to initiate the promotion. The **Force** property is optional, and defaults to **false**.
+Execute the [Azure CLI command](https://learn.microsoft.com/en-us/cli/azure/servicebus/namespace?view=azure-cli-latest#az-servicebus-namespace-failover) to initiate the promotion.
 
 ```azurecli
-az rest --method post --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.ServiceBus/namespaces/<namespaceName>/failover?api-version=2024-01-01 --body "{'properties': {'PrimaryLocation': '<newPrimaryLocation>', 'api-version':'2024-01-01', 'Force':'false'}}"
+az servicebus namespace failover --namespace-name <your-namespace-name> --resource-group <your-resource-group> --primary-location <new-primary-location>
 ```
 
 ### Monitoring data replication
