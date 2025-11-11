@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 11/10/2025
+ms.date: 11/11/2025
 
 #customer intent: As a Dev Center Admin or Project Admin, I want to configure dev box pools to use image definition files so that my development teams can create customized dev boxes.
 ---
@@ -86,6 +86,8 @@ By default, images are automatically built for catalogs containing image definit
 > [!NOTE]
 > Image builds incur costs through dev box meters during runtime when customizations are applied.
 
+# [Automatic image builds for existing catalogs](#tab/auto-builds-existing-catalogs)
+
 ### Configure automatic image builds for existing catalogs
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -103,6 +105,8 @@ By default, images are automatically built for catalogs containing image definit
 1. Select **Save** to apply your changes. The auto-build capability flattens customizations into a reusable image that dramatically enhances dev box creation performance and reliability.
  
    :::image type="content" source="media/how-to-configure-dev-center-imaging/dev-box-add-catalog-auto-build-image.png" alt-text="Screenshot showing the automatically build an image option in catalog settings.":::
+
+# [Automatic image builds for new catalogs](#tab/auto-builds-new-catalogs)
 
 ### Configure automatic image builds during catalog creation
 
@@ -129,6 +133,43 @@ By default, images are automatically built for catalogs containing image definit
 1. Select **Add** to create the catalog.
 
 When automatic image builds are disabled, you must manually trigger image builds when you want to create or update reusable images from your image definitions.
+
+# [Manual image builds](#tab/manual-image-builds)
+
+## Build an image manually
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box, enter **projects**. In the list of results, select **Projects**.
+
+1. Open the project that contains the catalog you want to configure.
+
+1. On the left menu, select **Catalogs**.
+
+1. From the list of catalogs, select the catalog that contains image definitions.
+
+1. On the catalog details page, select **Image definitions**.
+
+1. On the **Image definitions** pane, select the image that you want to build.
+
+   :::image type="content" source="./media/how-to-configure-dev-center-imaging/customizations-select-image-small.png" alt-text="Screenshot of the pane that lists image definitions, with one definition selected." lightbox="./media/how-to-configure-dev-center-imaging/customizations-select-image-small.png":::
+
+1. Select **Build**.
+
+   :::image type="content" source="./media/how-to-configure-dev-center-imaging/customizations-build-image-small.png" alt-text="Screenshot of the pane that lists image definitions, with the Build button highlighted." lightbox="./media/how-to-configure-dev-center-imaging/customizations-build-image-small.png":::
+
+1. Track the build progress in the **Status** column.
+
+   :::image type="content" source="./media/how-to-configure-dev-center-imaging/customizations-image-build-progress-small.png" alt-text="Screenshot of the pane that lists image definitions, with the in-progress status highlighted for a selected image definition." lightbox="./media/how-to-configure-dev-center-imaging/customizations-image-build-progress.png":::  
+
+During the image build process, Dev Box creates a temporary storage account in your subscription to store a snapshot. This storage account doesn't allow anonymous blob access and can only be accessed by identities with Storage Blob Reader access. The storage account must be accessible from public networks so the Dev Box service can export your snapshot. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription that your DevCenter project is in.
+
+> [!IMPORTANT]
+> When you're optimizing your image definition into an image, a dev box is created to run your customization file and generate an image. During this process, the dev box is connected to a virtual network that Microsoft manages. Use the [network configuration](./reference-dev-box-customizations.md#networkconnection) capability in image definitions for tasks that need access to on-premises or private resources to ensure that image generation is successful.
+
+When the build finishes successfully, the dev box pool automatically uses the built image for new dev boxes. You don't need extra configuration to assign the image to the pool. You can now create dev boxes from the pool with the customizations applied.
+
+---
 
 ## Configure a dev box pool to use an image definition
 
@@ -204,41 +245,6 @@ For more information about Dev Box support for hibernation, see [Configure hiber
 To verify that customizations are applied correctly, create a dev box in the Microsoft Dev Box developer portal. Follow the steps in [Quickstart: Create and connect to a dev box by using the Microsoft Dev Box developer portal](quickstart-create-dev-box.md), then connect to the newly created dev box and verify that the customizations work as expected.
 
 You can make adjustments to the image definition and create a new dev box to test the changes. When the customizations are correct, you can build a reusable image from the image definition.
-
-
-
-## Build an image manually
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box, enter **projects**. In the list of results, select **Projects**.
-
-1. Open the project that contains the catalog you want to configure.
-
-1. On the left menu, select **Catalogs**.
-
-1. From the list of catalogs, select the catalog that contains image definitions.
-
-1. On the catalog details page, select **Image definitions**.
-
-1. On the **Image definitions** pane, select the image that you want to build.
-
-   :::image type="content" source="./media/how-to-configure-dev-center-imaging/customizations-select-image-small.png" alt-text="Screenshot of the pane that lists image definitions, with one definition selected." lightbox="./media/how-to-configure-dev-center-imaging/customizations-select-image-small.png":::
-
-1. Select **Build**.
-
-   :::image type="content" source="./media/how-to-configure-dev-center-imaging/customizations-build-image-small.png" alt-text="Screenshot of the pane that lists image definitions, with the Build button highlighted." lightbox="./media/how-to-configure-dev-center-imaging/customizations-build-image-small.png":::
-
-1. Track the build progress in the **Status** column.
-
-   :::image type="content" source="./media/how-to-configure-dev-center-imaging/customizations-image-build-progress-small.png" alt-text="Screenshot of the pane that lists image definitions, with the in-progress status highlighted for a selected image definition." lightbox="./media/how-to-configure-dev-center-imaging/customizations-image-build-progress.png":::  
-
-During the image build process, Dev Box creates a temporary storage account in your subscription to store a snapshot. This storage account doesn't allow anonymous blob access and can only be accessed by identities with Storage Blob Reader access. The storage account must be accessible from public networks so the Dev Box service can export your snapshot. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription that your DevCenter project is in.
-
-> [!IMPORTANT]
-> When you're optimizing your image definition into an image, a dev box is created to run your customization file and generate an image. During this process, the dev box is connected to a virtual network that Microsoft manages. Use the [network configuration](./reference-dev-box-customizations.md#networkconnection) capability in image definitions for tasks that need access to on-premises or private resources to ensure that image generation is successful.
-
-When the build finishes successfully, the dev box pool automatically uses the built image for new dev boxes. You don't need extra configuration to assign the image to the pool. You can now create dev boxes from the pool with the customizations applied.
 
 ## Related content
 
