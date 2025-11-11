@@ -12,17 +12,29 @@ metadata:
 
   author: Jeronika-MS
   ms.author: v-gajeronika
-  ms.date: 08/19/2025
+  ms.date: 11/11/2025
 
 landingContent:
-  - title: About Site Recovery
+  - title: Get started with Azure Site Recovery
     linkLists:
       - linkListType: overview
         links:
           - text: What is Site Recovery?
             url: ./site-recovery-overview.md
-          - text: What's new in Site Recovery
-            url: ./site-recovery-whats-new.md
+      - linkListType: get started
+        links:
+          - text: Set up disaster recovery on an Azure VM
+            url: ./azure-to-azure-quickstart.md
+          - text: Set up disaster recovery on an on-premises VMware VM
+            url: ./quickstart-enable-replication.md
+      - linkListType: tutorial
+        links:
+          - text: Run a disaster recovery drill
+            url: ./azure-to-azure-tutorial-dr-drill.md
+      - linkListType: deploy
+        links:
+          - text: Set up disaster recovery at scale
+            url: ./vmware-physical-large-deployment.md
 
   - title: Disaster recovery for Azure VMs
     linkLists:
