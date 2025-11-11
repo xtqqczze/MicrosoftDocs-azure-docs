@@ -83,7 +83,7 @@ In addition to antivirus and EDR protection, Defender can provide more protectio
 - For information about using and monitoring SAPXPG, see [Custom detection rules with advanced hunting: Protecting SAP external OS commands (SAPXPG)](/defender-endpoint/mde-sap-custom-detection-rules).
 - Defender Vulnerability Management can detect vulnerabilities in the operating system and database layer. Currently, it can't detect ABAP and Java vulnerabilities. For more information, see [Microsoft Defender Vulnerability Management dashboard](/defender-vulnerability-management/tvm-dashboard-insights).
 - For information about Defender for Storage, see [What is Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction).
-- For information about support for Server Message Block (SMB) in Azure Files, see the blog post [Azure Files support and new updates in advanced threat protection for Azure Storage](https://azure.microsoft.com/blog/azure-files-support-and-new-updates-in-advanced-threat-protection-for-azure-storage/).
+- For information about support for Server Message Block (SMB) in Azure Files, see the Microsoft blog post [Azure Files support and new updates in advanced threat protection for Azure Storage](https://azure.microsoft.com/blog/azure-files-support-and-new-updates-in-advanced-threat-protection-for-azure-storage/).
 
 Microsoft Secure Score and Defender Vulnerability Management are discussed in the [section about OS-level hardening](#os-level-hardening) later in this article.
 
@@ -100,22 +100,22 @@ We recommend that you enable TDE for all DBMSs that run SAP applications on Azur
 
 Most DBMS platforms create encrypted backups if the database is enabled for TDE. This configuration mitigates one common attack vector: theft of backups.
 
-SAP HANA doesn't support storing keys in Azure Key Vault or any other HSM device. For more information, see [3444154 - HSM for SAP HANA Encryption Key Management](https://userapps.support.sap.com/sap/support/knowledge/en/3444154). To enable TDE on HANA, see [Enable Encryption](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/4b11e7dee04f4dd98301fcd86e2f3d8b.html) in the SAP Help Portal.
+SAP HANA doesn't support storing keys in Azure Key Vault or any other HSM device. For more information, see [SAP Note 3444154: HSM for SAP HANA Encryption Key Management](https://userapps.support.sap.com/sap/support/knowledge/en/3444154). To enable TDE on HANA, see [Enable Encryption](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/4b11e7dee04f4dd98301fcd86e2f3d8b.html) in the SAP Help Portal.
 
 SQL Server TDE is fully integrated into Key Vault. For more information, see:
 
-- [1380493 - SQL Server Transparent Data Encryption](https://me.sap.com/notes/1380493)
+- [SAP Note 1380493: SQL Server Transparent Data Encryption](https://me.sap.com/notes/1380493)
 - [Transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption)
 
 Oracle DBMS supports TDE in combination with SAP applications. Keys for TDE can be stored in HSM PKCS#11 devices. For more information, see:
 
-- [974876 - Oracle Transparent Data Encryption](https://me.sap.com/notes/974876/E)
-- [2591575 - Using Oracle Transparent Data Encryption with SAP NetWeaver](https://me.sap.com/notes/2591575)
+- [SAP Note 974876: Oracle Transparent Data Encryption](https://me.sap.com/notes/974876/E)
+- [SAP Note 2591575: Using Oracle Transparent Data Encryption with SAP NetWeaver](https://me.sap.com/notes/2591575)
 - [Oracle Database Transparent Data Encryption](https://thalesdocs.com/gphsm/ptk/protectserver3/docs/integration_docs/oracle/index.html) (Thales documentation)
 
 DB2 native encryption is supported in combination with SAP applications. Encryption keys can be stored in HSM PKCS#11 devices. For more information, see:
 
-- [Running an SAP NetWeaver Application Server on DB2 for LUW with the IBM DB2 Encryption Technology](https://www.sap.com/documents/2015/07/7e504681-5b7c-0010-82c7-eda71af511fa.html)
+- [Running an SAP NetWeaver Application Server on DB2 for LUW with the IBM DB2 Encryption Technology](https://www.sap.com/documents/2015/07/7e504681-5b7c-0010-82c7-eda71af511fa.html) (SAP documentation)
 - [DB2 native encryption](https://www.ibm.com/docs/en/db2/12.1.0?topic=rest-db2-native-encryption) (IBM documentation)
 - [IBM DB2 and Thales Luna HSMs - Integration Guide](https://cpl.thalesgroup.com/resources/encryption/ibm-db2-luna-hsms-integration-guide#:~:text=This%20document%20is%20intended%20to%20guide%20security%20administrators,databases%20and%20backup%20images%20using%20DB2%20native%20encryption) (Thales documentation)
 
@@ -152,14 +152,14 @@ High-priority items for Linux operating systems include:
 - Use generation 2 VMs with Secure Boot.
 - Don't allow third-party repositories (to avoid supply chain attacks).
 - Use keys and disable password sign-in in `sshd_config`.
-- Use a managed identify for Pacemaker, not an SPN. For more information, see the blog post [SAP on Azure high availability - change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/blog/sapapplications/sap-on-azure-high-availability-%E2%80%93-change-from-spn-to-msi-for-pacemaker-clusters-u/3609278).
+- Use a managed identify for Pacemaker, not an SPN. For more information, see the Microsoft blog post [SAP on Azure high availability - change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/blog/sapapplications/sap-on-azure-high-availability-%E2%80%93-change-from-spn-to-msi-for-pacemaker-clusters-u/3609278).
 - Disable root sign-in.
 
-SELinux is supported with modern Red Hat Enterprise Linux (RHEL) releases. But Microsoft doesn't provide support for SELinux, and careful testing is required. For more information, see [3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302/E).
+SELinux is supported with modern Red Hat Enterprise Linux (RHEL) releases. But Microsoft doesn't provide support for SELinux, and careful testing is required. For more information, see [SAP Note 3108302 for SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302/E).
 
 Here are resources for hardening Linux OS distributions:
 
-- [Azure security baseline for Virtual Machines - Linux Virtual Machines](/security/benchmark/azure/baselines/virtual-machines-linux-virtual-machines-security-baseline)
+- [Azure security baseline for Virtual Machines - Linux Virtual Machines](/security/benchmark/azure/baselines/virtual-machines-linux-virtual-machines-security-baseline) (Microsoft documentation)
 - [The 18 CIS Critical Security Controls](https://www.cisecurity.org/controls/cis-controls-list) (CIS documentation)
 - [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks) (CIS documentation)
 - [Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15 GA and SP1](https://documentation.suse.com/sbp/sap-15/html/OS_Security_Hardening_Guide_for_SAP_HANA_SLES15/index.html) (SUSE documentation)
@@ -173,7 +173,7 @@ High-priority items for Windows operating systems include:
 - Minimize the installation of any third-party software.
 - Configure Windows Firewall with minimal open ports via Group Policy.
 - Enforce SMB encryption via Group Policy. For more information, see [Configure the SMB client to require encryption in Windows](/windows-server/storage/file-server/configure-smb-client-require-encryption?tabs=group-policy).
-- After installation, lock the \<SID>adm username as described in SAP Note[1837765 - Security policies for \<SID>adm and SAPService\<SID> on Windows](https://userapps.support.sap.com/sap/support/knowledge/en/1837765). The service account SAPService\<SID> should be set to deny interactive login (the default setting after installation). The SAPService\<SID> and \<sid>adm accounts must not be deleted.
+- After installation, lock the \<SID>adm username as described in [SAP Note 1837765: Security policies for \<SID>adm and SAPService\<SID> on Windows](https://userapps.support.sap.com/sap/support/knowledge/en/1837765). The service account SAPService\<SID> should be set to deny interactive login (the default setting after installation). The SAPService\<SID> and \<sid>adm accounts must not be deleted.
 - Configure Windows Group Policy to clear the last user name after you permit Active Directory authenticated sign-in. This configuration mitigates cloning attacks. Disable legacy TLS and SMB protocols.
 
 Here are resources for Windows OS distributions:
@@ -191,7 +191,7 @@ You can enhance your Azure infrastructure security configuration to reduce or el
 We recommend that you deploy only generation 2 VMs and activate Trusted Launch. For more information, see:
 
 - [Trusted Launch for Azure virtual machines](/azure/virtual-machines/trusted-launch)
-- [Improve the security of Generation 2 VMs via Trusted Launch in Azure DevTest Labs](https://devblogs.microsoft.com/develop-from-the-cloud/improve-the-security-of-generation-2-vms-via-trusted-launch-in-azure-devtest-labs/)
+- [Improve the security of Generation 2 VMs via Trusted Launch in Azure DevTest Labs](https://devblogs.microsoft.com/develop-from-the-cloud/improve-the-security-of-generation-2-vms-via-trusted-launch-in-azure-devtest-labs/) (Microsoft blog post)
 
 > [!NOTE]
 > Only recent versions of SUSE 15 support Trusted Launch. See the [list of supported operating systems](/azure/virtual-machines/trusted-launch#operating-systems-supported).
@@ -280,7 +280,7 @@ Here are more resources:
 - [Immutable vault for Azure Backup](/azure/backup/backup-azure-immutable-vault-concept?tabs=recovery-services-vault).
 - [Azure security fundamentals documentation](/azure/security/fundamentals/).
 - [Microsoft Digital Defense Report](https://www.microsoft.com/security/business/security-intelligence-report?msockid=343d619786f36e041990740887e36ff0).
-- Microsoft offers support and consulting services for security-related topics. See the blog post [DART: the Microsoft cybersecurity team we hope you never meet](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/).
+- Microsoft offers support and consulting services for security-related topics. See the Microsoft blog post [DART: the Microsoft cybersecurity team we hope you never meet](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/).
 - Microsoft provides tools to remove ransomware and other malware from Windows. For more information, see [Microsoft Safety Scanner download](/defender-endpoint/safety-scanner-download).
 - [Windows Malicious Software Removal Tool 64-bit](https://www.microsoft.com/download/details.aspx?id=9905).
 - [FAQ: Protect backups from ransomware with Azure Backup](/azure/backup/protect-backups-from-ransomware-faq).
@@ -307,14 +307,14 @@ Security analysts and forums have reported an increase in the exploitation of SA
 ## Related content
 
 - [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1&oneroute=true)
-- [3356389 - Antivirus or other security software affecting SAP operations](https://me.sap.com/notes/3356389/E)
+- [SAP Note 3356389: Antivirus or other security software affecting SAP operations](https://me.sap.com/notes/3356389/E)
 - [CVE: Common Vulnerabilities and Exposures](https://www.cve.org/)
 - [Azure operational security checklist](/azure/security/fundamentals/operational-checklist)
 - [Data governance best practices for security](/purview/data-gov-classic-security-best-practices)
 - [Azure Bastion documentation](/azure/bastion/)
 - [Azure security fundamentals documentation](/azure/security/fundamentals/)
 - [SAP HANA Database Encryption - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-hana-database-encryption/ba-p/13555367)
-- [3345490 - Common Criteria Compliance FAQ](https://me.sap.com/notes/3345490)
+- [SAP Note 3345490: Common Criteria Compliance FAQ](https://me.sap.com/notes/3345490)
 - [Microsoft Security Compliance Toolkit guide](/windows/security/operating-system-security/device-management/windows-security-configuration-framework/security-compliance-toolkit-10)
 - [SQL Server database security for SAP on Azure](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-database-security)
 - [Measured boot and host attestation](/azure/security/fundamentals/measured-boot-host-attestation)
