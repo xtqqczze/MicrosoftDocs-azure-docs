@@ -66,11 +66,9 @@ nodepool1   standard_l8s_v3
 
 ## Create and attach generic ephemeral volumes
 
-Follow these steps to create and attach a generic ephemeral volume using Azure Container Storage.
+If you haven't already done so, [install Azure Container Storage.](install-container-storage-aks.md) 
 
-> [!NOTE]
-> If you haven't already done so, [install Azure Container Storage](install-container-storage-aks.md).
-
+Follow these steps to create and attach a generic ephemeral volume using Azure Container Storage. 
 ### 1. Create a storage class
 
 Unlike previous versions that required creating a custom storage pool resource, Azure Container Storage (version 2.x.x) uses standard Kubernetes storage classes.
@@ -177,6 +175,8 @@ While generic ephemeral volumes are recommended for ephemeral storage, Azure Con
 > Azure Container Storage (version 2.x.x) uses the new annotation `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"` instead of the previous `acstor.azure.com/accept-ephemeral-storage: "true"`.
 
 ### 1. Create a storage class (if not already created)
+
+If you haven't already done so, [install Azure Container Storage.](install-container-storage-aks.md) 
 
 If you did not create a storage class that uses local NVMe in the previous section, create one now:
 
