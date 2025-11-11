@@ -1,6 +1,6 @@
 ---
 title: Create a Zone-Redundant Container App
-description: Learn how to create a zone-redundant container app in Azure Container Apps.
+description: Learn how to create a zone-redundant container app in Azure Container Apps to improve availability and ensure regional fault tolerance.
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
@@ -39,30 +39,30 @@ Use the Azure portal, the Azure CLI, or PowerShell to create a zone-redundant co
 
 1. Enter the environment name.
 
-1. Select **Enabled** for the *Zone redundancy* field.
+1. Select **Enabled** for the *zone redundancy* field.
 
 Zone redundancy requires a virtual network that has an infrastructure subnet. You can choose an existing virtual network or create a new virtual network. When you create a new virtual network, you can accept the values provided for you or customize the settings.
 
 1. Select the **Networking** tab.  
 
-1. To assign a custom virtual network name, select **Create New** in the *Virtual Network* field.
+1. To assign a custom virtual network name, select **Create New** in the *virtual network* field.
 
-1. To assign a custom infrastructure subnet name, select **Create New** in the *Infrastructure subnet* field.
+1. To assign a custom infrastructure subnet name, select **Create New** in the *infrastructure subnet* field.
 
-1. You can select **Internal** or **External** for the *Virtual IP address*.
+1. You can select **Internal** or **External** for the *virtual IP address*.
 
 1. Select **Create**.
 
-:::image type="content" source="../container-apps/media/screen-shot-vnet-configuration.png" alt-text="Screenshot of Networking tab in Create Container Apps Environment page.":::
+:::image type="content" source="../container-apps/media/screen-shot-vnet-configuration.png" alt-text="Screenshot of the Networking tab on the Create Container Apps Environment page.":::
 
 # [The Azure CLI](#tab/azure-cli)
 
 1. Create a virtual network and infrastructure subnet to include with the Container Apps environment.
 
-    When you use these commands, replace the `<PLACEHOLDERS>` with your values.
+   When you use these commands, replace the `<PLACEHOLDERS>` with your values.
     
-    > [!NOTE]
-    > The consumption-only environment requires a dedicated subnet that has a Classless Inter-Domain Routing (CIDR) range of `/23` or larger. The workload profiles environment requires a dedicated subnet that has a CIDR range of `/27` or larger. For more information about subnet sizing, see [Networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
+   > [!NOTE]
+   > The consumption-only environment requires a dedicated subnet that has a Classless Inter-Domain Routing (CIDR) range of `/23` or larger. The workload profiles environment requires a dedicated subnet that has a CIDR range of `/27` or larger. For more information about subnet sizing, see [Networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
     
     
     ```azurecli-interactive
@@ -102,10 +102,10 @@ Zone redundancy requires a virtual network that has an infrastructure subnet. Yo
 
 1. Create a virtual network and infrastructure subnet to include with the Container Apps environment.
 
-    When you use these commands, replace the `<PLACEHOLDERS>` with your values.
+   When you use these commands, replace the `<PLACEHOLDERS>` with your values.
     
-    > [!NOTE]
-    > The Consumption only environment requires a dedicated subnet that has a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet that has a CIDR range of `/27` or larger. For more information about subnet sizing, see [Networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
+   > [!NOTE]
+   > The consumption-only environment requires a dedicated subnet that has a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet that has a CIDR range of `/27` or larger. For more information about subnet sizing, see [Networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
     
     ```azurepowershell-interactive
     $SubnetArgs = @{
@@ -130,7 +130,7 @@ Zone redundancy requires a virtual network that has an infrastructure subnet. Yo
     $InfrastructureSubnet=(Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet).Id
     ```
 
-1. Create the environment with the `--zone-redundant` parameter. The location must be the same location used when creating the virtual network.
+1. Create the environment with the `--zone-redundant` parameter. The location must be the same location used when you create the virtual network.
 
     A Log Analytics workspace is required for the Container Apps environment. The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
     
@@ -167,7 +167,7 @@ Zone redundancy requires a virtual network that has an infrastructure subnet. Yo
 
 ## Verify zone redundancy
 
-To verify that zone redundancy is enabled for your Container Apps environment:
+To verify that zone redundancy is enabled for your Container Apps environment, do the following steps:
 
 # [The Azure portal](#tab/portal)
 
@@ -180,10 +180,16 @@ To verify that zone redundancy is enabled for your Container Apps environment:
 1. Select your environment.
 
 1. Select **JSON View**.
-    ![Screenshot of the Azure portal that shows the environment. The JSON View button is highlighted.](./media/how-to-zone-redundancy/portal-json-view.png)
+
+    :::image type="complex" source="./media/how-to-zone-redundancy/portal-json-view.png" alt-text="Screenshot of the Azure portal that shows the environment. The JSON View button is highlighted.":::
+      Screenshot of the Azure portal that shows the overview page for a Container Apps Environment named myacaenv1. The left navigation menu highlights the Overview section, with other options such as Activity log, Access control (IAM), Tags, and Settings visible. The main panel displays environment details including resource group, status, location, subscription, environment type, virtual network, infrastructure subnet, static IP address, applications, KEDA version, and Dapr version. On the right side of the details panel, a JSON View link appears outlined in red, which indicates where users access the environment's JSON configuration.
+    :::image-end:::
 
 1. Check that the response contains `"zoneRedundant": true`.
-    ![Screenshot of the Azure portal that shows the JSON view of the environment. The zoneRedundant property is highlighted.](./media/how-to-zone-redundancy/portal-resource-json.png)
+
+    :::image type="complex" source="./media/how-to-zone-redundancy/portal-resource-json.png" alt-text="Screenshot of the Azure portal that shows the JSON view of the environment. The zoneRedundant property is highlighted.":::
+      Screenshot of the Azure portal that shows the Resource JSON view for a Container Apps Environment named myacaenv1. The top of the page displays the title Resource JSON and the environment name. The Resource ID field appears below the title and contains a partial subscription path. The main section presents a formatted JSON object with properties such as id, name, type, location, systemData, and properties. The properties section includes provisioningState, vnetConfiguration, defaultDomain, appLogsConfiguration, and other configuration details. The zoneRedundant property appears in the JSON, set to true and highlighted with a red rectangle.
+    :::image-end:::
 
 # [The Azure CLI](#tab/azure-cli)
 
