@@ -29,7 +29,7 @@ The agent registry within Azure API Center provides a centralized platform for d
 
 ## Register an AI agent
 
-Manually register an AI agent in your API center inventory similar to the way you register other APIs, specifying the API type as **A2A**. To register an API using the Azure portal, see [Tutorial: Register your APIs](../tutorials/register-apis.md).
+You can register AI agents in API Center similar to how you register other APIs. During registration, you specify the API type as **A2A**. For detailed steps, see [Tutorial: Register your APIs](../tutorials/register-apis.md).
 
 ## Manage your AI agent
 
