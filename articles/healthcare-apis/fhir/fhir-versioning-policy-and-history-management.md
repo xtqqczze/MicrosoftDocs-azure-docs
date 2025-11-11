@@ -70,10 +70,10 @@ Changing the versioning policy, either at a system level or resource level, won'
 > [!NOTE] 
 > The query parameter _summary=count and _count=0 can be added to _history endpoint to get a count of all versioned resources. This count includes soft deleted resources.
 
-## Metadata updates and versioning
-Metadata updates to a resource, such as changes to `meta.tag`, `meta.security`, or `meta.profile`, will create a new version of the resource if the versioning policy is set to either `versioned` or `version-update`. This behavior ensures that any changes to the metadata are tracked in the resource's history.
-
-If versioning policy is set to `versioned` or `version-update`, any update to the resource, including metadata updates, will increment the `meta.versionId` and create a new version in the resource's history. This allows users to track changes to both the resource's content and its metadata over time.
+## Metadata-only updates and versioning
+If the versioning policy is set to either `versioned` or `version-update`, metadata-only updates (changes to resources that only affect the metadata)  increment the resource version by default. However, if you are making metadata-only changes using PUT updates, you can use the query parameter `_meta-history` for PUT updates to update this configuration. 
+- `_meta-history=true` is set by default, and creates a new historical version if metadata-only changes are made. 
+- `_meta-history=false` does not create a new historical version for metadata-only changes using PUT, and the resource version is not incremented. However, version ID and last updated timestamp are still updated to reflect the change.
 
 ## Next steps
 
