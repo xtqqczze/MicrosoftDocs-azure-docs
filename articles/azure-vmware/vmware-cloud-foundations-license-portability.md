@@ -46,7 +46,8 @@ This can be done in one of two ways:
 ### Configure portable VCF (BYOL) while creating a new Azure VMware Solution private cloud
 
 When you create a new AVS Private Cloud via the Azure portal, you will be presented with an option to provide VCF license information. See image below: 
-<insert-image>
+
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-create-new-private-cloud-with-vcf-byol.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
 
 Click on the “Configure” and provide all the required details: 
 1. VCF license/subscription key (the 25-character key from Broadcom) <<insert link to which key>>
