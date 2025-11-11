@@ -27,6 +27,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     This feature is supported in all regions that support [large volumes](large-volumes-requirements-considerations.md#supported-regions). Large volumes up to 7.2 PiB with cool access is currently in preview.
   
+* [User and group quota reporting](generate-user-group-quota-reports.md) (preview)
+
+    If you're using individual user and group quotas in Azure NetApp Files to manage capacity on NFS, SMB, and dual-protocol volumes, the user and group quota reporting feature now offers clear visibility into key metrics such as quota limits, used capacity, and percentage utilization for each target user and quota rule. Administrators can generate quota usage reports and modify quota rules directly within the Azure portal for any volume with quota rules, removing the previous dependency on host-based tools and the need to mount the volume for reporting.
+
 * [Azure NetApp Files cache volumes](configure-cache-volumes.md) (preview)
 
     Azure NetApp Files now support cache volumes, which are cloud-based caches of an external origin volume, containing only the most actively accessed data on the volume. This brings data and files closer to the user for faster throughput with a smaller footprint. Azure NetApp Files cache volumes simplify file distribution, reduces WAN latency, and lowers WAN/ExpressRoute bandwidth costs.
