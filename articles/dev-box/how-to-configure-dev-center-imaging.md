@@ -24,7 +24,6 @@ In this article, you learn how to configure dev center imaging for your developm
 
 To complete the steps in this article, you need:
 
-- A dev center with an existing dev box definition and network connection. If you don't have a dev center, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create it.
 - A team customization file that you want to use to create a dev box. If you don't have a customization file, see [Configure team customizations](how-to-configure-team-customizations.md).
 
 ## Permissions required to configure customizations
@@ -77,9 +76,7 @@ The **Image definitions** pane lists the image definitions that your project can
 
 You can build a reusable image from an image definition to optimize performance and enhance reliability. The built image applies to all dev boxes created from the pool. The DevCenter service creates a dev box behind the scenes, applies your customizations from the image definition, and exports the resulting image to an Azure Compute Gallery in a managed resource group.
 
-There are two ways to build images: automatic or manual. By default, images are automatically built whenever a new image definition is detected or an existing image definition is updated. To control when images are built, you can disable automatic image builds and manually trigger builds.
-
-By default, images are automatically built for catalogs containing image definitions. This feature helps prevent stale configurations and improves dev box reliability. 
+There are two ways to build images: automatic or manual. By default, images are automatically built whenever a new image definition is detected or an existing image definition is updated. This feature helps prevent stale configurations and improves dev box reliability. To control when images are built, you can disable automatic image builds and manually trigger builds.
 
 > [!NOTE]
 > Image builds incur costs through dev box meters during runtime when customizations are applied.
@@ -168,7 +165,7 @@ When the build finishes successfully, the dev box pool automatically uses the bu
 During the image build process, Dev Box creates a temporary storage account in your subscription to store a snapshot. This storage account doesn't allow anonymous blob access and can only be accessed by identities with Storage Blob Reader access. The storage account must be accessible from public networks so the Dev Box service can export your snapshot. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription that your DevCenter project is in.
 
 > [!IMPORTANT]
-> When you're optimizing your image definition into an image, a dev box is created to run your image definition and generate an image. During this process, the dev box is connected to a virtual network that Microsoft manages. Use the [network configuration](./reference-dev-box-customizations.md#networkconnection) capability in image definitions for tasks that need access to on-premises or private resources to ensure that image generation is successful.
+> When an image is built from an image definition, a dev box is created to apply all the customizations and generate an image. By default, if no custom network is configured at the image definition level, the dev box is connected to a virtual network that Microsoft manages. Use the [network configuration](./reference-dev-box-customizations.md#networkconnection) property in image definitions for tasks that need access to on-premises or private resources to ensure that image generation is successful.
 
 ## Configure a dev box pool to use an image definition
 
