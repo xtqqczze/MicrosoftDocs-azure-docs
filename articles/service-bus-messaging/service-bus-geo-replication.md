@@ -200,7 +200,7 @@ In the portal, click on the **Promote** icon, and follow the instructions in the
 
 ### Using Azure CLI
 
-Execute the [Azure CLI command](/cli/azure/servicebus/namespace?view=azure-cli-latest#az-servicebus-namespace-failover) to initiate the promotion.
+Execute the [Azure CLI command](/cli/azure/servicebus/namespace?#az-servicebus-namespace-failover) to initiate the promotion.
 
 ```azurecli
 az servicebus namespace failover --namespace-name <your-namespace-name> --resource-group <your-resource-group> --primary-location <new-primary-location>
