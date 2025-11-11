@@ -1,6 +1,6 @@
 ---
 title: Exchange B2B Messages Using Workflows
-description: Learn to exchange messages between partners by in workflows with Azure Logic Apps and the Enterprise Integration Pack.
+description: Learn to exchange messages between partners in workflows with Azure Logic Apps and the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -111,6 +111,8 @@ Now add the B2B actions for this example, which uses the AS2 and X12 actions.
 
       :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/header-expression.png" alt-text="Screenshot showing multi-tenant designer and the Message headers box with the @triggerOutputs()['Headers'] token.":::
 
+   1. To get the expression token to resolve into the Headers token, in the designer menu, select **Code view**, then select **Designer**.
+
 <a name="add-response-action"></a>
 
 ## Add the Response action as a message receipt
@@ -171,7 +173,9 @@ Now add the **Decode X12 message** action.
 
 1. Save your logic app workflow.
 
-   If you need more steps for this logic app workflow, for example, to decode the message content and output that content in JSON object format, continue adding the necessary actions to your logic app workflow.
+   To get the expression to resolve as this token, switch between code view and designer view. In the designer menu, select **Code view**, then select **Designer**.
+
+If you need more steps for this logic app workflow, for example, to decode the message content and output that content in JSON object format, continue adding the necessary actions to your logic app workflow.
 
 You're done setting up your B2B logic app workflow. In a real world app, you might want to store the decoded X12 data in a line-of-business (LOB) app or data store. For example, review the following documentation:
 
