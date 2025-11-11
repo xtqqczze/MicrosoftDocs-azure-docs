@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 10/20/2025
+ms.date: 11/11/2025
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -24,8 +24,6 @@ The following v2 tiers are generally available:
 * **Basic v2** - The Basic v2 tier is designed for development and testing scenarios, and is supported with an SLA.
 
 * **Standard v2** - Standard v2 is a production-ready tier with support for network-isolated backends.
-
-The following v2 tier is in preview:
 
 * **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, and workspaces.
 

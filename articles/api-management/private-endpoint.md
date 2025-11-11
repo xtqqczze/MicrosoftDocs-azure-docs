@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/09/2025
+ms.date: 11/11/2025
 ms.custom:
   - build-2025
   - sfi-image-nochange
@@ -13,7 +13,7 @@ ms.custom:
 
 # Connect privately to API Management using an inbound private endpoint
 
-[!INCLUDE [premium-dev-standard-standardv2-basic.md](../../includes/api-management-availability-premium-dev-standard-standardv2-basic.md)]
+[!INCLUDE [premium-dev-standard-basic-premiumv2-standardv2.md](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2.md)]
 
 You can configure an inbound [private endpoint](../private-link/private-endpoint-overview.md) for your API Management instance to allow clients in your private network to securely access the instance over [Azure Private Link](../private-link/private-link-overview.md). 
 
@@ -42,6 +42,9 @@ Supported configurations include:
 
 * Pass client requests through a firewall and configure rules to route requests privately to the API Management gateway.
 * Configure Azure Front Door (or Azure Front Door with Azure Application Gateway) to receive external traffic and then route traffic privately to the API Management gateway. For example, see [Connect Azure Front Door Premium to an Azure API Management with Private Link](../frontdoor/standard-premium/how-to-enable-private-link-apim.md).
+
+    > [!NOTE]
+    > Information the user should notice even if skimming
 
 
 ## Prerequisites
