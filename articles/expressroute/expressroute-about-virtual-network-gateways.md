@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 11/06/2025
+ms.date: 11/10/2025
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -81,20 +81,20 @@ The following table shows the features that each gateway SKU supports and the ma
 [!INCLUDE [expressroute-gateway-performance-include](../../includes/expressroute-gateway-performance-include.md)]
 
 
-## Auto-Assigned Public IP
+## Auto-assigned public IP
 
-The Auto-Assigned Public IP feature simplifies ExpressRoute gateway deployment by allowing Microsoft to manage the required public IP address on your behalf. For PowerShell/CLI, you're no longer required to create or maintain a separate public IP resource for your gateway. 
+The auto-assigned public IP feature simplifies ExpressRoute gateway deployment by allowing Microsoft to manage the required public IP address on your behalf. For PowerShell and Command-Line Interface (CLI), you're no longer required to create or maintain a separate public IP resource for your gateway. 
 
 :::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-ip.png" alt-text="Screenshot of the create for virtual network gateway for ExpressRoute.":::
 
-When Auto-Assigned Public IP is enabled, the ExpressRoute gateway's Overview page no longer shows a Public IP address field—this means the gateway’s public IP is automatically provisioned and Microsoft managed.
+When auto-assigned public IP is enabled, the ExpressRoute gateway's Overview page no longer shows a Public IP address field — this means the gateway's public IP is automatically provisioned and managed by Microsoft.
 
 :::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-overview.png" alt-text="Screenshot of the overview for virtual network gateway for ExpressRoute.":::
 
 **Key benefits:**
 
-- **Improved security:** Microsoft manages the public IP internally and isn't exposed to you, reducing risks associated with open management ports.
-- **Reduced complexity:** You aren't required to provision or manage a public IP resource.
+- **Improved security:** The public IP is managed internally by Microsoft and isn't exposed to you, reducing risks associated with open management ports.
+- **Reduced complexity:** You're no longer required to provision or manage a public IP resource.
 - **Streamlined deployment:** The Azure PowerShell and CLI no longer prompt for a public IP during gateway creation.
 
 **How it works:**  
@@ -103,15 +103,11 @@ When you create an ExpressRoute gateway, Microsoft automatically provisions and 
 
 **Availability:**  
 
-Auto-Assigned Public IP isn't available for Virtual WAN (vWAN) or Extended Zone deployments.
+Auto-assigned public IP isn't available for Virtual WAN (vWAN) or Extended Zone deployments.
  
-## VNet-to-VNet and VNet-to-Virtual WAN connectivity
+## Connectivity from virtual network to virtual network and from virtual network to virtual WAN
 
-By default, virtual network-to-virtual network (VNet-to-VNet) and VNet-to-Virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure your ExpressRoute virtual network gateway to allow this traffic.
-
-For more information, see:
-- [Virtual network connectivity guidance](virtual-network-connectivity-guidance.md)
-- [Enable VNet-to-VNet or VNet-to-Virtual WAN connectivity](expressroute-howto-add-gateway-portal-resource-manager.md#enable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic)
+By default, virtual network-to-virtual network and virtual network-to-virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enable this traffic, see [Enable virtual network-to-virtual network or virtual network-to-virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
 
 ## FastPath
 
@@ -124,17 +120,16 @@ For more information about FastPath, including limitations and requirements, see
 The ExpressRoute virtual network gateway facilitates connectivity to private endpoints deployed in the same virtual network and across peered virtual networks.
 
 > [!IMPORTANT]
-> - Private endpoint connectivity can reduce throughput and control plane capacity by half compared to non-private endpoint resources.
-> - During maintenance periods, you might experience intermittent connectivity problems to private endpoint resources.
-> - Ensure your on-premises configuration (routers and firewalls) is set up so packets for the same IP 5-tuple use a single next hop (Microsoft Enterprise Edge router) unless there's a maintenance event. Frequent next hop switching can cause connectivity problems.
-> - Enable [network policies](../private-link/disable-private-endpoint-network-policy.md) (at minimum, for user-defined route support) on subnets where private endpoints are deployed.
+> * The throughput and control plane capacity for connectivity to private endpoint resources might be reduced by half compared to connectivity to non-private endpoint resources.
+> * During a maintenance period, you might experience intermittent connectivity problems to private endpoint resources.
+> * You need to ensure that on-premises configuration, including router and firewall settings, are correctly set up to ensure that packets for the IP 5-tuple transits use a single next hop (Microsoft Enterprise Edge router) unless there's a maintenance event. If your on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, you experience connectivity problems.
+> * Ensure that [network policies](../private-link/disable-private-endpoint-network-policy.md) (at a minimum, for UDR support) are enabled on the subnet(s) where private endpoints are deployed
 
-<a name="private-endpoint-connectivity-and-planned-maintenance-events"></a>
-### Private endpoint connectivity during maintenance
+### Private endpoint connectivity and planned maintenance events
 
 Private endpoint connectivity is stateful. When you establish a connection to a private endpoint over ExpressRoute private peering, the gateway infrastructure routes inbound and outbound connections through one of its back-end instances. During maintenance events, back-end instances reboot one at a time, which can cause intermittent connectivity problems.
 
-To minimize connectivity problems during maintenance, set the TCP timeout value to **15-30 seconds** on your on-premises applications. Test and configure the optimal value based on your application requirements.
+To avoid or minimize connectivity problems with private endpoints during maintenance activities, set the TCP time-out value to fall between 15 and 30 seconds on your on-premises applications. Test and configure the optimal value based on your application requirements.
 
 ## REST APIs and PowerShell cmdlets
 
@@ -145,11 +140,9 @@ For technical resources and specific syntax requirements when using REST APIs an
 | [PowerShell](/powershell/module/servicemanagement/azure) |[PowerShell](/powershell/module/az.network#networking) |
 | [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/virtual-network/) |
 
-## VNet-to-VNet connectivity over ExpressRoute
+## Virtual network-to-virtual network connectivity
 
-By default, connectivity between virtual networks is enabled when you link multiple virtual networks to the same ExpressRoute circuit. However, we don't recommend using your ExpressRoute circuit for communication between virtual networks. Instead, use [virtual network peering](../virtual-network/virtual-network-peering-overview.md).
-
-For more information about why VNet-to-VNet connectivity isn't recommended over ExpressRoute, see [Connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
+By default, connectivity between virtual networks is enabled when you link multiple virtual networks to the same ExpressRoute circuit. We don't recommend using your ExpressRoute circuit for communication between virtual networks. Instead, we recommend that you use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). For more information about why virtual network-to-virtual network connectivity isn't recommended over ExpressRoute, see [Connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
 ### Virtual network peering limits
 
