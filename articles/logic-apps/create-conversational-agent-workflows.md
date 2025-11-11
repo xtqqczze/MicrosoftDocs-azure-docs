@@ -39,7 +39,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
 - A Consumption logic app resource that uses the workflow type named **Conversational Agents**. See [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
-  Consumption conversational agent workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. You only need to select the version to use. Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
+  Consumption conversational agent workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
 
   > [!NOTE]
   >
@@ -222,25 +222,23 @@ Based on the development experience that you use, start by creating a new workfl
 >
 > :::image type="content" source="media/create-conversational-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar and Errors button with red dot and error in the agent action information pane." lightbox="media/create-conversational-agent-workflows/error-missing-agent-settings.png":::
 
-<a name="connect-agent-to-model"></a>
+<a name="agent-model"></a>
 
-## Set up the agent with an AI model
+## Set up or view the AI model
 
-Set up your agent with the AI model that you want to use by following the corresponding steps:
+To set up or view the AI model for your agent, follow the steps based on your logic app type:
 
 ### [Consumption (preview)](#tab/consumption)
 
+By default, your agent automatically uses the Azure OpenAI model available in your logic app's region. Some regions support **gpt-4o-mini**, while others support **gpt-5o-mini**.
+
+To view the model that your agent uses, follow these steps:
+
 1. On the designer, select the title bar on the **Default Agent** action to open the information pane.
 
-1. On the **Parameters** tab, provide the following information:
+1. On the **Parameters** tab, the **Model Id** parameter shows the Azure OpenAI model that the workflow uses, for example:
 
-   | Parameter | Required | Value | Description |
-   |-----------|----------|-------|-------------|
-   | **Model Id** | Yes | <*model-version*> | The Azure OpenAI model to use. Some regions support **gpt-4o-mini**, while others support **gpt-5o-mini**. |
-
-   The agent information pane now shows the selected AI model, for example:
-
-   :::image type="content" source="media/create-conversational-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows Consumption example connected AI model." lightbox="media/create-conversational-agent-workflows/connected-model-consumption.png":::
+   :::image type="content" source="media/create-conversational-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows Consumption agent with Azure OpenAI model." lightbox="media/create-conversational-agent-workflows/connected-model-consumption.png":::
 
 1. Continue to the next section to rename the agent.
 
@@ -613,7 +611,7 @@ For nonproduction activities, such as design, development, and quick testing, th
 
   | Workflow | Authentication |
   |----------|----------------|
-  | Consumption | Managed identity, [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) |
+  | Consumption | [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) |
   | Standard | Managed identity, [Easy Auth (App Service Authentication)](set-up-authentication-agent-workflows.md) |
 
   Basically, if anyone or anything outside your Azure portal session needs to call or interact with your workflow, the developer key is no longer appropriate.
@@ -626,24 +624,24 @@ When you're ready to release your agent workflow into production, make sure to f
 
    | Workflow | Authentication |
    |----------|----------------|
-   | Consumption | Managed identity, [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) plus an [authorization policy on your logic app resource](logic-apps-securing-a-logic-app.md?tabs=azure-portal#enable-azure-ad-inbound) |
+   | Consumption | [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) by creating an agent authorization policy on your logic app resource. <br><br>To create this policy, follow these steps: <br>1. Follow the [general steps to create the policy](logic-apps-securing-a-logic-app.md?tabs=azure-portal#enable-azure-ad-inbound), but with these next steps instead. <br>2. Select **Azure Active Directory (AAD)**. <br>3. Select **Agent Authorization Rule (For Conversational Agents)**. <br>4. Under **Object IDs**, enter each object IDs that represents a user, app, or enterprise app that can access the agent. <br>5. When you're done, on the toolbar, select **Save**. <br><br>For more information, see: <br>- [Locate important IDs for a user](/partner-center/account-settings/find-ids-and-domain-names) <br>- [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals) |
    | Standard | Managed identity, [Easy Auth (App Service Authentication)](set-up-authentication-agent-workflows.md) |
 
 1. Enforce any authentication required access patterns.
 
 1. Optionally, lock down any trigger endpoint URLs by disabling or regenerating any unused SAS URLs.
 
-1. To embed an external chat client interface wherever you want to support human interactions, get the chat client:
+1. To include the external chat client interface on a website or anywhere else to support human interactions, get the chat client URL and embed the URL in an [*iFrame* HTML element](https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/iframe) by following these steps:
 
    1. On the designer toolbar or workflow sidebar, select **Chat**.
 
-   1. In the **Essentials** section, select the **Chat Client URL** link, which opens a new browser tab.
+   1. In the **Essentials** section, copy or select the **Chat Client URL** link, which opens in new browser tab.
 
-   1. Embed the chat client URL in an [*iFrame* HTML element](https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/iframe) on your website or wherever you want to provide the chat client, for example:
+   1. Embed the chat client URL in an [*iFrame* HTML element](https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/iframe), which uses the following format:
 
       | Workflow | iFrame HTML element |
       |----------|---------------------|
-      | Consumption | `<iframe src="https://agents.<region>.logic.azure.com/scaleunits/CU04/flows/A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u/agentChat/IFrame" title="<chat-client-name>"></iframe>` |
+      | Consumption | `<iframe src="https://agents.<region>.logic.azure.com/scaleunits/<scale-unit-ID>/flows/<workflow-ID>/agentChat/IFrame" title="<chat-client-name>"></iframe>` |
       | Standard | `<iframe src="https://<logic-app-name>.azurewebsites.net/api/agentsChat/<workflow-name>/IFrame" title="<chat-client-name>"></iframe>` |
 
 ### Troubleshoot authentication migration
@@ -653,7 +651,7 @@ The following table describes common problems you might encounter when you try t
 | Symptom | Likely cause | Action |
 |---------|--------------|--------|
 | Portal tests work, but external calls get **401** response. | External calls don't have a valid signed SAS token or Easy Auth access token (Standard workflows only). | Use a workflow trigger URL with a signed SAS or Set up Easy Auth (Standard workflows only). |
-| Designer tests work, but Azure API Management calls fail. | API Management calls are missing expected header information. | Add OAuth 2.0 token acquisition in API Management policy or use managed identity authentication. |
+| Designer tests work, but Azure API Management calls fail. | API Management calls are missing expected header information. | Add OAuth 2.0 token acquisition in API Management policy or use managed identity authentication where supported. |
 | Access is inconsistent after a role changes. | Cached session in the Azure portal | - Sign out and sign back in. <br><br>- Get a fresh token. |
 
 [!INCLUDE [troubleshoot-agent-workflows](includes/troubleshoot-agent-workflows.md)]

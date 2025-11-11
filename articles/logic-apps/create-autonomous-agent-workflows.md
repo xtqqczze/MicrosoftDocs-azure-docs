@@ -232,25 +232,23 @@ If you have an existing **Stateful** workflow, you can add an **Agent** action t
 >
 > :::image type="content" source="media/create-autonomous-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar and Errors button with red dot and error in the agent action information pane." lightbox="media/create-autonomous-agent-workflows/error-missing-agent-settings.png":::
 
-<a name="connect-agent-to-model"></a>
+<a name="agent-model"></a>
 
-## Set up the agent with an AI model
+## Set up or view the AI model
 
-Set up your agent with the AI model that you want to use by following the corresponding steps:
+To set up or view the AI model for your agent, follow the steps based on your logic app type:
 
 ### [Consumption (preview)](#tab/consumption)
 
+By default, your agent automatically uses the Azure OpenAI model available in your logic app's region. Some regions support **gpt-4o-mini**, while others support **gpt-5o-mini**.
+
+To view the model that your agent uses, follow these steps:
+
 1. On the designer, select the title bar on the **Default Agent** action to open the information pane.
 
-1. On the **Parameters** tab, provide the following information:
+1. On the **Parameters** tab, the **Model Id** parameter shows the Azure OpenAI model that the workflow uses, for example:
 
-   | Parameter | Required | Value | Description |
-   |-----------|----------|-------|-------------|
-   | **Model Id** | Yes | <*model-version*> | The Azure OpenAI model to use. Some regions support **gpt-4o-mini**, while others support **gpt-5o-mini**. |
-
-   The agent information pane now shows the selected AI model, for example:
-
-   :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows Consumption example connected AI model." lightbox="media/create-autonomous-agent-workflows/connected-model-consumption.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/connected-model-consumption.png" alt-text="Screenshot shows Consumption agent with Azure OpenAI model." lightbox="media/create-autonomous-agent-workflows/connected-model-consumption.png":::
 
 1. Continue to the next section to rename the agent.
 
