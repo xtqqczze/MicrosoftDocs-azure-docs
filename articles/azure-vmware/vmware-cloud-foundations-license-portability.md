@@ -86,154 +86,174 @@ If you attempt to enable firewall features without having a Broadcom firewall su
 
 More information on the VMware vDefend Firewall feature set can be found on Broadcom documention <insert-link>.  Please note that all listed firewall features may not be supported on Azure VMware Solution. Please check with the Microsoft team for additional details. 
 
-## What's changing?
+<insert-image>
 
-You can now bring your VCF subscription to Azure VMware Solution and provision a Private Cloud. Register your VCF subscription with Microsoft start using the Azure VMware Solution offering. 
-Private Cloud on the portable VCF offering, must have prepurchase Firewall add-on from Broadcom along with the VCF subscription to use the vDefend Firewall on Azure VMware Solution. Prior to using the vDefend Firewall software on Azure VMware Solution ensure you register your Firewall add-on with Microsoft. For detailed instructions on how to register your portable VCF, see "Register your portable VCF with Azure VMware Solution" later in this article.
+This should be done in addition to the base VCF license registration. Once entered, your AVS private cloud is aware that firewall is BYOL-licensed as well. 
 
->[!IMPORTANT]
->
-> Your portable VCF is applied at the host level and must cover all the physical cores on a host. For example, if each host in Azure VMware Solution has 36 cores and you intend to have a Private Cloud with 3 nodes, the portable VCF must cover 108 (3*36) cores. 
->In the current version, if you want to use your own portable VCF on your Azure subscription for the Azure VMware Solution workloads, all the nodes (cores) in that subscription including multiple Private Clouds need to be purchased through Broadcom and covered under your Broadcom portable VCF contract. At the moment, you're required to bring portable VCF entitlements that cover cores for all the nodes deployed within your Azure subscription.
+If you intend to utilize vDefend Firewall with Advanced Threat Prevention, please submit a support ticket with license key to have your license provisioned in your private cloud, in addition to adding the vDefend Firewall add-on license key as outlined above. 
 
-## Purchasing VCF subscription portability offering on Azure VMware Solution
+## How to calculate number of cores
 
-We offer three flexible commitments and pricing options for using your portable VCF on Azure VMware Solution. You can choose from pay-as-you-go, 1-year Reserved Instance (RI), and 3-year RI options. 
+### VCF cores for Azure VMware Solution private cloud
 
-To take advantage of the Reserved Instance (RI) pricing for the portable VCF offering on Azure VMware Solution, purchase an RI under the Product Name- VCF BYOL. For example, if your private cloud uses AV36P nodes, you must [purchase the Reserved Instance](/azure/azure-vmware/reserved-instance?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json#buy-a-reservation) for the Product Name- AV36P VCF BYOL. To use the pay-as-you-go pricing for the portable VCF offering, you only need to register your VCF subscription. 
+1. Check your Azure VMware Solution host type:
+| Host type | Number of cores per host |
+| ------------- | ------------- |
+| AV36, AV36P | 36 |
+| AV48 | 48 |
+| AV52 | 52 |
+| AV64 | 64 |
 
->[!IMPORTANT]
-> If you're converting your existing Azure VMware Solution private cloud to use the portable VCF pricing, you must ensure to exchange the existing Reserve Instance (RI) on your subscription to VCF BYOL RI. **Unless you have RI under \<node-type\>-VCF BYOL, you'll be charged the VCF BYOL pay-as-you-go pricing.**
-> Register your VCF subscription with Microsoft before performing any Reservation exchanges.
-
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/reserved-instance-purchase.png" alt-text="Screenshot of what product type to select while purchasing reserved instance for VCF subscription portability offering." border="true":::
-
-## Request host quota with VCF subscription portability
-
-Existing: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-old.png" alt-text="Screenshot of quota request description for existing Azure VMware Solution." border="true":::
-
-To request quota for portable VCF offering, provide the following additional information in the **Description** of the support ticket:
-
-- Region Name 
-- Number of hosts 
-- Host SKU type  
-- Add the following statement as is, by replacing "N" with the "Number of VCF BYOL cores" you purchased from Broadcom for VCF portability to Azure VMware Solution:  
-**"I acknowledge that I have procured portable VCF subscription from Broadcom for "N" cores to use with Azure VMware Solution."**
-- Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage
-
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-license-portability.png" alt-text="Screenshot of the quota request description for VCF subscription portability offering on Azure VMware Solution.":::
+2. Mutiply the number of hosts by cores per host:
+   * Example if you want to use portable VCF for 3 AV64 hosts in your Azure VMware Solution private cloud, the portable VCF cores required: 3 hosts * 64 cores per host = 192 cores
+<<Add note for mixed billing on a private cloud>>
 
 >[!NOTE]
->
->Portable VCF is applied at the host level and must cover all the physical cores on a host.
->Hence, quota is approved only for the maximum number of nodes which the portable VCF covers. For example, if you purchase 1000 cores for portability and requesting for AV36P, you can get a maximum of 27 nodes quota approved for your subscription.
->
->That is, 36 physical CPU cores per AV36P node. 27 nodes = 27\*36 = 972 cores. 28 nodes = 28\*36 = 1008 cores. If you purchase 1000 cores for portability, you can only use up to 27 AV36P nodes under your portable VCF.
+> Always confirm your Broadcom license covers the total cores for your planned deployment. 
+> If you add more nodes later, update the configuration through the portal to include the new cores. 
+> You can use the same VCF key (split cores) on multiple Azure VMware Solution private cloud. Make sure the net total cores registered on Azure VMware Solution does NOT exceed the cores purchased from Broadcom. 
 
-## Register your portable VCF with Azure VMware Solution
+### VMware vDefend Firewall add-on cores
 
-To get your quota request approved, you must first register the portable VCF details with Microsoft. Quota will be approved only after the entitlements are provided. Expect to receive a response in 1 to 2 business days. 
+The VMware vDefend Firewall add-on can be enabled in two flavors on Azure VMware Solution- NSX Distributed Firewall (DFW) and Gateway Firewall (GFW). The vDefend Firewall add-on cores counted for each differs as following: 
 
-### How to register the VCF subscription keys 
+*NSX Distributed Firewall (DFW):* The total number of cores is determined by the quantity of host cores within the Azure VMware Solution private cloud. For instance, if there are 10 AV36P hosts and the NSX distributed firewall feature is enabled, the corresponding firewall add-on core count = 10 hosts * 36 cores per host = 360 cores
 
-- Email your portable VCF entitlements (and VMware vDefender Firewall license entitlements if to enable vDefender Firewall on Azure VMware Solution) to the following email address: registeravsvcfbyol@microsoft.com. 
+*NSX Gateway Firewall (GFW):* The total number of cores is determined by the NSX Edge vCPU being used in the Azure VMware Solution private cloud. The Gateway Firewall add-on core count is calculated as “(Number of Edges*Number of vCPU per edge * 4). 
+For instance, AVS Gen-1 private cloud with default two Large NSX Edge's, the Gateway Firewall add-on core count will be calculated as (2 Edges * 8 vCPU * 4) = 64 Gateway Firewall cores. If a customer has NSX Edge Scaled-UP to XL (16 vCPU) or Scale-OUT to 4 Edges, the GFW cores change.  AVS Gen-2 includes three NSX Large Edges by default, or 4 if cluster-1 has 4 or more nodes.  So, count the GFW cores accordingly. 
 
-- VCF entitlement sample: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-entitlements.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
+## Updating new VCF BYOL on Azure VMware Solution private cloud
+You can update your VCF BYOL configuration on your AVS Private Cloud at any time without downtime or impact on your workloads. This includes updating your VCF key, adjusting the number of licensed cores (for example, when scaling or redistributing cores across private clouds), updating the VCF expiration date, or modifying your registered Firewall add-on. 
 
->[!NOTE]
->
->The "Qty" represents the number of cores eligible for VCF portability. Your quota request shouldn't surpass the number of nodes equivalent to your entitled cores from Broadcom. If your quota request exceeds the approved cores, the quota request will be granted only for the number of nodes that are fully covered by the entitled cores.
+How to update your configuration: 
 
-- VCF with VMware vDefend entitlement sample: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-vdefend-entitlements.png" alt-text="Screenshot of VCF with VMware vDefend entitlement sample format." border="false":::
+In the Azure Portal, go to your AVS Private Cloud resource. 
 
-Sample Email to register portable VCF entitlements: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf.png" alt-text="Screenshot of sample email to register portable VCF subscription." border="true":::
+Under Manage, select Portable VCF (BYOL). 
 
-The VMware vDefend Firewall add-on CPU cores required on Azure VMware Solution depend on the planned feature usage: 
-- For NSX Distributed Firewall: same core count as VCF core count. 
-- For NSX Gateway Firewall, it would be 64 cores (with default NSX Edges).
-- For both NSX Distributed and Gateway firewall, it should be combined core count of both.
+Click Edit next to the section you want to update (VCF license details or Firewall add-on). 
 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf-vdefend.png" alt-text="Screenshot of sample email to register portable VCF with VMware vDefend Firewall licenses." border="true":::
+Update the license key, number of cores, expiration date, or firewall details as needed. 
 
+Save your changes. Updates take effect immediately – no disruption to your private cloud. 
 
->[!NOTE] 
-> 
-> The portable VCF entitlements submitted to Microsoft is securely retained for reporting purpose only. You can request the permanent deletion of this data from Microsoft's systems at any time. Once the automated validation process is in place, your data is automatically deleted from all Microsoft systems, which may take up to 120 days. Additionally, all your VCF entitlement data is permanently deleted within 120 days any time you migrate to an Azure VMware Solution-owned VCF solution. 
+Tip: You can update your configuration as often as needed. For example, if you add more nodes, simply update the core count to reflect your new deployment. 
 
-## Creating/scaling a Private Cloud
+<insert-picture>
 
-You can create your Azure VMware Solution private cloud the same way as today regardless of your licensing method, that is, whether you bring your own portable VCF or use the Azure VMware Solution-owned VCF subscription. [Learn more](/azure/azure-vmware/plan-private-cloud-deployment). Your decision of licensing is a cost optimization choice and doesn't affect your deployment workflow.
+Important! 
 
-For example, you want to deploy 10 nodes of AV36P node type.
+You are responsible for ensuring that your total registered cores across all AVS Private Clouds do not exceed the number of cores purchased from Broadcom. The same applies to Firewall add-on licenses – ensure you have a valid Broadcom add-on license registered before enabling or updating firewall features. 
 
-**Scenario 1:**
-"I want to purchase my VCF subscription from Broadcom and use the portable VCF offering on Azure VMware Solution."
+If you are unsure about your configuration or compliance, reach out to your Microsoft account team or open a support ticket for clarification. Staying compliant avoids service interruptions. 
 
-1. Create quota request for AV36P nodes. Declare your own VCF portable subscription intent and the number of cores you're entitled for portability. 
-2. Register your VCF entitlements via email to Microsoft.  
-3. Optional- to use the Reserved Instance pricing purchase AV36P VCF BYOL Reserved Instance. You can skip this step to use the pay-as-you-go pricing for the portable VCF.
-4. Create your Private Cloud with AV36P nodes. 
+## Remove VCF BYOL from AVS Private Cloud 
 
-**Scenario 2:**
-"I want to let Azure VMware Solution manage my VCF subscription for all my Azure VMware Solution private cloud."
+You can remove your VCF BYOL configuration from your AVS Private Cloud at any time. This action unregisters your VCF license and, if applicable, any associated Firewall add-on licenses from the selected private cloud. You can remove one or the other independently. 
 
-1. Create quota request for AV36P node type. 
-2. Optional- Purchase AV36P Reserved Instance.  
-3. Create your Private Cloud with AV36P nodes. 
+How to remove your configuration: 
 
-## Moving between the two VCF licensing methods
+In the Azure Portal, open your AVS Private Cloud resource. 
 
-If you're currently managing your own VCF subscription for Azure VMware Solution and wish to transition to Azure VMware Solution-owned VCF subscription, you can easily make the switch without any changes to your private cloud. 
+Under Manage, select Portable VCF (BYOL). 
 
-If you’re an existing Azure VMware Solution customer and wish to transition to the portable VCF (VCF BYOL) offering, you can easily make the switch without any changes to your private cloud deployments by registering your portable VCF entitlements with Microsoft.
-**Steps:**
+Click Remove next to the VCF license or Firewall add-on you wish to unregister. 
 
-1. Create a support request to inform us of your intent to convert.
-2. Exchange RI- If you have any active RI with VCF BYOL, exchange them for non-VCF BYOL RI. For instance, you can [exchange your AV36P VCF BYOL RI for an AV36P or vice versa](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Confirm the removal when prompted. 
 
-**NOTE:** If you have RIs for your current deployments, ensure to exchange RI for the right Product Name to continue to get the discounted RI pricing. Without this step, you'll incur the pay-as-you-go cost.
+<insert-picture>
 
+Important! 
 
->[!NOTE]
->
->You need to purchase the portable VCF entitlements from Broadcom for all cores that match your current Azure VMware Solution deployment. For instance, if your Azure subscription has a private cloud with 100 AV36P nodes, you must purchase portable VCF for at least 3600 cores from Broadcom to convert to VCF BYOL offering.
+Removing your VCF BYOL configuration does NOT disrupt your AVS Private Cloud. It only moves your AVS Private Cloud from your VCF BYOL to Microsoft-managed VCF. Note that after the Broadcom policy change, switching away from BYOL may not be permitted for new deployments after Nov 1, 2025. If you don’t have an active VCF-included RI on your Azure subscription, this action may result in being out of compliance. Microsoft holds the right to suspend any Private Cloud not in compliance with the licensing policy. 
 
-## Frequently Asked Questions
+Work with your Account Team to determine the best path forward. 
 
-### 1. What if my VCF subscription expires before my AVS Reservation (RI) ends?
-If your VCF subscription expires before your AVS Reservation (RI) ends, you have two options:
+## Security and data handling 
 
-  1. **Switch to AVS-managed licenses:** Inform Microsoft of your intent to transition to AVS-managed licenses. If you have reservations on the VCF BYOL SKU, you can exchange them for the corresponding AVS SKU without any cancellation or exchange fees, as long as your exchanges comply with the [Azure Reservation Exchange Policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations#cancel-exchange-and-refund-policies).
-  
-  2. **Renew your VCF subscription with Broadcom:** Register your new VCF subscription with Microsoft to continue using your Private Cloud without any disruption.
+AVS is committed to ensuring the security and privacy of customer-provided VCF BYOL license keys and related configuration data. 
 
-### 2. Can I change back and forth between AVS to AVS VCF BYOL anytime?
-Yes, you can switch between AVS and AVS VCF BYOL SKUs anytime. 
+### Secure License Storage and Lifecycle Management 
 
-### 3. Will the AVS 30-day Pilot Program support AVS VCF BYOL?
-The 30-day Pilot Program **does not** require you to bring your own VCF subscription, as you can leverage AVS-owned VCF during the Pilot period. However, if you wish to bring your own VCF subscription instead of continuing with the AVS-owned VCF after the Pilot, you must **register your VCF subscription before the Pilot program ends**. If you don't register before the end of the Pilot program, you'll automatically be converted to AVS pay-as-you-go pricing.
+All VCF BYOL license keys and Firewall add-on licenses provided by customers are securely stored in Microsoft-managed key vaults. 
 
-### 4. Is VCF portability available for Gov Cloud as well?**
-Yes, VCF portability is **now available in Gov Cloud.** 
+When a license key is deleted or de-configured (for example, when a customer updates a new key or removes the existing one), the key is retained for 90 days and then purged from the system to meet compliance requirements. 
 
-## "Onboarding to portable VCF on Azure VMware Solution" Checklist
+### Data Privacy and Compliance 
 
-**Scenario 1:**
-"I'm converting existing AVS private cloud to VCF BYOL." 
+Customer license data is handled in accordance with Microsoft’s data privacy and compliance standards. 
 
-1. Get your portable VCF subscription from Broadcom.
-2. Register your portable VCF with Azure VMware Solution. 
-3. If you have an RI purchased, exchange the RI to the corresponding VCF BYOL RI.
+Only authorized cloud administrators can view or edit VCF BYOL configurations. 
 
-**Scenario 2:**
-"I'm creating a new AVS private cloud with VCF BYOL." 
+All BYOL registrations and associated customer data are reported to Broadcom monthly, ensuring compliance with partner requirements. 
 
-1. Get your portable VCF subscription from Broadcom.
-2. [Request host quota](/azure/azure-vmware/request-host-quota-azure-vmware-solution) for Azure VMware Solution.
-3. If you intend to leverage the RI pricing, purchase the RI under the "VCF BYOL" product name.
+### Customer Responsibilities 
 
-**NOTE:** Once your portable VCF is register, you must **immediately** exchange your existing AVS RI to VCF BYOL RI. Failing to do so leads to **VCF BYOL pay-as-you-go** billing for your usage. To leverage the RI pricing, ensure the RI purchase under the right region, host count, and product name (VCF BYOL in this case).
+Customers are accountable for managing their VCF subscription cores and ensuring compliance with their Broadcom entitlements across all AVS Private Clouds. 
+
+If you have questions about your configuration or compliance status, contact your Microsoft account team or open a support ticket for assistance. 
+
+## Customers using VCF BYOL on their Azure subscription before Nov 2025 
+If you are an existing AVS customer using VCF BYOL prior to November 2025 and registered your VCF keys through the registeravsvcfbyol@microsoft.com email, you will need to update your configuration through the new Azure Portal based VCF BYOL system latest by March 31, 2026. There will be NO disruption to your private cloud in this process.  
+
+Why is this important?  
+
+This allows you to manage your VCF per AVS Private Cloud. 
+
+The new experience is built with deeper security, management, and support.  
+
+The following steps outline the migration process: 
+
+Step 1: Access the Manage VCF BYOL Portal 
+
+Sign in to the Azure Portal and navigate to your AVS Private Cloud resource. 
+
+Under Manage, select Portable VCF (BYOL). 
+
+Step 2: Register Your VCF License 
+
+For each AVS Private Cloud, register your VCF BYOL license by entering:  
+
+Your VCF license key 
+
+The number of licensed cores 
+
+The VCF license end date 
+
+If you have a Firewall add-on license, enter those details as well. 
+
+Review your configuration and save your changes. 
+
+Repeat this process for all AVS Private Clouds under the Azure subscription. 
+
+ 
+
+Note: You can use the same VCF key (split cores) on multiple AVS Private Cloud. Make sure the net total cores registered on AVS do NOT exceed the cores purchased from Broadcom. 
+
+Step 4: Provide Formal Sign-Off 
+
+Once you have registered your BYOL licenses on all relevant AVS Private Clouds, send a formal sign-off email (using the same VCF registration email registeravsvcfbyol@microsoft.com or by opening a support ticket) to confirm that your migration is complete. 
+
+You will receive confirmation once your migration is complete. 
+Important! 
+
+Until you complete re-registration through Azure Portal, you will continue to receive support through the legacy system until March 31, 2026. 
+
+Need Help? If you have questions or need assistance during migration, contact Microsoft support team. 
+
+## Resolving VCF BYOL registration failures 
+<insert-picture> 
+
+If your VCF BYOL registration fails – either during the create private cloud workflow or when updating in the Manage flow – you will see a “Failed” status in the Azure Portal. This failure is typically due to a system error on our side and not caused by any action from your end. 
+
+What to do next: 
+
+Only a cloud administrator can reconfigure the VCF BYOL registration. 
+
+As soon as you see the “Failed” status, select Reconfigure and follow the registration steps again to ensure your private cloud remains compliant and fully licensed. 
+
+After you complete the reconfiguration, return to the Portable VCF (BYOL) page and verify that the status now shows as “Registered.” 
+
+Tip: After reconfiguring, always check back to confirm your registration status is “Registered.” This ensures your AVS Private Cloud is compliant and avoids any service interruptions. 
+
+If you continue to experience issues, please contact your Microsoft Support for assistance. 
