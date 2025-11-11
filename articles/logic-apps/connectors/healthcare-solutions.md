@@ -1,15 +1,15 @@
 ---
-title: Integrate Healthcare Systems with HL7 and MLLP in Standard Workflows
-description: Learn to create healthcare integration solutions using Health Level 7 (HL7) and Minimal Lower Layer Protocol (MLLP) connector operations with Standard workflows in Azure Logic Apps.
+title: Integrate Healthcare Systems with HL7 in Standard Workflows
+description: Learn to create healthcare integration solutions using Health Level 7 (HL7) connector operations with Standard workflows in Azure Logic Apps.
 ms.service: azure-logic-apps
 author: haroldcampos
 ms.author: hcampos
 ms.topic: how-to
 ms.date: 11/18/2025
-#Customer intent: As an integration developer who works with Azure Logic Apps, I want to create healthcare integrations using HL7 and MLLP connector operations in Standard workflows.
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to create healthcare integrations using HL7 connector operations in Standard workflows.
 ---
 
-# Build HL7 and MLLP healthcare integrations with Standard workflows in Azure Logic Apps (preview)
+# Build HL7 <!--and MLLP-->healthcare integrations with Standard workflows in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
@@ -17,262 +17,287 @@ ms.date: 11/18/2025
 >
 > This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To build automated integrations for healthcare systems or migrate from BizTalk Server to Azure Logic Apps, use the **HL7** and **MLLP** built-in connector operations in Standard workflows. These connectors let your healthcare organization continue to use existing healthcare solutions and create new healthcare integrations in Azure Logic Apps. 
+Health care organizations are intricate businesses made up of different departments that work together. In hospitals, these can include areas like Admissions, laboratories, nursing stations, doctors, and billing—each producing and using various types of data. This information might cover patients, charges, medical procedures, or medications, and frequently needs to be shared among several departments. One major challenge health care organizations face is finding efficient ways to exchange this data between departments.
 
-This guide shows how to use the **HL7** and **MLLP** connector operations in your Standard workflows. In this guide, the examples use the Azure portal, but you can create Standard workflows and use these operations in [Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code).
+This article describes the following aspects about the Logic Apps healthcare capabilities:
 
-## Healthcare integrations using Azure Logic Apps
+* Scenarios for using the healthcare features in Azure Logic Apps
+* Prerequisites and setup for using the HL7 and MLLP connectors
+* Steps for adding HL7 and MLLP connector actions to your Standard logic app workflows
 
-Healthcare organizations are complex businesses with different departments that work together. For example, hospitals have areas like admissions, doctors, nursing stations, laboratories, and billing. Each area produces and uses various kinds of data. For example, this information includes patients, medical procedures, medications, and billing charges, which multiple departments must often share. Healthcare systems face major challenges in providing efficient ways for departments to exchange this data with each other.
+## Why healthcare with Azure Logic Apps
 
-The Health Level 7 (HL7) protocol v2.x family defines widely adopted messaging standards across clinical systems such as EHR, LIS, RIS, and HIS. The protocol facilitates communication by providing data exchange standards across healthcare apps. These standards eliminate or reduce custom interface programming and program maintenance. The Minimal Lower Layer Protocol (MLLP) provides a lightweight TCP/IP framing and acknowledgment pattern (ACK/NACK) for transporting HL7 v2.x messages. Healthcare systems worldwide use MLLP as a transport protocol for HL7 v2.x messaging.
+Microsoft has provided support for healthcare scenarios since the first releases of BizTalk Server. Using the Microsoft BizTalk Accelerator for HL7 (BTAHL7), BizTalk allowed to develop business processes across health care computer systems, using the Health Level 7 (HL7) standard and the Minimal Lower Layer Protocol (MLLP) messaging protocol.
+ 
+The purpose of the HL7 standard is to facilitate communication in health care environments. Its primary goal is to provide standards for the exchange of data among health care applications that eliminate or substantially reduce the custom interface programming and program maintenance that may otherwise be required. The following diagram depict some of the most common HL7 message types:
 
-Despite modern standards such as Fast Healthcare Interoperability Resources (FHIR), HL7 v2.x continues to dominate in real-time clinical workflows, such as admission, discharge, and transfer (ADT), lab results handling, and billing processing, for the following key reasons:
+:::image type="content" source="media/connectors-healthcare/hl7messages.png" alt-text="Conceptual diagram shows how the HL7 messages." lightbox="media/connectors-healthcare/hl7messages.png":::
 
-| Reason | Description |
-|--------|-------------|
-| Interoperability backbone | HL7 v2.x is deeply embedded in existing clinical systems. MLLP provides a simple, reliable framing mechanism over TCP/IP. |
-| Acknowledgment support | ACK/NACK patterns help ensure delivery confirmation critical for patient safety and auditabilityu. |
-| Low complexity | Text-based, predictable segments simplify development and maintenance versus more complex service-based protocols. |
+1. EPR: Electronic patient record
+1. ADT: Admits, Discharge, and Transfer message
+1. ORM: General order message
+1. ORU: Unsolicited observation results message
+1. DFT: Detailed financial transaction
 
-Common HL7 message types include:
+While MLLP is considered a legacy protocol, it remains highly relevant because it is the de facto transport protocol for HL7 v2.x messaging, which is still widely used in healthcare systems worldwide. Despite the rise of modern standards like Fast Healthcare Interoperability Resources (FHIR), HL7 v2.x continues to dominate for real-time clinical workflows such as admissions, discharge, transfer (ADT), lab results, and billing. Key reasons:
 
-:::image type="content" source="media/integrate-healthcare-systems/hl7-messages.png" alt-text="Conceptual diagram shows common HL7 message types such as ADT, ORM, ORU, EFT, and EPR." lightbox="media/integrate-healthcare-systems/hl7-messages.png":::
+1. Interoperability Backbone: HL7 v2.x is deeply embedded in EHRs, LIS, RIS, and HIS systems. MLLP provides a simple, reliable framing mechanism for these messages over TCP/IP.
+1. Acknowledgment Support: MLLP ensures delivery confirmation through ACK/NACK, which is critical for patient safety and compliance.
+1. Low Complexity: Its simplicity makes it easy to implement and maintain compared to more complex web service protocols.
 
-- ADT: Admission, discharge, and transfer
-- EPR: Electronic patient record
-- ORM: General order message
-- ORU: Unsolicited observation results
-- DFT: Detailed financial transaction
+## HL7 Connector
 
-## BizTalk migration notes (at a glance)
+As we continue supporting our customers migrating from BizTalk Server to Azure Logic Apps, we are introducing an HL7 connector. This connector will allow customers to leverage their existing healthcare solutions, and also bring new healthcare scenarios to Azure Logic Apps. While BizTalk uses a disassembler pipeline to split HL7 messages into header, body, and custom segments, Logic Apps exposes these as fixed outputs, avoiding the complexity of multipart message handling unless the number of parts is variable, as in AS2 processing. This greatly simplifies using HL7 messages.
 
-Since the first BizTalk Server release, Microsoft provides support for healthcare scenarios. BizTalk helps organizations develop business processes across healthcare computer systems by using Microsoft BizTalk Accelerator for HL7 (BTAHL7), the Health Level 7 (HL7) standard and the Minimal Lower Layer Protocol (MLLP) for messaging.
-
-BizTalk uses a disassembler pipeline to split HL7 messages into header, body, and custom segments. Azure Logic Apps exposes these messages as fixed outputs. This behavior simplifies HL7 message handling by avoiding multipart message complexity unless the number of parts varies.
-
-The following table compares BizTalk Server with Standard logic app workflows in single-tenant Azure Logic Apps:
-
-| Aspect | BizTalk Server | Standard workflows |
-|--------|----------------|--------------------|
-| Pipeline disassembly | Separates header, body, and custom segments. | Action outputs directly provide structured values. |
-| Schemas | HL7 schemas + global header or ACK schemas uploaded. | Upload HL7 message schemas and dependencies. Doesn't require header or ACK common schemas. |
-| ACK handling | Generation and parsing through pipeline components. | Parsing for HL7 ACK/NACK (2.4–2.6). Generation isn't supported. |
-| Z segments | Supported via schema customization | Supported when Z segments exist in uploaded schema (no dynamic discovery) |
+Logic Apps requires uploading BizTalk schemas into the integration accounts. The HL7 connector is supported in Logic Apps Standard and the Hybrid deployment model.
 
 ## Connector technical reference
 
-### [HL7](#tab/hl7)
+The connector supports the following:
 
-Available in all Standard workflows.
+1. V2.X message handling (validated up to V2.6 version – BizTalk schema releases up to 2.6)
+1. Processing of individual messages
+1. Acknowledgment parsing supported for V2.4/2.5/2.6.
+1. Only message schema need to be uploaded.
+1. Z Segments are supported only by schema updates (adding Z segments node).
 
-#### Operations
+The connector does not support the following. We will gradually add support for these features:
 
-| Operation | Type | Description | Parameters |
-|-----------|------|-------------|------------|
-| **Encode HL7** | Action | Convert XML to a flat file. | - **Message to encode**: The HL7 message to encode. Required, String <br>- **Header to encode**: The HL7 header to encode. Required, String |
-| **Decode HL7** | Action | Convert a flat file to XML. | **Message to decode**: The HL7 message to decode. Required, String |
+1. Batch messages processing
+1. ACK generation and ACK versions support for V<2.4.
+1. MSH overrides and partner specific configuration.
+1. Z Segments out of the box support.
 
-#### Supported and unsupported behaviors
 
-| Support level | Behavior |
-|---------------|----------|
-| Supported | - v2.X message handling with validation up to v2.6 and BizTalk schema releases up to v2.6. <br>- Individual message processing. <br>- Acknowledgment parsing for versions 2.4, 2.5, and 2.6. <br>- Only need to upload message schema. <br>- Z segments support requires updating schema with Z segments node. |
-| Unsupported | - Batch messages processing. <br>- ACK generation and ACK support for versions lower than 2.4. <br>- MSH overrides and partner specific configuration. <br>- Z segments support without schema updates. Dynamic discovery isn't supported. |
+Currently, there are two operations available for the HL7 connector: **Encode** and **Decode**. The **Decode** action should be used to convert flat files to the XML format, and the **Encode** should be used to convert XML to a flat file. The following table summarizes the usage for each action:
 
-### [MLLP](#tab/mllp)
+### Encode action
 
-| Operation | Type | Description | Parameters |
-|-----------|------|-------------|------------|
-| **Receive message** | Trigger | Waits to receive an HL7 message. | None |
-| **Send message** | Action | Send an HL7 message. | **Input message**: The HL7 message to send. Required, String |
+| Parameter | Required | Type | Description |
+|-----------|----------|-------|-------------|
+| **Message to encode** | Yes | String | The HL7 message to encode. |
+| **Header to encode** | Yes | String | The HL7 header to encode. |
 
----
 
-## Prerequisites
+### Decode action
 
-- An Azure account and subscription. See [Get free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+| Parameter | Required | Type | Description |
+|-----------|----------|-------|-------------|
+| **Message to decode** | Yes | String | The HL7 message to decode. |
 
-- Access to the healthcare system that you want to integrate.
+## Pre-requisites
 
-- An [integration account resource](enterprise-integration/create-integration-account.md) to define and store artifacts for use with enterprise integrations and B2B workflows.
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-  - Both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
+* Access to the health system to integrate.
 
-  - Before you start working with HL7 or MLLP operations, you must [link your Standard logic app to your integration account](enterprise-integration/create-integration-account.md?tabs=standard#link-account).
+* An [integration account resource](enterprise-integration/create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
-### [HL7](#tab/hl7)
+  * Is associated with the same Azure subscription as your logic app resource.
 
-- HL7 flat file schema and all the BizTalk schemas referenced by your HL7 schema.
+  * Exists in the same location or Azure region as your logic app resource where you plan to use the **Encode** or **Decode** actions.
 
-  You must [upload all these schemas to your integration account](/azure/logic-apps/logic-apps-enterprise-integration-schemas?tabs=standard#add-schema-to-integration-account). However, unlike BizTalk Server, you don't need to upload the following common schemas:
+  * If you're working on a [Standard logic app resource and workflow](logic-apps-overview.md#resource-environment-differences), you can link your integration account to your logic app resource, upload XSD schemas directly to your logic app resource, or both, based on the following scenarios: 
 
-  - Message headers: *MSH_25_GLO_DEF.xsd*
-  - Acknowledgments: *ACK_24_GLO_DEF.xsd* and *ACK_25_GLO_DEF.xsd*
+    * If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload XSD schemas to each individual logic app. For more information, review [Link your logic app resource to your integration account](enterprise-integration/create-integration-account.md?tabs=standard#link-account).
 
-  The following example shows the *ADT_A01_231_GLO_DEF.xsd* schema and the following dependencies:
 
-  - *datatypes_21.xsd*
-  - *segments_21.xsd*
-  - *tablevalues_21.xsd*
+* The HL7 flat-file schema. You also need the schemas your HL7 schemas has references to as well. They all have to be uploaded to the Integration account.
 
-  :::image type="content" source="media/integrate-healthcare-systems/integration-schemas.png" alt-text="Screenshot shows integration account with HL7 schemas." lightbox="media/integrate-healthcare-systems/integration-schemas.png"::: 
+* The Standard logic app workflow where you want to integrate with the health system.
 
-- A Standard logic app resource and workflow to use for your integration.
+  The HL7 connector doesn't have triggers, so use any trigger to start your workflow, such as the **MLLP** trigger or **Request** trigger. You can then add the HL7 connector actions. To get started, create a blank workflow in your Standard logic app resource.
 
-  The HL7 connector doesn't have triggers, so use any trigger to start your workflow, such as the **MLLP** trigger named **Receive message** or the **Request** trigger named **When an HTTP request is received**. You can then add HL7 connector actions. To get started, create a blank workflow in your Standard logic app resource.
+### Limitations
 
-### [MLLP](#tab/mllp)
+* Currently, the HL7 connector requires that you upload your schemas directly into an integration account.
+* Current implementation supports only single message processing, with batching as a possible future enhancement based on customer feedback
 
-- A Standard logic app resource with hybrid deployment and the workflow to use for your integration. MLLP is a raw TCP protocol and not HTTP-based, so MLLP is available only with Standard workflows for hybrid deployment.
+## Upload the HL7 schemas
 
-  - To use the **MLLP** trigger named **Receive message**, you need an empty workflow.
-  - The logic app resource must have custom TCP/IP ports that you can open for HL7 messages.
-  - You need a dedicated TCP listener on the configurable port.
+Follow these steps to add an schema:
 
----
+1. Upload the HL7 schemas in the Integration account. Unlike BizTalk Server, where you needed to upload the common schemas for message headers (MSH_25_GLO_DEF.xsd) and acknowledgments (ACK_24_GLO_DEF.xsd) and (ACK_25_GLO_DEF.xsd), you don't need to upload them in Azure Logic Apps.
+
+   This example shows the schema **ADT_A01_231_GLO_DEF** schema and dependencies: **datatypes_21.xsd**, **segments_21.xsd** and **tablevalues_21.xsd**.:
+
+   :::image type="content" source="media/connectors-healthcare/IntegrationSchemas.png" alt-text="Screenshot shows integration account with HL7 schemas." lightbox="media/connectors-healthcare/IntegrationSchemas.png"::: 
+
+1. Obtain the Integration Account callback URL. Go to Integration account and select **Callback URL**:
+
+For example:
+
+:::image type="content" source="media/connectors-healthcare/callbackurl.png" alt-text="Screenshot shows Callback URL for Integration account." lightbox="media/connectors-healthcare/callbackurl.png":::
+
+1. The Integration Account callback URL should be added as an environment variable in the Logic App. The name of the variable should be **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL**
+
+For example:
+
+:::image type="content" source="media/connectors-healthcare/EnvironmentIntegrationAcc.png" alt-text="Screenshot shows environment variable for Integration account." lightbox="media/connectors-healthcare/EnvironmentIntegrationAcc.png":::
+
+## Add an Encode action
+
+Follow these steps to add an Encode action and configure the necessary parameters:
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
+1. If you don't have a trigger to start your workflow, follow [these general steps to add the trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+
+   This example continues with the **Request** trigger named **When a HTTP request is received**:
+
+   :::image type="content" source="media/connectors-healthcare/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/connectors-healthcare/request-trigger.png":::
+
+1. To add the Encode action, follow [these general steps to add the **HL7** built-in connector action named **Encode**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+
+
+1. Provide the following information:
+
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Message to encode** | Yes | <*message-to-encode*> | The Message content to encode. |
+   | **Header to encode** | Yes | <*header-to-encode*> | The message Header to encode. |
+
+   For example:
+
+:::image type="content" source="media/connectors-healthcare/EncodeHL7.png" alt-text="Screenshot shows HL7 action's connection properties." lightbox="media/connectors-healthcare/EncodeHL7.png":::
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+
+## Add a Decode action
+
+Follow these steps to add a Decode action and configure the necessary parameters:
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
+1. If you don't have a trigger to start your workflow, follow [these general steps to add the trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+
+   This example continues with the **Request** trigger named **When a HTTP request is received**:
+
+   :::image type="content" source="media/connectors-healthcare/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/connectors-healthcare/request-trigger.png":::
+
+1. To add the Decode action, follow [these general steps to add the **HL7** built-in connector action named **Decode**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+
+
+1. Provide the following information:
+
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Message to decode** | Yes | <*message-to-decode*> | The Message content to decode. |
+   
+
+   For example:
+
+:::image type="content" source="media/connectors-healthcare/DecodeHL7.png" alt-text="Screenshot shows HL7 action's connection properties." lightbox="media/connectors-healthcare/DecodeHL7.png":::
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**. 
+
+## MLLP connector
+
+We are introducing support for the Minimum Lower Layer Protocol (MLLP). Because MLLP is a raw TCP protocol and not HTTP-based, it requires custom TCP/IP ports to be opened and a dedicated TCP listener on a configurable port. For this reason, MLLP is available exclusively in Logic Apps Hybrid. It includes both a trigger and an action.
+
+## Connector technical reference
+
+Currently, there is a trigger and an operation available for the MLLP connector: **Receive MLLP** and **Send MLLP**. The following table summarizes the usage for each action:
+
+## MLLP Trigger
+
+The MLLP Trigger doesnt use any parameters.
+
+
+## Send action
+
+| Parameter | Required | Type | Description |
+|-----------|----------|-------|-------------|
+| **Message to send** | Yes | String | The HL7 message to be sent. |
+
+
+
+## Pre-requisites
+
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
+* Access to the health system to integrate.
+
+* A logic app created using the Hybrid deployment model.
+
+* The logic app workflow where you want to integrate with the health system.
+
 
 ## Limitations
 
-In this release, the following limitations apply:
+Currently, the MLLP trigger only works in the hybryd Logic Apps deployment model.
 
-### [HL7](#tab/hl7)
+<a name="add-trigger"></a>
 
-- The HL7 connector requires that you upload your schemas to an integration account.
+## Add an MLLP trigger (Hybrid deployment model only)
 
-- This implementation supports only single message processing.
+The following steps apply only to the hybrid deployment model of Logic Apps.
 
-### [MLLP](#tab/mllp)
+These steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md) to create a Standard logic app workflow.
 
-The **Receive message** trigger and **Send message** action are available only in Standard logic app workflows created with hybrid deployment option.
+1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
 
----
+1. [Follow these general steps to add the MLLP built-in trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger). For more information, see [MLLP built-in connector triggers](/azure/logic-apps/connectors/built-in/reference/mllp/#triggers).
 
-<a name="encode-hl7"></a>
-
-## Add an Encode HL7 action
-
-Follow these steps to add the **Encode HL7** action and set up the necessary parameters:
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource. Open your workflow in the designer.
-
-1. If you workflow doesn't have a trigger, follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger) to add the trigger that best suits your scenario.
-
-   This example continues with the **Request** trigger named **When an HTTP request is received**, for example:
-
-   :::image type="content" source="media/integrate-healthcare-systems/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/integrate-healthcare-systems/request-trigger.png":::
-
-1. Follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to add the **HL7** built-in connector action named **Encode HL7**.
-
-1. On the designer, select the added action, if not selected. In the action pane, provide the following information:
+1. Provide the following information:
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **Message to encode** | Yes | <*message-to-encode*> | The HL7 message content to encode. |
-   | **Header to encode** | Yes | <*header-to-encode*> | The HL7 message header to encode. |
-
-   For example:
-
-   :::image type="content" source="media/integrate-healthcare-systems/encode-hl7.png" alt-text="Screenshot shows Encode HL7 action parameters." lightbox="media/integrate-healthcare-systems/encode-hl7.png":::
-
-1. Save your workflow. On the designer toolbar, select **Save**.
-
-<a name="decode-hl7"></a>
-
-## Add a Decode HL7 action
-
-Follow these steps to add the **Decode HL7** action and set up the necessary parameters:
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource. Open your workflow in the designer.
-
-1. If you workflow doesn't have a trigger, follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger) to add the trigger that best suits your scenario.
-
-   This example continues with the **Request** trigger named **When an HTTP request is received**, for example:
-
-   :::image type="content" source="media/integrate-healthcare-systems/request-trigger.png" alt-text="Screenshot shows the Azure portal, Standard workflow designer, and Request trigger." lightbox="media/integrate-healthcare-systems/request-trigger.png":::
-
-1. Follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to add the **HL7** built-in connector action named **Decode HL7**.
-
-1. On the designer, select the added action, if not selected. In the action pane, provide the following information:
-
-   | Parameter | Required | Value | Description |
-   |-----------|----------|-------|-------------|
-   | **Message to decode** | Yes | <*message-to-decode*> | The HL7 message content to decode. |
-
-   For example:
-
-   :::image type="content" source="media/integrate-healthcare-systems/decode-hl7.png" alt-text="Screenshot shows Deocde HL7 action parameters." lightbox="media/integrate-healthcare-systems/decode-hl7.png":::
-
-1. Save your workflow. On the designer toolbar, select **Save**.
-
-<a name="receive-message-mllp"></a>
-
-## Add a Receive message trigger for MLLP
-
-Follow these steps to add the **Receive message** trigger only for Standard logic app workflows that use the hybrid deployment:
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource. Open your blank workflow in the designer.
-
-1. Follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to add the **MLLP** built-in trigger named **Receive message**.
-
-1. On the designer, select the added trigger, if not selected. In the connection pane, provide the following information:
-
-   | Parameter | Required | Value | Description |
-   |-----------|----------|-------|-------------|
-   | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection. |
+   | **Connection name** | Yes | <*connection-name*> | The name of the connection. |
    | **Host** | Yes | <*mllp-host*> | The MLLP host. |
    | **Port** | Yes | <*mllp-port*> | The MLLP TCP/IP port. |
+   
 
    For example:
 
-   :::image type="content" source="media/integrate-healthcare-systems/connection-receive-message-mllp.png" alt-text="Screenshot shows Standard workflow designer and connection pane for MLLP trigger." lightbox="media/integrate-healthcare-systems/connection-receive-message-mllp.png":::
+:::image type="content" source="media/connectors-healthcare/MLLPTriggerConnection.png" alt-text="Screenshot shows MLLP trigger." lightbox="media/connectors-healthcare/MLLPTriggerConnection.png":::
 
-1. When you're done, select **Create new**.
-
-1. Save your workflow. On the designer toolbar, select **Save**.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**. 
 
 <a name="add-action"></a>
 
-## Add a Send message action for MLLP
+## Add an MLLP action
 
-Follow these steps to add the **Send message** action only for Standard logic app workflows that use the hybrid deployment:
+Follow these steps to add a MLLP send action and configure the necessary parameters:
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource. Open your workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
+1. If you don't have a trigger to start your workflow, follow [these general steps to add the trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-1. If you workflow doesn't have a trigger, follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger) to add the trigger that best suits your scenario.
+   This example continues with the **Request** trigger named **When a HTTP request is received**:
 
-   This example continues with the **Request** trigger named **When an HTTP request is received**, for example:
+   :::image type="content" source="media/connectors-healthcare/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/connectors-healthcare/request-trigger.png":::
 
-   :::image type="content" source="media/integrate-healthcare-systems/request-trigger.png" alt-text="Screenshot shows the Azure portal, Standard workflow, designer, and Request trigger." lightbox="media/integrate-healthcare-systems/request-trigger.png":::
+1. To add the MLLP Send action, follow [these general steps to add the **MLLP** built-in connector action named **Send**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-1. Follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to add the **MLLP** built-in action named **Send message**.
-
-1. On the designer, select the added action, if not selected. In the connection pane, provide the following information:
+1. After the connection details pane appears, provide the following information, such as the host name and port information:
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection. |
+   | **Connection name** | Yes | <*connection-name*> | The name of the connection. |
    | **Host** | Yes | <*mllp-host*> | The MLLP host. |
    | **Port** | Yes | <*mllp-port*> | The MLLP TCP/IP port. |
 
-   For example:
+For example:
 
-   :::image type="content" source="media/integrate-healthcare-systems/connection-send-message-mllp.png" alt-text="Screenshot shows Standard workflow designer and connection pane for MLLP action." lightbox="media/integrate-healthcare-systems/connection-send-message-mllp.png":::
+   :::image type="content" source="media/connectors-healthcare/MLLPTriggerConnection.png" alt-text="Screenshot shows MLLP connection properties." lightbox="media/connectors-healthcare/MLLPTriggerConnection.png":::
 
-1. When you're done, select **Create new**.
+1. When you're done, select **Create New**.
 
-1. On the designer, select the added action, if not selected. In the action pane, provide the following information:
+1. After the action details pane appears, provide the required information:
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **Input message** | Yes | <*input-message*> | The HL7 message to send. |
+   | **Input message** | Yes | <*input-message*> | The HL7 input Message. |
+   
 
-   For example:
+For example:
 
-   :::image type="content" source="media/integrate-healthcare-systems/mllp-send-message.png" alt-text="Screenshot shows Send message for MLLP parameters." lightbox="media/integrate-healthcare-systems/mllp-send-message.png":::
+   :::image type="content" source="media/connectors-healthcare/SendMLLP.png" alt-text="Screenshot shows MLLP connection properties." lightbox="media/connectors-healthcare/SendMLLP.png":::
 
-1. Save your workflow. On the designer toolbar, select **Save**.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**. 
 
-## Related content
+## Next step
 
-- [Create Standard logic app workflows for hybrid deployment on your own infrastructure](/azure/logic-apps/create-standard-workflows-hybrid-deployment.md)
+
+> [!div class="nextstepaction"]
+> [Create Standard logic app workflows for hybrid deployment on your own infrastructure](create-standard-workflows-hybrid-deployment.md)
+
