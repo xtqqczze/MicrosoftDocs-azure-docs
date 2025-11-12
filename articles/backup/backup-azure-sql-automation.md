@@ -239,8 +239,8 @@ Initialize-AzRecoveryServicesBackupProtectableItem -Container $SQLContainer -Wor
 Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLDataBase -VaultId $testVault.ID
 ```
 
-Once the relevant protectable items are fetched, enable the backups as instructed in the [above section](#configuring-backup).
-If one doesn't want to manually detect new DBs, they can opt for autoprotection as explained [below](#enable-autoprotection).
+Once the relevant protectable items are fetched, enable the backups as instructed in the [above section](#configure-backup).
+If one doesn't want to manually detect new DBs, they can opt for autoprotection as explained [below](#enable-autoprotection-for-future-sql-databases).
 
 ## Enable autoprotection for future SQL databases
 
@@ -355,7 +355,7 @@ $OverwriteWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -Po
 > [!IMPORTANT]
 > A backed-up SQL DB can be restored as a new DB to another SQLInstance only, in an Azure VM 'registered' to this vault.
 
-As outlined above, if the target SQLInstance lies within another Azure VM, make sure it's [registered to this vault](#registering-the-sql-vm) and the relevant SQLInstance appears as a protectable item. In this document, let's assume that the target SQLInstance name is MSSQLSERVER within another VM "Contoso2".
+As outlined above, if the target SQLInstance lies within another Azure VM, make sure it's [registered to this vault](#register-the-sql-vm) and the relevant SQLInstance appears as a protectable item. In this document, let's assume that the target SQLInstance name is MSSQLSERVER within another VM "Contoso2".
 
 ```powershell
 $TargetContainer =  Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -Status Registered  -VaultId $testVault.ID -FriendlyName "Contoso2"
@@ -708,9 +708,9 @@ To cancel an in-progress job, use the [Stop-AzRecoveryServicesBackupJob](/powers
 
 ## Manage SQL Always On Availability groups
 
-For SQL Always On Availability Groups, make sure to [register all the nodes](#registering-the-sql-vm) of the Availability group (AG). Once registration is done for all nodes, a SQL availability group object is logically created under protectable items. The databases under the SQL AG will be listed as 'SQLDatabase'. The nodes will show up as standalone instances and the default SQL databases under them will be listed as SQL databases as well.
+For SQL Always On Availability Groups, make sure to [register all the nodes](#register-the-sql-vm) of the Availability group (AG). Once registration is done for all nodes, a SQL availability group object is logically created under protectable items. The databases under the SQL AG will be listed as 'SQLDatabase'. The nodes will show up as standalone instances and the default SQL databases under them will be listed as SQL databases as well.
 
-For example, let's assume a SQL AG has two nodes: *sql-server-0* and *sql-server-1* and 1 SQL AG DB. Once both these nodes are registered, if you [list the protectable items](#fetching-sql-dbs), it lists the following components
+For example, let's assume a SQL AG has two nodes: *sql-server-0* and *sql-server-1* and 1 SQL AG DB. Once both these nodes are registered, if you [list the protectable items](#fetch-sql-dbs), it lists the following components
 
 * A SQL AG object - protectable item type as SQLAvailabilityGroup
 * A SQL AG DB - protectable item type as SQLDatabase
@@ -721,4 +721,4 @@ For example, let's assume a SQL AG has two nodes: *sql-server-0* and *sql-server
 
 sql-server-0, sql-server-1 will also be listed as "AzureVMAppContainer" when [backup containers are listed](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 
-Just fetch the relevant database to [enable backup](#configuring-backup) and the [on-demand backup](#on-demand-backup) and [restore PowerShell cmdlets](#restore-sql-dbs) are identical.
+Just fetch the relevant database to [enable backup](#configure-backup) and the [on-demand backup](#on-demand-backup) and [restore PowerShell cmdlets](#restore-sql-databases-in-azure-vms) are identical.
