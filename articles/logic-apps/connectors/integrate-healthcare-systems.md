@@ -37,7 +37,7 @@ Despite modern standards such as Fast Healthcare Interoperability Resources (FHI
 
 Common HL7 message types include:
 
-:::image type="content" source="media/connectors-healthcare/hl7-messages.png" alt-text="Conceptual diagram shows common HL7 message types such as ADT, ORM, ORU, EFT, and EPR." lightbox="media/connectors-healthcare/hl7-messages.png":::
+:::image type="content" source="media/integrate-healthcare-systems/hl7-messages.png" alt-text="Conceptual diagram shows common HL7 message types such as ADT, ORM, ORU, EFT, and EPR." lightbox="media/integrate-healthcare-systems/hl7-messages.png":::
 
 - ADT: Admission, discharge, and transfer
 - EPR: Electronic patient record
@@ -102,7 +102,7 @@ The HL7 connector operations are available in all Standard workflows.
   - *segments_21.xsd*
   - *tablevalues_21.xsd*
 
-  :::image type="content" source="media/connectors-healthcare/integration-schemas.png" alt-text="Screenshot shows integration account with HL7 schemas." lightbox="media/connectors-healthcare/integration-schemas.png"::: 
+  :::image type="content" source="media/integrate-healthcare-systems/integration-schemas.png" alt-text="Screenshot shows integration account with HL7 schemas." lightbox="media/integrate-healthcare-systems/integration-schemas.png"::: 
 
 - A Standard logic app resource and workflow to use for your healthcare integration. See [Create Standard logic app workflows in Azure Logic Apps](/azure/logic-apps/create-single-tenant-workflows-azure-portal).
 
@@ -164,9 +164,9 @@ Follow these steps to add the **Encode HL7** action and set up the necessary par
 
    This example continues with the **Request** trigger named **When an HTTP request is received**, for example:
 
-   :::image type="content" source="media/connectors-healthcare/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/connectors-healthcare/request-trigger.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/integrate-healthcare-systems/request-trigger.png":::
 
-1. Follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to add the **HL7** built-in connector action named **Encode HL7**.
+1. Follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to add the **HL7** built-in connector action named **Encode HL7**.
 
 1. On the designer, select the added action, if not selected. In the action pane, provide the following information:
 
@@ -177,7 +177,7 @@ Follow these steps to add the **Encode HL7** action and set up the necessary par
 
    For example:
 
-   :::image type="content" source="media/connectors-healthcare/encode-hl7.png" alt-text="Screenshot shows Encode HL7 action parameters." lightbox="media/connectors-healthcare/encode-hl7.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/encode-hl7.png" alt-text="Screenshot shows Encode HL7 action parameters." lightbox="media/integrate-healthcare-systems/encode-hl7.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -193,9 +193,9 @@ Follow these steps to add the **Decode HL7** action and set up the necessary par
 
    This example continues with the **Request** trigger named **When an HTTP request is received**, for example:
 
-   :::image type="content" source="media/connectors-healthcare/request-trigger.png" alt-text="Screenshot shows the Azure portal, Standard workflow designer, and Request trigger." lightbox="media/connectors-healthcare/request-trigger.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/request-trigger.png" alt-text="Screenshot shows the Azure portal, Standard workflow designer, and Request trigger." lightbox="media/integrate-healthcare-systems/request-trigger.png":::
 
-1. Follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to add the **HL7** built-in connector action named **Decode HL7**.
+1. Follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action) to add the **HL7** built-in connector action named **Decode HL7**.
 
 1. On the designer, select the added action, if not selected. In the action pane, provide the following information:
 
@@ -205,7 +205,7 @@ Follow these steps to add the **Decode HL7** action and set up the necessary par
 
    For example:
 
-   :::image type="content" source="media/connectors-healthcare/decode-hl7.png" alt-text="Screenshot shows the Decode HL7 action parameters." lightbox="media/connectors-healthcare/decode-hl7.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/decode-hl7.png" alt-text="Screenshot shows the Decode HL7 action parameters." lightbox="media/integrate-healthcare-systems/decode-hl7.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -229,7 +229,7 @@ Follow these steps to add the **Receive message** trigger only for Standard logi
 
    For example:
 
-   :::image type="content" source="media/connectors-healthcare/connection-mllp-trigger.png" alt-text="Screenshot shows Standard workflow designer and connection pane for MLLP trigger." lightbox="media/connectors-healthcare/connection-mllp-trigger.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/connection-mllp-trigger.png" alt-text="Screenshot shows Standard workflow designer and connection pane for MLLP trigger." lightbox="media/integrate-healthcare-systems/connection-mllp-trigger.png":::
 
 1. When you're done, select **Create new**.
 
@@ -247,7 +247,7 @@ Follow these steps to add the **Send message** action and set up the necessary p
 
    This example continues with the **Request** trigger named **When an HTTP request is received**, for example:
 
-   :::image type="content" source="media/connectors-healthcare/request-trigger.png" alt-text="Screenshot shows the Azure portal, Standard workflow, designer, and Request trigger." lightbox="media/connectors-healthcare/request-trigger.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/request-trigger.png" alt-text="Screenshot shows the Azure portal, Standard workflow, designer, and Request trigger." lightbox="media/integrate-healthcare-systems/request-trigger.png":::
 
 1. Follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to add the **MLLP** built-in action named **Send message**.
 
@@ -261,7 +261,7 @@ Follow these steps to add the **Send message** action and set up the necessary p
 
    For example:
 
-   :::image type="content" source="media/connectors-healthcare/connection-mllp-action.png" alt-text="Screenshot shows Standard workflow designer and connection pane for MLLP action." lightbox="media/connectors-healthcare/connection-mllp-action.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/connection-mllp-action.png" alt-text="Screenshot shows Standard workflow designer and connection pane for MLLP action." lightbox="media/integrate-healthcare-systems/connection-mllp-action.png":::
 
 1. When you're done, select **Create new**.
 
@@ -273,7 +273,7 @@ Follow these steps to add the **Send message** action and set up the necessary p
 
    For example:
 
-   :::image type="content" source="media/connectors-healthcare/mllp-send-message.png" alt-text="Screenshot shows Send message for MLLP parameters." lightbox="media/connectors-healthcare/mllp-send-message.png":::
+   :::image type="content" source="media/integrate-healthcare-systems/mllp-send-message.png" alt-text="Screenshot shows Send message for MLLP parameters." lightbox="media/integrate-healthcare-systems/mllp-send-message.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 -->
@@ -299,6 +299,7 @@ The following table compares BizTalk Server with Standard logic app workflows in
 <!--
 - [Create Standard logic app workflows for hybrid deployment on your own infrastructure](/azure/logic-apps/create-standard-workflows-hybrid-deployment)
 -->
+
 
 
 
