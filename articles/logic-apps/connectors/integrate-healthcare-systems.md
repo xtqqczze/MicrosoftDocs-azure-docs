@@ -47,7 +47,7 @@ Common HL7 message types include:
 
 ## BizTalk migration notes
 
-Since the first BizTalk Server release, Microsoft provides support for healthcare scenarios. BizTalk helps organizations develop business processes across healthcare computer systems by using Microsoft BizTalk Accelerator for HL7 (BTAHL7) and the HL7 standard, and the Minimal Lower Layer Protocol (MLLP) for messaging.
+Since the first BizTalk Server release, Microsoft provides support for healthcare scenarios. BizTalk Server helps organizations develop business processes across healthcare computer systems by using Microsoft BizTalk Accelerator for HL7 (BTAHL7), the HL7 standard, and the Minimal Lower Layer Protocol (MLLP) for messaging.
 
 BizTalk uses a disassembler pipeline to split HL7 messages into header, body, and custom segments. Azure Logic Apps exposes these messages as fixed outputs. This behavior simplifies HL7 message handling by avoiding multipart message complexity unless the number of parts varies.
 
@@ -298,3 +298,4 @@ Follow these steps to add the **Send message** action and set up the necessary p
 <!--
 - [Create Standard logic app workflows for hybrid deployment on your own infrastructure](/azure/logic-apps/create-standard-workflows-hybrid-deployment)
 -->
+
