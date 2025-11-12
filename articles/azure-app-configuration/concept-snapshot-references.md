@@ -101,7 +101,7 @@ key: request-limit
 value: 8000
 ```
 
-If your application loads all key-values and a snapshot reference is added that points to the aforementioned snapshot, then the final effective configuration depends on the snapshot reference key's lexicographic position:
+If a snapshot reference is added that points to the aforementioned snapshot, then the final effective configuration depends on the snapshot reference key's lexicographic position:
 
 | Snapshot reference key | Lexographic position vs `message`, `request-limit` | Final `message` value | Final `request-limit` value | Why |
 |------------------------|-------------------------------------------------------|-----------------|-----------------------|-----|
