@@ -212,7 +212,7 @@ To verify that zone redundancy is enabled for your Container Apps environment, d
 
     When you use this command, replace the `<PLACEHOLDERS>` with your values.
 
-    ```azurecli
+    ```azurepowershell-interactive
     $Env = Get-AzContainerAppManagedEnv `
         -Name <EnvironmentName> `
         -ResourceGroupName <ResourceGroupName>
