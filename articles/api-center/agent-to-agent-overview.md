@@ -37,7 +37,7 @@ For detailed steps, see [Tutorial: Register APIs in your API inventory](tutorial
 
 After registering an A2A agent, you can update its metadata, add skills, configure capabilities, and manage provider information. Skills define the specific actions your agent can perform, making it discoverable and invokable by other agents. 
 
-For step-by-step instructions, see [Manage A2A agents in Azure API Center](manage-agents.md).
+For step-by-step instructions, see [Manage agents in Azure API Center](manage-agents.md).
 
 
 ## View dependency maps for A2A agents (preview)
