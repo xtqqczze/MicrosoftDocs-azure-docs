@@ -68,4 +68,4 @@ Agent capabilities describe what features your A2A agent supports.
 
 ## Related content
 
-[Agent-to-Agent registry in Azure API Center](agent-to-agent-overview.md)
+[Agent registry in Azure API Center](agent-to-agent-overview.md)

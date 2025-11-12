@@ -1,5 +1,5 @@
 ---
-title: Agent-to-Agent registry in Azure API Center
+title: Agent registry in Azure API Center
 description: "Overview of the agent registry for discovering, registering, and managing A2A agents in API Center."
 author: ProfessorKendrick
 ms.author: kkendrick
@@ -11,7 +11,7 @@ ms.date: 11/03/2025
 
 ---
 
-# Agent-to-Agent registry in Azure API Center
+# Agent registry in Azure API Center
 
 Azure API Center provides a centralized platform for discovering, registering, and managing AI agents. It supports first-party and third-party agents, integrates with API Management for private endpoints, and stores customizable metadata to improve discoverability and governance.
 
