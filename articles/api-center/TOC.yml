@@ -62,8 +62,8 @@
   items:
   - name: Overview
     href: agent-to-agent-overview.md
-  - name: Manage agents 
-    href: manage-agents.md
+  - name: Register and manage agents 
+    href: register-manage-agents.md
 - name: MCP servers
   items:
   - name: Register and discover MCP servers
