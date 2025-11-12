@@ -29,7 +29,7 @@ Azure API Center provides a centralized platform for discovering, registering, a
 
 ## Register an AI agent
 
-You can register AI agents in API Center similar to how you register other APIs. During registration, specify the API type as **A2A** and fill in details for **Agent Card** and **Agent Skills**.  
+You can register AI agents in API Center similar to how you register other APIs. During registration, specify the API type as **A2A** and fill in details for **Agent Card**, **Agent Skills**, and **Agent Capabilities**.  
 
 For detailed steps, see [Tutorial: Register APIs in your API inventory](tutorials/register-apis.md)
 
