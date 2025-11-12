@@ -11,7 +11,7 @@ ms.date: 10/13/2025
 
 # Create a zone-redundant container app
 
-In this article, learn how to create a zone-redundant container app inside a virtual network. You create an Azure Container Apps Environment, enable zone redundancy, and configure it with a new or preexisting virtual network that includes an infrastructure subnet.
+In this article, learn how to create a zone-redundant container app inside a virtual network. You create an Azure Container Apps environment, enable zone redundancy, and configure it with a new or preexisting virtual network that includes an infrastructure subnet.
 
 For more information about how Container Apps supports zone redundancy, see [Reliability in Container Apps](../reliability/reliability-container-apps.md).
 
@@ -41,7 +41,7 @@ Use the Azure portal, the Azure CLI, or Azure PowerShell to create a zone-redund
 
 1. Select **Enabled** for the *zone redundancy* field.
 
-Zone redundancy requires a virtual network that has an infrastructure subnet. You can choose an existing virtual network or create a new virtual network. When you create a new virtual network, you can accept the values provided for you or customize the settings.
+   Zone redundancy requires a virtual network that has an infrastructure subnet. You can choose an existing virtual network or create a new virtual network. When you create a new virtual network, you can accept the values provided for you or customize the settings.
 
 1. Select the **Networking** tab.  
 
@@ -53,7 +53,7 @@ Zone redundancy requires a virtual network that has an infrastructure subnet. Yo
 
 1. Select **Create**.
 
-:::image type="content" source="../container-apps/media/screen-shot-vnet-configuration.png" alt-text="Screenshot of the Networking tab on the Create Container Apps Environment page.":::
+:::image type="content" source="../container-apps/media/screen-shot-vnet-configuration.png" alt-text="Screenshot of the Networking tab on the Create Container Apps environment page.":::
 
 # [The Azure CLI](#tab/azure-cli)
 
@@ -182,13 +182,13 @@ To verify that zone redundancy is enabled for your Container Apps environment, d
 1. Select **JSON View**.
 
     :::image type="complex" source="./media/how-to-zone-redundancy/portal-json-view.png" alt-text="Screenshot of the Azure portal that shows the environment. The JSON View button is highlighted.":::
-      Screenshot of the Azure portal that shows the overview page for a Container Apps Environment named myacaenv1. The left navigation menu highlights the Overview section, with other options such as Activity log, Access control (IAM), Tags, and Settings visible. The main panel displays environment details including resource group, status, location, subscription, environment type, virtual network, infrastructure subnet, static IP address, applications, KEDA version, and Dapr version. On the right side of the details panel, a JSON View link appears outlined in red, which indicates where users access the environment's JSON configuration.
+      Screenshot of the Azure portal that shows the overview page for a Container Apps environment named myacaenv1. The left navigation menu highlights the Overview section, with other options such as Activity log, Access control (IAM), Tags, and Settings visible. The main panel displays environment details including resource group, status, location, subscription, environment type, virtual network, infrastructure subnet, static IP address, applications, KEDA version, and Dapr version. On the right side of the details panel, a JSON View link appears outlined in red, which indicates where users access the environment's JSON configuration.
     :::image-end:::
 
 1. Check that the response contains `"zoneRedundant": true`.
 
     :::image type="complex" source="./media/how-to-zone-redundancy/portal-resource-json.png" alt-text="Screenshot of the Azure portal that shows the JSON view of the environment. The zoneRedundant property is highlighted.":::
-      Screenshot of the Azure portal that shows the Resource JSON view for a Container Apps Environment named myacaenv1. The top of the page displays the title Resource JSON and the environment name. The Resource ID field appears below the title and contains a partial subscription path. The main section presents a formatted JSON object with properties such as id, name, type, location, systemData, and properties. The properties section includes provisioningState, vnetConfiguration, defaultDomain, appLogsConfiguration, and other configuration details. The zoneRedundant property appears in the JSON, set to true and highlighted with a red rectangle.
+      Screenshot of the Azure portal that shows the Resource JSON view for a Container Apps environment named myacaenv1. The top of the page displays the title Resource JSON and the environment name. The Resource ID field appears below the title and contains a partial subscription path. The main section presents a formatted JSON object with properties such as id, name, type, location, systemData, and properties. The properties section includes provisioningState, vnetConfiguration, defaultDomain, appLogsConfiguration, and other configuration details. The zoneRedundant property appears in the JSON, set to true and highlighted with a red rectangle.
     :::image-end:::
 
 # [The Azure CLI](#tab/azure-cli)
@@ -220,6 +220,6 @@ To verify that zone redundancy is enabled for your Container Apps environment, d
     $Env.ZoneRedundant
     ```
 
-1. The command displays `True` if the environment is zone-redundant, and `False` if it isn't.
+1. The command displays `True` if the environment is zone redundant, and `False` if it isn't.
 
 ---
