@@ -286,7 +286,7 @@ Here are more resources:
 
 In addition, Microsoft offers support and consulting services for security-related topics. See the Microsoft blog post [DART: the Microsoft cybersecurity team we hope you never meet](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/).
 
-Further recommendations for large organizations include segregation of duties. For example, SAP administrators and server administrators should have read-only access to the Azure Backup vault. You can implement [multi-user authorization and a resource guard]((/azure/backup/multi-user-authorization?tabs=azure-portal&pivots=vaults-recovery-services-vault)) to help protect against rogue administrators and ransomware.
+Further recommendations for large organizations include segregation of duties. For example, SAP administrators and server administrators should have read-only access to the Azure Backup vault. You can implement [multi-user authorization and a resource guard](/azure/backup/multi-user-authorization?tabs=azure-portal&pivots=vaults-recovery-services-vault) to help protect against rogue administrators and ransomware.
 
 You can achieve extra protection from ransomware by deploying Azure Firewall Premium. For more information, see [Improve your security defenses for ransomware attacks with Azure Firewall Premium](/azure/security/fundamentals/ransomware-protection-with-azure-firewall).
 
