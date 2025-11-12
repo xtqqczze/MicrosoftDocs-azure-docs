@@ -1,5 +1,5 @@
 ---
-title: Manage AI Agents in Azure API Center
+title: Manage Agents in Azure API Center
 description: "Learn how to update agent metadata, add skills, configure capabilities, and manage provider information for A2A agents."
 author: ProfessorKendrick
 ms.author: kkendrick
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 11/11/2025
 ---
 
-# Manage AI agents in Azure API Center
+# Manage Agents in Azure API Center
 
-This guide shows you how to update and manage AI agents after they've been registered in API Center. You can add skills, configure capabilities, and update provider information.
+This guide shows you how to update and manage agents after they've been registered in API Center. You can add skills, configure capabilities, and update provider information.
 
 ## Prerequisites
 
