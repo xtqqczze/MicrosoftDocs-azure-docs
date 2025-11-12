@@ -20,25 +20,48 @@ Reservations prepay compute costs for one or three years. Once purchased, matchi
 
 You can enable auto-renewal or let the reservation expire and revert to pay-as-you-go pricing. Pay upfront or monthly. For details, see [Buy a reservation](/azure/cost-management-billing/reservations/prepare-buy-reservation).
 
-See the [Azure Managed Redis pricing page](https://azure.microsoft.com/pricing/details/cache) for pricing information. Reservations don't cover networking or storage charges.
+See the [Azure Managed Redis pricing page](https://azure.microsoft.com/pricing/details/managed-redis/) for pricing information. Reservations don't cover networking or storage charges.
 
 For details on how Enterprise Agreement (EA) customers and pay-as-you-go customers are charged for reservation purchases, see [Get Enterprise Agreement and Microsoft Customer Agreement reservation costs and usage](/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) and [Understand Azure reservation usage for your pay-as-you-go rate subscription](/azure/cost-management-billing/reservations/understand-reserved-instance-usage).
 
 ## Reservation planning
 
-The following Azure Managed Redis tiers support reservations:
-<!-- PM - can you update this table? -->
+The following Azure Managed Redis tiers currently support reservations:
 
-| Feature                 | Memory Optimized | Balanced | Compute Optimized | Flash |
-|-------------------------|:----------------:|:--------:|:-----------------:|:-----:|
-| **Reservation Support** | Yes              | Yes      | Yes               | No    |
+| Region          | Memory Optimized | Balanced | Compute Optimized | Flash Optimized |
+| --------------- | ---------------- | -------- | ---------------- | --------------- |
+| AE North        | Yes              | Yes      | No               | No              |
+| AU Central      | Yes              | Yes      | No               | No              |
+| AU Southeast    | Yes              | Yes      | No               | No              |
+| BR Southeast    | Yes              | Yes      | No               | No              |
+| CA East         | Yes              | Yes      | No               | No              |
+| CH West         | Yes              | Yes      | No               | No              |
+| ES Central      | Yes              | Yes      | No               | No              |
+| FR Central      | Yes              | Yes      | No               | No              |
+| FR South        | Yes              | Yes      | No               | No              |
+| ID Central      | Yes              | Yes      | No               | No              |
+| IL Central      | Yes              | Yes      | No               | No              |
+| IL Northwest    | No               | Yes      | No               | No              |
+| IN Central      | Yes              | Yes      | No               | No              |
+| IN South        | Yes              | Yes      | No               | No              |
+| IN West         | Yes              | Yes      | No               | No              |
+| IT North        | Yes              | Yes      | No               | No              |
+| JA East         | Yes              | Yes      | No               | No              |
+| KR Central      | Yes              | Yes      | No               | No              |
+| KR South        | Yes              | Yes      | No               | No              |
+| NO East         | Yes              | Yes      | No               | No              |
+| PL Central      | Yes              | Yes      | No               | No              |
+| QA Central      | Yes              | Yes      | No               | No              |
+| UK West         | Yes              | Yes      | No               | No              |
+| US East         | Yes              | No       | No               | No              |
+| US Gov Iowa     | Yes              | No       | No               | No              |
+| US Gov Virginia | Yes              | No       | No               | No              |
+| ZA North        | Yes              | Yes      | No               | No              |
 
 ### Reservation increments
 
-<!-- What a is the best way to describe this in AMR terms?  -->
-Reservations are sold in increments of nodes. Premium-tier and Enterprise-tier Azure Cache for Redis instances contain two nodes by default. To buy reservations for an instance, you buy two reservation units.
-
-The Enterprise Flash tier contains three nodes by default, so for Enterprise Flash tiers you need to buy three reservation units.
+Reservations are sold in increments of nodes. An Azure Managed Redis cache has high availability enabled by default, which means two nodes. If your instance has high availability enabled, include that in your estimate.
+<!-- Is this how it works?  -->
 
 To calculate number of nodes, see the [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -47,21 +70,21 @@ To calculate number of nodes, see the [Pricing calculator](https://azure.microso
 <!-- we either need to update this section or remove it because managed should take care of some of this, right? -->
 Base your reservation size on the total amount of memory size that the existing or soon-to-be-deployed caches use within the specific region and tier.
 
-For example, suppose you run two caches, one at 13 GB and the other at 26 GB. You need both caches for at least one year. You plan to scale the existing 13-GB cache to 26 GB for a month to meet your seasonal demand, and then scale back.
+For example, suppose you run two Balanced tier caches, one at 6 GB and the other at 12 GB. You need both caches for at least one year. You plan to scale the existing 6 GB cache to 12 GB for a month to meet your seasonal demand, and then scale back.
 
-In this case, you could purchase either one P2-cache and one P3-cache or three P2-caches on a one-year reservation to maximize savings. You receive a discount on the total amount of cache memory you reserve, independent of how that memory is allocated across your caches.
+<!-- Is scaling down possible? -->
 
-Cache size flexibility helps you scale up or down within a service tier and region without losing the reservation benefit. For an explanation of cache architecture, see [Azure Managed Redis architecture](architecture.md).
+In this case, you can purchase either one 6 GB Balanced cache and one 12-GB cache. Or, you purchase three 6 GB caches on a one-year reservation to maximize savings. You receive a discount on the total amount of cache memory you reserve, independent of how that memory is allocated across your caches.
+
+Cache size flexibility helps you scale up or down within a service tier and region without losing the reservation benefit. For an explanation of Azure Managed Redis architecture, see [architecture](architecture.md).
 
 ## Buy Azure Managed Redis reservations
 
 To buy a reservation:
 
 - You must have Owner or Reservation Purchaser role in the Azure subscription.
-- For Enterprise subscriptions, you must enable **Add Reserved Instances** in the [EA portal](https://ea.azure.com/). Or if that setting is disabled, you must be an EA Admin on the subscription.
+- For Azure Managed Redis subscriptions, you must enable **Add Reserved Instances** in the [EA portal](https://ea.azure.com/). Or if that setting is disabled, you must be an EA Admin on the subscription.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Managed Redis reservations. For more information, see [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations).
-- 
-<!-- - Can we remove the part about Cloud Solution provider -->
 
 To buy reservations using the Azure portal:
 
@@ -70,8 +93,7 @@ To buy reservations using the Azure portal:
 1. In the **Select the product you want to purchase** pane, select the **Scope** and **Subscription** you want to use for the reservation.
 1. Select the values you want from the dropdown lists for **Region**, **Term**, and **Billing frequency**.
 
-   <!-- :::image type="content" source="media/cache-reserved-pricing/cache-reserved-price.png" alt-text="Screenshot showing an overview of reserved pricing."::: -->
-<!-- I would prefer not to have this image of the other page because it is hard to keep it fresh. -->
+<!-- I cannot complete the previous procedure. -->
 
    The following table describes the form fields in detail.
 
@@ -99,11 +121,9 @@ To buy reservations using the Azure portal:
 
 ## Related content
 
-- [Understand the Azure reservation discount](/azure/cost-management-billing/reservations/understand-azure-cache-for-redis-reservation-charges)
+- [Azure Managed Redis pricing page](https://azure.microsoft.com/pricing/details/managed-redis/)
 - [What are Azure Reservations?](/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Manage Azure Reservations](/azure/cost-management-billing/reservations/manage-reserved-vm-instance)
 
 For information about Azure Cache for Redis, see [Prepay for Azure Cache for Redis compute resources with reservations](/azure/azure-cache-for-redis/cache-reserved-pricing).
 <!-- not sure we need this here -->
-
-
