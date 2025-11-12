@@ -7,7 +7,7 @@ ms.topic: concept-article
 ai-usage: ai-assisted
 ---
 
-# Azure Managed Redis scheduled maintenance concepts
+# Azure Managed Redis scheduled maintenance (preview) concepts
 
 Azure Managed Redis scheduled maintenance windows allow you to define specific time periods when maintenance activities can occur on your Redis instances. You control when Redis server updates and operating system patches are applied, minimizing unexpected disruptions to your applications.
 
@@ -60,11 +60,11 @@ Scheduled maintenance windows include specific types of updates while excluding 
 - Critical security patches that might occur outside windows for security compliance
 - Major Redis version upgrade, which you manage separately with 90-day deferral options
 
-## Maintenance affect and behavior
+## Maintenance effect and behavior
 
 During scheduled maintenance windows, your Redis instances undergo specific processes that can affect connectivity and performance.
 
-### Expected behaviors
+### Expected effects and behaviors
 
 - Brief connectivity interruptions due to failover operations
 - Temporary increase in server CPU and memory load during data replication
@@ -102,6 +102,13 @@ Azure provides multiple ways to track maintenance activities and their effect on
 ### Preparation recommendations
 
 Applications should implement connection resilience patterns including retry logic, circuit breakers, and graceful degradation to handle brief connectivity interruptions during maintenance windows.
+
+## Schedule a maintenance window
+
+1. To schedule a maintenance window, [browse to your cache](configure.md#configure-azure-managed-redis-settings) in the Azure portal and select **Import data** from the Resource menu.
+1. Select **Choose Blob(s)** and select the storage account that contains the data to import.
+1. Select the container that contains the data to import.
+
 
 ## Related content
 
