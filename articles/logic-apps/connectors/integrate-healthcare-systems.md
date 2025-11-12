@@ -160,7 +160,7 @@ Follow these steps to add the **Encode HL7** action and set up the necessary par
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource. Open your workflow in the designer.
 
-1. If you workflow doesn't have a trigger, follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger) to add the trigger that best suits your scenario.
+1. If your workflow doesn't have a trigger, follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger) to add the trigger that best suits your scenario.
 
    This example continues with the **Request** trigger named **When an HTTP request is received**, for example:
 
@@ -189,7 +189,7 @@ Follow these steps to add the **Decode HL7** action and set up the necessary par
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource. Open your workflow in the designer.
 
-1. If you workflow doesn't have a trigger, follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger) to add the trigger that best suits your scenario.
+1. If your workflow doesn't have a trigger, follow the [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger) to add the trigger that best suits your scenario.
 
    This example continues with the **Request** trigger named **When an HTTP request is received**, for example:
 
@@ -205,7 +205,7 @@ Follow these steps to add the **Decode HL7** action and set up the necessary par
 
    For example:
 
-   :::image type="content" source="media/connectors-healthcare/decode-hl7.png" alt-text="Screenshot shows Deocde HL7 action parameters." lightbox="media/connectors-healthcare/decode-hl7.png":::
+   :::image type="content" source="media/connectors-healthcare/decode-hl7.png" alt-text="Screenshot shows the Decode HL7 action parameters." lightbox="media/connectors-healthcare/decode-hl7.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -299,6 +299,7 @@ The following table compares BizTalk Server with Standard logic app workflows in
 <!--
 - [Create Standard logic app workflows for hybrid deployment on your own infrastructure](/azure/logic-apps/create-standard-workflows-hybrid-deployment)
 -->
+
 
 
 
