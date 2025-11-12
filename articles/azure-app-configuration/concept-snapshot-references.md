@@ -28,15 +28,6 @@ A snapshot reference is stored as a key-value whose value contains the name of t
 > [!NOTE]
 > You don't have to call a specialized API to opt into snapshot references. If you select the key-value that is a snapshot reference, resolution is automatic.
 
-## Comparison: direct snapshot vs snapshot reference
-
-| Aspect | Direct snapshot selection | Snapshot reference |
-|--------|---------------------------|--------------------|
-| How configured | `SelectSnapshot("Name")` in code | Load a key-value whose content type marks it as a reference |
-| Change at runtime | Requires code/config update and redeploy | Update reference key-value only |
-| Immutability of contents | Yes | Yes (contents of targeted snapshot) |
-| Provider reload behavior | Only when app explicitly reconfigures | Automatic when reference changes |
-
 ## Creating a snapshot reference (Azure portal)
 
 1. Open your App Configuration store in the Azure portal.
@@ -48,7 +39,6 @@ A snapshot reference is stored as a key-value whose value contains the name of t
 7. Select **Create**.
 
 Once created, the snapshot reference appears alongside other key-values in Configuration Explorer.
-
 
 ## Consuming snapshot references
 
@@ -73,9 +63,9 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 });
 ```
 
-## Runtime update example
+## Configuration provider refresh example
 
-The following sequence demonstrates application behavior when an application is using snapshot references and has refresh configured.
+The following sequence demonstrates application behavior when an application using the configuration provider has snapshot references and has refresh configured.
 
 1. The application starts up.
 1. The configuration provider fetches selected key-values including a snapshot reference.
