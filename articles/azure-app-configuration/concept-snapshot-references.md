@@ -49,16 +49,6 @@ A snapshot reference is stored as a key-value whose value contains the name of t
 
 Once created, the snapshot reference appears alongside other key-values in Configuration Explorer.
 
-## Consuming snapshots directly (for comparison)
-
-```csharp
-configurationBuilder.AddAzureAppConfiguration(options =>
-{
-    options.Connect(new Uri(Environment.GetEnvironmentVariable("Endpoint")), new DefaultAzureCredential());
-    // Direct snapshot selection: immutable set chosen here.
-    options.SelectSnapshot("SnapshotName");
-});
-```
 
 ## Consuming snapshot references
 
@@ -69,6 +59,17 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 {
     options.Connect(new Uri(Environment.GetEnvironmentVariable("Endpoint")), new DefaultAzureCredential());
     // No explicit snapshot selection required; any snapshot reference among selected key-values will be resolved.
+});
+```
+
+Compare that with loading snapshots directly which fixes the snapshot at startup. Changing it later requires updating code or redeploying.
+
+```csharp
+configurationBuilder.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(Environment.GetEnvironmentVariable("Endpoint")), new DefaultAzureCredential());
+    // Direct snapshot selection: immutable set chosen here.
+    options.SelectSnapshot("SnapshotName");
 });
 ```
 
