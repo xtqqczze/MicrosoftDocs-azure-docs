@@ -118,3 +118,4 @@ The following table describes the advanced parameters available in this action:
 ## Related content
 
 - [Parse XML with schema](logic-apps-enterprise-integration-xml-parse.md)
+
