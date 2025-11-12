@@ -102,12 +102,6 @@ The HL7 connector operations are available in all Standard workflows.
 
   - Before you start working with HL7 or MLLP operations, you must [link your Standard logic app to your integration account](enterprise-integration/create-integration-account.md?tabs=standard#link-account).
 
-    The following examples show the integration account's callback URL and the URL as an environment variable value for your Standard logic app:
-
-    :::image type="content" source="media/connectors-healthcare/callback-url.png" alt-text="Screenshot shows callback URL for integration account." lightbox="media/connectors-healthcare/callback-url.png":::
-
-    :::image type="content" source="media/connectors-healthcare/environment-variable.png" alt-text="Screenshot shows environment variable for integration account." lightbox="media/connectors-healthcare/environment-variable.png":::
-
 <!--### [HL7](#tab/hl7)-->
 
 - HL7 flat file schema and all the BizTalk schemas referenced by your HL7 schema.
@@ -301,3 +295,4 @@ Follow these steps to add the **Send message** action and set up the necessary p
 ## Related content
 
 - [Create Standard logic app workflows for hybrid deployment on your own infrastructure](create-standard-workflows-hybrid-deployment.md)
+
