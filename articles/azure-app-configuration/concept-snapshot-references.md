@@ -109,23 +109,6 @@ If your application loads all key-values and a snapshot reference is added that 
 | `my-snapshot-reference`| After `message` but before `request-limit`            | bye             | 100                   | `message` is seen first. The snapshot reference is then resolved and overrides `message`. Finally the normal `request-limit` overrides the snapshot's `request-limit` value. |
 | `some-snapshot-reference` | After both                                        | bye             | 8000                  | The snapshot reference is resolved last; its values override earlier duplicates. |
 
-Result snippets for clarity:
-
-```
-// Snapshot reference key: a-snapshot-reference
-message = hello-world
-request-limit = 100
-
-// Snapshot reference key: my-snapshot-reference
-message = bye
-request-limit = 100
-
-// Snapshot reference key: some-snapshot-reference
-message = bye
-request-limit = 8000
-```
-
-
 ## Considerations and edge cases
 
 * **Missing target snapshot**: If the reference points to a snapshot name that doesn't exist or is archived beyond retention, the provider ignores the reference.
