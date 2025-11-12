@@ -5,7 +5,7 @@ author: jimmyca15
 ms.author: jimmyca
 ms.service: azure-app-configuration
 ms.topic: concept-article 
-ms.date: 11/11/2025
+ms.date: 11/12/2025
 ---
 
 # Snapshot references
@@ -28,7 +28,7 @@ A snapshot reference is stored as a key-value whose value contains the name of t
 > [!NOTE]
 > You don't have to call a specialized API to opt into snapshot references. If you select the key-value that is a snapshot reference, resolution is automatic.
 
-## Creating a snapshot reference (Azure portal)
+## Creating a snapshot reference
 
 1. Open your App Configuration store in the Azure portal.
 2. Select **Configuration Explorer**.
@@ -42,30 +42,11 @@ Once created, the snapshot reference appears alongside other key-values in Confi
 
 ## Consuming snapshot references
 
-Snapshot references are resolved automatically, just ensure the key of the snapshot reference is selected when loading configuration.
+No new code is required to use a snapshot reference. If the key for a snapshot reference is part of the selected key-values when building configuration, the provider automatically resolves and loads the referenced snapshot's key-values. Compare this to direct snapshot usage where you explicitly call an API such as `SelectSnapshot("SnapshotName")`, fixing the snapshot choice at startup so switching later requires a code change or redeployment.
 
-```csharp
-configurationBuilder.AddAzureAppConfiguration(options =>
-{
-    options.Connect(new Uri(Environment.GetEnvironmentVariable("Endpoint")), new DefaultAzureCredential());
-    // No explicit snapshot selection required; any snapshot reference among selected key-values will be resolved.
-});
-```
+### Refresh behavior
 
-Compare that with loading snapshots directly which fixes the snapshot at startup. Changing it later requires updating code or redeploying.
-
-```csharp
-configurationBuilder.AddAzureAppConfiguration(options =>
-{
-    options.Connect(new Uri(Environment.GetEnvironmentVariable("Endpoint")), new DefaultAzureCredential());
-    // Direct snapshot selection: immutable set chosen here.
-    options.SelectSnapshot("SnapshotName");
-});
-```
-
-## Configuration provider refresh example
-
-The following sequence demonstrates application behavior when an application using the configuration provider has snapshot references and has refresh configured.
+When refresh is configured, changing the target snapshot name inside a snapshot reference seamlessly moves the application to use the new snapshot:
 
 1. The application starts up.
 1. The configuration provider fetches selected key-values including a snapshot reference.
@@ -97,9 +78,19 @@ Snapshot reference content type: `application/json; profile="https://azconfig.io
 ## Considerations and edge cases
 
 * **Missing target snapshot**: If the reference points to a snapshot name that doesn't exist or is archived beyond retention, the provider ignores the reference.
-* **Multiple references**: If you load multiple snapshot references, their resolved key-values merge by key order; conflicting keys follow standard precedence (last one wins).
+* **No transitive resolution**: If a referenced snapshot contains a key-value that is itself a snapshot reference, that inner reference is not resolved.
 * **Access control**: Reading a snapshot via a reference requires [snapshot read permissions](./concept-snapshots.md#read-and-list-snapshots), similarly to reading a snapshot directly.
 * **Retention/archival**: Take care when referencing archived snapshots, as once the snapshot expires the app will no longer be able to access the contained configuration.
+
+## Language availability
+
+| Language    | Minimum version / status |
+|-------------|---------------------------|
+| .NET        | 8.4.0+                    |
+| Java        | Work in progress          |
+| JavaScript  | Work in progress          |
+| Python      | Work in progress          |
+| Go          | Work in progress          |
 
 ## Next steps
 
