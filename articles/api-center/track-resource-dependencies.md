@@ -44,6 +44,8 @@ To add a dependency:
 1. In **Target details**, select a **Target Type** (for example, an API or a related resource). Depending on the type, enter or select identifying information such as a name or ID.
 1. **Save** the dependency.
 
+:::image type="content" source="media/track-resource-dependencies/create-dependency.png" alt-text="Screenshot of adding a dependency in the portal.":::
+
 The dependency is added. 
 
 ## View dependencies 
@@ -54,6 +56,10 @@ To see a graphical view:
 
 1. In the left menu, under **Assets**, select **Dependency tracker (preview)**.
 1. Select the **Graph View** tab.
+
+In the graphical view, select the box representing any API center resource to see its details.
+
+:::image type="content" source="media/track-resource-dependencies/view-dependency-graph.png" alt-text="Screenshot of the dependency graph in the portal.":::
 
 ## Manage dependencies
 
