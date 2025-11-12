@@ -146,32 +146,32 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/sap/large-instances/hana-operations-model.md",
+      "source_path_from_root": "/articles/sap/large-instances/hana-operations-model.md",
       "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/sap/large-instances/hana-operations-model.md",
+      "source_path_from_root": "/articles/sap/large-instances/hana-operations-model.md",
       "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/sap/large-instances/hana-data-tiering-extension-nodes.md",
+      "source_path_from_root": "/articles/sap/large-instances/hana-data-tiering-extension-nodes.md",
       "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/sap/large-instances/hana-certification.md",
+      "source_path_from_root": "/articles/sap/large-instances/hana-certification.md",
       "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/sap/large-instances/hana-additional-network-requirements.md",
+      "source_path_from_root": "/articles/sap/large-instances/hana-additional-network-requirements.md",
       "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/sap/large-instances/ha-setup-with-fencing-device.md",
+      "source_path_from_root": "/articles/sap/large-instances/ha-setup-with-fencing-device.md",
       "redirect_url": "/azure/sap/large-instances/decommission-sap-hana",
       "redirect_document_id": false
     },
