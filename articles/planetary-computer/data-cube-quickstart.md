@@ -73,7 +73,7 @@ The `options` field for the Render Configuration of GRIB2 assets look similar to
 
 #### Render configuration for Zarr assets
 
-The `options` field for the Render Configuration of Zarr assets is also similar to that of NetCDF and HDF5, however within the `assets` argument you will have to include the parameter 'sel' which enables you to select a time, step, or other variable that enables 2D rendering of one variable at one time slice from a multi-variable Zarr store. You may also need to include a 'sel_method' parameter, to ensure the right variable is selected even if the value entered is slightly off. You can read more about this 'sel' parameter in the public documentation for the Python mutlidimensional data read library used in the Planetary Computer Pro backend, [Xarray](https://docs.xarray.dev/en/latest/generated/xarray.DataArray.sel.html) Below is an example of a Zarr Render Configuration:
+The `options` field for the Render Configuration of Zarr assets is also similar to that of NetCDF and HDF5, however within the `assets` argument you will have to include the parameter 'sel' which enables you to select a time, step, or other variable that enables 2D rendering of one variable at one time slice from a multi-variable Zarr store. You may also need to include a 'sel_method' parameter, to ensure the right variable is selected even if the value entered is slightly off. You can read more about this 'sel' parameter in the public documentation for the Python multidimensional data read library used in the Planetary Computer Pro backend, [Xarray](https://docs.xarray.dev/en/latest/generated/xarray.DataArray.sel.html) Below is an example of a Zarr Render Configuration:
 
 ```json
 [
