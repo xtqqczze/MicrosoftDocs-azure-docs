@@ -24,7 +24,7 @@ This guide shows you how to update and manage AI agents after they've been regis
 1. From the table, select your A2A agent by clicking the agent name in the **Title** column.
 1. Select the **Edit** button to open the **Edit** page in the working pane.
 
-    :::image type="content" source="media/how-to-manage-a2a-agent/edit-agent.png" alt-text="Screenshot of the AI agent overview in Azure portal with the edit button highlighted.":::
+    :::image type="content" source="media/manage-a2a-agents/edit-agent.png" alt-text="Screenshot of the AI agent overview in Azure portal with the edit button highlighted.":::
 
 ### Add skills to your agent
 
