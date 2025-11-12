@@ -17,7 +17,7 @@ This guide shows you how to update and manage agents after they've been register
 - An Azure API Center instance with at least one [registered agent](agent-to-agent-overview.md#register-an-ai-agent)
 - Appropriate permissions to edit APIs in your API Center
 
-## Update agent metadata
+## Update agent
 
 1. In the [Azure portal](https://azure.microsoft.com), go to your API center.
 1. In the sidebar menu, under **Assets**, select **APIs**.
