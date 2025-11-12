@@ -9,10 +9,13 @@ ms.date: 08/13/2025
 # Customer intent: As an integration developer, I want to write and run PowerShell code so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
-# Add and run PowerShell scripts in Standard workflows for Azure Logic Apps
+# Add and run PowerShell scripts in Standard workflows for Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
+> [!NOTE]
+> This capability is in preview and is subject to the
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To perform custom integration tasks inline with your Standard workflow in Azure Logic Apps, you can directly add and run PowerShell code from within your workflow. For this task, use the **Inline Code** action named **Execute PowerShell Code**. This action returns the results from your PowerShell code so that you can use this output in your workflow's subsequent actions.
 
