@@ -299,10 +299,3 @@ The following table compares BizTalk Server with Standard logic app workflows in
 <!--
 - [Create Standard logic app workflows for hybrid deployment on your own infrastructure](/azure/logic-apps/create-standard-workflows-hybrid-deployment)
 -->
-
-
-
-
-
-
-
