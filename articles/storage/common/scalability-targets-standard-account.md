@@ -7,7 +7,7 @@ author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 05/25/2022
+ms.date: 10/31/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 # Customer intent: "As a cloud architect, I want to understand the scalability and performance targets for standard storage accounts, so that I can ensure that our storage solutions meet our application demands."
@@ -19,7 +19,7 @@ ms.subservice: storage-common-concepts
 
 The service-level agreement (SLA) for Azure Storage accounts is available at [SLA for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
-## Scale targets for standard storage accounts
+## Scale targets for standard storage accounts and disk access resources
 
 The following table describes default limits for Azure general-purpose v2 (GPv2), general-purpose v1 (GPv1), and Blob storage accounts. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
 
