@@ -33,7 +33,7 @@ You can register AI agents in API Center similar to how you register other APIs.
 
 ## Manage your AI agent
 
-After registering an A2A agent, you can update its metadata, add skills, configure capabilities, and manage provider information. Skills define the specific actions your agent can perform, making it discoverable and invokable by other agents. For step-by-step instructions, see [Manage A2A agents in Azure API Center](how-to-manage-a2a-agent.md).
+After registering an A2A agent, you can update its metadata, add skills, configure capabilities, and manage provider information. Skills define the specific actions your agent can perform, making it discoverable and invokable by other agents. For step-by-step instructions, see [Manage A2A agents in Azure API Center](manage-a2a-agents.md).
 
 
 ## View dependency maps for A2A agents (preview)
