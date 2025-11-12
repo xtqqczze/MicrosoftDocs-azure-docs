@@ -29,7 +29,7 @@ Learn more about:
 ## Limitations
     
 * API Management currently supports MCP server tools, but doesn't support MCP resources or prompts.
-* MCP server capabilities aren't supported in API Management [workspaces](workspaces-overview.md).
+* MCP server capabilities currently aren't supported in API Management [workspaces](workspaces-overview.md).
 
 ## Prerequisites
 

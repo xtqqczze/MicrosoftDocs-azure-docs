@@ -12,7 +12,7 @@ ms.custom:
 
 # Secure access to MCP servers in API Management
 
-[!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 With  [MCP server support in API Management](mcp-server-overview.md), you can expose and govern access to MCP servers and their tools. This article describes how to secure access to MCP servers managed in API Management, including both MCP servers exposed from managed REST APIs and existing MCP servers hosted outside of API Management.
 

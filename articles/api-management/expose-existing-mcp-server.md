@@ -35,9 +35,9 @@ Learn more about:
 * The external MCP server must conform to MCP version `2025-06-18` or later. The server can support:
     * Either no authorization, or authorization protocols that comply with the following standards: [https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance).
     * Streamable HTTP or SSE transport types.
-
-* API Management currently supports MCP server tool capabilities, but not MCP resources or prompts.
-* MCP server capabilities aren't supported in API Management [workspaces](workspaces-overview.md).
+  
+* API Management currently supports MCP server tools, but doesn't support MCP resources or prompts.
+* MCP server capabilities currently aren't supported in API Management [workspaces](workspaces-overview.md).
 
 ## Prerequisites
 

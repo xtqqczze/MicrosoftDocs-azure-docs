@@ -118,10 +118,11 @@ MCP server management features are available in the following API Management ser
 * **Classic tiers**: Developer, Basic, Standard, Premium
 * **v2 tiers**: Basic v2, Standard v2, Premium v2
 
+You can also use the API Management [self-hosted gateway](self-hosted-gateway-overview.md) to manage MCP servers in your own infrastructure.
+
 > [!NOTE]
-> * The self-hosted gateway supports MCP server features.
-> * MCP servers aren't currently supported in [workspaces](workspaces-overview.md).
-<!-- confirm workspaces -->
+> * API Management currently supports MCP server tools, but doesn't support MCP resources or prompts.
+> * MCP server capabilities currently aren't supported in API Management [workspaces](workspaces-overview.md).
 
 You can get early access to new MCP server and AI gateway features and capabilities through the *AI Gateway* release channel. This access lets you try out the latest AI gateway innovations before they're generally available and provide feedback to help shape the product. For more information, see [Configure service update settings for your API Management instances](configure-service-update-settings.md).
 
