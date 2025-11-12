@@ -249,6 +249,77 @@ To list private endpoint connections to the API Management instance:
 
 1. To change the connection state or delete the endpoint, select an endpoint, then select the context **(...)** menu. Choose the appropriate command on the menu.
 
+#### [Premium v2](#tab/premv2)
+
+ To create a private endpoint for an API Management Premium v2 instance, currently you must use the [Private Link Center](/azure/private-link/create-private-endpoint-portal).
+
+### Create private endpoint for existing API Management Premium v2 instance
+
+1. In the [Azure portal](https://portal.azure.com/), go to the **Private Link Center**.
+
+1. Select **Private endpoints** > **+ Create**.
+
+1. In the **Basics** tab of **Create a private endpoint**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** | |
+    | Subscription | Select your subscription. |
+    | Resource group | Select an existing resource group, or create a new one. It must be in the same region as your virtual network.|
+    | **Instance details** |  |
+    | Name  | Enter a name for the endpoint such as *myPrivateEndpoint*. |
+    | Network Interface Name | Enter a name for the network interface, such as *myInterface* |
+    | Region | Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted. |
+
+1. Select the **Next: Resource** button at the bottom of the screen. 
+
+1. In **Resource**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Your subscription is selected. |
+    | Resource type | Select **Microsoft.ApiManagement/service**. |
+    | Resource | Select your API Management Premium v2 instance. |
+    | Target sub-resource | Select **Gateway**. |
+    
+    :::image type="content" source="media/private-endpoint/create-private-endpoint-private-link-center.png" alt-text="Screenshot showing settings to create a private endpoint in the Azure portal.":::
+
+    > [!IMPORTANT]
+    > Only the **Gateway** sub-resource is supported for API Management. Other sub-resources aren't supported.
+
+1. Select the **Next: Virtual Network** button at the bottom of the screen.
+
+1. In **Networking**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Virtual network | Select your virtual network. |
+    | Subnet | Select your subnet. |
+    | Network policy for private endpoints | Leave the default of **Disabled**. |    
+    | Private IP configuration | In most cases, select **Dynamically allocate IP address.** |
+    | Application security group | Optionally select an [application security group](../virtual-network/application-security-groups.md). |
+
+1. Select the **Next: DNS** button at the bottom of the screen.
+
+1. In **Private DNS integration**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Integrate with private DNS zone | Leave the default of **Yes**. |
+    | Subscription | Select your subscription. |
+    | Resource group | Select your resource group. |
+    | Private DNS zones | The default value is displayed: **(new) privatelink.azure-api.net**.
+
+1. Select the **Next: Tabs** button at the bottom of the screen. If you desire, enter tags to organize your Azure resources.
+
+1. Select the **Next: Review + create** button at the bottom of the screen. Select **Create**.
+
+### List private endpoint connections
+
+After the private endpoint is created and the service updated, it appears in the list on the **Private endpoints** page in the **Private Link Center**.
+
+Confirm that the endpoint's **Connection status** is **Approved**. 
+
 ---
 
 ## Optionally disable public network access
@@ -283,6 +354,10 @@ You can use the portal to disable the public network access property in a Standa
 
 1. Under **Inbound features**, in the **Public network access** section, select **Disable**.
 
+#### [Premium v2](#tab/premv2)
+
+In the Premium v2 tier, use the [API Management Service - Update](/rest/api/apimanagement/api-management-service/update) REST API to disable public network access, by setting the `publicNetworkAccess` property to `Disabled`.
+
 ---
 
 ## Validate private endpoint connection
@@ -308,6 +383,13 @@ After the private endpoint is created, confirm its DNS settings in the portal.
 
 1. On the **Private endpoint** page, review the endpoint's virtual network and private DNS integration settings.
 
+#### [Premium v2](#tab/premv2)
+
+1. In the **Private Link Center**, select **Private endpoints** and then the name of your private endpoint.
+
+1. In the left-hand navigation, under **Settings**, select **DNS configuration**.
+
+1. Review the DNS records and IP address of the private endpoint. The IP address is a private address in the address space of the subnet where the private endpoint is configured.
 ---
 
 ### Test in virtual network
