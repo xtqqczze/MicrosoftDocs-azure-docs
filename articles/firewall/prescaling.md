@@ -117,7 +117,7 @@ The following known issues exist when using prescaling:
 
 | Known issue | Description | Mitigation |
 |----------|-------------|--------|
-| Prescaling is not supported with [Customer Provided PIP in Secured Virtual Hubs](https://learn.microsoft.com/azure/firewall/secured-hub-customer-public-ip?tabs=portal) | Configuring prescaling will result in a Failed State. | Avoid prescaling when using Customer Provided PIP in Secured Virtual Hubs. Alternatively, revert back to default autoscaling mode. |
+| Prescaling is not supported with [Customer Provided PIP in Secured Virtual Hubs](secured-hub-customer-public-ip.md) | Configuring prescaling will result in a Failed State. | Avoid prescaling when using Customer Provided PIP in Secured Virtual Hubs. Alternatively, revert back to default autoscaling mode. |
 
 ## Next steps
 
