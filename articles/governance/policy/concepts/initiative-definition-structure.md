@@ -267,7 +267,7 @@ Each _array_ element that represents a policy definition has the following prope
 - `parameters`: (Optional) The name/value pairs for passing an initiative parameter to the
   included policy definition as a property in that policy definition. For more information, see
   [Parameters](#parameters).
-- `definitionVersion` : (Optional) The version of the built-in definition to refer to. If none is specified, it refers to the latest major version at assignment time and autoingest any minor updates. For more information, see [definition version](./definition-structure-basics.md#version-preview)
+- `definitionVersion` : (Optional) The version of the built-in definition to refer to. If none is specified, it refers to the latest major version at assignment time and autoingest any minor updates. For more information, see [definition version](./definition-structure-basics.md#version)
 - `groupNames` (array of strings): (Optional) The group the policy definition is a member of. For
   more information, see [Policy groups](#policy-definition-groups).
 
