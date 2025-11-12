@@ -1,21 +1,17 @@
 ---
-title: Add and run C# scripts in Standard workflows
-description: Write and run C# scripts inline from Standard workflows to perform custom integration tasks using Inline Code operations in Azure Logic Apps.
+title: Add and Run C# Scripts in Standard Workflows
+description: Learn to write and run C# scripts to complete custom integration tasks with Standard workflows using Inline Code operations in Azure Logic Apps.
 ms.service: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, shahparth, azla
+ms.reviewers: estfan, shahparth, azla
 ms.topic: how-to
-ms.date: 02/19/2025
-# Customer intent: As a logic app workflow developer, I want to write and run my own C# scripts so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
+ms.date: 11/19/2025
+# Customer intent: As an integration developer working with Azure Logic Apps, I want to write and run C# scripts to complete custom integration tasks with Standard workflows in Azure Logic Apps.
 ---
 
-# Add and run C# scripts inline with Standard workflows for Azure Logic Apps (Preview)
+# Add and run C# scripts with Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
-
-> [!NOTE]
-> This capability is in preview and is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To perform custom integration tasks inline with your Standard workflow in Azure Logic Apps, you can directly add and run C# scripts from within your workflow. For this task, use the **Inline Code** action named **Execute CSharp Script Code**. This action returns the results from your script so that you can use this output in your workflow's subsequent actions.
 
@@ -33,11 +29,11 @@ This guide shows how to add the action in your workflow and add the C# script co
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+* An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The Standard logic app workflow where you want to add your C# script. The workflow must already start with a trigger. For more information, see [Create example Standard logic app workflows](create-single-tenant-workflows-azure-portal.md).
 
-  You can use any trigger for your scenario, but as an example, this guide uses the **Request** trigger named **When a HTTP request is received** and also the **Response** action. The workflow runs when another application or workflow sends a request to the trigger's endpoint URL. The sample script returns the results from code execution as output that you can use in subsequent actions.
+  You can use any trigger for your scenario, but as an example, this guide uses the **Request** trigger named **When an HTTP request is received** and also the **Response** action. The workflow runs when another application or workflow sends a request to the trigger's endpoint URL. The sample script returns the results from code execution as output that you can use in subsequent actions.
 
 ## Example scenarios
 
@@ -357,7 +353,7 @@ public class Results
 
 ## View logs in Application Insights
 
-1. In the [Azure portal](https://portal.azure.com), on the logic app resource menu, under **Settings**, select **Application Insights**, and then select your logic app.
+1. In the [Azure portal](https://portal.azure.com), on the logic app resource menu, under **Settings**, select **Application Insights**. Select your logic app.
 
 1. On the **Application Insights** menu, under **Monitoring**, select **Logs**.
 
