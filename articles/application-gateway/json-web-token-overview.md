@@ -105,7 +105,7 @@ By performing token validation at the edge, Application Gateway simplifies appli
 
    2. Open your Application Gateway, navigate to Settings in the left menu, and select the **JWT validation configuration** blade
 
-       :::image type="content" source="media/json-web-token-overview.md/json-web-token-configuration.png" alt-text="Screenshot of JSON Web Token configuration window for Application Gateway.":::
+       :::image type="content" source="media/json-web-token-overview/json-web-token-configuration.png" alt-text="Screenshot of JSON Web Token configuration window for Application Gateway.":::
 
    3. Provide the following details:
 
