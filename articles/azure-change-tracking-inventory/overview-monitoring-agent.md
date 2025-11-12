@@ -41,7 +41,7 @@ Change Tracking metadata will get ingested into the *ConfigurationChange* table 
 Here are the key benefits:
 
 - **Compatibility with the unified monitoring agent** – Compatible with the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) that enhances security, reliability, and facilitates multi-homing experience to store data.
-- **Compatibility with tracking tool** – Compatible with the Change tracking (CT) extension deployed through the Azure Policy on the client's virtual machine. You can switch to AMA, and then the CT extension pushes the software, files, and registry to AMA.
+- **Compatibility with tracking tool** – Compatible with the Change Tracking (CT) extension deployed through the Azure Policy on the client's virtual machine. You can switch to AMA, and then the CT extension pushes the software, files, and registry to AMA.
 - **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](/azure/azure-monitor/agents/azure-monitor-agent-migration) so that all VMs point to a single workspace for data collection and maintenance.
 - **Rules management** – Uses [Data Collection Rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
 

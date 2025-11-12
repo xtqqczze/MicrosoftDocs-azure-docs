@@ -78,7 +78,7 @@ To onboard through Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Machines-Azure Arc**.
 
-   :::image type="content" source="/azure-change-tracking-inventory/media/create-data-collection-rule/select-arc-machines-portal.png" alt-text="Screenshot showing how to select Azure Arc machines from the portal." lightbox="/azure-change-tracking-inventory/media/create-data-collection-rule/select-arc-machines-portal.png":::
+   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/select-arc-machines-portal.png" alt-text="Screenshot showing how to select Azure Arc machines from the portal." lightbox="media/guidance-migration-log-analytics-monitoring-agent/select-arc-machines-portal.png":::
 
 1. Select the specific Arc machine with Change Tracking V1 enabled that needs to be migrated to Change Tracking V2.
 
