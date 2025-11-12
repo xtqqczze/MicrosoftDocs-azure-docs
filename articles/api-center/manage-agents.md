@@ -14,7 +14,7 @@ This guide shows you how to update and manage AI agents after they've been regis
 
 ## Prerequisites
 
-- An Azure API Center instance with at least one [registered agent](a2a-overview.md#register-an-ai-agent)
+- An Azure API Center instance with at least one [registered agent](agent-to-agent-overview.md#register-an-ai-agent)
 - Appropriate permissions to edit APIs in your API Center
 
 ## Update agent metadata
@@ -68,4 +68,4 @@ Agent capabilities describe what features your A2A agent supports.
 
 ## Related content
 
-[A2A (Agent-to-Agent) agent registry in Azure API Center](a2a-overview.md)
+[A2A (Agent-to-Agent) agent registry in Azure API Center](agent-to-agent-overview.md)
