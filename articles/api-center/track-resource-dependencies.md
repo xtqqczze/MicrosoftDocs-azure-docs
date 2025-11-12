@@ -82,7 +82,6 @@ To delete a dependency:
 > [!NOTE]
 > If you delete an API Center resource that is a source or target in a dependency, the dependency isn't automatically deleted. You must delete it yourself.
 
-
 ## Related content
 
 * [Overview of Azure API center](overview.md)
