@@ -13,7 +13,7 @@ ms.custom: Include file
 
 <!-- Limits - API Management classic tiers -->
 
-[!INCLUDE [api-management-service-limits-mitigation](api-management-service-limits-mitigation.md)]
+Starting March 2026, Azure API Management will apply updated limits to instances in the Classic tiers (Developer, Basic, Standard, and Premium) and the Consumption tier. [!INCLUDE [api-management-service-limits-mitigation](api-management-service-limits-mitigation.md)]
 
 | Resource | Consumption | Developer | Basic | Standard | Premium |
 | ---------| ----------- | ----------- | ----------- | ----------- | ------------ |
