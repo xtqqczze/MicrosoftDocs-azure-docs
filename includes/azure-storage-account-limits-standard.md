@@ -2,11 +2,11 @@
 title: include file
  description: include file
  services: storage
- author: tamram
+ author: normesta
  ms.service: azure-storage
  ms.topic: include
- ms.date: 10/31/2025
- ms.author: tamram
+ ms.date: 11/12/2025
+ ms.author: normesta
  ms.custom: include file, references_regions
 ---
 
@@ -23,12 +23,12 @@ Microsoft recommends that you use a GPv2 storage account for most scenarios. You
 | Maximum number of storage accounts with Azure DNS zone endpoints (preview) per region per subscription, including standard and premium storage accounts. | 5000 (preview) |
 | Default maximum storage account capacity | 5 PiB <sup>2</sup> |
 | Maximum number of blob containers, blobs, directories and subdirectories (if Hierarchical Namespace is enabled), file shares, tables, queues, entities, or messages per storage account. | No limit |
-| Default maximum request rate per general-purpose v2, Blob storage account, and disk access resources in the following regions:<br /> **Africa**: South Africa North<br />**Americas**: Brazil South, Canada Central, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2, West US 3<br />**Asia Pacific**: Australia East, Central India, China East 2, China North 3, East Asia, Japan East, Jio India West, Korea Central, Southeast Asia<br />**Europe**: France Central, Germany West Central, North Europe, Norway East, Sweden Central, UK South, West Europe<br />**Azure Government**: USGov Arizona, USGov Virginia | 40,000 requests per second<sup>2</sup> |
+| Default maximum request rate per general-purpose v2, Blob storage account, and disk access resources in the following regions:<br /><br />**Africa**: South Africa North<br /><br />**Americas**: Brazil South, Canada Central, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2, West US 3<br /><br />**Asia Pacific**: Australia East, Central India, China East 2, China North 3, East Asia, Japan East, Jio India West, Korea Central, Southeast Asia<br /><br />**Europe**: France Central, Germany West Central, North Europe, Norway East, Sweden Central, UK South, West Europe<br /><br /><br />**Azure Government**: USGov Arizona, USGov Virginia | 40,000 requests per second<sup>2</sup> |
 | Default maximum request rate per general-purpose v2, Blob storage account, and disk access resources in regions that aren't listed in the previous row. | 20,000 requests per second<sup>2</sup> |
-| Default maximum ingress per general-purpose v2, Blob storage account, and disk access resources in the following regions:<br /><ul><li>East Asia</li><li>Southeast Asia</li><li>Australia East</li><li>Brazil South</li><li>Canada Central</li><li>China East 2</li><li>China North 3</li><li>North Europe</li><li>West Europe</li><li>France Central</li><li>Germany West Central</li><li>Central India</li><li>Japan East</li><li>Jio India West</li><li>Korea Central</li><li>Norway East</li><li>South Africa North</li><li>Sweden Central</li><li>UAE North</li><li>UK South</li><li>Central US</li><li>East US</li><li>East US 2</li><li>USGov Virginia</li><li>USGov Arizona</li><li>North Central US</li><li>South Central US</li><li>West US</li><li>West US 2</li><li>West US 3</li></ul>| 60 Gbps<sup>2</sup> |
+| Default maximum ingress per general-purpose v2, Blob storage account, and disk access resources in the following regions:<br /><br />**Africa**: South Africa North<br /><br />**Americas**: Brazil South, Canada Central, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2, West US 3<br /><br />**Asia Pacific**: Australia East, Central India, China East 2, China North 3, East Asia, Japan East, Jio India West, Korea Central, Southeast Asia<br /><br />**Europe**: France Central, Germany West Central, North Europe, Norway East, Sweden Central, UK South, West Europe<br /><br /><br />**Azure Government**: USGov Arizona, USGov Virginia | 60 Gbps<sup>2</sup> |
 | Default maximum ingress per general-purpose v2, Blob storage account, and disk access resources in regions that aren't listed in the previous row. | 25 Gbps<sup>2</sup> |
 | Default maximum ingress for general-purpose v1 storage accounts (all regions) | 10 Gbps<sup>2</sup> |
-| Default maximum egress for general-purpose v2, Blob storage accounts, and disk access resources in the following regions:<br /><ul><li>East Asia</li><li>Southeast Asia</li><li>Australia East</li><li>Brazil South</li><li>Canada Central</li><li>China East 2</li><li>China North 3</li><li>North Europe</li><li>West Europe</li><li>France Central</li><li>Germany West Central</li><li>Central India</li><li>Japan East</li><li>Jio India West</li><li>Korea Central</li><li>Norway East</li><li>South Africa North</li><li>Sweden Central</li><li>UAE North</li><li>UK South</li><li>Central US</li><li>East US</li><li>East US 2</li><li>USGov Virginia</li><li>USGov Arizona</li><li>North Central US</li><li>South Central US</li><li>West US</li><li>West US 2</li><li>West US 3</li></ul> | 200 Gbps<sup>2</sup> |
+| Default maximum egress for general-purpose v2, Blob storage accounts, and disk access resources in the following regions:<br /><br />**Africa**: South Africa North<br /><br />**Americas**: Brazil South, Canada Central, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2, West US 3<br /><br />**Asia Pacific**: Australia East, Central India, China East 2, China North 3, East Asia, Japan East, Jio India West, Korea Central, Southeast Asia<br /><br />**Europe**: France Central, Germany West Central, North Europe, Norway East, Sweden Central, UK South, West Europe<br /><br /><br />**Azure Government**: USGov Arizona, USGov Virginia | 200 Gbps<sup>2</sup> |
 | Default maximum egress for general-purpose v2, Blob storage accounts, and disk access resources in regions that aren't listed in the previous row. | 50 Gbps<sup>2</sup> |
 | Maximum egress for general-purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS is enabled, 30 Gbps for LRS/ZRS |
 | Maximum egress for general-purpose v1 storage accounts (non-US regions) | 10 Gbps if RA-GRS/GRS is enabled, 15 Gbps for LRS/ZRS |
