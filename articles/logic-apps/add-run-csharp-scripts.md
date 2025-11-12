@@ -9,9 +9,13 @@ ms.date: 02/19/2025
 # Customer intent: As a logic app workflow developer, I want to write and run my own C# scripts so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
-# Add and run C# scripts inline with Standard workflows for Azure Logic Apps
+# Add and run C# scripts inline with Standard workflows for Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
+> [!NOTE]
+> This capability is in preview and is subject to the
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To perform custom integration tasks inline with your Standard workflow in Azure Logic Apps, you can directly add and run C# scripts from within your workflow. For this task, use the **Inline Code** action named **Execute CSharp Script Code**. This action returns the results from your script so that you can use this output in your workflow's subsequent actions.
 
