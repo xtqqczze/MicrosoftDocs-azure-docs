@@ -15,6 +15,9 @@ Azure App Configuration supports direct integration with Azure Front Door (previ
 
 You can connect your App Configuration store to existing Azure Front Door profiles or create new profiles directly from the App Configuration interface for a quick start.
 
+    > [!NOTE]
+    > This feature is only available in the Azure public cloud.
+
 ## Prerequisites
 
 Before you begin, ensure you have:
@@ -101,6 +104,9 @@ Follow these steps to connect an existing Azure Front Door profile.
 1. In **Profile name**, select your existing Azure Front Door profile from the dropdown.
 
     :::image type="content" source="media/how-to-connect-azure-front-door/select-profile.png" alt-text="Screenshot showing use of existing profile in the App Configuration store."
+
+    > [!NOTE]
+    > If you switch subscriptions after selecting **Use existing**, you may see the error **"Failed to get Azure Front Door profile"** in the notifications panel. You can ignore this message and continue with the selection.
 
 1. Select **Connect** to establish the connection.
 
