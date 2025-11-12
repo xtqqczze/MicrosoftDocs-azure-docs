@@ -52,7 +52,7 @@ Once created, the snapshot reference appears alongside other key-values in Confi
 
 ## Consuming snapshot references
 
-You load configuration normally. Selecting the reference key-value is enough; the provider handles resolution.
+Snapshot references are resolved automatically, just ensure the key of the snapshot reference is selected when loading configuration.
 
 ```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
