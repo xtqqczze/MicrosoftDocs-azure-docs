@@ -731,8 +731,8 @@ ___
 ### <code>dropLeft</code>
 <code><b>dropLeft(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : integer) => string</b></code><br/><br/>
 Removes as many characters from the left of the string. If the drop requested exceeds the length of the string, an empty string is returned.
-*	dropLeft('bojjus', 2) => 'jjus' 
-*	dropLeft('cake', 10) => ''
+* ``dropLeft('bojjus', 2) => 'jjus'`` 
+* ``dropLeft('cake', 10) => ''``
 ___
 
 
@@ -741,8 +741,8 @@ ___
 ### <code>dropRight</code>
 <code><b>dropRight(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : integer) => string</b></code><br/><br/>
 Removes as many characters from the right of the string. If the drop requested exceeds the length of the string, an empty string is returned.
-*	dropRight('bojjus', 2) => 'bojj' 
-*	dropRight('cake', 10) => ''
+* ``dropRight('bojjus', 2) => 'bojj'`` 
+* ``dropRight('cake', 10) => ''``
 ___
 
 ## E
@@ -809,7 +809,7 @@ ___
 ### <code>expr</code>
 <code><b>expr(<i>&lt;expr&gt;</i> : string) => any</b></code><br/><br/>
 Results in an expression from a string, which is the same as writing this expression in a nonliteral form. You can use it to pass parameters as string representations.
-*    expr('price * discount') => any
+* ``expr('price * discount') => any``
 ___
 
 ## F
