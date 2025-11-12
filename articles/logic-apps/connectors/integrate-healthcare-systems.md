@@ -81,11 +81,11 @@ The HL7 connector operations are available in all Standard workflows.
 
 - Access to the healthcare system that you want to integrate.
 
-- An [integration account resource](enterprise-integration/create-integration-account.md) to define and store artifacts for use with enterprise integrations and B2B workflows.
+- An [integration account resource](/azure/logic-apps/enterprise-integration/create-integration-account) to define and store artifacts for use with enterprise integrations and B2B workflows.
 
   - Both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
 
-  - Before you start working with HL7 or MLLP operations, you must [link your Standard logic app to your integration account](enterprise-integration/create-integration-account.md?tabs=standard#link-account).
+  - Before you start working with HL7 or MLLP operations, you must [link your Standard logic app to your integration account](/azure/logic-apps/enterprise-integration/create-integration-account?tabs=standard#link-account).
 
 <!--### [HL7](#tab/hl7)-->
 
@@ -299,6 +299,7 @@ The following table compares BizTalk Server with Standard logic app workflows in
 <!--
 - [Create Standard logic app workflows for hybrid deployment on your own infrastructure](/azure/logic-apps/create-standard-workflows-hybrid-deployment)
 -->
+
 
 
 
