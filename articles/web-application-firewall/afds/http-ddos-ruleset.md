@@ -1,5 +1,5 @@
 ---
-title: HTTP DDoS Ruleset (Preview)
+title: Microsoft HTTP DDoS Ruleset (Preview)
 titleSuffix: Azure Web Application Firewall
 description: Learn about HTTP DDoS ruleset in Azure Front Door Web Application Firewall (WAF).
 author: joeolerich
@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.date: 11/18/2025
 ---
 
-# Microsoft HTTP DDoS Ruleset (preview)
+# HTTP DDoS Ruleset (preview)
 
 > [!IMPORTANT]
 > The Microsoft HTTP DDoS Ruleset in the Front Door Web Application Firewall (WAF) is currently in PREVIEW.
