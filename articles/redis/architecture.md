@@ -120,6 +120,7 @@ Each SKU of Azure Managed Redis is configured to run a specific number of Redis 
 
 | Tiers     | Flash Optimized (preview) |
 |:---------:|:-------------------------:|
+| Size (GB) | vCPUs/primary shards      |
 | 235 *     | 8/6                       |
 | 480 *     | 16/12                     |
 | 720 *     | 24/24                     |
