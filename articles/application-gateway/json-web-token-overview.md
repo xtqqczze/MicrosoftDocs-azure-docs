@@ -143,7 +143,7 @@ curl -i -H "Authorization: Bearer $TOKEN" "$APPGW_URL"
 ```
 
 > [!NOTE]
-> Tokens must be issued by Microsoft Entra ID. Check [Token](/azure/devops/cli/entra-tokens?view=azure-devops&tabs=azure-cli) for more details
+> Tokens must be issued by Microsoft Entra ID. Check [Token](/azure/devops/cli/entra-tokens) for more details
 
 
 ### Expected Outcomes
