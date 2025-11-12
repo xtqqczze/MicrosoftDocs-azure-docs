@@ -77,7 +77,7 @@ The HL7 connector operations are available in all Standard workflows.
 
 ## Prerequisites
 
-- An Azure account and subscription. See [Get free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Access to the healthcare system that you want to integrate.
 
@@ -299,6 +299,7 @@ The following table compares BizTalk Server with Standard logic app workflows in
 <!--
 - [Create Standard logic app workflows for hybrid deployment on your own infrastructure](/azure/logic-apps/create-standard-workflows-hybrid-deployment)
 -->
+
 
 
 
