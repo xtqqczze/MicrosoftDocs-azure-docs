@@ -33,6 +33,9 @@ To configure policies for the MCP server:
 
     :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/mcp-server-policies-small.png" alt-text="Screenshot of the policy editor for an MCP server." lightbox="../articles/api-management/media/export-rest-mcp-server/mcp-server-policies.png":::
 
+> [!NOTE]
+> Policies configured at the global (all APIs) scope are evaluated before policies at the MCP server scope.
+
 ## Validate and use the MCP server
 
 Use a compliant LLM agent (such as GitHub Copilot, Semantic Kernel, or Copilot Studio) or a test client (such as `curl`) to call the API Management-hosted MCP endpoint. Ensure that the request includes appropriate headers or tokens, and confirm successful routing and response from the MCP server.

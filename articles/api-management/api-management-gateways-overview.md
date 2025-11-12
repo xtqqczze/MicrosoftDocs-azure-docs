@@ -111,10 +111,11 @@ The following tables compare features available in the following API Management 
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ✔️ |
 | [Pass-through gRPC](grpc-api.md)  |  ❌ | ❌ | ❌ | ✔️ | ❌ |
 | [OData](import-api-from-odata.md)  |  ✔️ |  ✔️ | ✔️ | ✔️ | ✔️ |
-| [Azure OpenAI and LLM](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Azure OpenAI in AI Foundry models and LLMs](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Circuit breaker in backend](backends.md#circuit-breaker)  |  ✔️ | ✔️ | ❌ | ✔️ | ✔️ |
 | [Load-balanced backend pool](backends.md#load-balanced-pool)  |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Pass-through MCP server](expose-existing-mcp-server.md) (preview) |  Basic, Standard, Premium | ✔️ | ❌ | ❌ | ❌ |
+| [Export REST API as MCP server](export-rest-mcp-server.md) | ✔️ | ✔️ | ❌ | ✔️ | ❌ |
+| [Pass-through MCP server](expose-existing-mcp-server.md) | ✔️ | ✔️ | ❌ | ✔️ | ❌ |
 
 ### Policies
 
