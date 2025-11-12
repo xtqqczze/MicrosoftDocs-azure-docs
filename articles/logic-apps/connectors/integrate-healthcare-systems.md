@@ -17,11 +17,11 @@ ms.date: 11/18/2025
 >
 > This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To build automated integrations for healthcare systems or migrate from BizTalk Server to Azure Logic Apps, use the **HL7** <!--and **MLLP**--> built-in connector operations in Standard workflows. This connector lets your healthcare organization continue to use their existing healthcare solutions and create new healthcare integrations in Azure Logic Apps. 
+To build automated integrations for healthcare systems or migrate from BizTalk Server to Azure Logic Apps, use the **HL7** <!--and **MLLP**--> built-in connector operations in Standard logic app workflows. This connector lets your healthcare organization continue to use their existing healthcare solutions and create new healthcare integrations in Azure Logic Apps. 
 
-This guide shows how to use the **HL7** <!--and **MLLP**--> connector operations in your Standard workflows. In this guide, the examples use the Azure portal, but you can create Standard workflows with these operations in [Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code).
+This guide shows how to use the **HL7** <!--and **MLLP**--> connector operations in Standard workflows. In this guide, the examples use the Azure portal, but you can create Standard workflows with these operations in [Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code).
 
-## Healthcare integrations using Azure Logic Apps
+## Healthcare integrations with Azure Logic Apps
 
 Healthcare organizations are complex businesses with different departments that work together. For example, hospitals have areas like admissions, doctors, nursing stations, laboratories, and billing. Each area produces and uses various kinds of data. For example, this information includes patients, medical procedures, medications, and billing charges, which multiple departments must often share. Healthcare systems face major challenges in providing efficient ways for departments to exchange this data with each other.
 
@@ -49,7 +49,7 @@ Common HL7 message types include:
 
 Since the first BizTalk Server release, Microsoft provides support for healthcare scenarios. BizTalk Server helps organizations develop business processes across healthcare computer systems by using Microsoft BizTalk Accelerator for HL7 (BTAHL7), the HL7 standard, and the Minimal Lower Layer Protocol (MLLP) for messaging.
 
-BizTalk uses a disassembler pipeline to split HL7 messages into header, body, and custom segments. Azure Logic Apps exposes these messages as fixed outputs. This behavior simplifies HL7 message handling by avoiding multipart message complexity unless the number of parts varies.
+BizTalk Server uses a disassembler pipeline to split HL7 messages into header, body, and custom segments. Azure Logic Apps exposes these messages as fixed outputs. This behavior simplifies HL7 message handling by avoiding multipart message complexity unless the number of parts varies.
 
 The following table compares BizTalk Server with Standard logic app workflows in single-tenant Azure Logic Apps:
 
@@ -298,4 +298,5 @@ Follow these steps to add the **Send message** action and set up the necessary p
 <!--
 - [Create Standard logic app workflows for hybrid deployment on your own infrastructure](/azure/logic-apps/create-standard-workflows-hybrid-deployment)
 -->
+
 
