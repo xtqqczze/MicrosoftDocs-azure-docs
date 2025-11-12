@@ -539,7 +539,7 @@ items:
     items:
     - name: Performance checklist
       href: storage-performance-checklist.md
-    - name: Optimizing data partitions
+    - name: Optimize data partitions
       href: Storage-performance-blob-partitions.md
     - name: Latency in Blob storage
       href: storage-blobs-latency.md

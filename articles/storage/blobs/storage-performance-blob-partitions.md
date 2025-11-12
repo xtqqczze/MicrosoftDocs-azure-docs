@@ -26,11 +26,9 @@ Instead, Add a hash character sequence (such as three digits) as early as possib
 
 If you use timestamps or numerical identifiers, avoid append-only or prepend-only patterns. These patterns route all traffic to a single partition which prevents load balancing. However, if you plan to use these patterns, consider splitting data into multiple blobs. Apply a hash prefix to each blob that represents a time interval such as seconds (`ss`) or minutes (`mm`). That way traffic isn't repeatedly directed to a single blob on a single partition server which could exceed scalability limits.
 
-For more information on the partitioning scheme used in Azure Storage, see [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
-
 ## Next steps
 
+- [Performance checklist for Azure Blob Storage](storage-performance-checklist.md)
 - [Scalability and performance targets for Blob storage](scalability-targets.md)
 - [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json)
-- [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)
 
