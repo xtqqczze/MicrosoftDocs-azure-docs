@@ -126,6 +126,8 @@
           href: functions-overview.md
         - name: Create a Functions app
           href: functions-usage.md
+        - name: Create your first containerized functions on Azure Container Apps
+          href: functions-container-apps.md
     - name: Use dynamic sessions
       items:
         - name: Code interpreter sessions
