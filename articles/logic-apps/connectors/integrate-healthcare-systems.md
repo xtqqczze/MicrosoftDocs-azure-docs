@@ -32,7 +32,7 @@ Despite modern standards such as Fast Healthcare Interoperability Resources (FHI
 | Reason | Description |
 |--------|-------------|
 | Interoperability backbone | HL7 v2.x is deeply embedded in existing clinical systems. <!--MLLP provides a simple, reliable framing mechanism over TCP/IP.--> |
-| Acknowledgment support | ACK/NACK patterns help ensure delivery confirmation critical for patient safety and auditabilityu. |
+| Acknowledgment support | ACK/NACK patterns help ensure delivery confirmation critical for patient safety and auditability. |
 | Low complexity | Text-based, predictable segments simplify development and maintenance versus more complex service-based protocols. |
 
 Common HL7 message types include:
@@ -295,4 +295,5 @@ Follow these steps to add the **Send message** action and set up the necessary p
 ## Related content
 
 - [Create Standard logic app workflows for hybrid deployment on your own infrastructure](create-standard-workflows-hybrid-deployment.md)
+
 
