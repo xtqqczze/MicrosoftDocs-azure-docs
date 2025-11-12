@@ -45,21 +45,6 @@ Common HL7 message types include:
 - ORU: Unsolicited observation results
 - DFT: Detailed financial transaction
 
-## BizTalk migration notes
-
-Since the first BizTalk Server release, Microsoft provides support for healthcare scenarios. BizTalk Server helps organizations develop business processes across healthcare computer systems by using Microsoft BizTalk Accelerator for HL7 (BTAHL7), the HL7 standard, and the Minimal Lower Layer Protocol (MLLP) for messaging.
-
-BizTalk Server uses a disassembler pipeline to split HL7 messages into header, body, and custom segments. Azure Logic Apps exposes these messages as fixed outputs. This behavior simplifies HL7 message handling by avoiding multipart message complexity unless the number of parts varies.
-
-The following table compares BizTalk Server with Standard logic app workflows in single-tenant Azure Logic Apps:
-
-| Aspect | BizTalk Server | Standard workflows |
-|--------|----------------|--------------------|
-| Pipeline disassembly | Separates header, body, and custom segments. | Action outputs directly provide structured values. |
-| Schemas | HL7 schemas + global header or ACK schemas uploaded. | Upload HL7 message schemas and dependencies. Doesn't require header or ACK common schemas. |
-| ACK handling | Generation and parsing through pipeline components. | Parsing for HL7 ACK/NACK (2.4–2.6). Generation isn't supported. |
-| Z segments | Supported through schema customization. | Supported when Z segments exist in uploaded schema, but without dynamic discovery. |
-
 ## Connector technical reference
 
 <!--### [HL7](#tab/hl7)-->
@@ -292,11 +277,28 @@ Follow these steps to add the **Send message** action and set up the necessary p
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 -->
+
+## BizTalk migration notes
+
+Since the first BizTalk Server release, Microsoft provides support for healthcare scenarios. BizTalk Server helps organizations develop business processes across healthcare computer systems by using Microsoft BizTalk Accelerator for HL7 (BTAHL7), the HL7 standard, and the Minimal Lower Layer Protocol (MLLP) for messaging.
+
+BizTalk Server uses a disassembler pipeline to split HL7 messages into header, body, and custom segments. Azure Logic Apps exposes these messages as fixed outputs. This behavior simplifies HL7 message handling by avoiding multipart message complexity unless the number of parts varies.
+
+The following table compares BizTalk Server with Standard logic app workflows in single-tenant Azure Logic Apps:
+
+| Aspect | BizTalk Server | Standard workflows |
+|--------|----------------|--------------------|
+| Pipeline disassembly | Separates header, body, and custom segments. | Action outputs directly provide structured values. |
+| Schemas | HL7 schemas + global header or ACK schemas uploaded. | Upload HL7 message schemas and dependencies. Doesn't require header or ACK common schemas. |
+| ACK handling | Generation and parsing through pipeline components. | Parsing for HL7 ACK/NACK (2.4–2.6). Generation isn't supported. |
+| Z segments | Supported through schema customization. | Supported when Z segments exist in uploaded schema, but without dynamic discovery. |
+
 ## Related content
 
 - [Create Standard logic app workflows in Azure Logic Apps](/azure/logic-apps/create-single-tenant-workflows-azure-portal)
 <!--
 - [Create Standard logic app workflows for hybrid deployment on your own infrastructure](/azure/logic-apps/create-standard-workflows-hybrid-deployment)
 -->
+
 
 
