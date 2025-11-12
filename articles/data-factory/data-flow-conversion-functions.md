@@ -32,7 +32,7 @@ Conversion functions are used to convert data and test for data types
 | [setBitSet](data-flow-expressions-usage.md#setBitSet) | Sets bit positions in this bitset.|
 | [isBoolean](data-flow-expressions-usage.md#isBoolean) | Checks if the string value is a Boolean value according to the rules of ``toBoolean()``.|
 | [isByte](data-flow-expressions-usage.md#isByte) | Checks if the string value is a byte value given an optional format according to the rules of ``toByte()``.|
-| [isDate](data-flow-expressions-usage.md#isDate) | Checks if the input date string is a date by using an optional input date format. Refer to Java's `SimpleDateFormat` class for available formats. If the input date format is omitted, the default format is ``yyyy-[M]M-[d]d``. Accepted formats are `:[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]`.|
+| [isDate](data-flow-expressions-usage.md#isDate) | Checks if the input date string is a date by using an optional input date format. Refer to Java's `SimpleDateFormat` class for available formats. If the input date format is omitted, the default format is ``yyyy-[M]M-[d]d``. Accepted formats are `[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]`.|
 | [isShort](data-flow-expressions-usage.md#isShort) | Checks if the string value is a short value given an optional format according to the rules of ``toShort()``.|
 | [isInteger](data-flow-expressions-usage.md#isInteger) | Checks if the string value is an integer value given an optional format according to the rules of ``toInteger()``.|
 | [isLong](data-flow-expressions-usage.md#isLong) | Checks if the string value is a long value given an optional format according to the rules of ``toLong()``.|
