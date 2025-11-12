@@ -17,7 +17,7 @@ ms.author: cgardin
 
 A well-secured SAP solution incorporates many security concepts with many layers that span multiple domains:
 
-- Identity management, provisioning and single sign-on (SSO), multifactor authentication (MFA), global secure access, and secure network connection
+- Identity management, provisioning and single sign-on (SSO), multifactor authentication (MFA), Global Secure Access, and secure network connection
 - Auditing, log analytics, and event management
 - Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) solutions
 - Antivirus and anti-malware endpoint protection
@@ -39,7 +39,7 @@ If you're designing and implementing identity, security, and audit solutions for
 
 The design and implementation of a comprehensive security solution for SAP applications running on Azure is a consulting project.
 
-This article provides a basic deployment pattern that covers a minimum security configuration and a more secure configuration. Organizations that require high security solutions should seek expert consulting advice. Highly secured SAP landscapes could increase operational complexity and make tasks such as system refreshes, upgrades, remote access for support, debugging, and testing for high availability and disaster recovery difficult or complex.
+This article provides a basic deployment pattern that covers a minimum security configuration and a more secure configuration. Organizations that require high security solutions should seek expert consulting advice. Highly secured SAP landscapes might increase operational complexity. They also might make tasks such as system refreshes, upgrades, remote access for support, debugging, and testing for high availability and disaster recovery difficult or complex.
 
 ### Minimum: Security deployment checklist
 
@@ -49,19 +49,19 @@ This article provides a basic deployment pattern that covers a minimum security 
 - All database management systems (DBMSs) are protected with TDE. Keys are stored in Azure Key Vault or hardware security modules (HSMs), if your environment supports them.
 - Operating system, DBMS, and other passwords are stored in Key Vault.
 - Linux sign-in has passwords disabled. Users can sign in only by using keys.
-- All virtual machines are generation 2 with Trusted Launch enabled.
+- All virtual machines (VMs) are generation 2 with Trusted Launch enabled.
 - Storage accounts use platform-managed keys (PMKs).
 - VM, HANA, SQL, and Oracle backups go to an Azure Backup vault with immutable storage.
 
 ### More secure: Security deployment checklist
 
-- Defender for Endpoint is active in real-time mode on all endpoints (SAP and non-SAP). Unprotected endpoints are a gateway an attacker can use to compromise protected endpoints.
+- Defender for Endpoint is active in real-time mode on all endpoints (SAP and non-SAP). Unprotected endpoints are a gateway that an attacker can use to compromise protected endpoints.
 - Defender XDR rules are in place for alerting on (and on Windows, blocking) high-risk executable files.
 - Microsoft Sentinel for SAP or another SIEM/SOAR solution is in place.
 - All DBMSs are protected with TDE. Keys are stored in Key Vault or HSMs, if your environment supports them.
 - Operating system, DBMS, and other passwords are stored in Key Vault.
 - Linux sign-in has passwords disabled. Users can sign in only by using keys.
-- All virtual machines are generation 2. Trusted Launch, boot integrity monitoring, and host-based encryption are enabled for all VMs.
+- All VMs are generation 2. Trusted Launch, boot integrity monitoring, and host-based encryption are enabled for all VMs.
 - All VMs support Intel Total Memory Encryption (TME).
 - Storage accounts use PMKs for general storage and customer-managed keys (CMKs) for sensitive data.
 - VM, HANA, SQL, and Oracle backups go to an Azure Backup vault with immutable storage.
@@ -71,7 +71,7 @@ This article provides a basic deployment pattern that covers a minimum security 
 
 Defender for Endpoint is the only comprehensive antivirus and SAP Endpoint Detection and Response (EDR) solution that's comprehensively benchmarked and tested with SAP benchmarking tools and documented for SAP workloads.
 
-Defender for Endpoint should be deployed on all NetWeaver, S/4HANA, HANA, and AnyDB servers without exception. The following deployment guidance covers the correct deployment and configuration of Defender for Endpoint for SAP applications:
+Defender for Endpoint should be deployed on all NetWeaver, S/4HANA, HANA, and AnyDB servers without exception. The following deployment guides cover the correct deployment and configuration of Defender for Endpoint for SAP applications:
 
 - [Microsoft Defender for Endpoint on Linux with SAP](/defender-endpoint/mde-linux-deployment-on-sap)
 - [Microsoft Defender for Endpoint on Windows Server with SAP](/defender-endpoint/mde-sap-windows-server)
@@ -124,7 +124,7 @@ DB2 native encryption is supported in combination with SAP applications. Encrypt
 Azure supports two solutions for key management:
 
 - Azure Key Vault: A native Azure service that provides key management services (not PKCS#11 compliant).
-- Azure Cloud HSM: A hardware-level PKCS#11 FIPS 140-3 Level 3 single-tenant solution.
+- Azure Cloud HSM: A hardware-level, PKCS#11, FIPS 140-3 Level 3, single-tenant solution.
 
 For more information on these services, see:
 

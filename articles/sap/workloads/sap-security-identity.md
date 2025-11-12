@@ -110,7 +110,7 @@ Authorization attributes can be replicated from Microsoft Entra to target SAP ap
 > [!NOTE]
 > You can now use Microsoft Entra functionality to synchronize both users and groups from Microsoft Entra to SAP Cloud Identity Services. You can add this functionality free of charge in the Microsoft Entra admin center.
 
-The process to set up and synchronize authorization roles and profiles for NetWeaver and S/4 systems is documented in detail in the SAP Community blog post [Identity and Access Management with Microsoft Entra, Part III: SuccessFactors and Role Provisioning](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-iii-successfactors/ba-p/14233747).
+The process to set up and synchronize authorization roles and profiles for NetWeaver and S/4HANA systems is documented in detail in the SAP Community blog post [Identity and Access Management with Microsoft Entra, Part III: SuccessFactors and Role Provisioning](https://community.sap.com/t5/technology-blog-posts-by-members/identity-and-access-management-with-microsoft-entra-part-iii-successfactors/ba-p/14233747).
 
 For helpful diagrams, see these resources:
 
@@ -122,7 +122,7 @@ For helpful diagrams, see these resources:
 
 The Global Secure Access client implements an [NDIS 6.0 lightweight filter (LWF) network driver](/windows-hardware/drivers/network/ndis-filter-drivers) to route any traffic to internal and external applications based on centrally defined access rules at the company's Microsoft Entra ID tenant level.
 
-If you want to achieve network-level security, we recommend the video embedded in the following blog post: [SAP GUI MFA with Microsoft Entra (Part II): Integration - SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-ii-integration-with-microsoft-entra/ba-p/13691141). The outcome is similar to operating a virtual private network (VPN), without the overhead of installing and maintaining a full VPN on client devices.
+If you want to achieve network-level security, we recommend the video embedded in the following SAP Community blog post: [SAP GUI MFA with Microsoft Entra (Part II): Integration](https://community.sap.com/t5/technology-blog-posts-by-members/sap-gui-mfa-with-microsoft-entra-part-ii-integration-with-microsoft-entra/ba-p/13691141). The outcome is similar to operating a virtual private network (VPN), without the overhead of installing and maintaining a full VPN on client devices.
 
 For more information about using Global Secure Access with SAP, see the YouTube video [The one with SSO to SAP GUI using Global Secure Access](https://www.youtube.com/watch?v=42dj-lV-MDQ).
 
