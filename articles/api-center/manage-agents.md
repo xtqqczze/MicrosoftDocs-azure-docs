@@ -30,11 +30,12 @@ This guide shows you how to update and manage agents after they've been register
 
 Skills define the capabilities and actions your A2A agent can perform.
 
+> [!TIP]
+> For detailed skill schema information, see the [Agent2Agent (A2A) Protocol Official Specification](https://a2a-protocol.org/latest/specification/).
+
 1. On the **Edit** page, locate the **Agent Skills** section.
 1. Select **+ Add**.
 1. On the **Agent Skills** page, define the skill by providing information for the required fields.
-    > [!TIP]
-    > For detailed skill schema information, see the [Agent2Agent (A2A) Protocol Official Specification](https://a2a-protocol.org/latest/specification/).
 1. Select **Add** to add the skill.
 
 ### Add provider information
