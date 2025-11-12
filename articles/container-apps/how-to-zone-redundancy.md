@@ -25,7 +25,7 @@ To see which regions support Container Apps, see [Product availability by region
 
 ## Create a zone-redundant container app
 
-Use the Azure portal, the Azure CLI, or PowerShell to create a zone-redundant container app.
+Use the Azure portal, the Azure CLI, or Azure PowerShell to create a zone-redundant container app.
 
 # [The Azure portal](#tab/portal)
 
@@ -59,7 +59,7 @@ Zone redundancy requires a virtual network that has an infrastructure subnet. Yo
 
 1. Create a virtual network and infrastructure subnet to include with the Container Apps environment.
 
-   When you use these commands, replace the `<PLACEHOLDERS>` with your values.
+   When you use the following commands, replace the `<PLACEHOLDERS>` with your values.
     
    > [!NOTE]
    > The consumption-only environment requires a dedicated subnet that has a Classless Inter-Domain Routing (CIDR) range of `/23` or larger. The workload profiles environment requires a dedicated subnet that has a CIDR range of `/27` or larger. For more information about subnet sizing, see [Networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
@@ -102,7 +102,7 @@ Zone redundancy requires a virtual network that has an infrastructure subnet. Yo
 
 1. Create a virtual network and infrastructure subnet to include with the Container Apps environment.
 
-   When you use these commands, replace the `<PLACEHOLDERS>` with your values.
+   When you use the following commands, replace the `<PLACEHOLDERS>` with your values.
     
    > [!NOTE]
    > The consumption-only environment requires a dedicated subnet that has a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet that has a CIDR range of `/27` or larger. For more information about subnet sizing, see [Networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
@@ -193,7 +193,7 @@ To verify that zone redundancy is enabled for your Container Apps environment, d
 
 # [The Azure CLI](#tab/azure-cli)
 
-1. Run the [`az container app env show`](/cli/azure/containerapp/env#az-containerapp-env-show) command.
+1. Run the [`az containerapp env show`](/cli/azure/containerapp/env#az-containerapp-env-show) command.
 
     When you use this command, replace the `<PLACEHOLDERS>` with your values.
 
@@ -208,7 +208,7 @@ To verify that zone redundancy is enabled for your Container Apps environment, d
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-1. Run the [`az container app env show`](/cli/azure/containerapp/env#az-containerapp-env-show) command.
+1. Run the [`az containerapp env show`](/cli/azure/containerapp/env#az-containerapp-env-show) command.
 
     When you use this command, replace the `<PLACEHOLDERS>` with your values.
 
