@@ -71,7 +71,7 @@ This article provides a basic deployment pattern that covers a minimum security 
 
 Defender for Endpoint is the only comprehensive antivirus and SAP Endpoint Detection and Response (EDR) solution that's comprehensively benchmarked and tested with SAP benchmarking tools and documented for SAP workloads.
 
-Defender for Endpoint should be deployed on all NetWeaver, S/4HANA, HANA, and AnyDB servers without exception. The following deployment guides cover the correct deployment and configuration of Defender for Endpoint for SAP applications:
+Defender for Endpoint should be deployed on all NetWeaver, S/4HANA, HANA, and AnyDB servers without exception. The following deployment guides cover the correct deployment and configuration of Defender for Endpoint with SAP applications:
 
 - [Microsoft Defender for Endpoint on Linux with SAP](/defender-endpoint/mde-linux-deployment-on-sap)
 - [Microsoft Defender for Endpoint on Windows Server with SAP](/defender-endpoint/mde-sap-windows-server)
@@ -141,9 +141,9 @@ Defender for Key Vault can alert you if suspicious activity occurs in Key Vault.
 Operating system patching is one key layer in a secure solution. It isn't possible to consistently and reliably update VMs at scale manually without the use of patch management tools. You can use [Azure Update Manager](/azure/update-manager/overview) to accelerate and automate this process.
 
 > [!NOTE]
-> Linux kernel hotpatching has restrictions when the target VMs are running Defender for Endpoint. Review the Defender for Endpoint for SAP documentation. Linux patching that requires OS reboot should be handled manually on Pacemaker systems.
+> Linux kernel hotpatching has restrictions when the target VMs are running Defender for Endpoint. Review the documentation about using Defender for Endpoint with SAP, as listed [earlier in this article](#defender-for-endpoint). Linux patching that requires OS reboot should be handled manually on Pacemaker systems.
 
-You can use [Microsoft Secure Score](/defender-vulnerability-management/tvm-microsoft-secure-score-devices) to monitor status of a landscape.
+You can use [Microsoft Secure Score](/defender-vulnerability-management/tvm-microsoft-secure-score-devices) to monitor the status of a landscape.
 
 ### SUSE, Red Hat, and Oracle Linux
 
@@ -155,7 +155,7 @@ High-priority items for Linux operating systems include:
 - Use a managed identity for Pacemaker, not a service principal name (SPN). For more information, see the Microsoft blog post [SAP on Azure high availability - change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/blog/sapapplications/sap-on-azure-high-availability-%E2%80%93-change-from-spn-to-msi-for-pacemaker-clusters-u/3609278).
 - Disable root sign-in.
 
-SELinux is supported with modern Red Hat Enterprise Linux (RHEL) releases. But Microsoft doesn't provide support for SELinux, and careful testing is required. For more information, see [SAP Note 3108302 for SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302/E).
+SELinux is supported with modern Red Hat Enterprise Linux (RHEL) releases. Microsoft doesn't provide support for SELinux, and careful testing is required. For more information, see [SAP Note 3108302 for SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302/E).
 
 Here are resources for hardening Linux OS distributions:
 
@@ -165,7 +165,7 @@ Here are resources for hardening Linux OS distributions:
 - [Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15 GA and SP1](https://documentation.suse.com/sbp/sap-15/html/OS_Security_Hardening_Guide_for_SAP_HANA_SLES15/index.html) (SUSE documentation)
 - [Security hardening guide for SAP HANA](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/security_hardening_guide_for_sap_hana/index) (Red Hat documentation)
 
-### Windows operating system
+### Windows operating systems
 
 High-priority items for Windows operating systems include:
 
@@ -188,10 +188,10 @@ You can enhance your Azure infrastructure security configuration to reduce or el
 
 ### Generation 2 VM and Trusted Launch
 
-We recommend that you deploy only generation 2 VMs and activate Trusted Launch. For more information, see:
+We recommend that you deploy only generation 2 VMs and activate Trusted Launch. For more information, see the following Microsoft article and blog post:
 
 - [Trusted Launch for Azure virtual machines](/azure/virtual-machines/trusted-launch)
-- [Improve the security of Generation 2 VMs via Trusted Launch in Azure DevTest Labs](https://devblogs.microsoft.com/develop-from-the-cloud/improve-the-security-of-generation-2-vms-via-trusted-launch-in-azure-devtest-labs/) (Microsoft blog post)
+- [Improve the security of Generation 2 VMs via Trusted Launch in Azure DevTest Labs](https://devblogs.microsoft.com/develop-from-the-cloud/improve-the-security-of-generation-2-vms-via-trusted-launch-in-azure-devtest-labs/)
 
 > [!NOTE]
 > Only recent versions of SUSE 15 support Trusted Launch. See the [list of supported operating systems](/azure/virtual-machines/trusted-launch#operating-systems-supported).
@@ -277,15 +277,16 @@ We recommend that you review [Steps to take before an attack](/azure/security/fu
 
 Here are more resources:
 
-- [Immutable vault for Azure Backup](/azure/backup/backup-azure-immutable-vault-concept?tabs=recovery-services-vault).
-- [Azure security fundamentals documentation](/azure/security/fundamentals/).
-- [Microsoft Digital Defense Report](https://www.microsoft.com/security/business/security-intelligence-report?msockid=343d619786f36e041990740887e36ff0).
-- Microsoft offers support and consulting services for security-related topics. See the Microsoft blog post [DART: the Microsoft cybersecurity team we hope you never meet](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/).
-- Microsoft provides tools to remove ransomware and other malware from Windows. For more information, see [Microsoft Safety Scanner download](/defender-endpoint/safety-scanner-download).
-- [Windows Malicious Software Removal Tool 64-bit](https://www.microsoft.com/download/details.aspx?id=9905).
-- [FAQ: Protect backups from ransomware with Azure Backup](/azure/backup/protect-backups-from-ransomware-faq).
+- [Immutable vault for Azure Backup](/azure/backup/backup-azure-immutable-vault-concept?tabs=recovery-services-vault)
+- [Azure security fundamentals documentation](/azure/security/fundamentals/)
+- [Microsoft Digital Defense Report](https://www.microsoft.com/security/business/security-intelligence-report?msockid=343d619786f36e041990740887e36ff0)
+- [Microsoft Safety Scanner](/defender-endpoint/safety-scanner-download)
+- [Windows Malicious Software Removal Tool 64-bit](https://www.microsoft.com/download/details.aspx?id=9905)
+- [FAQ: Protect backups from ransomware with Azure Backup](/azure/backup/protect-backups-from-ransomware-faq)
 
-Further recommendations for large organizations include segregation of duties. For example, SAP administrators and server administrators should have read-only access to the Azure Backup vault. You can implement multiple-user authorization and a resource guard to help protect against rogue administrators and ransomware. For more information, see [Configure multi-user authorization by using a resource guard in Azure Backup](/azure/backup/multi-user-authorization?tabs=azure-portal&pivots=vaults-recovery-services-vault).
+In addition, Microsoft offers support and consulting services for security-related topics. See the Microsoft blog post [DART: the Microsoft cybersecurity team we hope you never meet](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/).
+
+Further recommendations for large organizations include segregation of duties. For example, SAP administrators and server administrators should have read-only access to the Azure Backup vault. You can implement [multi-user authorization and a resource guard]((/azure/backup/multi-user-authorization?tabs=azure-portal&pivots=vaults-recovery-services-vault)) to help protect against rogue administrators and ransomware.
 
 You can achieve extra protection from ransomware by deploying Azure Firewall Premium. For more information, see [Improve your security defenses for ransomware attacks with Azure Firewall Premium](/azure/security/fundamentals/ransomware-protection-with-azure-firewall).
 
