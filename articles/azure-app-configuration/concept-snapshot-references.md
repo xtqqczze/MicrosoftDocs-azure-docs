@@ -75,6 +75,57 @@ As mentioned, a snapshot reference is a normal key-value with some added constra
 
 Snapshot reference content type: `application/json; profile="https://azconfig.io/mime-profiles/snapshot-ref"; charset=utf-8`
 
+## Key conflict resolution
+
+Referenced snapshots may contain keys that conflict with normal key-values (those outside of a snapshot). Configuration providers resolve these conflicts by using the value of the last seen key. In the case of snapshots, since they are resolved immediately upon being seen, the lexographic ordering of the snapshot reference key is an important detail when considering the ultimate value of a given key when there are conflicts.
+
+### Simplified example
+
+Assume your store has these normal key-values:
+
+```
+key: message
+value: hello-world
+
+key: request-limit
+value: 100
+```
+
+And a snapshot containing:
+
+```
+key: message
+value: bye
+
+key: request-limit
+value: 8000
+```
+
+If your application loads all key-values and a snapshot reference is added that points to the aforementioned snapshot, then the final effective configuration depends on the snapshot reference key's lexicographic position:
+
+| Snapshot reference key | Lexographic position vs `message`, `request-limit` | Final `message` value | Final `request-limit` value | Why |
+|------------------------|-------------------------------------------------------|-----------------|-----------------------|-----|
+| `a-snapshot-reference` | Before both                                           | hello-world     | 100                   | The snapshot reference is resolved first; later normal keys override their duplicates. |
+| `my-snapshot-reference`| After `message` but before `request-limit`            | bye             | 100                   | `message` is seen first. The snapshot reference is then resolved and overrides `message`. Finally the normal `request-limit` overrides the snapshot's `request-limit` value. |
+| `some-snapshot-reference` | After both                                        | bye             | 8000                  | The snapshot reference is resolved last; its values override earlier duplicates. |
+
+Result snippets for clarity:
+
+```
+// Snapshot reference key: a-snapshot-reference
+message = hello-world
+request-limit = 100
+
+// Snapshot reference key: my-snapshot-reference
+message = bye
+request-limit = 100
+
+// Snapshot reference key: some-snapshot-reference
+message = bye
+request-limit = 8000
+```
+
+
 ## Considerations and edge cases
 
 * **Missing target snapshot**: If the reference points to a snapshot name that doesn't exist or is archived beyond retention, the provider ignores the reference.
