@@ -34,8 +34,8 @@ In Azure Data Factory and Azure Synapse Analytics pipelines, use the expression 
 | [atan2](data-flow-expressions-usage.md#atan2) | Returns the angle in radians between the positive x-axis of a plane and the point given by the coordinates.  |
 | [between](data-flow-expressions-usage.md#between) | Checks if the first value is in between two other values inclusively. You can compare numeric, string, and `datetime` values.  |
 | [bitwiseAnd](data-flow-expressions-usage.md#bitwiseAnd) | Uses the bitwise `And` operator across integral types. Same as the `&` operator.  |
-| [bitwiseOr](data-flow-expressions-usage.md#bitwiseOr) | Uses the bitwise `Or` operator across integral types. Same as the `\|` operator.  |
-| [bitwiseXor](data-flow-expressions-usage.md#bitwiseXor) | Uses the bitwise `Or` operator across integral types. Same as the `\|` operator.  |
+| [bitwiseOr](data-flow-expressions-usage.md#bitwiseOr) | Uses the bitwise `Or` operator across integral types. Same as the `|` operator.  |
+| [bitwiseXor](data-flow-expressions-usage.md#bitwiseXor) | Uses the bitwise `Or` operator across integral types. Same as the `|` operator.  |
 | [blake2b](data-flow-expressions-usage.md#blake2b) | Calculates the Blake2 digest of a set of columns of varying primitive data types when given a bit length. The bit length can only be multiples of 8 between 8 and 512. You can use it to calculate a fingerprint for a row.  |
 | [blake2bBinary](data-flow-expressions-usage.md#blake2bBinary) | Calculates the Blake2 digest of a set of columns of varying primitive data types when given a bit length, which can only be multiples of 8 between 8 and 512. You can use it to calculate a fingerprint for a row.  |
 | [case](data-flow-expressions-usage.md#case) | Applies one value or the other based on alternating conditions. If the number of inputs is even, the other is defaulted to `NULL` for the last condition.  |
@@ -104,7 +104,7 @@ In Azure Data Factory and Azure Synapse Analytics pipelines, use the expression 
 | [not](data-flow-expressions-usage.md#not) | Uses the logical negation operator.  |
 | [notEquals](data-flow-expressions-usage.md#notEquals) | Uses the comparison not equals operator. Same as the `!=` operator.  |
 | [null](data-flow-expressions-usage.md#null) | Returns a `NULL` value. Use the function `syntax(null())` if there's a column named `null`. Any operation that uses it results in a `NULL`.  |
-| [or](data-flow-expressions-usage.md#or) | Uses the logical `OR` operator. Same as `\|\|`.  |
+| [or](data-flow-expressions-usage.md#or) | Uses the logical `OR` operator. Same as `||`.  |
 | [pMod](data-flow-expressions-usage.md#pMod) | Gives the positive modulus of a pair of numbers.  |
 | [partitionId](data-flow-expressions-usage.md#partitionId) | Returns the current partition ID that the input row is in.  |
 | [power](data-flow-expressions-usage.md#power) | Raises one number to the power of another.  |
