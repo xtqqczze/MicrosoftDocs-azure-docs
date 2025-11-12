@@ -14,7 +14,19 @@ zone_pivot_groups: web-application-firewall-types
 
 # Azure Web Application Firewall JavaScript challenge
 
-Azure Web Application Firewall (WAF) on Azure Front Door and Azure Application Gateway offers a JavaScript (JS) challenge feature as one of the mitigation options for advanced bot protection. For Azure Front Door, It's available on the premium version as an action in the custom rule set and the Bot Manager 1.x ruleset.
+::: zone pivot="application-gateway"
+
+Azure Web Application Firewall (WAF) on Azure Application Gateway offers a JavaScript (JS) challenge feature as one of the mitigation options for advanced bot protection.
+
+::: zone-end
+
+::: zone pivot="front-door"
+
+Azure Web Application Firewall (WAF) on Azure Front Door offers a JavaScript (JS) challenge feature as one of the mitigation options for advanced bot protection. It's available on the premium version as an action in the custom rule set and the Bot Manager 1.x ruleset.
+
+::: zone-end
+
+The JavaScript challenge is an invisible web challenge that distinguishes between legitimate users and bots. Malicious bots fail the challenge, protecting your web applications. Additionally, the JavaScript challenge reduces friction for legitimate users because it doesn't require human intervention.
 
 ::: zone pivot="application-gateway"
 
@@ -23,8 +35,6 @@ Azure Web Application Firewall (WAF) on Azure Front Door and Azure Application G
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ::: zone-end
-
-The JavaScript challenge is an invisible web challenge that distinguishes between legitimate users and bots. Malicious bots fail the challenge, protecting your web applications. Additionally, the JavaScript challenge reduces friction for legitimate users because it doesn't require human intervention.
 
 ## How it works
 
