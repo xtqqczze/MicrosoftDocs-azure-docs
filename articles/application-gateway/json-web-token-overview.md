@@ -5,7 +5,7 @@ author: rnautiyal
 ms.author: rnautiyal
 ms.service: azure-application-gateway
 ms.topic: conceptual
-ms.date: 10/22/2025
+ms.date: 11/18/2025
 ---
 
 # JWT (JSON WEB TOKEN) validation in Azure Application Gateway (Preview)
@@ -15,6 +15,9 @@ The Microsoft Entra JWT Validation feature enables [Azure Application Gateway](/
  (formerly Azure Active Directory) in incoming HTTPS requests. This provides first-hop authentication enforcement for Web APIs or any protected resource without requiring custom code in your backend applications. This capability verifies the integrity and authenticity of tokens in incoming requests and determines whether to allow or deny access before forwarding traffic to backend services. Upon successful validation, the gateway injects the ``x-msft-entra-identity`` header into the request and forwards it to the backend, enabling downstream applications to securely consume verified identity information
 
 By performing token validation at the edge, Application Gateway simplifies application architecture and strengthens overall security posture. JWT validation is stateless, meaning each request must present a valid token for access to be granted. No session or cookie-based state is maintained, ensuring consistent validation across requests and alignment with [Zero Trust](/security/zero-trust/zero-trust-overview) principles.
+
+> [!IMPORTANT]
+> JWT validation in Azure Application Gateway is currently in **Public Preview**. This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Key Capabilities
 
@@ -102,7 +105,7 @@ By performing token validation at the edge, Application Gateway simplifies appli
 
    2. Open your Application Gateway, navigate to Settings in the left menu, and select the **JWT validation configuration** blade
 
-   ![JWT validation configurations](../application-gateway/media/application-gateway-json-web-token/json-web-token-configuration.md.png)
+       :::image type="content" source="media/json-web-token-overview.md/json-web-token-configuration.png" alt-text="Screenshot of JSON Web Token configuration window for Application Gateway.":::
 
    3. Provide the following details:
 
