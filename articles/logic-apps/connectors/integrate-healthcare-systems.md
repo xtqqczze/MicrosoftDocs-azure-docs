@@ -119,7 +119,7 @@ The HL7 connector operations are available in all Standard workflows.
 
   :::image type="content" source="media/connectors-healthcare/integration-schemas.png" alt-text="Screenshot shows integration account with HL7 schemas." lightbox="media/connectors-healthcare/integration-schemas.png"::: 
 
-- A Standard logic app resource and workflow to use for your healthcare integration.
+- A Standard logic app resource and workflow to use for your healthcare integration. See [Create Standard logic app workflows in Azure Logic Apps](/azure/logic-apps/create-single-tenant-workflows-azure-portal).
 
   The HL7 connector doesn't have triggers, so you can use any trigger that works for your scenario. <!--For example, you can use the **MLLP** trigger named **Receive message**. To use this trigger, you need a blank workflow.-->
   
@@ -294,6 +294,7 @@ Follow these steps to add the **Send message** action and set up the necessary p
 -->
 ## Related content
 
-- [Create Standard logic app workflows for hybrid deployment on your own infrastructure](create-standard-workflows-hybrid-deployment.md)
-
-
+- [Create Standard logic app workflows in Azure Logic Apps](/azure/logic-apps/create-single-tenant-workflows-azure-portal)
+<!--
+- [Create Standard logic app workflows for hybrid deployment on your own infrastructure](/azure/logic-apps/create-standard-workflows-hybrid-deployment)
+-->
