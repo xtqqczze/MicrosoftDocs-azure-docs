@@ -263,7 +263,7 @@ Number of 'read' requests for subscription '{1}' actor '{2}' exceeded. Please tr
 </value>
 ```
 
-If you receive an ARM throttling error, we recommend that you go through the ARM [recommendations](/azure/azure-resource-manager/management/request-limits-and-throttling#azure-resource-graph-throttling) to understand how ARM limits are enforced.
+If you receive an ARM throttling error, we recommend that you go through the [ARM recommendations](/azure/azure-resource-manager/management/request-limits-and-throttling#azure-resource-graph-throttling) to understand how ARM limits are enforced.
 
 ## ARG GET/LIST API  
 
