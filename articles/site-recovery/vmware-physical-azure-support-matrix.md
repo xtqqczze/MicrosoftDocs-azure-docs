@@ -294,19 +294,6 @@ Rocky Linux 9.0 <br> Rocky Linux 9.1  | 9.60 |  5.14.0-70.13.1.el9_0.x86_64 <br>
 Rocky Linux | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | Rocky Linux 8.8 <br> Rocky Linux 8.9 |
 Rocky Linux | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | Rocky Linux 8.7 <br> Rocky Linux 9.0 |
 
-
-### Alma Linux Server supported kernel versions
-
-> [!IMPORTANT]
-> Support for Alma Linux is available for Modernized experience only and not available for Classic experience.
-
-**Release** | **Mobility service version** | **Red Hat kernel version** |
---- | --- | --- |
-Alma Linux 10.0 <br> Alma Linux 9.6 | 9.66 | 6.12.0-55.9.1 and later <br> 5.14.0-570.12.1 and later|
-Alma Linux 9.0 <br> Alma Linux 9.1 <br> Alma Linux 9.2 <br> Alma Linux 9.3 <br> Alma Linux 9.4 <br> Alma Linux 9.5 |9.65 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
-Alma Linux 9.0 <br> Alma Linux 9.1 |9.64 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
-
-
 ## Linux file systems/guest storage
 
 **Component** | **Supported**
