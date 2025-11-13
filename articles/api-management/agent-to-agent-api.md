@@ -28,15 +28,15 @@ Learn more about managing AI APIs in API Management:
 
 When you import an A2A agent API, API Management provides the following capabilities:
 * Mediates JSON-RPC runtime operations to the A2A backend. 
-    * Adds the following A2A-specific attributes in Application Insights logs (when configured) to comply with the [OpenTelemetry GenAI semantic convention](https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/):
+    * Enables governance and traffic control using policies.
+    * When observability through Application Insights is enabled, adds the following A2A-specific attributes to comply with the [OpenTelemetry GenAI semantic convention](https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/):
         * `genai.agent.id` - Set to the agent ID configured in the API settings
         * `genai.agent.name`- Set to the API name in the API settings 
-    * Enables governance and traffic control using policies.
 * Exposes the [agent card](https://a2a-protocol.org/dev/specification/#5-agent-discovery-the-agent-card) with the following transformations:  
     * Replaces the hostname with API Management instance's hostname.
     * Sets the preferred transport protocol to JSON-RPC.
     * Removes all other interfaces in `additionalInterfaces`.    
-    * Rewrites security requirements to represent the subscription key. 
+    * Rewrites security requirements to represent the API Management subscription key. 
 
 ## Prerequisites
 
@@ -84,17 +84,18 @@ In the A2A API settings, you can optionally configure subscription key authentic
 1. Select the API you created in the previous step.
 1. On the **Settings** page, under **Subscription**, select (enable) **Subscription required**.
 
-If you enable subscription key authentication, clients must include a valid subscription key in the `Ocp-Apim-Subscription-Key` header or `subscription-key` query parameter when calling the A2A agent API.
+If you enable subscription key authentication, clients must include a valid subscription key in the `Ocp-Apim-Subscription-Key` header or `subscription-key` query parameter when calling the A2A agent API or accessing the agent card.
 
 ## Test the A2A agent API
 
 To make sure your A2A agent API works as expected, call the backend through API Management:
 
 1. Select the API you created in the previous step.
-1. On the **Overview** page, copy the **Runtime base URL**. Use this URL to call the A2A agent API through API Management.
-1. Configure a test client or use a tool such as [curl](https://curl.se/) to make a POST request to the agent.
+1. On the **Overview** page, copy the **Runtime base URL**. Use this URL to call the A2A agent API through API Management. 
+1. Configure a test client or use a tool such as [curl](https://curl.se/) to make a `POST` request to the agent. If subscription key authentication is enabled, include a valid subscription key header or query parameter in the request.
 
-You can also access the agent card JSON document through API Management. Use your browser to navigate to the **Agent card URL** displayed on the **Overview** page of your A2A agent API. The agent card should be displayed with the transformations applied by API Management.
+> [!TIP]
+> Similarly, access the agent card through API Management by making a `GET` request to the **Agent card URL** displayed on the **Overview** page of your A2A agent API.
 
 ## Limitations
 
