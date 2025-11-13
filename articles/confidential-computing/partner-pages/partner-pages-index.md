@@ -15,7 +15,7 @@ ms.author: ananyagarg
 
 Azure confidential computing enables an ecosystem of partners that build on our privacy preserving infrastructure to provide additional capabilities for  customers. Learn more about our partners, their unique solutions to your use cases and links to get started with their Azure Marketplace solutions.
 
-- [Acompany](../partner-pages/acompany.md) Provides confidential computing as a strategic security foundation on Microsoft Azure. Customers use our technology to operate privacy-preserving data clean rooms for a Fortune Global 500 telecom company, optimize manufacturing analytics, and support mission-critical national security initiatives.<img width="468" height="52" alt="image" src="https://github.com/user-attachments/assets/e9509ae0-237e-4db1-8bc2-94581a4e8655" />
+- [Acompany](../partner-pages/acompany.md) Provides confidential computing as a strategic security foundation on Microsoft Azure. Customers use our technology to operate privacy-preserving data clean rooms for a Fortune Global 500 telecom company, optimize manufacturing analytics, and support mission-critical national security initiatives.
 
 - [Anjuna](../partner-pages/anjuna.md) Confidential Computing Platform is the solution for protecting your workloads from prying eyes and unauthorized tampering in the cloud. Your workloads stay confidential and trusted during execution so that you can embrace the cloud and innovate faster without the threat of code and data exposure.
 
