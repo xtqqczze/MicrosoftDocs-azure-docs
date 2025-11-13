@@ -22,7 +22,7 @@ ms.custom:
 
 # Tutorial: Deploy a PHP, MySQL, and Redis app to Azure App Service
 
-This tutorial shows how to create a secure PHP app in Azure App Service connects to a MySQL database (using Azure Database for MySQL Flexible Server). You'll also deploy an Azure Cache for Redis to enable the caching code in your application. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Laravel app running on Azure App Service on Linux.
+This tutorial shows how to create a secure PHP app in Azure App Service connects to a MySQL database (using Azure Database for MySQL Flexible Server). You also deploy an Azure Cache for Redis to enable the caching code in your application. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you have a Laravel app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of the Azure app example titled Task List showing new tasks added.":::
 
@@ -88,7 +88,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure Database for MySQL, and Azure Cache for Redis. For the creation process, you specify:
 
 * The **Name** for the web app. It's used as part of the DNS name for your app.
-* The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
+* The **Region** to run the app physically in the world. It's also part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the version of PHP to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
 * The **Resource Group** for the app. A resource group lets you group (in a logical container) all the Azure resources needed for the application.
@@ -110,7 +110,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row:::
     :::column span="2":::
         **Step 2:** In the **Create Web App** page, fill out the form as follows.
-        1. *Name*: **msdocs-laravel-mysql-XYZ**. A resource group named **msdocs-laravel-mysql-XYZ_group** will be generated for you.
+        1. *Name*: **msdocs-laravel-mysql-XYZ**. The Azure portal creates a resource group named **msdocs-laravel-mysql-XYZ_group**.
         1. *Runtime stack*: **PHP 8.4**.
         1. *Operating system*: **Linux**.
         1. *Region*: Any Azure region near you.
@@ -171,7 +171,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ## 3 - Secure connection secrets
 
-The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to [Key Vault references](app-service-key-vault-references.md) with the help of Service Connectors.
+The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. Move your secrets to a key vault and change your app setting to [Key Vault references](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
@@ -180,7 +180,7 @@ The creation wizard generated the connectivity variables for you already as [app
         1. Select **Connection strings**.
         1. Select **AZURE_MYSQL_CONNECTIONSTRING**. 
         1. In **Add/Edit application setting**, in the **Value** field, copy the username and password for use later.
-        The connection string lets you connect to the MySQL database secured behind private endpoints. However, the secrets are saved directly in the App Service app, which isn't the best. You'll change this.
+        The connection string lets you connect to the MySQL database secured behind private endpoints. However, the secrets are saved directly in the App Service app, which isn't the best. You'll change this configuration.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-1.png":::
@@ -344,7 +344,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row:::
     :::column span="2":::
         **Step 1:** Back in the GitHub codespace of your sample fork, run `git pull origin main`. 
-        This pulls the newly committed workflow file into your codespace.
+        This command pulls the newly committed workflow file into your codespace.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-1.png" alt-text="A screenshot showing git pull inside a GitHub codespace." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-1.png":::
@@ -355,9 +355,9 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         **Step 2 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
         1. Ask, "*@workspace How does the app connect to the database and redis?*" Copilot might give you some explanation about how the settings are configured in *config/database.php*. 
-        1. Ask, "*@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a MySQL flexible server. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *config/database.php* file. 
+        1. Ask, "*@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a MySQL flexible server. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps and even tell you to make the change in the *config/database.php* file. 
         1. Open *config/database.php* in the explorer and add the code suggestion.
-        1. Ask, "@workspace My App Service app also uses Azure Service Connector to connect to a Cache for Redis using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *config/database.php* file. If prompted, sign into GitHub Copilot for Azure to get more accurate answers.
+        1. Ask, "@workspace My App Service app also uses Azure Service Connector to connect to a Cache for Redis using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps and even tell you to make the change in the *config/database.php* file. If prompted, sign into GitHub Copilot for Azure to get more accurate answers.
         1. Add the code suggestion.
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -546,7 +546,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 :::row:::
     :::column span="2":::
         **Step 3:** 
-        1. Enter the resource group name to confirm your deletion.
+        1. To confirm your deletion, enter the resource group name.
         1. Select **Delete**.
     :::column-end:::
     :::column:::
@@ -634,7 +634,7 @@ The AZD template you use generated the connectivity variables for you already as
 
     Settings beginning with `AZURE_MYSQL_` are connection variables for the MySQL database, and settings beginning with `AZURE_REDIS_` are for the Redis cache. You need to use them in your code later. For your convenience, the AZD template shows you the direct link to the app's app settings page in the Azure portal.
 
-1. From the explorer, open *config/database.php*. This is the configuration file for database and Redis cache connections.
+1. From the explorer, open *config/database.php*. This file is the configuration file for database and Redis cache connections.
 
 1. Find the part that defines the `mysql` connection (lines 46-64) and replace `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` with the `AZURE_MYSQL_` app settings from the AZD output. Your `mysql` connection should look like the following code.
 
@@ -683,7 +683,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 ## 4. Configure Laravel settings in web app
 
-1. From the explorer, open *infra/resources.bicep*. This is the Bicep file that defines the created Azure resources.
+1. From the explorer, open *infra/resources.bicep*. This file is the Bicep file that defines the created Azure resources.
 
 1. Find the part that defines the app settings (lines 510-514) and uncomment them. These app settings are:
     
