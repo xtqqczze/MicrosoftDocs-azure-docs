@@ -128,7 +128,7 @@ Create a new **GitHub App** by following these steps:
   | Metadata  | Read-only  |
   | Webhook   | Read and write  |
 
-10. Under **Where can this GitHub App be installed?** select **Only on this account** or **Any account**. 
+10. Under **Where can this GitHub App be installed?**, select **Only on this account** or **Any account**. 
   
 :::image type="content" source="./media/add-copilot-code-insights/permissions.png" alt-text="The screenshot shows the available permissions." lightbox="./media/add-copilot-code-insights/permissions.png":::
     
