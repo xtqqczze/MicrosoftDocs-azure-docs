@@ -113,7 +113,7 @@ To disable the Oozie WebUI, please follow the below steps:
 
 1. Stop Oozie services from Ambari portal.
 
-2. Edit /var/lib/ambari-server/resources/stacks/HDInsight/<version>/services/OOZIE/quicklinks/quicklinks.json and remove the value for **`url`** parameter and replace with ""
+2. Edit /var/lib/ambari-server/resources/stacks/HDInsight/<version>/services/OOZIE/quicklinks/quicklinks.json and remove the value for **`<url>`** parameter and replace with ""
 
 3. Restart Ambari services
 ```bash
