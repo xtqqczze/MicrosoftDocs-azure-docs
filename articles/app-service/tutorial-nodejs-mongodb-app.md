@@ -24,7 +24,7 @@ ms.custom:
 
 # Tutorial: Deploy a Node.js + MongoDB web app to Azure
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure Node.js app in Azure App Service that's connected to a [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) database. When you're finished, you'll have an Express.js app running on Azure App Service on Linux.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure Node.js app in Azure App Service that's connected to a [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) database. When you're finished, you have an Express.js app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Node.js application storing data in Cosmos DB.":::
 
@@ -124,7 +124,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 2. Create App Service and Azure Cosmos DB
 
-In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB for MongoDB. For the creation process, you'll specify:
+In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB for MongoDB. For the creation process, you specify:
 
 * The **Name** for the web app. It's used as part of the DNS name for your app.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
@@ -152,7 +152,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Region*: Any Azure region near you.
         1. *Name*: **msdocs-expressjs-mongodb-XYZ**, where *XYZ* is any three random characters. 
         1. *Runtime stack*: **Node 20 LTS**.
-        1. *Engine*: **Cosmos DB API for MongoDB**. Azure Cosmos DB is a cloud native database offering a 100% MongoDB compatible API. Note the database name that's generated for you (*\<app-name>-database*). You'll need it later.
+        1. *Engine*: **Cosmos DB API for MongoDB**. Azure Cosmos DB is a cloud native database offering a 100% MongoDB compatible API. Note the database name that's generated for you (*\<app-name>-database*). You need it later.
         1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
@@ -183,14 +183,14 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Secure connection secrets
 
-The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
+The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. Move your secrets to a key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
         **Step 1:** In the App Service page:
         1. In the left menu, select **Settings > Environment variables**. 
         1. Next to **AZURE_COSMOS_CONNECTIONSTRING**, select **Show value**.
-        This connection string lets you connect to the Cosmos DB database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this.
+        This connection string lets you connect to the Cosmos DB database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this configuration.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-secure-connection-secrets-1.png":::
@@ -300,7 +300,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. Sign in to your GitHub account and follow the prompt to authorize Azure.
         1. In **Organization**, select your account.
         1. In **Repository**, select **msdocs-nodejs-mongodb-azure-sample-app**.
-        1. In **Branch**, select **starter-no-infra**. This is the same branch that you worked in with your sample app, without any Azure-related files or configuration.
+        1. In **Branch**, select **starter-no-infra**. This branch is the same once that you worked in with your sample app, without any Azure-related files or configuration.
         1. For **Authentication type**, select **User-assigned identity**.
         1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
         By default, the deployment center [creates a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity) for the workflow to authenticate using Microsoft Entra (OIDC authentication). For alternative authentication options, see [Deploy to App Service using GitHub Actions](deploy-github-actions.md).
@@ -312,7 +312,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row:::
     :::column span="2"::: 
         **Step 3:** Back in the GitHub codespace of your sample fork, run `git pull origin starter-no-infra`. 
-        This pulls the newly committed workflow file into your codespace.
+        This command pulls the newly committed workflow file into your codespace.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing git pull inside a GitHub codespace." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-3.png":::
@@ -323,7 +323,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         **Step 4 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
         1. Ask, "*@workspace How does the app connect to the database?*" Copilot might point you to the *app.js* file and the `mongoose.connect` call.
-        1. Say, "*I have a connection string variable in Azure called AZURE_COSMOS_CONNECTIONSTRING.". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in [app.js](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/app.js).
+        1. Say, "*I have a connection string variable in Azure called AZURE_COSMOS_CONNECTIONSTRING.". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps and even tell you to make the change in [app.js](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/app.js).
         1. Open *app.js* in the explorer and add the code suggestion in the `getApp` method.
         GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -495,7 +495,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 :::row:::
     :::column span="2":::
         **Step 3:** 
-        1. Enter the resource group name to confirm your deletion.
+        1. To confirm your deletion, enter the resource group name.
         1. Select **Delete**.
     :::column-end:::
     :::column:::
@@ -523,7 +523,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     
     |Question  |Answer  |
     |---------|---------|
-    |The current directory is not empty. Would you like to initialize a project here in '\<your-directory>'?     | **Y**        |
+    |The current directory isn't empty. Would you like to initialize a project here in '\<your-directory>'?     | **Y**        |
     |What would you like to do with these files?     | **Keep my existing files unchanged**        |
     |Enter a new environment name     | Type a unique name. The AZD template uses this name as part of the DNS name of your web app in Azure (`<app-name>-<hash>.azurewebsites.net`). Alphanumeric characters and hyphens are allowed.          |
 
@@ -539,7 +539,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -554,7 +554,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **Private DNS zones**: Enable DNS resolution of the Cosmos DB database, the Redis cache, and the key vault in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
 
-    Once the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet because you must make small changes to make it connect to the database in Azure.
+    Once the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet. You must make small changes to make it connect to the database in Azure.
 
 ## 3. Verify connection strings
 
@@ -584,7 +584,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. Ask, "*@workspace How does the app connect to the database?*" Copilot might point you to the *app.js* file and the `mongoose.connect` call.
 
-1. Say, "*I have a connection string variable in Azure called AZURE_COSMOS_CONNECTIONSTRING.*". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in [app.js](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/app.js).
+1. Say, "*I have a connection string variable in Azure called AZURE_COSMOS_CONNECTIONSTRING.*". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps and even tell you to make the change in [app.js](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/app.js).
 
 1. Open *app.js* in the explorer and add the code suggestion in the `getApp` method.
 
