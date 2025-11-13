@@ -8,6 +8,7 @@ ms.service: azure-managed-grafana
 ms.topic: how-to
 ms.date: 11/03/2025
 ai-usage: ai-assisted
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Create an Azure AI Foundry dashboard in Azure Managed Grafana
