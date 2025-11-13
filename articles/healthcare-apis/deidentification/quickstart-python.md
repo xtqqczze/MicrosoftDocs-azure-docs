@@ -68,7 +68,7 @@ Now that the resource is deployed, you need to assign yourself the following per
 
 ## Running the service using the Python SDK
 
-1. Install the Azure Health Deidentification client library for Python. More information is available [here.](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview&preserve-view=true)
+1. Install the Azure Health De-identification client library for Python. More information is available [here.](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview&preserve-view=true)
 
 ```Bash
 python -m pip install azure-health-deidentification
