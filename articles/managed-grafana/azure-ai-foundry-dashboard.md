@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Create an Azure AI Foundry dashboard in Azure Managed Grafana
+# Create an Azure AI Foundry dashboard
 
 In this guide, you learn how to set up an Azure AI Foundry metrics dashboard in Azure Managed Grafana. This dashboard tracks inference latency, throughput, token usage, and API call success rates to help you optimize costs, identify performance bottlenecks, and maintain the health of your AI resources.
 
