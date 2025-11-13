@@ -77,7 +77,7 @@ Yes, to make your own logic app workflows available through the actions gallery 
 
 - The logic app resource uses the same Azure subscription that you use with Azure AI Foundry.
 
-- The workflow starts with the [trigger named **When a HTTP request is received** trigger](/azure/connectors/connectors-native-reqres#add-request-trigger).
+- The workflow starts with the [trigger named **When an HTTP request is received** trigger](/azure/connectors/connectors-native-reqres#add-request-trigger).
 
 - The trigger includes a description, which you provide on the trigger information pane in the workflow designer.
 
@@ -276,7 +276,7 @@ Follow these steps to review the workflow definition and operations, or edit the
 
    - The logic app resource must use the same Azure subscription that you use with Azure AI Foundry.
 
-   - The workflow must start with the [**When a HTTP request is received** trigger](/azure/connectors/connectors-native-reqres#add-request-trigger).
+   - The workflow must start with the [**When an HTTP request is received** trigger](/azure/connectors/connectors-native-reqres#add-request-trigger).
 
    - The trigger requires a description, which you can find on the trigger information pane in the designer.
 
