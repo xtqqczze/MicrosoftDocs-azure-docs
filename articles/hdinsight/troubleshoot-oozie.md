@@ -137,7 +137,7 @@ After:
   .....
 ```
 
-4. Restart Ambari services
+3. Restart Ambari services
 ```bash
 sudo ambari-services restart
 ```
