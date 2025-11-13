@@ -228,7 +228,7 @@ while (!string.IsNullOrEmpty(azureOperationResponse.Body.SkipToken))
 
 ## Differentiate between throttling requests for ARG and ARM
 
-Sometimes when using the ARG/GET LIST API, you may receive throttling errors in response to your request. Therefore, it is important to understand the source of throttling in order to reach out to the right team for quota increases. 
+While using the ARG/GET LIST API, if you receive throttling errors in response to your request , it is important to understand the source of throttling.
 
 The following is an example of an **ARG throttling** error:
 
