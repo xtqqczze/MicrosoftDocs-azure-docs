@@ -61,7 +61,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 > [!NOTE]
 > While configuring via Azure portal, the region chosen in Azure Front Door origin configuration must be the same region where the Application Gateway is located in.
-> Use CLI/PowerShell, if you want the Azure Front Door origin region and the Application Gateway region to be different. This will be needed in cases where the Application Gateway is located in a region where Azure Front Door doesn't support Private Link.
+> If you want the Azure Front Door origin region and the Application Gateway region to be different, use CLI/PowerShell. This will be needed in cases where the Application Gateway is located in a region where Azure Front Door doesn't support Private Link.
 
 ::: zone pivot="front-door-portal"
 
