@@ -68,25 +68,25 @@ To buy a reservation:
 - For Azure Managed Redis subscriptions, you must enable **Add Reserved Instances** in the [EA portal](https://ea.azure.com/). Or if that setting is disabled, you must be an EA Admin on the subscription.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Managed Redis reservations. For more information, see [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations).
 
-To buy reservations using the Azure portal:
+How to use the Azure portal to buy reservations:
 
-1. In the portal, search for and select **Reservations** and then select **Purchase Now**, or select this link to the [Purchase reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/) page.
+1. In the portal, search for and select **Reservations** and then select **Add**, or select this link to the [Purchase reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/) page.
 1. On the **Purchase reservations** page, select **Azure Cache for Redis**.
 1. In the **Select the product you want to purchase** pane, select the **Scope** and **Subscription** you want to use for the reservation.
 1. Select the values you want from the dropdown lists for **Region**, **Term**, and **Billing frequency**.
 
-<!-- I cannot complete the previous procedure. Can you verify it? Or do you want to remove it until the other AMR pages are created? CaWa -->
+The following list describes the form fields in detail.
 
-The following table describes the form fields in detail.
-
-| Field | Description |
-| ------------ | ------- |
-| Subscription   | The subscription used to pay for the reservation. The subscription type must be EA, offer numbers MS-AZR-0017P or MS-AZR-0148P, or an individual agreement with pay-as-you-go pricing, offer numberS-AZR-0003P, or MS-AZR-0023P. For an EA subscription, the charges are deducted from the enrollment's Azure Prepayment balance or charged as overage. For pay-as-you-go, the charges are billed to the subscription's credit card or invoice.|
-| Scope | The reservation's scope. <br>**Shared** applies the reservation discount to cache instances in any subscriptions in your billing context. For EA, the shared scope is the enrollment and includes subscriptions within the enrollment. For pay-as-you-go, the shared scope is all pay-as-you-go subscriptions created by the account administrator. <br>**Single subscription** applies the reservation discount to cache instances in this subscription. <br>**Single resource group** applies the reservation discount to instances in the selected resource group within the subscription. <br>**Management group** applies the reservatioiscount to matching resources in subscriptions that are a part of both the management group and billing scope.|
-| Region | The Azure region for the reservation.|
-| Term | **1 year** or **3 years**.|
-| Billing frequency | **Monthly** or **Upfront**.|
-| Recommended quantity | The recommended number of nodes to reserve in the selected Azure region, tier, and scope. Select **See details** for details about recommended quantities.|
+- **Subscription**: The subscription used to pay for the reservation. The subscription type must be EA, offer numbers MS-AZR-0017P or MS-AZR-0148P, or an individual agreement with pay-as-you-go pricing, offer numberS-AZR-0003P, or MS-AZR-0023P. For an EA subscription, the charges are deducted from the enrollment's Azure Prepayment balance or charged as overage. For pay-as-you-go, the charges are billed to the subscription's credit card or invoice.
+- **Scope**: The reservation's scope.
+  - **Shared** applies the reservation discount to cache instances in any subscriptions in your billing context. For EA, the shared scope is the enrollment and includes subscriptions within the enrollment. For pay-as-you-go, the shared scope is all pay-as-you-go subscriptions created by the account administrator.
+  - **Single subscription** applies the reservation discount to cache instances in this subscription.
+  - **Single resource group** applies the reservation discount to instances in the selected resource group within the subscription.
+  - **Management group** applies the reservation discount to matching resources in subscriptions that are a part of both the management group and billing scope.
+- **Region**: The Azure region for the reservation.
+- **Term**: **1 year** or **3 years**.
+- **Billing frequency**: **Monthly** or **Upfront**.
+- **Recommended quantity**: The recommended number of nodes to reserve in the selected Azure region, tier, and scope. Select **See details** for details about recommended quantities.
 
 Existing or new caches that match the attributes you select get the reservation discount. The actual number of instances that get the discount depends on the scope and quantity you select.
 
