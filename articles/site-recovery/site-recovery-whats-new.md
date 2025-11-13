@@ -25,7 +25,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Replication appliance / Configuration server** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
-[Rollup 80](https://https://support.microsoft.com/en-us/topic/update-rollup-80-for-azure-site-recovery-2cbd2ed6-6935-4dbf-91d1-8fe04a97ada9) | 9.66.7567.1 | NA | 9.65.7567.1 | NA | NA
+[Rollup 80](https://support.microsoft.com/en-us/topic/update-rollup-80-for-azure-site-recovery-2cbd2ed6-6935-4dbf-91d1-8fe04a97ada9) | 9.66.7567.1 | NA | 9.65.7567.1 | NA | NA
 [Rollup 79](https://support.microsoft.com/en-us/topic/update-rollup-79-for-azure-site-recovery-04417a2e-e191-450c-8625-29949d094b92) | 9.65.7417.1 | NA | 9.65.7417.1 | NA | NA
 [Rollup 78](https://support.microsoft.com/topic/update-rollup-78-for-azure-site-recovery-d1195ccc-3436-4d2f-bce3-76b18bcd6d53) | 9.64.7374.1 | NA | 9.64.7374.1 | NA | NA
 [Rollup 77](https://support.microsoft.com/topic/update-rollup-77-for-azure-site-recovery-dbd00d14-6b52-48dc-84d7-72b2f71ce20c) | 9.64.7314.1 | NA | 9.64.7314.1 | NA | NA
