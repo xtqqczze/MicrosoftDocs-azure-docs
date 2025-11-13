@@ -29,13 +29,15 @@ For language model backends, you can set a `llm-token-limit` policy to limit the
 
 [!INCLUDE [api-management-rate-limit-accuracy](../../includes/api-management-rate-limit-accuracy.md)]
 
+#### Classic versus v2 tiers
+
 API Management implements rate limiting differently depending on whether your instance is in one of the classic or v2 service tiers:
  
 * **Classic tiers** use a sliding window algorithm.
 
 * **V2 tiers** use a token bucket algorithm that is more efficient and aligns with rate limiting in [Azure Resource Manager](/azure/azure-resource-manager/management/request-limits-and-throttling#regional-throttling-and-token-bucket-algorithm).
 
-While the overall behavior of rate limiting is similar across API Management tiers, the implementation affects some usage details of rate limiting policies. 
+While the overall behavior of rate limiting is similar across API Management tiers, the differences in implementation affect some usage details of rate limiting policies such as `rate-limit-by-key` and `llm-token-limit`. 
 
 ### Quotas
 
