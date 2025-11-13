@@ -1,6 +1,8 @@
 ---
 title: Self-hosted remote MCP server on Azure Functions (public preview)
 description: Self-hosted remote MCP server on Azure Functions overview
+author: lilyjma
+ms.author: jiayma
 ms.topic: reference
 ms.date: 10/30/2025
 ms.update-cycle: 180-days
@@ -27,7 +29,7 @@ This article provides an overview of self-hosted MCP servers and links to releva
 
 ## Custom handlers 
 
-Self-hosted MCP servers are deployed to the Azure Functions platform as _custom handlers_. Custom handlers are lightweight web servers that receive events from the Functions host. They provide a way to run on the Functions platform applications that are implemented with frameworks different from the Functions programming model or in languages that are not supported out-of-the-box. Learn more about [Azure Functions custom handlers](./functions-custom-handlers.md). 
+Self-hosted MCP servers are deployed to the Azure Functions platform as _custom handlers_. Custom handlers are lightweight web servers that receive events from the Functions host. They provide a way to run on the Functions platform applications built with frameworks different from the Functions programming model or in languages not supported out-of-the-box. Learn more about [Azure Functions custom handlers](./functions-custom-handlers.md). 
 
 When deploying an MCP SDK based server to Azure Functions, you must have a _host.json_ in your project. The minimal _host.json_ looks like the following for each language:
 
@@ -79,7 +81,51 @@ When deploying an MCP SDK based server to Azure Functions, you must have a _host
 >Because the payload deployed to Azure Functions is the content of the `bin/output` directory, the path to the compiled DLL is relative to that directory, _not_ to the project root. 
 ---
 
-For self-hosted MCP servers, you must specify the configuration profile of type `mcp-custom-handler`. This will automatically configure various Azure Functions host settings required for running the MCP server in the cloud. 
+The following shows more properties you can set in the _host.json_: 
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "http": {
+            "routePrefix": ""
+        }
+    },
+    "customHandler": {
+        "description": {
+            "defaultExecutablePath": "",
+            "arguments": [""]
+        },
+        "http": {
+            "enableProxying": true, 
+            "defaultAuthorizationLevel": "anonymous", 
+            "routes": [ 
+                {
+                    "route": "{*route}",
+                    // Default authorization level is `defaultAuthorizationLevel`
+                },
+                {
+                    "route": "admin/{*route}",
+                    "authorizationLevel": "admin"
+                }
+            ]
+        }
+    }
+}
+```
+
+Specify the configuration profile to type `mcp-custom-handler` automatically configure various Azure Functions host settings required for running the server in the cloud: 
+* `http.enableProxying` to `true`
+* `http.routes` to `[{ "route": "{*route}" }]`
+* `extensions.http.routePrefix` to `""`
+
+The table shows what the properties in `customHandler.http` mean and their default value:
+
+| Property | What it does | Default value |
+|----------|----------|----------|
+| `enableProxying`   | <br>Controls how the Azure Functions host handles HTTP requests to custom handlers. When `enableProxying` is set to `true`, the Functions host acts as a reverse proxy and forwards the entire HTTP request (including headers, body, query parameters, etc.) directly to the custom handler. This gives the custom handler full access to the original HTTP request details. </br> <br>When `enableProxying` is `false`, the Functions host processes the request first and transforms it into the Azure Functions request/response format before passing it to the custom handler.</br>| `false`   |
+| `defaultAuthorizationLevel`   | Controls the authentication requirement for accessing custom handler endpoints. For example, `function` requires a function-specific API key to access. Learn more about the different [authorization levels](./functions-bindings-http-webhook-trigger.md#http-auth).  | `function`    |
+| `route`    | Specifies the URL path pattern that the custom handler will respond to. `{*route}` means match any URL path (e.g., `/`, `/mcp`, `/api/tools`, `/anything/nested/path`) and forward to the custom handler. | `{*route}` |
 
 ## Feature highlights 
 
@@ -94,7 +140,7 @@ Agents in Azure AI Foundry can be [configured](./functions-mcp-tutorial.md#confi
 
 #### Registering server in Azure API Center 
 
-[TODO]Link to article showing how to configure
+When you register your MCP server in Azure API Center, you create a private organizational tool catalog. This recommended for sharing MCP servers across your organization with consistent governance and discoverability. Learn how to [register MCP servers hosted in Azure Functions in Azure API Center](./register-mcp-servers-in-apic.md). 
 
 ## Public preview support  
 

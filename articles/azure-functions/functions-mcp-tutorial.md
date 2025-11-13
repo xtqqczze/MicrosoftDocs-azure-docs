@@ -1,6 +1,8 @@
 ---
 title: Hosting MCP servers on Azure Functions tutorial
 description: "E2E tutorial on hosting MCP servers on Azure Functions"
+author: lilyjma
+ms.author: jiayma
 ms.topic: how-to
 ms.date: 10/31/2025
 zone_pivot_groups: programming-languages-set-functions
@@ -9,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Hosting MCP servers on Azure Functions tutorial
 
-In this tutorial, you'll learn how to create and host remote MCP ([Model Context Protocol]()) servers on Azure Functions. You'll also see how to leverage a feature called Easy Auth to configure server authorization. 
+In this tutorial, you'll learn how to create and host remote MCP ([Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro)) servers on Azure Functions. You'll also see how to leverage a feature called Easy Auth to configure server authorization. 
 
 There are two types of MCP servers that can be hosted remotely on Azure Functions:
 1. Servers built with the [Azure Functions MCP extension](./functions-bindings-mcp.md), referred to as _MCP extension servers_ below.
@@ -378,7 +380,7 @@ To understand in details what happens when Visual Studio Code tries to connect t
 
 ### With access key
 
-If you didn't enable built-in authentication and authorization and instead wanted to connect to your MCP server using access key, modify the _mcp.json_ to pass in the Functions access key in the connection request header: 
+If you didn't enable built-in authentication and authorization and instead wanted to connect to your MCP server using access key, modify the _mcp.json_ to pass in the Functions access key in the request header: 
 
 ### [MCP extension server](#tab/mcp-extension)
 ```json
@@ -487,7 +489,7 @@ In the debug output from Visual Studio Code, you see a series of requests and re
 
 ## Next steps
 
-Learn how to [register](./functions-mcp-integration.md) Azure Functions-hosted MCP servers on Azure API Center.
+Learn how to [register](./register-mcp-servers-in-apic.md) Azure Functions-hosted MCP servers on Azure API Center.
 
 ## Troubleshooting
 

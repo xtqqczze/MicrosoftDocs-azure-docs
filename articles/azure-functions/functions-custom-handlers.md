@@ -3,7 +3,7 @@ title: Azure Functions custom handlers
 description: Learn to use Azure Functions with any language or runtime version.
 author: ggailey777
 ms.author: glenga
-ms.date: 12/1/2020
+ms.date: 11/12/2025
 ms.topic: article
 ms.devlang: golang
 ms.custom: sfi-ropc-nochange
@@ -19,6 +19,7 @@ Custom handlers are best suited for situations where you want to:
 
 - Implement a function app in a language that's not currently offered out-of-the box, such as Go or Rust.
 - Implement a function app in a runtime that's not currently featured by default, such as Deno.
+- [Deploy a server](#deploy-self-hosted-mcp-servers-as-custom-handlers) built with the standard MCP SDKs to Azure Functions.
 
 With custom handlers, you can use [triggers and input and output bindings](./functions-triggers-bindings.md) via [extension bundles](./functions-bindings-register.md).
 
@@ -36,6 +37,10 @@ The following diagram shows the relationship between the Functions host and a we
 1. The Functions host passes data from the response to the function's output bindings for processing.
 
 An Azure Functions app implemented as a custom handler must configure the *host.json*, *local.settings.json*, and *function.json* files according to a few conventions.
+
+## Deploy self-hosted MCP servers as custom handlers (public preview)
+
+If you've built MCP servers using the official MCP SDKs and are looking to host them remotely, you can leverage custom handlers to host the servers on Azure Functions. Enhancements specific to MCP servers have been made in custom handlers to simplify and streamline the hosting experience. Learn more in [Self-hosted remote MCP server on Azure Functions](./self-hosted-mcp-servers.md). 
 
 ## Application structure
 
