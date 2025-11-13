@@ -25,7 +25,7 @@ The following v2 tiers are generally available:
 
 * **Standard v2** - Standard v2 is a production-ready tier with support for network-isolated backends.
 
-* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, and workspaces.
+* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, availability zones, and workspaces.
 
 ## Key capabilities
 
@@ -48,7 +48,7 @@ The latest capabilities of the v2 tiers are supported in API Management API vers
 
 * **Standard v2** and **Premium v2** support **virtual network integration** to allow your API Management instance to reach API backends that are isolated in a single connected virtual network. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](integrate-vnet-outbound.md).
 
-* **Standard v2** also supports inbound [private endpoint connections](private-endpoint.md) to the API Management gateway.
+* **Standard v2** and **Premium v2** also support inbound [private endpoint connections](private-endpoint.md) to the API Management gateway.
 
 * **Premium v2** also supports simplified **virtual network injection** for complete isolation of inbound and outbound gateway traffic without requiring network security group rules, route tables, or service endpoints. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](inject-vnet-v2.md).
 
@@ -71,12 +71,11 @@ The following API Management capabilities are currently unavailable in the v2 ti
 
 **Infrastructure and networking**
 * Multi-region deployment 
-* Availability zone support
 * Multiple custom domain names 
 * Capacity metric - *replaced by CPU Percentage of Gateway and Memory Percentage of Gateway metrics*
 * Built-in analytics - *replaced by Azure Monitor-based dashboard*
 * Upgrade to v2 tiers from classic tiers 
-* CA Certificates
+* CA certificates - *replaced by CA certificates in backend entity*
 * Sending events to Event Grid
 * Event Hubs event metrics
 
