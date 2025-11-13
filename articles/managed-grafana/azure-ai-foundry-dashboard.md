@@ -1,7 +1,7 @@
 ---
 title: Create an Azure AI Foundry dashboard in Azure Managed Grafana
-description: Learn how to set up and configure an Azure AI Foundry platform metrics dashboard in Azure Managed Grafana to monitor AI workload performance and resource utilization.
-#customer intent: As a platform engineer or data scientist, I want to monitor Azure AI Foundry platform metrics in a Grafana dashboard so that I can track resource utilization, performance, and operational health of my AI workloads.
+description: Learn how to set up and configure an Azure AI Foundry metrics dashboard in Azure Managed Grafana to monitor AI workload performance and resource utilization.
+#customer intent: As a platform engineer or data scientist, I want to monitor Azure AI Foundry platform metrics in a Grafana dashboard so that I can track resource consumption, performance, and operational health of my AI workloads.
 author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
@@ -12,18 +12,18 @@ ai-usage: ai-assisted
 
 # Create an Azure AI Foundry dashboard in Azure Managed Grafana
 
-In this guide, you learn how to set up an Azure AI Foundry platform metrics dashboard in Azure Managed Grafana. This dashboard provides visibility into your AI infrastructure, including compute utilization, model performance, resource consumption, and operational metrics.
+In this guide, you learn how to set up an Azure AI Foundry metrics dashboard in Azure Managed Grafana. This dashboard monitors model performance, resource consumption, and operational metrics to help you optimize resource allocation, identify performance bottlenecks, and maintain the health of your AI resources.
 
-The Azure AI Foundry dashboard is designed for platform engineers, data scientists, and operations teams who need to monitor AI workload performance, track resource usage, and identify potential issues in their Azure AI infrastructure.
+## What you can monitor
 
-## What is the Azure AI Foundry dashboard?
+The Azure AI Foundry dashboard provides real-time insights into your AI workloads:
 
-The Azure AI Foundry platform metrics dashboard is a pre-configured Grafana dashboard that visualizes key metrics from Azure AI services and infrastructure. It provides real-time monitoring of:
+- **Token usage**: Track inference, prompt, and completion tokens across all deployments
+- **Latency metrics**: Monitor end-to-end response times to identify performance issues
+- **Request trends**: View request volume over time to understand usage patterns
+- **Per-deployment performance**: Compare metrics across model deployments (for example, GPT-4, GPT-3.5)
 
-- **Model performance**: Inference latency, throughput, and success rates
-- **Resource consumption**: Token usage, API calls, and cost tracking
-
-This dashboard helps you optimize resource allocation, identify performance bottlenecks, and maintain the health of your AI platform.
+The dashboard uses a 7-day default time range and includes dropdown filters to scope metrics to specific subscriptions and AI Foundry resources.
 
 ## Prerequisites
 
@@ -31,9 +31,7 @@ Before you begin, ensure you have:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
-- An Azure AI Foundry resource with metrics enabled.
-- Appropriate permissions to read metrics from your Azure AI resources (Reader role or higher).
-- Azure Monitor configured to collect metrics from your AI services.
+- An Azure AI Foundry resource, with the Azure Monitor data source configured to read metrics from your Azure AI Foundry resource.
 
 ## Import the Azure AI Foundry dashboard
 
@@ -43,7 +41,7 @@ Import the pre-built Azure AI Foundry dashboard into your Grafana workspace.
 
 1. In the Grafana portal, go to **Dashboards** > **New** > **Import**.
 
-1. Under **Find and import dashboards for common applications at grafana.com/dashboards**, enter the dashboard ID for the Azure AI Foundry dashboard: **24039**.
+1. Under **Find and import dashboards**, enter the dashboard ID **24039**.
 
 1. Select **Load**.
 
@@ -64,13 +62,13 @@ Import the pre-built Azure AI Foundry dashboard into your Grafana workspace.
 > [!TIP]
 > You can also import this dashboard directly from the Azure portal. Go to **Monitor** > **Dashboards with Grafana (preview)**, and select the **AI Foundry** dashboard, or go to [AI Foundry dashboard](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureGrafana.ReactView/GalleryType/Azure%20Monitor/ConfigurationId/AIFoundry).
 
-:::image type="content" source="media/ai-foundry-dashboard/ai-foundry-top-section.png" alt-text="Screenshot of Grafana showing Azure Monitor data source configuration." lightbox="media/ai-foundry-dashboard/ai-foundry-top-section.png":::::
+:::image type="content" source="media/ai-foundry-dashboard/ai-foundry-top-section.png" alt-text="Screenshot of Grafana showing Azure AI Foundry metrics." lightbox="media/ai-foundry-dashboard/ai-foundry-top-section.png":::
 
-:::image type="content" source="media/ai-foundry-dashboard/ai-foundry-latency.png" alt-text="Screenshot of Grafana showing Azure Monitor data source configuration."lightbox="media/ai-foundry-dashboard/ai-foundry-latency.png":::
+:::image type="content" source="media/ai-foundry-dashboard/ai-foundry-latency.png" alt-text="Screenshot of Grafana showing AI Foundry latency metrics." lightbox="media/ai-foundry-dashboard/ai-foundry-latency.png":::
 
 ## Customize the dashboard
 
-Tailor the dashboard to your specific monitoring needs.
+Customize the dashboard to your specific monitoring needs.
 
 To add a new panel:
 
@@ -81,7 +79,7 @@ To add a new panel:
 1. Configure the query:
 
    - **Data source**: Select **Azure Monitor**.
-   - **Resource**: Choose your AI Foundry or OpenAI resource.
+   - **Resource**: Choose your AI Foundry resource.
    - **Metric namespace**: Select the appropriate namespace (for example, `Microsoft.CognitiveServices/accounts`).
    - **Metric**: Choose the metric to display (for example, `TokenTransaction`, `Latency`). For a complete list of available metrics, see [Azure AI Foundry metrics](/azure/ai-foundry/foundry-models/how-to/monitor-models#metrics-explorer).
    - **Aggregation**: Select the aggregation method (Average, Sum, Count, Min, Max).
@@ -96,6 +94,20 @@ To add a new panel:
 1. Select **Apply** to add the panel to your dashboard.
 
    :::image type="content" source="media/ai-foundry-dashboard/azure-monitor-datasource.png" alt-text="Screenshot of Grafana showing Azure Monitor data source configuration.":::
+
+## Technical details
+
+The dashboard queries Azure Monitor Metrics using the following setup:
+
+- **Resource type**: `Microsoft.CognitiveServices/accounts`
+- **Key metrics**:
+  - `AzureOpenAIRequests` — Request count
+  - `TokenTransaction` — Inference tokens
+  - `ProcessedPromptTokens` — Prompt tokens
+  - `GeneratedTokens` — Completion tokens
+  - `AzureOpenAITTLTInMS` — Time to last byte (latency)
+- **Grouping**: All metrics are split by `ModelDeploymentName` dimension
+- **Aggregations**: Total for counts, average for latency
 
 ## Related content
 
