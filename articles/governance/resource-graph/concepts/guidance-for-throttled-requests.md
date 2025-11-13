@@ -228,7 +228,12 @@ while (!string.IsNullOrEmpty(azureOperationResponse.Body.SkipToken))
 
 ## Differentiate between throttling requests for ARG and ARM
 
-While using the ARG/GET LIST API, if you receive throttling errors in response to your request , it is important to understand the source of throttling.
+When using the ARG GET / LIST API, you may encounter throttling errors in response to your requests. It’s important to identify the source of throttling, as it can occur at two levels:
+
+- ARG API throttling: limits applied by Azure Resource Graph.
+- ARM throttling: limits enforced by Azure Resource Manager.
+
+Knowing which layer is causing the throttling helps you apply the right mitigation strategy.
 
 The following is an example of an **ARG throttling** error:
 
@@ -258,7 +263,7 @@ Number of 'read' requests for subscription '{1}' actor '{2}' exceeded. Please tr
 </value>
 ```
 
-If you receive an ARM throttling error, we recommend that you **adjust your workload patterns by calling the ARG GET/LIST API** to reduce calls that are routed through ARM. You can also raise a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) for throttling requests related to ARM. 
+If you receive an ARM throttling error, we recommend that you go through the ARM [recommendations](/azure/azure-resource-manager/management/request-limits-and-throttling#azure-resource-graph-throttling) to understand how ARM limits are enforced.
 
 ## ARG GET/LIST API  
 
