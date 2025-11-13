@@ -27,14 +27,16 @@ Learn more about managing AI APIs in API Management:
 ## Key capabilities
 
 By importing an A2A agent API, API Management mediates runtime operations to the A2A backend with the following capabilities:
-* Governs API runtime with policies
 * Exposes the [agent card](https://a2a-protocol.org/dev/specification/#5-agent-discovery-the-agent-card) as an operation within the same API with the following transformations:  
-    * The hostname is replaced with API Management’s hostname  
-    * The preferred transport protocol is set to JSON-RPC 
-    * All other interfaces in `additionalInterfaces` are removed    
-    * Security requirements are rewritten to represent the subscription key 
-* Adds A2A-specific attributes in Application Insights logs (when configured) to comply with the [OpenTelemetry GenAI semantic convention](https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/).
-
+    * The hostname is replaced with API Management instance's hostname.
+    * The preferred transport protocol is set to JSON-RPC.
+    * All other interfaces in `additionalInterfaces` are removed.    
+    * Security requirements are rewritten to represent the subscription key. 
+* Governs API runtime with policies.
+* Adds the following A2A-specific attributes in Application Insights logs (when configured) to comply with the [OpenTelemetry GenAI semantic convention](https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/):
+    * `genai.agent.id` - Set to the agent ID configured in the API settings
+    * `genai.agent.name`- Set to the API name in the API settings 
+    
 ### Limitations
 
 * This feature is currently available only in API Management instances in the v2 tiers.
@@ -54,7 +56,8 @@ Use the following steps to import an AI API to API Management.
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
 1. Select the **A2A Agent** tile.
-    :::image type="content" source="media/a2a-agent-api/a2a-agent-tile.png" alt-text="Screenshot of selecting A2A agent API tile in the portal." :::
+
+    :::image type="content" source="media/agent-to-agent-api/a2a-agent-tile.png" alt-text="Screenshot of selecting A2A agent API tile in the portal." :::
 
 1. Under **Agent card**, enter the **URL** that points to the agent card JSON document. Select **Next**.
 1. On the **Create an A2A agent API** page, configure the API settings.
@@ -93,15 +96,6 @@ To call your A2A agent API through API Management
 > Policies configured at the global (all APIs) scope are evaluated before policies at the A2A agent API scope.
 
 
-
-## Test the A2A agent API
-
-To ensure that your A2A agent API is working as expected, you can call it through API Management:
-
-1. Select the API you created in the previous step.
-1. On the **Overview** page, copy the **Runtime base URL**. This URL is used to call the A2A agent API through API Management.
-1. Configure a test client or a tool such as [curl](https://curl.se/) to make a POST request to the agent.
-
 ## Configure subscription key authentication
 
 In the A2A API settings, you can optionally configure subscription key authentication through API Management. [Learn more about subscription key authentication](api-management-subscriptions.md).
@@ -110,6 +104,14 @@ In the A2A API settings, you can optionally configure subscription key authentic
 1. On the **Settings** page, under **Subscription**, select (enable) **Subscription required**.
 
 If you enable subscription key authentication, clients must include a valid subscription key in the `Ocp-Apim-Subscription-Key` header or `subscription-key` query parameter when calling the A2A agent API.
+
+## Test the A2A agent API
+
+To ensure that your A2A agent API is working as expected, you can call it through API Management:
+
+1. Select the API you created in the previous step.
+1. On the **Overview** page, copy the **Runtime base URL**. This URL is used to call the A2A agent API through API Management.
+1. Configure a test client or a tool such as [curl](https://curl.se/) to make a POST request to the agent.
 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
