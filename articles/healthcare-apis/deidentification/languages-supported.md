@@ -1,5 +1,5 @@
 ---
-title: Languages supported by the De-identification service
+title: Languages supported by the Azure Health Data Service De-identification service
 description: "Understand on which languages the De-identification service can TAG, REDACT, and SURROGATE PHI"
 author: leakassab
 ms.author: leakassab
