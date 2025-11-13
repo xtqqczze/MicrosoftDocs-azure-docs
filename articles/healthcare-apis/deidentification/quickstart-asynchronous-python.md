@@ -102,7 +102,7 @@ az storage account update --name $StorageAccountName --public-network-access Dis
 ```
 ## Running the service using the python SDK
 
-The code below contains a sample from the [Azure Health Deidentification SDK for Python](/python/api/overview/azure/health-deidentification). 
+The code below contains a sample from the [Azure Health De-identification SDK for Python](/python/api/overview/azure/health-deidentification). 
 
 > This example uses the French Canada language-locale pair. See the full list our service supports [here.](languages-supported.md)
 
