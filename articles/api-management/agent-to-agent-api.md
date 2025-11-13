@@ -8,7 +8,9 @@ ms.topic: how-to
 ms.date: 11/13/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
-ms.custom: template-how-to
+ms.custom: 
+    - template-how-to
+    - ignite-2025
 ---
 
 # Import an A2A agent API (preview)
