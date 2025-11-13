@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 Azure Managed Redis scheduled maintenance windows allow you to define specific time periods when maintenance activities can occur on your Redis instances. You control when Redis server updates and operating system patches are applied, minimizing unexpected disruptions to your applications.
 
-Azure Managed Redis automatically handles infrastructure maintenance, including security patches, Redis version updates, and operating system updates. Without a scheduled maintenance windows, these updates occur at Azure's discretion. When you configure scheduled maintenance windows, you gain control over this timing.
+Azure Managed Redis automatically handles infrastructure maintenance, including security patches, Redis version updates, and operating system updates. Without a scheduled maintenance windows, these updates occur at Azure's discretion. When you configure scheduled maintenance windows, you control this timing.
 
 Some maintenance activities are excluded. For more information, see [Excluded maintenance activities](#excluded-maintenance-activities).
 
@@ -22,6 +22,16 @@ This feature is currently in preview and provides a balance between necessary sy
 - An existing Azure Managed Redis instance
 - Knowledge of your application's usage patterns and low-traffic periods
 - Familiarity with Azure portal or Azure CLI for configuration management
+
+## Schedule a maintenance window
+
+1. [Browse to your cache](configure.md#configure-azure-managed-redis-settings) in the Azure portal and select **Maintenance (Preview)** from the Resource menu.
+
+1. In the working pane, turn on **Custom schedule**.
+
+1. Configure your maintenance windows by setting the duration in hours and minutes for each day of the week.
+
+1. Set the time window for each maintenance period and select which days you want to include or exclude from maintenance.
 
 ## Maintenance window requirements and limitations
 
@@ -47,7 +57,7 @@ Scheduled maintenance windows have specific requirements and limitations that de
 
 ## Types of maintenance activities
 
-Scheduled maintenance windows include specific types of updates while excluding others. A clear boundary exists between included and excluded activities that respect your configured timing.
+Scheduled maintenance windows include specific types of updates while excluding others. There's a clear boundary between included and excluded activities
 
 ### Included maintenance activities
 
@@ -102,12 +112,6 @@ Azure provides multiple ways to track maintenance activities and their effect on
 ### Preparation recommendations
 
 Applications should implement connection resilience patterns including retry logic, circuit breakers, and graceful degradation to handle brief connectivity interruptions during maintenance windows.
-
-## Schedule a maintenance window
-
-1. To schedule a maintenance window, [browse to your cache](configure.md#configure-azure-managed-redis-settings) in the Azure portal and select **Import data** from the Resource menu.
-1. Select **Choose Blob(s)** and select the storage account that contains the data to import.
-1. Select the container that contains the data to import.
 
 ## Related content
 
