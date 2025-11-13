@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: v-gajeronika
-ms.date: 03/25/2025
+ms.date: 11/13/2025
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange

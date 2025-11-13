@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
 ms.author: v-gajeronika
-ms.date: 05/27/2021
+ms.date: 11/13/2025
 
 # Customer intent: As a system administrator, I want to troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to the cloud, so that I can ensure a successful and reliable disaster recovery process.
 ---
@@ -183,7 +183,7 @@ Manually stop the following services:
 - Microsoft Azure Site Recovery Service, 
 - tmansvc
   
-To update the configuration server, run the [unified setup](service-updates-how-to.md#links-to-currently-supported-update-rollups) again.
+To update the configuration server, run the [unified setup](/articles/site-recovery/service-updates-how-to.md#updates-support) again.
 
 <a name='azure-active-directory-application-creation-failure'></a>
 
