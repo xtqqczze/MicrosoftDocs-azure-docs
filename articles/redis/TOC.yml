@@ -159,8 +159,7 @@ items:
       - name: Migrate to Azure Redis from other caches
         href: migrate/migration-guide.md
   - name: Azure Cache for Redis
-    href: /azure/azure-cache-for-redis/index
-    items:
+     items:
       - name: About Azure Cache for Redis
         href: /azure/azure-cache-for-redis/cache-overview
       - name: Choosing the right Azure Cache for Redis tier
