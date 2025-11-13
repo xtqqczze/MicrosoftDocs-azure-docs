@@ -105,6 +105,13 @@ These generic properties are supported for the Snowflake linked service:
 | host | The host name of the Snowflake account. For example: `contoso.snowflakecomputing.com`. `.cn` is also supported.| No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No |
 
+You can set the following additional connection properties in the linked service depending on your case.
+
+| Property | Description | Required | Default value |
+|:--- |:--- |:--- |:--- |
+| UseUtcTimestamps | Set it to `false` to return TIMESTAMP_LTZ type and TIMESTAMP_TZ type in the correct time zone, and TIMESTAMP_NTZ type without time zone information. Set it to `true` to return all Snowflake timestamp types in UTC.  | No | `false` |
+| schema | Specifies the schema for the query session after connecting. | No | / |
+
 This Snowflake connector supports the following authentication types. See the corresponding sections for details.
 
 - [Basic authentication](#basic-authentication)
@@ -187,13 +194,6 @@ In addition to the generic properties that are described in the preceding sectio
 | user | Login name for the Snowflake user. | Yes |
 | privateKey | The private key used for the key pair authentication. <br/><br/>To ensure the private key is valid when sent to Azure Data Factory, and considering that the privateKey file includes newline characters (\n), it's essential to correctly format the privateKey content in its string literal form. This process involves adding \n explicitly to each newline.   | Yes |
 | privateKeyPassphrase | The passphrase used for decrypting the private key, if it's encrypted.  | No |
-
-You can set the following additional connection properties in the linked service depending on your case.
-
-| Property | Description | Required | Default value |
-|:--- |:--- |:--- |:--- |
-| UseUtcTimestamps | Set it to `false` to return TIMESTAMP_LTZ type and TIMESTAMP_TZ type in the correct time zone, and TIMESTAMP_NTZ type without time zone information. Set it to `true` to return all Snowflake timestamp types in UTC.  | No | `false` |
-| schema | Specifies the schema for the query session after connecting. | No | / |
 
 **Example:**
 
