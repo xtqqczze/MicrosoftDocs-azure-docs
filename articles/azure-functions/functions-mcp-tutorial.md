@@ -383,6 +383,8 @@ To understand in details what happens when Visual Studio Code tries to connect t
 If you didn't enable built-in authentication and authorization and instead wanted to connect to your MCP server using access key, modify the _mcp.json_ to pass in the Functions access key in the request header: 
 
 ### [MCP extension server](#tab/mcp-extension)
+The access key can be found on the Azure portal under **Functions -> App keys**. Under the "System keys" section find the one named _mcp_extension_. 
+
 ```json
 {
 	"servers": {
@@ -412,6 +414,7 @@ If you didn't enable built-in authentication and authorization and instead wante
 ```
 
 ### [Self-hosted server](#tab/self-hosted)
+The access key can be found on the Azure portal under **Functions -> App keys**. Under the "Host keys (all functions)" section find the one named _default_. 
 
 ```json
 {
@@ -447,7 +450,7 @@ If you didn't enable built-in authentication and authorization and instead wante
 
 ## Configure Azure AI Foundry agent to user MCP server
 
-You can configure an agent on Azure AI Foundry to leverage tools exposed by MCP servers hosted on Azure Functions.
+You can configure an [agent on Azure AI Foundry](/azure/ai-foundry/agents/quickstart.md) to leverage tools exposed by MCP servers hosted on Azure Functions.
 
 1. In the Foundry portal, find the agent you want to be configured with MCP servers hosted on Functions 
 
