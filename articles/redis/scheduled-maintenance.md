@@ -7,11 +7,13 @@ ms.topic: concept-article
 ai-usage: ai-assisted
 ---
 
-# Azure Managed Redis scheduled maintenance (preview) concepts
+# Azure Managed Redis scheduled maintenance (preview)
 
 Azure Managed Redis scheduled maintenance windows allow you to define specific time periods when maintenance activities can occur on your Redis instances. You control when Redis server updates and operating system patches are applied, minimizing unexpected disruptions to your applications.
 
-Azure Managed Redis automatically handles infrastructure maintenance, including security patches, Redis version updates, and operating system updates. Without scheduled maintenance windows, these updates occur at Azure's discretion, typically during off-peak hours for your region. When you configure scheduled maintenance windows, you gain control over this timing.
+Azure Managed Redis automatically handles infrastructure maintenance, including security patches, Redis version updates, and operating system updates. Without a scheduled maintenance windows, these updates occur at Azure's discretion. When you configure scheduled maintenance windows, you gain control over this timing.
+
+Some maintenance activities are excluded. For more information, see [Excluded maintenance activities](#excluded-maintenance-activities).
 
 This feature is currently in preview and provides a balance between necessary system updates and application availability requirements.
 
@@ -21,7 +23,7 @@ This feature is currently in preview and provides a balance between necessary sy
 - Knowledge of your application's usage patterns and low-traffic periods
 - Familiarity with Azure portal or Azure CLI for configuration management
 
-## Maintenance window characteristics
+## Maintenance window requirements and limitations
 
 Scheduled maintenance windows have specific requirements and limitations that define how you can configure maintenance timing.
 
@@ -60,7 +62,7 @@ Scheduled maintenance windows include specific types of updates while excluding 
 - Critical security patches that might occur outside windows for security compliance
 - Major Redis version upgrade, which you manage separately with 90-day deferral options
 
-## Maintenance effect and behavior
+## Maintenance effects and behavior
 
 During scheduled maintenance windows, your Redis instances undergo specific processes that can affect connectivity and performance.
 
@@ -75,6 +77,8 @@ During scheduled maintenance windows, your Redis instances undergo specific proc
 
 Redis instances use failover mechanisms during maintenance to maintain service availability. Data replication between nodes occurs during this process, which temporarily increases resource utilization. Applications should implement connection retry logic and resilience patterns to handle these brief interruptions gracefully.
 
+For more information, see [Failover and patching for Azure Managed Redis](failover.md).
+
 ## Configuration flexibility
 
 The scheduled maintenance feature provides ongoing management capabilities that adapt to changing operational requirements.
@@ -84,10 +88,6 @@ The scheduled maintenance feature provides ongoing management capabilities that 
 - Maintenance window modifications take effect immediately for future maintenance cycles
 - No waiting period or approval process required for schedule updates
 - Changes don't affect maintenance already in progress
-
-### Default behavior
-
-When no custom maintenance windows are configured, Azure applies updates during nighttime hours in the region where your Redis instance is deployed. This default approach attempts to minimize affect during typical low-usage periods.
 
 ## Monitoring and visibility
 
@@ -108,7 +108,6 @@ Applications should implement connection resilience patterns including retry log
 1. To schedule a maintenance window, [browse to your cache](configure.md#configure-azure-managed-redis-settings) in the Azure portal and select **Import data** from the Resource menu.
 1. Select **Choose Blob(s)** and select the storage account that contains the data to import.
 1. Select the container that contains the data to import.
-
 
 ## Related content
 
