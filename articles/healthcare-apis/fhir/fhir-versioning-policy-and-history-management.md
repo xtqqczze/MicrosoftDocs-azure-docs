@@ -73,7 +73,7 @@ Changing the versioning policy, either at a system level or resource level, won'
 ## Metadata-only updates and versioning
 If the versioning policy is set to either `versioned` or `version-update`, metadata-only updates (changes to FHIR resources that only affect the metadata) increment the resource version. If you are making metadata-only changes using PUT updates, you can use the query parameter `_meta-history` for PUT updates to configure how the resource versioning is saved.
 - `_meta-history=true` is set by default. By default, the current version is saved as a new historical version, and the resource version is incremented. The lastUpdated timestamp is updated to reflected the change.
-- `_meta-history=false` increments the resource version in-place. This means that the current version is not saved as a historical version, and the resource version is still incremented. The lastUpdated timestap is also still updated to reflect the change. This configuration can be used to help reduce data storage when making metadata-only updates.
+- `_meta-history=false` increments the resource version in-place. This means that the current version is not saved as a historical version, and the resource version is still incremented. The lastUpdated timestamp is also still updated to reflect the change. This configuration can be used to help reduce data storage when making metadata-only updates.
 
 ## Next steps
 
