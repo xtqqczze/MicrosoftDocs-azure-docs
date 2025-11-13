@@ -15,7 +15,7 @@ For import orders, following table shows the supported storage accounts.
 | **Storage account / Supported storage types** | **Block blob** |**Page blob**<sup>1</sup> |**Azure files** |**Supported access tiers**|
 | --- | --- | -- | -- | -- |
 | Classic Standard | Y | Y | Y |
-| General-purpose v1 Standard  | Y | Y | Y | Hot, Cool,cold,Archive |
+| General-purpose v1 Standard  | Y | Y | Y | Hot, Cool, Cold, Archive |
 | General-purpose v1 Premium  |  | Y| | |
 | General-purpose v2 Standard<sup>2</sup>  | Y | Y | Y | Hot, Cool, Cold, Archive|
 | General-purpose v2 Premium  |  |Y | |  |
