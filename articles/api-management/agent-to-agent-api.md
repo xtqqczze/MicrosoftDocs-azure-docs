@@ -57,7 +57,7 @@ Use the following steps to import an AI API to API Management.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
 1. Select the **A2A Agent** tile.
 
-    :::image type="content" source="media/agent-to-agent-api/a2a-agent-tile.png" alt-text="Screenshot of selecting A2A agent API tile in the portal." :::
+    :::image type="content" source="media/agent-to-agent-api/agent-to-agent-tile.png" alt-text="Screenshot of selecting A2A agent API tile in the portal." :::
 
 1. Under **Agent card**, enter the **URL** that points to the agent card JSON document. Select **Next**.
 1. On the **Create an A2A agent API** page, configure the API settings.
@@ -66,7 +66,7 @@ Use the following steps to import an AI API to API Management.
     1. Under **URL**, enter a **Base path** that your API Management instance uses to access the A2A agent API. API Management displays a **Base URL** that clients can use to access the API, and an **Agent card URL** to access the agent card through API Management.
 1. Select **Create** to create the API.
 
-:::image type="content" source="media/a2a-agent-api/create-agent-api.png" alt-text="Screenshot of creating an A2A agent-compatible API in the portal." lightbox="media/a2a-agent-api/create-agent-api.png":::
+:::image type="content" source="media/agent-to-agent-api/create-agent-api.png" alt-text="Screenshot of creating an A2A agent-compatible API in the portal." lightbox="media/agent-to-agent-api/create-agent-api.png":::
 
 ## Configure policies for the A2A agent API
 
