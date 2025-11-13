@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 11/12/2025
+ms.date: 11/13/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to
@@ -79,7 +79,7 @@ Learn more about configuring policies:
 * [Set and edit policies](set-edit-policies.md)
 
 
-To call your A2A agent API through API Management
+To configure policies for your A2A agent API:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left-hand menu, under **APIs**, select your A2A agent API.
