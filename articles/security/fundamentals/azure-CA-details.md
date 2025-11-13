@@ -87,6 +87,7 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 
 ### Root and subordinate certificate authority chains
 
+[!div class="mx-tdBreakAll"]
 | Certificate Authority | Certificate URL | Serial Number<br>Thumbprint |
 |---- |---- |---- |
 | **DigiCert Global Root CA** | `https://cacerts.digicert.com/DigiCertGlobalRootCA.crt` | 0x083be056904246b1a1756ac95991c74a<br>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 |
