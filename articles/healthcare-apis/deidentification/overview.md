@@ -60,8 +60,6 @@ The service expands beyond the 18 HIPAA Identifiers to provide stronger privacy 
 
 - **Role-based Access Control (RBAC)**: Azure role-based access control (RBAC) enables you to manage how your organization's data is processed, stored, and accessed. You determine who has access to de-identify datasets based on roles you define for your environment.
 
-![Screenshot of consistent surrogation for the French data.](consistent-surrogation-french.png)
-
 ## Easy API Integration Into Your Workflow
 
 ![API Integration Workflow](workflow.png)
