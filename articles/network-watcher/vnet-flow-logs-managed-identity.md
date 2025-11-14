@@ -57,19 +57,19 @@ To create a new virtual network flow log using a user-assigned managed identity,
 
 
 ```azurepowershell-interactive
-New-AzNetworkWatcherFlowLog -Enabled $true -Name {FLOW LOG NAME} -NetworkWatcherName NetworkWatcher_{REGION}  -ResourceGroupName NetworkWatcherRG  -StorageId {STORAGE ID} -TargetResourceId {VNET ID} -UserAssignedIdentityId {USER ASSIGNED MANAGED IDENTITY ID}
+New-AzNetworkWatcherFlowLog -Enabled $true -Name <FLOW LOG NAME> -NetworkWatcherName NetworkWatcher_{REGION} -ResourceGroupName NetworkWatcherRG  -StorageId <STORAGE ID> -TargetResourceId <VNET ID> -UserAssignedIdentityId <USER ASSIGNED MANAGED IDENTITY ID>
 ```
 
 To associate or dissociate a user-assigned managed identity to an existing virtual network flow log, use the [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog) cmdlet with the parameter `-UserAssignedIdentityId`.
 
 ```azurepowershell-interactive
 # Associate a user-assigned managed identity to an existing flow log
-Set-AzNetworkWatcherFlowLog -Enabled $true -Name <FLOW LOG NAME> -NetworkWatcherName NetworkWatcher_<REGION>  -ResourceGroupName NetworkWatcherRG  -StorageId <STORAGE ID> -TargetResourceId <VNET ID> -UserAssignedIdentityId <USER ASSIGNED MANAGED IDENTITY ID>
+Set-AzNetworkWatcherFlowLog -Enabled $true -Name <FLOW LOG NAME> -NetworkWatcherName NetworkWatcher_<REGION> -ResourceGroupName NetworkWatcherRG  -StorageId <STORAGE ID> -TargetResourceId <VNET ID> -UserAssignedIdentityId <USER ASSIGNED MANAGED IDENTITY ID>
 ```
 
 ```azurepowershell-interactive
 # Dissociate a user-assigned managed identity from an existing flow log
-Set-AzNetworkWatcherFlowLog -Enabled $true -Name <FLOW LOG NAME> -NetworkWatcherName NetworkWatcher_<REGION>  -ResourceGroupName NetworkWatcherRG  -StorageId <STORAGE ID> -TargetResourceId <VNET ID> -UserAssignedIdentityId <USER ASSIGNED MANAGED IDENTITY ID>
+Set-AzNetworkWatcherFlowLog -Enabled $true -Name <FLOW LOG NAME> -NetworkWatcherName NetworkWatcher_<REGION> -ResourceGroupName NetworkWatcherRG  -StorageId <STORAGE ID> -TargetResourceId <VNET ID> -UserAssignedIdentityId <USER ASSIGNED MANAGED IDENTITY ID>
 ```
 
 ## Related content
@@ -77,3 +77,4 @@ Set-AzNetworkWatcherFlowLog -Enabled $true -Name <FLOW LOG NAME> -NetworkWatcher
 - [Tutorial: Log network traffic to and from a virtual network using the Azure portal](vnet-flow-logs-tutorial.md)
 - [Create, change, enable, disable, or delete virtual network flow logs](vnet-flow-logs-manage.md)
 - [Traffic analytics overview](traffic-analytics.md)
+
