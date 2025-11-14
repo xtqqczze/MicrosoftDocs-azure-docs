@@ -1,13 +1,16 @@
 ---
-title: Create your first containerized Azure Functions on Azure Container Apps
-description: Get started with Azure Functions on Azure Container Apps by deploying your first function app from a Linux image in a container registry.
-ms.date: 01/06/2025
+title: Create your Azure Functions on Azure Container Apps
+description: Get started with Azure Functions on Azure Container Apps by deploying your function app within a Linux image in a container registry.
+ms.author: deepganguly
+author: deepganguly
+ms.service: azure-container-apps
+ms.date: 01/11/2025
 ms.topic: quickstart
 ms.custom: build-2023, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content, build-2024, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Create your first containerized functions on Azure Container Apps 
+# Create your Azure Functions on Azure Container Apps 
 
 In this article, you create a function app running in a Linux container and deploy it to an Azure Container Apps environment from a container registry. By deploying to Container Apps, you're able to integrate your function apps into cloud-native microservices. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
 
@@ -33,7 +36,7 @@ Use these commands to create your required Azure resources:
 
 1. If necessary, sign in to Azure:
 
-    The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account. Use `az account set` when you have more than one subscription associated with your account.
+    The `az login` command signs you into your Azure account. Use `az account set` when you have more than one subscription associated with your account.
 
 1. Run the following command to update the Azure CLI to the latest version:
      
@@ -59,7 +62,7 @@ Use these commands to create your required Azure resources:
     az group create --name AzureFunctionsContainers-rg --location eastus
     ```
  
-    This [`az group create`](/cli/azure/group#az-group-create) command creates a resource group in the East US region. If you instead want to use a region near you, using an available region code returned from the [az account list-locations](/cli/azure/account#az-account-list-locations) command. You must modify subsequent commands to use your custom region instead of `eastus`.
+    This `az group create` command creates a resource group in the East US region. If you instead want to use a region near you, using an available region code returned from the `az account list-locations` command. You must modify subsequent commands to use your custom region instead of `eastus`.
 
 1. Create Azure Container App environment with workload profiles enabled.
 
@@ -74,7 +77,7 @@ Use these commands to create your required Azure resources:
     az storage account create --name <STORAGE_NAME> --location eastus --resource-group AzureFunctionsContainers-rg --sku Standard_LRS --allow-blob-public-access false --allow-shared-key-access false
     ```
 
-    The [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) command creates the storage account that can only be accessed by using Microsoft Entra-authenticated identities that have been granted permissions to specific resources. 
+    The `az storage account create` command creates the storage account that can only be accessed by using Microsoft Entra-authenticated identities that have been granted permissions to specific resources. 
 
     In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Storage names must contain 3 to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](storage-considerations.md#storage-account-requirements).
 
@@ -88,7 +91,7 @@ Use these commands to create your required Azure resources:
     az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --role "Storage Blob Data Owner" --scope $storageId
     ```
 
-    The [`az identity create`](/cli/azure/identity#az-identity-create) command creates a user-assigned managed identity and the [`az role assignment create`](/cli/azure/role/assignment#az-role-assignment-create) commands adds your identity to the required roles. Replace `<REGISTRY_NAME>`, `<USER_IDENTITY_NAME>`, and `<STORAGE_NAME>` with the name your existing container registry, the name for your managed identity, and the storage account name, respectively. The managed identity can now be used by an app to access both the storage account and Azure Container Registry without using shared secrets.  
+    The `az identity create` command creates a user-assigned managed identity and the `az role assignment create`commands adds your identity to the required roles. Replace `<REGISTRY_NAME>`, `<USER_IDENTITY_NAME>`, and `<STORAGE_NAME>` with the name your existing container registry, the name for your managed identity, and the storage account name, respectively. The managed identity can now be used by an app to access both the storage account and Azure Container Registry without using shared secrets.  
   
 ## Create and configure a function app on Azure with the image
 
@@ -119,7 +122,7 @@ UAMI_RESOURCE_ID=$(az identity show --name <USER_IDENTITY_NAME> --resource-group
 az resource patch --resource-group AzureFunctionsContainers-rg --name <APP_NAME> --resource-type "Microsoft.Web/sites" --properties "{ \"siteConfig\": { \"linuxFxVersion\": \"DOCKER|<REGISTRY_NAME>.azurecr.io/azurefunctionsimage:v1.0.0\", \"acrUseManagedIdentityCreds\": true, \"acrUserManagedIdentityID\":\"$UAMI_RESOURCE_ID\", \"appSettings\": [{\"name\": \"DOCKER_REGISTRY_SERVER_URL\", \"value\": \"<REGISTRY_NAME>.azurecr.io\"}]}}"
 ```
 
-In addition to the required site settings, the [`az resource patch`](/cli/azure/resource#az-resource-patch) command also updates the [`DOCKER_REGISTRY_SERVER_URL`](./functions-app-settings.md#docker_registry_server_url) app setting to the URL of your registry server.
+In addition to the required site settings, the `az resource patch` command also updates the [`DOCKER_REGISTRY_SERVER_URL`](./functions-app-settings.md#docker_registry_server_url) app setting to the URL of your registry server.
 
 In this example, replace `<APP_NAME>`, `<REGISTRY_NAME>`, and `<USER_IDENTITY_NAME>` with the names of your function app, container registry, and identity, respectively.  
 
@@ -149,7 +152,7 @@ To enable the Functions host to connect to the default storage account using sha
     az containerapp config appsettings delete --name <APP_NAME> --resource-group AzureFunctionsContainers-rg --setting-names AzureWebJobsStorage 
     ```
 
-    The [az containerapp config appsettings delete](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-delete) command removes this setting from your app. Replace `<APP_NAME>` with the name of your function app. 
+    The `az containerapp config appsettings delete` command removes this setting from your app. Replace `<APP_NAME>` with the name of your function app. 
 
 1. Add equivalent settings, with an `AzureWebJobsStorage__` prefix, that define a user-assigned managed identity connection to the default storage account:
  
