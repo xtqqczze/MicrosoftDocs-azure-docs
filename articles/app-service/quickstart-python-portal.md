@@ -96,7 +96,7 @@ Having issues? [Let us know](https://aka.ms/FlaskPortalQuickstartHelp).
 
     ![Deployment Center GitHub source configuration](media/quickstart-python-portal/deployment-center-configure-github-source.png)
 
-1. At the top of the page, select **Save** to apply the settings.:
+1. At the top of the page, select **Save** to apply the settings.
 
     ![Save the GitHub source configuration on Deployment Center](media/quickstart-python-portal/deployment-center-configure-save.png)
 
