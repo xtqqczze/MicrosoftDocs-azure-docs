@@ -222,7 +222,10 @@ Newtonsoft.Json
 
 If you have existing .csx files, you can use the classes and methods from those files in your **Execute CSharp Script Code** action. For this task, you can use the `#load` directive in your *execute_csharp_code.csx* file. This directive works only with .csx files, not .cs files. You have the following options:
 
-- Load the .csx file into your action.
+- Load the .csx file directly into your action.
+
+  This .csx file must exist in the same folder for the workflow that contains the **Execute CSharp Script Code** action.
+
 - Reference the .cs file from the `shared` folder path in your logic app resource.
 
 The following example *execute_csharp_code.csx* file shows how to load a script file named *loadscript.csx* into an **Execute CSharp Script Code** action using the `#load` directive:
@@ -327,9 +330,11 @@ For example, you can use the following *function.proj* file to import NuGet pack
 </Project>
 ```
 
-- For a C# script (.csx) file, you must set `TargetFramework` to `netstandard2.0`. Other target frameworks such as `net6.0` aren't supported.
+- For a C# script (.csx) file, you must set `TargetFramework` to `netstandard2.0`.
 
-- When the *function.proj* file initializes, your logic app must restart so that the Azure Logic Apps runtime can recognize and consume the file.
+  This requirement doesn't mean that package versions are limited to `netstandard2.0`. You can still reference packages for `net6.0` and later.
+
+- When the *function.proj* file initializes, your must restart the logic app so that the Azure Logic Apps runtime can recognize and consume the file.
 
 After restart completes, the runtime automatically gets the required assemblies from NuGet.org and puts the assembly in the appropriate folder for your script to use. Although you don't need to manually load these assemblies, make sure to directly reference the packages in your code by using standard `using` statements, for example:
 
