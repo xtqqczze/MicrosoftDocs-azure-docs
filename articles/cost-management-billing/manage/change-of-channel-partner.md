@@ -163,11 +163,12 @@ Customer admin must navigate to track changes page.
 A COCP Request with a status of In Process may be cancelled in full or partially (remove just some billing accounts from the request).
 
 -   Go to Cost Management + billing\> Billing Scopes \> Track Change, select the billing scopes you wish not to proceed with a CoCP for.
--   Select Cancel Request from the action menu at the top, or the 3 dots next to billing scope,
+-   Select Cancel Request from the action menu at the top, or the 3 dots next to billing scope.
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This will initiate a notification to the partner to let them know that the request has been cancelled.
+
 
 
 
