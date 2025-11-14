@@ -9,7 +9,7 @@ ms.date: 11/18/2025
 #Customer intent: As an integration developer working with Azure Logic Apps, I want to migrate a Consumption logic app to a Standard logic app by cloning resources.
 ---
 
-# Clone Consumption workflows to Standard workflows (Preview)
+# Clone Consumption workflows to Standard workflows (preview)
 
 [!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
