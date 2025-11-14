@@ -20,7 +20,7 @@ This guide shows you how to register A2A agents in API Center, and how to update
 
 ## Register agent
 
-Skills define the capabilities and actions your A2A agent can perform.
+Enter required values from the agent's agent card. Optionally add skills and other metadata that define the capabilities and actions your A2A agent can perform.
 
 > [!TIP]
 > For detailed skill schema information, see the [Agent2Agent (A2A) Protocol Official Specification](https://a2a-protocol.org/latest/specification/).
