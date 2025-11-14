@@ -17,7 +17,7 @@ With the REST API, you can integrate Hive query execution into applications, scr
 
 ## Prerequisites
 
-- An Entra ID-enabled Apache Hadoop cluster on HDInsight. See [Get started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
+- A Microsoft Entra ID-enabled Apache Hadoop cluster on HDInsight. See [Get started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - A REST client. This document uses [Curl](https://curl.haxx.se/).
 - If you use Bash, use `jq`, a command-line JSON processor. See [Download jq](https://jqlang.org/download/).
 

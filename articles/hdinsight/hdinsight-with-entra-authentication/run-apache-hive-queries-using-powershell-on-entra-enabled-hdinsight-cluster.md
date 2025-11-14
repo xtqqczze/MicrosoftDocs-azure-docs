@@ -9,18 +9,18 @@ ms.reviewer: nijelsf
 ms.date: 08/20/2025
 ---
 
-# Run Apache Hive queries by using PowerShell on Entra ID-enabled HDInsight clusters
+# Run Apache Hive queries by using PowerShell on Microsoft Entra ID-enabled HDInsight clusters
 
 Apache Hive provides a powerful SQL-like interface that you can use to query and analyze data in Azure HDInsight. By using Microsoft Entra ID-enabled HDInsight clusters, you can securely authenticate and run Hive queries by using your organizational identity, which helps you achieve centralized access control and compliance.
 
-This guide walks you through how to connect to an Entra ID-enabled HDInsight cluster from PowerShell, authenticate with Entra ID, and run Hive queries to analyze your data. By using PowerShell, you can automate Hive operations, integrate with scripts, and manage workloads more efficiently.
+This guide walks you through how to connect to a Microsoft Entra ID-enabled HDInsight cluster from PowerShell, authenticate with Microsoft Entra ID, and run Hive queries to analyze your data. By using PowerShell, you can automate Hive operations, integrate with scripts, and manage workloads more efficiently.
 
 > [!NOTE]  
 > This article doesn't contain a detailed description of the functions of the example HiveQL statements. For information on the HiveQL in the examples, see [Use Apache Hive with Apache Hadoop on HDInsight](../hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
 
 ## Prerequisites
 
-- An Entra ID-enabled Apache Hadoop cluster on HDInsight. See [Get started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
+- A Microsoft Entra ID-enabled Apache Hadoop cluster on HDInsight. See [Get started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - The PowerShell [Az Module](/powershell/azure/) installed.
 
 ## Run a Hive query
@@ -54,7 +54,7 @@ https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
 | Parameter | Description | Required |
 | --- | --- | --- |
 | `grant_type`    | Must be set to `client_credentials`                 | Yes |
-| `client_id`     | Application (client) ID from Entra ID app registration | Yes |
+| `client_id`     | Application (client) ID from Microsoft Entra ID app registration | Yes |
 | `client_secret` | Generated client secret or certificate              | Yes |
 | `scope`         | Resource URL with the `.default` suffix                   | Yes |
 
