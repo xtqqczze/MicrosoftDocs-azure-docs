@@ -161,17 +161,18 @@ At the designer top, the view selector shows the following views: **Workflow**, 
 
 
     > [!TIP]
-    > The **Code** view is also an easy way to find and copy the workflow definition, instead of using the Azure CLI or other methods.
+    >
+    > **Code** view is an easy way to find and copy the workflow definition, rather than using Azure CLI or other methods.
 
-- To review your logs, select the **Run history** view.
+- To view your workflow run history, chronological execution, operation status, inputs, and outputs, select **Run history**.
 
 ### Ellipsis menu
 
-In the new designer, you can find many workflow actions in the vertical ellipsis menu (⋮) next to the **Publish** button at the top right. Select this menu to access options.
+The preview designer moves many other actions to the vertical ellipsis menu (**⋮**) next to the **Publish** button in the designer's upper-right corner. To view and select these options, open this menu.
 
-:::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot showing the ellipsis menu next to the Publish button in the new designer.":::
+:::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot show the preview designer and toolbar with vertical ellipsis menu next to the Publish button." lightbox="media/designer-overview/ellipsis.png":::
 
-### Where to find common actions
+### Find common actions
 
  Use the table to quickly find where you can perform each common task.
 
