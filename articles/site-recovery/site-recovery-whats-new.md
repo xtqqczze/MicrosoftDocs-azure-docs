@@ -49,7 +49,7 @@ Update rollup 80 provides the following updates:
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
-**Azure VM disaster recovery** | Added Distro support for Redhat 9.6, Redhat 10.0, Alma 10.0, Rocky 10.0, SLES15SP7<br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
+**Azure VM disaster recovery** | Added Distro support for Redhat 9.6, Redhat 10.0, Alma 10.0, Rocky 10.0, SLES15SP7.<br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
 
 ## Updates (May 2025)
 
