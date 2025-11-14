@@ -256,39 +256,30 @@ Your remote MCP server supports two server authentication options:
 ## Disable host-based authentication  
 
 The built-in server authorization feature is a component separate from Azure Functions. To configure it, you must first disable Functions host-based authentication and allow anonymous access. 
-::: zone-end  
-::: zone pivot="programming-language-python" 
+
 ### [MCP extension server](#tab/mcp-extension)
-To disable host-based authentication in MCP extension servers, set the authentication level to anonymous:
 
-```python
-app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
-```
-
-### [Self-hosted server](#tab/self-hosted)
-To disable host-based authentication for self-hosted MCP servers, add the following code in the `customHandler` section:
+To disable host-based authentication in your MCP server, set `system.webhookAuthorizationLevel` to `Anonymous` in the `host.json` file:
 
 ```json
-"customHandler": {
-    // Other properties
-    "http": {
-        "DefaultAuthorizationLevel": "anonymous"
-    }
-}
-```
----
-::: zone-end  
-::: zone pivot="programming-language-csharp" 
-### [MCP extension server](#tab/mcp-extension)
-To disable host-based authentication in MCP extension servers, set the authentication level to anonymous:
-
-```csharp
-[Function("McpTrigger")]
-public async Task<IActionResult> Run(
-    [McpToolTrigger(AuthorizationLevel.Anonymous)] McpToolRequest req)
 {
-    ...
+  "version": "2.0",
+  "extensions": {
+    "mcp": {
+      "instructions": "Some test instructions on how to use the server",
+      "serverName": "TestServer",
+      "serverVersion": "2.0.0",
+      "encryptClientState": true,
+      "messageOptions": {
+        "useAbsoluteUriForEndpoint": false
+      },
+      "system": {
+        "webhookAuthorizationLevel": "Anonymous"
+      }
+    }    
+  }
 }
+```
 
 ### [Self-hosted server](#tab/self-hosted)
 To disable host-based authentication for self-hosted MCP servers, add the following code in the `customHandler` section:
@@ -303,38 +294,9 @@ To disable host-based authentication for self-hosted MCP servers, add the follow
 ```
 ---
 
-::: zone-end  
-::: zone pivot="programming-language-typescript"  
-### [MCP extension server](#tab/mcp-extension)
-To disable host-based authentication in MCP extension servers, set the authentication level to anonymous:
-
-```typescript
-app.mcpTool('mcpTrigger', {
-    authLevel: 'anonymous',
-    handler: mcpToolHandler
-});
-```
-
-### [Self-hosted server](#tab/self-hosted)
-To disable host-based authentication for self-hosted MCP servers, add the following code in the `customHandler` section:
-
-```json
-"customHandler": {
-    // Other properties
-    "http": {
-        "DefaultAuthorizationLevel": "anonymous"
-    }
-}
-```
----
-
-::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Create the function app in Azure
 
-Create a [Function app in the Azure portal](./functions-create-function-app-portal.md). 
-
->[!NOTE] Self-hosted servers must choose **Flex Consumption** as the hosting plan.  
+[!INCLUDE [functions-create-flex-consumption-app-portal-full](../../includes/functions-create-flex-consumption-app-portal-full.md)] 
 
 ## Deploy the MCP server project 
 
