@@ -69,15 +69,15 @@
       href: virtual-machine-metablob-disk.md
     - name: Quickly create confidential VMs
       items:
-      - name: Create Confidential VM through the Azure portal
+      - name: Create a Confidential VM through the Azure portal
         href: quick-create-portal.md
-      - name: Create ConfidentialVM through Azure CLI
+      - name: Create a Confidential VM through Azure CLI
         href: quick-create-confidential-vm-azure-cli.md
-      - name: Create Confidential VM through ARM template
+      - name: Create a Confidential VM through ARM template
         href: quick-create-confidential-vm-arm.md
-      - name: Create Confidential VM through Azure Marketplace
+      - name: Create a Confidential VM through Azure Marketplace
         href: quick-create-marketplace.md
-      - name: Create Hardened Virtual Machine Scale Sets (VMSS) via Azure CLI
+      - name: Create a Hardened Virtual Machine Scale Set (VMSS) via Azure CLI
         href: vmss-deployment-from-hardened-linux-image.md
       - name: Sample scripts to create ConfidentialVMs
         href: https://github.com/Azure-Samples/confidential-computing

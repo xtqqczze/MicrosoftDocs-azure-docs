@@ -27,7 +27,7 @@ Azure confidential computing enables an ecosystem of partners that build on our 
 
 - [Enclaive](../partner-pages/enclaive.md) System's revolutionary enclavation technology establishes the highest level of application security and data privacy. Our apps are so secure that even the host is unable to look inside.
 
-- [Fortanix](../partner-pages/fortanix.md), a leading confidential computing solutions provider, provide a Confidential AI platform that allows data teams to work with their sensitive data sets to train and run AI models in a confidential manner.
+- [Fortanix](../partner-pages/fortanix.md) is a leading confidential computing solutions provider. It provides a Confidential AI platform that allows data teams to work with their sensitive data sets to train and run AI models in a confidential manner.
 
 - [Habu](../partner-pages/habu.md) works with a wide range of collaborators across the ecosystem including leading platforms for activation, data and identity companies, agencies and consultancies, and major clouds. Fast-track business growth with a platform that integrates with your existing tools and technology investments.
 
