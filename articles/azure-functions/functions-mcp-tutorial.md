@@ -54,7 +54,7 @@ In this section, you use Visual Studio Code to create a local MCP server project
     |**Select a template for your project's first function**|Choose `MCP Tool trigger`.|
     |**Provide a function name**|Type `McpTrigger`.|
     |**Provide a namespace** | Type `My.Functions`. |
-    |**Authorization level**|Choose `FUNCTION`, which requires access key when connecting to the MCP server.|
+    |**Authorization level**|Choose `FUNCTION`, which requires access key when connecting to the remote MCP server.|
     |**Select how you would like to open your project**|Choose `Open in current window`.|
     ::: zone-end
 
@@ -64,7 +64,7 @@ In this section, you use Visual Studio Code to create a local MCP server project
     |**Select a project type**|Choose `TypeScript`.|
     |**Select a template for your project's first function**|Choose `MCP Tool trigger`.|
     |**Provide a function name**|Type `mcpToolTrigger`.|
-    |**Authorization level**|Choose `FUNCTION`, which requires access key when connecting to the MCP server.|
+    |**Authorization level**|Choose `FUNCTION`, which requires access key when connecting to the remote MCP server.|
     |**Select how you would like to open your project**|Choose `Open in current window`.|
     ::: zone-end
 
@@ -75,7 +75,7 @@ In this section, you use Visual Studio Code to create a local MCP server project
     |**Select a Python interpreter to create a virtual environment**| Choose your preferred Python interpreter. If an option isn't shown, type in the full path to your Python binary.|
     |**Select a template for your project's first function** | Choose `MCP Tool trigger`. |
     |**Name of the function you want to create**| Enter `mcp_trigger`.|
-    |**Authorization level**| Choose `FUNCTION`, which requires access key when connecting to the MCP server.|
+    |**Authorization level**| Choose `FUNCTION`, which requires access key when connecting to the remote MCP server.|
     |**Select how you would like to open your project** | Choose `Open in current window`.|
     ::: zone-end
 
@@ -118,23 +118,14 @@ Self-hosted MCP servers are deployed as [custom handlers](./functions-custom-han
     |**Select how you would like to open your project**|Choose `Open in current window`.|
     ::: zone-end
 
-    Using this information, Visual Studio Code generates an MCP server project with the following: 
-        - _host.json_: This file is required by the Azure Functions host to run the server as an MCP custom handler
-        - _local.settings.json_: This file is required by Azure Functions Core Tools to run the server locally. Core Tools provides a local version of Azure Functions, and it uses this file for specifying required environment variables. 
+Using this information, Visual Studio Code generates an MCP server project with the following: 
 
-        ::: zone pivot="programming-language-csharp"
-        - _Program.cs_: Contains the main entry point for .NET MCP server.
-        - _Tools/HelloTool.cs_: Contains one tool that returns a hello message
-        - _ProjectName.csproj_: Specifies the package dependencies
-        ::: zone-end
+    - _host.json_: This file is required by the Azure Functions host to run the server as an MCP custom handler
+    - _local.settings.json_: This file is required by Azure Functions Core Tools to run the server locally. Core Tools provides a local version of Azure Functions, and it uses this file for specifying required environment variables. 
 
-        ::: zone pivot="programming-language-typescript"
-        ::: zone-end
+    The project also has language specific implementation of a simple MCP server and files required by that language, such as _pyproject.toml_ in Python for specifying dependecies. 
 
-        ::: zone pivot="programming-language-python" 
-        - _weather.py_: Contains the MCP server code
-        - _pyproject.toml_: Specifies the package dependencies
-        ::: zone-end
+---
 
 ## Start the MCP server locally 
 
@@ -176,23 +167,18 @@ Open a new terminal (``Ctrl+Shift+` ``), start the server by running the followi
     func start
     ```
 ::: zone-end  
-### Test the server
 
-1. In Visual Studio Code, open command palette and search for **MCP: Add Server...**
+---
 
-1. Answer the following prompts: 
-    - Type of server to be added: Choose "HTTP" 
-    - Enter URL of the MCP server: 
-        - MCP extension server: `http://localhost:7071/runtime/webhooks/mcp`
-        - Self-hosted server: `http://localhost:7071/mcp`
-    - Give a server name: "local-mcp-server"
-    - Choose "Workspace" to add server to current workspace
+## Test the server
 
-1. Visual Studio should open an `mcp.json` for you. Start the server by selecting the **Start** button above the server name.
+1. Find the `.vscode` directory and open `mcp.json`. The editor should have already added the server's connection info. 
+
+1. Start the server by selecting the **Start** button above server name.
 
 1. When successfully connected to the server, you should see the number of tools available above the server name. 
 
-1. Open Visual Studio Code Copilot chat in agent mode, then ask a question. For example, _Greet with MCP tool_.
+1. Open Visual Studio Code Copilot chat in agent mode, then ask a question. For example, "Greet with #your-local-server-name". This ensures Copilot will use the server to help answer the question. 
 
 1. When Copilot requests to run a tool from the local MCP server, click **Allow**.
 
@@ -241,6 +227,7 @@ To do that for self-hosted MCP servers, add the following in the `customHandler`
         }
     }
     ```
+---
 
 ## Create the function app in Azure
 
@@ -276,7 +263,11 @@ Now deploy the server project:
 
 [!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
-If you're connecting to the MCP server using access key instead of configuring built-in server authorization and authentication, skip to [Connect to server](#connect-to-server) after deployment finishes.
+---
+
+When deployment finishes, you should see a pop-up in Visual Studio Code about connecting to the server. Click the **Connect** button to have the editor set up server connection information in `mcp.json`.
+
+If you're connecting to the MCP server using access key instead of configuring built-in server authorization and authentication, you can now skip to [Connect to server](#connect-to-server) section. 
 
 ## Enable built-in server authorization and authentication
 
@@ -342,23 +333,28 @@ The following instruction shows how to enable the built-in authorization and aut
 
 ## Connect to server
 
-1. Get the server domain by running the following command:
+Open `mcp.json` inside the `.vscode` directory.
 
-    ```shell
-    az functionapp show --name <function-app-name> --resource-group <resource-group-name> --query "defaultHostName" --output tsv
-    ```
+If you clicked **Connect** in the pop-up post deployment, Visual Studio Code should have already populated the file with server connection information. 
 
-1. In Visual Studio Code, open command palette and search for **MCP: Add Server...**
+If you missed that, you can also open "Output" (`Ctrl/Cmd+Shift+U`) to find the in-line connection button at the end of deployment logs. 
 
-1. Answer the following prompts: 
-    - Type of server to be added: Choose "HTTP" 
-    - URL of the MCP server: 
-        - MCP extension server: `https://<server domain>/runtime/webhooks/mcp`
-        - Self-hosted server: `https://<server domain>/mcp`
-    - Give a server name: "remote-mcp-server"
-    - Choose "Workspace" to add server to current workspace
+In case you missed both, you can also manually add connection information:
 
-1. Visual Studio should open an `mcp.json` for you. 
+    1. Get the server domain by running the following command:
+
+        ```shell
+        az functionapp show --name <function-app-name> --resource-group <resource-group-name> --query "defaultHostName" --output tsv
+        ```
+    1. In Visual Studio Code, open command palette and search for **MCP: Add Server...**
+    1. Answer the following prompts: 
+        - Type of server to be added: Choose "HTTP" 
+        - URL of the MCP server: 
+            - MCP extension server: `https://<server domain>/runtime/webhooks/mcp`
+            - Self-hosted server: `https://<server domain>/mcp`
+        - Give a server name: "remote-mcp-server"
+        - Choose "Workspace" to add server to current workspace
+    1. Visual Studio should open an `mcp.json` for you. 
 
 Follow the instructions below to connect to server depending on how you've configured the authentication.
 
@@ -370,9 +366,7 @@ Follow the instructions below to connect to server depending on how you've confi
 
 1. When you successfully connect to the server, you should see the number of tools available above the server name. 
 
-1. Open Visual Studio Code Copilot chat in agent mode, then ask a question. For example, 
-    - MCP extension server: "Greet with MCP tool"
-    - Self-hosted server: "Greet with MCP tool"
+1. Open Visual Studio Code Copilot chat in agent mode, then ask a question. For example, "Greet with #your-remote-mcp-server-name".
 
 1. Stop server when finish testing.
 
@@ -380,10 +374,12 @@ To understand in details what happens when Visual Studio Code tries to connect t
 
 ### With access key
 
-If you didn't enable built-in authentication and authorization and instead wanted to connect to your MCP server using access key, modify the _mcp.json_ to pass in the Functions access key in the request header: 
+If you didn't enable built-in authentication and authorization and instead wanted to connect to your MCP server using access key, the `mcp.json` should contain Functions access key in the request headers of a server registration. 
+
+Visual Studio should automatically populate the access key when you start the server. 
 
 ### [MCP extension server](#tab/mcp-extension)
-The access key can be found on the Azure portal under **Functions -> App keys**. Under the "System keys" section find the one named _mcp_extension_. 
+The `mcp.json` should look like the following: 
 
 ```json
 {
@@ -413,8 +409,10 @@ The access key can be found on the Azure portal under **Functions -> App keys**.
 }
 ```
 
+If you want to find the access key yourself, go to the Function app on Azure portal. On the left menu, find **Functions -> App keys**. Under the "System keys" section find the one named _mcp_extension_. 
+
 ### [Self-hosted server](#tab/self-hosted)
-The access key can be found on the Azure portal under **Functions -> App keys**. Under the "Host keys (all functions)" section find the one named _default_. 
+The `mcp.json` should look like the following: 
 
 ```json
 {
@@ -444,8 +442,12 @@ The access key can be found on the Azure portal under **Functions -> App keys**.
 }
 ```
 
+If you want to find the access key yourself, go to the Function app on Azure portal. On the left menu, find **Functions -> App keys**. Under the "Host keys (all functions)" section find the one named _default_. 
+
+---
 >[!TIP]
 > Above the server name, click "More" -> "Show Output" to see connection logs. For more details on the interaction between the client (Visual Studio Code) and the remote MCP server, click the gear icon and pick "Trace". 
+>
 > ![Trace details for client and server interaction](./media/functions-mcp/trace-log.png)
 
 ## Configure Azure AI Foundry agent to user MCP server
