@@ -15,7 +15,9 @@ ms.custom:
 
 **Applies to:** :heavy_check_mark: SMB Azure file shares
 
-This article explains how you can use [managed identities](/entra/identity/managed-identities-azure-resources/overview) to allow applications and virtual machines (VMs) to access SMB Azure file shares using identity-based authentication with Microsoft Entra ID (preview). A managed identity is an identity in Microsoft Entra ID that is automatically managed by Azure. You typically use managed identities when developing cloud applications to manage the credentials for authenticating to Azure services. 
+This article explains how you can use [managed identities](/entra/identity/managed-identities-azure-resources/overview) to allow Windows and Linux virtual machines (VMs) to access SMB Azure file shares using identity-based authentication with Microsoft Entra ID (preview). 
+
+A managed identity is an identity in Microsoft Entra ID that is automatically managed by Azure. You typically use managed identities when developing cloud applications to manage the credentials for authenticating to Azure services. 
 
 By the end of this guide, you'll have a storage account and VM configured with a managed identity. Then you'll mount a file share using identity-based authentication.
 
@@ -41,7 +43,7 @@ This article assumes that you have an Azure subscription with permissions to cre
 
 ### Prepare your PowerShell environment
 
-Open a PowerShell window as administrator and run the following command to set the PowerShell execution policy:
+Open PowerShell as administrator and run the following command to set the PowerShell execution policy:
 
 ```powershell
 Set-ExecutionPolicy Unrestricted -Scope CurrentUser 
@@ -109,15 +111,19 @@ New-AzStorageShare -Name <file-share-name> -Context $storageAccount.Context
 
 You should now have a storage account and file share ready for SMB OAuth authentication. Verify in the Azure portal that your storage account and file share were created.
 
-## Prepare your VM and assign RBAC role
+## Configure managed identity
 
-The enablement steps are different for Azure VMs versus non-Azure VMs. Once enabled, all necessary permissions can be granted via Azure RBAC.
+You can use managed identities with Windows or Linux. Select the appropriate tab and follow the instructions for your operating system.
 
-### Azure VM enablement
+### [Windows](#tab/windows)
+
+For Windows, the enablement steps are different for Azure VMs versus non-Azure VMs. Once a managed identity is enabled on the VM, all necessary permissions can be granted via Azure RBAC.
+
+### Enable managed identity on an Azure VM
 
 If you want to authenticate an Azure VM, follow these steps.
 
-1. Create a VM in Azure. Your VM must be running Windows Server 2019 or higher for server SKUs, or any Windows client SKU. See [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
+1. Create a Windows VM in Azure. Your VM must be running Windows Server 2019 or higher for server SKUs, or any Windows client SKU. See [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 
 1. Enable a managed identity on the VM. It can be either [system-assigned or user-assigned](/entra/identity/managed-identities-azure-resources/overview#differences-between-system-assigned-and-user-assigned-managed-identities). If the VM has both system- and user-assigned identities, Azure defaults to system assigned. Assign only one for best results. You can enable a system-assigned managed identity during VM creation on the **Management** tab.
 
@@ -125,19 +131,26 @@ If you want to authenticate an Azure VM, follow these steps.
 
 1. Assign the built-in Azure RBAC role **Storage File Data SMB MI Admin** role to the managed identity at the desired scope. See [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps).
 
-### Non-Azure Windows device enablement  
+### Enable managed identity on a non-Azure Windows device
 
-For non-Azure Windows machines (on-prem or other cloud), follow these steps. 
+To enable a managed identity on non-Azure Windows machines (on-prem or other cloud), follow these steps. 
 
 1. [Onboard them to Azure Arc and assign a managed identity](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management).
 
 1. Assign the built-in Azure RBAC role **Storage File Data SMB MI Admin** role to the managed identity at the desired scope. See [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps).
 
-## Mount a file share using a managed identity
 
-Now that your storage account and permissions are configured, follow these steps to mount the file share using managed identity authentication.
+### [Linux](#tab/linux)
 
-### Prepare your client
+To configure a managed identity on a Linux VM, follow these steps.
+
+---
+
+## Prepare your client to authenticate using a managed identity
+
+Follow these steps to prepare your system to mount the file share using managed identity authentication. The steps are different for Windows and Linux clients.
+
+### [Windows](#tab/windows)
 
 To prepare your client VM or Windows device to authenticate using a managed identity, follow these steps.
 
@@ -172,7 +185,7 @@ AzFilesSMBMIClient.exe refresh --uri https://<storage-account-name>.file.core.wi
 
 This will get an OAuth token and insert it in the Kerberos cache, and will auto-refresh when the token is close to expiration. Optionally, you can omit the `refresh`.
 
-If your VM has both user-assigned and system-assigned managed identities configured, you can use the following command to specify the user-assigned managed identity:
+If your Windows VM has both user-assigned and system-assigned managed identities configured, you can use the following command to specify the user-assigned managed identity:
 
 ```powershell
 AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.windows.net/ --clientId <ClientId> 
@@ -181,19 +194,35 @@ AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.wi
 > [!TIP]
 > To view complete usage information and examples, run the executable without any parameters: `AzFilesSmbMIClient.exe`
 
-### Mount the share
+### [Linux](#tab/linux)
 
-You should now be able to [mount the file share](storage-how-to-use-files-windows.md) without using a storage account key.
+To prepare your Linux VM to authenticate using a managed identity, follow these steps.
 
-You can directly access your Azure file share using the UNC path by entering the following into File Explorer. Be sure to replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name:
+---
+
+## Mount a file share using a managed identity
+
+You should now be able to mount the file share on Windows or Linux without using a storage account key.
+
+### [Windows](#tab/windows)
+
+On Windows clients, you can directly access your Azure file share using the UNC path by entering the following into File Explorer. Be sure to replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name:
 
 `\\<storage-account-name>.file.core.windows.net\<file-share-name>`
+
+See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
+
+### [Linux](#tab/linux)
+
+Linux content here.
+
+---
 
 ## Troubleshooting
 
 If you encounter issues when mounting your file share, follow these steps to enable verbose logging and collect diagnostic information.
 
-1. On the client machine, use the Registry Editor to set the **Data** level for **verbosity** to 0x00000004 (4) for `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure\Storage\Files\SmbAuth`.
+1. On Windows clients, use the Registry Editor to set the **Data** level for **verbosity** to 0x00000004 (4) for `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure\Storage\Files\SmbAuth`.
 
 1. Try to mount the share again and reproduce the error.
 
