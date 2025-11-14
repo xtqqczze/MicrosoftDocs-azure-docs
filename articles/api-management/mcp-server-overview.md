@@ -7,7 +7,7 @@ ms.topic: concept-article
 ms.date: 11/13/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
-ms.custom:
+ms.custom: ignite-2025
 ---
 
 # About MCP servers in Azure API Management
@@ -18,9 +18,9 @@ This article introduces features in Azure API Management that you can use to man
 
 With the proliferation of AI agents and LLMs, managing MCP servers is becoming increasingly important:
 
-* Agents need secure, governed access to tools and resources
-* Developers want to reuse existing APIs as agent tools
-* Enterprises need observability, control, and scaling
+* Agents need secure, governed access to tools and resources.
+* Developers want to reuse existing APIs as agent tools.
+* Enterprises need observability, control, and scaling.
 
 Use API Management to securely expose and govern MCP servers and their backends for LLMs and AI agents like GitHub Copilot, ChatGPT, Claude, and more. API Management provides centralized control over MCP server authentication, authorization, and monitoring. It simplifies the management of MCP servers while helping to mitigate common security risks and ensuring observability, control, and scalability.
 
