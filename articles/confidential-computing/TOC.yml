@@ -180,6 +180,8 @@
     items:
     - name: Overview
       href: partner-pages/partner-pages-index.md
+    - name: Acompany
+      href: partner-pages/acompany.md
     - name: Anjuna
       href: partner-pages/anjuna.md
     - name: BeeKeeperAI
