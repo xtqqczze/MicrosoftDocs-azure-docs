@@ -216,6 +216,153 @@ System.Net.Http.Formatting
 Newtonsoft.Json
 ```
 
+<a name="reuse-csx-files"></a>
+
+## Include other .csx files
+
+If you have existing .csx files, you can use the classes and methods from those files in your **Execute CSharp Script Code** action. For this task, you can use the `#load` directive in your *execute_csharp_code.csx* file. This directive works only with .csx files, not .cs files. You have the following options:
+
+- Load the .csx file into your action.
+- Reference the .cs file from the `shared` folder path in your logic app resource.
+
+The following example *execute_csharp_code.csx* file shows how to load a script file named *loadscript.csx* into an **Execute CSharp Script Code** action using the `#load` directive:
+
+```csharp
+// Add the required libraries
+#r "Newtonsoft.Json"
+#r "Microsoft.Azure.Workflows.Scripting"
+#load "loadscript.csx"
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Workflows.Scripting;
+using Newtonsoft.Json.Linq;
+
+/// <summary>
+/// Execute the inline C# code.
+/// </summary>
+/// <param name="context">The workflow context.</param>
+/// <remarks> This is the entry-point to your code. The function signature should remain unchanged.</remarks>
+public static async Task<Results> Run(WorkflowContext context, ILogger log)
+{
+    var name = RunScript().ToString();
+    return new Results
+    {
+        Message = !string.IsNullOrEmpty(name) ? $"Hello {name} from CSharp action" : "Hello from CSharp action."
+    };
+}
+```
+
+You can use the `#load` directive to reference a script file from a shared folder path hosted in your logic app resource at the same level as your workflows. This `shared` folder exists in the `site/wwwroot/` folder path for your logic app resource.
+
+To add the script file to the `shared` folder, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the logic app sidebar, under **Development Tools**, select **Advanced Tools**.
+
+1. On the **Advanced Tools** page, select **Go**, which opens the **Kudu+** console.
+
+1. Open the **Debug console** menu, and select **CMD**.
+
+1. Go to your logic app's root location: **site/wwwroot**
+
+1. Go to the **shared** folder. If this folder doesn't exist, create the folder.
+
+   1. On the toolbar, next to the folder name, select the plus sign (**+**), then select **New folder**.
+
+   1. Enter `shared` for the folder name.
+
+   1. Open the new `shared` folder.
+
+1. Drag the script file to import into the `shared` folder.
+
+The following example *execute_csharp_code.csx* file shows how to reference the uploaded script file named *importcript.csx* into an **Execute CSharp Script Code** action using the `#load` directive:
+
+```csharp
+// Add the required libraries
+#r "Newtonsoft.Json"
+#r "Microsoft.Azure.Workflows.Scripting"
+#load "..\shared\importscript.csx"
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Workflows.Scripting;
+using Newtonsoft.Json.Linq;
+
+/// <summary>
+/// Execute the inline C# code.
+/// </summary>
+/// <param name="context">The workflow context.</param>
+/// <remarks> This is the entry-point to your code. The function signature should remain unchanged.</remarks>
+public static async Task<Results> Run(WorkflowContext context, ILogger log)
+{
+    var name = RunScript().ToString();
+    return new Results
+    {
+        Message = !string.IsNullOrEmpty(name) ? $"Hello {name} from CSharp action" : "Hello from CSharp action." 
+    }; 
+} 
+```
+
+## Import NuGet packages
+
+[NuGet](/nuget/what-is-nuget) is a Microsoft-supported way to create, publish, host, discover, consume, and share .NET code libraries called *packages*. The **Execute CSharp Script Code** action supports the capability to import NuGet packages by using a *function.prof* file, located at the root of the workflow folder, for example:
+
+`site/wwwroot/<workflow-name>/workflow.json`<br>
+`site/wwwroot/<workflow-name>/function.proj`
+
+For example, you can use the following *function.proj* file to import NuGet packages into your **Execute CSharp Script Code** action:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+       <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Serilog" Version="4.3.0" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+        <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+     </ItemGroup>
+</Project>
+```
+
+- For a C# script (.csx) file, you must set `TargetFramework` to `netstandard2.0`. Other target frameworks such as `net6.0` aren't supported.
+
+- When the *function.proj* file initializes, your logic app must restart so that the Azure Logic Apps runtime can recognize and consume the file.
+
+  After restart completes, the runtime the runtime automatically automatically gets the required assemblies from NuGet.org and puts the assembly in the appropriate folder for your script to use. Although you don't need to manually load these assemblies, directly reference the packages in your code by using standard `using` statements, for example:
+
+```csharp
+using System.Net;
+using Newtonsoft.Json;
+using Serilog;
+
+public static async Task<Output> Run(WorkflowContext context)
+{
+    Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug()
+    .WriteTo.Console()
+    .CreateLogger();
+
+    // Write log messages
+    Log.Information("Hello, Serilog with Console sink!");
+    Log.Warning("This is a warning message.");
+
+    var outputReturn = new Output()
+    { 
+        Message = "Utilizing my serilog logger."
+    }; 
+
+    return outputReturn;
+} 
+
+public class Output
+{ 
+    public string Message { get; set; }
+} 
+```
+
 <a name="log-output-stream"></a>
 
 ## Log output to a stream
