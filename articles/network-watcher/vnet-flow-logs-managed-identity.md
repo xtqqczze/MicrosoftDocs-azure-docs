@@ -1,14 +1,14 @@
 ---
 title: Managed Identity for Virtual Network Flow Logs
 titleSuffix: Azure Network Watcher
-description: Learn how Managed Identity simplifies authentication for Virtual Network Flow Logs by eliminating manual credential management and enabling secure access to Azure resources.  
+description: Learn how managed identity simplifies authentication for virtual network flow logs by eliminating manual credential management and enabling secure access to Azure resources.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 11/18/2025
 
-# Customer intent: As an Azure administrator, I want to enable Managed Identity for Virtual Network Flow Logs so that I can securely authenticate and manage resources without storing or rotating credentials.
+# Customer intent: As an Azure administrator, I want to enable managed identity for virtual network flow logs so that I can securely authenticate and manage resources without storing or rotating credentials.
 ---
 
 # Managed identity for virtual network flow logs
@@ -43,7 +43,7 @@ Traffic analytics benefits from user-assigned managed identities by enabling sec
 
 - A user-assigned managed identity. For more information, see [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-powershell).
 
-- *Storage Blob Data Contributor* role assigned to the managed identitiy. For more information, see [Grant a managed identity access to a resource](/entra/identity/managed-identities-azure-resources/grant-managed-identity-resource-access-powershell).
+- *Storage Blob Data Contributor* role assigned to the managed identity. For more information, see [Grant a managed identity access to a resource](/entra/identity/managed-identities-azure-resources/grant-managed-identity-resource-access-powershell).
 
 - Azure Cloud Shell or Azure PowerShell.
 
