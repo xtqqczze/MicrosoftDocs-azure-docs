@@ -19,7 +19,7 @@ This article explains how you can use [managed identities](/entra/identity/manag
 
 A managed identity is an identity in Microsoft Entra ID that is automatically managed by Azure. You typically use managed identities when developing cloud applications to manage the credentials for authenticating to Azure services. 
 
-By the end of this guide, you'll have a storage account and VM configured with a managed identity. Then you'll mount a file share using identity-based authentication.
+By the end of this guide, you'll have a storage account with SMB OAuth configured and a VM configured with a managed identity. Then you'll mount a file share using identity-based authentication, with no need to use a storage account key.
 
 ## Why authenticate using a managed identity?
 
@@ -80,7 +80,7 @@ You can also select your subscription by specifying your subscription name:
 Set-AzContext -Subscription "<subscription-name>" 
 ```
 
-## Configure the SMB OAuth property on your storage account
+## Configure SMB OAuth on your storage account
 
 In order to authenticate a managed identity, you must enable the SMB OAuth property on the storage account that contains the Azure file share you want to access. We recommend creating a new storage account for this purpose. You can use an existing storage account only if it doesn't have Microsoft Entra Kerberos enabled as the identity source.
 
@@ -123,7 +123,7 @@ For Windows, the enablement steps are different for Azure VMs versus non-Azure V
 
 If you want to authenticate an Azure VM, follow these steps.
 
-1. Create a Windows VM in Azure. Your VM must be running Windows Server 2019 or higher for server SKUs, or any Windows client SKU. See [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
+1. Sign in to the Azure portal and create a Windows VM. Your VM must be running Windows Server 2019 or higher for server SKUs, or any Windows client SKU. See [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 
 1. Enable a managed identity on the VM. It can be either [system-assigned or user-assigned](/entra/identity/managed-identities-azure-resources/overview#differences-between-system-assigned-and-user-assigned-managed-identities). If the VM has both system- and user-assigned identities, Azure defaults to system assigned. Assign only one for best results. You can enable a system-assigned managed identity during VM creation on the **Management** tab.
 
@@ -133,7 +133,7 @@ If you want to authenticate an Azure VM, follow these steps.
 
 ### Enable managed identity on a non-Azure Windows device
 
-To enable a managed identity on non-Azure Windows machines (on-prem or other cloud), follow these steps. 
+To enable a managed identity on non-Azure Windows machines (on-prem or other cloud), follow these steps.
 
 1. [Onboard them to Azure Arc and assign a managed identity](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management).
 
@@ -142,7 +142,22 @@ To enable a managed identity on non-Azure Windows machines (on-prem or other clo
 
 ### [Linux](#tab/linux)
 
-To configure a managed identity on a Linux VM, follow these steps.
+To configure a managed identity on a Linux VM running in Azure, follow these steps. Your VM must be running Azure Linux 3.0, Ubuntu 22.04, or Ubuntu 24.04.
+
+> [!NOTE]
+> System-assigned managed identities aren't supported on Linux VMs. You must create a user-assigned managed identity.
+
+1. Sign in to the Azure portal and [create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity).
+
+1. Navigate to the managed identity and copy your client ID. You'll need this later when configuring the Linux VM to use the managed identity.
+
+1. Navigate to the storage account that contains the file share. Select **IAM (Access control)** from the service menu.
+
+1. Assign the built-in **Storage File Data SMB MI Admin** role to the managed identity at the right scope.
+
+1. Navigate to your Linux VM. From the service menu, select **Security**, and then select **Identity**.
+
+1. You’ll see two options: **System-assigned** and **User-assigned**. Enable a user-assigned managed identity for the VM. Select the User-assigned identity you created earlier and assign it to the VM using the client ID you copied in the previous step.
 
 ---
 
