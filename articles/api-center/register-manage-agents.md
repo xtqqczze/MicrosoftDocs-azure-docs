@@ -10,7 +10,7 @@ ms.date: 11/11/2025
 
 # Register and Manage Agents in Azure API Center
 
-This guide shows you how to update and manage agents after they've been registered in API Center. You can add skills, configure capabilities, and update provider information.
+This guide shows you how to register A2A agents in API Center, and how to update and manage them after registration. You can add skills, configure capabilities, and update provider information.
 
 ## Prerequisites
 
