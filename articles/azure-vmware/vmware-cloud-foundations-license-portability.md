@@ -230,3 +230,47 @@ After you complete the reconfiguration, return to the Portable VCF (BYOL) page a
 Tip: After reconfiguring, always check back to confirm your registration status is “Registered.” This ensures your AVS Private Cloud is compliant and avoids any service interruptions. 
 
 If you continue to experience issues, please contact your Microsoft Support for assistance. 
+
+## Frequently Asked Questions
+#### 1. Is the portable VCF (BYOL) offering available in all regions and clouds, including Government (Azure Gov) Cloud? 
+Portable VCF (BYOL) is available in all Azure public and Gov regions where AVS is supported. 
+ 
+#### 2. What if my VCF subscription expires before my AVS Reserved Instance (RI) term ends?
+Renew your VCF subscription with Broadcom and update your registration in the Azure Portal. You must update your VCF keys on the AVS Private Cloud on or before your VCF subscription expires to continue complying without disruption. Your VCF expiry does NOT affect your AVS RIs. 
+
+#### 3. Can I switch back and forth between using AVS with BYOL and without BYOL? 
+Switching from BYOL to Microsoft-managed VCF is only allowed if you have an active VCF-included RI. After Nov 1, 2025, new deployments must use BYOL. Switching away from BYOL may not be permitted for new deployments. Contact your Account team for further clarification. 
+
+#### 4. How do I know if my AVS Private Cloud is registered with BYOL?  
+In the Azure Portal, select your AVS Private Cloud and check the “Portable VCF (BYOL)” section under Manage. Your registered license details will be displayed. 
+
+#### 5. Do I need to bring VCF BYOL for all AVS Private Cloud in my Azure subscription?  
+You can choose VCF BYOL for each AVS Private Cloud individually. You do not need to convert your entire Azure subscription at once. However, with the new Broadcom policy, you can only use Microsoft-managed VCF if you have an active VCF-included Reserved Instance (RI) or if your Pay-as-you-go nodes were deployed before October 15, 2025. For all other hosts, you must register a valid VCF BYOL key. 
+
+#### 6. Do I need to bring VCF BYOL for all hosts/clusters within the AVS Private Cloud?  
+No, you can have mixed licensing within the same AVS Private Cloud. You may continue using your existing VCF-included hosts without providing your own license, up to the number of active Reserved Instances (RI) purchased or for Pay-as-you-go nodes deployed before October 15, 2025. For any additional hosts or clusters added beyond these, you must register VCF BYOL keys to cover the cores for only those additional resources. 
+
+You do not need to associate a specific host or cluster with a license – simply register your BYOL entitlement on the Portable VCF management page in the Azure Portal. AVS will automatically manage billing and compliance for your environment. 
+
+#### 7. What if I deploy more hosts than I have licensed (i.e. exceed my Broadcom-entitled core count)? 
+
+You must not exceed the total number of cores purchased from Broadcom. If you do, you will be out of compliance and risk of service suspension. Always update your configuration if you add more nodes. 
+
+#### 8. How do I know how many cores to port to the AVS Private Cloud?  
+
+Multiply the number of hosts by the cores per host (e.g., AV36P = 36 cores/host). The total must not exceed your Broadcom license entitlement. You can split a VCF key across multiple Private Clouds, but the sum of registered cores must stay within your entitlement. 
+
+## Dos and Don'ts 
+
+### Dos 
+
+* Do ensure your VCF BYOL license keys and core counts are always up to date in the Azure Portal.
+* Do verify that your total registered cores across all AVS Private Clouds do not exceed your Broadcom entitlement.
+* Do check your registration status after any configuration change to confirm compliance. 
+
+### Don’ts 
+
+* Don’t exceed your licensed core count – this may result in service suspension.
+* Don’t ignore a “Failed” registration status – reconfigure immediately to avoid compliance issues.
+* Don’t share your VCF BYOL license keys with unauthorized users.
+* Don’t delay updating your VCF BYOL through Azure Portal if you are an existing BYOL customer – complete your transition to Phase 2 within the required timeline. 
