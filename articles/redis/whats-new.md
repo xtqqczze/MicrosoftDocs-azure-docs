@@ -16,17 +16,9 @@ Find out what's new in Azure Managed Redis.
 
 ## November 2025
 
-### General Availability for more tiers
-
-The in-memory SKUs at 175 GB and 235 GB, Compute Optimized, Balanced, and Memory Optimized, are now GA. For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
-
-### Scheduled maintenance windows
-
-A new feature called **Maintenance** is now in Public Preview. **Maintenance** allow you to define specific time periods when maintenance activities can occur on your Redis instances. For more information, see [Azure Managed Redis scheduled maintenance (preview)](scheduled-maintenance.md).
-
-### Reservations for caches
-
-You can now purchase reservations for your Azure Managed Redis caches. For more information, see [Prepay for Azure Managed Redis compute resources with reservations](reserved-pricing.md).
+- **General Availability for more tiers** - The in-memory SKUs at 175 GB and 235 GB, Compute Optimized, Balanced, and Memory Optimized, are now GA. For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
+- **Scheduled maintenance windows** - A new feature called **Maintenance** is now in Public Preview. **Maintenance** allow you to define specific time periods when maintenance activities can occur on your Redis instances. For more information, see [Azure Managed Redis scheduled maintenance (preview)](scheduled-maintenance.md).
+- **Reservations for caches** - You can now purchase reservations for your Azure Managed Redis caches. For more information, see [Prepay for Azure Managed Redis compute resources with reservations](reserved-pricing.md).
 
 ## August 2025
 
