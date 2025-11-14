@@ -6,7 +6,7 @@ ms.date: 11/18/2025
 ms.topic: include
 ---
 
-<a name="supported-models></a>
+<a name="supported-models"></a>
 
 ## Supported Azure OpenAI Service models for agent workflows
 
