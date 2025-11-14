@@ -26,6 +26,9 @@ The following table summarizes the two different modes that define how Virtual W
 
 ## Availability
 
+This section describes the availability of **direct access** and **forced tunnel** mode. Make sure you understand the difference between the two modes and check the section related to your intended configuration.
+
+### Direct Access
 
 The following table shows the availability status of securing Internet access with **direct access** by configuring Internet routing policy. 
 
@@ -35,6 +38,8 @@ The following table shows the availability status of securing Internet access wi
 |Firewall NVA in the Virtual WAN hub| Generally Available in Azure Public Cloud |
 | Software-as-a-service in the Virtual WAN Hub| Generally Available in Azure Public Cloud|
 
+### Forced tunnel
+
 The following table shows the availability status of securing Internet access with **forced tunneling** by configuring private routing policy.
 
 
@@ -43,9 +48,9 @@ The following table shows the availability status of securing Internet access wi
 
  Security solution |Status|
 |--|--|
-|Azure Firewall |Generally Available in Azure Public and Azure Government Clouds.|
-|Firewall NVA in the Virtual WAN hub| Public Preview in Azure Public Cloud |
-| Software-as-a-service in the Virtual WAN Hub| Public Preview in Azure Public Cloud|
+|Azure Firewall |Generally Available in select Azure regions (see note above).|
+|Firewall NVA in the Virtual WAN hub| Public Preview in select Azure regions (see note above). |
+| Software-as-a-service in the Virtual WAN Hub| Public Preview in select Azure regions (see note above).|
 
 ### Known Limitations
 
