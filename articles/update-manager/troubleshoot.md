@@ -148,7 +148,7 @@ If you miss any of the steps, move the resource to the previous resource group o
 > [!NOTE]
 > If the resource group is deleted, re-create it with the same name. If the subscription ID is deleted, contact the support team for mitigation.
 
-## You can't change the patch orchestration option from automatic to manual
+## You can't change patch orchestration from automatic to manual
 
 ### Issue
 
