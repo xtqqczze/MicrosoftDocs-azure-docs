@@ -42,7 +42,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
   >
   > You can use only the Azure portal to build autonomous agent workflows, not Visual Studio Code.
 
-  Consumption autonomous agent workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. Consumption autonomous workflows support only specific models, which depend on the region for your logic app. See [Supported models](#supported-models-for-agent-workflows).
+  Consumption autonomous agent workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. Consumption autonomous workflows support only specific models, which depend on the region for your logic app. See [Supported models](#supported-models).
 
 ### [Standard](#tab/standard)
 
@@ -63,7 +63,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
   > [!NOTE]
   >
-  > Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
+  > Agent workflows support only specific models. See [Supported models](#supported-models).
 
   | Model source | Description |
   |--------------|-------------|
