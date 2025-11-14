@@ -38,11 +38,11 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
 - A Consumption logic app resource that uses the workflow type named **Autonomous Agents**. See [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
-  Consumption autonomous agent workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. Agent workflows support only specific models. See [Supported models](#supported-models-for-agent-workflows).
-
   > [!NOTE]
   >
   > You can use only the Azure portal to build autonomous agent workflows, not Visual Studio Code.
+
+  Consumption autonomous agent workflows don't require that you manually set up a separate AI model. Your workflow automatically includes an agent action that uses an Azure OpenAI Service model hosted in Azure AI Foundry. Consumption autonomous workflows support only specific models, which depend on the region for your logic app. See [Supported models](#supported-models-for-agent-workflows).
 
 ### [Standard](#tab/standard)
 
@@ -135,7 +135,7 @@ The following table describes current limitations and any known issues in this r
 | Logic app | Limitations or known issues |
 |-----------|-----------------------------|
 | Both | To create tools for your agent, the following limitations apply: <br><br>- You can add only actions, not triggers. <br>- A tool must start with an action and always contains at least one action. <br>- A tool works only inside the agent where that tool exists. <br>- Control flow actions are unsupported. |
-| Consumption | The **Agent** action is throttled based on the number of tokens used. |
+| Consumption | - You can create Consumption agent workflows only in the Azure portal, not Visual Studio Code. <br>- The AI model that your workflow uses is sourced from any region, so data residency for a specific region isn't guaranteed. <br>- The **Agent** action is throttled based on the number of tokens used. |
 | Standard | - Unsupported workflow types: **Stateless** <br><br>**Note**: Azure AI Foundry projects require that you use managed identity authentication. <br><br>- For general limits in Azure OpenAI Service, Azure AI Foundry, and Azure Logic Apps, see: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Azure AI Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
 ## Create an autonomous agent workflow

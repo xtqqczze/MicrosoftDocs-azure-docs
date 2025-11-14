@@ -6,16 +6,20 @@ ms.date: 11/18/2025
 ms.topic: include
 ---
 
-## Supported models for agent workflows
+## Supported Azure OpenAI Service models for agent workflows
 
-The following list specifies the models that you can use with agent workflows:
+The following list specifies the AI models that you can use with agent workflows:
 
 ### [Consumption (preview)](#tab/consumption)
 
-Based on the region that you selected for your logic app resource, your agent uses one of the following models:
+Your agent automatically uses one of the following Azure OpenAI Service models:
 
 - gpt-4o-mini
 - gpt-5o-mini
+
+> [!IMPORTANT]
+>
+> The AI model that your workflow uses can originate from any region, so data residency for a specific region isn't guaranteed.
 
 ### [Standard](#tab/standard)
 
