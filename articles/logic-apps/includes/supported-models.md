@@ -19,7 +19,7 @@ Your agent automatically uses one of the following Azure OpenAI Service models:
 
 > [!IMPORTANT]
 >
-> The AI model that your workflow uses can originate from any region, so data residency for a specific region isn't guaranteed.
+> The AI model that your agent uses can originate from any region, so data residency for a specific region isn't guaranteed for data that the model handles.
 
 ### [Standard](#tab/standard)
 
