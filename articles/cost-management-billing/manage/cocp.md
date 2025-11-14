@@ -67,19 +67,19 @@ In Scope
 -   Cost management + Billing -\> Billing Scopes -\> Change partner
 3.  Click on change partner
 
-![A screenshot of a computer AI-generated content may be incorrect.](media/4c8cf6ac757a54ac716d903f02bf6d47.png)
+![A screenshot of a computer AI-generated content may be incorrect.](../media/4c8cf6ac757a54ac716d903f02bf6d47.png)
 
 4.  After clicking change partner the user will be redirected to a page having only eligible billing accounts on which COCP requests can be initiated. Select the Billing accounts that you want to transfer and click on next.
 5.  User may select multiple billing accounts upto a mzaimum of 20 or user may select one billing account and click the three dots to Change Partner on that billing account.
 
-![A screenshot of a computer AI-generated content may be incorrect.](media/47bba1c187178d52bedceea553c275f2.png)
+![A screenshot of a computer AI-generated content may be incorrect.](../media/47bba1c187178d52bedceea553c275f2.png)
 
 6.  On the **Initiate change of Partner page** user needs to
 -   Input the Public Customer Number (PCN) of the new partner.
 -   Input the email address of the partner’s Notification contact.
 -   Select a reason for changing partner from available drop downs: Unsatisfactory service by current partner, current partner is being offboarded by Microsoft, or Other.
 
-![A screenshot of a computer AI-generated content may be incorrect.](media/9350cd4c52e4430287886bf707b2dd03.png)
+![A screenshot of a computer AI-generated content may be incorrect.](../media/9350cd4c52e4430287886bf707b2dd03.png)
 
 -   Partner organisation name displays when user inputs partner PCN and clicks “*confirm partner*” button in bottom left corner of screen.
 -   This will verify whether the partner PCN entered is allowed to do business or not. In case of error please reach out to partner to get the correct PCN.
@@ -90,7 +90,7 @@ In Scope
 
 **If customer selects agreement that are not eligible for CoCP, admin center displays a message informing the user that licenses are ineligible for a CoCP.**
 
-![A screenshot of a computer AI-generated content may be incorrect.](media/820b2918ede01e74697c136abee4e7cb.png)
+![A screenshot of a computer AI-generated content may be incorrect.](../media/820b2918ede01e74697c136abee4e7cb.png)
 
 User must expand the message to see the reasons blocking CoCP for each impacted license ID.
 
@@ -98,13 +98,13 @@ User must expand the message to see the reasons blocking CoCP for each impacted 
 
 It is up to the new partner contact who is directly engaged with the customer to provide their PCN and partner notification contact details to the customer. In case of error please reach out to partner to get the correct PCN.
 
-![A screenshot of a computer AI-generated content may be incorrect.](media/3b28af863e0c5fa273490817eee75660.png)
+![A screenshot of a computer AI-generated content may be incorrect.](../media/3b28af863e0c5fa273490817eee75660.png)
 
 **Scenario: Partner email address inputted by customer does not have access to VL Central**.
 
 Customer may input an email address in Partner Notification Contact of a partner user who does not have permissions on VLC to accept the CoCP. The Azure Portal will display a warning but will allow the user to proceed.
 
-This means the notification will go to the email address listed on CoCP rather than the partner user who has VL Central access. However, that partner user with VLC access will be able to see and accept the CoCP in VL Central even though they don’t receive the CoCP notification.![A screenshot of a computer AI-generated content may be incorrect.](media/8f74d9f696f134c23bd6ee0f7c2cb752.png)
+This means the notification will go to the email address listed on CoCP rather than the partner user who has VL Central access. However, that partner user with VLC access will be able to see and accept the CoCP in VL Central even though they don’t receive the CoCP notification.![A screenshot of a computer AI-generated content may be incorrect.](../media/8f74d9f696f134c23bd6ee0f7c2cb752.png)
 
 7.  **Review Change Partner terms**
 -   If selected billing accounts are all EA direct – ‘Change of Software Advisor’ form displayed.
@@ -112,17 +112,17 @@ This means the notification will go to the email address listed on CoCP rather t
 -   If selected licenses are all are a combination of EA direct and Indirect, one form with sections for *Change of SA Advisor* and *Change of Reseller* is displayed. The form is scrollable.
 -   User needs to input their first name and last name and agree to terms and conditions by clicking on the checkbox.
 
-![A screenshot of a computer AI-generated content may be incorrect.](media/f076209a9ebd77b5df61d2478b3c2170.png)![A screenshot of a computer screen AI-generated content may be incorrect.](media/76471b6f9a91b163aea5237056d5c87e.png)![A screenshot of a computer AI-generated content may be incorrect.](media/39242bb1fcdf405b3158369556ee7359.png)
+![A screenshot of a computer AI-generated content may be incorrect.](../media/f076209a9ebd77b5df61d2478b3c2170.png)![A screenshot of a computer screen AI-generated content may be incorrect.](../media/76471b6f9a91b163aea5237056d5c87e.png)![A screenshot of a computer AI-generated content may be incorrect.](../media/39242bb1fcdf405b3158369556ee7359.png)
 
 8.  **User must agree to terms to initiate the CoCP.**
 
 A message is displayed to indicate the CoCP has been successfully submitted. Please make sure that the partner accepts the request within 10 days.
 
-![A screenshot of a computer AI-generated content may be incorrect.](media/20573885c55ca53207cc946de627c33e.png)
+![A screenshot of a computer AI-generated content may be incorrect.](../media/20573885c55ca53207cc946de627c33e.png)
 
 9.  **COCP request is sent to Partner Notification contact identified in COCP**
 
-![A screenshot of a computer screen AI-generated content may be incorrect.](media/ee41aefe5f112ad5ec0c473f184aa929.png)
+![A screenshot of a computer screen AI-generated content may be incorrect.](../media/ee41aefe5f112ad5ec0c473f184aa929.png)
 
 #### 
 
@@ -146,7 +146,7 @@ The **status** for each COCP is displayed per billing account
 
 The **effective date** is the date from which the new partner may place orders on the agreement.
 
-![A screenshot of a computer AI-generated content may be incorrect.](media/285d6a5992c75cef93ec0e4e273ce53b.png)
+![A screenshot of a computer AI-generated content may be incorrect.](../media/285d6a5992c75cef93ec0e4e273ce53b.png)
 
 #### How to download CoCP request ID in Azure portal
 
@@ -156,7 +156,7 @@ Customer admin must navigate to track changes page.
 -   User can click on the downward arrow button which is the download button to get the COCP form.
 -   The COCP form can only be downloaded once partner accepts the request or the request is not cancelled.
 
-![A screenshot of a computer AI-generated content may be incorrect.](media/d61eab87c8bb7c2f8eadafadeaccaaa7.png)
+![A screenshot of a computer AI-generated content may be incorrect.](../media/d61eab87c8bb7c2f8eadafadeaccaaa7.png)
 
 #### How to cancel COCP request in Azure Portal
 
@@ -165,9 +165,10 @@ A COCP Request with a status of In Process may be cancelled in full or partially
 -   Go to Cost Management + billing\> Billing Scopes \> Track Change, select the billing scopes you wish not to proceed with a CoCP for.
 -   Select Cancel Request from the action menu at the top, or the 3 dots next to billing scope,
 
-![A screenshot of a computer AI-generated content may be incorrect.](media/70d4d272274e6e5374095722b4a09c86.png)
+![A screenshot of a computer AI-generated content may be incorrect.](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This will initiate a notification to the partner to let them know that the request has been cancelled.
+
 
 
 
