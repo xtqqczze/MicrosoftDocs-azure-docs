@@ -331,7 +331,7 @@ For example, you can use the following *function.proj* file to import NuGet pack
 
 - When the *function.proj* file initializes, your logic app must restart so that the Azure Logic Apps runtime can recognize and consume the file.
 
-  After restart completes, the runtime the runtime automatically automatically gets the required assemblies from NuGet.org and puts the assembly in the appropriate folder for your script to use. Although you don't need to manually load these assemblies, directly reference the packages in your code by using standard `using` statements, for example:
+  After restart completes, the runtime automatically gets the required assemblies from NuGet.org and puts the assembly in the appropriate folder for your script to use. Although you don't need to manually load these assemblies, make sure to directly reference the packages in your code by using standard `using` statements, for example:
 
 ```csharp
 using System.Net;
@@ -486,7 +486,7 @@ public class Results
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource that has the workflow you want.
 
-1. On the logic app resource menu, under **Development Tools**, select **Advanced Tools**.
+1. On the logic app sidebar, under **Development Tools**, select **Advanced Tools**.
 
 1. On the **Advanced Tools** page, select **Go**, which opens the **KuduPlus** console.
 
@@ -500,9 +500,9 @@ public class Results
 
 ## View logs in Application Insights
 
-1. In the [Azure portal](https://portal.azure.com), on the logic app resource menu, under **Settings**, select **Application Insights**. Select your logic app.
+1. In the [Azure portal](https://portal.azure.com), on the logic app sidebar, under **Settings**, select **Application Insights**. Select your logic app.
 
-1. On the **Application Insights** menu, under **Monitoring**, select **Logs**.
+1. On the **Application Insights** sidebar, under **Monitoring**, select **Logs**.
 
 1. Create a query to find any traces or errors from your workflow execution, for example:
 
