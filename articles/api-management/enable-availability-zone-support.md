@@ -25,7 +25,7 @@ While instances in both the Premium and Premium v2 tiers benefit from availabili
 
 | Premium | Premium v2 |
 |---------|------------|
-| - Automatically enable zone redundancy when you create a new instance or add a new location to an existing instance in a supported region.<br/><br/> - Zonal or zone-redundant settings can also be manually configured. | - Optionally enable zone redundancy when creating an instance in a supported region.<br/><br/>Configuring zone redundancy in an existing instance isn't supported. |
+| - Automatically enable zone redundancy when you create a new instance or add a new location to an existing instance in a supported region.<br/><br/>- Zonal or zone-redundant settings can also be manually configured. | - Optionally enable zone redundancy when creating an instance in a supported region.<br/><br/>- Configuring zone redundancy in an existing instance isn't supported. |
 
 #### [Premium](#tab/prem)
 
@@ -68,9 +68,6 @@ In the **Premium v2** tier, you can enable availability zone support only when y
 
 * Choose an Azure region that supports both [Premium v2 instances](api-management-region-availability.md) and [availability zones](../reliability/regions-list.md).
 
-* For Azure CLI:
-    [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
 ---
 
 ## Configure availability zones
@@ -79,9 +76,13 @@ Follow these steps to enable availability zone support on your API Management in
 
 #### [Premium](#tab/prem)
 
-[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
+### Enable availability zones when creating an instance
 
-### Instance not injected in a virtual network
+In the **Premium** tier, availability zone support is automatically enabled when you create a new API Management instance in a supported region. You can optionally specify which availability zones to use.
+
+:::image type="content" source="media/enable-availability-zone-support/enable-zone-redundancy-premium-v2.png" alt-text="Screenshot of enabling zone redundancy for a Premium v2 instance in the portal.":::
+
+### Existing instance not injected in a virtual network
 
 To manually configure availability zone support on an existing location of an API Management instance, follow these steps:
 
@@ -101,7 +102,7 @@ To manually configure availability zone support on an existing location of an AP
 
 :::image type="content" alt-text="Screenshot that shows availability zone configuration for an existing location of an API Management instance that's not injected in a virtual network." source ="media/enable-availability-zone-support/option-one-not-injected-in-vnet.png" lightbox="media/enable-availability-zone-support/option-one-not-injected-in-vnet.png":::
 
-### Instance injected in a virtual network
+### Existing instance injected in a virtual network
 
 To manually configure availability zone support on an existing location of an API Management instance that's injected in a virtual network, follow these steps:
 
@@ -153,7 +154,9 @@ To add a new location to your API Management instance and to configure availabil
 
 You can enable zone redundancy when you create a new API Management instance in the **Premium v2** tier. 
 
-* For example, use the **Create API Management service** wizard in the Azure portal. On the **Basics** tab, under **Zone redundancy**, select **Enable zone redundancy**.
+* In the Azure portal, use the **Create API Management service** wizard. On the **Basics** tab, under **Zone redundancy**, select **Enable zone redundancy**.
+
+    :::image type="content" source="media/enable-availability-zone-support/enable-zone-redundancy-premium-v2.png" alt-text="Screenshot of enabling zone redundancy for a Premium v2 instance in the portal.":::
 
 * After you create the instance, the status of availability zone support appears on the **Overview** page of the instance in the portal.
 

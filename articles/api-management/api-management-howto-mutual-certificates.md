@@ -50,9 +50,9 @@ We recommend that you use key vault certificates because doing so improves API M
 * Configure your backend service client certificate authentication. For information about configuring certificate authentication in Azure App Service, see [Configure TLS mutual authentication in App Service][to configure certificate authentication in Azure WebSites refer to this article]. 
 * Ensure that you have access to the certificate and the password for management in an Azure key vault, or a certificate to upload to the API Management service. The certificate must be in PFX format. Self-signed certificates are allowed. 
 
-    If you use a self-signed certificate or other custom CA certificate, you must install the corresponding root and intermediate CA certificates in API Management to enable validation of the backend service certificate. For more information, see [How to add a custom CA certificate in Azure API Management](api-management-howto-ca-certificates.md)
+    If you use a self-signed certificate or other custom CA certificate, install the corresponding root and intermediate CA certificates in API Management to enable validation of the backend service certificate. For more information, see [How to add a custom CA certificate in Azure API Management](api-management-howto-ca-certificates.md)
 
-    If you don't install the CA certificates, API Management can't validate the backend service certificate, and requests to the backend service will fail unless you disable certificate chain validation. See [Disable certificate chain validation for self-signed certificates](#disable-certificate-chain-validation-for-self-signed-certificates) later in this article.
+    If you don't install the CA certificates, API Management can't validate the backend service certificate, and requests to the backend service might fail unless you disable certificate chain validation. See [Disable certificate chain validation for self-signed certificates](#disable-certificate-chain-validation-for-self-signed-certificates) later in this article.
 
     [!INCLUDE [api-management-ca-certificate-v2-tiers](../../includes/api-management-ca-certificate-v2-tiers.md)]
 
