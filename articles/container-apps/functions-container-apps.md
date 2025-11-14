@@ -79,7 +79,7 @@ Use these commands to create your required Azure resources:
 
     The `az storage account create` command creates the storage account that can only be accessed by using Microsoft Entra-authenticated identities that have been granted permissions to specific resources. 
 
-    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Storage names must contain 3 to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](storage-considerations.md#storage-account-requirements).
+    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Storage names must contain 3 to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](../azure-functions/storage-considerations.md#storage-account-requirements).
 
 1. Create a managed identity and use the returned `principalId` to grant it both access to your storage account and pull permissions in your registry instance. 
 
@@ -97,7 +97,7 @@ Use these commands to create your required Azure resources:
 
 A function app on Azure manages the execution of your functions in your Azure Container Apps environment. In this section, you use the Azure resources from the previous section to create a function app from an image in a container registry in a Container Apps environment. You also configure the new environment with a connection string to the required Azure Storage account.
 
-Use the [`az containerapp create --kind=functionapp`](./functions-usage.md) command to create a function app in the new managed environment backed by Azure Container Apps. In [`az containerapp create --kind-functionapp`](./functions-usage.md), the `--environment` parameter specifies the Container Apps environment. 
+Use the `az containerapp create --kind=functionapp` command to create a function app in the new managed environment backed by Azure Container Apps. In `az containerapp create --kind-functionapp`, the `--environment` parameter specifies the Container Apps environment. 
 
 ### [Azure Container Registry](#tab/acr)
 
@@ -115,7 +115,7 @@ In [`az containerapp create --kind=functionapp`](./functions-usage.md), the `--a
 
 In this example, replace `<APP_NAME>`, `<STORAGE_NAME>`, and `<USER_IDENTITY_NAME>` with a name for your new function app as well as the name of your storage account and the identity. 
 
-Finally, you must update the [`linuxFxVersion`](./functions-app-settings.md#linuxfxversion) site setting to the fully qualified name of your image in the repository. You must also update the [`acrUseManagedIdentityCreds`](./functions-app-settings.md#acrusemanagedidentitycreds) and  [`acrUserManagedIdentityID`](./functions-app-settings.md#acrusermanagedidentityid) site settings so that managed identities are used when obtaining the image from the registry.   
+Finally, you must update the `linuxFxVersion` site setting to the fully qualified name of your image in the repository. You must also update the `acrUseManagedIdentityCreds` and  `acrUserManagedIdentityID`site settings so that managed identities are used when obtaining the image from the registry.   
 
 ```azurecli
 UAMI_RESOURCE_ID=$(az identity show --name <USER_IDENTITY_NAME> --resource-group AzureFunctionsContainers-rg --query id -o tsv)
@@ -128,13 +128,13 @@ In this example, replace `<APP_NAME>`, `<REGISTRY_NAME>`, and `<USER_IDENTITY_NA
 
 ### [Docker Hub](#tab/docker)
 
-First you must get fully qualified ID value of your user-assigned managed identity, and then use the [`az containerapp create --kind=functionapp`](./functions-usage.md) command to create a function app using the default image and with this identity assigned to it.
+First you must get fully qualified ID value of your user-assigned managed identity, and then use the `az containerapp create --kind=functionapp` command to create a function app using the default image and with this identity assigned to it.
 
 ```azurecli
 az containerapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --assign-identity --image <DOCKER_ID>/azurefunctionsimage:v1.0.0 --kind=functionapp
 ```
 
-In the [`az containerapp create --kind=functionapp`](./functions-usage.md) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your public Docker Hub account ID. 
+In the [`az containerapp create --kind=functionapp`](../azure-functions/functions-usage.md) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your public Docker Hub account ID. 
 
 If you're using a private registry, you need to include the fully qualified domain name of your registry instead of just the Docker ID for `<DOCKER_ID>`, along with the `--registry-username` and `--registry-password` credential required to access the registry. 
 
@@ -166,7 +166,9 @@ To enable the Functions host to connect to the default storage account using sha
 At this point, your functions are running in a Container Apps environment, with the required application settings already added. When needed, you can add other settings in your functions app in the standard way for Functions. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
 >[!TIP] 
-> When you make subsequent changes to your function code, you need to rebuild the container, republish the image to the registry, and update the function app with the new image version. For more information, see [Update an image in the registry](functions-how-to-custom-container.md#update-an-image-in-the-registry)
+> When you make subsequent changes to your function code, you need to rebuild the container, republish the image to the registry, and update the function app with the new image version. For more information, see [Update an image in the registry](../azure-functions/update)
+
+(../azure-functions/updatefunctions-how-to-custom-container.md#update-an-image-in-the-registry)
 
 [!INCLUDE [functions-container-verify-azure](../../includes/functions-container-verify-azure.md)]
 
@@ -192,12 +194,12 @@ az group delete --name AzureFunctionsContainers-rg
 ## Next steps
 
 > [!div class="nextstepaction"]  
-> [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)  
+> [Azure Container Apps hosting of Azure Functions](../azure-functions/functions-container-apps-hosting.md)  
 > [!div class="nextstepaction"]  
 > [Native Azure Functions Support in Azure Container Apps](../../articles/container-apps/functions-overview.md)  
 > [!div class="nextstepaction"]  
 > [Create your Native Azure Functions on Azure Container Apps](../../articles/container-apps/functions-usage.md)  
 > [!div class="nextstepaction"]  
-> [Working with containers and Azure Functions](./functions-how-to-custom-container.md)  
+> [Working with containers and Azure Functions](../azure-functions/functions-how-to-custom-container.md)  
 > [!div class="nextstepaction"]  
 > [Help make the experience better](https://microsoft.qualtrics.com/jfe/form/SV_byFGULLJlKPh9Xw)  
