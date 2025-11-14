@@ -126,7 +126,7 @@ To manually configure availability zone support on an existing location of an AP
 
 :::image type="content" alt-text="Screenshot that shows availability zone configuration for an existing location of an API Management instance that's injected in a virtual network." source ="media/enable-availability-zone-support/option-three-stv2-injected-in-vnet.png" lightbox="media/enable-availability-zone-support/option-three-stv2-injected-in-vnet.png":::
 
-## New gateway location
+### New gateway location
 
 To add a new location to your API Management instance and to configure availability zones in that location, follow these steps:
 
