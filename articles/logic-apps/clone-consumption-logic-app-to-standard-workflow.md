@@ -17,8 +17,6 @@ ms.date: 11/18/2025
 > 
 > This capability is in preview and is subject to the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, **this capability is only available in Azure public regions**.
 
-[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
-
 Compared to Consumption logic app workflows, Standard logic app workflows run in single-tenant Azure Logic Apps and offer many different and improved capabilities. For example, you get compute isolation, virtual network integration, and private endpoints along with App Services Environment hosting, local development and debugging using Visual Studio Code, low latency with stateless workflows, and more.
 
 If you want the benefits from Standard workflows, but you have Consumption workflows that run in multitenant Azure Logic Apps, you can now clone your Consumption workflows to single-tenant Azure Logic Apps. This operation is useful when you require some Standard capabilities, such as isolation and network integration, lower latency, or better cost predictability.
