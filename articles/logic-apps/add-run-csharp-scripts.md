@@ -226,9 +226,9 @@ If you have existing .csx files, you can use the classes and methods from those 
 
   The .csx file must exist in the same folder for the workflow that contains the **Execute CSharp Script Code** action. See [Load .csx directly](#load-directly).
 
-- Reference a .csx file from a shared folder path for your logic app.
+- Reference a .csx file that exists in a shared folder for your logic app.
 
-  This folder path must exist in the `site/wwwroot/` folder path for your logic app. See [Reference .csx file from shared folder path](#reference-from-shared-folder).
+  This folder must exist in the `site/wwwroot/` folder path for your logic app. See [Reference .csx file from shared folder path](#reference-from-shared-folder).
 
 <a name="load-directly"></a>
 
@@ -266,7 +266,7 @@ public static async Task<Results> Run(WorkflowContext context, ILogger log)
 
 ### Reference .csx file from shared folder path
 
-You can use the `#load` directive to reference a .csx file from a shared folder path hosted in your logic app resource at the same level as your workflows. This `shared` folder exists in the `site/wwwroot/` folder path for your logic app resource.
+You can use the `#load` directive to reference a .csx file that exists in a shared folder for your logic app resource. This `shared` folder must exist in the `site/wwwroot/` folder path for your logic app resource.
 
 To add the script file to the `shared` folder, follow these steps:
 
