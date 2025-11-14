@@ -222,11 +222,17 @@ Newtonsoft.Json
 
 If you have existing .csx files, you can use the classes and methods from those files in your **Execute CSharp Script Code** action. For this task, you can use the `#load` directive in your *execute_csharp_code.csx* file. This directive works only with .csx files, not .cs files. You have the following options:
 
-- Load the .csx file directly into your action.
+- Load a .csx file directly into your action.
 
-  This .csx file must exist in the same folder for the workflow that contains the **Execute CSharp Script Code** action.
+  The .csx file must exist in the same folder for the workflow that contains the **Execute CSharp Script Code** action. See [Load .csx directly](#load-directly).
 
-- Reference the .cs file from the `shared` folder path in your logic app resource.
+- Reference a .csx file from a shared folder path for your logic app.
+
+  This folder path must exist in the `site/wwwroot/` folder path for your logic app. See [Reference .csx file from shared folder path](#reference-from-shared-folder).
+
+<a name="load-directly"></a>
+
+### Load .csx file directly
 
 The following example *execute_csharp_code.csx* file shows how to load a script file named *loadscript.csx* into an **Execute CSharp Script Code** action using the `#load` directive:
 
@@ -256,7 +262,11 @@ public static async Task<Results> Run(WorkflowContext context, ILogger log)
 }
 ```
 
-You can use the `#load` directive to reference a script file from a shared folder path hosted in your logic app resource at the same level as your workflows. This `shared` folder exists in the `site/wwwroot/` folder path for your logic app resource.
+<a name="reference-from-shared-folder"></a>
+
+### Reference .csx file from shared folder path
+
+You can use the `#load` directive to reference a .csx file from a shared folder path hosted in your logic app resource at the same level as your workflows. This `shared` folder exists in the `site/wwwroot/` folder path for your logic app resource.
 
 To add the script file to the `shared` folder, follow these steps:
 
