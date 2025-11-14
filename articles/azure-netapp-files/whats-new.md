@@ -993,7 +993,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now allows you to specify whether the root account can access the volume.
 
-* [Hide snapshot path](snapshots-edit-hide-path.md)
+* [Hide snapshot path](snapshots-manage-policy.md#edit-the-hide-snapshot-path-option)
 
     Azure NetApp Files now allows you to specify whether a user can see and access the `.snapshot` directory (NFS clients) or `~snapshot` folder (SMB clients) on a mounted volume.
 
