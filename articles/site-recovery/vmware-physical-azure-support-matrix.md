@@ -201,7 +201,7 @@ Debian 9.1 | 9.63 | No new Debian 9.1 kernels supported in this release. |
 Debian 9.1 | 9.62 | No new Debian 9.1 kernels supported in this release. |
 Debian 9.1 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | No new Debian 9.1 kernels supported in this release. |
 |||
-Debian 10 | 9.65, 9.66 | No new Debian kernels in this release. |
+Debian 10 | 9.66 | No new Debian kernels in this release. |
 Debian 10 | 9.65 | No new Debian kernels in this release. |
 Debian 10 | 9.64 | No new Debian kernels in this release. |
 Debian 10 | 9.63 | No new Debian kernels in this release. |
