@@ -14,7 +14,7 @@ ms.author: normesta
 
 # Performance checklist for Blob Storage developers
 
-Use this checklist to reduce latency, increase throughput, and align with [Azure Storage scale and performance targets](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits), often called _targets_ rather than _limits_ because some values can be increased upon request. When clients approach or exceed these targets, Azure Storage might throttle requests, which increases latency. Use the checklist in this article to align with targets without sacrificing performance.
+Use this checklist to reduce latency, increase throughput, and align with [Azure Storage scale and performance targets](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits). Azure Storage uses the term _targets_ rather than _limits_ because some values can be increased upon request. When clients approach or exceed these targets, Azure Storage might throttle requests, which increases latency. Use the checklist in this article to align with targets without sacrificing performance.
 
 > [!NOTE]
 > This article applies only to custom applications. For recommendations that apply to all clients, review the [Performance checklist for Blob Storage](storage-performance-checklist.md). 
