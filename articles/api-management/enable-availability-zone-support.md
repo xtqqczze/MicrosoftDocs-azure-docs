@@ -163,7 +163,7 @@ You can enable zone redundancy when you create a new API Management instance in 
 > [!NOTE]
 > API Management makes a best effort to enable zone redundancy in the selected region. If zone redundancy can't be enabled, the deployment fails, and an error message is displayed.
 
- 
+---
 
 
 
