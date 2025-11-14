@@ -344,7 +344,7 @@ For example, you can use the following *function.proj* file to import NuGet pack
 
   This requirement doesn't mean that package versions are limited to `netstandard2.0`. You can still reference packages for `net6.0` and later.
 
-- When the *function.proj* file initializes, your must restart the logic app so that the Azure Logic Apps runtime can recognize and consume the file.
+- When the *function.proj* file initializes, you must restart the logic app so that the Azure Logic Apps runtime can recognize and consume the file.
 
 After restart completes, the runtime automatically gets the required assemblies from NuGet.org and puts the assembly in the appropriate folder for your script to use. Although you don't need to manually load these assemblies, make sure to directly reference the packages in your code by using standard `using` statements, for example:
 
