@@ -127,7 +127,7 @@ If you want to authenticate an Azure VM, follow these steps.
 
 1. Enable a managed identity on the VM. It can be either [system-assigned or user-assigned](/entra/identity/managed-identities-azure-resources/overview#differences-between-system-assigned-and-user-assigned-managed-identities). If the VM has both system- and user-assigned identities, Azure defaults to system assigned. Assign only one for best results. You can enable a system-assigned managed identity during VM creation on the **Management** tab.
 
-    :::image type="content" source="media/files-managed-identities/enable-system-assigned-managed-identity.png" alt-text="Screenshot showing how to enable system assigned managed identity when creating a new VM using the Azure portal." border="true":::
+    :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity.png" alt-text="Screenshot showing how to enable system assigned managed identity when creating a new VM using the Azure portal." border="true":::
 
 1. Assign the built-in Azure RBAC role **Storage File Data SMB MI Admin** role to the managed identity at the desired scope. See [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps).
 
@@ -215,6 +215,8 @@ See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md)
 ### [Linux](#tab/linux)
 
 Linux content here.
+
+See [Mount SMB Azure file shares on Linux clients](storage-how-to-use-files-linux.md).
 
 ---
 
