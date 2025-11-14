@@ -100,6 +100,9 @@
   items:
   - name: Functions with Logic Apps
     href: functions-twitter-email.md
+  - name: Host MCP servers for AI-enabled functions
+    displayName: agent, agentic, Foundry
+    href: functions-mcp-tutorial.md 
   - name: Develop Python functions with VS Code
     href: ./create-first-function-vs-code-python.md
   - name: Create serverless APIs using Visual Studio
@@ -227,6 +230,8 @@
         href: functions-container-apps-hosting.md
     - name: Consumption plan
       href: consumption-plan.md
+    - name: MCP server hosting
+      href: self-hosted-mcp-servers.md
   - name: Deployment
     items:
     - name: Deployment options

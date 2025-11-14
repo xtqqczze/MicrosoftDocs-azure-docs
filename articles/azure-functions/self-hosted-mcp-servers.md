@@ -21,9 +21,7 @@ The first approach allows you to leverage the Azure Functions programming model 
 
 If you've already built your MCP server with the official MCP SDKs and just want to host it remotely, then second approach would likely suite your needs. You don't have to make any code changes to the server to host on Azure Functions. Simply add the required Functions artifact, and the server is ready to be deployed. As such, these servers are refered to as _self-hosted MCP servers_. 
 
-<div align="center">
-  <img src="./media/functions-mcp/function_hosting.png" alt="Diagram showing hosting of Function app and custom handler apps." width="500">
-</div>
+:::image type="content" source="./media/functions-mcp/function-hosting.png" alt-text="Diagram showing hosting of Function app and custom handler apps.":::
 
 This article provides an overview of self-hosted MCP servers and links to relevant articles and samples. 
 
