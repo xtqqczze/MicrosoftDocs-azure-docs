@@ -487,7 +487,7 @@ For this task, you need to create an *mcpservers.json* file for your Standard lo
 
 1. Sign in and give consent to call your MCP server.
 
-   After authentication completes, the *mcp.jon* file shows **Running** as the MCP server status.
+   After authentication completes, the *mcp.json* file shows **Running** as the MCP server status.
 
    :::image type="content" source="media/set-up-model-context-protocol-server-standard/running-mcp-json-file.png" alt-text="Screenshot shows mcp.json file with Running status selected." lightbox="media/set-up-model-context-protocol-server-standard/running-mcp-json-file.png":::
 
