@@ -44,7 +44,7 @@ This guide shows how to create an example Standard logic app workflow with the *
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A new or existing Standard logic app resource or project. You can work in either development environment:
 
@@ -180,7 +180,7 @@ To create a partial workflow with an empty **Agent**, follow these steps:
 
    1. On the **Add a trigger** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger) to add the best trigger for your scenario.
 
-      This example uses the **Request** trigger named **When a HTTP request is received**. For this article, you don't need any other trigger setup.
+      This example uses the **Request** trigger named **When an HTTP request is received**. For this article, you don't need any other trigger setup.
 
       :::image type="content" source="media/create-autonomous-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Agent action." lightbox="media/create-autonomous-agent-workflows/request-trigger.png":::
 
