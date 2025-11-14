@@ -55,11 +55,11 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
   | Azure portal | A Standard logic app resource. See [Create Standard workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md). |
   | Visual Studio Code | A Standard logic app project. See [Create Standard workflows in Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code). Make sure you have the latest Azure Logic Apps extension. |
 
-  After you open the workflow designer, the experiences in the portal and in Visual Studio Code are mostly similar, but some interactions have minor differences.
+  > [!NOTE]
+  >
+  > The steps to set up autonomous agent workflows are mostly the same for both Azure portal and Visual Studio Code. The examples in this guide show the instructions for each experience where the process differs.
 
-  The examples in this guide use the Azure portal.
-
-- One of the following AI model sources: 
+- One of the following AI model sources:
 
   > [!NOTE]
   >
@@ -160,9 +160,9 @@ To open this partial workflow, follow these steps:
 
 ### [Standard](#tab/standard)
 
-Start by creating a new workflow or [add an agent to a nonagent **Stateful** workflow](#add-agent-nonagent-workflow).
+Based on the development experience that you use, start by creating a new workflow.
 
-#### Create a new workflow
+#### Create agent workflow in Azure portal
 
 To create a workflow with an empty **Agent**, follow these steps:
 
@@ -204,21 +204,41 @@ To create a workflow with an empty **Agent**, follow these steps:
 
 1. Skip the next section so you can set up your agent with an AI model.
 
+#### Create agent workflow in Visual Studio Code
+
+1. In Visual Studio Code, open the workspace for your Standard logic app project.
+
+1. On the Activity Bar, select the files icon, which opens the Explorer window to show your project.
+
+1. In the Explorer window, from your project folder shortcut menu, select **Create workflow**.
+
+1. Select the workflow template named **Autonomous agent**.
+
+1. Provide a name for your workflow, and press Enter.
+
+   A new workflow folder now appears in your project. This folder contains a *workflow.json* file, which contains the workflow's underlying JSON definition.
+
+1. From the *workflow.json* file's shortcut menu, select **Open designer**.
+
+   The designer opens and shows a partial workflow that starts with the **Add trigger** prompt and an empty **Default Agent** action that you need to set up later.
+
+   :::image type="content" source="media/create-autonomous-agent-workflows/workflow-start-standard-visual-studio-code.png" alt-text="Screenshot shows workflow designer with Add trigger prompt and an empty Default Agent action." lightbox="media/create-autonomous-agent-workflows/workflow-start-standard-visual-studio-code.png":::
+
+1. Continue to the next section to set up your agent.
+
 <a name="add-agent-nonagent-workflow"></a>
 
 #### Add an agent to a nonagent workflow
 
 If you have an existing **Stateful** workflow, you can add an **Agent** action to include autonomous agent and LLM capabilities by following these steps:
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+1. In the designer, open your **Stateful** workflow.
 
-1. On the resource sidebar, under **Workflows**, select **Workflows**.
+1. Follow the [general steps](add-trigger-action-workflow.md?tabs=standard#add-action) to add an action named **Agent** to your workflow.
 
-1. On the **Workflows** page, select the **Stateful** workflow you want.
+   Alternatively, you can select **Add an agent**, rather than **Add an action**, for example:
 
-1. After the designer opens, follow the [general steps](add-trigger-action-workflow.md?tabs=standard#add-action) to add an action named **Agent** to your workflow, for example:
-
-   :::image type="content" source="media/create-autonomous-agent-workflows/add-agent.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, existing workflow, and option to add an agent." lightbox="media/create-autonomous-agent-workflows/add-agent.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/add-agent.png" alt-text="Screenshot shows designer with classic stateful workflow, and option to add an agent." lightbox="media/create-autonomous-agent-workflows/add-agent.png":::
 
 1. Continue with the next section to set up your agent with an AI model.
 
@@ -376,6 +396,8 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
 
 ### [Standard](#tab/standard)
 
+#### Check for errors in Azure portal
+
 1. On the designer toolbar, select **Run** > **Run**.
 
 1. On the workflow sidebar, under **Tools**, select **Run history**.
@@ -395,6 +417,28 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
    The agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete tasks.
 
 1. Return to the designer. On the monitoring view toolbar, select **Edit**.
+
+#### Check for errors in Visual Studio Code
+
+1. In the Explorer window for your logic app project, expand the folder that has the workflow name, and go to the *workflow.json* file.
+
+1. From the file shortcut menu, select **Overview**. Press F5 to start a debugging session.
+
+1. After a run completes, under **Run history**, select the latest workflow run.
+
+   > [!NOTE]
+   >
+   > If the page doesn't show any runs, on the toolbar, select **Refresh**.
+   >
+   > If the **Status** column shows a **Running** status, the agent workflow is still working.
+
+   The monitoring view opens and shows the workflow operations with their status. The **Agent log** pane is open and shows the agent instructions that you provided earlier. The pane also shows the agent's response.
+
+   However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email, until you create tools that the agent needs to complete their tasks. You might even get an email that your email server rejected the message.
+
+1. On the debugging toolbar, select **Disconnect** to stop the debug session.
+
+1. Return to the designer.
 
 ---
 

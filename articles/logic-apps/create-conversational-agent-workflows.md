@@ -62,7 +62,7 @@ For external chat authentication and authorization, Consumption conversational a
   >
   > The steps to set up conversational chat are mostly the same for both Azure portal and Visual Studio Code. The examples in this guide show the instructions for each experience where the process differs.
 
-- One of the following AI model sources: 
+- One of the following AI model sources:
 
   > [!NOTE]
   >
