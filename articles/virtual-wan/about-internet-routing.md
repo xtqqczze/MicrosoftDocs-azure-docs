@@ -21,8 +21,8 @@ The following table summarizes the two different modes that define how Virtual W
 
 |Mode| Internet traffic |
 |--|--|
-|Direct Access|Forwarded **directly** to the Internet after inspection. |
-|Forced Tunnel|Forwarded via **0.0.0.0/0 route learnt** from on-premises, from a Network Virtual Appliance (NVA) or a Virtual WAN static route after inspection. If no 0.0.0.0/0 route is learnt from on-premises, an NVA or a static route on a Virtual Network connection, forward directly to Internet after inspection. |
+|Direct Access|Routed  **directly** to the Internet after inspection. |
+|Forced Tunnel|Routed  via a designated next hop (**0.0.0.0/0 route learnt** from on-premises, from a Network Virtual Appliance (NVA) or a Virtual WAN static) route after inspection. If no 0.0.0.0/0 route is learnt from on-premises, an NVA or a static route on a Virtual Network connection, Internet-bound traffic is blocked. |
 
 ## Availability
 
@@ -44,7 +44,7 @@ The following table shows the availability status of securing Internet access wi
 
 
 >[!IMPORTANT]
-> Configuring Virtual WAN hubs in forced tunnel mode is being progressively deployed to all Azure regions. The current list of available regions are: Australia Central, Brazil South, Central India, East Asia, East US, India West, Korea Central, Malaysia South, Malaysia West, North Europe, Qatar Central, UK South, West Central US, and West US. If you have any questions regarding region availability, contact virtual-wan-forced-tunnel@microsoft.com or your Microsoft account team. 
+> Configuring Virtual WAN hubs in forced tunnel mode is being progressively deployed to all Azure regions. The current list of available regions are: Australia Central, Brazil South, Central India, East Asia, East US, India West, Korea Central, Malaysia South, Malaysia West, Qatar Central, UK South, and West Central US. If you have any questions regarding region availability, contact virtual-wan-forced-tunnel@microsoft.com or your Microsoft account team. 
 
  Security solution |Status|
 |--|--|
@@ -86,7 +86,7 @@ When Virtual WAN is configured in forced tunnel mode, the highest priority defau
 
 :::image type="content" source="./media/about-internet-routing/force-tunnel.png" alt-text="Screenshot that shows forced tunnel." lightbox="./media/about-internet-routing/force-tunnel.png":::
 
-Forced tunneling instructs Virtual WAN to expect Internet traffic  to be routed to a designated next hop instead of directly to the Internet. Therefore, If there are no default routes learnt dynamically from on-premises or configured as a static route on Virtual Network connections, Internet traffic will be **dropped** by the Azure platform and will not be forwarded to the security solution in the hub.
+Forced tunneling instructs Virtual WAN to expect Internet traffic to be routed to a designated next hop instead of directly to the Internet. Therefore, If there are no default routes learnt dynamically from on-premises or configured as a static route on Virtual Network connections, Internet traffic will be **dropped** by the Azure platform and will not be forwarded to the security solution in the hub.
 
 The security solution in the Virtual WAN hub will **not** forward traffic to the Internet directly as a back-up path. 
 
