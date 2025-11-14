@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 After hosting your MCP server remotely on Azure Functions, you can register it on Azure API Center, which maintains an inventory (or registry) of remote MCP servers so that they're easily discoverable across your organization. All registered MCP servers can be found in the API Center portal for teams in your organization. 
 
-![API center portal showing MCP servers](./media/functions-mcp/apic-portal-mcp-filter.png)
+![API center portal showing MCP servers](./media/functions-mcp/api-center-portal-mcp-filter.png)
 
 ## Create resources 
 
@@ -93,7 +93,7 @@ After hosting your MCP server remotely on Azure Functions, you can register it o
 
 1. Clicking into a server name opens a pane that shows information based on data provided during server registration and the uploaded API definition.Users with access to the portal can connect to servers of their choice by copying the endpoint URL or the install in Visual Studio Code integration. 
 
-    ![Server information in API Center portal](./media/functions-mcp/server-info-apic-portal.png)
+    ![Server information in API Center portal](./media/functions-mcp/server-info-api-center-portal.png)
 
 
 
