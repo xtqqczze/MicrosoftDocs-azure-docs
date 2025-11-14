@@ -83,10 +83,10 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. Search for and run the command `Azure Functions: Create New Project...`.
 
 1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
-
-1. Provide the following information at the prompts:
 ::: zone-end  
-    ::: zone pivot="programming-language-csharp"  
+::: zone pivot="programming-language-csharp"  
+1. Provide the following information at the prompts:
+
     ### [MCP extension server](#tab/mcp-extension)
 
     |Prompt|Selection|
@@ -111,6 +111,8 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
     --- 
     ::: zone-end  
     ::: zone pivot="programming-language-typescript" 
+1. Provide the following information at the prompts:
+
     ### [MCP extension server](#tab/mcp-extension)
 
     |Prompt|Selection|
@@ -133,6 +135,8 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
     --- 
     ::: zone-end  
     ::: zone pivot="programming-language-python" 
+1. Provide the following information at the prompts:
+
     ### [MCP extension server](#tab/mcp-extension)
 
     |Prompt|Selection|
