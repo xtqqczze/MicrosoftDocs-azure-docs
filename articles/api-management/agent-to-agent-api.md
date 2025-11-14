@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 11/13/2025
+ms.date: 11/14/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom: 
@@ -38,7 +38,7 @@ When you import an A2A agent API, API Management provides the following capabili
     * Replaces the hostname with API Management instance's hostname.
     * Sets the preferred transport protocol to JSON-RPC.
     * Removes all other interfaces in `additionalInterfaces`.    
-    * Rewrites security requirements to represent the API Management subscription key. 
+    * Rewrites security requirements to include the API Management subscription key requirement. 
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ Use the following steps to import an A2A agent API to API Management.
 1. On the **Create an A2A agent API** page, configure the API settings.
     1. If the **Runtime URL** and **Agent ID** aren't automatically configured based on the agent card, then provide the runtime URL of JSON-RPC operations to your agent and the agent ID used in OpenTelemetry traces emitted by the agent (`gen_ai.agent.id` attribute).
     1. Under **General API settings**, enter a **Display name** of your choice in the API Management instance, and optionally enter a **Description**.
-    1. Under **URL**, enter a **Base path** that your API Management instance uses to access the A2A agent API. API Management displays a **Base URL** that clients can use to access the API, and an **Agent card URL** to access the agent card through API Management.
+    1. Under **URL**, enter a **Base path** that your API Management instance uses to access the A2A agent API. API Management displays a **Base URL** that clients can use to access the JSON-RPC API, and an **Agent card URL** to access the agent card through API Management.
 1. Select **Create** to create the API.
 
 :::image type="content" source="media/agent-to-agent-api/create-agent-api.png" alt-text="Screenshot of creating an A2A agent-compatible API in the portal." lightbox="media/agent-to-agent-api/create-agent-api.png":::
