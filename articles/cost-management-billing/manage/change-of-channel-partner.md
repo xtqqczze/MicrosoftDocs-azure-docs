@@ -18,11 +18,11 @@ From Nov 2025, Enterprise volume licensing customers are able to initiate Change
 
 This change moves the ability to initiate the Co-CP process away from Partners and enables the customers to start the process instead.
 
-Once a COCP is initiated by a customer, the Partner is notified to accept or decline. Once accepted by the Partner, customer admin gets a notification of the accepted request and the effective date from when the new partner will be enabled.
+A customer initiates a COCP, and then notifies the Partner to accept or decline. When the Partner accepts, the customer admin receives a notification with the accepted request and the effective date when the new partner becomes enabled.
 
 ## Prerequisite information required from your new partner
 
-Only two pieces of information will be required to initiate a change of channel partner request.
+Only two pieces of information are required to initiate a change of channel partner request.
 
 **The new partner PCN number** – Please ask your new partner their partner PCN number.This Is a required information and you won't be able to proceed without it. Partner can get it by opening any existing contract in VLCentral in contracts workspace.
 
@@ -33,13 +33,13 @@ Only two pieces of information will be required to initiate a change of channel 
 -   **If you don’t have this information:**
     -   You can enter any email address for the partner notification contact to proceed.
     -   However, if the email address you provide is not verified by Microsoft, your new partner will **not** receive automatic notifications about the COCP request (for privacy reasons).
-    -   In this case, you should reach out to your new partner directly (outside the system) and let them know you have started the COCP process.
+    -   In this case, you should reach out to your new partner directly (outside the system) and let them know you started the COCP process.
 -   **Why does this matter?**
     -   Using a verified partner contact ensures your new partner is notified promptly and can take action on your request.
     -   If you use an unverified contact, you're responsible for informing your partner about the request..
 
 **Key Takeaway:**  
-Always try to get the correct partner notification contact from your new partner before starting the COCP request. This helps ensure a smooth and timely transition.
+Always try to get the correct partner notification contact from your new partner before starting the COCP request. This action helps ensure a smooth and timely transition.
 
 **Please make sure that the partner accepts the request within 10 days.**
 
@@ -58,7 +58,7 @@ In Scope
 -   EA agreements with ended status.
 -   Backdated COCP requests.
 -   Early COCP (before anniversary date)
--   A COCP initiated in one portal won't be visible in the other to prevent duplication of requests..
+-   A COCP initiated in one portal is not visible in the other to prevent duplication of requests.
 
 ## Azure Portal customer experience
 
@@ -168,6 +168,7 @@ A COCP Request with a status of In Process may be canceled in full or partially 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This initiates a notification to the partner to let them know that the request has been cancelled.
+
 
 
 
