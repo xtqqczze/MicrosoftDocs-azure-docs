@@ -211,6 +211,7 @@ A financial services customer database, for example, might be analyzed for dupli
 
 :::image type="content" source="media/functions-scenarios/scheduled-task.png" alt-text="Diagram of a scheduled task where a function cleans a database every 15 minutes deduplicating entries based on business logic." lightbox="media/functions-scenarios/scheduled-task-expanded.png":::
 
+For examples, see the following:
 ::: zone pivot="programming-language-csharp" 
 
 ```csharp
@@ -226,20 +227,19 @@ public static void Run([TimerTrigger("0 */15 * * * *")]TimerInfo myTimer, ILogge
     // Perform the database deduplication
 }
 ```
-
-+ [Timer trigger for Azure Functions](functions-bindings-timer.md?pivots=programming-language-csharp)
++ Quickstart: [Azure Functions Timer trigger](scenario-scheduled-tasks.md?pivots=programming-language-csharp)
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
-+ [Timer trigger for Azure Functions](functions-bindings-timer.md?pivots=programming-language-python)
++ Quickstart: [Azure Functions Timer trigger](scenario-scheduled-tasks.md?pivots=programming-language-python)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-+ [Timer trigger for Azure Functions](functions-bindings-timer.md?pivots=programming-language-javascript)
++ Quickstart: [Azure Functions Timer trigger](scenario-scheduled-tasks.md?pivots=programming-language-javascript)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
-+ [Timer trigger for Azure Functions](functions-bindings-timer.md?pivots=programming-language-powershell)
++ Quickstart: [Azure Functions Timer trigger](scenario-scheduled-tasks.md?pivots=programming-language-powershell)
 ::: zone-end
 
 ::: zone pivot="programming-language-java" 

@@ -1,7 +1,7 @@
 ---
 title: Build scheduled tasks using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a scheduled task project to a Flex Consumption plan on Azure."
-ms.date: 11/13/2025
+ms.date: 11/14/2025
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy scheduled tasks using Timer triggers to a new function app in the Flex Consumption plan in Azure.
@@ -234,19 +234,19 @@ You can review the code that defines the Timer trigger function:
 :::code language="csharp" source="~/functions-azd-timer-dotnet/src/timerFunction.cs" :::
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
-For Java code examples, see the [Java developer guide](functions-reference-java.md#timer-trigger).
+For Java code examples, see the [Timer trigger reference](functions-bindings-timer.md?pivots=programming-language-java).
 ::: zone-end  
 ::: zone pivot="programming-language-javascript" 
-For JavaScript code examples, see the [JavaScript developer guide](functions-reference-node.md#timer-trigger).
+For JavaScript code examples, see the [Timer trigger reference](functions-bindings-timer.md?pivots=programming-language-javascript).
 ::: zone-end  
 ::: zone pivot="programming-language-typescript" 
-:::code language="typescript" source="~/functions-azd-timer-typescript/src/functions/timerFunction.ts" :::
+:::code language="typescript" source="~/functions-azd-timer-typescript/src/src/functions/timerFunction.ts" :::
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
-For PowerShell code examples, see the [PowerShell developer guide](functions-reference-powershell.md#timer-trigger).
+For PowerShell code examples, see the [Timer trigger reference](functions-bindings-timer.md?pivots=programming-language-powershell).
 ::: zone-end   
 ::: zone pivot="programming-language-python" 
-:::code language="python" source="~/functions-azd-timer-python/function_app.py" :::
+:::code language="python" source="~/functions-azd-timer-python/src/function_app.py" :::
 ::: zone-end  
 
 ::: zone pivot="programming-language-csharp"  
