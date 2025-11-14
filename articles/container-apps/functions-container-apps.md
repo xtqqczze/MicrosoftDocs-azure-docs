@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Create your Azure Functions on Azure Container Apps 
 
-In this article, you create a function app running in a Linux container and deploy it to an Azure Container Apps environment from a container registry. By deploying to Container Apps, you're able to integrate your function apps into cloud-native microservices. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
+In this article, you create a function app running in a Linux container and deploy it to an Azure Container Apps environment from a container registry. By deploying to Container Apps, you're able to integrate your function apps into cloud-native microservices. For more information, see [Azure Container Apps hosting of Azure Functions](../azure-functions/functions-container-apps-hosting.md).
 
 This article shows you how to create functions running in a Linux container and deploy the container to a Container Apps environment. 
 
@@ -122,7 +122,7 @@ UAMI_RESOURCE_ID=$(az identity show --name <USER_IDENTITY_NAME> --resource-group
 az resource patch --resource-group AzureFunctionsContainers-rg --name <APP_NAME> --resource-type "Microsoft.Web/sites" --properties "{ \"siteConfig\": { \"linuxFxVersion\": \"DOCKER|<REGISTRY_NAME>.azurecr.io/azurefunctionsimage:v1.0.0\", \"acrUseManagedIdentityCreds\": true, \"acrUserManagedIdentityID\":\"$UAMI_RESOURCE_ID\", \"appSettings\": [{\"name\": \"DOCKER_REGISTRY_SERVER_URL\", \"value\": \"<REGISTRY_NAME>.azurecr.io\"}]}}"
 ```
 
-In addition to the required site settings, the `az resource patch` command also updates the [`DOCKER_REGISTRY_SERVER_URL`](./functions-app-settings.md#docker_registry_server_url) app setting to the URL of your registry server.
+In addition to the required site settings, the `az resource patch` command also updates the [`DOCKER_REGISTRY_SERVER_URL`](../azure-functions/functions-app-settings.md) app setting to the URL of your registry server.
 
 In this example, replace `<APP_NAME>`, `<REGISTRY_NAME>`, and `<USER_IDENTITY_NAME>` with the names of your function app, container registry, and identity, respectively.  
 
@@ -166,7 +166,7 @@ To enable the Functions host to connect to the default storage account using sha
 At this point, your functions are running in a Container Apps environment, with the required application settings already added. When needed, you can add other settings in your functions app in the standard way for Functions. For more information, see [Use application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md#settings).
 
 >[!TIP] 
-> When you make subsequent changes to your function code, you need to rebuild the container, republish the image to the registry, and update the function app with the new image version. For more information, see [Update an image in the registry](../azure-functions/update)
+> When you make subsequent changes to your function code, you need to rebuild the container, republish the image to the registry, and update the function app with the new image version.
 
 (../azure-functions/updatefunctions-how-to-custom-container.md#update-an-image-in-the-registry)
 
