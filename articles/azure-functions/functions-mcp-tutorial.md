@@ -282,7 +282,13 @@ To disable host-based authentication for self-hosted MCP servers, add the follow
 ### [MCP extension server](#tab/mcp-extension)
 To disable host-based authentication in MCP extension servers, set the authentication level to anonymous:
 
-
+```csharp
+[Function("McpTrigger")]
+public async Task<IActionResult> Run(
+    [McpToolTrigger(AuthorizationLevel.Anonymous)] McpToolRequest req)
+{
+    ...
+}
 
 ### [Self-hosted server](#tab/self-hosted)
 To disable host-based authentication for self-hosted MCP servers, add the following code in the `customHandler` section:
@@ -302,7 +308,12 @@ To disable host-based authentication for self-hosted MCP servers, add the follow
 ### [MCP extension server](#tab/mcp-extension)
 To disable host-based authentication in MCP extension servers, set the authentication level to anonymous:
 
-
+```typescript
+app.mcpTool('mcpTrigger', {
+    authLevel: 'anonymous',
+    handler: mcpToolHandler
+});
+```
 
 ### [Self-hosted server](#tab/self-hosted)
 To disable host-based authentication for self-hosted MCP servers, add the following code in the `customHandler` section:
