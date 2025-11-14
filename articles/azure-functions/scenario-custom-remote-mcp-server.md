@@ -82,9 +82,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
     azd init --template remote-mcp-functions-dotnet -e mcpserver-dotnet
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the name of the resource group you create in Azure. 
-
-3. In Explorer, go to the `src` project folder, which contains the function code for your custom MCP server.        
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the name of the resource group you create in Azure.       
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 2. In your local terminal or command prompt, run this `azd init` command:
@@ -93,9 +91,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
     azd init --template remote-mcp-functions-java -e mcpserver-java 
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-java) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the name of the resource group you create in Azure. 
-
-3. In Explorer, navigate to the `src/main/java/com/function/` project folder, which contains the function code for your custom MCP server.  
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-java) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure. 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 2. In your local terminal or command prompt, run this `azd init` command:
@@ -104,9 +100,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
     azd init --template remote-mcp-functions-typescript -e mcpserver-ts
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-typescript) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the name of the resource group you create in Azure. 
-
-3. In Explorer, go to the `src` folder, which contains the function code for your custom MCP server.  
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-typescript) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.   
 ::: zone-end
 ::: zone pivot="programming-language-python"  
 2. In your local terminal or command prompt, run this `azd init` command:
@@ -115,14 +109,12 @@ Use the `azd init` command to create a local Azure Functions code project from a
     azd init --template remote-mcp-functions-python -e mcpserver-python
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-python) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the name of the resource group you create in Azure. 
-
-3. In Explorer, go to the `src` folder, which contains the function code for your custom MCP server.  
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-python) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure. 
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
 ## Start the storage emulator
 
-Use the Azurite emulator to run your code project locally before creating and using Azure resources.
+Use the Azurite emulator simulate an Azure Storage account connection when running your code project locally.
 
 1. If you haven't already, [install Azurite](/azure/storage/common/storage-use-azurite#install-azurite).
 
