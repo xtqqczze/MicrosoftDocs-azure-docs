@@ -126,7 +126,7 @@ The following table describes the current limitations and any known issues in th
 | Logic app | Limitations or known issues |
 |-----------|-----------------------------|
 | Both | To create tools for your agent, the following limitations apply: <br><br>- You can add only actions, not triggers. <br>- A tool must start with an action and always contains at least one action. <br>- A tool works only inside the agent where that tool exists. <br>- Control flow actions are unsupported. |
-| Consumption | - You can create Consumption agent workflows only in the Azure portal, not Visual Studio Code. <br>- The AI model that your agent uses can origniate from any region, so data residency for a specific region isn't guaranteed for data that the model handles. <br>- The **Agent** action is throttled based on the number of tokens used. |
+| Consumption | - You can create Consumption agent workflows only in the Azure portal, not Visual Studio Code. <br>- The AI model that your agent uses can originate from any region, so data residency for a specific region isn't guaranteed for data that the model handles. <br>- The **Agent** action is throttled based on the number of tokens used. |
 | Standard | - Unsupported workflow types: **Stateless** <br><br>For general limits in Azure OpenAI Service and Azure Logic Apps, see: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
 [!INCLUDE [supported-models](includes/supported-models.md)]
