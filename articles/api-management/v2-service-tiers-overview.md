@@ -74,13 +74,13 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Multiple custom domain names 
 * Capacity metric - *replaced by CPU Percentage of Gateway and Memory Percentage of Gateway metrics*
 * Built-in analytics - *replaced by Azure Monitor-based dashboard*
-* Upgrade to v2 tiers from classic tiers 
 * CA certificates - *replaced by CA certificates in backend entity*
 * Sending events to Event Grid
 * Event Hubs event metrics
+* Upgrade to v2 tiers from classic tiers 
 
 **Developer portal**
-* Reports
+* Reports 
 * Custom HTML code widget and custom widget
 
 **Gateway**

@@ -11,7 +11,7 @@ ms.custom:
   - sfi-image-nochange
 ---
 
-# Connect privately to API Management using an inbound private endpoint
+# Connect privately to API Management by using an inbound private endpoint
 
 [!INCLUDE [premium-dev-standard-basic-premiumv2-standardv2.md](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2.md)]
 
@@ -44,14 +44,14 @@ Supported configurations include:
 * Configure Azure Front Door (or Azure Front Door with Azure Application Gateway) to receive external traffic and then route traffic privately to the API Management gateway. For example, see [Connect Azure Front Door Premium to an Azure API Management with Private Link](../frontdoor/standard-premium/how-to-enable-private-link-apim.md).
 
     > [!NOTE]
-    > Information the user should notice even if skimming
-
+    > Currently, routing traffic privately from Azure Front Door to API Management isn't supported in the Premium v2 tier.
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md). 
     - When using an instance in the classic Developer or Premium tier, don't deploy (inject) the instance into an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) virtual network.
-- A virtual network containing a subnet to host the private endpoint. The subnet may contain other Azure resources, but it can't be delegated to another service. 
+- Availability of the API Management private endpoint type in your subscription and region. 
+- A virtual network containing a subnet to host the private endpoint. The subnet can contain other Azure resources, but it can't be delegated to another service. 
 - (Recommended) A virtual machine in the same or a different subnet in the virtual network, to test the private endpoint.
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -67,43 +67,17 @@ Typically, a network administrator creates a private endpoint. Depending on your
 
 ## Steps to configure private endpoint
 
-1. [Get available private endpoint types in subscription](#get-available-private-endpoint-types-in-subscription)
-1. [Create private endpoint - portal](#create-private-endpoint---portal)
-
-### Get available private endpoint types in subscription
-
-Verify that the API Management private endpoint type is available in your subscription and location. In the portal, find this information by going to the **Private Link Center**. Select **Supported resources**.  
-
-You can also find this information by using the [Available Private Endpoint Types - List](/rest/api/virtualnetwork/available-private-endpoint-types) REST API.
-
-```rest
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/locations/{region}/availablePrivateEndpointTypes?api-version=2021-03-01
-```
-
-Output should include the `Microsoft.ApiManagement.service` endpoint type:
-
-```JSON
-[...]
-
-      "name": "Microsoft.ApiManagement.service",
-      "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/AvailablePrivateEndpointTypes/Microsoft.ApiManagement.service",
-      "type": "Microsoft.Network/AvailablePrivateEndpointTypes",
-      "resourceName": "Microsoft.ApiManagement/service",
-      "displayName": "Microsoft.ApiManagement/service",
-      "apiVersion": "2021-04-01-preview"
-    }
-[...]
-```
+Follow these steps to create and configure a private endpoint for your API Management instance.
 
 ### Create private endpoint - portal
 
-You can create a private endpoint when you create an API Management instance in the Azure portal, or you can add a private endpoint to an existing instance. You can also create a private endpoint using the [Private Link Center](/azure/private-link/create-private-endpoint-portal).
+You can create a private endpoint when you create an API Management instance in the Azure portal, or you can add a private endpoint to an existing instance.
 
 #### [Classic](#tab/classic)
 
 To add a private endpoint to an existing API Management instance:
 
-1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com/).
+1. Go to your API Management service in the [Azure portal](https://portal.azure.com/).
 
 1. In the left-hand menu, under **Deployment + infrastructure**, select **Network**.
 
@@ -121,7 +95,7 @@ To add a private endpoint to an existing API Management instance:
     | **Instance details** |  |
     | Name  | Enter a name for the endpoint such as *myPrivateEndpoint*. |
     | Network Interface Name | Enter a name for the network interface, such as *myInterface* |
-    | Region | Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted. |
+    | Region | Select a location for the private endpoint. It must be in the same region as your virtual network. It can differ from the region where your API Management instance is hosted. |
 
 1. Select the **Next: Resource** button at the bottom of the screen. The following information about your API Management instance is already populated:
     * Subscription
@@ -157,14 +131,14 @@ To add a private endpoint to an existing API Management instance:
     | Resource group | Select your resource group. |
     | Private DNS zones | The default value is displayed: **(new) privatelink.azure-api.net**.
 
-1. Select the **Next: Tabs** button at the bottom of the screen. If you desire, enter tags to organize your Azure resources.
+1. Select **Next: Tabs** at the bottom of the screen. If you want, enter tags to organize your Azure resources.
 
-1. Select the **Next: Review + create** button at the bottom of the screen. Select **Create**.
+1. Select **Next: Review + create** at the bottom of the screen. Select **Create**.
 
 
 ### List private endpoint connections to the instance
 
-After the private endpoint is created and the service updated, it appears in the list on the API Management instance's **Inbound private endpoint connections** page in the portal.
+After you create the private endpoint and update the service, the private endpoint appears in the list on the API Management instance's **Inbound private endpoint connections** page in the portal.
 
 
 Note the endpoint's **Connection state**:
@@ -196,7 +170,7 @@ You can also use the API Management [Private Endpoint Connection - Create Or Upd
     | ------- | ----- |
     | Subscription | Select your subscription. |
     | Resource group | Select an existing resource group, or create a new one. It must be in the same region as your virtual network.|
-    | Location |  Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted.  |
+    | Location |  Select a location for the private endpoint. It must be in the same region as your virtual network. It can differ from the region where your API Management instance is hosted.  |
     | Name  | Enter a name for the endpoint such as *myPrivateEndpoint*. |
     | Sub-resource | Select **Gateway**. |
 
@@ -212,7 +186,7 @@ You can also use the API Management [Private Endpoint Connection - Create Or Upd
 
 ### Create private endpoint for existing API Management Standard v2 instance
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your API Management Standard v2 instance.
+1. In the [Azure portal](https://portal.azure.com/), go to your API Management Standard v2 instance.
 
 1. In the left-hand menu, under **Deployment + infrastructure**, select **Network** > **Edit**.
 
@@ -224,7 +198,7 @@ You can also use the API Management [Private Endpoint Connection - Create Or Upd
     | ------- | ----- |
     | Subscription | Select your subscription. |
     | Resource group | Select an existing resource group, or create a new one. It must be in the same region as your virtual network.|
-    | Location |  Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted.  |
+    | Location |  Select a location for the private endpoint. It must be in the same region as your virtual network. It can differ from the region where your API Management instance is hosted.  |
     | Name  | Enter a name for the endpoint such as *myPrivateEndpoint*. |
     | Sub-resource | Select **Gateway**. |
 
@@ -239,7 +213,7 @@ You can also use the API Management [Private Endpoint Connection - Create Or Upd
 
 To list private endpoint connections to the API Management instance:
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your API Management Standard v2 instance.
+1. In the [Azure portal](https://portal.azure.com/), go to your API Management Standard v2 instance.
 
 1. In the left-hand menu, under **Deployment + infrastructure**, select **Network**.
 
@@ -251,13 +225,13 @@ To list private endpoint connections to the API Management instance:
 
 #### [Premium v2](#tab/premv2)
 
- To create a private endpoint for an API Management Premium v2 instance, currently you must use the [Private Link Center](/azure/private-link/create-private-endpoint-portal).
+ For an API Management Premium v2 instance, currently you must create a [private endpoint](/azure/private-link/create-private-endpoint-portal) resource separately in Private Link services.
 
 ### Create private endpoint for existing API Management Premium v2 instance
 
-1. In the [Azure portal](https://portal.azure.com/), go to the **Private Link Center**.
+1. In the [Azure portal](https://portal.azure.com/), go to **Private endpoints**.
 
-1. Select **Private endpoints** > **+ Create**.
+1. Select **+ Create**.
 
 1. In the **Basics** tab of **Create a private endpoint**, enter or select the following information:
 
@@ -269,7 +243,7 @@ To list private endpoint connections to the API Management instance:
     | **Instance details** |  |
     | Name  | Enter a name for the endpoint such as *myPrivateEndpoint*. |
     | Network Interface Name | Enter a name for the network interface, such as *myInterface* |
-    | Region | Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted. |
+    | Region | Select a location for the private endpoint. It must be in the same region as your virtual network. It can differ from the region where your API Management instance is hosted. |
 
 1. Select the **Next: Resource** button at the bottom of the screen. 
 
@@ -310,33 +284,33 @@ To list private endpoint connections to the API Management instance:
     | Resource group | Select your resource group. |
     | Private DNS zones | The default value is displayed: **(new) privatelink.azure-api.net**.
 
-1. Select the **Next: Tabs** button at the bottom of the screen. If you desire, enter tags to organize your Azure resources.
+1. Select **Next: Tabs** at the bottom of the screen. If you want, enter tags to organize your Azure resources.
 
-1. Select the **Next: Review + create** button at the bottom of the screen. Select **Create**.
+1. Select **Next: Review + create** at the bottom of the screen. Select **Create**.
 
 ### List private endpoint connections
 
-After the private endpoint is created and the service updated, it appears in the list on the **Private endpoints** page in the **Private Link Center**.
+After you create the private endpoint and update the service, the private endpoint appears in the list on the **Private endpoints** page.
 
-Confirm that the endpoint's **Connection status** is **Approved**. 
+Make sure the endpoint's **Connection status** is **Approved**. 
 
 ---
 
 ## Optionally disable public network access
 
-To optionally limit incoming traffic to the API Management instance only to private endpoints, disable the public network access property. 
+To limit incoming traffic to the API Management instance only to private endpoints, disable the public network access property. 
 
 
 > [!IMPORTANT]
-> * You can only disable public network access *after* you've configured a private endpoint.
-> * You can only disable public network access in an *existing* API Management instance, not during the deployment process. 
+> * You can disable public network access *after* you configure a private endpoint.
+> * You can disable public network access in an *existing* API Management instance, not during the deployment process. 
 
 > [!NOTE] 
-> Public network access can only be disabled in API Management instances configured with a private endpoint, not with other networking configurations.
+> You can disable public network access in API Management instances configured with a private endpoint, not with other networking configurations.
 
 #### [Classic](#tab/classic)
 
-To disable the public network access property in the classic tiers using the Azure CLI, run the following [az apim update](/cli/azure/apim#az-apim-update) command, substituting the names of your API Management instance and resource group:
+To disable the public network access property in the classic tiers by using the Azure CLI, run the following [az apim update](/cli/azure/apim#az-apim-update) command, substituting the names of your API Management instance and resource group:
 
 ```azurecli
 az apim update --name my-apim-service --resource-group my-resource-group --public-network-access false
@@ -346,9 +320,9 @@ You can also use the [API Management Service - Update](/rest/api/apimanagement/a
 
 #### [Standard v2](#tab/v2)
 
-You can use the portal to disable the public network access property in a Standard v2 instance.
+Use the portal to disable the public network access property in a Standard v2 instance.
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your API Management Standard v2 instance.
+1. In the [Azure portal](https://portal.azure.com/), go to your API Management Standard v2 instance.
 
 1. In the left-hand menu, under **Deployment + infrastructure**, select **Network** > **Edit**.
 
@@ -362,22 +336,22 @@ In the Premium v2 tier, use the [API Management Service - Update](/rest/api/apim
 
 ## Validate private endpoint connection
 
-After the private endpoint is created, confirm its DNS settings in the portal.
+After you create the private endpoint, confirm its DNS settings in the portal.
 
 #### [Classic](#tab/classic)
 
-1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com/).
+1. Go to your API Management service in the [Azure portal](https://portal.azure.com/).
 
 1. In the left-hand menu, under **Deployment + infrastructure**, select **Network** > **Inbound private endpoint connections**, and select the private endpoint you created.
 
 1. In the left-hand navigation, under **Settings**, select **DNS configuration**.
 
-1. Review the DNS records and IP address of the private endpoint. The IP address is a private address in the address space of the subnet where the private endpoint is configured.
+1. Review the DNS records and IP address of the private endpoint. The IP address is a private address in the address space of the subnet where you configured the private endpoint.
 
 
 #### [Standard v2](#tab/v2)
 
-1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com/).
+1. Go to your API Management service in the [Azure portal](https://portal.azure.com/).
 
 1. In the left-hand menu, under **Deployment + infrastructure**, select **Network** > **Edit**, and select the private endpoint you created.
 
@@ -385,11 +359,11 @@ After the private endpoint is created, confirm its DNS settings in the portal.
 
 #### [Premium v2](#tab/premv2)
 
-1. In the **Private Link Center**, select **Private endpoints** and then the name of your private endpoint.
+1. In the [Azure portal](https://portal.azure.com/), go to **Private endpoints**, then select the name of your private endpoint.
 
 1. In the left-hand navigation, under **Settings**, select **DNS configuration**.
 
-1. Review the DNS records and IP address of the private endpoint. The IP address is a private address in the address space of the subnet where the private endpoint is configured.
+1. Review the DNS records and IP address of the private endpoint. The IP address is a private address in the address space of the subnet where you configured the private endpoint.
 ---
 
 ### Test in virtual network
