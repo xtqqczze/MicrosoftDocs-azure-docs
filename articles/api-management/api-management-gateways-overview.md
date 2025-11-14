@@ -198,7 +198,7 @@ Scale capacity by adding and removing scale [units](upgrade-and-scale.md) in the
 
 ## Related content
 
-Lear more about:
+Learn more about:
 
 -   [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   [Capacity metric](api-management-capacity.md) for scaling decisions
