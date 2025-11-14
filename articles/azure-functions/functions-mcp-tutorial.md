@@ -19,7 +19,7 @@ There are two ways to host a remote MCP server in Azure Functions:
 | MCP server option | Description | Best for... |
 | ---- | ---- | ---- | 
 | [**MCP extension server**](functions-mcp-tutorial.md?tabs=mcp-extension) | Uses the [Azure Functions MCP extension](./functions-bindings-mcp.md) to create custom MCP servers, where the extension trigger lets you define your tool endpoints. These servers are supported in all Functions languages and are developed, deployed, and managed as any other function app. | When you're already familiar with Functions and its [bindings-based programming model](./functions-triggers-bindings.md). |
-| [**Self-hosted server**](functions-mcp-tutorial.md?tabs=self-hosted) | When you've already built your server using the official MCP SDKs and are looking for event-driven, serverless, and scalable hosting in Azure. |
+| [**Self-hosted server**](functions-mcp-tutorial.md?tabs=self-hosted) | Functions can host an MCP server project created using the standard MCP SDKs. | When you've already built your server using the official MCP SDKs and are looking for event-driven, serverless, and scalable hosting in Azure. |
 
 [!INCLUDE [functions-custom-handler-mcp-preview](../../includes/functions-custom-handler-mcp-preview.md)]
 
@@ -80,14 +80,14 @@ This article supports version 2 of the Python programming model for Azure Functi
 
 Use Visual Studio Code to locally create an MCP server project in your preferred language. 
 
-### [MCP extension server](#tab/mcp-extension)
-
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. Search for and run the command `Azure Functions: Create New Project...`.
 
 1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
-::: zone-end 
-::: zone pivot="programming-language-csharp" 
-3. Provide the following information at the prompts:
+
+1. Provide the following information at the prompts:
+::: zone-end  
+    ::: zone pivot="programming-language-csharp"  
+    ### [MCP extension server](#tab/mcp-extension)
 
     |Prompt|Selection|
     |--|--|
@@ -99,9 +99,19 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
     |**Authorization level**|Choose `FUNCTION`, which requires access key when connecting to the remote MCP server.|
     |**Select how you would like to open your project**|Choose `Open in current window`.|
 
-::: zone-end  
-::: zone pivot="programming-language-typescript" 
-3. Provide the following information at the prompts:
+    ### [Self-hosted server](#tab/self-hosted)
+
+    |Prompt|Selection|
+    |--|--|
+    |**Select a project type**|Choose `Self-hosted MCP server`.|
+    |**Select a language for the MCP server**|Choose `C#`.|
+    |**Include sample server code**|Choose `Yes`.|
+    |**Select how you would like to open your project**|Choose `Open in current window`.|
+
+    --- 
+    ::: zone-end  
+    ::: zone pivot="programming-language-typescript" 
+    ### [MCP extension server](#tab/mcp-extension)
 
     |Prompt|Selection|
     |--|--|
@@ -111,9 +121,19 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
     |**Authorization level**|Choose `FUNCTION`, which requires access key when connecting to the remote MCP server.|
     |**Select how you would like to open your project**|Choose `Open in current window`.|
 
-::: zone-end  
-::: zone pivot="programming-language-python" 
-3. Provide the following information at the prompts:
+    ### [Self-hosted server](#tab/self-hosted)
+
+    |Prompt|Selection|
+    |--|--|
+    |**Select a project type**|Choose `Self-hosted MCP server`.|
+    |**Select a language for the MCP server**|Choose `TypeScript`.|
+    |**Include sample server code**|Choose `Yes`.|
+    |**Select how you would like to open your project**|Choose `Open in current window`.|
+
+    --- 
+    ::: zone-end  
+    ::: zone pivot="programming-language-python" 
+    ### [MCP extension server](#tab/mcp-extension)
 
     |Prompt|Selection|
     |--|--|
@@ -124,42 +144,7 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
     |**Authorization level**| Choose `FUNCTION`, which requires access key when connecting to the remote MCP server.|
     |**Select how you would like to open your project** | Choose `Open in current window`.|
 
-::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
-Using this information, Visual Studio Code generates a code project for Azure Functions with an MCP trigger. You can view the local project files in the Explorer.
-
-### [Self-hosted server](#tab/self-hosted)
-
-Self-hosted MCP servers run as [custom handlers](./functions-custom-handlers.md) in Azure Functions. You can think of custom handlers as lightweight web servers that receive events from the Azure Functions host.    
-
-1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. Search for and run the command `Azure Functions: Create New Project...`.
-
-1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
-::: zone-end 
-::: zone pivot="programming-language-csharp"
-3. Provide the following information at the prompts:
-
-    |Prompt|Selection|
-    |--|--|
-    |**Select a project type**|Choose `Self-hosted MCP server`.|
-    |**Select a language for the MCP server**|Choose `C#`.|
-    |**Include sample server code**|Choose `Yes`.|
-    |**Select how you would like to open your project**|Choose `Open in current window`.|
-
-::: zone-end
-::: zone pivot="programming-language-typescript" 
-3. Provide the following information at the prompts:
- 
-    |Prompt|Selection|
-    |--|--|
-    |**Select a project type**|Choose `Self-hosted MCP server`.|
-    |**Select a language for the MCP server**|Choose `TypeScript`.|
-    |**Include sample server code**|Choose `Yes`.|
-    |**Select how you would like to open your project**|Choose `Open in current window`.|
-    
-::: zone-end
-::: zone pivot="programming-language-python" 
-3. Provide the following information at the prompts:
+    ### [Self-hosted server](#tab/self-hosted)
 
     |Prompt|Selection|
     |--|--|
@@ -167,8 +152,20 @@ Self-hosted MCP servers run as [custom handlers](./functions-custom-handlers.md)
     |**Select a language for the MCP server**|Choose `Python`.|
     |**Include sample server code**|Choose `Yes`.|
     |**Select how you would like to open your project**|Choose `Open in current window`.|
+
+    ---
+
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
+
+### [MCP extension server](#tab/mcp-extension)
+
+Using this information, Visual Studio Code generates a code project for an MCP server trigger. You can view the local project files in the Explorer.
+
+### [Self-hosted server](#tab/self-hosted)
+
+Self-hosted MCP servers run as [custom handlers](./functions-custom-handlers.md) in Azure Functions. You can think of custom handlers as lightweight web servers that receive events from the Azure Functions host. 
+
 Using this information, Visual Studio Code generates an MCP server project, which includes these required files: 
 
 | File | Description |
@@ -178,7 +175,7 @@ Using this information, Visual Studio Code generates an MCP server project, whic
 
 The project also includes language specific implementation of a simple MCP server and files required by that language.
 
----
+--- 
 
 ## Start the MCP server locally 
 
@@ -272,14 +269,14 @@ app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 ### [Self-hosted server](#tab/self-hosted)
 To disable host-based authentication for self-hosted MCP servers, add the following code in the `customHandler` section:
 
-    ```json
-    "customHandler": {
-        // Other properties
-        "http": {
-            "DefaultAuthorizationLevel": "anonymous"
-        }
+```json
+"customHandler": {
+    // Other properties
+    "http": {
+        "DefaultAuthorizationLevel": "anonymous"
     }
-    ```
+}
+```
 ---
 
 ## Create the function app in Azure
