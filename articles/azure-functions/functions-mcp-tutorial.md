@@ -256,20 +256,34 @@ Your remote MCP server supports two server authentication options:
 ## Disable host-based authentication  
 
 The built-in server authorization feature is a component separate from Azure Functions. To configure it, you must first disable Functions host-based authentication and allow anonymous access. 
-
-### [MCP extension server](#tab/mcp-extension)
-To disable host-based authentication in MCP extension servers, set the authentication level to anonymous:
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
+### [MCP extension server](#tab/mcp-extension)
+To disable host-based authentication in MCP extension servers, set the authentication level to anonymous:
 
 ```python
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 ```
+
+### [Self-hosted server](#tab/self-hosted)
+To disable host-based authentication for self-hosted MCP servers, add the following code in the `customHandler` section:
+
+```json
+"customHandler": {
+    // Other properties
+    "http": {
+        "DefaultAuthorizationLevel": "anonymous"
+    }
+}
+```
+---
 ::: zone-end  
 ::: zone pivot="programming-language-csharp" 
+### [MCP extension server](#tab/mcp-extension)
+To disable host-based authentication in MCP extension servers, set the authentication level to anonymous:
 
-::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
+
+
 ### [Self-hosted server](#tab/self-hosted)
 To disable host-based authentication for self-hosted MCP servers, add the following code in the `customHandler` section:
 
@@ -283,6 +297,28 @@ To disable host-based authentication for self-hosted MCP servers, add the follow
 ```
 ---
 
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
+### [MCP extension server](#tab/mcp-extension)
+To disable host-based authentication in MCP extension servers, set the authentication level to anonymous:
+
+
+
+### [Self-hosted server](#tab/self-hosted)
+To disable host-based authentication for self-hosted MCP servers, add the following code in the `customHandler` section:
+
+```json
+"customHandler": {
+    // Other properties
+    "http": {
+        "DefaultAuthorizationLevel": "anonymous"
+    }
+}
+```
+---
+
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Create the function app in Azure
 
 Create a [Function app in the Azure portal](./functions-create-function-app-portal.md). 
@@ -332,33 +368,32 @@ The following instruction shows how to enable the built-in authorization and aut
 
 ### Configure authentication on server app
 
-1. Open the server app on the Azure portal. 
-1. Scroll down the left menu to **Settings → Authentication**
-1. Select **Add identity provider**
-1. Select **Microsoft** as the identity provider
-1. Configure the following settings:
+1. Open the server app on the Azure portal, and select **Settings** > **Authentication** from the left menu.
 
-    **Choose a tenant for your application and its users**
-      Select **Workforce configuration (current tenant)**.
+1. Select **Add identity provider** > **Microsoft** as the identity provider.
 
-    **App registration:**
+1. For **Choose a tenant for your application and its users**, select **Workforce configuration (current tenant)**.
 
-      - App registration type: Select **Create new app registration**
-      - Name: Enter a descriptive name for the app
-      - Client secret expiration: Select **Recommended: 180 days**
-      - Supported account types: Select **Current tenant - Single tenant**
+1. Under **App registration:** use these settings:
 
-    **Additional checks:**
-      - Client application requirement: Select **Allow requests from specific client applications**. Select the pencil icon, then add Visual Studio Code's client ID `aebc6443-996d-45c2-90f0-388ff96faa56` and select **OK**
-      - Leave the other sections as is. 
+    | Setting | Selection |
+    | --- | --- |
+    | **App registration type** | **Create new app registration** |
+    | **Name** | Enter a descriptive name for your app |
+    | **Client secret expiration** | **Recommended: 180 days** |
+    | **Supported account types** | **Current tenant - Single tenant** |
 
-    **App Service authentication settings:**
+ 1. Under **Additional checks:**, for **Client application requirement** select **Allow requests from specific client applications**, select the pencil icon, add the Visual Studio Code client ID `aebc6443-996d-45c2-90f0-388ff96faa56`, and select **OK**. Leave the other sections as they are. 
 
-      - Restrict access: Select **Require authentication**
-      - Unauthenticated requests: Select **HTTP 401 Unauthorized: recommended for APIs**
-      - Token store: Check the box (this allows token refresh)
+1. Under **App Service authentication settings** use these settings:
 
-1. Select **Add**. After a bit, you should see the following: 
+    | Setting | Selection |
+    | --- | --- |
+    |  **Restrict access** | **Require authentication** |
+    | **Unauthenticated requests** | **HTTP 401 Unauthorized: recommended for APIs** |
+    | **Token store** | Check the box, which allows token refresh |
+
+1. Select **Add**. After settings propagate, you should see the following result: 
 
     :::image type="content" source="./media/functions-mcp/authentication-portal.png" alt-text="Screenshot of App Service authentication settings showing 'Require authentication' selected and 'HTTP 401 Unauthorized' set for unauthenticated requests.":::
 
