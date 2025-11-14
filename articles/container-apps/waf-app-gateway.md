@@ -335,7 +335,7 @@ To enable `X-Forwarded-Host` injection:
     Your backend app can now read the original request host by using the `X-Forwarded-Host` header.
 
 > [!NOTE]
-> When configuring header rewrite rules, make sure to use the correct variable syntax. Server variables must use the appropriate prefix (such as `http_req_` for request headers). For troubleshooting rewrite rule configuration errors, see [Troubleshoot Application Gateway rewrite rules](../application-gateway/rewrite-http-headers-url.md).
+> When configuring header rewrite rules, make sure to use the correct variable syntax. Server variables must use the appropriate prefix (such as `http_req_` for request headers). For troubleshooting rewrite rule configuration errors, see [Rewrite HTTP headers and URL with Application Gateway](../application-gateway/rewrite-http-headers-url.md).
 
 ## Verify the container app
 
