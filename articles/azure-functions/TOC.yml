@@ -35,6 +35,9 @@
       - name: Azure SQL
         displayName: data validation, database
         href: scenario-database-changes-azure-sqldb.md
+    - name: Run scheduled tasks
+      displayName: timer trigger, schedule
+      href: scenario-scheduled-tasks.md
   - name: Developer tools
     items:
     - name: Azure Developer CLI
