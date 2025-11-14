@@ -134,7 +134,7 @@ First you must get fully qualified ID value of your user-assigned managed identi
 az containerapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --assign-identity --image <DOCKER_ID>/azurefunctionsimage:v1.0.0 --kind=functionapp
 ```
 
-In the [`az containerapp create --kind=functionapp`](../azure-functions/functions-usage.md) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your public Docker Hub account ID. 
+In the `az containerapp create --kind=functionapp`command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your public Docker Hub account ID. 
 
 If you're using a private registry, you need to include the fully qualified domain name of your registry instead of just the Docker ID for `<DOCKER_ID>`, along with the `--registry-username` and `--registry-password` credential required to access the registry. 
 
@@ -163,7 +163,7 @@ To enable the Functions host to connect to the default storage account using sha
   
     In this example, replace `<APP_NAME>`, `<USER_IDENTITY_NAME>`, `<STORAGE_NAME>` with your function app name, the name of your identity, and the storage account name, respectively. 
 
-At this point, your functions are running in a Container Apps environment, with the required application settings already added. When needed, you can add other settings in your functions app in the standard way for Functions. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+At this point, your functions are running in a Container Apps environment, with the required application settings already added. When needed, you can add other settings in your functions app in the standard way for Functions. For more information, see [Use application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md#settings).
 
 >[!TIP] 
 > When you make subsequent changes to your function code, you need to rebuild the container, republish the image to the registry, and update the function app with the new image version. For more information, see [Update an image in the registry](../azure-functions/update)
@@ -193,8 +193,6 @@ az group delete --name AzureFunctionsContainers-rg
 
 ## Next steps
 
-> [!div class="nextstepaction"]  
-> [Azure Container Apps hosting of Azure Functions](../azure-functions/functions-container-apps-hosting.md)  
 > [!div class="nextstepaction"]  
 > [Native Azure Functions Support in Azure Container Apps](../../articles/container-apps/functions-overview.md)  
 > [!div class="nextstepaction"]  
