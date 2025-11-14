@@ -51,15 +51,15 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 1. From the top menu, click on **Create assessment** drop-down, select **For Azure VMware Solution (AVS)**.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/create-avs-assessment-v2.png" alt-text="Page for selecting the assessment settings" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/create-avs-assessment-v2.png" :::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/create-azure-vmware-solution-assessment-v2.png" alt-text="Page for selecting the assessment settings" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/create-azure-vmware-solution-assessment-v2.png" :::
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-basics-tab-v2.png" alt-text="Page for selecting the assessment settings" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-basics-tab-v2.png" :::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-basics-tab-v2.png" alt-text="Page for adding Basic details for the assessment" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-basics-tab-v2.png" :::
 
 1. Select **Edit** to review the assessment properties.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-edit-settings-v2.png" alt-text="Page for selecting the assessment settings" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-edit-settings-v2.png" :::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-edit-settings-v2.png" alt-text="Page for selecting the assessment settings" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-edit-settings-v2.png" :::
  
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-edit-settings-2-v2.png" alt-text="Page for selecting AVS assessment settings" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-edit-settings-2-v2.png":::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-edit-settings-2-v2.png" alt-text="Page for selecting AVS assessment settings" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-edit-settings-2-v2.png":::
 
 1. In **Assessment settings** > **Target settings**:
 
@@ -102,7 +102,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 1. Select **Save** if you make changes.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessments-settings-v2.png" alt-text="Assessment properties" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessments-settings-v2.png":::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessment-settings-v2.png" alt-text="Assessment properties" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/azure-vmware-solution-assessments-settings-v2.png":::
 
 1. In **Assess Servers**, select **Next**.
 
