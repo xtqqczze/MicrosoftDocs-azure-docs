@@ -1,15 +1,19 @@
 ---
 title: Self-hosted remote MCP server on Azure Functions (public preview)
-description: Self-hosted remote MCP server on Azure Functions overview
+description: Discover how to use Azure Functions to host stateless MCP servers with streamable HTTP transport. Includes setup guides and supported SDKs.
+#customer intent: As a developer, I want to understand how to host a self-hosted MCP server on Azure Functions so that I can leverage the platform's capabilities for my application.
 author: lilyjma
 ms.author: jiayma
-ms.topic: reference
+ms.topic: how-to
 ms.date: 10/30/2025
 ms.update-cycle: 180-days
 ms.custom: 
   - ignite-2025
 ai-usage: ai-assisted
+ms.collection: 
+  - ce-skilling-ai-copilot 
 zone_pivot_groups: programming-languages-set-functions
+
 ---
 # Self-hosted remote MCP server on Azure Functions (public preview)
 

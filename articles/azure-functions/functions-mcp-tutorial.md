@@ -1,11 +1,12 @@
 ---
-title: Tutorial: Host an MCP server on Azure Functions
+title: 'Tutorial: Host an MCP server on Azure Functions'
 description:
 author: lilyjma
 ms.author: jiayma
 ms.topic: tutorial
 ms.date: 11/14/2025
 zone_pivot_groups: programming-languages-set-functions
+
 #Customer intent: As a developer, I want to learn how to create and host remote and secured MCP servers on Azure Functions. 
 ---
 

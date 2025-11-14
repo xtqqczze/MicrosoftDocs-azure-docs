@@ -20,7 +20,7 @@ Custom handlers are best suited for situations where you want to:
 
 - Implement a function app in a language that's not currently offered out-of-the box, such as Go or Rust.
 - Implement a function app in a runtime that's not currently featured by default, such as Deno.
-- [Deploy a server](#deploy-self-hosted-mcp-servers-as-custom-handlers-public-preview) built with the standard MCP SDKs to Azure Functions.
+- [Deploy a server](#deploy-self-hosted-mcp-servers) built with the standard MCP SDKs to Azure Functions.
 
 With custom handlers, you can use [triggers and input and output bindings](./functions-triggers-bindings.md) via [extension bundles](./functions-bindings-register.md).
 
