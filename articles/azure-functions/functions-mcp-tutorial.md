@@ -569,4 +569,4 @@ No additional ideas at this time. Remember to ask Copilot chat about any errors 
 
  ## Next steps
 
-Learn how to [register](./register-mcp-servers-in-apic.md) Azure Functions-hosted MCP servers on Azure API Center.
+Learn how to [register](./register-mcp-server-api-center.md) Azure Functions-hosted MCP servers on Azure API Center.

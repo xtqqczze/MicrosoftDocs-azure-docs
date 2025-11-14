@@ -142,7 +142,7 @@ Agents in Azure AI Foundry can be [configured](./functions-mcp-tutorial.md#confi
 
 #### Registering server in Azure API Center 
 
-When you register your MCP server in Azure API Center, you create a private organizational tool catalog. This recommended for sharing MCP servers across your organization with consistent governance and discoverability. Learn how to [register MCP servers hosted in Azure Functions in Azure API Center](./register-mcp-servers-in-apic.md). 
+When you register your MCP server in Azure API Center, you create a private organizational tool catalog. This recommended for sharing MCP servers across your organization with consistent governance and discoverability. Learn how to [register MCP servers hosted in Azure Functions in Azure API Center](./register-mcp-server-api-center.md). 
 
 ## Public preview support  
 
