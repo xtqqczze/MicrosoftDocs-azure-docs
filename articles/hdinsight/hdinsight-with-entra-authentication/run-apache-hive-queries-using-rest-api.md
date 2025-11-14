@@ -37,21 +37,21 @@ Execute an `HTTP GET` request to the OAuth 2.0 token endpoint with the following
 
 ### URL
 
-  ```json
-    https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
-  ```
+```json
+  https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
+```
 
 ### Body
 
-  ```bash
-      curl --request GET \
-    --url https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token \
-    --header 'Content-Type: multipart/form-data' \
-    --form grant_type=client_credentials \
-    --form client_id={app_id} \
-    --form client_secret={client_secret} \
-    --form scope=https://{clustername}.clusteraccess.azurehdinsight.net/.default \
-  ```
+```bash
+    curl --request GET \
+  --url https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token \
+  --header 'Content-Type: multipart/form-data' \
+  --form grant_type=client_credentials \
+  --form client_id={app_id} \
+  --form client_secret={client_secret} \
+  --form scope=https://{clustername}.clusteraccess.azurehdinsight.net/.default \
+```
 
 ## Response
 
@@ -62,29 +62,29 @@ A successful request returns a JSON object that contains:
 - `ext_expires_in`: Extended expiration time in seconds
 - `access_token`: The Bearer token for authentication
 
-  ```bash
+```bash
       {
 	"token_type": "Bearer",
 	"expires_in": 3599,
 	"ext_expires_in": 3599,
 	"access_token": "eyJ0eXAiOiJKV1iLCJub25jZSI6IkhaZ3lqQ2MxSkxzaXRSbmxzT1FTSHV0bEtBeXhhMU1JTzdyWmluLWF6LUEiLCJhbGciOiJSUzI1NiIsIng1dCI6ImltaTBZMnowZFlLeEJ0dEFxS19UdDVoWUJUayIsImtpZCI6ImltaTBZMnowZFlLeEJ0dEFxS19UdDVoWUJUayJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8wY2QzZGY5OS1lMDJmLTRmZDgtYTdkOC0zYjE5ZWVhZGFiYTUvIiwiaWF0IjoxNzQxMjgzMzUzLCJuYmYiOjE3NDEyODMzNTMsImV4cCI6MTc0MTI4NzI1MywiYWlvIjoiazJSZ1lIRDF1U1R4NGx2bjdmMTdGcXlkZUdwWlBnQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJBenVyZSBIREkgTVNGVCBDbGllbnQiLCJhcHBpZCI6IjAzZDNiNTg5LWFjM2MtNDE4NC1iY2EyLTQ3ZWRiN2Q2ZmVjNiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzBjZDNkZjk5LWUwMmYtNGZkOC1hN2Q4LTNiMTllZWFkYWJhNS8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0NDA3YjQ4LWZmZTctNDJjNS04ZDIwLTdiMTTgwNWE4NCIsInJoIjoiMS5BUnNBbWRfVERDX2cyRS1uMkRzWjdxMnJwUU1BQUFBQUFBQUF3QUFBQUFBQUFBRFlBQUFiQUEuIiwic3ViIjoiZDQ0MDdiNDgtZmZlNy00MmM1LThkMjAtN2IxMzU5ODA1YTg0IiwidGVuYW50X3JlZ2lvbl9zY29wZSI6Ik5BIiwidGlkIjoiMGNkM2RmOTktZTAyZi00ZmQ4LWE3ZDgtM2IxOWVlYWRhYmE1IiwidXRpIjoiLVA1T3JPWGpJVWk0VE12dElTYWRBQSIsInZlciI6IjEuMCIsIndpZHMiOlsiMDk5N2ExZDAtMGQxZC00YWNiLWI0MDgtZDVjYTczMTIxZTkwIl0sInhtc19pZHJlbCI6IjI4IDciLCJ4bXNfdGNkdCI6MTQ4NjM3NDQ2MH0.a9z3ZYyMTRQCoY7dzPYE55DmpNAxqo4a4rrt80A-RpK0NDDAftNkc2hafbLl6gdwEzqRyKc1HExUggFUpKxaLUXc62-u-9emxC12EsNlQYd-ZzG_GRDNoTYrro4RDRL-_gDo2lgBNOi5ZZ4a9UI_pYVvV1b0SBRpgd5bmIV4kI2tDfAVZ1-HMpGscuVkQIy45Tqt4c3gXPoMEZ3UYikbCpErbTNfUFqngE3sARXRV-rB1OMu6ZbN32ijjL-rD8593-IfSpmVDUfE5CMGc-7FuWGOYyUUJmp5AQ1yFpJzqaDBEdPT8kKync1o7eplWXCsPWOnVvAKNf7BuWCRRedBWg"
       }
-  ```
+```
 
 ### Run a Hive query
 
 1. Verify that you can connect to your HDInsight cluster by using the following command:
 
-   ```bash
+```bash
       curl -H "Authorization: Bearer $TOKEN" -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/status
 
-   ```
+```
 
    You receive a response similar to the following text:
 
-    ```json
+```json
        {"status":"ok","version":"v1"}
-    ```
+```
 
   This command uses the following parameters:
 
@@ -93,15 +93,15 @@ A successful request returns a JSON object that contains:
 
 1. The beginning of the URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, is the same for all requests. The path `/status` indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
 
-   ```bash
+```bash
      curl -H "Authorization: Bearer $TOKEN" -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/version/hive
-   ```
+```
 
    You receive a response that's similar to the following:
 
-   ```json
+```json
      {"module":"hive","version":"1.2.1000.2.6.5.3008-11"}
-   ```
+```
 
 1. Use the following code to create a table named `log4jLogs`:
 
@@ -138,9 +138,9 @@ See the following definitions:
 
 ### To check the status of the job, use the following command:
 
- ```bash
+```bash
  	curl -H "Authorization: Bearer $TOKEN" -d user.name=admin -G 		     https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/jobs/$jobid | jq .status.state
- ```
+```
 
 If the job finishes, the state should be `SUCCEEDED`.
 
