@@ -113,6 +113,9 @@ items:
     items:
       - name: Configure Serverless GPU
         href: how-to-configure-dev-box-serverless-gpu.md
+      - name: Use the Dev Box MCP Server with AI assistants
+        href: how-to-use-dev-box-mcp-server.md
+        displayName: MCP, Model Context Protocol, AI, assistant, natural language, Copilot
   - name: Security
     items:
       - name: Manage project access
