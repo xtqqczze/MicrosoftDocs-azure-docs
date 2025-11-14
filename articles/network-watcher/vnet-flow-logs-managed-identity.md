@@ -35,11 +35,11 @@ Traffic analytics benefits from user-assigned managed identities by enabling sec
 
 ## Prerequisites
 
-- A Virtual Network with flow logs enabled. For more information, see [Create virtual network flow logs](vnet-flow-logs-manage.md?tabs=powershell#create-a-flow-log).
+- A virtual network with flow logs enabled. For more information, see [Create virtual network flow logs](vnet-flow-logs-manage.md?tabs=powershell#create-a-flow-log).
 
 - An Azure storage account. For more information, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-powershell).
 
-- A Log Analytics Workspace for traffic analytics. For more information, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-powershell).
+- A Log Analytics workspace for traffic analytics. For more information, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-powershell).
 
 - A user-assigned managed identity. For more information, see [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-powershell).
 
