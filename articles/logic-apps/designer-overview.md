@@ -43,7 +43,6 @@ For more detailed changes, see [Differences in the preview designer](differences
 - A Standard logic app resource in single-tenant Azure Logic Apps. This logic app can have either no workflows or existing workflows.
 
   For more information, see [Create a Standard logic app workflow with the Azure portal](create-single-tenant-workflows-azure-portal.md).
-- A workflow for your Standard logic app resource.
 
 ## Open the workflow designer
 
@@ -76,7 +75,6 @@ Follow these steps to create a new workflow in your logic app.
 
 1. Select **Create**.
 
-1. The workflow designer opens.
 
 The designer opens and shows an empty workflow with the prompt to add a trigger.
 
@@ -140,25 +138,27 @@ The preview designer moves many familiar actions to new locations:
 
 - The **Run** and **Run with payload** options appear at the designer bottom.
 
-- Several actions that were in the workflow sidebar or toolbar are now available from the vertical [ellipsis menu](#ellipsis-menu) next to **Publish**.
+- In the designer's top right corner, the new vertical ellipsis menu (**⋮**) appears next to the new **Publish** button. This menu contains other actions that appeared on the workflow sidebar or toolbar.
 
-The designer always shows and edits the draft version. All changes are automatically saved to the draft; there's no explicit Save button.
 
 > [!IMPORTANT]
 >
 > - The production (published) version is unchanged until you select **Publish**. If you run a workflow from the designer, the draft version is executed.
 > - If you need to view the published (production) version as read-only, use **Switch to published version** from the [ellipsis menu](#ellipsis-menu).
 
-If you prefer to use the classic designer, select the [ellipsis menu](#ellipsis-menu) > **Revert to previous experience**.
 
-### View selector
+<a name="view-selector"></a>
 
-The view selector (Workflow, Code, and Run history) is at the top of the designer. Select a view to switch between visual editing, code, and run history.
+### Switch between designer, code, and run history views (preview)
 
-:::image type="content" source="media/designer-overview/view-selector.png" alt-text="Screenshot showing the view selector at the top of the new designer.":::
+At the designer top, the view selector shows the following views: **Workflow**, **Code**, and **Run history**. Select a view to switch between the designer, workflow JSON definition, and workflow run history.
 
-- To visually develop, edit, and run your workflow, select the **Workflow** view.
-- To edit the workflow in JSON, select **Code**. You can switch between the workflow view and code view at any time.
+:::image type="content" source="media/designer-overview/view-selector.png" alt-text="Screenshot shows the preview designer and the view selector at the top." lightbox="media/designer-overview/view-selector.png":::
+
+- To build, edit, and run your workflow, select **Workflow**. To edit the workflow definition in JSON, select **Code**.
+
+   You can switch between designer view and code view anytime. The preview experience automatically saves your workflow.
+
 
     > [!TIP]
     > The **Code** view is also an easy way to find and copy the workflow definition, instead of using the Azure CLI or other methods.
