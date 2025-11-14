@@ -109,8 +109,8 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
     |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     --- 
-    ::: zone-end  
-    ::: zone pivot="programming-language-typescript" 
+::: zone-end  
+::: zone pivot="programming-language-typescript" 
 1. Provide the following information at the prompts:
 
     ### [MCP extension server](#tab/mcp-extension)
@@ -133,8 +133,8 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
     |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     --- 
-    ::: zone-end  
-    ::: zone pivot="programming-language-python" 
+::: zone-end  
+::: zone pivot="programming-language-python" 
 1. Provide the following information at the prompts:
 
     ### [MCP extension server](#tab/mcp-extension)
