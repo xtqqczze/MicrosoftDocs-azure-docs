@@ -47,21 +47,19 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 ## Run an Azure VMware Solution (AVS) assessment
 
-1. In **Servers, databases and web apps**, select **Assess and migrate servers**.
+1. In **Infrastructure**, select the list of all workloads you want to assess the cost for.
 
-1. In **Azure Migrate: Discovery and assessment**, select **Assess**.
+1. From the top menu, click on **Create assessment** drop-down, select **For Azure VMware Solution (AVS)**.
 
-1. In **Assess**, select **Azure VMware Solution (AVS)**.
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/create-avs-assessment-v2.png" alt-text="Page for selecting the assessment settings" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/create-avs-assessment-v2.png" :::
 
-1. In **Discovery source**:
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-basics-tab-v2.png" alt-text="Page for selecting the assessment settings" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-basics-tab-v2.png" :::
 
-    - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
-    - If you discovered servers using an imported CSV or RVTools file, select **Imported servers**. 
-    
 1. Select **Edit** to review the assessment properties.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page for selecting the assessment settings":::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-edit-settings-v2.png" alt-text="Page for selecting the assessment settings" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-edit-settings-v2.png" :::
  
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-edit-settings-2-v2.png" alt-text="Page for selecting AVS assessment settings" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-edit-settings-2-v2.png":::
 
 1. In **Assessment settings** > **Target settings**:
 
@@ -104,7 +102,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 1. Select **Save** if you make changes.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-edit-assessment-settings-with-storage-dropdown.png" alt-text="Assessment properties" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-edit-assessment-settings-with-storage-dropdown.png":::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessments-settings-v2.png" alt-text="Assessment properties" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessments-settings-v2.png":::
 
 1. In **Assess Servers**, select **Next**.
 
