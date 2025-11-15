@@ -32,7 +32,7 @@ The ALB Controller Istio Extension consists of two pods, deployed in active / st
 >[!NOTE]
 >Application Gateway for Containers only supports the community/open source version of Istio today. Istio-based service mesh add-on for AKS isn't supported at this time.
 
->>[!NOTE]
+>[!NOTE]
 >To leverage ALB Controller Service Mesh Extension, you must define your ingress intent using Gateway API. Ingress API is not supported.
 
 ### Install the ALB Controller Service Mesh Extension for Istio
