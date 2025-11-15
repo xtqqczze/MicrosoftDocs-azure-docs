@@ -46,7 +46,7 @@ Always try to get the correct partner notification contact from your new partner
 In Scope
 
 -   Only Enterprise Admin can initiate COCP requests via Azure Portal.
--   Agreement Type = Enterprise enrolments (EA) and Enterprise Subscription Agreements,
+-   Agreement Type = Enterprise enrollments (EA) and Enterprise Subscription Agreements,
 -   Agreement status must be active
 -   Trade status must be "Approved".
 
@@ -81,8 +81,8 @@ In Scope
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/9350cd4c52e4430287886bf707b2dd03.png)
 
--   Partner organisation name displays when user inputs partner PCN and clicks “*confirm partner*” button in bottom left corner of screen.
--   This verifies whether the partner PCN entered is allowed to do business or not. IIf there's error please reach out to partner to get the correct PCN.
+-   Partner organization name displays when user inputs partner PCN and clicks “*confirm partner*” button in bottom left corner of screen.
+-   This verifies whether the partner PCN entered is allowed to do business or not. If there's error please reach out to partner to get the correct PCN.
 -   The partner notification contact should - but does not have to, be the person in the partner organization who accesses VL Central to accept the COCP request. In case the notification contact isn't present in the VL Central, notification isn't sent to partner but customer admin can proceed to initiate the request.
 -   The effective date defaults to 90 days from the initiation date.
     -   (If customers need a different date, they should ask their partner to submit an Early COCP form to Microsoft Operations Service Center (OSC) – via VL Central My Cases).
@@ -154,7 +154,7 @@ Customer admin must navigate to track changes page.
 
 -   Cost Management + billing\> Billing Scopes \> Track Change
 -   User can click on the downward arrow button, which is the download button to get the COCP form.
--   The COCP form can only be downloaded once partner accepts the request or the request isn't cancelled.
+-   The COCP form can only be downloaded once partner accepts the request or the request isn't canceled.
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/d61eab87c8bb7c2f8eadafadeaccaaa7.png)
 
@@ -168,6 +168,7 @@ A COCP Request with a status of In Process may be canceled in full or partially 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This initiates a notification to the partner to let them know that the request has been canceled.
+
 
 
 
