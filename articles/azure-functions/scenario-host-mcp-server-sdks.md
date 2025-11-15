@@ -1,6 +1,6 @@
 ---
-title: Host existing MCP servers on Azure Functions
-description: "Learn how to host existing Model Context Protocol (MCP) servers built with official Anthropic MCP SDKs on Azure Functions. This quickstart shows how to deploy your existing MCP servers as custom handlers in Azure Functions, leveraging serverless scale and security features."
+title: Host servers built with MCP SDKs on Azure Functions
+description: "Learn how to host servers built with Anthropic MCP SDKs on Azure Functions. This quickstart shows how to deploy MCP SDK based servers as custom handlers in Azure Functions, leveraging serverless scale and security features."
 ms.date: 11/11/2025
 ms.topic: quickstart
 ai-usage: ai-assisted
@@ -9,30 +9,24 @@ ms.collection:
 ms.custom:
   - ignite-2025
 zone_pivot_groups: programming-languages-set-functions
-#Customer intent: As a developer, I need to know how to host my existing MCP server built with official Anthropic MCP SDKs on Azure Functions to benefit from serverless scale and security features.
+#Customer intent: As a developer, I need to know how to host server built with official MCP SDKs on Azure Functions to benefit from serverless scale and security features.
 ---
 
-# Quickstart: Host existing MCP servers on Azure Functions
+# Quickstart: Host servers built with MCP SDKs on Azure Functions
 
-In this quickstart, you learn how to host on Azure Functions Model Context Protocol (MCP) servers that you create using official Anthropic MCP SDKs. Flex Consumption plan hosting lets you take advantage of Azure Functions' serverless scale, pay-for-what-you-use billing model, and built-in security features, and is perfect for existing MCP servers that use the streamable-http transport.
+In this quickstart, you learn how to host on Azure Functions Model Context Protocol (MCP) servers that you create using official MCP SDKs. Flex Consumption plan hosting lets you take advantage of Azure Functions' serverless scale, pay-for-what-you-use billing model, and built-in security features, and is perfect for MCP servers that use the streamable-http transport.
 
-Functions enables you to deploy your existing MCP server code to a serverless platform without making changes to your code project. This article uses a sample MCP server project built using official MCP SDKs. 
+This article uses a sample MCP server project built using official MCP SDKs. 
 
 >[!TIP]  
->Functions also provides an MCP extension that enables you to instead create your own custom MCP servers in Azure Functions. For more information, see [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md). 
+>Functions also provides an MCP extension that enables you to instead create MCP servers using Azure Functions programming model. For more information, see [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md). 
 
-Because the new app runs in a Flex Consumption plan, which follows a _pay-for-what-you-use_ billing model, completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Because the new server runs in a Flex Consumption plan, which follows a _pay-for-what-you-use_ billing model, completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"  
 > [!IMPORTANT]  
 > This article is currently only supported in C#, Python, and TypeScript. To complete the quickstart, select one of these supported languages at the top of the article.
 ::: zone-end  
-::: zone pivot="programming-language-typescript"
-This article supports version 4 of the Node.js programming model for Azure Functions.
-::: zone-end
-::: zone pivot="programming-language-python"
-This article supports version 2 of the Python programming model for Azure Functions.
-::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Prerequisites
 ::: zone-end  
@@ -65,8 +59,8 @@ This article supports version 2 of the Python programming model for Azure Functi
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-<!---> [!NOTE]  
-> This sample requires that you have permission to create a [Microsoft Entra app](https://docs.azure.cn/entra/fundamentals/what-is-entra) in the Azure subscription you use. -->
+> [!NOTE]  
+> This sample requires that you have permission to create a [Microsoft Entra app](https://docs.azure.cn/entra/fundamentals/what-is-entra) in the Azure subscription you use.
 
 ## Get started with a sample project
 
@@ -106,7 +100,7 @@ The easiest way to get started is to clone an MCP server sample project built us
 2. In the Terminal, run this command to initialize the Python sample:
  
     ```bash
-    azd init --template mcp-sdk-functions-hosting-python-e mcpsdkserver-node
+    azd init --template mcp-sdk-functions-hosting-python-e mcpsdkserver-python
     ```
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-java) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.  
@@ -119,13 +113,21 @@ The code project template is for an MCP server with tools that access public wea
 
 Visual Studio Code integrates with [Azure Functions Core Tools](functions-run-local.md) to let you run this project on your local development computer.
 
-1. To start the function locally, press <kbd>F5</kbd> or select the **Run and Debug** icon in the left-hand side Activity bar. The **Terminal** panel displays the output from Core Tools. Your app starts in the **Terminal** panel, and you can see the name of the functions that are running locally.
+1. Open Terminal in the editor (``Ctrl+Shift+` ``)
+::: zone pivot="programming-language-csharp"  
+2. In the root directory, run `func start` to start the server. The **Terminal** panel displays the output from Core Tools.
+::: zone-end 
+::: zone pivot="programming-language-typescript"  
+2. In the root directory, run `npm install` to install dependencies, then run `npm run build`. 
+3. Run `func start` to start the server. 
+::: zone-end 
+::: zone pivot="programming-language-python"  
+2. In the root directory, run `uv run func start` to create virtual environment, install dependencies, and start the server. 
+::: zone-end 
 
-2. Make a note of the local MCP server endpoint, which you use to configure GitHub Copilot in Visual Studio Code. 
+## Test server using GitHub Copilot
 
-## Verify using GitHub Copilot
-
-To verify your code, add the running project as an MCP server for GitHub Copilot in Visual Studio Code: 
+To verify your server using GitHub Copilot in Visual Studio Code: 
 
 1. Open the `mcp.json` file in the `.vscode` directory.
 
@@ -136,28 +138,10 @@ To verify your code, add the running project as an MCP server for GitHub Copilot
 5. Run this prompt in chat:
 
     ```copilot-prompt
-    What is the weather forecast for New York City?
+    Return the weather forecast for New York City using #local-mcp-server.
     ```
 
     Copilot should call one of the weather tools to help answer this question. When prompted to run the tool, select **Allow in this Workspace** so you don't have to keep regranting this permission. 
-
-<!--- This is only required when VNET is enabled
-## Register resource provider before deploying
-
-Before deploying, you need to register the `Microsoft.App` resource provider:
-
-1. In the Terminal, run this command:
-
-    ```bash
-    az provider register --namespace 'Microsoft.App'
-    ```
-
-2. Wait a few seconds for registration to complete. You can check the status by using:
-
-    ```bash
-    az provider show -n Microsoft.App
-    ```
--->
 
 After you verify the tool functionality locally, you can deploy the project code to Azure.
 
@@ -173,16 +157,9 @@ This project is configured to use the `azd up` command to deploy this project to
 
     A pre-authorized application can authenticate to and access your MCP server without requiring additional consent prompts.
 
-<!-- this should be removed
-2. (Optional) If required by your organization, specify a service management reference. Microsoft employees using a Microsoft tenant must provide a service management reference (your Service Tree ID):
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. Search for and run the command `Azure Developer CLI (azd): Package, Provision and Deploy (up)`. Then, sign in by using your Azure account.
 
-    ```bash
-    azd env set SERVICE_MANAGEMENT_REFERENCE <service-management-reference>
-    ```
--->
-3. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. Search for and run the command `Azure Developer CLI (azd): Package, Provision and Deploy (up)`. Then, sign in by using your Azure account.
-
-4. When prompted, provide these required deployment parameters:
+1. When prompted, provide these required deployment parameters:
 
    | Parameter | Description |
    | ---- | ---- |
@@ -197,15 +174,15 @@ Your MCP server is now running in Azure. To connect GitHub Copilot to your remot
 
 1. Back in the `mcp.json` file, switch to the remote server by selecting **Stop** for the `local-mcp-server` configuration and **Start** on the `remote-mcp-server` configuration.
 
-4. When prompted for **The domain of the function app**, enter the name of your function app you noted in the previous section. When prompted to authenticate to Microsoft, select **Allow** then choose your Azure account.
+1. When prompted for **The domain of the function app**, enter the name of your function app you noted in the previous section. When prompted to authenticate to Microsoft, select **Allow** then choose your Azure account.
 
-7. Verify the remote server by asking a question like:
+1. Verify the remote server by asking a question like:
 
     ```copilot-prompt
-    What is the weather forecast for Seattle, WA?
+    Return the weather forecast for Seattle using #local-mcp-server.
     ```
 
-    Copilot calls the `GetForecast` weather tool to answer the query.
+    Copilot calls one of the weather tools to answer the query.
 
 ## Review the code (optional)
 
@@ -244,9 +221,37 @@ When you're done working with your MCP server and related resources, use this co
 azd down
 ```
 ::: zone-end  
+
+## Troubleshooting 
+The following are some common issues that come up. 
+
+1. **InternalServerError: There was an unexpected InternalServerError. Please try again later.**
+
+    Check if you have registered the `Microsoft.App` resource provider:
+
+    ```shell
+    az provider show -n Microsoft.App
+    ```
+
+    If it's showing up as unregistered, register it:
+    ```shell
+    az provider register --namespace 'Microsoft.App'
+    ```
+
+    Successful registration should show:
+    ```shell
+    Namespace      RegistrationPolicy    RegistrationState
+    -------------  --------------------  -------------------
+    Microsoft.App  RegistrationRequired  Registered
+    ```
+
+    Then run `azd up` again. 
+
+2. **Error: error executing step command 'deploy --all': getting target resource: resource not found: unable to find a resource tagged with 'azd-server-name: api'. Ensure the service resource is corrected tagged in your infrastructure configuration, and rerun provision**
+
+    This is a [known transient error](https://github.com/Azure/azure-dev/issues/5580). Try re-running `azd up`. 
+
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configure built-in MCP server authorization](../app-service/configure-authentication-mcp.md)
 > [!div class="nextstepaction"]
 > [Tutorial: Host your existing MCP server on Azure Functions](how-to-mcp-server-hosting.md)
