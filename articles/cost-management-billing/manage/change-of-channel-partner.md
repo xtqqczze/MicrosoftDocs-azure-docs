@@ -24,7 +24,7 @@ A customer initiates a  Co-CP, and then notifies the Partner to accept or declin
 
 Only two pieces of information are required to initiate a change of channel partner request.
 
-**The new partner PCN number** – The new partner PCN number – Please ask your new partner their partner PCN number. This Is a required information and you won't be able to proceed without it. Partner can get it by opening any existing contract in VLCentral in contracts workspace.
+**The new partner PCN number** – The new partner PCN number – Please ask your new partner their partner PCN number. This is required information, and you cannot proceed without it. Partner can get it by opening any existing contract in VLCentral in contracts workspace.
 
 **Partner Notification Contact – What You Need to Know:**
 
@@ -69,7 +69,7 @@ In Scope
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/4c8cf6ac757a54ac716d903f02bf6d47.png)
 
-4.  After clicking change partner the user will be redirected to a page having only eligible billing accounts on which  Co-CP requests can be initiated. Select the Billing accounts that you want to transfer and click on next.
+4.  After clicking Change Partner, the user is redirected to a page showing only eligible billing accounts on which Co-CP requests can be initiated. Select the Billing accounts that you want to transfer and click on next.
 5.  User may select multiple billing accounts upto a mzaimum of 20 or user may select one billing account and click the three dots to Change Partner on that billing account.
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/47bba1c187178d52bedceea553c275f2.png)
@@ -82,8 +82,8 @@ In Scope
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/9350cd4c52e4430287886bf707b2dd03.png)
 
 -   Partner organization name displays when user inputs partner PCN and clicks “*confirm partner*” button in bottom left corner of screen.
--   This verifies whether the partner PCN entered is allowed to do business or not. If there's error please reach out to partner to get the correct PCN.
--   The partner notification contact should - but does not have to, be the person in the partner organization who accesses VL Central to accept the  Co-CP request. In case the notification contact isn't present in the VL Central, notification isn't sent to partner but customer admin can proceed to initiate the request.
+-   This check verifies whether the partner PCN entered is allowed to do business or not. if there's error reach out to partner to get the correct PCN.
+-   The partner notification contact should - but does not have to. Be the person in the partner organization who accesses VL Central to accept the Co-CP request. In case the notification contact isn't present in the VL Central, notification isn't sent to partner but customer admin can proceed to initiate the request.
 -   The effective date defaults to 90 days from the initiation date.
     -   (If customers need a different date, they should ask their partner to submit an Early  Co-CP form to Microsoft Operations Service Center (OSC) – via VL Central My Cases).
 -    Co-CP support scenario: **User selects licenses where  Co-CP cannot be performed**
@@ -102,9 +102,9 @@ It's up to the new partner contact who is directly engaged with the customer to 
 
 **Scenario: Partner email address inputted by customer does not have access to VL Central**.
 
-Customer may input an email address in Partner Notification Contact of a partner user who doesn't have permissions on VLC to accept the  Co-CP. The Azure Portal displays a warning but will allow the user to proceed.
+Customer may input an email address in Partner Notification Contact of a partner user who doesn't have permissions on VLC to accept the  Co-CP. The Azure Portal displays a warning but allows the user to proceed.
 
-This means the notification goes to the email address listed on  Co-CP rather than the partner user who has VL Central access. However, that partner user with VLC access will be able to see and accept the  Co-CP in VL Central even though they don’t receive the  Co-CP notification.![A screenshot of a computer AI-generated content may be incorrect.](../media/8f74d9f696f134c23bd6ee0f7c2cb752.png)
+This rule means the notification goes to the email address listed on Co-CP rather than the partner user who has VL Central access. However, that partner user with VLC access will be able to see and accept the Co-CP in VL Central even though they don’t receive the Co-CP notification.![A screenshot of a computer AI-generated content may be incorrect.](../media/8f74d9f696f134c23bd6ee0f7c2cb752.png)
 
 7.  **Review Change Partner terms**
 -   If selected billing accounts are all EA direct – "Change of Software Advisor" form displayed.
@@ -116,7 +116,7 @@ This means the notification goes to the email address listed on  Co-CP rather th
 
 8.  **User must agree to terms to initiate the  Co-CP.**
 
-A message is displayed to indicate the  Co-CP has been successfully submitted. Make sure that the partner accepts the request within 10 days.
+A message is displayed to indicate the Co-CP has been successfully submitted. Make sure that the partner accepts the request within 10 days.
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/20573885c55ca53207cc946de627c33e.png)
 
@@ -138,9 +138,9 @@ The **status** for each  Co-CP is displayed per billing account
 -   A status of Accepted means the Partner has accepted the  Co-CP and a request will be processed by Microsoft Operations Service Center. (This process typically takes 24-48 hours for OSC to complete)
 -   A status of declined means the Partner declined the  Co-CP
 -   A status of pending MS review means that the request is currently under processing by Microsoft operations center.
--   A status of in grace period mends that the request is currently in grace period during which new partner won't have access to agreements and old partner will remain the partner on record. The grace period is 90 days for enterprise.
+-   A status of in grace period means the request is in a grace period during which the new partner does not have access to agreements, and the old partner remains the partner on record. The grace period is 90 days for enterprise.
 -   A status of cancellation in progress means that the customer has canceled the  Co-CP request and the request is in queue to be canceled.
--   A status of canceled means that the request has been successfully canceled by customer
+-   A customer cancels the request, so its status is marked as canceled.
 -   A status of expired means that the partner didn't accept the  Co-CP request in 30 days.
 -   A status of completed means Microsoft has completed the  Co-CP
 
@@ -162,12 +162,13 @@ Customer admin must navigate to track changes page.
 
 A  Co-CP Request with a status of In Process may be canceled in full or partially (remove just some billing accounts from the request).
 
--   Go to Cost Management + billing\> Billing Scopes \> Track Change, select the billing scopes you wish not to proceed with a Co-CP for.
+-   Go to Cost Management + Billing > Billing Scopes > Track Change. Then select the billing scopes you do not want to proceed with for a Co-CP.
 -   Select Cancel Request from the action menu at the top, or the three dots next to billing scope.
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/70d4d272274e6e5374095722b4a09c86.png)
 
-This initiates a notification to the partner to let them know that the request has been canceled.
+This initiates a notification to the partner to let them know that the request is canceled.
+
 
 
 
