@@ -14,9 +14,12 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Quickstart: Host existing MCP servers on Azure Functions
 
-In this quickstart, you learn how to host Model Context Protocol (MCP) servers that you've already built using official Anthropic MCP SDKs on Azure Functions. Flex Consumption plan hosting lets you take advantage of Azure Functions' serverless scale, pay-for-what-you-use billing model, and built-in security features, and is perfect for existing MCP servers that use the streamable-http transport.
+In this quickstart, you learn how to host on Azure Functions Model Context Protocol (MCP) servers that you create using official Anthropic MCP SDKs. Flex Consumption plan hosting lets you take advantage of Azure Functions' serverless scale, pay-for-what-you-use billing model, and built-in security features, and is perfect for existing MCP servers that use the streamable-http transport.
 
-Azure Functions enables you to deploy your existing MCP server code to a serverless platform without making changes to your code project. This article uses a sample MCP server project built using official MCP SDKs. Functions also provides an MCP extension that enables you to instead create your own custom MCP servers in Azure Functions. For more information, see [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md). 
+Functions enables you to deploy your existing MCP server code to a serverless platform without making changes to your code project. This article uses a sample MCP server project built using official MCP SDKs. 
+
+>[!TIP]  
+>Functions also provides an MCP extension that enables you to instead create your own custom MCP servers in Azure Functions. For more information, see [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md). 
 
 Because the new app runs in a Flex Consumption plan, which follows a _pay-for-what-you-use_ billing model, completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -111,14 +114,6 @@ The easiest way to get started is to clone an MCP server sample project built us
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 
 The code project template is for an MCP server with tools that access public weather APIs, which are built using official MCP SDKs.        
-
-## Start the storage emulator
-
-Use the Azurite emulator simulate an Azure Storage account connection when running your code project locally.
-
-1. If you haven't already, [install Azurite](/azure/storage/common/storage-use-azurite#install-azurite).
-
-1. Press <kbd>F1</kbd>. In the command palette, search for and run the command `Azurite: Start` to start the local storage emulator.
 
 ## Run the MCP server locally 
 
