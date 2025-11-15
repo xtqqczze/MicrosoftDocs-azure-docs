@@ -1,6 +1,6 @@
 ---
-title:  "Initiate a Change of Channel Partner ( Co-CP) request"
-description:  "Initiate a Change of Channel Partner ( Co-CP) request"
+title:  "Initiate a Change of Channel Partner (co-cp) request"
+description:  "Initiate a Change of Channel Partner (co-cp) request"
 ms.service: "cost-management-billing"
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
@@ -10,7 +10,7 @@ author: vikrammittal8
 ms.reviewer: vikrammittal
 ---
 
-# Initiate a Change of Channel Partner ( Co-CP) request
+# Initiate a Change of Channel Partner (co-cp) request
 
 ## Summary
 
@@ -24,15 +24,15 @@ A customer initiates a  Co-CP, and then notifies the Partner to accept or declin
 
 Only two pieces of information are required to initiate a change of channel partner request.
 
-**The new partner PCN number** – The new partner PCN number – Please ask your new partner their partner PCN number. This is required information, and you cannot proceed without it. Partner can get it by opening any existing contract in VLCentral in contracts workspace.
+**The new partner PCN number** – The new partner PCN number – Please ask your new partner their partner PCN number.This is required information, and you can't proceed without it. Partner can get it by opening any existing contract in VLCentral in contracts workspace.
 
 **Partner Notification Contact – What You Need to Know:**
 
--   When you (the customer admin) start a Change of Channel Partner ( Co-CP) request, you're asked to provide the email address of a “partner notification contact” from your new partner organization.
+-   When you (the customer admin) start a Change of Channel Partner (co-cp) request, you're asked to provide the email address of a “partner notification contact” from your new partner organization.
 -   **Ideally**, your new partner should give you this contact information. This person will become your main point of contact for future communications about your agreement.
 -   **If you don’t have this information:**
     -   You can enter any email address for the partner notification contact to proceed.
-    -   However, if the email address you provide isn't verified by Microsoft, your new partner will not receive automatic notifications about the  Co-CP request (for privacy reasons).
+    -   However, if Microsoft doesn’t verify the email address you provide, it will not send automatic notifications about the Co-CP request to your new partner (for privacy reasons).
     -   In this case, you should reach out to your new partner directly (outside the system) and let them know you started the  Co-CP process.
 -   **Why does this matter?**
     -   Using a verified partner contact ensures your new partner is notified promptly and can take action on your request.
@@ -83,7 +83,7 @@ In Scope
 
 -   Partner organization name displays when user inputs partner PCN and clicks “*confirm partner*” button in bottom left corner of screen.
 -   This check verifies whether the partner PCN entered is allowed to do business or not. if there's error reach out to partner to get the correct PCN.
--   The partner notification contact should - but does not have to. Be the person in the partner organization who accesses VL Central to accept the Co-CP request. In case the notification contact isn't present in the VL Central, notification isn't sent to partner but customer admin can proceed to initiate the request.
+-   The partner notification contact should - but doesn't have to. Be the person in the partner organization who accesses VL Central to accept the Co-CP request. In case the notification contact isn't present in the VL Central, notification isn't sent to partner but customer admin can proceed to initiate the request.
 -   The effective date defaults to 90 days from the initiation date.
     -   (If customers need a different date, they should ask their partner to submit an Early  Co-CP form to Microsoft Operations Service Center (OSC) – via VL Central My Cases).
 -    Co-CP support scenario: **User selects licenses where  Co-CP cannot be performed**
@@ -96,7 +96,7 @@ User must expand the message to see the reasons blocking Co-CP for each impacted
 
 **Scenario: User selects invalid partner PCN**
 
-It's up to the new partner contact who is directly engaged with the customer to provide their PCN and partner notification contact details to the customer. If there is an error, reach out to the partner to get the correct PCN.
+It's up to the new partner contact who is directly engaged with the customer to provide their PCN and partner notification contact details to the customer. If there's an error, reach out to the partner to get the correct PCN.
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/3b28af863e0c5fa273490817eee75660.png)
 
@@ -138,7 +138,7 @@ The **status** for each  Co-CP is displayed per billing account
 -   A status of Accepted means the Partner has accepted the  Co-CP and a request will be processed by Microsoft Operations Service Center. (This process typically takes 24-48 hours for OSC to complete)
 -   A status of declined means the Partner declined the  Co-CP
 -   A status of pending MS review means that the request is currently under processing by Microsoft operations center.
--   A status of in grace period means the request is in a grace period during which the new partner does not have access to agreements, and the old partner remains the partner on record. The grace period is 90 days for enterprise.
+-   A status of in grace period means the request is in a grace period during which the new partner doesn't have access to agreements, and the old partner remains the partner on record. The grace period is 90 days for enterprise.
 -   A status of cancellation in progress means that the customer has canceled the  Co-CP request and the request is in queue to be canceled.
 -   A customer cancels the request, so its status is marked as canceled.
 -   A status of expired means that the partner didn't accept the  Co-CP request in 30 days.
@@ -162,12 +162,13 @@ Customer admin must navigate to track changes page.
 
 A  Co-CP Request with a status of In Process may be canceled in full or partially (remove just some billing accounts from the request).
 
--   Go to Cost Management + Billing > Billing Scopes > Track Change. Then select the billing scopes you do not want to proceed with for a Co-CP.
+-   Go to Cost Management + Billing > Billing Scopes > Track Change. Then select the billing scopes you don't want to proceed with for a Co-CP.
 -   Select Cancel Request from the action menu at the top, or the three dots next to billing scope.
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This initiates a notification to the partner to let them know that the request is canceled.
+
 
 
 
