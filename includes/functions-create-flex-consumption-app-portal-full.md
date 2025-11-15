@@ -8,7 +8,7 @@ ms.author: glenga
 ms.topic: include
 ---
 
-[!INCLUDE [functions-create-flex-consumption-app-portal](../../includes/functions-create-flex-consumption-app-portal.md)]
+[!INCLUDE [functions-create-flex-consumption-app-portal](functions-create-flex-consumption-app-portal.md)]
 
 6. On the **Monitoring** page, make sure that **Enable Application Insights** is selected. Accept the default to create a new Application Insights instance, or else choose to use an existing instance. When you create an Application Insights instance, you're also asked to select a Log Analytics **Workspace**.
 

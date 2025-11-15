@@ -1,7 +1,8 @@
 ---
-title: 'Tutorial: Host an MCP server on Azure Functions'
-description:
+title: "Tutorial: Host an MCP server on Azure Functions"
 author: lilyjma
+description: Host your MCP server on Azure Functions with ease. Learn to configure endpoints, enable authentication, and deploy scalable serverless solutions.
+#customer intent: As a developer, I want to enable Microsoft Entra ID authentication for my MCP server so that I can ensure secure access for authorized users.
 ms.author: jiayma
 ms.topic: tutorial
 ms.date: 11/14/2025
@@ -406,20 +407,34 @@ If you miss that step, you can also open **Output** (`Ctrl/Cmd+Shift+U`) to find
 
 If you miss both options, you can manually add connection information:
 
-    1. Get the server domain by running the following command:
+1. Get the server domain by running the following command:
 
-        ```shell
-        az functionapp show --name <function-app-name> --resource-group <resource-group-name> --query "defaultHostName" --output tsv
-        ```
-    1. In Visual Studio Code, open command palette and search for **MCP: Add Server...**
-    1. Answer the following prompts: 
-        - Type of server to be added: Choose **HTTP** 
-        - URL of the MCP server: 
-            - MCP extension server: `https://<server domain>/runtime/webhooks/mcp`
-            - Self-hosted server: `https://<server domain>/mcp`
-        - Give a server name: **remote-mcp-server**
-        - Choose **Workspace** to add server to current workspace
-    1. Visual Studio opens an `mcp.json` for you. 
+    ```shell
+    az functionapp show --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --query "defaultHostName" --output tsv
+    ```
+1. In Visual Studio Code, open command palette, search for and run the **MCP: Add Server...** command, and then follow these prompts:
+
+    ### [MCP extension server](#tab/mcp-extension)
+
+    | Prompt | Suggestion |
+    | --- | --- |
+    | Type of server to be added | **HTTP** |
+    | URL of your MCP server | `https://<FUNCTION_APP_NAME>.azurewebsites.azurewebsites.net/runtime/webhooks/mcp` |
+    | **Server name** | **remote-mcp-server** |
+    | Where to install the server | **Workspace** |
+
+    ### [Self-hosted server](#tab/self-hosted)
+    
+    | Prompt | Suggestion |
+    | --- | --- |
+    | Type of server to be added | **HTTP** |
+    | URL of your MCP server | `https://<FUNCTION_APP_NAME>.azurewebsites.azurewebsites.net/mcp` |
+    | **Server name** | **remote-mcp-server** |
+    | Where to install the server | **Workspace** |
+
+    ---
+
+1. Visual Studio Code opens the `mcp.json` setting file for you. 
 
 Follow the instructions in the next section to connect to server depending on how you configured the authentication.
 
@@ -515,10 +530,9 @@ To find the access key, go to the Function app on Azure portal. On the left menu
 >
 > :::image type="content" source="./media/functions-mcp/trace-log-setting.png" alt-text="Screenshot of the MCP server settings showing the _Trace_ log level being selected. ":::
 
-
 ## Configure Azure AI Foundry agent to user MCP server
 
-You can configure an [agent on Azure AI Foundry](/azure/ai-foundry/agents/quickstart.md) to leverage tools exposed by MCP servers hosted on Azure Functions.
+You can configure an [agent on Azure AI Foundry](/azure/ai-foundry/agents/quickstart) to leverage tools exposed by MCP servers hosted on Azure Functions.
 
 1. In the Foundry portal, find the agent you want to configure with MCP servers hosted on Functions. 
 
@@ -534,14 +548,11 @@ You can configure an [agent on Azure AI Foundry](/azure/ai-foundry/agents/quicks
         - Self-hosted server: `https://<server domain>/mcp`
     - Authentication: Choose "Microsoft Entra"
     - Type: Choose "Project Managed Identity" 
-    - Audience: This is the Entra App ID URI from [Set authorization scope related app setting](#set-authorization-scope-related-app-setting)
+    - Audience: This is the Entra App ID URI from [Configure protected resource metadata](#configure-protected-resource-metatdata-preview)
 
     For example:
-    ```xml
-    <div align="center">
-      :::image type="content" source="./media/functions-mcp/foundry-agent-config.png" alt-text="Diagram showing Foundry agent configuration for connecting to MCP server.":::
-    </div>
-    ```
+
+    :::image type="content" source="./media/functions-mcp/foundry-agent-config.png" alt-text="Diagram showing Foundry agent configuration for connecting to MCP server.":::
 
 1. Select **Connect**.
 
@@ -572,7 +583,7 @@ No additional ideas at this time. Remember to ask Copilot chat about any errors 
 ### [Self-hosted server](#tab/self-hosted)
 
 - For C# servers, ensure that the value of the `arguments` property in _host.json_ is the path to the compiled DLL, for example, `["HelloWorld.dll"]`
-- If your server isn't deploying properly or the deployed server doesn't work, ensure that you add the required [app setting](#deploy-the-mcp-server-project). Also remember to add the [authorization scope](#set-authorization-scope-related-app-setting) related setting. 
+- If your server isn't deploying properly or the deployed server doesn't work, ensure that you add the required [app setting](#deploy-the-mcp-server-project). Also remember to add the [protected resource metadata](#configure-protected-resource-metatdata-preview) related setting. 
 
 --- 
 
