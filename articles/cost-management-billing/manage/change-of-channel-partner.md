@@ -104,7 +104,7 @@ It's up to the new partner contact who is directly engaged with the customer to 
 
 Customer may input an email address in Partner Notification Contact of a partner user who doesn't have permissions on VLC to accept the  Co-CP. The Azure Portal displays a warning but allows the user to proceed.
 
-This rule means the notification goes to the email address listed on Co-CP rather than the partner user who has VL Central access. However, that partner user with VLC access will be able to see and accept the Co-CP in VL Central even though they don’t receive the Co-CP notification.![A screenshot of a computer AI-generated content may be incorrect.](../media/8f74d9f696f134c23bd6ee0f7c2cb752.png)
+This rule means the notification goes to the email address listed on Co-CP rather than the partner user who has VL Central access. That partner user with VLC access can see and accept the Co-CP in VL Central even though they do not receive the Co-CP notification.![A screenshot of a computer AI-generated content may be incorrect.](../media/8f74d9f696f134c23bd6ee0f7c2cb752.png)
 
 7.  **Review Change Partner terms**
 -   If selected billing accounts are all EA direct – "Change of Software Advisor" form displayed.
@@ -116,7 +116,7 @@ This rule means the notification goes to the email address listed on Co-CP rathe
 
 8.  **User must agree to terms to initiate the  Co-CP.**
 
-A message is displayed to indicate the Co-CP has been successfully submitted. Make sure that the partner accepts the request within 10 days.
+A message appears to indicate the Co-CP is successfully submitted. Make sure that the partner accepts the request within 10 days.
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/20573885c55ca53207cc946de627c33e.png)
 
@@ -134,15 +134,15 @@ A ‘**Request ID’** is displayed for each billing account included in the  Co
 
 The **status** for each  Co-CP is displayed per billing account
 
--   A status of "in progress" means the  Co-CP has been sent to the new partner who must accept/decline the  Co-CP before it will becomes completed.
--   A status of Accepted means the Partner has accepted the  Co-CP and a request will be processed by Microsoft Operations Service Center. (This process typically takes 24-48 hours for OSC to complete)
--   A status of declined means the Partner declined the  Co-CP
+-   A status of "in progress" means the Co-CP is sent to the new partner, who must accept or decline the Co-CP before it becomes completed.
+-   A status of Accepted means the Partner accepts the Co-CP, and Microsoft Operations Service Center will process the request. (This process typically takes 24-48 hours for OSC to complete)
+-   A status of declined means the Partner declined the  Co-CP.
 -   A status of pending MS review means that the request is currently under processing by Microsoft operations center.
 -   A status of in grace period means the request is in a grace period during which the new partner doesn't have access to agreements, and the old partner remains the partner on record. The grace period is 90 days for enterprise.
--   A status of cancellation in progress means that the customer has canceled the  Co-CP request and the request is in queue to be canceled.
+-   A status of "cancellation in progress" means the customer cancels the Co-CP request, and the request is in the queue to be canceled.
 -   A customer cancels the request, so its status is marked as canceled.
 -   A status of expired means that the partner didn't accept the  Co-CP request in 30 days.
--   A status of completed means Microsoft has completed the  Co-CP
+-   A status of "completed" means Microsoft completes the Co-CP.
 
 The **effective date** is the date from which the new partner may place orders on the agreement.
 
@@ -168,6 +168,7 @@ A  Co-CP Request with a status of In Process may be canceled in full or partiall
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This initiates a notification to the partner to let them know that the request is canceled.
+
 
 
 
