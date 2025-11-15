@@ -24,19 +24,19 @@ A customer initiates a COCP, and then notifies the Partner to accept or decline.
 
 Only two pieces of information are required to initiate a change of channel partner request.
 
-**The new partner PCN number** – Please ask your new partner their partner PCN number.This Is a required information and you won't be able to proceed without it. Partner can get it by opening any existing contract in VLCentral in contracts workspace.
+**The new partner PCN number** – The new partner PCN number – Please ask your new partner their partner PCN number. This Is a required information and you won't be able to proceed without it. Partner can get it by opening any existing contract in VLCentral in contracts workspace.
 
 **Partner Notification Contact – What You Need to Know:**
 
--   When you (the customer admin) start a Change of Channel Partner (COCP) request, you are asked to provide the email address of a “partner notification contact” from your new partner organization.
+-   When you (the customer admin) start a Change of Channel Partner (COCP) request, you're asked to provide the email address of a “partner notification contact” from your new partner organization.
 -   **Ideally**, your new partner should give you this contact information. This person will become your main point of contact for future communications about your agreement.
 -   **If you don’t have this information:**
     -   You can enter any email address for the partner notification contact to proceed.
-    -   However, if the email address you provide is not verified by Microsoft, your new partner will **not** receive automatic notifications about the COCP request (for privacy reasons).
+    -   However, if the email address you provide isn't verified by Microsoft, your new partner will not receive automatic notifications about the COCP request (for privacy reasons).
     -   In this case, you should reach out to your new partner directly (outside the system) and let them know you started the COCP process.
 -   **Why does this matter?**
     -   Using a verified partner contact ensures your new partner is notified promptly and can take action on your request.
-    -   If you use an unverified contact, you're responsible for informing your partner about the request..
+    -   If you use an unverified contact, you're responsible for informing your partner about the request.
 
 **Key Takeaway:**  
 Always try to get the correct partner notification contact from your new partner before starting the COCP request. This action helps ensure a smooth and timely transition.
@@ -58,7 +58,7 @@ In Scope
 -   EA agreements with ended status.
 -   Backdated COCP requests.
 -   Early COCP (before anniversary date)
--   A COCP initiated in one portal is not visible in the other to prevent duplication of requests.
+-   A COCP initiated in one portal isn't visible in the other to prevent duplication of requests.
 
 ## Azure Portal customer experience
 
@@ -82,8 +82,8 @@ In Scope
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/9350cd4c52e4430287886bf707b2dd03.png)
 
 -   Partner organisation name displays when user inputs partner PCN and clicks “*confirm partner*” button in bottom left corner of screen.
--   This verifies whether the partner PCN entered is allowed to do business or not. If there is error please reach out to partner to get the correct PCN.
--   The partner notification contact *should* - but does not have to, be the person in the partner organization who access VL Central to accept the COCP request. In case the notification contact isn't present in the VL Central, notification is not sent to partner but customer admin can proceed to initiate the request.
+-   This verifies whether the partner PCN entered is allowed to do business or not. IIf there's error please reach out to partner to get the correct PCN.
+-   The partner notification contact should - but does not have to, be the person in the partner organization who accesses VL Central to accept the COCP request. In case the notification contact isn't present in the VL Central, notification isn't sent to partner but customer admin can proceed to initiate the request.
 -   The effective date defaults to 90 days from the initiation date.
     -   (If customers need a different date, they should ask their partner to submit an Early COCP form to Microsoft Operations Service Center (OSC) – via VL Central My Cases).
 -   COCP support scenario: **User selects licenses where CoCP cannot be performed**
@@ -96,7 +96,7 @@ User must expand the message to see the reasons blocking CoCP for each impacted 
 
 **Scenario: User selects invalid partner PCN**
 
-It's up to the new partner contact who is directly engaged with the customer to provide their PCN and partner notification contact details to the customer. In case of error reach out to partner to get the correct PCN.
+It's up to the new partner contact who is directly engaged with the customer to provide their PCN and partner notification contact details to the customer. If there is an error, reach out to the partner to get the correct PCN.
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/3b28af863e0c5fa273490817eee75660.png)
 
@@ -138,7 +138,7 @@ The **status** for each COCP is displayed per billing account
 -   A status of Accepted means the Partner has accepted the COCP and a request will be processed by Microsoft Operations Service Center. (This process typically takes 24-48 hours for OSC to complete)
 -   A status of declined means the Partner declined the COCP
 -   A status of pending MS review means that the request is currently under processing by Microsoft operations center.
--   A status of in grace period mends that the request is currently in grace period during which new partner will not have access to agreements and old partner will remain the partner on record. The grace period is 90 days for enterprise.
+-   A status of in grace period mends that the request is currently in grace period during which new partner won't have access to agreements and old partner will remain the partner on record. The grace period is 90 days for enterprise.
 -   A status of cancellation in progress means that the customer has canceled the COCP request and the request is in queue to be canceled.
 -   A status of canceled means that the request has been successfully canceled by customer
 -   A status of expired means that the partner didn't accept the COCP request in 30 days.
@@ -153,8 +153,8 @@ The **effective date** is the date from which the new partner may place orders o
 Customer admin must navigate to track changes page.
 
 -   Cost Management + billing\> Billing Scopes \> Track Change
--   User can click on the downward arrow button, which is the download button to get the COCP form..
--   The COCP form can only be downloaded once partner accepts the request or the request isn't cancelled..
+-   User can click on the downward arrow button, which is the download button to get the COCP form.
+-   The COCP form can only be downloaded once partner accepts the request or the request isn't cancelled.
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/d61eab87c8bb7c2f8eadafadeaccaaa7.png)
 
@@ -167,7 +167,8 @@ A COCP Request with a status of In Process may be canceled in full or partially 
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/70d4d272274e6e5374095722b4a09c86.png)
 
-This initiates a notification to the partner to let them know that the request has been cancelled.
+This initiates a notification to the partner to let them know that the request has been canceled.
+
 
 
 
