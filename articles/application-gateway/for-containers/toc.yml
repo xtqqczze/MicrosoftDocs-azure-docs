@@ -23,12 +23,6 @@
     href: container-networking.md
   - name: Custom health probe
     href: custom-health-probe.md
-  - name: Scaling and zone resiliency
-    href: scaling-zone-resiliency.md
-  - name: Service mesh integration
-    href: service-mesh-integration.md
-  - name: Session affinity
-    href: session-affinity.md
   - name: Protocols & Communication
     items:
     - name: gRPC
@@ -37,18 +31,24 @@
       href: server-sent-events.md
     - name: WebSockets
       href: websockets.md
-    - name: Security & Certificates
-      items:
-        - name: ECDSA and RSA certificates
-          href: ecdsa-rsa-certificates.md
-        - name: TLS policy
-          href: tls-policy.md
-        - name: Web Application Firewall (WAF)
-          href: web-application-firewall.md
-    - name: Frequently Asked Questions (FAQ)
-      href: faq.yml
-    - name: Understanding pricing
-      href: understanding-pricing.md
+  - name: Scaling and zone resiliency
+    href: scaling-zone-resiliency.md
+  - name: Service mesh integration
+    href: service-mesh-integration.md
+  - name: Session affinity
+    href: session-affinity.md
+  - name: Security & Certificates
+    items:
+      - name: ECDSA and RSA certificates
+        href: ecdsa-rsa-certificates.md
+      - name: TLS policy
+        href: tls-policy.md
+      - name: Web Application Firewall (WAF)
+        href: web-application-firewall.md
+  - name: Frequently Asked Questions (FAQ)
+    href: faq.yml
+  - name: Understanding pricing
+    href: understanding-pricing.md
   - name: Health monitoring
     items:
     - name: Backend Health and Metrics
