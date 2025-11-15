@@ -1,38 +1,43 @@
 ---
-title: Service mesh integration and Application Gateway for Containers
-description: Learn how Application Gateway for Containers can enable load balancing to workloads part of a service mesh.
+title: Service mesh integration with Application Gateway for Containers
+description: Learn how to integrate Application Gateway for Containers with Istio service mesh for secure ingress traffic.
 services: application-gateway
 author: JackStromberg
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 8/25/2025
+ms.date: 11/15/2025
 ms.author: jstrom
 ---
 
-# Service mesh integration and Application Gateway for Containers
+# Service mesh integration with Application Gateway for Containers
 
-Service meshes are primarily used for east-west communication between services. To help ensure security, mutual authentication is commonly used to encrypt traffic between services. If these services are to be accessed outside of the cluster/mesh (north-south communication) the most convenient and secure way to enable connectivity is by using an Ingress Gateway.
+Service meshes handle east-west traffic between services and often use mutual TLS (mTLS) for security. When services need external access (north-south traffic), an ingress gateway simplifies connectivity. Application Gateway for Containers provides a service mesh extension that automates certificate lifecycle management and reduces configuration complexity.
 
 While defining mTLS in ingress is possible, definition of mTLS configuration can become redundant and difficult to manage during certificate rotation.
 
-To simplify communication from outside the Kubernetes cluster to the service mesh, Application Gateway for Containers has an optional service mesh extension that can be installed alongside ALB Controller.  This extension can greatly decrease operational overhead by automating certificate lifecycle management and simplify ingress configuration.
+To simplify communication from outside the Kubernetes cluster to the service mesh, Application Gateway for Containers has an optional service mesh extension that can be installed alongside ALB Controller. This extension can greatly decrease operational overhead by automating certificate lifecycle management and simplify ingress configuration.
 
 Here's a diagram of Application Gateway for Containers integrating with Istio service mesh.
 
-![Diagram depicting alb-controller and alb-controller-servicemesh-extension working in parallel with Istio service mesh.](./media/service-mesh-integration/service-mesh-istio-overview.svg)
+![Diagram depicting alb-controller and alb-controller-servicemesh-extension to establish mutual TLS to services part of the Istio mesh.](./media/service-mesh-integration/service-mesh-istio-overview.svg)
 
-## ALB Controller Service Mesh Extension
+## ALB Controller Service Mesh Extension (Preview)
 
-The ALB Controller Istio Extension consists of two pods, deployed in active / standby configuration to allow resiliency during node failure, handle certificate lifecycle management with Istio, and implicity handle mTLS configuration to services part of a service mesh.
+The ALB Controller Istio Extension consists of two pods, deployed in active / standby configuration to allow resiliency during node failure, handle certificate lifecycle management between Application Gateway for Containers and Istio, and implicitly handle mTLS configuration to services part of a service mesh.
 
-Currently, the ALB Controller service mesh extension only supports integration with Istio.
+>[!NOTE]
+>Application Gateway for Containers only supports the community/open source version of Istio today. Istio-based service mesh add-on for AKS isn't supported at this time.
 
->[!Note]
->To leverage ALB Controller Service Mesh Extension, you must define your ingress intent with Gateway API. Ingress API is not supported.
+>>[!NOTE]
+>To leverage ALB Controller Service Mesh Extension, you must define your ingress intent using Gateway API. Ingress API is not supported.
 
-### Install the ALB Controller Service Mesh Extension
+> [!IMPORTANT]
+> Application Gateway for Containers Service Mesh Extension is currently in PREVIEW.<br>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The ALB Controller Service Mesh extension is installed via a separate, to ALB Controller, [helm chart](service-mesh-helm-chart.md). Prior to installation, ensure [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) is provisioned.
+### Install the ALB Controller Service Mesh Extension for Istio
+
+Install the ALB Controller Service Mesh Extension using the Helm chart after provisioning [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md). The ALB Controller Service mesh Extension is installed using a separate [helm chart](service-mesh-helm-chart.md).
 
 The following helm command can be used to install the extension.
 
@@ -46,7 +51,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
 
 helm install alb-controller-servicemesh-extension oci://mcr.microsoft.com/application-lb/charts/alb-controller-servicemesh-extension \
      --namespace $HELM_NAMESPACE \
-     --version 1.8.8
+     --version 1.8.12
 ```
 
 ### Verify the ALB Controller installation
@@ -72,11 +77,11 @@ Application Gateway for Containers supports integration with Istio v1.24 and gre
 
 After the ALB Controller Service Mesh Extension is installed, if Istio is installed, the service mesh integration will attempt to provision a sidecar for integration into the mesh.
 
-If ALB Controller Service Mesh is installer prior to Istio, you must restart the ALB Controller Service Mesh extension deployment. This may be done by executing the following command: `kubectl rollout restart deployment/alb-controller-istio-extension`
+If ALB Controller Service Mesh is installed prior to Istio, you must restart the ALB Controller Service Mesh extension deployment. This may be done by executing the following command: `kubectl rollout restart deployment/alb-controller-istio-extension`
 
-### Handling traffic to Istio service mesh
+### Routing traffic to Istio service mesh
 
-There are five steps to configuring Istio service mesh and Application Gateway for Containers
+Follow these five steps to configure Istio service mesh with Application Gateway for Containers:
 
 - Define a namespace with istio-injection
 - Enable mTLS for the services in that namespace
@@ -331,7 +336,7 @@ Curling this FQDN should return responses from the backends/pods as configured o
 curl http://$fqdn
 ```
 
-Next, let's delete the PeerAuthentication resource to similate removal of mTLS.
+Next, let's delete the PeerAuthentication resource to simulate removal of mTLS.
 
 ```bash
 kubectl delete PeerAuthentication default -n istio-example-namespace
