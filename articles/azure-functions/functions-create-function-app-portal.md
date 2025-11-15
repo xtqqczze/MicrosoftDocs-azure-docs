@@ -35,7 +35,7 @@ You must have a function app to host the execution of your functions. A function
 Use these steps to create your function app and related Azure resources in the Azure portal. 
 
 ::: zone pivot="flex-consumption-plan"
-
+[!INCLUDE [functions-create-flex-consumption-app-portal-full](../../includes/functions-create-flex-consumption-app-portal-full.md)] 
 ::: zone-end
 ::: zone pivot="consumption-plan"
 [!INCLUDE [Create Consumption plan app Azure portal](../../includes/functions-create-function-app-portal.md)]

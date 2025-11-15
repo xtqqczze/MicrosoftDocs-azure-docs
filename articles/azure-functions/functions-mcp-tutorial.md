@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Tutorial: Host an MCP server on Azure Functions
 
-This article shows you how to host remote [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP) servers on Azure Functions. You also learn how to leverage built-in authentication to configure server endpoint authorization and better secure your AI tools. 
+This article shows you how to host remote [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP) servers on Azure Functions. You also learn how to use built-in authentication to configure server endpoint authorization and better secure your AI tools. 
 
 There are two ways to host a remote MCP server in Azure Functions:
 <!-- Tables are great for AI ingestion. Maybe also share this into the MCP overview article. -->
@@ -38,6 +38,8 @@ In this tutorial, you use Visual Studio Code to:
 > * Enable built-in authentication.
 
 ### [Self-hosted server](#tab/self-hosted)
+
+In this tutorial, you use Visual Studio Code to:
 
 > [!div class="checklist"]
 > * Create a self-hosted MCP server project.
@@ -241,22 +243,21 @@ func start
 >[!TIP]
 >In the Copilot chat window, select the tool icon in the bottom to see the list of servers and tools available for the chat. Ensure the local MCP server is checked when testing.
 ::: zone-end  
-## Remote server authentication options 
+## Remote MCP server authorization 
 
-Your remote MCP server supports two server authentication options:
+There are two ways to reduce or prevent unauthorized use of your remote MCP server endpoints: 
 
-1. _Built-in server authorization and authentication (preview)_
-    The built-in feature implements the requirements of the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) protocol, such as issuing 401 challenge and hosting the Protected Resource Metadata (PRM). When you enable the feature, clients attempting to access the server are redirected to identity providers like Microsoft Entra ID for authentication before connecting. Continue following instructions in the next section to enable this built-in feature.
-
-1. _Host-based authentication with access key_
-    This approach requires an access key in the client request header when connecting to the MCP server. If this approach is sufficient for your needs, you don't need to follow the sections below. Skip directly to [Create the function app in Azure](#create-the-function-app-in-azure).
+| Method | Description |
+| ----- | ----- |
+| Built-in server authentication (preview) | Functions includes built-in [App Service authentication and authorization](../app-service/overview-authentication-authorization.md) that implements the OAuth requirements of the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) protocol. Clients attempting to access the server are redirected to a configured identity provider, such as Microsoft Entra ID, for authentication before being allowed to connect. This method provides the highest level of security for your tool endpoints. |
+| Key-based authentication | By default, Functions implements an access key requirement so that clients attempting to use MCP server tools must present a shared secret key value in the request header. While not providing the same level of security as OAuth-based authentication, access keys make it harder to access public tools. Use an `Anonymous` access level to disable access keys in your server when using OAuth-based authentication. |
 
 >[!NOTE]
 >This tutorial contains detailed configuration instructions for the built-in server authorization and authentication feature, which might also be referred to as _App Service Authentication_ in other articles. You can find an overview of the feature and some usage guidance in the [Configure built-in server authorization (preview)](../app-service/configure-authentication-mcp.md) article.
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
-## Disable host-based authentication  
+## Disable key-based authentication  
 
-The built-in server authorization feature is a component separate from Azure Functions. To configure it, you must first disable Functions host-based authentication and allow anonymous access. 
+The built-in server authorization feature is a component separate from Azure Functions. When using server authentication, it's best to first disable key-based authentication by allowing anonymous access. 
 
 ### [MCP extension server](#tab/mcp-extension)
 
@@ -283,7 +284,8 @@ To disable host-based authentication in your MCP server, set `system.webhookAuth
 ```
 
 ### [Self-hosted server](#tab/self-hosted)
-To disable host-based authentication for self-hosted MCP servers, add the following code in the `customHandler` section:
+
+To disable host-based authentication for self-hosted MCP servers, add the following code in the `customHandler` section of the `host.json` file:
 
 ```json
 "customHandler": {
@@ -293,9 +295,12 @@ To disable host-based authentication for self-hosted MCP servers, add the follow
     }
 }
 ```
+
 ---
 
 ## Create the function app in Azure
+
+Create a function app in the Flex Consumption plan in Azure that hosts your MCP server.
 
 [!INCLUDE [functions-create-flex-consumption-app-portal-full](../../includes/functions-create-flex-consumption-app-portal-full.md)] 
 
@@ -332,13 +337,11 @@ Now you can deploy the server project:
 
 ---
 
-When deployment finishes, you should see a pop-up in Visual Studio Code about connecting to the server. Select the **Connect** button to have the editor set up server connection information in `mcp.json`.
-
-If you're connecting to the MCP server by using an access key instead of configuring built-in server authorization and authentication, you can now skip to the [Connect to server](#connect-to-server) section. 
+When deployment finishes, you should see a notification in Visual Studio Code about connecting to the server. Select the **Connect** button to have the editor set up server connection information in `mcp.json`.
 ::: zone-end  
 ## Enable built-in server authorization and authentication
 
-The following instruction shows how to enable the built-in authorization and authentication feature on the server app and configures Microsoft Entra ID as the identity provider. When done, you'll test by connecting to the server in Visual Studio Code and see that you're prompted to authenticate before connecting. 
+The following instruction shows how to enable the built-in authorization and authentication feature on the server app and configures Microsoft Entra ID as the identity provider. When done, you test by connecting to the server in Visual Studio Code and see that you're prompted to authenticate before connecting. 
 
 ### Configure authentication on server app
 
@@ -371,7 +374,7 @@ The following instruction shows how to enable the built-in authorization and aut
 
     :::image type="content" source="./media/functions-mcp/authentication-portal.png" alt-text="Screenshot of App Service authentication settings showing 'Require authentication' selected and 'HTTP 401 Unauthorized' set for unauthenticated requests.":::
 
-### Pre-authorize Visual Studio Code as client 
+### Preauthorize Visual Studio Code as client 
 
 1. Select the name of the Entra app next to **Microsoft**. This action takes you to the **Overview** of the Entra app resource. 
 
@@ -385,9 +388,9 @@ The following instruction shows how to enable the built-in authorization and aut
 
 1. Select **Add application**.
 
-### Configure protected resource metatdata (preview)
+### Configure protected resource metadata (preview)
 
-1. In the same **Expose an API** view, find the **Scopes** section and copy the scope that allows admins and users to consent to the Entra app. The value looks like `api://abcd123-efg456-hijk-7890123/user_impersonation`.
+1. In the same **Expose an API** view, find the **Scopes** section, and copy the scope that allows admins and users to consent to the Entra app. This value looks like `api://abcd123-efg456-hijk-7890123/user_impersonation`.
 
 1. Run the same command as previous to add the setting `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES`: 
 
@@ -401,11 +404,11 @@ The following instruction shows how to enable the built-in authorization and aut
 
 Open `mcp.json` inside the `.vscode` directory.
 
-If you select **Connect** in the pop-up after deployment, Visual Studio Code populates the file with server connection information. 
+When you select **Connect** in the pop-up after deployment, Visual Studio Code populates the file with server connection information. 
 
 If you miss that step, you can also open **Output** (`Ctrl/Cmd+Shift+U`) to find the in-line connection button at the end of deployment logs. 
 
-If you miss both options, you can manually add connection information:
+You can also manually add connection information:
 
 1. Get the server domain by running the following command:
 
@@ -489,7 +492,7 @@ The `mcp.json` file should look like the following example:
 }
 ```
 
-If you want to find the access key yourself, go to the Function app on Azure portal. On the left menu, find **Functions -> App keys**. Under the **System keys** section find the one named _mcp_extension_. 
+If you want to find the access key yourself, go to the Function app on Azure portal. On the left menu, find **Functions -> App keys**. Under the System keys section, find the one named _mcp_extension_. 
 
 ### [Self-hosted server](#tab/self-hosted)
 The `mcp.json` file should look like the following example: 
@@ -525,14 +528,15 @@ The `mcp.json` file should look like the following example:
 To find the access key, go to the Function app on Azure portal. On the left menu, find **Functions -> App keys**. Under the **Host keys (all functions)** section, find the key named _default_. 
 
 ---
+
 >[!TIP]
 > To see connection logs, go to the server name, then select **More** > **Show Output**. For more details on the interaction between the client (Visual Studio Code) and the remote MCP server, select the gear icon and pick **Trace**. 
 >
 > :::image type="content" source="./media/functions-mcp/trace-log-setting.png" alt-text="Screenshot of the MCP server settings showing the _Trace_ log level being selected. ":::
 
-## Configure Azure AI Foundry agent to user MCP server
+## Configure Azure AI Foundry agent to use your tools
 
-You can configure an [agent on Azure AI Foundry](/azure/ai-foundry/agents/quickstart) to leverage tools exposed by MCP servers hosted on Azure Functions.
+You can configure an [agent on Azure AI Foundry](/azure/ai-foundry/agents/quickstart) to use tools exposed by MCP servers hosted on Azure Functions.
 
 1. In the Foundry portal, find the agent you want to configure with MCP servers hosted on Functions. 
 
@@ -567,9 +571,9 @@ In the debug output from Visual Studio Code, you see a series of requests and re
 1. The editor fetches the PRM and uses it to identify the authorization server.
 1. The editor attempts to obtain authorization server metadata (ASM) from a well-known endpoint on the authorization server.
 1. Microsoft Entra ID doesn't support ASM on the well-known endpoint, so the editor falls back to using the OpenID Connect metadata endpoint to obtain the ASM. It tries to discover this by inserting the well-known endpoint before any other path information.
-1. The OpenID Connect specifications actually defined the well-known endpoint as being after path information, and that is where Microsoft Entra ID hosts it. So the editor tries again with that format.
-1. The editor successfully retrieves the ASM. It then uses this information in conjunction with its own client ID to perform a sign-in. At this point, the editor prompts you to sign in and consent to the application.
-1. Assuming you successfully sign in and consent, the editor completes the authentication. It repeats the intialization request to the MCP server, this time including an authorization token in the request. This re-attempt isn't visible at the Debug output level, but you can see it in the Trace output level.
+1. The OpenID Connect specifications actually defined the well-known endpoint as being after path information, and that's where Microsoft Entra ID hosts it. So the editor tries again with that format.
+1. The editor successfully retrieves the ASM. It then uses this information with its own client ID to perform a sign-in. At this point, the editor prompts you to sign in and consent to the application.
+1. Assuming you successfully sign in and consent, the editor completes the authentication. It repeats the intialization request to the MCP server, this time including an authorization token in the request. This reattempt isn't visible at the Debug output level, but you can see it in the Trace output level.
 1. The MCP server validates the token and responds with a successful response to the initialization request. The standard MCP flow continues from this point, ultimately resulting in discovery of the MCP tool defined in this sample.
 
 ## Troubleshooting
@@ -578,7 +582,7 @@ If you run into trouble, ask GitHub Copilot for help. Here are some specific ide
 
 ### [MCP extension server](#tab/mcp-extension)
 
-No additional ideas at this time. Remember to ask Copilot chat about any errors that occur.
+No other ideas at this time. Remember to ask Copilot chat about any errors that occur.
 
 ### [Self-hosted server](#tab/self-hosted)
 
@@ -589,4 +593,4 @@ No additional ideas at this time. Remember to ask Copilot chat about any errors 
 
  ## Next steps
 
-Learn how to [register](./register-mcp-server-api-center.md) Azure Functions-hosted MCP servers on Azure API Center.
+Learn how to [register Azure Functions-hosted MCP servers on Azure API Center](./register-mcp-server-api-center.md).
