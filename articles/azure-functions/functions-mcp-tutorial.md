@@ -90,7 +90,7 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
 1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-1. Provide the following information at the prompts:
+3. Provide the following information at the prompts:
 
     ### [MCP extension server](#tab/mcp-extension)
 
@@ -116,7 +116,7 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
     --- 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript" 
-1. Provide the following information at the prompts:
+3. Provide the following information at the prompts:
 
     ### [MCP extension server](#tab/mcp-extension)
 
@@ -140,7 +140,7 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
     --- 
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
-1. Provide the following information at the prompts:
+3. Provide the following information at the prompts:
 
     ### [MCP extension server](#tab/mcp-extension)
 
@@ -163,7 +163,6 @@ Use Visual Studio Code to locally create an MCP server project in your preferred
     |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     ---
-
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 
@@ -187,7 +186,8 @@ The project also includes language specific implementation of a simple MCP serve
 --- 
 
 ## Start the MCP server locally 
-
+::: zone-end  
+::: zone pivot="programming-language-python" 
 ### [MCP extension server](#tab/mcp-extension)
 
 Function apps need a storage component to run. Before starting the server, start the local storage emulator: 
@@ -203,31 +203,59 @@ Function apps need a storage component to run. Before starting the server, start
 ### [Self-hosted server](#tab/self-hosted)
 
 Open a new terminal (``Ctrl+Shift+` ``), start the server by running the following command: 
-::: zone-end  
-::: zone pivot="programming-language-python" 
 
 ```shell
 uv run func start
 ```
+---
 ::: zone-end  
 ::: zone pivot="programming-language-csharp" 
+### [MCP extension server](#tab/mcp-extension)
+
+Function apps need a storage component to run. Before starting the server, start the local storage emulator: 
+
+1. In _local.setting.json_, ensure you have `"AzureWebJobsStorage": "UseDevelopmentStorage=true"`.
+
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azurite: Start`.
+
+1. Check the bottom bar and verify that Azurite emulation services are running. If so, you can now run the server locally.
+
+1. To start running locally, press <kbd>F5</kbd>. 
+
+### [Self-hosted server](#tab/self-hosted)
+
+Open a new terminal (``Ctrl+Shift+` ``), start the server by running the following command: 
 
 ```shell
 func start
 ``` 
+---
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
+### [MCP extension server](#tab/mcp-extension)
+
+Function apps need a storage component to run. Before starting the server, start the local storage emulator: 
+
+1. In _local.setting.json_, ensure you have `"AzureWebJobsStorage": "UseDevelopmentStorage=true"`.
+
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azurite: Start`.
+
+1. Check the bottom bar and verify that Azurite emulation services are running. If so, you can now run the server locally.
+
+1. To start running locally, press <kbd>F5</kbd>. 
+
+### [Self-hosted server](#tab/self-hosted)
+
+Open a new terminal (``Ctrl+Shift+` ``), start the server by running the following command: 
 
 ```shell
 npm install
 npm run build
 func start
 ```
+---
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
-
----
-
 ## Test the server
 
 1. Find the `.vscode` directory and open `mcp.json`. The editor should add the server's connection info.  
@@ -270,13 +298,7 @@ To disable host-based authentication in your MCP server, set `system.webhookAuth
   "version": "2.0",
   "extensions": {
     "mcp": {
-      "instructions": "Some test instructions on how to use the server",
-      "serverName": "TestServer",
-      "serverVersion": "2.0.0",
-      "encryptClientState": true,
-      "messageOptions": {
-        "useAbsoluteUriForEndpoint": false
-      },
+      ...
       "system": {
         "webhookAuthorizationLevel": "Anonymous"
       }
@@ -291,7 +313,7 @@ To disable host-based authentication for self-hosted MCP servers, add the follow
 
 ```json
 "customHandler": {
-    // Other properties
+    ...
     "http": {
         "DefaultAuthorizationLevel": "anonymous"
     }
