@@ -21,6 +21,10 @@ Here's a diagram of Application Gateway for Containers integrating with Istio se
 
 ![Diagram depicting alb-controller and alb-controller-servicemesh-extension to establish mutual TLS to services part of the Istio mesh.](./media/service-mesh-integration/service-mesh-istio-overview.svg)
 
+> [!IMPORTANT]
+> Application Gateway for Containers Service Mesh Extension is currently in PREVIEW.<br>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## ALB Controller Service Mesh Extension (Preview)
 
 The ALB Controller Istio Extension consists of two pods, deployed in active / standby configuration to allow resiliency during node failure, handle certificate lifecycle management between Application Gateway for Containers and Istio, and implicitly handle mTLS configuration to services part of a service mesh.
@@ -30,10 +34,6 @@ The ALB Controller Istio Extension consists of two pods, deployed in active / st
 
 >>[!NOTE]
 >To leverage ALB Controller Service Mesh Extension, you must define your ingress intent using Gateway API. Ingress API is not supported.
-
-> [!IMPORTANT]
-> Application Gateway for Containers Service Mesh Extension is currently in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Install the ALB Controller Service Mesh Extension for Istio
 
