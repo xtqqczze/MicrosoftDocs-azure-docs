@@ -14,7 +14,7 @@ ms.update-cycle: 180-days
 
 # Add agent tools in Foundry with MCP servers powered by connector actions in Azure Logic Apps (preview)
 
-[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 > [!NOTE]
 >
@@ -26,7 +26,7 @@ This guide shows how to add tools to your agents in Microsoft Foundry by creatin
 For more information, see:
 
 - [What is Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro)?
-- [What is Foundry](/azure/ai-foundry/what-is-azure-ai-foundry)?
+- [What is Foundry](/ai-foundry/what-is-azure-ai-foundry)?
 - [What is Azure Logic Apps](/azure/logic-apps/logic-apps-overview)?
 
 ## Prerequisites
@@ -123,7 +123,11 @@ You can continue with these steps only after you finish the steps in the precedi
    | **Description** | Yes | <*mcp-server-description*> | The description about the MCP server's role, purpose, and tasks that the server can perform. This description helps your agent more accurately identify and choose the appropriate server and tools to use. |
    | **Logic app** | Yes* | <*Standard-logic-app-resource*> | *This property value depends on whether you have any Standard logic app resources linked to Foundry resources. <br><br>- **None**: The Azure portal creates a Standard logic app for your MCP server to use. <br><br>- **One**: The Azure portal automatically selects this Standard logic app for your MCP server to use. <br><br>- **Multiple**: Open the list, and select a logic app for your MCP server to use. |
 
-1. In the **Tools** section, set up the connection for the connector you chose:
+   For example:
+
+   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/mcp-information.png" alt-text="Screenshot shows search box with rss entered with RSS connector and Create button selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/mcp-information.png":::
+
+1. In the **Tools** section, set up the connection for your chosen connector:
 
    1. In the **Connectors** section, on the connector row, select the edit button (pencil icon).
 
@@ -135,16 +139,15 @@ You can continue with these steps only after you finish the steps in the precedi
 
       For the example RSS connector, you're prompted to select **Create new**.
 
-   After you complete the connection, the **Add actions** pane appears.
 
-1. On the **Add actions** pane, find and select the connector actions to include in your MCP server.
+
+1. In the **Actions** section, On the **Add actions** pane, find and select the connector actions to include in your MCP server.
 
    This example uses the **RSS** connector and the action named **List all RSS feed items**.
 
 1. When you're ready, select **Next**.
 
 1. If the Azure portal prompts you to sign in for authentication, sign in now.
-
 
 
 
