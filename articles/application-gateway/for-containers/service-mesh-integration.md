@@ -33,7 +33,7 @@ The ALB Controller Istio Extension consists of two pods, deployed in active / st
 >Application Gateway for Containers only supports the community/open source version of Istio today. Istio-based service mesh add-on for AKS isn't supported at this time.
 
 >[!NOTE]
->To leverage ALB Controller Service Mesh Extension, you must define your ingress intent using Gateway API. Ingress API is not supported.
+>To use ALB Controller Service Mesh Extension, you must define your ingress intent using Gateway API. Ingress API isn't supported.
 
 ### Install the ALB Controller Service Mesh Extension for Istio
 
@@ -77,7 +77,7 @@ Application Gateway for Containers supports integration with Istio v1.24 and gre
 
 After the ALB Controller Service Mesh Extension is installed, if Istio is installed, the service mesh integration will attempt to provision a sidecar for integration into the mesh.
 
-If ALB Controller Service Mesh is installed prior to Istio, you must restart the ALB Controller Service Mesh extension deployment. This may be done by executing the following command: `kubectl rollout restart deployment/alb-controller-istio-extension`
+If ALB Controller Service Mesh is installed prior to Istio, you must restart the ALB Controller Service Mesh extension deployment. Restart of the ALB Controller Service Mesh deployment may be done with the command: `kubectl rollout restart deployment/alb-controller-istio-extension`
 
 ### Routing traffic to Istio service mesh
 
@@ -106,7 +106,7 @@ metadata:
 
 #### Enable mTLS handling for services in the namespace
 
-In this example, we'll define a `PeerAuthentication` Istio custom resource to require mTLS for incoming connections to the services in the `istio-example-namespace`.
+In this example, we define a `PeerAuthentication` Istio custom resource to require mTLS for incoming connections to the services in the `istio-example-namespace`.
 
 ```yaml
 apiVersion: security.istio.io/v1beta1
@@ -120,11 +120,11 @@ spec:
 ```
 
 >[!NOTE]
->Istio supports different modes to handle the behavior of mutual authentication. In Application Gateway for Containers' implementation, mTLS will always be enforced for services that are part of the namespace with the `istio-injection: enabled` label. If you wish to proxy traffic via clear-text or TLS, do not define the `istio-injection: enabled` label on the namespace and AGC will proxy traffic to the backend via the defined configuration in HTTPRoute and BackendTLSPolicy resources accordingly.
+>Istio supports different modes to handle the behavior of mutual authentication. In Application Gateway for Containers' implementation, mTLS will always be enforced for services that are part of the namespace with the `istio-injection: enabled` label. If you wish to proxy traffic via clear-text or TLS, don't define the `istio-injection: enabled` label on the namespace and Application Gateway for Containers will proxy traffic to the backend via the defined configuration in HTTPRoute and BackendTLSPolicy resources accordingly.
 
 #### Deploy a sample application (optional)
 
-In this step, we will provision some test resources so we can validate the end-to-end scenario.  If you have your own application, you can skip this step.
+In this step, we provision some test resources so we can validate the end-to-end scenario.  If you have your own application, you can skip this step.
 
 Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate sending traffic to an application part of the Istio service mesh.
 
@@ -351,4 +351,4 @@ There's no extra price to enable service mesh integration.
 ## Limitations
 
 - Application Gateway for Containers only supports the community/open source version of Istio today. Istio-based service mesh add-on for AKS isn't supported at this time.
-- Ingress API is not supported; consider migrating to Gateway API.
+- Ingress API isn't supported; consider migrating to Gateway API.
