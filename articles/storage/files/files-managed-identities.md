@@ -37,6 +37,16 @@ Benefits include:
 
 - **Cost effective:** Managed identities can be used at no extra cost
 
+## System assigned and user assigned managed identities
+
+There are two types of managed identities in Azure: **system assigned** and **user assigned**.
+
+A system assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). The managed identity is authenticated with Microsoft Entra ID, so you don’t have to store any credentials in code. System assigned managed identities aren't supported on Linux VMs. 
+
+User assigned managed identities enable Azure resources to authenticate to cloud services without storing credentials in code. This type of managed identities are created as standalone Azure resources, and have their own lifecycle. A single resource such as a VM can utilize multiple user assigned managed identities. Similarly, a single user assigned managed identity can be shared across multiple VMs.
+
+Windows VMs can have both user assigned and system assigned managed identities configured.
+
 ## Prerequisites
 
 This article assumes that you have an Azure subscription with permissions to create storage accounts and assign Azure Role-Based Access Control (RBAC) roles.
@@ -125,7 +135,7 @@ If you want to authenticate an Azure VM, follow these steps.
 
 1. Sign in to the Azure portal and create a Windows VM. Your VM must be running Windows Server 2019 or higher for server SKUs, or any Windows client SKU. See [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 
-1. Enable a managed identity on the VM. It can be either [system-assigned or user-assigned](/entra/identity/managed-identities-azure-resources/overview#differences-between-system-assigned-and-user-assigned-managed-identities). If the VM has both system- and user-assigned identities, Azure defaults to system assigned. Assign only one for best results. You can enable a system-assigned managed identity during VM creation on the **Management** tab.
+1. Enable a managed identity on the VM. It can be either [system assigned or user assigned](/entra/identity/managed-identities-azure-resources/overview#differences-between-system-assigned-and-user-assigned-managed-identities). If the VM has both system assigned and user assigned identities, Azure defaults to system assigned. Assign only one for best results. You can enable a system assigned managed identity during VM creation on the **Management** tab.
 
     :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity.png" alt-text="Screenshot showing how to enable system assigned managed identity when creating a new VM using the Azure portal." border="true":::
 
@@ -145,19 +155,29 @@ To enable a managed identity on non-Azure Windows machines (on-prem or other clo
 To configure a managed identity on a Linux VM running in Azure, follow these steps. Your VM must be running Azure Linux 3.0, Ubuntu 22.04, or Ubuntu 24.04.
 
 > [!NOTE]
-> System-assigned managed identities aren't supported on Linux VMs. You must create a user-assigned managed identity.
+> System assigned managed identities aren't supported on Linux VMs. You must create a user assigned managed identity.
 
-1. Sign in to the Azure portal and [create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity).
+1. Sign in to the Azure portal and [create a user assigned managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity).
 
-1. Navigate to the managed identity and copy your client ID. You'll need this later when configuring the Linux VM to use the managed identity.
+1. Navigate to the storage account that contains the file share you want to mount using a managed identity. Select **Access Control (IAM)** from the service menu.
 
-1. Navigate to the storage account that contains the file share. Select **IAM (Access control)** from the service menu.
+1. Under **Grant access to this resource**, select **Add role assignment**.
 
-1. Assign the built-in **Storage File Data SMB MI Admin** role to the managed identity at the right scope.
+1. On the **Role** tab, under **Job function roles**, search for and select **Storage File Data SMB MI Admin**, and then select **Next**.
 
-1. Navigate to your Linux VM. From the service menu, select **Security**, and then select **Identity**.
+1. On the **Members** tab, under **Assign access to**, select **Managed identity**.
 
-1. You’ll see two options: **System-assigned** and **User-assigned**. Enable a user-assigned managed identity for the VM. Select the User-assigned identity you created earlier and assign it to the VM using the client ID you copied in the previous step.
+1. Under **Members**, click on **+ Select members**. The **Select managed identities** pane appears.
+
+1. Under **Managed identity**, select the user assigned managed identity that you created in step 1, and then click **Select**.
+
+1. You should now see the managed identity listed under **Members**. Select **Next**.
+
+1. Select **Review + assign** to add the role assignment to the storage account.
+
+1. Navigate to your Linux VM. From the service menu, under **Security**, select **Identity**.
+
+1. Select the **User assigned** tab, and then select **Add user assigned managed identity**. Select the user assigned managed identity you created in step 1, and then select **Add**.
 
 ---
 
@@ -200,7 +220,7 @@ AzFilesSMBMIClient.exe refresh --uri https://<storage-account-name>.file.core.wi
 
 This will get an OAuth token and insert it in the Kerberos cache, and will auto-refresh when the token is close to expiration. Optionally, you can omit the `refresh`.
 
-If your Windows VM has both user-assigned and system-assigned managed identities configured, you can use the following command to specify the user-assigned managed identity:
+If your Windows VM has both user assigned and system assigned managed identities configured, you can use the following command to specify the user assigned managed identity:
 
 ```powershell
 AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.windows.net/ --clientId <ClientId> 
