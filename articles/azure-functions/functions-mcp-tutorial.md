@@ -554,7 +554,7 @@ You can configure an [agent on Azure AI Foundry](/azure/ai-foundry/agents/quicks
         - Self-hosted server: `https://<server domain>/mcp`
     - Authentication: Choose "Microsoft Entra"
     - Type: Choose "Project Managed Identity" 
-    - Audience: This is the Entra App ID URI from [Configure protected resource metadata](#configure-protected-resource-metatdata-preview)
+    - Audience: This is the Entra App ID URI from [Configure protected resource metadata](#configure-protected-resource-metadata-preview)
 
     For example:
 
@@ -589,7 +589,7 @@ No other ideas at this time. Remember to ask Copilot chat about any errors that 
 ### [Self-hosted server](#tab/self-hosted)
 
 - For C# servers, ensure that the value of the `arguments` property in _host.json_ is the path to the compiled DLL, for example, `["HelloWorld.dll"]`
-- If your server isn't deploying properly or the deployed server doesn't work, ensure that you add the required [app setting](#deploy-the-mcp-server-project). Also remember to add the [protected resource metadata](#configure-protected-resource-metatdata-preview) related setting. 
+- If your server isn't deploying properly or the deployed server doesn't work, ensure that you add the required [app setting](#deploy-the-mcp-server-project). Also remember to add the [protected resource metadata](#configure-protected-resource-metadata-preview) related setting. 
 
 --- 
 
