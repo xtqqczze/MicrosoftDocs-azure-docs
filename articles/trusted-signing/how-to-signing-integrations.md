@@ -161,44 +161,6 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
 
    <sup>1</sup> The optional `"CorrelationId"` field is an opaque string value that you can provide to correlate sign requests with your own workflows, such as build identifiers or machine names.
 
-#### Endpoint mismatch error example
-
-If the endpoint does not match the region where the Trusted Signing account and certificate profile were created, a sign request can fail with a 403 Forbidden response and an internal SignTool error. This indicates the service rejected the request due to an incorrect regional endpoint.
-
-Example failure output:
-
-```
-Submitting digest for signing...
-Unhandled managed exception
-Azure.RequestFailedException: Service request failed.
-Status: 403 (Forbidden)
-
-Headers:
-Date: Sun, 09 Nov 2025 20:39:58 GMT
-Connection: keep-alive
-Strict-Transport-Security: REDACTED
-x-azure-ref: REDACTED
-X-Cache: REDACTED
-Content-Length: 0
-
-  at Azure.CodeSigning.CertificateProfileRestClient.SignAsync(String codeSigningAccountName, String certificateProfileName, SignRequest body, String xCorrelationId, String clientVersion, CancellationToken cancellationToken)
-  at Azure.CodeSigning.CertificateProfileClient.StartSignAsync(String codeSigningAccountName, String certificateProfileName, SignRequest body, String xCorrelationId, String clientVersion, CancellationToken cancellationToken)
-  at Azure.CodeSigning.Dlib.Core.DigestSigner.SignAsync(UInt32 algorithm, Byte[] digest, SafeFileHandle safeFileHandle, CancellationToken cancellationToken)
-  at Azure.CodeSigning.Dlib.Core.DigestSigner.Sign(UInt32 algorithm, Byte[] digest, SafeFileHandle safeFileHandle)
-  at AuthenticodeDigestSignExWithFileHandleManaged(_CRYPTOAPI_BLOB* pMetadataBlob, UInt32 digestAlgId, Byte* pbToBeSignedDigest, UInt32 cbToBeSignedDigest, Void* hFile, _CRYPTOAPI_BLOB* pSignedDigest, _CERT_CONTEXT** ppSignerCert, Void* hCertChainStore)
-
-SignTool Error: An unexpected internal error has occurred.
-Error information: "Error: SignerSign() failed." (-2147467259/0x80004005)
-```
-
-Resolution:
-1. Verify the region where the Trusted Signing account and certificate profile were provisioned.
-2. Update the `"Endpoint"` value in the JSON to the correct regional URI from the table above.
-3. Retry the signing operation.
-
-Tip: A 403 with zero content length and `SignerSign()` failure is a strong indicator of an endpoint–region mismatch.
-
-
 ### Authentication
 
 This Task performs authentication using [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), which attempts a series of authentication methods in order. If one method fails, it attempts the next one until authentication is successful.
