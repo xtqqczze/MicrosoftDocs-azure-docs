@@ -30,7 +30,7 @@ Before you begin, make sure you have:
 + [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd) v1.17.2 or above
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-## Host your existing MCP server
+## Prepare your existing MCP server project
 
 If you already have an MCP server built with official Anthropic MCP SDKs, you can host it on Azure Functions by following these steps:
 
@@ -57,6 +57,9 @@ It's unlikely that your project would have files with the same names, but if it 
 3. In `host.json`:
    + Ensure the `arguments` property has the compiled DLL path (for example, `MyMcpServer.dll`)
    + Ensure the `port` value matches the one used by your MCP server
+
+>[!NOTE]
+>Because the payload deployed to Azure Functions is the content of the `bin/output` directory, the path to the compiled DLL is relative to that directory, _not_ to the project root.
 
 You can find more details about the [.NET hosting template](https://github.com/Azure-Samples/self-hosted-mcp-scaffold-dotnet).
 ::: zone-end  
@@ -97,17 +100,9 @@ You can find more details about the [Python hosting template](https://github.com
 
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 
-<!--- moved from the readme generated hosting quickstart
-> [!TIP]  
-> You can see output of a server by clicking **More...** > **Show Output**. The output provides useful information like why a connection might have failed. You can also click the gear icon to change log levels to **Traces** to get more details on the interactions between the client (Visual Studio Code) and the server. -->
-
 ## Next steps
 
 After you've configured your existing MCP server for hosting, you can:
 
 > [!div class="nextstepaction"]
-> [Complete the quickstart to deploy and test your server](scenario-host-mcp-server-sdks.md)
-
-> [!div class="nextstepaction"]
-> [Configure built-in MCP server authorization](../app-service/configure-authentication-mcp.md)
-::: zone-end
+> [Test and deploy your server](scenario-host-mcp-server-sdks.md#run-the-mcp-server-locally)

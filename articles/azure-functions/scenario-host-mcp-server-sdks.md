@@ -100,7 +100,7 @@ The easiest way to get started is to clone an MCP server sample project built us
 2. In the Terminal, run this command to initialize the Python sample:
  
     ```bash
-    azd init --template mcp-sdk-functions-hosting-python-e mcpsdkserver-python
+    azd init --template mcp-sdk-functions-hosting-python -e mcpsdkserver-python
     ```
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-java) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.  
@@ -143,11 +143,17 @@ To verify your server using GitHub Copilot in Visual Studio Code:
 
     Copilot should call one of the weather tools to help answer this question. When prompted to run the tool, select **Allow in this Workspace** so you don't have to keep regranting this permission. 
 
-After you verify the tool functionality locally, you can deploy the project code to Azure.
+After you verify the tool functionality locally, you can stop the server and deploy the project code to Azure.
 
 ## Deploy to Azure
 
 This project is configured to use the `azd up` command to deploy this project to a new function app in a Flex Consumption plan in Azure. The project includes a set of Bicep files that `azd` uses to create a secure deployment that follows best practices.
+
+1. Log into Azure:
+
+    ```bash
+    azd login
+    ```
 
 1. Configure Visual Studio Code as a pre-authorized client application:
 
@@ -179,10 +185,13 @@ Your MCP server is now running in Azure. To connect GitHub Copilot to your remot
 1. Verify the remote server by asking a question like:
 
     ```copilot-prompt
-    Return the weather forecast for Seattle using #local-mcp-server.
+    Return the weather forecast for Seattle using #remote-mcp-server.
     ```
 
     Copilot calls one of the weather tools to answer the query.
+
+> [!TIP]  
+> You can see output of a server by clicking **More...** > **Show Output**. The output provides useful information like why a connection might have failed. You can also click the gear icon to change log levels to **Traces** to get more details on the interactions between the client (Visual Studio Code) and the server.
 
 ## Review the code (optional)
 
