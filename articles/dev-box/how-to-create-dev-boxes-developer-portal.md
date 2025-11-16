@@ -1,7 +1,7 @@
 ---
-title: Manage a dev box in the developer portal
+title: Use the developer portal
 titleSuffix: Microsoft Dev Box
-description: Learn how to create, delete, and connect to a dev box by using the Microsoft Dev Box developer portal.
+description: Learn how to create, connect, manage, and get information about a dev box by using the Microsoft Dev Box developer portal.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -10,14 +10,14 @@ ms.update-cycle: 180-days
 ms.date: 11/17/2025
 ms.topic: how-to
 
-# customer intent: As a developer, I want to learn how to perform tasks through the developer portal so that I can manage my dev boxes.
+# customer intent: As a developer, I want to learn how to perform tasks through the developer portal so that I can create and manage my dev boxes.
 ---
 
-# Manage a dev box by using the Microsoft Dev Box developer portal
+# Use the Microsoft Dev Box developer portal
 
-In this article, you learn how to use the Microsoft Dev Box developer portal as a central location to manage your dev boxes. As a developer, you can access your dev boxes in the developer portal instead of having to use the Azure portal.
+This article shows you how to use the Microsoft Dev Box developer portal as a central location to manage your dev boxes. As a developer, you can access your dev boxes in the developer portal instead of having to use the Azure portal.
 
-You can view information and perform many actions on a dev box by using the **More actions** menu on a dev box tile in the developer portal. For example, you can shut down or restart a running dev box, or start a stopped dev box. Available options depend on the state of the dev box and the configuration of the dev box pool it belongs to.
+You can view information and perform many actions by using the **More actions** menu on a dev box tile in the developer portal. For example, you can shut down or restart a running dev box, or start a stopped dev box. Available options depend on the state of the dev box and the configuration of the dev box pool it belongs to.
 
 ## Prerequisites
 
@@ -28,9 +28,9 @@ You can view information and perform many actions on a dev box by using the **Mo
 
 ## Create a dev box
 
-Create a dev box in the Microsoft Dev Box developer portal by following the instructions in [Quickstart: Create a dev box by using the developer portal](quickstart-create-dev-box.md). To create more dev boxes in the portal, select **New dev box** at upper left.
+Create a dev box in the Microsoft Dev Box developer portal by following the instructions in [Quickstart: Create a dev box by using the developer portal](quickstart-create-dev-box.md#create-a-dev-box). You can create more dev boxes as needed by selecting **New dev box** at upper left in the portal.
 
-You can use the Microsoft Dev Box developer portal to create as many dev boxes as you need. For example, you might create separate dev boxes for the following scenarios:
+For example, you might create separate dev boxes for the following scenarios:
 
 - **Workloads.** Create separate dev boxes for your frontend work and your backend work, or create multiple dev boxes for your backend system.
 - **Bug fixing.** Use separate dev boxes for each bug fix to work on the specific task and troubleshoot the issue without affecting your primary machine.
@@ -53,7 +53,7 @@ For light workloads, you can use a browser like Microsoft Edge to access your de
 
 To connect to a dev box by using the browser:
 
-1. Sign in to the [developer portal](https://aka.ms/devbox-portal), select the caret next to **Connect via app** on the dev box tile, and then select **Open in browser**.
+1. [Sign in to the developer portal](https://aka.ms/devbox-portal), select the caret next to **Connect via app** on the dev box tile, and then select **Open in browser**.
 
    :::image type="content" source="./media/how-to-create-dev-boxes-developer-portal/dev-portal-open-in-browser.png" alt-text="Screenshot of dev box tile that shows the option for opening in a browser.":::
 
@@ -102,7 +102,7 @@ There are many reasons you might not need a dev box anymore. You might complete 
 When you no longer need a dev box, you can delete it in the developer portal. You can then create new dev boxes to work on new items.
 
 > [!IMPORTANT]
-> You can't retrieve a dev box after deletion. Before you delete a dev box, confirm that no one needs the dev box.
+> You can't retrieve a dev box after deletion. Before you delete a dev box, make sure you don't need it anymore.
 
 To delete a dev box:
 
@@ -118,11 +118,11 @@ To delete a dev box:
 
 Depending on configuration, you can select other actions from the **More actions** menu on a dev box tile in the developer portal. For example:
 
-- **Hibernate and resume.** Hibernation lets you save the current state of your dev box and resume it later. If your dev box has hibernation enabled, you can select **Hibernate** or **Resume** to hibernate or resume the dev box. For more information, see [Hibernate a dev box in Microsoft Dev Box](how-to-hibernate-your-dev-box.md).
+- **Hibernate and resume.** Hibernation conserves power by saving the current state of your dev box and then shutting it down. You can resume the dev box to that exact state. If your dev box has hibernation enabled, select **Hibernate** or **Resume** to hibernate or resume the dev box. For more information, see [Hibernate a dev box in Microsoft Dev Box](how-to-hibernate-your-dev-box.md).
 
 - **Troubleshoot and repair.** If you have issues connecting to your dev box, you can use **Troubleshoot & repair** to troubleshoot. For more information, see [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md).
 
-- **Snapshot and restore.** You can capture a snapshot of your dev box state by selecting **Take snapshot**, and later **Restore** your dev box to that state. For more information, see [Restore your dev box from a snapshot](how-to-restore-from-snapshot.md)
+- **Snapshot and restore.** You can capture a snapshot of your dev box state by selecting **Take snapshot**, and later **Restore** your dev box to that state. For more information, see [Restore your dev box from a snapshot](how-to-restore-from-snapshot.md).
 
 ## Related content
 
