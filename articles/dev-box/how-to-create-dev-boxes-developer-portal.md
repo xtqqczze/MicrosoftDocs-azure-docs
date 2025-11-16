@@ -69,7 +69,7 @@ To connect to a dev box by using the browser:
 
 To shut down, restart, or start a dev box:
 
-1. Sign in to the [developer portal](https://aka.ms/devbox-portal) and select the **More actions** icon on the dev box tile.
+1. [Sign in to the developer portal](https://aka.ms/devbox-portal) and select the **More actions** icon on the dev box tile.
 
 1. For a running dev box, select **Shut down** or **Restart** from the menu.
 
@@ -85,7 +85,7 @@ You can use the Microsoft Dev Box developer portal to view information about a d
 
 To get information about your dev box:
 
-1. Sign in to the [developer portal](https://aka.ms/devbox-portal) and select the **More actions** icon on the dev box tile.
+1. [Sign in to the developer portal](https://aka.ms/devbox-portal) and select the **More actions** icon on the dev box tile.
 
 1. Select **More Info** from the menu.
  
@@ -106,7 +106,7 @@ When you no longer need a dev box, you can delete it in the developer portal. Yo
 
 To delete a dev box:
 
-1. Sign in to the [developer portal](https://aka.ms/devbox-portal), select the **More actions** icon on the dev box tile, and then select **Delete** from the menu.
+1. [Sign in to the developer portal](https://aka.ms/devbox-portal), select the **More actions** icon on the dev box tile, and then select **Delete** from the menu.
 
    :::image type="content" source="media/how-to-create-dev-boxes-developer-portal/dev-box-actions-delete.png" alt-text="Screenshot of the developer portal showing the actions menu for a dev box and Delete selected." border="false":::
 
@@ -118,7 +118,7 @@ To delete a dev box:
 
 Depending on configuration, you can select other actions from the **More actions** menu on a dev box tile in the developer portal. For example:
 
-- **Hibernate and resume.** Hibernation conserves power by saving the current state of your dev box and then shutting it down. You can resume the dev box to that exact state. If your dev box has hibernation enabled, select **Hibernate** or **Resume** to hibernate or resume the dev box. For more information, see [Hibernate a dev box in Microsoft Dev Box](how-to-hibernate-your-dev-box.md).
+- **Hibernate and resume.** Hibernation conserves power by saving the current state of your dev box and then shutting it down. You can resume the dev box to that exact state. If your dev box has hibernation enabled, select **Hibernate** or **Resume** to hibernate or resume the dev box. For more information, see [Hibernate a dev box](how-to-hibernate-your-dev-box.md).
 
 - **Troubleshoot and repair.** If you have issues connecting to your dev box, you can use **Troubleshoot & repair** to troubleshoot. For more information, see [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md).
 
@@ -127,5 +127,5 @@ Depending on configuration, you can select other actions from the **More actions
 ## Related content
 
 - [Quickstart: Create a dev box by using the developer portal](quickstart-create-dev-box.md)
-- [Configure Microsoft Dev Box from the command-line with the Azure CLI](how-to-install-dev-box-cli.md)
+- [Configure Microsoft Dev Box from the command line with the Azure CLI](how-to-install-dev-box-cli.md)
 - [Use a browser to connect to a dev box](quickstart-create-dev-box.md#connect-to-a-dev-box)
