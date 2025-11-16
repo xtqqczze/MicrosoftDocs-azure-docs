@@ -7,7 +7,7 @@ ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.update-cycle: 180-days
-ms.date: 11/14/2025
+ms.date: 11/17/2025
 ms.topic: how-to
 
 # customer intent: As a developer, I want to learn how to perform tasks through the developer portal so that I can manage my dev boxes.
@@ -17,27 +17,25 @@ ms.topic: how-to
 
 In this article, you learn how to use the Microsoft Dev Box developer portal as a central location to manage your dev boxes. As a developer, you can access your dev boxes in the developer portal instead of having to use the Azure portal.
 
-You can view information and perform many actions on a dev box by using the **More actions** menu on a dev box tile. For example, you can shut down or restart a running dev box, or start a stopped dev box. Available options depend on the state of the dev box and the configuration of the dev box pool it belongs to.
+You can view information and perform many actions on a dev box by using the **More actions** menu on a dev box tile in the developer portal. For example, you can shut down or restart a running dev box, or start a stopped dev box. Available options depend on the state of the dev box and the configuration of the dev box pool it belongs to.
 
 ## Prerequisites
 
-| Product | Requirements |
+| Category | Requirements |
 |---------|--------------|
 | Microsoft Dev Box | Before you can create or access a dev box, your organization must set up Microsoft Dev Box with at least one project and one dev box pool. To set up Microsoft Dev Box for an organization, see [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md).|
 | Permissions | To create or access a dev box, you need [Dev Box User](quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) permissions in a project that has an available dev box pool. If you don't have permissions to a project, contact your admin.|
 
 ## Create a dev box
 
+Create a dev box in the Microsoft Dev Box developer portal by following the instructions in [Quickstart: Create a dev box by using the developer portal](quickstart-create-dev-box.md). To create more dev boxes in the portal, select **New dev box** at upper left.
+
 You can use the Microsoft Dev Box developer portal to create as many dev boxes as you need. For example, you might create separate dev boxes for the following scenarios:
 
 - **Workloads.** Create separate dev boxes for your frontend work and your backend work, or create multiple dev boxes for your backend system.
 - **Bug fixing.** Use separate dev boxes for each bug fix to work on the specific task and troubleshoot the issue without affecting your primary machine.
 
-To create a dev box by using the Microsoft Dev Box developer portal, see [Quickstart: Create a dev box by using the developer portal](quickstart-create-dev-box.md). 
-
-To create a dev box through the Azure CLI dev center extension, see [Configure Microsoft Dev Box from the command-line with the Azure CLI](how-to-install-dev-box-cli.md).
-
-To create more dev boxes, select **New dev box** at upper left in the developer portal.
+You can also create dev boxes through the Azure CLI dev center extension. For more information, see [Configure Microsoft Dev Box from the command-line with the Azure CLI](how-to-install-dev-box-cli.md).
 
 ## Connect through an app
 
@@ -45,19 +43,23 @@ After you create your dev box, you can connect to it through the Windows App rem
 
 ### Connect through the Windows App
 
-Windows App is the default app for connecting to Microsoft Dev Box. You can use the Windows App to connect to your dev box from any device, including your phone or laptop. The Windows App is available for Windows, macOS, iOS/iPadOS, or Android/Chrome OS (preview), and on web browsers.
+Windows App is the default app for connecting to Microsoft Dev Box from any device, including your phone or laptop. The Windows App is available for Windows, macOS, iOS/iPadOS, Android/Chrome OS (preview), and on web browsers.
 
 [!INCLUDE [connect-with-windows-app](includes/connect-with-windows-app.md)]  
 
 ### Connect through a browser
 
-For light workloads, you can use a browser like Microsoft Edge in your phone or laptop to access your dev box. The browser is useful for tasks such as a quick bug fix or reviewing a GitHub pull request.
+For light workloads, you can use a browser like Microsoft Edge to access your dev box from your phone or laptop. The browser is useful for tasks such as a quick bug fix or reviewing a GitHub pull request.
 
-To connect to a dev box by using the browser, sign in to the [developer portal](https://aka.ms/devbox-portal), select the caret next to **Connect via app** on the dev box tile, and then select **Open in browser**.
+To connect to a dev box by using the browser:
 
-:::image type="content" source="./media/how-to-create-dev-boxes-developer-portal/dev-portal-open-in-browser.png" alt-text="Screenshot of dev box tile that shows the option for opening in a browser.":::
+1. Sign in to the [developer portal](https://aka.ms/devbox-portal), select the caret next to **Connect via app** on the dev box tile, and then select **Open in browser**.
 
-A new session opens in your browser. Select the **In Session Settings** you want and then select **Connect**. Enter the password for your work account and then select **Sign In**.
+   :::image type="content" source="./media/how-to-create-dev-boxes-developer-portal/dev-portal-open-in-browser.png" alt-text="Screenshot of dev box tile that shows the option for opening in a browser.":::
+
+1. A new browser window opens. Select the **In Session Settings** you want and then select **Connect**.
+
+1. Enter the password for the account you use in the developer portal and then select **Sign In**.
 
 ## Configure multiple monitors
 
@@ -65,7 +67,7 @@ A new session opens in your browser. Select the **In Session Settings** you want
 
 ## Shut down, restart, or start a dev box
 
-To hibernate, shut down, start, or restart a dev box:
+To shut down, restart, or start a dev box:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal) and select the **More actions** icon on the dev box tile.
 
@@ -89,18 +91,18 @@ To get information about your dev box:
  
    :::image type="content" source="media/how-to-create-dev-boxes-developer-portal/dev-box-actions-more-info.png" alt-text="Screenshot of the developer portal showing the actions menu for a dev box and More Info selected." border="false":::
 
-   The dev box details pane shows information about your dev box like the following example:
+   The **Dev box details** pane shows information about your dev box like the following example:
  
    :::image type="content" source="media/how-to-create-dev-boxes-developer-portal/dev-box-details-pane.png" alt-text="Screenshot of the dev box more information pane, showing creation date, dev center, dev box pool, and source image for the dev box." border="false":::
 
 ## Delete a dev box
 
-There are many reasons you might not need a dev box anymore. You might have completed your testing, merged your pull request, or finished working on a specific task or project.
+There are many reasons you might not need a dev box anymore. You might complete your testing, merge your pull request, or finish working on a specific task or project.
 
-When you no longer need a dev box, you can delete it in the developer portal. You can create new dev boxes to work on new items.
+When you no longer need a dev box, you can delete it in the developer portal. You can then create new dev boxes to work on new items.
 
 > [!IMPORTANT]
-> You can't retrieve a dev box after deletion. Before you delete a dev box, confirm that no one needs the dev box for future tasks.
+> You can't retrieve a dev box after deletion. Before you delete a dev box, confirm that no one needs the dev box.
 
 To delete a dev box:
 
@@ -114,7 +116,7 @@ To delete a dev box:
 
 ## Take other dev box actions
 
-Depending on configuration, you can select other actions from the **More actions** menu on a dev box in the developer portal. For example:
+Depending on configuration, you can select other actions from the **More actions** menu on a dev box tile in the developer portal. For example:
 
 - **Hibernate and resume.** Hibernation lets you save the current state of your dev box and resume it later. If your dev box has hibernation enabled, you can select **Hibernate** or **Resume** to hibernate or resume the dev box. For more information, see [Hibernate a dev box in Microsoft Dev Box](how-to-hibernate-your-dev-box.md).
 
