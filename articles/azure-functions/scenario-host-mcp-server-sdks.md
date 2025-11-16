@@ -114,6 +114,7 @@ The code project template is for an MCP server with tools that access public wea
 Visual Studio Code integrates with [Azure Functions Core Tools](functions-run-local.md) to let you run this project on your local development computer.
 
 1. Open Terminal in the editor (``Ctrl+Shift+` ``)
+::: zone-end
 ::: zone pivot="programming-language-csharp"  
 2. In the root directory, run `func start` to start the server. The **Terminal** panel displays the output from Core Tools.
 ::: zone-end 
@@ -125,6 +126,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](functions-run-lo
 2. In the root directory, run `uv run func start` to create virtual environment, install dependencies, and start the server. 
 ::: zone-end 
 
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Test server using GitHub Copilot
 
 To verify your server using GitHub Copilot in Visual Studio Code: 
@@ -217,7 +219,7 @@ You can view the complete project template in the [Azure Functions Python MCP SD
 ::: zone pivot="programming-language-typescript"
 The MCP server code is defined in the `src` folder. The server uses the official Node.js MCP SDK to define weather-related tools:
 
-:::code language="typescript" source="~/functions-host-mcp-sdk-typescript/src/index.ts" :::
+:::code language="typescript" source="~/functions-host-mcp-sdk-node/src/index.ts" :::
 
 You can view the complete project template in the [Azure Functions TypeScript MCP SDK hosting](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node) GitHub repository.  
 ::: zone-end  
@@ -229,7 +231,6 @@ When you're done working with your MCP server and related resources, use this co
 ```bash
 azd down
 ```
-::: zone-end  
 
 ## Troubleshooting 
 The following are some common issues that come up. 
@@ -264,3 +265,4 @@ The following are some common issues that come up.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Host your existing MCP server on Azure Functions](how-to-mcp-server-hosting.md)
+::: zone-end  

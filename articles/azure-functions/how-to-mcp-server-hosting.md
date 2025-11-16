@@ -26,7 +26,7 @@ This article shows you how to host your existing Model Context Protocol (MCP) se
 
 Before you begin, make sure you have:
 
-+ An existing MCP server built with official Anthropic MCP SDKs
++ An existing MCP server built with official MCP SDKs
 + [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd) v1.17.2 or above
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
@@ -106,3 +106,4 @@ After you've configured your existing MCP server for hosting, you can:
 
 > [!div class="nextstepaction"]
 > [Test and deploy your server](scenario-host-mcp-server-sdks.md#run-the-mcp-server-locally)
+::: zone-end
