@@ -44,7 +44,7 @@ Register your remote MCP server by adding it as an API:
     | **Environment**| Select the environment you created earlier. |
     | **Version title** | Enter a version title of your choice, such as `v1`. |
     | **Version identification** | After you enter the preceding title, Azure API Center generates this identifier, which you can override. | 
-    | **Version lifecyle**| Select the most appropriate value from the dropdown, such as **Testing** or **Production**. |
+    | **Version lifecycle**| Select the most appropriate value from the dropdown, such as **Testing** or **Production**. |
 
 1. Select **Create**.
 
