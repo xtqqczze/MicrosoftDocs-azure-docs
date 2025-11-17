@@ -240,7 +240,7 @@ To create an ONVIF asset for event management and control:
 
     :::image type="content" source="media/howto-use-onvif-connector/event-group-detail.png" alt-text="Screenshot that shows how to configure an event group." lightbox="media/howto-use-onvif-connector/event-group-detail.png":::
 
-    Select **Next** to continue
+    Select **Next** to continue.
 
 1. On the **Management groups** page, configure the actions, such as pan, tilt, and zoom, that you want to use to control the ONVIF camera.
 
