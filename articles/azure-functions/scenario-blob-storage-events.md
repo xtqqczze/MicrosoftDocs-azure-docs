@@ -1,7 +1,7 @@
 ---
 title: Respond to blob storage events using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a local project to a Flex Consumption plan on Azure Functions. The project features an Blob Storage trigger that runs in response to blob storage events."
-ms.date: 11/02/2025
+ms.date: 11/17/2025
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy an event-based Blob trigger function project securely to a new function app in the Flex Consumption plan in Azure Functions by using azd templates and the azd up command.
@@ -9,14 +9,10 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Quickstart: Respond to blob storage events by using Azure Functions
 
-In this quickstart, you use Visual Studio Code to build an app that responds to events in a Blob Storage container. After testing the code locally using an emulator, you deploy it to a new serverless function app running in a Flex Consumption plan in Azure Functions.
+In this quickstart, you use Visual Studio Code to build an app that responds to events in a Blob Storage container. After testing the code locally by using an emulator, you deploy it to a new serverless function app running in a Flex Consumption plan in Azure Functions.
 
-The project source uses the Azure Developer CLI (azd) extension with Visual Studio Code to simplify initializing and verifying your project code locally, as well as deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
+The project uses the Azure Developer CLI (`azd`) extension with Visual Studio Code to simplify initializing and verifying your project code locally, as well as deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
 
-::: zone pivot="programming-language-java"  
-> [!IMPORTANT]  
-> This article isn't currently supported in Java. To complete the quickstart, select a supported languages at the top of the article.
-::: zone-end 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 This article supports version 4 of the Node.js programming model for Azure Functions.
 ::: zone-end
@@ -25,6 +21,8 @@ This article supports version 2 of the Python programming model for Azure Functi
 ::: zone-end  
 [!INCLUDE [functions-scenario-quickstarts-prerequisites-full](../../includes/functions-scenario-quickstarts-prerequisites-full.md)]
 + [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)
+
++ [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or an equivalent REST tool used to securely execute HTTP requests. 
 
 ## Initialize the project
 
@@ -76,46 +74,38 @@ In `azd`, the environment maintains a unique deployment context for your app, an
 
 ## Set up local storage emulator
 
-You can use the Azurite emulator to run your code project locally before having to create and use Azure resources.
+Use the Azurite emulator to run your code project locally before creating and using Azure resources.
 
 1. If you haven't already, [install Azurite](/azure/storage/common/storage-use-azurite#install-azurite).
 
 1. Press <kbd>F1</kbd>. In the command palette, search for and run the command `Azurite: Start` to start the local storage emulator.
 
-1. Press <kbd>F1</kbd>. In the command palette, search for and run the command 
+1. In the **Azure** area, expand **Workspace** > **Attached Storage Accounts** > **Local Emaulator**, right-click (Ctrl-click on Mac) **Blob Containers**, select **Create Blob Container...**, and create these two blob storage containers in the local emulator: 
 
+   - `unprocessed-pdf`: container that the trigger monitors for storage events.
+   - `processed-pdf`: container where the function sends processed blobs as output.
 
- Create the required blob containers by using either Azure Storage Explorer or the VS Code Azure Storage extension:
-   - Create a container named `unprocessed-pdf`
-   - Create a container named `processed-pdf`
+1. Expand **Blob Containers**, right-click (Ctrl-click on Mac) **unprocessed-pdf**, select **Upload File...**, press <kbd>Enter to</kbd> accept the root directory, and upload the PDF files from the `data` project folder. 
 
-1. Upload the PDF files from the `data` folder in your project to the `unprocessed-pdf` container.
+When running locally, you can use REST to trigger the function by simulating the function receiving a message from an event subscription.   
 
 ## Run the function locally  
 
-Visual Studio Code integrates with [Azure Functions Core tools](functions-run-local.md) to let you run this project on your local development computer by using the Azurite emulator.
+Visual Studio Code integrates with [Azure Functions Core tools](functions-run-local.md) to let you run this project on your local development computer by using the Azurite emulator. The `PDFProcessorSTORAGE` environment variable defines the storage account connection, which is also set to `"UseDevelopmentStorage=true"` in the local.settings.json file when running locally.
 
 1. To start the function locally, press <kbd>F5</kbd> or the **Run and Debug** icon in the left-hand side Activity bar. The **Terminal** panel displays the output from Core Tools. Your app starts in the **Terminal** panel, and you can see the name of the function that's running locally.
 
     If you have trouble running on Windows, make sure that the default terminal for Visual Studio Code isn't set to **WSL Bash**.
 
-::: zone pivot="programming-language-csharp,programming-language-java"
-1. With Core Tools still running in **Terminal**, open the `test.http` file in your project and select **Send Request** to trigger the `ProcessBlobUpload` function with a test blob event. This step simulates an Event Grid blob event locally.
-::: zone-end
-::: zone pivot="programming-language-python,programming-language-javascript,programming-language-typescript,programming-language-powershell"
-1. With Core Tools still running in **Terminal**, you can trigger the function by uploading a file to the `unprocessed-pdf` container in Azurite, or use the provided test script to simulate an Event Grid blob event locally.
-::: zone-end
+1. With Core Tools still running in **Terminal**, open the `test.http` file in your project and select **Send Request** to trigger the `ProcessBlobUpload` function by sending a test blob event to the blob event webhook. If you aren't using REST Client, you must use another secure REST tool to call the endpoint with the payload in `test.http`. 
 
-1. Check the `processed-pdf` container by using Azure Storage Explorer or the VS Code Storage extension to verify that the function processed the test file and copied it with a `processed-` prefix.
+    This step simulates receiving an event from an event subscription when running locally, and you should see the request and processed file information written in the logs.
+
+1. In the Workspace area for the blob container, expand **processed-pdf** and verify that the function processed the PDF file and copied it with a `processed-` prefix. 
 
 1. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process.
 
 ## Review the code (optional)
-
-The function uses an Event Grid blob trigger that responds to blob storage events. These environment variables configure the trigger:
-
-- `PDFProcessorSTORAGE`: The storage account connection string
-- The function monitors the `unprocessed-pdf` container and copies processed files to `processed-pdf`
 
 ::: zone pivot="programming-language-csharp"
 You can review the code that defines the Event Grid blob trigger in the [ProcessBlobUpload.cs project file](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventgrid-blob/blob/main/src/ProcessBlobUpload.cs). The function demonstrates how to:
@@ -155,14 +145,13 @@ You can review the code that defines the Event Grid blob trigger in the [Process
 
 After you review and verify your function code locally, it's time to publish the project to Azure.
 
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 ## Create Azure resources and deploy
 
-The `azd up` command creates the required Azure resources and deploys your code in a single step.
+Use the `azd up` command to create the function app in a Flex Consumption plan along with other required Azure resources, including the event subscription. After the infrastructure is ready, `azd` also deploys your project code to the new function app in Azure.
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. Search for and run the command `Azure Developer CLI (azd): Sign In with Azure Developer CLI`, then sign in by using your Azure account.
 
-1. Press <kbd>F1</kbd> to open the command palette. Search for and run the command `Azure Developer CLI (azd): Provision and Deploy (up)` to create the required Azure resources and deploy your code.
+1. In the project root, press <kbd>F1</kbd> to open the command palette. Search for and run the command `Azure Developer CLI (azd): Provision and Deploy (up)` to create the required Azure resources and deploy your code.
 
 1. When prompted in the Terminal window, provide these required deployment parameters:
 
@@ -181,31 +170,21 @@ The `azd up` command creates the required Azure resources and deploys your code 
     + Event Grid subscription for blob events
     + Service-to-service connections by using managed identities (instead of stored connection strings)
 
-    After the command completes successfully, your app runs in Azure with an Event Grid subscription configured to trigger your function when blobs are added to the `unprocessed-pdf` container.
+    After the command completes successfully, your app runs in Azure with an event subscription configured to trigger your function when blobs are added to the `unprocessed-pdf` container. 
 
-## Test the deployed function
+1. Make a note of the `AZURE_STORAGE_ACCOUNT_NAME` and `AZURE_FUNCTION_APP_NAME` in the output. These names are unique for your storage account and function app in Azure, respectively.
 
-1. In Visual Studio Code, press <kbd>F1</kbd>. In the command palette, search for and run the command `Azure: Open in portal`. Select `Function app`, and choose your new app. Sign in with your Azure account, if necessary. 
+## Verify the deployed function
 
-    This command opens your new function app in the Azure portal.
+1. In Visual Studio Code, press <kbd>F1</kbd>. In the command palette, search for and run the command `Azure Storage: Upload Files...`. Accept the root directory, and as before, upload one or more PDF files from the `data` project folder. 
 
-1. In the **Overview** tab on the main page, select your function app name. Then, select the **Monitor** tab to view function execution logs.
+1. When prompted, select the name of your new storage account (from `AZURE_STORAGE_ACCOUNT_NAME`). Select **Blob Containers** > **unprocessed-pdf**.
+ 
+1. Press <kbd>F1</kbd>. In the command palette, search for and run the command `Azure Storage: Open in Explorer`. Select the same storage account > **Blob Containers** > **processed-pdf**, and then **Open in new window**. 
 
-1. Upload a PDF file to the `unprocessed-pdf` container in your Azure Storage account by using the Azure portal, Azure Storage Explorer, or Azure CLI:
+1. In the Explorer, verify that the PDF files you uploaded were processed by your function. The output is written to the `processed-pdf` container with a `processed-` prefix. 
 
-    ```bash
-    # Get the storage account name from your deployment
-    STORAGE_ACCOUNT=$(azd env get-values | grep "AZURE_STORAGE_ACCOUNT_NAME" | cut -d'=' -f2 | tr -d '"')
-    
-    # Upload a test PDF file
-    az storage blob upload --account-name $STORAGE_ACCOUNT --container-name unprocessed-pdf --name test.pdf --file ./data/Benefit_Options.pdf --auth-mode login
-    ```
-
-1. Verify that the Event Grid blob trigger executed by checking:
-   - The function logs in Azure Monitor that show the blob processing
-   - The `processed-pdf` container that now contains the file with a `processed-` prefix
-
-The Event Grid blob trigger should process files within seconds of upload, demonstrating the near real-time capabilities of this approach compared to traditional polling-based blob triggers.
+The Event Grid blob trigger processes files within seconds of upload. This speed demonstrates the near real-time capabilities of this approach compared to traditional polling-based blob triggers.
 
 ## Redeploy your code
 
@@ -228,7 +207,6 @@ azd down --no-prompt
 >The `--no-prompt` option instructs `azd` to delete your resource group without a confirmation from you. 
 >
 >This command doesn't affect your local code project. 
-::: zone-end
 
 ## Related content
 
