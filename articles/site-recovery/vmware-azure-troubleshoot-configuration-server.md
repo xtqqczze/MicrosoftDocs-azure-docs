@@ -191,7 +191,7 @@ To update the configuration server, run the [unified setup](/articles/site-recov
 
 You have insufficient permissions to create an application in Microsoft Entra ID using the [Open Virtualization Application (OVA)](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template) template.
 
-To resolve the issue, sign-in to the Azure portal and do one of the following:
+To resolve the issue, sign in to the Azure portal and do one of the following:
 
 - Request the Application Developer role in Microsoft Entra ID. For more information on the Application Developer role, see [Administrator role permissions in Microsoft Entra ID](../active-directory/roles/permissions-reference.md).
 - Verify that the **User can create application** flag is set to *true* in Microsoft Entra ID. For more information, see [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
@@ -234,7 +234,7 @@ This error can occur when there are multiple configuration server (CS) instance 
 To resolve the issue:
 
 1. Remove stale/old CS VM from vCenter. For more information, see  [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md).
-2. Sign-in to the configuration server VM and connect to the MySQL svsdb1 database. 
+2. Sign in to the configuration server VM and connect to the MySQL svsdb1 database. 
 3. Execute the following query:
 
     > [!IMPORTANT]
