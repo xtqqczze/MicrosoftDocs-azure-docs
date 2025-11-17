@@ -131,11 +131,7 @@ The following table describes the current limitations and any known issues in th
 
 [!INCLUDE [supported-models](includes/supported-models.md)]
 
-## Billing
-
-- Consumption: Billing uses the pay-as-you-go model, based on the number of tokens used for each agent action.
-
-- Standard: Although agent workflows don't incur extra charges, AI model usage incurs charges. For more information, see the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+[!INCLUDE [billing-agent-workflows](includes/billing-agent-workflows.md)]
 
 ## Create a conversational agent workflow
 
@@ -617,6 +613,8 @@ For nonproduction activities, such as design, development, and quick testing, th
   Basically, if anyone or anything outside your Azure portal session needs to call or interact with your workflow, the developer key is no longer appropriate.
 
 When you're ready to release your agent workflow into production, make sure to follow the [migration steps to prepare for production authentication and authorization](#migrate-to-production-authentication). For more information, see [Authentication and authorization](agent-workflows-concepts.md#authentication-and-authorization).
+
+<a name="production-authentication"></a>
 
 ## Migrate to production authentication
 

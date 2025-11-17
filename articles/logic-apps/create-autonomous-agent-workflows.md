@@ -122,11 +122,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
 
 [!INCLUDE [supported-models](includes/supported-models.md)]
 
-## Billing
-
-- Consumption: Billing uses the pay-as-you-go model, based on the number of tokens used for each agent action.
-
-- Standard: Although agent workflows don't incur extra charges, AI model usage incurs charges. For more information, see the Azure [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+[!INCLUDE [billing-agent-workflows](includes/billing-agent-workflows.md)]
 
 ## Limitations and known issues
 
