@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 11/11/2025
+ms.date: 11/17/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -18,6 +18,10 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## November 2025
+
+* [Azure NetApp Files support in OpenShift Virtualization](/openshift/howto-netapp-files) (preview)
+
+    Azure NetApp Files now enables fast virtual machine (VM) provisioning, instant cloning, and live migration in OpenShift Virtualization. It offers seamlessly scalable storage with predictable performance and enterprise data management for VM workloads from infrastructure VMs to business-critical databases. Support for Azure NetApp Files in OpenShift Virtualization is now in preview and is available in all Azure regions where Azure NetApp Files and Azure Red Hat OpenShift are offered.
 
 * [Large volumes up to 7.2 PiB with cool access](large-volumes-requirements-considerations.md#register-for-large-volumes-up-to-72-pib) (preview)
 
