@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot VMware vCenter discovery failures in Azure Site Recovery
 ms.reviewer: v-gajeronika
-description: This article describes how to troubleshooting VMware vCenter discovery failures in Azure Site Recovery.
+description: This article describes how to troubleshoot VMware vCenter discovery failures in Azure Site Recovery.
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
