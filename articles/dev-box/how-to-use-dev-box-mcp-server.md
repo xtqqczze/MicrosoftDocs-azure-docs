@@ -21,29 +21,33 @@ The MCP Server provides a bridge between AI agents and the Microsoft Dev Box pla
 
 ## Prerequisites
 
-Before you begin, ensure you have the following:
+| | |
+|---|---|
+| **Node.js** | Version 18.0 or higher required for running the MCP Server | [Download Node.js](https://nodejs.org/) |
+| **Microsoft Dev Box resources** | Active Dev Box dev center with project and pool access | [Create dev center](quickstart-configure-dev-box-service.md) |
+| **AI coding environment** | Compatible AI assistant with agent-mode support | See supported environments |
 
-### System requirements
+## Supported AI environments
 
-- **Node.js 18 or newer** - The MCP Server is built on Node.js
-- **Visual Studio Code** or **Visual Studio 2022** (version 17.14 or later) with GitHub Copilot extension
+The Dev Box MCP Server is compatible with multiple AI coding environments. Choose your preferred development environment:
 
-### Azure resources
+### Visual Studio 2022
 
-- An active Azure subscription
-- A Microsoft Dev Box dev center provisioned
-- At least one Dev Box project created in your dev center
-- Appropriate RBAC permissions on Dev Box resources (such as Dev Box User or DevCenter Project Admin roles)
+- **GitHub Copilot**: Enhanced with Dev Box context through MCP integration
+- **Installation**: Requires GitHub Copilot extension and MCP Server configuration
+- **Features**: Full IntelliSense integration with Dev Box data
 
-### Authentication setup
+### Visual Studio Code
 
-The MCP Server uses [DefaultAzureCredential](https://learn.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) with Web Account Manager (WAM) for authentication. Ensure you're signed in through one of these methods:
+- **GitHub Copilot**: Popular choice with extensive MCP support
+- **Claude Dev**: Alternative AI assistant with Dev Box integration
+- **Installation**: Extension-based setup with JSON configuration
 
-- Windows Single Sign-On (SSO)
-- Azure CLI (`az login`)
-- Visual Studio Code Azure account
-- Azure PowerShell
-- Azure Developer CLI
+### Other Supported Environments
+
+- **Cursor**: AI-first code editor with built-in MCP support
+- **Claude Desktop**: Standalone application with MCP capabilities
+- **JetBrains IDEs**: IntelliJ IDEA, WebStorm, and other JetBrains products (via plugins)
 
 ## Install the Dev Box MCP Server
 
