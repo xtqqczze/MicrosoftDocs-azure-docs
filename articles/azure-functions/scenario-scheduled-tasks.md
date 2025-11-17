@@ -1,5 +1,5 @@
 ---
-title: Build scheduled tasks using Azure Functions
+title: Run scheduled tasks using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a scheduled task project to a Flex Consumption plan on Azure."
 ms.date: 11/14/2025
 ms.topic: quickstart
@@ -8,7 +8,7 @@ zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy scheduled tasks using Timer triggers to a new function app in the Flex Consumption plan in Azure.
 ---
 
-# Build scheduled tasks using Azure Functions
+# Quickstart: Run scheduled tasks using Azure Functions
 
 In this article, you use the Azure Developer CLI (`azd`) to create a Timer trigger function to run a scheduled task in Azure Functions. After verifying the code locally, you deploy it to a new serverless function app you create running in a Flex Consumption plan in Azure Functions.
 

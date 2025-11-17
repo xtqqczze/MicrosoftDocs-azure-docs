@@ -85,7 +85,7 @@ Use the Azurite emulator to run your code project locally before creating and us
    - `unprocessed-pdf`: container that the trigger monitors for storage events.
    - `processed-pdf`: container where the function sends processed blobs as output.
 
-1. Expand **Blob Containers**, right-click (Ctrl-click on Mac) **unprocessed-pdf**, select **Upload File...**, press <kbd>Enter to</kbd> accept the root directory, and upload the PDF files from the `data` project folder. 
+1. Expand **Blob Containers**, right-click (Ctrl-click on Mac) **unprocessed-pdf**, select **Upload Files...**, press <kbd>Enter to</kbd> accept the root directory, and upload the PDF files from the `data` project folder. 
 
 When running locally, you can use REST to trigger the function by simulating the function receiving a message from an event subscription.   
 
@@ -93,13 +93,42 @@ When running locally, you can use REST to trigger the function by simulating the
 
 Visual Studio Code integrates with [Azure Functions Core tools](functions-run-local.md) to let you run this project on your local development computer by using the Azurite emulator. The `PDFProcessorSTORAGE` environment variable defines the storage account connection, which is also set to `"UseDevelopmentStorage=true"` in the local.settings.json file when running locally.
 
+<!--- replace when F5 is working for all langs
 1. To start the function locally, press <kbd>F5</kbd> or the **Run and Debug** icon in the left-hand side Activity bar. The **Terminal** panel displays the output from Core Tools. Your app starts in the **Terminal** panel, and you can see the name of the function that's running locally.
 
     If you have trouble running on Windows, make sure that the default terminal for Visual Studio Code isn't set to **WSL Bash**.
+-->
+1. Run this command from the `src` project folder in a terminal or command prompt:
 
-1. With Core Tools still running in **Terminal**, open the `test.http` file in your project and select **Send Request** to trigger the `ProcessBlobUpload` function by sending a test blob event to the blob event webhook. If you aren't using REST Client, you must use another secure REST tool to call the endpoint with the payload in `test.http`. 
+    ::: zone pivot="programming-language-csharp, programming-language-powershell,programming-language-python" 
+    ```console
+    func start
+    ``` 
+    ::: zone-end  
+    ::: zone pivot="programming-language-java"  
+    ```console
+    mvn clean package
+    mvn azure-functions:run
+    ```
+    ::: zone-end  
+    ::: zone pivot="programming-language-javascript"  
+    ```console
+    npm install
+    func start  
+    ```
+    ::: zone-end  
+    ::: zone pivot="programming-language-typescript"  
+    ```console
+    npm install
+    npm start  
+    ```
+    ::: zone-end  
 
-    This step simulates receiving an event from an event subscription when running locally, and you should see the request and processed file information written in the logs.
+    When the Functions host starts, it writes the name of the trigger and the trigger type to the terminal output. In Functions, the project root folder contains the host.json file.  
+
+1. With Core Tools still running in **Terminal**, open the `test.http` file in your project and select **Send Request** to trigger the `ProcessBlobUpload` function by sending a test blob event to the blob event webhook. 
+
+    This step simulates receiving an event from an event subscription when running locally, and you should see the request and processed file information written in the logs. If you aren't using _REST Client_, you must use another secure REST tool to call the endpoint with the payload in `test.http`. 
 
 1. In the Workspace area for the blob container, expand **processed-pdf** and verify that the function processed the PDF file and copied it with a `processed-` prefix. 
 
