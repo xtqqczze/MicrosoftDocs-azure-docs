@@ -122,9 +122,6 @@ Follow these steps to create a new workflow in your logic app.
 
 1. Select from the following workflow types:
 
-   > [!IMPORTANT]
-   > If you want agent workflows, choose **Stateful**.
-
    - **Stateful**: Build workflows that include run history. Add agents to build intelligent automation integrations.
    
       > [!IMPORTANT]
