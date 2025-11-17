@@ -192,7 +192,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [New volume usage metrics:](azure-netapp-files-metrics.md#volumes) Volume Inodes Quota, Volume Inodes Total, Volume Inodes Used
 
-    Azure NetApp Files supports [new metrics](azure-netapp-files-metrics.md#volumes) to monitor consumption of [inodes (also known as maxfiles)](maxfiles-concept.md), which is the maximum number of files a volume can hold. These metrics are especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring these metrics, you can avoid running out of inodes thus keeping your storage running smoothly and making it easier to plan for future needs.
+    Azure NetApp Files supports [new metrics](azure-netapp-files-metrics.md#volumes) to monitor consumption of [inodes (also known as `maxfiles`)](maxfiles-concept.md), which is the maximum number of files a volume can hold. These metrics are especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring these metrics, you can avoid running out of inodes thus keeping your storage running smoothly and making it easier to plan for future needs.
 
 * [File access logs](manage-file-access-logs.md) (preview)
 
@@ -565,7 +565,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     * Restore change -  ability to revert volume for Azure NetApp Files
     * New global settings file (`.azacsnaprc`) to control behavior of `azacsnap`
-    * Logging enhancements for failure cases and new "mainlog" for summarized monitoring
+    * Logging enhancements for failure cases and new `mainlog` for summarized monitoring
     * Backup (`-c backup`) and Details (`-c details`) fixes
 
     Download the latest release of the installer [here](https://aka.ms/azacsnapinstaller).
