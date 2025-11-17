@@ -42,7 +42,10 @@ landingContent:
         links:
           - text: Try out disaster recovery for Azure VMs
             url: ./azure-to-azure-tutorial-enable-replication.md
-
+      -  linkListType: concept
+         links:
+          - text: Azure VM Disaster Recovery - High Churn support
+            url: ./concepts-azure-to-azure-high-churn-support.md
       - linkListType: deploy
         links:
           - text: Disaster recovery to a secondary Azure region
