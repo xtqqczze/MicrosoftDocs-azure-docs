@@ -40,7 +40,6 @@ Alternatively, switch to **Workload selection** view, filter by the application 
 
 Following are the reasons why the workloads/apps selected for the wave may vary from the count:
 
-1. The workloads aren't supported in migration Waves. Unsupported workloads are omitted from the wave. [Unsupported list](assessment-rules-for-postgresql.md) includes: Postgre SQL.
 1. The workload is part of multiple applications. Migrating this workload moves parts of various applications, so the complete list of applications appears in the wave.
 1. The application contains an unsupported workload. This application is split into multiple workloads, and the remaining workloads are added to the wave. 
 
