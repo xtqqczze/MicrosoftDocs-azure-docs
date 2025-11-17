@@ -23,7 +23,7 @@ Object replication asynchronously copies block blobs between a source storage ac
 
 The following diagram shows how object replication replicates block blobs from a source storage account in one region to destination accounts in two different regions.
 
-:::image type="content" source="media/object-replication-overview/object-replication-diagram-sml.png" alt-text="Diagram showing how object replication works" lightbox="media/object-replication-overview/object-replication-diagram-lrg.png":::
+:::image type="content" source="media/object-replication-overview/object-replication-diagram-sml.png" alt-text="Diagram showing how object replication works." lightbox="media/object-replication-overview/object-replication-diagram-lrg.png":::
 
 To learn how to configure object replication, see [Configure object replication](object-replication-configure.md).
 
