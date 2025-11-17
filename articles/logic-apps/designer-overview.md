@@ -44,19 +44,48 @@ For more detailed changes, see [Differences in the preview designer](differences
 
   For more information, see [Create a Standard logic app workflow with the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
+## Differences in the preview designer
+
+To help you quickly learn about the updated layout in the preview designer, this section summarizes the primary differences from classic designer.
+
+> [!IMPORTANT]
+>
+> - The production (published) version is unchanged until you select **Publish**. If you run a workflow from the designer, the draft version is executed.
+> - If you need to view the published (production) version as read-only, use **Switch to published version** from the [ellipsis menu](#ellipsis-menu).
+
+The preview designer moves many familiar actions to new locations:
+
+- For different views of your workflow, the simplified designer toolbar provides a [view selector](#view-selector) where you can select **Workflow**, **Code**, or **Run history**.
+
+- The **Run** and **Run with payload** options appear at the designer bottom.
+
+- In the designer's top right corner, the new vertical ellipsis menu (**⋮**) appears next to the new **Publish** button. This menu contains other actions that appeared on the workflow sidebar or toolbar.
+
 ## Open the workflow designer
 
 Follow these steps to open the workflow designer.
+
+# [Classic designer](#tab/classic)
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. On the logic app sidebar, under **Workflows**, select **Workflows**.
 
-   > [!NOTE]
-   > To enable the [new designer](#changes-in-the-new-designer) (preview), select the **Enable preview** button from the ribbon banner.
-   > :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
+From here, you can [create a new workflow](#create-a-new-workflow) or [access an existing workflow](#access-an-existing-workflow).
+
+# [Preview designer](#tab/preview)
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the logic app sidebar, under **Workflows**, select **Workflows**.
+
+1. To enable the [new designer](#changes-in-the-new-designer) (preview), select the **Enable preview** button from the ribbon banner.
+   
+   :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
 
 From here, you can [create a new workflow](#create-a-new-workflow) or [access an existing workflow](#access-an-existing-workflow).
+
+---
 
 ## Create a new workflow
 
@@ -74,7 +103,6 @@ Follow these steps to create a new workflow in your logic app.
    - **Start from template**: Select a prebuilt template that supports a common workflow pattern or scenario.
 
 1. Select **Create**.
-
 
 The designer opens and shows an empty workflow with the prompt to add a trigger.
 
@@ -106,59 +134,47 @@ To add a trigger or an action to your Standard workflow, see [Build a workflow w
 
 ## Save your changes
 
-  | Designer | Location |
-  |----------|---------|
-  | Classic | You must manually save your changes. On the designer toolbar, select **Save**. |
-  | Preview | No separate **Save** option exists. As you edit the workflow, your changes are automatically saved as a draft. |
+# [Classic designer](#tab/classic)
 
-  If validation errors happen when you save your changes or during auto-save, the designer shows validation messages.
+You must manually save your changes. On the designer toolbar, select **Save**.
 
- ## Run the workflow
+# [Preview designer](#tab/preview)
 
-  | Designer | Location |
-  |----------|---------|
-  | Classic | On the designer toolbar, select **Run** > **Run with payload**. |
-  | Preview | To run the draft workflow, at the designer bottom, select **Run** or **Run with payload**. |
+No separate **Save** option exists. As you edit the workflow, your changes are automatically saved as a draft.
+
+---
+
+If validation errors happen when you save your changes or during auto-save, the designer shows validation messages.
+
+## Run the workflow
+
+# [Classic designer](#tab/classic)
+
+On the designer toolbar, select **Run** > **Run with payload**.
+
+# [Preview designer](#tab/preview)
+
+To run the draft workflow, at the designer bottom, select **Run** or **Run with payload**.
+
+---
 
 ## Validate changes and deploy to production
 
-  | Designer | Location |
-  |----------|---------|
-  | Classic | Saving your workflow automatically validates and publishes your changes to production. |
-  | Preview | In the designer upper-right corner, select **Publish**. |
+# [Classic designer](#tab/classic)
 
-## Differences in the preview designer
+Saving your workflow automatically validates and publishes your changes to production.
 
-To help you quickly learn about the updated layout in the preview designer, this section summarizes the priority differences from classic designer.
+# [Preview designer](#tab/preview)
 
-The preview designer moves many familiar actions to new locations:
+In the designer upper-right corner, select **Publish**.
 
-- For different views of your workflow, the simplified designer toolbar provides a [view selector](#view-selector) where you can select **Workflow**, **Code**, or **Run history**.
-
-- The **Run** and **Run with payload** options appear at the designer bottom.
-
-- In the designer's top right corner, the new vertical ellipsis menu (**⋮**) appears next to the new **Publish** button. This menu contains other actions that appeared on the workflow sidebar or toolbar.
-
-
-> [!IMPORTANT]
->
-> - The production (published) version is unchanged until you select **Publish**. If you run a workflow from the designer, the draft version is executed.
-> - If you need to view the published (production) version as read-only, use **Switch to published version** from the [ellipsis menu](#ellipsis-menu).
-
-
-<a name="view-selector"></a>
-
-## [Classic designer](#tab/classic)
+---
 
 ### Switch between designer, code, and run history views
 
-In the Sidebar tools, you can choose between the following views: **Workflow**, **Code**, and **Run history**.
+# [Classic designer](#tab/classic)
 
-| Task | Label |
-|---|---|
-| Code view (JSON) | **Code** or toolbar > **Code view** |
-| Designer view | **Designer** or toolbar > **Designer** |
-| Run history | **Run history** |
+In the Sidebar tools, you can choose between the following views: **Workflow**, **Code**, and **Run history**.
 
 - To build, edit, and run your workflow, select **Workflow**. To edit the workflow definition in JSON, select **Code**.
 
@@ -168,30 +184,7 @@ In the Sidebar tools, you can choose between the following views: **Workflow**, 
 
 - To view your workflow run history, chronological execution, operation status, inputs, and outputs, select **Run history**.
 
-### Sidebar Configuration
-
-| Task | Label |
-|---|---|
-| Access keys | Sidebar Configuration > **Access keys** |
-| Disable/Enable workflow | Sidebar Configuration > **Settings** |
-| Properties / Info | Sidebar Configuration > **Properties** |
-
-### Workflow toolbar
-
-| Task | Label |
-|---|---|
-| Connections | **Connections** |
-| Discard changes | **Discard** |
-| Download workflow summary | **Download workflow summary** |
-| Parameters | **Parameters** |
-
-### Run workflow
-
-To run your workflow, select **Run** / **Run with payload** from the Workflow toolbar.
-
-## [Preview designer](#tab/preview)
-
-### Switch between designer, code, and run history views
+# [Preview designer](#tab/preview)
 
 At the designer top, the view selector shows the following views: **Workflow**, **Code**, and **Run history**. Select a view to switch between the designer, workflow JSON definition, and workflow run history.
 
@@ -207,7 +200,42 @@ At the designer top, the view selector shows the following views: **Workflow**, 
 
 - To view your workflow run history, chronological execution, operation status, inputs, and outputs, select **Run history**.
 
-### Ellipsis menu
+---
+
+### Run workflow
+
+# [Classic designer](#tab/classic)
+
+To run your workflow, select **Run** / **Run with payload** from the Workflow toolbar.
+
+# [Preview designer](#tab/preview)
+
+To run your workflow, select **Run** / **Run with payload** at the bottom of the designer.
+
+---
+
+# [Classic designer](#tab/classic)
+
+## Sidebar Configuration
+
+| Task | Label |
+|---|---|
+| Access keys | **Access keys** |
+| Disable/Enable workflow | **Settings** |
+| Properties / Info | **Properties** |
+
+## Workflow toolbar
+
+| Task | Label |
+|---|---|
+| Connections | **Connections** |
+| Discard changes | **Discard** |
+| Download workflow summary | **Download workflow summary** |
+| Parameters | **Parameters** |
+
+# [Preview designer](#tab/preview)
+
+## Ellipsis menu
 
 The preview designer moves many other actions to the vertical ellipsis menu (**⋮**) next to the **Publish** button in the designer's upper-right corner. To view and select these options, open this menu.
 
@@ -223,10 +251,6 @@ The preview designer moves many other actions to the vertical ellipsis menu (**�
 | Parameters | **Parameters** |
 | Properties / Info | **Information** |
 | View production version | **Switch to published version** |
-
-### Run workflow
-
-To run your workflow, select **Run** / **Run with payload** at the bottom of the designer.
 
 ---
 
