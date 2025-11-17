@@ -105,7 +105,7 @@ The following screenshot shows a basic example conversational agent workflow:
 
 :::image type="content" source="media/agents-workflows-concepts/weather-example-conversational.png" alt-text="Screenshot shows Azure portal, workflow designer, and example basic conversational agent workflow." lightbox="media/agents-workflows-concepts/weather-example-conversational.png":::
 
-The following screenshot shows the integrated chat interface that you can access from the designer toolbar or the workflow sidebar menu under **Tools** in the Azure portal:
+The following screenshot shows the integrated chat interface that you can access from the designer toolbar or the workflow sidebar menu in the Azure portal:
 
 :::image type="content" source="media/agents-workflows-concepts/conversational-agent-chat.png" alt-text="Screenshot shows Azure portal and workflow integrated chat interface." lightbox="media/agents-workflows-concepts/conversational-agent-chat.png":::
 
