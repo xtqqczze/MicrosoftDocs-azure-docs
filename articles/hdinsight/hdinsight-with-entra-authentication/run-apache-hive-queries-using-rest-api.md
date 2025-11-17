@@ -57,7 +57,7 @@ Execute an `HTTP GET` request to the OAuth 2.0 token endpoint with the following
 
 A successful request returns a JSON object that contains:
 
-- `token_type`: Always "Bearer"
+- `token_type`: Always *bearer*
 - `expires_in`: Token validity duration in seconds
 - `ext_expires_in`: Extended expiration time in seconds
 - `access_token`: The bearer token for authentication
@@ -73,23 +73,23 @@ A successful request returns a JSON object that contains:
 
 ### Run a Hive query
 
-1. Verify that you can connect to your HDInsight cluster by using the following command:
+1. Verify that you can connect to your HDInsight cluster by using the following command.
+
+   The command uses these parameters:
+
+   - u: The username and password used to authenticate the request.
+   - G: Indication that this request is a GET operation.
 
    ```bash
       curl -H "Authorization: Bearer $TOKEN" -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/status
 
    ```
 
-   You receive a response similar to the following text:
+2. You receive a response similar to the following text:
 
-    ```json
-       {"status":"ok","version":"v1"}
-    ```
-
-This command uses the following parameters:
-
-- `u`: The username and password used to authenticate the request.
-- `G`: Indication that this request is a GET operation.
+   ```json
+        {"status":"ok","version":"v1"}
+   ```
 
 1. The beginning of the URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, is the same for all requests. The path `/status` indicates that you're requesting to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
 
@@ -123,13 +123,13 @@ This command uses the following parameters:
    > [!NOTE]  
    > Use external tables when an external source updates the underlying data. For example, an automated data upload process or another `MapReduce` operation.
 
-   Dropping an external table does **not** delete the data, only the table definition.
+   Dropping an external table only deletes the table definition and *does not* delete the data.
 
 See the following definitions:
 
--`ROW FORMAT`: How the data is formatted. The fields in each log are separated by a space.
--`STORED AS TEXTFILE LOCATION`: Shows where the data is stored (the example or data directory). Shows that the data is stored as text.
--`SELECT`: Selects a count of all rows where column `t4` contains the value `[ERROR]`. This statement returns a value of `3` because there are 3 rows that contain this value.
+- `ROW FORMAT`: How the data is formatted. The fields in each log are separated by a space.
+- `STORED AS TEXTFILE LOCATION`: Shows where the data is stored (the example or data directory). Shows that the data is stored as text.
+- `SELECT`: Selects a count of all rows where column `t4` contains the value `[ERROR]`. This statement returns a value of `3` because there are 3 rows that contain this value.
 
 > [!NOTE]  
 > The cURL code replaces the spaces between HiveQL statements with the `+` character, which shouldn't replace quoted values that contain a space, like the delimiter.

@@ -21,13 +21,13 @@ With this capability, organizations can enforce role-based access, streamline us
 
 Before you begin, ensure the following requirements are met:
 
-- Azure subscription: You must have an active Azure subscription with sufficient permissions to create HDInsight clusters.
-- Microsoft Entra ID tenant:
+- **Azure subscription**: You must have an active Azure subscription with sufficient permissions to create HDInsight clusters.
+- **Microsoft Entra ID tenant**:
   - Access to a Microsoft Entra ID tenant linked to your Azure subscription
   - Permissions to create and assign Microsoft Entra ID groups and roles
-- Resource Group: A resource group in Azure where the HDInsight cluster can be deployed.
-- HDInsight cluster requirements:
-  - HDInsight cluster type (for example, Hadoop, Spark, HBase, or Kafka) that you're using for deployment
+- **Resource group**: A resource group in Azure where the HDInsight cluster can be deployed.
+- **HDInsight cluster requirements**:
+  - The HDInsight cluster type (for example, Hadoop, Spark, HBase, or Kafka) that you're using for deployment
   - A region that supports Microsoft Entra ID integration
 
 ## Overview
@@ -70,7 +70,7 @@ This operation allows users to change the cluster gateway HTTP credentials.
 | **Method** | **Request URI** |
 |------------|-----------------|
 | POST | `https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{cluster name}/updateGatewaySettings?api-version={api-version}` |
-| Entra cluster API version| Greater than or equal to `2025-01-15-preview`|
+| Entra ID cluster API version| Greater than or equal to `2025-01-15-preview`|
 
 ```json
 		{ 
@@ -86,11 +86,11 @@ This operation allows users to change the cluster gateway HTTP credentials.
 
 ### Response
 
-If the operation completes successfully, you receive the response `HTTP 202` (accepted).
+If the operation finishes successfully, you receive the response `HTTP 202` (accepted).
 
 ## Authentication process
 
-The authentication process varies based on the method you choose when you create a cluster.
+The authentication process varies based on the method that you choose when you create a cluster.
 
 If you choose Microsoft Entra ID:
 
@@ -100,25 +100,25 @@ If you choose Microsoft Entra ID:
 
  	:::image type="content" source="./media/create-clusters-with-entra/add-users.png" alt-text="Screenshot that shows users in the Ambari portal." border="true" lightbox="./media/create-clusters-with-entra/add-users.png":::
 
-   :::image type="content" source="./media/create-clusters-with-entra/user-roles.png" alt-text="Screenshot that shows the Ambari pane where the cluster admin selects roles of newly added users." border="true" lightbox="./media/create-clusters-with-entra/user-roles.png":::
+  :::image type="content" source="./media/create-clusters-with-entra/user-roles.png" alt-text="Screenshot that shows the Ambari pane where the cluster admin selects roles of newly added users." border="true" lightbox="./media/create-clusters-with-entra/user-roles.png":::
 
- - A multifactor authentication prompt appears when the user logs in with their Microsoft Entra ID.
+  - A multifactor authentication prompt appears when the user logs in with their Microsoft Entra ID.
 
 ## Basic authentication
 
 If you choose basic authentication:
 
-- The user provides a User ID and password for the default admin user.
-- You can create new users with various roles, similar to current functionality.
+- The user provides a user ID and password for the default admin user.
+- You can create new users with various roles, similar to the current functionality.
 - Users are prompted to enter their User ID and password after they sign in.
 
-## Add object ID in Ambari UI
+## Add an object ID in the Ambari UI
 
 1. Sign in to the Ambari portal.
 
-   :::image type="content" source="./media/create-clusters-with-entra/login-page.png" alt-text="Screenshot the shows the Ambari landing page."  border="true" lightbox="./media/create-clusters-with-entra/login-page.png":::
+  :::image type="content" source="./media/create-clusters-with-entra/login-page.png" alt-text="Screenshot the shows the Ambari landing page."  border="true" lightbox="./media/create-clusters-with-entra/login-page.png":::
 
-1. Navigate to "**Manage Ambari**" option.
+1. Go to **Manage Ambari**.
 
   :::image type="content" source="./media/create-clusters-with-entra/click-manage.png" alt-text="Screenshot that shows the Manage Ambari button on the Ambari landing page." border="true" lightbox="./media/create-clusters-with-entra/click-manage.png":::
 
