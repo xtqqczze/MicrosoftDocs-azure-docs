@@ -34,7 +34,7 @@ For example, the preview designer includes the following top significant behavio
 
 - To return to the classic designer, in the designer upper-right corner, open the vertical ellipsis menu (**⋮**), and select **Revert to previous experience**.
 
-For more detailed changes, see [Differences in the preview designer](differences-in-the-preview-designer].
+For more detailed changes, see [Differences in the preview designer](differences-in-the-preview-designer).
 
 ## Prerequisites
 
