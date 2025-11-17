@@ -26,7 +26,7 @@ For example, the preview designer includes the following top significant behavio
 
   - To view the production workflow, in the designer upper-right corner, open the vertical ellipsis menu (**⋮**), and select **Switch to published version**.
   
-     This gesture opens the production workflow in read-only view.
+     This action opens the production workflow in read-only view.
 
 - The designer toolbar options are consolidated. Some options appear at the designer bottom. Most options appear next to the **Publish** button in the vertical ellipsis menu (**⋮**).
 
