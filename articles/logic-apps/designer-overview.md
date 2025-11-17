@@ -55,7 +55,7 @@ To help you quickly learn about the updated layout in the preview designer, this
 
 The preview designer moves many familiar actions to new locations:
 
-- For different views of your workflow, the simplified designer toolbar provides a [view selector](#view-selector) where you can select **Workflow**, **Code**, or **Run history**.
+- For different views of your workflow, the simplified designer toolbar provides a [view selector](#switch-between-designer-code-and-run-history-views) where you can select **Workflow**, **Code**, or **Run history**.
 
 - The **Run** and **Run with payload** options appear at the designer bottom.
 
@@ -71,7 +71,7 @@ Follow these steps to open the workflow designer.
 
 1. On the logic app sidebar, under **Workflows**, select **Workflows**.
 
-From here, you can [create a new workflow](#create-a-new-workflow) or [access an existing workflow](#access-an-existing-workflow).
+From here, you can [create a new workflow](#create-a-new-workflow) or [open an existing workflow in the designer](#open-an-existing-workflow-in-the-designer).
 
 # [Preview designer](#tab/preview)
 
@@ -79,11 +79,11 @@ From here, you can [create a new workflow](#create-a-new-workflow) or [access an
 
 1. On the logic app sidebar, under **Workflows**, select **Workflows**.
 
-1. To enable the [new designer](#changes-in-the-new-designer) (preview), select the **Enable preview** button from the ribbon banner.
+1. To enable the preview designer, select the **Enable preview** button from the ribbon banner.
    
    :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
 
-From here, you can [create a new workflow](#create-a-new-workflow) or [access an existing workflow](#access-an-existing-workflow).
+From here, you can [create a new workflow](#create-a-new-workflow) or [open an existing workflow in the designer](#open-an-existing-workflow-in-the-designer).
 
 ---
 
