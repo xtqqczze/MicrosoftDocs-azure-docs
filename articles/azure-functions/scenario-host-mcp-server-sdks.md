@@ -234,8 +234,10 @@ When you're done working with your MCP server and related resources, use this co
 azd down
 ```
 
+::: zone-end  
+<!--- Re-add this when the new tutorial gets published
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Host your existing MCP server on Azure Functions](how-to-mcp-server-hosting.md)
-::: zone-end  
+> [Enable built-in server authorization and authentication](functions-mcp-tutorial.md#enable-built-in-server-authorization-and-authentication)
+-->
