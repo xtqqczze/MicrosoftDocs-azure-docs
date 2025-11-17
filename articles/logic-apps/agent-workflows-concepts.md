@@ -126,47 +126,47 @@ The following table provides more comparisons between agent workflows and nonage
 
 ## Explore agent workflow structure
 
-To build a new agent workflow in single-tenant Azure Logic Apps for your AI automation and integration solutions, you create a Standard logic app resource and add a workflow that has one of the following workflow types:
+To build a new agent workflow, create a Consumption logic app in multitenant Azure Logic Apps or a Standard logic app in single-tenant Azure Logic Apps and select one of the following workflow types:
 
 - **Autonomous Agents**
 - **Conversational Agents**
 
-These workflow types include all the capabilities in Standard stateful workflows plus agent capabilities and are specifically designed to work with agents. These workflow types automatically include an empty agent.
+These workflow types include all the capabilities in Consumption or Standard stateful workflows and are designed to work specifically with agent capabilities. These workflow types automatically include an empty agent.
 
 For example, the following screenshot shows a new autonomous agent workflow:
 
-:::image type="content" source="media/agents-workflows-concepts/autonomous-agent-workflow-start.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and initial autonomous agent workflow structure." lightbox="media/agents-workflows-concepts/autonomous-agent-workflow-start.png":::
+:::image type="content" source="media/agents-workflows-concepts/autonomous-agent-workflow-start.png" alt-text="Screenshot shows Azure portal, workflow designer, and partial autonomous agent workflow." lightbox="media/agents-workflows-concepts/autonomous-agent-workflow-start.png":::
 
 The following screenshot shows a new conversational agent workflow:
 
-:::image type="content" source="media/agents-workflows-concepts/conversational-agent-workflow-start.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and initial conversational agent workflow structure." lightbox="media/agents-workflows-concepts/conversational-agent-workflow-start.png":::
+:::image type="content" source="media/agents-workflows-concepts/conversational-agent-workflow-start.png" alt-text="Screenshot shows Azure portal, workflow designer, and partial conversational agent workflow." lightbox="media/agents-workflows-concepts/conversational-agent-workflow-start.png":::
 
-If you have an existing **Stateful** workflow, the following screenshot shows how you can add an **Agent** action to include autonomous agent and LLM capabilities:
+In Standard logic apps, if you have an existing **Stateful** workflow, the following screenshot shows how you can add an **Agent** action to include autonomous agent and LLM capabilities:
 
-:::image type="content" source="media/agents-workflows-concepts/add-agent.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, existing workflow, and option to add an agent." lightbox="media/agents-workflows-concepts/add-agent.png":::
+:::image type="content" source="media/agents-workflows-concepts/add-agent.png" alt-text="Screenshot shows Azure portal, workflow designer, existing workflow, and option to add an agent." lightbox="media/agents-workflows-concepts/add-agent.png":::
 
-The following screenshot shows the agent's connection pane where you specify information about the deployed model that you want to use:
+While Consumption agent workflows are automatically set up with a model to use, Standard agent workflows require that you set up a connection to the model for the agent to use:
 
-:::image type="content" source="media/agents-workflows-concepts/agent-connection-pane.png" alt-text="Screenshot shows Standard workflow designer, empty agent action, and agent connection pane." lightbox="media/agents-workflows-concepts/agent-connection-pane.png":::
+:::image type="content" source="media/agents-workflows-concepts/agent-connection-pane.png" alt-text="Screenshot shows workflow designer, empty agent action, and agent connection pane." lightbox="media/agents-workflows-concepts/agent-connection-pane.png":::
 
 > [!NOTE]
 >
 > The connection pane shows the different connection requirements, 
 > based on your workflow type and the selected model source.
 
-After you create a connection to the model, the agent requires that you provide instructions that describe the roles that the agent can play, tasks that the agent can perform, and other specific prescriptive information that helps the agent respond to prompts, answer questions, and perform requested tasks, for example:
+The agent requires that you provide instructions that describe the roles that the agent can play, tasks that the agent can perform, and other specific prescriptive information that helps the agent respond to prompts, answer questions, and perform requested tasks, for example:
 
-:::image type="content" source="media/agents-workflows-concepts/agent-information-pane.png" alt-text="Screenshot shows Standard workflow designer, empty agent action, and agent information pane." lightbox="media/agents-workflows-concepts/agent-information-pane.png":::
+:::image type="content" source="media/agents-workflows-concepts/agent-information-pane.png" alt-text="Screenshot shows workflow designer, empty agent action, and agent information pane." lightbox="media/agents-workflows-concepts/agent-information-pane.png":::
 
 An empty agent connected to a model can respond to prompts that only use the model's capabilities, so an agent doesn't have to include tools. However, for the agent to use actions available in Azure Logic Apps, the agent needs you to create tools. You can start creating a tool by first adding an action from the connectors gallery.
 
 The following diagram shows the gallery where you can browse and select actions to build tools:
 
-:::image type="content" source="media/agents-workflows-concepts/connectors-gallery.png" alt-text="Screenshot shows Standard workflow designer, empty agent, and selected action to start creating a tool." lightbox="media/agents-workflows-concepts/connectors-gallery.png":::
+:::image type="content" source="media/agents-workflows-concepts/connectors-gallery.png" alt-text="Screenshot shows workflow designer, empty agent, and selected action to start creating a tool." lightbox="media/agents-workflows-concepts/connectors-gallery.png":::
 
 The following diagram shows a weather agent that can get the weather forecast and send that forecast in email:
 
-:::image type="content" source="media/agents-workflows-concepts/agent-tools.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example agent with tools structure." lightbox="media/agents-workflows-concepts/agent-tools.png":::
+:::image type="content" source="media/agents-workflows-concepts/agent-tools.png" alt-text="Screenshot shows Azure portal, workflow designer, and example agent with tools structure." lightbox="media/agents-workflows-concepts/agent-tools.png":::
 
 ## More example scenarios
 
