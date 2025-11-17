@@ -36,9 +36,9 @@ A DNS security policy has the following associated elements and properties:
 
 DNS security policy can be configured using Azure PowerShell or the Azure portal.
 
-## What is DNS Threat intelligence feed?
+## What is DNS Threat Intelligence?
 
-Azure DNS security policy with Threat Intelligence feed allows early detection and prevention of security incidents on customer Virtual Networks where known malicious domains sourced by [Microsoft’s Security Response Center (MSRC)](https://www.microsoft.com/msrc) can be blocked from name resolution. 
+Azure DNS security policy with Threat Intelligence feed allows early detection and prevention of security incidents on customer virtual networks where known malicious domains sourced by [Microsoft’s Security Response Center (MSRC)](https://www.microsoft.com/msrc) can be blocked from name resolution. 
 
 Apart from the features already provided DNS security policy, the feed is available as a managed domain list and enables protection for workloads against known malicious domains with Microsoft’s own managed Threat Intelligent feed. 
 
@@ -46,7 +46,7 @@ Apart from the features already provided DNS security policy, the feed is availa
 
 Apart from the features already provided DNS security policy, the feed is available as a managed domain list and enables the protection of workloads against known malicious domains with Microsoft’s own managed Threat Intelligent feed. 
 
-The following are benefits of using DNS security policy with Threat intelligence feed:
+The following are benefits of using DNS security policy with Threat Intelligence feed:
 
 - **Smart protection**: 
 
@@ -70,7 +70,7 @@ The following are benefits of using DNS security policy with Threat intelligence
 
 - Log and set up alerts when malicious domains are resolved in virtual networks where the Threat Intel feed is configured.
 
-- Seamlessly integrate with virtual networks and other services such as Azure Private DNS Zones, Private Resolver, and other services in the VNET. 
+- Seamlessly integrate with virtual networks and other services such as Azure Private DNS Zones, Private Resolver, and other services in the virtual network. 
 
 ## Location
 
