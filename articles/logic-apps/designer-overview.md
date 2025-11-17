@@ -104,26 +104,25 @@ To add a trigger or an action to your Standard workflow, see [Build a workflow w
 
 - Some trigger or action parameters let you provide expressions or dynamic content, which are outputs from previous steps, rather than hardcoded or static values.
 
+## Save your changes
 
-- Save your changes
-
-  | Designer | Gesture |
+  | Designer | Location |
   |----------|---------|
   | Classic | You must manually save your changes. On the designer toolbar, select **Save**. |
   | Preview | No separate **Save** option exists. As you edit the workflow, your changes are automatically saved as a draft. |
 
   If validation errors happen when you save your changes or during auto-save, the designer shows validation messages.
 
-- Run the workflow
+ ## Run the workflow
 
-  | Designer | Gesture |
+  | Designer | Location |
   |----------|---------|
   | Classic | On the designer toolbar, select **Run** > **Run with payload**. |
   | Preview | To run the draft workflow, at the designer bottom, select **Run** or **Run with payload**. |
 
-- Validate changes and deploy to production
+## Validate changes and deploy to production
 
-  | Designer | Gesture |
+  | Designer | Location |
   |----------|---------|
   | Classic | Saving your workflow automatically validates and publishes your changes to production. |
   | Preview | In the designer upper-right corner, select **Publish**. |
@@ -149,7 +148,50 @@ The preview designer moves many familiar actions to new locations:
 
 <a name="view-selector"></a>
 
-### Switch between designer, code, and run history views (preview)
+## [Classic designer](#tab/classic)
+
+### Switch between designer, code, and run history views
+
+In the Sidebar tools, you can choose between the following views: **Workflow**, **Code**, and **Run history**.
+
+| Task | Label |
+|---|---|
+| Code view (JSON) | **Code** or toolbar > **Code view** |
+| Designer view | **Designer** or toolbar > **Designer** |
+| Run history | **Run history** |
+
+- To build, edit, and run your workflow, select **Workflow**. To edit the workflow definition in JSON, select **Code**.
+
+    > [!TIP]
+    >
+    > **Code** view is an easy way to find and copy the workflow definition, rather than using Azure CLI or other methods.
+
+- To view your workflow run history, chronological execution, operation status, inputs, and outputs, select **Run history**.
+
+### Sidebar Configuration
+
+| Task | Label |
+|---|---|
+| Access keys | Sidebar Configuration > **Access keys** |
+| Disable/Enable workflow | Sidebar Configuration > **Settings** |
+| Properties / Info | Sidebar Configuration > **Properties** |
+
+### Workflow toolbar
+
+| Task | Label |
+|---|---|
+| Connections | **Connections** |
+| Discard changes | **Discard** |
+| Download workflow summary | **Download workflow summary** |
+| Parameters | **Parameters** |
+
+### Run workflow
+
+To run your workflow, select **Run** / **Run with payload** from the Workflow toolbar.
+
+## [Preview designer](#tab/preview)
+
+### Switch between designer, code, and run history views
 
 At the designer top, the view selector shows the following views: **Workflow**, **Code**, and **Run history**. Select a view to switch between the designer, workflow JSON definition, and workflow run history.
 
@@ -158,7 +200,6 @@ At the designer top, the view selector shows the following views: **Workflow**, 
 - To build, edit, and run your workflow, select **Workflow**. To edit the workflow definition in JSON, select **Code**.
 
    You can switch between designer view and code view anytime. The preview experience automatically saves your workflow.
-
 
     > [!TIP]
     >
@@ -172,25 +213,22 @@ The preview designer moves many other actions to the vertical ellipsis menu (**â
 
 :::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot show the preview designer and toolbar with vertical ellipsis menu next to the Publish button." lightbox="media/designer-overview/ellipsis.png":::
 
-### Find common actions
+| Task | Label |
+|---|---|
+| Access keys | **Settings** > **Access keys** |
+| Connections | **Connections** |
+| Disable/Enable workflow | **Disable** / **Enable** |
+| Discard changes | **Discard changes** |
+| Download workflow summary | **Download workflow summary** |
+| Parameters | **Parameters** |
+| Properties / Info | **Information** |
+| View production version | **Switch to published version** |
 
- Use the table to quickly find where you can perform each common task.
+### Run workflow
 
-| Task | Classic designer | Preview designer |
-|---|---|---|
-| Access keys | Sidebar Configuration > **Access keys** | Next to **Publish**, ellipsis menu > **Settings** (then **Access keys**) |
-| Code view (JSON) | Sidebar Tools > **Code** or toolbar > **Code view** | At the designer top > **Code** |
-| Connections | Workflow toolbar: **Connections** | Next to **Publish**, ellipsis menu > **Connections** |
-| Designer view | Sidebar Tools > **Designer** or toolbar > **Designer** | At the designer top > **Workflow** |
-| Disable/Enable workflow | Sidebar Configuration > **Settings** | Next to **Publish**, ellipsis menu > **Disable** / **Enable** |
-| Discard changes | Workflow toolbar: **Discard** | Next to **Publish**, open the vertical ellipsis menu > **Discard changes** |
-| Download workflow summary | Workflow toolbar: **Download workflow summary** | Next to **Publish**, ellipsis menu > **Download workflow summary** |
-| Parameters | Workflow toolbar: **Parameters** | Next to **Publish**, ellipsis menu > **Parameters** |
-| Properties / Info | Sidebar Configuration > **Properties** | Next to **Publish**, ellipsis menu > **Information** |
-| Publish draft | N/A | Designer upper-right > **Publish** |
-| Run history | Sidebar Tools > **Run history** | Designer top > **Run history** (then select a run to open monitoring view) |
-| Run workflow | Workflow toolbar: **Run** / **Run with payload** | At the bottom of the designer: **Run** / **Run with payload** |
-| View production version | N/A | Next to **Publish**, ellipsis menu > **Switch to published version** |
+To run your workflow, select **Run** / **Run with payload** at the bottom of the designer.
+
+---
 
 ## Related content
 
