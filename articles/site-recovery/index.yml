@@ -21,20 +21,18 @@ landingContent:
         links:
           - text: What is Site Recovery?
             url: ./site-recovery-overview.md
-      - linkListType: get-started
+          - text: What's new in Site Recovery
+            url: ./site-recovery-whats-new.md
+      - linkListType: Manage
         links:
-          - text: Set up disaster recovery on an Azure VM
-            url: ./azure-to-azure-quickstart.md
-          - text: Set up disaster recovery on an on-premises VMware VM
-            url: ./quickstart-enable-replication.md
-      - linkListType: tutorial
-        links:
-          - text: Run a disaster recovery drill
-            url: ./azure-to-azure-tutorial-dr-drill.md
-      - linkListType: deploy
-        links:
-          - text: Set up disaster recovery at scale
-            url: ./vmware-physical-large-deployment.md
+          - text: Manage Site Recovery updates
+            url: service-updates-how-to.md
+          - text: Monitor Site Recovery
+            url: site-recovery-monitor-and-troubleshoot.md
+          - text: Monitor Site Recovery with Azure Monitor logs
+            url: monitor-log-analytics.md
+          - text: Reports for Site Recovery with Azure Monitor logs
+            url: report-site-recovery.md
 
   - title: Disaster recovery for Azure VMs
     linkLists:
@@ -108,23 +106,10 @@ landingContent:
             url: ./site-recovery-plan-capacity-vmware.md
           - text: Plan Hyper-V capacity
             url: ./hyper-v-deployment-planner-overview.md
-            
-  - title: Manage
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Manage Site Recovery updates
-            url: service-updates-how-to.md
-          - text: Monitor Site Recovery
-            url: site-recovery-monitor-and-troubleshoot.md
-          - text: Monitor Site Recovery with Azure Monitor logs
-            url: monitor-log-analytics.md
-          - text: Reports for Site Recovery with Azure Monitor logs
-            url: report-site-recovery.md
 
   - title: Disaster recovery for Azure Extended Zone (preview)
     linkLists:
-      - linkListType: tutorial
+      - linkListType: deploy
         links:
           - text: Disaster recovery for Azure Extended Zone (preview) VMs 
             url: tutorial-replicate-vms-edge-zone-to-azure-region.md      
@@ -150,9 +135,3 @@ landingContent:
           - text: Azure Local stretched clusters for disaster recovery
             url: /azure/architecture/hybrid/azure-local-dr
 
-
-
-            - linkListType: concept
-        links:
-          - text: Azure VM Disaster Recovery - High Churn support 
-            url: concepts-azure-to-azure-high-churn-support.md
