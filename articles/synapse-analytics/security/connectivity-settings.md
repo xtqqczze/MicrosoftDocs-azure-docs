@@ -16,14 +16,14 @@ This article explains how to configure connectivity settings in Azure Synapse An
 
 For connection strings to Azure Synapse Analytics pools, see [Connect to Synapse SQL](../sql/connect-overview.md).
 
-Connectivity settings and the Azure portal experience for dedicated SQL pools differ depending on whether the pool is deployed in a logical SQL server or in an Azure Synapse Analytics workspace. In contrast, serverless SQL pools are only available in Synapse workspaces and follow the same connectivity settings as dedicated SQL pools created in a workspace.
+Connectivity settings and the Azure portal experience for dedicated SQL pools differ depending on whether the pool is deployed in a standalone dedicated SQL pools (formerly SQL DW) or in an Azure Synapse Analytics workspace. In contrast, serverless SQL pools are only available in Synapse workspaces and follow the same connectivity settings as dedicated SQL pools created in a workspace.
 
 ### [Dedicated and Serverless SQL pools in a workspace](#tab/workspace)
 
 ## Public network access
 
 > [!NOTE]
-> These settings apply to dedicated SQL pools and serverless SQL pools created in an Azure Synapse workspace. These instructions do not apply to dedicated SQL pools associated with a logical SQL server (formerly SQL DW).
+> These settings apply to dedicated SQL pools and serverless SQL pools created in an Azure Synapse workspace. These instructions do not apply to dedicated SQL pools associated with a standalone dedicated SQL pools (formerly SQL DW).
 
 You can use the public network access feature to allow incoming public network connectivity to your Azure Synapse workspace. 
 
@@ -76,7 +76,7 @@ Since December 2021, a minimum level of TLS 1.2 is required for workspace-manage
 Azure policy to prevent modifications to the networking settings in Synapse Workspace is not currently available.
 
 
-### [Dedicated SQL pools in a logical SQL server](#tab/logical-sql-server)
+### [Standalone dedicated SQL pools (formerly SQL DW)](#tab/formerly-sql-dw)
 
 ## Networking and connectivity
 
