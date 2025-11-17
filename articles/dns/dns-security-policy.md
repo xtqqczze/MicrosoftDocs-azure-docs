@@ -40,8 +40,6 @@ DNS security policy can be configured using Azure PowerShell or the Azure portal
 
 Azure DNS security policy with Threat Intelligence feed allows early detection and prevention of security incidents on customer virtual networks where known malicious domains sourced by [Microsoft’s Security Response Center (MSRC)](https://www.microsoft.com/msrc) can be blocked from name resolution. 
 
-:::image type="content" source="./media/dns-security-policy/threat-intelligence-feed.png" alt-text="Diagram showing the flow of threat intelligence feed in DNS security policy." lightbox="./media/dns-security-policy/threat-intelligence-feed.png":::
-
 Apart from the features already provided DNS security policy, the feed is available as a managed domain list and enables the protection of workloads against known malicious domains with Microsoft’s own managed Threat Intelligent feed. 
 
 The following are benefits of using DNS security policy with Threat Intelligence feed:
