@@ -5,7 +5,7 @@ author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: quickstart
-ms.date: 03/10/2025
+ms.date: 11/13/2025
 ms.custom:
   - devx-track-azurecli
   - subject-armqs
