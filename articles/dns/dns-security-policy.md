@@ -46,7 +46,7 @@ Apart from the features already provided DNS security policy, the feed is availa
 
 The following are benefits of using DNS security policy with Threat Intelligence feed:
 
-- **Smart protection**: 1
+- **Smart protection**:
 
     - Almost all attacks begin with a DNS query. Threat Intelligence managed domain list enables the detection and prevention of security incidents early.
 
