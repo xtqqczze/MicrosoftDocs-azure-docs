@@ -265,8 +265,8 @@ The ellipsis menu (**:**) includes these actions:
 - Disable/Enable workflow
 - Discard changes
 - Download workflow summary
+- Info
 - Parameters
-- Properties / Info (**Information**)
 - Switch to published version
 
 ---
