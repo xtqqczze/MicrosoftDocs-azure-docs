@@ -67,7 +67,7 @@ To add the MCP server in Visual Studio Code:
 
 1. Use the **MCP: Add Server** command from the Command Palette. 
 1. When prompted, select the server type: **HTTP (HTTP or Server Sent Events)**.
-1. Enter the **Server URL** of the MCP server in API Management. Example: `https://<apim-service-name>.azure-api.net/<api-name>-mcp/mcp` (for MCP endpoint)
+1. Enter the **Server URL** of the MCP server in API Management. For example, `https://<apim-service-name>.azure-api.net/<api-name>-mcp/mcp` for the MCP endpoint.
 1. Enter a **Server ID** of your choice.
 1. Select whether to save the configuration to your **workspace settings** or **user settings**. 
     * **Workspace settings** - The server configuration is saved to a `.vscode/mcp.json` file only available in the current workspace.

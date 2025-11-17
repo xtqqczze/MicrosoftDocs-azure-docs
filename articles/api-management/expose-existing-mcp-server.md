@@ -60,7 +60,7 @@ Follow these steps to expose an existing MCP server in API Management:
 1. Select **Expose an existing MCP server**.
 1. In **Backend MCP server**:
     1. Enter the existing **MCP server base URL**. For example, `https://learn.microsoft.com/api/mcp` for the Microsoft Learn MCP server.
-    1. In**Transport type**, **Streamable HTTP** is selected by default.
+    1. In **Transport type**, **Streamable HTTP** is selected by default.
 1. In **New MCP server**:
     1. Enter a **Name** for the MCP server in API Management.
     1. In **Base path**, enter a route prefix for tools. For example, `mytools`.
