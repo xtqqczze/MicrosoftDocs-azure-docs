@@ -91,7 +91,7 @@ You can secure gateway access to the backend service by using mutual TLS authent
 
 If the backend service is secured with a certificate issued by a well-known CA, you can add a client certificate in the backend entity:
 
-1. [Add](api-management-howto-mutual-certificates.md) the certificate to the API Management instance. You can reference a certificate that's managed in Azure Key Vault or upload a PFX file.
+1. [Add the certificate](api-management-howto-mutual-certificates.md) to the API Management instance. You can reference a certificate that's managed in Azure Key Vault or upload a PFX file.
 1. In the **Authorization credentials** section of the backend configuration, select the **Client certificates** tab.
 1. In the dropdown, select the client certificate that you want to use.
 1. Select **Create**.

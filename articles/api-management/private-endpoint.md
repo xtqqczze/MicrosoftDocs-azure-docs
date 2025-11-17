@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 11/11/2025
+ms.date: 11/17/2025
 ms.custom:
   - build-2025
   - sfi-image-nochange
@@ -44,7 +44,7 @@ Supported configurations include:
 * Configure Azure Front Door (or Azure Front Door with Azure Application Gateway) to receive external traffic and then route traffic privately to the API Management gateway. For example, see [Connect Azure Front Door Premium to an Azure API Management with Private Link](../frontdoor/standard-premium/how-to-enable-private-link-apim.md).
 
     > [!NOTE]
-    > Currently, routing traffic privately from Azure Front Door to API Management isn't supported in the Premium v2 tier.
+    > Currently, routing traffic privately from Azure Front Door to an API Management Premium v2 instance isn't supported.
 
 ## Prerequisites
 
@@ -71,11 +71,39 @@ Follow these steps to create and configure a private endpoint for your API Manag
 
 ### Create private endpoint - portal
 
-You can create a private endpoint when you create an API Management instance in the Azure portal, or you can add a private endpoint to an existing instance.
 
 #### [Classic](#tab/classic)
 
-To add a private endpoint to an existing API Management instance:
+In the Classic tiers, you can create a private endpoint when you create an API Management instance in the Azure portal, or you can add a private endpoint to an existing instance.
+
+
+### Create private endpoint when creating API Management instance
+
+1. In the **Create API Management service wizard**, select the **Networking** tab.
+
+1. In **Connectivity type**, select **Private endpoint**.
+
+1. Select **+ Add**.
+
+1. On the **Create private endpoint** page, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Select your subscription. |
+    | Resource group | Select an existing resource group, or create a new one. It must be in the same region as your virtual network.|
+    | Location |  Select a location for the private endpoint. It must be in the same region as your virtual network. It can differ from the region where your API Management instance is hosted.  |
+    | Name  | Enter a name for the endpoint such as *myPrivateEndpoint*. |
+    | Sub-resource | Select **Gateway**. |
+
+1. Under **Networking**, enter or select the virtual network and subnet for your private endpoint.
+
+1. Under **Private DNS integration**, select **Integrate with private DNS zone**. The default DNS zone is displayed: **privatelink.azure-api.net**.
+
+1. Select **OK**.
+
+1. Continue with the creation of the API Management instance.
+
+### Create private endpoint for existing API Management instance
 
 1. Go to your API Management service in the [Azure portal](https://portal.azure.com/).
 
@@ -155,6 +183,8 @@ If you have sufficient permissions, approve a private endpoint connection on the
 You can also use the API Management [Private Endpoint Connection - Create Or Update](/rest/api/apimanagement/private-endpoint-connection/create-or-update) REST API to approve pending private endpoint connections.
 
 #### [Standard v2](#tab/v2)
+
+You can create a private endpoint when you create an API Management instance in the Azure portal, or you can add a private endpoint to an existing instance.
 
 ### Create private endpoint when creating API Management Standard v2 instance
 
@@ -398,4 +428,4 @@ To connect to 'Microsoft.ApiManagement/service/my-apim-service', please use the 
 * Learn more about [private endpoints](../private-link/private-endpoint-overview.md) and [Private Link](../private-link/private-link-overview.md), including [Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 * [Manage private endpoint connections](../private-link/manage-private-endpoint.md).
 * [Troubleshoot Azure private endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
-* Use a [Resource Manager template](https://azure.microsoft.com/resources/templates/api-management-private-endpoint/) to create a classic API Management instance and a private endpoint with private DNS integration.
+* Use a [Resource Manager template](https://azure.microsoft.com/resources/templates/api-management-private-endpoint/) to create a classic API Management instance and a private endpoint.

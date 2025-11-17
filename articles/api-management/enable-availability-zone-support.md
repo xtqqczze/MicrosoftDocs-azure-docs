@@ -12,7 +12,7 @@ ms.custom: references_regions, subject-reliability
 
 # Enable availability zone support on Azure API Management instances
 
-[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
+[!INCLUDE [premium-premiumv2](../../includes/api-management-availability-premium-premium-v2.md)]
 
 This article describes how to enable and configure availability zones on an Azure API Management instance.
 
@@ -25,7 +25,7 @@ While instances in both the Premium and Premium v2 tiers benefit from availabili
 
 | Premium | Premium v2 |
 |---------|------------|
-| - Automatically enable zone redundancy when you create a new instance or add a new location to an existing instance in a supported region.<br/><br/>- Zonal or zone-redundant settings can also be manually configured. | - Optionally enable zone redundancy when creating an instance in a supported region.<br/><br/>- Configuring zone redundancy in an existing instance isn't supported. |
+| - Automatically enable zone redundancy when you create a new instance or add a new location to an existing instance in a supported region.<br/><br/>- Zonal or zone-redundant settings can also be manually configured in a new or existing instance. | - Optionally enable zone redundancy when creating an instance in a supported region.<br/><br/>- Configuring zone redundancy in an existing instance isn't supported. |
 
 #### [Premium](#tab/prem)
 
@@ -80,7 +80,7 @@ Follow these steps to enable availability zone support on your API Management in
 
 In the **Premium** tier, availability zone support is automatically enabled when you create a new API Management instance in a supported region. You can optionally specify which availability zones to use.
 
-:::image type="content" source="media/enable-availability-zone-support/enable-zone-redundancy-premium-v2.png" alt-text="Screenshot of enabling zone redundancy for a Premium v2 instance in the portal.":::
+:::image type="content" source="media/enable-availability-zone-support/enable-zone-redundancy-premium.png" alt-text="Screenshot of enabling zone redundancy for a Premium v2 instance in the portal.":::
 
 ### Existing instance not injected in a virtual network
 
