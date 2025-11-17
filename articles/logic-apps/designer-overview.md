@@ -186,7 +186,7 @@ If validation errors happen when you save your changes or during auto-save, the 
 
 # [Classic designer](#tab/classic)
 
-In the Sidebar tools, you can choose between the following views: **Workflow**, **Code**, and **Run history**.
+On the workflow sidebar, you can choose between the following views: **Workflow**, **Code**, and **Run history**.
 
 - To build, edit, and run your workflow, select **Workflow**. To edit the workflow definition in JSON, select **Code**.
 
