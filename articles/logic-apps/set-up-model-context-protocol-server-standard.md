@@ -69,7 +69,7 @@ Standard logic app based MCP servers support the [Streamable HTTP and Server-Sen
 
   - This capability applies only to Standard workflows that use the Workflow Service Plan or App Service Environment v3 option.
 
-  - Workflows must start with the **Request** trigger named **When a HTTP request is received** and include the **Response** action.
+  - Workflows must start with the **Request** trigger named **When an HTTP request is received** and include the **Response** action.
 
   - Make sure the logic app resource is running, and the workflow is enabled.
 
