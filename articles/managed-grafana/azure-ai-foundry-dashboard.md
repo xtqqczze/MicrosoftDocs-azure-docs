@@ -35,7 +35,7 @@ Before you begin, ensure you have:
 
 ## Import the Azure AI Foundry dashboard
 
-Import the pre-built Azure AI Foundry dashboard into your Grafana workspace.
+Import the prebuilt Azure AI Foundry dashboard into your Grafana workspace.
 
 1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL to open the Grafana portal.
 
@@ -113,3 +113,5 @@ The dashboard queries Azure Monitor Metrics using the following setup:
 
 - [Create dashboards in Azure Managed Grafana](./how-to-create-dashboard.md)
 - [Monitor model deployments in Azure AI Foundry Models](/azure/ai-foundry/foundry-models/how-to/monitor-models.md)
+- [Create an Agent Framework dashboard](./agent-framework-dashboard.md) – Monitor individual AI agent operations, costs, and traces
+- [Create an Agent Framework Workflow dashboard](./agent-framework-workflow-dashboard.md) – Monitor multi-agent workflow execution and executor performance

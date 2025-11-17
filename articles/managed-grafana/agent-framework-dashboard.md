@@ -1,6 +1,6 @@
 ---
 title: Create an Agent Framework dashboard in Azure Managed Grafana
-description: Learn how to set up and configure the Agent Framework dashboard in Azure Managed Grafana to monitor AI agent performance, token usage, costs, and errors.
+description: Learn how to create and customize an Agent Framework dashboard in Azure Managed Grafana to monitor AI agent performance, token usage, costs, and errors.
 #customer intent: As a developer or platform engineer, I want to monitor my Agent Framework applications in a Grafana dashboard so that I can track agent performance, token usage, costs, and troubleshoot errors.
 author: maud-lv
 ms.author: malev
@@ -13,19 +13,22 @@ ms.collection: ce-skilling-ai-copilot
 
 # Create an Agent Framework dashboard
 
-In this guide, you learn how to create and customize the Agent Framework dashboard in Azure Managed Grafana. This prebuilt dashboard helps you track the performance, reliability, and cost of AI agents built with the Microsoft Agent Framework.
+In this guide, you learn how to create and customize an Agent Framework dashboard in Azure Managed Grafana. After adding instrumentation to send data to Application Insights, you can use this prebuilt dashboard to visualize and monitor the performance of your Agent Framework applications. This dashboard helps you track the health, performance, and cost of individual AI agents built with the Microsoft Agent Framework.
 
-The [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) is an open-source development kit for building AI agents and multi-agent workflows in .NET and Python. The Agent Framework dashboard provides comprehensive monitoring of agent operations, including token usage, costs, errors, response times, and detailed trace analysis.
+The [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) is an open-source development kit for building AI agents and multi-agent workflows in .NET and Python. The Agent Framework dashboard provides comprehensive monitoring of individual agent operations, including token usage, costs, errors, response times, and detailed trace analysis.
+
+> [!NOTE]
+> For monitoring multi-agent workflows and graph-based execution flows, see [Create an Agent Framework Workflow dashboard](./agent-framework-workflow-dashboard.md).
 
 ## What you can monitor
 
-The Agent Framework dashboard provides real-time insights into your AI agent workloads:
+The Agent Framework dashboard provides real-time insights into individual AI agent operations:
 
-- **Performance monitoring**: Track response times, success rates, and throughput to identify performance issues
-- **Token usage and costs**: Monitor token consumption and estimate costs based on model pricing
-- **Error analysis**: Identify and debug errors with detailed trace information
-- **Agent activity**: Compare performance across different agents and workflows
-- **Trace analysis**: View detailed execution traces with timing, dependencies, and span relationships
+- **Performance monitoring**: Track response times, success rates, and throughput to assess agent health and identify performance issues
+- **Token usage and costs**: Monitor token consumption per agent and estimate costs based on model pricing
+- **Error analysis**: Identify and debug agent-level errors with detailed trace information
+- **Agent activity**: Compare performance across different agents
+- **Trace analysis**: View detailed execution traces for individual agent operations with timing, dependencies, and span relationships
 
 ## Prerequisites
 
@@ -39,7 +42,7 @@ Before you begin, ensure you have:
   - [.NET instrumentation guide](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples/GettingStarted/AgentOpenTelemetry)
 - The Monitoring Reader role or equivalent permissions for the Application Insights resource you want to monitor.
 
-## Import the Agent Framework dashboard
+## Import the prebuilt Agent Framework dashboard
 
 Import the prebuilt Agent Framework dashboard into your Grafana workspace.
 
@@ -66,11 +69,13 @@ Import the prebuilt Agent Framework dashboard into your Grafana workspace.
 1. After importing the dashboard, use the dropdown selectors at the top of the dashboard to filter by agent name, operation type, and time range.
 
 > [!TIP]
-> You can also access this dashboard directly from the Azure portal. Go to **Monitor** > **Dashboards with Grafana (preview)**, and select **Agent Framework**, or use the direct link: [Agent Framework dashboard](https://aka.ms/amg/dash/af-agent)
+> You can also access this dashboard directly from the Azure portal. Go to **Monitor** > **Dashboards with Grafana (preview)**, and select **Agent Framework**, or use the direct link: [Agent Framework dashboard](https://portal.azure.com/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/AzureGrafanaReactView).
 
-:::image type="content" source="media/agent-framework-dashboard/agent-framework-performance.png" alt-text="Screenshot of Grafana showing Agent Framework performance metrics including response times and success rates." lightbox="media/agent-framework-dashboard/agent-framework-performance.png":::
+:::image type="content" source="media/agent-framework-dashboard/dashboard-screenshot-performance-metrics.png" alt-text="Screenshot of Grafana showing Agent Framework performance metrics." lightbox="media/agent-framework-dashboard/dashboard-screenshot-performance-metrics.png":::
 
-:::image type="content" source="media/agent-framework-dashboard/agent-framework-tokens.png" alt-text="Screenshot of Grafana showing Agent Framework token usage and cost estimation panels." lightbox="media/agent-framework-dashboard/agent-framework-tokens.png":::
+:::image type="content" source="media/agent-framework-dashboard/dashboard-screenshot-agent-framework-traces.png" alt-text="Screenshot of Grafana showing Agent Framework traces panels." lightbox="media/agent-framework-dashboard/dashboard-screenshot-agent-framework-traces.png":::
+
+:::image type="content" source="media/agent-framework-dashboard/dashboard-screenshot-errors-detailed-metrics.png" alt-text="Screenshot of Grafana showing Agent Framework detailed metrics panels." lightbox="media/agent-framework-dashboard/dashboard-screenshot-errors-detailed-metrics.png":::
 
 ## Customize the dashboard
 
@@ -140,7 +145,7 @@ For detailed instrumentation instructions, see:
 
 ## Related content
 
+- [Create an Agent Framework Workflow dashboard](./agent-framework-workflow-dashboard.md) - Monitor multi-agent workflows and graph-based execution flows
 - [Create dashboards in Azure Managed Grafana](./how-to-create-dashboard.md)
-- [Microsoft Agent Framework documentation](./semantic-kernel-pr/blob/main/agent-framework/overview/agent-framework-overview.md)
+- [Microsoft Agent Framework documentation](/agent-framework/overview/agent-framework-overview)
 - [Azure Application Insights overview](/azure/azure-monitor/app/app-insights-overview)
-- [Create an Azure AI Foundry dashboard](./azure-ai-foundry-dashboard.md)
