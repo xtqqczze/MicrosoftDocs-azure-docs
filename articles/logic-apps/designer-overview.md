@@ -198,7 +198,7 @@ On the workflow sidebar, you can choose between the following views: **Workflow*
 
 # [Preview designer](#tab/preview)
 
-At the designer top, the view selector shows the following views: **Workflow**, **Code**, and **Run history**. Select a view to switch between the designer, workflow JSON definition, and workflow run history.
+At the designer top, you can choose from the following views: **Workflow**, **Code**, and **Run history**. Select a view to switch between the designer, workflow JSON definition, and workflow run history.
 
 :::image type="content" source="media/designer-overview/view-selector.png" alt-text="Screenshot shows the preview designer and the view selector at the top." lightbox="media/designer-overview/view-selector.png":::
 
