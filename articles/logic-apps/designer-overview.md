@@ -216,7 +216,7 @@ To run your workflow, select **Run** / **Run with payload** from the Workflow to
 
 # [Preview designer](#tab/preview)
 
-To run your workflow, select **Run** / **Run with payload** at the bottom of the designer.
+To run your workflow, at the designer bottom, select **Run** or **Run with payload**.
 
 ---
 
