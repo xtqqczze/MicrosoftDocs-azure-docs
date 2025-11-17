@@ -30,6 +30,11 @@
     - name: Process file uploads
       displayName: storage, blob, Event Grid
       href: scenario-blob-storage-events.md  
+    - name: AI tools and MCP
+      items:
+      - name: MCP server extension
+        displayName: AI, agent, agentic, tools
+        href: scenario-custom-remote-mcp-server.md
     - name: Respond to database changes
       items:
       - name: Azure Cosmos DB (NoSQL)
@@ -295,7 +300,7 @@
     - name: Isolated worker model
       displayName: .NET isolated
       href: dotnet-isolated-process-guide.md
-    - name: .NET Aspire integration (Preview)
+    - name: Aspire integration
       href: dotnet-aspire-integration.md
     - name: Legacy models
       items:
@@ -524,6 +529,8 @@
       href: ../app-service/configure-authentication-api-version.md?toc=/azure/azure-functions/toc.json
     - name: File-based configuration
       href: ../app-service/configure-authentication-file-based.md?toc=/azure/azure-functions/toc.json
+    - name: MCP server authorization
+      href: ../app-service/configure-authentication-mcp.md?toc=/azure/azure-functions/toc.json
   - name: Secure
     items:
     - name: Work with access keys
