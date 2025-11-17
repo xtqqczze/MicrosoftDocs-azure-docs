@@ -176,7 +176,7 @@ No separate **Save** option exists. As you edit the workflow, your changes are a
 
 If validation errors happen when you save your changes or during auto-save, the designer shows validation messages.
 
-### Switch between designer, code, and run history views
+## Switch between designer, code, and run history views
 
 # [Classic designer](#tab/classic)
 
