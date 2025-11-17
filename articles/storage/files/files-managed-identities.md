@@ -306,9 +306,9 @@ sudo azfilesauthmanager list
 
 #### Option 2: Supply the OAuth token directly
 
-If you're managing tokens yourself, supply the OAuth token directly. The token must have the audience of https://storage.azure.com (no trailing forward slash) and not https://storage.azure.com/ for file share mount.
+If you're managing tokens yourself, supply the OAuth token directly. The `aud` (audience) value for the token must be `https://storage.azure.com` (no trailing forward slash) and not `https://storage.azure.com/` to mount the file share.
 
-Run the following commands and replace <storage-account-name> and <access-token> with your values.
+Run the following commands and replace `<storage-account-name>` and `<access-token>` with your values.
 
 ```bash
 # Insert the token into your credential cache
