@@ -24,7 +24,7 @@ For example, the preview designer includes the following top significant behavio
 
   - When you run the workflow from the designer, the draft workflow runs, not the production workflow.
 
-  - To view the production workflow, in the designer upper-right corner, open the vertical ellipsis menu (**⋮**), and select **Switch to published version**. For more information, see [Ellipsis menu](#ellipsis-menu).
+  - To view the production workflow, in the designer upper-right corner, open the vertical ellipsis menu (**⋮**), and select **Switch to published version**.
   
      This gesture opens the production workflow in read-only view.
 
@@ -51,7 +51,7 @@ To help you quickly learn about the updated layout in the preview designer, this
 > [!IMPORTANT]
 >
 > - The production (published) version is unchanged until you select **Publish**. If you run a workflow from the designer, the draft version is executed.
-> - If you need to view the published (production) version as read-only, use **Switch to published version** from the [ellipsis menu](#ellipsis-menu).
+> - If you need to view the published (production) version as read-only, use **Switch to published version** from the ellipsis menu (**:**).
 
 The preview designer moves many familiar actions to new locations:
 
