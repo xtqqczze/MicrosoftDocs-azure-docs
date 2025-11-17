@@ -14,9 +14,9 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-This guide summarizes common tasks for using the designer to create, edit, and run Standard workflows in the Azure portal. The guide also highlights key changes between the classic designer and preview designer.
+This article summarizes common tasks for using the designer to create, edit, and run Standard workflows in the Azure portal. It also highlights key changes between the classic designer and preview designer.
 
-For example, the preview designer includes the following top significant behavior changes:
+For example, the preview designer includes the following significant behavior changes:
 
 - By default, the designer shows and automatically saves your workflow as a *draft* version. This version differs from the published workflow deployed in production.
 
@@ -50,7 +50,7 @@ To help you quickly learn about the updated layout in the preview designer, this
 
 > [!IMPORTANT]
 >
-> - The production (published) version is unchanged until you select **Publish**. If you run a workflow from the designer, the draft version is executed.
+> - The production (published) version is unchanged until you select **Publish**. If you run a workflow from the designer, the draft version runs.
 > - If you need to view the published (production) version as read-only, use **Switch to published version** from the ellipsis menu (**:**).
 
 The preview designer moves many familiar actions to new locations:
@@ -96,13 +96,13 @@ Follow these steps to create a new workflow in your logic app.
 
 1. On the **Workflows** page toolbar, select **+ Create**.
 
-   The **Create workflow** pane with the workflow types appears.
+   The **Create workflow** pane appears with the workflow types.
 
 1. For **Workflow name**, enter a name for your workflow.
 
 1. Select from the following workflow types:
-   - **Autonomous agents**: Stateful workflows use AI agents to complete tasks and can start from any trigger, such as an event, schedule, or API call.
-   - **Conversational agents**: Stateful workflows use AI agents to complete interactions through chat interactions or other agents. 
+   - **Autonomous agents**: Stateful workflows that use AI agents to complete tasks. They can start from any trigger, such as an event, schedule, or API call.
+   - **Conversational agents**: Stateful workflows that use AI agents to complete interactions through chat interactions or other agents. 
    - **Stateful**: Build workflows that include run history. Add agents to build intelligent automation integrations.
    - **Stateless**: Build workflows that don't include run history, by default. Optimized for speed and ideal for request-response and processing IoT events.
 
@@ -116,7 +116,7 @@ Follow these steps to create a new workflow in your logic app.
 
 1. On the **Workflows** page toolbar, select **+ Create**.
 
-   The **Create workflow** pane with the workflow types appears.
+   The **Create workflow** pane appears with the workflow types.
 
 1. For **Workflow name**, enter a name for your workflow.
 
@@ -227,7 +227,7 @@ To run your workflow, at the designer bottom, select **Run** or **Run with paylo
 
 # [Classic designer](#tab/classic)
 
-Saving your workflow automatically validates and publishes your changes to production.
+When you save your workflow, you automatically validate and publish your changes to production.
 
 # [Preview designer](#tab/preview)
 
@@ -237,19 +237,19 @@ In the designer upper-right corner, select **Publish**.
 
 ## Other actions
 
-Other actions in the classic designer are accessed through either the sidebar configuration or the workflow toolbar. The preview designer moves these actions to the vertical ellipsis menu (**⋮**) next to the **Publish** button in the designer's upper-right corner. 
+In the classic designer, you access other actions through either the sidebar configuration or the workflow toolbar. The preview designer moves these actions to the vertical ellipsis menu (**⋮**) next to the **Publish** button in the designer's upper-right corner. 
 
 :::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot show the preview designer and toolbar with vertical ellipsis menu next to the Publish button." lightbox="media/designer-overview/ellipsis.png":::
 
 # [Classic designer](#tab/classic)
 
-Actions located on the sidebar configuration include:
+The sidebar configuration includes these actions:
 
 - Access keys
 - Settings
 - Properties
 
-Actions located on the workflow toolbar include:
+The workflow toolbar includes these actions:
 
 - Connections
 - Discard
@@ -258,9 +258,9 @@ Actions located on the workflow toolbar include:
 
 # [Preview designer](#tab/preview)
 
-Actions located under the ellipsis menu (**:**) include:
+The ellipsis menu (**:**) includes these actions:
 
-- Access keys (under **Setings**)
+- Access keys (under **Settings**)
 - Connections
 - Disable/Enable workflow
 - Discard changes
