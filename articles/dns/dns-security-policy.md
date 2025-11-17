@@ -64,7 +64,13 @@ The following are benefits of using DNS security policy with Threat intelligence
 
 ### Use cases
 
+- Configure Threat Intelligence as a managed domain list in DNS security policies for an additional layer of protection against known malicious domains.
 
+- Gain visibility of compromised hosts that attempt to resolve known malicious domains from virtual networks.
+
+- Log and set up alerts when malicious domains are resolved in virtual networks where the Threat Intel feed is configured.
+
+- Seamlessly integrate with virtual networks and other services such as Azure Private DNS Zones, Private Resolver, and other services in the VNET. 
 
 ## Location
 
