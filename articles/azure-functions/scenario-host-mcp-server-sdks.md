@@ -53,7 +53,7 @@ Because the new server runs in a Flex Consumption plan, which follows a _pay-for
 
     + [Azure Developer CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev).
 
-+ [Azure Developer CLI](/azure-developer-cli/install-azd) v1.17.2 or above
++ [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) v1.17.2 or above
 
 + [Azure CLI](/cli/azure/install-azure-cli). You can also run Azure CLI commands in [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -234,8 +234,10 @@ When you're done working with your MCP server and related resources, use this co
 azd down
 ```
 
+::: zone-end  
+<!--- Re-add this when the new tutorial gets published
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Host your existing MCP server on Azure Functions](how-to-mcp-server-hosting.md)
-::: zone-end  
+> [Enable built-in server authorization and authentication](functions-mcp-tutorial.md#enable-built-in-server-authorization-and-authentication)
+-->
