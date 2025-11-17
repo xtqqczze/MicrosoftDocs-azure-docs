@@ -130,7 +130,7 @@ The following screenshot shows the integrated chat interface that you can access
 
 :::image type="content" source="media/agents-workflows-concepts/conversational-agent-chat.png" alt-text="Screenshot shows Azure portal and workflow integrated chat interface." lightbox="media/agents-workflows-concepts/conversational-agent-chat.png":::
 
-Conversational agent workflows also support a external chat client that others can use outside the Azure portal. To provide and secure access for this external chat client, you need to set up [Production authentication and authorization](#production-authentication-and-authorization).
+Conversational agent workflows also support an external chat client that others can use outside the Azure portal. To provide and secure access for this external chat client, you need to set up [Production authentication and authorization](#production-authentication-and-authorization).
 
 ## Explore agent workflow structure
 

@@ -583,7 +583,7 @@ To build this tool, follow these steps:
 
 Except for the different agent parameters to set up for the **Send an email (V2)** action, the steps in this section are nearly the same as [Create agent parameters for the 'Get current weather' action](#create-agent-parameters-get-weather).
 
-1. Follow the earlier general steps to create agent parameters for the parameter values in the **Send an email (V2)** action.
+- Follow the earlier general steps to create agent parameters for the parameter values in the **Send an email (V2)** action.
 
    The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
 
