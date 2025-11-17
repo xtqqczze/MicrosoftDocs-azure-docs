@@ -776,6 +776,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-2510-release-notes.md",
+      "redirect_url": "/articles/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/databox-online/azure-stack-edge-system-requirements.md",
       "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-system-requirements",
       "redirect_document_id": false
