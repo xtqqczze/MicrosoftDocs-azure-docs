@@ -3,7 +3,7 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to your Guest OS.
 services: cloud-services
 ms.subservice: guest-os-patching
-author: jejacskon
+author: jejackson
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
@@ -43,8 +43,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5066136]: https://support.microsoft.com/kb/5066136
 [5066139]: https://support.microsoft.com/kb/5066139
 [5066584]: https://support.microsoft.com/kb/5066584
-[5066585]: https://support.microsoft.com/kb/5066585
-[5066781]: https://support.microsoft.com/kb/5066585
+[5066585]: https://support.microsoft.com/kb/5066586
+[5066781]: https://support.microsoft.com/kb/5066586
 [4494175]: https://support.microsoft.com/kb/4494175
 
 [5.111]: ./cloud-services-guestos-update-matrix.md#family-5-releases
