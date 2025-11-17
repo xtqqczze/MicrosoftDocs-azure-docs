@@ -36,6 +36,8 @@ landingContent:
          links:
           - text: Azure VM Disaster Recovery - High Churn support
             url: ./concepts-azure-to-azure-high-churn-support.md
+          - text: Common questions
+            url: ./azure-to-azure-common-questions.md
       - linkListType: deploy
         links:
           - text: Disaster recovery using shared disks
@@ -61,8 +63,8 @@ landingContent:
         links:
           - text: On-premises disaster recovery failover/failback (Modernized)
             url: ./failover-failback-overview-modernized.md
-          - text: Configure on-premise disks for Azure
-            url: ./hydration-process.md
+          - text: Common questions for VMware disaster recovery
+            url: ./vmware-azure-common-questions.md
       - linkListType: deploy
         links:
           - text: VMware support matrix
