@@ -270,5 +270,4 @@ Actions located under the ellipsis menu (**:**) include:
 
 ## Related content
 
-> [!div class="nextstepaction"]
-> [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md)
+- [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md)
