@@ -79,7 +79,7 @@ From here, you can [create a new workflow](#create-a-new-workflow) or [open an e
 
 1. On the logic app sidebar, under **Workflows**, select **Workflows**.
 
-1. To enable the preview designer, select the **Enable preview** button from the ribbon banner.
+1. To open the preview designer, in the banner, select **Enable preview**.
    
    :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
 
