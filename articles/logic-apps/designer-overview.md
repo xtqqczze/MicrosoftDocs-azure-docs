@@ -125,6 +125,11 @@ Follow these steps to create a new workflow in your logic app.
    > If you want agent workflows, choose **Stateful**.
 
    - **Stateful**: Build workflows that include run history. Add agents to build intelligent automation integrations.
+   
+      > [!IMPORTANT]
+      >
+      > To create agent workflows, select **Stateful**.
+      
    - **Stateless**: Build workflows that don't include run history, by default. Optimized for speed and ideal for request-response and processing IoT events.
    - **Start from template**: Select a prebuilt template that supports a common workflow pattern or scenario.
 
