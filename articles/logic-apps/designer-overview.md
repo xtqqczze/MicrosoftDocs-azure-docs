@@ -236,7 +236,7 @@ In the designer upper-right corner, select **Publish**.
 
 Many actions in the classic designer are accessed through either the sidebar configuration or the workflow toolbar.
 
-## Sidebar Configuration
+##* Sidebar Configuration
 
 | Task | Label |
 |---|---|
@@ -244,7 +244,7 @@ Many actions in the classic designer are accessed through either the sidebar con
 | Disable/Enable workflow | **Settings** |
 | Properties / Info | **Properties** |
 
-## Workflow toolbar
+##* Workflow toolbar
 
 | Task | Label |
 |---|---|
@@ -255,7 +255,7 @@ Many actions in the classic designer are accessed through either the sidebar con
 
 # [Preview designer](#tab/preview)
 
-## Ellipsis menu
+### Ellipsis menu
 
 The preview designer moves many other actions to the vertical ellipsis menu (**⋮**) next to the **Publish** button in the designer's upper-right corner. To view and select these options, open this menu.
 
