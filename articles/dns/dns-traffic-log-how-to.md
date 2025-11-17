@@ -136,7 +136,7 @@ To configure diagnostic settings:
 
 The threat intelligence feed is a fully managed domain list that’s continuously updated in the background. Within DNS Security Policy, it’s treated just like any other standard domain list — using the same configuration model for priority and for the chosen action (allow, block, or alert). 
 
-Select it by adding a new DNS traffic rule and configure it with the action which you would to like to apply and respective priority. 
+Select it by adding a new DNS traffic rule and configure it with the action you would like to apply and its respective priority. 
 
 Associate threat intelligence feed with a DNS traffic rule by selecting **Azure DNS threat intel**: 
 
