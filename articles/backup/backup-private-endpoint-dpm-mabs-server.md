@@ -139,26 +139,31 @@ However, you must verify that your virtual network (which contains the resources
 
 :::image type="content" source="media/backup-private-endpoint-dpm-mabs-server/image9.png" alt-text="Screenshot of DNS configuration details for private endpoint zones.":::
 
-If you're using proxy servers, you can bypass the proxy server or perform your backups through the proxy server. To bypass a proxy server, continue to the following sections. To use the proxy server for performing your backups, see [proxy server setup details for Recovery Services vault](/azure/backup/private-endpoints#set-up-proxy-server-for-recovery-services-vault-with-private-endpoint).
+If you're using proxy servers, you can bypass the proxy server or perform your backups through the proxy server. To bypass a proxy server, continue to the following sections. To use the proxy server for performing your backups, see [proxy server setup details for Recovery Services vault](../backup/private-endpoints.md#set-up-proxy-server-for-recovery-services-vault-with-private-endpoint).
 
-#### Validate virtual network links in private DNS zones
+To validate and  integrate virtual network links for the preceding  **private DNS** zone  (for Backup, Blobs and Queues), follow these steps:
 
-For **each private DNS** zone listed above (for Backup, Blobs and Queues), do the following:
+1. On the **Recovery Services vault** where you have configured private endpoints, go to **Networking** > **Private access**, and then select the private endpoint from the list.
 
-1. Navigate to the respective **Virtual network links** option on the left navigation bar.
+1. On the selected **private endpoint** pane, select **Settings** > **DNS configuration**.
 
-1. You should be able to see an entry for the virtual network for which you've created the private endpoint, like the one shown below:
+1. On the **DNS configuration** pane, select the **Private DNS zone** link.
 
-:::image type="content" source="media/backup-private-endpoint-dpm-mabs-server/image10.png" alt-text="Screenshot of virtual network links configuration in private DNS zones.":::
+1. On the selected **private DNS zone** pane, select **Virtual Network Links**
 
-> [!NOTE]
-> In the above example all three DNS Zones had **Virtual network links**.
+1. On the selected **virtual network link** pane, select **Virtual Network Links**
 
-1. If you don't see an entry, add a virtual network link to all those DNS zones that don't have them.
+   A virtual network link entry appears for which you've created the private endpoint. The following screenshot shows an example of virtual network links for all three DNS zones.
 
-:::image type="content" source="media/backup-private-endpoint-dpm-mabs-server/image11.png" alt-text="Screenshot of adding virtual network links to DNS zones configuration.":::
+   :::image type="content" source="media/backup-private-endpoint-dpm-mabs-server/image10.png" alt-text="Screenshot of virtual network links configuration in private DNS zones.":::
 
-### When using custom DNS server or host files
+1. If no entry appears, select **+ Add** and link the virtual network to the required DNS zones.
+
+   The following screenshot shows the **Add virtual network link** pane for linking the virtual network to the DNS zone.
+
+   :::image type="content" source="media/backup-private-endpoint-dpm-mabs-server/image11.png" alt-text="Screenshot of adding virtual network links to DNS zones configuration.":::
+
+### Configure custom DNS servers or host files
 
 - If you're using a custom DNS server, you can use conditional forwarder for backup service, blob, and queue FQDNs to redirect the DNS requests to Azure DNS (168.63.129.16). Azure DNS redirects it to Azure Private DNS zone. In such setup, ensure that a virtual network link for Azure Private DNS zone exists as mentioned in [this article](/azure/backup/private-endpoints#when-using-custom-dns-server-or-host-files).
 
@@ -170,7 +175,7 @@ The following table lists the Azure Private DNS zones required by Azure Backup:
 | Azure Blobs | privatelink.blob.core.windows.net |
 | Azure Queues | privatelink.queue.core.windows.net |
 
-In the above text, \<geo\> refers to the region code (for example eus and ne for East US and North Europe respectively). Refer to the following lists for regions codes:
+ In the zone name, `\<geo\>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Learn about the supported geography for the following regions:
 
 - [**All public clouds**](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 
@@ -180,9 +185,9 @@ In the above text, \<geo\> refers to the region code (for example eus and ne for
 
 - [**US Gov**](/azure/azure-government/documentation-government-developer-guide)
 
-- [**Geo-code list - sample XML**](/azure/backup/scripts/geo-code-list)
+- [**Geo-code list - sample XML**](./scripts/geo-code-list.md)
 
-- If you're using custom DNS servers or host files and don't have the Azure Private DNS zone setup, you need to add the DNS records required by the private endpoints to your DNS servers or in the host file.
+- If you're using custom DNS servers or host files and don't have the Azure Private DNS zone setup, add the DNS records required by the private endpoints to your DNS servers or in the host file.
 
 > Navigate to the private endpoint you created, and then go to **DNS configuration**. Then add an entry for each FQDN and IP displayed as *Type A* records in your DNS.
 >
@@ -191,11 +196,11 @@ In the above text, \<geo\> refers to the region code (for example eus and ne for
 > [!NOTE]
 > Azure Backup will allocate new storage account for your vault for the backup data, and MARS agent needs to access the respective endpoints. For more about how to add more DNS records after registration and backup, see [**how to use private endpoints for backup**](/azure/backup/backup-azure-private-endpoints-configure-manage#use-private-endpoints-for-backup).
 
-## Use Private Endpoints for Backup
+## Back up on-premises resources using DPM/MABS with private endpoints
 
 When using the MARS Agent to back up you're on-premises resources, make sure your on-premises network (containing your resources to be backed up) is peered with the Azure VNet that contains a private endpoint for the vault, so you can use it. You can then continue to install the MARS agent and configure backup as detailed here. However, you must ensure all communication for backup happens through the peered network only.
 
-1. Register your DPM\MABS Server to the vault created with Private Endpoints
+1. Register your DPM\MABS Server to the vault created with private endpoints
 
 :::image type="content" source="media/backup-private-endpoint-dpm-mabs-server/image13.jpeg" alt-text="Screenshot of DPM/MABS server registration to vault with private endpoints.":::
 
@@ -219,29 +224,27 @@ When using the MARS Agent to back up you're on-premises resources, make sure you
 
 So, the DPM\MABS Server can connect to the vault using Private Endpoints and backups are working as well.
 
-## Deleting Private Endpoints
+## Delete private endpoints
 
-If you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to **re-register the DPM\MABS with the vault**. You don't need to stop protection for them.
+After you remove private endpoints from the vault, re-register DPM/MABS with the vault. You don’t need to stop protection.
 
-1. To delete the private endpoint from Recovery Service Vault. Navigate to your vault created above and go to **Networking ->** Private Access.
+To delete the private endpoint from Recovery Service vault, follow these steps:
 
-1. Select the Private Endpoint and select **Reject** to stop using the Private Endpoint
+1. Go to the vault you created, and then select **Settings** > **Networking** > **Private access**.
 
-1. Once you select Reject and select Yes. It will start **Rejecting private endpoint connections.** Please wait for it to complete
+1. To stop using the private endpoint, select the **private endpoint** from the list, and then select **Reject** > **Yes**.
 
-1. Once it is completed you will see the Private Endpoint **Connection Status** as **Rejected**
+   After you confirm rejection, the vault starts rejecting private endpoint connections. Wait for the operation to complete. Once the operation completes the private endpoint **Connection Status** changes to **Rejected**.
 
-:::image type="content" source="media/backup-private-endpoint-dpm-mabs-server/image18.png" alt-text="Screenshot of private endpoint connection status showing rejected state.":::
+   :::image type="content" source="media/backup-private-endpoint-dpm-mabs-server/image18.png" alt-text="Screenshot of private endpoint connection status showing rejected state.":::
 
-1. Select the Private Endpoint ->Delete option and Select Yes to confirm the deletion for the private endpoint
+1. To confirm the deletion for the private endpoint, select the **private endpoint** > **Delete** > **Yes** .
 
-:::image type="content" source="media/backup-private-endpoint-dpm-mabs-server/image19.png" alt-text="Screenshot of private endpoint deletion confirmation dialog box.":::
+   :::image type="content" source="media/backup-private-endpoint-dpm-mabs-server/image19.png" alt-text="Screenshot of private endpoint deletion confirmation dialog box.":::
 
-1. Once the Private Endpoint is delete, Navigate to your vault created above and go to **Networking ->** Public Access.
+1. After the private endpoint deletion is complete, go to the **Vault** > **Settings** > **Networking** > **Public access**, and then select **Allow from all network and select apply**.
 
-1. Again select Public Access, select **Allow from all network and select apply**
-
-:::image type="content" source="media/backup-private-endpoint-dpm-mabs-server/image20.png" alt-text="Screenshot of vault public access settings with allow from all networks option.":::
+   :::image type="content" source="media/backup-private-endpoint-dpm-mabs-server/image20.png" alt-text="Screenshot of vault public access settings with allow from all networks option.":::
 
 ## Re-register the DPM\MABS Server with Vault
 
