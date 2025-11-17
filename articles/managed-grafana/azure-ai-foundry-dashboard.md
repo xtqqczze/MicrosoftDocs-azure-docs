@@ -72,9 +72,7 @@ Customize the dashboard to your specific monitoring needs.
 
 To add a new panel:
 
-1. Select **Add** > **Visualization** at the top of the dashboard.
-
-1. Select your Azure Monitor data source.
+1. Select **Edit** > **Add** > **Visualization** at the top of the dashboard.
 
 1. Configure the query:
 
@@ -112,6 +110,6 @@ The dashboard queries Azure Monitor Metrics using the following setup:
 ## Related content
 
 - [Create dashboards in Azure Managed Grafana](./how-to-create-dashboard.md)
-- [Monitor model deployments in Azure AI Foundry Models](/azure/ai-foundry/foundry-models/how-to/monitor-models.md)
+- [Monitor model deployments in Azure AI Foundry Models](/azure/ai-foundry/foundry-models/how-to/monitor-models)
 - [Create an Agent Framework dashboard](./agent-framework-dashboard.md) – Monitor individual AI agent operations, costs, and traces
 - [Create an Agent Framework Workflow dashboard](./agent-framework-workflow-dashboard.md) – Monitor multi-agent workflow execution and executor performance

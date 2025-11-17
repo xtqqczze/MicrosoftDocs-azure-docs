@@ -69,11 +69,11 @@ Import the prebuilt Agent Framework dashboard into your Grafana workspace.
 1. After importing the dashboard, use the dropdown selectors at the top of the dashboard to filter by agent name, operation type, and time range.
 
 > [!TIP]
-> You can also access this dashboard directly from the Azure portal. Go to **Monitor** > **Dashboards with Grafana (preview)**, and select **Agent Framework**, or use the direct link: [Agent Framework dashboard](https://portal.azure.com/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/AzureGrafanaReactView).
+> You can also access this dashboard directly from the Azure portal. Go to **Monitor** > **Dashboards with Grafana (preview)**, and select **Agent Framework**, or use the direct link: [Agent Framework dashboard](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/AzureGrafanaReactView).
 
 :::image type="content" source="media/agent-framework-dashboard/dashboard-screenshot-performance-metrics.png" alt-text="Screenshot of Grafana showing Agent Framework performance metrics." lightbox="media/agent-framework-dashboard/dashboard-screenshot-performance-metrics.png":::
 
-:::image type="content" source="media/agent-framework-dashboard/dashboard-screenshot-agent-framework-traces.png" alt-text="Screenshot of Grafana showing Agent Framework traces panels." lightbox="media/agent-framework-dashboard/dashboard-screenshot-agent-framework-traces.png":::
+:::image type="content" source="media/agent-framework-dashboard/dashboard-screenshot-traces.png" alt-text="Screenshot of Grafana showing Agent Framework traces panels." lightbox="media/agent-framework-dashboard/dashboard-screenshot-traces.png":::
 
 :::image type="content" source="media/agent-framework-dashboard/dashboard-screenshot-errors-detailed-metrics.png" alt-text="Screenshot of Grafana showing Agent Framework detailed metrics panels." lightbox="media/agent-framework-dashboard/dashboard-screenshot-errors-detailed-metrics.png":::
 
@@ -83,9 +83,7 @@ Customize the dashboard to your specific monitoring needs.
 
 To add a new panel:
 
-1. Select **Add** > **Visualization** at the top of the dashboard.
-
-1. Select your Azure Monitor data source.
+1. Select **Edit** > **Add** > **Visualization** at the top of the dashboard.
 
 1. Configure the query:
 
@@ -107,8 +105,6 @@ To add a new panel:
    - **Thresholds**: Define warning and critical thresholds for visual alerts.
 
 1. Select **Apply** to add the panel to your dashboard.
-
-   :::image type="content" source="media/agent-framework-dashboard/azure-monitor-datasource.png" alt-text="Screenshot of Grafana showing Azure Monitor data source configuration for Application Insights.":::
 
 To customize cost estimation:
 

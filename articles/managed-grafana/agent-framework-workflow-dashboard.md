@@ -74,7 +74,7 @@ Import the prebuilt Agent Framework Workflow dashboard into your Grafana workspa
 1. After importing the dashboard, use the dropdown selectors at the top of the dashboard to filter by workflow name, executor type, operation type, and time range.
 
 > [!TIP]
-> You can also access this dashboard directly from the Azure portal. Go to **Monitor** > **Dashboards with Grafana (preview)**, and select **Agent Framework Workflow**, or use the direct link: [Agent Framework Workflow dashboard](https://aka.ms/amg/dash/af-workflow)
+> You can also access this dashboard directly from the Azure portal. Go to **Monitor** > **Dashboards with Grafana (preview)**, and select **Agent Framework Workflow**, or use the direct link: [Agent Framework Workflow dashboard](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureGrafana.ReactView/GalleryType/Azure%20Monitor/ConfigurationId/AgentFrameworkWorkflow)
 
 :::image type="content" source="media/agent-framework-workflow-dashboard/dashboard-screenshot-execution-summary-stats.png" alt-text="Screenshot of Grafana showing Agent Framework Workflow dashboard summary statistics and execution trends." lightbox="media/agent-framework-workflow-dashboard/dashboard-screenshot-execution-summary-stats.png":::
 
@@ -98,9 +98,7 @@ Customize the dashboard to your specific monitoring needs.
 
 To add a new panel:
 
-1. Select **Add** > **Visualization** at the top of the dashboard.
-
-1. Select your Azure Monitor data source.
+1. Select **Edit** > **Add** > **Visualization** at the top of the dashboard.
 
 1. Configure the query:
 
@@ -128,8 +126,6 @@ To add a new panel:
    - **Thresholds**: Define warning and critical thresholds for visual alerts.
 
 1. Select **Apply** to add the panel to your dashboard.
-
-   :::image type="content" source="media/agent-framework-workflow-dashboard/azure-monitor-datasource.png" alt-text="Screenshot of Azure Managed Grafana showing Azure Monitor data source configuration for Application Insights.":::
 
 To analyze executor performance:
 
