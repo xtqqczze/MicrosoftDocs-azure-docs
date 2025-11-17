@@ -140,7 +140,7 @@ Select it by adding a new DNS traffic rule and configure it with the action whic
 
 Associate threat intelligence feed with a DNS traffic rule by selecting **Azure DNS threat intel**: 
 
-:::image type="content" source="./media/dns-traffic-log-how-to/enable-dns-threat-intelligence.png" alt-text="Screenshot of enablement of Threat intelligence feed." lightbox="./media/dns-traffic-log-how-to/enable-dns-threat-intelligence.png":::
+:::image type="content" source="./media/dns-traffic-log-how-to/enable-threat-intelligence-feed.png" alt-text="Screenshot of enablement of Threat intelligence feed." lightbox="./media/dns-traffic-log-how-to/enable-threat-intelligence-feed.png":::
 
 Configure the action and priority:
 
