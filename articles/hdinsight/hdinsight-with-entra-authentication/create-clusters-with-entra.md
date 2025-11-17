@@ -1,6 +1,6 @@
 ---
-title: Create and Manage Azure HDInsight clusters enabled with Microsoft Entra ID Authentication
-description: Learn how to create Azure HDInsight clusters with Microsoft Entra ID Authentication
+title: Create and Manage Azure HDInsight Clusters with Microsoft Entra ID Authentication
+description: Learn how to create Azure HDInsight clusters with Microsoft Entra ID authentication.
 ms.service: azure-hdinsight
 ms.topic: how-to
 author: apurbasroy

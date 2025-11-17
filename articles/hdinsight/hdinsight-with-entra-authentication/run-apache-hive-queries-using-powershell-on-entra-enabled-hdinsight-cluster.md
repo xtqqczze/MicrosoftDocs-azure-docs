@@ -1,6 +1,6 @@
 ---
 title: Run Apache Hive Queries by Using PowerShell on HDInsight Clusters
-description: Learn how to run Apache Hive queries by using PowerShell on Microsoft Entra ID-enabled HDInsight clusters.
+description: Learn how to run Apache Hive queries by using PowerShell on Microsoft Entra ID-enabled Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
 author: apurbasroy

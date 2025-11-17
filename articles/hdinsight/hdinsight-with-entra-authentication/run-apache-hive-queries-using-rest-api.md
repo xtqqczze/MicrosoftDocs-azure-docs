@@ -1,6 +1,6 @@
 ---
-title: Run Apache Hive queries in HDInsight by using REST API
-description: Learn how to run Apache Hive queries in Azure HDInsight by using REST API
+title: Run Apache Hive Queries in HDInsight by Using the REST API
+description: Learn how to run Apache Hive queries in Azure HDInsight by using the REST API.
 ms.service: azure-hdinsight
 ms.topic: how-to
 author: apurbasroy
@@ -11,7 +11,7 @@ ms.date: 08/20/2025
 
 # Run Apache Hive queries in Azure HDInsight by using the REST API
 
-Apache Hive enables you to query and analyze large datasets in Azure HDInsight by using a familiar SQL-like language. The REST API in Azure HDInsight provides a programmatic way to submit Hive queries, monitor execution, and retrieve results. You don't need to directly sign in to the cluster or use manual tools.
+Apache Hive enables you to query and analyze large datasets in Azure HDInsight by using a familiar SQL-like language. The REST API in HDInsight provides a programmatic way to submit Hive queries, monitor execution, and retrieve results. You don't need to directly sign in to the cluster or use manual tools.
 
 With the REST API, you can integrate Hive query execution into applications, scripts, and automation pipelines. This approach is useful for scenarios where you need to run queries from external systems, enforce secure access through Microsoft Entra ID, or manage workloads at scale.
 
