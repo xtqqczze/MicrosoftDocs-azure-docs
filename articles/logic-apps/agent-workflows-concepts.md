@@ -65,7 +65,12 @@ The following high-level steps describe the behavior for a basic autonomous agen
 
 1. The agent accepts system instructions and nonhuman prompts or inputs, for example, outputs from the trigger or a preceding action.
 
-1. Based on whether you have a Consumption or Standard agent workflow, the agent respectively uses a model hosted in [Microsoft Foundry](/azure/ai-foundry/foundry-models/concepts/models) or in [Azure OpenAI Service](/azure/ai-services/openai/concepts/models) to interpret and understand the instructions and request. The agent also uses the model to process and analyze the provided inputs.
+1. Based on whether you have a Consumption or Standard agent workflow, the agent uses an Azure OpenAI model or LLM API from the following source to interpret and understand the instructions and request. The agent also uses the model to process and analyze the provided inputs.
+
+   | Logic app | Model source |
+   |-----------|--------------|
+   | Consumption | [Microsoft Foundry](/azure/ai-foundry/foundry-models/concepts/models) |
+   | Standard | - [Azure OpenAI Service resource](/azure/ai-services/openai/concepts/models) <br>- [Azure AI Foundry project](/azure/ai-foundry/openai/concepts/models) (preview) <br>- [Azure API Management account](/azure/api-management/genai-gateway-capabilities) with an LLM API (preview) |
 
 1. Based on the agent instructions, the model helps plan which tools that the agent needs to invoke to perform the necessary tasks.
 
@@ -85,9 +90,12 @@ The following high-level steps describe the behavior for a basic conversational 
 
 1. The agent accepts system instructions and human-provided prompts or inputs through the integrated chat interface, for example, **What is the weather in Seattle**?
 
-1. The agent uses the [deployed model in Azure OpenAI Service](/azure/ai-services/openai/concepts/models) to interpret and understand the instructions and request. The agent also uses the model to process and analyze the provided inputs.
+1. Based on whether you have a Consumption or Standard agent workflow, the agent uses an Azure OpenAI model or LLM API from the following source to interpret and understand the instructions and request. The agent also uses the model to process and analyze the provided inputs.
 
-1. Based on whether you have a Consumption or Standard agent workflow, the agent respectively uses a model deployed in [Microsoft Foundry](/azure/ai-foundry/foundry-models/concepts/models) or in [Azure OpenAI Service](/azure/ai-services/openai/concepts/models) to interpret and understand the instructions and request. The agent also uses the model to process and analyze the provided inputs.
+   | Logic app | Model source |
+   |-----------|--------------|
+   | Consumption | [Microsoft Foundry](/azure/ai-foundry/foundry-models/concepts/models) |
+   | Standard | - [Azure OpenAI Service resource](/azure/ai-services/openai/concepts/models) <br>- [Azure API Management account](/azure/api-management/genai-gateway-capabilities) with an LLM API (preview) |
 
 1. Based on the agent instructions, the model helps plan which tools that the agent invokes for the necessary tasks.
 
