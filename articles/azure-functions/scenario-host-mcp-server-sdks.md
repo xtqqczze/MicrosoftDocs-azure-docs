@@ -115,7 +115,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](functions-run-lo
 
 1. Open Terminal in the editor (``Ctrl+Shift+` ``)
 ::: zone-end
-::: zone pivot="programming-language-csharp"  
+::: zone pivot="programming-language-csharp"       
 2. In the root directory, run `func start` to start the server. The **Terminal** panel displays the output from Core Tools.
 ::: zone-end 
 ::: zone pivot="programming-language-typescript"  
@@ -124,8 +124,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](functions-run-lo
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
 2. In the root directory, run `uv run func start` to create virtual environment, install dependencies, and start the server. 
-::: zone-end 
-
+::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Test server by using GitHub Copilot
 

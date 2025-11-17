@@ -29,7 +29,7 @@
       href: create-first-function-azure-developer-cli.md
     - name: AI tools and MCP
       items:
-      - name: Custom remote MCP server (extension)
+      - name: Custom remote MCP server
         displayName: AI, agent, agentic, tools, trigger
         href: scenario-custom-remote-mcp-server.md
       - name: Host MCP server using SDKs
