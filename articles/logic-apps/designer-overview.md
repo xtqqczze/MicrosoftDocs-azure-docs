@@ -93,7 +93,7 @@ From here, you can [create a new workflow](#create-a-new-workflow) or [access an
 
 Follow these steps to create a new workflow in your logic app.
 
-1. On the **Workflows** page toolbar, select **+ Create** > **+ Create**.
+1. On the **Workflows** page toolbar, select **+ Create**.
 
    The **Create workflow** pane with the workflow types appears.
 
@@ -113,7 +113,7 @@ The designer opens and shows an empty workflow with the prompt to add a trigger.
 
 Follow these steps to create a new workflow in your logic app.
 
-1. On the **Workflows** page toolbar, select **+ Create** > **+ Create**.
+1. On the **Workflows** page toolbar, select **+ Create**.
 
    The **Create workflow** pane with the workflow types appears.
 
