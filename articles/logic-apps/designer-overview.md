@@ -177,7 +177,7 @@ No separate **Save** option exists. As you edit the workflow, your changes are a
 
 ---
 
-If validation errors happen when you save your changes or during auto-save, the designer shows validation messages.
+If validation errors happen when you save your changes or during AutoSave, the designer shows validation messages.
 
 ## Switch between designer, code, and run history views
 
@@ -215,11 +215,11 @@ At the designer top, you can choose from the following views: **Workflow**, **Co
 
 # [Classic designer](#tab/classic)
 
-To run your workflow, on the designer toolbar, select **Run** or **Run with payload**.
+To run your workflow, on the designer toolbar, select **Run, or **Run with payload**.
 
 # [Preview designer](#tab/preview)
 
-To run your workflow, at the designer bottom, select **Run** or **Run with payload**.
+To run your workflow, at the designer bottom, select **Run, or **Run with payload**.
 
 ---
 
