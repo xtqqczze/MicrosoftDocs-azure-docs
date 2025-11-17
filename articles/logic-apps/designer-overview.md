@@ -236,41 +236,41 @@ In the designer upper-right corner, select **Publish**.
 
 Many actions in the classic designer are accessed through either the sidebar configuration or the workflow toolbar.
 
-##* Sidebar Configuration
+### Sidebar configuration
 
-| Task | Label |
-|---|---|
-| Access keys | **Access keys** |
-| Disable/Enable workflow | **Settings** |
-| Properties / Info | **Properties** |
+Actions located on the sidebar configuration include:
 
-##* Workflow toolbar
+- Access keys
+- Settings
+- Properties
 
-| Task | Label |
-|---|---|
-| Connections | **Connections** |
-| Discard changes | **Discard** |
-| Download workflow summary | **Download workflow summary** |
-| Parameters | **Parameters** |
+### Workflow toolbar
+
+Actions located on the workflow toolbar include:
+
+- Connections
+- Discard
+- Download workflow summary
+- Parameters
 
 # [Preview designer](#tab/preview)
 
 ### Ellipsis menu
 
-The preview designer moves many other actions to the vertical ellipsis menu (**⋮**) next to the **Publish** button in the designer's upper-right corner. To view and select these options, open this menu.
+The preview designer moves many other actions to the vertical ellipsis menu (**⋮**) next to the **Publish** button in the designer's upper-right corner. 
 
 :::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot show the preview designer and toolbar with vertical ellipsis menu next to the Publish button." lightbox="media/designer-overview/ellipsis.png":::
 
-| Task | Label |
-|---|---|
-| Access keys | **Settings** > **Access keys** |
-| Connections | **Connections** |
-| Disable/Enable workflow | **Disable** / **Enable** |
-| Discard changes | **Discard changes** |
-| Download workflow summary | **Download workflow summary** |
-| Parameters | **Parameters** |
-| Properties / Info | **Information** |
-| View production version | **Switch to published version** |
+Actions located under the ellipsis menu (**:**) include:
+
+- Access keys (under **Setings**)
+- Connections
+- Disable/Enable workflow
+- Discard changes
+- Download workflow summary
+- Parameters
+- Properties / Info (**Information**)
+- Switch to published version
 
 ---
 
