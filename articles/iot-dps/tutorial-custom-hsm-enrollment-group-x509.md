@@ -33,7 +33,7 @@ The Azure IoT Hub Device Provisioning Service supports three forms of authentica
 * Trusted platform module (TPM)
 * Symmetric keys
 
-In production scenarios, a [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is recommended to help protect sensitive information like your device certificate's private key.
+In production scenarios, a [hardware security module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is recommended to help protect sensitive information like your device certificate's private key.
 
 In this tutorial, you complete the following objectives:
 
@@ -48,7 +48,7 @@ In this tutorial, you complete the following objectives:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-* Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+* Complete the steps in [Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
 ::: zone pivot="programming-language-ansi-c"
 
@@ -116,7 +116,7 @@ In this section, you prepare a development environment used to build the [Azure 
 
 1. In a web browser, go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
-1. Copy the tag name for the latest release of the Azure IoT C SDK, for example: `lts_03_2024`.
+1. Copy the tag name for the latest release of the Azure IoT C SDK, for example: `lts_03_2025`.
 
 1. Open a Windows command prompt and run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step.
 
@@ -1400,17 +1400,19 @@ When you're finished testing and exploring this device client sample, use the fo
 
 ### Delete your enrollment group
 
-1. From the left-hand menu in the Azure portal, select **All resources**.
+1. From the portal menu in the Azure portal, select **All resources**.
 
 1. Select your DPS instance.
 
-1. In the **Settings** menu, select **Manage enrollments**.
+1. In the service menu, under **Settings**, select **Manage enrollments**.
 
-1. Select the **Enrollment groups** tab.
+1. In the working pane, select the **Enrollment groups** tab.
 
 1. Select the enrollment group you used for this tutorial.
 
-1. On the **Enrollment details** page, select **Details** next to the **Registration status**. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete** at the top of the page to delete the registration records.
+1. On the **Enrollment details** page, select **Details** next to the **Registration status** label. 
+
+1. On the **Enrollment group registrations** page, select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete** from the command bar to delete the registration records.
 
     > [!IMPORTANT]
     > Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
@@ -1419,27 +1421,29 @@ When you're finished testing and exploring this device client sample, use the fo
 
 1. Select the check box next to the group name of the enrollment group you used for this tutorial.
 
-1. At the top of the page, select  **Delete**.
+1. Select **Delete** from the command bar.
 
 ### Delete registered CA certificates from DPS
 
-1. Select **Certificates** from the left-hand menu of your DPS instance. For each certificate you uploaded and verified in this tutorial, select the certificate and select **Delete** and confirm your choice to remove it.
+1. In the service menu of your DPS instance, under **Settings**, select **Certificates**.
+
+1.  For each certificate you uploaded and verified in this tutorial, select the certificate, then select **Delete** from the command bar and confirm your choice to remove it.
 
 ### Delete device registrations from IoT Hub
 
-1. From the left-hand menu in the Azure portal, select **All resources**.
+1. From the portal menu in the Azure portal, select **All resources**.
 
 2. Select your IoT hub.
 
-3. In the **Device management** menu, select **Devices**.
+3. In the service menu, under **Device management**, select **Devices**.
 
 4. Select the check box next to the device ID of the devices you registered in this tutorial. For example, *device-01* and *device-02*.
 
-5. At the top of the page, select  **Delete**.
+5. Select **Delete** from the command bar.
 
 ## Next steps
 
 In this tutorial, you provisioned multiple X.509 devices to your IoT hub using an enrollment group. Next, learn how to provision IoT devices across multiple hubs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Manage IoT hub assignment with custom allocation policies](tutorial-custom-allocation-policies.md)
+> [Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)](tutorial-custom-allocation-policies.md)
