@@ -77,7 +77,7 @@ Follow these steps to add one or multiple tools for your agent in Microsoft Foun
 
    The classic Foundry portal changes to the preview Foundry portal.
 
-   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/preview-foundry.png" alt-text="Screenshot shows preview Foundry experience." lightbox="media/add-agent-tools-mcp-server-connector-actions/preview-foundry.png":::
+   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/preview-foundry.png" alt-text="Screenshot shows preview Foundry portal." lightbox="media/add-agent-tools-mcp-server-connector-actions/preview-foundry.png":::
 
 1. Under **Your recent work**, select your agent.
 
@@ -127,7 +127,7 @@ You can continue with these steps only after you finish the steps in the precedi
 
    For example:
 
-   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/mcp-information.png" alt-text="Screenshot shows search box with rss entered with RSS connector and Create button selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/mcp-information.png":::
+   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/mcp-information.png" alt-text="Screenshot shows MCP server details section in wizard." lightbox="media/add-agent-tools-mcp-server-connector-actions/mcp-information.png":::
 
 1. In the **Tools** section, set up the connection for your chosen connector:
 
@@ -174,6 +174,20 @@ You can continue with these steps only after you finish the steps in the precedi
 1. Wait for the notifications that Azure successfully registered your MCP server.
 
    After registration completes, try testing your agent tool using the chat window in your agent's playground.
+
+<a name="runtime-value-resolution"></a>
+
+### Learn how parameter values resolve at runtime
+
+This section describes the options for how your MCP server sources input parameter values for action-backed tools. You can either keep the model as the default source, or you can provide hardcoded static values for all interactions.
+
+- Model-provided inputs
+
+  By default, the model passes in parameter values at runtime based on the conversation between the agent and the end user. These values are dynamic and unknown until runtime.
+
+- User-provided inputs
+
+  You specify the parameter values during development. These values are typically hardcoded and stay the same across all interactions between the agent and the end user.
 
 ## Related content
 
