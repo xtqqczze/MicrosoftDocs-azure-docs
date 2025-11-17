@@ -83,7 +83,6 @@ From here, you can [create a new workflow](#create-a-new-workflow) or [open an e
    
    :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
 
-From here, you can [create a new workflow](#create-a-new-workflow) or [open an existing workflow in the designer](#open-an-existing-workflow-in-the-designer).
 
 ---
 
