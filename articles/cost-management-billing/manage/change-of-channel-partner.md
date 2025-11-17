@@ -24,7 +24,7 @@ A customer initiates a  Co-CP, and then notifies the Partner to accept or declin
 
 Only two pieces of information are required to initiate a change of channel partner request.
 
-**The new partner PCN number** – The new partner PCN number – Please ask your new partner their partner PCN number.This is required information, and you can't proceed without it. Partner can get it by opening any existing contract in VLCentral in contracts workspace.
+**The new partner PCN number** – The new partner PCN number – Please ask your new partner their partner PCN number. This is required information, and you can't proceed without it. Partner can get it by opening any existing contract in VLCentral in contracts workspace.
 
 **Partner Notification Contact – What You Need to Know:**
 
@@ -45,7 +45,7 @@ Always try to get the correct partner notification contact from your new partner
 
 In Scope
 
--   Only Enterprise Admin can initiate  Co-CP requests via Azure Portal.
+-   Only Enterprise Admin can initiate  Co-CP requests via Azure portal.
 -   Agreement Type = Enterprise enrollments (EA) and Enterprise Subscription Agreements,
 -   Agreement status must be active
 -   Trade status must be "Approved".
@@ -60,7 +60,7 @@ In Scope
 -   Early  Co-CP (before anniversary date)
 -   A  Co-CP initiated in one portal isn't visible in the other to prevent duplication of requests.
 
-## Azure Portal customer experience
+## Azure portal customer experience
 
 1.  The customer must have enterprise admin role on the billing scopes to initiate the request.
 2.  **Customers can initiate the  Co-CP request from 1 entry point**
@@ -102,14 +102,14 @@ It's up to the new partner contact who is directly engaged with the customer to 
 
 **Scenario: Partner email address inputted by customer does not have access to VL Central**.
 
-Customer may input an email address in Partner Notification Contact of a partner user who doesn't have permissions on VLC to accept the  Co-CP. The Azure Portal displays a warning but allows the user to proceed.
+Customer may input an email address in Partner Notification Contact of a partner user who doesn't have permissions on VLC to accept the  Co-CP. The Azure portal displays a warning but allows the user to proceed.
 
 This rule means the notification goes to the email address listed on Co-CP rather than the partner user who has VL Central access. That partner user with VLC access can see and accept the Co-CP in VL Central even though they do not receive the Co-CP notification.![A screenshot of a computer AI-generated content may be incorrect.](../media/8f74d9f696f134c23bd6ee0f7c2cb752.png)
 
 7.  **Review Change Partner terms**
 -   If selected billing accounts are all EA direct – "Change of Software Advisor" form displayed.
 -   If selected billing accounts are all EA Indirect – "Change of Reseller" form displayed.
--   If selected licenses are all are a combination of EA direct and Indirect, one form with sections for *Change of SA Advisor* and *Change of Reseller* is displayed. The form is scrollable.
+-   If selected licenses are all a combination of EA direct and Indirect, one form with sections for *Change of SA Advisor* and *Change of Reseller* is displayed. The form is scrollable.
 -   User needs to input their first name and last name and agree to terms and conditions by clicking on the checkbox.
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/f076209a9ebd77b5df61d2478b3c2170.png)![A screenshot of a computer screen AI-generated content may be incorrect.](../media/76471b6f9a91b163aea5237056d5c87e.png)![A screenshot of a computer AI-generated content may be incorrect.](../media/39242bb1fcdf405b3158369556ee7359.png)
@@ -158,7 +158,7 @@ Customer admin must navigate to track changes page.
 
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/d61eab87c8bb7c2f8eadafadeaccaaa7.png)
 
-#### How to cancel  Co-CP request in Azure Portal
+#### How to cancel  Co-CP request in Azure portal
 
 A  Co-CP Request with a status of In Process may be canceled in full or partially (remove just some billing accounts from the request).
 
@@ -168,6 +168,7 @@ A  Co-CP Request with a status of In Process may be canceled in full or partiall
 ![A screenshot of a computer AI-generated content may be incorrect.](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This initiates a notification to the partner to let them know that the request is canceled.
+
 
 
 
