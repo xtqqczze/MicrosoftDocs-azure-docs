@@ -133,7 +133,7 @@ Follow these steps to create a new workflow in your logic app.
 
 1. Select **Create**.
 
-The designer opens and shows an empty workflow with the prompt to add a trigger.
+   The designer opens and shows an empty workflow or a partial workflow, based on your selection. In most cases, the workflow includes a prompt to add a trigger.
 
 ---
 
@@ -183,7 +183,7 @@ If validation errors happen when you save your changes or during auto-save, the 
 
 # [Classic designer](#tab/classic)
 
-In the Sidebar tools, you can choose between the following views: **Workflow**, **Code**, and **Run history**.
+On the workflow sidebar, you can choose between the following views: **Workflow**, **Code**, and **Run history**.
 
 - To build, edit, and run your workflow, select **Workflow**. To edit the workflow definition in JSON, select **Code**.
 
@@ -195,7 +195,7 @@ In the Sidebar tools, you can choose between the following views: **Workflow**, 
 
 # [Preview designer](#tab/preview)
 
-At the designer top, the view selector shows the following views: **Workflow**, **Code**, and **Run history**. Select a view to switch between the designer, workflow JSON definition, and workflow run history.
+At the designer top, you can choose from the following views: **Workflow**, **Code**, and **Run history**. Select a view to switch between the designer, workflow JSON definition, and workflow run history.
 
 :::image type="content" source="media/designer-overview/view-selector.png" alt-text="Screenshot shows the preview designer and the view selector at the top." lightbox="media/designer-overview/view-selector.png":::
 
