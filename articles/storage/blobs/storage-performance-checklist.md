@@ -30,7 +30,7 @@ Use this checklist to reduce latency, increase throughput, and align with [Azure
 >
 > - **Use performance-optimized data transfer tools**: Use AzCopy for bulk transfers with high transfer rates and parallel uploads. See [Get started with AzCopy](../common/storage-use-azcopy-v10.md). For large offline data imports when limited by time, network, or costs, use [Azure Data Box](../../databox/index.yml). 
 >
-> - **Activate high-throughput block blobs**: Configure clients to upload blob or block sizes greater than 4 MiB for standard storage accounts and 256 KiB for premium storage accounts. Larger blob or block sizes automatically activate high-throughput block blobs, which provide high-performance ingest that isn't affected by partition naming. 
+> - **Activate high-throughput block blobs**: Configure clients to upload blob or block sizes greater than 256 KiB. Larger blob or block sizes automatically activate high-throughput block blobs, which provide high-performance ingest that isn't affected by partition naming. 
 >
 > - **Use hash prefixes when using small block sizes**: Improve load balancing by adding a hash sequence (three digits) or seconds value as early as possible in partition keys. This reduces time for listing, querying, and reading blobs in cases where block sizes are small. See [Optimize blob partitions](storage-performance-blob-partitions.md).
 >
