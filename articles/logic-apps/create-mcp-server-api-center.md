@@ -146,8 +146,6 @@ For example, suppose you want to create an MCP server with tools that manage con
 
 1. Wait for the notifications that Azure successfully registered your MCP server.
 
-   By default, your MCP server uses the name for the connector that you selected.
-
 <a name="runtime-value-resolution"></a>
 
 ### Learn how parameter values resolve at runtime

@@ -1,6 +1,6 @@
 ---
 title: Add Agent Tools Backed by Connector Actions
-description: Learn to add tools for agents in Microsoft Foundry by creating Model Context Protocol (MCP) servers powered by connector actions in Azure Logic Apps.
+description: Learn to add tools for agents in Microsoft Foundry powered by connector actions in Azure Logic Apps by creating Model Context Protocol (MCP) servers.
 services: logic-apps, azure-ai-foundry
 author: ecfan
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 11/18/2025
 ms.update-cycle: 180-days
-# Customer intent: As an AI integration developer working in Microsoft Foundry, I want to add agent tools by creating MCP servers powered by workflow connector actions in Azure Logic Apps.
+# Customer intent: As an AI integration developer working in Microsoft Foundry, I want to add agent tools powered connector actions in Azure Logic Apps by creating MCP servers.
 ---
 
-# Add agent tools in Foundry with MCP servers powered by connector actions in Azure Logic Apps (preview)
+# Add agent tools in Foundry powered by connector actions in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -21,7 +21,7 @@ ms.update-cycle: 180-days
 > This capability is in preview, might incur charges, and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This guide shows how to add tools to your agents in Microsoft Foundry by creating Model Content Protocol (MCP) servers that provide tools powered by Azure Logic Apps. You build these MCP servers and tools by selecting connector actions that run in Azure Logic Apps. These tools let you integrate your agents with specific Microsoft and non-Microsoft services, systems, apps, and data sources - without having to write any code. Tools can include single or multiple actions provided by the connector you choose from supported available connectors.
+This guide shows how to add tools powered by Azure Logic Apps to your agents in Microsoft Foundry. These tools use connector actions that run in Azure Logic Apps and let you integrate agents with specific Microsoft and non-Microsoft services, systems, apps, and data sources so you don't have to write any code. Tools include single or multiple actions provided by the connector that you choose. You then package these tools by creating Model Content Protocol (MCP) servers as tool providers.
 
 For more information, see:
 
@@ -33,29 +33,31 @@ For more information, see:
 
 - An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- The following Foundry assets that you can create with the classic Foundry experience:
+- The following Foundry assets that you can create with the classic Foundry portal:
 
   - A [Foundry resource](/azure/ai-services/multi-service-resource?pivots=azportal)
 
     You need the **Owner** role in your subscription to create this resource.
 
-  - A [Foundry project for your Foundry resource](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry)
+  - A [Foundry project in your Foundry resource](/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry)
 
-  - An [agent for your project](/azure/ai-foundry/agents/quickstart?context=%2Fazure%2Fai-foundry%2Fcontext%2Fcontext&pivots=ai-foundry-portal)
+  - An [agent in your project](/azure/ai-foundry/agents/quickstart?context=%2Fazure%2Fai-foundry%2Fcontext%2Fcontext&pivots=ai-foundry-portal)
   
-  - A [Foundry model deployed for your agent](/azure/ai-foundry/foundry-models/how-to/create-model-deployments?pivots=ai-foundry-portal).
+  - A [Foundry model deployed for your agent](/azure/ai-foundry/foundry-models/how-to/create-model-deployments?pivots=ai-foundry-portal)
 
 ## Limitations and known issues
 
-- Microsoft Foundry
+- Foundry portal
 
-  - The experience to add an agent tool powered by Azure Logic Apps is currently available only in the preview Foundry experience, not in classic Foundry experience.
+  - The experience to add an agent tool powered by Azure Logic Apps is currently available only in the preview Foundry portal, not in classic Foundry portal.
+
+  - You can select only one connector to use for your agent tool.
 
   - This release supports only managed connectors for Microsoft and non-Microsoft services and products that don't use OAuth 2.0 authentication.
   
     [*Managed* connectors](/azure/connectors/managed) are hosted and run on shared clusters in multitenant Azure.
 
-  - After you select a You can't clear connector search filters after you select a filter. To clear the filters, return to the **Tools** page and start over with **Connect your first tool**.
+  - In the **Select a tool** window, after you select one or multiple filters, you can't clear your selections. To clear the filters, return to the **Tools** page and start over with **Connect a tool**.
 
 - Azure portal
 
@@ -139,17 +141,39 @@ You can continue with these steps only after you finish the steps in the precedi
 
       For the example RSS connector, you're prompted to select **Create new**.
 
+1. If the **Add actions** pane doesn't appear, under **Tools**, in the **Actions** section, select **Add**.
 
+1. On the **Add actions** pane, find and select one or more connector actions to include as tools in your MCP server.
 
-1. In the **Actions** section, On the **Add actions** pane, find and select the connector actions to include in your MCP server.
+   This example selects the **RSS** action named **List all RSS feed items**.
 
-   This example uses the **RSS** connector and the action named **List all RSS feed items**.
+1. When you're ready, select **Save**.
 
-1. When you're ready, select **Next**.
+   The **Actions** section shows the selected actions that power the tools that your MCP server provides. By default, any parameters for these actions use an LLM as the input source. You can change this input source to user-provided, based on your scenario's needs.
 
-1. If the Azure portal prompts you to sign in for authentication, sign in now.
+1. To help an agent, LLM, or MCP client choose the correct tool and pass correctly sourced inputs to tool parameters, review and update each tool's setup by following these steps:
 
+   1. In the **Actions** section, select either the tool name or the edit button (pencil) for that tool.
 
+   1. On the **Edit: <*tool-name*>** pane, provide the following information:
+
+        | Section | Description |
+        |---------|-------------|
+        | **Description** | Describes the purpose for the action-backed tool to help an agent or LLM determine when to use the tool. A default description exists, but you can customize the text for your needs. <br><br>The default text comes from the [connector's API Swagger description](/connectors/connector-reference/connector-reference-logicapps-connectors), for example, [Actions - RSS](/connectors/rss/). |
+        | **Default parameters** | Lists any parameters required to run the tool. For each parameter, the input source options are **Model** and **User**. By default, the model (LLM) provides the inputs. If you select **User**, the appropriate UX appears for you to provide the input source. For more information, see [Learn how parameter values resolve at runtime](#runtime-value-resolution). |
+        | **Optional parameters** | Select any other parameters that you want to include for the tool. |
+
+        The following example shows the description and parameters for the **Send email (V2)** tool:
+
+        :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/tool-parameters.png" alt-text="Screenshot shows Edit pane for an example tool." lightbox="media/add-agent-tools-mcp-server-connector-actions/tool-parameters.png":::
+
+     1. When you're done, select **Save changes**.
+
+1. When you're done reviewing or updating each tool, select **Register**.
+
+1. Wait for the notifications that Azure successfully registered your MCP server.
+
+   After registration completes, try testing your agent tool using the chat window in your agent's playground.
 
 ## Related content
 
