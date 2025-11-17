@@ -12,7 +12,7 @@ ms.update-cycle: 180-days
 # Customer intent: As an AI integration developer working in Microsoft Foundry, I want to add agent tools powered connector actions in Azure Logic Apps by creating MCP servers.
 ---
 
-# Add agent tools in Foundry powered by connector actions in Azure Logic Apps (preview)
+# Add agent tools in Foundry backed by connector actions in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -26,7 +26,7 @@ This guide shows how to add tools powered by Azure Logic Apps to your agents in 
 For more information, see:
 
 - [What is Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro)?
-- [What is Foundry](/ai-foundry/what-is-azure-ai-foundry)?
+- [What is Foundry](/azure/ai-foundry/what-is-azure-ai-foundry)?
 - [What is Azure Logic Apps](/azure/logic-apps/logic-apps-overview)?
 
 ## Prerequisites
@@ -105,17 +105,17 @@ Follow these steps to add one or multiple tools for your agent in Microsoft Foun
 
    1. From the results, select the matching connector, then select **Create**.
 
-   For example:
+      For example:
 
-   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/select-connector.png" alt-text="Screenshot shows search box with rss entered with RSS connector and Create button selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/select-connector.png":::
+      :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/select-connector.png" alt-text="Screenshot shows search box with rss entered with RSS connector and Create button selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/select-connector.png":::
 
-   The Azure portal opens and shows the home page for the **Register an MCP server with Azure Logic Apps** wizard.
+      This action opens Azure portal and shows the home page for the **Register an MCP server with Azure Logic Apps** wizard.
 
-1. Continue in the Azure portal by using the wizard to create your MCP server and tools.
+1. Continue to the next section so you can create your MCP server and set up your tools in the Azure portal.
 
 ## 2: Create the MCP server and tools for your agent
 
-You can continue with these steps only after you finish the steps in the preceding section.
+You can continue with these steps only after you finish the steps from the preceding section.
 
 1. In the Azure portal, on the **Register an MCP server with Azure Logic Apps** wizard home page, in the **Project details** section, provide the following information:
 
@@ -133,6 +133,8 @@ You can continue with these steps only after you finish the steps in the precedi
 
    1. In the **Connectors** section, on the connector row, select the edit button (pencil icon).
 
+      :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/create-connection.png" alt-text="Screenshot shows MCP wizard with Connectors section and edit button selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/create-connection.png":::
+
    1. On the **Edit connection** pane, follow the prompt, which varies based on the connector, for example:
 
       1. For connectors that don't require authentication, select **Create new**.
@@ -142,6 +144,8 @@ You can continue with these steps only after you finish the steps in the precedi
       For the example RSS connector, you're prompted to select **Create new**.
 
 1. If the **Add actions** pane doesn't appear, under **Tools**, in the **Actions** section, select **Add**.
+
+   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/add-actions.png" alt-text="Screenshot shows MCP wizard with Actions section and Add selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/add-actions.png":::
 
 1. On the **Add actions** pane, find and select one or more connector actions to include as tools in your MCP server.
 
@@ -163,7 +167,7 @@ You can continue with these steps only after you finish the steps in the precedi
         | **Default parameters** | Lists any parameters required to run the tool. For each parameter, the input source options are **Model** and **User**. By default, the model (LLM) provides the inputs. If you select **User**, the appropriate UX appears for you to provide the input source. For more information, see [Learn how parameter values resolve at runtime](#runtime-value-resolution). |
         | **Optional parameters** | Select any other parameters that you want to include for the tool. |
 
-        The following example shows the description and parameters for the **Send email (V2)** tool:
+        The following example shows the description and parameters for the **List all RSS feed items** tool:
 
         :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/tool-parameters.png" alt-text="Screenshot shows Edit pane for an example tool." lightbox="media/add-agent-tools-mcp-server-connector-actions/tool-parameters.png":::
 
@@ -171,13 +175,15 @@ You can continue with these steps only after you finish the steps in the precedi
 
 1. When you're done reviewing or updating each tool, select **Register**.
 
+   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/register.png" alt-text="Screenshot shows finished Tools section and Register selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/register.png":::
+
 1. Wait for the notifications that Azure successfully registered your MCP server.
 
-   After registration completes, try testing your agent tool using the chat window in your agent's playground.
+1. After registration completes, return to your agent in the Foundry portal. Try testing your agent tool using the chat window in your agent's playground.
 
 [!INCLUDE [ai-action-parameter-values-runtime](includes/ai-action-parameter-values-runtime.md)]
 
 ## Related content
 
-- [What is Azure AI Foundry](/ai-foundry/what-is-azure-ai-foundry)?
+- [What is Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry)?
 - [What is Azure Logic Apps](/azure/logic-apps/logic-apps-overview)?
