@@ -110,6 +110,8 @@ landingContent:
         links:
           - text: Configure collections for visualization
             url: configure-collection-web-interface.md
+          - text: Data visualization sample gallery
+            url: data-visualization-samples.md
       - linkListType: concept
         links:
           - text: Mosaic configuration
@@ -140,6 +142,8 @@ landingContent:
             url: application-authentication.md
           - text: Connect to ArcGIS Pro
             url: create-connection-arc-gis-pro.md
+          - text: Connect to QGIS
+            url: configure-qgis.md
       - linkListType: quickstart
         links:
           - text: Azure Batch and Microsoft Planetary Computer Pro

@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 06/25/2025
+ms.date: 11/10/2025
 ms.custom:
   - devx-track-dotnet
 ms.collection: ce-skilling-ai-copilot
@@ -36,7 +36,7 @@ Both Semantic Kernel and Azure AI Foundry Agent Service enable you to build agen
 | Performance        | Fast (runs locally)            | Slower (managed, remote service)       |
 | Development        | Full code, maximum control     | Low code, rapid integration            |
 | Testing            | Manual/unit tests in code      | Built-in playground for quick testing  |
-| Scalability        | App-managed                    | Azure-managed, auto-scaled             |
+| Scalability        | App-managed                    | Azure-managed, autoscaled             |
 
 In this tutorial, you learn how to:
 
@@ -49,7 +49,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
 
 ## Open the sample with Codespaces
@@ -104,7 +104,7 @@ The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API de
 
 ## Deploy the sample application
 
-The sample respository contains an Azure Developer CLI (AZD) template, which creates an App Service app with managed identity and deploys your sample application.
+The sample repository contains an Azure Developer CLI (AZD) template, which creates an App Service app with managed identity and deploys your sample application.
 
 1. In the terminal, log into Azure using Azure Developer CLI:
 
