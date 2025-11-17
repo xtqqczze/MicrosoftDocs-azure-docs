@@ -136,7 +136,7 @@ Follow these steps to create a new workflow in your logic app.
 
 1. Select **Create**.
 
-The designer opens and shows an empty workflow with the prompt to add a trigger.
+   The designer opens and shows an empty workflow or a partial workflow, based on your selection. In most cases, the workflow includes a prompt to add a trigger.
 
 ---
 
