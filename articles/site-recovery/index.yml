@@ -31,43 +31,25 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Try out disaster recovery for Azure VMs
-            url: ./azure-to-azure-tutorial-enable-replication.md
+            url: ./azure-to-azure-quickstart.md
       -  linkListType: concept
          links:
           - text: Azure VM Disaster Recovery - High Churn support
             url: ./concepts-azure-to-azure-high-churn-support.md
-          - text: Configure failover of multiple IP addresses
-            url: ./concepts-multiple-ip-address-failover.md
-          - text: Move Azure VMs to another Azure region
-            url: ./azure-to-azure-move-overview.md
       - linkListType: deploy
         links:
-          - text: Disaster recovery to a secondary Azure region
-            url:  ./azure-to-azure-quickstart.md
           - text: Disaster recovery using shared disks
             url: ./tutorial-shared-disk.md
       - linkListType: tutorial
         links:
-          - text: Move Azure VMs to another region (Resource Mover)
+          - text: Move Azure VMs to another region
             url: ../resource-mover/tutorial-move-region-virtual-machines.md
-      - linkListType: learn
-        links:
-          - text: Azure VM disaster recovery architecture
-            url: ./azure-to-azure-architecture.md
-          - text: Azure to Azure support matrix
-            url: ./azure-to-azure-support-matrix.md
-          - text: Common questions
-            url: ./azure-to-azure-common-questions.md
-          - text: About moving Azure VMs
-            url: ./azure-to-azure-move-overview.md
       - linkListType: how-to-guide
         links:
           - text: Zone to zone disaster recovery
             url: ./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
           - text: Networking for Azure VM disaster recovery
             url: ./azure-to-azure-about-networking.md
-          - text: Disaster recovery after migration to Azure
-            url: ./azure-to-azure-replicate-after-migration.md
 
   - title: Disaster recovery for VMware VMs
     linkLists:
@@ -91,14 +73,6 @@ landingContent:
             url: ./tutorial-prepare-azure.md
           - text: Disaster recovery for on-premises VMware VMs - Modernized
             url: ./vmware-azure-set-up-replication-tutorial-modernized.md
-      - linkListType: learn
-        links:
-          - text: VMware disaster recovery architecture
-            url: ./vmware-azure-architecture.md
-          - text: VMware disaster recovery overview
-            url: ./vmware-azure-about-disaster-recovery.md
-          - text: Common questions for VMware disaster recovery
-            url: ./vmware-azure-common-questions.md
       - linkListType: how-to-guide
         links:
           - text: VMware disaster recovery at scale
