@@ -16,7 +16,7 @@ Apache Hive provides a powerful SQL-like interface that you can use to query and
 This guide walks you through how to connect to a Microsoft Entra ID-enabled HDInsight cluster from PowerShell, authenticate with Microsoft Entra ID, and run Hive queries to analyze your data. By using PowerShell, you can automate Hive operations, integrate with scripts, and manage workloads more efficiently.
 
 > [!NOTE]  
-> This article doesn't contain a detailed description of the functions of the example HiveQL statements. For information on the HiveQL in the examples, see [Use Apache Hive with Apache Hadoop on HDInsight](../hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
+> This article doesn't contain a detailed description of the functions of the example Hive Query Language (HiveQL) statements. For information on the HiveQL in the examples, see [Use Apache Hive with Apache Hadoop on HDInsight](../hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md).
 
 ## Prerequisites
 
@@ -37,9 +37,9 @@ The following cmdlets are used when you run Hive queries in a remote HDInsight c
 - `Invoke-AzHDInsightHiveJob`: Runs HiveQL statements. This cmdlet blocks the query completes, then returns the results.
 - `Use-AzHDInsightCluster`: Sets the current cluster so that it can be used for the `Invoke-AzHDInsightHiveJob` command.
 
-## Setup (Secure Bearer Access Token)
+## Set up a secure bearer access token
 
-You need a Bearer Token to send the cURL or any REST communication. To get the token, take the following action:
+You need a bearer token to send the cURL or any REST communication. To get the token, take the following action:
 
 Run an `HTTP GET` request with the following specifications to the OAuth 2.0 token endpoint:
 
@@ -58,7 +58,7 @@ https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
 | `client_secret` | Generated client secret or certificate              | Yes |
 | `scope`         | Resource URL with the `.default` suffix                   | Yes |
 
-### cURL Request
+### cURL request
 
 ```bash
 curl --request GET \

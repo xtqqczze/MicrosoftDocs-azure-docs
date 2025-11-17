@@ -1,6 +1,6 @@
 ---
 title: Run Apache Hive queries in HDInsight by using REST API
-description: Learn how to run Apache Hive queries in HDInsight by using REST API
+description: Learn how to run Apache Hive queries in Azure HDInsight by using REST API
 ms.service: azure-hdinsight
 ms.topic: how-to
 author: apurbasroy
@@ -9,17 +9,17 @@ ms.reviewer: nijelsf
 ms.date: 08/20/2025
 ---
 
-# Run Apache Hive queries in HDInsight by using the REST API
+# Run Apache Hive queries in Azure HDInsight by using the REST API
 
-Apache Hive enables you to query and analyze large datasets in Azure HDInsight by using a familiar SQL-like language. The HDInsight REST API provides a programmatic way to submit Hive queries, monitor execution, and retrieve results. You don't need to directly sign in to the cluster or use manual tools.
+Apache Hive enables you to query and analyze large datasets in Azure HDInsight by using a familiar SQL-like language. The REST API in Azure HDInsight provides a programmatic way to submit Hive queries, monitor execution, and retrieve results. You don't need to directly sign in to the cluster or use manual tools.
 
 With the REST API, you can integrate Hive query execution into applications, scripts, and automation pipelines. This approach is useful for scenarios where you need to run queries from external systems, enforce secure access through Microsoft Entra ID, or manage workloads at scale.
 
 ## Prerequisites
 
 - A Microsoft Entra ID-enabled Apache Hadoop cluster on HDInsight. See [Get started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
-- A REST client. This document uses [Curl](https://curl.haxx.se/).
-- If you use Bash, use `jq`, a command-line JSON processor. See [Download jq](https://jqlang.org/download/).
+- A REST client. This document uses [cURL](https://curl.haxx.se/).
+- If you use Bash, use the command-line JSON processor jq. See [Download jq](https://jqlang.org/download/).
 
 ### Base URI for REST API
 
@@ -27,11 +27,11 @@ The base Uniform Resource Identifier (URI) for the REST API on HDInsight is `ht
 
 ### Authentication
 
-When using cURL or any other REST communication with WebHCat, you must authenticate the requests by providing the Bearer Token for the HDInsight cluster administrator. The REST API is secured via OAuth 2.0. To help ensure that your credentials are securely sent to the server, always make requests by using Secure HTTP (HTTPS).
+When using cURL or any other REST communication with WebHCat, you must authenticate the requests by providing the bearer token for the HDInsight cluster administrator. The REST API is secured via OAuth 2.0. To help ensure that your credentials are securely sent to the server, always make requests by using secure HTTP (HTTPS).
 
-### Setup (Secure Bearer Access Token)
+### Set up a secure bearer access token
 
-You need a Bearer Token to send the cURL or any REST communication. To get the token, take the following actions:
+You need a bearer token to send the cURL or any REST communication. To get the token, take the following actions:
 
 Execute an `HTTP GET` request to the OAuth 2.0 token endpoint with the following specifications:
 
@@ -60,7 +60,7 @@ A successful request returns a JSON object that contains:
 - `token_type`: Always "Bearer"
 - `expires_in`: Token validity duration in seconds
 - `ext_expires_in`: Extended expiration time in seconds
-- `access_token`: The Bearer token for authentication
+- `access_token`: The bearer token for authentication
 
   ```bash
       {
@@ -91,7 +91,7 @@ This command uses the following parameters:
 - `u`: The username and password used to authenticate the request.
 - `G`: Indication that this request is a GET operation.
 
-1. The beginning of the URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, is the same for all requests. The path `/status` indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
+1. The beginning of the URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, is the same for all requests. The path `/status` indicates that you're requesting to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
 
    ```bash
      curl -H "Authorization: Bearer $TOKEN" -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/version/hive
@@ -109,7 +109,7 @@ This command uses the following parameters:
      curl -s -H "Authorization: Bearer $TOKEN" -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFIL+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/hive | jq -r .id
    ```
 
-   This request uses the POST method, which sends data as part of the request to the REST API. The following data values are sent with the request:
+   This request uses the power on self-test (POST) method, which sends data as part of the request to the REST API. The following data values are sent with the request:
 
    - `user.name`: The user running the command
    - `execute`: The HiveQL statements to run
@@ -132,7 +132,7 @@ See the following definitions:
 -`SELECT`: Selects a count of all rows where column `t4` contains the value `[ERROR]`. This statement returns a value of `3` because there are 3 rows that contain this value.
 
 > [!NOTE]  
-> Curl replaces the spaces between HiveQL statements with the `+` character, which shouldn't replace quoted values that contain a space, like the delimiter.
+> The cURL code replaces the spaces between HiveQL statements with the `+` character, which shouldn't replace quoted values that contain a space, like the delimiter.
 
  This command returns a job ID that can be used to check the status of the job.
 

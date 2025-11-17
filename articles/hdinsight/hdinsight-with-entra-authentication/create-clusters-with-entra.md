@@ -40,7 +40,7 @@ To set up Microsoft Entra ID authentication when you create an HDInsight cluster
 
    :::image type="content" source="./media/create-clusters-with-entra/creation-cluster.png" alt-text="Screenshot that shows the HDInsight cluster creation landing page." border="true" lightbox="./media/create-clusters-with-entra/creation-cluster.png":::
 
-## User profiles in Ambari
+## User profiles in Apache Ambari
 
 You can assign Microsoft Entra ID-enabled users one of two profiles:
 
@@ -106,13 +106,11 @@ If you choose Microsoft Entra ID:
 
 ## Basic authentication
 
-If you choose basic authentication
+If you choose basic authentication:
 
- - The user provides a User ID and password for the default admin user.
-
- - You can create new users with various roles, similar to current functionality.
-
- - Users are prompted to enter their User ID and password after they sign in.
+- The user provides a User ID and password for the default admin user.
+- You can create new users with various roles, similar to current functionality.
+- Users are prompted to enter their User ID and password after they sign in.
 
 ## Add object ID in Ambari UI
 
