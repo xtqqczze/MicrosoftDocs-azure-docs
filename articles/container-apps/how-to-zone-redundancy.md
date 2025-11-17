@@ -35,23 +35,41 @@ Use the Azure portal, the Azure CLI, or Azure PowerShell to create a zone-redund
 
 1. Select **Container Apps**.
 
-1. Select **Create New** in the *Container Apps Environment* field to open the *Create Container Apps Environment* panel.
+1. Select **Create** and then select **Container App**.
 
-1. Enter the environment name.
+1. In the **Basics** tab, enter the following information:
 
-1. Select **Enabled** for the *zone redundancy* field.
+   - **Subscription:** Select your Azure subscription.
+
+   - **Resource group:** Select an existing resource group or create a new one.
+
+   - **Container app name:** Enter a name for your container app.
+   
+   - **Optimize for Azure Functions:** Check the box for **Optimize for Azure Functions** if necessary.
+   
+   - **Deployment source:** Select **Container image**. 
+
+1. In the **Container Apps Environment** section, select the box **Show environments in all regions** if you need to include existing container environments for deployment. In the **Region** field, enter the environment name.
 
    Zone redundancy requires a virtual network that has an infrastructure subnet. You can choose an existing virtual network or create a new virtual network. When you create a new virtual network, you can accept the values provided for you or customize the settings.
 
-1. Select the **Networking** tab.  
+1. Select the **Networking** tab in the environment creation page.
 
-1. To assign a custom virtual network name, select **Create New** in the *virtual network* field.
+1. Select **Yes** next to *Use your own virtual network*.
 
-1. To assign a custom infrastructure subnet name, select **Create New** in the *infrastructure subnet* field.
+1. Next to the *Virtual network* field, select **Create new** to create a custom virtual network, or select an existing one from the dropdown.
 
-1. You can select **Internal** or **External** for the *virtual IP address*.
+1. Next to the *Infrastructure subnet* field, select **Create new** to create a custom infrastructure subnet, or select an existing one from the dropdown.
+   
+1. Under *Virtual IP*, select **External** for an external environment, or **Internal** for an internal environment.
 
-1. Select **Create**.
+1. Select **Create** to create the Container Apps environment.
+
+1. Select the **Container** tab to configure your container settings.
+
+1. Select **Review + create** to review your configuration.
+
+1. Review your settings and select **Create** to deploy your zone-redundant container app.
 
 :::image type="content" source="../container-apps/media/screen-shot-vnet-configuration.png" alt-text="Screenshot of the Networking tab on the Create Container Apps environment page.":::
 
