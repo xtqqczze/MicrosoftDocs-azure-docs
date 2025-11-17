@@ -37,7 +37,28 @@ You can build workflows that use autonomous or conversational agent loops. The a
 
 With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use to build tools for an agent loop to use, agent workflows support a vast range of scenarios that greatly benefit from agent loop and model capabilities. Based on your scenario, create either an autonomous agent workflow without human interaction or a conversational agent workflow with human interaction to best suit your solution's needs.
 
-This guide describes key concepts, differences between autonomous and conversational agent workflows, differences between agent workflows and nonagent workflows, agent structure, other example scenarios, and basic billing information.
+This overview covers the following areas:
+
+- Agent versus nonagent workflows
+- Agent loop key concepts
+- Autonomous versus conversational agent workflows
+- Agent structure
+- Example scenarios
+- Authentication and authorization
+- Basic billing information
+
+## Agent versus nonagent workflows
+
+Workflows that use agent loops can evolve beyond the limits imposed on nonagent workflows. Agent workflows can adapt to environments where unexpected events happen, choose which tools to use based on prompts, inputs, and available data, continuously improve their performance, handle unstructured data, support complex scenarios, and provide a higher level of adaptability and flexibility. Nonagent workflows function best in stable environments, follow predefined rules, and perform tasks that are static, predictable, and repetitive.
+
+The following table provides more comparisons between agent workflows and nonagent workflows:
+
+| Aspect | Agent | Nonagent |
+|--------|-------|-----------|
+| **Logic** | Make informed choices about the tasks to perform, based on inputs and other available information, and take actions. | Follow predefined rules and fixed sequences. |
+| **Task management** | Treat tasks as separate entities  | Not applicable |
+| **Data structure** | Handle and process unstructured data. | Handle and process structured data with predictable patterns. |
+| **Adaptability** | Detect and respond to changing conditions and environments, make decisions, and adapt to new, real-time inputs. | Might struggle with environments that experience unexpected or dynamic changes. |
 
 ## Key concepts
 
@@ -110,19 +131,6 @@ The following screenshot shows the integrated chat interface that you can access
 :::image type="content" source="media/agents-workflows-concepts/conversational-agent-chat.png" alt-text="Screenshot shows Azure portal and workflow integrated chat interface." lightbox="media/agents-workflows-concepts/conversational-agent-chat.png":::
 
 Conversational agent workflows also support a external chat client that others can use outside the Azure portal. To provide and secure access for this external chat client, you need to set up [Production authentication and authorization](#production-authentication-and-authorization).
-
-## Agent versus nonagent workflows
-
-Workflows that use agents can evolve beyond the limits imposed on nonagent workflows. Agent workflows can adapt to environments where unexpected events happen, choose which tools to use based on prompts, inputs, and available data, continuously improve their performance, handle unstructured data, support complex scenarios, and provide a higher level of adaptability and flexibility. Nonagent workflows function best in stable environments, follow predefined rules, and perform tasks that are static, predictable, and repetitive.
-
-The following table provides more comparisons between agent workflows and nonagent workflows:
-
-| Aspect | Agent | Nonagent |
-|--------|-------|-----------|
-| **Logic** | Make informed choices about the tasks to perform, based on inputs and other available information, and take actions. | Follow predefined rules and fixed sequences. |
-| **Task management** | Treat tasks as separate entities  | Not applicable |
-| **Data structure** | Handle and process unstructured data. | Handle and process structured data with predictable patterns. |
-| **Adaptability** | Detect and respond to changing conditions and environments, make decisions, and adapt to new, real-time inputs. | Might struggle with environments that experience unexpected or dynamic changes. |
 
 ## Explore agent workflow structure
 
@@ -254,6 +262,8 @@ When your conversational agent workflows are ready for production, The following
 |-----------|----------------------------------|
 | Consumption | [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2) |
 | Standard | Easy Auth, also known as App Service Authentication, on your logic app resource enables an external chat client outside the Azure portal that others can use after you set up Easy Auth. See [Easy Auth for your logic app](#easy-auth). |
+
+For more information about production authentication and authorization, see the tab for your logic app type.
 
 #### [Consumption](#tab/consumption)
 
