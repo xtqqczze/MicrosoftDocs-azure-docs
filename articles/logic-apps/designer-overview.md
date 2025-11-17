@@ -89,6 +89,8 @@ From here, you can [create a new workflow](#create-a-new-workflow) or [access an
 
 ## Create a new workflow
 
+# [Classic designer](#tab/classic)
+
 Follow these steps to create a new workflow in your logic app.
 
 1. On the **Workflows** page toolbar, select **+ Create** > **+ Create**.
@@ -98,6 +100,30 @@ Follow these steps to create a new workflow in your logic app.
 1. For **Workflow name**, enter a name for your workflow.
 
 1. Select from the following workflow types:
+   - **Autonomous agents**: Stateful workflows use AI agents to complete tasks and can start from any trigger, such as an event, schedule, or API call.
+   - **Conversational agents**: Stateful workflows use AI agents to complete interactions through chat interactions or other agents. 
+   - **Stateful**: Build workflows that include run history. Add agents to build intelligent automation integrations.
+   - **Stateless**: Build workflows that don't include run history, by default. Optimized for speed and ideal for request-response and processing IoT events.
+
+1. Select **Create**.
+
+The designer opens and shows an empty workflow with the prompt to add a trigger.
+
+# [Preview designer](#tab/preview)
+
+Follow these steps to create a new workflow in your logic app.
+
+1. On the **Workflows** page toolbar, select **+ Create** > **+ Create**.
+
+   The **Create workflow** pane with the workflow types appears.
+
+1. For **Workflow name**, enter a name for your workflow.
+
+1. Select from the following workflow types:
+
+   > [!IMPORTANT]
+   > If you want agent workflows, choose **Stateful**.
+
    - **Stateful**: Build workflows that include run history. Add agents to build intelligent automation integrations.
    - **Stateless**: Build workflows that don't include run history, by default. Optimized for speed and ideal for request-response and processing IoT events.
    - **Start from template**: Select a prebuilt template that supports a common workflow pattern or scenario.
@@ -105,6 +131,8 @@ Follow these steps to create a new workflow in your logic app.
 1. Select **Create**.
 
 The designer opens and shows an empty workflow with the prompt to add a trigger.
+
+---
 
 ## Open an existing workflow in the designer
 
@@ -119,6 +147,8 @@ Follow these steps to open an existing workflow from your logic app.
 1. The workflow designer opens.
 
    The designer opens and shows the selected workflow so that you can edit the steps, run the draft workflow, view the workflow run history, view the JSON workflow definition in code view, or other tasks.
+
+---
 
 ## Add a trigger or action to a workflow
 
@@ -145,30 +175,6 @@ No separate **Save** option exists. As you edit the workflow, your changes are a
 ---
 
 If validation errors happen when you save your changes or during auto-save, the designer shows validation messages.
-
-## Run the workflow
-
-# [Classic designer](#tab/classic)
-
-On the designer toolbar, select **Run** > **Run with payload**.
-
-# [Preview designer](#tab/preview)
-
-To run the draft workflow, at the designer bottom, select **Run** or **Run with payload**.
-
----
-
-## Validate changes and deploy to production
-
-# [Classic designer](#tab/classic)
-
-Saving your workflow automatically validates and publishes your changes to production.
-
-# [Preview designer](#tab/preview)
-
-In the designer upper-right corner, select **Publish**.
-
----
 
 ### Switch between designer, code, and run history views
 
@@ -202,7 +208,7 @@ At the designer top, the view selector shows the following views: **Workflow**, 
 
 ---
 
-### Run workflow
+## Run workflow
 
 # [Classic designer](#tab/classic)
 
@@ -211,6 +217,18 @@ To run your workflow, select **Run** / **Run with payload** from the Workflow to
 # [Preview designer](#tab/preview)
 
 To run your workflow, select **Run** / **Run with payload** at the bottom of the designer.
+
+---
+
+## Validate changes and deploy to production
+
+# [Classic designer](#tab/classic)
+
+Saving your workflow automatically validates and publishes your changes to production.
+
+# [Preview designer](#tab/preview)
+
+In the designer upper-right corner, select **Publish**.
 
 ---
 
