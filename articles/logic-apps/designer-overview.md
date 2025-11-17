@@ -212,7 +212,7 @@ At the designer top, the view selector shows the following views: **Workflow**, 
 
 # [Classic designer](#tab/classic)
 
-To run your workflow, select **Run** / **Run with payload** from the Workflow toolbar.
+To run your workflow, on the designer toolbar, select **Run** or **Run with payload**.
 
 # [Preview designer](#tab/preview)
 
