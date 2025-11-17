@@ -1,11 +1,12 @@
 ---
 title: Migrate to Azure Functions v2 on Azure Container Apps
+ms.reviewer: cshoe
 description: Learn how to migrate Azure Functions from the legacy v1 model to the recommended v2 model on Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 11/07/2025
+ms.date: 11/17/2025
 ms.author: cshoe
 ---
 
@@ -39,7 +40,7 @@ When you move to v2 you simplify management, unlock native features, and align w
 
 ## Limitations of Functions v1
 
-Functions v1 on Azure Container Apps has several limitations that can affect scalability, management, and feature availability. Understanding these constraints helps clarify the benefits of migrating to the v2 model.
+Functions v1 on Azure Container Apps has several limitations that affect scalability, management, and feature availability. Understanding these constraints helps clarify the benefits of migrating to the v2 model.
 
 ### Feature gaps
 
@@ -113,17 +114,15 @@ Before migrating:
 1. Create or reuse an Azure Container Apps environment.
 1. Deploy a new v2 container app with the same image.
 
-Azure CLI example:
-
-```azurecli
-az containerapp create \
-  --name my-func-v2 \
-  --resource-group <RESOURCE_GROUP_NAME> \
-  --environment <ENVRONMENT_NAME> \
-  --image myregistry.azurecr.io/<IMAGE_NAME>:<TAG_NAME> \
-  --kind functionapp \
-  --ingress external --target-port <TARGET_PORT>
-```
+    ```azurecli
+    az containerapp create \
+      --name my-func-v2 \
+      --resource-group <RESOURCE_GROUP_NAME> \
+      --environment <ENVRONMENT_NAME> \
+      --image myregistry.azurecr.io/<IMAGE_NAME>:<TAG_NAME> \
+      --kind functionapp \
+      --ingress external --target-port <TARGET_PORT>
+    ```
 
 1. Reapply configuration details including secrets, environment variables, identity, networking.
 
@@ -155,7 +154,7 @@ az containerapp create \
 
 1. Communicate endpoint changes internally.
 
-### 5. Cut over
+### 5. Migrate
 
 1. Shift production traffic (update DNS TTL or routing rules).
 
@@ -169,8 +168,8 @@ az containerapp create \
 
 1. Decommission the old v1 Functions app and related resources.
 
-> [!CAUTION]
-> Verify no production traffic still targets the v1 endpoint before deletion.
+    > [!CAUTION]
+    > Verify no production traffic still targets the v1 endpoint before deletion.
 
 1. Remove unused secrets or storage references.
 
