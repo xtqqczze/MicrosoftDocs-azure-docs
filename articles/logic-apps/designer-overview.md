@@ -234,6 +234,8 @@ In the designer upper-right corner, select **Publish**.
 
 # [Classic designer](#tab/classic)
 
+Many actions in the classic designer are accessed through either the sidebar configuration or the workflow toolbar.
+
 ## Sidebar Configuration
 
 | Task | Label |
