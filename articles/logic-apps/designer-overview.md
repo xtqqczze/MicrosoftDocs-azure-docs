@@ -232,19 +232,21 @@ In the designer upper-right corner, select **Publish**.
 
 ---
 
+## Other actions
+
+Other actions in the classic designer are accessed through either the sidebar configuration or the workflow toolbar.
+
+The preview designer moves these actions to the vertical ellipsis menu (**⋮**) next to the **Publish** button in the designer's upper-right corner. 
+
+:::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot show the preview designer and toolbar with vertical ellipsis menu next to the Publish button." lightbox="media/designer-overview/ellipsis.png":::
+
 # [Classic designer](#tab/classic)
-
-Many actions in the classic designer are accessed through either the sidebar configuration or the workflow toolbar.
-
-### Sidebar configuration
 
 Actions located on the sidebar configuration include:
 
 - Access keys
 - Settings
 - Properties
-
-### Workflow toolbar
 
 Actions located on the workflow toolbar include:
 
@@ -254,12 +256,6 @@ Actions located on the workflow toolbar include:
 - Parameters
 
 # [Preview designer](#tab/preview)
-
-### Ellipsis menu
-
-The preview designer moves many other actions to the vertical ellipsis menu (**⋮**) next to the **Publish** button in the designer's upper-right corner. 
-
-:::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot show the preview designer and toolbar with vertical ellipsis menu next to the Publish button." lightbox="media/designer-overview/ellipsis.png":::
 
 Actions located under the ellipsis menu (**:**) include:
 
