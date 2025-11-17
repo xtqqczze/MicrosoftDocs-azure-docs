@@ -4,7 +4,7 @@ description: This article explains how you can authenticate managed identities t
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 11/17/2025
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -159,6 +159,8 @@ To configure a managed identity on a Linux VM running in Azure, follow these ste
 
 1. Sign in to the Azure portal and [create a user assigned managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity).
 
+1. Navigate to the managed identity you just created and copy the **Client ID**. You'll need this later.
+
 1. Navigate to the storage account that contains the file share you want to mount using a managed identity. Select **Access Control (IAM)** from the service menu.
 
 1. Under **Grant access to this resource**, select **Add role assignment**.
@@ -218,12 +220,12 @@ Before you can mount the file share using the managed identity, you must refresh
 AzFilesSMBMIClient.exe refresh --uri https://<storage-account-name>.file.core.windows.net/
 ```
 
-This will get an OAuth token and insert it in the Kerberos cache, and will auto-refresh when the token is close to expiration. Optionally, you can omit the `refresh`.
+This will get an OAuth token and insert it in the Kerberos cache, and will auto-refresh when the token is close to expiration. You can optionally omit the `refresh`.
 
-If your Windows VM has both user assigned and system assigned managed identities configured, you can use the following command to specify the user assigned managed identity:
+If your Windows VM has both user assigned and system assigned managed identities configured, you can use the following command to specify the user assigned managed identity. Replace `<client-id>` with the Client ID of the managed identity.
 
 ```powershell
-AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.windows.net/ --clientId <ClientId> 
+AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.windows.net/ --clientId <client-id> 
 ```
 
 > [!TIP]
@@ -233,31 +235,134 @@ AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.wi
 
 To prepare your Linux VM to authenticate using a managed identity, follow these steps.
 
+### Install needed dependencies
+
+Make sure your system has all the necessary dependencies by running the following command:
+
+```bash
+sudo dnf update && sudo dnf install curl krb5-libs python3 unzip
+```
+
+### Download and install the authentication packages
+
+The package location and installation steps differ depending on your Linux distro.
+
+#### Azure Linux 3.0
+
+[Download azfilesauth](https://packages.microsoft.com/azurelinux/3.0/prod/ms-oss/x86_64/Packages/a/azfilesauth-1.0-7.azl3.x86_64.rpm) and run the following commands to install:
+
+```bash
+tdnf update 
+tdnf install azfilesauth
+```
+
+#### Ubuntu 22.04
+
+[Download azfilesauth](https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/a/azfilesauth/azfilesauth_1.0-7_amd64.deb) and run the following commands to install:
+
+```bash
+curl -sSL -O https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb rm packages-microsoft-prod.deb
+# the above steps update the sources.list
+sudo apt-get update sudo apt-get install azfilesauth
+```
+
+#### Ubuntu 24.04
+
+[Download azfilesauth](https://packages.microsoft.com/ubuntu/24.04/prod/pool/main/a/azfilesauth/azfilesauth_1.0-7_amd64.deb) and run the following commands to install:
+
+```bash
+curl -SSL -O https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb rm packages-microsoft-prod.deb
+# the above steps update the sources.list
+sudo apt-get update sudo apt-get install azfilesauth
+```
+
+### Install the authentication manager
+
+Install the core package that will handle the OAuth tokens:
+
+```bash
+sudo rpm -ivh ./azfilesauth-1.0-2.azl3.x86_64.rpm
+```
+
+### Configure authentication
+
+You have two options for configuring authentication on Linux:
+
+- **Use a VM managed identity:** Choose this option when your VM has a user-assigned managed identity assigned.
+- **Supply the OAuth token directly**: Choose this option if you're managing OAuth tokens yourself.
+
+#### Option 1: Use a VM managed identity
+
+If your VM has a user-assigned managed identity, run the following commands. Be sure to replace `<client-id>` with the client ID of your managed identity. If you don't have the Client ID, navigate to the managed identity and copy the Client ID.
+
+```bash
+# Get a token from the Azure Instance Metadata Service (IMDS) and store it automatically
+sudo azfilesauthmanager set https://<storage_account>.file.core.windows.net --imds-client-id <client-id>
+# Verify the ticket was created properly
+sudo azfilesauthmanager list
+```
+
+#### Option 2: Supply the OAuth token directly
+
+If you're managing tokens yourself, supply the OAuth token directly. The token must have the audience of https://storage.azure.com (no trailing forward slash) and not https://storage.azure.com/ for file share mount.
+
+Run the following commands and replace <storage-account-name> and <access-token> with your values.
+
+```bash
+# Insert the token into your credential cache
+sudo azfilesauthmanager set https://<storage-account-name>.file.core.windows.net <access-token> 
+# Verify the ticket is properly stored
+sudo azfilesauthmanager list
+```
+
+
 ---
 
-## Mount a file share using a managed identity
+## Mount the file share
 
 You should now be able to mount the file share on Windows or Linux without using a storage account key.
 
 ### [Windows](#tab/windows)
 
-On Windows clients, you can directly access your Azure file share using the UNC path by entering the following into File Explorer. Be sure to replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name:
+On Windows clients, you can directly access your Azure file share using the UNC path by entering the following into Windows File Explorer. Be sure to replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name:
 
 `\\<storage-account-name>.file.core.windows.net\<file-share-name>`
 
-See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
+For more information, see [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
 
 ### [Linux](#tab/linux)
 
-Linux content here.
+Run the following command to mount the file share. Be sure to replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name. You can find your credential ID in the following config file: `cat /etc/azfilesauth/config.yaml`
 
-See [Mount SMB Azure file shares on Linux clients](storage-how-to-use-files-linux.md).
+```bash
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /mnt/smb -o sec=krb5,cruid=<credential-id>
+```
+
+Verify that the mount succeeded:
+
+```bash
+ls -la /mnt/smb
+```
+
+For more information, see [Mount SMB Azure file shares on Linux clients](storage-how-to-use-files-linux.md).
+
+### Refresh your credentials
+
+After you mount the file share for the first time, start the refresh service to keep credentials up to date:
+
+```bash
+sudo systemctl start azfilesauth
+```
+
+You should refresh your credentials periodically to avoid access interruptions. You can refresh credentials manually using the azfilesauthmanager set command as described in [Configure authentication](#configure-authentication), or you can automate the refresh using the shared library APIs.
 
 ---
 
-## Troubleshooting
+## Troubleshooting for Windows clients
 
-If you encounter issues when mounting your file share, follow these steps to enable verbose logging and collect diagnostic information.
+If you encounter issues when mounting your file share on Windows, follow these steps to enable verbose logging and collect diagnostic information.
 
 1. On Windows clients, use the Registry Editor to set the **Data** level for **verbosity** to 0x00000004 (4) for `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure\Storage\Files\SmbAuth`.
 
