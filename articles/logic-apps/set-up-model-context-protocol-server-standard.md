@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 11/18/2025
 ms.update-cycle: 180-days
-#Customer intent: As an AI integration developer who works with MCP servers and Azure Logic Apps, I want to set up Standard logic app workflows in Azure Logic Apps as tools in a remote Model Context Protocol (MCP) server that works with LLMs, AI agents, and MCP clients.
+#Customer intent: As an AI integration developer who works with MCP servers and Azure Logic Apps, I want to set up Standard logic app workflows in Azure Logic Apps as tools for one or multiple remote Model Context Protocol (MCP) servers that work with LLMs, AI agents, and MCP clients.
 ---
 
 # Set up Standard logic apps as remote MCP servers (preview)
