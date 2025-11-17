@@ -20,7 +20,7 @@ ms.author: danlep
 
 The `azure-openai-token-limit` policy prevents Azure OpenAI in Foundry Models API usage spikes on a per key basis by limiting consumption of language model tokens to a specified rate (number per minute), a quota over a specified period, or both. When a specified token rate limit is exceeded, the caller receives a `429 Too Many Requests` response status code. When a specified quota is exceeded, the caller receives a `403 Forbidden` response status code.
 
-By relying on token usage metrics returned from the OpenAI endpoint, the policy can accurately monitor and enforce limits in real time. The policy also enables precalculation of prompt tokens by API Management, minimizing unnecessary requests to the OpenAI backend if the limit is already exceeded.
+By relying on token usage metrics returned from the Azure OpenAI endpoint, the policy monitors and enforces limits based on actual token consumption. The policy also enables estimation of prompt tokens in advance by API Management, minimizing unnecessary requests to the Azure OpenAI backend if the limit is already exceeded. However, because the actual number of tokens consumed depends on both the prompt size and the completion size (which varies by request), the policy can't predict total token consumption in advance. This affects how limits are enforced when multiple requests are processed concurrently.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -69,9 +69,10 @@ By relying on token usage metrics returned from the OpenAI endpoint, the policy 
 
 ### Usage notes
 
-* This policy can be used multiple times per policy definition.
-* This policy can optionally be configured when adding an API from the Azure OpenAI using the portal.
+* This policy can be used multiple times per policy definition
+* This policy can optionally be configured when adding an Azure OpenAI API using the portal.
 * Where available when `estimate-prompt-tokens` is set to `false`, values in the usage section of the response from the Azure OpenAI API are used to determine token usage.
+* When multiple requests are sent concurrently or with slight delays, the policy can allow more token consumption than the configured limit before enforcement occurs. This happens because the policy can't determine the exact number of tokens consumed until responses are received from the backend. Once responses are processed and token limits are exceeded, subsequent requests are blocked until the limit resets. 
 * Certain Azure OpenAI endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute. Completion tokens are also estimated when responses are streamed.
 * The value of `remaining-quota-tokens-variable-name` or `remaining-quota-tokens-header-name` is an estimate for informational purposes but could be larger than expected based on actual token consumption. The value is more accurate as the quota is approached.
 * For models that accept image input, image tokens are generally counted by the backend language model and included in limit and quota calculations. However, when streaming is used or `estimate-prompt-tokens` is set to `true`, the policy currently over-counts each image as a maximum count of 1200 tokens.
