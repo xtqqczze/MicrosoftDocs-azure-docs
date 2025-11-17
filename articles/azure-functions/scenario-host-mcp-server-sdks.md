@@ -1,6 +1,6 @@
 ---
 title: Host servers built with MCP SDKs on Azure Functions
-description: "Learn how to host servers built with Anthropic MCP SDKs on Azure Functions. This quickstart shows how to deploy MCP SDK based servers as custom handlers in Azure Functions, leveraging serverless scale and security features."
+description: "Learn how to host servers built with Anthropic MCP SDKs on Azure Functions. This quickstart shows how to deploy MCP SDK based servers as custom handlers in Azure Functions, using serverless scale and security features."
 ms.date: 11/11/2025
 ms.topic: quickstart
 ai-usage: ai-assisted
@@ -120,7 +120,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](functions-run-lo
 ::: zone-end 
 ::: zone pivot="programming-language-typescript"  
 2. In the root directory, run `npm install` to install dependencies, then run `npm run build`. 
-3. Run `func start` to start the server. 
+3. To start the server, run `func start`. 
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
 2. In the root directory, run `uv run func start` to create virtual environment, install dependencies, and start the server. 
@@ -156,13 +156,13 @@ This project is configured to use the `azd up` command to deploy this project to
     azd login
     ```
 
-1. Configure Visual Studio Code as a pre-authorized client application:
+1. Configure Visual Studio Code as a preauthorized client application:
 
     ```bash
     azd env set PRE_AUTHORIZED_CLIENT_IDS aebc6443-996d-45c2-90f0-388ff96faa56
     ```
 
-    A pre-authorized application can authenticate to and access your MCP server without requiring additional consent prompts.
+    A preauthorized application can authenticate to and access your MCP server without requiring more consent prompts.
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. Search for and run the command `Azure Developer CLI (azd): Package, Provision and Deploy (up)`. Then, sign in by using your Azure account.
 
@@ -195,7 +195,7 @@ Your MCP server is now running in Azure. To connect GitHub Copilot to your remot
     Copilot calls one of the weather tools to answer the query.
 
 > [!TIP]  
-> You can see output of a server by selecting **More...** > **Show Output**. The output provides useful information like why a connection might have failed. You can also select the gear icon to change log levels to **Traces** to get more details on the interactions between the client (Visual Studio Code) and the server.
+> You can see output of a server by selecting **More...** > **Show Output**. The output provides useful information about possible connection failures. You can also select the gear icon to change log levels to **Traces** to get more details on the interactions between the client (Visual Studio Code) and the server.
 
 ## Review the code (optional)
 
