@@ -37,7 +37,7 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 ::: zone pivot="programming-language-python" 
 + [Python 3.11](https://www.python.org/) or above
 
-+ [Azurite storage emulator](../articles/storage/common/storage-use-azurite.md)
++ [Azurite storage emulator](../storage/common/storage-use-azurite.md)
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 + [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
@@ -49,7 +49,7 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 ## Initialize the project
 
 Use the `azd init` command to create a local Azure Functions code project from a template.
-
+::: zone-end 
 ::: zone pivot="programming-language-csharp"  
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
@@ -209,22 +209,20 @@ py -m venv .venv
     ```
 ::: zone-end -->  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
-    When the Functions host starts in your local project folder, it writes information about your Timer triggered function to the terminal output. 
-
-1. Watch the terminal output. You should see your Timer triggered function execute based on the schedule defined in your code (typically every few seconds for testing purposes).
+2. When the Functions host starts in your local project folder, it writes information about your Timer triggered function to the terminal output. You should see your Timer triggered function execute based on the schedule defined in your code.
 
     The default schedule is `*/30 * * * * *`, which runs every 30 seconds.
 
-1. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process.
+3. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process.
 ::: zone-end 
 ::: zone pivot="programming-language-python"
-1. Run `deactivate` to shut down the virtual environment.
+4. Run `deactivate` to shut down the virtual environment.
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Review the code (optional)
 
 You can review the code that defines the Timer trigger function:
-    
+::: zone-end      
 ::: zone pivot="programming-language-csharp"  
 :::code language="csharp" source="~/functions-azd-timer-dotnet/src/timerFunction.cs" :::
 
