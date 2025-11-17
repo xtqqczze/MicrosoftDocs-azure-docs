@@ -17,8 +17,6 @@ ms.custom: engagement-fy24
 
 This article summarizes the prerequisites and support requirements for the Azure Migrate appliance.
 
-Azure Migrate now offers an enhanced application-aware experience to simplify cloud migration and modernization with features like dependency mapping, app-level assessments, security insights, ROI analysis, and wave planning, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azuremigrationblog/migrate-or-modernize-your-applications-using-azure-migrate/4468587).
-
 ## Deployment scenarios
 
 The Azure Migrate appliance is used in the following scenarios.
