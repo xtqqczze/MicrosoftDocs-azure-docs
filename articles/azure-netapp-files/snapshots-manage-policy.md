@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/18/2025
+ms.date: 11/17/2025
 ms.author: anfdocs
 # Customer intent: As a system administrator, I want to create and manage snapshot policies for Azure NetApp Files, so that I can ensure point-in-time recovery of volumes and streamline data management.
 ---

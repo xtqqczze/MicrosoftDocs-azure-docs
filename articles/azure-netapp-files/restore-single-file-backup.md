@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 11/17/2025
 ms.author: anfdocs
 ---
 # Restore individual files with single-file restore from backups in Azure NetApp Files
