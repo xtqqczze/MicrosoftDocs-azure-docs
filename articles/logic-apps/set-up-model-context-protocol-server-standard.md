@@ -1,5 +1,5 @@
 ---
-title: Set Up Standard Workflows as MCP Servers
+title: Set up Standard workflows as MCP servers
 description: Learn to set up Standard logic apps as remote Model Context Protocol (MCP) servers for use with large language models (LLMs), AI agents, and MCP clients. Expose workflows as tools for agents, models, and MCP clients in AI enterprise integrations.
 services: logic-apps
 ms.suite: integration
