@@ -14,14 +14,14 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Quickstart: Host servers built with MCP SDKs on Azure Functions
 
-In this quickstart, you learn how to host on Azure Functions Model Context Protocol (MCP) servers that you create using official MCP SDKs. Flex Consumption plan hosting lets you take advantage of Azure Functions' serverless scale, pay-for-what-you-use billing model, and built-in security features, and is perfect for MCP servers that use the streamable-http transport.
+In this quickstart, you learn how to host on Azure Functions Model Context Protocol (MCP) servers that you create by using official MCP SDKs. Flex Consumption plan hosting lets you take advantage of Azure Functions' serverless scale, pay-for-what-you-use billing model, and built-in security features. It's perfect for MCP servers that use the streamable-http transport.
 
-This article uses a sample MCP server project built using official MCP SDKs. 
+This article uses a sample MCP server project built by using official MCP SDKs. 
 
 >[!TIP]  
->Functions also provides an MCP extension that enables you to instead create MCP servers using Azure Functions programming model. For more information, see [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md). 
+>Functions also provides an MCP extension that enables you to create MCP servers by using Azure Functions programming model. For more information, see [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md). 
 
-Because the new server runs in a Flex Consumption plan, which follows a _pay-for-what-you-use_ billing model, completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Because the new server runs in a Flex Consumption plan, which follows a _pay-for-what-you-use_ billing model, completing this quickstart incurs a small cost of a few cents or less in your Azure account.
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"  
 > [!IMPORTANT]  
@@ -64,7 +64,7 @@ Because the new server runs in a Flex Consumption plan, which follows a _pay-for
 
 ## Get started with a sample project
 
-The easiest way to get started is to clone an MCP server sample project built using official MCP SDKs:
+The easiest way to get started is to clone an MCP server sample project built with official MCP SDKs:
 
 1. In Visual Studio Code, open a folder or workspace where you want to create your project.
 ::: zone-end  
@@ -107,7 +107,7 @@ The easiest way to get started is to clone an MCP server sample project built us
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 
-The code project template is for an MCP server with tools that access public weather APIs, which are built using official MCP SDKs.        
+The code project template is for an MCP server with tools that access public weather APIs.        
 
 ## Run the MCP server locally 
 
@@ -127,20 +127,20 @@ Visual Studio Code integrates with [Azure Functions Core Tools](functions-run-lo
 ::: zone-end 
 
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
-## Test server using GitHub Copilot
+## Test server by using GitHub Copilot
 
-To verify your server using GitHub Copilot in Visual Studio Code: 
+To verify your server by using GitHub Copilot in Visual Studio Code, follow these steps: 
 
 1. Open the `mcp.json` file in the `.vscode` directory.
 
-2. Start the server by selecting the **Start** button above the `local-mcp-server` configuration.
+1. Start the server by selecting the **Start** button above the `local-mcp-server` configuration.
 
-3. In the Copilot **Chat** window, make sure that **Agent** model is selected, select the Configure tools icon,and verify that `MCP Server:local-mcp-server` is enabled in the chat.
+1. In the Copilot **Chat** window, make sure that the **Agent** model is selected, select the **Configure tools** icon, and verify that `MCP Server:local-mcp-server` is enabled in the chat.
 
-5. Run this prompt in chat:
+1. Run this prompt in chat:
 
     ```copilot-prompt
-    Return the weather forecast for New York City using #local-mcp-server.
+    Return the weather forecast for New York City using #local-mcp-server
     ```
 
     Copilot should call one of the weather tools to help answer this question. When prompted to run the tool, select **Allow in this Workspace** so you don't have to keep regranting this permission. 
@@ -151,7 +151,7 @@ After you verify the tool functionality locally, you can stop the server and dep
 
 This project is configured to use the `azd up` command to deploy this project to a new function app in a Flex Consumption plan in Azure. The project includes a set of Bicep files that `azd` uses to create a secure deployment that follows best practices.
 
-1. Log into Azure:
+1. Sign in to Azure:
 
     ```bash
     azd login
@@ -169,18 +169,21 @@ This project is configured to use the `azd up` command to deploy this project to
 
 1. When prompted, provide these required deployment parameters:
 
-   | Parameter | Description |
-   | ---- | ---- |
-   | _Azure subscription_ | Subscription in which your resources are created.|
-   | _Azure location_ | Azure region in which to create the resource group that contains the new Azure resources. Only regions that currently support the Flex Consumption plan are shown.|
+    | Parameter | Description |
+    | ---- | ---- |
+    | _Azure subscription_ | Subscription in which your resources are created.|
+    | _Azure location_ | Azure region in which to create the resource group that contains the new Azure resources. Only regions that currently support the Flex Consumption plan are shown.|
+    
+    After the command completes successfully, you see links to the resources you created and the endpoint for your deployed MCP server. Make a note of your function app name, which you need for the next section.
 
-   After the command completes successfully, you see links to the resources you created and the endpoint for your deployed MCP server. Make a note of your function app name, which you need for the next section.
+    >[!TIP]
+    >If an error occurs when running the `azd up` command, just rerun the command. You can run `azd up` repeatedly because it skips creating any resources that already exist. You can also call `azd up` again when deploying updates to your service.  
 
 ## Connect to the remote MCP server
 
 Your MCP server is now running in Azure. To connect GitHub Copilot to your remote server, configure it in your workspace settings.
 
-1. Back in the `mcp.json` file, switch to the remote server by selecting **Stop** for the `local-mcp-server` configuration and **Start** on the `remote-mcp-server` configuration.
+1. In the `mcp.json` file, switch to the remote server by selecting **Stop** for the `local-mcp-server` configuration and **Start** on the `remote-mcp-server` configuration.
 
 1. When prompted for **The domain of the function app**, enter the name of your function app you noted in the previous section. When prompted to authenticate to Microsoft, select **Allow** then choose your Azure account.
 
@@ -193,7 +196,7 @@ Your MCP server is now running in Azure. To connect GitHub Copilot to your remot
     Copilot calls one of the weather tools to answer the query.
 
 > [!TIP]  
-> You can see output of a server by clicking **More...** > **Show Output**. The output provides useful information like why a connection might have failed. You can also click the gear icon to change log levels to **Traces** to get more details on the interactions between the client (Visual Studio Code) and the server.
+> You can see output of a server by selecting **More...** > **Show Output**. The output provides useful information like why a connection might have failed. You can also select the gear icon to change log levels to **Traces** to get more details on the interactions between the client (Visual Studio Code) and the server.
 
 ## Review the code (optional)
 
@@ -231,35 +234,6 @@ When you're done working with your MCP server and related resources, use this co
 ```bash
 azd down
 ```
-
-## Troubleshooting 
-The following are some common issues that come up. 
-
-1. **InternalServerError: There was an unexpected InternalServerError. Please try again later.**
-
-    Check if you have registered the `Microsoft.App` resource provider:
-
-    ```shell
-    az provider show -n Microsoft.App
-    ```
-
-    If it's showing up as unregistered, register it:
-    ```shell
-    az provider register --namespace 'Microsoft.App'
-    ```
-
-    Successful registration should show:
-    ```shell
-    Namespace      RegistrationPolicy    RegistrationState
-    -------------  --------------------  -------------------
-    Microsoft.App  RegistrationRequired  Registered
-    ```
-
-    Then run `azd up` again. 
-
-2. **Error: error executing step command 'deploy --all': getting target resource: resource not found: unable to find a resource tagged with 'azd-server-name: api'. Ensure the service resource is corrected tagged in your infrastructure configuration, and rerun provision**
-
-    This is a [known transient error](https://github.com/Azure/azure-dev/issues/5580). Try re-running `azd up`. 
 
 ## Next steps
 
