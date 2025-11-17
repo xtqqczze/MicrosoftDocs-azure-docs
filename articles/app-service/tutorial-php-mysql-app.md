@@ -809,7 +809,7 @@ It indicates that Redis connection variables aren't properly configured. Verify 
 
 #### I get a debug page in the browser saying `SQLSTATE[42S02]: Base table or view not found: 1146 Table 'XXXX-XXXXXXXXX-mysql-database.tasks' doesn't exist`
 
-It means you haven't run database migrations, or database migrations weren't successful. Follow the steps at [Generate database schema](generate-database-schema).
+It means you haven't run database migrations, or database migrations weren't successful. Follow the steps at [Generate database schema](#generate-database-schema).
 
 ## Frequently asked questions
 
