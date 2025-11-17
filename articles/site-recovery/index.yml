@@ -21,9 +21,11 @@ landingContent:
         links:
           - text: What is Site Recovery?
             url: ./site-recovery-overview.md
+      - linkListType: whats-new
+        links:
           - text: What's new in Site Recovery
             url: ./site-recovery-whats-new.md
-      - linkListType: Manage
+      - linkListType: how-to-guide
         links:
           - text: Manage Site Recovery updates
             url: service-updates-how-to.md
