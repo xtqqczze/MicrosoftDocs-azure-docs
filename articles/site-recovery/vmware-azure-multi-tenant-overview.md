@@ -1,24 +1,24 @@
 ---
-title: VMware VM multi-tenant disaster recovery with Azure Site Recovery
+title: VMware VM multitenant disaster recovery with Azure Site Recovery
 ms.reviewer: v-gajeronika
-description: Provides an overview of Azure Site Recovery support for VMware disaster recovery to Azure in a multi-tenant environment (CSP) program.
+description: Provides an overview of Azure Site Recovery support for VMware disaster recovery to Azure in a multitenant environment (CSP) program.
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 11/05/2025
+ms.date: 11/17/2025
 ms.author: v-gajeronika
 
-# Customer intent: "As a cloud service provider, I want to implement multi-tenant disaster recovery for VMware VMs to Azure, so that I can ensure tenant isolation and efficient resource management while providing reliable failover and failback support."
+# Customer intent: "As a cloud service provider, I want to implement multitenant disaster recovery for VMware VMs to Azure, so that I can ensure tenant isolation and efficient resource management while providing reliable failover and failback support."
 ---
-# Overview of multi-tenant support for VMware disaster recovery to Azure with CSP
+# Overview of multitenant support for VMware disaster recovery to Azure with CSP
 
-[Azure Site Recovery](site-recovery-overview.md) supports multi-tenant environments for tenant subscriptions. It also supports multi-tenancy for tenant subscriptions that are created and managed through the Microsoft Cloud Solution Provider (CSP) program.
+[Azure Site Recovery](site-recovery-overview.md) supports multitenant environments for tenant subscriptions. It also supports multi-tenancy for tenant subscriptions that are created and managed through the Microsoft Cloud Solution Provider (CSP) program.
 
-This article provides an overview of implementing and managing multi-tenant VMware to Azure replication.
+This article provides an overview of implementing and managing multitenant VMware to Azure replication.
 
-## Multi-tenant environments
+## Multitenant environments
 
-There are three major multi-tenant models:
+There are three major multitenant models:
 
 * **Shared Hosting Services Provider (HSP)**: The partner owns the physical infrastructure, and uses shared resources (vCenter, datacenters, physical storage, and so on) to host multiple tenant VMs on the same infrastructure. The partner can provide disaster-recovery management as a managed service, or the tenant can own disaster recovery as a self-service solution.
 
@@ -30,7 +30,7 @@ There are three major multi-tenant models:
 
 The other two scenarios are subsets of the shared-hosting scenario, and they use the same principles. The differences are described at the end of the shared-hosting guidance.
 
-The basic requirement in a multi-tenant scenario is that tenants must be isolated. One tenant should not be able to observe what another tenant has hosted. In a partner-managed environment, this requirement is not as important as it is in a self-service environment, where it can be critical. This article assumes that tenant isolation is required.
+The basic requirement in a multitenant scenario is that tenants must be isolated. One tenant should not be able to observe what another tenant has hosted. In a partner-managed environment, this requirement is not as important as it is in a self-service environment, where it can be critical. This article assumes that tenant isolation is required.
 
 The architecture is shown in the following diagram.
 
@@ -38,7 +38,7 @@ The architecture is shown in the following diagram.
 
 **Shared-hosting with one vCenter server**
 
-In the diagram, each customer has a separate management server. This configuration limits tenant access to tenant-specific VMs, and enables tenant isolation. VMware VM replication uses the configuration server to discover VMs, and install agents. The same principles apply to multi-tenant environments, with the addition of restricting VM discovery using vCenter access control.
+In the diagram, each customer has a separate management server. This configuration limits tenant access to tenant-specific VMs, and enables tenant isolation. VMware VM replication uses the configuration server to discover VMs, and install agents. The same principles apply to multitenant environments, with the addition of restricting VM discovery using vCenter access control.
 
 The data isolation requirement means that all sensitive infrastructure information (such as access credentials) remains undisclosed to tenants. For this reason, we recommend that all components of the management server remain under the exclusive control of the partner. The management server components are:
 
@@ -50,7 +50,7 @@ A separate scaled-out process server is also under the partner's control.
 
 ## Configuration server accounts
 
-Every configuration server in the multi-tenant scenario uses two accounts:
+Every configuration server in the multitenant scenario uses two accounts:
 
 - **vCenter access account**: This account is used to discover tenant VMs. It has vCenter access permissions assigned to it. To help avoid access leaks, we recommend that partners enter these credentials themselves in the configuration tool.
 
@@ -129,7 +129,7 @@ As shown in the following diagram, the architectural difference in a dedicated h
 
 As shown in the following diagram, the architectural difference in a managed service solution is that each tenant’s infrastructure is also physically separate from other tenants' infrastructure. This scenario usually exists when the tenant owns the infrastructure and wants a solution provider to manage disaster recovery.
 
-:::image type="content" source="./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png" alt-text="Diagram of architecture shared hsp.":::
+:::image type="content" source="./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png" alt-text="Diagram of architecture shared HSP.":::
 **Managed service scenario with multiple vCenters**
 
 ## Next steps

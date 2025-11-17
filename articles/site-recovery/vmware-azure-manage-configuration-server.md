@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: v-gajeronika
-ms.date: 11/13/2025
+ms.date: 11/17/2025
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange
@@ -114,8 +114,8 @@ The expiry date appears under **Configuration Server health**. For configuration
 ### If certificates have already expired
 
 1. Post expiry, certificates **cannot be renewed from Azure portal**. Before proceeding, ensure all components scale-out process servers, master target servers and mobility agents on all protected machines are on latest versions and are in connected state.
-2. **Follow this procedure only if certificates have already expired.** Login to configuration server, navigate to *C:\ProgramData\ASR\home\svsystems\bin* and execute **RenewCerts** executor tool as administrator.
-3. A PowerShell execution window pops-up and triggers renewal of certificates. This can take up to 15 minutes. Do not close the window until completion of renewal.
+2. **Follow this procedure only if certificates have already expired.** Log in to configuration server, navigate to *C:\ProgramData\ASR\home\svsystems\bin* and execute **RenewCerts** executor tool as administrator.
+3. A PowerShell execution window pops up and triggers renewal of certificates. This can take up to 15 minutes. Do not close the window until completion of renewal.
 
 :::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="RenewCertificates":::
 
