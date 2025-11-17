@@ -224,17 +224,17 @@ py -m venv .venv
 You can review the code that defines the Timer trigger function:
 ::: zone-end      
 ::: zone pivot="programming-language-csharp"  
-:::code language="csharp" source="~/functions-azd-timer-dotnet/src/timerFunction.cs" :::
+:::code language="csharp" source="~/functions-azd-timer-dotnet/src/timerFunction.cs" range="1-6,10-18,29-43" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-timer).
 ::: zone-end  
 ::: zone pivot="programming-language-typescript" 
-:::code language="typescript" source="~/functions-azd-timer-typescript/src/src/functions/timerFunction.ts" :::
+:::code language="typescript" source="~/functions-azd-timer-typescript/src/src/functions/timerFunction.ts" range="1-2,12-24" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-timer).
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
-:::code language="python" source="~/functions-azd-timer-python/src/function_app.py" :::
+:::code language="python" source="~/functions-azd-timer-python/src/function_app.py" range="1-13,25-30" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-python-azd-timer).
 ::: zone-end  
