@@ -81,16 +81,16 @@ landingContent:
             url: ./failover-failback-overview-modernized.md
           - text: Configure on-premise disks for Azure
             url: ./hydration-process.md
+      - linkListType: deploy
+        links:
+          - text: VMware support matrix
+            url: ./vmware-physical-azure-support-matrix.md
       - linkListType: tutorial
         links:
           - text: Prepare Azure for on-premises disaster recovery to Azure
             url: ./tutorial-prepare-azure.md
           - text: Disaster recovery for on-premises VMware VMs - Modernized
             url: ./vmware-azure-set-up-replication-tutorial-modernized.md
-      - linkListType: deploy
-        links:
-          - text: VMware support matrix
-            url: ./vmware-physical-azure-support-matrix.md
       - linkListType: learn
         links:
           - text: VMware disaster recovery architecture
@@ -112,14 +112,14 @@ landingContent:
         links:
           - text: Plan Hyper-V capacity
             url: ./hyper-v-azure-architecture.md
-      - linkListType: tutorial
-        links:
-          - text: Disaster recovery for Hyper-V VMs
-            url: ./tutorial-prepare-azure-for-hyperv.md
       - linkListType: deploy
         links:
           - text: Hyper-V support matrix
             url: ./hyper-v-azure-support-matrix.md
+      - linkListType: tutorial
+        links:
+          - text: Disaster recovery for Hyper-V VMs
+            url: ./tutorial-prepare-azure-for-hyperv.md
       - linkListType: how-to-guide
         links:
           - text: Plan Hyper-V capacity
