@@ -166,6 +166,8 @@ The following table describes key parameters for each redundancy option:
 | Availability for read requests | At least 99.9% (99% for cool/cold/archive access tiers) | At least 99.9% (99% for cool/cold access tier) | At least 99.9% (99% for cool/cold/archive access tiers) for GRS<br/><br/>At least 99.99% (99.9% for cool/cold/archive access tiers) for RA-GRS | At least 99.9% (99% for cool/cold access tier) for GZRS<br/><br/>At least 99.99% (99.9% for cool/cold access tier) for RA-GZRS |
 | Availability for write requests | At least 99.9% (99% for cool/cold/archive access tiers) | At least 99.9% (99% for cool/cold access tier) | At least 99.9% (99% for cool/cold/archive access tiers) | At least 99.9% (99% for cool/cold access tier) |
 
+Note: GRS provides geographic replication but does not allow read access from the secondary region. To maintain read availability during a primary region outage, RA-GRS or RA-ZRS must be used.
+
 For more information, see the [Service Level Agreement for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 ### Durability and availability by outage scenario

@@ -1,12 +1,27 @@
 ---
-title: Configure Managed Instance on Azure App Service (preview)
+title: "Configure Managed Instance on Azure App Service (Preview)"
 description: Learn how to configure and deploy a Managed Instance on Azure App Service using Azure CLI and ARM templates. This guide covers general settings, storage mounts, registry keys, and Bastion/RDP access.
-keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost, managed instance, azure cli, arm templates, windows server, configuration script, bastion access, rdp, custom tooling
-ms.topic: how-to
-ms.date: 11/05/2025
-ms.author: msangapu
 author: msangapu-msft
+ms.author: msangapu
+ms.date: 11/18/2025
 ms.service: azure-app-service
+ms.topic: how-to
+keywords:
+  - app service
+  - azure app service
+  - scale
+  - scalable
+  - scalability
+  - app service plan
+  - app service cost
+  - managed instance
+  - azure cli
+  - arm templates
+  - windows server
+  - configuration script
+  - bastion access
+  - rdp
+  - custom tooling
 ---
 
 # Configure Managed Instance on Azure App Service (preview)
@@ -29,8 +44,8 @@ Managed identities for the App Service plan are required in the following scenar
 
 - To securely access and retrieve your configuration script from Azure Storage.
 - Access Key Vaults to supply credentials and values for Storage Mounts and Registry Key Adapters.
- 
-See [manage user-assigned managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity) to create a managed identity.
+
+See [manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity) to create a managed identity.
 
 To add a Managed Identity to Managed Instance plan:
 1. Go to your Managed Instance in the Azure portal.
@@ -56,12 +71,12 @@ To add a configuration script:
 1. Select **Configuration** > **General Settings**.
 1. In the _Configuration script_ section, begin by configuring your script.
 
-    | Setting | Value |
-    |--|--|
-    | Storage Account | Select your storage account |
-    | Container | Enter the name of your container |
-    | Zip file | Enter the name of the zip file |
-    | Value | Verify this value is correct |
+   | Setting | Value |
+   | --- | --- |
+   | Storage Account | Select your storage account |
+   | Container | Enter the name of your container |
+   | Zip file | Enter the name of the zip file |
+   | Value | Verify this value is correct |
 
 1. Select Apply to save the changes.
 
@@ -80,6 +95,7 @@ config.xml
 ```
 
 Example configuration script:
+
 ```powershell
 # Install Components, for example Crystal Reports, Control Library, Database Driver
 $ComponentInstaller = "myInstallerFileNameGoesHere.msi"
@@ -97,8 +113,8 @@ try {
 Storage mounts provide persistent external storage (for example Azure Files) accessible to your app. Use for legacy code needing shared filesystem access, not for secrets (use Key Vault). While local (temporary) storage is also available, persistent changes require storage mounts.
 
 You need the following to configure storage mounts:
-- Managed identity (for Key Vault access)  
-- Key Vault secret (credential source)  
+- Managed identity (for Key Vault access)
+- Key Vault secret (credential source)
 
 To configure storage mounts:
 
@@ -109,27 +125,27 @@ To configure storage mounts:
 Provide the following details to configure the storage mount:
 
 | Setting | Value |
-|--|--|
+| --- | --- |
 | Name | Enter a mount name |
-| Storage type | Azure files, Custom, or Local (temporary storage)|
+| Storage type | Azure files, Custom, or Local (temporary storage) |
 | Storage account | Select or enter a storage account |
-| File share| Select a file share|
+| File share | Select a file share |
 | Value | Select a Key vault |
 | Secret | Select the key vault secret |
 | Mount drive letter | Select drive letter path |
 
-You can mount external storage to your Managed Instance. Mounted storage is persistent across restarts and accessible from your app’s file system.
+You can mount external storage to your Managed Instance. Mounted storage is persistent across restarts and accessible from your app's file system.
 
 ### Configure storage mounts with Azure Files
 
 To configure an Azure Files storage mount:
 
 1. Create an Azure Storage Account and an Azure Files share.
-1. Store a connection credential in Key Vault as a secret.  
+1. Store a connection credential in Key Vault as a secret.
    Supported secret contents: (Ex: `DefaultEndpointsProtocol=...;AccountName=...;AccountKey=...;EndpointSuffix=core.windows.net`)
 1. Add the mount in Managed Instance (Azure portal or ARM/Bicep/Terraform).
 
-> [!TIP]
+> [!TIP]  
 > Enforce share-level permissions via Azure RBAC + share ACLs for enhanced security.
 >
 
@@ -146,29 +162,29 @@ Use mounts for SMB shares hosted elsewhere (on-premises, VM, or non-Microsoft). 
 Some applications depend on values read from the Windows Registry. With a Registry Key adapter, you can create registry keys and use secrets from Azure Key Vault as the value.
 
 You need the following to configure registry keys:
-- Managed identity (for Key Vault access)  
-- Key Vault secret (credential source)  
- 
+- Managed identity (for Key Vault access)
+- Key Vault secret (credential source)
+
 To configure registry keys:
 1. Go to **Configuration** > **Registry Keys**.
 1. Select **+ Add**.
 
-    | Setting | Value |
-    |--|--|
-    | Path | Enter the registry path |
-    | Vault | Enter an existing vault name|
-    | Secret | Select or enter the key vault secret|
-    | Type | String or DWORD |
+   | Setting | Value |
+   | --- | --- |
+   | Path | Enter the registry path |
+   | Vault | Enter an existing vault name |
+   | Secret | Select or enter the key vault secret |
+   | Type | String or DWORD |
 
 1. Select **Add** to add the registry key.
 
-> [!CAUTION]
+> [!CAUTION]  
 > Be cautious when modifying system-critical registry paths. Incorrect changes can affect instance stability.
 >
 
 ## Configure RDP (Bastion) access
 
-[Azure Bastion](/bastion/quickstart-host-portal.md) lets you securely connect to your VM instances through Remote Desktop Protocol (RDP). RDP via Azure Bastion is for transient diagnostics (log inspection, quick validation). If you intend to use Bastion via the portal, then upgrade your Bastion resource to standard pricing tier and select **Native Client Support and IP-Based Connection**.
+[Quickstart: Deploy Azure Bastion automatically](../bastion/quickstart-host-portal.md) lets you securely connect to your VM instances through Remote Desktop Protocol (RDP). RDP via Azure Bastion is for transient diagnostics (log inspection, quick validation). If you intend to use Bastion via the portal, then upgrade your Bastion resource to standard pricing tier and select **Native Client Support and IP-Based Connection**.
 
 You need the following resources for Bastion/RDP access:
 
@@ -182,7 +198,7 @@ To configure Bastion:
 1. Verify the **Virtual Network** is connected.
 1. Select **Allow Remote Desktop (via Bastion)**.
 
-> [!CAUTION]
+> [!CAUTION]  
 > Don't apply manual installers or configuration changes solely through RDP. Changes are lost on recycle or create configuration drift.
 
 ## Frequently Asked Questions (FAQ)
@@ -211,7 +227,7 @@ Windows Server 2022.
 
 ### Can I enable more Windows roles and features?
 
-Yes, through a configuration script. However, features [removed from a future release of Windows Server](https://learn.microsoft.com/windows-server/get-started/removed-deprecated-features-windows-server?tabs=ws25), won't be unavailable in Managed Instance.
+Yes, through a configuration script. However, features [removed from a future release of Windows Server](/windows-server/get-started/removed-deprecated-features-windows-server?tabs=ws25), won't be unavailable in Managed Instance.
 
 ### Does Managed Instance on Azure App Service receive regular platform and application stack updates?
 
@@ -219,7 +235,7 @@ Yes, instances receive routine platform updates and maintenance. Preinstalled ap
 
 ### Which programming languages are installed on Managed Instance on Azure App Service?
 
-Microsoft .NET Framework 3.5, 4.8, and Microsoft .NET 8.0. If you require other runtimes, you can install them using a configuration script. Note that these will not be maintained by the platform and must be updated manually.
+Microsoft .NET Framework 3.5, 4.8, and Microsoft .NET 8.0. If you require other runtimes, you can install them using a configuration script. These will not be maintained by the platform and must be updated manually.
 
 ### What are limitations on the configuration (install) scripts?
 
@@ -244,7 +260,7 @@ Adapter logs can be found in the root of the machine, alternatively they're logg
 The addressable memory of a Managed Instance on Azure App Service worker instance varies dependent on the pricing plan chosen. The following table lists the addressable memory for the Managed Instance on Azure App Service worker instance. It's important to consider if you have a configuration script that installs more components, services, etc. These resources affect the amount of memory available for use by your web apps.
 
 | Pricing plan | Cores | Memory (MB) |
-|---|---|---|
+| --- | --- | --- |
 | P0v4 | 1 | 2048 |
 | P1v4 | 2 | 5952 |
 | P2v4 | 4 | 13440 |
@@ -287,7 +303,7 @@ Yes, you can assign a _different_ Managed identity to a web application within t
 
 No, there's no limit on the number of storage or registry adapters. You can only create a single configuration (install) script adapter for Managed Instance on App Service plan. The increasing the number of adapters could affect provisioning time for Managed Instance.
 
-## Next steps
+## Related content
 
 - [Overview of Managed Instance on Azure App Service](overview-managed-instance.md)
 - [Deploy Managed Instance on Azure App Service](quickstart-managed-instance.md)
