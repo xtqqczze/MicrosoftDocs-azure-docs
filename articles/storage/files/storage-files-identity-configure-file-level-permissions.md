@@ -88,7 +88,7 @@ The [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-role
 
 To use the Windows permission model for SMB admin, follow these steps:
 
-1. Assign the [Storage File Data SMB Admin](/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) RBAC role to users who configure ACLs. For instructions on how to assign a role, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+1. Assign the [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) RBAC role to users who configure ACLs. For instructions on how to assign a role, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. Have users mount the file share using their domain identity. As long as [identity-based authentication](storage-files-active-directory-overview.md) is configured for your storage account, you can mount the share and configure and edit Windows ACLs without using your storage account key.
 
