@@ -956,6 +956,8 @@
         "articles/logic-apps/testing-framework/*.md": "wsilveira",
         "articles/media-services/*.md": "juliako",
         "articles/media-services/**/*.md": "juliako",
+        "articles/migrate/**/*.md": "vijain",
+        "articles/migrate/**/*.yml": "vijain",
         "articles/migration/**/*.md": "robbymillsap",
         "articles/migration/**/*.yml": "robbymillsap",
         "articles/notebooks/*.md": "joshuapa",
