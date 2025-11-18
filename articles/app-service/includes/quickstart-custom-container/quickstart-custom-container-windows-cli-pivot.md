@@ -15,8 +15,6 @@ Custom Windows containers don't have these restrictions. Developers can use cust
 
 ## Prerequisites
 
-Here's what you need to get started:
-
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -30,7 +28,7 @@ az login
 
 ## Create a resource group
 
-Create a resource group with the [`az group create`](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group by using the [`az group create`](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example creates a resource group named `myResourceGroup` in the `eastus` location. To see all supported locations for App Service, run the [`az appservice list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
 
@@ -49,7 +47,7 @@ az appservice plan create --resource-group myResourceGroup --location eastus --n
 ```
 
 > [!NOTE]
-> If you run into the error, "The behavior of this command has been altered by the following extension: appservice-kube.", remove the `appservice-kube` extension.
+> If you run into the error "The behavior of this command has been altered by the following extension: appservice-kube", remove the `appservice-kube` extension.
 >
 
 ## Create your web app

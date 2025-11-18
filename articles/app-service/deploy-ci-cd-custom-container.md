@@ -20,7 +20,7 @@ This article explains how to configure continuous integration and continuous del
 
 1. In the [Azure portal](https://portal.azure.com), go to the management pane for your Azure App Service app.
 
-1. In the sidebar menu under **Deployment**, select **Deployment Center** > **Settings**.
+1. On the sidebar menu under **Deployment**, select **Deployment Center** > **Settings**.
 
 ::: zone pivot="container-linux"
 ## Select the code source
@@ -276,6 +276,6 @@ az acr webhook create --name <webhook-name> --registry <registry-name> --resourc
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Create a .NET Core web app in App Service on Linux](quickstart-dotnetcore.md)
 * [Quickstart: Run a custom container on App Service](quickstart-custom-container.md)
-* [App Service on Linux FAQs](faq-app-service-linux.yml)
+* [App Service on Linux FAQ](faq-app-service-linux.yml)
 * [Configure custom containers](configure-custom-container.md)
 * [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)

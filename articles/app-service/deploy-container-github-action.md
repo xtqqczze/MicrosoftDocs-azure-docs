@@ -21,7 +21,7 @@ ms.custom:
 
 # Deploy a custom container to App Service by using GitHub Actions
 
-You can use [GitHub Actions](https://docs.github.com/en/actions) to build an automated software development workflow. You can use the [Azure Web Deploy action](https://github.com/Azure/webapps-deploy) to automate your workflow and deploy custom containers to [Azure App Service](overview.md).
+You can use [GitHub Actions](https://docs.github.com/en/actions) to build an automated software development workflow. You can use the [Azure web deploy action](https://github.com/Azure/webapps-deploy) to automate your workflow and deploy custom containers to [Azure App Service](overview.md).
 
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that are in the workflow.
 
@@ -34,8 +34,6 @@ For an App Service container workflow, the file has three sections:
 |**Deploy** | 1. Deploy the container image. |
 
 ## Prerequisites
-
-Here's what you need to get started:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join). You need to have code in a GitHub repository to deploy to Azure App Service.

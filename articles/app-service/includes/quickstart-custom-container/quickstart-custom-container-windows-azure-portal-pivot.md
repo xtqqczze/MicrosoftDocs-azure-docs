@@ -15,8 +15,6 @@ Custom Windows containers don't have these restrictions. Developers can use cust
 
 ## Prerequisites
 
-Here's what you need to get started:
-
 - An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Azure Container Registry](/azure/container-registry/container-registry-get-started-portal)
 - The [Azure CLI](/cli/azure/install-azure-cli)

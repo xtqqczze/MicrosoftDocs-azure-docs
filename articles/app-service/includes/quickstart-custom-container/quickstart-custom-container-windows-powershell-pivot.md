@@ -15,8 +15,6 @@ Custom Windows containers don't have these restrictions. Developers can use cust
 
 ## Prerequisites
 
-Here's what you need to get started:
-
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure PowerShell](/powershell/azure/install-az-ps).
 

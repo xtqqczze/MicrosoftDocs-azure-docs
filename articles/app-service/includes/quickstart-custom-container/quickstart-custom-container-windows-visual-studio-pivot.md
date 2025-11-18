@@ -15,8 +15,6 @@ Custom Windows containers don't have these restrictions. Developers can use cust
 
 ## Prerequisites
 
-Here's what you need to get started:
-
 - [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/).
 - [Switch Docker to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-10).
 - [Install Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads. In **Visual Studio 2022 Community**, ensure that you select the **.NET Framework project and item templates** component with **ASP.NET and web development workload**.
@@ -28,13 +26,11 @@ If you already installed Visual Studio 2022:
 
 ## Create an ASP.NET web app
 
-Create an ASP.NET web app by following these steps:
-
 1. Open Visual Studio and then select **Create a new project**.
 
 1. In **Create a new project**, select **ASP.NET Web Application (.NET Framework)** for `C#`, and then select **Next**.
 
-   :::image type="content" source="../../media/quickstart-custom-container/create-new-project.png" alt-text="Screenshot that shows the Create a new project dialog box.":::
+   :::image type="content" source="../../media/quickstart-custom-container/create-new-project.png" alt-text="Screenshot that shows the Create a new project dialog.":::
 
 1. In **Configure your new project** > **Project name**, name the application `myfirstazurewebapp`. Under **Framework**, select **.NET Framework 4.8**, and then select **Create**.
 
@@ -42,9 +38,9 @@ Create an ASP.NET web app by following these steps:
 
 1. You can deploy any type of ASP.NET web app to Azure. For this quickstart, select the **MVC** template.
 
-1. Under **Authentication**, select **None**. Under **Advanced**, select **Container support** and deselect **Configure for HTTPS**. Select **Create**.
+1. Under **Authentication**, select **None**. Under **Advanced**, select **Container support** and clear **Configure for HTTPS**. Select **Create**.
 
-   :::image type="content" source="../../media/quickstart-custom-container/select-mvc-template-for-container.png" alt-text="Screenshot that shows the create ASP.NET Web Application dialog box.":::
+   :::image type="content" source="../../media/quickstart-custom-container/select-mvc-template-for-container.png" alt-text="Screenshot that shows the create ASP.NET Web Application dialog.":::
 
 1. If the Dockerfile doesn't automatically open, open it by selecting **Solution Explorer**.
 
@@ -80,7 +76,7 @@ Publish to Azure Container Registry by following these steps:
 
    :::image type="content" source="../../media/quickstart-custom-container/new-azure-container-registry-details.png" alt-text="Screenshot that shows Azure Container Registry details.":::
 
-1. In **Publish**, under **Container Registry**, select the registry you created, and then select **Finish**.
+1. In **Publish**, under **Container Registry**, select the registry that you created, and then select **Finish**.
 
    :::image type="content" source="../../media/quickstart-custom-container/select-existing-azure-container-registry.png" alt-text="Screenshot that shows the Select existing Azure Container Registry screen.":::
 
@@ -98,7 +94,7 @@ Create a Windows custom container by following these steps:
 
 1. Under **Popular services**, select **Create** under **Web App**.
 
-1. In **Create Web App**, select your subscription and **Resource Group**. You can create a new resource group if needed.
+1. In **Create Web App**, select your subscription and resource group. You can create a new resource group if needed.
 
 1. Provide an app name, such as `win-container-demo`. For **Publish**, select **Container**. For **Operating System**, select **Windows**.
 
@@ -106,7 +102,7 @@ Create a Windows custom container by following these steps:
 
 1. Select **Next: Database** > **Next: Container**.
 
-1. For **Image Source**, select **Docker Hub**. For **Image and tag**, enter the repository name you previously copied in [Publish to Azure Container Registry](#publish-to-azure-container-registry).
+1. For **Image Source**, select **Docker Hub**. For **Image and tag**, enter the repository name that you previously copied in [Publish to Azure Container Registry](#publish-to-azure-container-registry).
 
    :::image type="content" source="../../media/quickstart-custom-container/configure-web-app-container.png" alt-text="Screenshot that shows how to configure your web app for containers.":::
 
@@ -128,11 +124,11 @@ When the operation finishes, the Azure portal displays a notification.
 
 1. In the overview, follow the link next to **Default domain**.
 
-A new browser page opens and displays the following.
+A new browser page opens.
 
 :::image type="content" source="../../media/quickstart-custom-container/app-starting.png" alt-text="Screenshot that shows a Windows custom container starting.":::
 
-Wait a few minutes and try again. Keep trying until you get the default ASP.NET home page:
+Wait a few minutes and try again. Keep trying until you get the default ASP.NET home page.
 
 :::image type="content" source="../../media/quickstart-custom-container/app-running-vs.png" alt-text="Screenshot that shows a Windows custom container running.":::
 

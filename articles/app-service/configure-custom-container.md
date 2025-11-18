@@ -137,11 +137,11 @@ To connect and pull from a registry inside a virtual network or on-premises, you
 az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.vnetImagePullEnabled [true|false]
 ```
 
-### I don't see the updated container
+### Troubleshoot what to do if you don't see the updated container
 
 If you change your Docker container settings to point to a new container, it might take a few minutes before the app serves HTTP requests from the new container. While the new container is pulled and started, App Service continues to serve requests from the old container. App Service only sends requests to the new container after it starts and is ready to receive requests.
 
-### How container images are stored
+### Learn how container images are stored
 
 The first time you run a custom Docker image in App Service, App Service performs the `docker pull` command and pulls all image layers. The layers are stored on disk, the same as when you use Docker on-premises. Each time the app restarts, App Service performs the `docker pull` command. It pulls only changed layers. If there are no changes, App Service uses existing layers on the local disk.
 
@@ -179,7 +179,7 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB
 
 When your app runs, the App Service app settings are automatically injected into the process as environment variables. You can verify container environment variables with the URL `https://<app-name>.scm.azurewebsites.net/Env`.
 
-When you SSH into a container with custom Docker Images, you might only see a few environment variables if you try to use commands like `env` or `printenv`. To see all environment variables within the container, like ones you pass in to your application for runtime usage, add this line to your entrypoint script:
+When you SSH into a container with custom Docker images, you might see only a few environment variables if you try to use commands like `env` or `printenv`. To see all environment variables within the container, like ones you pass in to your application for runtime usage, add this line to your entrypoint script:
 
 ```docker endpoint
 eval $(printenv | sed -n "s/^\([^=]\+\)=\(.*\)$/export \1=\2/p" | sed 's/"/\\\"/g' | sed '/=/s//="/' | sed 's/$/"/' >> /etc/profile)
@@ -187,7 +187,7 @@ eval $(printenv | sed -n "s/^\([^=]\+\)=\(.*\)$/export \1=\2/p" | sed 's/"/\\\"/
 
 See a [full example](https://github.com/azureossd/docker-container-ssh-examples/blob/main/alpine-node/init_container.sh).
 
-If your app uses images from a private registry or from Docker Hub, the credentials you use to access the repository are saved in environment variables: `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME`, and `DOCKER_REGISTRY_SERVER_PASSWORD`. Because of security risks, none of these reserved variable names are exposed to the application.
+If your app uses images from a private registry or from Docker Hub, the credentials for accessing the repository are saved in environment variables: `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME`, and `DOCKER_REGISTRY_SERVER_PASSWORD`. Because of security risks, none of these reserved variable names are exposed to the application.
 
 ::: zone pivot="container-windows"
 For Internet Information Services (IIS) or .NET Framework (4.0 or later) containers, credentials are automatically injected into `System.ConfigurationManager` as .NET app settings and connection strings by App Service. For all other languages or frameworks, they're provided as environment variables for the process, with one of the following prefixes:
@@ -262,7 +262,7 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WE
 
 App Service terminates TLS at the front ends. That means that TLS requests never get to your app. You don't need to, and shouldn't, implement any support for TLS into your app.
 
-The front ends are located inside Azure data centers. If you use TLS with your app, your traffic across the internet is always safely encrypted.
+The front ends are located inside Azure datacenters. If you use TLS with your app, your traffic across the internet is always safely encrypted.
 
 ::: zone pivot="container-windows"
 
@@ -270,7 +270,7 @@ The front ends are located inside Azure data centers. If you use TLS with your a
 
  During the container start, keys are automatically generated and injected into the container as the machine keys for ASP.NET cryptographic routines. You can [find these keys in your container](#connect-to-the-container) by looking for the following environment variables: `MACHINEKEY_Decryption`, `MACHINEKEY_DecryptionKey`, `MACHINEKEY_ValidationKey`, and `MACHINEKEY_Validation`.
 
-The new keys that generate during each restart might reset ASP.NET forms authentication and view state, if your app depends on them. To prevent the automatic regeneration of keys, [set them manually as App Service app settings](#configure-environment-variables).
+The new keys at each restart might reset ASP.NET forms authentication and view state, if your app depends on them. To prevent the automatic regeneration of keys, [set them manually as App Service app settings](#configure-environment-variables).
 
 ## Connect to the container
 
@@ -286,16 +286,16 @@ App Service logs actions by the Docker host and activities from within the conta
 
 You can access Docker logs in several ways:
 
-- [In the Azure portal](#in-the-azure-portal)
-- [From Kudu](#from-kudu)
-- [With the Kudu API](#with-the-kudu-api)
-- [With Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
+- [Azure portal](#in-the-azure-portal)
+- [Kudu](#from-kudu)
+- [Kudu API](#with-the-kudu-api)
+- [Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
 
-### In the Azure portal
+### Azure portal
 
 Docker logs are displayed in the Azure portal in the **Container Settings** pane of your app. The logs are truncated. To download all the logs, select **Download**.
 
-### From Kudu
+### Kudu
 
 To see the individual log files, go to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and select the `LogFiles` folder. To download the entire `LogFiles` directory, select the **Download** icon to the left of the directory name. You can also access this folder by using an FTP client.
 
@@ -303,7 +303,7 @@ By default, you can't access the `C:\home\LogFiles` folder in the SSH terminal b
 
 If you try to download the Docker log that's currently in use by using an FTP client, you might get an error because of a file lock.
 
-### With the Kudu API
+### Kudu API
 
 Go directly to `https://<app-name>.scm.azurewebsites.net/api/logs/docker` to see metadata for the Docker logs. You might see more than one log file listed. You can use the `href` property to directly download the log file.
 
@@ -336,7 +336,7 @@ In PowerShell, use the following command:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITE_MEMORY_LIMIT_MB"=2000}
 ```
 
-The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8 GB of RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps can't exceed 8 GB. For more information on how much memory is available, see the Premium v3 service plan in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/).
+The value is defined in megabytes (MB) and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8 GB of RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps can't exceed 8 GB. For more information on how much memory is available, see the Premium v3 service plan in [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 ## Customize the number of compute cores
 
@@ -498,7 +498,7 @@ For more troubleshooting information, see the Azure App Service blog: [Enable SS
 ## Configure multi-container apps
 
 > [!NOTE]
-> The Docker Compose feature retires on March 31, 2027. Sidecar containers succeed multi-container apps in App Service. For new services, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md). For existing multi-container apps in App Service, see [Migrate your Docker Compose applications to the sidecar feature](https://azure.github.io/AppService/2025/04/01/Docker-compose-migration.html).
+> The Docker Compose feature will be retired on March 31, 2027. Sidecar containers succeed multi-container apps in App Service. For new services, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md). For existing multi-container apps in App Service, see [Migrate your Docker Compose applications to the sidecar feature](https://azure.github.io/AppService/2025/04/01/Docker-compose-migration.html).
 
 - [Use persistent storage in Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Preview limitations](#preview-limitations)
@@ -508,7 +508,7 @@ For more troubleshooting information, see the Azure App Service blog: [Enable SS
 
 Multi-container apps like WordPress need persistent storage to function properly. To enable persistent storage, your Docker Compose configuration must point to a storage location *outside* your container. Storage locations inside your container don't persist changes beyond app restart.
 
-To enable persistent storage, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting. Use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command in [Cloud Shell](https://shell.azure.com).
+To enable persistent storage, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting. Use the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command in [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
@@ -535,7 +535,8 @@ Multi-container is currently in preview. The following App Service platform feat
 - Managed identities.
 - Cross-origin resource sharing (CORS).
 - Virtual network integration with Docker Compose scenarios.
-- Docker Compose on Azure App Service currently has a limit of 4,000 characters.
+
+Docker Compose on Azure App Service currently has a limit of 4,000 characters.
 
 ### Docker Compose options
 

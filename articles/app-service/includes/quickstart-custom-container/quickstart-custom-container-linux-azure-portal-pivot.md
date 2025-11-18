@@ -16,8 +16,6 @@ For more information about containerized applications in a serverless environmen
 
 ## Prerequisites
 
-Here's what you need to get started:
-
 - An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Azure Container Registry](/azure/container-registry/container-registry-get-started-portal)
 - The [Azure CLI](/cli/azure/install-azure-cli)
@@ -25,7 +23,7 @@ Here's what you need to get started:
 
 ## Clone the sample repository
 
-Clone the [the .NET 6.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world) with the following command:
+Clone the [the .NET 6.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world) by using the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
@@ -33,7 +31,7 @@ git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
 
 ## Push the image to Azure Container Registry
 
-Make sure you are in the cloned repository's root folder, which contains a `Dockerfile.linux` file.
+Make sure that you're in the cloned repository's root folder, which contains a `Dockerfile.linux` file.
 
 1. Sign in to the Azure CLI.
 
@@ -60,23 +58,21 @@ Make sure you are in the cloned repository's root folder, which contains a `Dock
    ```
 
    > [!NOTE]
-   > The Dockerfile sets the port number to `80` internally. For more information, go to [Configure custom container](../../configure-custom-container.md).
+   > The Dockerfile sets the port number to 80 internally. For more information, go to [Configure custom container](../../configure-custom-container.md).
 
 ## Deploy to Azure
 
-Deploy to Azure by following these steps:
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Type *app services* in the search. Under **Services**, select **App Services**.
+1. Type **app services** in the search. Under **Services**, select **App Services**.
 
    :::image type="content" source="../../media/quickstart-custom-container/portal-search.png" alt-text="Screenshot that shows how to search for app services in the Azure portal.":::
 
 1. On the **App Services** pane, select **Create** > **Web App**.
 
-1. On the **Basics** tab, under **Project details**, select the correct subscription. To create a new resource group, select **Create new**. Type `myResourceGroup` for the name.
+1. On the **Basics** tab, under **Project details**, select the correct subscription. To create a new resource group, select **Create new**. Type **myResourceGroup** for the name.
 
-   :::image type="content" source="../../media/quickstart-custom-container/project-details.png" alt-text="Screenshot that shows the Project details section where you select the Azure subscription and the resource group for the web app.":::
+   :::image type="content" source="../../media/quickstart-custom-container/project-details.png" alt-text="Screenshot that shows the project details section where you select the Azure subscription and the resource group for the web app.":::
 
 1. Under **Instance details**:
 
@@ -85,11 +81,11 @@ Deploy to Azure by following these steps:
    - For **Operating System**, select **Linux**.
    - In **Region**, select the region from which you plan to serve your app.
 
-   :::image type="content" source="../../media/quickstart-custom-container/instance-details-linux.png" alt-text="Screenshot that shows the Instance details section where you provide a name for the virtual machine and select its region, image, and size.":::
+   :::image type="content" source="../../media/quickstart-custom-container/instance-details-linux.png" alt-text="Screenshot that shows the instance details section where you provide a name for the virtual machine and select its region, image, and size.":::
 
-1. Under **App Service Plan**, select **Create new**. Enter `myAppServicePlan` for the name. To change to the Free tier, select **Change size** > **Dev/Test** > **F1** > **Apply**.
+1. Under **App Service Plan**, select **Create new**. Enter **myAppServicePlan** for the name. To change to the Free tier, select **Change size** > **Dev/Test** > **F1** > **Apply**.
 
-   :::image type="content" source="../../media/quickstart-custom-container/app-service-plan-details-linux.png" alt-text="Screenshot that shows App Service plan options.":::
+   :::image type="content" source="../../media/quickstart-custom-container/app-service-plan-details-linux.png" alt-text="Screenshot that shows plan options.":::
 
 1. At the top of the pane, select the **Container** tab.
 
@@ -99,17 +95,17 @@ Deploy to Azure by following these steps:
    - **Image**: Select **dotnetcore-docs-hello-world-linux**.
    - **Tag**: Select **latest**.
 
-   :::image type="content" source="../../media/quickstart-custom-container/azure-container-registry-options-linux.png" alt-text="Screenshot that shows the Azure Container Registry options.":::
+   :::image type="content" source="../../media/quickstart-custom-container/azure-container-registry-options-linux.png" alt-text="Screenshot that shows Azure Container Registry options.":::
 
 1. Select **Review + create** at the bottom of the pane.
 
-   :::image type="content" source="../../media/quickstart-custom-container/review-create.png" alt-text="Screenshot that shows the Review and create button at the bottom of the pane.":::
+   :::image type="content" source="../../media/quickstart-custom-container/review-create.png" alt-text="Screenshot that shows the button at the bottom of the pane.":::
 
 1. After validation runs, select **Create**.
 
 1. After deployment finishes, select **Go to resource**.
 
-   :::image type="content" source="../../media/quickstart-custom-container/next-steps.png" alt-text="Screenshot that shows the Go to resource option.":::
+   :::image type="content" source="../../media/quickstart-custom-container/next-steps.png" alt-text="Screenshot that shows the button to go to the resource.":::
 
 ## Browse to the app
 
