@@ -26,7 +26,7 @@ Understanding the terminology related to performance and capacity in Azure NetAp
 
 An operation in Azure NetApp Files is defined as _something_ that happens during a client/server conversation. For instance, when a client requests a file to be read from Azure NetApp Files, read and other operations are sent and received between the client and server.  
 
-When monitoring the Azure NetApp Files volume, read and write operations are self-explanatory. Also included in the metrics is a metric called **Other IOPS**, meaning any operation that isn't a read or write. **Other IOPS** encompasses operations such as metadata, which is present alongside most read and write operations.
+When monitoring the Azure NetApp Files volume, read and write operations are self-explanatory. Also included in the metrics is a metric called **Other IOPS**, meaning any operation that isn't a read or write. The **Other IOPS** metric encompasses operations such as metadata, which is present alongside most read and write operations.
 
 The following types of metadata operations are included in the **Other IOPS** metric: 
 
@@ -220,13 +220,14 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     Throughput limit reached is a boolean metric that denotes the volume is hitting its QoS limits. If the metric displays 1, the volume has reached its throughput, and throughput for this volume will be throttled. The value 0 means this limit hasn't yet been reached.
 
      > [!NOTE] 
-     > The Throughput limit reached metrics is collected every 5 minutes. If the limit has been reached in the five-minute window, it means the limit has been reached in that window. 
+     > The "Throughput limit reached metric" is collected every 5 minutes. If the limit has been reached during the previous five-minute window, it means the limit has been reached in that window. 
     
     If the volume is hitting the throughput limit, it's not sized appropriately for the application's demands. To resolve throughput issues:
 
     - Resize the volume: 
 
-        Increase the volume size to allocate more throughput to the volume so it's not throttled.
+        To avoid throtting, increase the volume's size to allocate more throughput.
+        
     - Modify the service level:
     
         The Premium and Ultra service levels in Azure NetApp Files cater to workloads with higher throughput requirements. [Moving the volume to a capacity pool in a higher service level](dynamic-change-volume-service-level.md) automatically increases these limits for the volume. 
