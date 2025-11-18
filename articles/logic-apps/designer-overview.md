@@ -45,7 +45,7 @@ To help you quickly learn the preview designer layout, this section summarizes t
 - When you run the workflow from the designer, the draft workflow runs, not the production workflow.
 
 - To view the production workflow, in the designer upper-right corner, open the vertical ellipsis menu (**⋮**), and select **Switch to published version**.
-  
+
   The production workflow opens in read-only view.
 
 - The preview designer moves many familiar actions to new locations:
@@ -256,14 +256,14 @@ The workflow sidebar includes these options under **Configuration**:
 | Options | Description |
 |---------|-------------|
 | **Access keys** | View or regenerate workflow access keys. |
-| **Settings** | View workflow statue or change state between **Enabled** and **Disabled**. |
+| **Settings** | View workflow state or change the state between **Enabled** and **Disabled**. |
 | **Properties** | View workflow health, version, and other information. |
 
 The workflow toolbar includes these additional options:
 
 | Options | Description |
 |---------|-------------|
-| **Discard** | Discard changes since the last save operation. |
+| **Discard** | Discard changes since the last manual save operation. |
 | **Parameters** | Create workflow parameters across environments. See [Create cross-environment parameters for workflow inputs](create-parameters-workflows.md). |
 | **Connections** | View connections in your workflow. |
 | **Errors** | View workflow validation errors. |
@@ -275,14 +275,17 @@ The workflow toolbar includes these additional options:
 
 The vertical ellipsis menu (**:**) includes these additional options:
 
-- Access keys (under **Settings**)
-- Connections
-- Disable/Enable workflow
-- Discard changes
-- Download workflow summary
-- Info
-- Parameters
-- Switch to published version
+| Options | Description |
+|---------|-------------|
+| **Discard changes** | Discard any changes since the last automatic save operation. |
+| **Switch to published version** | View the production workflow, which opens in read-only view. |
+| **Parameters** | Create workflow parameters across environments. See [Create cross-environment parameters for workflow inputs](create-parameters-workflows.md). |
+| **Connections** | View connections in your workflow. |
+| **Errors** | View workflow validation errors. |
+| **Disable workflow** or **Enable workflow** | Change the workflow state between enabled and disabled. |
+| **Info** | View workflow health, version, and other information. |
+| **Settings** | View or regenerate workflow access keys. |
+| **Send feedback** | Provide feedback using the Microsoft survey pane. |
 
 ---
 
