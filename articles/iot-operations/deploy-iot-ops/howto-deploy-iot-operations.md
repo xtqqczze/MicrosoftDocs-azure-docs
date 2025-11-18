@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 08/06/2025
+ms.date: 11/18/2025
 
 #CustomerIntent: As an IT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -42,12 +42,6 @@ Development resources:
 
 * Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
-
-  ```azurecli
-  az extension add --upgrade --name azure-iot-ops
-  ```
-
 A cluster host:
 
 * Have an Azure Arc-enabled Kubernetes cluster with the custom location and workload identity features enabled. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md).
@@ -74,7 +68,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **Resource group** | Select the resource group that contains your Arc-enabled cluster. |
    | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
    | **Custom location name** | *Optional*: Replace the default name for the custom location. |
-   | **Deployment version**| Select 2.0 version. For more information, see [IoT Operations versions](https://aka.ms/aio-versions).|
+   | **Deployment version**| Select **1.2 (latest)** version. For more information, see [IoT Operations versions](https://aka.ms/aio-versions).|
 
 1. Select **Next: Configuration**.
 
@@ -107,6 +101,27 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    1. Select a container in your storage account or select **Container** to create one.
 
    1. Select **Apply** to confirm the schema registry configurations.
+
+1. Azure IoT Operations uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. On the **Dependency management** tab, select an existing Azure Device Registry namespace or use these steps to create one:
+
+   1. Select **Create new**.
+
+   1. On the **Basics** tab, provide the following information:
+
+      | Parameter | Value |
+      | --------- | ----- |
+      | **Subscription** | Select your subscription. |
+      | **Resource group** | Select the resource group that contains your Azure IoT Operations instance. |
+      | **Name** | Provide a unique name for your namespace. |
+      | **Region** | Select the Azure region to store your namespace. |
+
+      Select **Next** to continue.
+
+   1. On the **Tags** tab, you can optionally add tags to your namespace. Select **Next** to continue.
+
+   1. On the **Review + create** tab, review your configurations and select **Create** to create the namespace.
+
+   1. Back on the **Dependency management** tab, select the newly created namespace from the list.
 
 1. On the **Dependency management** tab, select the **Secure settings** deployment option.
 
@@ -149,18 +164,6 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
    > [!NOTE]
    > This command requires that you have role assignment write permissions because it assigns a role to give schema registry access to the storage account. By default, the role is the built-in **Storage Blob Data Contributor** role, or you can create a custom role with restricted permissions to assign instead. For more information, see [az iot ops schema registry create](/cli/azure/iot/ops/schema/registry#az-iot-ops-schema-registry-create).
 
-1. Azure IoT Operations uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. You can use an existing namespace or run the `az iot ops ns create` command to create an Azure Device Registry namespace. Replace `<my namespace name>` with a unique name for your namespace.
-
-    ```azurecli
-    az iot ops ns create -n <my namespace name> -g $RESOURCE_GROUP
-    ```
-
-    Alternatively, you can create a new Azure Device Registry namespace in Azure portal:
- 
-      1. In the search box, type and select **Azure Device Registry**.
-      1. In the left menu, select **Namespaces**. 
-      1. Then select **+ Create** to create a new namespace. Make sure to use the same resource group as your Arc-enabled Kubernetes cluster.
-
 1. To prepare the cluster for Azure IoT Operations deployment, copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
    > [!TIP]
@@ -170,23 +173,11 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 
 1. Deploy Azure IoT Operations. Copy and run the provided [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command. This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
-    * If you want to use an existing namespace, add the following parameter to the `create` command:
+   If you followed the optional prerequisites to set up your own certificate authority issuer, add the `--trust-settings` parameters to the `create` command:
 
-        ```azurecli
-        --ns-resource-id $(az iot ops ns show --name <my namespace name> --resource-group $RESOURCE_GROUP -o tsv --query id)
-        ```
-
-   * If you want to use the preview connector configuration, add the following parameter to the `create` command:
-
-        ```bash
-        --feature connectors.settings.preview=Enabled
-        ```
-
-   * If you followed the optional prerequisites to set up your own certificate authority issuer, add the `--trust-settings` parameters to the `create` command:
-
-        ```bash
-        --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
-        ```
+   ```bash
+   --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
+   ```
 
 1. Enable secret sync for the deployed Azure IoT Operations instance. Copy and run the provided [az iot ops secretsync enable](/cli/azure/iot/ops/secretsync#az-iot-ops-secretsync-enable) command. This command:
 
