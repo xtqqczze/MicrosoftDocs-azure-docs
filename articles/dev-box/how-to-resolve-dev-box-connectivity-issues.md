@@ -5,14 +5,14 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: troubleshooting-general
-ms.date: 11/17/2025
+ms.date: 11/18/2025
   
 #customer intent: As a developer, I want to troubleshoot my connection issues with dev boxes so that I can maintain a stable and efficient workflow.
 ---
 
 # Troubleshoot dev box connectivity issues
 
-This step-by-step troubleshooting guide can help you quickly find and fix Microsoft Dev Box connection issues. These issues can include inability to connect, sign-in problems, frequent disconnections, or high latencies.
+This step-by-step troubleshooting guide can help you find and fix Microsoft Dev Box connection issues. These issues can include inability to connect, sign-in problems, frequent disconnections, or high latencies.
 
 ## Prerequisites
 
@@ -98,7 +98,7 @@ You can also apply the **fClientDisableUDP** registry setting and value by runni
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\Client" /v fClientDisableUDP /d 1 /t REG_DWORD
 ```
 
-# [MacOS client](#tab/macos)
+# [Mac client](#tab/mac)
 
 In macOS clients, run the following command in the terminal to change connections to TCP instead of UDP.
 
@@ -148,5 +148,6 @@ To see connection details such as **Timestamp** and **Activity ID**, select **Se
 
 ## Related content
 
-- [Troubleshoot and resolve dev box Remote Desktop connectivity issues](how-to-troubleshoot-repair-dev-box.md)
+- [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md)
+- [Troubleshoot known Remote Desktop connectivity issues with dev boxes](how-to-troubleshoot-remote-desktop-connectivity.md)
 - [Get support for Microsoft Dev Box](how-to-get-help.md)
