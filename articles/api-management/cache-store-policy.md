@@ -93,7 +93,7 @@ This example shows how to configure API Management response caching duration tha
 <!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the default value of 5 min if none is found  -->
 <cache-store duration="@{
     var header = context.Response.Headers.GetValueOrDefault("Cache-Control","");
-    var maxAge = Regex.Match(header, @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value;
+    var maxAge = Regex.Match(header, @"(max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value;
     return (!string.IsNullOrEmpty(maxAge))?int.Parse(maxAge):300;
   }"
  />
