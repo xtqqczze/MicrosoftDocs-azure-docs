@@ -19,7 +19,7 @@ The following table shows limits that are different for Basic, Standard, Premium
 
 | Limit | Basic | Standard | Premium | Dedicated |
 | ----- | ----- | -------- | -------- | --------- | 
-| Maximum size of Event Hubs publication | 256 KB | 1 MB | 1 MB | 1 MB |
+| Maximum size of Event Hubs publication | 256 KB | 1 MB | 1 MB | 20 MB |
 | Number of consumer groups per event hub | 1 | 20 | 100 | 1,000<br/>No limit per CU |
 | Number of Kafka consumer groups per namespace | NA | 1,000 | 1,000 | 1,000 |
 | Number of brokered connections per namespace | 100 | 5,000 | 10,000 per PU<br/><br/>For example, if the namespace is assigned 4 PUs, the limit is 40,000. | 100,000 per CU |
