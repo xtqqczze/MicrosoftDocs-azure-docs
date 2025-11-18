@@ -75,14 +75,14 @@ landingContent:
             url: ./vmware-azure-set-up-replication-tutorial-modernized.md
       - linkListType: how-to-guide
         links:
-          - text: Plan VMware capacity
-            url: ./site-recovery-plan-capacity-vmware.md
+          - text: VMware disaster recovery at scale
+            url: ./vmware-physical-large-deployment.md
 
   - title: Disaster recovery for Hyper-V VMs
     linkLists:
       - linkListType: concept
         links:
-          - text: Plan Hyper-V capacity
+          - text: Hyper-V to Azure disaster recovery
             url: ./hyper-v-azure-architecture.md
           - text: Common questions
             url: ./hyper-v-azure-common-questions.md
