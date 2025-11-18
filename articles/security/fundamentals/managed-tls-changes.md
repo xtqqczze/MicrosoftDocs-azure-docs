@@ -89,7 +89,7 @@ No. Only this specific CNAME validation method unique to Azure services is being
 
 Only Azure is impacted by this change.
 
-### Q: Why is Microsoft migrating to the DigiCert Global Root G2 and G3 roots?**
+### Q: Why is Microsoft migrating to the DigiCert Global Root G2 and G3 roots?
 
 This change aligns with industry standards and upcoming browser requirements. On April 15, 2026, Mozilla and Chrome will distrust the *DigiCert Global Root CA*. To maintain trust, all managed TLS certificates will move to *DigiCert Global Root G2* and *DigiCert Global Root G3* before this date. For more information, see [DigiCert root and intermediate CA certificate updates 2023](https://knowledge.digicert.com/general-information/digicert-root-and-intermediate-ca-certificate-updates-2023).
 
