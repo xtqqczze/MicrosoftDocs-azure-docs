@@ -139,9 +139,11 @@ items:
         href: create-autonomous-agent-workflows.md
       - name: Create conversational agent workflows
         href: create-conversational-agent-workflows.md
-      - name: Run workflows from actions in AI agents
+      - name: Add agent tools in Foundry backed by connectors
+        href: add-agent-tools-connector-actions.md
+      - name: Add agent actions in Foundry backed by workflows
         href: add-agent-action-create-run-workflow.md
-      - name: Create and register MCP servers and tools
+      - name: Create MCP servers and tools from connectors
         href: create-mcp-server-api-center.md
       - name: Set up Standard logic apps as MCP servers
         href: set-up-model-context-protocol-server-standard.md
