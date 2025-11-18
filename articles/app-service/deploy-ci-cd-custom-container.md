@@ -18,23 +18,23 @@ This article explains how to configure continuous integration and continuous del
 
 ## Go to the Deployment Center
 
-1. In the [Azure portal](https://portal.azure.com), go to the management pane for your Azure App Service app.
+In the [Azure portal](https://portal.azure.com), go to the management pane for your Azure App Service app.
 
-1. On the sidebar menu under **Deployment**, select **Deployment Center** > **Settings**.
+On the sidebar menu under **Deployment**, select **Deployment Center** > **Settings**.
 
 ::: zone pivot="container-linux"
 ## Select the code source
 
-1. From the **Source** dropdown menu, select the deployment source based on the following criteria:
+From the **Source** dropdown menu, select the deployment source based on the following criteria:
 
-   * **Container registry** sets up CI/CD between your container registry and App Service.
-   * Select the **GitHub Actions** option if you maintain the source code for your container image in GitHub. New commits to your GitHub repository trigger the deploy action, which can run `docker build` and `docker push` directly to your container registry. It then updates your App Service app to run the new image. For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-with-github-actions).
-   * To set up CI/CD with **Azure Pipelines**, see [Deploy an Azure Web App Container from Azure Pipelines](/azure/devops/pipelines/targets/webapp-on-container-linux).
-   * For a Docker Compose app, select **Container Registry**.
+* **Container registry** sets up CI/CD between your container registry and App Service.
+* Select the **GitHub Actions** option if you maintain the source code for your container image in GitHub. New commits to your GitHub repository trigger the deploy action, which can run `docker build` and `docker push` directly to your container registry. It then updates your App Service app to run the new image. For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-with-github-actions).
+  * To set up CI/CD with **Azure Pipelines**, see [Deploy an Azure Web App Container from Azure Pipelines](/azure/devops/pipelines/targets/webapp-on-container-linux).
+  * For a Docker Compose app, select **Container Registry**.
 
-   If you select GitHub Actions, select **Authorize** and follow the authorization prompts. If you previously authorized with GitHub, you can deploy from a different user's repository by selecting **Change Account**.
+If you select GitHub Actions, select **Authorize** and follow the authorization prompts. If you previously authorized with GitHub, you can deploy from a different user's repository by selecting **Change Account**.
 
-1. After you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to deploy from.
+After you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to deploy from.
 ::: zone-end  
 
 ::: zone pivot="container-windows"
@@ -46,10 +46,10 @@ This article explains how to configure continuous integration and continuous del
 > [!NOTE]
 > Sidecar containers will succeed multi-container (Docker Compose) apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom containers in Azure App Service](tutorial-custom-container-sidecar.md).
 
-1. To deploy a multi-container (Docker Compose) app, select **Docker Compose** in **Container Type**. If you don't see the **Container Type** dropdown list, scroll back up to **Source** and select **Container Registry**.
+To deploy a multi-container (Docker Compose) app, select **Docker Compose** in **Container Type**. If you don't see the **Container Type** dropdown list, scroll back up to **Source** and select **Container Registry**.
 ::: zone-end
 
-2. In **Registry source**, select the location of your container registry. If it's not Azure Container Registry or Docker Hub, select **Private registry**.
+In **Registry source**, select the location of your container registry. If it's not Azure Container Registry or Docker Hub, select **Private registry**.
 
 ::: zone pivot="container-linux"
 > [!NOTE]
@@ -60,18 +60,18 @@ Follow the next steps by selecting the tab that matches your choice.
 
 # [Azure Container Registry](#tab/acr)
 
-1. The **Registry** dropdown list displays the registries in the same subscription as your app. Select the registry you want.
+The **Registry** dropdown list displays the registries in the same subscription as your app. Select the registry you want.
 
-1. To deploy from a registry in a different subscription, select **Private registry** in **Registry source** instead.
+To deploy from a registry in a different subscription, select **Private registry** in **Registry source** instead.
 
-1. To use managed identities to lock down Azure Container Registry access, see:
+To use managed identities to lock down Azure Container Registry access, see:
 
-   * [How to use system-assigned managed identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md)
-   * [How to use user-assigned managed identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md)
+* [How to use system-assigned managed identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md)
+* [How to use user-assigned managed identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md)
 
 ::: zone pivot="container-windows"
 
-1. Select the **Image** and **Tag** to deploy. You can type the startup command in **Startup File**.
+Select the **Image** and **Tag** to deploy. You can type the startup command in **Startup File**.
 
 ::: zone-end
 ::: zone pivot="container-linux"
@@ -87,20 +87,20 @@ App Service appends the string in **Startup File** to [the end of the `docker ru
 
 ::: zone pivot="container-windows"
 
-1. In **Repository Access**, select whether the image you want to deploy is public or private.
+In **Repository Access**, select whether the image you want to deploy is public or private.
 
 ::: zone-end
 ::: zone pivot="container-linux"
 
-1. In **Repository Access**, select whether the image you want to deploy is public or private. For a Docker Compose app with one or more private images, select **Private**.
+In **Repository Access**, select whether the image you want to deploy is public or private. For a Docker Compose app with one or more private images, select **Private**.
 
 ::: zone-end
 
-2. If you select a private image, specify the **Login** (username) and **Password** values for the Docker account.
+If you select a private image, specify the **Login** (username) and **Password** values for the Docker account.
 
 ::: zone pivot="container-windows"
 
-3. Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can choose to type the startup command in **Startup File**.
+Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can choose to type the startup command in **Startup File**.
 
 ::: zone-end
 ::: zone pivot="container-linux"
@@ -116,13 +116,13 @@ App Service appends the string in **Startup File** to [the end of the `docker ru
 
 # [Private registry](#tab/private)
 
-1. In **Server URL**, type the URL of the server, beginning with `https://`.
+In **Server URL**, type the URL of the server, beginning with `https://`.
 
-1. In the **Login** and **Password** fields, type your sign-in credentials for your private registry.
+In the **Login** and **Password** fields, type your sign-in credentials for your private registry.
 
 ::: zone pivot="container-windows"
 
-3. Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can type the startup command in **Startup File**.
+Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can type the startup command in **Startup File**.
 
 ::: zone-end
 ::: zone pivot="container-linux"
