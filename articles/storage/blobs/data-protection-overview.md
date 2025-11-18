@@ -34,7 +34,7 @@ These options, as well as other data protection options for other scenarios, are
 For an overview of the costs involved with these features, see [Summary of cost considerations](#summary-of-cost-considerations).
 
 > [!TIP]
-> You can use Microsoft Copilot in Azure to get suggestions on enhancing your storage account's data resiliency. For more information, see [Manage and troubleshoot storage accounts using Microsoft Copilot in Azure](/azure/copilot/improve-storage-accounts#enhance-data-resiliency).
+> You can use Azure Copilot to get suggestions on enhancing your storage account's data resiliency. For more information, see [Manage and migrate storage accounts using Azure Copilot](/azure/copilot/improve-storage-accounts#enhance-data-resiliency).
 
 ## Overview of data protection options
 
