@@ -21,7 +21,7 @@ ms.custom:
 
 # Deploy a custom container to App Service by using GitHub Actions
 
-You can use [GitHub Actions](https://docs.github.com/en/actions) to build an automated software development workflow. You can use the [Azure web deploy action](https://github.com/Azure/webapps-deploy) to automate your workflow and deploy custom containers to [Azure App Service](overview.md).
+You can use [GitHub Actions](https://docs.github.com/en/actions) to build an automated software development workflow. You can use the [Azure Web Deploy action](https://github.com/Azure/webapps-deploy) to automate your workflow and deploy custom containers to [Azure App Service](overview.md).
 
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that are in the workflow.
 
@@ -270,7 +270,7 @@ To deploy your image to a custom container in App Service, use the `azure/webapp
 | **Parameter**  | **Explanation**  |
 |---------|---------|
 | `app-name` | (Required) Name of the App Service app. |
-| `publish-profile` | (Optional) Used with web apps (Windows and Linux) and web app containers (Linux). Multi-container scenario not supported. Publish profile `\*.publishsettings` file contents with web deploy secrets. |
+| `publish-profile` | (Optional) Used with web apps (Windows and Linux) and web app containers (Linux). Multi-container scenario not supported. Publish profile `\*.publishsettings` file contents with Web Deploy secrets. |
 | `slot-name` | (Optional) Enter an existing slot other than the production slot. |
 | `package` | (Optional) Used only with web apps: Path to package or folder. `\*.zip`, `\*.war`, `\*.jar`, or a folder to deploy. |
 | `images` | (Required) Used only with web app containers: Specify the fully qualified container image name. For example, `myregistry.azurecr.io/nginx:latest` or `python:3.12.12-alpine/`. For a multi-container app, multiple container image names can be provided (multi-line separated). |
