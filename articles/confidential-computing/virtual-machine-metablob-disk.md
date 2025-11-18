@@ -231,23 +231,14 @@ When using UploadPreparedSecure, upload the VMMD blob in addition to the OS and 
 
 ## FAQ
 
-sections:
-  - name: VMMD
-    questions:
-      - question: |
-          What is the VMMD blob?
-        answer: |
-          The VMMD (Virtual Machine Metadata) blob contains metadata for a confidential VM.
+1. What is the VMMD blob? <br>
+   The VMMD (Virtual Machine Metadata) blob contains metadata for a confidential VM.
           
-      - question: |
-          Do we currently have support for incremental snapshots for confidential VM with VMMD
-        answer: |
-          At this moment, confidential VMs with VMMD blob do not support incremental snapshots yet.
+3. Do we currently have support for incremental snapshots for confidential VM with VMMD <br>
+   At this moment, confidential VMs with VMMD blob do not support incremental snapshots yet.
 
-      - question: |
-          Can we convert confidential VMs with VMMD and VMGS blob to confidential VMs with VMGS only
-        answer: |
-          Unfortunately, this conversion is not supported at the moment.
+4. Can we convert confidential VMs with VMMD and VMGS blob to confidential VMs with VMGS only <br>
+   Unfortunately, this conversion is not supported at the moment.
 
 For more, see our [confidential VM FAQ](/azure/confidential-computing/confidential-vm-faq) and our [managed disk FAQ](/azure/virtual-machines/faq-for-disks)
 
