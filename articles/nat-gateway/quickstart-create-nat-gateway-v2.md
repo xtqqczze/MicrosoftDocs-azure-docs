@@ -119,7 +119,7 @@ Azure NAT Gateway supports multiple deployment options for IP addresses and redu
 
 ### [Portal](#tab/portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure preview portal](https://preview.portal.azure.com).
 
 1. In the search box at the top of the Azure portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
 
@@ -237,7 +237,7 @@ az network nat gateway create \
 
 ### [Portal](#tab/portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure preview portal](https://preview.portal.azure.com).
 
 1. In the search box at the top of the Azure portal, enter **Public IP prefix**. Select **Public IP Prefixes** in the search results.
 
