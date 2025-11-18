@@ -65,6 +65,9 @@ You can still migrate the pipeline after you refactor or replace that activity. 
 ## Related content
 
 [Compare Azure Data Factory and Fabric Data Factory](/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory)
+
 [Migration best practices](/fabric/data-factory/migration-best-practices)
+
 [Connector parity](/fabric/data-factory/connector-parity)
+
 
