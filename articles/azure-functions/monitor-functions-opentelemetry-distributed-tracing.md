@@ -2,7 +2,7 @@
 title: Monitor Azure Functions with OpenTelemetry distributed tracing
 description: "Learn how to implement OpenTelemetry distributed tracing across multiple function calls in your function app. See how to monitor function calls, track performance, and gain observability into your serverless applications using Application Insights integration."
 ms.date: 11/17/2025
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom:
   - ignite-2025
 zone_pivot_groups: programming-languages-set-functions
