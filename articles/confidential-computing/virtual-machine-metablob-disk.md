@@ -235,6 +235,9 @@ When using UploadPreparedSecure, upload the VMMD blob in addition to the OS and 
 
 **A:** The VMMD (Virtual Machine Metadata) blob contains metadata for a confidential VM.
 
+**Q: Do we have support for incremental snapshots**
+**A:** Confidential VMs with VMMD blob does not have support for incremental snapshots yet.
+
 For more, see our [confidential VM FAQ](/azure/confidential-computing/confidential-vm-faq) and our [managed disk FAQ](/azure/virtual-machines/faq-for-disks)
 
 ## Next Steps
