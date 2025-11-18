@@ -50,8 +50,6 @@ landingContent:
         links:
           - text: Zone to zone disaster recovery
             url: ./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
-          - text: Networking for Azure VM disaster recovery
-            url: ./azure-to-azure-about-networking.md
 
   - title: Disaster recovery for VMware VMs
     linkLists:
