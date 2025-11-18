@@ -39,7 +39,7 @@ The following table shows how the combination of share-level permissions and Win
    | **NTFS - Full**         | Access Denied | Read                       | Read, Write, Run, Delete      | Read, Write, Run, Delete, Apply permissions to anyone's folders/files |
 
 > [!NOTE]
-> Taking ownership of folders or files for ACL configuration requires an additional RBAC permission. With the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin), you can grant this by assigning the built-in RBAC role [Storage File Data SMB Admin](/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin), which includes the `takeOwnership` permission.
+> Taking ownership of folders or files for ACL configuration requires an additional RBAC permission. With the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin), you can grant this by assigning the built-in RBAC role [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin), which includes the `takeOwnership` permission.
 
 ## Supported Windows ACLs
 
