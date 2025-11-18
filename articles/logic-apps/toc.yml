@@ -140,7 +140,7 @@ items:
       - name: Create conversational agent workflows
         href: create-conversational-agent-workflows.md
       - name: Add agent tools in Foundry backed by connectors
-        href: add-agent-tools-mcp-server-connector-actions.md
+        href: add-agent-tools-connector-actions.md
       - name: Add agent actions in Foundry backed by workflows
         href: add-agent-action-create-run-workflow.md
       - name: Create MCP servers and tools from connectors

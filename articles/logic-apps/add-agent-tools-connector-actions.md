@@ -73,29 +73,29 @@ Follow these steps to add one or multiple tools for your agent in Microsoft Foun
 
 1. On the Foundry title bar, select **New Foundry**.
 
-   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/new-foundry.png" alt-text="Screenshot shows classic Foundry title bar with unselected New Foundry option." lightbox="media/add-agent-tools-mcp-server-connector-actions/new-foundry.png":::
+   :::image type="content" source="media/add-agent-tools-connector-actions/new-foundry.png" alt-text="Screenshot shows classic Foundry title bar with unselected New Foundry option." lightbox="media/add-agent-tools-connector-actions/new-foundry.png":::
 
    The classic Foundry portal changes to the preview Foundry portal.
 
-   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/preview-foundry.png" alt-text="Screenshot shows preview Foundry portal." lightbox="media/add-agent-tools-mcp-server-connector-actions/preview-foundry.png":::
+   :::image type="content" source="media/add-agent-tools-connector-actions/preview-foundry.png" alt-text="Screenshot shows preview Foundry portal." lightbox="media/add-agent-tools-connector-actions/preview-foundry.png":::
 
 1. Under **Your recent work**, select your agent.
 
-   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/my-agent.png" alt-text="Screenshot shows Your recent work section with selected agent." lightbox="media/add-agent-tools-mcp-server-connector-actions/my-agent.png":::
+   :::image type="content" source="media/add-agent-tools-connector-actions/my-agent.png" alt-text="Screenshot shows Your recent work section with selected agent." lightbox="media/add-agent-tools-connector-actions/my-agent.png":::
 
 1. On the Foundry sidebar, select **Tools**.
 
-   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/foundry-sidebar-tools.png" alt-text="Screenshot shows Foundry sidebar with Tools selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/foundry-sidebar-tools.png":::
+   :::image type="content" source="media/add-agent-tools-connector-actions/foundry-sidebar-tools.png" alt-text="Screenshot shows Foundry sidebar with Tools selected." lightbox="media/add-agent-tools-connector-actions/foundry-sidebar-tools.png":::
 
 1. On the **Tools** page, select **Connect a tool**.
 
 1. In the **Select a tool** window, select **Catalog**.
 
-   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/select-catalog.png" alt-text="Screenshot shows Select a tool window with Catalog tab selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/select-catalog.png":::
+   :::image type="content" source="media/add-agent-tools-connector-actions/select-catalog.png" alt-text="Screenshot shows Select a tool window with Catalog tab selected." lightbox="media/add-agent-tools-connector-actions/select-catalog.png":::
 
 1. On the **Catalog** tab, select **Registry** > **Logic app connectors**.
 
-   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/registry-logic-app-connectors.png" alt-text="Screenshot shows Catalog tab with Registry list open and Logic app connectors selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/registry-logic-app-connectors.png":::
+   :::image type="content" source="media/add-agent-tools-connector-actions/registry-logic-app-connectors.png" alt-text="Screenshot shows Catalog tab with Registry list open and Logic app connectors selected." lightbox="media/add-agent-tools-connector-actions/registry-logic-app-connectors.png":::
 
 1. Select the connector you want by following these steps:
 
@@ -107,7 +107,7 @@ Follow these steps to add one or multiple tools for your agent in Microsoft Foun
 
       For example:
 
-      :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/select-connector.png" alt-text="Screenshot shows search box with rss entered with RSS connector and Create button selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/select-connector.png":::
+      :::image type="content" source="media/add-agent-tools-connector-actions/select-connector.png" alt-text="Screenshot shows search box with rss entered with RSS connector and Create button selected." lightbox="media/add-agent-tools-connector-actions/select-connector.png":::
 
       This action opens Azure portal and shows the home page for the **Register an MCP server with Azure Logic Apps** wizard.
 
@@ -127,13 +127,13 @@ You can continue with these steps only after you finish the steps from the prece
 
    For example:
 
-   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/mcp-information.png" alt-text="Screenshot shows MCP server details section in wizard." lightbox="media/add-agent-tools-mcp-server-connector-actions/mcp-information.png":::
+   :::image type="content" source="media/add-agent-tools-connector-actions/mcp-information.png" alt-text="Screenshot shows MCP server details section in wizard." lightbox="media/add-agent-tools-connector-actions/mcp-information.png":::
 
 1. In the **Tools** section, set up the connection for your chosen connector:
 
    1. In the **Connectors** section, on the connector row, select the edit button (pencil icon).
 
-      :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/create-connection.png" alt-text="Screenshot shows MCP wizard with Connectors section and edit button selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/create-connection.png":::
+      :::image type="content" source="media/add-agent-tools-connector-actions/create-connection.png" alt-text="Screenshot shows MCP wizard with Connectors section and edit button selected." lightbox="media/add-agent-tools-connector-actions/create-connection.png":::
 
    1. On the **Edit connection** pane, follow the prompt, which varies based on the connector, for example:
 
@@ -145,7 +145,7 @@ You can continue with these steps only after you finish the steps from the prece
 
 1. If the **Add actions** pane doesn't appear, under **Tools**, in the **Actions** section, select **Add**.
 
-   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/add-actions.png" alt-text="Screenshot shows MCP wizard with Actions section and Add selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/add-actions.png":::
+   :::image type="content" source="media/add-agent-tools-connector-actions/add-actions.png" alt-text="Screenshot shows MCP wizard with Actions section and Add selected." lightbox="media/add-agent-tools-connector-actions/add-actions.png":::
 
 1. On the **Add actions** pane, find and select one or more connector actions to include as tools in your MCP server.
 
@@ -169,13 +169,13 @@ You can continue with these steps only after you finish the steps from the prece
 
         The following example shows the description and parameters for the **List all RSS feed items** tool:
 
-        :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/tool-parameters.png" alt-text="Screenshot shows Edit pane for an example tool." lightbox="media/add-agent-tools-mcp-server-connector-actions/tool-parameters.png":::
+        :::image type="content" source="media/add-agent-tools-connector-actions/tool-parameters.png" alt-text="Screenshot shows Edit pane for an example tool." lightbox="media/add-agent-tools-connector-actions/tool-parameters.png":::
 
      1. When you're done, select **Save changes**.
 
 1. When you're done reviewing or updating each tool, select **Register**.
 
-   :::image type="content" source="media/add-agent-tools-mcp-server-connector-actions/register.png" alt-text="Screenshot shows finished Tools section and Register selected." lightbox="media/add-agent-tools-mcp-server-connector-actions/register.png":::
+   :::image type="content" source="media/add-agent-tools-connector-actions/register.png" alt-text="Screenshot shows finished Tools section and Register selected." lightbox="media/add-agent-tools-connector-actions/register.png":::
 
 1. Wait for the notifications that Azure successfully registered your MCP server.
 
