@@ -81,13 +81,13 @@ Use the following steps to configure your web app to pull from Azure Container R
 
    Replace *\<app-name>* with the name you used in the previous step. The output of the command, filtered by the `--query` and `--output` arguments, is the service principal ID of the assigned identity.
 
-1. Get the resource ID of your Azure Container Registry:
+1. Get the resource ID of your container registry:
 
    ```azurecli-interactive
    az acr show --resource-group <group-name> --name <registry-name> --query id --output tsv
    ```
 
-   Replace *\<registry-name>* with the name of your registry. The output of the command, filtered by the `--query` and `--output` arguments, is the resource ID of the Azure Container Registry.
+   Replace *\<registry-name>* with the name of your registry. The output of the command, filtered by the `--query` and `--output` arguments, is the resource ID of the container registry.
 
 1. Grant the managed identity permission to access the container registry:
 
