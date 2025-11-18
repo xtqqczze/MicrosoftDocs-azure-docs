@@ -243,7 +243,7 @@ To go back to using the classic designer, in the designer upper-right corner, op
 
 ## Other actions
 
-In the classic designer, you can find other actions on either the workflow toolbar or worklfow sidebar. The preview designer moves these actions into the vertical ellipsis menu (**⋮**), which you can find next to the **Publish** button in the designer's upper-right corner.
+In the classic designer, you can find other actions either on the workflow toolbar or workflow sidebar. The preview designer moves these actions into the vertical ellipsis menu (**⋮**), which you can find next to the **Publish** button in the designer's upper-right corner.
 
 :::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot show the preview designer and toolbar with vertical ellipsis menu next to the Publish button." lightbox="media/designer-overview/ellipsis.png":::
 
