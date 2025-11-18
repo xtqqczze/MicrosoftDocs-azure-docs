@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 11/11/2025
 ---
 
-# Register and Manage Agents in Azure API Center
+# Register and manage agents in Azure API Center
 
-This guide shows you how to register A2A agents in API Center, and how to update and manage them after registration. You can add skills, configure capabilities, and update provider information.
+This article shows you how to register A2A agents in API Center, and how to update and manage them after registration. You can add skills, configure capabilities, and update provider information.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Enter required values from the agent's agent card. Optionally add skills and oth
 
 1. In the **Register an API** page, fill in the [standard properties](tutorials/register-apis.md) to register an API and choose **A2A** as the agent type.
 
-    - The form updates to display additional fields specific to the **A2A** API type.
+    - The form updates to display other fields specific to the **A2A** API type.
 
 1. In the **Agent Card** section, enter the following details:
 
@@ -71,7 +71,7 @@ Enter required values from the agent's agent card. Optionally add skills and oth
 
 1. In the [Azure portal](https://azure.microsoft.com), go to your API center.
 1. In the sidebar menu, under **Assets**, select **APIs**.
-1. From the table, select your A2A agent by clicking the agent name in the **Title** column.
+1. From the table, select your A2A agent by selecting the agent name in the **Title** column.
 1. Select the **Edit** button to open the **Edit** page in the working pane.
 
     :::image type="content" source="media/register-manage-agents/edit-agent.png" alt-text="Screenshot of the AI agent overview in Azure portal with the edit button highlighted.":::
@@ -116,6 +116,10 @@ Agent capabilities describe what features your A2A agent supports.
     |State Transition History | Indicates if the agent provides a history of state transitions for a task              |
 
 1. Select **Save**.
+
+## Limitations
+
+API-to-API APIs in API Manager don't synchronize with API Center.
 
 ## Related content
 
