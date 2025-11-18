@@ -36,12 +36,12 @@ After you save the configuration, you're ready to stream large messages with Eve
 
 ## Stream large messages with Event Hubs
 
-Event Hubs allows streaming of large messages up to 20 MB, both in batches and as individual publications. The ability to stream large messages or events requires no client code changes apart from the change in the message or event itself. You can continue to send or receive messages by using any existing Event Hubs SDK or Kafka API to stream large messages to Event Hubs. This way you can stream large messages to Event Hubs in the same manner as you would for messages of sizes less than 1 MB.
+Event Hubs allows streaming of large messages up to 20 MB, both in batches and as individual publications. You can continue to send or receive messages by using any existing Event Hubs SDK or Kafka API to stream large messages to Event Hubs. 
 
 For more information, see [Send events to and receive events from Event Hubs by using .NET](event-hubs-dotnet-standard-getstarted-send.md).
 
 > [!TIP]
-> Make sure to review any Event Hubs Advanced Message Queuing Protocol (AMQP) client or Kafka client configuration that might limit the maximum message size that you stream into Event Hubs. You must update client timeout to a higher value to stream large messages.
+> Make sure to review any Event Hubs Advanced Message Queuing Protocol (AMQP) client or Kafka client configuration that might limit the maximum message size that you stream into Event Hubs. You must update client timeout to a higher value (> 60s) to stream large messages.
 >
 > By default, the AMQP client prefetch count is 300. Lower this value to avoid client-side memory issues when you deal with large messages.
 
