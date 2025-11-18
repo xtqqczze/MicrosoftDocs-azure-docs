@@ -22,7 +22,7 @@ For example, the preview designer has the following key changes:
 
 - The designer toolbar options are now consolidated. The workflow sidebar no longer exists.
 
-  Commonly used options now appear at the designer top and bottom. Other options appear in the vertical ellipsis menu (**⋮**), next to the **Publish** button.
+  Instead, commonly used options now appear at the designer top and bottom. Other options appear in the vertical ellipsis menu (**⋮**), next to the **Publish** button.
 
 For more detailed changes, see [Differences in the preview designer](#differences-in-the-preview-designer).
 
@@ -157,7 +157,7 @@ To add a trigger or an action to your Standard workflow, see [Build a workflow w
 
 - Required parameters show a red asterisk (&ast;) next to the parameter name.
 
-- Some triggers and actions might require you to create a connection for a service or product. You might need to sign in to an account, or enter user credentials. For example, if to use the Office 365 Outlook connector to send an email, you need to authorize your Outlook email account.
+- Some triggers and actions might require you to create a connection for a service or product. You might need to sign in to an account, or enter user credentials. For example, to use the Office 365 Outlook connector action for sending an email, you need to authorize your Outlook email account.
 
 - Some trigger or action parameters let you provide expressions or dynamic content, which are outputs from previous steps, rather than hardcoded or static values.
 
@@ -275,7 +275,7 @@ The workflow sidebar includes these options under **Configuration**:
 
 The preview designer moves many other options into the vertical ellipsis menu (**⋮**), which you can find next to the **Publish** button in the designer's upper-right corner.
 
-:::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot show the preview designer and toolbar with vertical ellipsis menu next to the Publish button." lightbox="media/designer-overview/ellipsis.png":::
+:::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot shows the preview designer and toolbar with vertical ellipsis menu next to the Publish button." lightbox="media/designer-overview/ellipsis.png":::
 
  The vertical ellipsis menu (**:**) includes these options:
 
