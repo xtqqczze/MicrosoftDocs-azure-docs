@@ -21,7 +21,7 @@ This opens a side pane with the preview of list of pipelines and expandable list
 
 You can also export the assessment results as an .xlsx file for reference.
 
-Some results point to features that are still in progress or out of scope. Use the results to prioritize the fixes and to decide whether to migrate now using existing tools such as powershell upgrade module or wait for upcoming support.
+Some results point to features that are still in progress or out of scope. Use the results to prioritize the fixes and to decide whether to migrate now using existing tools such as PowerShell upgrade module or wait for upcoming support.
 
 
 ## Understanding the results
@@ -45,7 +45,7 @@ In the assessment side pane, expand each pipeline to see:
 When your assessment shows acceptable readiness:
 
 Use the Azure Data Factory to Fabric migration flow as it becomes available in the future.
-Or see if you could use the [Powershell upgrade tool](/fabric/data-factory/migrate-pipelines-powershell-upgrade-module-for-azure-data-factory-to-fabric) and the migration planning guides to complete the move. 
+Or see if you could use the [PowerShell upgrade tool](/fabric/data-factory/migrate-pipelines-powershell-upgrade-module-for-azure-data-factory-to-fabric) and the migration planning guides to complete the move. 
 
 
 
@@ -56,7 +56,7 @@ No. It only scans your configuration and lists findings in the side pane. You ca
 
 **Why do I see Coming soon?**
 
-It means the product team is actively adding support for those items. If they’re critical to your pipeline, see if you could use powershell migration tool or plan to migrate later or redesign the affected steps.
+It means the product team is actively adding support for those items. If they’re critical to your pipeline, see if you could use PowerShell migration tool or plan to migrate later or redesign the affected steps.
 
 **What if only one activity is Not compatible?**
 
