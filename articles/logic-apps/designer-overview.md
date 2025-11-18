@@ -245,7 +245,7 @@ To go back to using the classic designer, in the preview designer upper-right co
 
 ## Other tasks
 
-You can perform other tasks for with the designer or your workflow. You'll find the options for these tasks in different locations, based on the classic designer or preview designer.
+You can perform other tasks on your workflow. You'll find the options for these tasks in different locations, based on the classic designer or preview designer.
 
 ### [Classic designer](#tab/classic)
 
