@@ -12,7 +12,17 @@ zone_pivot_groups: programming-languages-set-functions
 
 This article demonstrates OpenTelemetry support in Azure Function, which enables distributed tracing across multiple function calls by using integrated Application Insights and OpenTelemetry support. To help you get started, an use Azure Developer CLI (`azd`) template is used to create your code project as well as the Azure deployment in which to run your app.  
 
-After running the code locally, you use `azd` to create a serverless function app in a Flex Consumption plan, along with other required Azure resources. These resources follow current best practices for secure and scalable function app deployments in Azure. The same `azd` command also deploys your code project to your new function app in Azure.
+In this tutorial, you use the `azd` tool to:
+
+> [!div class="checklist"]
+> * Initialize an OpenTelemetry-enabled project from a template.
+> * Review the code that enables OpenTelemetry integration. 
+> * Run and verify your OpenTelemetry-enabled app locally.
+> * Create a function app and related resources in Azure.
+> * Deploy your code project to the function app in Azure.
+> * Verify distributed tracing in Application Insights.
+
+The required Azure resources created by this template follow current best practices for secure and scalable function app deployments in Azure. The same `azd` command also deploys your code project to your new function app in Azure.
 
 By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"  
