@@ -273,7 +273,7 @@ Examples in this article assume your app uses `IHostApplicationBuilder`, which i
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"
-1. Create a code file in your project, copy and paste the following code in this new file, and save the file as `src/index.js`:
+2. Create a code file in your project, copy and paste the following code in this new file, and save the file as `src/index.js`:
 
     ### [Application Insights](#tab/app-insights)
 
@@ -285,14 +285,14 @@ Examples in this article assume your app uses `IHostApplicationBuilder`, which i
 
     ---
 
-1. Update the `main` field in your package.json file to include the new `src/index.js` file. For example: 
+3. Update the `main` field in your package.json file to include the new `src/index.js` file. For example: 
 
     ```json
     "main": "src/{index.js,functions/*.js}"
     ```
 ::: zone-end     
 ::: zone pivot="programming-language-typescript"
-1. Create a code file in your project, copy and paste the following code in this new file, and save the file as `src/index.ts`:
+2. Create a code file in your project, copy and paste the following code in this new file, and save the file as `src/index.ts`:
 
     ### [Application Insights](#tab/app-insights)
 
@@ -304,7 +304,7 @@ Examples in this article assume your app uses `IHostApplicationBuilder`, which i
 
     ---
 
-1. Update the `main` field in your package.json file to include the output of this new `src/index.ts` file, which might look like this: 
+3. Update the `main` field in your package.json file to include the output of this new `src/index.ts` file, which might look like this: 
 
     ```json
     "main": "dist/src/{index.js,functions/*.js}"
