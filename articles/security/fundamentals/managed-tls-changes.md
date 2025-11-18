@@ -62,7 +62,7 @@ Consequently, these Azure services will be introducing an enhanced domain contro
 
 This change doesn't impact the standard CNAME DCV process for DigiCert customers, where validation uses a random value in the CNAME record. Only this one workflow for validation previously used by Microsoft is being retired.
 
-> ![WARNING]
+> [!WARNING]
 > Customers who haven't updated their configurations to comply with the managed TLS changes will have a service outage if they don't update the configuration.
 >
 > - An outage is *guaranteed* to occur when the current certificate expires.
@@ -76,7 +76,7 @@ This change doesn't impact the standard CNAME DCV process for DigiCert customers
 
 No. The feature is very much supported and in fact is receiving several key updates that improve the overall user experience.
 
-> ![NOTE]
+> [!NOTE]
 > AFD classic and CDN Classic SKUs, which are on the path to deprecation, are retiring support for adding new custom domains. For more information, see [Azure Front Door (classic) and Azure CDN from Microsoft Classic SKU ending CNAME based domain validation and new domain/profile creations by August 15, 2025](https://azure.microsoft.com/updates?id=498522). Customers are recommended to use managed TLS certificates with AFD Standard and Premium SKUs for new custom domains.
 
 ### Q: What is domain control validation?
@@ -89,7 +89,7 @@ No. Only this specific CNAME validation method unique to Azure services is being
 
 Only Azure is impacted by this change.
 
-### Q: Why is Microsoft migration to the DigiCert Global Root G2 and G3 roots?**
+### Q: Why is Microsoft migrating to the DigiCert Global Root G2 and G3 roots?**
 
 This change aligns with industry standards and upcoming browser requirements. On April 15, 2026, Mozilla and Chrome will distrust the *DigiCert Global Root CA*. To maintain trust, all managed TLS certificates will move to *DigiCert Global Root G2* and *DigiCert Global Root G3* before this date. For more information, see [DigiCert root and intermediate CA certificate updates 2023](https://knowledge.digicert.com/general-information/digicert-root-and-intermediate-ca-certificate-updates-2023).
 
