@@ -30,9 +30,7 @@ In the presence of other outbound configurations within a virtual network, such 
 
 StandardV2 NAT Gateway supports availability zone scenarios. 
 
-When StandardV2 NAT gateway is deployed, outbound connections can flow out of any zone in the region. When a zone goes down, some in flight connections from the failed zone may be impacted, but all new connections flow out of the remaining healthy zones.  
-
-StandardV2 NAT gateway can be configured to individual subnets or to a virtual network to provide zone-resilient outbound connectivity to the internet.  
+When StandardV2 NAT gateway is deployed, outbound connections can flow out of any zone in the region. When a zone goes down, some in flight connections from the failed zone may be impacted, but all new connections flow out of the remaining healthy zones.   
 
 To learn more information, see [NAT gateway availability zones](/azure/nat-gateway/nat-availability-zones). 
 
