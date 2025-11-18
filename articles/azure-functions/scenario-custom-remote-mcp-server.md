@@ -117,7 +117,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
 ## Start the storage emulator
 
-Use the Azurite emulator simulate an Azure Storage account connection when running your code project locally.
+Use the Azurite emulator to simulate an Azure Storage account connection when running your code project locally.
 
 1. If you haven't already, [install Azurite](/azure/storage/common/storage-use-azurite#install-azurite).
 

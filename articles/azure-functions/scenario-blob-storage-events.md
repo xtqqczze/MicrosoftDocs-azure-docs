@@ -1,6 +1,6 @@
 ---
 title: Respond to blob storage events using Azure Functions
-description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a local project to a Flex Consumption plan on Azure Functions. The project features an Blob Storage trigger that runs in response to blob storage events."
+description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a local project to a Flex Consumption plan on Azure Functions. The project features a Blob Storage trigger that runs in response to blob storage events."
 ms.date: 11/17/2025
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
@@ -35,37 +35,37 @@ Use the `azd init` command from the command palette to create a local Azure Func
     There might be a slight delay while `azd` initializes the current folder or workspace.  
 
 ::: zone pivot="programming-language-csharp"
-1. When prompted, choose **Select a template**, then search for and select `Azure Functions C# Event Grid Blob Trigger using Azure Developer CLI`. 
+3. When prompted, choose **Select a template**, then search for and select `Azure Functions C# Event Grid Blob Trigger using Azure Developer CLI`. 
 
-1. When prompted in the terminal, enter a unique environment name, such as `blobevents-dotnet`.
+4. When prompted in the terminal, enter a unique environment name, such as `blobevents-dotnet`.
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventgrid-blob) and initializes the project in the current folder or workspace.
 ::: zone-end
 ::: zone pivot="programming-language-python"
-1. When prompted, choose **Select a template**, then search for and select `Azure Functions Python Event Grid Blob Trigger using Azure Developer CLI`. 
+3. When prompted, choose **Select a template**, then search for and select `Azure Functions Python Event Grid Blob Trigger using Azure Developer CLI`. 
 
-1. When prompted in the terminal, enter a unique environment name, such as `blobevents-python`.
+4. When prompted in the terminal, enter a unique environment name, such as `blobevents-python`.
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-azd-eventgrid-blob) and initializes the project in the current folder or workspace.
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-1. When prompted, choose **Select a template**, then search for and select `Azure Functions TypeScript Event Grid Blob Trigger using Azure Developer CLI`. 
+3. When prompted, choose **Select a template**, then search for and select `Azure Functions TypeScript Event Grid Blob Trigger using Azure Developer CLI`. 
 
-1. When prompted, enter a unique environment name, such as `blobevents-typescript`.
+4. When prompted, enter a unique environment name, such as `blobevents-typescript`.
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-eventgrid-blob) and initializes the project in the current folder or workspace.
 ::: zone-end
 ::: zone pivot="programming-language-java"
-1. When prompted, choose **Select a template**, then search for and select `Azure Functions Java Event Grid Blob Trigger using Azure Developer CLI`. 
+3. When prompted, choose **Select a template**, then search for and select `Azure Functions Java Event Grid Blob Trigger using Azure Developer CLI`. 
 
-1. When prompted, enter a unique environment name, such as `blobevents-java`.
+4. When prompted, enter a unique environment name, such as `blobevents-java`.
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventgrid-blob) and initializes the project in the current folder or workspace.
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-1. When prompted, choose **Select a template**, then search for and select `Azure Functions PowerShell Event Grid Blob Trigger using Azure Developer CLI`. 
+3. When prompted, choose **Select a template**, then search for and select `Azure Functions PowerShell Event Grid Blob Trigger using Azure Developer CLI`. 
 
-1. When prompted, enter a unique environment name, such as `blobevents-powershell`.
+4. When prompted, enter a unique environment name, such as `blobevents-powershell`.
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventgrid-blob) and initializes the project in the current folder or workspace.
 ::: zone-end
@@ -80,12 +80,12 @@ Use the Azurite emulator to run your code project locally before creating and us
 
 1. Press <kbd>F1</kbd>. In the command palette, search for and run the command `Azurite: Start` to start the local storage emulator.
 
-1. In the **Azure** area, expand **Workspace** > **Attached Storage Accounts** > **Local Emaulator**, right-click (Ctrl-click on Mac) **Blob Containers**, select **Create Blob Container...**, and create these two blob storage containers in the local emulator: 
+1. In the **Azure** area, expand **Workspace** > **Attached Storage Accounts** > **Local Emulator**, right-click (Ctrl-click on Mac) **Blob Containers**, select **Create Blob Container...**, and create these two blob storage containers in the local emulator: 
 
    - `unprocessed-pdf`: container that the trigger monitors for storage events.
    - `processed-pdf`: container where the function sends processed blobs as output.
 
-1. Expand **Blob Containers**, right-click (Ctrl-click on Mac) **unprocessed-pdf**, select **Upload Files...**, press <kbd>Enter to</kbd> accept the root directory, and upload the PDF files from the `data` project folder. 
+1. Expand **Blob Containers**, right-click (Ctrl-click on Mac) **unprocessed-pdf**, select **Upload Files...**, press <kbd>Enter</kbd> to accept the root directory, and upload the PDF files from the `data` project folder. 
 
 When running locally, you can use REST to trigger the function by simulating the function receiving a message from an event subscription.   
 

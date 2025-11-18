@@ -13,14 +13,13 @@ ms.author: glenga
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension requires [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md). When this tool isn't available locally, the extension tries to install it by using a package-based installer. You can also install or update the Core Tools package by running `Azure Functions: Install or Update Azure Functions Core Tools` from the command palette. If you don't have npm or Homebrew installed on your local computer, you must instead [manually install or update Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
-::: zone-end
 ::: zone pivot="programming-language-csharp"  
 + [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
 
 + [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-+ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21(Linux).
++ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21 (Linux).
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 

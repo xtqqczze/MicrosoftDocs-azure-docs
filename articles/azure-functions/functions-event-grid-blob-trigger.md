@@ -68,7 +68,7 @@ When you create a Blob Storage trigger function by using Visual Studio Code, you
 
    Don't choose a project folder that's already part of a workspace. 
 
-   1. At the prompts, provide the following information:
+1. At the prompts, provide the following information:
 
     ::: zone pivot="programming-language-csharp"
     |Prompt|Action|
@@ -329,7 +329,7 @@ Your function app also needs a storage account to run. For simplicity, this tuto
 
 Use these steps to create a function app in the Flex Consumption plan. When you host your app in a Flex Consumption plan, Blob Storage triggers must use event subscriptions.   
 
-1. In the command pallet, enter **Azure Functions: Create function app in Azure...(Advanced)**.
+1. In the command palette, enter **Azure Functions: Create function app in Azure...(Advanced)**.
 
 1. Follow the prompts and provide this information:
 
@@ -358,7 +358,7 @@ Use these steps to create a function app in the Flex Consumption plan. When you 
 
 Because the publishing process doesn't automatically upload required application settings from the `local.settings.json` file, you must upload them to your function app so that your function runs correctly in Azure. 
 
-1. In the command pallet, enter `Azure Functions: Download Remote Settings...`, and in the **Select a resource** prompt choose the name of your function app.
+1. In the command palette, enter `Azure Functions: Download Remote Settings...`, and in the **Select a resource** prompt choose the name of your function app.
 
 1. When prompted that the `AzureWebJobsStorage` setting already exists, select **Yes** to overwrite the local emulator setting with the actual storage account connection string from Azure.
 
@@ -366,7 +366,7 @@ Because the publishing process doesn't automatically upload required application
 
 1. Remove the `FUNCTIONS_WORKER_RUNTIME` entry, which isn't supported in a Flex Consumption plan.   
 
-1. In the command pallet, enter `Azure Functions: Upload Local Settings...`, and in the **Select a resource** prompt choose the name of your function app.
+1. In the command palette, enter `Azure Functions: Upload Local Settings...`, and in the **Select a resource** prompt choose the name of your function app.
 
 Now both the Functions host and the trigger share the same storage account.
 
@@ -381,7 +381,7 @@ To create an event subscription, you need to provide Event Grid with the URL of 
 | Function query string | `?functionName=Host.Functions.<FUNCTION_NAME>`  |
 | Blob extension access key | `&code=<BLOB_EXTENSION_KEY>`                    | 
 
-While your app connects to the storage acccount by using Microsoft Entra ID authentication, the blob extension access key helps protect your blob extension webhook from unauthorized access. To find your blob extension access key:  
+While your app connects to the storage account by using Microsoft Entra ID authentication, the blob extension access key helps protect your blob extension webhook from unauthorized access. To find your blob extension access key:  
     
 1. In Visual Studio Code, select the Azure icon in the Activity bar. In **Resources**, expand your subscription, expand **Function App**, right-click the function app you created, and select **Open in portal**.
 
