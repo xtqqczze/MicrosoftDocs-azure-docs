@@ -102,7 +102,7 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Serv
 
 In macOS clients, run the following command in the terminal to change connections to TCP instead of UDP.
 
-```macos
+```bash
 defaults write com.microsoft.rdc.macos ClientSettings.EnableAvdUdpSideTransport false
 ```
 
