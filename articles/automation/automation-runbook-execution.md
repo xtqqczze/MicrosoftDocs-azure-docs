@@ -135,6 +135,9 @@ The following table describes the statuses that are possible for a job. You can 
 | Suspending |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The system is trying to suspend the job at the request of the user. The runbook must reach its next checkpoint before it can be suspended. If it has already passed its last checkpoint, it completes before it can be suspended. |
 | New | The job has been submitted recently but is not yet activated.|
 
+>[!NOTE]
+>In case of an infrastructure failure, the job is retried internally for a max of 3 times.
+
 ## Activity logging
 
 Execution of runbooks in Azure Automation writes details in an activity log for the Automation account. For details of using the log, see [Retrieve details from Activity log](manage-runbooks.md#retrieve-details-from-activity-log).
