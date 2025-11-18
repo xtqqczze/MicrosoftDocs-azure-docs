@@ -273,7 +273,7 @@ Examples in this article assume your app uses `IHostApplicationBuilder`, which i
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"
-2. Create a code file in your project, copy and paste the following code in this new file, and save the file as `src/index.js`:
+1. Create a code file in your project, copy and paste the following code in this new file, and save the file as `src/index.js`:
 
     ### [Application Insights](#tab/app-insights)
 

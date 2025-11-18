@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Tutorial: Monitor Azure Functions with OpenTelemetry distributed tracing
 
-This article demonstrates OpenTelemetry support in Azure Function, which enables distributed tracing across multiple function calls by using integrated Application Insights and OpenTelemetry support. To help you get started, an use Azure Developer CLI (`azd`) template is used to create your code project as well as the Azure deployment in which to run your app.  
+This article demonstrates OpenTelemetry support in Azure Function, which enables distributed tracing across multiple function calls by using integrated Application Insights and OpenTelemetry support. To help you get started, an Azure Developer CLI (`azd`) template is used to create your code project as well as the Azure deployment in which to run your app.  
 
 In this tutorial, you use the `azd` tool to:
 
