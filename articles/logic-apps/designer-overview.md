@@ -50,7 +50,7 @@ To help you quickly learn the preview designer layout, this section summarizes t
 
 - The preview designer moves many familiar actions to new locations:
 
-  - To open different view for your workflow, at the designer top, on the [view selector](#switch-between-designer-code-and-run-history-views), select **Workflow**, **Code**, or **Run history**.
+  - To open different views for your workflow, at the designer top, on the [view selector](#switch-between-designer-code-and-run-history-views), select **Workflow**, **Code**, or **Run history**.
 
   - To run your draft workflow, use the **Run** and **Run with payload** options at the designer bottom.
 
