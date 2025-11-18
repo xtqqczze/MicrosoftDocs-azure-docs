@@ -20,10 +20,11 @@ This step-by-step troubleshooting guide can help you quickly find and fix Micros
 |---------|--------------|
 | Microsoft Dev Box | Before you can create or access a dev box, your organization must set up Microsoft Dev Box with at least one project and one dev box pool. To set up Microsoft Dev Box for an organization, see [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md).|
 | Permissions | To create or access a dev box, you need [Dev Box User](quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) permissions in a project that has an available dev box pool. If you don't have permissions to a project, contact your admin.|
+| Remote connection | To connect to a dev box, you must install the [Windows App](https://apps.microsoft.com/detail/9n1f85v9t8bn) on your client device. |
 
 ## Potential quick workaround
 
-To automatically identify and address dev box issues, try running **Troubleshoot & repair** on your dev box. [Sign in to the developer portal](https://devbox.microsoft.com) and select **Troubleshoot & repair** from the **More actions** menu on the dev box tile. For more information, see [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md).
+To automatically identify and address dev box issues, try running **Troubleshoot & repair**. [Sign in to the developer portal](https://devbox.microsoft.com) and select **Troubleshoot & repair** from the **More actions** menu on the dev box tile. For more information, see [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md).
 
 ## Troubleshooting checklist
 
@@ -31,7 +32,7 @@ To automatically identify and address dev box issues, try running **Troubleshoot
 - Make sure your client device and dev box have the latest operating system and security updates installed.
 - Ensure you have the latest [Windows App installed](https://apps.microsoft.com/detail/9n1f85v9t8bn) on your client device.
 - Check for any improper network configurations or internet proxy settings on your client or dev box that could disrupt remote connections.
-- Confirm that your dev box status is **Running** in the [developer portal](https://devbox.microsoft.com). If the status is **Stopped** or **Hibernated**, select **Start** or **Resume** from the **More actions** menu on the dev box tile.
+- Confirm that your dev box status is **Running**. If the status is **Stopped** or **Hibernated**, select **Start** or **Resume** from the **More actions** menu on the dev box tile in the [developer portal](https://devbox.microsoft.com).
 - Check Windows Update. You can't connect to a dev box for up to 30 minutes while Windows is updating.
 - If you can access your dev box, review security and connection information by selecting the icons on the top connection bar during a session.
 - Review known connectivity issues at [Troubleshoot known Remote Desktop connectivity issues with dev boxes](how-to-troubleshoot-remote-desktop-connectivity.md).
@@ -40,31 +41,32 @@ To automatically identify and address dev box issues, try running **Troubleshoot
 
 If the Windows App connection to the dev box hangs or fails, try the following steps to connect.
 
-1. [Sign in to the developer portal](https://devbox.microsoft.com) and restart the dev box by selecting **Restart** from the **More actions** menu on the dev box tile. Once restarted, try to connect by selecting **Connect via Windows app**.
-1. Try connecting to your dev box via the browser by selecting the caret next to **Connect via Windows app** in the developer portal and then selecting **Open in browser**.
-1. Sign out and then back in to the developer portal, and then try connecting again.
+1. [Sign in to the developer portal](https://devbox.microsoft.com) and restart the dev box by selecting **Restart** from the **More actions** menu on the dev box tile.
+1. Once restarted, try again to connect by selecting **Connect via Windows app**.
+1. Try connecting via the browser by selecting the caret next to **Connect via Windows app** and then selecting **Open in browser**.
+1. Sign out and then back in to the developer portal, and try connecting again.
 1. Open Task Manager and terminate any running *msrdc.exe* or *msrdcw.exe* processes. Then try connecting again.
 
 ### Sign-in and authentication issues
 
 If you have sign-in or authentication issues despite using correct credentials, try the following steps:
 
-1. If you haven't accessed your dev box for awhile, Microsoft Entra ID might have removed your account due to inactivity. Contact your support team to regain access.
 1. Use `dsregcmd.exe /status` to check your Microsoft Entra ID join status on your client device and on the dev box if possible. After resolving any errors with your support team, restart the machine.
-1. Try using `dsregcmd.exe /refreshprt` to refresh the Primary Refresh Token (PRT) for the session. Then sign out and sign back in.
-1. If you have administrative privileges, use other `dsregcmd.exe` command switches like `dsregcmd.exe /forcerecovery` to reauthenticate and reregister, or `dsregcmd.exe /leave` to leave Microsoft Entra ID and `dsregcmd.exe /join` to rejoin. For more information, see [Troubleshoot devices by using the dsregcmd command](/entra/identity/devices/troubleshoot-device-dsregcmd).
+1. If you don't access your dev box for a while, Microsoft Entra ID might remove your account due to inactivity. To regain access, contact your support team.
+1. Try using `dsregcmd.exe /refreshprt` to refresh the Primary Refresh Token (PRT) for a session. Then sign out and sign back in.
+1. If you have administrative privileges, try using `dsregcmd.exe /forcerecovery` to reauthenticate and reregister, or `dsregcmd.exe /leave` to leave Microsoft Entra ID and `dsregcmd.exe /join` to rejoin. For more information, see [Troubleshoot devices by using the dsregcmd command](/entra/identity/devices/troubleshoot-device-dsregcmd).
 1. If you have admin privileges in the Azure portal, you might need to unsubscribe and resubscribe the dev box to the dev box pool by deleting and recreating the pool.
 
-## Dropped connections during high CPU load
+## Connection issues during high CPU load
 
-If you experience frequent connection drops or long latency during high CPU load on the dev box, you can apply a registry setting to give higher GPU priority to the remote connection session.
+If you experience frequent connection drops during high CPU load on the dev box, you can apply a registry setting to give more GPU priority to remote connection sessions.
 
 1. Ensure your dev box has the latest Windows 11 build.
-1. Open the Registry Editor on the dev box and add the following registry setting:
+1. Open the Registry Editor on the dev box and add the following registry setting.
 
    Key: **HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations**<br>Setting: **SetGpuRealtimePriority**<br>Value: **DWORD 2**
 
-   You can also add and set the **SetGpuRealtimePriority** registry setting and value by running this command in an elevated shell:
+   Alternatively, you can add and set the **SetGpuRealtimePriority** registry setting and value by running this command in an elevated shell:
 
    ```cmd
    reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" /v SetGpuRealtimePriority /d 2 /t REG_DWORD
@@ -72,7 +74,7 @@ If you experience frequent connection drops or long latency during high CPU load
 
 1. Restart the dev box.
 
-## Dropped connections during low CPU usage
+## Connection issues during low CPU usage
 
 If you experience frequent connection drops even with low CPU usage on the dev box, you can switch your remote desktop connection to use Transmission Control Protocol (TCP) instead of User Datagram Protocol (UDP). To ensure that the connection uses only TCP, change the settings on both the client device and the dev box.
 
@@ -86,15 +88,13 @@ Explicitly tell the client not to attempt a UDP connection.
 1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client**.
 1. Set the policy setting **Turn Off UDP On Client** to **Enabled**, and then select **OK**.
 
-#### Registry edit
-
 Alternatively, you can edit the registry to add the following **fClientDisableUDP** setting:
 
 Key: **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\Client**<br>Setting: **fClientDisableUDP**<br>Value: `DWORD 1`
 
 You can also apply the **fClientDisableUDP** registry setting and value by running the following command in an elevated shell:
 
-```
+```cmd
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\Client" /v fClientDisableUDP /d 1 /t REG_DWORD
 ```
 
@@ -102,7 +102,7 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Serv
 
 In macOS clients, run the following command in the terminal to change connections to TCP instead of UDP.
 
-```cmd
+```macos
 defaults write com.microsoft.rdc.macos ClientSettings.EnableAvdUdpSideTransport false
 ```
 
@@ -123,11 +123,11 @@ After making these changes, run `gpupdate /force` in an elevated shell on both m
 
 If the preceding steps don't resolve your issue, you can contact your admin team, access more support resources, or file a support request.
 
-1. In the [developer portal](https://devbox.microsoft.com), select **Support** from the **More actions** menu on a dev box tile to open the **Dev box support** pane. In the pane, you can:
+In the [developer portal](https://devbox.microsoft.com), select **Support** from the **More actions** menu on a dev box tile to open the **Dev box support** pane. In the pane, you can:
 
-   - Select the **troubleshoot your dev box** link to troubleshoot dev box issues. For more information, see [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md).
-   - Select **Copy support details** to copy details about your dev box and an **Issue ID** that you can give to your admin or support team.
-   - Select the **contact Azure help + support** link to open the Azure portal **Help + support** page for your dev box project. You can then select **Troubleshoot** under **Actions** to walk through troubleshooting steps, or select **Create a support request** to walk through creating a support request.
+- Select the **troubleshoot your dev box** link to troubleshoot dev box issues. For more information, see [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md).
+- Select **Copy support details** to copy details about your dev box and an **Issue ID** that you can give to your admin or support team.
+- Select the **contact Azure help + support** link to open the Azure portal **Help + support** page for your dev box project. You can then select **Troubleshoot** under **Actions** to walk through troubleshooting steps, or select **Create a support request** to walk through creating a support request.
 
 If you file a support request, include:
 
@@ -136,7 +136,7 @@ If you file a support request, include:
 - Impacted users.
 - Other information about your dev box and remote session if available, such as **Activity ID**.
 
-### Get connection and security information
+### Get dev box connection and security information
 
 If you can access your dev box, you can get security and connection information by selecting the corresponding icon on the top connection bar during your session.
 
