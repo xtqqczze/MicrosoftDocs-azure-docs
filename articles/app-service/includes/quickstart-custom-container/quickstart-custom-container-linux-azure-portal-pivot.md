@@ -12,7 +12,7 @@ In this quickstart, you learn how to deploy an image from Azure Container Regist
 
 [Azure App Service](../../overview.md) on Linux provides predefined application stacks on Linux with support for languages such as .NET, Java, Node.js, and PHP. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure.
 
-For more information about containerized applications in a serverless environment, go to [Container apps](../../../container-apps/overview.md).
+For more information about containerized applications in a serverless environment, see [Azure Container Apps overview](../../../container-apps/overview.md).
 
 ## Prerequisites
 
