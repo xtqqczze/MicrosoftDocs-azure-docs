@@ -67,7 +67,7 @@ Make sure you're in the cloned repository's root folder. This repository contain
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Enter *app services* in the search box. Under **Services**, select **App Services**.
+1. Enter **app services** in the search box. Under **Services**, select **App Services**.
 
    :::image type="content" source="../../media/quickstart-custom-container/portal-search.png" alt-text="Screenshot that shows how to search for app services in the Azure portal.":::
 
@@ -94,7 +94,7 @@ Make sure you're in the cloned repository's root folder. This repository contain
 
 1. On the **Container** tab, for **Image Source**, select **Azure Container Registry**. Under **Azure Container Registry options**, set the following values:
 
-   - **Registry**: Select your Azure Container Registry.
+   - **Registry**: Select your container registry.
    - **Image**: Select **dotnetcore-docs-hello-world-linux**.
    - **Tag**: Select **latest**.
 
