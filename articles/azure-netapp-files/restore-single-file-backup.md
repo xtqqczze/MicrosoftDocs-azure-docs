@@ -15,7 +15,6 @@ You can rely on your Azure NetApp Files backup to restore individual files that 
 
 ## Considerations
 
-* This feature is only available in regions that support [Azure NetApp Files backup](backup-introduction.md#supported-regions).
 * If no destination path is provided during the restore operation, the file is restored in the original file location. If the file already exists at that location, it's overwritten by the restore operation. 
     * The destination path can't be blank. To restore to the original location, enter a slash (/) in the destination path field. 
     * If the file being restored has a multi-level directory depth (for example, `/dir1/dir2/file.txt`), all of the parent directories must be present in the active file system for the restore operation to succeed. The restore operation can't create new directories. 
