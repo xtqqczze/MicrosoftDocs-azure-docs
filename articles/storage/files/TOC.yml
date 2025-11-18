@@ -233,6 +233,8 @@
     href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/files/toc.json
   - name: SSD file shares redundancy support
     href: redundancy-premium-file-shares.md
+  - name: Zonal placement
+    href: zonal-placement.md    
 - name: Performance, scale, and cost
   items:
   - name: Understanding performance
