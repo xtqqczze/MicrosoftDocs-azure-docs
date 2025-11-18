@@ -94,7 +94,7 @@ The easiest way to get started is to clone an MCP server sample project built wi
     azd init --template mcp-sdk-functions-hosting-node  -e mcpsdkserver-node
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-java) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.  
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.  
 ::: zone-end
 ::: zone pivot="programming-language-python"  
 2. In the Terminal, run this command to initialize the Python sample:
