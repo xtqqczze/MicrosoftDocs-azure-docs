@@ -66,7 +66,7 @@ If you already installed Visual Studio 2022:
 
    :::image type="content" source="../../media/quickstart-custom-container/publish-to-azure-container-registry-visual-studio-2022.png" alt-text="Screenshot that shows the Publish from project overview pane.":::
 
-1. In **Publish**, select the correct subscription. To create a new Azure Container Registry, select **Create new** in **Container registries**.
+1. In **Publish**, select the correct subscription. To create a new container registry, select **Create new** in **Container registries**.
 
    :::image type="content" source="../../media/quickstart-custom-container/create-new-azure-container-registry.png" alt-text="Screenshot that shows the Create new Azure Container Registry screen.":::
 
