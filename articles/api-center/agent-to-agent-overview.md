@@ -6,6 +6,8 @@ ms.author: kkendrick
 ms.service: azure-api-center
 ms.topic: overview
 ms.date: 11/03/2025
+ms.update-cycle: 180-days
+ms.collection: ce-skilling-ai-copilot
 
 #customer intent: As an API platform owner, I want to understand how to use the agent registry to discover, register, and manage AI agents.
 
