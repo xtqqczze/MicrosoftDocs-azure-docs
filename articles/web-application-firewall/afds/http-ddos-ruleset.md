@@ -1,6 +1,5 @@
 ---
-title: Microsoft HTTP DDoS Ruleset (Preview)
-titleSuffix: Azure Web Application Firewall
+title: HTTP DDoS Ruleset (Preview) - Front Door WAF
 description: Learn about HTTP DDoS ruleset in Azure Front Door Web Application Firewall (WAF).
 author: joeolerich
 ms.author: joeolerich
@@ -9,10 +8,10 @@ ms.topic: concept-article
 ms.date: 11/18/2025
 ---
 
-# HTTP DDoS Ruleset (preview)
+# HTTP DDoS Ruleset in Azure Front Door WAF (preview)
 
 > [!IMPORTANT]
-> The Microsoft HTTP DDoS Ruleset in the Front Door Web Application Firewall (WAF) is currently in PREVIEW.
+> The Microsoft HTTP DDoS Ruleset in the Azure Front Door Web Application Firewall (WAF) is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 HTTP‑layer floods remain the most frequent driver of application availability incidents, and static controls (IP/geo filters, fixed rate limits) often can’t keep pace with distributed botnets. The new HTTP DDoS ruleset is Azure Web Application Firewall's (WAF) first automated layer 7 protection model that learns, detects, and defends with minimal user configuration. Once assigned, the ruleset continuously baselines normal traffic for each Azure Front Door profile and when surges indicate an attack, selectively blocks offending clients with no emergency tuning required.
