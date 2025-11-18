@@ -239,7 +239,7 @@ In the designer upper-right corner, select **Publish**.
 
 ## Return to classic designer
 
-To go back to using the classic designer, in the designer upper-right corner, open the vertical ellipsis menu (**⋮**), and select **Revert to previous experience**.
+To go back to using the classic designer, in the preview designer upper-right corner, from the vertical ellipsis menu (**⋮**), select **Revert to previous experience**.
 
 ## Other actions
 
