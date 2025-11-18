@@ -33,6 +33,15 @@ Enter required values from the agent's agent card. Optionally add skills and oth
 
     - The form updates to display additional fields specific to the **A2A** API type.
 
+1. In the **Agent Card** section, enter the following details:
+
+    |Field                |Description                                                |
+    |---------------------|-----------------------------------------------------------|
+    |Protocol Version     |The version of the A2A protocol this agent supports.       |
+    |Agent URL            |The preferred endpoint URL for interacting with the agent. |
+    |Preferred Transport  |The transport protocol for the preferred endpoint.         |
+    |Agent Version        |The agent's own version number.                            |
+
 1. Locate the **Agent Skills** section.
 
 1. Select **+ Add**.
