@@ -1,8 +1,8 @@
 ---
 title: Deploy a Node.js + MongoDB app to Azure
-description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure. Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Azure Cosmos DB.
+description: Learn how to deploy a Node.js app using Express.js and a MongoDB database using Azure App Service in Linux.
 ms.topic: tutorial
-ms.date: 04/17/2025
+ms.date: 11/20/2025
 ms.update-cycle: 180-days
 ms.service: azure-app-service
 ms.role: developer
@@ -20,6 +20,7 @@ ms.custom:
   - devx-track-extended-azdevcli
   - sfi-image-nochange
   - sfi-ropc-nochange
+#customer intent: As an app developer, I need to deploy an app using Express.js and MongoDB in Azure App Service.
 ---
 
 # Tutorial: Deploy a Node.js + MongoDB web app to Azure
@@ -743,13 +744,8 @@ Here are some other things you can say to fine-tune the answer you get:
 * Which file do I make the change in?
 * Will this change break my app when running locally?
  
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [JavaScript on Azure developer center](/azure/developer/javascript)
-
-> [!div class="nextstepaction"]
-> [Configure Node.js app in App Service](./configure-language-nodejs.md)
-
-> [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+- [Azure for JavaScript developers](/azure/developer/javascript)
+- [Configure Node.js app in App Service](./configure-language-nodejs.md)
+- [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
