@@ -369,7 +369,7 @@ After saving the enrollment, reopen it and make a note of the **Primary key**. Y
 
 Devices don't use the enrollment group's primary symmetric key directly. Instead, you use the primary key to derive a device key for each device. In this section, you create two unique device keys. One key is used for a simulated toaster device. The other key is used for a simulated heat pump device.
 
-To derive the device key, you use the enrollment group **Primary Key** you noted earlier to compute the [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) hash of the device registration ID for each device and convert the result into Base 64 format. For more information about creating derived device keys with enrollment groups, see the [Group enrollments with symmetric keys](concepts-symmetric-key-attestation#group-enrollments-with-symmetric-keys) section of [Symmetric key attestation](concepts-symmetric-key-attestation.md).
+To derive the device key, you use the enrollment group **Primary Key** you noted earlier to compute the [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) hash of the device registration ID for each device and convert the result into Base 64 format. For more information about creating derived device keys with enrollment groups, see the [Group enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments-with-symmetric-keys) section of [Symmetric key attestation](concepts-symmetric-key-attestation.md).
 
 For the example in this tutorial, use the following two device registration IDs and compute a device key for both devices. Both registration IDs have a valid suffix to work with the example code for the custom allocation policy:
 
@@ -401,7 +401,7 @@ The simulated devices use the derived device keys with each registration ID to p
 
 In this section, you prepare the development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The SDK includes the sample code for the simulated device. This simulated device attempts provisioning during the device's boot sequence.
 
-This section is oriented toward a Windows-based workstation. For a Linux example, see the [Create regional Linux VMs](how-to-provision-multitenant#create-regional-linux-vms) section of [Tutorial: Provision for geo latency](how-to-provision-multitenant.md).
+This section is oriented toward a Windows-based workstation. For a Linux example, see the [Create regional Linux VMs](how-to-provision-multitenant.md#create-regional-linux-vms) section of [Tutorial: Provision for geo latency](how-to-provision-multitenant.md).
 
 1. Download the [CMake build system](https://cmake.org/download/).
 
