@@ -56,7 +56,7 @@ When refresh is configured, changing the target snapshot name inside a snapshot 
 1. The configuration provider re-resolves. The key-values of `Snapshot_A` are unloaded. The configuration reload yields the key-values of `Snapshot_B`.
 
 > [!NOTE]
-> This sequence assumes you have configured refresh for your application. For details on how to configure refresh, see [dynamic configuration](./enable-dynamic-configuration-aspnet-core.md)
+> This sequence assumes you have configured refresh for your application. For details on how to configure refresh, see [dynamic configuration](./enable-dynamic-configuration-aspnet-core.md).
 
 ## Example snapshot reference
 
