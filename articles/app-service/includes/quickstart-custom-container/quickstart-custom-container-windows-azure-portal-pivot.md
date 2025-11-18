@@ -65,8 +65,6 @@ Make sure you're in the cloned repository's root folder. This repository contain
 
 ## Deploy to Azure
 
-Follow these steps to deploy to Azure:
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Enter *app services* in the search box. Under **Services**, select **App Services**.

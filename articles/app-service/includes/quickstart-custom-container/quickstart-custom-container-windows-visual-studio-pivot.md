@@ -56,8 +56,6 @@ If you already installed Visual Studio 2022:
 
 ## Publish to Azure Container Registry
 
-Publish to Azure Container Registry by following these steps:
-
 1. In **Solution Explorer**, right-click the `myfirstazurewebapp` project, and then select **Publish**.
 
 1. In **Target**, select **Docker Container Registry**, and then select **Next**.
@@ -85,8 +83,6 @@ Publish to Azure Container Registry by following these steps:
    :::image type="content" source="../../media/quickstart-custom-container/published-docker-repository-visual-studio-2022.png" alt-text="Screenshot that highlights the repository name.":::
 
 ## Create a Windows custom container
-
-Create a Windows custom container by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -151,8 +147,6 @@ The streamed logs look like this:
 ```
 
 ## Update locally and redeploy
-
-To update locally and redeploy, follow these steps:
 
 1. In Visual Studio, go to **Solution Explorer**. Select **Views** > **Home** > **Index.cshtml**.
 
