@@ -1,5 +1,5 @@
 ---
-title: Client IP preservation with Layer 4 proxy
+title: Client IP preservation with Layer 4 proxy in Azure Application Gateway
 description: This article explains the details of Client IP preservation with Azure Application Gateway's TLS/TCP proxy.
 services: application-gateway
 author: mbender-ms
@@ -15,7 +15,7 @@ When using TLS/TCP proxy of Application Gateway, the originating client IP isn't
 
 * Application logic – the backend server application needs to be source IP aware for session management, access control, or applying a business process like personalized response.
 * Security and Auditing – Need IP info for traceability or maintain logs for audit purposes.
-* Legal or Compliance requirements - Some regulations (like GDPR or HIPAA) may require logging of client IPs for data access tracking or incident response.
+* Legal or Compliance requirements - Some regulations may require logging of client IPs for data access tracking or incident response.
 * Analytics and Monitoring – To gain traffic pattern insights 
 
 ## Details of client IP preservation with Layer 4 proxy  
