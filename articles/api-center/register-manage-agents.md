@@ -6,6 +6,8 @@ ms.author: kkendrick
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 11/11/2025
+ms.update-cycle: 180-days
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Register and manage agents in Azure API Center
