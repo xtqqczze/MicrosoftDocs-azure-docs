@@ -4,7 +4,8 @@ description: Learn how to use Docker Compose for Agents on Azure Container Apps 
 ms.service: container-apps
 ms.topic: how-to
 ms.date: 11/18/2025
-ms.author: simonjj
+ms.service: azure-container-apps
+ms.author: cshoe
 author: craigshoemaker
 ---
 
@@ -29,7 +30,7 @@ In this article, you learn to:
 - An Azure subscription with permissions to create Azure Container Apps resources.
 - A Docker Compose for agents file. You can start from the samples in the [docker/compose-for-agents](https://github.com/docker/compose-for-agents/commit/2314180bc5d1f056964a14361f73d2b8f5c247c3) repository.
 - Docker install (for local build)
-- An Azure Container Apps environment ready for deployments. Create one with `az containerapp env create` if you don't already have an environment. Deploying models on GPU requires you to choose [one of the following locations](https://learn.microsoft.com/en-us/azure/container-apps/gpu-serverless-overview#supported-regions). The samples used in this article assume the use of serverless GPU.
+- An Azure Container Apps environment ready for deployments. Create one with `az containerapp env create` if you don't already have an environment. Deploying models on GPU requires you to choose [one of the following locations](gpu-serverless-overview.md#supported-regions). The samples used in this article assume the use of serverless GPU.
 
 ## Deployment architecture
 
