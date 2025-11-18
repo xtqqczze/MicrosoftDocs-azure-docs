@@ -433,7 +433,7 @@ An event subscription, powered by Azure Event Grid, raises events based on chang
     | **Subject Begins With**      | **`/blobServices/default/containers/<CONTAINER_NAME>/blobs/<BLOB_PREFIX>`** | Replace `<CONTAINER_NAME` and `<BLOB_PREFIX>` with values you choose. This setting triggers the subscription only for blobs that start with `BLOB_PREFIX` and are in the `CONTAINER_NAME` container. |
     | **Subject Ends With**        | *.txt*                                                                      | Ensures that the function is only triggered by blobs ending with `.txt`.                                                                                                                           |
 
-For more information on filtering to specific blobs, see [Event Filtering for Azure Event Hubs](../event-grid/event-filtering.md).
+    For more information on filtering to specific blobs, see [Event Filtering for Azure Event Hubs](../event-grid/event-filtering.md).
 
 1. Select **Create** to create the event subscription.
 
