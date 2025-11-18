@@ -237,7 +237,7 @@ When using UploadPreparedSecure, upload the VMMD blob in addition to the OS and 
 **Q: Do we currently have support for incremental snapshots**
 **A: At this moment, confidential VMs with VMMD blob do not support incremental snapshots yet.**
 
-**Q: Can we convert confidential VMs with VMMD and VMGS blob to confidential VMs with VMGS only
+**Q: Can we convert confidential VMs with VMMD and VMGS blob to confidential VMs with VMGS only**
 **A: Unfortunately, this conversion is not supported at the moment.**
 
 For more, see our [confidential VM FAQ](/azure/confidential-computing/confidential-vm-faq) and our [managed disk FAQ](/azure/virtual-machines/faq-for-disks)
