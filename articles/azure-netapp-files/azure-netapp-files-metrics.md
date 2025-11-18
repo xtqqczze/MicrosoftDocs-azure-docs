@@ -229,7 +229,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
     - Resize the volume: 
 
-        To avoid throtting, increase the volume's size to allocate more throughput.
+        To avoid throttling, increase the volume's size to allocate more throughput.
         
     - Modify the service level:
     
