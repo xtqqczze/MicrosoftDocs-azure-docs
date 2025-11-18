@@ -22,7 +22,6 @@ In this article, we'll look at other network requirements you may have when depl
 
 This article assumes you've completed the steps in:
 - [Connecting Azure VMs to HANA Large Instances](hana-connect-azure-vm-large-instances.md)
-- [Connect a virtual network to HANA Large Instances](hana-connect-vnet-express-route.md)
 
 ## Add more IP addresses or subnets
 
@@ -77,4 +76,4 @@ To remove an extra SAP HANA on Azure (Large Instances) ExpressRoute circuit, ope
 Learn how to install and configure SAP HANA (Large Instances) on Azure.
 
 > [!div class="nextstepaction"]
-> [Install and configure SAP HANA (Large Instances)](hana-installation.md)
+> [Example installation of SAP HANA (Large Instances)](hana-example-installation.md)

@@ -19,7 +19,7 @@ ms.custom:
 >[!NOTE]
 >For Rev 4.2, follow the instructions in the [Manage BareMetal Instances through the Azure portal](../../baremetal-infrastructure/connect-baremetal-infrastructure.md) topic.
 
-This document covers the way how [HANA Large Instances](./hana-overview-architecture.md) are presented in the [Azure portal](https://portal.azure.com) and what activities can be conducted through Azure portal with HANA Large Instance units that are deployed for you. Visibility of HANA Large Instances in Azure portal is provided through an Azure resource provider for HANA Large Instances, which currently is in public preview
+This document covers the way how HANA Large Instances are presented in the [Azure portal](https://portal.azure.com) and what activities can be conducted through Azure portal with HANA Large Instance units that are deployed for you. Visibility of HANA Large Instances in Azure portal is provided through an Azure resource provider for HANA Large Instances, which currently is in public preview
 
 ## Register HANA Large Instance Resource Provider
 Usually your Azure subscription you were using for HANA Large Instance deployments is registered for the HANA Large Instance Resource Provider. However, if you can’t see you deployed HANA Large Instance units, you should register the Resource Provider in your Azure subscription. There are two ways in registering the HANA Large Instance Resource provider
@@ -74,10 +74,7 @@ In the overview screen, after clicking 'Show more', you are getting a presentati
 
 ![Show overview of an HLI unit](./media/hana-li-portal/portal-show-overview.png)
 
-Looking at the different attributes shown, those attributes look hardly different than Azure VM attributes. On the left-hand side header, it shows the Resource group, Azure region, subscription name, and ID as well as some tags that you added. By default, the HANA Large Instance units have no tag assigned. On the right-hand side of the header, the name of the unit is listed as assigned when the deployment was done. The operating system is shown as well as the IP address. As with VMs the HANA Large instance unit type with the number of CPU threads and memory is shown as well. More details on the different HANA Large Instance units, are shown here:
-
-- [Available SKUs for HLI](./hana-available-skus.md)
-- [SAP HANA (Large Instances) storage architecture](./hana-storage-architecture.md) 
+Looking at the different attributes shown, those attributes look hardly different than Azure VM attributes. On the left-hand side header, it shows the Resource group, Azure region, subscription name, and ID as well as some tags that you added. By default, the HANA Large Instance units have no tag assigned. On the right-hand side of the header, the name of the unit is listed as assigned when the deployment was done. The operating system is shown as well as the IP address. As with VMs the HANA Large instance unit type with the number of CPU threads and memory is shown as well. More details on the different HANA Large Instance units can be found in the SAP HANA Large Instances documentation. 
 
 Additional data on the right lower side is the revision of the HANA Large Instance stamp. Possible values are:
 
@@ -93,7 +90,7 @@ An additional field in the right column of the header informs about the power st
 > The power state describes whether the hardware unit is powered on or off. It does not give information about the operating system being up and running. As you restart a HANA Large Instance unit, you will experience a small time where the state of the unit changes to **Starting** to move into the state of **Started**. Being in the state of **Started** means that the OS is starting up or that the OS has been started up completely. As a result, after a restart of the unit, you can't expect to immediately log into the unit as soon as the state switches to **Started**.
 > 
 
-If you press 'See more', additional information is shown. One additional information is displaying the revision of the HANA Large Instance stamp, the unit got deployed in. See the article [What is SAP HANA on Azure (Large Instances)](./hana-overview-architecture.md) for the different revisions of HANA Large Instance stamps
+If you press 'See more', additional information is shown. One additional information is displaying the revision of the HANA Large Instance stamp, the unit got deployed in. Consult the SAP HANA Large Instances documentation for information about the different revisions of HANA Large Instance stamps
 
 ## Check activities of a single HANA Large Instance unit 
 Beyond giving an overview of the HANA Large Instance units, you can check activities of the particular unit. An activity log could look like:
