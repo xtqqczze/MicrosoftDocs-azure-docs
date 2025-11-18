@@ -92,7 +92,7 @@ Follow these steps to create a new workflow in your logic app.
 
 1. On the **Workflows** page toolbar, select **+ Create**.
 
-   The **Create workflow** pane appears with the workflow types.
+   The **Create workflow** pane appears and shows the available workflow types.
 
 1. For **Workflow name**, enter a name for your workflow.
 
@@ -115,7 +115,9 @@ Follow these steps to create a new workflow in your logic app.
 
 1. On the **Workflows** page toolbar, select **+ Create**.
 
-   The **Create workflow** pane appears with the workflow types.
+   The **Create workflow** pane appears and shows the available workflow types.
+
+   :::image type="content" source="media/designer-overview/create-workflow.png" alt-text="Screenshot shows workflow types available in preview experience." lightbox="media/designer-overview/create-workflow.png":::   
 
 1. For **Workflow name**, enter a name for your workflow.
 
