@@ -1,18 +1,18 @@
 ---
-title: Create functions with OpenTelemetry using the Azure Developer CLI
-description: "Learn how to use the Azure Developer CLI (azd) to create a function app with OpenTelemetry distributed tracing. Deploy your app to a Flex Consumption plan on Azure."
-ms.date: 10/8/2025
+title: Monitor Azure Functions with OpenTelemetry distributed tracing
+description: "Learn how to implement OpenTelemetry distributed tracing across multiple function calls in your function app. See how to monitor function calls, track performance, and gain observability into your serverless applications using Application Insights integration."
+ms.date: 11/17/2025
 ms.topic: quickstart
 ms.custom:
   - ignite-2025
-zone_pivot_groups: programming-languages-set-functions-otel
+zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Tutorial: Create functions in Azure with OpenTelemetry using the Azure Developer CLI
+# Tutorial: Monitor Azure Functions with OpenTelemetry distributed tracing
 
-In this article, you use Azure Developer CLI (`azd`) to create an Azure Functions project from an `azd`-enabled template. The template demonstrates how to enable and use OpenTelemetry distributed tracing across multiple function calls by using integrated Application Insights and OpenTelemetry support.  
+This article demonstrates OpenTelemetry support in Azure Function, which enables distributed tracing across multiple function calls by using integrated Application Insights and OpenTelemetry support. To help you get started, an use Azure Developer CLI (`azd`) template is used to create your code project as well as the Azure deployment in which to run your app.  
 
-After running the code locally, you use `azd` to create a new serverless function app in a Flex Consumption plan, along with other required Azure resources. These resources follow current best practices for secure and scalable function app deployments in Azure. The same `azd` command also deploys your code project to your new function app in Azure.
+After running the code locally, you use `azd` to create a serverless function app in a Flex Consumption plan, along with other required Azure resources. These resources follow current best practices for secure and scalable function app deployments in Azure. The same `azd` command also deploys your code project to your new function app in Azure.
 
 By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"  
