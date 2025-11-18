@@ -184,7 +184,7 @@ To configure registry keys:
 
 ## Configure RDP (Bastion) access
 
-[Azure Bastion](/bastion/quickstart-host-portal.md) lets you securely connect to your VM instances through Remote Desktop Protocol (RDP). RDP via Azure Bastion is for transient diagnostics (log inspection, quick validation). If you intend to use Bastion via the portal, then upgrade your Bastion resource to standard pricing tier and select **Native Client Support and IP-Based Connection**.
+[Quickstart: Deploy Azure Bastion automatically](../bastion/quickstart-host-portal.md) lets you securely connect to your VM instances through Remote Desktop Protocol (RDP). RDP via Azure Bastion is for transient diagnostics (log inspection, quick validation). If you intend to use Bastion via the portal, then upgrade your Bastion resource to standard pricing tier and select **Native Client Support and IP-Based Connection**.
 
 You need the following resources for Bastion/RDP access:
 
