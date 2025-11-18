@@ -132,29 +132,11 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
    
     :::image type="content" source="./media/azure-netapp-files-metrics/metrics-navigate-volume.png" alt-text="Snapshot that shows how to navigate to the Metric pull-down." lightbox="./media/azure-netapp-files-metrics/metrics-navigate-volume.png":::
 
-## <a name="subscription-quota-metrics"></a> Subscription quota metrics (preview)
+## Subscription quota metrics
 
 Subscription quota metrics display subscription-level quotas relative to the imposed limits. These metrics are displayed in two columns: the available limit and the consumption by your subscription.
 
 :::image type="content" source="./media/azure-netapp-files-metrics/subscription-quota.png" alt-text="Screenshot of subscription quota metrics." lightbox="./media/azure-netapp-files-metrics/subscription-quota.png":::
-
-Subscription quota metrics are currently in preview. Before you can access subscription-level quota metrics, you need to register the feature: 
-
-1. Register the feature
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFQuotaLimit
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFQuotaLimit
-    ```
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 - *Accounts per subscription*
 
