@@ -2,16 +2,19 @@
 title: Secure MCP servers with Microsoft Entra authentication
 description: Configure Microsoft Entra authentication to secure your MCP server on Azure App Service and access it from Visual Studio Code.
 ms.topic: how-to
-ms.date: 10/31/2025
+ms.date: 11/18/2025
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
-# Secure a Model Context Protocol server in Azure App Service with Microsoft Entra authentication
+# Secure Model Context Protocol calls to Azure App Service from Visual Studio Code with Microsoft Entra authentication
 
 This article shows you how to secure your Model Context Protocol (MCP) server hosted on Azure App Service using Microsoft Entra authentication. By enabling authentication, you ensure that only users authenticated with Microsoft Entra can access your MCP server through Copilot agent mode in Visual Studio Code.
+
+For other authentication methods and general MCP server security concepts, see [Secure a Model Context Protocol server in Azure App Service](configure-authentication-mcp.md).
 
 ## Prerequisites
 
@@ -160,6 +163,7 @@ If you see authentication errors after signing in, verify that:
 
 ## Related content
 
+- [Secure a Model Context Protocol server in Azure App Service](configure-authentication-mcp.md)
 - [Configure your App Service or Azure Functions app to use Microsoft Entra sign-in](configure-authentication-provider-aad.md)
 - [Configure the Microsoft Entra provider with a managed identity instead of a secret (preview)](configure-authentication-provider-aad.md#use-a-managed-identity-instead-of-a-secret-preview)
 - [What is Model Context Protocol?](https://modelcontextprotocol.io/)
