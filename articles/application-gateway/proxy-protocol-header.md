@@ -32,7 +32,7 @@ When enabled, your Application Gateway resource sends a Proxy protocol header to
 **Flow for TLS (Transport Layer Security) protocol:**
 `TCP handshake --> Proxy protocol header --> TLS handshake --> Data stream`
 
-> [!TIPS]
+> [!TIP]
 > * Client IP preservation works with both IPv4 and IPv6 client addresses.
 > * Application Gateway does not parse Proxy protocol headers on listeners. When another proxy is positioned in front of the application gateway resource, the incoming proxy header is forwarded to the backend servers as part of the data stream. Application Gateway neither drops nor modifies the incoming proxy protocol header, so the backend servers may receive multiple proxy protocol headers in these situations.
 
@@ -44,14 +44,12 @@ The following configurations are supported for Proxy protocol headers in Applica
 
 **Health probes** – Application Gateway probes also support the proxy protocol header. When the proxy protocol setting is enabled in the backend settings, the default health probes include this header in their requests to the backend servers. For custom probes, you can enable this setting specifically for that probe, and you may use a different port for the probe if needed.
 
----
-### [REST API](#tab/restapi)
+## Property details
 
 | Property Name | Parent property name | Value |
 | ---------- | ---------- | ---------- |
 | EnableClientIpPreservation | ApplicationGatewayBackendSettings | Boolean |
 | EnableProbeProxyProtocolHeader | ApplicationGatewayProbe | Boolean |
-
 
 
 ## Format of Proxy Protocol header 
@@ -76,6 +74,4 @@ The Proxy protocol header V1 in Application Gateway is a single line of user-rea
 When the client ip is unknown, as in the case of application gateway probes, the backends see the proxy protocol header as unknown. 
 
 
-
-## Next steps
 
