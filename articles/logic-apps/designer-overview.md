@@ -263,7 +263,7 @@ The workflow toolbar includes these additional options:
 
 | Options | Description |
 |---------|-------------|
-| **Discard** | Discard changes since the last manual save operation. |
+| **Discard** | Discard changes since the last manual save. |
 | **Parameters** | Create workflow parameters across environments. See [Create cross-environment parameters for workflow inputs](create-parameters-workflows.md). |
 | **Connections** | View connections in your workflow. |
 | **Errors** | View workflow validation errors. |
@@ -277,7 +277,7 @@ The vertical ellipsis menu (**:**) includes these additional options:
 
 | Options | Description |
 |---------|-------------|
-| **Discard changes** | Discard any changes since the last automatic save operation. |
+| **Discard changes** | Discard any changes since the last automatic save. |
 | **Switch to published version** | View the production workflow, which opens in read-only view. |
 | **Parameters** | Create workflow parameters across environments. See [Create cross-environment parameters for workflow inputs](create-parameters-workflows.md). |
 | **Connections** | View connections in your workflow. |
