@@ -12,7 +12,7 @@ metadata:
 
   author: Jeronika-MS
   ms.author: v-gajeronika
-  ms.date: 11/13/2025
+  ms.date: 11/18/2025
 
 landingContent:
   - title: Get started with Azure Site Recovery
@@ -40,8 +40,8 @@ landingContent:
             url: ./azure-to-azure-common-questions.md
       - linkListType: deploy
         links:
-          - text: Disaster recovery using shared disks
-            url: ./tutorial-shared-disk.md
+          - text: Support matrix
+            url: ./azure-to-azure-support-matrix.md
       - linkListType: tutorial
         links:
           - text: Move Azure VMs to another region
@@ -63,22 +63,18 @@ landingContent:
         links:
           - text: On-premises disaster recovery failover/failback (Modernized)
             url: ./failover-failback-overview-modernized.md
-          - text: Common questions for VMware disaster recovery
+          - text: Common questions
             url: ./vmware-azure-common-questions.md
       - linkListType: deploy
         links:
-          - text: VMware support matrix
+          - text: Support matrix
             url: ./vmware-physical-azure-support-matrix.md
       - linkListType: tutorial
         links:
-          - text: Prepare Azure for on-premises disaster recovery to Azure
-            url: ./tutorial-prepare-azure.md
           - text: Disaster recovery for on-premises VMware VMs - Modernized
             url: ./vmware-azure-set-up-replication-tutorial-modernized.md
       - linkListType: how-to-guide
         links:
-          - text: VMware disaster recovery at scale
-            url: ./vmware-physical-large-deployment.md
           - text: Plan VMware capacity
             url: ./site-recovery-plan-capacity-vmware.md
 
@@ -88,9 +84,11 @@ landingContent:
         links:
           - text: Plan Hyper-V capacity
             url: ./hyper-v-azure-architecture.md
+          - text: Common questions
+            url: ./hyper-v-azure-common-questions.md
       - linkListType: deploy
         links:
-          - text: Hyper-V support matrix
+          - text: Support matrix
             url: ./hyper-v-azure-support-matrix.md
       - linkListType: tutorial
         links:
