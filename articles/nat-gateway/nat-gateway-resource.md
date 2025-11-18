@@ -29,7 +29,6 @@ StandardV2 SKU is zone-redundant by default. It automatically spans across multi
 
 Standard SKU is a zonal resource. It is deployed into a specific availability zone and is resilient within that zone.
 
-Both SKUs support subnet-level association, while StandardV2 has the added capability of associating on a virtual network level, simplifying configuration and reducing operational overhead.
 StandardV2 SKU NAT Gateway also supports IPv6 public IPs, whereas Standard SKU NAT Gateway only supports IPv4 public IPs.
 
 ## NAT Gateway architecture
@@ -54,19 +53,6 @@ The following subnet configurations can’t be used with NAT Gateway:
 * NAT Gateway can’t be attached to subnets from different virtual networks.
 
 * NAT Gateway can’t be used with a gateway subnet. A gateway subnet is a designated subnet for a VPN gateway to send encrypted traffic between an Azure virtual network and on-premises location. For more information about the gateway subnet, see [Gateway subnet](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub).
-
-## Source virtual network (StandardV2 only)
-StandardV2 NAT Gateway has a new property called Source virtual network that allows you to associate an entire virtual network to the NAT gateway instead of individual subnets within a virtual network. When you attach a source virtual network, all existing and newly created subnets in the virtual network connect outbound to the internet through the NAT gateway.
-
-:::image type="content" source="./media/nat-gateway-resource/source-virtual-network.png" alt-text="Diagram of a NAT gateway resource attached on source virtual network.":::
-
-*Figure: Source virtual network property applies StandardV2 NAT Gateway to all subnets in a virtual network.*
-
-Both subnet level and virtual network level NAT gateways can exist in the same virtual network. A subnet level NAT gateway takes precedence over the VNet level NAT gateway. Outbound connections route through the subnet level NAT gateway, rather than the one configured at the virtual network level. All remaining subnets in the virtual network use the NAT gateway configured at the virtual network level for outbound connectivity.
-
-:::image type="content" source="./media/nat-gateway-resource/source-virtual-network-and-subnet.png" alt-text="Diagram of a NAT gateway resource attached on source virtual network and subnet level.":::
-
-*Figure: The virtual network level NAT gateway provides outbound connectivity for subnets 1 and 2. The subnet level NAT gateway provides outbound connectivity for subnet 3.*
 
 ## Static public IP addresses
 
