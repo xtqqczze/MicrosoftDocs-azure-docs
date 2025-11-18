@@ -118,18 +118,18 @@ If you choose basic authentication:
 
   :::image type="content" source="./media/create-clusters-with-entra/login-page.png" alt-text="Screenshot the shows the Ambari landing page."  border="true" lightbox="./media/create-clusters-with-entra/login-page.png":::
 
-1. Go to **Manage Ambari**.
+2. Go to **Manage Ambari**.
 
   :::image type="content" source="./media/create-clusters-with-entra/click-manage.png" alt-text="Screenshot that shows the Manage Ambari button on the Ambari landing page." border="true" lightbox="./media/create-clusters-with-entra/click-manage.png":::
 
-1. Select the user tab to see all the current users.
+3. Select the user tab to see all the current users.
 
   :::image type="content" source="./media/create-clusters-with-entra/open-user-tab.png" alt-text="Screenshot that shows the User tab." border="true" lightbox="./media/create-clusters-with-entra/open-user-tab.png":::
 
-1. To add new users, select the **Add User** tab.
+4. To add new users, select the **Add User** tab.
 
   :::image type="content" source="./media/create-clusters-with-entra/add-users.png" alt-text="Screenshot that shows users in the Ambari portal." border="true" lightbox="./media/create-clusters-with-entra/add-users.png":::
 
-1. Complete the fields for **Object ID** and **Display name**. Define the user's access level by selecting **Cluster Administrator** or **Cluster User**. Select **Save**.
+5. Complete the fields for **Object ID** and **Display name**. Define the user's access level by selecting **Cluster Administrator** or **Cluster User**. Select **Save**.
 
   :::image type="content" source="./media/create-clusters-with-entra/add-object-id.png" alt-text="Screenshot that shows the Add users tab in the Ambari portal."  border="true" lightbox="./media/create-clusters-with-entra/add-object-id.png":::
