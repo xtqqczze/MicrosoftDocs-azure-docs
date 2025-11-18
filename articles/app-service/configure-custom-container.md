@@ -543,21 +543,21 @@ The following sections show supported and unsupported Docker Compose configurati
 
 #### Supported options
 
-- Command
-- Entrypoint
-- Environment
-- Image
-- Ports
-- Restart
-- Services
-- Volumes ([Mapping to Azure Storage is unsupported](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux#limitations))
+- `command`
+- `entrypoint`
+- `environment`
+- `image`
+- `ports`
+- `restart`
+- `services`
+- `volumes` ([Mapping to Azure Storage is unsupported](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux#limitations))
 
 #### Unsupported options
 
-- Build (not allowed)
+- `build` (not allowed)
 - [`depends_on`](faq-app-service-linux.yml#how-do-i-use-depends-on-) (ignored)
-- Networks (ignored)
-- Secrets (ignored)
+- `networks` (ignored)
+- `secrets` (ignored)
 - Ports other than `80` and `8080` (ignored)
 - Default environment variables like `$variable` and `${variable}` (unlike in Docker)
 
