@@ -1,13 +1,14 @@
 ---
-title: "Deploy Docker Compose for agents to Azure Container Apps (public preview)"
-description: Learn how to use Docker Compose for Agents on Azure Container Apps (public preview).
+title: Deploy Docker Compose for agents to Azure Container Apps Preview
+description: Learn how to use Docker Compose for Agents on Azure Container Apps Preview.
 ms.service: container-apps
 ms.topic: how-to
 ms.date: 11/18/2025
 ms.author: simonjj
+author: craigshoemaker
 ---
 
-# Deploy Docker Compose for agents to Azure Container Apps (preview)
+# Deploy Docker Compose for agents to Azure Container Apps Preview
 
 This article shows you how to deploy applications to Azure Container Apps by using Docker’s Compose for Agents. This feature keeps the compose file you already use locally and allows you to deploy it onto Container Apps. The `az-cli` container app extension then translates the compose file into Azure Container App applications and manages identities, scaling, and model lifecycle for you.
 
@@ -39,10 +40,10 @@ When you run `az containerapp compose create`, the CLI translates agent-focused 
 Azure Container Apps runs a variant of [Docker’s MCP gateway](https://github.com/docker/mcp-gateway) as its own container app. It uses system-assigned managed identity to add or remove MCP tool containers within the environment dynamically. This setup appears as separate containers under the mcp-gateway application. Gateway to MCP tooling communication is limited to the network. Stdio MCP servers are wrapped to run as SSE based MCP servers on Azure Container Apps. Docker for Agents on Azure Container Apps currently supports the following Stdio MCP servers: AppSignal, BigQuery, Confluence, DuckDuckGo, Fetch, Filesystem, Git, Google Drive, Jira, MongoDB, MySQL, Notion, Playwright, PostgreSQL, SequentialThinking, Slack, SQLite, Supabase, Time, Twist.
 
 ### Models
+
 Models get served through [Docker's model runner](https://github.com/docker/model-runner). On Azure Container Apps, the model-runner-config container deployed as part of the models app handles configuration. It ensures the correct model is pulled and configured before your app can interact with it. The configuration is passed to the model config container through the `MODEL_CONFIG` variable.
 
-
-## Compose Files for Azure Container Apps
+## Compose files
 
 You can use the same compose file for local development and deployment. To achieve this goal, add the `x-azure-deployment` directive. Docker's Compose ignores this directive, but it gets used during deployment on Azure Container Apps. Here are [some ready-to-deploy samples](https://github.com/docker/compose-for-agents/commit/2314180bc5d1f056964a14361f73d2b8f5c247c3) for you to review. These samples all have the following sections in common for serverless GPU and to deploy the Azure Container Apps version of the mcp-gateway.
 
@@ -88,9 +89,12 @@ x-azure-deployment:
     allowInsecure: false
 ```
 
-## Installation and Usage
+## Installation and usage
 
-### Installing Compose for Agents
+Follow the steps below to set up your environment and deploy your applications using your existing compose files.
+
+### Installing Compose for agents
+
 At this stage, this feature requires the installation of two packages. Once installed, these packages provide the capabilities explained. Follow these steps:
 
 ```bash
@@ -107,7 +111,7 @@ az extension show --name containerapp --query version -o tsv
 az containerapp compose --help
 ```
 
-### Using the Compose for Agents
+### Using the Compose for agents
 
 Start with [one of the prepared files located here](https://github.com/docker/compose-for-agents/commit/2314180bc5d1f056964a14361f73d2b8f5c247c3). Then follow the instructions:
 
@@ -136,7 +140,7 @@ az containerapp compose create \
 
 ### Uninstalling and switching back
 
-To switch back to the stable release of the Azure container app extension:
+To switch back to the stable release of the container app extension:
 
 ```bash
 # remove the current extension
