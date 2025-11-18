@@ -188,8 +188,10 @@
               href: troubleshoot-container-start-failures.md
 - name: AI integration
   items:
-    - name: AI integration
+    - name: Overview
       href: ai-integration.md
+    - name: Compose for agents
+      href: compose-agent.md
     - name: GPUs
       items:
         - name: Serverless GPUs
