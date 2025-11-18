@@ -8,42 +8,38 @@ ms.custom:
 zone_pivot_groups: programming-languages-set-functions-otel
 ---
 
-# Quickstart: Create and deploy functions with OpenTelemetry to Azure Functions using the Azure Developer CLI
+# Tutorial: Create functions in Azure with OpenTelemetry using the Azure Developer CLI
 
-In this quickstart, you use Azure Developer command-line tools to create functions that demonstrate OpenTelemetry distributed tracing across multiple function calls. After testing the code locally, you deploy it to a new serverless function app you create running in a Flex Consumption plan in Azure Functions.
+In this article, you use Azure Developer CLI (`azd`) to create an Azure Functions project from an `azd`-enabled template. The template demonstrates how to enable and use OpenTelemetry distributed tracing across multiple function calls by using integrated Application Insights and OpenTelemetry support.  
 
-The project source uses the Azure Developer CLI (azd) to simplify deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments with integrated Application Insights and OpenTelemetry support.
+After running the code locally, you use `azd` to create a new serverless function app in a Flex Consumption plan, along with other required Azure resources. These resources follow current best practices for secure and scalable function app deployments in Azure. The same `azd` command also deploys your code project to your new function app in Azure.
 
-By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means to complete this quickstart incurs a small cost of a few USD cents or less in your Azure account.
-
+By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"  
+> [!IMPORTANT]  
+> This article currently supports only C#, Python, and TypeScript. To complete the quickstart, select one of these supported languages at the top of the article.
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Prerequisites
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 + [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
-
-::: zone pivot="programming-language-python"
-
+::: zone-end  
+::: zone pivot="programming-language-python"  
 + [Python 3.11 or later](https://www.python.org/downloads/)
-
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
 + [Node.js 18.x or later](https://nodejs.org/)
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
 + [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-
-::: zone-end
-
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Initialize the project
 
-You can use the `azd init` command to create a local Azure Functions code project from a template that includes OpenTelemetry distributed tracing.
-
+Use the `azd init` command to create a local Azure Functions code project from a template that includes OpenTelemetry distributed tracing.
+::: zone-end  
 ::: zone pivot="programming-language-python"
 
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
@@ -52,11 +48,10 @@ You can use the `azd init` command to create a local Azure Functions code projec
     azd init --template functions-quickstart-python-azd-otel -e flexquickstart-otel
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-azd-otel) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. The environment name also appears in the name of the resource group you create in Azure.
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-azd-otel) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. The environment name also appears in the name of the resource group you create in Azure.
 
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
 
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
@@ -64,30 +59,25 @@ You can use the `azd init` command to create a local Azure Functions code projec
     azd init --template functions-quickstart-typescript-azd-otel -e flexquickstart-otel
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-otel) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. The environment name also appears in the name of the resource group you create in Azure.
-
-::: zone-end
-
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-otel) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. The environment name also appears in the name of the resource group you create in Azure.  
+::: zone-end  
 ::: zone pivot="programming-language-csharp"
-
 1. In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
     ```console
     azd init --template functions-quickstart-dotnet-azd-otel -e flexquickstart-otel
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-otel) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. The environment name also appears in the name of the resource group you create in Azure.
-
-::: zone-end
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-otel) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. The environment name also appears in the name of the resource group you create in Azure.  
+::: zone-end  
 
 ## Review the code
 
-This template creates a complete distributed tracing scenario with three functions that work together. Let's examine the key OpenTelemetry-related aspects:
+The template creates a complete distributed tracing scenario with three functions that work together. Let's review the key OpenTelemetry-related aspects:
 
 ### OpenTelemetry configuration
 
-::: zone pivot="programming-language-python,programming-language-typescript"
-
+::: zone pivot="programming-language-python,programming-language-typescript"  
 The `src/otel-sample/host.json` file enables OpenTelemetry for the Functions host:
 
 ```json
@@ -107,11 +97,8 @@ The `src/otel-sample/host.json` file enables OpenTelemetry for the Functions hos
 ```
 
 The key setting `"telemetryMode": "OpenTelemetry"` enables distributed tracing across function calls.
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
 The `src/OTelSample/host.json` file enables OpenTelemetry for the Functions host:
 
 ```json
@@ -128,14 +115,12 @@ The `src/OTelSample/host.json` file enables OpenTelemetry for the Functions host
 }
 ```
 
-The key setting `"telemetryMode": "OpenTelemetry"` enables distributed tracing across function calls.
-
+The key setting `"telemetryMode": "OpenTelemetry"` enables distributed tracing across function calls.  
 ::: zone-end
-
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ### Dependencies for OpenTelemetry
-
-::: zone pivot="programming-language-python"
-
+::: zone-end  
+::: zone pivot="programming-language-python"  
 The `src/otel-sample/requirements.txt` file includes the necessary packages for OpenTelemetry integration:
 
 ```text
@@ -144,12 +129,9 @@ azure-monitor-opentelemetry
 requests
 ```
 
-The `azure-monitor-opentelemetry` package provides the OpenTelemetry integration with Application Insights.
-
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-
+The `azure-monitor-opentelemetry` package provides the OpenTelemetry integration with Application Insights.  
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
 The `src/otel-sample/package.json` file includes the necessary packages for OpenTelemetry integration:
 
 ```json
@@ -163,12 +145,9 @@ The `src/otel-sample/package.json` file includes the necessary packages for Open
 }
 ```
 
-The `@azure/functions-opentelemetry-instrumentation` and `@azure/monitor-opentelemetry-exporter` packages provide the OpenTelemetry integration with Application Insights.
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
+The `@azure/functions-opentelemetry-instrumentation` and `@azure/monitor-opentelemetry-exporter` packages provide the OpenTelemetry integration with Application Insights.  
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
 The `.csproj` file includes the necessary packages for OpenTelemetry integration:
 
 ```xml
@@ -177,14 +156,12 @@ The `.csproj` file includes the necessary packages for OpenTelemetry integration
 <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.10.0" />
 ```
 
-These packages provide the OpenTelemetry integration with Application Insights and HTTP instrumentation for distributed tracing.
-
+These packages provide the OpenTelemetry integration with Application Insights and HTTP instrumentation for distributed tracing.  
 ::: zone-end
-
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ### Function implementation
-
-::: zone pivot="programming-language-python"
-
+::: zone-end
+::: zone pivot="programming-language-python"  
 The functions in `src/otel-sample/function_app.py` demonstrate a distributed tracing flow:
 
 #### First HTTP Function
@@ -249,10 +226,8 @@ def servicebus_queue_trigger(azservicebus: func.ServiceBusMessage):
     logging.info('Python ServiceBus Queue trigger end processing a message')
 ```
 
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
 The OpenTelemetry configuration is set up in `src/otel-sample/index.ts`:
 
 ```typescript
@@ -363,10 +338,8 @@ export async function serviceBusQueueTrigger(
 }
 ```
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
 The OpenTelemetry configuration is set up in `src/OTelSample/Program.cs`:
 
 ```csharp
@@ -496,17 +469,17 @@ public class ServiceBusQueueTrigger
 ```
 
 ::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
+### Distributed tracing flow
 
-### Distributed Tracing Flow
-
-This architecture creates a complete distributed tracing scenario:
+This architecture creates a complete distributed tracing scenario, with this behavior:
 
 1. **First HTTP function** receives an HTTP request and calls the second HTTP function
-2. **Second HTTP function** responds and sends a message to Service Bus
-3. **Service Bus trigger** processes the message with a delay to simulate processing work
+1. **Second HTTP function** responds and sends a message to Service Bus
+1. **Service Bus trigger** processes the message with a delay to simulate processing work
 
 Key aspects of the OpenTelemetry implementation:
-
+::: zone-end
 ::: zone pivot="programming-language-python"
 
 + **OpenTelemetry integration**: The `host.json` file enables OpenTelemetry with `"telemetryMode": "OpenTelemetry"`
@@ -516,32 +489,26 @@ Key aspects of the OpenTelemetry implementation:
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-python-azd-otel).
 
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
 + **OpenTelemetry integration**: The `index.ts` file configures OpenTelemetry with Azure Monitor exporters for traces and logs
 + **Function chaining**: The first function calls the second using axios with automatic trace propagation
 + **Service Bus integration**: The second function outputs to Service Bus using output bindings, which triggers the third function
 + **Managed identity**: All Service Bus connections use managed identity instead of connection strings
 + **Processing simulation**: The 5-second delay in the Service Bus trigger simulates message processing work
 
-You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-otel).
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-otel).  
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
 + **OpenTelemetry integration**: The `Program.cs` file configures OpenTelemetry with Azure Monitor exporter
 + **Function chaining**: The first function calls the second using HttpClient with OpenTelemetry instrumentation
 + **Service Bus integration**: The second function outputs to Service Bus using output bindings, which triggers the third function
 + **Managed identity**: All Service Bus connections use managed identity instead of connection strings
 + **.NET 8 Isolated Worker**: Uses the latest Azure Functions .NET Isolated Worker model for better performance and flexibility
 
-You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-otel).
-
-::: zone-end
-
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-otel).  
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 After you verify your functions locally, it's time to publish them to Azure.
 
 ## Deploy to Azure
@@ -559,7 +526,7 @@ This project is configured to use the `azd up` command to deploy this project to
 
     The root folder contains the `azure.yaml` definition file required by `azd`. 
 
-    If you aren't already signed-in, you're asked to authenticate with your Azure account.
+    If you're not already signed in, you're asked to authenticate with your Azure account.
 
 1. When prompted, provide these required deployment parameters:
 
@@ -588,7 +555,7 @@ Now you can test the OpenTelemetry distributed tracing functionality by calling 
 
 ### Invoke the function on Azure
 
-You can now invoke your function endpoints in Azure by making HTTP requests to their URLs. Since the HTTP functions in this template are configured with anonymous access, no function keys are required.
+You can invoke your function endpoints in Azure by making HTTP requests to their URLs. Since the HTTP functions in this template are configured with anonymous access, no function keys are required.
 
 1. In your local terminal or command prompt, run this command to get the function app name and construct the URL:
 
@@ -599,7 +566,7 @@ You can now invoke your function endpoints in Azure by making HTTP requests to t
 
     The `azd env get-value` command gets your function app name from the local environment.
 
-2. Test the function in your browser by navigating to the URL:
+1. Test the function in your browser by navigating to the URL:
 
     ```
     https://your-function-app.azurewebsites.net/api/first_http_function
@@ -612,21 +579,21 @@ You can now invoke your function endpoints in Azure by making HTTP requests to t
 After invoking the function, you can observe the complete distributed trace in Application Insights:
 
 >[!NOTE]
->It may take a few minutes for telemetry data to appear in Application Insights after invoking your function. If you don't see data immediately, wait a few minutes and refresh the view.
+>It might take a few minutes for telemetry data to appear in Application Insights after invoking your function. If you don't see data immediately, wait a few minutes and refresh the view.
 
-1. Navigate to your Application Insights resource in the Azure portal (you can find it in the same resource group as your function app).
+1. Go to your Application Insights resource in the Azure portal (you can find it in the same resource group as your function app).
 
-2. Open the **Application map** to see the distributed trace across all three functions. You should see the flow from the HTTP request through your functions and to Service Bus.
+1. Open the **Application map** to see the distributed trace across all three functions. You should see the flow from the HTTP request through your functions and to Service Bus.
 
-3. Check the **Transaction search** to find your request and see the complete trace timeline. Search for transactions from your function app.
+1. Check the **Transaction search** to find your request and see the complete trace timeline. Search for transactions from your function app.
 
-4. Click on a specific transaction to see the end-to-end trace that shows:
+1. Select a specific transaction to see the end-to-end trace that shows:
    - The HTTP request to `first_http_function`
    - The internal HTTP call to `second_http_function`
    - The Service Bus message being sent
    - The `servicebus_queue_trigger` processing the message from Service Bus
 
-5. In the trace details, you can see:
+1. In the trace details, you can see:
    - **Timing information**: How long each step took
    - **Dependencies**: The connections between functions
    - **Logs**: Application logs correlated with the trace
@@ -636,16 +603,16 @@ This example demonstrates end-to-end distributed tracing across multiple Azure F
 
 ## Redeploy your code
 
-You can run the `azd up` command as many times as you need to both provision your Azure resources and deploy code updates to your function app. 
+Run the `azd up` command as many times as you need to both provision your Azure resources and deploy code updates to your function app. 
 
 >[!NOTE]
 >The latest deployment package always overwrites deployed code files.
 
-Your initial responses to `azd` prompts and any environment variables generated by `azd` are stored locally in your named environment. Use the `azd env get-values` command to review all of the variables in your environment that were used when creating Azure resources.
+Your initial responses to `azd` prompts and any environment variables generated by `azd` are stored locally in your named environment. Use the `azd env get-values` command to review all of the variables in your environment that the command uses when creating Azure resources.
 
 ## Clean up resources
 
-When you're done working with your function app and related resources, you can use this command to delete the function app and its related resources from Azure and avoid incurring any further costs:
+When you're done working with your function app and related resources, use this command to delete the function app and its related resources from Azure and avoid incurring any further costs:
 
 ```console
 azd down --no-prompt
@@ -655,7 +622,7 @@ azd down --no-prompt
 >The `--no-prompt` option instructs `azd` to delete your resource group without a confirmation from you. 
 >
 >This command doesn't affect your local code project. 
-
+::: zone-end  
 ## Related content
 
 + [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md)
